@@ -3,7 +3,7 @@ package vksdk
 import "encoding/json"
 
 // UsersGetResponse users.get response
-type UsersGetResponse []User
+type UsersGetResponse []usersUser
 
 // UsersGet returns detailed information on users
 // users.get Returns detailed information on users.

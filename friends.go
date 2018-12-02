@@ -44,8 +44,8 @@ type FriendsEditListResponse struct{}
 
 // FriendsGetResponse struct
 type FriendsGetResponse struct {
-	Count int    `json:"count"`
-	Items []User `json:"items"`
+	Count int         `json:"count"`
+	Items []usersUser `json:"items"`
 }
 
 // FriendsGet returns a list of user IDs or detailed information about a user's friends

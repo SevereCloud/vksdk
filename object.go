@@ -2,6 +2,25 @@ package vksdk
 
 import "encoding/json"
 
+type accountNameRequest struct {
+	FirstName string `json:"first_name,omitempty"`
+	ID        int    `json:"id,omitempty"`
+	LastName  string `json:"last_name,omitempty"`
+	Status    string `json:"status,omitempty"`
+}
+
+type accountOffer struct {
+	Description      string `json:"description,omitempty"`
+	ID               int    `json:"id,omitempty"`
+	Img              string `json:"img,omitempty"`
+	Instruction      string `json:"instruction,omitempty"`
+	InstructionHTML  string `json:"instruction_html,omitempty"`
+	Price            int    `json:"price,omitempty"`
+	ShortDescription string `json:"short_description,omitempty"`
+	Tag              string `json:"tag,omitempty"`
+	Title            string `json:"title,omitempty"`
+}
+
 type audioAudioFull struct {
 	ID          int        `json:"id"`
 	OwnerID     int        `json:"owner_id"`
@@ -23,9 +42,6 @@ type audioAudioFull struct {
 		Domain string `json:"domain,omitempty"`
 	} `json:"main_artists,omitempty"`
 }
-
-// baseBoolInt (integer, [0,1])
-type baseBoolInt int
 
 type baseObject struct {
 	ID    int    `json:"id"`
@@ -63,9 +79,23 @@ type giftsLayout struct {
 	Thumb96  string `json:"thumb_96,omitempty"`
 }
 
-// User type
+type groupsGroup struct {
+	AdminLevel  int    `json:"admin_level,omitempty"`
+	Deactivated string `json:"deactivated,omitempty"`
+	ID          int    `json:"id,omitempty"`
+	IsAdmin     int    `json:"is_admin,omitempty"`
+	IsClosed    int    `json:"is_closed,omitempty"`
+	IsMember    int    `json:"is_member,omitempty"`
+	Name        string `json:"name,omitempty"`
+	Photo100    string `json:"photo_100,omitempty"`
+	Photo200    string `json:"photo_200,omitempty"`
+	Photo50     string `json:"photo_50,omitempty"`
+	ScreenName  string `json:"screen_name,omitempty"`
+	Type        string `json:"type,omitempty"`
+}
+
 // FIXME add "role": "editor", "permissions": ["ads"]...
-type User struct {
+type usersUser struct {
 	ID          int        `json:"id"`
 	FirstName   string     `json:"first_name"`
 	LastName    string     `json:"last_name"`
@@ -107,58 +137,10 @@ type Callback struct {
 	GroupID int             `json:"group_id"`
 }
 
-type accountAccountCounters struct {
-	AppRequests        int `json:"app_requests,omitempty"`
-	Events             int `json:"events,omitempty"`
-	Friends            int `json:"friends,omitempty"`
-	FriendsSuggestions int `json:"friends_suggestions,omitempty"`
-	Gifts              int `json:"gifts,omitempty"`
-	Groups             int `json:"groups,omitempty"`
-	Messages           int `json:"messages,omitempty"`
-	Notifications      int `json:"notifications,omitempty"`
-	Photos             int `json:"photos,omitempty"`
-	Videos             int `json:"videos,omitempty"`
-}
-
-type accountInfo struct {
-	Country         string      `json:"country,omitempty"`
-	HTTPSRequired   baseBoolInt `json:"https_required,omitempty"`
-	Intro           baseBoolInt `json:"intro,omitempty"`
-	Lang            int         `json:"lang,omitempty"`
-	NoWallReplies   baseBoolInt `json:"no_wall_replies,omitempty"`
-	OwnPostsDefault baseBoolInt `json:"own_posts_default,omitempty"`
-	FaRequired      baseBoolInt `json:"2fa_required,omitempty"`
-}
-
 type accountLookupResult struct {
 	Found []accountUserXtrContact `json:"found,omitempty"`
 	Other []accountOtherContact   `json:"other,omitempty"`
 }
-
-type accountNameRequest struct {
-	FirstName string                   `json:"first_name,omitempty"`
-	ID        int                      `json:"id,omitempty"`
-	LastName  string                   `json:"last_name,omitempty"`
-	Status    accountNameRequestStatus `json:"status,omitempty"`
-}
-
-// Request status
-type accountNameRequestStatus string
-
-type accountOffer struct {
-	Description      string `json:"description,omitempty"`
-	ID               int    `json:"id,omitempty"`
-	Img              string `json:"img,omitempty"`
-	Instruction      string `json:"instruction,omitempty"`
-	InstructionHTML  string `json:"instruction_html,omitempty"`
-	Price            int    `json:"price,omitempty"`
-	ShortDescription string `json:"short_description,omitempty"`
-	Tag              string `json:"tag,omitempty"`
-	Title            string `json:"title,omitempty"`
-}
-
-// Settings parameters
-type accountOnoffOptions string
 
 type accountOtherContact struct {
 	CommonCount int    `json:"common_count,omitempty"`
@@ -171,65 +153,32 @@ type accountPushConversations struct {
 }
 
 type accountPushConversationsItem struct {
-	DisabledUntil int         `json:"disabled_until,omitempty"`
-	PeerID        int         `json:"peer_id,omitempty"`
-	Sound         baseBoolInt `json:"sound,omitempty"`
+	DisabledUntil int `json:"disabled_until,omitempty"`
+	PeerID        int `json:"peer_id,omitempty"`
+	Sound         int `json:"sound,omitempty"`
 }
 
 type accountPushParams struct {
-	AppRequest     []accountOnoffOptions       `json:"app_request,omitempty"`
-	Birthday       []accountOnoffOptions       `json:"birthday,omitempty"`
-	Chat           []accountPushParamsMode     `json:"chat,omitempty"`
-	Comment        []accountPushParamsSettings `json:"comment,omitempty"`
-	EventSoon      []accountOnoffOptions       `json:"event_soon,omitempty"`
-	Friend         []accountOnoffOptions       `json:"friend,omitempty"`
-	FriendAccepted []accountOnoffOptions       `json:"friend_accepted,omitempty"`
-	FriendFound    []accountOnoffOptions       `json:"friend_found,omitempty"`
-	GroupAccepted  []accountOnoffOptions       `json:"group_accepted,omitempty"`
-	GroupInvite    []accountOnoffOptions       `json:"group_invite,omitempty"`
-	Like           []accountPushParamsSettings `json:"like,omitempty"`
-	Mention        []accountPushParamsSettings `json:"mention,omitempty"`
-	Msg            []accountPushParamsMode     `json:"msg,omitempty"`
-	NewPost        []accountOnoffOptions       `json:"new_post,omitempty"`
-	PhotosTag      []accountPushParamsSettings `json:"photos_tag,omitempty"`
-	Reply          []accountOnoffOptions       `json:"reply,omitempty"`
-	Repost         []accountPushParamsSettings `json:"repost,omitempty"`
-	SdkOpen        []accountOnoffOptions       `json:"sdk_open,omitempty"`
-	WallPost       []accountOnoffOptions       `json:"wall_post,omitempty"`
-	WallPublish    []accountOnoffOptions       `json:"wall_publish,omitempty"`
-}
-
-// Settings parameters
-type accountPushParamsMode string
-
-// Settings parameters
-type accountPushParamsSettings string
-
-type accountPushSettings struct {
-	Conversations accountPushConversations `json:"conversations,omitempty"`
-	Disabled      baseBoolInt              `json:"disabled,omitempty"`
-	DisabledUntil int                      `json:"disabled_until,omitempty"`
-	Settings      accountPushParams        `json:"settings,omitempty"`
-}
-
-type accountUserSettings struct {
-	Bdate            string             `json:"bdate,omitempty"`
-	BdateVisibility  int                `json:"bdate_visibility,omitempty"`
-	City             baseObject         `json:"city,omitempty"`
-	Country          baseCountry        `json:"country,omitempty"`
-	FirstName        string             `json:"first_name,omitempty"`
-	HomeTown         string             `json:"home_town,omitempty"`
-	LastName         string             `json:"last_name,omitempty"`
-	MaidenName       string             `json:"maiden_name,omitempty"`
-	NameRequest      accountNameRequest `json:"name_request,omitempty"`
-	Phone            string             `json:"phone,omitempty"`
-	Relation         int                `json:"relation,omitempty"`
-	RelationPartner  usersUserMin       `json:"relation_partner,omitempty"`
-	RelationPending  int                `json:"relation_pending,omitempty"`
-	RelationRequests []usersUserMin     `json:"relation_requests,omitempty"`
-	ScreenName       string             `json:"screen_name,omitempty"`
-	Sex              baseSex            `json:"sex,omitempty"`
-	Status           string             `json:"status,omitempty"`
+	AppRequest     []string `json:"app_request,omitempty"`
+	Birthday       []string `json:"birthday,omitempty"`
+	Chat           []string `json:"chat,omitempty"`
+	Comment        []string `json:"comment,omitempty"`
+	EventSoon      []string `json:"event_soon,omitempty"`
+	Friend         []string `json:"friend,omitempty"`
+	FriendAccepted []string `json:"friend_accepted,omitempty"`
+	FriendFound    []string `json:"friend_found,omitempty"`
+	GroupAccepted  []string `json:"group_accepted,omitempty"`
+	GroupInvite    []string `json:"group_invite,omitempty"`
+	Like           []string `json:"like,omitempty"`
+	Mention        []string `json:"mention,omitempty"`
+	Msg            []string `json:"msg,omitempty"`
+	NewPost        []string `json:"new_post,omitempty"`
+	PhotosTag      []string `json:"photos_tag,omitempty"`
+	Reply          []string `json:"reply,omitempty"`
+	Repost         []string `json:"repost,omitempty"`
+	SdkOpen        []string `json:"sdk_open,omitempty"`
+	WallPost       []string `json:"wall_post,omitempty"`
+	WallPublish    []string `json:"wall_publish,omitempty"`
 }
 
 type accountUserXtrContact struct {
@@ -246,7 +195,7 @@ type adsAccesses struct {
 type adsAccount struct {
 	AccessRole    adsAccessRole  `json:"access_role"`
 	AccountID     int            `json:"account_id"`
-	AccountStatus baseBoolInt    `json:"account_status"`
+	AccountStatus int            `json:"account_status"`
 	AccountType   adsAccountType `json:"account_type"`
 }
 
@@ -264,15 +213,15 @@ type adsAccountType string
 //	CostType              adsAdCostType `json:"cost_type"`
 //	Cpc                   int           `json:"cpc,omitempty"`
 //	Cpm                   int           `json:"cpm,omitempty"`
-//	DisclaimerMedical     baseBoolInt   `json:"disclaimer_medical,omitempty"`
-//	DisclaimerSpecialist  baseBoolInt   `json:"disclaimer_specialist,omitempty"`
-//	DisclaimerSupplements baseBoolInt   `json:"disclaimer_supplements,omitempty"`
+//	DisclaimerMedical     int   `json:"disclaimer_medical,omitempty"`
+//	DisclaimerSpecialist  int   `json:"disclaimer_specialist,omitempty"`
+//	DisclaimerSupplements int   `json:"disclaimer_supplements,omitempty"`
 //	ID                    int           `json:"id"`
 //	ImpressionsLimit      int           `json:"impressions_limit,omitempty"`
-//	ImpressionsLimited    baseBoolInt   `json:"impressions_limited,omitempty"`
+//	ImpressionsLimited    int   `json:"impressions_limited,omitempty"`
 //	Name                  string        `json:"name"`
 //	Status                adsAdStatus   `json:"status"`
-//	Video                 baseBoolInt   `json:"video,omitempty"`
+//	Video                 int   `json:"video,omitempty"`
 //}
 
 // Review status
@@ -293,7 +242,7 @@ type adsAdLayout struct {
 	LinkURL     string              `json:"link_url"`
 	PreviewLink string              `json:"preview_link,omitempty"`
 	Title       string              `json:"title"`
-	Video       baseBoolInt         `json:"video,omitempty"`
+	Video       int                 `json:"video,omitempty"`
 }
 
 // Cost type
@@ -345,7 +294,7 @@ type adsCriteria struct {
 	Groups               string             `json:"groups,omitempty"`
 	InterestCategories   string             `json:"interest_categories,omitempty"`
 	Interests            string             `json:"interests,omitempty"`
-	Paying               baseBoolInt        `json:"paying,omitempty"`
+	Paying               int                `json:"paying,omitempty"`
 	Positions            string             `json:"positions,omitempty"`
 	Religions            string             `json:"religions,omitempty"`
 	RetargetingGroups    string             `json:"retargeting_groups,omitempty"`
@@ -583,9 +532,9 @@ type baseCity struct {
 }
 
 type baseCommentsInfo struct {
-	CanPost       baseBoolInt `json:"can_post,omitempty"`
-	Count         int         `json:"count,omitempty"`
-	GroupsCanPost baseBoolInt `json:"groups_can_post,omitempty"`
+	CanPost       int `json:"can_post,omitempty"`
+	Count         int `json:"count,omitempty"`
+	GroupsCanPost int `json:"groups_can_post,omitempty"`
 }
 
 type baseCountry struct {
@@ -618,15 +567,15 @@ type baseImage struct {
 }
 
 type baseLikes struct {
-	Count     int         `json:"count,omitempty"`
-	UserLikes baseBoolInt `json:"user_likes,omitempty"`
+	Count     int `json:"count,omitempty"`
+	UserLikes int `json:"user_likes,omitempty"`
 }
 
 type baseLikesInfo struct {
-	CanLike    baseBoolInt `json:"can_like"`
-	CanPublish baseBoolInt `json:"can_publish,omitempty"`
-	Count      int         `json:"count"`
-	UserLikes  int         `json:"user_likes"`
+	CanLike    int `json:"can_like"`
+	CanPublish int `json:"can_publish,omitempty"`
+	Count      int `json:"count"`
+	UserLikes  int `json:"user_likes"`
 }
 
 type baseLink struct {
@@ -720,15 +669,15 @@ type baseUserID struct {
 type boardDefaultOrder int
 
 type boardTopic struct {
-	Comments  int         `json:"comments,omitempty"`
-	Created   int         `json:"created,omitempty"`
-	CreatedBy int         `json:"created_by,omitempty"`
-	ID        int         `json:"id,omitempty"`
-	IsClosed  baseBoolInt `json:"is_closed,omitempty"`
-	IsFixed   baseBoolInt `json:"is_fixed,omitempty"`
-	Title     string      `json:"title,omitempty"`
-	Updated   int         `json:"updated,omitempty"`
-	UpdatedBy int         `json:"updated_by,omitempty"`
+	Comments  int    `json:"comments,omitempty"`
+	Created   int    `json:"created,omitempty"`
+	CreatedBy int    `json:"created_by,omitempty"`
+	ID        int    `json:"id,omitempty"`
+	IsClosed  int    `json:"is_closed,omitempty"`
+	IsFixed   int    `json:"is_fixed,omitempty"`
+	Title     string `json:"title,omitempty"`
+	Updated   int    `json:"updated,omitempty"`
+	UpdatedBy int    `json:"updated_by,omitempty"`
 }
 
 type boardTopicComment struct {
@@ -744,7 +693,7 @@ type boardTopicPoll struct {
 	AnswerID int           `json:"answer_id"`
 	Answers  []pollsAnswer `json:"answers"`
 	Created  int           `json:"created"`
-	IsClosed baseBoolInt   `json:"is_closed,omitempty"`
+	IsClosed int           `json:"is_closed,omitempty"`
 	OwnerID  int           `json:"owner_id"`
 	PollID   int           `json:"poll_id"`
 	Question string        `json:"question"`
@@ -828,7 +777,7 @@ type faveFavesLink struct {
 
 type friendsFriendStatus struct {
 	FriendStatus   friendsFriendStatusStatus `json:"friend_status"`
-	ReadState      baseBoolInt               `json:"read_state,omitempty"`
+	ReadState      int                       `json:"read_state,omitempty"`
 	RequestMessage string                    `json:"request_message,omitempty"`
 	Sign           string                    `json:"sign,omitempty"`
 	UserID         int                       `json:"user_id"`
@@ -909,27 +858,9 @@ type groupsCountersGroup struct {
 }
 
 type groupsCover struct {
-	Enabled baseBoolInt `json:"enabled"`
+	Enabled int         `json:"enabled"`
 	Images  []baseImage `json:"images,omitempty"`
 }
-
-type groupsGroup struct {
-	AdminLevel  groupsGroupAdminLevel `json:"admin_level,omitempty"`
-	Deactivated string                `json:"deactivated,omitempty"`
-	ID          int                   `json:"id,omitempty"`
-	IsAdmin     baseBoolInt           `json:"is_admin,omitempty"`
-	IsClosed    groupsGroupIsClosed   `json:"is_closed,omitempty"`
-	IsMember    baseBoolInt           `json:"is_member,omitempty"`
-	Name        string                `json:"name,omitempty"`
-	Photo100    string                `json:"photo_100,omitempty"`
-	Photo200    string                `json:"photo_200,omitempty"`
-	Photo50     string                `json:"photo_50,omitempty"`
-	ScreenName  string                `json:"screen_name,omitempty"`
-	Type        groupsGroupType       `json:"type,omitempty"`
-}
-
-// Level of current user's credentials as manager
-type groupsGroupAdminLevel int
 
 type groupsGroupBanInfo struct {
 	Comment string `json:"comment,omitempty"`
@@ -958,22 +889,12 @@ type groupsGroupCategoryType struct {
 type groupsGroupFull struct {
 }
 
-type groupsGroupFullAgeLimits int
-
-// Main section of community
-type groupsGroupFullMainSection int
-
-type groupsGroupFullMemberStatus int
-
-// Information whether community is closed
-type groupsGroupIsClosed int
-
 type groupsGroupLink struct {
-	Desc            string      `json:"desc,omitempty"`
-	EditTitle       baseBoolInt `json:"edit_title,omitempty"`
-	ID              int         `json:"id,omitempty"`
-	ImageProcessing baseBoolInt `json:"image_processing,omitempty"`
-	URL             string      `json:"url,omitempty"`
+	Desc            string `json:"desc,omitempty"`
+	EditTitle       int    `json:"edit_title,omitempty"`
+	ID              int    `json:"id,omitempty"`
+	ImageProcessing int    `json:"image_processing,omitempty"`
+	URL             string `json:"url,omitempty"`
 }
 
 type groupsGroupPublicCategoryList struct {
@@ -988,8 +909,8 @@ type groupsGroupSettings struct {
 	Audio              int                             `json:"audio,omitempty"`
 	Description        string                          `json:"description,omitempty"`
 	Docs               int                             `json:"docs,omitempty"`
-	ObsceneFilter      baseBoolInt                     `json:"obscene_filter,omitempty"`
-	ObsceneStopwords   baseBoolInt                     `json:"obscene_stopwords,omitempty"`
+	ObsceneFilter      int                             `json:"obscene_filter,omitempty"`
+	ObsceneStopwords   int                             `json:"obscene_stopwords,omitempty"`
 	ObsceneWords       string                          `json:"obscene_words,omitempty"`
 	Photos             int                             `json:"photos,omitempty"`
 	Place              placesPlaceMin                  `json:"place,omitempty"`
@@ -1007,16 +928,13 @@ type groupsGroupSettings struct {
 	Wiki               int                             `json:"wiki,omitempty"`
 }
 
-// Community type
-type groupsGroupType string
-
 type groupsGroupXtrInvitedBy struct {
 	AdminLevel groupsGroupXtrInvitedByAdminLevel `json:"admin_level,omitempty"`
 	ID         string                            `json:"id,omitempty"`
 	InvitedBy  int                               `json:"invited_by,omitempty"`
-	IsAdmin    baseBoolInt                       `json:"is_admin,omitempty"`
-	IsClosed   baseBoolInt                       `json:"is_closed,omitempty"`
-	IsMember   baseBoolInt                       `json:"is_member,omitempty"`
+	IsAdmin    int                               `json:"is_admin,omitempty"`
+	IsClosed   int                               `json:"is_closed,omitempty"`
+	IsMember   int                               `json:"is_member,omitempty"`
 	Name       string                            `json:"name,omitempty"`
 	Photo100   string                            `json:"photo_100,omitempty"`
 	Photo200   string                            `json:"photo_200,omitempty"`
@@ -1040,56 +958,56 @@ type groupsGroupsArray struct {
 type groupsGroupsArrayItem int
 
 type groupsLinksItem struct {
-	Desc      string      `json:"desc,omitempty"`
-	EditTitle baseBoolInt `json:"edit_title,omitempty"`
-	ID        int         `json:"id,omitempty"`
-	Name      string      `json:"name,omitempty"`
-	Photo100  string      `json:"photo_100,omitempty"`
-	Photo50   string      `json:"photo_50,omitempty"`
-	URL       string      `json:"url,omitempty"`
+	Desc      string `json:"desc,omitempty"`
+	EditTitle int    `json:"edit_title,omitempty"`
+	ID        int    `json:"id,omitempty"`
+	Name      string `json:"name,omitempty"`
+	Photo100  string `json:"photo_100,omitempty"`
+	Photo50   string `json:"photo_50,omitempty"`
+	URL       string `json:"url,omitempty"`
 }
 
 type groupsLongPollEvents struct {
-	AudioNew             baseBoolInt `json:"audio_new"`
-	BoardPostDelete      baseBoolInt `json:"board_post_delete"`
-	BoardPostEdit        baseBoolInt `json:"board_post_edit"`
-	BoardPostNew         baseBoolInt `json:"board_post_new"`
-	BoardPostRestore     baseBoolInt `json:"board_post_restore"`
-	GroupChangePhoto     baseBoolInt `json:"group_change_photo"`
-	GroupChangeSettings  baseBoolInt `json:"group_change_settings"`
-	GroupJoin            baseBoolInt `json:"group_join"`
-	GroupLeave           baseBoolInt `json:"group_leave"`
-	GroupOfficersEdit    baseBoolInt `json:"group_officers_edit"`
-	LeadFormsNew         baseBoolInt `json:"lead_forms_new,omitempty"`
-	MarketCommentDelete  baseBoolInt `json:"market_comment_delete"`
-	MarketCommentEdit    baseBoolInt `json:"market_comment_edit"`
-	MarketCommentNew     baseBoolInt `json:"market_comment_new"`
-	MarketCommentRestore baseBoolInt `json:"market_comment_restore"`
-	MessageAllow         baseBoolInt `json:"message_allow"`
-	MessageDeny          baseBoolInt `json:"message_deny"`
-	MessageNew           baseBoolInt `json:"message_new"`
-	MessageReply         baseBoolInt `json:"message_reply"`
-	MessageTypingState   baseBoolInt `json:"message_typing_state"`
-	MessagesEdit         baseBoolInt `json:"messages_edit"`
-	PhotoCommentDelete   baseBoolInt `json:"photo_comment_delete"`
-	PhotoCommentEdit     baseBoolInt `json:"photo_comment_edit"`
-	PhotoCommentNew      baseBoolInt `json:"photo_comment_new"`
-	PhotoCommentRestore  baseBoolInt `json:"photo_comment_restore"`
-	PhotoNew             baseBoolInt `json:"photo_new"`
-	PollVoteNew          baseBoolInt `json:"poll_vote_new"`
-	UserBlock            baseBoolInt `json:"user_block"`
-	UserUnblock          baseBoolInt `json:"user_unblock"`
-	VideoCommentDelete   baseBoolInt `json:"video_comment_delete"`
-	VideoCommentEdit     baseBoolInt `json:"video_comment_edit"`
-	VideoCommentNew      baseBoolInt `json:"video_comment_new"`
-	VideoCommentRestore  baseBoolInt `json:"video_comment_restore"`
-	VideoNew             baseBoolInt `json:"video_new"`
-	WallPostNew          baseBoolInt `json:"wall_post_new"`
-	WallReplyDelete      baseBoolInt `json:"wall_reply_delete"`
-	WallReplyEdit        baseBoolInt `json:"wall_reply_edit"`
-	WallReplyNew         baseBoolInt `json:"wall_reply_new"`
-	WallReplyRestore     baseBoolInt `json:"wall_reply_restore"`
-	WallRepost           baseBoolInt `json:"wall_repost"`
+	AudioNew             int `json:"audio_new"`
+	BoardPostDelete      int `json:"board_post_delete"`
+	BoardPostEdit        int `json:"board_post_edit"`
+	BoardPostNew         int `json:"board_post_new"`
+	BoardPostRestore     int `json:"board_post_restore"`
+	GroupChangePhoto     int `json:"group_change_photo"`
+	GroupChangeSettings  int `json:"group_change_settings"`
+	GroupJoin            int `json:"group_join"`
+	GroupLeave           int `json:"group_leave"`
+	GroupOfficersEdit    int `json:"group_officers_edit"`
+	LeadFormsNew         int `json:"lead_forms_new,omitempty"`
+	MarketCommentDelete  int `json:"market_comment_delete"`
+	MarketCommentEdit    int `json:"market_comment_edit"`
+	MarketCommentNew     int `json:"market_comment_new"`
+	MarketCommentRestore int `json:"market_comment_restore"`
+	MessageAllow         int `json:"message_allow"`
+	MessageDeny          int `json:"message_deny"`
+	MessageNew           int `json:"message_new"`
+	MessageReply         int `json:"message_reply"`
+	MessageTypingState   int `json:"message_typing_state"`
+	MessagesEdit         int `json:"messages_edit"`
+	PhotoCommentDelete   int `json:"photo_comment_delete"`
+	PhotoCommentEdit     int `json:"photo_comment_edit"`
+	PhotoCommentNew      int `json:"photo_comment_new"`
+	PhotoCommentRestore  int `json:"photo_comment_restore"`
+	PhotoNew             int `json:"photo_new"`
+	PollVoteNew          int `json:"poll_vote_new"`
+	UserBlock            int `json:"user_block"`
+	UserUnblock          int `json:"user_unblock"`
+	VideoCommentDelete   int `json:"video_comment_delete"`
+	VideoCommentEdit     int `json:"video_comment_edit"`
+	VideoCommentNew      int `json:"video_comment_new"`
+	VideoCommentRestore  int `json:"video_comment_restore"`
+	VideoNew             int `json:"video_new"`
+	WallPostNew          int `json:"wall_post_new"`
+	WallReplyDelete      int `json:"wall_reply_delete"`
+	WallReplyEdit        int `json:"wall_reply_edit"`
+	WallReplyNew         int `json:"wall_reply_new"`
+	WallReplyRestore     int `json:"wall_reply_restore"`
+	WallRepost           int `json:"wall_repost"`
 }
 
 type groupsLongPollServer struct {
@@ -1108,7 +1026,7 @@ type groupsMarketInfo struct {
 	ContactID    int            `json:"contact_id,omitempty"`
 	Currency     marketCurrency `json:"currency,omitempty"`
 	CurrencyText string         `json:"currency_text,omitempty"`
-	Enabled      baseBoolInt    `json:"enabled,omitempty"`
+	Enabled      int            `json:"enabled,omitempty"`
 	MainAlbumID  int            `json:"main_album_id,omitempty"`
 	PriceMax     int            `json:"price_max,omitempty"`
 	PriceMin     int            `json:"price_min,omitempty"`
@@ -1123,15 +1041,15 @@ type groupsMemberRole struct {
 type groupsMemberRoleStatus string
 
 type groupsMemberStatus struct {
-	Member baseBoolInt `json:"member"`
-	UserID int         `json:"user_id"`
+	Member int `json:"member"`
+	UserID int `json:"user_id"`
 }
 
 type groupsMemberStatusFull struct {
-	Invitation baseBoolInt `json:"invitation,omitempty"`
-	Member     baseBoolInt `json:"member"`
-	Request    baseBoolInt `json:"request,omitempty"`
-	UserID     int         `json:"user_id"`
+	Invitation int `json:"invitation,omitempty"`
+	Member     int `json:"member"`
+	Request    int `json:"request,omitempty"`
+	UserID     int `json:"user_id"`
 }
 
 // Online status of group
@@ -1192,18 +1110,18 @@ type leadsComplete struct {
 	Limit    int            `json:"limit,omitempty"`
 	Spent    int            `json:"spent,omitempty"`
 	Success  baseOkResponse `json:"success,omitempty"`
-	TestMode baseBoolInt    `json:"test_mode,omitempty"`
+	TestMode int            `json:"test_mode,omitempty"`
 }
 
 type leadsEntry struct {
-	Aid       int         `json:"aid,omitempty"`
-	Comment   string      `json:"comment,omitempty"`
-	Date      int         `json:"date,omitempty"`
-	Sid       string      `json:"sid,omitempty"`
-	StartDate int         `json:"start_date,omitempty"`
-	Status    int         `json:"status,omitempty"`
-	TestMode  baseBoolInt `json:"test_mode,omitempty"`
-	UID       int         `json:"uid,omitempty"`
+	Aid       int    `json:"aid,omitempty"`
+	Comment   string `json:"comment,omitempty"`
+	Date      int    `json:"date,omitempty"`
+	Sid       string `json:"sid,omitempty"`
+	StartDate int    `json:"start_date,omitempty"`
+	Status    int    `json:"status,omitempty"`
+	TestMode  int    `json:"test_mode,omitempty"`
+	UID       int    `json:"uid,omitempty"`
 }
 
 type leadsLead struct {
@@ -1224,8 +1142,8 @@ type leadsLeadDays struct {
 }
 
 type leadsStart struct {
-	TestMode baseBoolInt `json:"test_mode,omitempty"`
-	VkSid    string      `json:"vk_sid,omitempty"`
+	TestMode int    `json:"test_mode,omitempty"`
+	VkSid    string `json:"vk_sid,omitempty"`
 }
 
 type marketCurrency struct {
@@ -1280,8 +1198,8 @@ type marketSection struct {
 type messagesChat struct {
 	AdminID      int                      `json:"admin_id"`
 	ID           int                      `json:"id"`
-	Kicked       baseBoolInt              `json:"kicked,omitempty"`
-	Left         baseBoolInt              `json:"left,omitempty"`
+	Kicked       int                      `json:"kicked,omitempty"`
+	Left         int                      `json:"left,omitempty"`
 	Photo100     string                   `json:"photo_100,omitempty"`
 	Photo200     string                   `json:"photo_200,omitempty"`
 	Photo50      string                   `json:"photo_50,omitempty"`
@@ -1294,8 +1212,8 @@ type messagesChat struct {
 type messagesChatFull struct {
 	AdminID      int                        `json:"admin_id"`
 	ID           int                        `json:"id"`
-	Kicked       baseBoolInt                `json:"kicked,omitempty"`
-	Left         baseBoolInt                `json:"left,omitempty"`
+	Kicked       int                        `json:"kicked,omitempty"`
+	Left         int                        `json:"left,omitempty"`
 	Photo100     string                     `json:"photo_100,omitempty"`
 	Photo200     string                     `json:"photo_200,omitempty"`
 	Photo50      string                     `json:"photo_50,omitempty"`
@@ -1306,8 +1224,8 @@ type messagesChatFull struct {
 }
 
 type messagesChatPushSettings struct {
-	DisabledUntil int         `json:"disabled_until,omitempty"`
-	Sound         baseBoolInt `json:"sound,omitempty"`
+	DisabledUntil int `json:"disabled_until,omitempty"`
+	Sound         int `json:"sound,omitempty"`
 }
 
 type messagesChatSettingsPhoto struct {
@@ -1364,11 +1282,11 @@ type messagesConversationWithMessage struct {
 }
 
 type messagesDialog struct {
-	Important  baseBoolInt     `json:"important,omitempty"`
+	Important  int             `json:"important,omitempty"`
 	InRead     int             `json:"in_read,omitempty"`
 	Message    messagesMessage `json:"message,omitempty"`
 	OutRead    int             `json:"out_read,omitempty"`
-	Unanswered baseBoolInt     `json:"unanswered,omitempty"`
+	Unanswered int             `json:"unanswered,omitempty"`
 	Unread     int             `json:"unread,omitempty"`
 }
 
@@ -1393,8 +1311,8 @@ type messagesHistoryMessageAttachment struct {
 type messagesHistoryMessageAttachmentType string
 
 type messagesLastActivity struct {
-	Online baseBoolInt `json:"online"`
-	Time   int         `json:"time"`
+	Online int `json:"online"`
+	Time   int `json:"time"`
 }
 
 type messagesLongpollMessages struct {
@@ -1578,15 +1496,15 @@ type newsfeedNewsfeedPhoto struct {
 }
 
 type notesNote struct {
-	CanComment baseBoolInt `json:"can_comment,omitempty"`
-	Comments   int         `json:"comments"`
-	Date       int         `json:"date"`
-	ID         int         `json:"id"`
-	OwnerID    int         `json:"owner_id"`
-	Text       string      `json:"text,omitempty"`
-	TextWiki   string      `json:"text_wiki,omitempty"`
-	Title      string      `json:"title"`
-	ViewURL    string      `json:"view_url"`
+	CanComment int    `json:"can_comment,omitempty"`
+	Comments   int    `json:"comments"`
+	Date       int    `json:"date"`
+	ID         int    `json:"id"`
+	OwnerID    int    `json:"owner_id"`
+	Text       string `json:"text,omitempty"`
+	TextWiki   string `json:"text_wiki,omitempty"`
+	Title      string `json:"title"`
+	ViewURL    string `json:"view_url"`
 }
 
 type notesNoteComment struct {
@@ -1687,8 +1605,8 @@ type pagesWikipage struct {
 type pagesWikipageFull struct {
 	Created                  int                  `json:"created"`
 	CreatorID                int                  `json:"creator_id,omitempty"`
-	CurrentUserCanEdit       baseBoolInt          `json:"current_user_can_edit,omitempty"`
-	CurrentUserCanEditAccess baseBoolInt          `json:"current_user_can_edit_access,omitempty"`
+	CurrentUserCanEdit       int                  `json:"current_user_can_edit,omitempty"`
+	CurrentUserCanEditAccess int                  `json:"current_user_can_edit_access,omitempty"`
 	Edited                   int                  `json:"edited"`
 	EditorID                 int                  `json:"editor_id,omitempty"`
 	GroupID                  int                  `json:"group_id"`
@@ -1791,8 +1709,8 @@ type photosPhotoAlbum struct {
 }
 
 type photosPhotoAlbumFull struct {
-	CanUpload          baseBoolInt                              `json:"can_upload,omitempty"`
-	CommentsDisabled   baseBoolInt                              `json:"comments_disabled,omitempty"`
+	CanUpload          int                                      `json:"can_upload,omitempty"`
+	CommentsDisabled   int                                      `json:"comments_disabled,omitempty"`
 	Created            int                                      `json:"created"`
 	Description        string                                   `json:"description,omitempty"`
 	ID                 int                                      `json:"id"`
@@ -1802,11 +1720,11 @@ type photosPhotoAlbumFull struct {
 	Size               int                                      `json:"size"`
 	Sizes              []photosPhotoSizes                       `json:"sizes,omitempty"`
 	ThumbID            int                                      `json:"thumb_id,omitempty"`
-	ThumbIsLast        baseBoolInt                              `json:"thumb_is_last,omitempty"`
+	ThumbIsLast        int                                      `json:"thumb_is_last,omitempty"`
 	ThumbSrc           string                                   `json:"thumb_src,omitempty"`
 	Title              string                                   `json:"title"`
 	Updated            int                                      `json:"updated"`
-	UploadByAdminsOnly baseBoolInt                              `json:"upload_by_admins_only,omitempty"`
+	UploadByAdminsOnly int                                      `json:"upload_by_admins_only,omitempty"`
 }
 
 // Privacy comment
@@ -1818,7 +1736,7 @@ type photosPhotoAlbumFullPrivacyViewItem string
 type photosPhotoFull struct {
 	AccessKey  string          `json:"access_key,omitempty"`
 	AlbumID    int             `json:"album_id"`
-	CanComment baseBoolInt     `json:"can_comment,omitempty"`
+	CanComment int             `json:"can_comment,omitempty"`
 	Comments   baseObjectCount `json:"comments,omitempty"`
 	Date       int             `json:"date"`
 	Height     int             `json:"height,omitempty"`
@@ -1839,7 +1757,7 @@ type photosPhotoFull struct {
 type photosPhotoFullXtrRealOffset struct {
 	AccessKey  string             `json:"access_key,omitempty"`
 	AlbumID    int                `json:"album_id"`
-	CanComment baseBoolInt        `json:"can_comment,omitempty"`
+	CanComment int                `json:"can_comment,omitempty"`
 	Comments   baseObjectCount    `json:"comments,omitempty"`
 	Date       int                `json:"date"`
 	Height     int                `json:"height,omitempty"`
@@ -1876,16 +1794,16 @@ type photosPhotoSizes struct {
 type photosPhotoSizesType string
 
 type photosPhotoTag struct {
-	Date       int         `json:"date"`
-	ID         int         `json:"id"`
-	PlacerID   int         `json:"placer_id"`
-	TaggedName string      `json:"tagged_name"`
-	UserID     int         `json:"user_id"`
-	Viewed     baseBoolInt `json:"viewed"`
-	X          float64     `json:"x"`
-	X2         float64     `json:"x2"`
-	Y          float64     `json:"y"`
-	Y2         float64     `json:"y2"`
+	Date       int     `json:"date"`
+	ID         int     `json:"id"`
+	PlacerID   int     `json:"placer_id"`
+	TaggedName string  `json:"tagged_name"`
+	UserID     int     `json:"user_id"`
+	Viewed     int     `json:"viewed"`
+	X          float64 `json:"x"`
+	X2         float64 `json:"x2"`
+	Y          float64 `json:"y"`
+	Y2         float64 `json:"y2"`
 }
 
 type photosPhotoUpload struct {
@@ -2017,7 +1935,7 @@ type pollsAnswer struct {
 }
 
 type pollsPoll struct {
-	Anonymous baseBoolInt   `json:"anonymous"`
+	Anonymous int           `json:"anonymous"`
 	AnswerID  int           `json:"answer_id"`
 	Answers   []pollsAnswer `json:"answers"`
 	Created   int           `json:"created"`
@@ -2042,7 +1960,7 @@ type pollsVotersUsersItem int
 
 type searchHint struct {
 	Description string            `json:"description"`
-	Global      baseBoolInt       `json:"global,omitempty"`
+	Global      int               `json:"global,omitempty"`
 	Group       groupsGroup       `json:"group,omitempty"`
 	Profile     usersUserMin      `json:"profile,omitempty"`
 	Section     searchHintSection `json:"section"`
@@ -2161,10 +2079,10 @@ type storiesReplies struct {
 
 //type storiesStory struct {
 //	AccessKey            string            `json:"access_key,omitempty"`
-//	CanComment           baseBoolInt       `json:"can_comment,omitempty"`
-//	CanReply             baseBoolInt       `json:"can_reply,omitempty"`
-//	CanSee               baseBoolInt       `json:"can_see,omitempty"`
-//	CanShare             baseBoolInt       `json:"can_share,omitempty"`
+//	CanComment           int       `json:"can_comment,omitempty"`
+//	CanReply             int       `json:"can_reply,omitempty"`
+//	CanSee               int       `json:"can_see,omitempty"`
+//	CanShare             int       `json:"can_share,omitempty"`
 //	Date                 int               `json:"date,omitempty"`
 //	ID                   int               `json:"id"`
 //	IsDeleted            bool              `json:"is_deleted,omitempty"`
@@ -2177,7 +2095,7 @@ type storiesReplies struct {
 //	ParentStoryOwnerID   int               `json:"parent_story_owner_id,omitempty"`
 //	Photo                photosPhoto       `json:"photo,omitempty"`
 //	Replies              []storiesReplies  `json:"replies,omitempty"`
-//	Seen                 baseBoolInt       `json:"seen,omitempty"`
+//	Seen                 int       `json:"seen,omitempty"`
 //	Type                 storiesStoryType  `json:"type,omitempty"`
 //	Video                storiesStoryVideo `json:"video,omitempty"`
 //	Views                int               `json:"views,omitempty"`
@@ -2310,9 +2228,6 @@ type usersUniversity struct {
 	Name            string `json:"name,omitempty"`
 }
 
-type usersUser struct {
-}
-
 type usersUserBroadcast struct {
 }
 
@@ -2426,7 +2341,7 @@ type utilsStatsSexAge struct {
 }
 
 type videoCatBlock struct {
-	CanHide baseBoolInt       `json:"can_hide"`
+	CanHide int               `json:"can_hide"`
 	ID      int               `json:"id"`
 	Items   []videoCatElement `json:"items"`
 	Name    string            `json:"name"`
@@ -2439,15 +2354,15 @@ type videoCatBlock struct {
 type videoCatBlockView string
 
 type videoCatElement struct {
-	CanAdd      baseBoolInt         `json:"can_add,omitempty"`
-	CanEdit     baseBoolInt         `json:"can_edit,omitempty"`
+	CanAdd      int                 `json:"can_add,omitempty"`
+	CanEdit     int                 `json:"can_edit,omitempty"`
 	Comments    int                 `json:"comments,omitempty"`
 	Count       int                 `json:"count,omitempty"`
 	Date        int                 `json:"date,omitempty"`
 	Description string              `json:"description,omitempty"`
 	Duration    int                 `json:"duration,omitempty"`
 	ID          int                 `json:"id"`
-	IsPrivate   baseBoolInt         `json:"is_private,omitempty"`
+	IsPrivate   int                 `json:"is_private,omitempty"`
 	OwnerID     int                 `json:"owner_id"`
 	Photo130    string              `json:"photo_130,omitempty"`
 	Photo160    string              `json:"photo_160,omitempty"`
@@ -2479,8 +2394,8 @@ type videoUploadResponse struct {
 type videoVideo struct {
 	AccessKey   string             `json:"access_key,omitempty"`
 	AddingDate  int                `json:"adding_date,omitempty"`
-	CanAdd      baseBoolInt        `json:"can_add,omitempty"`
-	CanEdit     baseBoolInt        `json:"can_edit,omitempty"`
+	CanAdd      int                `json:"can_add,omitempty"`
+	CanEdit     int                `json:"can_edit,omitempty"`
 	Comments    int                `json:"comments,omitempty"`
 	Date        int                `json:"date,omitempty"`
 	Description string             `json:"description,omitempty"`
@@ -2527,10 +2442,10 @@ type videoVideoFiles struct {
 type videoVideoFull struct {
 	AccessKey      string                             `json:"access_key,omitempty"`
 	AddingDate     int                                `json:"adding_date,omitempty"`
-	CanAdd         baseBoolInt                        `json:"can_add,omitempty"`
-	CanComment     baseBoolInt                        `json:"can_comment,omitempty"`
-	CanEdit        baseBoolInt                        `json:"can_edit,omitempty"`
-	CanRepost      baseBoolInt                        `json:"can_repost,omitempty"`
+	CanAdd         int                                `json:"can_add,omitempty"`
+	CanComment     int                                `json:"can_comment,omitempty"`
+	CanEdit        int                                `json:"can_edit,omitempty"`
+	CanRepost      int                                `json:"can_repost,omitempty"`
 	Comments       int                                `json:"comments,omitempty"`
 	Date           int                                `json:"date,omitempty"`
 	Description    string                             `json:"description,omitempty"`
@@ -2547,7 +2462,7 @@ type videoVideoFull struct {
 	PrivacyComment []videoVideoFullPrivacyCommentItem `json:"privacy_comment,omitempty"`
 	PrivacyView    []videoVideoFullPrivacyViewItem    `json:"privacy_view,omitempty"`
 	Processing     basePropertyExists                 `json:"processing,omitempty"`
-	Repeat         baseBoolInt                        `json:"repeat,omitempty"`
+	Repeat         int                                `json:"repeat,omitempty"`
 	Title          string                             `json:"title,omitempty"`
 	Views          int                                `json:"views,omitempty"`
 }
@@ -2559,19 +2474,19 @@ type videoVideoFullPrivacyCommentItem string
 type videoVideoFullPrivacyViewItem string
 
 type videoVideoTag struct {
-	Date       int         `json:"date"`
-	ID         int         `json:"id"`
-	PlacerID   int         `json:"placer_id"`
-	TaggedName string      `json:"tagged_name"`
-	UserID     int         `json:"user_id"`
-	Viewed     baseBoolInt `json:"viewed"`
+	Date       int    `json:"date"`
+	ID         int    `json:"id"`
+	PlacerID   int    `json:"placer_id"`
+	TaggedName string `json:"tagged_name"`
+	UserID     int    `json:"user_id"`
+	Viewed     int    `json:"viewed"`
 }
 
 type videoVideoTagInfo struct {
 	AccessKey   string             `json:"access_key,omitempty"`
 	AddingDate  int                `json:"adding_date,omitempty"`
-	CanAdd      baseBoolInt        `json:"can_add,omitempty"`
-	CanEdit     baseBoolInt        `json:"can_edit,omitempty"`
+	CanAdd      int                `json:"can_add,omitempty"`
+	CanEdit     int                `json:"can_edit,omitempty"`
 	Comments    int                `json:"comments,omitempty"`
 	Date        int                `json:"date,omitempty"`
 	Description string             `json:"description,omitempty"`
@@ -2686,7 +2601,7 @@ type wallWallpost struct {
 
 type wallWallpostAttached struct {
 	Attachments []wallWallpostAttachment `json:"attachments,omitempty"`
-	CanDelete   baseBoolInt              `json:"can_delete,omitempty"`
+	CanDelete   int                      `json:"can_delete,omitempty"`
 	Comments    baseCommentsInfo         `json:"comments,omitempty"`
 	CopyOwnerID int                      `json:"copy_owner_id,omitempty"`
 	CopyPostID  int                      `json:"copy_post_id,omitempty"`
@@ -2759,7 +2674,7 @@ type widgetsCommentMedia struct {
 type widgetsCommentMediaType string
 
 type widgetsCommentReplies struct {
-	CanPost baseBoolInt                 `json:"can_post,omitempty"`
+	CanPost int                         `json:"can_post,omitempty"`
 	Count   int                         `json:"count,omitempty"`
 	Replies []widgetsCommentRepliesItem `json:"replies,omitempty"`
 }
@@ -2775,7 +2690,7 @@ type widgetsCommentRepliesItem struct {
 
 type widgetsWidgetComment struct {
 	Attachments []wallCommentAttachment `json:"attachments,omitempty"`
-	CanDelete   baseBoolInt             `json:"can_delete,omitempty"`
+	CanDelete   int                     `json:"can_delete,omitempty"`
 	Comments    widgetsCommentReplies   `json:"comments,omitempty"`
 	Date        int                     `json:"date"`
 	FromID      int                     `json:"from_id"`

@@ -139,8 +139,8 @@ type GroupsGetLongPollSettingsResponse struct{}
 
 // GroupsGetMembersResponse struct
 type GroupsGetMembersResponse struct {
-	Count int    `json:"count"`
-	Items []User `json:"items"`
+	Count int         `json:"count"`
+	Items []usersUser `json:"items"`
 }
 
 // GroupsGetMembers returns a list of community members

@@ -44,11 +44,11 @@ func main() {
 
 ### Костыли
 
+[AccountGetInfo](https://vk.com/dev/account.getInfo) вместо поля `2fa_required`, вернет `TwoFactorRequired`
+
 [StorageGet](https://vk.com/dev/storage.get) даже если нет параметра `keys`, вернет массив из одного объекта.
 
 Еще не реализованные: 
-
-[AccountGetInfo](https://vk.com/dev/account.getInfo) вместо поля `2fa_required`, вернет `TwoFactorRequired`
 
 [AdsUpdateAds](https://vk.com/dev/ads.updateAds) поле `AdPlatform` вернет **строку**, поле `AdPlatformNoWall` вернет **число**
 
@@ -73,9 +73,10 @@ func main() {
 
 ### Список методов
 
-- [ ] Account 0/19
+- [x] Account 19/19
 - [ ] Ads 0/0
 - [ ] Apps 0/8
+- [ ] Auth 0/2
 - [ ] Board 0/13
 - [ ] Database 0/10
 - [ ] Docs 0/11
