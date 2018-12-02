@@ -2,63 +2,6 @@ package vksdk
 
 // Структуры ответов
 
-// TODO account.ban response
-type AccountBanResponse struct {}
-
-// TODO account.changePassword response
-type AccountChangePasswordResponse struct {}
-
-// TODO account.getActiveOffers response
-type AccountGetActiveOffersResponse struct {}
-
-// TODO account.getAppPermissions response
-type AccountGetAppPermissionsResponse struct {}
-
-// TODO account.getBanned response
-type AccountGetBannedResponse struct {}
-
-// TODO account.getCounters response
-type AccountGetCountersResponse struct {}
-
-// TODO account.getInfo response
-type AccountGetInfoResponse struct {}
-
-// TODO account.getProfileInfo response
-type AccountGetProfileInfoResponse struct {}
-
-// TODO account.getPushSettings response
-type AccountGetPushSettingsResponse struct {}
-
-// TODO account.registerDevice response
-type AccountRegisterDeviceResponse struct {}
-
-// TODO account.saveProfileInfo response
-type AccountSaveProfileInfoResponse struct {}
-
-// TODO account.setInfo response
-type AccountSetInfoResponse struct {}
-
-// TODO account.setNameInMenu response
-type AccountSetNameInMenuResponse struct {}
-
-// TODO account.setOffline response
-type AccountSetOfflineResponse struct {}
-
-// TODO account.setOnline response
-type AccountSetOnlineResponse struct {}
-
-// TODO account.setPushSettings response
-type AccountSetPushSettingsResponse struct {}
-
-// TODO account.setSilenceMode response
-type AccountSetSilenceModeResponse struct {}
-
-// TODO account.unban response
-type AccountUnbanResponse struct {}
-
-// TODO account.unregisterDevice response
-type AccountUnregisterDeviceResponse struct {}
-
 // TODO appWidgets.getAppImageUploadServer response
 
 // TODO appWidgets.getAppImages response
@@ -123,15 +66,7 @@ type AccountUnregisterDeviceResponse struct {}
 
 // TODO database.getChairs response
 
-// database.getCities response
-type DatabaseGetCitiesResponse struct {
-	Count int `json:"count"`
-	Items []struct {
-		ID     int    `json:"id"`
-		Title  string `json:"title"`
-		Region string `json:"region"`
-	} `json:"items"`
-}
+// DatabaseGetCitiesResponse database.getCities response
 
 // TODO database.getCitiesById response
 
@@ -211,12 +146,6 @@ type DatabaseGetCitiesResponse struct {
 
 // TODO friends.editList response
 
-// friends.get response
-type FriendsGetResponse struct {
-	Count int    `json:"count"`
-	Items []User `json:"items"`
-}
-
 // TODO friends.getAppUsers response
 
 // TODO friends.getByPhones response
@@ -290,12 +219,6 @@ type FriendsGetResponse struct {
 // TODO groups.getLongPollServer response
 
 // TODO groups.getLongPollSettings response
-
-// TODO groups.getMembers response
-type GroupsGetMembersResponse struct {
-	Count int    `json:"count"`
-	Items []User `json:"items"`
-}
 
 // TODO groups.getOnlineStatus response
 
@@ -721,9 +644,6 @@ type GroupsGetMembersResponse struct {
 
 // TODO streaming.setSettings response
 
-// users.get response
-type UsersGetResponse []User
-
 // TODO users.getFollowers response
 
 // TODO users.getSubscriptions response
@@ -745,12 +665,6 @@ type UsersGetResponse []User
 // TODO utils.getServerTime response
 
 // TODO utils.getShortLink response
-
-// utils.resolveScreenName response
-type utilsResolveScreenNameResponse struct {
-	Type     string `json:"type,omitempty"`
-	ObjectID int    `json:"object_id,omitempty"`
-}
 
 // TODO video.add response
 

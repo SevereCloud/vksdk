@@ -2,26 +2,27 @@ package vksdk
 
 import "encoding/json"
 
-// base bool (integer, [0,1])
+// baseBoolInt base bool (integer, [0,1])
 type baseBoolInt int
 
-// base object
+// baseObject base object
 type baseObject struct {
 	ID    int    `json:"id"`
 	Title string `json:"title"`
 }
 
-// base object count
+// baseObjectCount base object count
 type baseObjectCount struct {
 	Count int `json:"count,omitempty"`
 }
 
-// base object with name
+// baseObjectWithName base object with name
 type baseObjectWithName struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
 
+// User type
 // TODO object user
 // FIXME add
 //"role": "editor",
@@ -31,7 +32,7 @@ type User struct {
 	FirstName   string     `json:"first_name"`
 	LastName    string     `json:"last_name"`
 	Bdate       string     `json:"bdate,omitempty"`
-	PhotoId     string     `json:"photo_id,omitempty"`
+	PhotoID     string     `json:"photo_id,omitempty"`
 	City        baseObject `json:"city,omitempty"`
 	Online      int        `json:"online,omitempty"`
 	Lists       []int      `json:"lists,omitempty"`
@@ -39,11 +40,29 @@ type User struct {
 	Sex         int        `json:"sex,omitempty"`
 }
 
+type button []messagesKeyboardButton
+
+type messagesKeyboard struct {
+	Buttons []button `json:"buttons"`
+	OneTime bool     `json:"one_time"`
+}
+
+type messagesKeyboardButton struct {
+	Action messagesKeyboardButtonAction `json:"action"`
+	Color  string                       `json:"color"`
+}
+
+type messagesKeyboardButtonAction struct {
+	Label   string `json:"label,omitempty"`
+	Payload string `json:"payload,omitempty"`
+	Type    string `json:"type"`
+}
+
 // ------------------------------------------------------------//
 // Далее сгенерированные объекты. После проверки переносить выше
 // ------------------------------------------------------------//
 
-// Callback
+// Callback struct
 type Callback struct {
 	Type    string          `json:"type"`
 	Object  json.RawMessage `json:"object"`
@@ -70,7 +89,7 @@ type accountInfo struct {
 	Lang            int         `json:"lang,omitempty"`
 	NoWallReplies   baseBoolInt `json:"no_wall_replies,omitempty"`
 	OwnPostsDefault baseBoolInt `json:"own_posts_default,omitempty"`
-	faRequired      baseBoolInt `json:"2fa_required,omitempty"`
+	FaRequired      baseBoolInt `json:"2fa_required,omitempty"`
 }
 
 type accountLookupResult struct {
@@ -702,8 +721,6 @@ type boardTopicPoll struct {
 	Question string        `json:"question"`
 	Votes    string        `json:"votes"`
 }
-
-type button []messagesKeyboardButton
 
 // User ID
 type commonFriend int
@@ -1365,23 +1382,6 @@ type messagesHistoryMessageAttachment struct {
 
 // Attachments type
 type messagesHistoryMessageAttachmentType string
-
-type messagesKeyboard struct {
-	Buttons []button `json:"buttons"`
-	OneTime bool     `json:"one_time"`
-}
-
-type messagesKeyboardButton struct {
-	Action messagesKeyboardButtonAction `json:"action"`
-	Color  string                       `json:"color"`
-}
-
-// Description of the action, that should be performed on button click
-type messagesKeyboardButtonAction struct {
-	Label   string `json:"label,omitempty"`
-	Payload string `json:"payload,omitempty"`
-	Type    string `json:"type"`
-}
 
 type messagesLastActivity struct {
 	Online baseBoolInt `json:"online"`
