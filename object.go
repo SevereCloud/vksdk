@@ -2,7 +2,29 @@ package vksdk
 
 import "encoding/json"
 
-// baseBoolInt base bool (integer, [0,1])
+type audioAudioFull struct {
+	ID          int        `json:"id"`
+	OwnerID     int        `json:"owner_id"`
+	Artist      string     `json:"artist"`
+	Title       string     `json:"title"`
+	Duration    int        `json:"duration"`
+	Date        int        `json:"date"`
+	URL         string     `json:"url"`
+	IsHq        bool       `json:"is_hq"`
+	LyricsID    int        `json:"lyrics_id,omitempty"`   // Документация
+	AlbumID     int        `json:"album_id,omitempty"`    // Документация
+	GenreID     int        `json:"genre_id,omitempty"`    // Документация
+	TrackCode   string     `json:"track_code,omitempty"`  // На основе ответа
+	IsExplicit  bool       `json:"is_explicit,omitempty"` // На основе ответа
+	NoSearch    int        `json:"no_search,omitempty"`   // Документация
+	MainArtists []struct { // На основе ответа
+		Name   string `json:"name,omitempty"`
+		ID     string `json:"id,omitempty"`
+		Domain string `json:"domain,omitempty"`
+	} `json:"main_artists,omitempty"`
+}
+
+// baseBoolInt (integer, [0,1])
 type baseBoolInt int
 
 type baseObject struct {
@@ -541,9 +563,6 @@ type audioAudio struct {
 	OwnerID   int    `json:"owner_id"`
 	Title     string `json:"title"`
 	URL       string `json:"url,omitempty"`
-}
-
-type audioAudioFull struct {
 }
 
 type audioAudioUploadResponse struct {
@@ -2133,11 +2152,6 @@ type statsWallpostStat struct {
 	Report           int `json:"report,omitempty"`
 	ToGroup          int `json:"to_group,omitempty"`
 	Unsubscribe      int `json:"unsubscribe,omitempty"`
-}
-
-type statusStatus struct {
-	Audio audioAudioFull `json:"audio,omitempty"`
-	Text  string         `json:"text,omitempty"`
 }
 
 type storiesReplies struct {

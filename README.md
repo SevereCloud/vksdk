@@ -79,7 +79,7 @@ func main() {
 - [ ] Docs 0/11
 - [ ] Fave 0/12
 - [ ] Friends 0/18
-- [ ] Gifts 0/1
+- [x] Gifts 1/1
 - [ ] Groups 0/42
 - [ ] leadForms 0/7
 - [ ] Leads 0/0
@@ -98,7 +98,7 @@ func main() {
 - [ ] Search 0/1
 - [ ] Secure 0/0
 - [ ] Stats 0/3
-- [ ] Status 0/2
+- [x] Status 2/2
 - [x] Storage 3/3
 - [ ] Stories 0/13
 - [ ] Streaming 0/5
