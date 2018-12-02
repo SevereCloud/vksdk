@@ -49,13 +49,11 @@ type FriendsGetResponse struct {
 }
 
 // FriendsGet returns a list of user IDs or detailed information about a user's friends
-// TODO friends.get Returns a list of user IDs or detailed information about a user's friends.
-func (vk *VK) FriendsGet(params map[string]string) (FriendsGetResponse, error) {
-	var response FriendsGetResponse
-
+// TODO testing
+func (vk *VK) FriendsGet(params map[string]string) (response FriendsGetResponse, err error) {
 	rawResponse, err := vk.Request("friends.get", params)
 	if err != nil {
-		return response, err
+		return
 	}
 
 	err = json.Unmarshal(rawResponse, &response)
@@ -63,7 +61,7 @@ func (vk *VK) FriendsGet(params map[string]string) (FriendsGetResponse, error) {
 		panic(err)
 	}
 
-	return response, nil
+	return
 }
 
 // FriendsGetAppUsersResponse struct

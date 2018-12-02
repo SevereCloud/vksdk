@@ -18,14 +18,11 @@ type DatabaseGetCitiesResponse struct {
 }
 
 // DatabaseGetCities returns a list of cities
-func (vk *VK) DatabaseGetCities(params map[string]string) (DatabaseGetCitiesResponse, error) {
-	var response DatabaseGetCitiesResponse
-
-	// TODO testing dataxase.getCities
-
+// TODO testing dataxase.getCities
+func (vk *VK) DatabaseGetCities(params map[string]string) (response DatabaseGetCitiesResponse, err error) {
 	rawResponse, err := vk.Request("database.getCities", params)
 	if err != nil {
-		return response, err
+		return
 	}
 
 	err = json.Unmarshal(rawResponse, &response)
@@ -33,7 +30,7 @@ func (vk *VK) DatabaseGetCities(params map[string]string) (DatabaseGetCitiesResp
 		panic(err)
 	}
 
-	return response, nil
+	return
 }
 
 // DatabaseGetCitiesByIDResponse struct

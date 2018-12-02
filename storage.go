@@ -6,16 +6,14 @@ import "encoding/json"
 type StorageGetResponse []baseRequestParam
 
 // StorageGet returns a value of variable with the name set by key parameter.
-func (vk *VK) StorageGet(params map[string]string) (StorageGetResponse, error) {
-	var response StorageGetResponse
-
+func (vk *VK) StorageGet(params map[string]string) (response StorageGetResponse, err error) {
 	_, prs := params["keys"]
 	if !prs {
 		params["keys"] = params["key"]
 	}
 	rawResponse, err := vk.Request("storage.get", params)
 	if err != nil {
-		return response, err
+		return
 	}
 
 	err = json.Unmarshal(rawResponse, &response)
@@ -23,19 +21,17 @@ func (vk *VK) StorageGet(params map[string]string) (StorageGetResponse, error) {
 		panic(err)
 	}
 
-	return response, nil
+	return
 }
 
 // StorageGetKeysResponse struct
 type StorageGetKeysResponse []string
 
 // StorageGetKeys returns the names of all variables.
-func (vk *VK) StorageGetKeys(params map[string]string) (StorageGetKeysResponse, error) {
-	var response StorageGetKeysResponse
-
+func (vk *VK) StorageGetKeys(params map[string]string) (response StorageGetKeysResponse, err error) {
 	rawResponse, err := vk.Request("storage.getKeys", params)
 	if err != nil {
-		return response, err
+		return
 	}
 
 	err = json.Unmarshal(rawResponse, &response)
@@ -43,15 +39,12 @@ func (vk *VK) StorageGetKeys(params map[string]string) (StorageGetKeysResponse, 
 		panic(err)
 	}
 
-	return response, nil
+	return
 }
 
 // StorageSet saves a value of variable with the name set by key parameter.
-func (vk *VK) StorageSet(params map[string]string) error {
-	_, err := vk.Request("storage.set", params)
-	if err != nil {
-		return err
-	}
+func (vk *VK) StorageSet(params map[string]string) (err error) {
+	_, err = vk.Request("storage.set", params)
 
-	return nil
+	return
 }

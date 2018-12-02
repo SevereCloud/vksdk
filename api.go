@@ -37,11 +37,10 @@ func (e *Error) Error() string {
 }
 
 // Init VK API
-func Init(token string) VK {
-	vk := VK{}
+func Init(token string) (vk VK) {
 	vk.AccessToken = token
 	vk.Version = version
-	return vk
+	return
 }
 
 // Request provides access to VK API methods

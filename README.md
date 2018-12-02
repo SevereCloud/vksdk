@@ -85,7 +85,7 @@ func main() {
 - [ ] Groups 0/42
 - [ ] leadForms 0/7
 - [ ] Leads 0/0
-- [ ] Likes 0/4
+- [ ] Likes 3/4
 - [ ] Market 0/24
 - [ ] Messages 0/29
 - [ ] Newsfeed 0/16

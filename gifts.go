@@ -9,12 +9,10 @@ type GiftsGetResponse struct {
 }
 
 // GiftsGet returns a list of user gifts.
-func (vk *VK) GiftsGet(params map[string]string) (GiftsGetResponse, error) {
-	var response GiftsGetResponse
-
+func (vk *VK) GiftsGet(params map[string]string) (response GiftsGetResponse, err error) {
 	rawResponse, err := vk.Request("gifts.get", params)
 	if err != nil {
-		return response, err
+		return
 	}
 
 	err = json.Unmarshal(rawResponse, &response)
@@ -22,5 +20,5 @@ func (vk *VK) GiftsGet(params map[string]string) (GiftsGetResponse, error) {
 		panic(err)
 	}
 
-	return response, nil
+	return
 }

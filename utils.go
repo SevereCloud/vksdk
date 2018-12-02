@@ -40,12 +40,10 @@ type UtilsResolveScreenNameResponse struct {
 
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.
 // TODO testing utilx.resolveScreenName
-func (vk *VK) UtilsResolveScreenName(params map[string]string) (UtilsResolveScreenNameResponse, error) {
-	var response UtilsResolveScreenNameResponse
-
+func (vk *VK) UtilsResolveScreenName(params map[string]string) (response UtilsResolveScreenNameResponse, err error) {
 	rawResponse, err := vk.Request("utils.resolveScreenName", params)
 	if err != nil {
-		return response, err
+		return
 	}
 
 	err = json.Unmarshal(rawResponse, &response)
@@ -53,5 +51,5 @@ func (vk *VK) UtilsResolveScreenName(params map[string]string) (UtilsResolveScre
 		panic(err)
 	}
 
-	return response, nil
+	return
 }

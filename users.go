@@ -7,19 +7,17 @@ type UsersGetResponse []User
 
 // UsersGet returns detailed information on users
 // users.get Returns detailed information on users.
-func (vk *VK) UsersGet(params map[string]string) (UsersGetResponse, error) {
-	var response UsersGetResponse
-
+func (vk *VK) UsersGet(params map[string]string) (response UsersGetResponse, err error) {
 	rawResponse, err := vk.Request("users.get", params)
 	if err != nil {
-		return response, err
+		return
 	}
 	err = json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
 
-	return response, nil
+	return
 }
 
 // UsersGetFollowersResponse struct
