@@ -72,6 +72,9 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 		Response json.RawMessage
 	}
 	err = json.Unmarshal(body, &handler)
+	if err != nil {
+		panic(err)
+	}
 
 	if handler.Error != nil {
 		return nil, handler.Error

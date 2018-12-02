@@ -38,7 +38,7 @@ type StoriesGetRepliesResponse struct{}
 // StoriesGetStatsResponse struct
 type StoriesGetStatsResponse struct{}
 
-// TODO stories.getStats Return statictics data for the story.
+// TODO stories.getStats Return statistics data for the story.
 
 // StoriesGetVideoUploadServerResponse struct
 type StoriesGetVideoUploadServerResponse struct{}

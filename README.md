@@ -1,5 +1,7 @@
 # VK API for Golang
 
+![go report](https://goreportcard.com/badge/github.com/severecloud/vksdk)
+
 Внимание - этот репозиторий в **очень ранней разработке**.
 
 Версия API 5.92
