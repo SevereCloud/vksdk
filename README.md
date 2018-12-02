@@ -44,15 +44,17 @@ func main() {
 
 ### Костыли
 
-[StorageGet](https://vk.com/dev/messages.send) даже если нет параметра `keys`, вернет массив из одного объекта.
+[StorageGet](https://vk.com/dev/storage.get) даже если нет параметра `keys`, вернет массив из одного объекта.
 
 Еще не реализованные: 
-
-[MessagesSend](https://vk.com/dev/messages.send) даже если нет параметра `user_ids`, вернет массив из одного объекта.
 
 [AccountGetInfo](https://vk.com/dev/account.getInfo) вместо поля `2fa_required`, вернет `TwoFactorRequired`
 
 [AdsUpdateAds](https://vk.com/dev/ads.updateAds) поле `AdPlatform` вернет **строку**, поле `AdPlatformNoWall` вернет **число**
+
+[MessagesSend](https://vk.com/dev/messages.send) даже если нет параметра `user_ids`, вернет массив из одного объекта.
+
+[LikesGetList](https://vk.com/dev/likes.getList) параметр `extended` всегда будет равен 1
 
 ...
 
