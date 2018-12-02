@@ -22,11 +22,13 @@ type baseObjectWithName struct {
 	Name string `json:"name"`
 }
 
+type baseRequestParam struct {
+	Key   string `json:"key,omitempty"`
+	Value string `json:"value,omitempty"`
+}
+
 // User type
-// TODO object user
-// FIXME add
-//"role": "editor",
-//"permissions": ["ads"]
+// FIXME add "role": "editor", "permissions": ["ads"]...
 type User struct {
 	ID          int        `json:"id"`
 	FirstName   string     `json:"first_name"`
@@ -215,10 +217,9 @@ type adsAccount struct {
 // Account type
 type adsAccountType string
 
-// FIXME
 //type adsAd struct {
 //	AdFormat              int `json:"ad_format"`
-//	AdPlatform            `json:"ad_platform,omitempty"`
+//	AdPlatform            string `json:"ad_platform,omitempty"`
 //	AllLimit              int           `json:"all_limit"`
 //	Approved              adsAdApproved `json:"approved"`
 //	CampaignID            int           `json:"campaign_id"`
@@ -663,11 +664,6 @@ type basePropertyExists int
 type baseRepostsInfo struct {
 	Count        int `json:"count,omitempty"`
 	UserReposted int `json:"user_reposted,omitempty"`
-}
-
-type baseRequestParam struct {
-	Key   string `json:"key,omitempty"`
-	Value string `json:"value,omitempty"`
 }
 
 type baseSex int

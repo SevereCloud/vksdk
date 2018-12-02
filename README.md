@@ -44,13 +44,15 @@ func main() {
 
 ### Костыли
 
+[StorageGet](https://vk.com/dev/messages.send) даже если нет параметра `keys`, вернет массив из одного объекта.
+
 Еще не реализованные: 
 
-[MessagesSend](https://vk.com/dev/messages.send) даже если нет параметра `user_ids`, вернет массив объектов, каждый из которых содержит поля: `PeerId` `NessageId` `Error`
+[MessagesSend](https://vk.com/dev/messages.send) даже если нет параметра `user_ids`, вернет массив из одного объекта.
 
 [AccountGetInfo](https://vk.com/dev/account.getInfo) вместо поля `2fa_required`, вернет `TwoFactorRequired`
 
-[AdsUpdateAds](https://vk.com/dev/ads.updateAds) поле `AdPlatform` вернет **строку**, поле `AdPlatformNoWall` вернет **число*
+[AdsUpdateAds](https://vk.com/dev/ads.updateAds) поле `AdPlatform` вернет **строку**, поле `AdPlatformNoWall` вернет **число**
 
 ...
 
@@ -66,3 +68,43 @@ func main() {
 - [ ] Поддержка go 1.11
 - [ ] Англоязычный README
 - [ ] Поддержка следующих версий API
+
+## Список методов
+
+- [ ] Account 0/19
+- [ ] Ads 0/0
+- [ ] Apps 0/8
+- [ ] Board 0/13
+- [ ] Database 0/10
+- [ ] Docs 0/11
+- [ ] Fave 0/12
+- [ ] Friends 0/18
+- [ ] Gifts 0/1
+- [ ] Groups 0/42
+- [ ] leadForms 0/7
+- [ ] Leads 0/0
+- [ ] Likes 0/4
+- [ ] Market 0/24
+- [ ] Messages 0/29
+- [ ] Newsfeed 0/16
+- [ ] Notes 0/10
+- [ ] Notifications 0/3
+- [ ] Orders 0/0
+- [ ] Pages 0/8
+- [ ] Photos 0/46
+- [ ] Places 0/0
+- [ ] Polls 0/9
+- [ ] Prettycards 0/6
+- [ ] Search 0/1
+- [ ] Secure 0/0
+- [ ] Stats 0/3
+- [ ] Status 0/2
+- [x] Storage 3/3
+- [ ] Stories 0/13
+- [ ] Streaming 0/5
+- [ ] Users 0/5
+- [ ] Utils 1/7
+- [ ] Video 0/24
+- [ ] Podcasts 0/0
+- [ ] Wall 0/23
+- [ ] Widgets 0/2
