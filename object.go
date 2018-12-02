@@ -5,18 +5,15 @@ import "encoding/json"
 // baseBoolInt base bool (integer, [0,1])
 type baseBoolInt int
 
-// baseObject base object
 type baseObject struct {
 	ID    int    `json:"id"`
 	Title string `json:"title"`
 }
 
-// baseObjectCount base object count
 type baseObjectCount struct {
 	Count int `json:"count,omitempty"`
 }
 
-// baseObjectWithName base object with name
 type baseObjectWithName struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
@@ -25,6 +22,23 @@ type baseObjectWithName struct {
 type baseRequestParam struct {
 	Key   string `json:"key,omitempty"`
 	Value string `json:"value,omitempty"`
+}
+
+type giftsGift struct {
+	Date     int         `json:"date,omitempty"`
+	FromID   int         `json:"from_id,omitempty"`
+	Gift     giftsLayout `json:"gift,omitempty"`
+	GiftHash string      `json:"gift_hash,omitempty"`
+	ID       int         `json:"id,omitempty"`
+	Message  string      `json:"message,omitempty"`
+	Privacy  int         `json:"privacy,omitempty"`
+}
+
+type giftsLayout struct {
+	ID       int    `json:"id,omitempty"`
+	Thumb256 string `json:"thumb_256,omitempty"`
+	Thumb48  string `json:"thumb_48,omitempty"`
+	Thumb96  string `json:"thumb_96,omitempty"`
 }
 
 // User type
@@ -840,26 +854,6 @@ type friendsUserXtrLists struct {
 }
 
 type friendsUserXtrPhone struct {
-}
-
-type giftsGift struct {
-	Date     int              `json:"date,omitempty"`
-	FromID   int              `json:"from_id,omitempty"`
-	Gift     giftsLayout      `json:"gift,omitempty"`
-	GiftHash string           `json:"gift_hash,omitempty"`
-	ID       int              `json:"id,omitempty"`
-	Message  string           `json:"message,omitempty"`
-	Privacy  giftsGiftPrivacy `json:"privacy,omitempty"`
-}
-
-// Gift privacy
-type giftsGiftPrivacy int
-
-type giftsLayout struct {
-	ID       int    `json:"id,omitempty"`
-	Thumb256 string `json:"thumb_256,omitempty"`
-	Thumb48  string `json:"thumb_48,omitempty"`
-	Thumb96  string `json:"thumb_96,omitempty"`
 }
 
 type groupsBanInfo struct {
