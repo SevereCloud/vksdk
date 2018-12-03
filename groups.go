@@ -145,20 +145,18 @@ type GroupsGetMembersResponse struct {
 
 // GroupsGetMembers returns a list of community members
 // TODO groupx.getMembers
-func (vk *VK) GroupsGetMembers(params map[string]string) (GroupsGetMembersResponse, error) {
-	var response GroupsGetMembersResponse
-
-	rawResponse, err := vk.Request("groups.getMembers", params)
-	if err != nil {
-		return response, err
+func (vk *VK) GroupsGetMembers(params map[string]string) (response GroupsGetMembersResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("groups.getMembers", params)
+	if vkErr.Code != 0 {
+		return
 	}
 	// FIXME list if no filter
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
 
-	return response, nil
+	return
 }
 
 // GroupsGetOnlineStatusResponse struct

@@ -19,6 +19,8 @@ package main
 
 import (
 	"fmt"
+	"log"
+
 	"github.com/severecloud/vksdk"
 )
 
@@ -28,9 +30,9 @@ func main() {
 	params := make(map[string]string)
 	params["user_ids"] = "1"
 
-	users, err := vk.UsersGet(params)
-	if err != nil{
-		panic(err)
+	users, vkErr := vk.UsersGet(params)
+	if vkErr.Code != 0 {
+		log.Fatal(vkErr.Message)
 	}
 
 	for _, user := range users {
@@ -42,24 +44,25 @@ func main() {
 ## Известные проблемы
 
 - [VK API JSON Schema](https://github.com/VKCOM/vk-api-schema) кишит ошибками и не обновляется
-- На некоторые методы, API возвращает динамический json
+- На некоторые методы, API возвращает динамический JSON
 
 ### Костыли
 
 [AccountGetInfo](https://vk.com/dev/account.getInfo) вместо поля `2fa_required`, вернет `TwoFactorRequired`
 
-[Execute](https://vk.com/dev/storage.get) возвращает response json типа `[]byte`.
+[Execute](https://vk.com/dev/execute) возвращает Response JSON в []byte`.
+
 ```go
 var S struct {
 	Text string `json:"text"`
 }
 
-rawResponse, err := vk.Execute(`return {text: "hello"};`)
-if err != nil {
-	panic(err)
+rawResponse, vkErr := vk.Execute(`return {text: "hello"};`)
+if vkErr.Code != 0 {
+	log.Fatal(vkErr.Message)
 }
 
-err = json.Unmarshal(rawResponse, &S)
+err := json.Unmarshal(rawResponse, &S)
 if err != nil {
 	panic(err)
 }
@@ -67,15 +70,15 @@ if err != nil {
 fmt.Print(S.Text)
 ```
 
-[StorageGet](https://vk.com/dev/storage.get) даже если нет параметра `keys`, вернет массив из одного объекта.
+[StorageGet](https://vk.com/dev/storage.get) если нет параметра `keys`, вернет массив из одного объекта.
 
 Еще не реализованные: 
 
-[AdsUpdateAds](https://vk.com/dev/ads.updateAds) поле `AdPlatform` вернет **строку**, поле `AdPlatformNoWall` вернет **число**
+[AdsUpdateAds](https://vk.com/dev/ads.updateAds) поле `AdPlatform` вернет **строку**, поле `AdPlatformNoWall` вернет **число**.
 
-[MessagesSend](https://vk.com/dev/messages.send) даже если нет параметра `user_ids`, вернет массив из одного объекта.
+[MessagesSend](https://vk.com/dev/messages.send) если нет параметра `user_ids`, вернет массив из одного объекта.
 
-[LikesGetList](https://vk.com/dev/likes.getList) параметр `extended` всегда будет равен 1
+[LikesGetList](https://vk.com/dev/likes.getList) параметр `extended` всегда будет равен **1**
 
 ...
 
@@ -87,7 +90,7 @@ fmt.Print(S.Text)
 - [ ] LongPoll user
 - [ ] Streaming API
 - [ ] Получение токена
-- [ ] Тесты(чуть чуть)
+- [ ] Тесты
 - [ ] Поддержка go 1.11
 - [ ] Англоязычный README
 - [ ] Поддержка следующих версий API

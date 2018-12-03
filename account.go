@@ -3,9 +3,8 @@ package vksdk
 import "encoding/json"
 
 // AccountBan account.ban
-func (vk *VK) AccountBan(params map[string]string) (err error) {
-	_, err = vk.Request("account.ban", params)
-
+func (vk *VK) AccountBan(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("account.ban", params)
 	return
 }
 
@@ -15,13 +14,13 @@ type AccountChangePasswordResponse struct {
 }
 
 // AccountChangePassword changes a user password after access is successfully restored with the auth.restore method.
-func (vk *VK) AccountChangePassword(params map[string]string) (response AccountChangePasswordResponse, err error) {
-	rawResponse, err := vk.Request("account.changePassword", params)
-	if err != nil {
+func (vk *VK) AccountChangePassword(params map[string]string) (response AccountChangePasswordResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("account.changePassword", params)
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
@@ -36,13 +35,13 @@ type AccountGetActiveOffersResponse struct {
 }
 
 // AccountGetActiveOffers returns a list of active ads (offers).If the user fulfill their conditions, he will be able to get the appropriate number of votes to his balance.
-func (vk *VK) AccountGetActiveOffers(params map[string]string) (response AccountGetActiveOffersResponse, err error) {
-	rawResponse, err := vk.Request("account.getActiveOffers", params)
-	if err != nil {
+func (vk *VK) AccountGetActiveOffers(params map[string]string) (response AccountGetActiveOffersResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("account.getActiveOffers", params)
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
@@ -51,13 +50,13 @@ func (vk *VK) AccountGetActiveOffers(params map[string]string) (response Account
 }
 
 // AccountGetAppPermissions gets settings of the user in this application.
-func (vk *VK) AccountGetAppPermissions(params map[string]string) (response int, err error) {
-	rawResponse, err := vk.Request("account.getAppPermissions", params)
-	if err != nil {
+func (vk *VK) AccountGetAppPermissions(params map[string]string) (response int, vkErr Error) {
+	rawResponse, vkErr := vk.Request("account.getAppPermissions", params)
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
@@ -74,13 +73,13 @@ type AccountGetBannedResponse struct {
 }
 
 // AccountGetBanned returns a user's blacklist.
-func (vk *VK) AccountGetBanned(params map[string]string) (response AccountGetBannedResponse, err error) {
-	rawResponse, err := vk.Request("account.getBanned", params)
-	if err != nil {
+func (vk *VK) AccountGetBanned(params map[string]string) (response AccountGetBannedResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("account.getBanned", params)
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
@@ -104,13 +103,13 @@ type AccountGetCountersResponse struct {
 }
 
 // AccountGetCounters returns non-null values of user counters.
-func (vk *VK) AccountGetCounters(params map[string]string) (response AccountGetCountersResponse, err error) {
-	rawResponse, err := vk.Request("account.getCounters", params)
-	if err != nil {
+func (vk *VK) AccountGetCounters(params map[string]string) (response AccountGetCountersResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("account.getCounters", params)
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
@@ -130,13 +129,13 @@ type AccountGetInfoResponse struct {
 }
 
 // AccountGetInfo returns current account info.
-func (vk *VK) AccountGetInfo(params map[string]string) (response AccountGetInfoResponse, err error) {
-	rawResponse, err := vk.Request("account.getInfo", params)
-	if err != nil {
+func (vk *VK) AccountGetInfo(params map[string]string) (response AccountGetInfoResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("account.getInfo", params)
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
@@ -166,13 +165,13 @@ type AccountGetProfileInfoResponse struct {
 }
 
 // AccountGetProfileInfo returns the current account info.
-func (vk *VK) AccountGetProfileInfo() (response AccountGetProfileInfoResponse, err error) {
-	rawResponse, err := vk.Request("account.getProfileInfo", make(map[string]string))
-	if err != nil {
+func (vk *VK) AccountGetProfileInfo() (response AccountGetProfileInfoResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("account.getProfileInfo", make(map[string]string))
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
@@ -189,13 +188,13 @@ type AccountGetPushSettingsResponse struct {
 }
 
 // AccountGetPushSettings account.getPushSettings Gets settings of push notifications.
-func (vk *VK) AccountGetPushSettings(params map[string]string) (response AccountGetPushSettingsResponse, err error) {
-	rawResponse, err := vk.Request("account.getPushSettings", params)
-	if err != nil {
+func (vk *VK) AccountGetPushSettings(params map[string]string) (response AccountGetPushSettingsResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("account.getPushSettings", params)
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
@@ -204,9 +203,8 @@ func (vk *VK) AccountGetPushSettings(params map[string]string) (response Account
 }
 
 // AccountRegisterDevice subscribes an iOS/Android/Windows/Mac based device to receive push notifications
-func (vk *VK) AccountRegisterDevice(params map[string]string) (err error) {
-	_, err = vk.Request("account.registerDevice", params)
-
+func (vk *VK) AccountRegisterDevice(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("account.registerDevice", params)
 	return
 }
 
@@ -217,13 +215,13 @@ type AccountSaveProfileInfoResponse struct {
 }
 
 // AccountSaveProfileInfo edits current profile info.
-func (vk *VK) AccountSaveProfileInfo(params map[string]string) (response AccountSaveProfileInfoResponse, err error) {
-	rawResponse, err := vk.Request("account.saveProfileInfo", params)
-	if err != nil {
+func (vk *VK) AccountSaveProfileInfo(params map[string]string) (response AccountSaveProfileInfoResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("account.saveProfileInfo", params)
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}
@@ -232,57 +230,49 @@ func (vk *VK) AccountSaveProfileInfo(params map[string]string) (response Account
 }
 
 // AccountSetInfo allows to edit the current account info.
-func (vk *VK) AccountSetInfo(params map[string]string) (err error) {
-	_, err = vk.Request("account.setInfo", params)
-
+func (vk *VK) AccountSetInfo(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("account.setInfo", params)
 	return
 }
 
 // AccountSetNameInMenu sets an application screen name (up to 17 characters), that is shown to the user in the left menu.
-func (vk *VK) AccountSetNameInMenu(params map[string]string) (err error) {
-	_, err = vk.Request("account.setNameInMenu", params)
-
+func (vk *VK) AccountSetNameInMenu(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("account.setNameInMenu", params)
 	return
 }
 
 // AccountSetOffline marks a current user as offline.
-func (vk *VK) AccountSetOffline() (err error) {
-	_, err = vk.Request("account.setOffline", make(map[string]string))
-
+func (vk *VK) AccountSetOffline() (vkErr Error) {
+	_, vkErr = vk.Request("account.setOffline", make(map[string]string))
 	return
 }
 
 // AccountSetOnline marks the current user as online for 5 minutes.
-func (vk *VK) AccountSetOnline(params map[string]string) (err error) {
-	_, err = vk.Request("account.setOnline", params)
-
+func (vk *VK) AccountSetOnline(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("account.setOnline", params)
 	return
 }
 
 // AccountSetPushSettings change push settings.
-func (vk *VK) AccountSetPushSettings(params map[string]string) (err error) {
-	_, err = vk.Request("account.setPushSettings", params)
-
+func (vk *VK) AccountSetPushSettings(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("account.setPushSettings", params)
 	return
 }
 
 // AccountSetSilenceMode mutes push notifications for the set period of time.
-func (vk *VK) AccountSetSilenceMode(params map[string]string) (err error) {
-	_, err = vk.Request("account.setSilenceMode", params)
-
+func (vk *VK) AccountSetSilenceMode(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("account.setSilenceMode", params)
 	return
 }
 
 // AccountUnban account.unban
-func (vk *VK) AccountUnban(params map[string]string) (err error) {
-	_, err = vk.Request("account.unban", params)
-
+func (vk *VK) AccountUnban(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("account.unban", params)
 	return
 }
 
 // AccountUnregisterDevice unsubscribes a device from push notifications.
-func (vk *VK) AccountUnregisterDevice(params map[string]string) (err error) {
-	_, err = vk.Request("account.unregisterDevice", params)
-
+func (vk *VK) AccountUnregisterDevice(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("account.unregisterDevice", params)
 	return
 }

@@ -50,13 +50,13 @@ type FriendsGetResponse struct {
 
 // FriendsGet returns a list of user IDs or detailed information about a user's friends
 // TODO testing
-func (vk *VK) FriendsGet(params map[string]string) (response FriendsGetResponse, err error) {
-	rawResponse, err := vk.Request("friends.get", params)
-	if err != nil {
+func (vk *VK) FriendsGet(params map[string]string) (response FriendsGetResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("friends.get", params)
+	if vkErr.Code != 0 {
 		return
 	}
 
-	err = json.Unmarshal(rawResponse, &response)
+	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
 	}

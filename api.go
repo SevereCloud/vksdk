@@ -3,7 +3,6 @@ package vksdk
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -30,12 +29,6 @@ type Error struct {
 	} `json:"request_params"`
 }
 
-// Error function
-func (e *Error) Error() string {
-	// TODO fix return
-	return fmt.Sprintf("code %d: %s", e.Code, e.Message)
-}
-
 // Init VK API
 func Init(token string) (vk VK) {
 	vk.AccessToken = token
@@ -44,7 +37,7 @@ func Init(token string) (vk VK) {
 }
 
 // Request provides access to VK API methods
-func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
+func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 	// TODO ограничитель на запросы
 	u := apiURL + method
 
@@ -58,36 +51,32 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 	rawBody := bytes.NewBufferString(query.Encode())
 	resp, err := http.Post(u, "application/x-www-form-urlencoded", rawBody)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
 	var handler struct {
-		Error    *Error
 		Response json.RawMessage
+		Error    Error `json:"error"`
 	}
 	err = json.Unmarshal(body, &handler)
 	if err != nil {
 		panic(err)
 	}
 
-	if handler.Error != nil {
-		return nil, handler.Error
-	}
-
-	return handler.Response, nil
+	return handler.Response, handler.Error
 }
 
 // Execute a universal method for calling a sequence of other methods while saving and filtering interim results.
-func (vk *VK) Execute(Code string) (Response []byte, err error) {
+func (vk *VK) Execute(Code string) (response []byte, vkErr Error) {
 	p := make(map[string]string)
 	p["code"] = Code
-	Response, err = vk.Request("execute", p)
+	response, vkErr = vk.Request("execute", p)
 
 	return
 }

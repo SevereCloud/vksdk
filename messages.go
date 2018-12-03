@@ -175,16 +175,16 @@ type MessagesSendResponse struct{}
 
 // MessagesSend Sends a message
 // TODO messages.send Sends a message.
-func (vk *VK) MessagesSend(params map[string]string) error {
+func (vk *VK) MessagesSend(params map[string]string) (vkErr Error) {
 	const method = "messages.send"
 	// TODO if user_ids in params
 
-	_, err := vk.Request(method, params)
-	if err != nil {
-		return err
+	_, vkErr = vk.Request(method, params)
+	if vkErr.Code != 0 {
+		return
 	}
 
-	return nil
+	return
 }
 
 // MessagesSetActivityResponse struct
