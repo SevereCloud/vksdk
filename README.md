@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/severecloud/vksdk"
+	"github.com/severecloud/vksdk/api"
 )
 
 func main() {
