@@ -4,7 +4,7 @@ import "encoding/json"
 
 // LikesAddResponse struct
 type LikesAddResponse struct {
-	Likes int `json:"likes,omitempty"`
+	Likes int `json:"likes"`
 }
 
 // LikesAdd adds the specified object to the Likes list of the current user.
@@ -24,7 +24,7 @@ func (vk *VK) LikesAdd(params map[string]string) (response LikesAddResponse, vkE
 
 // LikesDeleteResponse struct
 type LikesDeleteResponse struct {
-	Likes int `json:"likes,omitempty"`
+	Likes int `json:"likes"`
 }
 
 // LikesDelete deletes the specified object from the Likes list of the current user.
@@ -63,8 +63,8 @@ type LikesGetListResponse struct{}
 
 // LikesIsLikedResponse struct
 type LikesIsLikedResponse struct {
-	Liked  int `json:"liked,omitempty"`
-	Copied int `json:"copied,omitempty"`
+	Liked  int `json:"liked"`
+	Copied int `json:"copied"`
 }
 
 // LikesIsLiked checks for the object in the Likes list of the specified user.

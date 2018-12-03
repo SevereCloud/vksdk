@@ -34,8 +34,8 @@ type UtilsGetShortLinkResponse struct{}
 
 // UtilsResolveScreenNameResponse struct
 type UtilsResolveScreenNameResponse struct {
-	Type     string `json:"type,omitempty"`
-	ObjectID int    `json:"object_id,omitempty"`
+	Type     string `json:"type"`
+	ObjectID int    `json:"object_id"`
 }
 
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.

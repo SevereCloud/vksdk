@@ -30,8 +30,8 @@ func (vk *VK) AccountChangePassword(params map[string]string) (response AccountC
 
 // AccountGetActiveOffersResponse struct
 type AccountGetActiveOffersResponse struct {
-	Count int            `json:"count,omitempty"`
-	Items []accountOffer `json:"items,omitempty"`
+	Count int            `json:"count"`
+	Items []accountOffer `json:"items"`
 }
 
 // AccountGetActiveOffers returns a list of active ads (offers).If the user fulfill their conditions, he will be able to get the appropriate number of votes to his balance.
@@ -66,10 +66,10 @@ func (vk *VK) AccountGetAppPermissions(params map[string]string) (response int, 
 
 // AccountGetBannedResponse struct
 type AccountGetBannedResponse struct {
-	Count    int           `json:"count,omitempty"`
-	Items    []int         `json:"items,omitempty"`
-	Profiles []usersUser   `json:"profiles,omitempty"`
-	Groups   []groupsGroup `json:"groups,omitempty"`
+	Count    int           `json:"count"`
+	Items    []int         `json:"items"`
+	Profiles []usersUser   `json:"profiles"`
+	Groups   []groupsGroup `json:"groups"`
 }
 
 // AccountGetBanned returns a user's blacklist.
@@ -89,17 +89,17 @@ func (vk *VK) AccountGetBanned(params map[string]string) (response AccountGetBan
 
 // AccountGetCountersResponse struct
 type AccountGetCountersResponse struct {
-	AppRequests        int `json:"app_requests,omitempty"`
-	Events             int `json:"events,omitempty"`
-	Friends            int `json:"friends,omitempty"`
-	FriendsSuggestions int `json:"friends_suggestions,omitempty"`
-	Gifts              int `json:"gifts,omitempty"`
-	Groups             int `json:"groups,omitempty"`
-	Messages           int `json:"messages,omitempty"`
-	Notifications      int `json:"notifications,omitempty"`
-	Photos             int `json:"photos,omitempty"`
-	SDK                int `json:"sdk,omitempty"`
-	Videos             int `json:"videos,omitempty"`
+	AppRequests        int `json:"app_requests"`
+	Events             int `json:"events"`
+	Friends            int `json:"friends"`
+	FriendsSuggestions int `json:"friends_suggestions"`
+	Gifts              int `json:"gifts"`
+	Groups             int `json:"groups"`
+	Messages           int `json:"messages"`
+	Notifications      int `json:"notifications"`
+	Photos             int `json:"photos"`
+	SDK                int `json:"sdk"`
+	Videos             int `json:"videos"`
 }
 
 // AccountGetCounters returns non-null values of user counters.
@@ -119,13 +119,13 @@ func (vk *VK) AccountGetCounters(params map[string]string) (response AccountGetC
 
 // AccountGetInfoResponse struct
 type AccountGetInfoResponse struct {
-	Country           string `json:"country,omitempty"`
-	HTTPSRequired     int    `json:"https_required,omitempty"`
-	Intro             int    `json:"intro,omitempty"`
-	Lang              int    `json:"lang,omitempty"`
-	NoWallReplies     int    `json:"no_wall_replies,omitempty"`
-	OwnPostsDefault   int    `json:"own_posts_default,omitempty"`
-	TwoFactorRequired int    `json:"2fa_required,omitempty"`
+	Country           string `json:"country"`
+	HTTPSRequired     int    `json:"https_required"`
+	Intro             int    `json:"intro"`
+	Lang              int    `json:"lang"`
+	NoWallReplies     int    `json:"no_wall_replies"`
+	OwnPostsDefault   int    `json:"own_posts_default"`
+	TwoFactorRequired int    `json:"2fa_required"`
 }
 
 // AccountGetInfo returns current account info.
@@ -145,23 +145,23 @@ func (vk *VK) AccountGetInfo(params map[string]string) (response AccountGetInfoR
 
 // AccountGetProfileInfoResponse struct
 type AccountGetProfileInfoResponse struct {
-	Bdate            string             `json:"bdate,omitempty"`
-	BdateVisibility  int                `json:"bdate_visibility,omitempty"`
-	City             baseObject         `json:"city,omitempty"`
-	Country          baseCountry        `json:"country,omitempty"`
-	FirstName        string             `json:"first_name,omitempty"`
-	HomeTown         string             `json:"home_town,omitempty"`
-	LastName         string             `json:"last_name,omitempty"`
-	MaidenName       string             `json:"maiden_name,omitempty"`
-	NameRequest      accountNameRequest `json:"name_request,omitempty"`
-	Phone            string             `json:"phone,omitempty"`
-	Relation         int                `json:"relation,omitempty"`
-	RelationPartner  usersUserMin       `json:"relation_partner,omitempty"`
-	RelationPending  int                `json:"relation_pending,omitempty"`
-	RelationRequests []usersUserMin     `json:"relation_requests,omitempty"`
-	ScreenName       string             `json:"screen_name,omitempty"`
-	Sex              baseSex            `json:"sex,omitempty"`
-	Status           string             `json:"status,omitempty"`
+	Bdate            string             `json:"bdate"`
+	BdateVisibility  int                `json:"bdate_visibility"`
+	City             baseObject         `json:"city"`
+	Country          baseCountry        `json:"country"`
+	FirstName        string             `json:"first_name"`
+	HomeTown         string             `json:"home_town"`
+	LastName         string             `json:"last_name"`
+	MaidenName       string             `json:"maiden_name"`
+	NameRequest      accountNameRequest `json:"name_request"`
+	Phone            string             `json:"phone"`
+	Relation         int                `json:"relation"`
+	RelationPartner  usersUserMin       `json:"relation_partner"`
+	RelationPending  int                `json:"relation_pending"`
+	RelationRequests []usersUserMin     `json:"relation_requests"`
+	ScreenName       string             `json:"screen_name"`
+	Sex              baseSex            `json:"sex"`
+	Status           string             `json:"status"`
 }
 
 // AccountGetProfileInfo returns the current account info.
@@ -181,10 +181,10 @@ func (vk *VK) AccountGetProfileInfo() (response AccountGetProfileInfoResponse, v
 
 // AccountGetPushSettingsResponse struct
 type AccountGetPushSettingsResponse struct {
-	Conversations accountPushConversations `json:"conversations,omitempty"`
-	Disabled      int                      `json:"disabled,omitempty"`
-	DisabledUntil int                      `json:"disabled_until,omitempty"`
-	Settings      accountPushParams        `json:"settings,omitempty"`
+	Conversations accountPushConversations `json:"conversations"`
+	Disabled      int                      `json:"disabled"`
+	DisabledUntil int                      `json:"disabled_until"`
+	Settings      accountPushParams        `json:"settings"`
 }
 
 // AccountGetPushSettings account.getPushSettings Gets settings of push notifications.
@@ -210,8 +210,8 @@ func (vk *VK) AccountRegisterDevice(params map[string]string) (vkErr Error) {
 
 // AccountSaveProfileInfoResponse struct
 type AccountSaveProfileInfoResponse struct {
-	Changed     int                `json:"changed,omitempty"`
-	NameRequest accountNameRequest `json:"name_request,omitempty"`
+	Changed     int                `json:"changed"`
+	NameRequest accountNameRequest `json:"name_request"`
 }
 
 // AccountSaveProfileInfo edits current profile info.

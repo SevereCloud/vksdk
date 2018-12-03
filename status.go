@@ -4,8 +4,8 @@ import "encoding/json"
 
 // StatusGetResponse struct
 type StatusGetResponse struct {
-	Audio audioAudioFull `json:"audio,omitempty"`
-	Text  string         `json:"text,omitempty"`
+	Audio audioAudioFull `json:"audio"`
+	Text  string         `json:"text"`
 }
 
 // StatusGet returns data required to show the status of a user or community.

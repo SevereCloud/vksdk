@@ -21,12 +21,11 @@ type VK struct {
 
 // Error struct VK
 type Error struct {
-	Code          int    `json:"error_code"`
-	Message       string `json:"error_msg"`
-	RequestParams []struct {
-		Key   string `json:"key"`
-		Value string `json:"value"`
-	} `json:"request_params"`
+	Code          int              `json:"error_code"`
+	Message       string           `json:"error_msg"`
+	CaptchaSID    string           `json:"captcha_sid"`
+	CaptchaImg    string           `json:"captcha_img"`
+	RequestParams baseRequestParam `json:"request_params"`
 }
 
 // Init VK API

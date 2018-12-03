@@ -4,8 +4,8 @@ import "encoding/json"
 
 // GiftsGetResponse struct
 type GiftsGetResponse struct {
-	Count int         `json:"count,omitempty"`
-	Items []giftsGift `json:"items,omitempty"`
+	Count int         `json:"count"`
+	Items []giftsGift `json:"items"`
 }
 
 // GiftsGet returns a list of user gifts.

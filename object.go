@@ -3,22 +3,22 @@ package vksdk
 import "encoding/json"
 
 type accountNameRequest struct {
-	FirstName string `json:"first_name,omitempty"`
-	ID        int    `json:"id,omitempty"`
-	LastName  string `json:"last_name,omitempty"`
-	Status    string `json:"status,omitempty"`
+	FirstName string `json:"first_name"`
+	ID        int    `json:"id"`
+	LastName  string `json:"last_name"`
+	Status    string `json:"status"`
 }
 
 type accountOffer struct {
-	Description      string `json:"description,omitempty"`
-	ID               int    `json:"id,omitempty"`
-	Img              string `json:"img,omitempty"`
-	Instruction      string `json:"instruction,omitempty"`
-	InstructionHTML  string `json:"instruction_html,omitempty"`
-	Price            int    `json:"price,omitempty"`
-	ShortDescription string `json:"short_description,omitempty"`
-	Tag              string `json:"tag,omitempty"`
-	Title            string `json:"title,omitempty"`
+	Description      string `json:"description"`
+	ID               int    `json:"id"`
+	Img              string `json:"img"`
+	Instruction      string `json:"instruction"`
+	InstructionHTML  string `json:"instruction_html"`
+	Price            int    `json:"price"`
+	ShortDescription string `json:"short_description"`
+	Tag              string `json:"tag"`
+	Title            string `json:"title"`
 }
 
 type audioAudioFull struct {
@@ -30,17 +30,17 @@ type audioAudioFull struct {
 	Date        int        `json:"date"`
 	URL         string     `json:"url"`
 	IsHq        bool       `json:"is_hq"`
-	LyricsID    int        `json:"lyrics_id,omitempty"`   // Документация
-	AlbumID     int        `json:"album_id,omitempty"`    // Документация
-	GenreID     int        `json:"genre_id,omitempty"`    // Документация
-	TrackCode   string     `json:"track_code,omitempty"`  // На основе ответа
-	IsExplicit  bool       `json:"is_explicit,omitempty"` // На основе ответа
-	NoSearch    int        `json:"no_search,omitempty"`   // Документация
+	LyricsID    int        `json:"lyrics_id"`   // Документация
+	AlbumID     int        `json:"album_id"`    // Документация
+	GenreID     int        `json:"genre_id"`    // Документация
+	TrackCode   string     `json:"track_code"`  // На основе ответа
+	IsExplicit  bool       `json:"is_explicit"` // На основе ответа
+	NoSearch    int        `json:"no_search"`   // Документация
 	MainArtists []struct { // На основе ответа
-		Name   string `json:"name,omitempty"`
-		ID     string `json:"id,omitempty"`
-		Domain string `json:"domain,omitempty"`
-	} `json:"main_artists,omitempty"`
+		Name   string `json:"name"`
+		ID     string `json:"id"`
+		Domain string `json:"domain"`
+	} `json:"main_artists"`
 }
 
 type baseObject struct {
@@ -49,7 +49,7 @@ type baseObject struct {
 }
 
 type baseObjectCount struct {
-	Count int `json:"count,omitempty"`
+	Count int `json:"count"`
 }
 
 type baseObjectWithName struct {
@@ -58,40 +58,40 @@ type baseObjectWithName struct {
 }
 
 type baseRequestParam struct {
-	Key   string `json:"key,omitempty"`
-	Value string `json:"value,omitempty"`
+	Key   string `json:"key"`
+	Value string `json:"value"`
 }
 
 type giftsGift struct {
-	Date     int         `json:"date,omitempty"`
-	FromID   int         `json:"from_id,omitempty"`
-	Gift     giftsLayout `json:"gift,omitempty"`
-	GiftHash string      `json:"gift_hash,omitempty"`
-	ID       int         `json:"id,omitempty"`
-	Message  string      `json:"message,omitempty"`
-	Privacy  int         `json:"privacy,omitempty"`
+	Date     int         `json:"date"`
+	FromID   int         `json:"from_id"`
+	Gift     giftsLayout `json:"gift"`
+	GiftHash string      `json:"gift_hash"`
+	ID       int         `json:"id"`
+	Message  string      `json:"message"`
+	Privacy  int         `json:"privacy"`
 }
 
 type giftsLayout struct {
-	ID       int    `json:"id,omitempty"`
-	Thumb256 string `json:"thumb_256,omitempty"`
-	Thumb48  string `json:"thumb_48,omitempty"`
-	Thumb96  string `json:"thumb_96,omitempty"`
+	ID       int    `json:"id"`
+	Thumb256 string `json:"thumb_256"`
+	Thumb48  string `json:"thumb_48"`
+	Thumb96  string `json:"thumb_96"`
 }
 
 type groupsGroup struct {
-	AdminLevel  int    `json:"admin_level,omitempty"`
-	Deactivated string `json:"deactivated,omitempty"`
-	ID          int    `json:"id,omitempty"`
-	IsAdmin     int    `json:"is_admin,omitempty"`
-	IsClosed    int    `json:"is_closed,omitempty"`
-	IsMember    int    `json:"is_member,omitempty"`
-	Name        string `json:"name,omitempty"`
-	Photo100    string `json:"photo_100,omitempty"`
-	Photo200    string `json:"photo_200,omitempty"`
-	Photo50     string `json:"photo_50,omitempty"`
-	ScreenName  string `json:"screen_name,omitempty"`
-	Type        string `json:"type,omitempty"`
+	AdminLevel  int    `json:"admin_level"`
+	Deactivated string `json:"deactivated"`
+	ID          int    `json:"id"`
+	IsAdmin     int    `json:"is_admin"`
+	IsClosed    int    `json:"is_closed"`
+	IsMember    int    `json:"is_member"`
+	Name        string `json:"name"`
+	Photo100    string `json:"photo_100"`
+	Photo200    string `json:"photo_200"`
+	Photo50     string `json:"photo_50"`
+	ScreenName  string `json:"screen_name"`
+	Type        string `json:"type"`
 }
 
 // FIXME add "role": "editor", "permissions": ["ads"]...
@@ -99,13 +99,13 @@ type usersUser struct {
 	ID          int        `json:"id"`
 	FirstName   string     `json:"first_name"`
 	LastName    string     `json:"last_name"`
-	Bdate       string     `json:"bdate,omitempty"`
-	PhotoID     string     `json:"photo_id,omitempty"`
-	City        baseObject `json:"city,omitempty"`
-	Online      int        `json:"online,omitempty"`
-	Lists       []int      `json:"lists,omitempty"`
-	Deactivated string     `json:"deactivated,omitempty"`
-	Sex         int        `json:"sex,omitempty"`
+	Bdate       string     `json:"bdate"`
+	PhotoID     string     `json:"photo_id"`
+	City        baseObject `json:"city"`
+	Online      int        `json:"online"`
+	Lists       []int      `json:"lists"`
+	Deactivated string     `json:"deactivated"`
+	Sex         int        `json:"sex"`
 }
 
 type button []messagesKeyboardButton
@@ -121,8 +121,8 @@ type messagesKeyboardButton struct {
 }
 
 type messagesKeyboardButtonAction struct {
-	Label   string `json:"label,omitempty"`
-	Payload string `json:"payload,omitempty"`
+	Label   string `json:"label"`
+	Payload string `json:"payload"`
 	Type    string `json:"type"`
 }
 
@@ -138,47 +138,47 @@ type Callback struct {
 }
 
 type accountLookupResult struct {
-	Found []accountUserXtrContact `json:"found,omitempty"`
-	Other []accountOtherContact   `json:"other,omitempty"`
+	Found []accountUserXtrContact `json:"found"`
+	Other []accountOtherContact   `json:"other"`
 }
 
 type accountOtherContact struct {
-	CommonCount int    `json:"common_count,omitempty"`
-	Contact     string `json:"contact,omitempty"`
+	CommonCount int    `json:"common_count"`
+	Contact     string `json:"contact"`
 }
 
 type accountPushConversations struct {
-	Count int                            `json:"count,omitempty"`
-	Items []accountPushConversationsItem `json:"items,omitempty"`
+	Count int                            `json:"count"`
+	Items []accountPushConversationsItem `json:"items"`
 }
 
 type accountPushConversationsItem struct {
-	DisabledUntil int `json:"disabled_until,omitempty"`
-	PeerID        int `json:"peer_id,omitempty"`
-	Sound         int `json:"sound,omitempty"`
+	DisabledUntil int `json:"disabled_until"`
+	PeerID        int `json:"peer_id"`
+	Sound         int `json:"sound"`
 }
 
 type accountPushParams struct {
-	AppRequest     []string `json:"app_request,omitempty"`
-	Birthday       []string `json:"birthday,omitempty"`
-	Chat           []string `json:"chat,omitempty"`
-	Comment        []string `json:"comment,omitempty"`
-	EventSoon      []string `json:"event_soon,omitempty"`
-	Friend         []string `json:"friend,omitempty"`
-	FriendAccepted []string `json:"friend_accepted,omitempty"`
-	FriendFound    []string `json:"friend_found,omitempty"`
-	GroupAccepted  []string `json:"group_accepted,omitempty"`
-	GroupInvite    []string `json:"group_invite,omitempty"`
-	Like           []string `json:"like,omitempty"`
-	Mention        []string `json:"mention,omitempty"`
-	Msg            []string `json:"msg,omitempty"`
-	NewPost        []string `json:"new_post,omitempty"`
-	PhotosTag      []string `json:"photos_tag,omitempty"`
-	Reply          []string `json:"reply,omitempty"`
-	Repost         []string `json:"repost,omitempty"`
-	SdkOpen        []string `json:"sdk_open,omitempty"`
-	WallPost       []string `json:"wall_post,omitempty"`
-	WallPublish    []string `json:"wall_publish,omitempty"`
+	AppRequest     []string `json:"app_request"`
+	Birthday       []string `json:"birthday"`
+	Chat           []string `json:"chat"`
+	Comment        []string `json:"comment"`
+	EventSoon      []string `json:"event_soon"`
+	Friend         []string `json:"friend"`
+	FriendAccepted []string `json:"friend_accepted"`
+	FriendFound    []string `json:"friend_found"`
+	GroupAccepted  []string `json:"group_accepted"`
+	GroupInvite    []string `json:"group_invite"`
+	Like           []string `json:"like"`
+	Mention        []string `json:"mention"`
+	Msg            []string `json:"msg"`
+	NewPost        []string `json:"new_post"`
+	PhotosTag      []string `json:"photos_tag"`
+	Reply          []string `json:"reply"`
+	Repost         []string `json:"repost"`
+	SdkOpen        []string `json:"sdk_open"`
+	WallPost       []string `json:"wall_post"`
+	WallPublish    []string `json:"wall_publish"`
 }
 
 type accountUserXtrContact struct {
@@ -188,8 +188,8 @@ type accountUserXtrContact struct {
 type adsAccessRole string
 
 type adsAccesses struct {
-	ClientID string        `json:"client_id,omitempty"`
-	Role     adsAccessRole `json:"role,omitempty"`
+	ClientID string        `json:"client_id"`
+	Role     adsAccessRole `json:"role"`
 }
 
 type adsAccount struct {
@@ -204,24 +204,24 @@ type adsAccountType string
 
 //type adsAd struct {
 //	AdFormat              int `json:"ad_format"`
-//	AdPlatform            string `json:"ad_platform,omitempty"`
+//	AdPlatform            string `json:"ad_platform"`
 //	AllLimit              int           `json:"all_limit"`
 //	Approved              adsAdApproved `json:"approved"`
 //	CampaignID            int           `json:"campaign_id"`
-//	Category1ID           int           `json:"category1_id,omitempty"`
-//	Category2ID           int           `json:"category2_id,omitempty"`
+//	Category1ID           int           `json:"category1_id"`
+//	Category2ID           int           `json:"category2_id"`
 //	CostType              adsAdCostType `json:"cost_type"`
-//	Cpc                   int           `json:"cpc,omitempty"`
-//	Cpm                   int           `json:"cpm,omitempty"`
-//	DisclaimerMedical     int   `json:"disclaimer_medical,omitempty"`
-//	DisclaimerSpecialist  int   `json:"disclaimer_specialist,omitempty"`
-//	DisclaimerSupplements int   `json:"disclaimer_supplements,omitempty"`
+//	Cpc                   int           `json:"cpc"`
+//	Cpm                   int           `json:"cpm"`
+//	DisclaimerMedical     int   `json:"disclaimer_medical"`
+//	DisclaimerSpecialist  int   `json:"disclaimer_specialist"`
+//	DisclaimerSupplements int   `json:"disclaimer_supplements"`
 //	ID                    int           `json:"id"`
-//	ImpressionsLimit      int           `json:"impressions_limit,omitempty"`
-//	ImpressionsLimited    int   `json:"impressions_limited,omitempty"`
+//	ImpressionsLimit      int           `json:"impressions_limit"`
+//	ImpressionsLimited    int   `json:"impressions_limited"`
 //	Name                  string        `json:"name"`
 //	Status                adsAdStatus   `json:"status"`
-//	Video                 int   `json:"video,omitempty"`
+//	Video                 int   `json:"video"`
 //}
 
 // Review status
@@ -237,12 +237,12 @@ type adsAdLayout struct {
 	Description string              `json:"description"`
 	ID          int                 `json:"id"`
 	ImageSrc    int                 `json:"image_src"`
-	ImageSrc2x  int                 `json:"image_src_2x,omitempty"`
-	LinkDomain  string              `json:"link_domain,omitempty"`
+	ImageSrc2x  int                 `json:"image_src_2x"`
+	LinkDomain  string              `json:"link_domain"`
 	LinkURL     string              `json:"link_url"`
-	PreviewLink string              `json:"preview_link,omitempty"`
+	PreviewLink string              `json:"preview_link"`
 	Title       string              `json:"title"`
-	Video       int                 `json:"video,omitempty"`
+	Video       int                 `json:"video"`
 }
 
 // Cost type
@@ -271,7 +271,7 @@ type adsCampaignType string
 type adsCategory struct {
 	ID            int                  `json:"id"`
 	Name          string               `json:"name"`
-	Subcategories []baseObjectWithName `json:"subcategories,omitempty"`
+	Subcategories []baseObjectWithName `json:"subcategories"`
 }
 
 type adsClient struct {
@@ -282,55 +282,55 @@ type adsClient struct {
 }
 
 type adsCriteria struct {
-	AgeFrom              int                `json:"age_from,omitempty"`
-	AgeTo                int                `json:"age_to,omitempty"`
-	Apps                 string             `json:"apps,omitempty"`
-	AppsNot              string             `json:"apps_not,omitempty"`
-	Birthday             int                `json:"birthday,omitempty"`
-	Cities               string             `json:"cities,omitempty"`
-	CitiesNot            string             `json:"cities_not,omitempty"`
-	Country              int                `json:"country,omitempty"`
-	Districts            string             `json:"districts,omitempty"`
-	Groups               string             `json:"groups,omitempty"`
-	InterestCategories   string             `json:"interest_categories,omitempty"`
-	Interests            string             `json:"interests,omitempty"`
-	Paying               int                `json:"paying,omitempty"`
-	Positions            string             `json:"positions,omitempty"`
-	Religions            string             `json:"religions,omitempty"`
-	RetargetingGroups    string             `json:"retargeting_groups,omitempty"`
-	RetargetingGroupsNot string             `json:"retargeting_groups_not,omitempty"`
-	SchoolFrom           int                `json:"school_from,omitempty"`
-	SchoolTo             int                `json:"school_to,omitempty"`
-	Schools              string             `json:"schools,omitempty"`
-	Sex                  adsCriteriaSex     `json:"sex,omitempty"`
-	Stations             string             `json:"stations,omitempty"`
-	Statuses             string             `json:"statuses,omitempty"`
-	Streets              string             `json:"streets,omitempty"`
-	Travellers           basePropertyExists `json:"travellers,omitempty"`
-	UniFrom              int                `json:"uni_from,omitempty"`
-	UniTo                int                `json:"uni_to,omitempty"`
-	UserBrowsers         string             `json:"user_browsers,omitempty"`
-	UserDevices          string             `json:"user_devices,omitempty"`
-	UserOs               string             `json:"user_os,omitempty"`
+	AgeFrom              int                `json:"age_from"`
+	AgeTo                int                `json:"age_to"`
+	Apps                 string             `json:"apps"`
+	AppsNot              string             `json:"apps_not"`
+	Birthday             int                `json:"birthday"`
+	Cities               string             `json:"cities"`
+	CitiesNot            string             `json:"cities_not"`
+	Country              int                `json:"country"`
+	Districts            string             `json:"districts"`
+	Groups               string             `json:"groups"`
+	InterestCategories   string             `json:"interest_categories"`
+	Interests            string             `json:"interests"`
+	Paying               int                `json:"paying"`
+	Positions            string             `json:"positions"`
+	Religions            string             `json:"religions"`
+	RetargetingGroups    string             `json:"retargeting_groups"`
+	RetargetingGroupsNot string             `json:"retargeting_groups_not"`
+	SchoolFrom           int                `json:"school_from"`
+	SchoolTo             int                `json:"school_to"`
+	Schools              string             `json:"schools"`
+	Sex                  adsCriteriaSex     `json:"sex"`
+	Stations             string             `json:"stations"`
+	Statuses             string             `json:"statuses"`
+	Streets              string             `json:"streets"`
+	Travellers           basePropertyExists `json:"travellers"`
+	UniFrom              int                `json:"uni_from"`
+	UniTo                int                `json:"uni_to"`
+	UserBrowsers         string             `json:"user_browsers"`
+	UserDevices          string             `json:"user_devices"`
+	UserOs               string             `json:"user_os"`
 }
 
 // Sex
 type adsCriteriaSex int
 
 type adsDemoStats struct {
-	ID    int                `json:"id,omitempty"`
-	Stats adsDemostatsFormat `json:"stats,omitempty"`
-	Type  adsObjectType      `json:"type,omitempty"`
+	ID    int                `json:"id"`
+	Stats adsDemostatsFormat `json:"stats"`
+	Type  adsObjectType      `json:"type"`
 }
 
 type adsDemostatsFormat struct {
-	Age     []adsStatsAge    `json:"age,omitempty"`
-	Cities  []adsStatsCities `json:"cities,omitempty"`
-	Day     string           `json:"day,omitempty"`
-	Month   string           `json:"month,omitempty"`
-	Overall int              `json:"overall,omitempty"`
-	Sex     []adsStatsSex    `json:"sex,omitempty"`
-	SexAge  []adsStatsSexAge `json:"sex_age,omitempty"`
+	Age     []adsStatsAge    `json:"age"`
+	Cities  []adsStatsCities `json:"cities"`
+	Day     string           `json:"day"`
+	Month   string           `json:"month"`
+	Overall int              `json:"overall"`
+	Sex     []adsStatsSex    `json:"sex"`
+	SexAge  []adsStatsSexAge `json:"sex_age"`
 }
 
 type adsFloodStats struct {
@@ -348,66 +348,66 @@ type adsLinkStatus struct {
 type adsObjectType string
 
 type adsParagraphs struct {
-	Paragraph string `json:"paragraph,omitempty"`
+	Paragraph string `json:"paragraph"`
 }
 
 type adsPostStats struct {
 }
 
 type adsRejectReason struct {
-	Comment string     `json:"comment,omitempty"`
-	Rules   []adsRules `json:"rules,omitempty"`
+	Comment string     `json:"comment"`
+	Rules   []adsRules `json:"rules"`
 }
 
 type adsRules struct {
-	Paragraphs []adsParagraphs `json:"paragraphs,omitempty"`
-	Title      string          `json:"title,omitempty"`
+	Paragraphs []adsParagraphs `json:"paragraphs"`
+	Title      string          `json:"title"`
 }
 
 type adsStats struct {
-	ID    int            `json:"id,omitempty"`
-	Stats adsStatsFormat `json:"stats,omitempty"`
-	Type  adsObjectType  `json:"type,omitempty"`
+	ID    int            `json:"id"`
+	Stats adsStatsFormat `json:"stats"`
+	Type  adsObjectType  `json:"type"`
 }
 
 type adsStatsAge struct {
-	ClicksRate      float64 `json:"clicks_rate,omitempty"`
-	ImpressionsRate float64 `json:"impressions_rate,omitempty"`
-	Value           string  `json:"value,omitempty"`
+	ClicksRate      float64 `json:"clicks_rate"`
+	ImpressionsRate float64 `json:"impressions_rate"`
+	Value           string  `json:"value"`
 }
 
 type adsStatsCities struct {
-	ClicksRate      float64 `json:"clicks_rate,omitempty"`
-	ImpressionsRate float64 `json:"impressions_rate,omitempty"`
-	Name            string  `json:"name,omitempty"`
-	Value           int     `json:"value,omitempty"`
+	ClicksRate      float64 `json:"clicks_rate"`
+	ImpressionsRate float64 `json:"impressions_rate"`
+	Name            string  `json:"name"`
+	Value           int     `json:"value"`
 }
 
 type adsStatsFormat struct {
-	Clicks          int    `json:"clicks,omitempty"`
-	Day             string `json:"day,omitempty"`
-	Impressions     int    `json:"impressions,omitempty"`
-	JoinRate        int    `json:"join_rate,omitempty"`
-	Month           string `json:"month,omitempty"`
-	Overall         int    `json:"overall,omitempty"`
-	Reach           int    `json:"reach,omitempty"`
-	Spent           int    `json:"spent,omitempty"`
-	VideoClicksSite int    `json:"video_clicks_site,omitempty"`
-	VideoViews      int    `json:"video_views,omitempty"`
-	VideoViewsFull  int    `json:"video_views_full,omitempty"`
-	VideoViewsHalf  int    `json:"video_views_half,omitempty"`
+	Clicks          int    `json:"clicks"`
+	Day             string `json:"day"`
+	Impressions     int    `json:"impressions"`
+	JoinRate        int    `json:"join_rate"`
+	Month           string `json:"month"`
+	Overall         int    `json:"overall"`
+	Reach           int    `json:"reach"`
+	Spent           int    `json:"spent"`
+	VideoClicksSite int    `json:"video_clicks_site"`
+	VideoViews      int    `json:"video_views"`
+	VideoViewsFull  int    `json:"video_views_full"`
+	VideoViewsHalf  int    `json:"video_views_half"`
 }
 
 type adsStatsSex struct {
-	ClicksRate      float64          `json:"clicks_rate,omitempty"`
-	ImpressionsRate float64          `json:"impressions_rate,omitempty"`
-	Value           adsStatsSexValue `json:"value,omitempty"`
+	ClicksRate      float64          `json:"clicks_rate"`
+	ImpressionsRate float64          `json:"impressions_rate"`
+	Value           adsStatsSexValue `json:"value"`
 }
 
 type adsStatsSexAge struct {
-	ClicksRate      float64 `json:"clicks_rate,omitempty"`
-	ImpressionsRate float64 `json:"impressions_rate,omitempty"`
-	Value           string  `json:"value,omitempty"`
+	ClicksRate      float64 `json:"clicks_rate"`
+	ImpressionsRate float64 `json:"impressions_rate"`
+	Value           string  `json:"value"`
 }
 
 // Sex
@@ -418,45 +418,45 @@ type adsTargSettings struct {
 
 type adsTargStats struct {
 	AudienceCount  int     `json:"audience_count"`
-	RecommendedCpc float64 `json:"recommended_cpc,omitempty"`
-	RecommendedCpm float64 `json:"recommended_cpm,omitempty"`
+	RecommendedCpc float64 `json:"recommended_cpc"`
+	RecommendedCpm float64 `json:"recommended_cpm"`
 }
 
 type adsTargSuggestions struct {
-	ID   int    `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	ID   int    `json:"id"`
+	Name string `json:"name"`
 }
 
 type adsTargSuggestionsCities struct {
-	ID     int    `json:"id,omitempty"`
-	Name   string `json:"name,omitempty"`
-	Parent string `json:"parent,omitempty"`
+	ID     int    `json:"id"`
+	Name   string `json:"name"`
+	Parent string `json:"parent"`
 }
 
 type adsTargSuggestionsRegions struct {
-	ID   int    `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Type string `json:"type,omitempty"`
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+	Type string `json:"type"`
 }
 
 type adsTargSuggestionsSchools struct {
-	Desc   string                        `json:"desc,omitempty"`
-	ID     int                           `json:"id,omitempty"`
-	Name   string                        `json:"name,omitempty"`
-	Parent string                        `json:"parent,omitempty"`
-	Type   adsTargSuggestionsSchoolsType `json:"type,omitempty"`
+	Desc   string                        `json:"desc"`
+	ID     int                           `json:"id"`
+	Name   string                        `json:"name"`
+	Parent string                        `json:"parent"`
+	Type   adsTargSuggestionsSchoolsType `json:"type"`
 }
 
 // School type
 type adsTargSuggestionsSchoolsType string
 
 type adsTargetGroup struct {
-	AudienceCount int    `json:"audience_count,omitempty"`
-	Domain        string `json:"domain,omitempty"`
-	ID            int    `json:"id,omitempty"`
-	Lifetime      int    `json:"lifetime,omitempty"`
-	Name          string `json:"name,omitempty"`
-	Pixel         string `json:"pixel,omitempty"`
+	AudienceCount int    `json:"audience_count"`
+	Domain        string `json:"domain"`
+	ID            int    `json:"id"`
+	Lifetime      int    `json:"lifetime"`
+	Name          string `json:"name"`
+	Pixel         string `json:"pixel"`
 }
 
 type adsUsers struct {
@@ -465,29 +465,29 @@ type adsUsers struct {
 }
 
 type appsApp struct {
-	AuthorGroup     int                    `json:"author_group,omitempty"`
-	AuthorID        int                    `json:"author_id,omitempty"`
-	AuthorURL       string                 `json:"author_url,omitempty"`
-	Banner1120      string                 `json:"banner_1120,omitempty"`
-	Banner560       string                 `json:"banner_560,omitempty"`
-	CatalogPosition int                    `json:"catalog_position,omitempty"`
-	Description     string                 `json:"description,omitempty"`
-	Genre           string                 `json:"genre,omitempty"`
-	GenreID         int                    `json:"genre_id,omitempty"`
+	AuthorGroup     int                    `json:"author_group"`
+	AuthorID        int                    `json:"author_id"`
+	AuthorURL       string                 `json:"author_url"`
+	Banner1120      string                 `json:"banner_1120"`
+	Banner560       string                 `json:"banner_560"`
+	CatalogPosition int                    `json:"catalog_position"`
+	Description     string                 `json:"description"`
+	Genre           string                 `json:"genre"`
+	GenreID         int                    `json:"genre_id"`
 	ID              int                    `json:"id"`
-	Icon139         string                 `json:"icon_139,omitempty"`
-	Icon150         string                 `json:"icon_150,omitempty"`
-	Icon278         string                 `json:"icon_278,omitempty"`
-	Icon75          string                 `json:"icon_75,omitempty"`
-	International   int                    `json:"international,omitempty"`
-	IsInCatalog     int                    `json:"is_in_catalog,omitempty"`
-	LeaderboardType appsAppLeaderboardType `json:"leaderboard_type,omitempty"`
-	MembersCount    int                    `json:"members_count,omitempty"`
-	PlatformID      int                    `json:"platform_id,omitempty"`
-	PublishedDate   int                    `json:"published_date,omitempty"`
-	ScreenName      string                 `json:"screen_name,omitempty"`
-	Screenshots     []photosPhoto          `json:"screenshots,omitempty"`
-	Section         string                 `json:"section,omitempty"`
+	Icon139         string                 `json:"icon_139"`
+	Icon150         string                 `json:"icon_150"`
+	Icon278         string                 `json:"icon_278"`
+	Icon75          string                 `json:"icon_75"`
+	International   int                    `json:"international"`
+	IsInCatalog     int                    `json:"is_in_catalog"`
+	LeaderboardType appsAppLeaderboardType `json:"leaderboard_type"`
+	MembersCount    int                    `json:"members_count"`
+	PlatformID      int                    `json:"platform_id"`
+	PublishedDate   int                    `json:"published_date"`
+	ScreenName      string                 `json:"screen_name"`
+	Screenshots     []photosPhoto          `json:"screenshots"`
+	Section         string                 `json:"section"`
 	Title           string                 `json:"title"`
 	Type            appsAppType            `json:"type"`
 }
@@ -499,26 +499,26 @@ type appsAppLeaderboardType int
 type appsAppType string
 
 type appsLeaderboard struct {
-	Level  int `json:"level,omitempty"`
-	Points int `json:"points,omitempty"`
-	Score  int `json:"score,omitempty"`
+	Level  int `json:"level"`
+	Points int `json:"points"`
+	Score  int `json:"score"`
 	UserID int `json:"user_id"`
 }
 
 type audioAudio struct {
-	AccessKey string `json:"access_key,omitempty"`
+	AccessKey string `json:"access_key"`
 	Artist    string `json:"artist"`
 	ID        int    `json:"id"`
 	OwnerID   int    `json:"owner_id"`
 	Title     string `json:"title"`
-	URL       string `json:"url,omitempty"`
+	URL       string `json:"url"`
 }
 
 type audioAudioUploadResponse struct {
-	Audio    string `json:"audio,omitempty"`
-	Hash     string `json:"hash,omitempty"`
-	Redirect string `json:"redirect,omitempty"`
-	Server   int    `json:"server,omitempty"`
+	Audio    string `json:"audio"`
+	Hash     string `json:"hash"`
+	Redirect string `json:"redirect"`
+	Server   int    `json:"server"`
 }
 
 type audioLyrics struct {
@@ -532,9 +532,9 @@ type baseCity struct {
 }
 
 type baseCommentsInfo struct {
-	CanPost       int `json:"can_post,omitempty"`
-	Count         int `json:"count,omitempty"`
-	GroupsCanPost int `json:"groups_can_post,omitempty"`
+	CanPost       int `json:"can_post"`
+	Count         int `json:"count"`
+	GroupsCanPost int `json:"groups_can_post"`
 }
 
 type baseCountry struct {
@@ -543,16 +543,16 @@ type baseCountry struct {
 }
 
 type baseError struct {
-	ErrorCode     int                `json:"error_code,omitempty"`
-	ErrorMsg      string             `json:"error_msg,omitempty"`
-	RequestParams []baseRequestParam `json:"request_params,omitempty"`
+	ErrorCode     int                `json:"error_code"`
+	ErrorMsg      string             `json:"error_msg"`
+	RequestParams []baseRequestParam `json:"request_params"`
 }
 
 type baseGeo struct {
-	Coordinates baseGeoCoordinates `json:"coordinates,omitempty"`
-	Place       basePlace          `json:"place,omitempty"`
-	Showmap     int                `json:"showmap,omitempty"`
-	Type        string             `json:"type,omitempty"`
+	Coordinates baseGeoCoordinates `json:"coordinates"`
+	Place       basePlace          `json:"place"`
+	Showmap     int                `json:"showmap"`
+	Type        string             `json:"type"`
 }
 
 type baseGeoCoordinates struct {
@@ -567,94 +567,94 @@ type baseImage struct {
 }
 
 type baseLikes struct {
-	Count     int `json:"count,omitempty"`
-	UserLikes int `json:"user_likes,omitempty"`
+	Count     int `json:"count"`
+	UserLikes int `json:"user_likes"`
 }
 
 type baseLikesInfo struct {
 	CanLike    int `json:"can_like"`
-	CanPublish int `json:"can_publish,omitempty"`
+	CanPublish int `json:"can_publish"`
 	Count      int `json:"count"`
 	UserLikes  int `json:"user_likes"`
 }
 
 type baseLink struct {
-	Application baseLinkApplication `json:"application,omitempty"`
-	Button      baseLinkButton      `json:"button,omitempty"`
-	Caption     string              `json:"caption,omitempty"`
-	Description string              `json:"description,omitempty"`
-	Photo       photosPhoto         `json:"photo,omitempty"`
-	PreviewPage string              `json:"preview_page,omitempty"`
-	PreviewURL  string              `json:"preview_url,omitempty"`
-	Product     baseLinkProduct     `json:"product,omitempty"`
-	Rating      baseLinkRating      `json:"rating,omitempty"`
-	Title       string              `json:"title,omitempty"`
+	Application baseLinkApplication `json:"application"`
+	Button      baseLinkButton      `json:"button"`
+	Caption     string              `json:"caption"`
+	Description string              `json:"description"`
+	Photo       photosPhoto         `json:"photo"`
+	PreviewPage string              `json:"preview_page"`
+	PreviewURL  string              `json:"preview_url"`
+	Product     baseLinkProduct     `json:"product"`
+	Rating      baseLinkRating      `json:"rating"`
+	Title       string              `json:"title"`
 	URL         string              `json:"url"`
 }
 
 type baseLinkApplication struct {
-	AppID float64                  `json:"app_id,omitempty"`
-	Store baseLinkApplicationStore `json:"store,omitempty"`
+	AppID float64                  `json:"app_id"`
+	Store baseLinkApplicationStore `json:"store"`
 }
 
 type baseLinkApplicationStore struct {
-	ID   float64 `json:"id,omitempty"`
-	Name string  `json:"name,omitempty"`
+	ID   float64 `json:"id"`
+	Name string  `json:"name"`
 }
 
 type baseLinkButton struct {
-	Action baseLinkButtonAction `json:"action,omitempty"`
-	Title  string               `json:"title,omitempty"`
+	Action baseLinkButtonAction `json:"action"`
+	Title  string               `json:"title"`
 }
 
 type baseLinkButtonAction struct {
-	Type baseLinkButtonActionType `json:"type,omitempty"`
-	URL  string                   `json:"url,omitempty"`
+	Type baseLinkButtonActionType `json:"type"`
+	URL  string                   `json:"url"`
 }
 
 // Action type
 type baseLinkButtonActionType string
 
 type baseLinkProduct struct {
-	Price marketPrice `json:"price,omitempty"`
+	Price marketPrice `json:"price"`
 }
 
 type baseLinkRating struct {
-	ReviewsCount int     `json:"reviews_count,omitempty"`
-	Stars        float64 `json:"stars,omitempty"`
+	ReviewsCount int     `json:"reviews_count"`
+	Stars        float64 `json:"stars"`
 }
 
 // Returns 1 if request has been processed successfully
 type baseOkResponse int
 
 type basePlace struct {
-	Address   string  `json:"address,omitempty"`
-	Checkins  int     `json:"checkins,omitempty"`
-	City      string  `json:"city,omitempty"`
-	Country   string  `json:"country,omitempty"`
-	Created   int     `json:"created,omitempty"`
-	ID        int     `json:"id,omitempty"`
-	Icon      string  `json:"icon,omitempty"`
-	Latitude  float64 `json:"latitude,omitempty"`
-	Longitude float64 `json:"longitude,omitempty"`
-	Title     string  `json:"title,omitempty"`
-	Type      string  `json:"type,omitempty"`
+	Address   string  `json:"address"`
+	Checkins  int     `json:"checkins"`
+	City      string  `json:"city"`
+	Country   string  `json:"country"`
+	Created   int     `json:"created"`
+	ID        int     `json:"id"`
+	Icon      string  `json:"icon"`
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
+	Title     string  `json:"title"`
+	Type      string  `json:"type"`
 }
 
 type basePropertyExists int
 
 type baseRepostsInfo struct {
-	Count        int `json:"count,omitempty"`
-	UserReposted int `json:"user_reposted,omitempty"`
+	Count        int `json:"count"`
+	UserReposted int `json:"user_reposted"`
 }
 
 type baseSex int
 
 type baseSticker struct {
-	Images               []baseImage `json:"images,omitempty"`
-	ImagesWithBackground []baseImage `json:"images_with_background,omitempty"`
-	ProductID            int         `json:"product_id,omitempty"`
-	StickerID            int         `json:"sticker_id,omitempty"`
+	Images               []baseImage `json:"images"`
+	ImagesWithBackground []baseImage `json:"images_with_background"`
+	ProductID            int         `json:"product_id"`
+	StickerID            int         `json:"sticker_id"`
 }
 
 type baseUploadServer struct {
@@ -662,30 +662,30 @@ type baseUploadServer struct {
 }
 
 type baseUserID struct {
-	UserID int `json:"user_id,omitempty"`
+	UserID int `json:"user_id"`
 }
 
 // Sort type
 type boardDefaultOrder int
 
 type boardTopic struct {
-	Comments  int    `json:"comments,omitempty"`
-	Created   int    `json:"created,omitempty"`
-	CreatedBy int    `json:"created_by,omitempty"`
-	ID        int    `json:"id,omitempty"`
-	IsClosed  int    `json:"is_closed,omitempty"`
-	IsFixed   int    `json:"is_fixed,omitempty"`
-	Title     string `json:"title,omitempty"`
-	Updated   int    `json:"updated,omitempty"`
-	UpdatedBy int    `json:"updated_by,omitempty"`
+	Comments  int    `json:"comments"`
+	Created   int    `json:"created"`
+	CreatedBy int    `json:"created_by"`
+	ID        int    `json:"id"`
+	IsClosed  int    `json:"is_closed"`
+	IsFixed   int    `json:"is_fixed"`
+	Title     string `json:"title"`
+	Updated   int    `json:"updated"`
+	UpdatedBy int    `json:"updated_by"`
 }
 
 type boardTopicComment struct {
-	Attachments []wallCommentAttachment `json:"attachments,omitempty"`
+	Attachments []wallCommentAttachment `json:"attachments"`
 	Date        int                     `json:"date"`
 	FromID      int                     `json:"from_id"`
 	ID          int                     `json:"id"`
-	RealOffset  int                     `json:"real_offset,omitempty"`
+	RealOffset  int                     `json:"real_offset"`
 	Text        string                  `json:"text"`
 }
 
@@ -693,7 +693,7 @@ type boardTopicPoll struct {
 	AnswerID int           `json:"answer_id"`
 	Answers  []pollsAnswer `json:"answers"`
 	Created  int           `json:"created"`
-	IsClosed int           `json:"is_closed,omitempty"`
+	IsClosed int           `json:"is_closed"`
 	OwnerID  int           `json:"owner_id"`
 	PollID   int           `json:"poll_id"`
 	Question string        `json:"question"`
@@ -707,45 +707,45 @@ type databaseCity struct {
 }
 
 type databaseFaculty struct {
-	ID    int    `json:"id,omitempty"`
-	Title string `json:"title,omitempty"`
+	ID    int    `json:"id"`
+	Title string `json:"title"`
 }
 
 type databaseRegion struct {
-	ID    int    `json:"id,omitempty"`
-	Title string `json:"title,omitempty"`
+	ID    int    `json:"id"`
+	Title string `json:"title"`
 }
 
 type databaseSchool struct {
-	ID    int    `json:"id,omitempty"`
-	Title string `json:"title,omitempty"`
+	ID    int    `json:"id"`
+	Title string `json:"title"`
 }
 
 type databaseUniversity struct {
-	ID    int    `json:"id,omitempty"`
-	Title string `json:"title,omitempty"`
+	ID    int    `json:"id"`
+	Title string `json:"title"`
 }
 
 type docsDoc struct {
-	AccessKey string         `json:"access_key,omitempty"`
+	AccessKey string         `json:"access_key"`
 	Date      int            `json:"date"`
 	Ext       string         `json:"ext"`
 	ID        int            `json:"id"`
 	OwnerID   int            `json:"owner_id"`
-	Preview   docsDocPreview `json:"preview,omitempty"`
+	Preview   docsDocPreview `json:"preview"`
 	Size      int            `json:"size"`
 	Title     string         `json:"title"`
 	Type      int            `json:"type"`
-	URL       string         `json:"url,omitempty"`
+	URL       string         `json:"url"`
 }
 
 type docsDocPreview struct {
-	Photo docsDocPreviewPhoto `json:"photo,omitempty"`
-	Video docsDocPreviewVideo `json:"video,omitempty"`
+	Photo docsDocPreviewPhoto `json:"photo"`
+	Video docsDocPreviewVideo `json:"video"`
 }
 
 type docsDocPreviewPhoto struct {
-	Sizes []photosPhotoSizes `json:"sizes,omitempty"`
+	Sizes []photosPhotoSizes `json:"sizes"`
 }
 
 type docsDocPreviewVideo struct {
@@ -756,30 +756,30 @@ type docsDocPreviewVideo struct {
 }
 
 type docsDocTypes struct {
-	Count int    `json:"count,omitempty"`
-	ID    int    `json:"id,omitempty"`
-	Title string `json:"title,omitempty"`
+	Count int    `json:"count"`
+	ID    int    `json:"id"`
+	Title string `json:"title"`
 }
 
 type docsDocUploadResponse struct {
-	File string `json:"file,omitempty"`
+	File string `json:"file"`
 }
 
 type faveFavesLink struct {
-	Description string `json:"description,omitempty"`
-	ID          int    `json:"id,omitempty"`
-	Photo100    string `json:"photo_100,omitempty"`
-	Photo200    string `json:"photo_200,omitempty"`
-	Photo50     string `json:"photo_50,omitempty"`
-	Title       string `json:"title,omitempty"`
-	URL         string `json:"url,omitempty"`
+	Description string `json:"description"`
+	ID          int    `json:"id"`
+	Photo100    string `json:"photo_100"`
+	Photo200    string `json:"photo_200"`
+	Photo50     string `json:"photo_50"`
+	Title       string `json:"title"`
+	URL         string `json:"url"`
 }
 
 type friendsFriendStatus struct {
 	FriendStatus   friendsFriendStatusStatus `json:"friend_status"`
-	ReadState      int                       `json:"read_state,omitempty"`
-	RequestMessage string                    `json:"request_message,omitempty"`
-	Sign           string                    `json:"sign,omitempty"`
+	ReadState      int                       `json:"read_state"`
+	RequestMessage string                    `json:"request_message"`
+	Sign           string                    `json:"sign"`
 	UserID         int                       `json:"user_id"`
 }
 
@@ -792,30 +792,30 @@ type friendsFriendsList struct {
 }
 
 type friendsMutualFriend struct {
-	CommonCount   int            `json:"common_count,omitempty"`
-	CommonFriends []commonFriend `json:"common_friends,omitempty"`
-	ID            int            `json:"id,omitempty"`
+	CommonCount   int            `json:"common_count"`
+	CommonFriends []commonFriend `json:"common_friends"`
+	ID            int            `json:"id"`
 }
 
 type friendsRequests struct {
-	From   string                `json:"from,omitempty"`
-	Mutual friendsRequestsMutual `json:"mutual,omitempty"`
-	UserID int                   `json:"user_id,omitempty"`
+	From   string                `json:"from"`
+	Mutual friendsRequestsMutual `json:"mutual"`
+	UserID int                   `json:"user_id"`
 }
 
 type friendsRequestsMutual struct {
-	Count int                         `json:"count,omitempty"`
-	Users []friendsRequestsMutualUser `json:"users,omitempty"`
+	Count int                         `json:"count"`
+	Users []friendsRequestsMutualUser `json:"users"`
 }
 
 // User ID
 type friendsRequestsMutualUser int
 
 type friendsRequestsXtrMessage struct {
-	From    string                `json:"from,omitempty"`
-	Message string                `json:"message,omitempty"`
-	Mutual  friendsRequestsMutual `json:"mutual,omitempty"`
-	UserID  int                   `json:"user_id,omitempty"`
+	From    string                `json:"from"`
+	Message string                `json:"message"`
+	Mutual  friendsRequestsMutual `json:"mutual"`
+	UserID  int                   `json:"user_id"`
 }
 
 type friendsUserXtrLists struct {
@@ -825,52 +825,52 @@ type friendsUserXtrPhone struct {
 }
 
 type groupsBanInfo struct {
-	AdminID int                 `json:"admin_id,omitempty"`
-	Comment string              `json:"comment,omitempty"`
-	Date    int                 `json:"date,omitempty"`
-	EndDate int                 `json:"end_date,omitempty"`
-	Reason  groupsBanInfoReason `json:"reason,omitempty"`
+	AdminID int                 `json:"admin_id"`
+	Comment string              `json:"comment"`
+	Date    int                 `json:"date"`
+	EndDate int                 `json:"end_date"`
+	Reason  groupsBanInfoReason `json:"reason"`
 }
 
 // Ban reason
 type groupsBanInfoReason int
 
 type groupsCallbackSettings struct {
-	APIVersion string               `json:"api_version,omitempty"`
-	Events     groupsLongPollEvents `json:"events,omitempty"`
+	APIVersion string               `json:"api_version"`
+	Events     groupsLongPollEvents `json:"events"`
 }
 
 type groupsContactsItem struct {
-	Desc   string `json:"desc,omitempty"`
-	Email  string `json:"email,omitempty"`
-	Phone  string `json:"phone,omitempty"`
-	UserID int    `json:"user_id,omitempty"`
+	Desc   string `json:"desc"`
+	Email  string `json:"email"`
+	Phone  string `json:"phone"`
+	UserID int    `json:"user_id"`
 }
 
 type groupsCountersGroup struct {
-	Albums int `json:"albums,omitempty"`
-	Audios int `json:"audios,omitempty"`
-	Docs   int `json:"docs,omitempty"`
-	Market int `json:"market,omitempty"`
-	Photos int `json:"photos,omitempty"`
-	Topics int `json:"topics,omitempty"`
-	Videos int `json:"videos,omitempty"`
+	Albums int `json:"albums"`
+	Audios int `json:"audios"`
+	Docs   int `json:"docs"`
+	Market int `json:"market"`
+	Photos int `json:"photos"`
+	Topics int `json:"topics"`
+	Videos int `json:"videos"`
 }
 
 type groupsCover struct {
 	Enabled int         `json:"enabled"`
-	Images  []baseImage `json:"images,omitempty"`
+	Images  []baseImage `json:"images"`
 }
 
 type groupsGroupBanInfo struct {
-	Comment string `json:"comment,omitempty"`
-	EndDate int    `json:"end_date,omitempty"`
+	Comment string `json:"comment"`
+	EndDate int    `json:"end_date"`
 }
 
 type groupsGroupCategory struct {
 	ID            int                  `json:"id"`
 	Name          string               `json:"name"`
-	Subcategories []baseObjectWithName `json:"subcategories,omitempty"`
+	Subcategories []baseObjectWithName `json:"subcategories"`
 }
 
 type groupsGroupCategoryFull struct {
@@ -878,69 +878,69 @@ type groupsGroupCategoryFull struct {
 	Name          string                `json:"name"`
 	PageCount     int                   `json:"page_count"`
 	PagePreviews  []groupsGroup         `json:"page_previews"`
-	Subcategories []groupsGroupCategory `json:"subcategories,omitempty"`
+	Subcategories []groupsGroupCategory `json:"subcategories"`
 }
 
 type groupsGroupCategoryType struct {
-	ID   int    `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	ID   int    `json:"id"`
+	Name string `json:"name"`
 }
 
 type groupsGroupFull struct {
 }
 
 type groupsGroupLink struct {
-	Desc            string `json:"desc,omitempty"`
-	EditTitle       int    `json:"edit_title,omitempty"`
-	ID              int    `json:"id,omitempty"`
-	ImageProcessing int    `json:"image_processing,omitempty"`
-	URL             string `json:"url,omitempty"`
+	Desc            string `json:"desc"`
+	EditTitle       int    `json:"edit_title"`
+	ID              int    `json:"id"`
+	ImageProcessing int    `json:"image_processing"`
+	URL             string `json:"url"`
 }
 
 type groupsGroupPublicCategoryList struct {
-	ID           int                       `json:"id,omitempty"`
-	Name         string                    `json:"name,omitempty"`
-	SubtypesList []groupsGroupCategoryType `json:"subtypes_list,omitempty"`
+	ID           int                       `json:"id"`
+	Name         string                    `json:"name"`
+	SubtypesList []groupsGroupCategoryType `json:"subtypes_list"`
 }
 
 type groupsGroupSettings struct {
-	Access             int                             `json:"access,omitempty"`
-	Address            string                          `json:"address,omitempty"`
-	Audio              int                             `json:"audio,omitempty"`
-	Description        string                          `json:"description,omitempty"`
-	Docs               int                             `json:"docs,omitempty"`
-	ObsceneFilter      int                             `json:"obscene_filter,omitempty"`
-	ObsceneStopwords   int                             `json:"obscene_stopwords,omitempty"`
-	ObsceneWords       string                          `json:"obscene_words,omitempty"`
-	Photos             int                             `json:"photos,omitempty"`
-	Place              placesPlaceMin                  `json:"place,omitempty"`
-	PublicCategory     int                             `json:"public_category,omitempty"`
-	PublicCategoryList []groupsGroupPublicCategoryList `json:"public_category_list,omitempty"`
-	PublicSubcategory  int                             `json:"public_subcategory,omitempty"`
-	Rss                string                          `json:"rss,omitempty"`
-	Subject            int                             `json:"subject,omitempty"`
-	SubjectList        []groupsSubjectItem             `json:"subject_list,omitempty"`
-	Title              string                          `json:"title,omitempty"`
-	Topics             int                             `json:"topics,omitempty"`
-	Video              int                             `json:"video,omitempty"`
-	Wall               int                             `json:"wall,omitempty"`
-	Website            string                          `json:"website,omitempty"`
-	Wiki               int                             `json:"wiki,omitempty"`
+	Access             int                             `json:"access"`
+	Address            string                          `json:"address"`
+	Audio              int                             `json:"audio"`
+	Description        string                          `json:"description"`
+	Docs               int                             `json:"docs"`
+	ObsceneFilter      int                             `json:"obscene_filter"`
+	ObsceneStopwords   int                             `json:"obscene_stopwords"`
+	ObsceneWords       string                          `json:"obscene_words"`
+	Photos             int                             `json:"photos"`
+	Place              placesPlaceMin                  `json:"place"`
+	PublicCategory     int                             `json:"public_category"`
+	PublicCategoryList []groupsGroupPublicCategoryList `json:"public_category_list"`
+	PublicSubcategory  int                             `json:"public_subcategory"`
+	Rss                string                          `json:"rss"`
+	Subject            int                             `json:"subject"`
+	SubjectList        []groupsSubjectItem             `json:"subject_list"`
+	Title              string                          `json:"title"`
+	Topics             int                             `json:"topics"`
+	Video              int                             `json:"video"`
+	Wall               int                             `json:"wall"`
+	Website            string                          `json:"website"`
+	Wiki               int                             `json:"wiki"`
 }
 
 type groupsGroupXtrInvitedBy struct {
-	AdminLevel groupsGroupXtrInvitedByAdminLevel `json:"admin_level,omitempty"`
-	ID         string                            `json:"id,omitempty"`
-	InvitedBy  int                               `json:"invited_by,omitempty"`
-	IsAdmin    int                               `json:"is_admin,omitempty"`
-	IsClosed   int                               `json:"is_closed,omitempty"`
-	IsMember   int                               `json:"is_member,omitempty"`
-	Name       string                            `json:"name,omitempty"`
-	Photo100   string                            `json:"photo_100,omitempty"`
-	Photo200   string                            `json:"photo_200,omitempty"`
-	Photo50    string                            `json:"photo_50,omitempty"`
-	ScreenName string                            `json:"screen_name,omitempty"`
-	Type       groupsGroupXtrInvitedByType       `json:"type,omitempty"`
+	AdminLevel groupsGroupXtrInvitedByAdminLevel `json:"admin_level"`
+	ID         string                            `json:"id"`
+	InvitedBy  int                               `json:"invited_by"`
+	IsAdmin    int                               `json:"is_admin"`
+	IsClosed   int                               `json:"is_closed"`
+	IsMember   int                               `json:"is_member"`
+	Name       string                            `json:"name"`
+	Photo100   string                            `json:"photo_100"`
+	Photo200   string                            `json:"photo_200"`
+	Photo50    string                            `json:"photo_50"`
+	ScreenName string                            `json:"screen_name"`
+	Type       groupsGroupXtrInvitedByType       `json:"type"`
 }
 
 // Level of current user's credentials as manager
@@ -958,13 +958,13 @@ type groupsGroupsArray struct {
 type groupsGroupsArrayItem int
 
 type groupsLinksItem struct {
-	Desc      string `json:"desc,omitempty"`
-	EditTitle int    `json:"edit_title,omitempty"`
-	ID        int    `json:"id,omitempty"`
-	Name      string `json:"name,omitempty"`
-	Photo100  string `json:"photo_100,omitempty"`
-	Photo50   string `json:"photo_50,omitempty"`
-	URL       string `json:"url,omitempty"`
+	Desc      string `json:"desc"`
+	EditTitle int    `json:"edit_title"`
+	ID        int    `json:"id"`
+	Name      string `json:"name"`
+	Photo100  string `json:"photo_100"`
+	Photo50   string `json:"photo_50"`
+	URL       string `json:"url"`
 }
 
 type groupsLongPollEvents struct {
@@ -978,7 +978,7 @@ type groupsLongPollEvents struct {
 	GroupJoin            int `json:"group_join"`
 	GroupLeave           int `json:"group_leave"`
 	GroupOfficersEdit    int `json:"group_officers_edit"`
-	LeadFormsNew         int `json:"lead_forms_new,omitempty"`
+	LeadFormsNew         int `json:"lead_forms_new"`
 	MarketCommentDelete  int `json:"market_comment_delete"`
 	MarketCommentEdit    int `json:"market_comment_edit"`
 	MarketCommentNew     int `json:"market_comment_new"`
@@ -1017,24 +1017,24 @@ type groupsLongPollServer struct {
 }
 
 type groupsLongPollSettings struct {
-	APIVersion string               `json:"api_version,omitempty"`
+	APIVersion string               `json:"api_version"`
 	Events     groupsLongPollEvents `json:"events"`
 	IsEnabled  bool                 `json:"is_enabled"`
 }
 
 type groupsMarketInfo struct {
-	ContactID    int            `json:"contact_id,omitempty"`
-	Currency     marketCurrency `json:"currency,omitempty"`
-	CurrencyText string         `json:"currency_text,omitempty"`
-	Enabled      int            `json:"enabled,omitempty"`
-	MainAlbumID  int            `json:"main_album_id,omitempty"`
-	PriceMax     int            `json:"price_max,omitempty"`
-	PriceMin     int            `json:"price_min,omitempty"`
+	ContactID    int            `json:"contact_id"`
+	Currency     marketCurrency `json:"currency"`
+	CurrencyText string         `json:"currency_text"`
+	Enabled      int            `json:"enabled"`
+	MainAlbumID  int            `json:"main_album_id"`
+	PriceMax     int            `json:"price_max"`
+	PriceMin     int            `json:"price_min"`
 }
 
 type groupsMemberRole struct {
-	ID   int                    `json:"id,omitempty"`
-	Role groupsMemberRoleStatus `json:"role,omitempty"`
+	ID   int                    `json:"id"`
+	Role groupsMemberRoleStatus `json:"role"`
 }
 
 // User's credentials as community admin
@@ -1046,15 +1046,15 @@ type groupsMemberStatus struct {
 }
 
 type groupsMemberStatusFull struct {
-	Invitation int `json:"invitation,omitempty"`
+	Invitation int `json:"invitation"`
 	Member     int `json:"member"`
-	Request    int `json:"request,omitempty"`
+	Request    int `json:"request"`
 	UserID     int `json:"user_id"`
 }
 
 // Online status of group
 type groupsOnlineStatus struct {
-	Minutes int                    `json:"minutes,omitempty"`
+	Minutes int                    `json:"minutes"`
 	Status  groupsOnlineStatusType `json:"status"`
 }
 
@@ -1062,10 +1062,10 @@ type groupsOnlineStatus struct {
 type groupsOnlineStatusType string
 
 type groupsOwnerXtrBanInfo struct {
-	BanInfo groupsBanInfo             `json:"ban_info,omitempty"`
-	Group   groupsGroup               `json:"group,omitempty"`
-	Profile usersUser                 `json:"profile,omitempty"`
-	Type    groupsOwnerXtrBanInfoType `json:"type,omitempty"`
+	BanInfo groupsBanInfo             `json:"ban_info"`
+	Group   groupsGroup               `json:"group"`
+	Profile usersUser                 `json:"profile"`
+	Type    groupsOwnerXtrBanInfoType `json:"type"`
 }
 
 // Owner type
@@ -1075,8 +1075,8 @@ type groupsOwnerXtrBanInfoType string
 type groupsRoleOptions string
 
 type groupsSubjectItem struct {
-	ID   int    `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	ID   int    `json:"id"`
+	Name string `json:"name"`
 }
 
 type groupsTokenPermissionSetting struct {
@@ -1086,7 +1086,7 @@ type groupsTokenPermissionSetting struct {
 
 type groupsTokenPermissions struct {
 	Mask        int                            `json:"mask"`
-	Permissions []groupsTokenPermissionSetting `json:"permissions,omitempty"`
+	Permissions []groupsTokenPermissionSetting `json:"permissions"`
 }
 
 type groupsUserXtrRole struct {
@@ -1096,54 +1096,54 @@ type groupsUserXtrRole struct {
 type lang string
 
 type leadsChecked struct {
-	Reason    string             `json:"reason,omitempty"`
-	Result    leadsCheckedResult `json:"result,omitempty"`
-	Sid       string             `json:"sid,omitempty"`
-	StartLink string             `json:"start_link,omitempty"`
+	Reason    string             `json:"reason"`
+	Result    leadsCheckedResult `json:"result"`
+	Sid       string             `json:"sid"`
+	StartLink string             `json:"start_link"`
 }
 
 // Information whether user can start the lead
 type leadsCheckedResult string
 
 type leadsComplete struct {
-	Cost     int            `json:"cost,omitempty"`
-	Limit    int            `json:"limit,omitempty"`
-	Spent    int            `json:"spent,omitempty"`
-	Success  baseOkResponse `json:"success,omitempty"`
-	TestMode int            `json:"test_mode,omitempty"`
+	Cost     int            `json:"cost"`
+	Limit    int            `json:"limit"`
+	Spent    int            `json:"spent"`
+	Success  baseOkResponse `json:"success"`
+	TestMode int            `json:"test_mode"`
 }
 
 type leadsEntry struct {
-	Aid       int    `json:"aid,omitempty"`
-	Comment   string `json:"comment,omitempty"`
-	Date      int    `json:"date,omitempty"`
-	Sid       string `json:"sid,omitempty"`
-	StartDate int    `json:"start_date,omitempty"`
-	Status    int    `json:"status,omitempty"`
-	TestMode  int    `json:"test_mode,omitempty"`
-	UID       int    `json:"uid,omitempty"`
+	Aid       int    `json:"aid"`
+	Comment   string `json:"comment"`
+	Date      int    `json:"date"`
+	Sid       string `json:"sid"`
+	StartDate int    `json:"start_date"`
+	Status    int    `json:"status"`
+	TestMode  int    `json:"test_mode"`
+	UID       int    `json:"uid"`
 }
 
 type leadsLead struct {
-	Completed   int           `json:"completed,omitempty"`
-	Cost        int           `json:"cost,omitempty"`
-	Days        leadsLeadDays `json:"days,omitempty"`
-	Impressions int           `json:"impressions,omitempty"`
-	Limit       int           `json:"limit,omitempty"`
-	Spent       int           `json:"spent,omitempty"`
-	Started     int           `json:"started,omitempty"`
+	Completed   int           `json:"completed"`
+	Cost        int           `json:"cost"`
+	Days        leadsLeadDays `json:"days"`
+	Impressions int           `json:"impressions"`
+	Limit       int           `json:"limit"`
+	Spent       int           `json:"spent"`
+	Started     int           `json:"started"`
 }
 
 type leadsLeadDays struct {
-	Completed   int `json:"completed,omitempty"`
-	Impressions int `json:"impressions,omitempty"`
-	Spent       int `json:"spent,omitempty"`
-	Started     int `json:"started,omitempty"`
+	Completed   int `json:"completed"`
+	Impressions int `json:"impressions"`
+	Spent       int `json:"spent"`
+	Started     int `json:"started"`
 }
 
 type leadsStart struct {
-	TestMode int    `json:"test_mode,omitempty"`
-	VkSid    string `json:"vk_sid,omitempty"`
+	TestMode int    `json:"test_mode"`
+	VkSid    string `json:"vk_sid"`
 }
 
 type marketCurrency struct {
@@ -1155,7 +1155,7 @@ type marketMarketAlbum struct {
 	Count       int         `json:"count"`
 	ID          int         `json:"id"`
 	OwnerID     int         `json:"owner_id"`
-	Photo       photosPhoto `json:"photo,omitempty"`
+	Photo       photosPhoto `json:"photo"`
 	Title       string      `json:"title"`
 	UpdatedTime int         `json:"updated_time"`
 }
@@ -1185,9 +1185,9 @@ type marketMarketItemFull struct {
 }
 
 type marketPrice struct {
-	Amount   string         `json:"amount,omitempty"`
-	Currency marketCurrency `json:"currency,omitempty"`
-	Text     string         `json:"text,omitempty"`
+	Amount   string         `json:"amount"`
+	Currency marketCurrency `json:"currency"`
+	Text     string         `json:"text"`
 }
 
 type marketSection struct {
@@ -1198,13 +1198,13 @@ type marketSection struct {
 type messagesChat struct {
 	AdminID      int                      `json:"admin_id"`
 	ID           int                      `json:"id"`
-	Kicked       int                      `json:"kicked,omitempty"`
-	Left         int                      `json:"left,omitempty"`
-	Photo100     string                   `json:"photo_100,omitempty"`
-	Photo200     string                   `json:"photo_200,omitempty"`
-	Photo50      string                   `json:"photo_50,omitempty"`
-	PushSettings messagesChatPushSettings `json:"push_settings,omitempty"`
-	Title        string                   `json:"title,omitempty"`
+	Kicked       int                      `json:"kicked"`
+	Left         int                      `json:"left"`
+	Photo100     string                   `json:"photo_100"`
+	Photo200     string                   `json:"photo_200"`
+	Photo50      string                   `json:"photo_50"`
+	PushSettings messagesChatPushSettings `json:"push_settings"`
+	Title        string                   `json:"title"`
 	Type         string                   `json:"type"`
 	Users        []messagesChatUser       `json:"users"`
 }
@@ -1212,26 +1212,26 @@ type messagesChat struct {
 type messagesChatFull struct {
 	AdminID      int                        `json:"admin_id"`
 	ID           int                        `json:"id"`
-	Kicked       int                        `json:"kicked,omitempty"`
-	Left         int                        `json:"left,omitempty"`
-	Photo100     string                     `json:"photo_100,omitempty"`
-	Photo200     string                     `json:"photo_200,omitempty"`
-	Photo50      string                     `json:"photo_50,omitempty"`
-	PushSettings messagesChatPushSettings   `json:"push_settings,omitempty"`
-	Title        string                     `json:"title,omitempty"`
+	Kicked       int                        `json:"kicked"`
+	Left         int                        `json:"left"`
+	Photo100     string                     `json:"photo_100"`
+	Photo200     string                     `json:"photo_200"`
+	Photo50      string                     `json:"photo_50"`
+	PushSettings messagesChatPushSettings   `json:"push_settings"`
+	Title        string                     `json:"title"`
 	Type         string                     `json:"type"`
 	Users        []messagesUserXtrInvitedBy `json:"users"`
 }
 
 type messagesChatPushSettings struct {
-	DisabledUntil int `json:"disabled_until,omitempty"`
-	Sound         int `json:"sound,omitempty"`
+	DisabledUntil int `json:"disabled_until"`
+	Sound         int `json:"sound"`
 }
 
 type messagesChatSettingsPhoto struct {
-	Photo100 string `json:"photo_100,omitempty"`
-	Photo200 string `json:"photo_200,omitempty"`
-	Photo50  string `json:"photo_50,omitempty"`
+	Photo100 string `json:"photo_100"`
+	Photo200 string `json:"photo_200"`
+	Photo50  string `json:"photo_50"`
 }
 
 type messagesChatSettingsState string
@@ -1240,71 +1240,71 @@ type messagesChatSettingsState string
 type messagesChatUser int
 
 type messagesConversation struct {
-	CanWrite     messagesConversationCanWrite     `json:"can_write,omitempty"`
-	ChatSettings messagesConversationChatSettings `json:"chat_settings,omitempty"`
-	Important    bool                             `json:"important,omitempty"`
-	InRead       int                              `json:"in_read,omitempty"`
-	OutRead      int                              `json:"out_read,omitempty"`
-	Peer         messagesConversationPeer         `json:"peer,omitempty"`
-	PushSettings messagesConversationPushSettings `json:"push_settings,omitempty"`
-	Unanswered   bool                             `json:"unanswered,omitempty"`
-	UnreadCount  int                              `json:"unread_count,omitempty"`
+	CanWrite     messagesConversationCanWrite     `json:"can_write"`
+	ChatSettings messagesConversationChatSettings `json:"chat_settings"`
+	Important    bool                             `json:"important"`
+	InRead       int                              `json:"in_read"`
+	OutRead      int                              `json:"out_read"`
+	Peer         messagesConversationPeer         `json:"peer"`
+	PushSettings messagesConversationPushSettings `json:"push_settings"`
+	Unanswered   bool                             `json:"unanswered"`
+	UnreadCount  int                              `json:"unread_count"`
 }
 
 type messagesConversationCanWrite struct {
-	Allowed bool `json:"allowed,omitempty"`
-	Reason  int  `json:"reason,omitempty"`
+	Allowed bool `json:"allowed"`
+	Reason  int  `json:"reason"`
 }
 
 type messagesConversationChatSettings struct {
-	MembersCount  int                       `json:"members_count,omitempty"`
-	Photo         messagesChatSettingsPhoto `json:"photo,omitempty"`
-	PinnedMessage messagesPinnedMessage     `json:"pinned_message,omitempty"`
-	State         messagesChatSettingsState `json:"state,omitempty"`
-	Title         string                    `json:"title,omitempty"`
+	MembersCount  int                       `json:"members_count"`
+	Photo         messagesChatSettingsPhoto `json:"photo"`
+	PinnedMessage messagesPinnedMessage     `json:"pinned_message"`
+	State         messagesChatSettingsState `json:"state"`
+	Title         string                    `json:"title"`
 }
 
 type messagesConversationPeer struct {
-	ID      int    `json:"id,omitempty"`
-	LocalID int    `json:"local_id,omitempty"`
-	Type    string `json:"type,omitempty"`
+	ID      int    `json:"id"`
+	LocalID int    `json:"local_id"`
+	Type    string `json:"type"`
 }
 
 type messagesConversationPushSettings struct {
-	DisabledForever bool `json:"disabled_forever,omitempty"`
-	DisabledUntil   int  `json:"disabled_until,omitempty"`
-	NoSound         bool `json:"no_sound,omitempty"`
+	DisabledForever bool `json:"disabled_forever"`
+	DisabledUntil   int  `json:"disabled_until"`
+	NoSound         bool `json:"no_sound"`
 }
 
 type messagesConversationWithMessage struct {
-	Conversation messagesConversation `json:"conversation,omitempty"`
-	LastMessage  messagesMessage      `json:"last_message,omitempty"`
+	Conversation messagesConversation `json:"conversation"`
+	LastMessage  messagesMessage      `json:"last_message"`
 }
 
 type messagesDialog struct {
-	Important  int             `json:"important,omitempty"`
-	InRead     int             `json:"in_read,omitempty"`
-	Message    messagesMessage `json:"message,omitempty"`
-	OutRead    int             `json:"out_read,omitempty"`
-	Unanswered int             `json:"unanswered,omitempty"`
-	Unread     int             `json:"unread,omitempty"`
+	Important  int             `json:"important"`
+	InRead     int             `json:"in_read"`
+	Message    messagesMessage `json:"message"`
+	OutRead    int             `json:"out_read"`
+	Unanswered int             `json:"unanswered"`
+	Unread     int             `json:"unread"`
 }
 
 type messagesHistoryAttachment struct {
 	Attachment messagesHistoryMessageAttachment `json:"attachment"`
-	MessageID  int                              `json:"message_id,omitempty"`
+	MessageID  int                              `json:"message_id"`
 }
 
 type messagesHistoryMessageAttachment struct {
-	Audio  audioAudioFull                       `json:"audio,omitempty"`
-	Doc    docsDoc                              `json:"doc,omitempty"`
-	Link   baseLink                             `json:"link,omitempty"`
-	Market baseLink                             `json:"market,omitempty"`
-	Photo  photosPhoto                          `json:"photo,omitempty"`
-	Share  baseLink                             `json:"share,omitempty"`
+	Audio  audioAudioFull                       `json:"audio"`
+	Doc    docsDoc                              `json:"doc"`
+	Link   baseLink                             `json:"link"`
+	Market baseLink                             `json:"market"`
+	Photo  photosPhoto                          `json:"photo"`
+	Share  baseLink                             `json:"share"`
 	Type   messagesHistoryMessageAttachmentType `json:"type"`
-	Video  videoVideo                           `json:"video,omitempty"`
-	Wall   baseLink                             `json:"wall,omitempty"`
+	Video  videoVideo                           `json:"video"`
+	Wall   baseLink                             `json:"wall"`
 }
 
 // Attachments type
@@ -1316,42 +1316,42 @@ type messagesLastActivity struct {
 }
 
 type messagesLongpollMessages struct {
-	Count int               `json:"count,omitempty"`
-	Items []messagesMessage `json:"items,omitempty"`
+	Count int               `json:"count"`
+	Items []messagesMessage `json:"items"`
 }
 
 type messagesLongpollParams struct {
-	Key    string `json:"key,omitempty"`
-	Pts    int    `json:"pts,omitempty"`
-	Server string `json:"server,omitempty"`
-	Ts     int    `json:"ts,omitempty"`
+	Key    string `json:"key"`
+	Pts    int    `json:"pts"`
+	Server string `json:"server"`
+	Ts     int    `json:"ts"`
 }
 
 type messagesMessage struct {
-	Action                messagesMessageAction       `json:"action,omitempty"`
-	Attachments           []messagesMessageAttachment `json:"attachments,omitempty"`
-	ConversationMessageID int                         `json:"conversation_message_id,omitempty"`
+	Action                messagesMessageAction       `json:"action"`
+	Attachments           []messagesMessageAttachment `json:"attachments"`
+	ConversationMessageID int                         `json:"conversation_message_id"`
 	Date                  int                         `json:"date"`
 	FromID                int                         `json:"from_id"`
-	FwdMessages           []messagesMessage           `json:"fwd_messages,omitempty"`
-	Geo                   baseGeo                     `json:"geo,omitempty"`
+	FwdMessages           []messagesMessage           `json:"fwd_messages"`
+	Geo                   baseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`
-	Important             bool                        `json:"important,omitempty"`
-	Keyboard              messagesKeyboard            `json:"keyboard,omitempty"`
-	Payload               string                      `json:"payload,omitempty"`
+	Important             bool                        `json:"important"`
+	Keyboard              messagesKeyboard            `json:"keyboard"`
+	Payload               string                      `json:"payload"`
 	PeerID                int                         `json:"peer_id"`
-	RandomID              int                         `json:"random_id,omitempty"`
+	RandomID              int                         `json:"random_id"`
 	Text                  string                      `json:"text"`
-	UpdateTime            int                         `json:"update_time,omitempty"`
+	UpdateTime            int                         `json:"update_time"`
 }
 
 type messagesMessageAction struct {
-	ConversationMessageID int                         `json:"conversation_message_id,omitempty"`
-	Email                 string                      `json:"email,omitempty"`
-	MemberID              int                         `json:"member_id,omitempty"`
-	Message               string                      `json:"message,omitempty"`
-	Photo                 messagesChatSettingsPhoto   `json:"photo,omitempty"`
-	Text                  string                      `json:"text,omitempty"`
+	ConversationMessageID int                         `json:"conversation_message_id"`
+	Email                 string                      `json:"email"`
+	MemberID              int                         `json:"member_id"`
+	Message               string                      `json:"message"`
+	Photo                 messagesChatSettingsPhoto   `json:"photo"`
+	Text                  string                      `json:"text"`
 	Type                  messagesMessageActionStatus `json:"type"`
 }
 
@@ -1359,30 +1359,30 @@ type messagesMessageAction struct {
 type messagesMessageActionStatus string
 
 type messagesMessageAttachment struct {
-	Audio             audioAudioFull                `json:"audio,omitempty"`
-	Doc               docsDoc                       `json:"doc,omitempty"`
-	Gift              giftsLayout                   `json:"gift,omitempty"`
-	Link              baseLink                      `json:"link,omitempty"`
-	Market            marketMarketItem              `json:"market,omitempty"`
-	MarketMarketAlbum marketMarketAlbum             `json:"market_market_album,omitempty"`
-	Photo             photosPhoto                   `json:"photo,omitempty"`
-	Sticker           baseSticker                   `json:"sticker,omitempty"`
+	Audio             audioAudioFull                `json:"audio"`
+	Doc               docsDoc                       `json:"doc"`
+	Gift              giftsLayout                   `json:"gift"`
+	Link              baseLink                      `json:"link"`
+	Market            marketMarketItem              `json:"market"`
+	MarketMarketAlbum marketMarketAlbum             `json:"market_market_album"`
+	Photo             photosPhoto                   `json:"photo"`
+	Sticker           baseSticker                   `json:"sticker"`
 	Type              messagesMessageAttachmentType `json:"type"`
-	Video             videoVideo                    `json:"video,omitempty"`
-	Wall              wallWallpostAttached          `json:"wall,omitempty"`
-	WallReply         wallWallComment               `json:"wall_reply,omitempty"`
+	Video             videoVideo                    `json:"video"`
+	Wall              wallWallpostAttached          `json:"wall"`
+	WallReply         wallWallComment               `json:"wall_reply"`
 }
 
 // Attachment type
 type messagesMessageAttachmentType string
 
 type messagesPinnedMessage struct {
-	Attachments           []messagesMessageAttachment `json:"attachments,omitempty"`
-	ConversationMessageID int                         `json:"conversation_message_id,omitempty"`
+	Attachments           []messagesMessageAttachment `json:"attachments"`
+	ConversationMessageID int                         `json:"conversation_message_id"`
 	Date                  int                         `json:"date"`
 	FromID                int                         `json:"from_id"`
-	FwdMessages           []messagesMessage           `json:"fwd_messages,omitempty"`
-	Geo                   baseGeo                     `json:"geo,omitempty"`
+	FwdMessages           []messagesMessage           `json:"fwd_messages"`
+	Geo                   baseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`
 	PeerID                int                         `json:"peer_id"`
 	Text                  string                      `json:"text"`
@@ -1392,80 +1392,80 @@ type messagesUserXtrInvitedBy struct {
 }
 
 type newsfeedItemAudio struct {
-	Audio  newsfeedItemAudioAudio `json:"audio,omitempty"`
-	PostID int                    `json:"post_id,omitempty"`
+	Audio  newsfeedItemAudioAudio `json:"audio"`
+	PostID int                    `json:"post_id"`
 }
 
 type newsfeedItemAudioAudio struct {
-	Count int              `json:"count,omitempty"`
-	Items []audioAudioFull `json:"items,omitempty"`
+	Count int              `json:"count"`
+	Items []audioAudioFull `json:"items"`
 }
 
 type newsfeedItemFriend struct {
-	Friends newsfeedItemFriendFriends `json:"friends,omitempty"`
+	Friends newsfeedItemFriendFriends `json:"friends"`
 }
 
 type newsfeedItemFriendFriends struct {
-	Count int          `json:"count,omitempty"`
-	Items []baseUserID `json:"items,omitempty"`
+	Count int          `json:"count"`
+	Items []baseUserID `json:"items"`
 }
 
 type newsfeedItemNote struct {
-	Notes newsfeedItemNoteNotes `json:"notes,omitempty"`
+	Notes newsfeedItemNoteNotes `json:"notes"`
 }
 
 type newsfeedItemNoteNotes struct {
-	Count int                    `json:"count,omitempty"`
-	Items []newsfeedNewsfeedNote `json:"items,omitempty"`
+	Count int                    `json:"count"`
+	Items []newsfeedNewsfeedNote `json:"items"`
 }
 
 type newsfeedItemPhoto struct {
-	Photos newsfeedItemPhotoPhotos `json:"photos,omitempty"`
-	PostID int                     `json:"post_id,omitempty"`
+	Photos newsfeedItemPhotoPhotos `json:"photos"`
+	PostID int                     `json:"post_id"`
 }
 
 type newsfeedItemPhotoPhotos struct {
-	Count int                     `json:"count,omitempty"`
-	Items []newsfeedNewsfeedPhoto `json:"items,omitempty"`
+	Count int                     `json:"count"`
+	Items []newsfeedNewsfeedPhoto `json:"items"`
 }
 
 type newsfeedItemPhotoTag struct {
-	PhotoTags newsfeedItemPhotoTagPhotoTags `json:"photo_tags,omitempty"`
-	PostID    int                           `json:"post_id,omitempty"`
+	PhotoTags newsfeedItemPhotoTagPhotoTags `json:"photo_tags"`
+	PostID    int                           `json:"post_id"`
 }
 
 type newsfeedItemPhotoTagPhotoTags struct {
-	Count int                     `json:"count,omitempty"`
-	Items []newsfeedNewsfeedPhoto `json:"items,omitempty"`
+	Count int                     `json:"count"`
+	Items []newsfeedNewsfeedPhoto `json:"items"`
 }
 
 type newsfeedItemTopic struct {
-	Comments baseCommentsInfo `json:"comments,omitempty"`
-	Likes    baseLikesInfo    `json:"likes,omitempty"`
+	Comments baseCommentsInfo `json:"comments"`
+	Likes    baseLikesInfo    `json:"likes"`
 	PostID   int              `json:"post_id"`
 	Text     string           `json:"text"`
 }
 
 type newsfeedItemVideo struct {
-	Video newsfeedItemVideoVideo `json:"video,omitempty"`
+	Video newsfeedItemVideoVideo `json:"video"`
 }
 
 type newsfeedItemVideoVideo struct {
-	Count int          `json:"count,omitempty"`
-	Items []videoVideo `json:"items,omitempty"`
+	Count int          `json:"count"`
+	Items []videoVideo `json:"items"`
 }
 
 type newsfeedItemWallpost struct {
-	Attachments []wallWallpostAttachment `json:"attachments,omitempty"`
-	Comments    baseCommentsInfo         `json:"comments,omitempty"`
-	CopyHistory []wallWallpost           `json:"copy_history,omitempty"`
-	Geo         baseGeo                  `json:"geo,omitempty"`
-	Likes       baseLikesInfo            `json:"likes,omitempty"`
-	PostID      int                      `json:"post_id,omitempty"`
-	PostSource  wallPostSource           `json:"post_source,omitempty"`
-	PostType    newsfeedItemWallpostType `json:"post_type,omitempty"`
-	Reposts     baseRepostsInfo          `json:"reposts,omitempty"`
-	Text        string                   `json:"text,omitempty"`
+	Attachments []wallWallpostAttachment `json:"attachments"`
+	Comments    baseCommentsInfo         `json:"comments"`
+	CopyHistory []wallWallpost           `json:"copy_history"`
+	Geo         baseGeo                  `json:"geo"`
+	Likes       baseLikesInfo            `json:"likes"`
+	PostID      int                      `json:"post_id"`
+	PostSource  wallPostSource           `json:"post_source"`
+	PostType    newsfeedItemWallpostType `json:"post_type"`
+	Reposts     baseRepostsInfo          `json:"reposts"`
+	Text        string                   `json:"text"`
 }
 
 // Post type
@@ -1486,23 +1486,23 @@ type newsfeedNewsfeedItem struct {
 type newsfeedNewsfeedItemType string
 
 type newsfeedNewsfeedNote struct {
-	Comments int    `json:"comments,omitempty"`
-	ID       int    `json:"id,omitempty"`
-	OwnerID  int    `json:"owner_id,omitempty"`
-	Title    string `json:"title,omitempty"`
+	Comments int    `json:"comments"`
+	ID       int    `json:"id"`
+	OwnerID  int    `json:"owner_id"`
+	Title    string `json:"title"`
 }
 
 type newsfeedNewsfeedPhoto struct {
 }
 
 type notesNote struct {
-	CanComment int    `json:"can_comment,omitempty"`
+	CanComment int    `json:"can_comment"`
 	Comments   int    `json:"comments"`
 	Date       int    `json:"date"`
 	ID         int    `json:"id"`
 	OwnerID    int    `json:"owner_id"`
-	Text       string `json:"text,omitempty"`
-	TextWiki   string `json:"text_wiki,omitempty"`
+	Text       string `json:"text"`
+	TextWiki   string `json:"text_wiki"`
 	Title      string `json:"title"`
 	ViewURL    string `json:"view_url"`
 }
@@ -1513,87 +1513,87 @@ type notesNoteComment struct {
 	Message string `json:"message"`
 	Nid     int    `json:"nid"`
 	Oid     int    `json:"oid"`
-	ReplyTo int    `json:"reply_to,omitempty"`
+	ReplyTo int    `json:"reply_to"`
 	UID     int    `json:"uid"`
 }
 
 type notificationsFeedback struct {
-	Attachments []wallWallpostAttachment `json:"attachments,omitempty"`
-	FromID      int                      `json:"from_id,omitempty"`
-	Geo         baseGeo                  `json:"geo,omitempty"`
-	ID          int                      `json:"id,omitempty"`
-	Likes       baseLikesInfo            `json:"likes,omitempty"`
-	Text        string                   `json:"text,omitempty"`
-	ToID        int                      `json:"to_id,omitempty"`
+	Attachments []wallWallpostAttachment `json:"attachments"`
+	FromID      int                      `json:"from_id"`
+	Geo         baseGeo                  `json:"geo"`
+	ID          int                      `json:"id"`
+	Likes       baseLikesInfo            `json:"likes"`
+	Text        string                   `json:"text"`
+	ToID        int                      `json:"to_id"`
 }
 
 type notificationsNotification struct {
-	Date     int                             `json:"date,omitempty"`
-	Feedback notificationsFeedback           `json:"feedback,omitempty"`
-	Parent   notificationsNotificationParent `json:"parent,omitempty"`
-	Reply    notificationsReply              `json:"reply,omitempty"`
-	Type     string                          `json:"type,omitempty"`
+	Date     int                             `json:"date"`
+	Feedback notificationsFeedback           `json:"feedback"`
+	Parent   notificationsNotificationParent `json:"parent"`
+	Reply    notificationsReply              `json:"reply"`
+	Type     string                          `json:"type"`
 }
 
 type notificationsNotificationParent struct {
 }
 
 type notificationsNotificationsComment struct {
-	Date    int          `json:"date,omitempty"`
-	ID      int          `json:"id,omitempty"`
-	OwnerID int          `json:"owner_id,omitempty"`
-	Photo   photosPhoto  `json:"photo,omitempty"`
-	Post    wallWallpost `json:"post,omitempty"`
-	Text    string       `json:"text,omitempty"`
-	Topic   boardTopic   `json:"topic,omitempty"`
-	Video   videoVideo   `json:"video,omitempty"`
+	Date    int          `json:"date"`
+	ID      int          `json:"id"`
+	OwnerID int          `json:"owner_id"`
+	Photo   photosPhoto  `json:"photo"`
+	Post    wallWallpost `json:"post"`
+	Text    string       `json:"text"`
+	Topic   boardTopic   `json:"topic"`
+	Video   videoVideo   `json:"video"`
 }
 
 type notificationsReply struct {
-	Date int `json:"date,omitempty"`
-	ID   int `json:"id,omitempty"`
-	Text int `json:"text,omitempty"`
+	Date int `json:"date"`
+	ID   int `json:"id"`
+	Text int `json:"text"`
 }
 
 type oauthError struct {
 	Error            string `json:"error"`
 	ErrorDescription string `json:"error_description"`
-	RedirectURI      string `json:"redirect_uri,omitempty"`
+	RedirectURI      string `json:"redirect_uri"`
 }
 
 type objects interface{}
 
 type ordersAmount struct {
-	Amounts  []ordersAmountItem `json:"amounts,omitempty"`
-	Currency string             `json:"currency,omitempty"`
+	Amounts  []ordersAmountItem `json:"amounts"`
+	Currency string             `json:"currency"`
 }
 
 type ordersAmountItem struct {
-	Amount      int    `json:"amount,omitempty"`
-	Description string `json:"description,omitempty"`
-	Votes       string `json:"votes,omitempty"`
+	Amount      int    `json:"amount"`
+	Description string `json:"description"`
+	Votes       string `json:"votes"`
 }
 
 type ordersOrder struct {
-	Amount              int    `json:"amount,omitempty"`
-	AppOrderID          int    `json:"app_order_id,omitempty"`
-	CancelTransactionID int    `json:"cancel_transaction_id,omitempty"`
-	Date                int    `json:"date,omitempty"`
-	ID                  int    `json:"id,omitempty"`
-	Item                string `json:"item,omitempty"`
-	ReceiverID          int    `json:"receiver_id,omitempty"`
-	Status              string `json:"status,omitempty"`
-	TransactionID       int    `json:"transaction_id,omitempty"`
-	UserID              int    `json:"user_id,omitempty"`
+	Amount              int    `json:"amount"`
+	AppOrderID          int    `json:"app_order_id"`
+	CancelTransactionID int    `json:"cancel_transaction_id"`
+	Date                int    `json:"date"`
+	ID                  int    `json:"id"`
+	Item                string `json:"item"`
+	ReceiverID          int    `json:"receiver_id"`
+	Status              string `json:"status"`
+	TransactionID       int    `json:"transaction_id"`
+	UserID              int    `json:"user_id"`
 }
 
 type pagesPrivacySettings int
 
 type pagesWikipage struct {
-	CreatorID   int                  `json:"creator_id,omitempty"`
-	CreatorName int                  `json:"creator_name,omitempty"`
-	EditorID    int                  `json:"editor_id,omitempty"`
-	EditorName  string               `json:"editor_name,omitempty"`
+	CreatorID   int                  `json:"creator_id"`
+	CreatorName int                  `json:"creator_name"`
+	EditorID    int                  `json:"editor_id"`
+	EditorName  string               `json:"editor_name"`
 	GroupID     int                  `json:"group_id"`
 	ID          int                  `json:"id"`
 	Title       string               `json:"title"`
@@ -1604,15 +1604,15 @@ type pagesWikipage struct {
 
 type pagesWikipageFull struct {
 	Created                  int                  `json:"created"`
-	CreatorID                int                  `json:"creator_id,omitempty"`
-	CurrentUserCanEdit       int                  `json:"current_user_can_edit,omitempty"`
-	CurrentUserCanEditAccess int                  `json:"current_user_can_edit_access,omitempty"`
+	CreatorID                int                  `json:"creator_id"`
+	CurrentUserCanEdit       int                  `json:"current_user_can_edit"`
+	CurrentUserCanEditAccess int                  `json:"current_user_can_edit_access"`
 	Edited                   int                  `json:"edited"`
-	EditorID                 int                  `json:"editor_id,omitempty"`
+	EditorID                 int                  `json:"editor_id"`
 	GroupID                  int                  `json:"group_id"`
-	HTML                     string               `json:"html,omitempty"`
+	HTML                     string               `json:"html"`
 	ID                       int                  `json:"id"`
-	Source                   string               `json:"source,omitempty"`
+	Source                   string               `json:"source"`
 	Title                    string               `json:"title"`
 	ViewURL                  string               `json:"view_url"`
 	Views                    int                  `json:"views"`
@@ -1621,30 +1621,30 @@ type pagesWikipageFull struct {
 }
 
 type pagesWikipageVersion struct {
-	Edited     int    `json:"edited,omitempty"`
-	EditorID   int    `json:"editor_id,omitempty"`
-	EditorName string `json:"editor_name,omitempty"`
-	ID         int    `json:"id,omitempty"`
-	Length     int    `json:"length,omitempty"`
+	Edited     int    `json:"edited"`
+	EditorID   int    `json:"editor_id"`
+	EditorName string `json:"editor_name"`
+	ID         int    `json:"id"`
+	Length     int    `json:"length"`
 }
 
 type photosCommentXtrPid struct {
-	Attachments    []wallCommentAttachment `json:"attachments,omitempty"`
+	Attachments    []wallCommentAttachment `json:"attachments"`
 	Date           int                     `json:"date"`
 	FromID         int                     `json:"from_id"`
 	ID             int                     `json:"id"`
-	Likes          baseLikesInfo           `json:"likes,omitempty"`
+	Likes          baseLikesInfo           `json:"likes"`
 	Pid            int                     `json:"pid"`
-	ReplyToComment int                     `json:"reply_to_comment,omitempty"`
-	ReplyToUser    int                     `json:"reply_to_user,omitempty"`
+	ReplyToComment int                     `json:"reply_to_comment"`
+	ReplyToUser    int                     `json:"reply_to_user"`
 	Text           string                  `json:"text"`
 }
 
 type photosImage struct {
-	Height int             `json:"height,omitempty"`
-	Type   photosImageType `json:"type,omitempty"`
-	URL    string          `json:"url,omitempty"`
-	Width  int             `json:"width,omitempty"`
+	Height int             `json:"height"`
+	Type   photosImageType `json:"type"`
+	URL    string          `json:"url"`
+	Width  int             `json:"width"`
 }
 
 // Photo's type.
@@ -1654,77 +1654,77 @@ type photosImageType string
 type photosListItem string
 
 type photosMarketAlbumUploadResponse struct {
-	Gid    int    `json:"gid,omitempty"`
-	Hash   string `json:"hash,omitempty"`
-	Photo  string `json:"photo,omitempty"`
-	Server int    `json:"server,omitempty"`
+	Gid    int    `json:"gid"`
+	Hash   string `json:"hash"`
+	Photo  string `json:"photo"`
+	Server int    `json:"server"`
 }
 
 type photosMarketUploadResponse struct {
-	CropData string `json:"crop_data,omitempty"`
-	CropHash string `json:"crop_hash,omitempty"`
-	GroupID  int    `json:"group_id,omitempty"`
-	Hash     string `json:"hash,omitempty"`
-	Photo    string `json:"photo,omitempty"`
-	Server   int    `json:"server,omitempty"`
+	CropData string `json:"crop_data"`
+	CropHash string `json:"crop_hash"`
+	GroupID  int    `json:"group_id"`
+	Hash     string `json:"hash"`
+	Photo    string `json:"photo"`
+	Server   int    `json:"server"`
 }
 
 type photosMessageUploadResponse struct {
-	Hash   string `json:"hash,omitempty"`
-	Photo  string `json:"photo,omitempty"`
-	Server int    `json:"server,omitempty"`
+	Hash   string `json:"hash"`
+	Photo  string `json:"photo"`
+	Server int    `json:"server"`
 }
 
 type photosOwnerUploadResponse struct {
-	Hash   string `json:"hash,omitempty"`
-	Photo  string `json:"photo,omitempty"`
-	Server int    `json:"server,omitempty"`
+	Hash   string `json:"hash"`
+	Photo  string `json:"photo"`
+	Server int    `json:"server"`
 }
 
 type photosPhoto struct {
-	AccessKey string        `json:"access_key,omitempty"`
+	AccessKey string        `json:"access_key"`
 	AlbumID   int           `json:"album_id"`
 	Date      int           `json:"date"`
-	Height    int           `json:"height,omitempty"`
+	Height    int           `json:"height"`
 	ID        int           `json:"id"`
-	Images    []photosImage `json:"images,omitempty"`
-	Lat       float64       `json:"lat,omitempty"`
-	Long      float64       `json:"long,omitempty"`
+	Images    []photosImage `json:"images"`
+	Lat       float64       `json:"lat"`
+	Long      float64       `json:"long"`
 	OwnerID   int           `json:"owner_id"`
-	PostID    int           `json:"post_id,omitempty"`
-	Text      string        `json:"text,omitempty"`
-	UserID    int           `json:"user_id,omitempty"`
-	Width     int           `json:"width,omitempty"`
+	PostID    int           `json:"post_id"`
+	Text      string        `json:"text"`
+	UserID    int           `json:"user_id"`
+	Width     int           `json:"width"`
 }
 
 type photosPhotoAlbum struct {
 	Created     int         `json:"created"`
-	Description string      `json:"description,omitempty"`
+	Description string      `json:"description"`
 	ID          int         `json:"id"`
 	OwnerID     int         `json:"owner_id"`
 	Size        int         `json:"size"`
-	Thumb       photosPhoto `json:"thumb,omitempty"`
+	Thumb       photosPhoto `json:"thumb"`
 	Title       string      `json:"title"`
 	Updated     int         `json:"updated"`
 }
 
 type photosPhotoAlbumFull struct {
-	CanUpload          int                                      `json:"can_upload,omitempty"`
-	CommentsDisabled   int                                      `json:"comments_disabled,omitempty"`
+	CanUpload          int                                      `json:"can_upload"`
+	CommentsDisabled   int                                      `json:"comments_disabled"`
 	Created            int                                      `json:"created"`
-	Description        string                                   `json:"description,omitempty"`
+	Description        string                                   `json:"description"`
 	ID                 int                                      `json:"id"`
 	OwnerID            int                                      `json:"owner_id"`
-	PrivacyComment     []photosPhotoAlbumFullPrivacyCommentItem `json:"privacy_comment,omitempty"`
-	PrivacyView        []photosPhotoAlbumFullPrivacyViewItem    `json:"privacy_view,omitempty"`
+	PrivacyComment     []photosPhotoAlbumFullPrivacyCommentItem `json:"privacy_comment"`
+	PrivacyView        []photosPhotoAlbumFullPrivacyViewItem    `json:"privacy_view"`
 	Size               int                                      `json:"size"`
-	Sizes              []photosPhotoSizes                       `json:"sizes,omitempty"`
-	ThumbID            int                                      `json:"thumb_id,omitempty"`
-	ThumbIsLast        int                                      `json:"thumb_is_last,omitempty"`
-	ThumbSrc           string                                   `json:"thumb_src,omitempty"`
+	Sizes              []photosPhotoSizes                       `json:"sizes"`
+	ThumbID            int                                      `json:"thumb_id"`
+	ThumbIsLast        int                                      `json:"thumb_is_last"`
+	ThumbSrc           string                                   `json:"thumb_src"`
 	Title              string                                   `json:"title"`
 	Updated            int                                      `json:"updated"`
-	UploadByAdminsOnly int                                      `json:"upload_by_admins_only,omitempty"`
+	UploadByAdminsOnly int                                      `json:"upload_by_admins_only"`
 }
 
 // Privacy comment
@@ -1734,53 +1734,53 @@ type photosPhotoAlbumFullPrivacyCommentItem string
 type photosPhotoAlbumFullPrivacyViewItem string
 
 type photosPhotoFull struct {
-	AccessKey  string          `json:"access_key,omitempty"`
+	AccessKey  string          `json:"access_key"`
 	AlbumID    int             `json:"album_id"`
-	CanComment int             `json:"can_comment,omitempty"`
-	Comments   baseObjectCount `json:"comments,omitempty"`
+	CanComment int             `json:"can_comment"`
+	Comments   baseObjectCount `json:"comments"`
 	Date       int             `json:"date"`
-	Height     int             `json:"height,omitempty"`
+	Height     int             `json:"height"`
 	ID         int             `json:"id"`
-	Images     []photosImage   `json:"images,omitempty"`
-	Lat        float64         `json:"lat,omitempty"`
-	Likes      baseLikes       `json:"likes,omitempty"`
-	Long       float64         `json:"long,omitempty"`
+	Images     []photosImage   `json:"images"`
+	Lat        float64         `json:"lat"`
+	Likes      baseLikes       `json:"likes"`
+	Long       float64         `json:"long"`
 	OwnerID    int             `json:"owner_id"`
-	PostID     int             `json:"post_id,omitempty"`
-	Reposts    baseObjectCount `json:"reposts,omitempty"`
-	Tags       baseObjectCount `json:"tags,omitempty"`
-	Text       string          `json:"text,omitempty"`
-	UserID     int             `json:"user_id,omitempty"`
-	Width      int             `json:"width,omitempty"`
+	PostID     int             `json:"post_id"`
+	Reposts    baseObjectCount `json:"reposts"`
+	Tags       baseObjectCount `json:"tags"`
+	Text       string          `json:"text"`
+	UserID     int             `json:"user_id"`
+	Width      int             `json:"width"`
 }
 
 type photosPhotoFullXtrRealOffset struct {
-	AccessKey  string             `json:"access_key,omitempty"`
+	AccessKey  string             `json:"access_key"`
 	AlbumID    int                `json:"album_id"`
-	CanComment int                `json:"can_comment,omitempty"`
-	Comments   baseObjectCount    `json:"comments,omitempty"`
+	CanComment int                `json:"can_comment"`
+	Comments   baseObjectCount    `json:"comments"`
 	Date       int                `json:"date"`
-	Height     int                `json:"height,omitempty"`
-	Hidden     basePropertyExists `json:"hidden,omitempty"`
+	Height     int                `json:"height"`
+	Hidden     basePropertyExists `json:"hidden"`
 	ID         int                `json:"id"`
-	Lat        float64            `json:"lat,omitempty"`
-	Likes      baseLikes          `json:"likes,omitempty"`
-	Long       float64            `json:"long,omitempty"`
+	Lat        float64            `json:"lat"`
+	Likes      baseLikes          `json:"likes"`
+	Long       float64            `json:"long"`
 	OwnerID    int                `json:"owner_id"`
-	Photo1280  string             `json:"photo_1280,omitempty"`
-	Photo130   string             `json:"photo_130,omitempty"`
-	Photo2560  string             `json:"photo_2560,omitempty"`
-	Photo604   string             `json:"photo_604,omitempty"`
-	Photo75    string             `json:"photo_75,omitempty"`
-	Photo807   string             `json:"photo_807,omitempty"`
-	PostID     int                `json:"post_id,omitempty"`
-	RealOffset int                `json:"real_offset,omitempty"`
-	Reposts    baseObjectCount    `json:"reposts,omitempty"`
-	Sizes      []photosPhotoSizes `json:"sizes,omitempty"`
-	Tags       baseObjectCount    `json:"tags,omitempty"`
-	Text       string             `json:"text,omitempty"`
-	UserID     int                `json:"user_id,omitempty"`
-	Width      int                `json:"width,omitempty"`
+	Photo1280  string             `json:"photo_1280"`
+	Photo130   string             `json:"photo_130"`
+	Photo2560  string             `json:"photo_2560"`
+	Photo604   string             `json:"photo_604"`
+	Photo75    string             `json:"photo_75"`
+	Photo807   string             `json:"photo_807"`
+	PostID     int                `json:"post_id"`
+	RealOffset int                `json:"real_offset"`
+	Reposts    baseObjectCount    `json:"reposts"`
+	Sizes      []photosPhotoSizes `json:"sizes"`
+	Tags       baseObjectCount    `json:"tags"`
+	Text       string             `json:"text"`
+	UserID     int                `json:"user_id"`
+	Width      int                `json:"width"`
 }
 
 type photosPhotoSizes struct {
@@ -1813,118 +1813,118 @@ type photosPhotoUpload struct {
 }
 
 type photosPhotoUploadResponse struct {
-	Aid        int    `json:"aid,omitempty"`
-	Hash       string `json:"hash,omitempty"`
-	PhotosList string `json:"photos_list,omitempty"`
-	Server     int    `json:"server,omitempty"`
+	Aid        int    `json:"aid"`
+	Hash       string `json:"hash"`
+	PhotosList string `json:"photos_list"`
+	Server     int    `json:"server"`
 }
 
 type photosPhotoXtrRealOffset struct {
-	AccessKey  string             `json:"access_key,omitempty"`
+	AccessKey  string             `json:"access_key"`
 	AlbumID    int                `json:"album_id"`
 	Date       int                `json:"date"`
-	Height     int                `json:"height,omitempty"`
-	Hidden     basePropertyExists `json:"hidden,omitempty"`
+	Height     int                `json:"height"`
+	Hidden     basePropertyExists `json:"hidden"`
 	ID         int                `json:"id"`
-	Lat        float64            `json:"lat,omitempty"`
-	Long       float64            `json:"long,omitempty"`
+	Lat        float64            `json:"lat"`
+	Long       float64            `json:"long"`
 	OwnerID    int                `json:"owner_id"`
-	Photo1280  string             `json:"photo_1280,omitempty"`
-	Photo130   string             `json:"photo_130,omitempty"`
-	Photo2560  string             `json:"photo_2560,omitempty"`
-	Photo604   string             `json:"photo_604,omitempty"`
-	Photo75    string             `json:"photo_75,omitempty"`
-	Photo807   string             `json:"photo_807,omitempty"`
-	PostID     int                `json:"post_id,omitempty"`
-	RealOffset int                `json:"real_offset,omitempty"`
-	Sizes      []photosPhotoSizes `json:"sizes,omitempty"`
-	Text       string             `json:"text,omitempty"`
-	UserID     int                `json:"user_id,omitempty"`
-	Width      int                `json:"width,omitempty"`
+	Photo1280  string             `json:"photo_1280"`
+	Photo130   string             `json:"photo_130"`
+	Photo2560  string             `json:"photo_2560"`
+	Photo604   string             `json:"photo_604"`
+	Photo75    string             `json:"photo_75"`
+	Photo807   string             `json:"photo_807"`
+	PostID     int                `json:"post_id"`
+	RealOffset int                `json:"real_offset"`
+	Sizes      []photosPhotoSizes `json:"sizes"`
+	Text       string             `json:"text"`
+	UserID     int                `json:"user_id"`
+	Width      int                `json:"width"`
 }
 
 type photosPhotoXtrTagInfo struct {
-	AccessKey  string             `json:"access_key,omitempty"`
+	AccessKey  string             `json:"access_key"`
 	AlbumID    int                `json:"album_id"`
 	Date       int                `json:"date"`
-	Height     int                `json:"height,omitempty"`
+	Height     int                `json:"height"`
 	ID         int                `json:"id"`
-	Lat        float64            `json:"lat,omitempty"`
-	Long       float64            `json:"long,omitempty"`
+	Lat        float64            `json:"lat"`
+	Long       float64            `json:"long"`
 	OwnerID    int                `json:"owner_id"`
-	Photo1280  string             `json:"photo_1280,omitempty"`
-	Photo130   string             `json:"photo_130,omitempty"`
-	Photo2560  string             `json:"photo_2560,omitempty"`
-	Photo604   string             `json:"photo_604,omitempty"`
-	Photo75    string             `json:"photo_75,omitempty"`
-	Photo807   string             `json:"photo_807,omitempty"`
-	PlacerID   int                `json:"placer_id,omitempty"`
-	PostID     int                `json:"post_id,omitempty"`
-	Sizes      []photosPhotoSizes `json:"sizes,omitempty"`
-	TagCreated int                `json:"tag_created,omitempty"`
-	TagID      int                `json:"tag_id,omitempty"`
-	Text       string             `json:"text,omitempty"`
-	UserID     int                `json:"user_id,omitempty"`
-	Width      int                `json:"width,omitempty"`
+	Photo1280  string             `json:"photo_1280"`
+	Photo130   string             `json:"photo_130"`
+	Photo2560  string             `json:"photo_2560"`
+	Photo604   string             `json:"photo_604"`
+	Photo75    string             `json:"photo_75"`
+	Photo807   string             `json:"photo_807"`
+	PlacerID   int                `json:"placer_id"`
+	PostID     int                `json:"post_id"`
+	Sizes      []photosPhotoSizes `json:"sizes"`
+	TagCreated int                `json:"tag_created"`
+	TagID      int                `json:"tag_id"`
+	Text       string             `json:"text"`
+	UserID     int                `json:"user_id"`
+	Width      int                `json:"width"`
 }
 
 type photosWallUploadResponse struct {
-	Hash   string `json:"hash,omitempty"`
-	Photo  string `json:"photo,omitempty"`
-	Server int    `json:"server,omitempty"`
+	Hash   string `json:"hash"`
+	Photo  string `json:"photo"`
+	Server int    `json:"server"`
 }
 
 type placesCheckin struct {
 	Date         int     `json:"date"`
-	Distance     int     `json:"distance,omitempty"`
+	Distance     int     `json:"distance"`
 	ID           int     `json:"id"`
-	Latitude     float64 `json:"latitude,omitempty"`
-	Longitude    float64 `json:"longitude,omitempty"`
-	PlaceCity    int     `json:"place_city,omitempty"`
-	PlaceCountry int     `json:"place_country,omitempty"`
-	PlaceID      int     `json:"place_id,omitempty"`
-	PlaceIcon    string  `json:"place_icon,omitempty"`
-	PlaceTitle   string  `json:"place_title,omitempty"`
-	PlaceType    string  `json:"place_type,omitempty"`
-	Text         string  `json:"text,omitempty"`
+	Latitude     float64 `json:"latitude"`
+	Longitude    float64 `json:"longitude"`
+	PlaceCity    int     `json:"place_city"`
+	PlaceCountry int     `json:"place_country"`
+	PlaceID      int     `json:"place_id"`
+	PlaceIcon    string  `json:"place_icon"`
+	PlaceTitle   string  `json:"place_title"`
+	PlaceType    string  `json:"place_type"`
+	Text         string  `json:"text"`
 	UserID       int     `json:"user_id"`
 }
 
 type placesPlaceFull struct {
-	Address    string  `json:"address,omitempty"`
-	Checkins   int     `json:"checkins,omitempty"`
-	City       int     `json:"city,omitempty"`
-	Country    int     `json:"country,omitempty"`
-	Created    int     `json:"created,omitempty"`
-	Distance   int     `json:"distance,omitempty"`
-	GroupID    int     `json:"group_id,omitempty"`
-	GroupPhoto string  `json:"group_photo,omitempty"`
-	ID         int     `json:"id,omitempty"`
-	Icon       string  `json:"icon,omitempty"`
-	Latitude   float64 `json:"latitude,omitempty"`
-	Longitude  float64 `json:"longitude,omitempty"`
-	Title      string  `json:"title,omitempty"`
-	Type       string  `json:"type,omitempty"`
+	Address    string  `json:"address"`
+	Checkins   int     `json:"checkins"`
+	City       int     `json:"city"`
+	Country    int     `json:"country"`
+	Created    int     `json:"created"`
+	Distance   int     `json:"distance"`
+	GroupID    int     `json:"group_id"`
+	GroupPhoto string  `json:"group_photo"`
+	ID         int     `json:"id"`
+	Icon       string  `json:"icon"`
+	Latitude   float64 `json:"latitude"`
+	Longitude  float64 `json:"longitude"`
+	Title      string  `json:"title"`
+	Type       string  `json:"type"`
 }
 
 type placesPlaceMin struct {
-	Address   string  `json:"address,omitempty"`
-	Checkins  int     `json:"checkins,omitempty"`
-	City      int     `json:"city,omitempty"`
-	Country   int     `json:"country,omitempty"`
-	Created   int     `json:"created,omitempty"`
-	ID        int     `json:"id,omitempty"`
-	Icon      string  `json:"icon,omitempty"`
-	Latitude  float64 `json:"latitude,omitempty"`
-	Longitude float64 `json:"longitude,omitempty"`
-	Title     string  `json:"title,omitempty"`
-	Type      string  `json:"type,omitempty"`
+	Address   string  `json:"address"`
+	Checkins  int     `json:"checkins"`
+	City      int     `json:"city"`
+	Country   int     `json:"country"`
+	Created   int     `json:"created"`
+	ID        int     `json:"id"`
+	Icon      string  `json:"icon"`
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
+	Title     string  `json:"title"`
+	Type      string  `json:"type"`
 }
 
 type placesTypes struct {
-	ID    int    `json:"id,omitempty"`
-	Icon  string `json:"icon,omitempty"`
-	Title string `json:"title,omitempty"`
+	ID    int    `json:"id"`
+	Icon  string `json:"icon"`
+	Title string `json:"title"`
 }
 
 type pollsAnswer struct {
@@ -1946,13 +1946,13 @@ type pollsPoll struct {
 }
 
 type pollsVoters struct {
-	AnswerID int              `json:"answer_id,omitempty"`
-	Users    pollsVotersUsers `json:"users,omitempty"`
+	AnswerID int              `json:"answer_id"`
+	Users    pollsVotersUsers `json:"users"`
 }
 
 type pollsVotersUsers struct {
-	Count int                    `json:"count,omitempty"`
-	Items []pollsVotersUsersItem `json:"items,omitempty"`
+	Count int                    `json:"count"`
+	Items []pollsVotersUsersItem `json:"items"`
 }
 
 // User ID
@@ -1960,9 +1960,9 @@ type pollsVotersUsersItem int
 
 type searchHint struct {
 	Description string            `json:"description"`
-	Global      int               `json:"global,omitempty"`
-	Group       groupsGroup       `json:"group,omitempty"`
-	Profile     usersUserMin      `json:"profile,omitempty"`
+	Global      int               `json:"global"`
+	Group       groupsGroup       `json:"group"`
+	Profile     usersUserMin      `json:"profile"`
 	Section     searchHintSection `json:"section"`
 	Type        searchHintType    `json:"type"`
 }
@@ -1974,131 +1974,131 @@ type searchHintSection string
 type searchHintType string
 
 type secureLevel struct {
-	Level int `json:"level,omitempty"`
-	UID   int `json:"uid,omitempty"`
+	Level int `json:"level"`
+	UID   int `json:"uid"`
 }
 
 type secureSmsNotification struct {
-	AppID   int    `json:"app_id,omitempty"`
-	Date    int    `json:"date,omitempty"`
-	ID      int    `json:"id,omitempty"`
-	Message string `json:"message,omitempty"`
-	UserID  int    `json:"user_id,omitempty"`
+	AppID   int    `json:"app_id"`
+	Date    int    `json:"date"`
+	ID      int    `json:"id"`
+	Message string `json:"message"`
+	UserID  int    `json:"user_id"`
 }
 
 type secureTokenChecked struct {
-	Date    int            `json:"date,omitempty"`
-	Expire  int            `json:"expire,omitempty"`
-	Success baseOkResponse `json:"success,omitempty"`
-	UserID  int            `json:"user_id,omitempty"`
+	Date    int            `json:"date"`
+	Expire  int            `json:"expire"`
+	Success baseOkResponse `json:"success"`
+	UserID  int            `json:"user_id"`
 }
 
 type secureTransaction struct {
-	Date    int `json:"date,omitempty"`
-	ID      int `json:"id,omitempty"`
-	UIDFrom int `json:"uid_from,omitempty"`
-	UIDTo   int `json:"uid_to,omitempty"`
-	Votes   int `json:"votes,omitempty"`
+	Date    int `json:"date"`
+	ID      int `json:"id"`
+	UIDFrom int `json:"uid_from"`
+	UIDTo   int `json:"uid_to"`
+	Votes   int `json:"votes"`
 }
 
 // Activity stats
 type statsActivity struct {
-	Comments     int `json:"comments,omitempty"`
-	Copies       int `json:"copies,omitempty"`
-	Hidden       int `json:"hidden,omitempty"`
-	Likes        int `json:"likes,omitempty"`
-	Subscribed   int `json:"subscribed,omitempty"`
-	Unsubscribed int `json:"unsubscribed,omitempty"`
+	Comments     int `json:"comments"`
+	Copies       int `json:"copies"`
+	Hidden       int `json:"hidden"`
+	Likes        int `json:"likes"`
+	Subscribed   int `json:"subscribed"`
+	Unsubscribed int `json:"unsubscribed"`
 }
 
 type statsCity struct {
-	Count int    `json:"count,omitempty"`
-	Name  string `json:"name,omitempty"`
-	Value int    `json:"value,omitempty"`
+	Count int    `json:"count"`
+	Name  string `json:"name"`
+	Value int    `json:"value"`
 }
 
 type statsCountry struct {
-	Code  string `json:"code,omitempty"`
-	Count int    `json:"count,omitempty"`
-	Name  string `json:"name,omitempty"`
-	Value int    `json:"value,omitempty"`
+	Code  string `json:"code"`
+	Count int    `json:"count"`
+	Name  string `json:"name"`
+	Value int    `json:"value"`
 }
 
 type statsPeriod struct {
-	Activity   statsActivity `json:"activity,omitempty"`
-	PeriodFrom string        `json:"period_from,omitempty"`
-	PeriodTo   string        `json:"period_to,omitempty"`
-	Reach      statsReach    `json:"reach,omitempty"`
-	Visitors   statsViews    `json:"visitors,omitempty"`
+	Activity   statsActivity `json:"activity"`
+	PeriodFrom string        `json:"period_from"`
+	PeriodTo   string        `json:"period_to"`
+	Reach      statsReach    `json:"reach"`
+	Visitors   statsViews    `json:"visitors"`
 }
 
 // Reach stats
 type statsReach struct {
-	Age              []statsSexAge  `json:"age,omitempty"`
-	Cities           []statsCity    `json:"cities,omitempty"`
-	Countries        []statsCountry `json:"countries,omitempty"`
-	MobileReach      int            `json:"mobile_reach,omitempty"`
-	Reach            int            `json:"reach,omitempty"`
-	ReachSubscribers int            `json:"reach_subscribers,omitempty"`
-	Sex              []statsSexAge  `json:"sex,omitempty"`
-	SexAge           []statsSexAge  `json:"sex_age,omitempty"`
+	Age              []statsSexAge  `json:"age"`
+	Cities           []statsCity    `json:"cities"`
+	Countries        []statsCountry `json:"countries"`
+	MobileReach      int            `json:"mobile_reach"`
+	Reach            int            `json:"reach"`
+	ReachSubscribers int            `json:"reach_subscribers"`
+	Sex              []statsSexAge  `json:"sex"`
+	SexAge           []statsSexAge  `json:"sex_age"`
 }
 
 type statsSexAge struct {
-	Count int    `json:"count,omitempty"`
-	Value string `json:"value,omitempty"`
+	Count int    `json:"count"`
+	Value string `json:"value"`
 }
 
 // Views stats
 type statsViews struct {
-	Age         []statsSexAge  `json:"age,omitempty"`
-	Cities      []statsCity    `json:"cities,omitempty"`
-	Countries   []statsCountry `json:"countries,omitempty"`
-	MobileViews int            `json:"mobile_views,omitempty"`
-	Sex         []statsSexAge  `json:"sex,omitempty"`
-	SexAge      []statsSexAge  `json:"sex_age,omitempty"`
-	Views       int            `json:"views,omitempty"`
-	Visitors    int            `json:"visitors,omitempty"`
+	Age         []statsSexAge  `json:"age"`
+	Cities      []statsCity    `json:"cities"`
+	Countries   []statsCountry `json:"countries"`
+	MobileViews int            `json:"mobile_views"`
+	Sex         []statsSexAge  `json:"sex"`
+	SexAge      []statsSexAge  `json:"sex_age"`
+	Views       int            `json:"views"`
+	Visitors    int            `json:"visitors"`
 }
 
 type statsWallpostStat struct {
-	Hide             int `json:"hide,omitempty"`
-	JoinGroup        int `json:"join_group,omitempty"`
-	Links            int `json:"links,omitempty"`
-	ReachSubscribers int `json:"reach_subscribers,omitempty"`
-	ReachTotal       int `json:"reach_total,omitempty"`
-	Report           int `json:"report,omitempty"`
-	ToGroup          int `json:"to_group,omitempty"`
-	Unsubscribe      int `json:"unsubscribe,omitempty"`
+	Hide             int `json:"hide"`
+	JoinGroup        int `json:"join_group"`
+	Links            int `json:"links"`
+	ReachSubscribers int `json:"reach_subscribers"`
+	ReachTotal       int `json:"reach_total"`
+	Report           int `json:"report"`
+	ToGroup          int `json:"to_group"`
+	Unsubscribe      int `json:"unsubscribe"`
 }
 
 type storiesReplies struct {
 	Count int `json:"count"`
-	New   int `json:"new,omitempty"`
+	New   int `json:"new"`
 }
 
 //type storiesStory struct {
-//	AccessKey            string            `json:"access_key,omitempty"`
-//	CanComment           int       `json:"can_comment,omitempty"`
-//	CanReply             int       `json:"can_reply,omitempty"`
-//	CanSee               int       `json:"can_see,omitempty"`
-//	CanShare             int       `json:"can_share,omitempty"`
-//	Date                 int               `json:"date,omitempty"`
+//	AccessKey            string            `json:"access_key"`
+//	CanComment           int       `json:"can_comment"`
+//	CanReply             int       `json:"can_reply"`
+//	CanSee               int       `json:"can_see"`
+//	CanShare             int       `json:"can_share"`
+//	Date                 int               `json:"date"`
 //	ID                   int               `json:"id"`
-//	IsDeleted            bool              `json:"is_deleted,omitempty"`
-//	IsExpired            bool              `json:"is_expired,omitempty"`
-//	Link                 storiesStoryLink  `json:"link,omitempty"`
+//	IsDeleted            bool              `json:"is_deleted"`
+//	IsExpired            bool              `json:"is_expired"`
+//	Link                 storiesStoryLink  `json:"link"`
 //	OwnerID              int               `json:"owner_id"`
-//	ParentStory          storiesStory      `json:"parent_story,omitempty"`
-//	ParentStoryAccessKey string            `json:"parent_story_access_key,omitempty"`
-//	ParentStoryID        int               `json:"parent_story_id,omitempty"`
-//	ParentStoryOwnerID   int               `json:"parent_story_owner_id,omitempty"`
-//	Photo                photosPhoto       `json:"photo,omitempty"`
-//	Replies              []storiesReplies  `json:"replies,omitempty"`
-//	Seen                 int       `json:"seen,omitempty"`
-//	Type                 storiesStoryType  `json:"type,omitempty"`
-//	Video                storiesStoryVideo `json:"video,omitempty"`
-//	Views                int               `json:"views,omitempty"`
+//	ParentStory          storiesStory      `json:"parent_story"`
+//	ParentStoryAccessKey string            `json:"parent_story_access_key"`
+//	ParentStoryID        int               `json:"parent_story_id"`
+//	ParentStoryOwnerID   int               `json:"parent_story_owner_id"`
+//	Photo                photosPhoto       `json:"photo"`
+//	Replies              []storiesReplies  `json:"replies"`
+//	Seen                 int       `json:"seen"`
+//	Type                 storiesStoryType  `json:"type"`
+//	Video                storiesStoryVideo `json:"video"`
+//	Views                int               `json:"views"`
 //}
 
 type storiesStoryLink struct {
@@ -2117,7 +2117,7 @@ type storiesStoryStats struct {
 }
 
 type storiesStoryStatsStat struct {
-	Count int                    `json:"count,omitempty"`
+	Count int                    `json:"count"`
 	State storiesStoryStatsState `json:"state"`
 }
 
@@ -2131,121 +2131,121 @@ type storiesStoryVideo struct {
 }
 
 type usersCareer struct {
-	CityID    int    `json:"city_id,omitempty"`
-	Company   string `json:"company,omitempty"`
-	CountryID int    `json:"country_id,omitempty"`
-	From      int    `json:"from,omitempty"`
-	GroupID   int    `json:"group_id,omitempty"`
-	Position  string `json:"position,omitempty"`
-	Until     int    `json:"until,omitempty"`
+	CityID    int    `json:"city_id"`
+	Company   string `json:"company"`
+	CountryID int    `json:"country_id"`
+	From      int    `json:"from"`
+	GroupID   int    `json:"group_id"`
+	Position  string `json:"position"`
+	Until     int    `json:"until"`
 }
 
 type usersCropPhoto struct {
-	Crop  usersCropPhotoCrop `json:"crop,omitempty"`
-	Photo photosPhoto        `json:"photo,omitempty"`
-	Rect  usersCropPhotoRect `json:"rect,omitempty"`
+	Crop  usersCropPhotoCrop `json:"crop"`
+	Photo photosPhoto        `json:"photo"`
+	Rect  usersCropPhotoRect `json:"rect"`
 }
 
 type usersCropPhotoCrop struct {
-	X  float64 `json:"x,omitempty"`
-	X2 float64 `json:"x2,omitempty"`
-	Y  float64 `json:"y,omitempty"`
-	Y2 float64 `json:"y2,omitempty"`
+	X  float64 `json:"x"`
+	X2 float64 `json:"x2"`
+	Y  float64 `json:"y"`
+	Y2 float64 `json:"y2"`
 }
 
 type usersCropPhotoRect struct {
-	X  float64 `json:"x,omitempty"`
-	X2 float64 `json:"x2,omitempty"`
-	Y  float64 `json:"y,omitempty"`
-	Y2 float64 `json:"y2,omitempty"`
+	X  float64 `json:"x"`
+	X2 float64 `json:"x2"`
+	Y  float64 `json:"y"`
+	Y2 float64 `json:"y2"`
 }
 
 type usersExports struct {
-	Facebook    int `json:"facebook,omitempty"`
-	Livejournal int `json:"livejournal,omitempty"`
-	Twitter     int `json:"twitter,omitempty"`
+	Facebook    int `json:"facebook"`
+	Livejournal int `json:"livejournal"`
+	Twitter     int `json:"twitter"`
 }
 
 type usersLastSeen struct {
-	Platform int `json:"platform,omitempty"`
-	Time     int `json:"time,omitempty"`
+	Platform int `json:"platform"`
+	Time     int `json:"time"`
 }
 
 type usersMilitary struct {
-	CountryID int    `json:"country_id,omitempty"`
-	From      int    `json:"from,omitempty"`
-	Unit      string `json:"unit,omitempty"`
-	UnitID    int    `json:"unit_id,omitempty"`
-	Until     int    `json:"until,omitempty"`
+	CountryID int    `json:"country_id"`
+	From      int    `json:"from"`
+	Unit      string `json:"unit"`
+	UnitID    int    `json:"unit_id"`
+	Until     int    `json:"until"`
 }
 
 type usersOccupation struct {
-	ID   int    `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
-	Type string `json:"type,omitempty"`
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+	Type string `json:"type"`
 }
 
 type usersPersonal struct {
-	Alcohol    int    `json:"alcohol,omitempty"`
-	InspiredBy string `json:"inspired_by,omitempty"`
-	Langs      []lang `json:"langs,omitempty"`
-	LifeMain   int    `json:"life_main,omitempty"`
-	PeopleMain int    `json:"people_main,omitempty"`
-	Political  int    `json:"political,omitempty"`
-	Religion   string `json:"religion,omitempty"`
-	Smoking    int    `json:"smoking,omitempty"`
+	Alcohol    int    `json:"alcohol"`
+	InspiredBy string `json:"inspired_by"`
+	Langs      []lang `json:"langs"`
+	LifeMain   int    `json:"life_main"`
+	PeopleMain int    `json:"people_main"`
+	Political  int    `json:"political"`
+	Religion   string `json:"religion"`
+	Smoking    int    `json:"smoking"`
 }
 
 type usersRelative struct {
-	ID   int    `json:"id,omitempty"`
-	Type string `json:"type,omitempty"`
+	ID   int    `json:"id"`
+	Type string `json:"type"`
 }
 
 type usersSchool struct {
-	City          int    `json:"city,omitempty"`
-	Class         string `json:"class,omitempty"`
-	Country       int    `json:"country,omitempty"`
-	ID            string `json:"id,omitempty"`
-	Name          string `json:"name,omitempty"`
-	Type          int    `json:"type,omitempty"`
-	TypeStr       string `json:"type_str,omitempty"`
-	YearFrom      int    `json:"year_from,omitempty"`
-	YearGraduated int    `json:"year_graduated,omitempty"`
-	YearTo        int    `json:"year_to,omitempty"`
+	City          int    `json:"city"`
+	Class         string `json:"class"`
+	Country       int    `json:"country"`
+	ID            string `json:"id"`
+	Name          string `json:"name"`
+	Type          int    `json:"type"`
+	TypeStr       string `json:"type_str"`
+	YearFrom      int    `json:"year_from"`
+	YearGraduated int    `json:"year_graduated"`
+	YearTo        int    `json:"year_to"`
 }
 
 type usersUniversity struct {
-	Chair           int    `json:"chair,omitempty"`
-	ChairName       string `json:"chair_name,omitempty"`
-	City            int    `json:"city,omitempty"`
-	Country         int    `json:"country,omitempty"`
-	EducationForm   string `json:"education_form,omitempty"`
-	EducationStatus string `json:"education_status,omitempty"`
-	Faculty         int    `json:"faculty,omitempty"`
-	FacultyName     string `json:"faculty_name,omitempty"`
-	Graduation      int    `json:"graduation,omitempty"`
-	ID              int    `json:"id,omitempty"`
-	Name            string `json:"name,omitempty"`
+	Chair           int    `json:"chair"`
+	ChairName       string `json:"chair_name"`
+	City            int    `json:"city"`
+	Country         int    `json:"country"`
+	EducationForm   string `json:"education_form"`
+	EducationStatus string `json:"education_status"`
+	Faculty         int    `json:"faculty"`
+	FacultyName     string `json:"faculty_name"`
+	Graduation      int    `json:"graduation"`
+	ID              int    `json:"id"`
+	Name            string `json:"name"`
 }
 
 type usersUserBroadcast struct {
 }
 
 type usersUserCounters struct {
-	Albums        int `json:"albums,omitempty"`
-	Audios        int `json:"audios,omitempty"`
-	Followers     int `json:"followers,omitempty"`
-	Friends       int `json:"friends,omitempty"`
-	Gifts         int `json:"gifts,omitempty"`
-	Groups        int `json:"groups,omitempty"`
-	Notes         int `json:"notes,omitempty"`
-	OnlineFriends int `json:"online_friends,omitempty"`
-	Pages         int `json:"pages,omitempty"`
-	Photos        int `json:"photos,omitempty"`
-	Subscriptions int `json:"subscriptions,omitempty"`
-	UserPhotos    int `json:"user_photos,omitempty"`
-	UserVideos    int `json:"user_videos,omitempty"`
-	Videos        int `json:"videos,omitempty"`
+	Albums        int `json:"albums"`
+	Audios        int `json:"audios"`
+	Followers     int `json:"followers"`
+	Friends       int `json:"friends"`
+	Gifts         int `json:"gifts"`
+	Groups        int `json:"groups"`
+	Notes         int `json:"notes"`
+	OnlineFriends int `json:"online_friends"`
+	Pages         int `json:"pages"`
+	Photos        int `json:"photos"`
+	Subscriptions int `json:"subscriptions"`
+	UserPhotos    int `json:"user_photos"`
+	UserVideos    int `json:"user_videos"`
+	Videos        int `json:"videos"`
 }
 
 type usersUserFull struct {
@@ -2255,89 +2255,89 @@ type usersUserFullXtrType struct {
 }
 
 type usersUserLim struct {
-	ID      int    `json:"id,omitempty"`
-	Name    string `json:"name,omitempty"`
-	NameGen string `json:"name_gen,omitempty"`
-	Photo   string `json:"photo,omitempty"`
+	ID      int    `json:"id"`
+	Name    string `json:"name"`
+	NameGen string `json:"name_gen"`
+	Photo   string `json:"photo"`
 }
 
 type usersUserMin struct {
-	Deactivated string `json:"deactivated,omitempty"`
+	Deactivated string `json:"deactivated"`
 	FirstName   string `json:"first_name"`
-	Hidden      int    `json:"hidden,omitempty"`
+	Hidden      int    `json:"hidden"`
 	ID          int    `json:"id"`
 	LastName    string `json:"last_name"`
 }
 
 type utilsDomainResolved struct {
-	ObjectID int                     `json:"object_id,omitempty"`
-	Type     utilsDomainResolvedType `json:"type,omitempty"`
+	ObjectID int                     `json:"object_id"`
+	Type     utilsDomainResolvedType `json:"type"`
 }
 
 // Object type
 type utilsDomainResolvedType string
 
 type utilsLastShortenedLink struct {
-	AccessKey string `json:"access_key,omitempty"`
-	Key       string `json:"key,omitempty"`
-	ShortURL  string `json:"short_url,omitempty"`
-	Timestamp int    `json:"timestamp,omitempty"`
-	URL       string `json:"url,omitempty"`
-	Views     int    `json:"views,omitempty"`
+	AccessKey string `json:"access_key"`
+	Key       string `json:"key"`
+	ShortURL  string `json:"short_url"`
+	Timestamp int    `json:"timestamp"`
+	URL       string `json:"url"`
+	Views     int    `json:"views"`
 }
 
 type utilsLinkChecked struct {
-	Link   string                 `json:"link,omitempty"`
-	Status utilsLinkCheckedStatus `json:"status,omitempty"`
+	Link   string                 `json:"link"`
+	Status utilsLinkCheckedStatus `json:"status"`
 }
 
 // Link status
 type utilsLinkCheckedStatus string
 
 type utilsLinkStats struct {
-	Key   string       `json:"key,omitempty"`
-	Stats []utilsStats `json:"stats,omitempty"`
+	Key   string       `json:"key"`
+	Stats []utilsStats `json:"stats"`
 }
 
 type utilsLinkStatsExtended struct {
-	Key   string               `json:"key,omitempty"`
-	Stats []utilsStatsExtended `json:"stats,omitempty"`
+	Key   string               `json:"key"`
+	Stats []utilsStatsExtended `json:"stats"`
 }
 
 type utilsShortLink struct {
-	AccessKey string `json:"access_key,omitempty"`
-	Key       string `json:"key,omitempty"`
-	ShortURL  string `json:"short_url,omitempty"`
-	URL       string `json:"url,omitempty"`
+	AccessKey string `json:"access_key"`
+	Key       string `json:"key"`
+	ShortURL  string `json:"short_url"`
+	URL       string `json:"url"`
 }
 
 type utilsStats struct {
-	Timestamp int `json:"timestamp,omitempty"`
-	Views     int `json:"views,omitempty"`
+	Timestamp int `json:"timestamp"`
+	Views     int `json:"views"`
 }
 
 type utilsStatsCity struct {
-	CityID int `json:"city_id,omitempty"`
-	Views  int `json:"views,omitempty"`
+	CityID int `json:"city_id"`
+	Views  int `json:"views"`
 }
 
 type utilsStatsCountry struct {
-	CountryID int `json:"country_id,omitempty"`
-	Views     int `json:"views,omitempty"`
+	CountryID int `json:"country_id"`
+	Views     int `json:"views"`
 }
 
 type utilsStatsExtended struct {
-	Cities    []utilsStatsCity    `json:"cities,omitempty"`
-	Countries []utilsStatsCountry `json:"countries,omitempty"`
-	SexAge    []utilsStatsSexAge  `json:"sex_age,omitempty"`
-	Timestamp int                 `json:"timestamp,omitempty"`
-	Views     int                 `json:"views,omitempty"`
+	Cities    []utilsStatsCity    `json:"cities"`
+	Countries []utilsStatsCountry `json:"countries"`
+	SexAge    []utilsStatsSexAge  `json:"sex_age"`
+	Timestamp int                 `json:"timestamp"`
+	Views     int                 `json:"views"`
 }
 
 type utilsStatsSexAge struct {
-	AgeRange string `json:"age_range,omitempty"`
-	Female   int    `json:"female,omitempty"`
-	Male     int    `json:"male,omitempty"`
+	AgeRange string `json:"age_range"`
+	Female   int    `json:"female"`
+	Male     int    `json:"male"`
 }
 
 type videoCatBlock struct {
@@ -2346,7 +2346,7 @@ type videoCatBlock struct {
 	Items   []videoCatElement `json:"items"`
 	Name    string            `json:"name"`
 	Next    string            `json:"next"`
-	Type    videoCatBlockView `json:"type,omitempty"`
+	Type    videoCatBlockView `json:"type"`
 	View    videoCatBlockView `json:"view"`
 }
 
@@ -2354,63 +2354,63 @@ type videoCatBlock struct {
 type videoCatBlockView string
 
 type videoCatElement struct {
-	CanAdd      int                 `json:"can_add,omitempty"`
-	CanEdit     int                 `json:"can_edit,omitempty"`
-	Comments    int                 `json:"comments,omitempty"`
-	Count       int                 `json:"count,omitempty"`
-	Date        int                 `json:"date,omitempty"`
-	Description string              `json:"description,omitempty"`
-	Duration    int                 `json:"duration,omitempty"`
+	CanAdd      int                 `json:"can_add"`
+	CanEdit     int                 `json:"can_edit"`
+	Comments    int                 `json:"comments"`
+	Count       int                 `json:"count"`
+	Date        int                 `json:"date"`
+	Description string              `json:"description"`
+	Duration    int                 `json:"duration"`
 	ID          int                 `json:"id"`
-	IsPrivate   int                 `json:"is_private,omitempty"`
+	IsPrivate   int                 `json:"is_private"`
 	OwnerID     int                 `json:"owner_id"`
-	Photo130    string              `json:"photo_130,omitempty"`
-	Photo160    string              `json:"photo_160,omitempty"`
-	Photo320    string              `json:"photo_320,omitempty"`
-	Photo640    string              `json:"photo_640,omitempty"`
-	Photo800    string              `json:"photo_800,omitempty"`
+	Photo130    string              `json:"photo_130"`
+	Photo160    string              `json:"photo_160"`
+	Photo320    string              `json:"photo_320"`
+	Photo640    string              `json:"photo_640"`
+	Photo800    string              `json:"photo_800"`
 	Title       string              `json:"title"`
 	Type        videoCatElementType `json:"type"`
-	UpdatedTime int                 `json:"updated_time,omitempty"`
-	Views       int                 `json:"views,omitempty"`
+	UpdatedTime int                 `json:"updated_time"`
+	Views       int                 `json:"views"`
 }
 
 // Element type
 type videoCatElementType string
 
 type videoSaveResult struct {
-	Description string `json:"description,omitempty"`
-	OwnerID     int    `json:"owner_id,omitempty"`
-	Title       string `json:"title,omitempty"`
-	UploadURL   string `json:"upload_url,omitempty"`
-	VideoID     int    `json:"video_id,omitempty"`
+	Description string `json:"description"`
+	OwnerID     int    `json:"owner_id"`
+	Title       string `json:"title"`
+	UploadURL   string `json:"upload_url"`
+	VideoID     int    `json:"video_id"`
 }
 
 type videoUploadResponse struct {
-	Size    int `json:"size,omitempty"`
-	VideoID int `json:"video_id,omitempty"`
+	Size    int `json:"size"`
+	VideoID int `json:"video_id"`
 }
 
 type videoVideo struct {
-	AccessKey   string             `json:"access_key,omitempty"`
-	AddingDate  int                `json:"adding_date,omitempty"`
-	CanAdd      int                `json:"can_add,omitempty"`
-	CanEdit     int                `json:"can_edit,omitempty"`
-	Comments    int                `json:"comments,omitempty"`
-	Date        int                `json:"date,omitempty"`
-	Description string             `json:"description,omitempty"`
-	Duration    int                `json:"duration,omitempty"`
-	Files       videoVideoFiles    `json:"files,omitempty"`
-	ID          int                `json:"id,omitempty"`
-	Live        basePropertyExists `json:"live,omitempty"`
-	OwnerID     int                `json:"owner_id,omitempty"`
-	Photo130    string             `json:"photo_130,omitempty"`
-	Photo320    string             `json:"photo_320,omitempty"`
-	Photo800    string             `json:"photo_800,omitempty"`
-	Player      string             `json:"player,omitempty"`
-	Processing  basePropertyExists `json:"processing,omitempty"`
-	Title       string             `json:"title,omitempty"`
-	Views       int                `json:"views,omitempty"`
+	AccessKey   string             `json:"access_key"`
+	AddingDate  int                `json:"adding_date"`
+	CanAdd      int                `json:"can_add"`
+	CanEdit     int                `json:"can_edit"`
+	Comments    int                `json:"comments"`
+	Date        int                `json:"date"`
+	Description string             `json:"description"`
+	Duration    int                `json:"duration"`
+	Files       videoVideoFiles    `json:"files"`
+	ID          int                `json:"id"`
+	Live        basePropertyExists `json:"live"`
+	OwnerID     int                `json:"owner_id"`
+	Photo130    string             `json:"photo_130"`
+	Photo320    string             `json:"photo_320"`
+	Photo800    string             `json:"photo_800"`
+	Player      string             `json:"player"`
+	Processing  basePropertyExists `json:"processing"`
+	Title       string             `json:"title"`
+	Views       int                `json:"views"`
 }
 
 type videoVideoAlbum struct {
@@ -2422,49 +2422,49 @@ type videoVideoAlbum struct {
 type videoVideoAlbumFull struct {
 	Count       int    `json:"count"`
 	ID          int    `json:"id"`
-	IsSystem    int    `json:"is_system,omitempty"`
+	IsSystem    int    `json:"is_system"`
 	OwnerID     int    `json:"owner_id"`
-	Photo160    string `json:"photo_160,omitempty"`
-	Photo320    string `json:"photo_320,omitempty"`
+	Photo160    string `json:"photo_160"`
+	Photo320    string `json:"photo_320"`
 	Title       string `json:"title"`
 	UpdatedTime int    `json:"updated_time"`
 }
 
 type videoVideoFiles struct {
-	External string `json:"external,omitempty"`
-	Mp1080   string `json:"mp_1080,omitempty"`
-	Mp240    string `json:"mp_240,omitempty"`
-	Mp360    string `json:"mp_360,omitempty"`
-	Mp480    string `json:"mp_480,omitempty"`
-	Mp720    string `json:"mp_720,omitempty"`
+	External string `json:"external"`
+	Mp1080   string `json:"mp_1080"`
+	Mp240    string `json:"mp_240"`
+	Mp360    string `json:"mp_360"`
+	Mp480    string `json:"mp_480"`
+	Mp720    string `json:"mp_720"`
 }
 
 type videoVideoFull struct {
-	AccessKey      string                             `json:"access_key,omitempty"`
-	AddingDate     int                                `json:"adding_date,omitempty"`
-	CanAdd         int                                `json:"can_add,omitempty"`
-	CanComment     int                                `json:"can_comment,omitempty"`
-	CanEdit        int                                `json:"can_edit,omitempty"`
-	CanRepost      int                                `json:"can_repost,omitempty"`
-	Comments       int                                `json:"comments,omitempty"`
-	Date           int                                `json:"date,omitempty"`
-	Description    string                             `json:"description,omitempty"`
-	Duration       int                                `json:"duration,omitempty"`
-	Files          videoVideoFiles                    `json:"files,omitempty"`
-	ID             int                                `json:"id,omitempty"`
-	Likes          baseLikes                          `json:"likes,omitempty"`
-	Live           basePropertyExists                 `json:"live,omitempty"`
-	OwnerID        int                                `json:"owner_id,omitempty"`
-	Photo130       string                             `json:"photo_130,omitempty"`
-	Photo320       string                             `json:"photo_320,omitempty"`
-	Photo800       string                             `json:"photo_800,omitempty"`
-	Player         string                             `json:"player,omitempty"`
-	PrivacyComment []videoVideoFullPrivacyCommentItem `json:"privacy_comment,omitempty"`
-	PrivacyView    []videoVideoFullPrivacyViewItem    `json:"privacy_view,omitempty"`
-	Processing     basePropertyExists                 `json:"processing,omitempty"`
-	Repeat         int                                `json:"repeat,omitempty"`
-	Title          string                             `json:"title,omitempty"`
-	Views          int                                `json:"views,omitempty"`
+	AccessKey      string                             `json:"access_key"`
+	AddingDate     int                                `json:"adding_date"`
+	CanAdd         int                                `json:"can_add"`
+	CanComment     int                                `json:"can_comment"`
+	CanEdit        int                                `json:"can_edit"`
+	CanRepost      int                                `json:"can_repost"`
+	Comments       int                                `json:"comments"`
+	Date           int                                `json:"date"`
+	Description    string                             `json:"description"`
+	Duration       int                                `json:"duration"`
+	Files          videoVideoFiles                    `json:"files"`
+	ID             int                                `json:"id"`
+	Likes          baseLikes                          `json:"likes"`
+	Live           basePropertyExists                 `json:"live"`
+	OwnerID        int                                `json:"owner_id"`
+	Photo130       string                             `json:"photo_130"`
+	Photo320       string                             `json:"photo_320"`
+	Photo800       string                             `json:"photo_800"`
+	Player         string                             `json:"player"`
+	PrivacyComment []videoVideoFullPrivacyCommentItem `json:"privacy_comment"`
+	PrivacyView    []videoVideoFullPrivacyViewItem    `json:"privacy_view"`
+	Processing     basePropertyExists                 `json:"processing"`
+	Repeat         int                                `json:"repeat"`
+	Title          string                             `json:"title"`
+	Views          int                                `json:"views"`
 }
 
 // Privacy comment
@@ -2483,35 +2483,35 @@ type videoVideoTag struct {
 }
 
 type videoVideoTagInfo struct {
-	AccessKey   string             `json:"access_key,omitempty"`
-	AddingDate  int                `json:"adding_date,omitempty"`
-	CanAdd      int                `json:"can_add,omitempty"`
-	CanEdit     int                `json:"can_edit,omitempty"`
-	Comments    int                `json:"comments,omitempty"`
-	Date        int                `json:"date,omitempty"`
-	Description string             `json:"description,omitempty"`
-	Duration    int                `json:"duration,omitempty"`
-	Files       videoVideoFiles    `json:"files,omitempty"`
-	ID          int                `json:"id,omitempty"`
-	Live        basePropertyExists `json:"live,omitempty"`
-	OwnerID     int                `json:"owner_id,omitempty"`
-	Photo130    string             `json:"photo_130,omitempty"`
-	Photo320    string             `json:"photo_320,omitempty"`
-	Photo800    string             `json:"photo_800,omitempty"`
-	PlacerID    int                `json:"placer_id,omitempty"`
-	Player      string             `json:"player,omitempty"`
-	Processing  basePropertyExists `json:"processing,omitempty"`
-	TagCreated  int                `json:"tag_created,omitempty"`
-	TagID       int                `json:"tag_id,omitempty"`
-	Title       string             `json:"title,omitempty"`
-	Views       int                `json:"views,omitempty"`
+	AccessKey   string             `json:"access_key"`
+	AddingDate  int                `json:"adding_date"`
+	CanAdd      int                `json:"can_add"`
+	CanEdit     int                `json:"can_edit"`
+	Comments    int                `json:"comments"`
+	Date        int                `json:"date"`
+	Description string             `json:"description"`
+	Duration    int                `json:"duration"`
+	Files       videoVideoFiles    `json:"files"`
+	ID          int                `json:"id"`
+	Live        basePropertyExists `json:"live"`
+	OwnerID     int                `json:"owner_id"`
+	Photo130    string             `json:"photo_130"`
+	Photo320    string             `json:"photo_320"`
+	Photo800    string             `json:"photo_800"`
+	PlacerID    int                `json:"placer_id"`
+	Player      string             `json:"player"`
+	Processing  basePropertyExists `json:"processing"`
+	TagCreated  int                `json:"tag_created"`
+	TagID       int                `json:"tag_id"`
+	Title       string             `json:"title"`
+	Views       int                `json:"views"`
 }
 
 type wallAppPost struct {
-	ID       int    `json:"id,omitempty"`
-	Name     string `json:"name,omitempty"`
-	Photo130 string `json:"photo_130,omitempty"`
-	Photo604 string `json:"photo_604,omitempty"`
+	ID       int    `json:"id"`
+	Name     string `json:"name"`
+	Photo130 string `json:"photo_130"`
+	Photo604 string `json:"photo_604"`
 }
 
 type wallAttachedNote struct {
@@ -2525,34 +2525,34 @@ type wallAttachedNote struct {
 }
 
 type wallCommentAttachment struct {
-	Audio             audioAudioFull            `json:"audio,omitempty"`
-	Doc               docsDoc                   `json:"doc,omitempty"`
-	Link              baseLink                  `json:"link,omitempty"`
-	Market            marketMarketItem          `json:"market,omitempty"`
-	MarketMarketAlbum marketMarketAlbum         `json:"market_market_album,omitempty"`
-	Note              wallAttachedNote          `json:"note,omitempty"`
-	Page              pagesWikipageFull         `json:"page,omitempty"`
-	Photo             photosPhoto               `json:"photo,omitempty"`
-	Sticker           baseSticker               `json:"sticker,omitempty"`
+	Audio             audioAudioFull            `json:"audio"`
+	Doc               docsDoc                   `json:"doc"`
+	Link              baseLink                  `json:"link"`
+	Market            marketMarketItem          `json:"market"`
+	MarketMarketAlbum marketMarketAlbum         `json:"market_market_album"`
+	Note              wallAttachedNote          `json:"note"`
+	Page              pagesWikipageFull         `json:"page"`
+	Photo             photosPhoto               `json:"photo"`
+	Sticker           baseSticker               `json:"sticker"`
 	Type              wallCommentAttachmentType `json:"type"`
-	Video             videoVideo                `json:"video,omitempty"`
+	Video             videoVideo                `json:"video"`
 }
 
 // Attachment type
 type wallCommentAttachmentType string
 
 type wallGraffiti struct {
-	ID       int    `json:"id,omitempty"`
-	OwnerID  int    `json:"owner_id,omitempty"`
-	Photo200 string `json:"photo_200,omitempty"`
-	Photo586 string `json:"photo_586,omitempty"`
+	ID       int    `json:"id"`
+	OwnerID  int    `json:"owner_id"`
+	Photo200 string `json:"photo_200"`
+	Photo586 string `json:"photo_586"`
 }
 
 type wallPostSource struct {
-	Data     string             `json:"data,omitempty"`
-	Platform string             `json:"platform,omitempty"`
-	Type     wallPostSourceType `json:"type,omitempty"`
-	URL      string             `json:"url,omitempty"`
+	Data     string             `json:"data"`
+	Platform string             `json:"platform"`
+	Type     wallPostSourceType `json:"type"`
+	URL      string             `json:"url"`
 }
 
 // Type of post source
@@ -2562,80 +2562,80 @@ type wallPostSourceType string
 type wallPostType string
 
 type wallPostedPhoto struct {
-	ID       int    `json:"id,omitempty"`
-	OwnerID  int    `json:"owner_id,omitempty"`
-	Photo130 string `json:"photo_130,omitempty"`
-	Photo604 string `json:"photo_604,omitempty"`
+	ID       int    `json:"id"`
+	OwnerID  int    `json:"owner_id"`
+	Photo130 string `json:"photo_130"`
+	Photo604 string `json:"photo_604"`
 }
 
 type wallViews struct {
-	Count int `json:"count,omitempty"`
+	Count int `json:"count"`
 }
 
 type wallWallComment struct {
-	Attachments    []wallCommentAttachment `json:"attachments,omitempty"`
+	Attachments    []wallCommentAttachment `json:"attachments"`
 	Date           int                     `json:"date"`
 	FromID         int                     `json:"from_id"`
 	ID             int                     `json:"id"`
-	Likes          baseLikesInfo           `json:"likes,omitempty"`
-	RealOffset     int                     `json:"real_offset,omitempty"`
-	ReplyToComment int                     `json:"reply_to_comment,omitempty"`
-	ReplyToUser    int                     `json:"reply_to_user,omitempty"`
+	Likes          baseLikesInfo           `json:"likes"`
+	RealOffset     int                     `json:"real_offset"`
+	ReplyToComment int                     `json:"reply_to_comment"`
+	ReplyToUser    int                     `json:"reply_to_user"`
 	Text           string                  `json:"text"`
 }
 
 type wallWallpost struct {
-	AccessKey   string                   `json:"access_key,omitempty"`
-	Attachments []wallWallpostAttachment `json:"attachments,omitempty"`
-	Date        int                      `json:"date,omitempty"`
-	FromID      int                      `json:"from_id,omitempty"`
-	Geo         baseGeo                  `json:"geo,omitempty"`
-	ID          int                      `json:"id,omitempty"`
-	OwnerID     int                      `json:"owner_id,omitempty"`
-	PostSource  wallPostSource           `json:"post_source,omitempty"`
-	PostType    wallPostType             `json:"post_type,omitempty"`
-	SignerID    int                      `json:"signer_id,omitempty"`
-	Text        string                   `json:"text,omitempty"`
-	Views       wallViews                `json:"views,omitempty"`
+	AccessKey   string                   `json:"access_key"`
+	Attachments []wallWallpostAttachment `json:"attachments"`
+	Date        int                      `json:"date"`
+	FromID      int                      `json:"from_id"`
+	Geo         baseGeo                  `json:"geo"`
+	ID          int                      `json:"id"`
+	OwnerID     int                      `json:"owner_id"`
+	PostSource  wallPostSource           `json:"post_source"`
+	PostType    wallPostType             `json:"post_type"`
+	SignerID    int                      `json:"signer_id"`
+	Text        string                   `json:"text"`
+	Views       wallViews                `json:"views"`
 }
 
 type wallWallpostAttached struct {
-	Attachments []wallWallpostAttachment `json:"attachments,omitempty"`
-	CanDelete   int                      `json:"can_delete,omitempty"`
-	Comments    baseCommentsInfo         `json:"comments,omitempty"`
-	CopyOwnerID int                      `json:"copy_owner_id,omitempty"`
-	CopyPostID  int                      `json:"copy_post_id,omitempty"`
-	CopyText    string                   `json:"copy_text,omitempty"`
-	Date        int                      `json:"date,omitempty"`
-	FromID      int                      `json:"from_id,omitempty"`
-	Geo         baseGeo                  `json:"geo,omitempty"`
-	ID          int                      `json:"id,omitempty"`
-	Likes       baseLikesInfo            `json:"likes,omitempty"`
-	PostSource  wallPostSource           `json:"post_source,omitempty"`
-	PostType    wallPostType             `json:"post_type,omitempty"`
-	Reposts     baseRepostsInfo          `json:"reposts,omitempty"`
-	SignerID    int                      `json:"signer_id,omitempty"`
-	Text        string                   `json:"text,omitempty"`
-	ToID        int                      `json:"to_id,omitempty"`
+	Attachments []wallWallpostAttachment `json:"attachments"`
+	CanDelete   int                      `json:"can_delete"`
+	Comments    baseCommentsInfo         `json:"comments"`
+	CopyOwnerID int                      `json:"copy_owner_id"`
+	CopyPostID  int                      `json:"copy_post_id"`
+	CopyText    string                   `json:"copy_text"`
+	Date        int                      `json:"date"`
+	FromID      int                      `json:"from_id"`
+	Geo         baseGeo                  `json:"geo"`
+	ID          int                      `json:"id"`
+	Likes       baseLikesInfo            `json:"likes"`
+	PostSource  wallPostSource           `json:"post_source"`
+	PostType    wallPostType             `json:"post_type"`
+	Reposts     baseRepostsInfo          `json:"reposts"`
+	SignerID    int                      `json:"signer_id"`
+	Text        string                   `json:"text"`
+	ToID        int                      `json:"to_id"`
 }
 
 type wallWallpostAttachment struct {
-	Album             photosPhotoAlbum           `json:"album,omitempty"`
-	App               wallAppPost                `json:"app,omitempty"`
-	Audio             audioAudioFull             `json:"audio,omitempty"`
-	Doc               docsDoc                    `json:"doc,omitempty"`
-	Graffiti          wallGraffiti               `json:"graffiti,omitempty"`
-	Link              baseLink                   `json:"link,omitempty"`
-	Market            marketMarketItem           `json:"market,omitempty"`
-	MarketMarketAlbum marketMarketAlbum          `json:"market_market_album,omitempty"`
-	Note              wallAttachedNote           `json:"note,omitempty"`
-	Page              pagesWikipageFull          `json:"page,omitempty"`
-	Photo             photosPhoto                `json:"photo,omitempty"`
-	PhotosList        []photosListItem           `json:"photos_list,omitempty"`
-	Poll              pollsPoll                  `json:"poll,omitempty"`
-	PostedPhoto       wallPostedPhoto            `json:"posted_photo,omitempty"`
+	Album             photosPhotoAlbum           `json:"album"`
+	App               wallAppPost                `json:"app"`
+	Audio             audioAudioFull             `json:"audio"`
+	Doc               docsDoc                    `json:"doc"`
+	Graffiti          wallGraffiti               `json:"graffiti"`
+	Link              baseLink                   `json:"link"`
+	Market            marketMarketItem           `json:"market"`
+	MarketMarketAlbum marketMarketAlbum          `json:"market_market_album"`
+	Note              wallAttachedNote           `json:"note"`
+	Page              pagesWikipageFull          `json:"page"`
+	Photo             photosPhoto                `json:"photo"`
+	PhotosList        []photosListItem           `json:"photos_list"`
+	Poll              pollsPoll                  `json:"poll"`
+	PostedPhoto       wallPostedPhoto            `json:"posted_photo"`
 	Type              wallWallpostAttachmentType `json:"type"`
-	Video             videoVideo                 `json:"video,omitempty"`
+	Video             videoVideo                 `json:"video"`
 }
 
 // Attachment type
@@ -2645,78 +2645,78 @@ type wallWallpostFull struct {
 }
 
 type wallWallpostToID struct {
-	Attachments []wallWallpostAttachment `json:"attachments,omitempty"`
-	Comments    baseCommentsInfo         `json:"comments,omitempty"`
-	CopyOwnerID int                      `json:"copy_owner_id,omitempty"`
-	CopyPostID  int                      `json:"copy_post_id,omitempty"`
-	Date        int                      `json:"date,omitempty"`
-	FromID      int                      `json:"from_id,omitempty"`
-	Geo         baseGeo                  `json:"geo,omitempty"`
-	ID          int                      `json:"id,omitempty"`
-	Likes       baseLikesInfo            `json:"likes,omitempty"`
-	PostID      int                      `json:"post_id,omitempty"`
-	PostSource  wallPostSource           `json:"post_source,omitempty"`
-	PostType    wallPostType             `json:"post_type,omitempty"`
-	Reposts     baseRepostsInfo          `json:"reposts,omitempty"`
-	SignerID    int                      `json:"signer_id,omitempty"`
-	Text        string                   `json:"text,omitempty"`
-	ToID        int                      `json:"to_id,omitempty"`
+	Attachments []wallWallpostAttachment `json:"attachments"`
+	Comments    baseCommentsInfo         `json:"comments"`
+	CopyOwnerID int                      `json:"copy_owner_id"`
+	CopyPostID  int                      `json:"copy_post_id"`
+	Date        int                      `json:"date"`
+	FromID      int                      `json:"from_id"`
+	Geo         baseGeo                  `json:"geo"`
+	ID          int                      `json:"id"`
+	Likes       baseLikesInfo            `json:"likes"`
+	PostID      int                      `json:"post_id"`
+	PostSource  wallPostSource           `json:"post_source"`
+	PostType    wallPostType             `json:"post_type"`
+	Reposts     baseRepostsInfo          `json:"reposts"`
+	SignerID    int                      `json:"signer_id"`
+	Text        string                   `json:"text"`
+	ToID        int                      `json:"to_id"`
 }
 
 type widgetsCommentMedia struct {
-	ItemID   int                     `json:"item_id,omitempty"`
-	OwnerID  int                     `json:"owner_id,omitempty"`
-	ThumbSrc string                  `json:"thumb_src,omitempty"`
-	Type     widgetsCommentMediaType `json:"type,omitempty"`
+	ItemID   int                     `json:"item_id"`
+	OwnerID  int                     `json:"owner_id"`
+	ThumbSrc string                  `json:"thumb_src"`
+	Type     widgetsCommentMediaType `json:"type"`
 }
 
 // Media type
 type widgetsCommentMediaType string
 
 type widgetsCommentReplies struct {
-	CanPost int                         `json:"can_post,omitempty"`
-	Count   int                         `json:"count,omitempty"`
-	Replies []widgetsCommentRepliesItem `json:"replies,omitempty"`
+	CanPost int                         `json:"can_post"`
+	Count   int                         `json:"count"`
+	Replies []widgetsCommentRepliesItem `json:"replies"`
 }
 
 type widgetsCommentRepliesItem struct {
-	Cid   int                `json:"cid,omitempty"`
-	Date  int                `json:"date,omitempty"`
-	Likes widgetsWidgetLikes `json:"likes,omitempty"`
-	Text  string             `json:"text,omitempty"`
-	UID   int                `json:"uid,omitempty"`
-	User  usersUserFull      `json:"user,omitempty"`
+	Cid   int                `json:"cid"`
+	Date  int                `json:"date"`
+	Likes widgetsWidgetLikes `json:"likes"`
+	Text  string             `json:"text"`
+	UID   int                `json:"uid"`
+	User  usersUserFull      `json:"user"`
 }
 
 type widgetsWidgetComment struct {
-	Attachments []wallCommentAttachment `json:"attachments,omitempty"`
-	CanDelete   int                     `json:"can_delete,omitempty"`
-	Comments    widgetsCommentReplies   `json:"comments,omitempty"`
+	Attachments []wallCommentAttachment `json:"attachments"`
+	CanDelete   int                     `json:"can_delete"`
+	Comments    widgetsCommentReplies   `json:"comments"`
 	Date        int                     `json:"date"`
 	FromID      int                     `json:"from_id"`
 	ID          int                     `json:"id"`
-	Likes       baseLikesInfo           `json:"likes,omitempty"`
-	Media       widgetsCommentMedia     `json:"media,omitempty"`
-	PostSource  wallPostSource          `json:"post_source,omitempty"`
+	Likes       baseLikesInfo           `json:"likes"`
+	Media       widgetsCommentMedia     `json:"media"`
+	PostSource  wallPostSource          `json:"post_source"`
 	PostType    int                     `json:"post_type"`
-	Reposts     baseRepostsInfo         `json:"reposts,omitempty"`
+	Reposts     baseRepostsInfo         `json:"reposts"`
 	Text        string                  `json:"text"`
 	ToID        int                     `json:"to_id"`
-	User        usersUserFull           `json:"user,omitempty"`
+	User        usersUserFull           `json:"user"`
 }
 
 type widgetsWidgetLikes struct {
-	Count int `json:"count,omitempty"`
+	Count int `json:"count"`
 }
 
 type widgetsWidgetPage struct {
-	Comments    baseObjectCount `json:"comments,omitempty"`
-	Date        int             `json:"date,omitempty"`
-	Description string          `json:"description,omitempty"`
-	ID          int             `json:"id,omitempty"`
-	Likes       baseObjectCount `json:"likes,omitempty"`
-	PageID      string          `json:"page_id,omitempty"`
-	Photo       string          `json:"photo,omitempty"`
-	Title       string          `json:"title,omitempty"`
-	URL         string          `json:"url,omitempty"`
+	Comments    baseObjectCount `json:"comments"`
+	Date        int             `json:"date"`
+	Description string          `json:"description"`
+	ID          int             `json:"id"`
+	Likes       baseObjectCount `json:"likes"`
+	PageID      string          `json:"page_id"`
+	Photo       string          `json:"photo"`
+	Title       string          `json:"title"`
+	URL         string          `json:"url"`
 }
