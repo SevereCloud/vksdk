@@ -83,4 +83,11 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 	return handler.Response, nil
 }
 
-// TODO execute
+// Execute a universal method for calling a sequence of other methods while saving and filtering interim results.
+func (vk *VK) Execute(Code string) (Response []byte, err error) {
+	p := make(map[string]string)
+	p["code"] = Code
+	Response, err = vk.Request("execute", p)
+
+	return
+}

@@ -45,8 +45,21 @@ func (vk *VK) LikesDelete(params map[string]string) (response LikesDeleteRespons
 // LikesGetListResponse struct
 type LikesGetListResponse struct{}
 
-// TODO likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
-// params["extended"] = "1"
+// LikesGetList likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
+// TODO params["extended"] = "1"
+// func (vk *VK) LikesGetList(params map[string]string) (response LikesGetListResponse, err error) {
+// 	rawResponse, err := vk.Request("likes.getList", params)
+// 	if err != nil {
+// 		return
+// 	}
+
+// 	err = json.Unmarshal(rawResponse, &response)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+
+// 	return
+// }
 
 // LikesIsLikedResponse struct
 type LikesIsLikedResponse struct {

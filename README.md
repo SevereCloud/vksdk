@@ -1,6 +1,6 @@
 # VK API for Golang
 
-![go report](https://goreportcard.com/badge/github.com/severecloud/vksdk)
+[![Go Report Card](https://goreportcard.com/badge/github.com/severecloud/vksdk)](https://goreportcard.com/report/github.com/severecloud/vksdk)
 
 Внимание - этот репозиторий в **очень ранней разработке**.
 
@@ -48,6 +48,25 @@ func main() {
 
 [AccountGetInfo](https://vk.com/dev/account.getInfo) вместо поля `2fa_required`, вернет `TwoFactorRequired`
 
+[Execute](https://vk.com/dev/storage.get) возвращает response json типа `[]byte`.
+```go
+var S struct {
+	Text string `json:"text"`
+}
+
+rawResponse, err := vk.Execute(`return {text: "hello"};`)
+if err != nil {
+	panic(err)
+}
+
+err = json.Unmarshal(rawResponse, &S)
+if err != nil {
+	panic(err)
+}
+
+fmt.Print(S.Text)
+```
+
 [StorageGet](https://vk.com/dev/storage.get) даже если нет параметра `keys`, вернет массив из одного объекта.
 
 Еще не реализованные: 
@@ -82,6 +101,7 @@ func main() {
 - [ ] Board 0/13
 - [ ] Database 0/10
 - [ ] Docs 0/11
+- [x] Execute
 - [ ] Fave 0/12
 - [ ] Friends 0/18
 - [x] Gifts 1/1
