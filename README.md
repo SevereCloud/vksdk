@@ -36,7 +36,7 @@ func main() {
 	}
 
 	for _, user := range users {
-		fmt.Printf("Пользователя с id%d зовут %s %s", user.ID, user.FirstName, user.LastName)
+		fmt.Printf("Пользователя с id%d зовут %s %s\n", user.ID, user.FirstName, user.LastName)
 	}
 }
 ```
@@ -50,7 +50,7 @@ func main() {
 
 [AccountGetInfo](https://vk.com/dev/account.getInfo) вместо поля `2fa_required`, вернет `TwoFactorRequired`
 
-[Execute](https://vk.com/dev/execute) возвращает Response JSON в []byte`.
+[Execute](https://vk.com/dev/execute) возвращает Response JSON в `[]byte`.
 
 ```go
 var S struct {
