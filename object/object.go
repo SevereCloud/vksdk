@@ -1,7 +1,5 @@
 package object
 
-import "encoding/json"
-
 // AccountNameRequest struct
 type AccountNameRequest struct {
 	FirstName string `json:"first_name"`
@@ -147,6 +145,42 @@ type GroupsGroup struct {
 	Type        string `json:"type"`
 }
 
+// MessagesMessage struct
+type MessagesMessage struct {
+	Action                messagesMessageAction       `json:"action"`
+	Attachments           []messagesMessageAttachment `json:"attachments"`
+	ConversationMessageID int                         `json:"conversation_message_id"`
+	Date                  int                         `json:"date"`
+	FromID                int                         `json:"from_id"`
+	FwdMessages           []MessagesMessage           `json:"fwd_messages"`
+	Geo                   baseGeo                     `json:"geo"`
+	ID                    int                         `json:"id"`
+	Important             bool                        `json:"important"`
+	Keyboard              MessagesKeyboard            `json:"keyboard"`
+	Payload               string                      `json:"payload"`
+	PeerID                int                         `json:"peer_id"`
+	RandomID              int                         `json:"random_id"`
+	Text                  string                      `json:"text"`
+	UpdateTime            int                         `json:"update_time"`
+}
+
+// PhotosPhoto struct
+type PhotosPhoto struct {
+	AccessKey string        `json:"access_key"`
+	AlbumID   int           `json:"album_id"`
+	Date      int           `json:"date"`
+	Height    int           `json:"height"`
+	ID        int           `json:"id"`
+	Images    []photosImage `json:"images"`
+	Lat       float64       `json:"lat"`
+	Long      float64       `json:"long"`
+	OwnerID   int           `json:"owner_id"`
+	PostID    int           `json:"post_id"`
+	Text      string        `json:"text"`
+	UserID    int           `json:"user_id"`
+	Width     int           `json:"width"`
+}
+
 // UsersUser struct
 type UsersUser struct {
 	ID          int        `json:"id"`
@@ -170,6 +204,29 @@ type UsersUserMin struct {
 	LastName    string `json:"last_name"`
 }
 
+// VideoVideo struct
+type VideoVideo struct {
+	AccessKey   string             `json:"access_key"`
+	AddingDate  int                `json:"adding_date"`
+	CanAdd      int                `json:"can_add"`
+	CanEdit     int                `json:"can_edit"`
+	Comments    int                `json:"comments"`
+	Date        int                `json:"date"`
+	Description string             `json:"description"`
+	Duration    int                `json:"duration"`
+	Files       videoVideoFiles    `json:"files"`
+	ID          int                `json:"id"`
+	Live        basePropertyExists `json:"live"`
+	OwnerID     int                `json:"owner_id"`
+	Photo130    string             `json:"photo_130"`
+	Photo320    string             `json:"photo_320"`
+	Photo800    string             `json:"photo_800"`
+	Player      string             `json:"player"`
+	Processing  basePropertyExists `json:"processing"`
+	Title       string             `json:"title"`
+	Views       int                `json:"views"`
+}
+
 // Button struct
 type Button []MessagesKeyboardButton
 
@@ -190,13 +247,6 @@ type MessagesKeyboardButtonAction struct {
 	Label   string `json:"label"`
 	Payload string `json:"payload"`
 	Type    string `json:"type"`
-}
-
-// Callback struct
-type Callback struct {
-	Type    string          `json:"type"`
-	Object  json.RawMessage `json:"object"`
-	GroupID int             `json:"group_id"`
 }
 
 //-----------------------------
@@ -471,7 +521,7 @@ type appsApp struct {
 	PlatformID      int                    `json:"platform_id"`
 	PublishedDate   int                    `json:"published_date"`
 	ScreenName      string                 `json:"screen_name"`
-	Screenshots     []photosPhoto          `json:"screenshots"`
+	Screenshots     []PhotosPhoto          `json:"screenshots"`
 	Section         string                 `json:"section"`
 	Title           string                 `json:"title"`
 	Type            appsAppType            `json:"type"`
@@ -561,7 +611,7 @@ type baseLink struct {
 	Button      baseLinkButton      `json:"button"`
 	Caption     string              `json:"caption"`
 	Description string              `json:"description"`
-	Photo       photosPhoto         `json:"photo"`
+	Photo       PhotosPhoto         `json:"photo"`
 	PreviewPage string              `json:"preview_page"`
 	PreviewURL  string              `json:"preview_url"`
 	Product     baseLinkProduct     `json:"product"`
@@ -1114,7 +1164,7 @@ type marketMarketAlbum struct {
 	Count       int         `json:"count"`
 	ID          int         `json:"id"`
 	OwnerID     int         `json:"owner_id"`
-	Photo       photosPhoto `json:"photo"`
+	Photo       PhotosPhoto `json:"photo"`
 	Title       string      `json:"title"`
 	UpdatedTime int         `json:"updated_time"`
 }
@@ -1235,13 +1285,13 @@ type messagesConversationPushSettings struct {
 
 type messagesConversationWithMessage struct {
 	Conversation messagesConversation `json:"conversation"`
-	LastMessage  messagesMessage      `json:"last_message"`
+	LastMessage  MessagesMessage      `json:"last_message"`
 }
 
 type messagesDialog struct {
 	Important  int             `json:"important"`
 	InRead     int             `json:"in_read"`
-	Message    messagesMessage `json:"message"`
+	Message    MessagesMessage `json:"message"`
 	OutRead    int             `json:"out_read"`
 	Unanswered int             `json:"unanswered"`
 	Unread     int             `json:"unread"`
@@ -1257,10 +1307,10 @@ type messagesHistoryMessageAttachment struct {
 	Doc    docsDoc                              `json:"doc"`
 	Link   baseLink                             `json:"link"`
 	Market baseLink                             `json:"market"`
-	Photo  photosPhoto                          `json:"photo"`
+	Photo  PhotosPhoto                          `json:"photo"`
 	Share  baseLink                             `json:"share"`
 	Type   messagesHistoryMessageAttachmentType `json:"type"`
-	Video  videoVideo                           `json:"video"`
+	Video  VideoVideo                           `json:"video"`
 	Wall   baseLink                             `json:"wall"`
 }
 
@@ -1273,7 +1323,7 @@ type messagesLastActivity struct {
 
 type messagesLongpollMessages struct {
 	Count int               `json:"count"`
-	Items []messagesMessage `json:"items"`
+	Items []MessagesMessage `json:"items"`
 }
 
 type messagesLongpollParams struct {
@@ -1281,24 +1331,6 @@ type messagesLongpollParams struct {
 	Pts    int    `json:"pts"`
 	Server string `json:"server"`
 	Ts     int    `json:"ts"`
-}
-
-type messagesMessage struct {
-	Action                messagesMessageAction       `json:"action"`
-	Attachments           []messagesMessageAttachment `json:"attachments"`
-	ConversationMessageID int                         `json:"conversation_message_id"`
-	Date                  int                         `json:"date"`
-	FromID                int                         `json:"from_id"`
-	FwdMessages           []messagesMessage           `json:"fwd_messages"`
-	Geo                   baseGeo                     `json:"geo"`
-	ID                    int                         `json:"id"`
-	Important             bool                        `json:"important"`
-	Keyboard              MessagesKeyboard            `json:"keyboard"`
-	Payload               string                      `json:"payload"`
-	PeerID                int                         `json:"peer_id"`
-	RandomID              int                         `json:"random_id"`
-	Text                  string                      `json:"text"`
-	UpdateTime            int                         `json:"update_time"`
 }
 
 type messagesMessageAction struct {
@@ -1320,10 +1352,10 @@ type messagesMessageAttachment struct {
 	Link              baseLink                      `json:"link"`
 	Market            marketMarketItem              `json:"market"`
 	MarketMarketAlbum marketMarketAlbum             `json:"market_market_album"`
-	Photo             photosPhoto                   `json:"photo"`
+	Photo             PhotosPhoto                   `json:"photo"`
 	Sticker           baseSticker                   `json:"sticker"`
 	Type              messagesMessageAttachmentType `json:"type"`
-	Video             videoVideo                    `json:"video"`
+	Video             VideoVideo                    `json:"video"`
 	Wall              WallWallpostAttached          `json:"wall"`
 	WallReply         WallWallComment               `json:"wall_reply"`
 }
@@ -1335,7 +1367,7 @@ type messagesPinnedMessage struct {
 	ConversationMessageID int                         `json:"conversation_message_id"`
 	Date                  int                         `json:"date"`
 	FromID                int                         `json:"from_id"`
-	FwdMessages           []messagesMessage           `json:"fwd_messages"`
+	FwdMessages           []MessagesMessage           `json:"fwd_messages"`
 	Geo                   baseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`
 	PeerID                int                         `json:"peer_id"`
@@ -1406,7 +1438,7 @@ type newsfeedItemVideo struct {
 
 type newsfeedItemVideoVideo struct {
 	Count int          `json:"count"`
-	Items []videoVideo `json:"items"`
+	Items []VideoVideo `json:"items"`
 }
 
 type newsfeedItemWallpost struct {
@@ -1494,11 +1526,11 @@ type notificationsNotificationsComment struct {
 	Date    int          `json:"date"`
 	ID      int          `json:"id"`
 	OwnerID int          `json:"owner_id"`
-	Photo   photosPhoto  `json:"photo"`
+	Photo   PhotosPhoto  `json:"photo"`
 	Post    WallWallpost `json:"post"`
 	Text    string       `json:"text"`
 	Topic   boardTopic   `json:"topic"`
-	Video   videoVideo   `json:"video"`
+	Video   VideoVideo   `json:"video"`
 }
 
 type notificationsReply struct {
@@ -1631,29 +1663,13 @@ type photosOwnerUploadResponse struct {
 	Server int    `json:"server"`
 }
 
-type photosPhoto struct {
-	AccessKey string        `json:"access_key"`
-	AlbumID   int           `json:"album_id"`
-	Date      int           `json:"date"`
-	Height    int           `json:"height"`
-	ID        int           `json:"id"`
-	Images    []photosImage `json:"images"`
-	Lat       float64       `json:"lat"`
-	Long      float64       `json:"long"`
-	OwnerID   int           `json:"owner_id"`
-	PostID    int           `json:"post_id"`
-	Text      string        `json:"text"`
-	UserID    int           `json:"user_id"`
-	Width     int           `json:"width"`
-}
-
 type photosPhotoAlbum struct {
 	Created     int         `json:"created"`
 	Description string      `json:"description"`
 	ID          int         `json:"id"`
 	OwnerID     int         `json:"owner_id"`
 	Size        int         `json:"size"`
-	Thumb       photosPhoto `json:"thumb"`
+	Thumb       PhotosPhoto `json:"thumb"`
 	Title       string      `json:"title"`
 	Updated     int         `json:"updated"`
 }
@@ -2057,7 +2073,7 @@ type usersCareer struct {
 
 type usersCropPhoto struct {
 	Crop  usersCropPhotoCrop `json:"crop"`
-	Photo photosPhoto        `json:"photo"`
+	Photo PhotosPhoto        `json:"photo"`
 	Rect  usersCropPhotoRect `json:"rect"`
 }
 
@@ -2294,28 +2310,6 @@ type videoUploadResponse struct {
 	VideoID int `json:"video_id"`
 }
 
-type videoVideo struct {
-	AccessKey   string             `json:"access_key"`
-	AddingDate  int                `json:"adding_date"`
-	CanAdd      int                `json:"can_add"`
-	CanEdit     int                `json:"can_edit"`
-	Comments    int                `json:"comments"`
-	Date        int                `json:"date"`
-	Description string             `json:"description"`
-	Duration    int                `json:"duration"`
-	Files       videoVideoFiles    `json:"files"`
-	ID          int                `json:"id"`
-	Live        basePropertyExists `json:"live"`
-	OwnerID     int                `json:"owner_id"`
-	Photo130    string             `json:"photo_130"`
-	Photo320    string             `json:"photo_320"`
-	Photo800    string             `json:"photo_800"`
-	Player      string             `json:"player"`
-	Processing  basePropertyExists `json:"processing"`
-	Title       string             `json:"title"`
-	Views       int                `json:"views"`
-}
-
 type videoVideoAlbum struct {
 	ID      int    `json:"id"`
 	OwnerID int    `json:"owner_id"`
@@ -2436,10 +2430,10 @@ type WallCommentAttachment struct {
 	MarketMarketAlbum marketMarketAlbum         `json:"market_market_album"`
 	Note              WallAttachedNote          `json:"note"`
 	Page              pagesWikipageFull         `json:"page"`
-	Photo             photosPhoto               `json:"photo"`
+	Photo             PhotosPhoto               `json:"photo"`
 	Sticker           baseSticker               `json:"sticker"`
 	Type              WallCommentAttachmentType `json:"type"`
-	Video             videoVideo                `json:"video"`
+	Video             VideoVideo                `json:"video"`
 }
 
 // WallCommentAttachmentType struct
@@ -2542,12 +2536,12 @@ type WallWallpostAttachment struct {
 	MarketMarketAlbum marketMarketAlbum          `json:"market_market_album"`
 	Note              WallAttachedNote           `json:"note"`
 	Page              pagesWikipageFull          `json:"page"`
-	Photo             photosPhoto                `json:"photo"`
+	Photo             PhotosPhoto                `json:"photo"`
 	PhotosList        []photosListItem           `json:"photos_list"`
 	Poll              pollsPoll                  `json:"poll"`
 	PostedPhoto       WallPostedPhoto            `json:"posted_photo"`
 	Type              WallWallpostAttachmentType `json:"type"`
-	Video             videoVideo                 `json:"video"`
+	Video             VideoVideo                 `json:"video"`
 }
 
 // WallWallpostAttachmentType struct
