@@ -301,6 +301,7 @@ type GroupChangeSettingsFunc func(GroupChangeSettingsObject, int)
 // GroupChangeSettingsObject struct
 // спасибо vk.com/eee
 // BUG Phone https://vk.com/bugtracker?act=show&id=64240
+// BUG Email https://vk.com/bugtracker?act=show&id=86650
 type GroupChangeSettingsObject struct {
 	UserID  int `json:"user_id"`
 	Changes struct {
