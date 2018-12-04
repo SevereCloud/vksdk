@@ -1,35 +1,76 @@
-package callback
+package object
 
-import "github.com/severecloud/vksdk/object"
+// MessageNewFunc func
+type MessageNewFunc func(MessageNewObject, int)
 
 // MessageNewObject struct
-type MessageNewObject object.MessagesMessage
+type MessageNewObject MessagesMessage
+
+// MessageReplyFunc func
+type MessageReplyFunc func(MessageReplyObject, int)
 
 // MessageReplyObject struct
-type MessageReplyObject object.MessagesMessage
+type MessageReplyObject MessagesMessage
 
-// MessagesAllowObject struct
-type MessagesAllowObject struct {
+// MessageEditFunc func
+type MessageEditFunc func(MessageEditObject, int)
+
+// MessageEditObject struct
+type MessageEditObject MessagesMessage
+
+// MessageAllowFunc func
+type MessageAllowFunc func(MessageAllowObject, int)
+
+// MessageAllowObject struct
+type MessageAllowObject struct {
 	UserID int    `json:"user_id"`
 	Key    string `json:"key"`
 }
 
-// MessagesDenyObject struct
-type MessagesDenyObject struct {
+// MessageDenyFunc func
+type MessageDenyFunc func(MessageDenyObject, int)
+
+// MessageDenyObject struct
+type MessageDenyObject struct {
 	UserID int `json:"user_id"`
 }
 
+// MessageTypingStateFunc func
+type MessageTypingStateFunc func(MessageTypingStateObject, int)
+
+// MessageTypingStateObject struct
+type MessageTypingStateObject struct {
+	State  string `json:"state"`
+	FromID int    `json:"from_id"`
+	ToID   int    `json:"to_id"`
+}
+
+// PhotoNewFunc func
+type PhotoNewFunc func(PhotoNewObject, int)
+
 // PhotoNewObject struct
-type PhotoNewObject object.PhotosPhoto
+type PhotoNewObject PhotosPhoto
+
+// PhotoCommentNewFunc func
+type PhotoCommentNewFunc func(PhotoCommentNewObject, int)
 
 // PhotoCommentNewObject struct
-type PhotoCommentNewObject struct{}
+type PhotoCommentNewObject struct{} // TODO struct
+
+// PhotoCommentEditFunc func
+type PhotoCommentEditFunc func(PhotoCommentEditObject, int)
 
 // PhotoCommentEditObject struct
-type PhotoCommentEditObject struct{}
+type PhotoCommentEditObject struct{} // TODO struct
+
+// PhotoCommentRestoreFunc func
+type PhotoCommentRestoreFunc func(PhotoCommentRestoreObject, int)
 
 // PhotoCommentRestoreObject struct
-type PhotoCommentRestoreObject struct{}
+type PhotoCommentRestoreObject struct{} // TODO struct
+
+// PhotoCommentDeleteFunc func
+type PhotoCommentDeleteFunc func(PhotoCommentDeleteObject, int)
 
 // PhotoCommentDeleteObject struct
 type PhotoCommentDeleteObject struct {
@@ -40,20 +81,38 @@ type PhotoCommentDeleteObject struct {
 	PhotoID   int `json:"photo_id"`
 }
 
+// AudioNewFunc func
+type AudioNewFunc func(AudioNewObject, int)
+
 // AudioNewObject struct
-type AudioNewObject object.AudioAudioFull
+type AudioNewObject AudioAudioFull
+
+// VideoNewFunc func
+type VideoNewFunc func(VideoNewObject, int)
 
 // VideoNewObject struct
-type VideoNewObject object.VideoVideo
+type VideoNewObject VideoVideo
+
+// VideoCommentNewFunc func
+type VideoCommentNewFunc func(VideoCommentNewObject, int)
 
 // VideoCommentNewObject struct
-type VideoCommentNewObject struct{}
+type VideoCommentNewObject struct{} // TODO struct
+
+// VideoCommentEditFunc func
+type VideoCommentEditFunc func(VideoCommentEditObject, int)
 
 // VideoCommentEditObject struct
-type VideoCommentEditObject struct{}
+type VideoCommentEditObject struct{} // TODO struct
+
+// VideoCommentRestoreFunc func
+type VideoCommentRestoreFunc func(VideoCommentRestoreObject, int)
 
 // VideoCommentRestoreObject struct
-type VideoCommentRestoreObject struct{}
+type VideoCommentRestoreObject struct{} // TODO struct
+
+// VideoCommentDeleteFunc func
+type VideoCommentDeleteFunc func(VideoCommentDeleteObject, int)
 
 // VideoCommentDeleteObject struct
 type VideoCommentDeleteObject struct {
@@ -64,20 +123,38 @@ type VideoCommentDeleteObject struct {
 	VideoID   int `json:"video_id"`
 }
 
+// WallPostNewFunc func
+type WallPostNewFunc func(WallPostNewObject, int)
+
 // WallPostNewObject struct
-type WallPostNewObject struct{}
+type WallPostNewObject struct{} // TODO struct
+
+// WallRepostFunc func
+type WallRepostFunc func(WallRepostObject, int)
 
 // WallRepostObject struct
-type WallRepostObject struct{}
+type WallRepostObject struct{} // TODO struct
+
+// WallReplyNewFunc func
+type WallReplyNewFunc func(WallReplyNewObject, int)
 
 // WallReplyNewObject struct
-type WallReplyNewObject struct{}
+type WallReplyNewObject struct{} // TODO struct
+
+// WallReplyEditFunc func
+type WallReplyEditFunc func(WallReplyEditObject, int)
 
 // WallReplyEditObject struct
-type WallReplyEditObject struct{}
+type WallReplyEditObject struct{} // TODO struct
+
+// WallReplyRestoreFunc func
+type WallReplyRestoreFunc func(WallReplyRestoreObject, int)
 
 // WallReplyRestoreObject struct
-type WallReplyRestoreObject struct{}
+type WallReplyRestoreObject struct{} // TODO struct
+
+// WallReplyDeleteFunc func
+type WallReplyDeleteFunc func(WallReplyDeleteObject, int)
 
 // WallReplyDeleteObject struct
 type WallReplyDeleteObject struct {
@@ -87,14 +164,26 @@ type WallReplyDeleteObject struct {
 	PostID    int `json:"post_id"`
 }
 
+// BoardPostNewFunc func
+type BoardPostNewFunc func(BoardPostNewObject, int)
+
 // BoardPostNewObject struct
-type BoardPostNewObject struct{}
+type BoardPostNewObject struct{} // TODO struct
+
+// BoardPostEditFunc func
+type BoardPostEditFunc func(BoardPostEditObject, int)
 
 // BoardPostEditObject struct
-type BoardPostEditObject struct{}
+type BoardPostEditObject struct{} // TODO struct
+
+// BoardPostRestoreFunc func
+type BoardPostRestoreFunc func(BoardPostRestoreObject, int)
 
 // BoardPostRestoreObject struct
-type BoardPostRestoreObject struct{}
+type BoardPostRestoreObject struct{} // TODO struct
+
+// BoardPostDeleteFunc func
+type BoardPostDeleteFunc func(BoardPostDeleteObject, int)
 
 // BoardPostDeleteObject struct
 type BoardPostDeleteObject struct {
@@ -103,14 +192,26 @@ type BoardPostDeleteObject struct {
 	ID           int `json:"id"`
 }
 
+// MarketCommentNewFunc func
+type MarketCommentNewFunc func(MarketCommentNewObject, int)
+
 // MarketCommentNewObject struct
-type MarketCommentNewObject struct{}
+type MarketCommentNewObject struct{} // TODO struct
+
+// MarketCommentEditFunc func
+type MarketCommentEditFunc func(MarketCommentEditObject, int)
 
 // MarketCommentEditObject struct
-type MarketCommentEditObject struct{}
+type MarketCommentEditObject struct{} // TODO struct
+
+// MarketCommentRestoreFunc func
+type MarketCommentRestoreFunc func(MarketCommentRestoreObject, int)
 
 // MarketCommentRestoreObject struct
-type MarketCommentRestoreObject struct{}
+type MarketCommentRestoreObject struct{} // TODO struct
+
+// MarketCommentDeleteFunc func
+type MarketCommentDeleteFunc func(MarketCommentDeleteObject, int)
 
 // MarketCommentDeleteObject struct
 type MarketCommentDeleteObject struct {
@@ -121,17 +222,26 @@ type MarketCommentDeleteObject struct {
 	ItemID    int `json:"item_id"`
 }
 
+// GroupLeaveFunc func
+type GroupLeaveFunc func(GroupLeaveObject, int)
+
 // GroupLeaveObject struct
 type GroupLeaveObject struct {
 	UserID int `json:"user_id"`
 	Self   int `json:"self"`
 }
 
+// GroupJoinFunc func
+type GroupJoinFunc func(GroupJoinObject, int)
+
 // GroupJoinObject struct
 type GroupJoinObject struct {
 	UserID   int    `json:"user_id"`
 	JoinType string `json:"join_type"`
 }
+
+// UserBlockFunc func
+type UserBlockFunc func(UserBlockObject, int)
 
 // UserBlockObject struct
 type UserBlockObject struct {
@@ -142,12 +252,18 @@ type UserBlockObject struct {
 	Comment     string `json:"comment"`
 }
 
+// UserUnblockFunc func
+type UserUnblockFunc func(UserUnblockObject, int)
+
 // UserUnblockObject struct
 type UserUnblockObject struct {
 	AdminID   int `json:"admin_id"`
 	UserID    int `json:"user_id"`
 	ByEndDate int `json:"by_end_date"`
 }
+
+// PollVoteNewFunc func
+type PollVoteNewFunc func(PollVoteNewObject, int)
 
 // PollVoteNewObject struct
 // BUG при голосовании за несколько вариантов, возвращается только один
@@ -157,6 +273,9 @@ type PollVoteNewObject struct {
 	OptionID int `json:"option_id"`
 	UserID   int `json:"user_id"`
 }
+
+// GroupOfficersEditFunc func
+type GroupOfficersEditFunc func(GroupOfficersEditObject, int)
 
 // GroupOfficersEditObject struct
 type GroupOfficersEditObject struct {
@@ -175,6 +294,9 @@ type changesInt struct {
 	OldValue int `json:"old_value"`
 	NewValue int `json:"new_value"`
 }
+
+// GroupChangeSettingsFunc func
+type GroupChangeSettingsFunc func(GroupChangeSettingsObject, int)
 
 // GroupChangeSettingsObject struct
 // спасибо vk.com/eee
@@ -214,11 +336,17 @@ type GroupChangeSettingsObject struct {
 	} `json:"changes"`
 }
 
+// GroupChangePhotoFunc func
+type GroupChangePhotoFunc func(GroupChangePhotoObject, int)
+
 // GroupChangePhotoObject struct
 type GroupChangePhotoObject struct {
-	UserID int                `json:"user_id"`
-	Photo  object.PhotosPhoto `json:"photo"`
+	UserID int         `json:"user_id"`
+	Photo  PhotosPhoto `json:"photo"`
 }
+
+// VkpayTransactionFunc func
+type VkpayTransactionFunc func(VkpayTransactionObject, int)
 
 // VkpayTransactionObject struct
 type VkpayTransactionObject struct {

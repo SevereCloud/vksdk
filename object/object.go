@@ -1,5 +1,7 @@
 package object
 
+import "encoding/json"
+
 // AccountNameRequest struct
 type AccountNameRequest struct {
 	FirstName string `json:"first_name"`
@@ -110,6 +112,13 @@ type BaseRequestParam struct {
 	Value string `json:"value"`
 }
 
+// GroupEvent struct
+type GroupEvent struct {
+	Type    string          `json:"type"`
+	Object  json.RawMessage `json:"object"`
+	GroupID int             `json:"group_id"`
+}
+
 // GiftsGift struct
 type GiftsGift struct {
 	Date     int         `json:"date"`
@@ -147,6 +156,7 @@ type GroupsGroup struct {
 
 // MessagesMessage struct
 type MessagesMessage struct {
+	AdminAuthorID         int                         `json:"admin_author_id"`
 	Action                messagesMessageAction       `json:"action"`
 	Attachments           []messagesMessageAttachment `json:"attachments"`
 	ConversationMessageID int                         `json:"conversation_message_id"`
@@ -156,7 +166,9 @@ type MessagesMessage struct {
 	Geo                   baseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`
 	Important             bool                        `json:"important"`
+	IsHidden              bool                        `json:"is_hidden"`
 	Keyboard              MessagesKeyboard            `json:"keyboard"`
+	Out                   int                         `json:"out"`
 	Payload               string                      `json:"payload"`
 	PeerID                int                         `json:"peer_id"`
 	RandomID              int                         `json:"random_id"`
