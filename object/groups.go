@@ -26,7 +26,7 @@ type groupsBanInfo struct {
 
 type groupsCallbackSettings struct {
 	APIVersion string               `json:"api_version"`
-	Events     groupsLongPollEvents `json:"events"`
+	Events     GroupsLongPollEvents `json:"events"`
 }
 
 type groupsContactsItem struct {
@@ -144,47 +144,52 @@ type groupsLinksItem struct {
 	URL       string `json:"url"`
 }
 
-type groupsLongPollEvents struct {
-	AudioNew             int `json:"audio_new"`
-	BoardPostDelete      int `json:"board_post_delete"`
-	BoardPostEdit        int `json:"board_post_edit"`
-	BoardPostNew         int `json:"board_post_new"`
-	BoardPostRestore     int `json:"board_post_restore"`
-	GroupChangePhoto     int `json:"group_change_photo"`
-	GroupChangeSettings  int `json:"group_change_settings"`
-	GroupJoin            int `json:"group_join"`
-	GroupLeave           int `json:"group_leave"`
-	GroupOfficersEdit    int `json:"group_officers_edit"`
-	LeadFormsNew         int `json:"lead_forms_new"`
-	MarketCommentDelete  int `json:"market_comment_delete"`
-	MarketCommentEdit    int `json:"market_comment_edit"`
-	MarketCommentNew     int `json:"market_comment_new"`
-	MarketCommentRestore int `json:"market_comment_restore"`
-	MessageAllow         int `json:"message_allow"`
-	MessageDeny          int `json:"message_deny"`
+// GroupsLongPollEvents struct
+type GroupsLongPollEvents struct {
 	MessageNew           int `json:"message_new"`
 	MessageReply         int `json:"message_reply"`
-	MessageTypingState   int `json:"message_typing_state"`
-	MessagesEdit         int `json:"messages_edit"`
-	PhotoCommentDelete   int `json:"photo_comment_delete"`
-	PhotoCommentEdit     int `json:"photo_comment_edit"`
-	PhotoCommentNew      int `json:"photo_comment_new"`
-	PhotoCommentRestore  int `json:"photo_comment_restore"`
 	PhotoNew             int `json:"photo_new"`
+	AudioNew             int `json:"audio_new"`
+	VideoNew             int `json:"video_new"`
+	WallReplyNew         int `json:"wall_reply_new"`
+	WallReplyEdit        int `json:"wall_reply_edit"`
+	WallReplyDelete      int `json:"wall_reply_delete"`
+	WallReplyRestore     int `json:"wall_reply_restore"`
+	WallPostNew          int `json:"wall_post_new"`
+	BoardPostNew         int `json:"board_post_new"`
+	BoardPostEdit        int `json:"board_post_edit"`
+	BoardPostRestore     int `json:"board_post_restore"`
+	BoardPostDelete      int `json:"board_post_delete"`
+	PhotoCommentNew      int `json:"photo_comment_new"`
+	PhotoCommentEdit     int `json:"photo_comment_edit"`
+	PhotoCommentDelete   int `json:"photo_comment_delete"`
+	PhotoCommentRestore  int `json:"photo_comment_restore"`
+	VideoCommentNew      int `json:"video_comment_new"`
+	VideoCommentEdit     int `json:"video_comment_edit"`
+	VideoCommentDelete   int `json:"video_comment_delete"`
+	VideoCommentRestore  int `json:"video_comment_restore"`
+	MarketCommentNew     int `json:"market_comment_new"`
+	MarketCommentEdit    int `json:"market_comment_edit"`
+	MarketCommentDelete  int `json:"market_comment_delete"`
+	MarketCommentRestore int `json:"market_comment_restore"`
 	PollVoteNew          int `json:"poll_vote_new"`
+	GroupJoin            int `json:"group_join"`
+	GroupLeave           int `json:"group_leave"`
+	GroupChangeSettings  int `json:"group_change_settings"`
+	GroupChangePhoto     int `json:"group_change_photo"`
+	GroupOfficersEdit    int `json:"group_officers_edit"`
+	MessageAllow         int `json:"message_allow"`
+	MessageDeny          int `json:"message_deny"`
+	WallRepost           int `json:"wall_repost"`
 	UserBlock            int `json:"user_block"`
 	UserUnblock          int `json:"user_unblock"`
-	VideoCommentDelete   int `json:"video_comment_delete"`
-	VideoCommentEdit     int `json:"video_comment_edit"`
-	VideoCommentNew      int `json:"video_comment_new"`
-	VideoCommentRestore  int `json:"video_comment_restore"`
-	VideoNew             int `json:"video_new"`
-	WallPostNew          int `json:"wall_post_new"`
-	WallReplyDelete      int `json:"wall_reply_delete"`
-	WallReplyEdit        int `json:"wall_reply_edit"`
-	WallReplyNew         int `json:"wall_reply_new"`
-	WallReplyRestore     int `json:"wall_reply_restore"`
-	WallRepost           int `json:"wall_repost"`
+	MessageEdit          int `json:"message_edit"`
+	MessagesEdit         int `json:"messages_edit"` // BUG https://vk.com/bugtracker?act=show&id=86762
+	MessageTypingState   int `json:"message_typing_state"`
+	LeadFormsNew         int `json:"lead_forms_new"`
+	LikeAdd              int `json:"like_add"`
+	LikeRemove           int `json:"like_remove"`
+	VkpayTransaction     int `json:"vkpay_transaction"`
 }
 
 type groupsLongPollServer struct {
@@ -195,7 +200,7 @@ type groupsLongPollServer struct {
 
 type groupsLongPollSettings struct {
 	APIVersion string               `json:"api_version"`
-	Events     groupsLongPollEvents `json:"events"`
+	Events     GroupsLongPollEvents `json:"events"`
 	IsEnabled  bool                 `json:"is_enabled"`
 }
 

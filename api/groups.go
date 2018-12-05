@@ -107,9 +107,23 @@ type GroupsGetCallbackServersResponse struct{}
 // TODO groups.getCallbackServers Receives a list of Callback API servers from the community.
 
 // GroupsGetCallbackSettingsResponse struct
-type GroupsGetCallbackSettingsResponse struct{}
+type GroupsGetCallbackSettingsResponse object.GroupsLongPollEvents
 
-// TODO groups.getCallbackSettings Returns Callback API notifications settings.
+// GroupsGetCallbackSettings returns Callback API notifications settings.
+// BUG MessageEdit always 0 https://vk.com/bugtracker?act=show&id=86762
+func (vk *VK) GroupsGetCallbackSettings(params map[string]string) (response GroupsGetCallbackSettingsResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("storage.getKeys", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // GroupsGetCatalogResponse struct
 type GroupsGetCatalogResponse struct{}

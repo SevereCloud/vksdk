@@ -50,7 +50,8 @@ type FuncList struct {
 	VkpayTransaction     []object.VkpayTransactionFunc
 }
 
-// Handler group event hundler
+// Handler group event handler
+// NOTE: cyclomatic complexity 121 of function (FuncList).Handler() is high (> 15) (gocyclo)
 func (funcList FuncList) Handler(e object.GroupEvent) error {
 	switch e.Type {
 	case "message_new":
@@ -414,5 +415,8 @@ func (funcList FuncList) Handler(e object.GroupEvent) error {
 			f(obj, e.GroupID)
 		}
 	}
+	// TODO group event lead_forms_new
+	// TODO group event like_add
+	// TODO group event like_remove
 	return nil
 }

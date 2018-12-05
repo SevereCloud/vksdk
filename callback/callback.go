@@ -1,4 +1,4 @@
-package callback
+package callback // import "github.com/severecloud/vksdk/callback"
 
 import (
 	"encoding/json"
@@ -12,9 +12,11 @@ import (
 
 // Callback struct SecretKeys [GroupID]SecretKey
 type Callback struct {
-	SecretKeys map[int]string
-	SecretKey  string
-	FuncList   handler.FuncList
+	ConfirmationKeys map[int]string
+	ConfirmationKey  string
+	SecretKeys       map[int]string
+	SecretKey        string
+	FuncList         handler.FuncList
 }
 
 // HandleFunc handler
@@ -22,26 +24,31 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 
 	var e object.GroupEvent
-	err := decoder.Decode(&e)
-	if err != nil {
+	if err := decoder.Decode(&e); err != nil {
 		return
 	}
 
 	if e.Type == "confirmation" {
-		if cb.SecretKeys[e.GroupID] != "" {
-			fmt.Fprintf(w, cb.SecretKeys[e.GroupID])
+		if cb.ConfirmationKeys[e.GroupID] != "" {
+			fmt.Fprintf(w, cb.ConfirmationKeys[e.GroupID])
 		} else {
-			fmt.Fprintf(w, cb.SecretKey)
+			fmt.Fprintf(w, cb.ConfirmationKey)
 		}
 		return
 	}
 
+	if cb.SecretKeys[e.GroupID] != "" || cb.SecretKey != "" {
+		if e.Secret != cb.SecretKeys[e.GroupID] && e.Secret != cb.SecretKey {
+			fmt.Fprintf(w, "bad secret")
+			return
+		}
+	}
 	log.Print(string(e.Object))
-	// Отправка обработчику
 	cb.FuncList.Handler(e)
-
 	fmt.Fprintf(w, "ok")
 }
+
+// TODO support fasthttp
 
 // MessageNew handler
 func (cb *Callback) MessageNew(f object.MessageNewFunc) {
@@ -242,3 +249,7 @@ func (cb *Callback) GroupChangePhoto(f object.GroupChangePhotoFunc) {
 func (cb *Callback) VkpayTransaction(f object.VkpayTransactionFunc) {
 	cb.FuncList.VkpayTransaction = append(cb.FuncList.VkpayTransaction, f)
 }
+
+// TODO next version lead_forms_new handler
+// TODO next version like_add handler
+// TODO next version like_remove handler

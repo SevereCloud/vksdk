@@ -2,19 +2,33 @@ package object
 
 // PhotosPhoto struct
 type PhotosPhoto struct {
-	AccessKey string        `json:"access_key"`
-	AlbumID   int           `json:"album_id"`
-	Date      int           `json:"date"`
-	Height    int           `json:"height"`
-	ID        int           `json:"id"`
-	Images    []photosImage `json:"images"`
-	Lat       float64       `json:"lat"`
-	Long      float64       `json:"long"`
-	OwnerID   int           `json:"owner_id"`
-	PostID    int           `json:"post_id"`
-	Text      string        `json:"text"`
-	UserID    int           `json:"user_id"`
-	Width     int           `json:"width"`
+	AccessKey          string             `json:"access_key"`
+	AlbumID            int                `json:"album_id"`
+	Date               int                `json:"date"`
+	Height             int                `json:"height"`
+	ID                 int                `json:"id"`
+	Images             []photosImage      `json:"images"`
+	Lat                float64            `json:"lat"`
+	Long               float64            `json:"long"`
+	OwnerID            int                `json:"owner_id"`
+	PostID             int                `json:"post_id"`
+	Text               string             `json:"text"`
+	UserID             int                `json:"user_id"`
+	Width              int                `json:"width"`
+	CanUpload          int                `json:"can_upload"`
+	CommentsDisabled   int                `json:"comments_disabled"`
+	Created            int                `json:"created"`
+	Description        string             `json:"description"`
+	PrivacyComment     []string           `json:"privacy_comment"`
+	PrivacyView        []string           `json:"privacy_view"`
+	Size               int                `json:"size"`
+	Sizes              []photosPhotoSizes `json:"sizes"`
+	ThumbID            int                `json:"thumb_id"`
+	ThumbIsLast        int                `json:"thumb_is_last"`
+	ThumbSrc           string             `json:"thumb_src"`
+	Title              string             `json:"title"`
+	Updated            int                `json:"updated"`
+	UploadByAdminsOnly int                `json:"upload_by_admins_only"`
 }
 
 type photosCommentXtrPid struct {

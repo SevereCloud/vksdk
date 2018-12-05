@@ -56,6 +56,14 @@ type wallViews struct {
 	Count int `json:"count"`
 }
 
+type wallWallCommentThread struct {
+	Count           int               `json:"count"`
+	Items           []wallWallComment `json:"items"`
+	CanPost         bool              `json:"can_post"`
+	ShowReplyButton bool              `json:"show_reply_button"`
+	GroupsCanPost   bool              `json:"groups_can_post"`
+}
+
 type wallWallComment struct {
 	Attachments    []wallCommentAttachment `json:"attachments"`
 	Date           int                     `json:"date"`
@@ -74,6 +82,9 @@ type wallWallComment struct {
 	VideoOwnerID   int                     `json:"video_owner_id"`
 	ItemID         int                     `json:"item_id"`
 	MarketOwnerID  int                     `json:"market_owner_id"`
+	ParentsStack   []int                   `json:"parents_stack"`
+	OwnerID        int                     `json:"owner_id"`
+	Thread         wallWallCommentThread   `json:"thread"`
 }
 
 // WallWallpost  struct

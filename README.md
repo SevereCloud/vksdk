@@ -4,13 +4,18 @@
 
 Внимание - этот репозиторий в **очень ранней разработке**.
 
-Версия API 5.92
+Версия API **5.92**
 
 ## Установка
 
 ```shell
 go get -u github.com/severecloud/vkapi
 ```
+
+## Модули
+
+- [API](https://github.com/severecloud/vksdk/api)
+- [Callback](https://github.com/severecloud/vksdk/callback)
 
 ## Пример
 
@@ -44,6 +49,7 @@ func main() {
 ## Известные проблемы
 
 - [VK API JSON Schema](https://github.com/VKCOM/vk-api-schema) кишит ошибками и не обновляется
+- Документация VK имеет ошибки и не обновляется 
 - На некоторые методы, API возвращает динамический JSON
 
 ### Костыли
@@ -85,13 +91,14 @@ fmt.Print(S.Text)
 ## TODO
 
 - [ ] Все методы API
-- [ ] Callback
+- [x] Callback
 - [ ] LongPoll bot
 - [ ] LongPoll user
 - [ ] Streaming API
 - [ ] Получение токена
-- [ ] Тесты
+- [ ] Создание develop ветки
 - [ ] Поддержка go 1.11
+- [ ] Тесты
 - [ ] Англоязычный README
 - [ ] Поддержка следующих версий API
 
@@ -108,7 +115,7 @@ fmt.Print(S.Text)
 - [ ] Fave 0/12
 - [ ] Friends 0/18
 - [x] Gifts 1/1
-- [ ] Groups 0/42
+- [ ] Groups 1/42
 - [ ] leadForms 0/7
 - [ ] Leads 0/0
 - [ ] Likes 3/4
