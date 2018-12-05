@@ -55,19 +55,19 @@ type PhotoNewObject PhotosPhoto
 type PhotoCommentNewFunc func(PhotoCommentNewObject, int)
 
 // PhotoCommentNewObject struct
-type PhotoCommentNewObject struct{} // TODO struct
+type PhotoCommentNewObject wallWallComment
 
 // PhotoCommentEditFunc func
 type PhotoCommentEditFunc func(PhotoCommentEditObject, int)
 
 // PhotoCommentEditObject struct
-type PhotoCommentEditObject struct{} // TODO struct
+type PhotoCommentEditObject wallWallComment
 
 // PhotoCommentRestoreFunc func
 type PhotoCommentRestoreFunc func(PhotoCommentRestoreObject, int)
 
 // PhotoCommentRestoreObject struct
-type PhotoCommentRestoreObject struct{} // TODO struct
+type PhotoCommentRestoreObject wallWallComment
 
 // PhotoCommentDeleteFunc func
 type PhotoCommentDeleteFunc func(PhotoCommentDeleteObject, int)
@@ -97,19 +97,19 @@ type VideoNewObject VideoVideo
 type VideoCommentNewFunc func(VideoCommentNewObject, int)
 
 // VideoCommentNewObject struct
-type VideoCommentNewObject struct{} // TODO struct
+type VideoCommentNewObject wallWallComment
 
 // VideoCommentEditFunc func
 type VideoCommentEditFunc func(VideoCommentEditObject, int)
 
 // VideoCommentEditObject struct
-type VideoCommentEditObject struct{} // TODO struct
+type VideoCommentEditObject wallWallComment
 
 // VideoCommentRestoreFunc func
 type VideoCommentRestoreFunc func(VideoCommentRestoreObject, int)
 
 // VideoCommentRestoreObject struct
-type VideoCommentRestoreObject struct{} // TODO struct
+type VideoCommentRestoreObject wallWallComment
 
 // VideoCommentDeleteFunc func
 type VideoCommentDeleteFunc func(VideoCommentDeleteObject, int)
@@ -127,31 +127,31 @@ type VideoCommentDeleteObject struct {
 type WallPostNewFunc func(WallPostNewObject, int)
 
 // WallPostNewObject struct
-type WallPostNewObject struct{} // TODO struct
+type WallPostNewObject WallWallpost
 
 // WallRepostFunc func
 type WallRepostFunc func(WallRepostObject, int)
 
 // WallRepostObject struct
-type WallRepostObject struct{} // TODO struct
+type WallRepostObject WallWallpost
 
 // WallReplyNewFunc func
 type WallReplyNewFunc func(WallReplyNewObject, int)
 
 // WallReplyNewObject struct
-type WallReplyNewObject struct{} // TODO struct
+type WallReplyNewObject wallWallComment
 
 // WallReplyEditFunc func
 type WallReplyEditFunc func(WallReplyEditObject, int)
 
 // WallReplyEditObject struct
-type WallReplyEditObject struct{} // TODO struct
+type WallReplyEditObject wallWallComment
 
 // WallReplyRestoreFunc func
 type WallReplyRestoreFunc func(WallReplyRestoreObject, int)
 
 // WallReplyRestoreObject struct
-type WallReplyRestoreObject struct{} // TODO struct
+type WallReplyRestoreObject wallWallComment
 
 // WallReplyDeleteFunc func
 type WallReplyDeleteFunc func(WallReplyDeleteObject, int)
@@ -168,19 +168,19 @@ type WallReplyDeleteObject struct {
 type BoardPostNewFunc func(BoardPostNewObject, int)
 
 // BoardPostNewObject struct
-type BoardPostNewObject struct{} // TODO struct
+type BoardPostNewObject boardTopicComment
 
 // BoardPostEditFunc func
 type BoardPostEditFunc func(BoardPostEditObject, int)
 
 // BoardPostEditObject struct
-type BoardPostEditObject struct{} // TODO struct
+type BoardPostEditObject boardTopicComment
 
 // BoardPostRestoreFunc func
 type BoardPostRestoreFunc func(BoardPostRestoreObject, int)
 
 // BoardPostRestoreObject struct
-type BoardPostRestoreObject struct{} // TODO struct
+type BoardPostRestoreObject boardTopicComment
 
 // BoardPostDeleteFunc func
 type BoardPostDeleteFunc func(BoardPostDeleteObject, int)
@@ -196,19 +196,19 @@ type BoardPostDeleteObject struct {
 type MarketCommentNewFunc func(MarketCommentNewObject, int)
 
 // MarketCommentNewObject struct
-type MarketCommentNewObject struct{} // TODO struct
+type MarketCommentNewObject wallWallComment
 
 // MarketCommentEditFunc func
 type MarketCommentEditFunc func(MarketCommentEditObject, int)
 
 // MarketCommentEditObject struct
-type MarketCommentEditObject struct{} // TODO struct
+type MarketCommentEditObject wallWallComment
 
 // MarketCommentRestoreFunc func
 type MarketCommentRestoreFunc func(MarketCommentRestoreObject, int)
 
 // MarketCommentRestoreObject struct
-type MarketCommentRestoreObject struct{} // TODO struct
+type MarketCommentRestoreObject wallWallComment
 
 // MarketCommentDeleteFunc func
 type MarketCommentDeleteFunc func(MarketCommentDeleteObject, int)

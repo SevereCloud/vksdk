@@ -67,7 +67,7 @@ type newsfeedItemVideoVideo struct {
 type newsfeedItemWallpost struct {
 	Attachments []wallWallpostAttachment `json:"attachments"`
 	Comments    baseCommentsInfo         `json:"comments"`
-	CopyHistory []wallWallpost           `json:"copy_history"`
+	CopyHistory []WallWallpost           `json:"copy_history"`
 	Geo         baseGeo                  `json:"geo"`
 	Likes       baseLikesInfo            `json:"likes"`
 	PostID      int                      `json:"post_id"`

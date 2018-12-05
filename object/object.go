@@ -43,9 +43,11 @@ type baseCity struct {
 }
 
 type baseCommentsInfo struct {
-	CanPost       int `json:"can_post"`
-	Count         int `json:"count"`
-	GroupsCanPost int `json:"groups_can_post"`
+	CanPost       int  `json:"can_post"`
+	Count         int  `json:"count"`
+	GroupsCanPost int  `json:"groups_can_post"`
+	CanClose      bool `json:"can_close"`
+	CanOpen       bool `json:"can_open"`
 }
 
 type baseError struct {

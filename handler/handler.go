@@ -51,7 +51,7 @@ type FuncList struct {
 }
 
 // Handler group event hundler
-func (funcList FuncList) Handler(e object.GroupEvent) (err error) {
+func (funcList FuncList) Handler(e object.GroupEvent) error {
 	switch e.Type {
 	case "message_new":
 		var obj object.MessageNewObject
@@ -414,5 +414,5 @@ func (funcList FuncList) Handler(e object.GroupEvent) (err error) {
 			f(obj, e.GroupID)
 		}
 	}
-	return err
+	return nil
 }

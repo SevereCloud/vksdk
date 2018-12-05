@@ -13,12 +13,14 @@ type boardTopic struct {
 }
 
 type boardTopicComment struct {
-	Attachments []wallCommentAttachment `json:"attachments"`
-	Date        int                     `json:"date"`
-	FromID      int                     `json:"from_id"`
-	ID          int                     `json:"id"`
-	RealOffset  int                     `json:"real_offset"`
-	Text        string                  `json:"text"`
+	Attachments  []wallCommentAttachment `json:"attachments"`
+	Date         int                     `json:"date"`
+	FromID       int                     `json:"from_id"`
+	ID           int                     `json:"id"`
+	RealOffset   int                     `json:"real_offset"`
+	Text         string                  `json:"text"`
+	TopicID      int                     `json:"topic_id"`
+	TopicOwnerID int                     `json:"topic_owner_id"`
 }
 
 type boardTopicPoll struct {

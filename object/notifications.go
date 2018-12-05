@@ -26,7 +26,7 @@ type notificationsNotificationsComment struct {
 	ID      int          `json:"id"`
 	OwnerID int          `json:"owner_id"`
 	Photo   PhotosPhoto  `json:"photo"`
-	Post    wallWallpost `json:"post"`
+	Post    WallWallpost `json:"post"`
 	Text    string       `json:"text"`
 	Topic   boardTopic   `json:"topic"`
 	Video   VideoVideo   `json:"video"`

@@ -66,21 +66,44 @@ type wallWallComment struct {
 	ReplyToComment int                     `json:"reply_to_comment"`
 	ReplyToUser    int                     `json:"reply_to_user"`
 	Text           string                  `json:"text"`
+	PostID         int                     `json:"post_id"`
+	PostOwnerID    int                     `json:"post_owner_id"`
+	PhotoID        int                     `json:"photo_id"`
+	PhotoOwnerID   int                     `json:"photo_owner_id"`
+	VideoID        int                     `json:"video_id"`
+	VideoOwnerID   int                     `json:"video_owner_id"`
+	ItemID         int                     `json:"item_id"`
+	MarketOwnerID  int                     `json:"market_owner_id"`
 }
 
-type wallWallpost struct {
-	AccessKey   string                   `json:"access_key"`
-	Attachments []wallWallpostAttachment `json:"attachments"`
-	Date        int                      `json:"date"`
-	FromID      int                      `json:"from_id"`
-	Geo         baseGeo                  `json:"geo"`
-	ID          int                      `json:"id"`
-	OwnerID     int                      `json:"owner_id"`
-	PostSource  wallPostSource           `json:"post_source"`
-	PostType    string                   `json:"post_type"`
-	SignerID    int                      `json:"signer_id"`
-	Text        string                   `json:"text"`
-	Views       wallViews                `json:"views"`
+// WallWallpost  struct
+type WallWallpost struct {
+	ID           int                      `json:"id"`
+	OwnerID      int                      `json:"owner_id"`
+	FromID       int                      `json:"from_id"`
+	CreatedBy    int                      `json:"created_by"`
+	Date         int                      `json:"date"`
+	Text         string                   `json:"text"`
+	ReplyOwnerID int                      `json:"reply_owner_id"`
+	ReplyPostID  int                      `json:"reply_post_id"`
+	FriendsOnly  int                      `json:"friends_only"`
+	Comments     baseCommentsInfo         `json:"comments"`
+	Likes        baseLikesInfo            `json:"likes"`
+	Reposts      baseRepostsInfo          `json:"reposts"`
+	Views        wallViews                `json:"views"`
+	PostType     string                   `json:"post_type"`
+	PostSource   wallPostSource           `json:"post_source"`
+	Attachments  []wallWallpostAttachment `json:"attachments"`
+	Geo          baseGeo                  `json:"geo"`
+	SignerID     int                      `json:"signer_id"`
+	CopyHistory  []WallWallpost           `json:"copy_history"`
+	CanPin       int                      `json:"can_pin"`
+	CanDelete    int                      `json:"can_delete"`
+	CanEdit      int                      `json:"can_edit"`
+	IsPinned     int                      `json:"is_pinned"`
+	MarkedAsAds  int                      `json:"marked_as_ads"`
+	IsFavorite   bool                     `json:"is_favorite"`
+	AccessKey    string                   `json:"access_key"`
 }
 
 type wallWallpostAttached struct {
