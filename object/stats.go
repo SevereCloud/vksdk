@@ -1,4 +1,4 @@
-package object
+package object // import "github.com/severecloud/vksdk/object"
 
 type statsActivity struct {
 	Comments     int `json:"comments"`

@@ -1,4 +1,4 @@
-package object
+package object // import "github.com/severecloud/vksdk/object"
 
 // MessageNewFunc func
 type MessageNewFunc func(MessageNewObject, int)

@@ -1,4 +1,4 @@
-package api
+package api // import "github.com/severecloud/vksdk/api"
 
 // NotesAddResponse struct
 type NotesAddResponse struct{}

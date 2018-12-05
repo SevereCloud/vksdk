@@ -1,4 +1,4 @@
-package object
+package object // import "github.com/severecloud/vksdk/object"
 
 type leadsChecked struct {
 	Reason    string `json:"reason"`

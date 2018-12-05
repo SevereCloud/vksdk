@@ -1,4 +1,4 @@
-package object
+package object // import "github.com/severecloud/vksdk/object"
 
 // AccountNameRequest struct
 type AccountNameRequest struct {

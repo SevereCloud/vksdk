@@ -1,4 +1,4 @@
-package object
+package object // import "github.com/severecloud/vksdk/object"
 
 type notesNote struct {
 	CanComment int    `json:"can_comment"`

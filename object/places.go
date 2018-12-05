@@ -1,4 +1,4 @@
-package object
+package object // import "github.com/severecloud/vksdk/object"
 
 type placesCheckin struct {
 	Date         int     `json:"date"`

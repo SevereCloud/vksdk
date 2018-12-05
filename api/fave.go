@@ -1,4 +1,4 @@
-package api
+package api // import "github.com/severecloud/vksdk/api"
 
 // FaveAddGroupResponse struct
 type FaveAddGroupResponse struct{}

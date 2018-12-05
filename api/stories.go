@@ -1,4 +1,4 @@
-package api
+package api // import "github.com/severecloud/vksdk/api"
 
 // StoriesBanOwnerResponse struct
 type StoriesBanOwnerResponse struct{}

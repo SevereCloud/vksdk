@@ -1,4 +1,4 @@
-package object
+package object // import "github.com/severecloud/vksdk/object"
 
 type wallAppPost struct {
 	ID       int    `json:"id"`

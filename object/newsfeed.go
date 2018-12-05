@@ -1,4 +1,4 @@
-package object
+package object // import "github.com/severecloud/vksdk/object"
 
 type newsfeedItemAudio struct {
 	Audio  newsfeedItemAudioAudio `json:"audio"`

@@ -1,4 +1,4 @@
-package handler
+package handler // import "github.com/severecloud/vksdk/handler"
 
 import (
 	"encoding/json"

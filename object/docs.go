@@ -1,4 +1,4 @@
-package object
+package object // import "github.com/severecloud/vksdk/object"
 
 type docsDoc struct {
 	AccessKey string         `json:"access_key"`

@@ -1,4 +1,4 @@
-package api
+package api // import "github.com/severecloud/vksdk/api"
 
 // PagesClearCacheResponse struct
 type PagesClearCacheResponse struct{}
