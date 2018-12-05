@@ -266,7 +266,7 @@ type UserUnblockObject struct {
 type PollVoteNewFunc func(PollVoteNewObject, int)
 
 // PollVoteNewObject struct
-// BUG при голосовании за несколько вариантов, возвращается только один
+// BUG(VK): при голосовании за несколько вариантов, возвращается только один
 type PollVoteNewObject struct {
 	OwnerID  int `json:"owner_id"`
 	PollID   int `json:"poll_id"`
@@ -300,8 +300,8 @@ type GroupChangeSettingsFunc func(GroupChangeSettingsObject, int)
 
 // GroupChangeSettingsObject struct
 // спасибо vk.com/eee
-// BUG Phone https://vk.com/bugtracker?act=show&id=64240
-// BUG Email https://vk.com/bugtracker?act=show&id=86650
+// BUG(VK): Phone https://vk.com/bugtracker?act=show&id=64240
+// BUG(VK): Email https://vk.com/bugtracker?act=show&id=86650
 type GroupChangeSettingsObject struct {
 	UserID  int `json:"user_id"`
 	Changes struct {

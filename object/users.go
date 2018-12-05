@@ -80,7 +80,7 @@ type UsersUser struct {
 	Exports                usersExports      `json:"exports"`
 	Counters               usersUserCounters `json:"counters"`
 	Contacts               usersContacts     `json:"contacts"`
-	// TODO education
+	// TODO: education
 }
 
 // UsersUserMin struct

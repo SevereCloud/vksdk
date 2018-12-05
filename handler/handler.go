@@ -415,8 +415,8 @@ func (funcList FuncList) Handler(e object.GroupEvent) error {
 			f(obj, e.GroupID)
 		}
 	}
-	// TODO group event lead_forms_new
-	// TODO group event like_add
-	// TODO group event like_remove
+	// TODO: group event lead_forms_new
+	// TODO: group event like_add
+	// TODO: group event like_remove
 	return nil
 }

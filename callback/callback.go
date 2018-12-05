@@ -48,7 +48,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "ok")
 }
 
-// TODO support fasthttp
+// TODO: support fasthttp
 
 // MessageNew handler
 func (cb *Callback) MessageNew(f object.MessageNewFunc) {
@@ -250,6 +250,6 @@ func (cb *Callback) VkpayTransaction(f object.VkpayTransactionFunc) {
 	cb.FuncList.VkpayTransaction = append(cb.FuncList.VkpayTransaction, f)
 }
 
-// TODO next version lead_forms_new handler
-// TODO next version like_add handler
-// TODO next version like_remove handler
+// TODO: next version lead_forms_new handler
+// TODO: next version like_add handler
+// TODO: next version like_remove handler

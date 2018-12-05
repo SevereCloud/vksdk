@@ -184,7 +184,7 @@ type GroupsLongPollEvents struct {
 	UserBlock            int `json:"user_block"`
 	UserUnblock          int `json:"user_unblock"`
 	MessageEdit          int `json:"message_edit"`
-	MessagesEdit         int `json:"messages_edit"` // BUG https://vk.com/bugtracker?act=show&id=86762
+	MessagesEdit         int `json:"messages_edit"` // BUG(VK): https://vk.com/bugtracker?act=show&id=86762
 	MessageTypingState   int `json:"message_typing_state"`
 	LeadFormsNew         int `json:"lead_forms_new"`
 	LikeAdd              int `json:"like_add"`

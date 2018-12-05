@@ -3,29 +3,29 @@ package api
 // PrettyCardsCreateResponse struct
 type PrettyCardsCreateResponse struct{}
 
-// TODO prettyCards.create
+// TODO: prettyCards.create
 
 // PrettyCardsDeleteResponse struct
 type PrettyCardsDeleteResponse struct{}
 
-// TODO prettyCards.delete
+// TODO: prettyCards.delete
 
 // PrettyCardsEditResponse struct
 type PrettyCardsEditResponse struct{}
 
-// TODO prettyCards.edit
+// TODO: prettyCards.edit
 
 // PrettyCardsGetResponse struct
 type PrettyCardsGetResponse struct{}
 
-// TODO prettyCards.get
+// TODO: prettyCards.get
 
 // PrettyCardsGetByIDResponse struct
 type PrettyCardsGetByIDResponse struct{}
 
-// TODO prettyCards.getById
+// TODO: prettyCards.getById
 
 // PrettyCardsGetUploadURLResponse struct
 type PrettyCardsGetUploadURLResponse struct{}
 
-// TODO prettyCards.getUploadURL
+// TODO: prettyCards.getUploadURL

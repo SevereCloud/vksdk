@@ -27,24 +27,24 @@ func (vk *VK) UsersGet(params map[string]string) (response UsersGetResponse, vkE
 // UsersGetFollowersResponse struct
 type UsersGetFollowersResponse struct{}
 
-// TODO users.getFollowers Returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
+// TODO: users.getFollowers Returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 
 // UsersGetSubscriptionsResponse struct
 type UsersGetSubscriptionsResponse struct{}
 
-// TODO users.getSubscriptions Returns a list of IDs of users and public pages followed by the user.
+// TODO: users.getSubscriptions Returns a list of IDs of users and public pages followed by the user.
 
 // UsersIsAppUserResponse struct
 type UsersIsAppUserResponse struct{}
 
-// TODO users.isAppUser Returns information whether a user installed the application.
+// TODO: users.isAppUser Returns information whether a user installed the application.
 
 // UsersReportResponse struct
 type UsersReportResponse struct{}
 
-// TODO users.report Reports (submits a complain about) a user.
+// TODO: users.report Reports (submits a complain about) a user.
 
 // UsersSearchResponse struct
 type UsersSearchResponse struct{}
 
-// TODO users.search Returns a list of users matching the search criteria.
+// TODO: users.search Returns a list of users matching the search criteria.

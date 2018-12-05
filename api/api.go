@@ -3,10 +3,11 @@ package api
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/severecloud/vksdk/object"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+
+	"github.com/severecloud/vksdk/object"
 )
 
 const (
@@ -39,7 +40,7 @@ func Init(token string) (vk VK) {
 
 // Request provides access to VK API methods
 func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
-	// TODO ограничитель на запросы
+	// TODO: ограничитель на запросы
 	u := apiURL + method
 
 	query := url.Values{}
