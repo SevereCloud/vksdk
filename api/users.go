@@ -11,7 +11,7 @@ type UsersGetResponse []object.UsersUser
 
 // UsersGet returns detailed information on users
 // users.get Returns detailed information on users.
-func (vk *VK) UsersGet(params map[string]string) (response UsersGetResponse, vkErr Error) {
+func (vk VK) UsersGet(params map[string]string) (response UsersGetResponse, vkErr Error) {
 	rawResponse, vkErr := vk.Request("users.get", params)
 	if vkErr.Code != 0 {
 		return

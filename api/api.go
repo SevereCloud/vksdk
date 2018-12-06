@@ -39,7 +39,7 @@ func Init(token string) (vk VK) {
 }
 
 // Request provides access to VK API methods
-func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
+func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 	// TODO: ограничитель на запросы
 	u := apiURL + method
 
@@ -75,7 +75,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 }
 
 // Execute a universal method for calling a sequence of other methods while saving and filtering interim results.
-func (vk *VK) Execute(Code string) (response []byte, vkErr Error) {
+func (vk VK) Execute(Code string) (response []byte, vkErr Error) {
 	p := make(map[string]string)
 	p["code"] = Code
 	response, vkErr = vk.Request("execute", p)

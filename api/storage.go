@@ -10,7 +10,7 @@ import (
 type StorageGetResponse []object.BaseRequestParam
 
 // StorageGet returns a value of variable with the name set by key parameter.
-func (vk *VK) StorageGet(params map[string]string) (response StorageGetResponse, vkErr Error) {
+func (vk VK) StorageGet(params map[string]string) (response StorageGetResponse, vkErr Error) {
 	_, prs := params["keys"]
 	if !prs {
 		params["keys"] = params["key"]
@@ -32,7 +32,7 @@ func (vk *VK) StorageGet(params map[string]string) (response StorageGetResponse,
 type StorageGetKeysResponse []string
 
 // StorageGetKeys returns the names of all variables.
-func (vk *VK) StorageGetKeys(params map[string]string) (response StorageGetKeysResponse, vkErr Error) {
+func (vk VK) StorageGetKeys(params map[string]string) (response StorageGetKeysResponse, vkErr Error) {
 	rawResponse, vkErr := vk.Request("storage.getKeys", params)
 	if vkErr.Code != 0 {
 		return
@@ -47,7 +47,7 @@ func (vk *VK) StorageGetKeys(params map[string]string) (response StorageGetKeysR
 }
 
 // StorageSet saves a value of variable with the name set by key parameter.
-func (vk *VK) StorageSet(params map[string]string) (vkErr Error) {
+func (vk VK) StorageSet(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("storage.set", params)
 
 	return

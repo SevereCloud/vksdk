@@ -175,7 +175,7 @@ type MessagesSendResponse struct{}
 
 // MessagesSend Sends a message
 // TODO: messages.send Sends a message.
-func (vk *VK) MessagesSend(params map[string]string) (vkErr Error) {
+func (vk VK) MessagesSend(params map[string]string) (vkErr Error) {
 	const method = "messages.send"
 	// TODO: if user_ids in params
 

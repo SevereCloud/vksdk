@@ -20,7 +20,7 @@ type Callback struct {
 }
 
 // HandleFunc handler
-func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
+func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 
 	var e object.GroupEvent

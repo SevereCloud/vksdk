@@ -111,7 +111,7 @@ type GroupsGetCallbackSettingsResponse object.GroupsLongPollEvents
 
 // GroupsGetCallbackSettings returns Callback API notifications settings.
 // BUG(VK): MessageEdit always 0 https://vk.com/bugtracker?act=show&id=86762
-func (vk *VK) GroupsGetCallbackSettings(params map[string]string) (response GroupsGetCallbackSettingsResponse, vkErr Error) {
+func (vk VK) GroupsGetCallbackSettings(params map[string]string) (response GroupsGetCallbackSettingsResponse, vkErr Error) {
 	rawResponse, vkErr := vk.Request("storage.getKeys", params)
 	if vkErr.Code != 0 {
 		return
@@ -163,7 +163,7 @@ type GroupsGetMembersResponse struct {
 
 // GroupsGetMembers returns a list of community members
 // TODO: groupx.getMembers
-func (vk *VK) GroupsGetMembers(params map[string]string) (response GroupsGetMembersResponse, vkErr Error) {
+func (vk VK) GroupsGetMembers(params map[string]string) (response GroupsGetMembersResponse, vkErr Error) {
 	rawResponse, vkErr := vk.Request("groups.getMembers", params)
 	if vkErr.Code != 0 {
 		return

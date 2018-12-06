@@ -40,7 +40,7 @@ type UtilsResolveScreenNameResponse struct {
 
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.
 // TODO: testing utilx.resolveScreenName
-func (vk *VK) UtilsResolveScreenName(params map[string]string) (response UtilsResolveScreenNameResponse, vkErr Error) {
+func (vk VK) UtilsResolveScreenName(params map[string]string) (response UtilsResolveScreenNameResponse, vkErr Error) {
 	rawResponse, vkErr := vk.Request("utils.resolveScreenName", params)
 	if vkErr.Code != 0 {
 		return
