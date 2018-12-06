@@ -14,8 +14,8 @@ go get -u github.com/severecloud/vkapi
 
 ## Модули
 
-- [API](https://github.com/severecloud/vksdk/api)
-- [Callback](https://github.com/severecloud/vksdk/callback)
+- [API](https://github.com/SevereCloud/vksdk/tree/master/api)
+- [Callback](https://github.com/SevereCloud/vksdk/tree/master/callback)
 
 ## Пример
 
