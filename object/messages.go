@@ -22,13 +22,35 @@ type MessagesMessage struct {
 	UpdateTime            int                         `json:"update_time"`
 }
 
-// Button struct
-type Button []MessagesKeyboardButton
-
 // MessagesKeyboard struct
 type MessagesKeyboard struct {
-	Buttons []Button `json:"buttons"`
-	OneTime bool     `json:"one_time"`
+	Buttons [][]MessagesKeyboardButton `json:"buttons"`
+	OneTime bool                       `json:"one_time"`
+}
+
+// AddRow add row in MessagesKeyboard
+func (keyboard *MessagesKeyboard) AddRow() {
+	if len(keyboard.Buttons) == 0 {
+		keyboard.Buttons = make([][]MessagesKeyboardButton, 1)
+	} else {
+		row := make([]MessagesKeyboardButton, 0)
+		keyboard.Buttons = append(keyboard.Buttons, row)
+	}
+}
+
+// AddButton add button in last row
+func (keyboard *MessagesKeyboard) AddButton(label string, payload string, color string) {
+	button := MessagesKeyboardButton{
+		Action: MessagesKeyboardButtonAction{
+			Label:   label,
+			Payload: payload,
+			Type:    "text",
+		},
+		Color: color,
+	}
+
+	lastRow := len(keyboard.Buttons) - 1
+	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
 }
 
 // MessagesKeyboardButton struct
