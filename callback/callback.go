@@ -3,7 +3,6 @@ package callback // import "github.com/severecloud/vksdk/callback"
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/severecloud/vksdk/handler"
@@ -43,7 +42,6 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-	log.Print(string(e.Object))
 	cb.FuncList.Handler(e)
 	fmt.Fprintf(w, "ok")
 }

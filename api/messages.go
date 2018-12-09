@@ -119,6 +119,7 @@ type MessagesGetLongPollServerResponse struct{}
 type MessagesIsMessagesFromGroupAllowedResponse struct{}
 
 // TODO: messages.isMessagesFromGroupAllowed Returns information whether sending messages from the community to current user is allowed.
+// BUG(VK): need group_id with group token vk.com/bugtracker?act=show&id=88011
 
 // MessagesJoinChatByInviteLinkResponse struct
 type MessagesJoinChatByInviteLinkResponse struct{}
