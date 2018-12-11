@@ -66,7 +66,8 @@ type MessagesKeyboardButtonAction struct {
 	Type    string `json:"type"`
 }
 
-type messagesChat struct {
+// MessagesChat struct
+type MessagesChat struct {
 	AdminID      int                      `json:"admin_id"`
 	ID           int                      `json:"id"`
 	Kicked       int                      `json:"kicked"`
@@ -78,6 +79,14 @@ type messagesChat struct {
 	Title        string                   `json:"title"`
 	Type         string                   `json:"type"`
 	Users        []int                    `json:"users"`
+	MembersCount int                      `json:"members_count"`
+	Members      []int                    `json:"members"`
+	Photo        struct {
+		Photo50  string `json:"photo_50"`
+		Photo100 string `json:"photo_100"`
+		Photo200 string `json:"photo_200"`
+	} `json:"photo"`
+	Joined bool `json:"joined"`
 }
 
 type messagesChatFull struct {
@@ -105,16 +114,18 @@ type messagesChatSettingsPhoto struct {
 	Photo50  string `json:"photo_50"`
 }
 
-type messagesConversation struct {
-	CanWrite     messagesConversationCanWrite     `json:"can_write"`
-	ChatSettings messagesConversationChatSettings `json:"chat_settings"`
-	Important    bool                             `json:"important"`
-	InRead       int                              `json:"in_read"`
-	OutRead      int                              `json:"out_read"`
-	Peer         messagesConversationPeer         `json:"peer"`
-	PushSettings messagesConversationPushSettings `json:"push_settings"`
-	Unanswered   bool                             `json:"unanswered"`
-	UnreadCount  int                              `json:"unread_count"`
+// MessagesConversation struct
+type MessagesConversation struct {
+	CanWrite        messagesConversationCanWrite     `json:"can_write"`
+	ChatSettings    messagesConversationChatSettings `json:"chat_settings"`
+	Important       bool                             `json:"important"`
+	InRead          int                              `json:"in_read"`
+	OutRead         int                              `json:"out_read"`
+	Peer            messagesConversationPeer         `json:"peer"`
+	PushSettings    messagesConversationPushSettings `json:"push_settings"`
+	Unanswered      bool                             `json:"unanswered"`
+	UnreadCount     int                              `json:"unread_count"`
+	CurrentKeyboard MessagesKeyboard                 `json:"current_keyboard"`
 }
 
 type messagesConversationCanWrite struct {
@@ -128,6 +139,17 @@ type messagesConversationChatSettings struct {
 	PinnedMessage messagesPinnedMessage     `json:"pinned_message"`
 	State         string                    `json:"state"`
 	Title         string                    `json:"title"`
+	ActiveIds     []int                     `json:"active_ids"`
+	ACL           struct {
+		CanInvite           bool `json:"can_invite"`
+		CanChangeInfo       bool `json:"can_change_info"`
+		CanChangePin        bool `json:"can_change_pin"`
+		CanPromoteUsers     bool `json:"can_promote_users"`
+		CanSeeInviteLink    bool `json:"can_see_invite_link"`
+		CanChangeInviteLink bool `json:"can_change_invite_link"`
+	} `json:"acl"`
+	IsGroupChannel bool `json:"is_group_channel"`
+	OwnerID        int  `json:"owner_id"`
 }
 
 type messagesConversationPeer struct {
@@ -142,8 +164,9 @@ type messagesConversationPushSettings struct {
 	NoSound         bool `json:"no_sound"`
 }
 
-type messagesConversationWithMessage struct {
-	Conversation messagesConversation `json:"conversation"`
+// MessagesConversationWithMessage struct
+type MessagesConversationWithMessage struct {
+	Conversation MessagesConversation `json:"conversation"`
 	LastMessage  MessagesMessage      `json:"last_message"`
 }
 
@@ -156,7 +179,8 @@ type messagesDialog struct {
 	Unread     int             `json:"unread"`
 }
 
-type messagesHistoryAttachment struct {
+// MessagesHistoryAttachment struct
+type MessagesHistoryAttachment struct {
 	Attachment messagesHistoryMessageAttachment `json:"attachment"`
 	MessageID  int                              `json:"message_id"`
 }
@@ -173,7 +197,8 @@ type messagesHistoryMessageAttachment struct {
 	Wall   baseLink       `json:"wall"`
 }
 
-type messagesLastActivity struct {
+// MessagesLastActivity struct
+type MessagesLastActivity struct {
 	Online int `json:"online"`
 	Time   int `json:"time"`
 }
@@ -183,7 +208,8 @@ type messagesLongpollMessages struct {
 	Items []MessagesMessage `json:"items"`
 }
 
-type messagesLongpollParams struct {
+// MessagesLongpollParams struct
+type MessagesLongpollParams struct {
 	Key    string `json:"key"`
 	Pts    int    `json:"pts"`
 	Server string `json:"server"`

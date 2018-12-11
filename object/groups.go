@@ -2,18 +2,19 @@ package object // import "github.com/severecloud/vksdk/object"
 
 // GroupsGroup struct
 type GroupsGroup struct {
-	AdminLevel  int    `json:"admin_level"`
-	Deactivated string `json:"deactivated"`
-	ID          int    `json:"id"`
-	IsAdmin     int    `json:"is_admin"`
-	IsClosed    int    `json:"is_closed"`
-	IsMember    int    `json:"is_member"`
-	Name        string `json:"name"`
-	Photo100    string `json:"photo_100"`
-	Photo200    string `json:"photo_200"`
-	Photo50     string `json:"photo_50"`
-	ScreenName  string `json:"screen_name"`
-	Type        string `json:"type"`
+	AdminLevel   int    `json:"admin_level"`
+	Deactivated  string `json:"deactivated"`
+	ID           int    `json:"id"`
+	IsAdmin      int    `json:"is_admin"`
+	IsClosed     int    `json:"is_closed"`
+	IsMember     int    `json:"is_member"`
+	Name         string `json:"name"`
+	Photo100     string `json:"photo_100"`
+	Photo200     string `json:"photo_200"`
+	Photo50      string `json:"photo_50"`
+	ScreenName   string `json:"screen_name"`
+	Type         string `json:"type"`
+	IsAdvertiser int    `json:"is_advertiser"`
 }
 
 type groupsBanInfo struct {
