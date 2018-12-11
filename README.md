@@ -107,7 +107,7 @@ fmt.Print(S.Text)
 - [x] Account 19/19
 - [ ] Ads 0/0
 - [ ] Apps 0/8
-- [ ] Auth 0/2
+- [x] Auth 2/2
 - [ ] Board 0/13
 - [ ] Database 0/10
 - [ ] Docs 0/11
