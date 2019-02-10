@@ -1,5 +1,7 @@
 package api // import "github.com/severecloud/vksdk/api"
 
+import "encoding/json"
+
 // WallCloseCommentsResponse struct
 type WallCloseCommentsResponse struct{}
 
@@ -71,9 +73,24 @@ type WallPinResponse struct{}
 // TODO: wall.pin Pins the post on wall.
 
 // WallPostResponse struct
-type WallPostResponse struct{}
+type WallPostResponse struct {
+	PostID int `json:"post_id"`
+}
 
-// TODO: wall.post Adds a new post on a user wall or community wall.Can also be used to publish suggested or scheduled posts.
+// WallPost Adds a new post on a user wall or community wall.Can also be used to publish suggested or scheduled posts.
+func (vk VK) WallPost(params map[string]string) (response WallPostResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("wall.post", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // WallPostAdsStealthResponse struct
 type WallPostAdsStealthResponse struct{}
