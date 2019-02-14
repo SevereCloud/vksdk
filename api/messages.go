@@ -177,9 +177,40 @@ func (vk VK) MessagesGetChatPreview(params map[string]string) (response Messages
 }
 
 // MessagesGetConversationMembersResponse struct
-type MessagesGetConversationMembersResponse struct{}
+type MessagesGetConversationMembersResponse struct {
+	Items []struct {
+		MemberID  int  `json:"member_id"`
+		JoinDate  int  `json:"join_date"`
+		InvitedBy int  `json:"invited_by"`
+		IsOwner   bool `json:"is_owner,omitempty"`
+		IsAdmin   bool `json:"is_admin,omitempty"`
+		CanKick   bool `json:"can_kick,omitempty"`
+	} `json:"items"`
+	Count            int `json:"count"`
+	ChatRestrictions struct {
+		OnlyAdminsInvite   bool `json:"only_admins_invite"`
+		OnlyAdminsEditPin  bool `json:"only_admins_edit_pin"`
+		OnlyAdminsEditInfo bool `json:"only_admins_edit_info"`
+		AdminsPromoteUsers bool `json:"admins_promote_users"`
+	} `json:"chat_restrictions"`
+	Profiles []object.UsersUser   `json:"profiles"`
+	Groups   []object.GroupsGroup `json:"groups"`
+}
 
-// TODO: messages.getConversationMembers Returns a list of IDs of users participating in a conversation.
+// MessagesGetConversationMembers Returns a list of IDs of users participating in a conversation.
+func (vk VK) MessagesGetConversationMembers(params map[string]string) (response MessagesGetConversationMembersResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("messages.getConversationMembers", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // MessagesGetConversationsResponse struct
 type MessagesGetConversationsResponse struct {
