@@ -41,6 +41,11 @@ func Init(token string) (vk VK) {
 // Request provides access to VK API methods
 func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 	// TODO: ограничитель на запросы
+	var handler struct {
+		Response json.RawMessage
+		Error    Error `json:"error"`
+	}
+
 	u := apiURL + method
 
 	query := url.Values{}
@@ -53,7 +58,9 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 	rawBody := bytes.NewBufferString(query.Encode())
 	resp, err := http.Post(u, "application/x-www-form-urlencoded", rawBody)
 	if err != nil {
-		panic(err)
+		handler.Error.Code = -1
+		handler.Error.Message = err.Error()
+		return handler.Response, handler.Error
 	}
 	defer resp.Body.Close()
 
@@ -62,10 +69,6 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 		panic(err)
 	}
 
-	var handler struct {
-		Response json.RawMessage
-		Error    Error `json:"error"`
-	}
 	err = json.Unmarshal(body, &handler)
 	if err != nil {
 		panic(err)

@@ -91,6 +91,7 @@ fmt.Print(S.Text)
 ## TODO
 
 - [ ] Все методы API
+- [ ] Ограничитель на запросы
 - [x] Callback
 - [ ] LongPoll bot
 - [ ] LongPoll user
@@ -120,7 +121,7 @@ fmt.Print(S.Text)
 - [ ] Leads 0/0
 - [ ] Likes 3/4
 - [ ] Market 0/24
-- [ ] Messages 33/39
+- [ ] Messages 35/39
 - [ ] Newsfeed 0/16
 - [ ] Notes 0/10
 - [ ] Notifications 0/3
