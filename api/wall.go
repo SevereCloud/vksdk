@@ -8,9 +8,25 @@ type WallCloseCommentsResponse struct{}
 // TODO: wall.closeComments
 
 // WallCreateCommentResponse struct
-type WallCreateCommentResponse struct{}
+type WallCreateCommentResponse struct {
+	CommentID    int   `json:"comment_id"`
+	ParentsStack []int `json:"parents_stack"`
+}
 
-// TODO: wall.createComment Adds a comment to a post on a user wall or community wall.
+// WallCreateComment Adds a comment to a post on a user wall or community wall.
+func (vk VK) WallCreateComment(params map[string]string) (response WallCreateCommentResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("wall.createComment", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // WallDeleteResponse struct
 type WallDeleteResponse struct{}
