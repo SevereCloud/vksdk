@@ -110,7 +110,7 @@ fmt.Print(S.Text)
 - [ ] Apps 0/8
 - [x] Auth 2/2
 - [ ] Board 0/13
-- [ ] Database 2/12
+- [x] Database 11/12 (1 баговый метод)
 - [ ] Docs 0/11
 - [x] Execute
 - [ ] Fave 0/12

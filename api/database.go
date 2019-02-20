@@ -7,22 +7,33 @@ import (
 )
 
 // DatabaseGetChairsResponse struct
-type DatabaseGetChairsResponse struct{}
+type DatabaseGetChairsResponse struct {
+	Count int                 `json:"count"`
+	Items []object.BaseObject `json:"items"`
+}
 
-// TODO: database.getChairs returns list of chairs on a specified faculty.
+// DatabaseGetChairs returns list of chairs on a specified faculty.
+func (vk VK) DatabaseGetChairs(params map[string]string) (response DatabaseGetChairsResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("database.getChairs", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // DatabaseGetCitiesResponse struct
 type DatabaseGetCitiesResponse struct {
-	Count int `json:"count"`
-	Items []struct {
-		ID     int    `json:"id"`
-		Title  string `json:"title"`
-		Region string `json:"region"`
-	} `json:"items"`
+	Count int                   `json:"count"`
+	Items []object.DatabaseCity `json:"items"`
 }
 
 // DatabaseGetCities returns a list of cities
-// TODO: testing dataxase.getCities
 func (vk VK) DatabaseGetCities(params map[string]string) (response DatabaseGetCitiesResponse, vkErr Error) {
 	rawResponse, vkErr := vk.Request("database.getCities", params)
 	if vkErr.Code != 0 {
@@ -38,24 +49,82 @@ func (vk VK) DatabaseGetCities(params map[string]string) (response DatabaseGetCi
 }
 
 // DatabaseGetCitiesByIDResponse struct
-type DatabaseGetCitiesByIDResponse struct{}
+type DatabaseGetCitiesByIDResponse []object.BaseObject
 
-// TODO: database.getCitiesByID returns information about cities by their IDs.
+// DatabaseGetCitiesByID returns information about cities by their IDs.
+func (vk VK) DatabaseGetCitiesByID(params map[string]string) (response DatabaseGetCitiesByIDResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("database.getCitiesByID", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // DatabaseGetCountriesResponse struct
-type DatabaseGetCountriesResponse struct{}
+type DatabaseGetCountriesResponse struct {
+	Count int                 `json:"count"`
+	Items []object.BaseObject `json:"items"`
+}
 
-// TODO: database.getCountries returns a list of countries.
+// DatabaseGetCountries returns a list of countries.
+func (vk VK) DatabaseGetCountries(params map[string]string) (response DatabaseGetCountriesResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("database.getCountries", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // DatabaseGetCountriesByIDResponse struct
-type DatabaseGetCountriesByIDResponse struct{}
+type DatabaseGetCountriesByIDResponse []object.BaseObject
 
-// TODO: database.getCountriesByID returns information about countries by their IDs.
+// DatabaseGetCountriesByID returns information about countries by their IDs.
+func (vk VK) DatabaseGetCountriesByID(params map[string]string) (response DatabaseGetCountriesByIDResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("database.getCountriesByID", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // DatabaseGetFacultiesResponse struct
-type DatabaseGetFacultiesResponse struct{}
+type DatabaseGetFacultiesResponse struct {
+	Count int                 `json:"count"`
+	Items []object.BaseObject `json:"items"`
+}
 
-// TODO: database.getFaculties returns a list of faculties (i.e., university departments).
+// DatabaseGetFaculties returns a list of faculties (i.e., university departments).
+func (vk VK) DatabaseGetFaculties(params map[string]string) (response DatabaseGetFacultiesResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("database.getFaculties", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // DatabaseGetMetroStationsResponse struct
 type DatabaseGetMetroStationsResponse struct {
@@ -97,21 +166,70 @@ func (vk VK) DatabaseGetMetroStationsByID(params map[string]string) (response Da
 }
 
 // DatabaseGetRegionsResponse struct
-type DatabaseGetRegionsResponse struct{}
+type DatabaseGetRegionsResponse struct {
+	Count int                 `json:"count"`
+	Items []object.BaseObject `json:"items"`
+}
 
-// TODO: database.getRegions returns a list of regions.
+// DatabaseGetRegions returns a list of regions.
+func (vk VK) DatabaseGetRegions(params map[string]string) (response DatabaseGetRegionsResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("database.getRegions", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // DatabaseGetSchoolClassesResponse struct
 type DatabaseGetSchoolClassesResponse struct{}
 
 // TODO: database.getSchoolClasses returns a list of school classes specified for the country.
+// BUG(VK): database.getSchoolClasses  bad return
 
 // DatabaseGetSchoolsResponse struct
-type DatabaseGetSchoolsResponse struct{}
+type DatabaseGetSchoolsResponse struct {
+	Count int                 `json:"count"`
+	Items []object.BaseObject `json:"items"`
+}
 
-// TODO: database.getSchools returns a list of schools.
+// DatabaseGetSchools returns a list of schools.
+func (vk VK) DatabaseGetSchools(params map[string]string) (response DatabaseGetSchoolsResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("database.getSchools", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // DatabaseGetUniversitiesResponse struct
-type DatabaseGetUniversitiesResponse struct{}
+type DatabaseGetUniversitiesResponse struct {
+	Count int                 `json:"count"`
+	Items []object.BaseObject `json:"items"`
+}
 
-// TODO: database.getUniversities returns a list of higher education institutions.
+// DatabaseGetUniversities returns a list of higher education institutions.
+func (vk VK) DatabaseGetUniversities(params map[string]string) (response DatabaseGetUniversitiesResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("database.getUniversities", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}

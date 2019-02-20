@@ -1,26 +1,12 @@
 package object // import "github.com/severecloud/vksdk/object"
 
-type databaseCity struct {
-}
-
-type databaseFaculty struct {
-	ID    int    `json:"id"`
-	Title string `json:"title"`
-}
-
-type databaseRegion struct {
-	ID    int    `json:"id"`
-	Title string `json:"title"`
-}
-
-type databaseSchool struct {
-	ID    int    `json:"id"`
-	Title string `json:"title"`
-}
-
-type databaseUniversity struct {
-	ID    int    `json:"id"`
-	Title string `json:"title"`
+// DatabaseCity struct
+type DatabaseCity struct {
+	ID        int    `json:"id"`
+	Title     string `json:"title"`
+	Area      string `json:"area"`
+	Region    string `json:"region"`
+	Important int    `json:"important"`
 }
 
 // DatabaseMetroStation  struct
