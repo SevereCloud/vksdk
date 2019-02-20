@@ -110,13 +110,13 @@ fmt.Print(S.Text)
 - [ ] Apps 0/8
 - [x] Auth 2/2
 - [ ] Board 0/13
-- [ ] Database 0/10
+- [ ] Database 2/12
 - [ ] Docs 0/11
 - [x] Execute
 - [ ] Fave 0/12
 - [ ] Friends 0/18
 - [x] Gifts 1/1
-- [ ] Groups 1/42
+- [ ] Groups 1/45
 - [ ] leadForms 0/7
 - [ ] Leads 0/0
 - [ ] Likes 3/4

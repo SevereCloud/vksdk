@@ -6,6 +6,11 @@ import (
 	"github.com/severecloud/vksdk/object"
 )
 
+// GroupsAddAddressResponse struct
+type GroupsAddAddressResponse struct{}
+
+// TODO: groups.addAddress
+
 // GroupsAddCallbackServerAddsResponse struct
 type GroupsAddCallbackServerAddsResponse struct{}
 
@@ -31,6 +36,14 @@ type GroupsCreateResponse struct{}
 
 // TODO: groups.create Creates a new community.
 
+// GroupsDeleteAddress groups.deleteAddress
+// TODO: information for groups.deleteAddress
+func (vk VK) GroupsDeleteAddress(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("groups.deleteAddress", params)
+
+	return
+}
+
 // GroupsDeleteCallbackServerDeletesResponse struct
 type GroupsDeleteCallbackServerDeletesResponse struct{}
 
@@ -45,6 +58,11 @@ type GroupsDeleteLinkResponse struct{}
 type GroupsDisableOnlineResponse struct{}
 
 // TODO: groups.disableOnline Disables "online" status in the community.
+
+// GroupsEditAddressResponse struct
+type GroupsEditAddressResponse struct{}
+
+// TODO: groups.editAddress
 
 // GroupsEditResponse struct
 type GroupsEditResponse struct{}

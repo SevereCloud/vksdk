@@ -22,3 +22,10 @@ type databaseUniversity struct {
 	ID    int    `json:"id"`
 	Title string `json:"title"`
 }
+
+// DatabaseMetroStation  struct
+type DatabaseMetroStation struct {
+	ID    int    `json:"id"`
+	Name  string `json:"name"`
+	Color string `json:"color"`
+}
