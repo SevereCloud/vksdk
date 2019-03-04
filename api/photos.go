@@ -1,5 +1,11 @@
 package api // import "github.com/severecloud/vksdk/api"
 
+import (
+	"encoding/json"
+
+	"github.com/severecloud/vksdk/object"
+)
+
 // PhotosConfirmTagResponse struct
 type PhotosConfirmTagResponse struct{}
 
@@ -136,9 +142,26 @@ type PhotosGetUserPhotosResponse struct{}
 // TODO: photos.getUserPhotos Returns a list of photos in which a user is tagged.
 
 // PhotosGetWallUploadServerResponse struct
-type PhotosGetWallUploadServerResponse struct{}
+type PhotosGetWallUploadServerResponse struct {
+	AlbumID   int    `json:"album_id"`
+	UploadURL string `json:"upload_url"`
+	UserID    int    `json:"user_id"`
+}
 
-// TODO: photos.getWallUploadServer Returns the server address for photo upload onto a user's wall.
+// PhotosGetWallUploadServer returns the server address for photo upload onto a user's wall.
+func (vk VK) PhotosGetWallUploadServer(params map[string]string) (response PhotosGetWallUploadServerResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("photos.getWallUploadServer", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // PhotosMakeCoverResponse struct
 type PhotosMakeCoverResponse struct{}
@@ -221,9 +244,22 @@ type PhotosSaveOwnerPhotoResponse struct{}
 // TODO: photos.saveOwnerPhoto Saves a profile or community photo.
 
 // PhotosSaveWallPhotoResponse struct
-type PhotosSaveWallPhotoResponse struct{}
+type PhotosSaveWallPhotoResponse []object.PhotosPhoto
 
-// TODO: photos.saveWallPhoto Saves a photo to a user's or community's wall after being uploaded.
+// PhotosSaveWallPhoto Saves a photo to a user's or community's wall after being uploaded.
+func (vk VK) PhotosSaveWallPhoto(params map[string]string) (response PhotosSaveWallPhotoResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("photos.saveWallPhoto", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // PhotosSearchResponse struct
 type PhotosSearchResponse struct{}

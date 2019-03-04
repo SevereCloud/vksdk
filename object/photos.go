@@ -240,7 +240,8 @@ type photosPhotoXtrTagInfo struct {
 	Width      int                `json:"width"`
 }
 
-type photosWallUploadResponse struct {
+// PhotosWallUploadResponse struct
+type PhotosWallUploadResponse struct {
 	Hash   string `json:"hash"`
 	Photo  string `json:"photo"`
 	Server int    `json:"server"`
