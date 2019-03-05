@@ -137,7 +137,7 @@ fmt.Print(S.Text)
 - [x] Status 2/2
 - [x] Storage 3/3
 - [ ] Stories 0/13
-- [ ] Streaming 0/5
+- [x] Streaming 5/5
 - [ ] Users 0/5
 - [ ] Utils 1/7
 - [ ] Video 0/24
