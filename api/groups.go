@@ -130,7 +130,7 @@ type GroupsGetCallbackSettingsResponse object.GroupsLongPollEvents
 // GroupsGetCallbackSettings returns Callback API notifications settings.
 // BUG(VK): MessageEdit always 0 https://vk.com/bugtracker?act=show&id=86762
 func (vk VK) GroupsGetCallbackSettings(params map[string]string) (response GroupsGetCallbackSettingsResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("storage.getKeys", params)
+	rawResponse, vkErr := vk.Request("groups.getCallbackSettings", params)
 	if vkErr.Code != 0 {
 		return
 	}
