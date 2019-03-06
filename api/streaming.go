@@ -11,8 +11,7 @@ type StreamingGetServerURLResponse struct {
 // StreamingGetServerURL allows to receive data for the connection to Streaming API.
 // https://vk.com/dev/streaming.getServerUrl
 func (vk VK) StreamingGetServerURL() (response StreamingGetServerURLResponse, vkErr Error) {
-	var params map[string]string
-	rawResponse, vkErr := vk.Request("streaming.getServerUrl", params)
+	rawResponse, vkErr := vk.Request("streaming.getServerUrl", map[string]string{})
 	if vkErr.Code != 0 {
 		return
 	}
@@ -33,8 +32,7 @@ type StreamingGetSettingsResponse struct {
 // StreamingGetSettings allows to receive monthly tier for Streaming API.
 // https://vk.com/dev/streaming.getSettings
 func (vk VK) StreamingGetSettings() (response StreamingGetSettingsResponse, vkErr Error) {
-	var params map[string]string
-	rawResponse, vkErr := vk.Request("streaming.getSettings", params)
+	rawResponse, vkErr := vk.Request("streaming.getSettings", map[string]string{})
 	if vkErr.Code != 0 {
 		return
 	}
