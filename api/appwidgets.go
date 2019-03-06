@@ -3,39 +3,47 @@ package api // import "github.com/severecloud/vksdk/api"
 // AppWidgetsGetAppImageUploadServerResponse struct
 type AppWidgetsGetAppImageUploadServerResponse struct{}
 
-// TODO: appWidgets.getAppImageUploadServer Returns a URL for uploading a photo to the app collection for community app widgets.
+// TODO: appWidgets.getAppImageUploadServer returns a URL for uploading a photo to the app collection for community app widgets.
+// https://vk.com/dev/appWidgets.getAppImageUploadServer
 
 // AppWidgetsGetAppImagesResponse struct
 type AppWidgetsGetAppImagesResponse struct{}
 
-// TODO: appWidgets.getAppImages Returns an app collection of images for community app widgets.
+// TODO: appWidgets.getAppImages returns an app collection of images for community app widgets.
+// https://vk.com/dev/appWidgets.getAppImages
 
 // AppWidgetsGetGroupImageUploadServerResponse struct
 type AppWidgetsGetGroupImageUploadServerResponse struct{}
 
-// TODO: appWidgets.getGroupImageUploadServer Returns a URL for uploading a photo to the community collection for community app widgets.
+// TODO: appWidgets.getGroupImageUploadServer returns a URL for uploading a photo to the community collection for community app widgets.
+// https://vk.com/dev/appWidgets.getGroupImageUploadServer
 
 // AppWidgetsGetGroupImagesResponse struct
 type AppWidgetsGetGroupImagesResponse struct{}
 
-// TODO: appWidgets.getGroupImages Returns a community collection of images for community app widgets.
+// TODO: appWidgets.getGroupImages returns a community collection of images for community app widgets.
+// https://vk.com/dev/appWidgets.getGroupImages
 
 // AppWidgetsGetImagesByIDResponse struct
 type AppWidgetsGetImagesByIDResponse struct{}
 
-// TODO: appWidgets.getImagesById Returns an image for community app widgets by its ID.
+// TODO: appWidgets.getImagesById returns an image for community app widgets by its ID.
+// https://vk.com/dev/appWidgets.getImagesById
 
 // AppWidgetsSaveAppImageResponse struct
 type AppWidgetsSaveAppImageResponse struct{}
 
-// TODO: appWidgets.saveAppImage Allows to save image into app collection for community app widgets.
+// TODO: appWidgets.saveAppImage allows to save image into app collection for community app widgets.
+// https://vk.com/dev/appWidgets.saveAppImage
 
 // AppWidgetsSaveGroupImageResponse struct
 type AppWidgetsSaveGroupImageResponse struct{}
 
-// TODO: appWidgets.saveGroupImage Allows to save image into community collection for community app widgets.
+// TODO: appWidgets.saveGroupImage allows to save image into community collection for community app widgets.
+// https://vk.com/dev/appWidgets.saveGroupImage
 
 // AppWidgetsUpdateResponse struct
 type AppWidgetsUpdateResponse struct{}
 
-// TODO: appWidgets.update Allows to update community app widget.
+// TODO: appWidgets.update allows to update community app widget.
+// https://vk.com/dev/appWidgets.update

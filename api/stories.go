@@ -3,64 +3,77 @@ package api // import "github.com/severecloud/vksdk/api"
 // StoriesBanOwnerResponse struct
 type StoriesBanOwnerResponse struct{}
 
-// TODO: stories.banOwner Allows to hide stories from chosen sources from current user's feed.
+// TODO: stories.banOwner allows to hide stories from chosen sources from current user's feed.
+// https://vk.com/dev/stories.banOwner
 
 // StoriesDeleteResponse struct
 type StoriesDeleteResponse struct{}
 
-// TODO: stories.delete Allows to delete story.
+// TODO: stories.delete allows to delete story.
+// https://vk.com/dev/stories.delete
 
 // StoriesGetResponse struct
 type StoriesGetResponse struct{}
 
-// TODO: stories.get Returns stories available for current user.
+// TODO: stories.get returns stories available for current user.
+// https://vk.com/dev/stories.get
 
 // StoriesGetBannedResponse struct
 type StoriesGetBannedResponse struct{}
 
-// TODO: stories.getBanned Returns list of sources hidden from current user's feed.
+// TODO: stories.getBanned returns list of sources hidden from current user's feed.
+// https://vk.com/dev/stories.getBanned
 
 // StoriesGetByIDResponse struct
 type StoriesGetByIDResponse struct{}
 
-// TODO: stories.getById Returns story by its ID.
+// TODO: stories.getById returns story by its ID.
+// https://vk.com/dev/stories.getById
 
 // StoriesGetPhotoUploadServerResponse struct
 type StoriesGetPhotoUploadServerResponse struct{}
 
-// TODO: stories.getPhotoUploadServer Returns URL for uploading a story with photo.
+// TODO: stories.getPhotoUploadServer returns URL for uploading a story with photo.
+// https://vk.com/dev/stories.getPhotoUploadServer
 
 // StoriesGetRepliesResponse struct
 type StoriesGetRepliesResponse struct{}
 
-// TODO: stories.getReplies Returns replies to the story.
+// TODO: stories.getReplies returns replies to the story.
+// https://vk.com/dev/stories.getReplies
 
 // StoriesGetStatsResponse struct
 type StoriesGetStatsResponse struct{}
 
-// TODO: stories.getStats Return statistics data for the story.
+// TODO: stories.getStats return statistics data for the story.
+// https://vk.com/dev/stories.getStats
 
 // StoriesGetVideoUploadServerResponse struct
 type StoriesGetVideoUploadServerResponse struct{}
 
-// TODO: stories.getVideoUploadServer Allows to receive URL for uploading story with video.
+// TODO: stories.getVideoUploadServer allows to receive URL for uploading story with video.
+// https://vk.com/dev/stories.getVideoUploadServer
 
 // StoriesGetViewersResponse struct
 type StoriesGetViewersResponse struct{}
 
-// TODO: stories.getViewers Returns a list of story viewers.
+// TODO: stories.getViewers returns a list of story viewers.
+// https://vk.com/dev/stories.getViewers
 
 // StoriesHideAllRepliesResponse struct
 type StoriesHideAllRepliesResponse struct{}
 
-// TODO: stories.hideAllReplies Hides all replies in the last 24 hours from the user to current user's stories.
+// TODO: stories.hideAllReplies hides all replies in the last 24 hours from the user to current user's stories.
+// https://vk.com/dev/stories.hideAllReplies
 
 // StoriesHideReplyResponse struct
 type StoriesHideReplyResponse struct{}
 
-// TODO: stories.hideReply Hides the reply to the current user's story.
+// TODO: stories.hideReply hides the reply to the current user's story.
+// https://vk.com/dev/stories.hideReply
 
 // StoriesUnbanOwnerResponse struct
 type StoriesUnbanOwnerResponse struct{}
 
-// TODO: stories.unbanOwner Allows to show stories from hidden sources in current user's feed.
+// TODO: stories.unbanOwner allows to show stories from hidden sources in current user's feed.
+// https://vk.com/dev/stories.unbanOwner

@@ -5,32 +5,38 @@ import "encoding/json"
 // UtilsCheckLinkResponse struct
 type UtilsCheckLinkResponse struct{}
 
-// TODO: utils.checkLink Checks whether a link is blocked in VK.
+// TODO: utils.checkLink checks whether a link is blocked in VK.
+// https://vk.com/dev/utils.checkLink
 
 // UtilsDeleteFromLastShortenedResponse struct
 type UtilsDeleteFromLastShortenedResponse struct{}
 
-// TODO: utils.deleteFromLastShortened Deletes shortened link from user's list.
+// TODO: utils.deleteFromLastShortened deletes shortened link from user's list.
+// https://vk.com/dev/utils.deleteFromLastShortened
 
 // UtilsGetLastShortenedLinksResponse struct
 type UtilsGetLastShortenedLinksResponse struct{}
 
-// TODO: utils.getLastShortenedLinks Returns a list of user's shortened links.
+// TODO: utils.getLastShortenedLinks returns a list of user's shortened links.
+// https://vk.com/dev/utils.getLastShortenedLinks
 
 // UtilsGetLinkStatsResponse struct
 type UtilsGetLinkStatsResponse struct{}
 
-// TODO: utils.getLinkStats Returns stats data for shortened link.
+// TODO: utils.getLinkStats returns stats data for shortened link.
+// https://vk.com/dev/utils.getLinkStats
 
 // UtilsGetServerTimeResponse struct
 type UtilsGetServerTimeResponse struct{}
 
-// TODO: utils.getServerTime Returns the current time of the VK server.
+// TODO: utils.getServerTime returns the current time of the VK server.
+// https://vk.com/dev/utils.getServerTime
 
 // UtilsGetShortLinkResponse struct
 type UtilsGetShortLinkResponse struct{}
 
-// TODO: utils.getShortLink Allows to receive a link shortened via vk.cc.
+// TODO: utils.getShortLink allows to receive a link shortened via vk.cc.
+// https://vk.com/dev/utils.getShortLink
 
 // UtilsResolveScreenNameResponse struct
 type UtilsResolveScreenNameResponse struct {
@@ -39,7 +45,7 @@ type UtilsResolveScreenNameResponse struct {
 }
 
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.
-// TODO: testing utilx.resolveScreenName
+// https://vk.com/dev/utils.resolveScreenName
 func (vk VK) UtilsResolveScreenName(params map[string]string) (response UtilsResolveScreenNameResponse, vkErr Error) {
 	rawResponse, vkErr := vk.Request("utils.resolveScreenName", params)
 	if vkErr.Code != 0 {

@@ -3,64 +3,77 @@ package api // import "github.com/severecloud/vksdk/api"
 // BoardAddTopicResponse struct
 type BoardAddTopicResponse struct{}
 
-// TODO: board.addTopic Creates a new topic on a community's discussion board.
+// TODO: board.addTopic creates a new topic on a community's discussion board.
+// https://vk.com/dev/board.addTopic
 
 // BoardCloseTopicResponse struct
 type BoardCloseTopicResponse struct{}
 
-// TODO: board.closeTopic Closes a topic on a community's discussion board so that comments cannot be posted.
+// TODO: board.closeTopic closes a topic on a community's discussion board so that comments cannot be posted.
+// https://vk.com/dev/board.closeTopic
 
 // BoardCreateCommentResponse struct
 type BoardCreateCommentResponse struct{}
 
-// TODO: board.createComment Adds a comment on a topic on a community's discussion board.
+// TODO: board.createComment adds a comment on a topic on a community's discussion board.
+// https://vk.com/dev/board.createComment
 
 // BoardDeleteCommentResponse struct
 type BoardDeleteCommentResponse struct{}
 
-// TODO: board.deleteComment Deletes a comment on a topic on a community's discussion board.
+// TODO: board.deleteComment deletes a comment on a topic on a community's discussion board.
+// https://vk.com/dev/board.deleteComment
 
 // BoardDeleteTopicResponse struct
 type BoardDeleteTopicResponse struct{}
 
-// TODO: board.deleteTopic Deletes a topic from a community's discussion board.
+// TODO: board.deleteTopic deletes a topic from a community's discussion board.
+// https://vk.com/dev/board.deleteTopic
 
 // BoardEditCommentResponse struct
 type BoardEditCommentResponse struct{}
 
-// TODO: board.editComment Edits a comment on a topic on a community's discussion board.
+// TODO: board.editComment edits a comment on a topic on a community's discussion board.
+// https://vk.com/dev/board.editComment
 
 // BoardEditTopicResponse struct
 type BoardEditTopicResponse struct{}
 
-// TODO: board.editTopic Edits the title of a topic on a community's discussion board.
+// TODO: board.editTopic edits the title of a topic on a community's discussion board.
+// https://vk.com/dev/board.editTopic
 
 // BoardFixTopicResponse struct
 type BoardFixTopicResponse struct{}
 
-// TODO: board.fixTopic Pins a topic (fixes its place) to the top of a community's discussion board.
+// TODO: board.fixTopic pins a topic (fixes its place) to the top of a community's discussion board.
+// https://vk.com/dev/board.fixTopic
 
 // BoardGetCommentsResponse struct
 type BoardGetCommentsResponse struct{}
 
-// TODO: board.getComments Returns a list of comments on a topic on a community's discussion board.
+// TODO: board.getComments returns a list of comments on a topic on a community's discussion board.
+// https://vk.com/dev/board.getComments
 
 // BoardGetTopicsResponse struct
 type BoardGetTopicsResponse struct{}
 
-// TODO: board.getTopics Returns a list of topics on a community's discussion board.
+// TODO: board.getTopics returns a list of topics on a community's discussion board.
+// https://vk.com/dev/board.getTopics
 
 // BoardOpenTopicReResponse struct
 type BoardOpenTopicReResponse struct{}
 
 // TODO: board.openTopicRe-opens a previously closed topic on a community's discussion board.
+// https://vk.com/dev/board.openTopicRe
 
 // BoardRestoreCommentResponse struct
 type BoardRestoreCommentResponse struct{}
 
-// TODO: board.restoreComment Restores a comment deleted from a topic on a community's discussion board.
+// TODO: board.restoreComment restores a comment deleted from a topic on a community's discussion board.
+// https://vk.com/dev/board.restoreComment
 
 // BoardUnfixTopicResponse struct
 type BoardUnfixTopicResponse struct{}
 
-// TODO: board.unfixTopic Unpins a pinned topic from the top of a community's discussion board.
+// TODO: board.unfixTopic unpins a pinned topic from the top of a community's discussion board.
+// https://vk.com/dev/board.unfixTopic
