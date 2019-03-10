@@ -1,6 +1,7 @@
 # VK API for Golang
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/severecloud/vksdk)](https://goreportcard.com/report/github.com/severecloud/vksdk)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk?ref=badge_shield)
 
 Внимание - этот репозиторий в **очень ранней разработке**.
 
@@ -42,3 +43,6 @@ func main() {
 	}
 }
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk?ref=badge_large)
