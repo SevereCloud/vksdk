@@ -1,6 +1,10 @@
 package api // import "github.com/severecloud/vksdk/5.92/api"
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/severecloud/vksdk/5.92/object"
+)
 
 // LikesAddResponse struct
 type LikesAddResponse struct {
@@ -45,24 +49,28 @@ func (vk VK) LikesDelete(params map[string]string) (response LikesDeleteResponse
 }
 
 // LikesGetListResponse struct
-type LikesGetListResponse struct{}
+type LikesGetListResponse struct {
+	Count int                `json:"count"`
+	Items []object.UsersUser `json:"items"`
+}
 
 // LikesGetList likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
 // TODO: params["extended"] = "1"
 // https://vk.com/dev/likes.getList
-// func (vk VK) LikesGetList(params map[string]string) (response LikesGetListResponse, vkErr Error) {
-// 	rawResponse, vkErr := vk.Request("likes.getList", params)
-// 	if err != nil {
-// 		return
-// 	}
+func (vk VK) LikesGetList(params map[string]string) (response LikesGetListResponse, vkErr Error) {
+	params["extended"] = "1"
+	rawResponse, vkErr := vk.Request("likes.getList", params)
+	if vkErr.Code != 0 {
+		return
+	}
 
-// 	err := json.Unmarshal(rawResponse, &response)
-// 	if err != nil {
-// 		panic(err)
-// 	}
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
 
-// 	return
-// }
+	return
+}
 
 // LikesIsLikedResponse struct
 type LikesIsLikedResponse struct {

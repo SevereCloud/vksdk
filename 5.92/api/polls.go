@@ -1,5 +1,7 @@
 package api // import "github.com/severecloud/vksdk/5.92/api"
 
+import "encoding/json"
+
 // PollsAddVoteResponse struct
 type PollsAddVoteResponse struct{}
 
@@ -43,10 +45,29 @@ type PollsGetPhotoUploadServerResponse struct{}
 // https://vk.com/dev/polls.getPhotoUploadServer
 
 // PollsGetVotersResponse struct
-type PollsGetVotersResponse struct{}
+type PollsGetVotersResponse []struct {
+	AnswerID int `json:"answer_id"`
+	Users    struct {
+		Count int   `json:"count"`
+		Items []int `json:"items"`
+	} `json:"users"`
+}
 
-// TODO: polls.getVoters returns a list of IDs of users who selected specific answers in the poll.
+// PollsGetVoters returns a list of IDs of users who selected specific answers in the poll.
 // https://vk.com/dev/polls.getVoters
+func (vk VK) PollsGetVoters(params map[string]string) (response PollsGetVotersResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("polls.getVoters", params)
+	if vkErr.Code != 0 {
+		return
+	}
+	// FIXME: list if no filter
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // PollsSavePhotoResponse struct
 type PollsSavePhotoResponse struct{}

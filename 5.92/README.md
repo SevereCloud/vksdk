@@ -104,6 +104,7 @@ fmt.Print(S.Text)
 - [x] Account 19/19
 - [ ] Ads 0/0
 - [ ] Apps 7/8
+- [ ] AppWidgets 1/8
 - [x] Auth 2/2
 - [ ] Board 0/13
 - [x] Database 11/12 (1 баговый метод)

@@ -42,8 +42,10 @@ type AppWidgetsSaveGroupImageResponse struct{}
 // TODO: appWidgets.saveGroupImage allows to save image into community collection for community app widgets.
 // https://vk.com/dev/appWidgets.saveGroupImage
 
-// AppWidgetsUpdateResponse struct
-type AppWidgetsUpdateResponse struct{}
-
-// TODO: appWidgets.update allows to update community app widget.
+// AppWidgetsUpdate allows to update community app widget.
 // https://vk.com/dev/appWidgets.update
+func (vk VK) AppWidgetsUpdate(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("appWidgets.update", params)
+
+	return
+}

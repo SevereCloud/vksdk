@@ -217,7 +217,7 @@ func (vk VK) GroupsGetMembers(params map[string]string) (response GroupsGetMembe
 	if vkErr.Code != 0 {
 		return
 	}
-	// FIXME list if no filter
+	// FIXME: list if no filter
 	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
 		panic(err)
