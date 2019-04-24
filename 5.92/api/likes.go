@@ -50,14 +50,36 @@ func (vk VK) LikesDelete(params map[string]string) (response LikesDeleteResponse
 
 // LikesGetListResponse struct
 type LikesGetListResponse struct {
+	Count int   `json:"count"`
+	Items []int `json:"items"`
+}
+
+// LikesGetList likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
+// https://vk.com/dev/likes.getList
+func (vk VK) LikesGetList(params map[string]string) (response LikesGetListResponse, vkErr Error) {
+	params["extended"] = "0"
+	rawResponse, vkErr := vk.Request("likes.getList", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
+
+// LikesGetListExtendedResponse struct
+type LikesGetListExtendedResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`
 }
 
-// LikesGetList likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
-// TODO: params["extended"] = "1"
+// LikesGetListExtended likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
 // https://vk.com/dev/likes.getList
-func (vk VK) LikesGetList(params map[string]string) (response LikesGetListResponse, vkErr Error) {
+func (vk VK) LikesGetListExtended(params map[string]string) (response LikesGetListExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
 	rawResponse, vkErr := vk.Request("likes.getList", params)
 	if vkErr.Code != 0 {

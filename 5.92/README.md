@@ -77,11 +77,7 @@ fmt.Print(S.Text)
 
 Еще не реализованные: 
 
-[AdsUpdateAds](https://vk.com/dev/ads.updateAds) поле `AdPlatform` вернет **строку**, поле `AdPlatformNoWall` вернет **число**.
-
 [MessagesSend](https://vk.com/dev/messages.send) если нет параметра `user_ids`, вернет массив из одного объекта.
-
-[LikesGetList](https://vk.com/dev/likes.getList) параметр `extended` всегда будет равен **1**
 
 ...
 
@@ -117,7 +113,7 @@ fmt.Print(S.Text)
 - [ ] Groups 1/45
 - [ ] leadForms 0/7
 - [ ] Leads 0/0
-- [ ] Likes 3/4
+- [x] Likes 4/4
 - [ ] Market 0/24
 - [ ] Messages 35/39
 - [ ] Newsfeed 0/16
