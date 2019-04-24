@@ -280,15 +280,39 @@ func (vk VK) MessagesGetConversations(params map[string]string) (response Messag
 
 // MessagesGetConversationsByIDResponse struct
 type MessagesGetConversationsByIDResponse struct {
+	Count int                           `json:"count"`
+	Items []object.MessagesConversation `json:"items"`
+}
+
+// MessagesGetConversationsByID returns conversations by their IDs.
+// https://vk.com/dev/messages.getConversationsById
+func (vk VK) MessagesGetConversationsByID(params map[string]string) (response MessagesGetConversationsByIDResponse, vkErr Error) {
+	params["extended"] = "0"
+	rawResponse, vkErr := vk.Request("messages.getConversationsById", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
+
+// MessagesGetConversationsByIDExtendedResponse struct
+type MessagesGetConversationsByIDExtendedResponse struct {
 	Count    int                           `json:"count"`
 	Items    []object.MessagesConversation `json:"items"`
 	Profiles []object.UsersUser            `json:"profiles"`
 	Groups   []object.GroupsGroup          `json:"groups"`
 }
 
-// MessagesGetConversationsByID returns conversations by their IDs.
+// MessagesGetConversationsByIDExtended returns conversations by their IDs.
 // https://vk.com/dev/messages.getConversationsById
-func (vk VK) MessagesGetConversationsByID(params map[string]string) (response MessagesGetConversationsByIDResponse, vkErr Error) {
+func (vk VK) MessagesGetConversationsByIDExtended(params map[string]string) (response MessagesGetConversationsByIDExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
 	rawResponse, vkErr := vk.Request("messages.getConversationsById", params)
 	if vkErr.Code != 0 {
 		return
