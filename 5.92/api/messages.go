@@ -147,6 +147,32 @@ type MessagesGetByIDResponse struct {
 // MessagesGetByID returns messages by their IDs.
 // https://vk.com/dev/messages.getById
 func (vk VK) MessagesGetByID(params map[string]string) (response MessagesGetByIDResponse, vkErr Error) {
+	params["extended"] = "0"
+	rawResponse, vkErr := vk.Request("messages.getById", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
+
+// MessagesGetByIDExtendedResponse struct
+type MessagesGetByIDExtendedResponse struct {
+	Count    int                      `json:"count"`
+	Items    []object.MessagesMessage `json:"items"`
+	Profiles []object.UsersUser       `json:"profiles"`
+	Groups   []object.GroupsGroup     `json:"groups"`
+}
+
+// MessagesGetByIDExtended returns messages by their IDs.
+// https://vk.com/dev/messages.getById
+func (vk VK) MessagesGetByIDExtended(params map[string]string) (response MessagesGetByIDExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
 	rawResponse, vkErr := vk.Request("messages.getById", params)
 	if vkErr.Code != 0 {
 		return
