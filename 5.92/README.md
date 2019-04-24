@@ -22,11 +22,12 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/severecloud/vksdk/5.92/api/"
+	vksdk "github.com/severecloud/vksdk/5.92/api"
 )
 
 func main() {
 	vk := vksdk.Init("<TOKEN>")
+	// vk.ProxyAddress = "127.0.0.1:9050"
 
 	params := make(map[string]string)
 	params["user_ids"] = "1"
@@ -94,7 +95,7 @@ fmt.Print(S.Text)
 - [ ] Streaming API
 - [ ] Получение токена
 - [ ] Создание develop ветки
-- [ ] Поддержка go 1.11
+- [x] Прокси
 - [ ] Тесты
 - [ ] Англоязычный README
 - [ ] Поддержка следующих версий API

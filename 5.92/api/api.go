@@ -8,6 +8,7 @@ import (
 	"net/url"
 
 	"github.com/severecloud/vksdk/5.92/object"
+	"golang.org/x/net/proxy"
 )
 
 const (
@@ -17,8 +18,9 @@ const (
 
 // VK struct
 type VK struct {
-	AccessToken string
-	Version     string
+	AccessToken  string
+	Version      string
+	ProxyAddress string
 }
 
 // Error struct VK
@@ -46,6 +48,19 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 		Error    Error `json:"error"`
 	}
 
+	myClient := &http.Client{}
+	if vk.ProxyAddress != "" {
+		dialer, err := proxy.SOCKS5("tcp", vk.ProxyAddress, nil, proxy.Direct)
+		if err != nil {
+			handler.Error.Code = -1
+			handler.Error.Message = err.Error()
+			return handler.Response, handler.Error
+		}
+		httpTransport := &http.Transport{}
+		httpTransport.Dial = dialer.Dial
+		myClient.Transport = httpTransport
+	}
+
 	u := apiURL + method
 
 	query := url.Values{}
@@ -56,7 +71,7 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 	query.Set("v", vk.Version)
 
 	rawBody := bytes.NewBufferString(query.Encode())
-	resp, err := http.Post(u, "application/x-www-form-urlencoded", rawBody)
+	resp, err := myClient.Post(u, "application/x-www-form-urlencoded", rawBody)
 	if err != nil {
 		handler.Error.Code = -1
 		handler.Error.Message = err.Error()
