@@ -440,10 +440,35 @@ func (vk VK) MessagesGetLastActivity(params map[string]string) (response Message
 }
 
 // MessagesGetLongPollHistoryResponse struct
-type MessagesGetLongPollHistoryResponse struct{}
+type MessagesGetLongPollHistoryResponse struct {
+	History  [][]int              `json:"history"`
+	Groups   []object.GroupsGroup `json:"groups"`
+	Messages struct {
+		Count int                      `json:"count"`
+		Items []object.MessagesMessage `json:"items"`
+	} `json:"messages"`
+	Profiles []object.UsersUser `json:"profiles"`
+	// Chats struct {} `json:"chats"`
+	NewPTS        int                           `json:"new_pts"`
+	More          bool                          `json:"chats"`
+	Conversations []object.MessagesConversation `json:"conversations"`
+}
 
-// TODO: messages.getLongPollHistory returns updates in user's private messages.
+// MessagesGetLongPollHistory returns updates in user's private messages.
 // https://vk.com/dev/messages.getLongPollHistory
+func (vk VK) MessagesGetLongPollHistory(params map[string]string) (response MessagesGetLongPollHistoryResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("messages.getLongPollHistory", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // MessagesGetLongPollServerResponse struct
 type MessagesGetLongPollServerResponse object.MessagesLongpollParams
