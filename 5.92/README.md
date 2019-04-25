@@ -115,12 +115,12 @@ fmt.Print(S.Text)
 - [ ] Leads 0/0
 - [x] Likes 4/4
 - [ ] Market 0/24
-- [ ] Messages 35/39
+- [ ] Messages 36/39
 - [ ] Newsfeed 0/16
 - [ ] Notes 0/10
 - [ ] Notifications 0/3
 - [ ] Orders 0/0
-- [ ] Pages 0/8
+- [x] Pages 8/8
 - [ ] Photos 0/46
 - [ ] Places 0/0
 - [ ] Polls 0/9

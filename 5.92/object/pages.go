@@ -13,7 +13,8 @@ type pagesWikipage struct {
 	WhoCanView  int    `json:"who_can_view"`
 }
 
-type pagesWikipageFull struct {
+// PagesWikipageFull struct
+type PagesWikipageFull struct {
 	Created                  int    `json:"created"`
 	CreatorID                int    `json:"creator_id"`
 	CurrentUserCanEdit       int    `json:"current_user_can_edit"`
@@ -31,8 +32,10 @@ type pagesWikipageFull struct {
 	WhoCanView               int    `json:"who_can_view"`
 }
 
-type pagesWikipageVersion struct {
-	Edited     int    `json:"edited"`
+// PagesWikipageVersion struct
+// BUG(VK): https://vk.com/dev/pages.getHistory edited and date
+type PagesWikipageVersion struct {
+	Date       int    `json:"date"`
 	EditorID   int    `json:"editor_id"`
 	EditorName string `json:"editor_name"`
 	ID         int    `json:"id"`

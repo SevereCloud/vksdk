@@ -24,7 +24,7 @@ type wallCommentAttachment struct {
 	Market            marketMarketItem  `json:"market"`
 	MarketMarketAlbum marketMarketAlbum `json:"market_market_album"`
 	Note              wallAttachedNote  `json:"note"`
-	Page              pagesWikipageFull `json:"page"`
+	Page              PagesWikipageFull `json:"page"`
 	Photo             PhotosPhoto       `json:"photo"`
 	Sticker           baseSticker       `json:"sticker"`
 	Type              string            `json:"type"`
@@ -147,7 +147,7 @@ type wallWallpostAttachment struct {
 	Market            marketMarketItem  `json:"market"`
 	MarketMarketAlbum marketMarketAlbum `json:"market_market_album"`
 	Note              wallAttachedNote  `json:"note"`
-	Page              pagesWikipageFull `json:"page"`
+	Page              PagesWikipageFull `json:"page"`
 	Photo             PhotosPhoto       `json:"photo"`
 	PhotosList        []string          `json:"photos_list"`
 	Poll              pollsPoll         `json:"poll"`
