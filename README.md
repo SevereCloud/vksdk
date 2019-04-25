@@ -4,7 +4,7 @@ VK SDK for Golang это реализация библиотеки для раб
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/severecloud/vksdk)](https://goreportcard.com/report/github.com/severecloud/vksdk)
 
-## Документация
+### Документация
 
 - [Версия 5.92](https://github.com/SevereCloud/vksdk/tree/master/5.92)
 - [API](https://github.com/SevereCloud/vksdk/tree/master/5.92/api)
@@ -13,17 +13,17 @@ VK SDK for Golang это реализация библиотеки для раб
 - ~~Longpoll user~~
 - ~~Streaming api~~
 
-## Статус
+### Статус
 
 Внимание - этот репозиторий в **очень ранней разработке**. Возможны серьезные изменения в коде.
 
-## Установка
+### Установка
 
 ```shell
 go get -u github.com/severecloud/vkapi
 ```
 
-## Пример
+### Пример
 
 ```go
 package main
@@ -53,6 +53,6 @@ func main() {
 }
 ```
 
-## License
+### License
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk?ref=badge_large)
