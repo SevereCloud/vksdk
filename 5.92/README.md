@@ -118,7 +118,7 @@ fmt.Print(S.Text)
 - [ ] Messages 36/39
 - [ ] Newsfeed 0/16
 - [ ] Notes 0/10
-- [ ] Notifications 0/3
+- [ ] Notifications 2/3
 - [ ] Orders 0/0
 - [x] Pages 8/8
 - [ ] Photos 0/46
