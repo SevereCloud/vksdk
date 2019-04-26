@@ -21,6 +21,9 @@ type VideoVideo struct {
 	Processing  int             `json:"processing"`
 	Title       string          `json:"title"`
 	Views       int             `json:"views"`
+	Platform    string          `json:"platform"`
+	LocalViews  int             `json:"local_views"`
+	IsFavorite  bool            `json:"is_favorite"`
 }
 
 type videoCatBlock struct {

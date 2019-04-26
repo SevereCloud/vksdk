@@ -164,9 +164,10 @@ type baseUserID struct {
 	UserID int `json:"user_id"`
 }
 
-type faveFavesLink struct {
+// FaveFavesLink struct
+type FaveFavesLink struct {
 	Description string `json:"description"`
-	ID          int    `json:"id"`
+	ID          string `json:"id"`
 	Photo100    string `json:"photo_100"`
 	Photo200    string `json:"photo_200"`
 	Photo50     string `json:"photo_50"`

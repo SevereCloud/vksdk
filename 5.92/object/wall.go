@@ -21,7 +21,7 @@ type wallCommentAttachment struct {
 	Audio             AudioAudioFull    `json:"audio"`
 	Doc               docsDoc           `json:"doc"`
 	Link              baseLink          `json:"link"`
-	Market            marketMarketItem  `json:"market"`
+	Market            MarketMarketItem  `json:"market"`
 	MarketMarketAlbum marketMarketAlbum `json:"market_market_album"`
 	Note              wallAttachedNote  `json:"note"`
 	Page              PagesWikipageFull `json:"page"`
@@ -115,6 +115,7 @@ type WallWallpost struct {
 	MarkedAsAds  int                      `json:"marked_as_ads"`
 	IsFavorite   bool                     `json:"is_favorite"`
 	AccessKey    string                   `json:"access_key"`
+	Edited       int                      `json:"edited"`
 }
 
 type wallWallpostAttached struct {
@@ -144,7 +145,7 @@ type wallWallpostAttachment struct {
 	Doc               docsDoc           `json:"doc"`
 	Graffiti          wallGraffiti      `json:"graffiti"`
 	Link              baseLink          `json:"link"`
-	Market            marketMarketItem  `json:"market"`
+	Market            MarketMarketItem  `json:"market"`
 	MarketMarketAlbum marketMarketAlbum `json:"market_market_album"`
 	Note              wallAttachedNote  `json:"note"`
 	Page              PagesWikipageFull `json:"page"`

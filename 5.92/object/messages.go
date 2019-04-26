@@ -231,7 +231,7 @@ type messagesMessageAttachment struct {
 	Doc               docsDoc              `json:"doc"`
 	Gift              GiftsLayout          `json:"gift"`
 	Link              baseLink             `json:"link"`
-	Market            marketMarketItem     `json:"market"`
+	Market            MarketMarketItem     `json:"market"`
 	MarketMarketAlbum marketMarketAlbum    `json:"market_market_album"`
 	Photo             PhotosPhoto          `json:"photo"`
 	Sticker           baseSticker          `json:"sticker"`

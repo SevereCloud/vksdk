@@ -20,7 +20,8 @@ type marketMarketCategory struct {
 	Section marketSection `json:"section"`
 }
 
-type marketMarketItem struct {
+// MarketMarketItem struct
+type MarketMarketItem struct {
 	Availability int                  `json:"availability"`
 	Category     marketMarketCategory `json:"category"`
 	Date         int                  `json:"date"`
@@ -30,6 +31,15 @@ type marketMarketItem struct {
 	Price        marketPrice          `json:"price"`
 	ThumbPhoto   string               `json:"thumb_photo"`
 	Title        string               `json:"title"`
+	IsFavorite   bool                 `json:"is_favorite"`
+	AlbumsIds    []int                `json:"albums_ids"`
+	Photos       []PhotosPhoto        `json:"photos"`
+	CanComment   int                  `json:"can_comment"`
+	CanRepost    int                  `json:"can_repost"`
+	Likes        baseLikesInfo        `json:"likes"`
+	ViewsCount   int                  `json:"views_count"`
+	URL          string               `json:"url"`
+	ButtonTitle  string               `json:"button_title"`
 }
 
 type marketPrice struct {
