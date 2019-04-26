@@ -1,6 +1,7 @@
 package object // import "github.com/severecloud/vksdk/5.92/object"
 
-type boardTopic struct {
+// BoardTopic struct
+type BoardTopic struct {
 	Comments  int    `json:"comments"`
 	Created   int    `json:"created"`
 	CreatedBy int    `json:"created_by"`
@@ -12,7 +13,8 @@ type boardTopic struct {
 	UpdatedBy int    `json:"updated_by"`
 }
 
-type boardTopicComment struct {
+// BoardTopicComment struct
+type BoardTopicComment struct {
 	Attachments  []wallCommentAttachment `json:"attachments"`
 	Date         int                     `json:"date"`
 	FromID       int                     `json:"from_id"`
@@ -21,9 +23,11 @@ type boardTopicComment struct {
 	Text         string                  `json:"text"`
 	TopicID      int                     `json:"topic_id"`
 	TopicOwnerID int                     `json:"topic_owner_id"`
+	Likes        baseLikesInfo           `json:"likes"`
 }
 
-type boardTopicPoll struct {
+// BoardTopicPoll struct
+type BoardTopicPoll struct {
 	AnswerID int           `json:"answer_id"`
 	Answers  []pollsAnswer `json:"answers"`
 	Created  int           `json:"created"`

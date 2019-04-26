@@ -1,79 +1,221 @@
 package api // import "github.com/severecloud/vksdk/5.92/api"
 
+import (
+	"encoding/json"
+
+	"github.com/severecloud/vksdk/5.92/object"
+)
+
 // BoardAddTopicResponse struct
-type BoardAddTopicResponse struct{}
+type BoardAddTopicResponse int
 
-// TODO: board.addTopic creates a new topic on a community's discussion board.
+// BoardAddTopic creates a new topic on a community's discussion board.
 // https://vk.com/dev/board.addTopic
+func (vk VK) BoardAddTopic(params map[string]string) (response BoardAddTopicResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("board.addTopic", params)
+	if vkErr.Code != 0 {
+		return
+	}
 
-// BoardCloseTopicResponse struct
-type BoardCloseTopicResponse struct{}
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
 
-// TODO: board.closeTopic closes a topic on a community's discussion board so that comments cannot be posted.
+	return
+}
+
+// BoardCloseTopic closes a topic on a community's discussion board so that comments cannot be posted.
 // https://vk.com/dev/board.closeTopic
+func (vk VK) BoardCloseTopic(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("board.closeTopic", params)
+
+	return
+}
 
 // BoardCreateCommentResponse struct
-type BoardCreateCommentResponse struct{}
+type BoardCreateCommentResponse int
 
-// TODO: board.createComment adds a comment on a topic on a community's discussion board.
+// BoardCreateComment adds a comment on a topic on a community's discussion board.
 // https://vk.com/dev/board.createComment
+func (vk VK) BoardCreateComment(params map[string]string) (response BoardCreateCommentResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("board.createComment", params)
+	if vkErr.Code != 0 {
+		return
+	}
 
-// BoardDeleteCommentResponse struct
-type BoardDeleteCommentResponse struct{}
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
 
-// TODO: board.deleteComment deletes a comment on a topic on a community's discussion board.
+	return
+}
+
+// BoardDeleteComment deletes a comment on a topic on a community's discussion board.
 // https://vk.com/dev/board.deleteComment
+func (vk VK) BoardDeleteComment(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("board.deleteComment", params)
 
-// BoardDeleteTopicResponse struct
-type BoardDeleteTopicResponse struct{}
+	return
+}
 
-// TODO: board.deleteTopic deletes a topic from a community's discussion board.
+// BoardDeleteTopic deletes a topic from a community's discussion board.
 // https://vk.com/dev/board.deleteTopic
+func (vk VK) BoardDeleteTopic(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("board.deleteTopic", params)
 
-// BoardEditCommentResponse struct
-type BoardEditCommentResponse struct{}
+	return
+}
 
-// TODO: board.editComment edits a comment on a topic on a community's discussion board.
+// BoardEditComment edits a comment on a topic on a community's discussion board.
 // https://vk.com/dev/board.editComment
+func (vk VK) BoardEditComment(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("board.editComment", params)
 
-// BoardEditTopicResponse struct
-type BoardEditTopicResponse struct{}
+	return
+}
 
-// TODO: board.editTopic edits the title of a topic on a community's discussion board.
+// BoardEditTopic edits the title of a topic on a community's discussion board.
 // https://vk.com/dev/board.editTopic
+func (vk VK) BoardEditTopic(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("board.editTopic", params)
 
-// BoardFixTopicResponse struct
-type BoardFixTopicResponse struct{}
+	return
+}
 
-// TODO: board.fixTopic pins a topic (fixes its place) to the top of a community's discussion board.
+// BoardFixTopic pins a topic (fixes its place) to the top of a community's discussion board.
 // https://vk.com/dev/board.fixTopic
+func (vk VK) BoardFixTopic(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("board.fixTopic", params)
+
+	return
+}
 
 // BoardGetCommentsResponse struct
-type BoardGetCommentsResponse struct{}
+type BoardGetCommentsResponse struct {
+	Count      int                        `json:"count"`
+	Items      []object.BoardTopicComment `json:"items"`
+	Poll       object.BoardTopicPoll      `json:"poll"`
+	RealOffset int                        `json:"real_offset"`
+}
 
-// TODO: board.getComments returns a list of comments on a topic on a community's discussion board.
+// BoardGetComments returns a list of comments on a topic on a community's discussion board.
 // https://vk.com/dev/board.getComments
+func (vk VK) BoardGetComments(params map[string]string) (response BoardGetCommentsResponse, vkErr Error) {
+	params["extended"] = "0"
+	rawResponse, vkErr := vk.Request("board.getComments", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
+
+// BoardGetCommentsExtendedResponse struct
+type BoardGetCommentsExtendedResponse struct {
+	Count      int                        `json:"count"`
+	Items      []object.BoardTopicComment `json:"items"`
+	Poll       object.BoardTopicPoll      `json:"poll"`
+	RealOffset int                        `json:"real_offset"`
+	Profiles   []object.UsersUser         `json:"profiles"`
+	Groups     []object.GroupsGroup       `json:"groups"`
+}
+
+// BoardGetCommentsExtended returns a list of comments on a topic on a community's discussion board.
+// https://vk.com/dev/board.getComments
+func (vk VK) BoardGetCommentsExtended(params map[string]string) (response BoardGetCommentsExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	rawResponse, vkErr := vk.Request("board.getComments", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // BoardGetTopicsResponse struct
-type BoardGetTopicsResponse struct{}
+type BoardGetTopicsResponse struct {
+	Count        int                 `json:"count"`
+	Items        []object.BoardTopic `json:"items"`
+	DefaultOrder int                 `json:"default_order"`
+	CanAddTopics int                 `json:"can_add_topics"`
+}
 
-// TODO: board.getTopics returns a list of topics on a community's discussion board.
+// BoardGetTopics returns a list of topics on a community's discussion board.
 // https://vk.com/dev/board.getTopics
+func (vk VK) BoardGetTopics(params map[string]string) (response BoardGetTopicsResponse, vkErr Error) {
+	params["extended"] = "0"
+	rawResponse, vkErr := vk.Request("board.getTopics", params)
+	if vkErr.Code != 0 {
+		return
+	}
 
-// BoardOpenTopicReResponse struct
-type BoardOpenTopicReResponse struct{}
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
 
-// TODO: board.openTopicRe-opens a previously closed topic on a community's discussion board.
-// https://vk.com/dev/board.openTopicRe
+	return
+}
 
-// BoardRestoreCommentResponse struct
-type BoardRestoreCommentResponse struct{}
+// BoardGetTopicsExtendedResponse struct
+type BoardGetTopicsExtendedResponse struct {
+	Count        int                  `json:"count"`
+	Items        []object.BoardTopic  `json:"items"`
+	DefaultOrder int                  `json:"default_order"`
+	CanAddTopics int                  `json:"can_add_topics"`
+	Profiles     []object.UsersUser   `json:"profiles"`
+	Groups       []object.GroupsGroup `json:"groups"`
+}
 
-// TODO: board.restoreComment restores a comment deleted from a topic on a community's discussion board.
+// BoardGetTopicsExtended returns a list of topics on a community's discussion board.
+// https://vk.com/dev/board.getTopics
+func (vk VK) BoardGetTopicsExtended(params map[string]string) (response BoardGetTopicsExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	rawResponse, vkErr := vk.Request("board.getTopics", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
+
+// BoardOpenTopic re-opens a previously closed topic on a community's discussion board.
+// https://vk.com/dev/board.openTopic
+func (vk VK) BoardOpenTopic(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("board.openTopic", params)
+
+	return
+}
+
+// BoardRestoreComment restores a comment deleted from a topic on a community's discussion board.
 // https://vk.com/dev/board.restoreComment
+func (vk VK) BoardRestoreComment(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("board.restoreComment", params)
 
-// BoardUnfixTopicResponse struct
-type BoardUnfixTopicResponse struct{}
+	return
+}
 
-// TODO: board.unfixTopic unpins a pinned topic from the top of a community's discussion board.
+// BoardUnfixTopicR unpins a pinned topic from the top of a community's discussion board.
 // https://vk.com/dev/board.unfixTopic
+func (vk VK) BoardUnfixTopicR(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("board.unfixTopic", params)
+
+	return
+}

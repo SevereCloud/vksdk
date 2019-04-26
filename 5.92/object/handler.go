@@ -168,19 +168,19 @@ type WallReplyDeleteObject struct {
 type BoardPostNewFunc func(BoardPostNewObject, int)
 
 // BoardPostNewObject struct
-type BoardPostNewObject boardTopicComment
+type BoardPostNewObject BoardTopicComment
 
 // BoardPostEditFunc func
 type BoardPostEditFunc func(BoardPostEditObject, int)
 
 // BoardPostEditObject struct
-type BoardPostEditObject boardTopicComment
+type BoardPostEditObject BoardTopicComment
 
 // BoardPostRestoreFunc func
 type BoardPostRestoreFunc func(BoardPostRestoreObject, int)
 
 // BoardPostRestoreObject struct
-type BoardPostRestoreObject boardTopicComment
+type BoardPostRestoreObject BoardTopicComment
 
 // BoardPostDeleteFunc func
 type BoardPostDeleteFunc func(BoardPostDeleteObject, int)

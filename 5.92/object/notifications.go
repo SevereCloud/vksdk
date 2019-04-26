@@ -28,7 +28,7 @@ type notificationsNotificationsComment struct {
 	Photo   PhotosPhoto  `json:"photo"`
 	Post    WallWallpost `json:"post"`
 	Text    string       `json:"text"`
-	Topic   boardTopic   `json:"topic"`
+	Topic   BoardTopic   `json:"topic"`
 	Video   VideoVideo   `json:"video"`
 }
 
