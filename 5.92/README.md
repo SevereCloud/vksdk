@@ -133,7 +133,7 @@ fmt.Print(S.Text)
 - [ ] Stories 0/17
 - [x] Streaming 5/5
 - [x] Users 7/7
-- [ ] Utils 1/8
+- [x] Utils 8/8
 - [ ] Video 0/29
 - [ ] Podcasts 0/0
 - [ ] Wall 0/27

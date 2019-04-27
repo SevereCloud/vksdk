@@ -1,13 +1,15 @@
 package object // import "github.com/severecloud/vksdk/5.92/object"
 
-type utilsDomainResolved struct {
+// UtilsDomainResolved struct
+type UtilsDomainResolved struct {
 	ObjectID int                     `json:"object_id"`
 	Type     utilsDomainResolvedType `json:"type"`
 }
 
 type utilsDomainResolvedType string
 
-type utilsLastShortenedLink struct {
+// UtilsLastShortenedLink struct
+type UtilsLastShortenedLink struct {
 	AccessKey string `json:"access_key"`
 	Key       string `json:"key"`
 	ShortURL  string `json:"short_url"`
@@ -16,22 +18,26 @@ type utilsLastShortenedLink struct {
 	Views     int    `json:"views"`
 }
 
-type utilsLinkChecked struct {
+// UtilsLinkChecked struct
+type UtilsLinkChecked struct {
 	Link   string `json:"link"`
 	Status string `json:"status"`
 }
 
-type utilsLinkStats struct {
+// UtilsLinkStats struct
+type UtilsLinkStats struct {
 	Key   string       `json:"key"`
 	Stats []utilsStats `json:"stats"`
 }
 
-type utilsLinkStatsExtended struct {
+// UtilsLinkStatsExtended struct
+type UtilsLinkStatsExtended struct {
 	Key   string               `json:"key"`
 	Stats []utilsStatsExtended `json:"stats"`
 }
 
-type utilsShortLink struct {
+// UtilsShortLink struct
+type UtilsShortLink struct {
 	AccessKey string `json:"access_key"`
 	Key       string `json:"key"`
 	ShortURL  string `json:"short_url"`
