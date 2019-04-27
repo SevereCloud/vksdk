@@ -25,31 +25,99 @@ func (vk VK) UsersGet(params map[string]string) (response UsersGetResponse, vkEr
 }
 
 // UsersGetFollowersResponse struct
-type UsersGetFollowersResponse struct{}
+type UsersGetFollowersResponse []object.UsersUser
 
-// TODO: users.getFollowers returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
+// UsersGetFollowers returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 // https://vk.com/dev/users.getFollowers
+func (vk VK) UsersGetFollowers(params map[string]string) (response UsersGetFollowersResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("users.getFollowers", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // UsersGetSubscriptionsResponse struct
-type UsersGetSubscriptionsResponse struct{}
+type UsersGetSubscriptionsResponse struct {
+	Users struct {
+		Count int   `json:"count"`
+		Items []int `json:"items"`
+	} `json:"users"`
+	Groups struct {
+		Count int   `json:"count"`
+		Items []int `json:"items"`
+	} `json:"groups"`
+}
 
-// TODO: users.getSubscriptions returns a list of IDs of users and public pages followed by the user.
+// UsersGetSubscriptions returns a list of IDs of users and public pages followed by the user.
 // https://vk.com/dev/users.getSubscriptions
+// BUG(SevereCloud): UsersGetSubscriptions bad response with extended=1
+func (vk VK) UsersGetSubscriptions(params map[string]string) (response UsersGetSubscriptionsResponse, vkErr Error) {
+	params["extended"] = "0"
+	rawResponse, vkErr := vk.Request("users.getSubscriptions", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // UsersIsAppUserResponse struct
-type UsersIsAppUserResponse struct{}
+type UsersIsAppUserResponse int
 
-// TODO: users.isAppUser returns information whether a user installed the application.
+// UsersIsAppUser returns information whether a user installed the application.
 // https://vk.com/dev/users.isAppUser
+func (vk VK) UsersIsAppUser(params map[string]string) (response UsersIsAppUserResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("users.isAppUser", params)
+	if vkErr.Code != 0 {
+		return
+	}
 
-// UsersReportResponse struct
-type UsersReportResponse struct{}
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
 
-// TODO: users.report reports (submits a complain about) a user.
+	return
+}
+
+// UsersReport reports (submits a complain about) a user.
 // https://vk.com/dev/users.report
+func (vk VK) UsersReport(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("users.report", params)
+
+	return
+}
 
 // UsersSearchResponse struct
-type UsersSearchResponse struct{}
+type UsersSearchResponse struct {
+	Count int                `json:"count"`
+	Items []object.UsersUser `json:"items"`
+}
 
-// TODO: users.search returns a list of users matching the search criteria.
+// UsersSearch returns a list of users matching the search criteria.
 // https://vk.com/dev/users.search
+func (vk VK) UsersSearch(params map[string]string) (response UsersSearchResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("users.search", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
