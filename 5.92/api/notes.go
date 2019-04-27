@@ -1,61 +1,148 @@
 package api // import "github.com/severecloud/vksdk/5.92/api"
 
-// NotesAddResponse struct
-type NotesAddResponse struct{}
+import (
+	"encoding/json"
 
-// TODO: notes.add creates a new note for the current user.
+	"github.com/severecloud/vksdk/5.92/object"
+)
+
+// NotesAddResponse struct
+type NotesAddResponse int
+
+// NotesAdd creates a new note for the current user.
 // https://vk.com/dev/notes.add
+func (vk VK) NotesAdd(params map[string]string) (response NotesAddResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("notes.add", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // NotesCreateCommentResponse struct
-type NotesCreateCommentResponse struct{}
+type NotesCreateCommentResponse int
 
-// TODO: notes.createComment adds a new comment on a note.
+// NotesCreateComment adds a new comment on a note.
 // https://vk.com/dev/notes.createComment
+func (vk VK) NotesCreateComment(params map[string]string) (response NotesCreateCommentResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("notes.createComment", params)
+	if vkErr.Code != 0 {
+		return
+	}
 
-// NotesDeleteResponse struct
-type NotesDeleteResponse struct{}
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
 
-// TODO: notes.delete deletes a note of the current user.
+	return
+}
+
+// NotesDelete deletes a note of the current user.
 // https://vk.com/dev/notes.delete
+func (vk VK) NotesDelete(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("notes.delete", params)
 
-// NotesDeleteCommentResponse struct
-type NotesDeleteCommentResponse struct{}
+	return
+}
 
-// TODO: notes.deleteComment deletes a comment on a note.
+// NotesDeleteComment deletes a comment on a note.
 // https://vk.com/dev/notes.deleteComment
+func (vk VK) NotesDeleteComment(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("notes.deleteComment", params)
 
-// NotesEditResponse struct
-type NotesEditResponse struct{}
+	return
+}
 
-// TODO: notes.edit edits a note of the current user.
+// NotesEdit edits a note of the current user.
 // https://vk.com/dev/notes.edit
+func (vk VK) NotesEdit(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("notes.edit", params)
 
-// NotesEditCommentResponse struct
-type NotesEditCommentResponse struct{}
+	return
+}
 
-// TODO: notes.editComment edits a comment on a note.
+// NotesEditComment edits a comment on a note.
 // https://vk.com/dev/notes.editComment
+func (vk VK) NotesEditComment(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("notes.editComment", params)
+
+	return
+}
 
 // NotesGetResponse struct
-type NotesGetResponse struct{}
+type NotesGetResponse struct {
+	Count int                `json:"count"`
+	Items []object.NotesNote `json:"items"`
+}
 
-// TODO: notes.get returns a list of notes created by a user.
+// NotesGet returns a list of notes created by a user.
 // https://vk.com/dev/notes.get
+func (vk VK) NotesGet(params map[string]string) (response NotesGetResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("notes.get", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // NotesGetByIDResponse struct
-type NotesGetByIDResponse struct{}
+type NotesGetByIDResponse object.NotesNote
 
-// TODO: notes.getById returns a note by its ID.
+// NotesGetByID returns a note by its ID.
 // https://vk.com/dev/notes.getById
+func (vk VK) NotesGetByID(params map[string]string) (response NotesGetByIDResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("notes.getById", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // NotesGetCommentsResponse struct
-type NotesGetCommentsResponse struct{}
+type NotesGetCommentsResponse struct {
+	Count int                       `json:"count"`
+	Items []object.NotesNoteComment `json:"items"`
+}
 
-// TODO: notes.getComments returns a list of comments on a note.
+// NotesGetComments returns a list of comments on a note.
 // https://vk.com/dev/notes.getComments
+func (vk VK) NotesGetComments(params map[string]string) (response NotesGetCommentsResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("notes.getComments", params)
+	if vkErr.Code != 0 {
+		return
+	}
 
-// NotesRestoreCommentResponse struct
-type NotesRestoreCommentResponse struct{}
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
 
-// TODO: notes.restoreComment restores a deleted comment on a note.
+	return
+}
+
+// NotesRestoreComment restores a deleted comment on a note.
 // https://vk.com/dev/notes.restoreComment
+func (vk VK) NotesRestoreComment(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("notes.restoreComment", params)
+
+	return
+}

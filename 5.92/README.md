@@ -103,25 +103,25 @@ fmt.Print(S.Text)
 - [ ] Apps 7/8
 - [ ] AppWidgets 1/8
 - [x] Auth 2/2
-- [x] Board 13/13
+- [x] Board 15/15
 - [x] Database 11/12 (1 баговый метод)
 - [ ] Docs 0/11
 - [x] Execute
-- [ ] Fave 0/12
-- [ ] Friends 0/18
+- [x] Fave 15/15
+- [ ] Friends 0/19
 - [x] Gifts 1/1
-- [ ] Groups 1/45
+- [ ] Groups 1/51
 - [ ] leadForms 0/7
 - [ ] Leads 0/0
-- [x] Likes 4/4
-- [ ] Market 0/24
-- [ ] Messages 36/39
-- [ ] Newsfeed 0/16
-- [ ] Notes 0/10
+- [x] Likes 5/5
+- [ ] Market 0/27
+- [ ] Messages 36/41
+- [ ] Newsfeed 0/18
+- [x] Notes 10/10
 - [ ] Notifications 2/3
 - [ ] Orders 0/0
 - [x] Pages 8/8
-- [ ] Photos 0/46
+- [ ] Photos 0/51
 - [ ] Places 0/0
 - [ ] Polls 0/9
 - [ ] Prettycards 0/6
@@ -130,11 +130,11 @@ fmt.Print(S.Text)
 - [ ] Stats 0/3
 - [x] Status 2/2
 - [x] Storage 3/3
-- [ ] Stories 0/13
+- [ ] Stories 0/17
 - [x] Streaming 5/5
-- [ ] Users 0/5
-- [ ] Utils 1/7
-- [ ] Video 0/24
+- [ ] Users 0/7
+- [ ] Utils 1/8
+- [ ] Video 0/29
 - [ ] Podcasts 0/0
-- [ ] Wall 0/23
+- [ ] Wall 0/27
 - [ ] Widgets 0/2
