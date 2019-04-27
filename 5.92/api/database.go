@@ -196,11 +196,24 @@ func (vk VK) DatabaseGetRegions(params map[string]string) (response DatabaseGetR
 }
 
 // DatabaseGetSchoolClassesResponse struct
-type DatabaseGetSchoolClassesResponse struct{}
+type DatabaseGetSchoolClassesResponse [][]interface{}
 
-// TODO: database.getSchoolClasses returns a list of school classes specified for the country.
+// DatabaseGetSchoolClasses returns a list of school classes specified for the country.
 // BUG(VK): database.getSchoolClasses  bad return
 // https://vk.com/dev/database.getSchoolClasses
+func (vk VK) DatabaseGetSchoolClasses(params map[string]string) (response DatabaseGetSchoolClassesResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("database.getSchoolClasses", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // DatabaseGetSchoolsResponse struct
 type DatabaseGetSchoolsResponse struct {
