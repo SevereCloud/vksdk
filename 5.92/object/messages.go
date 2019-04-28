@@ -187,7 +187,7 @@ type MessagesHistoryAttachment struct {
 
 type messagesHistoryMessageAttachment struct {
 	Audio  AudioAudioFull `json:"audio"`
-	Doc    docsDoc        `json:"doc"`
+	Doc    DocsDoc        `json:"doc"`
 	Link   baseLink       `json:"link"`
 	Market baseLink       `json:"market"`
 	Photo  PhotosPhoto    `json:"photo"`
@@ -228,7 +228,7 @@ type messagesMessageAction struct {
 
 type messagesMessageAttachment struct {
 	Audio             AudioAudioFull       `json:"audio"`
-	Doc               docsDoc              `json:"doc"`
+	Doc               DocsDoc              `json:"doc"`
 	Gift              GiftsLayout          `json:"gift"`
 	Link              baseLink             `json:"link"`
 	Market            MarketMarketItem     `json:"market"`

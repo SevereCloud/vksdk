@@ -19,7 +19,7 @@ type wallAttachedNote struct {
 
 type wallCommentAttachment struct {
 	Audio             AudioAudioFull    `json:"audio"`
-	Doc               docsDoc           `json:"doc"`
+	Doc               DocsDoc           `json:"doc"`
 	Link              baseLink          `json:"link"`
 	Market            MarketMarketItem  `json:"market"`
 	MarketMarketAlbum marketMarketAlbum `json:"market_market_album"`
@@ -142,7 +142,7 @@ type wallWallpostAttachment struct {
 	Album             photosPhotoAlbum  `json:"album"`
 	App               wallAppPost       `json:"app"`
 	Audio             AudioAudioFull    `json:"audio"`
-	Doc               docsDoc           `json:"doc"`
+	Doc               DocsDoc           `json:"doc"`
 	Graffiti          wallGraffiti      `json:"graffiti"`
 	Link              baseLink          `json:"link"`
 	Market            MarketMarketItem  `json:"market"`

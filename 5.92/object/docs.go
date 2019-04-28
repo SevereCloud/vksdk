@@ -1,6 +1,7 @@
 package object // import "github.com/severecloud/vksdk/5.92/object"
 
-type docsDoc struct {
+// DocsDoc struct
+type DocsDoc struct {
 	AccessKey string         `json:"access_key"`
 	Date      int            `json:"date"`
 	Ext       string         `json:"ext"`
@@ -14,12 +15,20 @@ type docsDoc struct {
 }
 
 type docsDocPreview struct {
-	Photo docsDocPreviewPhoto `json:"photo"`
-	Video docsDocPreviewVideo `json:"video"`
+	Photo        docsDocPreviewPhoto        `json:"photo"`
+	Graffiti     docsDocPreviewGraffiti     `json:"graffiti"`
+	Video        docsDocPreviewVideo        `json:"video"`
+	AudioMessage docsDocPreviewAudioMessage `json:"audio_message"`
 }
 
 type docsDocPreviewPhoto struct {
 	Sizes []photosPhotoSizes `json:"sizes"`
+}
+
+type docsDocPreviewGraffiti struct {
+	Src    string `json:"src"`
+	Width  int    `json:"width"`
+	Height int    `json:"height"`
 }
 
 type docsDocPreviewVideo struct {
@@ -29,7 +38,15 @@ type docsDocPreviewVideo struct {
 	Width    int    `json:"width"`
 }
 
-type docsDocTypes struct {
+type docsDocPreviewAudioMessage struct {
+	Duration int    `json:"duration"`
+	Waveform []int  `json:"waveform"`
+	LinkOgg  string `json:"link_ogg"`
+	LinkMp3  string `json:"link_mp3"`
+}
+
+// DocsDocTypes struct
+type DocsDocTypes struct {
 	Count int    `json:"count"`
 	ID    int    `json:"id"`
 	Title string `json:"title"`

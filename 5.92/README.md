@@ -100,7 +100,7 @@ fmt.Print(S.Text)
 - [x] Auth 2/2
 - [x] Board 15/15
 - [x] Database 12/12
-- [ ] Docs 0/11
+- [x] Docs 11/11
 - [x] Execute
 - [x] Fave 15/15
 - [x] Friends 19/19
