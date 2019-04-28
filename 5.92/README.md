@@ -74,11 +74,6 @@ fmt.Print(S.Text)
 ```
 
 [StorageGet](https://vk.com/dev/storage.get) если нет параметра `keys`, вернет массив из одного объекта.
-
-Еще не реализованные: 
-
-[MessagesSend](https://vk.com/dev/messages.send) если нет параметра `user_ids`, вернет массив из одного объекта.
-
 ...
 
 ## TODO
@@ -115,7 +110,7 @@ fmt.Print(S.Text)
 - [ ] Leads 0/0
 - [x] Likes 5/5
 - [ ] Market 0/27
-- [ ] Messages 36/41
+- [x] Messages 42/42
 - [ ] Newsfeed 0/18
 - [x] Notes 10/10
 - [ ] Notifications 2/3
