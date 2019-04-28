@@ -103,7 +103,7 @@ fmt.Print(S.Text)
 - [ ] Docs 0/11
 - [x] Execute
 - [x] Fave 15/15
-- [ ] Friends 0/19
+- [x] Friends 19/19
 - [x] Gifts 1/1
 - [ ] Groups 1/51
 - [ ] leadForms 0/7

@@ -1,6 +1,7 @@
 package object // import "github.com/severecloud/vksdk/5.92/object"
 
-type friendsFriendStatus struct {
+// FriendsFriendStatus struct
+type FriendsFriendStatus struct {
 	FriendStatus   int    `json:"friend_status"`
 	ReadState      int    `json:"read_state"`
 	RequestMessage string `json:"request_message"`
