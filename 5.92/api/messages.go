@@ -187,10 +187,42 @@ func (vk VK) MessagesGetByIDExtended(params map[string]string) (response Message
 }
 
 // MessagesGetChatResponse struct
-type MessagesGetChatResponse struct{}
+type MessagesGetChatResponse object.MessagesChat
 
-// TODO: messages.getChat returns information about a chat.
+// MessagesGetChat returns information about a chat.
 // https://vk.com/dev/messages.getChat
+func (vk VK) MessagesGetChat(params map[string]string) (response MessagesGetChatResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("messages.getChat", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
+
+// MessagesGetChatChatIDsResponse struct
+type MessagesGetChatChatIDsResponse []object.MessagesChat
+
+// MessagesGetChatChatIDs returns information about a chat.
+// https://vk.com/dev/messages.getChat
+func (vk VK) MessagesGetChatChatIDs(params map[string]string) (response MessagesGetChatChatIDsResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("messages.getChat", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // MessagesGetChatPreviewResponse struct
 type MessagesGetChatPreviewResponse struct {
@@ -636,22 +668,70 @@ func (vk VK) MessagesSearch(params map[string]string) (response MessagesSearchRe
 }
 
 // MessagesSearchConversationsResponse struct
-type MessagesSearchConversationsResponse struct{}
+type MessagesSearchConversationsResponse struct {
+	Count    int                           `json:"count"`
+	Items    []object.MessagesConversation `json:"items"`
+	Profiles []object.UsersUser            `json:"profiles"`
+	Groups   []object.GroupsGroup          `json:"groups"`
+}
 
-// TODO: messages.searchConversations returns a list of conversations that match search criteria.
+// MessagesSearchConversations returns a list of conversations that match search criteria.
 // https://vk.com/dev/messages.searchConversations
+func (vk VK) MessagesSearchConversations(params map[string]string) (response MessagesSearchConversationsResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("messages.searchConversations", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // MessagesSendResponse struct
-type MessagesSendResponse struct{}
+type MessagesSendResponse int
 
 // MessagesSend Sends a message
 // https://vk.com/dev/messages.send
-func (vk VK) MessagesSend(params map[string]string) (vkErr Error) {
-	// TODO: if user_ids in params
-
-	_, vkErr = vk.Request("messages.send", params)
+func (vk VK) MessagesSend(params map[string]string) (response MessagesSendResponse, vkErr Error) {
+	params["user_ids"] = ""
+	rawResponse, vkErr := vk.Request("messages.send", params)
 	if vkErr.Code != 0 {
 		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
+
+// MessagesSendUserIDsResponse struct
+type MessagesSendUserIDsResponse []struct {
+	PeerID    int `json:"peer_id"`
+	MessageID int `json:"message_id"`
+	Error     struct {
+		Code        int    `json:"code"`
+		Description string `json:"description"`
+	} `json:"error"`
+}
+
+// MessagesSendUserIDs Sends a message
+// https://vk.com/dev/messages.send
+func (vk VK) MessagesSendUserIDs(params map[string]string) (response MessagesSendUserIDsResponse, vkErr Error) {
+	rawResponse, vkErr := vk.Request("messages.send", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
 	}
 
 	return
