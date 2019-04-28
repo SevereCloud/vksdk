@@ -85,10 +85,57 @@ func (vk VK) AppsGetFriendsList(params map[string]string) (response AppsGetFrien
 }
 
 // AppsGetLeaderboardResponse struct
-type AppsGetLeaderboardResponse struct{}
+type AppsGetLeaderboardResponse struct {
+	Count int `json:"count"`
+	Items []struct {
+		Score  int `json:"score"`
+		UserID int `json:"user_id"`
+	} `json:"items"`
+}
 
-// TODO: apps.getLeaderboard returns players rating in the game.
+// AppsGetLeaderboard returns players rating in the game.
 // https://vk.com/dev/apps.getLeaderboard
+func (vk VK) AppsGetLeaderboard(params map[string]string) (response AppsGetLeaderboardResponse, vkErr Error) {
+	params["extended"] = "0"
+	rawResponse, vkErr := vk.Request("apps.getLeaderboard", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
+
+// AppsGetLeaderboardExtendedResponse struct
+type AppsGetLeaderboardExtendedResponse struct {
+	Count int `json:"count"`
+	Items []struct {
+		Score  int `json:"score"`
+		UserID int `json:"user_id"`
+	} `json:"items"`
+	Profiles []object.UsersUser `json:"profiles"`
+}
+
+// AppsGetLeaderboardExtended returns players rating in the game.
+// https://vk.com/dev/apps.getLeaderboard
+func (vk VK) AppsGetLeaderboardExtended(params map[string]string) (response AppsGetLeaderboardExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	rawResponse, vkErr := vk.Request("apps.getLeaderboard", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 // AppsGetScopesResponse struct
 type AppsGetScopesResponse struct {
