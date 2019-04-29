@@ -105,7 +105,7 @@ fmt.Print(S.Text)
 - [x] Fave 15/15
 - [x] Friends 19/19
 - [x] Gifts 1/1
-- [ ] Groups 1/51
+- [ ] Groups 43/50
 - [ ] leadForms 0/7
 - [ ] Leads 0/0
 - [x] Likes 5/5

@@ -18,14 +18,16 @@ type GroupsGroup struct {
 }
 
 type groupsBanInfo struct {
-	AdminID int    `json:"admin_id"`
-	Comment string `json:"comment"`
-	Date    int    `json:"date"`
-	EndDate int    `json:"end_date"`
-	Reason  int    `json:"reason"`
+	AdminID        int    `json:"admin_id"`
+	Comment        string `json:"comment"`
+	Date           int    `json:"date"`
+	EndDate        int    `json:"end_date"`
+	Reason         int    `json:"reason"`
+	CommentVisible bool   `json:"comment_visible"`
 }
 
-type groupsCallbackSettings struct {
+// GroupsCallbackSettings struct
+type GroupsCallbackSettings struct {
 	APIVersion string               `json:"api_version"`
 	Events     GroupsLongPollEvents `json:"events"`
 }
@@ -57,18 +59,20 @@ type groupsGroupBanInfo struct {
 	EndDate int    `json:"end_date"`
 }
 
-type groupsGroupCategory struct {
+// GroupsGroupCategory struct
+type GroupsGroupCategory struct {
 	ID            int                  `json:"id"`
 	Name          string               `json:"name"`
 	Subcategories []baseObjectWithName `json:"subcategories"`
 }
 
-type groupsGroupCategoryFull struct {
+// GroupsGroupCategoryFull struct
+type GroupsGroupCategoryFull struct {
 	ID            int                   `json:"id"`
 	Name          string                `json:"name"`
 	PageCount     int                   `json:"page_count"`
 	PagePreviews  []GroupsGroup         `json:"page_previews"`
-	Subcategories []groupsGroupCategory `json:"subcategories"`
+	Subcategories []GroupsGroupCategory `json:"subcategories"`
 }
 
 type groupsGroupCategoryType struct {
@@ -76,9 +80,11 @@ type groupsGroupCategoryType struct {
 	Name string `json:"name"`
 }
 
-type groupsGroupLink struct {
+// GroupsGroupLink struct
+type GroupsGroupLink struct {
 	Desc            string `json:"desc"`
 	EditTitle       int    `json:"edit_title"`
+	Name            string `json:"name"`
 	ID              int    `json:"id"`
 	ImageProcessing int    `json:"image_processing"`
 	URL             string `json:"url"`
@@ -90,7 +96,8 @@ type groupsGroupPublicCategoryList struct {
 	SubtypesList []groupsGroupCategoryType `json:"subtypes_list"`
 }
 
-type groupsGroupSettings struct {
+// GroupsGroupSettings struct
+type GroupsGroupSettings struct {
 	Access             int                             `json:"access"`
 	Address            string                          `json:"address"`
 	Audio              int                             `json:"audio"`
@@ -113,6 +120,33 @@ type groupsGroupSettings struct {
 	Wall               int                             `json:"wall"`
 	Website            string                          `json:"website"`
 	Wiki               int                             `json:"wiki"`
+	CountryID          int                             `json:"country_id"`
+	CityID             int                             `json:"city_id"`
+	Messages           int                             `json:"messages"`
+	Articles           int                             `json:"articles"`
+	Events             int                             `json:"events"`
+	AgeLimits          int                             `json:"age_limits"`
+	Market             struct {
+		Enabled         int   `json:"enabled"`
+		CommentsEnabled int   `json:"comments_enabled"`
+		CountryIds      []int `json:"country_ids"`
+		ContactID       int   `json:"contact_id"`
+		Currency        struct {
+			ID   int    `json:"id"`
+			Name string `json:"name"`
+		} `json:"currency"`
+	} `json:"market"`
+	SectionsList     [][]interface{} `json:"sections_list"`
+	MainSection      int             `json:"main_section"`
+	SecondarySection int             `json:"secondary_section"`
+	ActionButton     struct {
+		ActionType string        `json:"action_type"`
+		Target     []interface{} `json:"target"`
+		Title      string        `json:"title"`
+	} `json:"action_button"`
+	LiveCovers struct {
+		IsEnabled bool `json:"is_enabled"`
+	} `json:"live_covers"`
 }
 
 type groupsGroupXtrInvitedBy struct {
@@ -191,15 +225,19 @@ type GroupsLongPollEvents struct {
 	LikeAdd              int `json:"like_add"`
 	LikeRemove           int `json:"like_remove"`
 	VkpayTransaction     int `json:"vkpay_transaction"`
+	AppPayload           int `json:"app_payload"`
+	MessageRead          int `json:"message_read"`
 }
 
-type groupsLongPollServer struct {
+// GroupsLongPollServer struct
+type GroupsLongPollServer struct {
 	Key    string `json:"key"`
 	Server string `json:"server"`
-	Ts     int    `json:"ts"`
+	Ts     string `json:"ts"`
 }
 
-type groupsLongPollSettings struct {
+// GroupsLongPollSettings struct
+type GroupsLongPollSettings struct {
 	APIVersion string               `json:"api_version"`
 	Events     GroupsLongPollEvents `json:"events"`
 	IsEnabled  bool                 `json:"is_enabled"`
@@ -232,12 +270,14 @@ type groupsMemberStatusFull struct {
 	UserID     int `json:"user_id"`
 }
 
-type groupsOnlineStatus struct {
+// GroupsOnlineStatus struct
+type GroupsOnlineStatus struct {
 	Minutes int    `json:"minutes"`
 	Status  string `json:"status"`
 }
 
-type groupsOwnerXtrBanInfo struct {
+// GroupsOwnerXtrBanInfo struct
+type GroupsOwnerXtrBanInfo struct {
 	BanInfo groupsBanInfo `json:"ban_info"`
 	Group   GroupsGroup   `json:"group"`
 	Profile UsersUser     `json:"profile"`
@@ -254,7 +294,8 @@ type groupsTokenPermissionSetting struct {
 	Setting int    `json:"setting"`
 }
 
-type groupsTokenPermissions struct {
+// GroupsTokenPermissions struct
+type GroupsTokenPermissions struct {
 	Mask        int                            `json:"mask"`
 	Permissions []groupsTokenPermissionSetting `json:"permissions"`
 }
