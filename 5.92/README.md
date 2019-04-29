@@ -106,7 +106,7 @@ fmt.Print(S.Text)
 - [x] Friends 19/19
 - [x] Gifts 1/1
 - [ ] Groups 43/50
-- [ ] leadForms 0/7
+- [x] LeadForms 7/7
 - [ ] Leads 0/0
 - [x] Likes 5/5
 - [ ] Market 0/27
