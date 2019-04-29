@@ -110,7 +110,7 @@ fmt.Print(S.Text)
 - [ ] Leads 0/0
 - [x] Likes 5/5
 - [ ] Market 0/27
-- [x] Messages 42/42
+- [x] Messages 43/43
 - [ ] Newsfeed 0/18
 - [x] Notes 10/10
 - [ ] Notifications 2/3

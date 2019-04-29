@@ -737,6 +737,26 @@ func (vk VK) MessagesSendUserIDs(params map[string]string) (response MessagesSen
 	return
 }
 
+// MessagesSendStickerResponse struct
+type MessagesSendStickerResponse int
+
+// MessagesSendSticker Sends a message
+// https://vk.com/dev/messages.sendSticker
+func (vk VK) MessagesSendSticker(params map[string]string) (response MessagesSendStickerResponse, vkErr Error) {
+	params["user_ids"] = ""
+	rawResponse, vkErr := vk.Request("messages.sendSticker", params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
+
 // MessagesSetActivity changes the status of a user as typing in a conversation.
 // https://vk.com/dev/messages.setActivity
 func (vk VK) MessagesSetActivity(params map[string]string) (vkErr Error) {
