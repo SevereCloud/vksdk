@@ -20,7 +20,7 @@ VK SDK for Golang это реализация библиотеки для раб
 ### Установка
 
 ```shell
-go get -u github.com/severecloud/vkapi
+go get -u github.com/severecloud/vksdk
 ```
 
 ### Пример

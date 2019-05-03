@@ -5,7 +5,7 @@
 ## Установка
 
 ```shell
-go get -u github.com/severecloud/vkapi
+go get -u github.com/severecloud/vksdk
 ```
 
 ## Модули
