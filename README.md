@@ -8,8 +8,8 @@ VK SDK for Golang это реализация библиотеки для раб
 
 - [Версия 5.92](https://github.com/SevereCloud/vksdk/tree/master/5.92)
 - [API](https://github.com/SevereCloud/vksdk/tree/master/5.92/api)
-- [Callback](https://github.com/SevereCloud/vksdk/tree/master/5.92/callback)
-- ~~Longpoll bot~~
+- [Callback API](https://github.com/SevereCloud/vksdk/tree/master/5.92/callback)
+- [Bots Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/5.92/longpoll-bot)
 - ~~Longpoll user~~
 - ~~Streaming api~~
 
