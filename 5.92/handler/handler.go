@@ -48,6 +48,7 @@ type FuncList struct {
 	GroupChangeSettings  []object.GroupChangeSettingsFunc
 	GroupChangePhoto     []object.GroupChangePhotoFunc
 	VkpayTransaction     []object.VkpayTransactionFunc
+	LeadFormsNew         []object.LeadFormsNewFunc
 }
 
 // Handler group event handler
@@ -414,8 +415,16 @@ func (funcList FuncList) Handler(e object.GroupEvent) error {
 		for _, f := range funcList.VkpayTransaction {
 			f(obj, e.GroupID)
 		}
+	case "lead_forms_new":
+		var obj object.LeadFormsNewObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range funcList.LeadFormsNew {
+			f(obj, e.GroupID)
+		}
 	}
-	// TODO: group event lead_forms_new
 	// TODO: group event like_add
 	// TODO: group event like_remove
 	return nil

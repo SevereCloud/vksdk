@@ -248,6 +248,10 @@ func (cb *Callback) VkpayTransaction(f object.VkpayTransactionFunc) {
 	cb.FuncList.VkpayTransaction = append(cb.FuncList.VkpayTransaction, f)
 }
 
-// TODO: next version lead_forms_new handler
+// LeadFormsNew handler
+func (cb *Callback) LeadFormsNew(f object.LeadFormsNewFunc) {
+	cb.FuncList.LeadFormsNew = append(cb.FuncList.LeadFormsNew, f)
+}
+
 // TODO: next version like_add handler
 // TODO: next version like_remove handler

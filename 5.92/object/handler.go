@@ -352,7 +352,25 @@ type VkpayTransactionFunc func(VkpayTransactionObject, int)
 // VkpayTransactionObject struct
 type VkpayTransactionObject struct {
 	FromID      int    `json:"from_id"`
-	Amount      string `json:"amount"` // FIXME string or int?
+	Amount      string `json:"amount"` // FIXME: string or int?
 	Description string `json:"description"`
-	Date        string `json:"date"` // FIXME string or int?
+	Date        string `json:"date"` // FIXME: string or int?
+}
+
+// LeadFormsNewFunc func
+type LeadFormsNewFunc func(LeadFormsNewObject, int)
+
+// LeadFormsNewObject struct
+type LeadFormsNewObject struct {
+	LeadID   int    `json:"lead_id"`
+	GroupID  int    `json:"group_id"`
+	UserID   int    `json:"user_id"`
+	FormID   int    `json:"form_id"`
+	FormName string `json:"form_name"`
+	AdID     int    `json:"ad_id"`
+	Answers  []struct {
+		Key      string `json:"key"`
+		Question string `json:"question"`
+		Answer   string `json:"answer"`
+	} `json:"answers"`
 }

@@ -90,6 +90,7 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 	if err != nil {
 		panic(err)
 	}
+	log.Println(string(body))
 
 	err = json.Unmarshal(body, &response)
 	if err != nil {
@@ -335,6 +336,10 @@ func (lp *Longpoll) VkpayTransaction(f object.VkpayTransactionFunc) {
 	lp.FuncList.VkpayTransaction = append(lp.FuncList.VkpayTransaction, f)
 }
 
-// TODO: next version lead_forms_new handler
+// LeadFormsNew handler
+func (lp *Longpoll) LeadFormsNew(f object.LeadFormsNewFunc) {
+	lp.FuncList.LeadFormsNew = append(lp.FuncList.LeadFormsNew, f)
+}
+
 // TODO: next version like_add handler
 // TODO: next version like_remove handler
