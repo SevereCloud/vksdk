@@ -12,6 +12,7 @@ go get -u github.com/severecloud/vkapi
 
 - [API](https://github.com/SevereCloud/vksdk/tree/master/5.92/api)
 - [Callback](https://github.com/SevereCloud/vksdk/tree/master/5.92/callback)
+- [Bots Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/5.92/longpoll-bot)
 
 ## Пример
 
@@ -81,7 +82,7 @@ fmt.Print(S.Text)
 - [ ] Все методы API
 - [ ] Ограничитель на запросы
 - [x] Callback
-- [ ] LongPoll bot
+- [x] LongPoll bot
 - [ ] LongPoll user
 - [ ] Streaming API
 - [ ] Получение токена

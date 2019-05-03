@@ -1,11 +1,16 @@
 package longpoll // import "github.com/severecloud/vksdk/5.92/longpoll-bot"
 
 import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"log"
+	"net/http"
 	"strconv"
 	"sync/atomic"
 
 	"github.com/severecloud/vksdk/5.92/object"
+	"golang.org/x/net/proxy"
 
 	"github.com/severecloud/vksdk/5.92/api"
 	"github.com/severecloud/vksdk/5.92/handler"
@@ -31,21 +36,20 @@ type Longpoll struct {
 }
 
 // Init Longpoll
-func Init(vk api.VK, groupID int) (lp Longpoll) {
+func Init(vk api.VK, groupID int) (lp Longpoll, err error) {
 	lp.VK = vk
 	lp.GroupID = groupID
-	lp.updateServer(true)
+	err = lp.updateServer(true)
 	return
 }
 
-func (lp *Longpoll) updateServer(updateTs bool) {
+func (lp *Longpoll) updateServer(updateTs bool) error {
 	params := map[string]string{
 		"group_id": strconv.Itoa(lp.GroupID),
 	}
 	serverSetting, vkErr := lp.VK.GroupsGetLongPollServer(params)
 	if vkErr.Code != 0 {
-		log.Fatal("F")
-		// TODO: return error
+		return fmt.Errorf(vkErr.Message)
 	}
 
 	lp.Key = serverSetting.Key
@@ -53,43 +57,80 @@ func (lp *Longpoll) updateServer(updateTs bool) {
 	if updateTs {
 		lp.Ts = serverSetting.Ts
 	}
+	return nil
 }
 
-func (lp *Longpoll) check() []object.GroupEvent {
+func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 	var response longpollResponse
-	// TODO: request
-	// TODO: iferr
+
+	myClient := &http.Client{}
+	if lp.VK.ProxyAddress != "" {
+		dialer, err := proxy.SOCKS5("tcp", lp.VK.ProxyAddress, nil, proxy.Direct)
+		if err != nil {
+			return nil, err
+		}
+		httpTransport := &http.Transport{}
+		httpTransport.Dial = dialer.Dial
+		myClient.Transport = httpTransport
+	}
+
+	wait := 25
+	if lp.Wait > 0 {
+		wait = lp.Wait
+	}
+	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, wait)
+
+	resp, err := myClient.Get(u)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+
+	err = json.Unmarshal(body, &response)
+	if err != nil {
+		panic(err)
+	}
+
 	switch response.Failed {
 	case 0:
 		lp.Ts = response.Ts
 	case 1:
-		//TODO: log it
+		log.Print(`Longpoll Bots: "failed":1`)
 		lp.Ts = response.Ts
 	case 2:
-		//TODO: log it
+		log.Print(`Longpoll Bots: "failed":2`)
 		lp.updateServer(false)
 	case 3:
-		//TODO: log it
+		log.Print(`Longpoll Bots: "failed":3`)
 		lp.updateServer(true)
 	default:
-		//TODO: log it
+		log.Printf(`Longpoll Bots: "failed":%d`, response.Failed)
 		lp.updateServer(true)
 	}
-	return response.Updates
+	return response.Updates, nil
 }
 
 // Run handler
-func (lp *Longpoll) Run() {
+func (lp *Longpoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
 	for atomic.LoadInt32(&lp.inShutdown) == 0 {
-		events := lp.check()
+		events, err := lp.check()
+		if err != nil {
+			return err
+		}
 		for _, event := range events {
 			lp.FuncList.Handler(event)
 		}
 	}
+	return nil
 }
 
-// Shutdown handler
+// Shutdown gracefully shuts down the longpoll without interrupting any active connections.
 func (lp *Longpoll) Shutdown() {
 	atomic.StoreInt32(&lp.inShutdown, 1)
 }
