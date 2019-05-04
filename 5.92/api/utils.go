@@ -11,6 +11,7 @@ type UtilsCheckLinkResponse object.UtilsLinkChecked
 
 // UtilsCheckLink checks whether a link is blocked in VK.
 // https://vk.com/dev/utils.checkLink
+// FIXME: Если короткое имя screen_name не занято, то будет возвращён пустой объект.
 func (vk VK) UtilsCheckLink(params map[string]string) (response UtilsCheckLinkResponse, vkErr Error) {
 	rawResponse, vkErr := vk.Request("utils.checkLink", params)
 	if vkErr.Code != 0 {
