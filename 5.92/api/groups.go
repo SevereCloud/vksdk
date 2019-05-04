@@ -240,10 +240,7 @@ func (vk VK) GroupsGetBanned(params map[string]string) (response GroupsGetBanned
 }
 
 // GroupsGetByIDResponse struct
-type GroupsGetByIDResponse struct {
-	Count int                  `json:"count"`
-	Items []object.GroupsGroup `json:"items"`
-}
+type GroupsGetByIDResponse []object.GroupsGroup
 
 // GroupsGetByID returns information about communities by their IDs.
 // https://vk.com/dev/groups.getById
