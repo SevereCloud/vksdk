@@ -20,7 +20,7 @@ VK SDK for Golang это реализация библиотеки для раб
 ### Установка
 
 ```shell
-go get -u github.com/severecloud/vksdk
+go get -u github.com/SevereCloud/vksdk
 ```
 
 ### Пример
@@ -32,7 +32,7 @@ import (
 	"fmt"
 	"log"
 
-	vksdk "github.com/severecloud/vksdk/5.92/api"
+	vksdk "github.com/SevereCloud/vksdk/5.92/api"
 )
 
 func main() {

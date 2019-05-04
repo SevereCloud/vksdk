@@ -57,10 +57,10 @@ package main
 import (
 	"log"
 
-	"github.com/severecloud/vksdk/5.92/api"
+	"github.com/SevereCloud/vksdk/5.92/api"
 
-	longpoll "github.com/severecloud/vksdk/5.92/longpoll-bot"
-	"github.com/severecloud/vksdk/5.92/object"
+	longpoll "github.com/SevereCloud/vksdk/5.92/longpoll-bot"
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 func main() {

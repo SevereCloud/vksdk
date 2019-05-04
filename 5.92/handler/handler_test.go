@@ -3,7 +3,7 @@ package handler
 import (
 	"testing"
 
-	"github.com/severecloud/vksdk/5.92/object"
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 const GID = 123456

@@ -1,4 +1,4 @@
-package longpoll // import "github.com/severecloud/vksdk/5.92/longpoll-bot"
+package longpoll // import "github.com/SevereCloud/vksdk/5.92/longpoll-bot"
 
 import (
 	"encoding/json"
@@ -9,11 +9,11 @@ import (
 	"strconv"
 	"sync/atomic"
 
-	"github.com/severecloud/vksdk/5.92/object"
+	"github.com/SevereCloud/vksdk/5.92/object"
 	"golang.org/x/net/proxy"
 
-	"github.com/severecloud/vksdk/5.92/api"
-	"github.com/severecloud/vksdk/5.92/handler"
+	"github.com/SevereCloud/vksdk/5.92/api"
+	"github.com/SevereCloud/vksdk/5.92/handler"
 )
 
 type longpollResponse struct {

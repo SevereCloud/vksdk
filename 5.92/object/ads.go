@@ -1,4 +1,4 @@
-package object // import "github.com/severecloud/vksdk/5.92/object"
+package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 type adsAccesses struct {
 	ClientID string `json:"client_id"`

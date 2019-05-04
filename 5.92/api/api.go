@@ -1,4 +1,4 @@
-package api // import "github.com/severecloud/vksdk/5.92/api"
+package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/severecloud/vksdk/5.92/object"
+	"github.com/SevereCloud/vksdk/5.92/object"
 	"golang.org/x/net/proxy"
 )
 

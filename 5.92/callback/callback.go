@@ -1,12 +1,12 @@
-package callback // import "github.com/severecloud/vksdk/5.92/callback"
+package callback // import "github.com/SevereCloud/vksdk/5.92/callback"
 
 import (
 	"encoding/json"
 	"fmt"
 	"net/http"
 
-	"github.com/severecloud/vksdk/5.92/handler"
-	"github.com/severecloud/vksdk/5.92/object"
+	"github.com/SevereCloud/vksdk/5.92/handler"
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 // Callback struct SecretKeys [GroupID]SecretKey

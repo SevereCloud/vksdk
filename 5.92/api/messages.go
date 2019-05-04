@@ -1,9 +1,9 @@
-package api // import "github.com/severecloud/vksdk/5.92/api"
+package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
 	"encoding/json"
 
-	"github.com/severecloud/vksdk/5.92/object"
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 // MessagesAddChatUser adds a new user to a chat.
