@@ -9,6 +9,7 @@ type MessagesMessage struct {
 	Date                  int                         `json:"date"`
 	FromID                int                         `json:"from_id"`
 	FwdMessages           []MessagesMessage           `json:"fwd_messages"`
+	ReplyMessage          *MessagesMessage            `json:"reply_message"`
 	Geo                   baseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`
 	Important             bool                        `json:"important"`
@@ -18,8 +19,11 @@ type MessagesMessage struct {
 	Payload               string                      `json:"payload"`
 	PeerID                int                         `json:"peer_id"`
 	RandomID              int                         `json:"random_id"`
+	Ref                   string                      `json:"ref"`
+	RefSource             string                      `json:"ref_source"`
 	Text                  string                      `json:"text"`
 	UpdateTime            int                         `json:"update_time"`
+	MembersСount          int                         `json:"members_count"` // FIXME: check members_count
 }
 
 // MessagesKeyboard struct
