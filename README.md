@@ -7,7 +7,7 @@ VK SDK for Golang это реализация библиотеки для раб
 [![Documentation](https://godoc.org/github.com/SevereCloud/vksdk?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk)
 [![codecov](https://codecov.io/gh/SevereCloud/vksdk/branch/master/graph/badge.svg)](https://codecov.io/gh/SevereCloud/vksdk)
 [![GitHub issues](https://img.shields.io/github/issues/SevereCloud/vksdk.svg)](https://github.com/SevereCloud/vksdk/issues)
-[![license](https://img.shields.io/github/license/SevereCloud/vksdk.svg?maxAge=2592000)](https://github.com/SevereCloud/vksdk/LICENSE)
+[![license](https://img.shields.io/github/license/SevereCloud/vksdk.svg?maxAge=2592000)](https://github.com/SevereCloud/vksdk/blob/master/LICENSE)
 
 ### Документация
 
