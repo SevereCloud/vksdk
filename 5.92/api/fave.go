@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
-	"encoding/json"
-
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -10,7 +8,6 @@ import (
 // https://vk.com/dev/fave.addGroup
 func (vk VK) FaveAddGroup(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("fave.addGroup", params)
-
 	return
 }
 
@@ -18,7 +15,6 @@ func (vk VK) FaveAddGroup(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/fave.addLink
 func (vk VK) FaveAddLink(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("fave.addLink", params)
-
 	return
 }
 
@@ -26,7 +22,6 @@ func (vk VK) FaveAddLink(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/fave.addUser
 func (vk VK) FaveAddUser(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("fave.addUser", params)
-
 	return
 }
 
@@ -39,16 +34,7 @@ type FaveGetLinksResponse struct {
 // FaveGetLinks returns a list of links that the current user has bookmarked.
 // https://vk.com/dev/fave.getLinks
 func (vk VK) FaveGetLinks(params map[string]string) (response FaveGetLinksResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("fave.getLinks", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("fave.getLinks", params, &response, &vkErr)
 	return
 }
 
@@ -62,16 +48,7 @@ type FaveGetMarketItemsResponse struct {
 // https://vk.com/dev/fave.getMarketItems
 func (vk VK) FaveGetMarketItems(params map[string]string) (response FaveGetMarketItemsResponse, vkErr Error) {
 	params["extended"] = "0"
-	rawResponse, vkErr := vk.Request("fave.getMarketItems", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("fave.getMarketItems", params, &response, &vkErr)
 	return
 }
 
@@ -79,16 +56,7 @@ func (vk VK) FaveGetMarketItems(params map[string]string) (response FaveGetMarke
 // https://vk.com/dev/fave.getMarketItems
 func (vk VK) FaveGetMarketItemsExtended(params map[string]string) (response FaveGetMarketItemsResponse, vkErr Error) {
 	params["extended"] = "1"
-	rawResponse, vkErr := vk.Request("fave.getMarketItems", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("fave.getMarketItems", params, &response, &vkErr)
 	return
 }
 
@@ -102,16 +70,7 @@ type FaveGetPhotosResponse struct {
 // FaveGetPhotos returns a list of photos that the current user has liked.
 // https://vk.com/dev/fave.getPhotos
 func (vk VK) FaveGetPhotos(params map[string]string) (response FaveGetPhotosResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("fave.getPhotos", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("fave.getPhotos", params, &response, &vkErr)
 	return
 }
 
@@ -125,16 +84,7 @@ type FaveGetPostsResponse struct {
 // https://vk.com/dev/fave.getPosts
 func (vk VK) FaveGetPosts(params map[string]string) (response FaveGetPostsResponse, vkErr Error) {
 	params["extended"] = "0"
-	rawResponse, vkErr := vk.Request("fave.getPosts", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("fave.getPosts", params, &response, &vkErr)
 	return
 }
 
@@ -150,16 +100,7 @@ type FaveGetPostsExtendedResponse struct {
 // https://vk.com/dev/fave.getPosts
 func (vk VK) FaveGetPostsExtended(params map[string]string) (response FaveGetPostsExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
-	rawResponse, vkErr := vk.Request("fave.getPosts", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("fave.getPosts", params, &response, &vkErr)
 	return
 }
 
@@ -172,16 +113,7 @@ type FaveGetUsersResponse struct {
 // FaveGetUsers returns a list of users whom the current user has bookmarked.
 // https://vk.com/dev/fave.getUsers
 func (vk VK) FaveGetUsers(params map[string]string) (response FaveGetUsersResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("fave.getUsers", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("fave.getUsers", params, &response, &vkErr)
 	return
 }
 
@@ -195,16 +127,7 @@ type FaveGetVideosResponse struct {
 // https://vk.com/dev/fave.getVideos
 func (vk VK) FaveGetVideos(params map[string]string) (response FaveGetVideosResponse, vkErr Error) {
 	params["extended"] = "0"
-	rawResponse, vkErr := vk.Request("fave.getVideos", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("fave.getVideos", params, &response, &vkErr)
 	return
 }
 
@@ -220,16 +143,7 @@ type FaveGetVideosExtendedResponse struct {
 // https://vk.com/dev/fave.getVideos
 func (vk VK) FaveGetVideosExtended(params map[string]string) (response FaveGetVideosExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
-	rawResponse, vkErr := vk.Request("fave.getVideos", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("fave.getVideos", params, &response, &vkErr)
 	return
 }
 
@@ -237,7 +151,6 @@ func (vk VK) FaveGetVideosExtended(params map[string]string) (response FaveGetVi
 // https://vk.com/dev/fave.removeGroup
 func (vk VK) FaveRemoveGroup(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("fave.removeGroup", params)
-
 	return
 }
 
@@ -245,7 +158,6 @@ func (vk VK) FaveRemoveGroup(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/fave.removeLink
 func (vk VK) FaveRemoveLink(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("fave.removeLink", params)
-
 	return
 }
 
@@ -253,6 +165,5 @@ func (vk VK) FaveRemoveLink(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/fave.removeUser
 func (vk VK) FaveRemoveUser(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("fave.removeUser", params)
-
 	return
 }

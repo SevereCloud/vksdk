@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
-	"encoding/json"
-
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -13,16 +11,7 @@ type UtilsCheckLinkResponse object.UtilsLinkChecked
 // https://vk.com/dev/utils.checkLink
 // FIXME: Если короткое имя screen_name не занято, то будет возвращён пустой объект.
 func (vk VK) UtilsCheckLink(params map[string]string) (response UtilsCheckLinkResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("utils.checkLink", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("utils.checkLink", params, &response, &vkErr)
 	return
 }
 
@@ -30,7 +19,6 @@ func (vk VK) UtilsCheckLink(params map[string]string) (response UtilsCheckLinkRe
 // https://vk.com/dev/utils.deleteFromLastShortened
 func (vk VK) UtilsDeleteFromLastShortened(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("utils.deleteFromLastShortened", params)
-
 	return
 }
 
@@ -43,16 +31,7 @@ type UtilsGetLastShortenedLinksResponse struct {
 // UtilsGetLastShortenedLinks returns a list of user's shortened links.
 // https://vk.com/dev/utils.getLastShortenedLinks
 func (vk VK) UtilsGetLastShortenedLinks(params map[string]string) (response UtilsGetLastShortenedLinksResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("utils.getLastShortenedLinks", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("utils.getLastShortenedLinks", params, &response, &vkErr)
 	return
 }
 
@@ -63,16 +42,7 @@ type UtilsGetLinkStatsResponse object.UtilsLinkStats
 // https://vk.com/dev/utils.getLinkStats
 func (vk VK) UtilsGetLinkStats(params map[string]string) (response UtilsGetLinkStatsResponse, vkErr Error) {
 	params["extended"] = "0"
-	rawResponse, vkErr := vk.Request("utils.getLinkStats", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("utils.getLinkStats", params, &response, &vkErr)
 	return
 }
 
@@ -83,16 +53,7 @@ type UtilsGetLinkStatsExtendedResponse object.UtilsLinkStatsExtended
 // https://vk.com/dev/utils.getLinkStats
 func (vk VK) UtilsGetLinkStatsExtended(params map[string]string) (response UtilsGetLinkStatsExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
-	rawResponse, vkErr := vk.Request("utils.getLinkStats", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("utils.getLinkStats", params, &response, &vkErr)
 	return
 }
 
@@ -102,16 +63,7 @@ type UtilsGetServerTimeResponse int
 // UtilsGetServerTime returns the current time of the VK server.
 // https://vk.com/dev/utils.getServerTime
 func (vk VK) UtilsGetServerTime() (response UtilsGetServerTimeResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("utils.getServerTime", make(map[string]string))
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("utils.getServerTime", map[string]string{}, &response, &vkErr)
 	return
 }
 
@@ -121,16 +73,7 @@ type UtilsGetShortLinkResponse object.UtilsShortLink
 // UtilsGetShortLink allows to receive a link shortened via vk.cc.
 // https://vk.com/dev/utils.getShortLink
 func (vk VK) UtilsGetShortLink(params map[string]string) (response UtilsGetShortLinkResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("utils.getShortLink", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("utils.getShortLink", params, &response, &vkErr)
 	return
 }
 
@@ -140,15 +83,6 @@ type UtilsResolveScreenNameResponse object.UtilsDomainResolved
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.
 // https://vk.com/dev/utils.resolveScreenName
 func (vk VK) UtilsResolveScreenName(params map[string]string) (response UtilsResolveScreenNameResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("utils.resolveScreenName", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("utils.resolveScreenName", params, &response, &vkErr)
 	return
 }

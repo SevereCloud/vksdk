@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
-	"encoding/json"
-
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -12,16 +10,7 @@ type BoardAddTopicResponse int
 // BoardAddTopic creates a new topic on a community's discussion board.
 // https://vk.com/dev/board.addTopic
 func (vk VK) BoardAddTopic(params map[string]string) (response BoardAddTopicResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("board.addTopic", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("board.addTopic", params, &response, &vkErr)
 	return
 }
 
@@ -29,7 +18,6 @@ func (vk VK) BoardAddTopic(params map[string]string) (response BoardAddTopicResp
 // https://vk.com/dev/board.closeTopic
 func (vk VK) BoardCloseTopic(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("board.closeTopic", params)
-
 	return
 }
 
@@ -39,16 +27,7 @@ type BoardCreateCommentResponse int
 // BoardCreateComment adds a comment on a topic on a community's discussion board.
 // https://vk.com/dev/board.createComment
 func (vk VK) BoardCreateComment(params map[string]string) (response BoardCreateCommentResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("board.createComment", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("board.createComment", params, &response, &vkErr)
 	return
 }
 
@@ -56,7 +35,6 @@ func (vk VK) BoardCreateComment(params map[string]string) (response BoardCreateC
 // https://vk.com/dev/board.deleteComment
 func (vk VK) BoardDeleteComment(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("board.deleteComment", params)
-
 	return
 }
 
@@ -64,7 +42,6 @@ func (vk VK) BoardDeleteComment(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/board.deleteTopic
 func (vk VK) BoardDeleteTopic(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("board.deleteTopic", params)
-
 	return
 }
 
@@ -72,7 +49,6 @@ func (vk VK) BoardDeleteTopic(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/board.editComment
 func (vk VK) BoardEditComment(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("board.editComment", params)
-
 	return
 }
 
@@ -80,7 +56,6 @@ func (vk VK) BoardEditComment(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/board.editTopic
 func (vk VK) BoardEditTopic(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("board.editTopic", params)
-
 	return
 }
 
@@ -88,7 +63,6 @@ func (vk VK) BoardEditTopic(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/board.fixTopic
 func (vk VK) BoardFixTopic(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("board.fixTopic", params)
-
 	return
 }
 
@@ -104,16 +78,7 @@ type BoardGetCommentsResponse struct {
 // https://vk.com/dev/board.getComments
 func (vk VK) BoardGetComments(params map[string]string) (response BoardGetCommentsResponse, vkErr Error) {
 	params["extended"] = "0"
-	rawResponse, vkErr := vk.Request("board.getComments", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("board.getComments", params, &response, &vkErr)
 	return
 }
 
@@ -131,16 +96,7 @@ type BoardGetCommentsExtendedResponse struct {
 // https://vk.com/dev/board.getComments
 func (vk VK) BoardGetCommentsExtended(params map[string]string) (response BoardGetCommentsExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
-	rawResponse, vkErr := vk.Request("board.getComments", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("board.getComments", params, &response, &vkErr)
 	return
 }
 
@@ -156,16 +112,7 @@ type BoardGetTopicsResponse struct {
 // https://vk.com/dev/board.getTopics
 func (vk VK) BoardGetTopics(params map[string]string) (response BoardGetTopicsResponse, vkErr Error) {
 	params["extended"] = "0"
-	rawResponse, vkErr := vk.Request("board.getTopics", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("board.getTopics", params, &response, &vkErr)
 	return
 }
 
@@ -183,16 +130,7 @@ type BoardGetTopicsExtendedResponse struct {
 // https://vk.com/dev/board.getTopics
 func (vk VK) BoardGetTopicsExtended(params map[string]string) (response BoardGetTopicsExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
-	rawResponse, vkErr := vk.Request("board.getTopics", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("board.getTopics", params, &response, &vkErr)
 	return
 }
 
@@ -200,7 +138,6 @@ func (vk VK) BoardGetTopicsExtended(params map[string]string) (response BoardGet
 // https://vk.com/dev/board.openTopic
 func (vk VK) BoardOpenTopic(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("board.openTopic", params)
-
 	return
 }
 
@@ -208,7 +145,6 @@ func (vk VK) BoardOpenTopic(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/board.restoreComment
 func (vk VK) BoardRestoreComment(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("board.restoreComment", params)
-
 	return
 }
 
@@ -216,6 +152,5 @@ func (vk VK) BoardRestoreComment(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/board.unfixTopic
 func (vk VK) BoardUnfixTopicR(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("board.unfixTopic", params)
-
 	return
 }

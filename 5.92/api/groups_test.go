@@ -92,38 +92,6 @@ func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
 	}
 }
 
-func TestVK_GroupsDisableOnline(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
-	vk := Init(userToken)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantVkErr Error
-	}{
-		{
-			name: "groups.disableOnline",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-			},
-		},
-		{
-			name:      "groups.disableOnline error",
-			wantVkErr: Error{Code: 100},
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.GroupsDisableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.GroupsDisableOnline() = %v, want %v", gotVkErr, tt.wantVkErr)
-			}
-		})
-	}
-}
-
 func TestVK_GroupsEditCallbackServer(t *testing.T) {
 	userToken := os.Getenv("GROUP_TOKEN")
 	if userToken == "" {
@@ -182,6 +150,37 @@ func TestVK_GroupsEnableOnline(t *testing.T) {
 	}
 }
 
+func TestVK_GroupsDisableOnline(t *testing.T) {
+	userToken := os.Getenv("GROUP_TOKEN")
+	if userToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+	vk := Init(userToken)
+
+	tests := []struct {
+		name      string
+		argParams map[string]string
+		wantVkErr Error
+	}{
+		{
+			name: "groups.disableOnline",
+			argParams: map[string]string{
+				"group_id": os.Getenv("GROUP_ID"),
+			},
+		},
+		{
+			name:      "groups.disableOnline error",
+			wantVkErr: Error{Code: 100},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if gotVkErr := vk.GroupsDisableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.GroupsDisableOnline() = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
 func TestVK_GroupsGetBanned(t *testing.T) {
 	userToken := os.Getenv("GROUP_TOKEN")
 	if userToken == "" {
@@ -493,7 +492,7 @@ func TestVK_GroupsGetOnlineStatus(t *testing.T) {
 				"group_id": os.Getenv("GROUP_ID"),
 			},
 			wantResponse: GroupsGetOnlineStatusResponse{
-				Status: "online",
+				Status: "none",
 			},
 		},
 		{

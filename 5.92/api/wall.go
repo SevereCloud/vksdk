@@ -1,7 +1,5 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-import "encoding/json"
-
 // WallCloseCommentsResponse struct
 type WallCloseCommentsResponse struct{}
 
@@ -17,16 +15,7 @@ type WallCreateCommentResponse struct {
 // WallCreateComment Adds a comment to a post on a user wall or community wall.
 // https://vk.com/dev/wall.createComment
 func (vk VK) WallCreateComment(params map[string]string) (response WallCreateCommentResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("wall.createComment", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("wall.createComment", params, &response, &vkErr)
 	return
 }
 
@@ -110,16 +99,7 @@ type WallPostResponse struct {
 // WallPost adds a new post on a user wall or community wall.Can also be used to publish suggested or scheduled posts.
 // https://vk.com/dev/wall.post
 func (vk VK) WallPost(params map[string]string) (response WallPostResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("wall.post", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("wall.post", params, &response, &vkErr)
 	return
 }
 

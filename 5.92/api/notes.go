@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
-	"encoding/json"
-
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -12,16 +10,7 @@ type NotesAddResponse int
 // NotesAdd creates a new note for the current user.
 // https://vk.com/dev/notes.add
 func (vk VK) NotesAdd(params map[string]string) (response NotesAddResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("notes.add", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("notes.add", params, &response, &vkErr)
 	return
 }
 
@@ -31,16 +20,7 @@ type NotesCreateCommentResponse int
 // NotesCreateComment adds a new comment on a note.
 // https://vk.com/dev/notes.createComment
 func (vk VK) NotesCreateComment(params map[string]string) (response NotesCreateCommentResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("notes.createComment", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("notes.createComment", params, &response, &vkErr)
 	return
 }
 
@@ -48,7 +28,6 @@ func (vk VK) NotesCreateComment(params map[string]string) (response NotesCreateC
 // https://vk.com/dev/notes.delete
 func (vk VK) NotesDelete(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("notes.delete", params)
-
 	return
 }
 
@@ -56,7 +35,6 @@ func (vk VK) NotesDelete(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/notes.deleteComment
 func (vk VK) NotesDeleteComment(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("notes.deleteComment", params)
-
 	return
 }
 
@@ -64,7 +42,6 @@ func (vk VK) NotesDeleteComment(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/notes.edit
 func (vk VK) NotesEdit(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("notes.edit", params)
-
 	return
 }
 
@@ -72,7 +49,6 @@ func (vk VK) NotesEdit(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/notes.editComment
 func (vk VK) NotesEditComment(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("notes.editComment", params)
-
 	return
 }
 
@@ -85,16 +61,7 @@ type NotesGetResponse struct {
 // NotesGet returns a list of notes created by a user.
 // https://vk.com/dev/notes.get
 func (vk VK) NotesGet(params map[string]string) (response NotesGetResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("notes.get", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("notes.get", params, &response, &vkErr)
 	return
 }
 
@@ -104,16 +71,7 @@ type NotesGetByIDResponse object.NotesNote
 // NotesGetByID returns a note by its ID.
 // https://vk.com/dev/notes.getById
 func (vk VK) NotesGetByID(params map[string]string) (response NotesGetByIDResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("notes.getById", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("notes.getById", params, &response, &vkErr)
 	return
 }
 
@@ -126,16 +84,7 @@ type NotesGetCommentsResponse struct {
 // NotesGetComments returns a list of comments on a note.
 // https://vk.com/dev/notes.getComments
 func (vk VK) NotesGetComments(params map[string]string) (response NotesGetCommentsResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("notes.getComments", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("notes.getComments", params, &response, &vkErr)
 	return
 }
 
@@ -143,6 +92,5 @@ func (vk VK) NotesGetComments(params map[string]string) (response NotesGetCommen
 // https://vk.com/dev/notes.restoreComment
 func (vk VK) NotesRestoreComment(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("notes.restoreComment", params)
-
 	return
 }

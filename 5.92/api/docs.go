@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
-	"encoding/json"
-
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -12,16 +10,7 @@ type DocsAddResponse int
 // DocsAdd copies a document to a user's or community's document list.
 // https://vk.com/dev/docs.add
 func (vk VK) DocsAdd(params map[string]string) (response DocsAddResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("docs.add", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("docs.add", params, &response, &vkErr)
 	return
 }
 
@@ -29,7 +18,6 @@ func (vk VK) DocsAdd(params map[string]string) (response DocsAddResponse, vkErr 
 // https://vk.com/dev/docs.delete
 func (vk VK) DocsDelete(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("docs.delete", params)
-
 	return
 }
 
@@ -37,7 +25,6 @@ func (vk VK) DocsDelete(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/docs.edit
 func (vk VK) DocsEdit(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("docs.edit", params)
-
 	return
 }
 
@@ -50,16 +37,7 @@ type DocsGetResponse struct {
 // DocsGet returns detailed information about user or community documents.
 // https://vk.com/dev/docs.get
 func (vk VK) DocsGet(params map[string]string) (response DocsGetResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("docs.get", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("docs.get", params, &response, &vkErr)
 	return
 }
 
@@ -69,16 +47,7 @@ type DocsGetByIDResponse []object.DocsDoc
 // DocsGetByID returns information about documents by their IDs.
 // https://vk.com/dev/docs.getById
 func (vk VK) DocsGetByID(params map[string]string) (response DocsGetByIDResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("docs.getById", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("docs.getById", params, &response, &vkErr)
 	return
 }
 
@@ -90,16 +59,7 @@ type DocsGetMessagesUploadServerResponse struct {
 // DocsGetMessagesUploadServer returns the server address for document upload.
 // https://vk.com/dev/docs.getMessagesUploadServer
 func (vk VK) DocsGetMessagesUploadServer(params map[string]string) (response DocsGetMessagesUploadServerResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("docs.getMessagesUploadServer", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("docs.getMessagesUploadServer", params, &response, &vkErr)
 	return
 }
 
@@ -112,16 +72,7 @@ type DocsGetTypesResponse struct {
 // DocsGetTypes returns documents types available for current user.
 // https://vk.com/dev/docs.getTypes
 func (vk VK) DocsGetTypes(params map[string]string) (response DocsGetTypesResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("docs.getTypes", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("docs.getTypes", params, &response, &vkErr)
 	return
 }
 
@@ -133,16 +84,7 @@ type DocsGetUploadServerResponse struct {
 // DocsGetUploadServer returns the server address for document upload.
 // https://vk.com/dev/docs.getUploadServer
 func (vk VK) DocsGetUploadServer(params map[string]string) (response DocsGetUploadServerResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("docs.getUploadServer", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("docs.getUploadServer", params, &response, &vkErr)
 	return
 }
 
@@ -154,16 +96,7 @@ type DocsGetWallUploadServerResponse struct {
 // DocsGetWallUploadServer returns the server address for document upload onto a user's or community's wall.
 // https://vk.com/dev/docs.getWallUploadServer
 func (vk VK) DocsGetWallUploadServer(params map[string]string) (response DocsGetWallUploadServerResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("docs.getWallUploadServer", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("docs.getWallUploadServer", params, &response, &vkErr)
 	return
 }
 
@@ -173,16 +106,7 @@ type DocsSaveResponse []object.DocsDoc
 // DocsSave saves a document after uploading it to a server.
 // https://vk.com/dev/docs.save
 func (vk VK) DocsSave(params map[string]string) (response DocsSaveResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("docs.save", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("docs.save", params, &response, &vkErr)
 	return
 }
 
@@ -195,15 +119,6 @@ type DocsSearchResponse struct {
 // DocsSearch returns a list of documents matching the search criteria.
 // https://vk.com/dev/docs.search
 func (vk VK) DocsSearch(params map[string]string) (response DocsSearchResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("docs.search", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("docs.search", params, &response, &vkErr)
 	return
 }

@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
-	"encoding/json"
-
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -21,16 +19,7 @@ type AccountChangePasswordResponse struct {
 // AccountChangePassword changes a user password after access is successfully restored with the auth.restore method.
 // https://vk.com/dev/account.changePassword
 func (vk VK) AccountChangePassword(params map[string]string) (response AccountChangePasswordResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("account.changePassword", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("account.changePassword", params, &response, &vkErr)
 	return
 }
 
@@ -43,32 +32,14 @@ type AccountGetActiveOffersResponse struct {
 // AccountGetActiveOffers returns a list of active ads (offers).If the user fulfill their conditions, he will be able to get the appropriate number of votes to his balance.
 // https://vk.com/dev/account.getActiveOffers
 func (vk VK) AccountGetActiveOffers(params map[string]string) (response AccountGetActiveOffersResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("account.getActiveOffers", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("account.getActiveOffers", params, &response, &vkErr)
 	return
 }
 
 // AccountGetAppPermissions gets settings of the user in this application.
 // https://vk.com/dev/account.getAppPermissions
 func (vk VK) AccountGetAppPermissions(params map[string]string) (response int, vkErr Error) {
-	rawResponse, vkErr := vk.Request("account.getAppPermissions", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("account.getAppPermissions", params, &response, &vkErr)
 	return
 }
 
@@ -83,16 +54,7 @@ type AccountGetBannedResponse struct {
 // AccountGetBanned returns a user's blacklist.
 // https://vk.com/dev/account.getBanned
 func (vk VK) AccountGetBanned(params map[string]string) (response AccountGetBannedResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("account.getBanned", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("account.getBanned", params, &response, &vkErr)
 	return
 }
 
@@ -114,16 +76,7 @@ type AccountGetCountersResponse struct {
 // AccountGetCounters returns non-null values of user counters.
 // https://vk.com/dev/account.getCounters
 func (vk VK) AccountGetCounters(params map[string]string) (response AccountGetCountersResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("account.getCounters", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("account.getCounters", params, &response, &vkErr)
 	return
 }
 
@@ -141,16 +94,7 @@ type AccountGetInfoResponse struct {
 // AccountGetInfo returns current account info.
 // https://vk.com/dev/account.getInfo
 func (vk VK) AccountGetInfo(params map[string]string) (response AccountGetInfoResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("account.getInfo", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("account.getInfo", params, &response, &vkErr)
 	return
 }
 
@@ -178,16 +122,7 @@ type AccountGetProfileInfoResponse struct {
 // AccountGetProfileInfo returns the current account info.
 // https://vk.com/dev/account.getProfileInfo
 func (vk VK) AccountGetProfileInfo() (response AccountGetProfileInfoResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("account.getProfileInfo", make(map[string]string))
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("account.getProfileInfo", map[string]string{}, &response, &vkErr)
 	return
 }
 
@@ -202,16 +137,7 @@ type AccountGetPushSettingsResponse struct {
 // AccountGetPushSettings account.getPushSettings Gets settings of push notifications.
 // https://vk.com/dev/account.getPushSettings
 func (vk VK) AccountGetPushSettings(params map[string]string) (response AccountGetPushSettingsResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("account.getPushSettings", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("account.getPushSettings", params, &response, &vkErr)
 	return
 }
 
@@ -231,16 +157,7 @@ type AccountSaveProfileInfoResponse struct {
 // AccountSaveProfileInfo edits current profile info.
 // https://vk.com/dev/account.saveProfileInfo
 func (vk VK) AccountSaveProfileInfo(params map[string]string) (response AccountSaveProfileInfoResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("account.saveProfileInfo", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("account.saveProfileInfo", params, &response, &vkErr)
 	return
 }
 

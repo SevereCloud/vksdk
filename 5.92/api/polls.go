@@ -1,7 +1,5 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-import "encoding/json"
-
 // PollsAddVoteResponse struct
 type PollsAddVoteResponse struct{}
 
@@ -55,17 +53,9 @@ type PollsGetVotersResponse []struct {
 
 // PollsGetVoters returns a list of IDs of users who selected specific answers in the poll.
 // https://vk.com/dev/polls.getVoters
+// FIXME: list if no filter
 func (vk VK) PollsGetVoters(params map[string]string) (response PollsGetVotersResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("polls.getVoters", params)
-	if vkErr.Code != 0 {
-		return
-	}
-	// FIXME: list if no filter
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("polls.getVoters", params, &response, &vkErr)
 	return
 }
 

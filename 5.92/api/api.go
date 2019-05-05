@@ -92,6 +92,20 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 	return handler.Response, handler.Error
 }
 
+func (vk VK) requestU(method string, params map[string]string, obj interface{}, vkErr *Error) {
+	rawResponse, rawErr := vk.Request(method, params)
+	*vkErr = rawErr
+	if vkErr.Code != 0 {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &obj)
+	if err != nil {
+		vkErr.Code = -1
+		vkErr.Message = err.Error()
+	}
+}
+
 // Execute a universal method for calling a sequence of other methods while saving and filtering interim results.
 func (vk VK) Execute(Code string) (response []byte, vkErr Error) {
 	p := make(map[string]string)

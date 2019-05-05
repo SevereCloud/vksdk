@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
-	"encoding/json"
-
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -14,16 +12,7 @@ type StatusGetResponse struct {
 
 // StatusGet returns data required to show the status of a user or community.
 func (vk VK) StatusGet(params map[string]string) (response StatusGetResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("status.get", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("status.get", params, &response, &vkErr)
 	return
 }
 

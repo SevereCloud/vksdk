@@ -1,7 +1,5 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-import "encoding/json"
-
 // StreamingGetServerURLResponse struct
 type StreamingGetServerURLResponse struct {
 	Endpoint string `json:"endpoint"`
@@ -11,16 +9,7 @@ type StreamingGetServerURLResponse struct {
 // StreamingGetServerURL allows to receive data for the connection to Streaming API.
 // https://vk.com/dev/streaming.getServerUrl
 func (vk VK) StreamingGetServerURL() (response StreamingGetServerURLResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("streaming.getServerUrl", map[string]string{})
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("streaming.getServerUrl", map[string]string{}, &response, &vkErr)
 	return
 }
 
@@ -32,16 +21,7 @@ type StreamingGetSettingsResponse struct {
 // StreamingGetSettings allows to receive monthly tier for Streaming API.
 // https://vk.com/dev/streaming.getSettings
 func (vk VK) StreamingGetSettings() (response StreamingGetSettingsResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("streaming.getSettings", map[string]string{})
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("streaming.getSettings", map[string]string{}, &response, &vkErr)
 	return
 }
 
@@ -57,16 +37,7 @@ type StreamingGetStatsResponse []struct {
 // StreamingGetStats allows to receive statistics for prepared and received events in Streaming API.
 // https://vk.com/dev/streaming.getStats
 func (vk VK) StreamingGetStats(params map[string]string) (response StreamingGetStatsResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("streaming.getStats", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("streaming.getStats", params, &response, &vkErr)
 	return
 }
 
@@ -78,16 +49,7 @@ type StreamingGetStemResponse struct {
 // StreamingGetStem allows to receive the stem of the word.
 // https://vk.com/dev/streaming.getStem
 func (vk VK) StreamingGetStem(params map[string]string) (response StreamingGetStemResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("streaming.getStem", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("streaming.getStem", params, &response, &vkErr)
 	return
 }
 

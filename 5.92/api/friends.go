@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
-	"encoding/json"
-
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -12,16 +10,7 @@ type FriendsAddResponse int
 // FriendsAdd approves or creates a friend request.
 // https://vk.com/dev/friends.add
 func (vk VK) FriendsAdd(params map[string]string) (response FriendsAddResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.add", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.add", params, &response, &vkErr)
 	return
 }
 
@@ -33,16 +22,7 @@ type FriendsAddListResponse struct {
 // FriendsAddList creates a new friend list for the current user.
 // https://vk.com/dev/friends.addList
 func (vk VK) FriendsAddList(params map[string]string) (response FriendsAddListResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.addList", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.addList", params, &response, &vkErr)
 	return
 }
 
@@ -52,16 +32,7 @@ type FriendsAreFriendsResponse []object.FriendsFriendStatus
 // FriendsAreFriends checks the current user's friendship status with other specified users.
 // https://vk.com/dev/friends.areFriends
 func (vk VK) FriendsAreFriends(params map[string]string) (response FriendsAreFriendsResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.areFriends", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.areFriends", params, &response, &vkErr)
 	return
 }
 
@@ -77,16 +48,7 @@ type FriendsDeleteResponse struct {
 // FriendsDelete declines a friend request or deletes a user from the current user's friend list.
 // https://vk.com/dev/friends.delete
 func (vk VK) FriendsDelete(params map[string]string) (response FriendsDeleteResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.delete", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.delete", params, &response, &vkErr)
 	return
 }
 
@@ -101,7 +63,6 @@ func (vk VK) FriendsDeleteAllRequests() (vkErr Error) {
 // https://vk.com/dev/friends.deleteList
 func (vk VK) FriendsDeleteList(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("friends.deleteList", params)
-
 	return
 }
 
@@ -109,7 +70,6 @@ func (vk VK) FriendsDeleteList(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/friends.edit
 func (vk VK) FriendsEdit(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("friends.edit", params)
-
 	return
 }
 
@@ -117,7 +77,6 @@ func (vk VK) FriendsEdit(params map[string]string) (vkErr Error) {
 // https://vk.com/dev/friends.editList
 func (vk VK) FriendsEditList(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("friends.editList", params)
-
 	return
 }
 
@@ -130,16 +89,7 @@ type FriendsGetResponse struct {
 // FriendsGet returns a list of user IDs or detailed information about a user's friends
 // https://vk.com/dev/friends.get
 func (vk VK) FriendsGet(params map[string]string) (response FriendsGetResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.get", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.get", params, &response, &vkErr)
 	return
 }
 
@@ -149,16 +99,7 @@ type FriendsGetAppUsersResponse []int
 // FriendsGetAppUsers returns a list of IDs of the current user's friends who installed the application.
 // https://vk.com/dev/friends.getAppUsers
 func (vk VK) FriendsGetAppUsers(params map[string]string) (response FriendsGetAppUsersResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("riends.getAppUsers", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("riends.getAppUsers", params, &response, &vkErr)
 	return
 }
 
@@ -168,16 +109,7 @@ type FriendsGetByPhonesResponse []object.UsersUser
 // FriendsGetByPhones returns a list of the current user's friends whose phone numbers, validated or specified in a profile, are in a given list.
 // https://vk.com/dev/friends.getByPhones
 func (vk VK) FriendsGetByPhones(params map[string]string) (response FriendsGetByPhonesResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.getByPhones", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.getByPhones", params, &response, &vkErr)
 	return
 }
 
@@ -193,16 +125,7 @@ type FriendsGetListsResponse struct {
 // FriendsGetLists returns a list of the user's friend lists.
 // https://vk.com/dev/friends.getLists
 func (vk VK) FriendsGetLists(params map[string]string) (response FriendsGetListsResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.getLists", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.getLists", params, &response, &vkErr)
 	return
 }
 
@@ -212,16 +135,7 @@ type FriendsGetMutualResponse []int
 // FriendsGetMutual returns a list of user IDs of the mutual friends of two users.
 // https://vk.com/dev/friends.getMutual
 func (vk VK) FriendsGetMutual(params map[string]string) (response FriendsGetMutualResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.getMutual", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.getMutual", params, &response, &vkErr)
 	return
 }
 
@@ -234,16 +148,7 @@ type FriendsGetOnlineResponse struct {
 // FriendsGetOnline returns a list of user IDs of a user's friends who are online.
 // https://vk.com/dev/friends.getOnline
 func (vk VK) FriendsGetOnline(params map[string]string) (response FriendsGetOnlineResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.getOnline", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.getOnline", params, &response, &vkErr)
 	return
 }
 
@@ -253,16 +158,7 @@ type FriendsGetRecentResponse []int
 // FriendsGetRecent returns a list of user IDs of the current user's recently added friends.
 // https://vk.com/dev/friends.getRecent
 func (vk VK) FriendsGetRecent(params map[string]string) (response FriendsGetRecentResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.getRecent", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.getRecent", params, &response, &vkErr)
 	return
 }
 
@@ -281,16 +177,7 @@ type FriendsGetRequestsResponse struct {
 // FriendsGetRequests returns information about the current user's incoming and outgoing friend requests.
 // https://vk.com/dev/friends.getRequests
 func (vk VK) FriendsGetRequests(params map[string]string) (response FriendsGetRequestsResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.getRequests", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.getRequests", params, &response, &vkErr)
 	return
 }
 
@@ -303,16 +190,7 @@ type FriendsGetSuggestionsResponse struct {
 // FriendsGetSuggestions returns a list of profiles of users whom the current user may know.
 // https://vk.com/dev/friends.getSuggestions
 func (vk VK) FriendsGetSuggestions(params map[string]string) (response FriendsGetSuggestionsResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.getSuggestions", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.getSuggestions", params, &response, &vkErr)
 	return
 }
 
@@ -325,15 +203,6 @@ type FriendsSearchResponse struct {
 // FriendsSearch returns a list of friends matching the search criteria.
 // https://vk.com/dev/friends.search
 func (vk VK) FriendsSearch(params map[string]string) (response FriendsSearchResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("friends.search", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("friends.search", params, &response, &vkErr)
 	return
 }

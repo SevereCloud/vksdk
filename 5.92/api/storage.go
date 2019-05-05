@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
-	"encoding/json"
-
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -16,16 +14,7 @@ func (vk VK) StorageGet(params map[string]string) (response StorageGetResponse, 
 	if !prs {
 		params["keys"] = params["key"]
 	}
-	rawResponse, vkErr := vk.Request("storage.get", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("storage.get", params, &response, &vkErr)
 	return
 }
 
@@ -35,16 +24,7 @@ type StorageGetKeysResponse []string
 // StorageGetKeys returns the names of all variables.
 // https://vk.com/dev/storage.getKeys
 func (vk VK) StorageGetKeys(params map[string]string) (response StorageGetKeysResponse, vkErr Error) {
-	rawResponse, vkErr := vk.Request("storage.getKeys", params)
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &response)
-	if err != nil {
-		panic(err)
-	}
-
+	vk.requestU("storage.getKeys", params, &response, &vkErr)
 	return
 }
 
@@ -52,6 +32,5 @@ func (vk VK) StorageGetKeys(params map[string]string) (response StorageGetKeysRe
 // https://vk.com/dev/storage.set
 func (vk VK) StorageSet(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("storage.set", params)
-
 	return
 }
