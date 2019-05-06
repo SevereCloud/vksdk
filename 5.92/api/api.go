@@ -50,12 +50,7 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 
 	myClient := &http.Client{}
 	if vk.ProxyAddress != "" {
-		dialer, err := proxy.SOCKS5("tcp", vk.ProxyAddress, nil, proxy.Direct)
-		if err != nil {
-			handler.Error.Code = -1
-			handler.Error.Message = err.Error()
-			return handler.Response, handler.Error
-		}
+		dialer, _ := proxy.SOCKS5("tcp", vk.ProxyAddress, nil, proxy.Direct)
 		httpTransport := &http.Transport{}
 		httpTransport.Dial = dialer.Dial
 		myClient.Transport = httpTransport
@@ -86,7 +81,8 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 
 	err = json.Unmarshal(body, &handler)
 	if err != nil {
-		panic(err)
+		handler.Error.Code = -1
+		handler.Error.Message = err.Error()
 	}
 
 	return handler.Response, handler.Error
