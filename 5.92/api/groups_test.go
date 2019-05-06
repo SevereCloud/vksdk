@@ -7,11 +7,11 @@ import (
 )
 
 func TestVK_GroupsAddCallbackServer(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -39,11 +39,11 @@ func TestVK_GroupsAddCallbackServer(t *testing.T) {
 }
 
 func TestVK_GroupsDeleteAddress(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -66,11 +66,11 @@ func TestVK_GroupsDeleteAddress(t *testing.T) {
 }
 
 func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -93,11 +93,11 @@ func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
 }
 
 func TestVK_GroupsEditCallbackServer(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -119,11 +119,11 @@ func TestVK_GroupsEditCallbackServer(t *testing.T) {
 	}
 }
 func TestVK_GroupsEnableOnline(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -151,11 +151,11 @@ func TestVK_GroupsEnableOnline(t *testing.T) {
 }
 
 func TestVK_GroupsDisableOnline(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -182,11 +182,11 @@ func TestVK_GroupsDisableOnline(t *testing.T) {
 	}
 }
 func TestVK_GroupsGetBanned(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -210,11 +210,11 @@ func TestVK_GroupsGetBanned(t *testing.T) {
 }
 
 func TestVK_GroupsGetByID(t *testing.T) {
-	userToken := os.Getenv("SERVICE_TOKEN")
-	if userToken == "" {
+	serviceToken := os.Getenv("SERVICE_TOKEN")
+	if serviceToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -250,11 +250,11 @@ func TestVK_GroupsGetByID(t *testing.T) {
 }
 
 func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -287,11 +287,11 @@ func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
 }
 
 func TestVK_GroupsGetCallbackServers(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -323,11 +323,11 @@ func TestVK_GroupsGetCallbackServers(t *testing.T) {
 }
 
 func TestVK_GroupsGetCallbackSettings(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -350,11 +350,11 @@ func TestVK_GroupsGetCallbackSettings(t *testing.T) {
 }
 
 func TestVK_GroupsGetLongPollServer(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -386,11 +386,11 @@ func TestVK_GroupsGetLongPollServer(t *testing.T) {
 }
 
 func TestVK_GroupsGetLongPollSettings(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -419,11 +419,11 @@ func TestVK_GroupsGetLongPollSettings(t *testing.T) {
 }
 
 func TestVK_GroupsGetMembers(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -446,11 +446,11 @@ func TestVK_GroupsGetMembers(t *testing.T) {
 }
 
 func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -474,11 +474,11 @@ func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
 }
 
 func TestVK_GroupsGetOnlineStatus(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -514,11 +514,11 @@ func TestVK_GroupsGetOnlineStatus(t *testing.T) {
 }
 
 func TestVK_GroupsGetTokenPermissions(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	gotResponse, gotVkErr := vk.GroupsGetTokenPermissions()
 	if gotResponse.Mask == 0 {
@@ -535,11 +535,11 @@ func TestVK_GroupsGetTokenPermissions(t *testing.T) {
 }
 
 func TestVK_GroupsSetCallbackSettings(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -561,11 +561,11 @@ func TestVK_GroupsSetCallbackSettings(t *testing.T) {
 }
 
 func TestVK_GroupsSetLongPollSettings(t *testing.T) {
-	userToken := os.Getenv("GROUP_TOKEN")
-	if userToken == "" {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(userToken)
+	vk := Init(groupToken)
 	tests := []struct {
 		name      string
 		argParams map[string]string
