@@ -302,11 +302,11 @@ func TestVK_UtilsResolveScreenName(t *testing.T) {
 				ObjectID: 1,
 			},
 		},
-		// {
-		// 	name:         "utils.resolveScreenName not found",
-		// 	argParams:    map[string]string{"screen_name": "z"},
-		// 	wantResponse: UtilsResolveScreenNameResponse{},
-		// },
+		{
+			name:         "utils.resolveScreenName not found",
+			argParams:    map[string]string{"screen_name": "z"},
+			wantResponse: UtilsResolveScreenNameResponse{},
+		},
 		{
 			name:      "utils.resolveScreenName error",
 			wantVkErr: Error{Code: 100},

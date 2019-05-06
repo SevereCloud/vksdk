@@ -1,6 +1,8 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
+	"encoding/json"
+
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
@@ -9,7 +11,6 @@ type UtilsCheckLinkResponse object.UtilsLinkChecked
 
 // UtilsCheckLink checks whether a link is blocked in VK.
 // https://vk.com/dev/utils.checkLink
-// FIXME: Если короткое имя screen_name не занято, то будет возвращён пустой объект.
 func (vk VK) UtilsCheckLink(params map[string]string) (response UtilsCheckLinkResponse, vkErr Error) {
 	vk.requestU("utils.checkLink", params, &response, &vkErr)
 	return
@@ -83,6 +84,17 @@ type UtilsResolveScreenNameResponse object.UtilsDomainResolved
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.
 // https://vk.com/dev/utils.resolveScreenName
 func (vk VK) UtilsResolveScreenName(params map[string]string) (response UtilsResolveScreenNameResponse, vkErr Error) {
-	vk.requestU("utils.resolveScreenName", params, &response, &vkErr)
+	rawResponse, vkErr := vk.Request("utils.resolveScreenName", params)
+	// Если короткое имя screen_name не занято, то будет возвращён пустой объект.
+	if vkErr.Code != 0 || string(rawResponse) == "[]" {
+		return
+	}
+
+	err := json.Unmarshal(rawResponse, &response)
+	if err != nil {
+		vkErr.Code = -1
+		vkErr.Message = err.Error()
+	}
+
 	return
 }
