@@ -1,9 +1,12 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
+// AuthCheckResponse struct
+type AuthCheckResponse int
+
 // AuthCheckPhone checks a user's phone number for correctness.
 // https://vk.com/dev/auth.checkPhone
-func (vk VK) AuthCheckPhone(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("auth.checkPhone", params)
+func (vk VK) AuthCheckPhone(params map[string]string) (response AuthCheckResponse, vkErr Error) {
+	vk.requestU("auth.checkPhone", params, &response, &vkErr)
 	return
 }
 
