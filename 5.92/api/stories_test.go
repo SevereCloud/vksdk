@@ -19,11 +19,11 @@ func TestVK_StoriesDelete(t *testing.T) {
 		wantVkErr Error
 	}{
 		// TODO: Add test cases.
-		{
-			name:      "StoriesDelete error",
-			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
-		},
+		// {
+		// 	name:      "StoriesDelete error",
+		// 	argParams: map[string]string{},
+		// 	wantVkErr: Error{Code: 100},
+		// },
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
