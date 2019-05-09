@@ -6,16 +6,16 @@ import (
 
 // NotificationsGetResponse struct
 type NotificationsGetResponse struct {
-	Count      int                  `json:"count"`
-	Items      []interface{}        `json:"items"`
-	Profiles   []object.UsersUser   `json:"profiles"`
-	Groups     []object.GroupsGroup `json:"groups"`
-	Photos     []object.PhotosPhoto `json:"photos"`
-	Videos     []object.VideoVideo  `json:"videos"`
-	Apps       []object.AppsApp     `json:"apps"`
-	LastViewed int                  `json:"last_viewed"`
-	NextFrom   string               `json:"next_from"`
-	TTL        int                  `json:"ttl"`
+	Count      int                                `json:"count"`
+	Items      []object.NotificationsNotification `json:"items"`
+	Profiles   []object.UsersUser                 `json:"profiles"`
+	Groups     []object.GroupsGroup               `json:"groups"`
+	Photos     []object.PhotosPhoto               `json:"photos"`
+	Videos     []object.VideoVideo                `json:"videos"`
+	Apps       []object.AppsApp                   `json:"apps"`
+	LastViewed int                                `json:"last_viewed"`
+	NextFrom   string                             `json:"next_from"`
+	TTL        int                                `json:"ttl"`
 }
 
 // NotificationsGet returns a list of notifications about other users' feedback to the current user's wall posts.

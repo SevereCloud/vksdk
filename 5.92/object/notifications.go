@@ -1,5 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import "encoding/json"
+
 type notificationsFeedback struct {
 	Attachments []wallWallpostAttachment `json:"attachments"`
 	FromID      int                      `json:"from_id"`
@@ -10,15 +12,13 @@ type notificationsFeedback struct {
 	ToID        int                      `json:"to_id"`
 }
 
-type notificationsNotification struct {
-	Date     int                             `json:"date"`
-	Feedback notificationsFeedback           `json:"feedback"`
-	Parent   notificationsNotificationParent `json:"parent"`
-	Reply    notificationsReply              `json:"reply"`
-	Type     string                          `json:"type"`
-}
-
-type notificationsNotificationParent struct {
+// NotificationsNotification struct
+type NotificationsNotification struct {
+	Date     int                `json:"date"`
+	Feedback json.RawMessage    `json:"feedback"`
+	Parent   json.RawMessage    `json:"parent"`
+	Reply    notificationsReply `json:"reply"`
+	Type     string             `json:"type"`
 }
 
 type notificationsNotificationsComment struct {
@@ -33,7 +33,7 @@ type notificationsNotificationsComment struct {
 }
 
 type notificationsReply struct {
-	Date int `json:"date"`
-	ID   int `json:"id"`
-	Text int `json:"text"`
+	Date string `json:"date"`
+	ID   int    `json:"id"`
+	Text string `json:"text"`
 }
