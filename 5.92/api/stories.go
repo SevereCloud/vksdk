@@ -24,7 +24,7 @@ type StoriesGetResponse struct {
 
 // StoriesGet returns stories available for current user.
 // https://vk.com/dev/stories.get
-func (vk VK) StoriesGet(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGet(params map[string]string) (response StoriesGetResponse, vkErr Error) {
 	params["extended"] = "0"
 	vk.requestU("stories.get", params, &response, &vkErr)
 	return
@@ -40,7 +40,7 @@ type StoriesGetExtendedResponse struct {
 
 // StoriesGetExtended returns stories available for current user.
 // https://vk.com/dev/stories.get
-func (vk VK) StoriesGetExtended(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetExtended(params map[string]string) (response StoriesGetExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
 	vk.requestU("stories.get", params, &response, &vkErr)
 	return
@@ -54,7 +54,7 @@ type StoriesGetBannedResponse struct {
 
 // StoriesGetBanned returns list of sources hidden from current user's feed.
 // https://vk.com/dev/stories.getBanned
-func (vk VK) StoriesGetBanned(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetBanned(params map[string]string) (response StoriesGetBannedResponse, vkErr Error) {
 	params["extended"] = "0"
 	vk.requestU("stories.getBanned", params, &response, &vkErr)
 	return
@@ -70,7 +70,7 @@ type StoriesGetBannedExtendedResponse struct {
 
 // StoriesGetBannedExtended returns list of sources hidden from current user's feed.
 // https://vk.com/dev/stories.getBanned
-func (vk VK) StoriesGetBannedExtended(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetBannedExtended(params map[string]string) (response StoriesGetBannedExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
 	vk.requestU("stories.getBanned", params, &response, &vkErr)
 	return
@@ -84,7 +84,7 @@ type StoriesGetByIDResponse struct {
 
 // StoriesGetByID returns story by its ID.
 // https://vk.com/dev/stories.getById
-func (vk VK) StoriesGetByID(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetByID(params map[string]string) (response StoriesGetByIDResponse, vkErr Error) {
 	params["extended"] = "0"
 	vk.requestU("stories.getById", params, &response, &vkErr)
 	return
@@ -100,7 +100,7 @@ type StoriesGetByIDExtendedResponse struct {
 
 // StoriesGetByIDExtended returns story by its ID.
 // https://vk.com/dev/stories.getById
-func (vk VK) StoriesGetByIDExtended(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetByIDExtended(params map[string]string) (response StoriesGetByIDExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
 	vk.requestU("stories.getById", params, &response, &vkErr)
 	return
@@ -115,7 +115,7 @@ type StoriesGetPhotoUploadServerResponse struct {
 
 // StoriesGetPhotoUploadServer returns URL for uploading a story with photo.
 // https://vk.com/dev/stories.getPhotoUploadServer
-func (vk VK) StoriesGetPhotoUploadServer(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetPhotoUploadServer(params map[string]string) (response StoriesGetPhotoUploadServerResponse, vkErr Error) {
 	vk.requestU("stories.getPhotoUploadServer", params, &response, &vkErr)
 	return
 }
@@ -128,7 +128,7 @@ type StoriesGetRepliesResponse struct {
 
 // StoriesGetReplies returns replies to the story.
 // https://vk.com/dev/stories.getReplies
-func (vk VK) StoriesGetReplies(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetReplies(params map[string]string) (response StoriesGetRepliesResponse, vkErr Error) {
 	params["extended"] = "0"
 	vk.requestU("stories.getReplies", params, &response, &vkErr)
 	return
@@ -144,7 +144,7 @@ type StoriesGetRepliesExtendedResponse struct {
 
 // StoriesGetRepliesExtended returns replies to the story.
 // https://vk.com/dev/stories.getReplies
-func (vk VK) StoriesGetRepliesExtended(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetRepliesExtended(params map[string]string) (response StoriesGetRepliesExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
 	vk.requestU("stories.getReplies", params, &response, &vkErr)
 	return
@@ -155,7 +155,7 @@ type StoriesGetStatsResponse object.StoriesStoryStats
 
 // StoriesGetStats return statistics data for the story.
 // https://vk.com/dev/stories.getStats
-func (vk VK) StoriesGetStats(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetStats(params map[string]string) (response StoriesGetStatsResponse, vkErr Error) {
 	vk.requestU("stories.getStats", params, &response, &vkErr)
 	return
 }
@@ -169,7 +169,7 @@ type StoriesGetVideoUploadServerResponse struct {
 
 // StoriesGetVideoUploadServer allows to receive URL for uploading story with video.
 // https://vk.com/dev/stories.getVideoUploadServer
-func (vk VK) StoriesGetVideoUploadServer(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetVideoUploadServer(params map[string]string) (response StoriesGetVideoUploadServerResponse, vkErr Error) {
 	vk.requestU("stories.getVideoUploadServer", params, &response, &vkErr)
 	return
 }
@@ -182,7 +182,7 @@ type StoriesGetViewersResponse struct {
 
 // StoriesGetViewers returns a list of story viewers.
 // https://vk.com/dev/stories.getViewers
-func (vk VK) StoriesGetViewers(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetViewers(params map[string]string) (response StoriesGetViewersResponse, vkErr Error) {
 	params["extended"] = "0"
 	vk.requestU("stories.getViewers", params, &response, &vkErr)
 	return
@@ -196,7 +196,7 @@ type StoriesGetViewersExtendedResponse struct {
 
 // StoriesGetViewersExtended returns a list of story viewers.
 // https://vk.com/dev/stories.getViewers
-func (vk VK) StoriesGetViewersExtended(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
+func (vk VK) StoriesGetViewersExtended(params map[string]string) (response StoriesGetViewersExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
 	vk.requestU("stories.getViewers", params, &response, &vkErr)
 	return
