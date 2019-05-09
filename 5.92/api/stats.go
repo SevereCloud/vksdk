@@ -1,19 +1,32 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-// StatsGetResponse struct
-type StatsGetResponse struct{}
+import (
+	"github.com/SevereCloud/vksdk/5.92/object"
+)
 
-// TODO: stats.get returns statistics of a community or an application.
+// StatsGetResponse struct
+type StatsGetResponse []object.StatsPeriod
+
+// StatsGet returns statistics of a community or an application.
 // https://vk.com/dev/stats.get
+func (vk VK) StatsGet(params map[string]string) (response StatsGetResponse, vkErr Error) {
+	vk.requestU("stats.get", params, &response, &vkErr)
+	return
+}
 
 // StatsGetPostReachResponse struct
-type StatsGetPostReachResponse struct{}
+type StatsGetPostReachResponse []object.StatsWallpostStat
 
-// TODO: stats.getPostReach returns stats for a wall post.
+// StatsGetPostReach returns stats for a wall post.
 // https://vk.com/dev/stats.getPostReach
+func (vk VK) StatsGetPostReach(params map[string]string) (response StatsGetPostReachResponse, vkErr Error) {
+	vk.requestU("stats.getPostReach", params, &response, &vkErr)
+	return
+}
 
-// StatsTrackVisitorResponse struct
-type StatsTrackVisitorResponse struct{}
-
-// TODO: stats.trackVisitor adds current session's data in the application statistics.
+// StatsTrackVisitor adds current session's data in the application statistics.
 // https://vk.com/dev/stats.trackVisitor
+func (vk VK) StatsTrackVisitor(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("stats.trackVisitor", params)
+	return
+}

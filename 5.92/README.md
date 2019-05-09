@@ -123,7 +123,7 @@ fmt.Print(S.Text)
 - [ ] Prettycards 0/6
 - [x] Search 1/1
 - [ ] Secure 0/0
-- [ ] Stats 0/3
+- [x] Stats 3/3
 - [x] Status 2/2
 - [x] Storage 3/3
 - [x] Stories 18/18
