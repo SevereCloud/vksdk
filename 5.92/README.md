@@ -121,7 +121,7 @@ fmt.Print(S.Text)
 - [ ] Places 0/0
 - [ ] Polls 0/9
 - [ ] Prettycards 0/6
-- [ ] Search 0/1
+- [x] Search 1/1
 - [ ] Secure 0/0
 - [ ] Stats 0/3
 - [x] Status 2/2
