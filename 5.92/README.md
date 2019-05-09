@@ -126,7 +126,7 @@ fmt.Print(S.Text)
 - [ ] Stats 0/3
 - [x] Status 2/2
 - [x] Storage 3/3
-- [ ] Stories 0/17
+- [x] Stories 18/18
 - [x] Streaming 5/5
 - [x] Users 7/7
 - [x] Utils 8/8
