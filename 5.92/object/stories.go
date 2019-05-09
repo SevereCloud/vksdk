@@ -87,9 +87,9 @@ type StoriesStory struct {
 	Replies []*storiesReplies `json:"replies,omitempty"`
 
 	// Information whether current user has seen the story or not (0 - no, 1 - yes).
-	Seen  int                `json:"seen,omitempty"`
-	Type  string             `json:"type,omitempty"`
-	Video *storiesStoryVideo `json:"video,omitempty"`
+	Seen  int         `json:"seen,omitempty"`
+	Type  string      `json:"type,omitempty"`
+	Video *VideoVideo `json:"video,omitempty"`
 
 	// Views number.
 	Views int `json:"views,omitempty"`
