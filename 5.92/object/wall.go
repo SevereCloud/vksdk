@@ -151,7 +151,7 @@ type wallWallpostAttachment struct {
 	Page              PagesWikipageFull `json:"page"`
 	Photo             PhotosPhoto       `json:"photo"`
 	PhotosList        []string          `json:"photos_list"`
-	Poll              pollsPoll         `json:"poll"`
+	Poll              PollsPoll         `json:"poll"`
 	PostedPhoto       wallPostedPhoto   `json:"posted_photo"`
 	Type              string            `json:"type"`
 	Video             VideoVideo        `json:"video"`

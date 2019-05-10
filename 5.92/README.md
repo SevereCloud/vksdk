@@ -119,7 +119,7 @@ fmt.Print(S.Text)
 - [x] Pages 8/8
 - [ ] Photos 0/51
 - [ ] Places 0/0
-- [ ] Polls 0/9
+- [x] Polls 10/10
 - [ ] Prettycards 0/6
 - [x] Search 1/1
 - [ ] Secure 0/0
