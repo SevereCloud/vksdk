@@ -5,10 +5,14 @@ import (
 )
 
 // GroupsAddAddressResponse struct
-type GroupsAddAddressResponse struct{}
+type GroupsAddAddressResponse object.GroupsAddress
 
-// TODO: GroupsAddAddress
+// GroupsAddAddress groups.addAddress
 // https://vk.com/dev/groups.addAddress
+func (vk VK) GroupsAddAddress(params map[string]string) (response GroupsAddAddressResponse, vkErr Error) {
+	vk.requestU("groups.addAddress", params, &response, &vkErr)
+	return
+}
 
 // GroupsAddCallbackServerResponse struct
 type GroupsAddCallbackServerResponse struct {
@@ -92,10 +96,14 @@ func (vk VK) GroupsEdit(params map[string]string) (vkErr Error) {
 }
 
 // GroupsEditAddressResponse struct
-type GroupsEditAddressResponse struct{}
+type GroupsEditAddressResponse object.GroupsAddress
 
-// TODO: GroupsEditAddress
+// GroupsEditAddress groups.editAddress
 // https://vk.com/dev/groups.editAddress
+func (vk VK) GroupsEditAddress(params map[string]string) (response GroupsEditAddressResponse, vkErr Error) {
+	vk.requestU("groups.editAddress", params, &response, &vkErr)
+	return
+}
 
 // GroupsEditCallbackServer edits Callback API server in the community.
 // https://vk.com/dev/groups.editCallbackServer
@@ -154,10 +162,17 @@ func (vk VK) GroupsGetExtended(params map[string]string) (response GroupsGetExte
 }
 
 // GroupsGetAddressesResponse struct
-type GroupsGetAddressesResponse struct{}
+type GroupsGetAddressesResponse struct {
+	Count int                    `json:"count"`
+	Items []object.GroupsAddress `json:"items"`
+}
 
-// TODO: GroupsGetAddresses
+// GroupsGetAddresses groups.getAddresses
 // https://vk.com/dev/groups.getAddresses
+func (vk VK) GroupsGetAddresses(params map[string]string) (response GroupsGetAddressesResponse, vkErr Error) {
+	vk.requestU("groups.getAddresses", params, &response, &vkErr)
+	return
+}
 
 // GroupsGetBannedResponse struct
 type GroupsGetBannedResponse struct {

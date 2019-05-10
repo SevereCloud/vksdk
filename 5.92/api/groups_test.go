@@ -591,3 +591,99 @@ func TestVK_GroupsSetLongPollSettings(t *testing.T) {
 		})
 	}
 }
+
+func TestVK_GroupsGetAddresses(t *testing.T) {
+	serviceToken := os.Getenv("SERVICE_TOKEN")
+	if serviceToken == "" {
+		t.Skip("SERVICE_TOKEN empty")
+	}
+	vk := Init(serviceToken)
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse GroupsGetAddressesResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "groups.getAddresses error",
+			wantVkErr: Error{Code: 100},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vk.GroupsGetAddresses(tt.argParams)
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.GroupsGetAddresses() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.GroupsGetAddresses() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_GroupsEditAddress(t *testing.T) {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+	vk := Init(groupToken)
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse GroupsEditAddressResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "groups.editAddresses error",
+			wantVkErr: Error{Code: 100},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vk.GroupsEditAddress(tt.argParams)
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.GroupsEditAddress() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.GroupsEditAddress() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_GroupsAddAddress(t *testing.T) {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+	vk := Init(groupToken)
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse GroupsAddAddressResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "groups.addAddresses error",
+			wantVkErr: Error{Code: 100},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vk.GroupsAddAddress(tt.argParams)
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.GroupsAddAddress() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.GroupsAddAddress() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}

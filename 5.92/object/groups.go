@@ -1,5 +1,48 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+// GroupsAddress struct
+type GroupsAddress struct {
+	AdditionalAddress string                 `json:"additional_address"` // Additional address to the place (6 floor, left door)
+	Address           string                 `json:"address"`            // String address to the place (Nevsky, 28)
+	CityID            int                    `json:"city_id"`            // City id of address
+	CountryID         int                    `json:"country_id"`         // Country id of address
+	Distance          int                    `json:"distance"`           // Distance from the point
+	ID                int                    `json:"id"`                 // Address id
+	Latitude          float64                `json:"latitude"`           // Address latitude
+	Longitude         float64                `json:"longitude"`          // Address longitude
+	MetroStationID    int                    `json:"metro_station_id"`   // Metro id of address
+	Phone             string                 `json:"phone"`              // Address phone
+	TimeOffset        int                    `json:"time_offset"`        // Time offset int minutes from utc time
+	Timetable         groupsAddressTimetable `json:"timetable"`          // Week timetable for the address
+	Title             string                 `json:"title"`              // Title of the place (Zinger, etc)
+	WorkInfoStatus    string                 `json:"work_info_status"`   // Status of information about timetable
+}
+
+// groupsAddressTimetable Timetable for a week
+type groupsAddressTimetable struct {
+	Fri groupsAddressTimetableDay `json:"fri"` // Timetable for friday
+	Mon groupsAddressTimetableDay `json:"mon"` // Timetable for monday
+	Sat groupsAddressTimetableDay `json:"sat"` // Timetable for saturday
+	Sun groupsAddressTimetableDay `json:"sun"` // Timetable for sunday
+	Thu groupsAddressTimetableDay `json:"thu"` // Timetable for thursday
+	Tue groupsAddressTimetableDay `json:"tue"` // Timetable for tuesday
+	Wed groupsAddressTimetableDay `json:"wed"` // Timetable for wednesday
+}
+
+// groupsAddressTimetableDay Timetable for one day
+type groupsAddressTimetableDay struct {
+	BreakCloseTime int `json:"break_close_time"` // Close time of the break in minutes
+	BreakOpenTime  int `json:"break_open_time"`  // Start time of the break in minutes
+	CloseTime      int `json:"close_time"`       // Close time in minutes
+	OpenTime       int `json:"open_time"`        // Open time in minutes
+}
+
+// GroupsAddressesInfo struct
+type GroupsAddressesInfo struct {
+	IsEnabled     bool `json:"is_enabled"`      // Information whether addresses is enabled
+	MainAddressID int  `json:"main_address_id"` // Main address id for group
+}
+
 // GroupsGroup struct
 type GroupsGroup struct {
 	AdminLevel   int    `json:"admin_level"`
@@ -129,7 +172,7 @@ type GroupsGroupSettings struct {
 	Market             struct {
 		Enabled         int   `json:"enabled"`
 		CommentsEnabled int   `json:"comments_enabled"`
-		CountryIds      []int `json:"country_ids"`
+		CountryIDs      []int `json:"country_ids"`
 		ContactID       int   `json:"contact_id"`
 		Currency        struct {
 			ID   int    `json:"id"`
