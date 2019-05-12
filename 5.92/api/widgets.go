@@ -1,13 +1,31 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-// WidgetsGetCommentsResponse struct
-type WidgetsGetCommentsResponse struct{}
+import (
+	"github.com/SevereCloud/vksdk/5.92/object"
+)
 
-// TODO: widgets.getComments gets a list of comments for the page added through the Comments widget.
+// WidgetsGetCommentsResponse struct
+type WidgetsGetCommentsResponse struct {
+	Count int                           `json:"count"`
+	Posts []object.WidgetsWidgetComment `json:"posts"`
+}
+
+// WidgetsGetComments gets a list of comments for the page added through the Comments widget.
 // https://vk.com/dev/widgets.getComments
+func (vk VK) WidgetsGetComments(params map[string]string) (response WidgetsGetCommentsResponse, vkErr Error) {
+	vk.requestU("widgets.getComments", params, &response, &vkErr)
+	return
+}
 
 // WidgetsGetPagesResponse struct
-type WidgetsGetPagesResponse struct{}
+type WidgetsGetPagesResponse struct {
+	Count int                        `json:"count"`
+	Pages []object.WidgetsWidgetPage `json:"pages"`
+}
 
-// TODO: widgets.getPages gets a list of application/site pages where the Comments widget or Like widget is installed.
+// WidgetsGetPages gets a list of application/site pages where the Comments widget or Like widget is installed.
 // https://vk.com/dev/widgets.getPages
+func (vk VK) WidgetsGetPages(params map[string]string) (response WidgetsGetPagesResponse, vkErr Error) {
+	vk.requestU("widgets.getPages", params, &response, &vkErr)
+	return
+}

@@ -13,9 +13,10 @@ type widgetsCommentMediaType string
 
 // WidgetsCommentReplies struct
 type widgetsCommentReplies struct {
-	CanPost int                         `json:"can_post"` // Information whether current user can comment the post
-	Count   int                         `json:"count"`    // Comments number
-	Replies []widgetsCommentRepliesItem `json:"replies"`
+	CanPost       int                         `json:"can_post"` // Information whether current user can comment the post
+	Count         int                         `json:"count"`    // Comments number
+	Replies       []widgetsCommentRepliesItem `json:"replies"`
+	GroupsCanPost bool                        `json:"groups_can_post"`
 }
 
 // WidgetsCommentRepliesItem struct
@@ -29,7 +30,7 @@ type widgetsCommentRepliesItem struct {
 }
 
 // WidgetsWidgetComment struct
-type widgetsWidgetComment struct {
+type WidgetsWidgetComment struct {
 	Attachments []wallCommentAttachment `json:"attachments"`
 	CanDelete   int                     `json:"can_delete"` // Information whether current user can delete the comment
 	Comments    widgetsCommentReplies   `json:"comments"`
@@ -38,12 +39,20 @@ type widgetsWidgetComment struct {
 	ID          int                     `json:"id"`      // Comment ID
 	Likes       baseLikesInfo           `json:"likes"`
 	Media       widgetsCommentMedia     `json:"media"`
-	PostSource  wallPostSource          `json:"post_source"`
 	PostType    int                     `json:"post_type"` // Post type
 	Reposts     baseRepostsInfo         `json:"reposts"`
 	Text        string                  `json:"text"`  // Comment text
 	ToID        int                     `json:"to_id"` // Wall owner
-	User        UsersUser               `json:"user"`
+	PostSource  struct {
+		Link struct {
+			URL         string `json:"url"`
+			Title       string `json:"title"`
+			Description string `json:"description"`
+		} `json:"link"`
+		Type string `json:"type"`
+		Data string `json:"data"`
+	} `json:"post_source"`
+	IsFavorite bool `json:"is_favorite"`
 }
 
 // WidgetsWidgetLikes struct
@@ -52,14 +61,14 @@ type widgetsWidgetLikes struct {
 }
 
 // WidgetsWidgetPage struct
-type widgetsWidgetPage struct {
-	Comments    *BaseObjectCount `json:"comments,omitempty"`
-	Date        int              `json:"date,omitempty"`        // Date when widgets on the page has been initialized firstly in Unixtime
-	Description string           `json:"description,omitempty"` // Page description
-	ID          int              `json:"id,omitempty"`          // Page ID
-	Likes       *BaseObjectCount `json:"likes,omitempty"`
-	PageID      string           `json:"page_id,omitempty"` // page_id parameter value
-	Photo       string           `json:"photo,omitempty"`   // URL of the preview image
-	Title       string           `json:"title,omitempty"`   // Page title
-	URL         string           `json:"url,omitempty"`     // Page absolute URL
+type WidgetsWidgetPage struct {
+	Comments    widgetsWidgetLikes `json:"comments,omitempty"`
+	Date        int                `json:"date,omitempty"`        // Date when widgets on the page has been initialized firstly in Unixtime
+	Description string             `json:"description,omitempty"` // Page description
+	ID          int                `json:"id,omitempty"`          // Page ID
+	Likes       widgetsWidgetLikes `json:"likes,omitempty"`
+	PageID      string             `json:"page_id,omitempty"` // page_id parameter value
+	Photo       string             `json:"photo,omitempty"`   // URL of the preview image
+	Title       string             `json:"title,omitempty"`   // Page title
+	URL         string             `json:"url,omitempty"`     // Page absolute URL
 }

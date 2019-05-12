@@ -133,4 +133,4 @@ fmt.Print(S.Text)
 - [ ] Video 0/29
 - [ ] Podcasts 0/0
 - [ ] Wall 0/27
-- [ ] Widgets 0/2
+- [x] Widgets 2/2
