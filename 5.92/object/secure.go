@@ -1,29 +1,29 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 type secureLevel struct {
-	Level int `json:"level"`
-	UID   int `json:"uid"`
+	Level int `json:"level"` // Level
+	UID   int `json:"uid"`   // User ID
 }
 
 type secureSmsNotification struct {
-	AppID   int    `json:"app_id"`
-	Date    int    `json:"date"`
-	ID      int    `json:"id"`
-	Message string `json:"message"`
-	UserID  int    `json:"user_id"`
+	AppID   int    `json:"app_id"`  // Application ID
+	Date    int    `json:"date"`    // Date when message has been sent in Unixtime
+	ID      int    `json:"id"`      // Notification ID
+	Message string `json:"message"` // Messsage text
+	UserID  int    `json:"user_id"` // User ID
 }
 
 type secureTokenChecked struct {
-	Date    int `json:"date"`
-	Expire  int `json:"expire"`
-	Success int `json:"success"`
-	UserID  int `json:"user_id"`
+	Date    int `json:"date"`    // Date when access_token has been generated in Unixtime
+	Expire  int `json:"expire"`  // Date when access_token will expire in Unixtime
+	Success int `json:"success"` // Returns if successfully processed
+	UserID  int `json:"user_id"` // User ID
 }
 
 type secureTransaction struct {
-	Date    int `json:"date"`
-	ID      int `json:"id"`
-	UIDFrom int `json:"uid_from"`
-	UIDTo   int `json:"uid_to"`
-	Votes   int `json:"votes"`
+	Date    int `json:"date"`     // Transaction date in Unixtime
+	ID      int `json:"id"`       // Transaction ID
+	UIDFrom int `json:"uid_from"` // From ID
+	UIDTo   int `json:"uid_to"`   // To ID
+	Votes   int `json:"votes"`    // Votes number
 }

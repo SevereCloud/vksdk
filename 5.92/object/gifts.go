@@ -2,19 +2,19 @@ package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 // GiftsGift struct
 type GiftsGift struct {
-	Date     int         `json:"date"`
-	FromID   int         `json:"from_id"`
+	Date     int         `json:"date"`    // Date when gist has been sent in Unixtime
+	FromID   int         `json:"from_id"` // Gift sender ID
 	Gift     GiftsLayout `json:"gift"`
-	GiftHash string      `json:"gift_hash"`
-	ID       int         `json:"id"`
-	Message  string      `json:"message"`
+	GiftHash string      `json:"gift_hash"` // Hash
+	ID       int         `json:"id"`        // Gift ID
+	Message  string      `json:"message"`   // Comment text
 	Privacy  int         `json:"privacy"`
 }
 
 // GiftsLayout struct
 type GiftsLayout struct {
 	ID       int    `json:"id"`
-	Thumb256 string `json:"thumb_256"`
-	Thumb48  string `json:"thumb_48"`
-	Thumb96  string `json:"thumb_96"`
+	Thumb256 string `json:"thumb_256"` // URL of the preview image with 256 px in width
+	Thumb48  string `json:"thumb_48"`  // URL of the preview image with 48 px in width
+	Thumb96  string `json:"thumb_96"`  // URL of the preview image with 96 px in width
 }

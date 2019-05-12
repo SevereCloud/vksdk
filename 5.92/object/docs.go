@@ -2,16 +2,17 @@ package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 // DocsDoc struct
 type DocsDoc struct {
-	AccessKey string         `json:"access_key"`
-	Date      int            `json:"date"`
-	Ext       string         `json:"ext"`
-	ID        int            `json:"id"`
-	OwnerID   int            `json:"owner_id"`
-	Preview   docsDocPreview `json:"preview"`
-	Size      int            `json:"size"`
-	Title     string         `json:"title"`
-	Type      int            `json:"type"`
-	URL       string         `json:"url"`
+	AccessKey  string         `json:"access_key"` // Access key for the document
+	Date       int            `json:"date"`       // Date when file has been uploaded in Unixtime
+	Ext        string         `json:"ext"`        // File extension
+	ID         int            `json:"id"`         // Document ID
+	IsLicensed int            `json:"is_licensed"`
+	OwnerID    int            `json:"owner_id"` // Document owner ID
+	Preview    docsDocPreview `json:"preview"`
+	Size       int            `json:"size"`  // File size in bites
+	Title      string         `json:"title"` // Document title
+	Type       int            `json:"type"`  // Document type
+	URL        string         `json:"url"`   // File URL
 }
 
 type docsDocPreview struct {
@@ -32,10 +33,10 @@ type docsDocPreviewGraffiti struct {
 }
 
 type docsDocPreviewVideo struct {
-	Filesize int    `json:"filesize"`
-	Height   int    `json:"height"`
-	Src      string `json:"src"`
-	Width    int    `json:"width"`
+	Filesize int    `json:"filesize"` // Video file size in bites
+	Height   int    `json:"height"`   // Video's height in pixels
+	Src      string `json:"src"`      // Video URL
+	Width    int    `json:"width"`    // Video's width in pixels
 }
 
 type docsDocPreviewAudioMessage struct {
@@ -47,11 +48,11 @@ type docsDocPreviewAudioMessage struct {
 
 // DocsDocTypes struct
 type DocsDocTypes struct {
-	Count int    `json:"count"`
-	ID    int    `json:"id"`
-	Title string `json:"title"`
+	Count int    `json:"count"` // Number of docs
+	ID    int    `json:"id"`    // Doc type ID
+	Title string `json:"title"` // Doc type title
 }
 
 type docsDocUploadResponse struct {
-	File string `json:"file"`
+	File string `json:"file"` // Uploaded file data
 }

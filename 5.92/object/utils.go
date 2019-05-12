@@ -2,73 +2,71 @@ package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 // UtilsDomainResolved struct
 type UtilsDomainResolved struct {
-	ObjectID int                     `json:"object_id"`
-	Type     utilsDomainResolvedType `json:"type"`
+	ObjectID int    `json:"object_id"` // Object ID
+	Type     string `json:"type"`
 }
-
-type utilsDomainResolvedType string
 
 // UtilsLastShortenedLink struct
 type UtilsLastShortenedLink struct {
-	AccessKey string `json:"access_key"`
-	Key       string `json:"key"`
-	ShortURL  string `json:"short_url"`
-	Timestamp int    `json:"timestamp"`
-	URL       string `json:"url"`
-	Views     int    `json:"views"`
+	AccessKey string `json:"access_key"` // Access key for private stats
+	Key       string `json:"key"`        // Link key (characters after vk.cc/)
+	ShortURL  string `json:"short_url"`  // Short link URL
+	Timestamp int    `json:"timestamp"`  // Creation time in Unixtime
+	URL       string `json:"url"`        // Full URL
+	Views     int    `json:"views"`      // Total views number
 }
 
 // UtilsLinkChecked struct
 type UtilsLinkChecked struct {
-	Link   string `json:"link"`
+	Link   string `json:"link"` // Link URL
 	Status string `json:"status"`
 }
 
 // UtilsLinkStats struct
 type UtilsLinkStats struct {
-	Key   string       `json:"key"`
+	Key   string       `json:"key"` // Link key (characters after vk.cc/)
 	Stats []utilsStats `json:"stats"`
 }
 
 // UtilsLinkStatsExtended struct
 type UtilsLinkStatsExtended struct {
-	Key   string               `json:"key"`
+	Key   string               `json:"key"` // Link key (characters after vk.cc/)
 	Stats []utilsStatsExtended `json:"stats"`
 }
 
 // UtilsShortLink struct
 type UtilsShortLink struct {
-	AccessKey string `json:"access_key"`
-	Key       string `json:"key"`
-	ShortURL  string `json:"short_url"`
-	URL       string `json:"url"`
+	AccessKey string `json:"access_key"` // Access key for private stats
+	Key       string `json:"key"`        // Link key (characters after vk.cc/)
+	ShortURL  string `json:"short_url"`  // Short link URL
+	URL       string `json:"url"`        // Full URL
 }
 
 type utilsStats struct {
-	Timestamp int `json:"timestamp"`
-	Views     int `json:"views"`
+	Timestamp int `json:"timestamp"` // Start time
+	Views     int `json:"views"`     // Total views number
 }
 
 type utilsStatsCity struct {
-	CityID int `json:"city_id"`
-	Views  int `json:"views"`
+	CityID int `json:"city_id"` // City ID
+	Views  int `json:"views"`   // Views number
 }
 
 type utilsStatsCountry struct {
-	CountryID int `json:"country_id"`
-	Views     int `json:"views"`
+	CountryID int `json:"country_id"` // Country ID
+	Views     int `json:"views"`      // Views number
 }
 
 type utilsStatsExtended struct {
 	Cities    []utilsStatsCity    `json:"cities"`
 	Countries []utilsStatsCountry `json:"countries"`
 	SexAge    []utilsStatsSexAge  `json:"sex_age"`
-	Timestamp int                 `json:"timestamp"`
-	Views     int                 `json:"views"`
+	Timestamp int                 `json:"timestamp"` // Start time
+	Views     int                 `json:"views"`     // Total views number
 }
 
 type utilsStatsSexAge struct {
-	AgeRange string `json:"age_range"`
-	Female   int    `json:"female"`
-	Male     int    `json:"male"`
+	AgeRange string `json:"age_range"` // Age denotation
+	Female   int    `json:"female"`    //  Views by female users
+	Male     int    `json:"male"`      //  Views by male users
 }

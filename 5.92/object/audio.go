@@ -26,12 +26,15 @@ type audioAudioArtist struct {
 }
 
 type audioAudio struct {
-	AccessKey string `json:"access_key"`
-	Artist    string `json:"artist"`
-	ID        int    `json:"id"`
-	OwnerID   int    `json:"owner_id"`
-	Title     string `json:"title"`
-	URL       string `json:"url"`
+	AccessKey    string `json:"access_key"` // Access key for the audio
+	Artist       string `json:"artist"`     // Artist name
+	ID           int    `json:"id"`         // Audio ID
+	IsExplicit   bool   `json:"is_explicit"`
+	IsFocusTrack bool   `json:"is_focus_track"`
+	IsLicensed   bool   `json:"is_licensed"`
+	OwnerID      int    `json:"owner_id"` // Audio owner's ID
+	Title        string `json:"title"`    // Title
+	URL          string `json:"url"`      // URL of mp3 file
 }
 
 type audioAudioUploadResponse struct {
