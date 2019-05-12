@@ -164,6 +164,17 @@ type baseUserID struct {
 	UserID int `json:"user_id"`
 }
 
+type eventsEventAttach struct {
+	Address      string `json:"address,omitempty"`       // address of event
+	ButtonText   string `json:"button_text"`             // text of attach
+	Friends      []int  `json:"friends"`                 // array of friends ids
+	ID           int    `json:"id"`                      // event ID
+	IsFavorite   bool   `json:"is_favorite"`             // is favorite
+	MemberStatus int    `json:"member_status,omitempty"` // Current user's member status
+	Text         string `json:"text"`                    // text of attach
+	Time         int    `json:"time,omitempty"`          // event start time
+}
+
 // FaveFavesLink struct
 type FaveFavesLink struct {
 	Description string `json:"description"`

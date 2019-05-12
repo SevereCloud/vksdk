@@ -2,9 +2,9 @@ package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 // WidgetsCommentMedia struct
 type widgetsCommentMedia struct {
-	ItemID   int                     `json:"item_id"`
-	OwnerID  int                     `json:"owner_id"`
-	ThumbSrc string                  `json:"thumb_src"`
+	ItemID   int                     `json:"item_id"`   // Media item ID
+	OwnerID  int                     `json:"owner_id"`  // Media owner's ID
+	ThumbSrc string                  `json:"thumb_src"` // URL of the preview image (type=photo only)
 	Type     widgetsCommentMediaType `json:"type"`
 }
 
@@ -13,53 +13,53 @@ type widgetsCommentMediaType string
 
 // WidgetsCommentReplies struct
 type widgetsCommentReplies struct {
-	CanPost int                         `json:"can_post"`
-	Count   int                         `json:"count"`
+	CanPost int                         `json:"can_post"` // Information whether current user can comment the post
+	Count   int                         `json:"count"`    // Comments number
 	Replies []widgetsCommentRepliesItem `json:"replies"`
 }
 
 // WidgetsCommentRepliesItem struct
 type widgetsCommentRepliesItem struct {
-	Cid   int                `json:"cid"`
-	Date  int                `json:"date"`
+	Cid   int                `json:"cid"`  // Comment ID
+	Date  int                `json:"date"` // Date when the comment has been added in Unixtime
 	Likes widgetsWidgetLikes `json:"likes"`
-	Text  string             `json:"text"`
-	UID   int                `json:"uid"`
+	Text  string             `json:"text"` // Comment text
+	UID   int                `json:"uid"`  // User ID
 	User  UsersUser          `json:"user"`
 }
 
 // WidgetsWidgetComment struct
 type widgetsWidgetComment struct {
 	Attachments []wallCommentAttachment `json:"attachments"`
-	CanDelete   int                     `json:"can_delete"`
+	CanDelete   int                     `json:"can_delete"` // Information whether current user can delete the comment
 	Comments    widgetsCommentReplies   `json:"comments"`
-	Date        int                     `json:"date"`
-	FromID      int                     `json:"from_id"`
-	ID          int                     `json:"id"`
+	Date        int                     `json:"date"`    // Date when the comment has been added in Unixtime
+	FromID      int                     `json:"from_id"` // Comment author ID
+	ID          int                     `json:"id"`      // Comment ID
 	Likes       baseLikesInfo           `json:"likes"`
 	Media       widgetsCommentMedia     `json:"media"`
 	PostSource  wallPostSource          `json:"post_source"`
-	PostType    int                     `json:"post_type"`
+	PostType    int                     `json:"post_type"` // Post type
 	Reposts     baseRepostsInfo         `json:"reposts"`
-	Text        string                  `json:"text"`
-	ToID        int                     `json:"to_id"`
+	Text        string                  `json:"text"`  // Comment text
+	ToID        int                     `json:"to_id"` // Wall owner
 	User        UsersUser               `json:"user"`
 }
 
 // WidgetsWidgetLikes struct
 type widgetsWidgetLikes struct {
-	Count int `json:"count"`
+	Count int `json:"count"` // Likes number
 }
 
 // WidgetsWidgetPage struct
 type widgetsWidgetPage struct {
-	Comments    BaseObjectCount `json:"comments"`
-	Date        int             `json:"date"`
-	Description string          `json:"description"`
-	ID          int             `json:"id"`
-	Likes       BaseObjectCount `json:"likes"`
-	PageID      string          `json:"page_id"`
-	Photo       string          `json:"photo"`
-	Title       string          `json:"title"`
-	URL         string          `json:"url"`
+	Comments    *BaseObjectCount `json:"comments,omitempty"`
+	Date        int              `json:"date,omitempty"`        // Date when widgets on the page has been initialized firstly in Unixtime
+	Description string           `json:"description,omitempty"` // Page description
+	ID          int              `json:"id,omitempty"`          // Page ID
+	Likes       *BaseObjectCount `json:"likes,omitempty"`
+	PageID      string           `json:"page_id,omitempty"` // page_id parameter value
+	Photo       string           `json:"photo,omitempty"`   // URL of the preview image
+	Title       string           `json:"title,omitempty"`   // Page title
+	URL         string           `json:"url,omitempty"`     // Page absolute URL
 }

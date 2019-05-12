@@ -2,15 +2,15 @@ package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 // NotesNote struct
 type NotesNote struct {
-	CanComment     int           `json:"can_comment"`
-	Comments       int           `json:"comments"`
-	Date           int           `json:"date"`
-	ID             int           `json:"id"`
-	OwnerID        int           `json:"owner_id"`
-	Text           string        `json:"text"`
-	TextWiki       string        `json:"text_wiki"`
-	Title          string        `json:"title"`
-	ViewURL        string        `json:"view_url"`
+	CanComment     int           `json:"can_comment"` // Information whether current user can comment the note
+	Comments       int           `json:"comments"`    // Comments number
+	Date           int           `json:"date"`        // Date when the note has been created in Unixtime
+	ID             int           `json:"id"`          // Note ID
+	OwnerID        int           `json:"owner_id"`    // Note owner's ID
+	Text           string        `json:"text"`        // Note text
+	TextWiki       string        `json:"text_wiki"`   // Note text in wiki format
+	Title          string        `json:"title"`       // Note title
+	ViewURL        string        `json:"view_url"`    // URL of the page with note preview
 	ReadComments   int           `json:"read_comments"`
 	PrivacyView    []interface{} `json:"privacy_view"`
 	PrivacyComment []interface{} `json:"privacy_comment"`
@@ -18,11 +18,11 @@ type NotesNote struct {
 
 // NotesNoteComment struct
 type NotesNoteComment struct {
-	Date    int    `json:"date"`
-	ID      int    `json:"id"`
-	Message string `json:"message"`
-	NID     int    `json:"nid"`
-	OID     int    `json:"oid"`
-	ReplyTo int    `json:"reply_to"`
-	UID     int    `json:"uid"`
+	Date    int    `json:"date"`     // Date when the comment has beed added in Unixtime
+	ID      int    `json:"id"`       // Comment ID
+	Message string `json:"message"`  // Comment text
+	NID     int    `json:"nid"`      // Note ID
+	OID     int    `json:"oid"`      // Note ID
+	ReplyTo int    `json:"reply_to"` // ID of replied comment
+	UID     int    `json:"uid"`      // Comment author's ID
 }

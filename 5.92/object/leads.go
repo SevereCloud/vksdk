@@ -1,49 +1,49 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 type leadsChecked struct {
-	Reason    string `json:"reason"`
+	Reason    string `json:"reason"` // Reason why user can't start the lead
 	Result    string `json:"result"`
-	Sid       string `json:"sid"`
-	StartLink string `json:"start_link"`
+	Sid       string `json:"sid"`        // Session ID
+	StartLink string `json:"start_link"` // URL user should open to start the lead
 }
 
 type leadsComplete struct {
-	Cost     int `json:"cost"`
-	Limit    int `json:"limit"`
-	Spent    int `json:"spent"`
+	Cost     int `json:"cost"`  // Offer cost
+	Limit    int `json:"limit"` // Offer limit
+	Spent    int `json:"spent"` // Amount of spent votes
 	Success  int `json:"success"`
-	TestMode int `json:"test_mode"`
+	TestMode int `json:"test_mode"` // Information whether test mode is enabled
 }
 
 type leadsEntry struct {
-	Aid       int    `json:"aid"`
-	Comment   string `json:"comment"`
-	Date      int    `json:"date"`
-	Sid       string `json:"sid"`
-	StartDate int    `json:"start_date"`
-	Status    int    `json:"status"`
-	TestMode  int    `json:"test_mode"`
-	UID       int    `json:"uid"`
+	Aid       int    `json:"aid"`        // Application ID
+	Comment   string `json:"comment"`    // Comment text
+	Date      int    `json:"date"`       // Date when the action has been started in Unixtime
+	Sid       string `json:"sid"`        // Session string ID
+	StartDate int    `json:"start_date"` // Start date in Unixtime (for status=2)
+	Status    int    `json:"status"`     // Action type
+	TestMode  int    `json:"test_mode"`  // Information whether test mode is enabled
+	UID       int    `json:"uid"`        // User ID
 }
 
 type leadsLead struct {
-	Completed   int           `json:"completed"`
-	Cost        int           `json:"cost"`
+	Completed   int           `json:"completed"` // Completed offers number
+	Cost        int           `json:"cost"`      // Offer cost
 	Days        leadsLeadDays `json:"days"`
-	Impressions int           `json:"impressions"`
-	Limit       int           `json:"limit"`
-	Spent       int           `json:"spent"`
-	Started     int           `json:"started"`
+	Impressions int           `json:"impressions"` // Impressions number
+	Limit       int           `json:"limit"`       // Lead limit
+	Spent       int           `json:"spent"`       // Amount of spent votes
+	Started     int           `json:"started"`     // Started offers number
 }
 
 type leadsLeadDays struct {
-	Completed   int `json:"completed"`
-	Impressions int `json:"impressions"`
-	Spent       int `json:"spent"`
-	Started     int `json:"started"`
+	Completed   int `json:"completed"`   // Completed offers number
+	Impressions int `json:"impressions"` // Impressions number
+	Spent       int `json:"spent"`       // Amount of spent votes
+	Started     int `json:"started"`     // Started offers number
 }
 
 type leadsStart struct {
-	TestMode int    `json:"test_mode"`
-	VkSid    string `json:"vk_sid"`
+	TestMode int    `json:"test_mode"` // Information whether test mode is enabled
+	VkSid    string `json:"vk_sid"`    // Session data
 }

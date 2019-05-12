@@ -2,114 +2,49 @@ package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 // VideoVideo struct
 type VideoVideo struct {
-	// Video access key
-	AccessKey string `json:"access_key,omitempty"`
-
-	// Date when the video has been added in Unixtime
-	AddingDate int `json:"adding_date,omitempty"`
-
-	// Information whether current user can add the video
-	CanAdd int `json:"can_add,omitempty"`
-
-	// Information whether current user can comment the video
-	CanComment int `json:"can_comment,omitempty"`
-
-	// Information whether current user can edit the video
-	CanEdit int `json:"can_edit,omitempty"`
-
-	// Information whether current user can like the video
-	CanLike int `json:"can_like,omitempty"`
-
-	// Information whether current user can repost this video
-	CanRepost int `json:"can_repost,omitempty"`
-
-	// Number of comments
-	Comments int `json:"comments,omitempty"`
-
-	// Date when video has been uploaded in Unixtime
-	Date int `json:"date,omitempty"`
-
-	// Video description
-	Description string `json:"description,omitempty"`
-
-	// Video duration in seconds
-	Duration int              `json:"duration,omitempty"`
-	Files    *videoVideoFiles `json:"files,omitempty"`
-
-	// URL of the first frame for the corresponding width.
-	FirstFrame130 string `json:"first_frame_130,omitempty"`
-
-	// URL of the first frame for the corresponding width.
-	FirstFrame160 string `json:"first_frame_160,omitempty"`
-
-	// URL of the first frame for the corresponding width.
-	FirstFrame320 string `json:"first_frame_320,omitempty"`
-
-	// URL of the first frame for the corresponding width.
-	FirstFrame800 string `json:"first_frame_800,omitempty"`
-
-	// Video height
-	Height int `json:"height,omitempty"`
-
-	// Video ID
-	ID         int  `json:"id,omitempty"`
-	IsFavorite bool `json:"is_favorite,omitempty"`
-
-	// Returns if the video is a live stream
-	Live int `json:"live,omitempty"`
-
-	// Video owner ID
-	OwnerID int `json:"owner_id,omitempty"`
-
-	// URL of the preview image with 130 px in width
-	Photo130 string `json:"photo_130,omitempty"`
-
-	// URL of the preview image with 320 px in width
-	Photo320 string `json:"photo_320,omitempty"`
-
-	// URL of the preview image with 800 px in width
-	Photo800 string `json:"photo_800,omitempty"`
-
-	// URL of the page with a player that can be used to play the video in the browser.
-	Player string `json:"player,omitempty"`
-
-	// Returns if the video is processing
-	Processing int `json:"processing,omitempty"`
-
-	// Video title
-	Title string `json:"title,omitempty"`
-	Type  string `json:"type,omitempty"`
-
-	// Number of views
-	Views int `json:"views,omitempty"`
-
-	// Video width
-	Width int `json:"width,omitempty"`
-
-	Platform   string `json:"platform"`
-	LocalViews int    `json:"local_views"`
-	IsPrivate  int    `json:"is_private"`
+	AccessKey     string          `json:"access_key"`  // Video access key
+	AddingDate    int             `json:"adding_date"` // Date when the video has been added in Unixtime
+	CanAdd        int             `json:"can_add"`     // Information whether current user can add the video
+	CanComment    int             `json:"can_comment"` // Information whether current user can comment the video
+	CanEdit       int             `json:"can_edit"`    // Information whether current user can edit the video
+	CanLike       int             `json:"can_like"`    // Information whether current user can like the video
+	CanRepost     int             `json:"can_repost"`  // Information whether current user can repost this video
+	Comments      int             `json:"comments"`    // Number of comments
+	Date          int             `json:"date"`        // Date when video has been uploaded in Unixtime
+	Description   string          `json:"description"` // Video description
+	Duration      int             `json:"duration"`    // Video duration in seconds
+	Files         videoVideoFiles `json:"files"`
+	FirstFrame130 string          `json:"first_frame_130"` // URL of the first frame for the corresponding width.
+	FirstFrame160 string          `json:"first_frame_160"` // URL of the first frame for the corresponding width.
+	FirstFrame320 string          `json:"first_frame_320"` // URL of the first frame for the corresponding width.
+	FirstFrame800 string          `json:"first_frame_800"` // URL of the first frame for the corresponding width.
+	Height        int             `json:"height"`          // Video height
+	ID            int             `json:"id"`              // Video ID
+	IsFavorite    bool            `json:"is_favorite"`
+	Live          int             `json:"live"`       // Returns if the video is a live stream
+	OwnerID       int             `json:"owner_id"`   // Video owner ID
+	Photo130      string          `json:"photo_130"`  // URL of the preview image with 130 px in width
+	Photo320      string          `json:"photo_320"`  // URL of the preview image with 320 px in width
+	Photo800      string          `json:"photo_800"`  // URL of the preview image with 800 px in width
+	Player        string          `json:"player"`     // URL of the page with a player that can be used to play the video in the browser.
+	Processing    int             `json:"processing"` // Returns if the video is processing
+	Title         string          `json:"title"`      // Video title
+	Type          string          `json:"type"`
+	Views         int             `json:"views"` // Number of views
+	Width         int             `json:"width"` // Video width
+	Platform      string          `json:"platform"`
+	LocalViews    int             `json:"local_views"`
+	IsPrivate     int             `json:"is_private"`
 }
 
 // videoVideoFiles struct
 type videoVideoFiles struct {
-	// URL of the external player
-	External string `json:"external,omitempty"`
-
-	// URL of the mpeg4 file with 1080p quality
-	Mp1080 string `json:"mp_1080,omitempty"`
-
-	// URL of the mpeg4 file with 240p quality
-	Mp240 string `json:"mp_240,omitempty"`
-
-	// URL of the mpeg4 file with 360p quality
-	Mp360 string `json:"mp_360,omitempty"`
-
-	// URL of the mpeg4 file with 480p quality
-	Mp480 string `json:"mp_480,omitempty"`
-
-	// URL of the mpeg4 file with 720p quality
-	Mp720 string `json:"mp_720,omitempty"`
+	External string `json:"external"` // URL of the external player
+	Mp1080   string `json:"mp_1080"`  // URL of the mpeg4 file with 1080p quality
+	Mp240    string `json:"mp_240"`   // URL of the mpeg4 file with 240p quality
+	Mp360    string `json:"mp_360"`   // URL of the mpeg4 file with 360p quality
+	Mp480    string `json:"mp_480"`   // URL of the mpeg4 file with 480p quality
+	Mp720    string `json:"mp_720"`   // URL of the mpeg4 file with 720p quality
 }
 
 type videoCatBlock struct {
@@ -145,11 +80,11 @@ type videoCatElement struct {
 }
 
 type videoSaveResult struct {
-	Description string `json:"description"`
-	OwnerID     int    `json:"owner_id"`
-	Title       string `json:"title"`
-	UploadURL   string `json:"upload_url"`
-	VideoID     int    `json:"video_id"`
+	Description string `json:"description"` // Video description
+	OwnerID     int    `json:"owner_id"`    // Video owner ID
+	Title       string `json:"title"`       // Video title
+	UploadURL   string `json:"upload_url"`  // URL for the video uploading
+	VideoID     int    `json:"video_id"`    // Video ID
 }
 
 type videoUploadResponse struct {
@@ -164,42 +99,45 @@ type videoVideoAlbum struct {
 }
 
 type videoVideoAlbumFull struct {
-	Count       int    `json:"count"`
-	ID          int    `json:"id"`
-	IsSystem    int    `json:"is_system"`
-	OwnerID     int    `json:"owner_id"`
-	Photo160    string `json:"photo_160"`
-	Photo320    string `json:"photo_320"`
-	Title       string `json:"title"`
-	UpdatedTime int    `json:"updated_time"`
+	Count       int               `json:"count"`        // Total number of videos in album
+	ID          int               `json:"id"`           // Album ID
+	Image       []videoVideoImage `json:"image"`        // Album cover image in different sizes
+	IsSystem    int               `json:"is_system"`    // Information whether album is system
+	OwnerID     int               `json:"owner_id"`     // Album owner's ID
+	Photo160    string            `json:"photo_160"`    // URL of the preview image with 160px in width
+	Photo320    string            `json:"photo_320"`    // URL of the preview image with 320px in width
+	Title       string            `json:"title"`        // Album title
+	UpdatedTime int               `json:"updated_time"` // Date when the album has been updated last time in Unixtime
 }
 
 type videoVideoFull struct {
-	AccessKey      string          `json:"access_key"`
-	AddingDate     int             `json:"adding_date"`
-	CanAdd         int             `json:"can_add"`
-	CanComment     int             `json:"can_comment"`
-	CanEdit        int             `json:"can_edit"`
-	CanRepost      int             `json:"can_repost"`
-	Comments       int             `json:"comments"`
-	Date           int             `json:"date"`
-	Description    string          `json:"description"`
-	Duration       int             `json:"duration"`
-	Files          videoVideoFiles `json:"files"`
-	ID             int             `json:"id"`
-	Likes          baseLikes       `json:"likes"`
-	Live           int             `json:"live"`
-	OwnerID        int             `json:"owner_id"`
-	Photo130       string          `json:"photo_130"`
-	Photo320       string          `json:"photo_320"`
-	Photo800       string          `json:"photo_800"`
-	Player         string          `json:"player"`
-	PrivacyComment []string        `json:"privacy_comment"`
-	PrivacyView    []string        `json:"privacy_view"`
-	Processing     int             `json:"processing"`
-	Repeat         int             `json:"repeat"`
-	Title          string          `json:"title"`
-	Views          int             `json:"views"`
+	AccessKey     string          `json:"access_key"`  // Video access key
+	AddingDate    int             `json:"adding_date"` // Date when the video has been added in Unixtime
+	CanAdd        int             `json:"can_add"`     // Information whether current user can add the video
+	CanComment    int             `json:"can_comment"` // Information whether current user can comment the video
+	CanEdit       int             `json:"can_edit"`    // Information whether current user can edit the video
+	CanRepost     int             `json:"can_repost"`  // Information whether current user can comment the video
+	Comments      int             `json:"comments"`    // Number of comments
+	Date          int             `json:"date"`        // Date when video has been uploaded in Unixtime
+	Description   string          `json:"description"` // Video description
+	Duration      int             `json:"duration"`    // Video duration in seconds
+	Files         videoVideoFiles `json:"files"`
+	FirstFrame130 string          `json:"first_frame_130"` // URL of the first frame for the corresponding width.
+	FirstFrame160 string          `json:"first_frame_160"` // URL of the first frame for the corresponding width.
+	FirstFrame320 string          `json:"first_frame_320"` // URL of the first frame for the corresponding width.
+	FirstFrame800 string          `json:"first_frame_800"` // URL of the first frame for the corresponding width.
+	ID            int             `json:"id"`              // Video ID
+	Likes         baseLikes       `json:"likes"`
+	Live          int             `json:"live"`       // Returns if the video is live translation
+	OwnerID       int             `json:"owner_id"`   // Video owner ID
+	Photo130      string          `json:"photo_130"`  // URL of the preview image with 130 px in width
+	Photo320      string          `json:"photo_320"`  // URL of the preview image with 320 px in width
+	Photo800      string          `json:"photo_800"`  // URL of the preview image with 800 px in width
+	Player        string          `json:"player"`     // URL of the page with a player that can be used to play the video in the browser.
+	Processing    int             `json:"processing"` // Returns if the video is processing
+	Repeat        int             `json:"repeat"`     // Information whether the video is repeated
+	Title         string          `json:"title"`      // Video title
+	Views         int             `json:"views"`      // Number of views
 }
 
 type videoVideoTag struct {
@@ -234,4 +172,7 @@ type videoVideoTagInfo struct {
 	TagID       int             `json:"tag_id"`
 	Title       string          `json:"title"`
 	Views       int             `json:"views"`
+}
+
+type videoVideoImage struct {
 }

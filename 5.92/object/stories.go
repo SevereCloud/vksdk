@@ -27,7 +27,7 @@ type StoriesStoryStats struct {
 }
 
 type storiesStoryStatsStat struct {
-	Count int    `json:"count"`
+	Count int    `json:"count"` // Stat value
 	State string `json:"state"`
 }
 
