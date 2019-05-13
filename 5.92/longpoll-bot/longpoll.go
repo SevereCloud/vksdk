@@ -10,7 +10,6 @@ import (
 	"sync/atomic"
 
 	"github.com/SevereCloud/vksdk/5.92/object"
-	"golang.org/x/net/proxy"
 
 	"github.com/SevereCloud/vksdk/5.92/api"
 	"github.com/SevereCloud/vksdk/5.92/handler"
@@ -24,14 +23,15 @@ type longpollResponse struct {
 
 // Longpoll struct
 type Longpoll struct {
-	GroupID  int
-	Server   string
-	Key      string
-	Ts       string
-	Wait     int
-	VK       api.VK
-	FuncList handler.FuncList
+	GroupID int
+	Server  string
+	Key     string
+	Ts      string
+	Wait    int
+	VK      api.VK
+	Client  *http.Client
 
+	funcList   handler.FuncList
 	inShutdown int32
 }
 
@@ -39,6 +39,8 @@ type Longpoll struct {
 func Init(vk api.VK, groupID int) (lp Longpoll, err error) {
 	lp.VK = vk
 	lp.GroupID = groupID
+	lp.Wait = 25
+	lp.Client = &http.Client{}
 	err = lp.updateServer(true)
 	return
 }
@@ -60,27 +62,29 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	return nil
 }
 
+// UpdateHTTP update HTTP client
+// func (lp *Longpoll) UpdateHTTP() {
+// 	timeout := time.Second * time.Duration(5+lp.Wait)
+// 	lp.Client = &http.Client{
+// 		Timeout: timeout,
+// 	}
+// 	if lp.VK.ProxyAddress != "" {
+// 		dialer, _ := proxy.SOCKS5("tcp", lp.VK.ProxyAddress, nil, proxy.Direct)
+// 		httpTransport := &http.Transport{
+// 			Dial:              dialer.Dial,
+// 			DisableKeepAlives: true,
+// 		}
+// 		httpTransport.Dial = dialer.Dial
+// 		lp.Client.Transport = httpTransport
+// 	}
+// }
+
 func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 	var response longpollResponse
 
-	myClient := &http.Client{}
-	if lp.VK.ProxyAddress != "" {
-		dialer, err := proxy.SOCKS5("tcp", lp.VK.ProxyAddress, nil, proxy.Direct)
-		if err != nil {
-			return nil, err
-		}
-		httpTransport := &http.Transport{}
-		httpTransport.Dial = dialer.Dial
-		myClient.Transport = httpTransport
-	}
+	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, lp.Wait)
 
-	wait := 25
-	if lp.Wait > 0 {
-		wait = lp.Wait
-	}
-	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, wait)
-
-	resp, err := myClient.Get(u)
+	resp, err := lp.Client.Get(u)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +94,6 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 	if err != nil {
 		panic(err)
 	}
-	log.Println(string(body))
 
 	err = json.Unmarshal(body, &response)
 	if err != nil {
@@ -125,7 +128,7 @@ func (lp *Longpoll) Run() error {
 			return err
 		}
 		for _, event := range events {
-			lp.FuncList.Handler(event)
+			lp.funcList.Handler(event)
 		}
 	}
 	return nil
@@ -138,207 +141,207 @@ func (lp *Longpoll) Shutdown() {
 
 // MessageNew handler
 func (lp *Longpoll) MessageNew(f object.MessageNewFunc) {
-	lp.FuncList.MessageNew = append(lp.FuncList.MessageNew, f)
+	lp.funcList.MessageNew = append(lp.funcList.MessageNew, f)
 }
 
 // MessageReply handler
 func (lp *Longpoll) MessageReply(f object.MessageReplyFunc) {
-	lp.FuncList.MessageReply = append(lp.FuncList.MessageReply, f)
+	lp.funcList.MessageReply = append(lp.funcList.MessageReply, f)
 }
 
 // MessageEdit handler
 func (lp *Longpoll) MessageEdit(f object.MessageEditFunc) {
-	lp.FuncList.MessageEdit = append(lp.FuncList.MessageEdit, f)
+	lp.funcList.MessageEdit = append(lp.funcList.MessageEdit, f)
 }
 
 // MessageAllow handler
 func (lp *Longpoll) MessageAllow(f object.MessageAllowFunc) {
-	lp.FuncList.MessageAllow = append(lp.FuncList.MessageAllow, f)
+	lp.funcList.MessageAllow = append(lp.funcList.MessageAllow, f)
 }
 
 // MessageDeny handler
 func (lp *Longpoll) MessageDeny(f object.MessageDenyFunc) {
-	lp.FuncList.MessageDeny = append(lp.FuncList.MessageDeny, f)
+	lp.funcList.MessageDeny = append(lp.funcList.MessageDeny, f)
 }
 
 // MessageTypingState handler
 func (lp *Longpoll) MessageTypingState(f object.MessageTypingStateFunc) {
-	lp.FuncList.MessageTypingState = append(lp.FuncList.MessageTypingState, f)
+	lp.funcList.MessageTypingState = append(lp.funcList.MessageTypingState, f)
 }
 
 // PhotoNew handler
 func (lp *Longpoll) PhotoNew(f object.PhotoNewFunc) {
-	lp.FuncList.PhotoNew = append(lp.FuncList.PhotoNew, f)
+	lp.funcList.PhotoNew = append(lp.funcList.PhotoNew, f)
 }
 
 // PhotoCommentNew handler
 func (lp *Longpoll) PhotoCommentNew(f object.PhotoCommentNewFunc) {
-	lp.FuncList.PhotoCommentNew = append(lp.FuncList.PhotoCommentNew, f)
+	lp.funcList.PhotoCommentNew = append(lp.funcList.PhotoCommentNew, f)
 }
 
 // PhotoCommentEdit handler
 func (lp *Longpoll) PhotoCommentEdit(f object.PhotoCommentEditFunc) {
-	lp.FuncList.PhotoCommentEdit = append(lp.FuncList.PhotoCommentEdit, f)
+	lp.funcList.PhotoCommentEdit = append(lp.funcList.PhotoCommentEdit, f)
 }
 
 // PhotoCommentRestore handler
 func (lp *Longpoll) PhotoCommentRestore(f object.PhotoCommentRestoreFunc) {
-	lp.FuncList.PhotoCommentRestore = append(lp.FuncList.PhotoCommentRestore, f)
+	lp.funcList.PhotoCommentRestore = append(lp.funcList.PhotoCommentRestore, f)
 }
 
 // PhotoCommentDelete handler
 func (lp *Longpoll) PhotoCommentDelete(f object.PhotoCommentDeleteFunc) {
-	lp.FuncList.PhotoCommentDelete = append(lp.FuncList.PhotoCommentDelete, f)
+	lp.funcList.PhotoCommentDelete = append(lp.funcList.PhotoCommentDelete, f)
 }
 
 // AudioNew handler
 func (lp *Longpoll) AudioNew(f object.AudioNewFunc) {
-	lp.FuncList.AudioNew = append(lp.FuncList.AudioNew, f)
+	lp.funcList.AudioNew = append(lp.funcList.AudioNew, f)
 }
 
 // VideoNew handler
 func (lp *Longpoll) VideoNew(f object.VideoNewFunc) {
-	lp.FuncList.VideoNew = append(lp.FuncList.VideoNew, f)
+	lp.funcList.VideoNew = append(lp.funcList.VideoNew, f)
 }
 
 // VideoCommentNew handler
 func (lp *Longpoll) VideoCommentNew(f object.VideoCommentNewFunc) {
-	lp.FuncList.VideoCommentNew = append(lp.FuncList.VideoCommentNew, f)
+	lp.funcList.VideoCommentNew = append(lp.funcList.VideoCommentNew, f)
 }
 
 // VideoCommentEdit handler
 func (lp *Longpoll) VideoCommentEdit(f object.VideoCommentEditFunc) {
-	lp.FuncList.VideoCommentEdit = append(lp.FuncList.VideoCommentEdit, f)
+	lp.funcList.VideoCommentEdit = append(lp.funcList.VideoCommentEdit, f)
 }
 
 // VideoCommentRestore handler
 func (lp *Longpoll) VideoCommentRestore(f object.VideoCommentRestoreFunc) {
-	lp.FuncList.VideoCommentRestore = append(lp.FuncList.VideoCommentRestore, f)
+	lp.funcList.VideoCommentRestore = append(lp.funcList.VideoCommentRestore, f)
 }
 
 // VideoCommentDelete handler
 func (lp *Longpoll) VideoCommentDelete(f object.VideoCommentDeleteFunc) {
-	lp.FuncList.VideoCommentDelete = append(lp.FuncList.VideoCommentDelete, f)
+	lp.funcList.VideoCommentDelete = append(lp.funcList.VideoCommentDelete, f)
 }
 
 // WallPostNew handler
 func (lp *Longpoll) WallPostNew(f object.WallPostNewFunc) {
-	lp.FuncList.WallPostNew = append(lp.FuncList.WallPostNew, f)
+	lp.funcList.WallPostNew = append(lp.funcList.WallPostNew, f)
 }
 
 // WallRepost handler
 func (lp *Longpoll) WallRepost(f object.WallRepostFunc) {
-	lp.FuncList.WallRepost = append(lp.FuncList.WallRepost, f)
+	lp.funcList.WallRepost = append(lp.funcList.WallRepost, f)
 }
 
 // WallReplyNew handler
 func (lp *Longpoll) WallReplyNew(f object.WallReplyNewFunc) {
-	lp.FuncList.WallReplyNew = append(lp.FuncList.WallReplyNew, f)
+	lp.funcList.WallReplyNew = append(lp.funcList.WallReplyNew, f)
 }
 
 // WallReplyEdit handler
 func (lp *Longpoll) WallReplyEdit(f object.WallReplyEditFunc) {
-	lp.FuncList.WallReplyEdit = append(lp.FuncList.WallReplyEdit, f)
+	lp.funcList.WallReplyEdit = append(lp.funcList.WallReplyEdit, f)
 }
 
 // WallReplyRestore handler
 func (lp *Longpoll) WallReplyRestore(f object.WallReplyRestoreFunc) {
-	lp.FuncList.WallReplyRestore = append(lp.FuncList.WallReplyRestore, f)
+	lp.funcList.WallReplyRestore = append(lp.funcList.WallReplyRestore, f)
 }
 
 // WallReplyDelete handler
 func (lp *Longpoll) WallReplyDelete(f object.WallReplyDeleteFunc) {
-	lp.FuncList.WallReplyDelete = append(lp.FuncList.WallReplyDelete, f)
+	lp.funcList.WallReplyDelete = append(lp.funcList.WallReplyDelete, f)
 }
 
 // BoardPostNew handler
 func (lp *Longpoll) BoardPostNew(f object.BoardPostNewFunc) {
-	lp.FuncList.BoardPostNew = append(lp.FuncList.BoardPostNew, f)
+	lp.funcList.BoardPostNew = append(lp.funcList.BoardPostNew, f)
 }
 
 // BoardPostEdit handler
 func (lp *Longpoll) BoardPostEdit(f object.BoardPostEditFunc) {
-	lp.FuncList.BoardPostEdit = append(lp.FuncList.BoardPostEdit, f)
+	lp.funcList.BoardPostEdit = append(lp.funcList.BoardPostEdit, f)
 }
 
 // BoardPostRestore handler
 func (lp *Longpoll) BoardPostRestore(f object.BoardPostRestoreFunc) {
-	lp.FuncList.BoardPostRestore = append(lp.FuncList.BoardPostRestore, f)
+	lp.funcList.BoardPostRestore = append(lp.funcList.BoardPostRestore, f)
 }
 
 // BoardPostDelete handler
 func (lp *Longpoll) BoardPostDelete(f object.BoardPostDeleteFunc) {
-	lp.FuncList.BoardPostDelete = append(lp.FuncList.BoardPostDelete, f)
+	lp.funcList.BoardPostDelete = append(lp.funcList.BoardPostDelete, f)
 }
 
 // MarketCommentNew handler
 func (lp *Longpoll) MarketCommentNew(f object.MarketCommentNewFunc) {
-	lp.FuncList.MarketCommentNew = append(lp.FuncList.MarketCommentNew, f)
+	lp.funcList.MarketCommentNew = append(lp.funcList.MarketCommentNew, f)
 }
 
 // MarketCommentEdit handler
 func (lp *Longpoll) MarketCommentEdit(f object.MarketCommentEditFunc) {
-	lp.FuncList.MarketCommentEdit = append(lp.FuncList.MarketCommentEdit, f)
+	lp.funcList.MarketCommentEdit = append(lp.funcList.MarketCommentEdit, f)
 }
 
 // MarketCommentRestore handler
 func (lp *Longpoll) MarketCommentRestore(f object.MarketCommentRestoreFunc) {
-	lp.FuncList.MarketCommentRestore = append(lp.FuncList.MarketCommentRestore, f)
+	lp.funcList.MarketCommentRestore = append(lp.funcList.MarketCommentRestore, f)
 }
 
 // MarketCommentDelete handler
 func (lp *Longpoll) MarketCommentDelete(f object.MarketCommentDeleteFunc) {
-	lp.FuncList.MarketCommentDelete = append(lp.FuncList.MarketCommentDelete, f)
+	lp.funcList.MarketCommentDelete = append(lp.funcList.MarketCommentDelete, f)
 }
 
 // GroupLeave handler
 func (lp *Longpoll) GroupLeave(f object.GroupLeaveFunc) {
-	lp.FuncList.GroupLeave = append(lp.FuncList.GroupLeave, f)
+	lp.funcList.GroupLeave = append(lp.funcList.GroupLeave, f)
 }
 
 // GroupJoin handler
 func (lp *Longpoll) GroupJoin(f object.GroupJoinFunc) {
-	lp.FuncList.GroupJoin = append(lp.FuncList.GroupJoin, f)
+	lp.funcList.GroupJoin = append(lp.funcList.GroupJoin, f)
 }
 
 // UserBlock handler
 func (lp *Longpoll) UserBlock(f object.UserBlockFunc) {
-	lp.FuncList.UserBlock = append(lp.FuncList.UserBlock, f)
+	lp.funcList.UserBlock = append(lp.funcList.UserBlock, f)
 }
 
 // UserUnblock handler
 func (lp *Longpoll) UserUnblock(f object.UserUnblockFunc) {
-	lp.FuncList.UserUnblock = append(lp.FuncList.UserUnblock, f)
+	lp.funcList.UserUnblock = append(lp.funcList.UserUnblock, f)
 }
 
 // PollVoteNew handler
 func (lp *Longpoll) PollVoteNew(f object.PollVoteNewFunc) {
-	lp.FuncList.PollVoteNew = append(lp.FuncList.PollVoteNew, f)
+	lp.funcList.PollVoteNew = append(lp.funcList.PollVoteNew, f)
 }
 
 // GroupOfficersEdit handler
 func (lp *Longpoll) GroupOfficersEdit(f object.GroupOfficersEditFunc) {
-	lp.FuncList.GroupOfficersEdit = append(lp.FuncList.GroupOfficersEdit, f)
+	lp.funcList.GroupOfficersEdit = append(lp.funcList.GroupOfficersEdit, f)
 }
 
 // GroupChangeSettings handler
 func (lp *Longpoll) GroupChangeSettings(f object.GroupChangeSettingsFunc) {
-	lp.FuncList.GroupChangeSettings = append(lp.FuncList.GroupChangeSettings, f)
+	lp.funcList.GroupChangeSettings = append(lp.funcList.GroupChangeSettings, f)
 }
 
 // GroupChangePhoto handler
 func (lp *Longpoll) GroupChangePhoto(f object.GroupChangePhotoFunc) {
-	lp.FuncList.GroupChangePhoto = append(lp.FuncList.GroupChangePhoto, f)
+	lp.funcList.GroupChangePhoto = append(lp.funcList.GroupChangePhoto, f)
 }
 
 // VkpayTransaction handler
 func (lp *Longpoll) VkpayTransaction(f object.VkpayTransactionFunc) {
-	lp.FuncList.VkpayTransaction = append(lp.FuncList.VkpayTransaction, f)
+	lp.funcList.VkpayTransaction = append(lp.funcList.VkpayTransaction, f)
 }
 
 // LeadFormsNew handler
 func (lp *Longpoll) LeadFormsNew(f object.LeadFormsNewFunc) {
-	lp.FuncList.LeadFormsNew = append(lp.FuncList.LeadFormsNew, f)
+	lp.funcList.LeadFormsNew = append(lp.funcList.LeadFormsNew, f)
 }
 
 // TODO: next version like_add handler

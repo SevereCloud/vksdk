@@ -23,7 +23,26 @@ vk := api.Init("<TOKEN>")
 А потом сам longpoll
 
 ```go
-lp, err := longpoll.Init(vk api.VK, groupID int) 
+lp, err := longpoll.Init(vk api.VK, groupID int)
+// По умолчанию Wait = 25
+// lp.Wait = 90 
+// lp.Ts = "123"
+```
+
+### HTTP client
+
+В модуле реализована возможность изменять HTTP клиент - `lp.Client`
+
+Пример прокси
+
+```go
+dialer, _ := proxy.SOCKS5("tcp", "127.0.0.1:9050", nil, proxy.Direct)
+httpTransport := &http.Transport{
+	Dial:              dialer.Dial,
+	// DisableKeepAlives: true,
+}
+httpTransport.Dial = dialer.Dial
+lp.Client.Transport = httpTransport
 ```
 
 ### Обработчик событий
@@ -43,10 +62,18 @@ lp.MessageNew(func(object object.MessageNewObject, groupID int) {
 ### Запуск и остановка
 
 ```go
-// Запуск 
-lp.Run()
-// Завершение
+// Запуск
+if err := lp.Run(); err != nil {
+	log.Fatal(err)
+}
+
+// Безопасное завершение
+// Ждет пока соединение закроется и события обработаются
 lp.Shutdown()
+
+// Закрыть соединение
+// Требует lp.Client.Transport = &http.Transport{DisableKeepAlives: true}
+lp.Client.CloseIdleConnections()
 ```
 
 ## Пример
