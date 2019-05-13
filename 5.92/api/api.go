@@ -8,7 +8,6 @@ import (
 	"net/url"
 
 	"github.com/SevereCloud/vksdk/5.92/object"
-	"golang.org/x/net/proxy"
 )
 
 const (
@@ -18,9 +17,9 @@ const (
 
 // VK struct
 type VK struct {
-	AccessToken  string
-	Version      string
-	ProxyAddress string
+	AccessToken string
+	Version     string
+	Client      *http.Client
 }
 
 // Error struct VK
@@ -37,6 +36,7 @@ type Error struct {
 func Init(token string) (vk VK) {
 	vk.AccessToken = token
 	vk.Version = version
+	vk.Client = &http.Client{}
 	return
 }
 
@@ -46,14 +46,6 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 	var handler struct {
 		Response json.RawMessage
 		Error    Error `json:"error"`
-	}
-
-	myClient := &http.Client{}
-	if vk.ProxyAddress != "" {
-		dialer, _ := proxy.SOCKS5("tcp", vk.ProxyAddress, nil, proxy.Direct)
-		httpTransport := &http.Transport{}
-		httpTransport.Dial = dialer.Dial
-		myClient.Transport = httpTransport
 	}
 
 	u := apiURL + method
@@ -66,7 +58,7 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 	query.Set("v", vk.Version)
 
 	rawBody := bytes.NewBufferString(query.Encode())
-	resp, err := myClient.Post(u, "application/x-www-form-urlencoded", rawBody)
+	resp, err := vk.Client.Post(u, "application/x-www-form-urlencoded", rawBody)
 	if err != nil {
 		handler.Error.Code = -1
 		handler.Error.Message = err.Error()

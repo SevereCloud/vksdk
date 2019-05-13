@@ -44,12 +44,10 @@ import (
 
 func main() {
 	vk := vksdk.Init("<TOKEN>")
-	// vk.ProxyAddress = "127.0.0.1:9050"
 
-	params := make(map[string]string)
-	params["user_ids"] = "1"
-
-	users, vkErr := vk.UsersGet(params)
+	users, vkErr := vk.UsersGet(map[string]string{
+		"user_ids": "1"
+	})
 	if vkErr.Code != 0 {
 		log.Fatal(vkErr.Message)
 	}

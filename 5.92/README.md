@@ -28,7 +28,6 @@ import (
 
 func main() {
 	vk := vksdk.Init("<TOKEN>")
-	// vk.ProxyAddress = "127.0.0.1:9050"
 
 	params := make(map[string]string)
 	params["user_ids"] = "1"
@@ -87,7 +86,7 @@ fmt.Print(S.Text)
 - [ ] Streaming API
 - [ ] Получение токена
 - [ ] Создание develop ветки
-- [x] Прокси
+- [x] HTTP client
 - [ ] Тесты
 - [ ] Англоязычный README
 - [ ] Поддержка следующих версий API

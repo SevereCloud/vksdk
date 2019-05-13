@@ -1,6 +1,7 @@
 package api
 
 import (
+	"net/http"
 	"os"
 	"reflect"
 	"testing"
@@ -23,6 +24,7 @@ func TestInit(t *testing.T) {
 			wantVk: VK{
 				AccessToken: "test",
 				Version:     "5.92",
+				Client:      &http.Client{},
 			},
 		},
 	}
@@ -37,9 +39,9 @@ func TestInit(t *testing.T) {
 
 func TestVK_Request(t *testing.T) {
 	type fields struct {
-		AccessToken  string
-		Version      string
-		ProxyAddress string
+		AccessToken string
+		Version     string
+		Client      *http.Client
 	}
 	type args struct {
 		method string
@@ -53,17 +55,11 @@ func TestVK_Request(t *testing.T) {
 		want1  Error
 	}{
 		{
-			name: "Request proxy error",
-			fields: fields{
-				ProxyAddress: "error",
-			},
-			want1: Error{
-				Code: -1,
-			},
-		},
-		{
 			name: "Request 403 error",
 			args: args{method: "1"},
+			fields: fields{
+				Client: &http.Client{},
+			},
 			want1: Error{
 				Code: -1,
 			},
@@ -72,9 +68,9 @@ func TestVK_Request(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			vk := VK{
-				AccessToken:  tt.fields.AccessToken,
-				Version:      tt.fields.Version,
-				ProxyAddress: tt.fields.ProxyAddress,
+				AccessToken: tt.fields.AccessToken,
+				Version:     tt.fields.Version,
+				Client:      tt.fields.Client,
 			}
 			got, got1 := vk.Request(tt.args.method, tt.args.params)
 			if !reflect.DeepEqual(got, tt.want) {
