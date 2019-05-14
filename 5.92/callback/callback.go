@@ -46,8 +46,6 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "ok")
 }
 
-// TODO: support fasthttp
-
 // MessageNew handler
 func (cb *Callback) MessageNew(f object.MessageNewFunc) {
 	cb.funcList.MessageNew = append(cb.funcList.MessageNew, f)
@@ -253,5 +251,4 @@ func (cb *Callback) LeadFormsNew(f object.LeadFormsNewFunc) {
 	cb.funcList.LeadFormsNew = append(cb.funcList.LeadFormsNew, f)
 }
 
-// TODO: next version like_add handler
-// TODO: next version like_remove handler
+// TODO: like_add like_remove app_payload message_read

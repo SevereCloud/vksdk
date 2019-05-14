@@ -8,7 +8,7 @@ type pollsAnswer struct {
 }
 
 // PollsPoll struct
-// TODO: json-schema update and fix(anonymous int to bool)
+// TODO: json-schema update
 type PollsPoll struct {
 	Anonymous  bool            `json:"anonymous"` // Information whether the pole is anonymous
 	AnswerID   int             `json:"answer_id"` // Current user's answer ID

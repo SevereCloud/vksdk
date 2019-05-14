@@ -78,23 +78,35 @@ fmt.Print(S.Text)
 
 ## TODO
 
-- [ ] Все методы API
+- [ ] Большенство методов API
 - [x] Ограничитель на запросы
 - [x] Callback
-- [x] LongPoll bot
-- [ ] LongPoll user
+- [x] LongPoll bots
+- [ ] LongPoll users
 - [ ] Streaming API
-- [ ] Получение токена
-- [ ] Создание develop ветки
 - [x] HTTP client
+- [ ] Получение токена
 - [ ] Тесты
 - [ ] Англоязычный README
+- [ ] Версионирование
 - [ ] Поддержка следующих версий API
 
 ### Список методов
 
-- [x] Account 19/19
 - [ ] Ads 0/0
+- [ ] Groups 46/50
+- [ ] Leads 0/0
+- [ ] Market 0/27
+- [ ] Newsfeed 0/18
+- [ ] Orders 0/0
+- [ ] Photos 0/51
+- [ ] Places 0/0
+- [ ] Prettycards 0/6
+- [ ] Secure 0/0
+- [ ] Video 0/29
+- [ ] Podcasts 0/0
+- [ ] Wall 0/27
+- [x] Account 19/19
 - [x] Apps 9/9
 - [x] AppWidgets 8/8
 - [x] Auth 2/2
@@ -105,23 +117,14 @@ fmt.Print(S.Text)
 - [x] Fave 15/15
 - [x] Friends 19/19
 - [x] Gifts 1/1
-- [ ] Groups 46/50
 - [x] LeadForms 7/7
-- [ ] Leads 0/0
 - [x] Likes 5/5
-- [ ] Market 0/27
 - [x] Messages 43/43
-- [ ] Newsfeed 0/18
 - [x] Notes 10/10
 - [x] Notifications 3/3
-- [ ] Orders 0/0
 - [x] Pages 8/8
-- [ ] Photos 0/51
-- [ ] Places 0/0
 - [x] Polls 10/10
-- [ ] Prettycards 0/6
 - [x] Search 1/1
-- [ ] Secure 0/0
 - [x] Stats 3/3
 - [x] Status 2/2
 - [x] Storage 3/3
@@ -129,7 +132,4 @@ fmt.Print(S.Text)
 - [x] Streaming 5/5
 - [x] Users 7/7
 - [x] Utils 8/8
-- [ ] Video 0/29
-- [ ] Podcasts 0/0
-- [ ] Wall 0/27
 - [x] Widgets 2/2

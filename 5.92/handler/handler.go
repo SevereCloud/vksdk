@@ -425,7 +425,6 @@ func (funcList FuncList) Handler(e object.GroupEvent) error {
 			f(obj, e.GroupID)
 		}
 	}
-	// TODO: group event like_add
-	// TODO: group event like_remove
+	// TODO: like_add like_remove app_payload message_read
 	return nil
 }

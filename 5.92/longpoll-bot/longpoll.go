@@ -344,5 +344,4 @@ func (lp *Longpoll) LeadFormsNew(f object.LeadFormsNewFunc) {
 	lp.funcList.LeadFormsNew = append(lp.funcList.LeadFormsNew, f)
 }
 
-// TODO: next version like_add handler
-// TODO: next version like_remove handler
+// TODO: like_add like_remove app_payload message_read
