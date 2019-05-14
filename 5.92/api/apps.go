@@ -6,7 +6,7 @@ import (
 
 // AppsDeleteAppRequests deletes all request notifications from the current app.
 // https://vk.com/dev/apps.deleteAppRequests
-func (vk VK) AppsDeleteAppRequests() (vkErr Error) {
+func (vk *VK) AppsDeleteAppRequests() (vkErr Error) {
 	_, vkErr = vk.Request("apps.deleteAppRequests", map[string]string{})
 
 	return
@@ -22,7 +22,7 @@ type AppsGetResponse struct {
 
 // AppsGet returns applications data.
 // https://vk.com/dev/apps.get
-func (vk VK) AppsGet(params map[string]string) (response AppsGetResponse, vkErr Error) {
+func (vk *VK) AppsGet(params map[string]string) (response AppsGetResponse, vkErr Error) {
 	vk.requestU("apps.get", params, &response, &vkErr)
 	return
 }
@@ -37,7 +37,7 @@ type AppsGetCatalogResponse struct {
 
 // AppsGetCatalog returns a list of applications (apps) available to users in the App Catalog.
 // https://vk.com/dev/apps.getCatalog
-func (vk VK) AppsGetCatalog(params map[string]string) (response AppsGetCatalogResponse, vkErr Error) {
+func (vk *VK) AppsGetCatalog(params map[string]string) (response AppsGetCatalogResponse, vkErr Error) {
 	vk.requestU("apps.getCatalog", params, &response, &vkErr)
 	return
 }
@@ -50,7 +50,7 @@ type AppsGetFriendsListResponse struct {
 
 // AppsGetFriendsList creates friends list for requests and invites in current app.
 // https://vk.com/dev/apps.getFriendsList
-func (vk VK) AppsGetFriendsList(params map[string]string) (response AppsGetFriendsListResponse, vkErr Error) {
+func (vk *VK) AppsGetFriendsList(params map[string]string) (response AppsGetFriendsListResponse, vkErr Error) {
 	vk.requestU("apps.getFriendsList", params, &response, &vkErr)
 	return
 }
@@ -66,7 +66,7 @@ type AppsGetLeaderboardResponse struct {
 
 // AppsGetLeaderboard returns players rating in the game.
 // https://vk.com/dev/apps.getLeaderboard
-func (vk VK) AppsGetLeaderboard(params map[string]string) (response AppsGetLeaderboardResponse, vkErr Error) {
+func (vk *VK) AppsGetLeaderboard(params map[string]string) (response AppsGetLeaderboardResponse, vkErr Error) {
 	params["extended"] = "0"
 	vk.requestU("apps.getLeaderboard", params, &response, &vkErr)
 	return
@@ -84,7 +84,7 @@ type AppsGetLeaderboardExtendedResponse struct {
 
 // AppsGetLeaderboardExtended returns players rating in the game.
 // https://vk.com/dev/apps.getLeaderboard
-func (vk VK) AppsGetLeaderboardExtended(params map[string]string) (response AppsGetLeaderboardExtendedResponse, vkErr Error) {
+func (vk *VK) AppsGetLeaderboardExtended(params map[string]string) (response AppsGetLeaderboardExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
 	vk.requestU("apps.getLeaderboard", params, &response, &vkErr)
 	return
@@ -101,7 +101,7 @@ type AppsGetScopesResponse struct {
 
 // AppsGetScopes x
 // https://vk.com/dev/apps.getScopes
-func (vk VK) AppsGetScopes(params map[string]string) (response AppsGetScopesResponse, vkErr Error) {
+func (vk *VK) AppsGetScopes(params map[string]string) (response AppsGetScopesResponse, vkErr Error) {
 	vk.requestU("apps.getScopes", params, &response, &vkErr)
 	return
 }
@@ -112,7 +112,7 @@ type AppsGetScoreResponse string
 
 // AppsGetScore returns user score in app.
 // https://vk.com/dev/apps.getScore
-func (vk VK) AppsGetScore(params map[string]string) (response AppsGetScoreResponse, vkErr Error) {
+func (vk *VK) AppsGetScore(params map[string]string) (response AppsGetScoreResponse, vkErr Error) {
 	vk.requestU("apps.getScore", params, &response, &vkErr)
 	return
 }
@@ -122,7 +122,7 @@ type AppsSendRequestResponse int
 
 // AppsSendRequest sends a request to another user in an app that uses VK authorization.
 // https://vk.com/dev/apps.sendRequest
-func (vk VK) AppsSendRequest(params map[string]string) (response AppsSendRequestResponse, vkErr Error) {
+func (vk *VK) AppsSendRequest(params map[string]string) (response AppsSendRequestResponse, vkErr Error) {
 	vk.requestU("apps.sendRequest", params, &response, &vkErr)
 	return
 }

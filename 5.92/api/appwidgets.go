@@ -7,7 +7,7 @@ type AppWidgetsGetAppImageUploadServerResponse struct {
 
 // AppWidgetsGetAppImageUploadServer returns a URL for uploading a photo to the app collection for community app widgets.
 // https://vk.com/dev/appWidgets.getAppImageUploadServer
-func (vk VK) AppWidgetsGetAppImageUploadServer(params map[string]string) (response AppWidgetsGetAppImageUploadServerResponse, vkErr Error) {
+func (vk *VK) AppWidgetsGetAppImageUploadServer(params map[string]string) (response AppWidgetsGetAppImageUploadServerResponse, vkErr Error) {
 	vk.requestU("appWidgets.getAppImageUploadServer", params, &response, &vkErr)
 	return
 }
@@ -28,7 +28,7 @@ type AppWidgetsGetAppImagesResponse struct {
 
 // AppWidgetsGetAppImages returns an app collection of images for community app widgets.
 // https://vk.com/dev/appWidgets.getAppImages
-func (vk VK) AppWidgetsGetAppImages(params map[string]string) (response AppWidgetsGetAppImagesResponse, vkErr Error) {
+func (vk *VK) AppWidgetsGetAppImages(params map[string]string) (response AppWidgetsGetAppImagesResponse, vkErr Error) {
 	vk.requestU("appWidgets.getAppImages", params, &response, &vkErr)
 	return
 }
@@ -40,7 +40,7 @@ type AppWidgetsGetGroupImageUploadServerResponse struct {
 
 // AppWidgetsGetGroupImageUploadServer returns a URL for uploading a photo to the community collection for community app widgets.
 // https://vk.com/dev/appWidgets.getGroupImageUploadServer
-func (vk VK) AppWidgetsGetGroupImageUploadServer(params map[string]string) (response AppWidgetsGetGroupImageUploadServerResponse, vkErr Error) {
+func (vk *VK) AppWidgetsGetGroupImageUploadServer(params map[string]string) (response AppWidgetsGetGroupImageUploadServerResponse, vkErr Error) {
 	vk.requestU("appWidgets.getGroupImageUploadServer", params, &response, &vkErr)
 	return
 }
@@ -61,7 +61,7 @@ type AppWidgetsGetGroupImagesResponse struct {
 
 // AppWidgetsGetGroupImages returns a community collection of images for community app widgets.
 // https://vk.com/dev/appWidgets.getGroupImages
-func (vk VK) AppWidgetsGetGroupImages(params map[string]string) (response AppWidgetsGetGroupImagesResponse, vkErr Error) {
+func (vk *VK) AppWidgetsGetGroupImages(params map[string]string) (response AppWidgetsGetGroupImagesResponse, vkErr Error) {
 	vk.requestU("appWidgets.getGroupImages", params, &response, &vkErr)
 	return
 }
@@ -79,7 +79,7 @@ type AppWidgetsGetImagesByIDResponse struct {
 
 // AppWidgetsGetImagesByID returns an image for community app widgets by its ID.
 // https://vk.com/dev/appWidgets.getImagesById
-func (vk VK) AppWidgetsGetImagesByID(params map[string]string) (response AppWidgetsGetImagesByIDResponse, vkErr Error) {
+func (vk *VK) AppWidgetsGetImagesByID(params map[string]string) (response AppWidgetsGetImagesByIDResponse, vkErr Error) {
 	vk.requestU("appWidgets.getImagesById", params, &response, &vkErr)
 	return
 }
@@ -97,7 +97,7 @@ type AppWidgetsSaveAppImageResponse struct {
 
 // AppWidgetsSaveAppImage allows to save image into app collection for community app widgets.
 // https://vk.com/dev/appWidgets.saveAppImage
-func (vk VK) AppWidgetsSaveAppImage(params map[string]string) (response AppWidgetsSaveAppImageResponse, vkErr Error) {
+func (vk *VK) AppWidgetsSaveAppImage(params map[string]string) (response AppWidgetsSaveAppImageResponse, vkErr Error) {
 	vk.requestU("appWidgets.saveAppImage", params, &response, &vkErr)
 	return
 }
@@ -115,14 +115,14 @@ type AppWidgetsSaveGroupImageResponse struct {
 
 // AppWidgetsSaveGroupImage allows to save image into community collection for community app widgets.
 // https://vk.com/dev/appWidgets.saveGroupImage
-func (vk VK) AppWidgetsSaveGroupImage(params map[string]string) (response AppWidgetsSaveGroupImageResponse, vkErr Error) {
+func (vk *VK) AppWidgetsSaveGroupImage(params map[string]string) (response AppWidgetsSaveGroupImageResponse, vkErr Error) {
 	vk.requestU("appWidgets.saveGroupImage", params, &response, &vkErr)
 	return
 }
 
 // AppWidgetsUpdate allows to update community app widget.
 // https://vk.com/dev/appWidgets.update
-func (vk VK) AppWidgetsUpdate(params map[string]string) (vkErr Error) {
+func (vk *VK) AppWidgetsUpdate(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("appWidgets.update", params)
 
 	return

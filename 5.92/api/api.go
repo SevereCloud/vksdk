@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"sync"
+	"time"
 
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
@@ -20,6 +22,11 @@ type VK struct {
 	AccessToken string
 	Version     string
 	Client      *http.Client
+	Limit       int
+
+	mux      sync.Mutex
+	lastTime time.Time
+	rps      int
 }
 
 // Error struct VK
@@ -41,8 +48,7 @@ func Init(token string) (vk VK) {
 }
 
 // Request provides access to VK API methods
-func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
-	// TODO: ограничитель на запросы
+func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 	var handler struct {
 		Response json.RawMessage
 		Error    Error `json:"error"`
@@ -58,6 +64,23 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 	query.Set("v", vk.Version)
 
 	rawBody := bytes.NewBufferString(query.Encode())
+
+	// Rate limiting
+	if vk.Limit > 0 {
+		vk.mux.Lock()
+		sleepTime := time.Second - time.Since(vk.lastTime)
+		if sleepTime < 0 {
+			vk.lastTime = time.Now()
+			vk.rps = 0
+		} else if vk.rps == vk.Limit {
+			time.Sleep(sleepTime)
+			vk.lastTime = time.Now()
+			vk.rps = 0
+		}
+		vk.rps++
+		vk.mux.Unlock()
+	}
+
 	resp, err := vk.Client.Post(u, "application/x-www-form-urlencoded", rawBody)
 	if err != nil {
 		handler.Error.Code = -1
@@ -80,7 +103,7 @@ func (vk VK) Request(method string, params map[string]string) ([]byte, Error) {
 	return handler.Response, handler.Error
 }
 
-func (vk VK) requestU(method string, params map[string]string, obj interface{}, vkErr *Error) {
+func (vk *VK) requestU(method string, params map[string]string, obj interface{}, vkErr *Error) {
 	rawResponse, rawErr := vk.Request(method, params)
 	*vkErr = rawErr
 	if vkErr.Code != 0 {
@@ -95,9 +118,9 @@ func (vk VK) requestU(method string, params map[string]string, obj interface{}, 
 }
 
 // Execute a universal method for calling a sequence of other methods while saving and filtering interim results.
-func (vk VK) Execute(Code string) (response []byte, vkErr Error) {
+func (vk *VK) Execute(code string) (response []byte, vkErr Error) {
 	p := make(map[string]string)
-	p["code"] = Code
+	p["code"] = code
 	response, vkErr = vk.Request("execute", p)
 
 	return

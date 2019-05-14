@@ -7,36 +7,6 @@ import (
 	"testing"
 )
 
-func TestInit(t *testing.T) {
-	type args struct {
-		token string
-	}
-	tests := []struct {
-		name   string
-		args   args
-		wantVk VK
-	}{
-		{
-			name: "init test",
-			args: args{
-				token: "test",
-			},
-			wantVk: VK{
-				AccessToken: "test",
-				Version:     "5.92",
-				Client:      &http.Client{},
-			},
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if gotVk := Init(tt.args.token); !reflect.DeepEqual(gotVk, tt.wantVk) {
-				t.Errorf("Init() = %v, want %v", gotVk, tt.wantVk)
-			}
-		})
-	}
-}
-
 func TestVK_Request(t *testing.T) {
 	type fields struct {
 		AccessToken string
@@ -81,6 +51,23 @@ func TestVK_Request(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestVK_RequestLimit(t *testing.T) {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+	vk := Init(groupToken)
+	vk.Limit = 2
+
+	t.Run("vk.Limit", func(t *testing.T) {
+		go vk.UsersGet(map[string]string{})
+		for i := 0; i < 2; i++ {
+			vk.UsersGet(map[string]string{})
+		}
+	})
+
 }
 
 func TestVK_Execute(t *testing.T) {

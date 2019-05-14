@@ -14,7 +14,7 @@ type WallCreateCommentResponse struct {
 
 // WallCreateComment Adds a comment to a post on a user wall or community wall.
 // https://vk.com/dev/wall.createComment
-func (vk VK) WallCreateComment(params map[string]string) (response WallCreateCommentResponse, vkErr Error) {
+func (vk *VK) WallCreateComment(params map[string]string) (response WallCreateCommentResponse, vkErr Error) {
 	vk.requestU("wall.createComment", params, &response, &vkErr)
 	return
 }
@@ -98,7 +98,7 @@ type WallPostResponse struct {
 
 // WallPost adds a new post on a user wall or community wall.Can also be used to publish suggested or scheduled posts.
 // https://vk.com/dev/wall.post
-func (vk VK) WallPost(params map[string]string) (response WallPostResponse, vkErr Error) {
+func (vk *VK) WallPost(params map[string]string) (response WallPostResponse, vkErr Error) {
 	vk.requestU("wall.post", params, &response, &vkErr)
 	return
 }

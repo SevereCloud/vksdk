@@ -79,7 +79,7 @@ fmt.Print(S.Text)
 ## TODO
 
 - [ ] Все методы API
-- [ ] Ограничитель на запросы
+- [x] Ограничитель на запросы
 - [x] Callback
 - [x] LongPoll bot
 - [ ] LongPoll user

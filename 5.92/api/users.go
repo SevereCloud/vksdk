@@ -9,7 +9,7 @@ type UsersGetResponse []object.UsersUser
 
 // UsersGet returns detailed information on users
 // https://vk.com/dev/users.get
-func (vk VK) UsersGet(params map[string]string) (response UsersGetResponse, vkErr Error) {
+func (vk *VK) UsersGet(params map[string]string) (response UsersGetResponse, vkErr Error) {
 	vk.requestU("users.get", params, &response, &vkErr)
 	return
 }
@@ -19,7 +19,7 @@ type UsersGetFollowersResponse []object.UsersUser
 
 // UsersGetFollowers returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 // https://vk.com/dev/users.getFollowers
-func (vk VK) UsersGetFollowers(params map[string]string) (response UsersGetFollowersResponse, vkErr Error) {
+func (vk *VK) UsersGetFollowers(params map[string]string) (response UsersGetFollowersResponse, vkErr Error) {
 	vk.requestU("users.getFollowers", params, &response, &vkErr)
 	return
 }
@@ -39,7 +39,7 @@ type UsersGetSubscriptionsResponse struct {
 // UsersGetSubscriptions returns a list of IDs of users and public pages followed by the user.
 // https://vk.com/dev/users.getSubscriptions
 // BUG(SevereCloud): UsersGetSubscriptions bad response with extended=1
-func (vk VK) UsersGetSubscriptions(params map[string]string) (response UsersGetSubscriptionsResponse, vkErr Error) {
+func (vk *VK) UsersGetSubscriptions(params map[string]string) (response UsersGetSubscriptionsResponse, vkErr Error) {
 	params["extended"] = "0"
 	vk.requestU("users.getSubscriptions", params, &response, &vkErr)
 	return
@@ -50,14 +50,14 @@ type UsersIsAppUserResponse int
 
 // UsersIsAppUser returns information whether a user installed the application.
 // https://vk.com/dev/users.isAppUser
-func (vk VK) UsersIsAppUser(params map[string]string) (response UsersIsAppUserResponse, vkErr Error) {
+func (vk *VK) UsersIsAppUser(params map[string]string) (response UsersIsAppUserResponse, vkErr Error) {
 	vk.requestU("users.isAppUser", params, &response, &vkErr)
 	return
 }
 
 // UsersReport reports (submits a complain about) a user.
 // https://vk.com/dev/users.report
-func (vk VK) UsersReport(params map[string]string) (vkErr Error) {
+func (vk *VK) UsersReport(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("users.report", params)
 	return
 }
@@ -70,7 +70,7 @@ type UsersSearchResponse struct {
 
 // UsersSearch returns a list of users matching the search criteria.
 // https://vk.com/dev/users.search
-func (vk VK) UsersSearch(params map[string]string) (response UsersSearchResponse, vkErr Error) {
+func (vk *VK) UsersSearch(params map[string]string) (response UsersSearchResponse, vkErr Error) {
 	vk.requestU("users.search", params, &response, &vkErr)
 	return
 }

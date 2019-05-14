@@ -6,14 +6,14 @@ import (
 
 // MessagesAddChatUser adds a new user to a chat.
 // https://vk.com/dev/messages.addChatUser
-func (vk VK) MessagesAddChatUser(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesAddChatUser(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.addChatUser", params)
 	return
 }
 
 // MessagesAllowMessagesFromGroup allows sending messages from community to the current user.
 // https://vk.com/dev/messages.allowMessagesFromGroup
-func (vk VK) MessagesAllowMessagesFromGroup(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesAllowMessagesFromGroup(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.allowMessagesFromGroup", params)
 	return
 }
@@ -23,7 +23,7 @@ type MessagesCreateChatResponse int
 
 // MessagesCreateChat creates a chat with several participants.
 // https://vk.com/dev/messages.createChat
-func (vk VK) MessagesCreateChat(params map[string]string) (response MessagesCreateChatResponse, vkErr Error) {
+func (vk *VK) MessagesCreateChat(params map[string]string) (response MessagesCreateChatResponse, vkErr Error) {
 	vk.requestU("messages.createChat", params, &response, &vkErr)
 	return
 }
@@ -33,7 +33,7 @@ type MessagesDeleteResponse map[string]int
 
 // MessagesDelete deletes one or more messages.
 // https://vk.com/dev/messages.delete
-func (vk VK) MessagesDelete(params map[string]string) (response MessagesDeleteResponse, vkErr Error) {
+func (vk *VK) MessagesDelete(params map[string]string) (response MessagesDeleteResponse, vkErr Error) {
 	vk.requestU("messages.delete", params, &response, &vkErr)
 	return
 }
@@ -46,35 +46,35 @@ type MessagesDeleteChatPhotoResponse struct {
 
 // MessagesDeleteChatPhoto deletes a chat's cover picture.
 // https://vk.com/dev/messages.deleteChatPhoto
-func (vk VK) MessagesDeleteChatPhoto(params map[string]string) (response MessagesDeleteChatPhotoResponse, vkErr Error) {
+func (vk *VK) MessagesDeleteChatPhoto(params map[string]string) (response MessagesDeleteChatPhotoResponse, vkErr Error) {
 	vk.requestU("messages.deleteChatPhoto", params, &response, &vkErr)
 	return
 }
 
 // MessagesDeleteConversation deletes private messages in a conversation.
 // https://vk.com/dev/messages.deleteConversation
-func (vk VK) MessagesDeleteConversation(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesDeleteConversation(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.deleteConversation", params)
 	return
 }
 
 // MessagesDenyMessagesFromGroup denies sending message from community to the current user.
 // https://vk.com/dev/messages.denyMessagesFromGroup
-func (vk VK) MessagesDenyMessagesFromGroup(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesDenyMessagesFromGroup(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.denyMessagesFromGroup", params)
 	return
 }
 
 // MessagesEdit edits the message.
 // https://vk.com/dev/messages.edit
-func (vk VK) MessagesEdit(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesEdit(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.edit", params)
 	return
 }
 
 // MessagesEditChat edits the title of a chat.
 // https://vk.com/dev/messages.editChat
-func (vk VK) MessagesEditChat(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesEditChat(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.editChat", params)
 	return
 }
@@ -89,7 +89,7 @@ type MessagesGetByConversationMessageIDResponse struct {
 
 // MessagesGetByConversationMessageID messages.getByConversationMessageId
 // https://vk.com/dev/messages.getByConversationMessageId
-func (vk VK) MessagesGetByConversationMessageID(params map[string]string) (response MessagesGetByConversationMessageIDResponse, vkErr Error) {
+func (vk *VK) MessagesGetByConversationMessageID(params map[string]string) (response MessagesGetByConversationMessageIDResponse, vkErr Error) {
 	vk.requestU("messages.getByConversationMessageId", params, &response, &vkErr)
 	return
 }
@@ -102,7 +102,7 @@ type MessagesGetByIDResponse struct {
 
 // MessagesGetByID returns messages by their IDs.
 // https://vk.com/dev/messages.getById
-func (vk VK) MessagesGetByID(params map[string]string) (response MessagesGetByIDResponse, vkErr Error) {
+func (vk *VK) MessagesGetByID(params map[string]string) (response MessagesGetByIDResponse, vkErr Error) {
 	params["extended"] = "0"
 	vk.requestU("messages.getById", params, &response, &vkErr)
 	return
@@ -118,7 +118,7 @@ type MessagesGetByIDExtendedResponse struct {
 
 // MessagesGetByIDExtended returns messages by their IDs.
 // https://vk.com/dev/messages.getById
-func (vk VK) MessagesGetByIDExtended(params map[string]string) (response MessagesGetByIDExtendedResponse, vkErr Error) {
+func (vk *VK) MessagesGetByIDExtended(params map[string]string) (response MessagesGetByIDExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
 	vk.requestU("messages.getById", params, &response, &vkErr)
 	return
@@ -129,7 +129,7 @@ type MessagesGetChatResponse object.MessagesChat
 
 // MessagesGetChat returns information about a chat.
 // https://vk.com/dev/messages.getChat
-func (vk VK) MessagesGetChat(params map[string]string) (response MessagesGetChatResponse, vkErr Error) {
+func (vk *VK) MessagesGetChat(params map[string]string) (response MessagesGetChatResponse, vkErr Error) {
 	vk.requestU("messages.getChat", params, &response, &vkErr)
 	return
 }
@@ -139,7 +139,7 @@ type MessagesGetChatChatIDsResponse []object.MessagesChat
 
 // MessagesGetChatChatIDs returns information about a chat.
 // https://vk.com/dev/messages.getChat
-func (vk VK) MessagesGetChatChatIDs(params map[string]string) (response MessagesGetChatChatIDsResponse, vkErr Error) {
+func (vk *VK) MessagesGetChatChatIDs(params map[string]string) (response MessagesGetChatChatIDsResponse, vkErr Error) {
 	vk.requestU("messages.getChat", params, &response, &vkErr)
 	return
 }
@@ -153,7 +153,7 @@ type MessagesGetChatPreviewResponse struct {
 
 // MessagesGetChatPreview allows to receive chat preview by the invitation link.
 // https://vk.com/dev/messages.getChatPreview
-func (vk VK) MessagesGetChatPreview(params map[string]string) (response MessagesGetChatPreviewResponse, vkErr Error) {
+func (vk *VK) MessagesGetChatPreview(params map[string]string) (response MessagesGetChatPreviewResponse, vkErr Error) {
 	vk.requestU("messages.getChatPreview", params, &response, &vkErr)
 	return
 }
@@ -181,7 +181,7 @@ type MessagesGetConversationMembersResponse struct {
 
 // MessagesGetConversationMembers Returns a list of IDs of users participating in a conversation.
 // https://vk.com/dev/messages.getConversationMembers
-func (vk VK) MessagesGetConversationMembers(params map[string]string) (response MessagesGetConversationMembersResponse, vkErr Error) {
+func (vk *VK) MessagesGetConversationMembers(params map[string]string) (response MessagesGetConversationMembersResponse, vkErr Error) {
 	vk.requestU("messages.getConversationMembers", params, &response, &vkErr)
 	return
 }
@@ -198,7 +198,7 @@ type MessagesGetConversationsResponse struct {
 
 // MessagesGetConversations returns a list of conversations.
 // https://vk.com/dev/messages.getConversations
-func (vk VK) MessagesGetConversations(params map[string]string) (response MessagesGetConversationsResponse, vkErr Error) {
+func (vk *VK) MessagesGetConversations(params map[string]string) (response MessagesGetConversationsResponse, vkErr Error) {
 	vk.requestU("messages.getConversations", params, &response, &vkErr)
 	return
 }
@@ -211,7 +211,7 @@ type MessagesGetConversationsByIDResponse struct {
 
 // MessagesGetConversationsByID returns conversations by their IDs.
 // https://vk.com/dev/messages.getConversationsById
-func (vk VK) MessagesGetConversationsByID(params map[string]string) (response MessagesGetConversationsByIDResponse, vkErr Error) {
+func (vk *VK) MessagesGetConversationsByID(params map[string]string) (response MessagesGetConversationsByIDResponse, vkErr Error) {
 	params["extended"] = "0"
 	vk.requestU("messages.getConversationsById", params, &response, &vkErr)
 	return
@@ -227,7 +227,7 @@ type MessagesGetConversationsByIDExtendedResponse struct {
 
 // MessagesGetConversationsByIDExtended returns conversations by their IDs.
 // https://vk.com/dev/messages.getConversationsById
-func (vk VK) MessagesGetConversationsByIDExtended(params map[string]string) (response MessagesGetConversationsByIDExtendedResponse, vkErr Error) {
+func (vk *VK) MessagesGetConversationsByIDExtended(params map[string]string) (response MessagesGetConversationsByIDExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
 	vk.requestU("messages.getConversationsById", params, &response, &vkErr)
 	return
@@ -243,7 +243,7 @@ type MessagesGetHistoryResponse struct {
 
 // MessagesGetHistory returns message history for the specified user or group chat.
 // https://vk.com/dev/messages.getHistory
-func (vk VK) MessagesGetHistory(params map[string]string) (response MessagesGetHistoryResponse, vkErr Error) {
+func (vk *VK) MessagesGetHistory(params map[string]string) (response MessagesGetHistoryResponse, vkErr Error) {
 	vk.requestU("messages.getHistory", params, &response, &vkErr)
 	return
 }
@@ -256,7 +256,7 @@ type MessagesGetHistoryAttachmentsResponse struct {
 
 // MessagesGetHistoryAttachments returns media files from the dialog or group chat.
 // https://vk.com/dev/messages.getHistoryAttachments
-func (vk VK) MessagesGetHistoryAttachments(params map[string]string) (response MessagesGetHistoryAttachmentsResponse, vkErr Error) {
+func (vk *VK) MessagesGetHistoryAttachments(params map[string]string) (response MessagesGetHistoryAttachmentsResponse, vkErr Error) {
 	vk.requestU("messages.getHistoryAttachments", params, &response, &vkErr)
 	return
 }
@@ -274,7 +274,7 @@ type MessagesGetImportantMessagesResponse struct {
 
 // MessagesGetImportantMessages messages.getImportantMessages
 // https://vk.com/dev/messages.getImportantMessages
-func (vk VK) MessagesGetImportantMessages(params map[string]string) (response MessagesGetImportantMessagesResponse, vkErr Error) {
+func (vk *VK) MessagesGetImportantMessages(params map[string]string) (response MessagesGetImportantMessagesResponse, vkErr Error) {
 	vk.requestU("messages.getImportantMessages", params, &response, &vkErr)
 	return
 }
@@ -286,7 +286,7 @@ type MessagesGetInviteLinkResponse struct {
 
 // MessagesGetInviteLink receives a link to invite a user to the chat.
 // https://vk.com/dev/messages.getInviteLink
-func (vk VK) MessagesGetInviteLink(params map[string]string) (response MessagesGetInviteLinkResponse, vkErr Error) {
+func (vk *VK) MessagesGetInviteLink(params map[string]string) (response MessagesGetInviteLinkResponse, vkErr Error) {
 	vk.requestU("messages.getInviteLink", params, &response, &vkErr)
 	return
 }
@@ -296,7 +296,7 @@ type MessagesGetLastActivityResponse object.MessagesLastActivity
 
 // MessagesGetLastActivity returns a user's current status and date of last activity.
 // https://vk.com/dev/messages.getLastActivity
-func (vk VK) MessagesGetLastActivity(params map[string]string) (response MessagesGetLastActivityResponse, vkErr Error) {
+func (vk *VK) MessagesGetLastActivity(params map[string]string) (response MessagesGetLastActivityResponse, vkErr Error) {
 	vk.requestU("messages.getLastActivity", params, &response, &vkErr)
 	return
 }
@@ -318,7 +318,7 @@ type MessagesGetLongPollHistoryResponse struct {
 
 // MessagesGetLongPollHistory returns updates in user's private messages.
 // https://vk.com/dev/messages.getLongPollHistory
-func (vk VK) MessagesGetLongPollHistory(params map[string]string) (response MessagesGetLongPollHistoryResponse, vkErr Error) {
+func (vk *VK) MessagesGetLongPollHistory(params map[string]string) (response MessagesGetLongPollHistoryResponse, vkErr Error) {
 	vk.requestU("messages.getLongPollHistory", params, &response, &vkErr)
 	return
 }
@@ -328,7 +328,7 @@ type MessagesGetLongPollServerResponse object.MessagesLongpollParams
 
 // MessagesGetLongPollServer returns data required for connection to a Long Poll server.
 // https://vk.com/dev/messages.getLongPollServer
-func (vk VK) MessagesGetLongPollServer(params map[string]string) (response MessagesGetLongPollServerResponse, vkErr Error) {
+func (vk *VK) MessagesGetLongPollServer(params map[string]string) (response MessagesGetLongPollServerResponse, vkErr Error) {
 	vk.requestU("messages.getLongPollServer", params, &response, &vkErr)
 	return
 }
@@ -341,7 +341,7 @@ type MessagesIsMessagesFromGroupAllowedResponse struct {
 // MessagesIsMessagesFromGroupAllowed returns information whether sending messages from the community to current user is allowed.
 // https://vk.com/dev/messages.isMessagesFromGroupAllowed
 // BUG(VK): need group_id with group token vk.com/bugtracker?act=show&id=88011
-func (vk VK) MessagesIsMessagesFromGroupAllowed(params map[string]string) (response MessagesIsMessagesFromGroupAllowedResponse, vkErr Error) {
+func (vk *VK) MessagesIsMessagesFromGroupAllowed(params map[string]string) (response MessagesIsMessagesFromGroupAllowedResponse, vkErr Error) {
 	vk.requestU("messages.isMessagesFromGroupAllowed", params, &response, &vkErr)
 	return
 }
@@ -353,14 +353,14 @@ type MessagesJoinChatByInviteLinkResponse struct {
 
 // MessagesJoinChatByInviteLink allows to enter the chat by the invitation link.
 // https://vk.com/dev/messages.joinChatByInviteLink
-func (vk VK) MessagesJoinChatByInviteLink(params map[string]string) (response MessagesJoinChatByInviteLinkResponse, vkErr Error) {
+func (vk *VK) MessagesJoinChatByInviteLink(params map[string]string) (response MessagesJoinChatByInviteLinkResponse, vkErr Error) {
 	vk.requestU("messages.joinChatByInviteLink", params, &response, &vkErr)
 	return
 }
 
 // MessagesMarkAsAnsweredConversation messages.markAsAnsweredConversation
 // https://vk.com/dev/messages.markAsAnsweredConversation
-func (vk VK) MessagesMarkAsAnsweredConversation(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesMarkAsAnsweredConversation(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.markAsAnsweredConversation", params)
 	return
 }
@@ -370,21 +370,21 @@ type MessagesMarkAsImportantResponse []int
 
 // MessagesMarkAsImportant marks and un marks messages as important (starred).
 // https://vk.com/dev/messages.markAsImportant
-func (vk VK) MessagesMarkAsImportant(params map[string]string) (response MessagesMarkAsImportantResponse, vkErr Error) {
+func (vk *VK) MessagesMarkAsImportant(params map[string]string) (response MessagesMarkAsImportantResponse, vkErr Error) {
 	vk.requestU("messages.markAsImportant", params, &response, &vkErr)
 	return
 }
 
 // MessagesMarkAsImportantConversation messages.markAsImportantConversation
 // https://vk.com/dev/messages.markAsImportantConversation
-func (vk VK) MessagesMarkAsImportantConversation(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesMarkAsImportantConversation(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.markAsImportantConversation", params)
 	return
 }
 
 // MessagesMarkAsRead marks messages as read.
 // https://vk.com/dev/messages.markAsRead
-func (vk VK) MessagesMarkAsRead(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesMarkAsRead(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.markAsRead", params)
 	return
 }
@@ -394,21 +394,21 @@ type MessagesPinResponse object.MessagesMessage
 
 // MessagesPin messages.pin
 // https://vk.com/dev/messages.pin
-func (vk VK) MessagesPin(params map[string]string) (response MessagesPinResponse, vkErr Error) {
+func (vk *VK) MessagesPin(params map[string]string) (response MessagesPinResponse, vkErr Error) {
 	vk.requestU("messages.pin", params, &response, &vkErr)
 	return
 }
 
 // MessagesRemoveChatUser Allows the current user to leave a chat or, if the current user started the chat, allows the user to remove another user from the chat.
 // https://vk.com/dev/messages.removeChatUser
-func (vk VK) MessagesRemoveChatUser(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesRemoveChatUser(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.removeChatUser", params)
 	return
 }
 
 // MessagesRestore restores a deleted message.
 // https://vk.com/dev/messages.restore
-func (vk VK) MessagesRestore(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesRestore(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.restore", params)
 	return
 }
@@ -424,7 +424,7 @@ type MessagesSearchResponse struct {
 
 // MessagesSearch Returns a list of the current user's private messages that match search criteria.
 // https://vk.com/dev/messages.search
-func (vk VK) MessagesSearch(params map[string]string) (response MessagesSearchResponse, vkErr Error) {
+func (vk *VK) MessagesSearch(params map[string]string) (response MessagesSearchResponse, vkErr Error) {
 	vk.requestU("messages.search", params, &response, &vkErr)
 	return
 }
@@ -439,7 +439,7 @@ type MessagesSearchConversationsResponse struct {
 
 // MessagesSearchConversations returns a list of conversations that match search criteria.
 // https://vk.com/dev/messages.searchConversations
-func (vk VK) MessagesSearchConversations(params map[string]string) (response MessagesSearchConversationsResponse, vkErr Error) {
+func (vk *VK) MessagesSearchConversations(params map[string]string) (response MessagesSearchConversationsResponse, vkErr Error) {
 	vk.requestU("messages.searchConversations", params, &response, &vkErr)
 	return
 }
@@ -449,7 +449,7 @@ type MessagesSendResponse int
 
 // MessagesSend Sends a message
 // https://vk.com/dev/messages.send
-func (vk VK) MessagesSend(params map[string]string) (response MessagesSendResponse, vkErr Error) {
+func (vk *VK) MessagesSend(params map[string]string) (response MessagesSendResponse, vkErr Error) {
 	params["user_ids"] = ""
 	vk.requestU("messages.send", params, &response, &vkErr)
 	return
@@ -467,7 +467,7 @@ type MessagesSendUserIDsResponse []struct {
 
 // MessagesSendUserIDs Sends a message
 // https://vk.com/dev/messages.send
-func (vk VK) MessagesSendUserIDs(params map[string]string) (response MessagesSendUserIDsResponse, vkErr Error) {
+func (vk *VK) MessagesSendUserIDs(params map[string]string) (response MessagesSendUserIDsResponse, vkErr Error) {
 	vk.requestU("messages.send", params, &response, &vkErr)
 	return
 }
@@ -477,7 +477,7 @@ type MessagesSendStickerResponse int
 
 // MessagesSendSticker Sends a message
 // https://vk.com/dev/messages.sendSticker
-func (vk VK) MessagesSendSticker(params map[string]string) (response MessagesSendStickerResponse, vkErr Error) {
+func (vk *VK) MessagesSendSticker(params map[string]string) (response MessagesSendStickerResponse, vkErr Error) {
 	params["user_ids"] = ""
 	vk.requestU("messages.sendSticker", params, &response, &vkErr)
 	return
@@ -485,7 +485,7 @@ func (vk VK) MessagesSendSticker(params map[string]string) (response MessagesSen
 
 // MessagesSetActivity changes the status of a user as typing in a conversation.
 // https://vk.com/dev/messages.setActivity
-func (vk VK) MessagesSetActivity(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesSetActivity(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.setActivity", params)
 	return
 }
@@ -498,14 +498,14 @@ type MessagesSetChatPhotoResponse struct {
 
 // MessagesSetChatPhoto sets a previously-uploaded picture as the cover picture of a chat.
 // https://vk.com/dev/messages.setChatPhoto
-func (vk VK) MessagesSetChatPhoto(params map[string]string) (response MessagesSetChatPhotoResponse, vkErr Error) {
+func (vk *VK) MessagesSetChatPhoto(params map[string]string) (response MessagesSetChatPhotoResponse, vkErr Error) {
 	vk.requestU("messages.setChatPhoto", params, &response, &vkErr)
 	return
 }
 
 // MessagesUnpin messages.unpin
 // https://vk.com/dev/messages.unpin
-func (vk VK) MessagesUnpin(params map[string]string) (vkErr Error) {
+func (vk *VK) MessagesUnpin(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("messages.unpin", params)
 	return
 }

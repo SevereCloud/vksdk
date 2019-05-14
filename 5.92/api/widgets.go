@@ -12,7 +12,7 @@ type WidgetsGetCommentsResponse struct {
 
 // WidgetsGetComments gets a list of comments for the page added through the Comments widget.
 // https://vk.com/dev/widgets.getComments
-func (vk VK) WidgetsGetComments(params map[string]string) (response WidgetsGetCommentsResponse, vkErr Error) {
+func (vk *VK) WidgetsGetComments(params map[string]string) (response WidgetsGetCommentsResponse, vkErr Error) {
 	vk.requestU("widgets.getComments", params, &response, &vkErr)
 	return
 }
@@ -25,7 +25,7 @@ type WidgetsGetPagesResponse struct {
 
 // WidgetsGetPages gets a list of application/site pages where the Comments widget or Like widget is installed.
 // https://vk.com/dev/widgets.getPages
-func (vk VK) WidgetsGetPages(params map[string]string) (response WidgetsGetPagesResponse, vkErr Error) {
+func (vk *VK) WidgetsGetPages(params map[string]string) (response WidgetsGetPagesResponse, vkErr Error) {
 	vk.requestU("widgets.getPages", params, &response, &vkErr)
 	return
 }

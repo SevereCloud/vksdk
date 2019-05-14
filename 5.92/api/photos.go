@@ -175,7 +175,7 @@ type PhotosGetWallUploadServerResponse struct {
 
 // PhotosGetWallUploadServer returns the server address for photo upload onto a user's wall.
 // https://vk.com/dev/photos.getWallUploadServer
-func (vk VK) PhotosGetWallUploadServer(params map[string]string) (response PhotosGetWallUploadServerResponse, vkErr Error) {
+func (vk *VK) PhotosGetWallUploadServer(params map[string]string) (response PhotosGetWallUploadServerResponse, vkErr Error) {
 	vk.requestU("photos.getWallUploadServer", params, &response, &vkErr)
 	return
 }
@@ -281,7 +281,7 @@ type PhotosSaveWallPhotoResponse []object.PhotosPhoto
 
 // PhotosSaveWallPhoto saves a photo to a user's or community's wall after being uploaded.
 // https://vk.com/dev/photos.saveWallPhoto
-func (vk VK) PhotosSaveWallPhoto(params map[string]string) (response PhotosSaveWallPhotoResponse, vkErr Error) {
+func (vk *VK) PhotosSaveWallPhoto(params map[string]string) (response PhotosSaveWallPhotoResponse, vkErr Error) {
 	vk.requestU("photos.saveWallPhoto", params, &response, &vkErr)
 	return
 }
