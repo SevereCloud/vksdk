@@ -28,7 +28,7 @@ type Longpoll struct {
 	Key     string
 	Ts      string
 	Wait    int
-	VK      api.VK
+	VK      *api.VK
 	Client  *http.Client
 
 	funcList   handler.FuncList
@@ -36,7 +36,7 @@ type Longpoll struct {
 }
 
 // Init Longpoll
-func Init(vk api.VK, groupID int) (lp Longpoll, err error) {
+func Init(vk *api.VK, groupID int) (lp Longpoll, err error) {
 	lp.VK = vk
 	lp.GroupID = groupID
 	lp.Wait = 25
