@@ -14,7 +14,7 @@ type notificationsFeedback struct {
 
 // NotificationsNotification struct
 type NotificationsNotification struct {
-	Date     int                `json:"date"` // Date when the event has been occured
+	Date     int                `json:"date"` // Date when the event has been occurred
 	Feedback json.RawMessage    `json:"feedback"`
 	Parent   json.RawMessage    `json:"parent"`
 	Reply    notificationsReply `json:"reply"`
