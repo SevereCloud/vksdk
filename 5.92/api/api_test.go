@@ -1,56 +1,24 @@
 package api
 
 import (
-	"net/http"
 	"os"
 	"reflect"
 	"testing"
 )
 
 func TestVK_Request(t *testing.T) {
-	type fields struct {
-		AccessToken string
-		Version     string
-		Client      *http.Client
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
 	}
-	type args struct {
-		method string
-		params map[string]string
-	}
-	tests := []struct {
-		name   string
-		fields fields
-		args   args
-		want   []byte
-		want1  Error
-	}{
-		{
-			name: "Request 403 error",
-			args: args{method: "1"},
-			fields: fields{
-				Client: &http.Client{},
-			},
-			want1: Error{
-				Code: -1,
-			},
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			vk := VK{
-				AccessToken: tt.fields.AccessToken,
-				Version:     tt.fields.Version,
-				Client:      tt.fields.Client,
-			}
-			got, got1 := vk.Request(tt.args.method, tt.args.params)
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("VK.Request() got = %v, want %v", got, tt.want)
-			}
-			if got1.Code != tt.want1.Code {
-				t.Errorf("VK.Request() got1 = %v, want %v", got1, tt.want1)
-			}
-		})
-	}
+	vk := Init(groupToken)
+
+	t.Run("Request 403 error", func(t *testing.T) {
+		_, vkErr := vk.Request("", map[string]string{})
+		if vkErr.Code != -1 {
+			t.Errorf("VK.Request() got1 = %v, want -1", vkErr)
+		}
+	})
 }
 
 func TestVK_RequestLimit(t *testing.T) {

@@ -91,7 +91,8 @@ type PhotosGetAllResponse struct{}
 // PhotosGetAllCommentsResponse struct
 type PhotosGetAllCommentsResponse struct{}
 
-// TODO: photos.getAllComments returns a list of comments on a specific photo album or all albums of the user sorted in reverse chronological order.
+// TODO: photos.getAllComments returns a list of comments on a specific
+// photo album or all albums of the user sorted in reverse chronological order.
 // https://vk.com/dev/photos.getAllComments
 
 // PhotosGetByIDResponse struct
@@ -261,7 +262,8 @@ type PhotosSaveMarketPhotoResponse struct{}
 // PhotosSaveMessagesPhotoResponse struct
 type PhotosSaveMessagesPhotoResponse struct{}
 
-// TODO: photos.saveMessagesPhoto saves a photo after being successfully uploaded.URL obtained with photos.getMessagesUploadServer method.
+// TODO: photos.saveMessagesPhoto saves a photo after being successfully
+// uploaded.URL obtained with photos.getMessagesUploadServer method.
 // https://vk.com/dev/photos.saveMessagesPhoto
 
 // PhotosSaveOwnerCoverPhotoResponse struct

@@ -3,13 +3,15 @@ package api // import "github.com/SevereCloud/vksdk/5.92/api"
 // NewsfeedAddBanResponse struct
 type NewsfeedAddBanResponse struct{}
 
-// TODO: newsfeed.addBan prevents news from specified users and communities from appearing in the current user's newsfeed.
+// TODO: newsfeed.addBan prevents news from specified users and communities
+// from appearing in the current user's newsfeed.
 // https://vk.com/dev/newsfeed.addBan
 
 // NewsfeedDeleteBanResponse struct
 type NewsfeedDeleteBanResponse struct{}
 
-// TODO: newsfeed.deleteBan allows news from previously banned users and communities to be shown in the current user's newsfeed.
+// TODO: newsfeed.deleteBan allows news from previously banned users and
+// communities to be shown in the current user's newsfeed.
 // https://vk.com/dev/newsfeed.deleteBan
 
 // NewsfeedDeleteListResponse struct

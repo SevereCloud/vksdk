@@ -169,7 +169,7 @@ func TestVK_UtilsGetLinkStatsExtended(t *testing.T) {
 		wantVkErr    Error
 	}{
 		{
-			name: "utils.getLinkStats 8TDuIz",
+			name: "utils.getLinkStatsExtended 8TDuIz",
 			argParams: map[string]string{
 				"key":             "8TDuIz",
 				"intervals_count": "1",
@@ -179,7 +179,7 @@ func TestVK_UtilsGetLinkStatsExtended(t *testing.T) {
 			},
 		},
 		{
-			name:      "utils.getLinkStats error",
+			name:      "utils.getLinkStatsExtended error",
 			argParams: map[string]string{},
 			wantVkErr: Error{Code: 100},
 		},

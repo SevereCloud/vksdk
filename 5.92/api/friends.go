@@ -106,7 +106,8 @@ func (vk *VK) FriendsGetAppUsers(params map[string]string) (response FriendsGetA
 // FriendsGetByPhonesResponse struct
 type FriendsGetByPhonesResponse []object.UsersUser
 
-// FriendsGetByPhones returns a list of the current user's friends whose phone numbers, validated or specified in a profile, are in a given list.
+// FriendsGetByPhones returns a list of the current user's friends
+// whose phone numbers, validated or specified in a profile, are in a given list.
 // https://vk.com/dev/friends.getByPhones
 func (vk *VK) FriendsGetByPhones(params map[string]string) (response FriendsGetByPhonesResponse, vkErr Error) {
 	vk.requestU("friends.getByPhones", params, &response, &vkErr)

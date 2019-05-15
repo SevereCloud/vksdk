@@ -29,7 +29,9 @@ type AccountGetActiveOffersResponse struct {
 	Items []object.AccountOffer `json:"items"`
 }
 
-// AccountGetActiveOffers returns a list of active ads (offers).If the user fulfill their conditions, he will be able to get the appropriate number of votes to his balance.
+// AccountGetActiveOffers returns a list of active ads (offers).
+// If the user fulfill their conditions, he will be able to get
+// the appropriate number of votes to his balance.
 // https://vk.com/dev/account.getActiveOffers
 func (vk *VK) AccountGetActiveOffers(params map[string]string) (response AccountGetActiveOffersResponse, vkErr Error) {
 	vk.requestU("account.getActiveOffers", params, &response, &vkErr)
@@ -125,7 +127,8 @@ func (vk *VK) AccountSetInfo(params map[string]string) (vkErr Error) {
 	return
 }
 
-// AccountSetNameInMenu sets an application screen name (up to 17 characters), that is shown to the user in the left menu.
+// AccountSetNameInMenu sets an application screen name
+// (up to 17 characters), that is shown to the user in the left menu.
 // https://vk.com/dev/account.setNameInMenu
 func (vk *VK) AccountSetNameInMenu(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("account.setNameInMenu", params)

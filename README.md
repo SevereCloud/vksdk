@@ -3,7 +3,7 @@
 VK SDK for Golang это реализация библиотеки для работы с VK API.
 
 [![Build Status](https://travis-ci.com/SevereCloud/vksdk.svg?branch=master)](https://travis-ci.com/SevereCloud/vksdk)
-[![Go Report Card](https://goreportcard.com/badge/github.com/SevereCloud/vksdk)](https://goreportcard.com/report/github.com/SevereCloud/vksdk)
+[![GolangCI](https://golangci.com/badges/github.com/SevereCloud/vksdk.svg)](https://golangci.com/r/github.com/SevereCloud/vksdk)
 [![Documentation](https://godoc.org/github.com/SevereCloud/vksdk?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk)
 [![codecov](https://codecov.io/gh/SevereCloud/vksdk/branch/master/graph/badge.svg)](https://codecov.io/gh/SevereCloud/vksdk)
 [![GitHub issues](https://img.shields.io/github/issues/SevereCloud/vksdk.svg)](https://github.com/SevereCloud/vksdk/issues)

@@ -5,7 +5,8 @@ type AppWidgetsGetAppImageUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
 
-// AppWidgetsGetAppImageUploadServer returns a URL for uploading a photo to the app collection for community app widgets.
+// AppWidgetsGetAppImageUploadServer returns a URL for uploading a
+// photo to the app collection for community app widgets.
 // https://vk.com/dev/appWidgets.getAppImageUploadServer
 func (vk *VK) AppWidgetsGetAppImageUploadServer(params map[string]string) (response AppWidgetsGetAppImageUploadServerResponse, vkErr Error) {
 	vk.requestU("appWidgets.getAppImageUploadServer", params, &response, &vkErr)
@@ -38,7 +39,8 @@ type AppWidgetsGetGroupImageUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
 
-// AppWidgetsGetGroupImageUploadServer returns a URL for uploading a photo to the community collection for community app widgets.
+// AppWidgetsGetGroupImageUploadServer returns a URL for uploading
+// a photo to the community collection for community app widgets.
 // https://vk.com/dev/appWidgets.getGroupImageUploadServer
 func (vk *VK) AppWidgetsGetGroupImageUploadServer(params map[string]string) (response AppWidgetsGetGroupImageUploadServerResponse, vkErr Error) {
 	vk.requestU("appWidgets.getGroupImageUploadServer", params, &response, &vkErr)

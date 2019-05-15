@@ -106,7 +106,9 @@ func (vk *VK) WallPost(params map[string]string) (response WallPostResponse, vkE
 // WallPostAdsStealthResponse struct
 type WallPostAdsStealthResponse struct{}
 
-// TODO: wall.postAdsStealth allows to create hidden post which will not be shown on the community's wall and can be used for creating an ad with type "Community post".
+// TODO: wall.postAdsStealth allows to create hidden post which will
+// not be shown on the community's wall and can be used for creating
+// an ad with type "Community post".
 // https://vk.com/dev/wall.postAdsStealth
 
 // WallReportCommentResponse struct
