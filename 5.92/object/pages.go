@@ -1,6 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
-type pagesWikipage struct {
+// PagesWikipage struct
+type PagesWikipage struct {
 	CreatorID   int    `json:"creator_id"`   // Page creator ID
 	CreatorName int    `json:"creator_name"` // Page creator name
 	EditorID    int    `json:"editor_id"`    // Last editor ID
@@ -32,9 +33,9 @@ type PagesWikipageFull struct {
 	WhoCanView               int    `json:"who_can_view"`                 // View settings of the page
 }
 
-// PagesWikipageVersion struct
+// PagesWikipageHistory struct
 // BUG(VK): https://vk.com/dev/pages.getHistory edited and date
-type PagesWikipageVersion struct {
+type PagesWikipageHistory struct {
 	Date       int    `json:"date"`        // Date when the page has been edited in Unixtime
 	EditorID   int    `json:"editor_id"`   // Last editor ID
 	EditorName string `json:"editor_name"` // Last editor name

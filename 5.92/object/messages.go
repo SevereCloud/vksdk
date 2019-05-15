@@ -94,7 +94,8 @@ type MessagesChat struct {
 	Joined       bool                      `json:"joined"`
 }
 
-type messagesChatFull struct {
+// MessagesChatFull struct
+type MessagesChatFull struct {
 	AdminID      int                        `json:"admin_id"`  // Chat creator ID
 	ID           int                        `json:"id"`        // Chat ID
 	Kicked       int                        `json:"kicked"`    // Shows that user has been kicked from the chat
@@ -123,7 +124,6 @@ type messagesChatSettingsPhoto struct {
 type MessagesConversation struct {
 	CanWrite        messagesConversationCanWrite     `json:"can_write"`
 	ChatSettings    messagesConversationChatSettings `json:"chat_settings"`
-	Important       bool                             `json:"important"`
 	InRead          int                              `json:"in_read"`         // Last message user have read
 	LastMessageID   int                              `json:"last_message_id"` // ID of the last message in conversation
 	Mentions        []int                            `json:"mentions"`        // IDs of messages with mentions
@@ -131,6 +131,7 @@ type MessagesConversation struct {
 	OutRead         int                              `json:"out_read"` // Last outcoming message have been read by the opponent
 	Peer            messagesConversationPeer         `json:"peer"`
 	PushSettings    messagesConversationPushSettings `json:"push_settings"`
+	Important       bool                             `json:"important"`
 	Unanswered      bool                             `json:"unanswered"`
 	UnreadCount     int                              `json:"unread_count"` // Unread messages number
 	CurrentKeyboard MessagesKeyboard                 `json:"current_keyboard"`
@@ -167,8 +168,8 @@ type messagesConversationPeer struct {
 }
 
 type messagesConversationPushSettings struct {
-	DisabledForever bool `json:"disabled_forever"`
 	DisabledUntil   int  `json:"disabled_until"`
+	DisabledForever bool `json:"disabled_forever"`
 	NoSound         bool `json:"no_sound"`
 }
 
@@ -178,7 +179,8 @@ type MessagesConversationWithMessage struct {
 	LastMessage  MessagesMessage      `json:"last_message"`
 }
 
-type messagesDialog struct {
+// MessagesDialog struct
+type MessagesDialog struct {
 	Important  int             `json:"important"`
 	InRead     int             `json:"in_read"`
 	Message    MessagesMessage `json:"message"`
@@ -209,11 +211,6 @@ type messagesHistoryMessageAttachment struct {
 type MessagesLastActivity struct {
 	Online int `json:"online"` // Information whether user is online
 	Time   int `json:"time"`   // Time when user was online in Unixtime
-}
-
-type messagesLongpollMessages struct {
-	Count int               `json:"count"` // Total number
-	Items []MessagesMessage `json:"items"`
 }
 
 // MessagesLongpollParams struct

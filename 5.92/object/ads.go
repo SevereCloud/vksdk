@@ -5,14 +5,16 @@ type adsAccesses struct {
 	Role     string `json:"role"`
 }
 
-type adsAccount struct {
+// AdsAccount struct
+type AdsAccount struct {
 	AccessRole    string `json:"access_role"`
 	AccountID     int    `json:"account_id"`     // Account ID
 	AccountStatus int    `json:"account_status"` // Information whether account is active
 	AccountType   string `json:"account_type"`
 }
 
-type adsAdLayout struct {
+// AdsAdLayout struct
+type AdsAdLayout struct {
 	AdFormat    int    `json:"ad_format"`   // Ad format
 	CampaignID  int    `json:"campaign_id"` // Campaign ID
 	CostType    int    `json:"cost_type"`
@@ -27,7 +29,8 @@ type adsAdLayout struct {
 	Video       int    `json:"video"`        // Information whether the ad is a video
 }
 
-type adsCampaign struct {
+// AdsCampaign struct
+type AdsCampaign struct {
 	AllLimit  string `json:"all_limit"`  // Campaign's total limit, rubles
 	DayLimit  string `json:"day_limit"`  // Campaign's day limit, rubles
 	ID        int    `json:"id"`         // Campaign ID
@@ -38,20 +41,23 @@ type adsCampaign struct {
 	Type      string `json:"type"`
 }
 
-type adsCategory struct {
+// AdsCategory struct
+type AdsCategory struct {
 	ID            int                  `json:"id"`   // Category ID
 	Name          string               `json:"name"` // Category name
 	Subcategories []baseObjectWithName `json:"subcategories"`
 }
 
-type adsClient struct {
+// AdsClient struct
+type AdsClient struct {
 	AllLimit string `json:"all_limit"` // Client's total limit, rubles
 	DayLimit string `json:"day_limit"` // Client's day limit, rubles
 	ID       int    `json:"id"`        // Client ID
 	Name     string `json:"name"`      // Client name
 }
 
-type adsCriteria struct {
+// AdsCriteria struct
+type AdsCriteria struct {
 	AgeFrom              int    `json:"age_from"`               // Age from
 	AgeTo                int    `json:"age_to"`                 // Age to
 	Apps                 string `json:"apps"`                   // Apps IDs
@@ -84,7 +90,8 @@ type adsCriteria struct {
 	UserOs               string `json:"user_os"`       // Operating systems
 }
 
-type adsDemoStats struct {
+// AdsDemoStats struct
+type AdsDemoStats struct {
 	ID    int                `json:"id"` // Object ID
 	Stats adsDemostatsFormat `json:"stats"`
 	Type  string             `json:"type"`
@@ -100,12 +107,14 @@ type adsDemostatsFormat struct {
 	SexAge  []adsStatsSexAge `json:"sex_age"`
 }
 
-type adsFloodStats struct {
+// AdsFloodStats struct
+type AdsFloodStats struct {
 	Left    int `json:"left"`    // Requests left
 	Refresh int `json:"refresh"` // Time to refresh in seconds
 }
 
-type adsLinkStatus struct {
+// AdsLinkStatus struct
+type AdsLinkStatus struct {
 	Description string `json:"description"`  // Reject reason
 	RedirectURL string `json:"redirect_url"` // URL
 	Status      string `json:"status"`       // Link status
@@ -115,7 +124,8 @@ type adsParagraphs struct {
 	Paragraph string `json:"paragraph"` // Rules paragraph
 }
 
-type adsRejectReason struct {
+// AdsRejectReason struct
+type AdsRejectReason struct {
 	Comment string     `json:"comment"` // Comment text
 	Rules   []adsRules `json:"rules"`
 }
@@ -125,7 +135,8 @@ type adsRules struct {
 	Title      string          `json:"title"` // Comment
 }
 
-type adsStats struct {
+// AdsStats struct
+type AdsStats struct {
 	ID    int            `json:"id"` // Object ID
 	Stats adsStatsFormat `json:"stats"`
 	Type  string         `json:"type"`
@@ -171,33 +182,39 @@ type adsStatsSexAge struct {
 	Value           string  `json:"value"`            // Sex and age interval
 }
 
-type adsTargSettings struct {
+// AdsTargSettings struct
+type AdsTargSettings struct {
 }
 
-type adsTargStats struct {
+// AdsTargStats struct
+type AdsTargStats struct {
 	AudienceCount  int     `json:"audience_count"`  // Audience
 	RecommendedCpc float64 `json:"recommended_cpc"` // Recommended CPC value
 	RecommendedCpm float64 `json:"recommended_cpm"` // Recommended CPM value
 }
 
-type adsTargSuggestions struct {
+// AdsTargSuggestions struct
+type AdsTargSuggestions struct {
 	ID   int    `json:"id"`   // Object ID
 	Name string `json:"name"` // Object name
 }
 
-type adsTargSuggestionsCities struct {
+// AdsTargSuggestionsCities struct
+type AdsTargSuggestionsCities struct {
 	ID     int    `json:"id"`     // Object ID
 	Name   string `json:"name"`   // Object name
 	Parent string `json:"parent"` // Parent object
 }
 
-type adsTargSuggestionsRegions struct {
+// AdsTargSuggestionsRegions struct
+type AdsTargSuggestionsRegions struct {
 	ID   int    `json:"id"`   // Object ID
 	Name string `json:"name"` // Object name
 	Type string `json:"type"` // Object type
 }
 
-type adsTargSuggestionsSchools struct {
+// AdsTargSuggestionsSchools struct
+type AdsTargSuggestionsSchools struct {
 	Desc   string `json:"desc"`   // Full school title
 	ID     int    `json:"id"`     // School ID
 	Name   string `json:"name"`   // School title
@@ -205,7 +222,8 @@ type adsTargSuggestionsSchools struct {
 	Type   string `json:"type"`
 }
 
-type adsTargetGroup struct {
+// AdsTargetGroup struct
+type AdsTargetGroup struct {
 	AudienceCount int    `json:"audience_count"` // Audience
 	Domain        string `json:"domain"`         // Site domain
 	ID            int    `json:"id"`             // Group ID
@@ -214,12 +232,14 @@ type adsTargetGroup struct {
 	Pixel         string `json:"pixel"`          // Pixel code
 }
 
-type adsUsers struct {
+// AdsUsers struct
+type AdsUsers struct {
 	Accesses []adsAccesses `json:"accesses"`
 	UserID   int           `json:"user_id"` // User ID
 }
 
-type adsAd struct {
+// AdsAd struct
+type AdsAd struct {
 	AdFormat              int         `json:"ad_format"`   // Ad format
 	AdPlatform            interface{} `json:"ad_platform"` // Ad platform
 	AllLimit              int         `json:"all_limit"`   // Total limit
@@ -241,7 +261,8 @@ type adsAd struct {
 	Video                 int         `json:"video"` // Information whether the ad is a video
 }
 
-type adsPromotedPostReach struct {
+// AdsPromotedPostReach struct
+type AdsPromotedPostReach struct {
 	Hide             int `json:"hide"`              // Hides amount
 	ID               int `json:"id"`                // Object ID from 'ids' parameter
 	JoinGroup        int `json:"join_group"`        // Community joins

@@ -31,7 +31,8 @@ type PhotosPhoto struct {
 	UploadByAdminsOnly int                `json:"upload_by_admins_only"`
 }
 
-type photosCommentXtrPid struct {
+// PhotosCommentXtrPid struct
+type PhotosCommentXtrPid struct {
 	Attachments    []wallCommentAttachment `json:"attachments"`
 	Date           int                     `json:"date"`    // Date when the comment has been added in Unixtime
 	FromID         int                     `json:"from_id"` // Author ID
@@ -50,14 +51,16 @@ type photosImage struct {
 	Width  int    `json:"width"` // Width of the photo in px.
 }
 
-type photosMarketAlbumUploadResponse struct {
+// PhotosMarketAlbumUploadResponse struct
+type PhotosMarketAlbumUploadResponse struct {
 	GID    int    `json:"gid"`    // Community ID
 	Hash   string `json:"hash"`   // Uploading hash
 	Photo  string `json:"photo"`  // Uploaded photo data
 	Server int    `json:"server"` // Upload server number
 }
 
-type photosMarketUploadResponse struct {
+// PhotosMarketUploadResponse struct
+type PhotosMarketUploadResponse struct {
 	CropData string `json:"crop_data"` // Crop data
 	CropHash string `json:"crop_hash"` // Crop hash
 	GroupID  int    `json:"group_id"`  // Community ID
@@ -66,13 +69,15 @@ type photosMarketUploadResponse struct {
 	Server   int    `json:"server"`    // Upload server number
 }
 
-type photosMessageUploadResponse struct {
+// PhotosMessageUploadResponse struct
+type PhotosMessageUploadResponse struct {
 	Hash   string `json:"hash"`   // Uploading hash
 	Photo  string `json:"photo"`  // Uploaded photo data
 	Server int    `json:"server"` // Upload server number
 }
 
-type photosOwnerUploadResponse struct {
+// PhotosOwnerUploadResponse struct
+type PhotosOwnerUploadResponse struct {
 	Hash   string `json:"hash"`   // Uploading hash
 	Photo  string `json:"photo"`  // Uploaded photo data
 	Server int    `json:"server"` // Upload server number
@@ -89,7 +94,8 @@ type photosPhotoAlbum struct {
 	Updated     int         `json:"updated"` // Date when the album has been updated last time in Unixtime
 }
 
-type photosPhotoAlbumFull struct {
+// PhotosPhotoAlbumFull struct
+type PhotosPhotoAlbumFull struct {
 	CanUpload          int                `json:"can_upload"`        // Information whether current user can upload photo to the album
 	CommentsDisabled   int                `json:"comments_disabled"` // Information whether album comments are disabled
 	Created            int                `json:"created"`           // Date when the album has been created in Unixtime
@@ -108,7 +114,8 @@ type photosPhotoAlbumFull struct {
 	UploadByAdminsOnly int                `json:"upload_by_admins_only"` // Information whether only community administrators can upload photos
 }
 
-type photosPhotoFull struct {
+// PhotosPhotoFull struct
+type PhotosPhotoFull struct {
 	AccessKey  string          `json:"access_key"`  // Access key for the photo
 	AlbumID    int             `json:"album_id"`    // Album ID
 	CanComment int             `json:"can_comment"` // Information whether current user can comment the photo
@@ -129,7 +136,8 @@ type photosPhotoFull struct {
 	Width      int             `json:"width"`   // Original photo width
 }
 
-type photosPhotoFullXtrRealOffset struct {
+// PhotosPhotoFullXtrRealOffset struct
+type PhotosPhotoFullXtrRealOffset struct {
 	AccessKey  string             `json:"access_key"` // Access key for the photo
 	AlbumID    int                `json:"album_id"`   // Album ID
 	CanComment int                `json:"can_comment"`
@@ -165,7 +173,8 @@ type photosPhotoSizes struct {
 	Width  int    `json:"width"` // Width in px
 }
 
-type photosPhotoTag struct {
+// PhotosPhotoTag struct
+type PhotosPhotoTag struct {
 	Date       int     `json:"date"`        // Date when tag has been added in Unixtime
 	ID         int     `json:"id"`          // Tag ID
 	PlacerID   int     `json:"placer_id"`   // ID of the tag creator
@@ -178,20 +187,23 @@ type photosPhotoTag struct {
 	Y2         float64 `json:"y2"`          // Coordinate Y of the right lower corner
 }
 
-type photosPhotoUpload struct {
+// PhotosPhotoUpload struct
+type PhotosPhotoUpload struct {
 	AlbumID   int    `json:"album_id"`   // Album ID
 	UploadURL string `json:"upload_url"` // URL to upload photo
 	UserID    int    `json:"user_id"`    // User ID
 }
 
-type photosPhotoUploadResponse struct {
+// PhotosPhotoUploadResponse struct
+type PhotosPhotoUploadResponse struct {
 	AID        int    `json:"aid"`         // Album ID
 	Hash       string `json:"hash"`        // Uploading hash
 	PhotosList string `json:"photos_list"` // Uploaded photos data
 	Server     int    `json:"server"`      // Upload server number
 }
 
-type photosPhotoXtrRealOffset struct {
+// PhotosPhotoXtrRealOffset struct
+type PhotosPhotoXtrRealOffset struct {
 	AccessKey  string             `json:"access_key"`  // Access key for the photo
 	AlbumID    int                `json:"album_id"`    // Album ID
 	Date       int                `json:"date"`        // Date when uploaded
@@ -215,7 +227,8 @@ type photosPhotoXtrRealOffset struct {
 	Width      int                `json:"width"`   // Original photo width
 }
 
-type photosPhotoXtrTagInfo struct {
+// PhotosPhotoXtrTagInfo struct
+type PhotosPhotoXtrTagInfo struct {
 	AccessKey  string             `json:"access_key"` // Access key for the photo
 	AlbumID    int                `json:"album_id"`   // Album ID
 	Date       int                `json:"date"`       // Date when uploaded

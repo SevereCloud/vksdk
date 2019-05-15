@@ -10,7 +10,6 @@ type pollsAnswer struct {
 // PollsPoll struct
 // TODO: json-schema update
 type PollsPoll struct {
-	Anonymous  bool            `json:"anonymous"` // Information whether the pole is anonymous
 	AnswerID   int             `json:"answer_id"` // Current user's answer ID
 	Answers    []pollsAnswer   `json:"answers"`
 	Created    int             `json:"created"`  // Date when poll has been created in Unixtime
@@ -18,15 +17,16 @@ type PollsPoll struct {
 	OwnerID    int             `json:"owner_id"` // Poll owner's ID
 	Question   string          `json:"question"` // Poll question
 	Votes      string          `json:"votes"`    // Votes number
-	Multiple   bool            `json:"multiple"`
 	AnswerIDs  []int           `json:"answer_ids"`
 	EndDate    int             `json:"end_date"`
+	Anonymous  bool            `json:"anonymous"` // Information whether the pole is anonymous
 	Closed     bool            `json:"closed"`
 	IsBoard    bool            `json:"is_board"`
 	CanEdit    bool            `json:"can_edit"`
 	CanVote    bool            `json:"can_vote"`
 	CanReport  bool            `json:"can_report"`
 	CanShare   bool            `json:"can_share"`
+	Multiple   bool            `json:"multiple"`
 	Photo      PhotosPhoto     `json:"photo"`
 	AuthorID   int             `json:"author_id"`
 	Background PollsBackground `json:"background"`

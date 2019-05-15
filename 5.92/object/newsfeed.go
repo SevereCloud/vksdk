@@ -9,7 +9,8 @@ type newsfeedEventActivity struct {
 	Time         int    `json:"time"`          // event start time
 }
 
-type newsfeedItemAudio struct {
+// NewsfeedItemAudio struct
+type NewsfeedItemAudio struct {
 	Audio  newsfeedItemAudioAudio `json:"audio"`
 	PostID int                    `json:"post_id"` // Post ID
 }
@@ -19,7 +20,8 @@ type newsfeedItemAudioAudio struct {
 	Items []AudioAudioFull `json:"items"`
 }
 
-type newsfeedItemDigest struct {
+// NewsfeedItemDigest struct
+type NewsfeedItemDigest struct {
 	ButtonText  string         `json:"button_text"`
 	FeedID      string         `json:"feed_id"` // id of feed in digest
 	Items       []WallWallpost `json:"items"`
@@ -30,7 +32,8 @@ type newsfeedItemDigest struct {
 	Type        string         `json:"type"` // type of digest
 }
 
-type newsfeedItemFriend struct {
+// NewsfeedItemFriend struct
+type NewsfeedItemFriend struct {
 	Friends newsfeedItemFriendFriends `json:"friends"`
 }
 
@@ -39,7 +42,8 @@ type newsfeedItemFriendFriends struct {
 	Items []baseUserID `json:"items"`
 }
 
-type newsfeedItemNote struct {
+// NewsfeedItemNote struct
+type NewsfeedItemNote struct {
 	Notes newsfeedItemNoteNotes `json:"notes"`
 }
 
@@ -48,7 +52,8 @@ type newsfeedItemNoteNotes struct {
 	Items []newsfeedNewsfeedNote `json:"items"`
 }
 
-type newsfeedItemPhoto struct {
+// NewsfeedItemPhoto struct
+type NewsfeedItemPhoto struct {
 	Photos newsfeedItemPhotoPhotos `json:"photos"`
 	PostID int                     `json:"post_id"` // Post ID
 }
@@ -58,7 +63,8 @@ type newsfeedItemPhotoPhotos struct {
 	Items []newsfeedNewsfeedPhoto `json:"items"`
 }
 
-type newsfeedItemPhotoTag struct {
+// NewsfeedItemPhotoTag struct
+type NewsfeedItemPhotoTag struct {
 	PhotoTags newsfeedItemPhotoTagPhotoTags `json:"photo_tags"`
 	PostID    int                           `json:"post_id"` // Post ID
 }
@@ -68,7 +74,8 @@ type newsfeedItemPhotoTagPhotoTags struct {
 	Items []newsfeedNewsfeedPhoto `json:"items"`
 }
 
-type newsfeedItemStoriesBlock struct {
+// NewsfeedItemStoriesBlock struct
+type NewsfeedItemStoriesBlock struct {
 	BlockType string         `json:"block_type"`
 	Stories   []StoriesStory `json:"stories"`
 	Title     string         `json:"title"`
@@ -76,14 +83,16 @@ type newsfeedItemStoriesBlock struct {
 	Type      string         `json:"type"`
 }
 
-type newsfeedItemTopic struct {
+// NewsfeedItemTopic struct
+type NewsfeedItemTopic struct {
 	Comments baseCommentsInfo `json:"comments"`
 	Likes    baseLikesInfo    `json:"likes"`
 	PostID   int              `json:"post_id"` // Topic post ID
 	Text     string           `json:"text"`    // Post text
 }
 
-type newsfeedItemVideo struct {
+// NewsfeedItemVideo struct
+type NewsfeedItemVideo struct {
 	Video newsfeedItemVideoVideo `json:"video"`
 }
 
@@ -92,7 +101,8 @@ type newsfeedItemVideoVideo struct {
 	Items []VideoVideo `json:"items"`
 }
 
-type newsfeedItemWallpost struct {
+// NewsfeedItemWallpost struct
+type NewsfeedItemWallpost struct {
 	Activity    newsfeedEventActivity    `json:"activity"`
 	Attachments []wallWallpostAttachment `json:"attachments"`
 	Comments    baseCommentsInfo         `json:"comments"`
@@ -106,16 +116,17 @@ type newsfeedItemWallpost struct {
 	Text        string                   `json:"text"` // Post text
 }
 
-type newsfeedList struct {
+// NewsfeedList struct
+type NewsfeedList struct {
 	ID    int    `json:"id"`    // List ID
 	Title string `json:"title"` // List title
 }
 
-type newsfeedListFull struct {
-}
+// type newsfeedListFull struct {
+// }
 
-type newsfeedNewsfeedItem struct {
-}
+// type newsfeedNewsfeedItem struct {
+// }
 
 type newsfeedNewsfeedNote struct {
 	Comments int    `json:"comments"` // Comments Number

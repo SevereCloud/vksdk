@@ -1,6 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
-type ordersAmount struct {
+// OrdersAmount struct
+type OrdersAmount struct {
 	Amounts  []ordersAmountItem `json:"amounts"`
 	Currency string             `json:"currency"` // Currency name
 }
@@ -11,7 +12,8 @@ type ordersAmountItem struct {
 	Votes       string `json:"votes"`       // Votes number
 }
 
-type ordersOrder struct {
+// OrdersOrder struct
+type OrdersOrder struct {
 	Amount              int    `json:"amount"`                // Amount
 	AppOrderID          int    `json:"app_order_id"`          // App order ID
 	CancelTransactionID int    `json:"cancel_transaction_id"` // Cancel transaction ID

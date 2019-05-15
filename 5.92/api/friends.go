@@ -115,11 +115,8 @@ func (vk *VK) FriendsGetByPhones(params map[string]string) (response FriendsGetB
 
 // FriendsGetListsResponse struct
 type FriendsGetListsResponse struct {
-	Count int `json:"count"`
-	Items []struct {
-		Name string `json:"name"`
-		ID   int    `json:"id"`
-	} `json:"items"`
+	Count int                         `json:"count"`
+	Items []object.FriendsFriendsList `json:"items"`
 }
 
 // FriendsGetLists returns a list of the user's friend lists.
@@ -164,14 +161,8 @@ func (vk *VK) FriendsGetRecent(params map[string]string) (response FriendsGetRec
 
 // FriendsGetRequestsResponse struct
 type FriendsGetRequestsResponse struct {
-	Count int `json:"count"`
-	Items []struct {
-		UserID int `json:"user_id"`
-		Mutual struct {
-			Count int   `json:"count"`
-			Users []int `json:"users"`
-		} `json:"mutual,omitempty"`
-	} `json:"items"`
+	Count int                      `json:"count"`
+	Items []object.FriendsRequests `json:"items"`
 }
 
 // FriendsGetRequests returns information about the current user's incoming and outgoing friend requests.

@@ -9,18 +9,20 @@ type FriendsFriendStatus struct {
 	UserID         int    `json:"user_id"`         // User ID
 }
 
-type friendsFriendsList struct {
+// FriendsFriendsList struct
+type FriendsFriendsList struct {
 	ID   int    `json:"id"`   // List ID
 	Name string `json:"name"` // List title
 }
 
-type friendsMutualFriend struct {
-	CommonCount   int   `json:"common_count"` // Total mutual friends number
-	CommonFriends []int `json:"common_friends"`
-	ID            int   `json:"id"` // User ID
-}
+// type friendsMutualFriend struct {
+// 	CommonCount   int   `json:"common_count"` // Total mutual friends number
+// 	CommonFriends []int `json:"common_friends"`
+// 	ID            int   `json:"id"` // User ID
+// }
 
-type friendsRequests struct {
+// FriendsRequests struct
+type FriendsRequests struct {
 	From   string                `json:"from"` // ID of the user by whom friend has been suggested
 	Mutual friendsRequestsMutual `json:"mutual"`
 	UserID int                   `json:"user_id"` // User ID
@@ -31,9 +33,9 @@ type friendsRequestsMutual struct {
 	Users []int `json:"users"`
 }
 
-type friendsRequestsXtrMessage struct {
-	From    string                `json:"from"`    // ID of the user by whom friend has been suggested
-	Message string                `json:"message"` // Message sent with a request
-	Mutual  friendsRequestsMutual `json:"mutual"`
-	UserID  int                   `json:"user_id"` // User ID
-}
+// type friendsRequestsXtrMessage struct {
+// 	From    string                `json:"from"`    // ID of the user by whom friend has been suggested
+// 	Message string                `json:"message"` // Message sent with a request
+// 	Mutual  friendsRequestsMutual `json:"mutual"`
+// 	UserID  int                   `json:"user_id"` // User ID
+// }

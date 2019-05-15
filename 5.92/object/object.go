@@ -38,11 +38,6 @@ type GroupEvent struct {
 	Secret  string          `json:"secret"`
 }
 
-type baseCity struct {
-	ID    int    `json:"id"`
-	Title string `json:"title"`
-}
-
 type baseCommentsInfo struct {
 	CanPost       int  `json:"can_post"`
 	Count         int  `json:"count"`
@@ -51,22 +46,11 @@ type baseCommentsInfo struct {
 	CanOpen       bool `json:"can_open"`
 }
 
-type baseError struct {
-	ErrorCode     int                `json:"error_code"`
-	ErrorMsg      string             `json:"error_msg"`
-	RequestParams []BaseRequestParam `json:"request_params"`
-}
-
 type baseGeo struct {
-	Coordinates baseGeoCoordinates `json:"coordinates"`
-	Place       basePlace          `json:"place"`
-	Showmap     int                `json:"showmap"`
-	Type        string             `json:"type"`
-}
-
-type baseGeoCoordinates struct {
-	Latitude  float64 `json:"latitude"`
-	Longitude float64 `json:"longitude"`
+	Coordinates string    `json:"coordinates"`
+	Place       basePlace `json:"place"`
+	Showmap     int       `json:"showmap"`
+	Type        string    `json:"type"`
 }
 
 type baseImage struct {
@@ -156,10 +140,6 @@ type baseSticker struct {
 	StickerID            int         `json:"sticker_id"`
 }
 
-type baseUploadServer struct {
-	UploadURL string `json:"upload_url"`
-}
-
 type baseUserID struct {
 	UserID int `json:"user_id"`
 }
@@ -186,17 +166,9 @@ type FaveFavesLink struct {
 	URL         string `json:"url"`
 }
 
-type oauthError struct {
+// OauthError struct
+type OauthError struct {
 	Error            string `json:"error"`
 	ErrorDescription string `json:"error_description"`
 	RedirectURI      string `json:"redirect_uri"`
-}
-
-type searchHint struct {
-	Description string       `json:"description"`
-	Global      int          `json:"global"`
-	Group       GroupsGroup  `json:"group"`
-	Profile     UsersUserMin `json:"profile"`
-	Section     string       `json:"section"`
-	Type        string       `json:"type"`
 }

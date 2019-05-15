@@ -2,7 +2,8 @@ package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
 import "encoding/json"
 
-type notificationsFeedback struct {
+// NotificationsFeedback struct
+type NotificationsFeedback struct {
 	Attachments []wallWallpostAttachment `json:"attachments"`
 	FromID      int                      `json:"from_id"` // Reply author's ID
 	Geo         baseGeo                  `json:"geo"`
@@ -21,7 +22,8 @@ type NotificationsNotification struct {
 	Type     string             `json:"type"` // Notification type
 }
 
-type notificationsNotificationsComment struct {
+// NotificationsNotificationsComment struct
+type NotificationsNotificationsComment struct {
 	Date    int          `json:"date"`     // Date when the comment has been added in Unixtime
 	ID      int          `json:"id"`       // Comment ID
 	OwnerID int          `json:"owner_id"` // Author ID

@@ -57,20 +57,25 @@ type AccountOffer struct {
 	Title            string `json:"title"`             // Offer title
 }
 
-type accountAccountCounters struct {
-	AppRequests        int `json:"app_requests"`        // New app requests number
-	Events             int `json:"events"`              // New events number
-	Friends            int `json:"friends"`             // New friends requests number
-	FriendsSuggestions int `json:"friends_suggestions"` // New friends suggestions number
-	Gifts              int `json:"gifts"`               // New gifts number
-	Groups             int `json:"groups"`              // New groups number
-	Messages           int `json:"messages"`            // New messages number
-	Notifications      int `json:"notifications"`       // New notifications number
-	Photos             int `json:"photos"`              // New photo tags number
-	Videos             int `json:"videos"`              // New video tags number
+// AccountAccountCounters struct
+type AccountAccountCounters struct {
+	AppRequests            int `json:"app_requests"`            // New app requests number
+	Events                 int `json:"events"`                  // New events number
+	Friends                int `json:"friends"`                 // New friends requests number
+	FriendsRecommendations int `json:"friends_recommendations"` // New friends recommendations number
+	FriendsSuggestions     int `json:"friends_suggestions"`     // New friends suggestions number
+	Gifts                  int `json:"gifts"`                   // New gifts number
+	Groups                 int `json:"groups"`                  // New groups number
+	Messages               int `json:"messages"`                // New messages number
+	Notifications          int `json:"notifications"`           // New notifications number
+	Photos                 int `json:"photos"`                  // New photo tags number
+	SDK                    int `json:"sdk"`                     // New SDK number
+	MenuDiscoverBadge      int `json:"menu_discover_badge"`     // New menu discover badge number
+	Videos                 int `json:"videos"`                  // New video tags number
 }
 
-type accountInfo struct {
+// AccountInfo struct
+type AccountInfo struct {
 	Country           string `json:"country"`           // Country code
 	HTTPSRequired     int    `json:"https_required"`    // Information whether HTTPS-only is enabled
 	Intro             int    `json:"intro"`             // Information whether user has been processed intro
@@ -80,29 +85,31 @@ type accountInfo struct {
 	TwoFactorRequired int    `json:"2fa_required"`      // Two factor authentication is enabled
 }
 
-type accountPushSettings struct {
-	Conversations *AccountPushConversations `json:"conversations"`
-	Disabled      int                       `json:"disabled"`       // Information whether notifications are disabled
-	DisabledUntil int                       `json:"disabled_until"` // Time until that notifications are disabled in Unixtime
-	Settings      *AccountPushParams        `json:"settings"`
+// AccountPushSettings struct
+type AccountPushSettings struct {
+	Conversations AccountPushConversations `json:"conversations"`
+	Disabled      int                      `json:"disabled"`       // Information whether notifications are disabled
+	DisabledUntil int                      `json:"disabled_until"` // Time until that notifications are disabled in Unixtime
+	Settings      AccountPushParams        `json:"settings"`
 }
 
-type accountUserSettings struct {
-	Bdate            string              `json:"bdate"`            // User's date of birth
-	BdateVisibility  int                 `json:"bdate_visibility"` // Information whether user's birthdate are hidden
-	City             *BaseObject         `json:"city"`
-	Country          *BaseCountry        `json:"country"`
-	FirstName        string              `json:"first_name"`  // User first name
-	HomeTown         string              `json:"home_town"`   // User's hometown
-	LastName         string              `json:"last_name"`   // User last name
-	MaidenName       string              `json:"maiden_name"` // User maiden name
-	NameRequest      *AccountNameRequest `json:"name_request"`
-	Phone            string              `json:"phone"`    // User phone number with some hidden digits
-	Relation         int                 `json:"relation"` // User relationship status
-	RelationPartner  *UsersUserMin       `json:"relation_partner"`
-	RelationPending  int                 `json:"relation_pending"` // Information whether relation status is pending
-	RelationRequests []*UsersUserMin     `json:"relation_requests"`
-	ScreenName       string              `json:"screen_name"` // Domain name of the user's page
-	Sex              int                 `json:"sex"`         // User sex
-	Status           string              `json:"status"`      // User status
+// AccountUserSettings struct
+type AccountUserSettings struct {
+	Bdate            string             `json:"bdate"`            // User's date of birth
+	BdateVisibility  int                `json:"bdate_visibility"` // Information whether user's birthdate are hidden
+	City             BaseObject         `json:"city"`
+	Country          BaseCountry        `json:"country"`
+	FirstName        string             `json:"first_name"`  // User first name
+	HomeTown         string             `json:"home_town"`   // User's hometown
+	LastName         string             `json:"last_name"`   // User last name
+	MaidenName       string             `json:"maiden_name"` // User maiden name
+	NameRequest      AccountNameRequest `json:"name_request"`
+	Phone            string             `json:"phone"`    // User phone number with some hidden digits
+	Relation         int                `json:"relation"` // User relationship status
+	RelationPartner  UsersUserMin       `json:"relation_partner"`
+	RelationPending  int                `json:"relation_pending"` // Information whether relation status is pending
+	RelationRequests []UsersUserMin     `json:"relation_requests"`
+	ScreenName       string             `json:"screen_name"` // Domain name of the user's page
+	Sex              int                `json:"sex"`         // User sex
+	Status           string             `json:"status"`      // User status
 }

@@ -47,7 +47,8 @@ type videoVideoFiles struct {
 	Mp720    string `json:"mp_720"`   // URL of the mpeg4 file with 720p quality
 }
 
-type videoCatBlock struct {
+// VideoCatBlock struct
+type VideoCatBlock struct {
 	CanHide int               `json:"can_hide"`
 	ID      int               `json:"id"`
 	Items   []videoCatElement `json:"items"`
@@ -79,7 +80,8 @@ type videoCatElement struct {
 	Views       int    `json:"views"`
 }
 
-type videoSaveResult struct {
+// VideoSaveResult struct
+type VideoSaveResult struct {
 	Description string `json:"description"` // Video description
 	OwnerID     int    `json:"owner_id"`    // Video owner ID
 	Title       string `json:"title"`       // Video title
@@ -87,18 +89,21 @@ type videoSaveResult struct {
 	VideoID     int    `json:"video_id"`    // Video ID
 }
 
-type videoUploadResponse struct {
+// VideoUploadResponse struct
+type VideoUploadResponse struct {
 	Size    int `json:"size"`
 	VideoID int `json:"video_id"`
 }
 
-type videoVideoAlbum struct {
+// VideoVideoAlbum struct
+type VideoVideoAlbum struct {
 	ID      int    `json:"id"`
 	OwnerID int    `json:"owner_id"`
 	Title   string `json:"title"`
 }
 
-type videoVideoAlbumFull struct {
+// VideoVideoAlbumFull struct
+type VideoVideoAlbumFull struct {
 	Count       int               `json:"count"`        // Total number of videos in album
 	ID          int               `json:"id"`           // Album ID
 	Image       []videoVideoImage `json:"image"`        // Album cover image in different sizes
@@ -110,7 +115,8 @@ type videoVideoAlbumFull struct {
 	UpdatedTime int               `json:"updated_time"` // Date when the album has been updated last time in Unixtime
 }
 
-type videoVideoFull struct {
+// VideoVideoFull struct
+type VideoVideoFull struct {
 	AccessKey     string          `json:"access_key"`  // Video access key
 	AddingDate    int             `json:"adding_date"` // Date when the video has been added in Unixtime
 	CanAdd        int             `json:"can_add"`     // Information whether current user can add the video
@@ -140,7 +146,8 @@ type videoVideoFull struct {
 	Views         int             `json:"views"`      // Number of views
 }
 
-type videoVideoTag struct {
+// VideoVideoTag struct
+type VideoVideoTag struct {
 	Date       int    `json:"date"`
 	ID         int    `json:"id"`
 	PlacerID   int    `json:"placer_id"`
@@ -149,7 +156,8 @@ type videoVideoTag struct {
 	Viewed     int    `json:"viewed"`
 }
 
-type videoVideoTagInfo struct {
+// VideoVideoTagInfo struct
+type VideoVideoTagInfo struct {
 	AccessKey   string          `json:"access_key"`
 	AddingDate  int             `json:"adding_date"`
 	CanAdd      int             `json:"can_add"`

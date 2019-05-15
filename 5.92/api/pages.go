@@ -22,7 +22,7 @@ func (vk *VK) PagesGet(params map[string]string) (response PagesGetResponse, vkE
 }
 
 // PagesGetHistoryResponse struct
-type PagesGetHistoryResponse []object.PagesWikipageVersion
+type PagesGetHistoryResponse []object.PagesWikipageHistory
 
 // PagesGetHistory returns a list of all previous versions of a wiki page.
 // https://vk.com/dev/pages.getHistory

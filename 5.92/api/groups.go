@@ -211,15 +211,8 @@ func (vk *VK) GroupsGetCallbackConfirmationCode(params map[string]string) (respo
 
 // GroupsGetCallbackServersResponse struct
 type GroupsGetCallbackServersResponse struct {
-	Count int `json:"count"`
-	Items []struct {
-		ID        int    `json:"id"`
-		Title     string `json:"title"`
-		CreatorID int    `json:"creator_id"`
-		URL       string `json:"url"`
-		SecretKey string `json:"secret_key"`
-		Status    string `json:"status"`
-	} `json:"items"`
+	Count int                           `json:"count"`
+	Items []object.GroupsCallbackServer `json:"items"`
 }
 
 // GroupsGetCallbackServers receives a list of Callback API servers from the community.
@@ -289,11 +282,29 @@ func (vk *VK) GroupsGetInvitedUsers(params map[string]string) (response GroupsGe
 }
 
 // GroupsGetInvitesResponse struct
-type GroupsGetInvitesResponse struct{}
+type GroupsGetInvitesResponse struct {
+	Count int                              `json:"count"`
+	Items []object.GroupsGroupXtrInvitedBy `json:"items"`
+}
 
 // GroupsGetInvites returns a list of invitations to join communities and events.
 // https://vk.com/dev/groups.getInvites
 func (vk *VK) GroupsGetInvites(params map[string]string) (response GroupsGetInvitesResponse, vkErr Error) {
+	vk.requestU("groups.getInvites", params, &response, &vkErr)
+	return
+}
+
+// GroupsGetInvitesExtendedResponse struct
+type GroupsGetInvitesExtendedResponse struct {
+	Count    int                              `json:"count"`
+	Items    []object.GroupsGroupXtrInvitedBy `json:"items"`
+	Profiles []object.UsersUser               `json:"profiles"`
+	Groups   []object.GroupsGroup             `json:"groups"`
+}
+
+// GroupsGetInvitesExtended returns a list of invitations to join communities and events.
+// https://vk.com/dev/groups.getInvites
+func (vk *VK) GroupsGetInvitesExtended(params map[string]string) (response GroupsGetInvitesExtendedResponse, vkErr Error) {
 	vk.requestU("groups.getInvites", params, &response, &vkErr)
 	return
 }
@@ -333,12 +344,8 @@ func (vk *VK) GroupsGetMembers(params map[string]string) (response GroupsGetMemb
 
 // GroupsGetMembersFilterManagersResponse struct
 type GroupsGetMembersFilterManagersResponse struct {
-	Count int `json:"count"`
-	Items []struct {
-		ID          int      `json:"id"`
-		Role        string   `json:"role"`
-		Permissions []string `json:"permissions,omitempty"`
-	} `json:"items"`
+	Count int                         `json:"count"`
+	Items []object.GroupsMemberStatus `json:"items"`
 }
 
 // GroupsGetMembersFilterManagers returns a list of community members

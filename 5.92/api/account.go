@@ -59,19 +59,7 @@ func (vk *VK) AccountGetBanned(params map[string]string) (response AccountGetBan
 }
 
 // AccountGetCountersResponse struct
-type AccountGetCountersResponse struct {
-	AppRequests        int `json:"app_requests"`
-	Events             int `json:"events"`
-	Friends            int `json:"friends"`
-	FriendsSuggestions int `json:"friends_suggestions"`
-	Gifts              int `json:"gifts"`
-	Groups             int `json:"groups"`
-	Messages           int `json:"messages"`
-	Notifications      int `json:"notifications"`
-	Photos             int `json:"photos"`
-	SDK                int `json:"sdk"`
-	Videos             int `json:"videos"`
-}
+type AccountGetCountersResponse object.AccountAccountCounters
 
 // AccountGetCounters returns non-null values of user counters.
 // https://vk.com/dev/account.getCounters
@@ -81,15 +69,7 @@ func (vk *VK) AccountGetCounters(params map[string]string) (response AccountGetC
 }
 
 // AccountGetInfoResponse struct
-type AccountGetInfoResponse struct {
-	Country           string `json:"country"`
-	HTTPSRequired     int    `json:"https_required"`
-	Intro             int    `json:"intro"`
-	Lang              int    `json:"lang"`
-	NoWallReplies     int    `json:"no_wall_replies"`
-	OwnPostsDefault   int    `json:"own_posts_default"`
-	TwoFactorRequired int    `json:"2fa_required"`
-}
+type AccountGetInfoResponse object.AccountInfo
 
 // AccountGetInfo returns current account info.
 // https://vk.com/dev/account.getInfo
@@ -99,25 +79,7 @@ func (vk *VK) AccountGetInfo(params map[string]string) (response AccountGetInfoR
 }
 
 // AccountGetProfileInfoResponse struct
-type AccountGetProfileInfoResponse struct {
-	Bdate            string                    `json:"bdate"`
-	BdateVisibility  int                       `json:"bdate_visibility"`
-	City             object.BaseObject         `json:"city"`
-	Country          object.BaseCountry        `json:"country"`
-	FirstName        string                    `json:"first_name"`
-	HomeTown         string                    `json:"home_town"`
-	LastName         string                    `json:"last_name"`
-	MaidenName       string                    `json:"maiden_name"`
-	NameRequest      object.AccountNameRequest `json:"name_request"`
-	Phone            string                    `json:"phone"`
-	Relation         int                       `json:"relation"`
-	RelationPartner  object.UsersUserMin       `json:"relation_partner"`
-	RelationPending  int                       `json:"relation_pending"`
-	RelationRequests []object.UsersUserMin     `json:"relation_requests"`
-	ScreenName       string                    `json:"screen_name"`
-	Sex              int                       `json:"sex"`
-	Status           string                    `json:"status"`
-}
+type AccountGetProfileInfoResponse object.AccountUserSettings
 
 // AccountGetProfileInfo returns the current account info.
 // https://vk.com/dev/account.getProfileInfo
@@ -127,12 +89,7 @@ func (vk *VK) AccountGetProfileInfo() (response AccountGetProfileInfoResponse, v
 }
 
 // AccountGetPushSettingsResponse struct
-type AccountGetPushSettingsResponse struct {
-	Conversations object.AccountPushConversations `json:"conversations"`
-	Disabled      int                             `json:"disabled"`
-	DisabledUntil int                             `json:"disabled_until"`
-	Settings      object.AccountPushParams        `json:"settings"`
-}
+type AccountGetPushSettingsResponse object.AccountPushSettings
 
 // AccountGetPushSettings account.getPushSettings Gets settings of push notifications.
 // https://vk.com/dev/account.getPushSettings

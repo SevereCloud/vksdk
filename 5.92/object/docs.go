@@ -53,6 +53,7 @@ type DocsDocTypes struct {
 	Title string `json:"title"` // Doc type title
 }
 
-type docsDocUploadResponse struct {
+// DocsDocUploadResponse struct
+type DocsDocUploadResponse struct {
 	File string `json:"file"` // Uploaded file data
 }

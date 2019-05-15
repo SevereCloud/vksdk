@@ -217,7 +217,8 @@ type usersUserCounters struct {
 	Videos        int `json:"videos"`         // Videos number
 }
 
-type usersUserLim struct {
+// UsersUserLim struct
+type UsersUserLim struct {
 	ID      int    `json:"id"`
 	Name    string `json:"name"`
 	NameGen string `json:"name_gen"`

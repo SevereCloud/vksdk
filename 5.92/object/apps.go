@@ -32,15 +32,16 @@ type AppsApp struct {
 	PushEnabled     int           `json:"push_enabled"`
 }
 
-type appsLeaderboard struct {
+// AppsLeaderboard struct
+type AppsLeaderboard struct {
 	Level  int `json:"level"`   // Level
 	Points int `json:"points"`  // Points number
 	Score  int `json:"score"`   // Score number
 	UserID int `json:"user_id"` // User ID
 }
 
-// appsScope Scope description
-type appsScope struct {
+// AppsScope Scope description
+type AppsScope struct {
 	Name  string `json:"name"`  // Scope name
 	Title string `json:"title"` // Scope title
 }

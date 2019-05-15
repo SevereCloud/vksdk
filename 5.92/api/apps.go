@@ -57,11 +57,8 @@ func (vk *VK) AppsGetFriendsList(params map[string]string) (response AppsGetFrie
 
 // AppsGetLeaderboardResponse struct
 type AppsGetLeaderboardResponse struct {
-	Count int `json:"count"`
-	Items []struct {
-		Score  int `json:"score"`
-		UserID int `json:"user_id"`
-	} `json:"items"`
+	Count int                      `json:"count"`
+	Items []object.AppsLeaderboard `json:"items"`
 }
 
 // AppsGetLeaderboard returns players rating in the game.
@@ -92,11 +89,8 @@ func (vk *VK) AppsGetLeaderboardExtended(params map[string]string) (response App
 
 // AppsGetScopesResponse struct
 type AppsGetScopesResponse struct {
-	Count int `json:"count"`
-	Items []struct {
-		Name  string `json:"name"`
-		Title string `json:"title"`
-	} `json:"items"`
+	Count int                `json:"count"`
+	Items []object.AppsScope `json:"items"`
 }
 
 // AppsGetScopes x

@@ -31,7 +31,7 @@ func (vk *VK) DatabaseGetCities(params map[string]string) (response DatabaseGetC
 }
 
 // DatabaseGetCitiesByIDResponse struct
-type DatabaseGetCitiesByIDResponse []object.BaseObject
+type DatabaseGetCitiesByIDResponse []object.DatabaseCity
 
 // DatabaseGetCitiesByID returns information about cities by their IDs.
 // https://vk.com/dev/database.getCitiesByID
@@ -65,8 +65,8 @@ func (vk *VK) DatabaseGetCountriesByID(params map[string]string) (response Datab
 
 // DatabaseGetFacultiesResponse struct
 type DatabaseGetFacultiesResponse struct {
-	Count int                 `json:"count"`
-	Items []object.BaseObject `json:"items"`
+	Count int                      `json:"count"`
+	Items []object.DatabaseFaculty `json:"items"`
 }
 
 // DatabaseGetFaculties returns a list of faculties (i.e., university departments).
@@ -101,8 +101,8 @@ func (vk *VK) DatabaseGetMetroStationsByID(params map[string]string) (response D
 
 // DatabaseGetRegionsResponse struct
 type DatabaseGetRegionsResponse struct {
-	Count int                 `json:"count"`
-	Items []object.BaseObject `json:"items"`
+	Count int                     `json:"count"`
+	Items []object.DatabaseRegion `json:"items"`
 }
 
 // DatabaseGetRegions returns a list of regions.
@@ -125,8 +125,8 @@ func (vk *VK) DatabaseGetSchoolClasses(params map[string]string) (response Datab
 
 // DatabaseGetSchoolsResponse struct
 type DatabaseGetSchoolsResponse struct {
-	Count int                 `json:"count"`
-	Items []object.BaseObject `json:"items"`
+	Count int                     `json:"count"`
+	Items []object.DatabaseSchool `json:"items"`
 }
 
 // DatabaseGetSchools returns a list of schools.
@@ -138,8 +138,8 @@ func (vk *VK) DatabaseGetSchools(params map[string]string) (response DatabaseGet
 
 // DatabaseGetUniversitiesResponse struct
 type DatabaseGetUniversitiesResponse struct {
-	Count int                 `json:"count"`
-	Items []object.BaseObject `json:"items"`
+	Count int                         `json:"count"`
+	Items []object.DatabaseUniversity `json:"items"`
 }
 
 // DatabaseGetUniversities returns a list of higher education institutions.

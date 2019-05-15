@@ -46,74 +46,124 @@ type GroupsAddressesInfo struct {
 // GroupsGroup struct
 type GroupsGroup struct {
 	AdminLevel   int    `json:"admin_level"`
-	Deactivated  string `json:"deactivated"`
-	ID           int    `json:"id"`
-	IsAdmin      int    `json:"is_admin"`
+	Deactivated  string `json:"deactivated"`   // Information whether community is banned
+	FinishDate   int    `json:"finish_date"`   // Finish date in Unixtime format
+	ID           int    `json:"id"`            // Community ID
+	IsAdmin      int    `json:"is_admin"`      // Information whether current user is administrator
+	IsAdvertiser int    `json:"is_advertiser"` // Information whether current user is advertiser
 	IsClosed     int    `json:"is_closed"`
-	IsMember     int    `json:"is_member"`
-	Name         string `json:"name"`
-	Photo100     string `json:"photo_100"`
-	Photo200     string `json:"photo_200"`
-	Photo50      string `json:"photo_50"`
-	ScreenName   string `json:"screen_name"`
+	IsMember     int    `json:"is_member"`   // Information whether current user is member
+	Name         string `json:"name"`        // Community name
+	Photo100     string `json:"photo_100"`   // URL of square photo of the community with 100 pixels in width
+	Photo200     string `json:"photo_200"`   // URL of square photo of the community with 200 pixels in width
+	Photo50      string `json:"photo_50"`    // URL of square photo of the community with 50 pixels in width
+	ScreenName   string `json:"screen_name"` // Domain of the community page
+	StartDate    int    `json:"start_date"`  // Start date in Unixtime format
 	Type         string `json:"type"`
-	IsAdvertiser int    `json:"is_advertiser"`
+
+	Market               GroupsMarketInfo     `json:"market"`
+	MemberStatus         int                  `json:"member_status"` // Current user's member status
+	IsFavorite           int                  `json:"is_favorite"`   // Information whether community is in faves
+	IsSubscribed         int                  `json:"is_subscribed"` // Information whether current user is subscribed
+	City                 BaseObject           `json:"city"`
+	Country              BaseCountry          `json:"country"`
+	Verified             int                  `json:"verified"`      // Information whether community is verified
+	Description          string               `json:"description"`   // Community description
+	WikiPage             string               `json:"wiki_page"`     // Community's main wiki page title
+	MembersCount         int                  `json:"members_count"` // Community members number
+	Counters             groupsCountersGroup  `json:"counters"`
+	Cover                groupsCover          `json:"cover"`
+	CanPost              int                  `json:"can_post"`          // Information whether current user can post on community's wall
+	CanSeeAllPosts       int                  `json:"can_see_all_posts"` // Information whether current user can see all posts on community's wall
+	Activity             string               `json:"activity"`          // Type of group, start date of event or category of public page
+	FixedPost            int                  `json:"fixed_post"`        // Fixed post ID
+	CanCreateTopic       int                  `json:"can_create_topic"`  // Information whether current user can create topic
+	CanUploadVideo       int                  `json:"can_upload_video"`  // Information whether current user can upload video
+	HasPhoto             int                  `json:"has_photo"`         // Information whether community has photo
+	Status               string               `json:"status"`            // Community status
+	MainAlbumID          int                  `json:"main_album_id"`     // Community's main photo album ID
+	Links                []GroupsLinksItem    `json:"links"`
+	Contacts             []groupsContactsItem `json:"contacts"`
+	Site                 string               `json:"site"` // Community's website
+	MainSection          int                  `json:"main_section"`
+	Trending             int                  `json:"trending"`               // Information whether the community has a fire pictogram.
+	CanMessage           int                  `json:"can_message"`            // Information whether current user can send a message to community
+	IsMessagesBlocked    int                  `json:"is_messages_blocked"`    // Information whether community can send a message to current user
+	CanSendNotify        int                  `json:"can_send_notify"`        // Information whether community can send notifications by phone number to current user
+	OnlineStatus         GroupsOnlineStatus   `json:"online_status"`          // Status of replies in community messages
+	AgeLimits            int                  `json:"age_limits"`             // Information whether age limit
+	BanInfo              groupsGroupBanInfo   `json:"ban_info"`               // User ban info
+	Addresses            GroupsAddressesInfo  `json:"addresses"`              // Info about addresses in groups
+	IsSubscribedPodcasts bool                 `json:"is_subscribed_podcasts"` // Information whether current user is subscribed to podcasts
+	CanSubscribePodcasts bool                 `json:"can_subscribe_podcasts"` // Owner in whitelist or not
+	CanSubscribePosts    bool                 `json:"can_subscribe_posts"`    // Can subscribe to wall
 }
 
 type groupsBanInfo struct {
-	AdminID        int    `json:"admin_id"`
-	Comment        string `json:"comment"`
-	Date           int    `json:"date"`
-	EndDate        int    `json:"end_date"`
+	AdminID        int    `json:"admin_id"` // Administrator ID
+	Comment        string `json:"comment"`  // Comment for a ban
+	Date           int    `json:"date"`     // Date when user has been added to blacklist in Unixtime
+	EndDate        int    `json:"end_date"` // Date when user will be removed from blacklist in Unixtime
 	Reason         int    `json:"reason"`
 	CommentVisible bool   `json:"comment_visible"`
 }
 
+// GroupsCallbackServer struct
+type GroupsCallbackServer struct {
+	CreatorID int    `json:"creator_id"`
+	ID        int    `json:"id"`
+	SecretKey string `json:"secret_key"`
+	Status    string `json:"status"`
+	Title     string `json:"title"`
+	URL       string `json:"url"`
+}
+
 // GroupsCallbackSettings struct
 type GroupsCallbackSettings struct {
-	APIVersion string               `json:"api_version"`
+	APIVersion string               `json:"api_version"` // API version used for the events
 	Events     GroupsLongPollEvents `json:"events"`
 }
 
 type groupsContactsItem struct {
-	Desc   string `json:"desc"`
-	Email  string `json:"email"`
-	Phone  string `json:"phone"`
-	UserID int    `json:"user_id"`
+	Desc   string `json:"desc"`    // Contact description
+	Email  string `json:"email"`   // Contact email
+	Phone  string `json:"phone"`   // Contact phone
+	UserID int    `json:"user_id"` // User ID
 }
 
 type groupsCountersGroup struct {
-	Albums int `json:"albums"`
-	Audios int `json:"audios"`
-	Docs   int `json:"docs"`
-	Market int `json:"market"`
-	Photos int `json:"photos"`
-	Topics int `json:"topics"`
-	Videos int `json:"videos"`
+	Addresses int `json:"addresses"` // Addresses number
+	Albums    int `json:"albums"`    // Photo albums number
+	Audios    int `json:"audios"`    // Audios number
+	Docs      int `json:"docs"`      // Docs number
+	Market    int `json:"market"`    // Market items number
+	Photos    int `json:"photos"`    // Photos number
+	Topics    int `json:"topics"`    // Topics number
+	Videos    int `json:"videos"`    // Videos number
 }
 
 type groupsCover struct {
-	Enabled int         `json:"enabled"`
+	Enabled int         `json:"enabled"` // Information whether cover is enabled
 	Images  []baseImage `json:"images"`
 }
 
 type groupsGroupBanInfo struct {
-	Comment string `json:"comment"`
-	EndDate int    `json:"end_date"`
+	Comment string `json:"comment"`  // Ban comment
+	EndDate int    `json:"end_date"` // End date of ban in Unixtime
 }
 
 // GroupsGroupCategory struct
 type GroupsGroupCategory struct {
-	ID            int                  `json:"id"`
-	Name          string               `json:"name"`
+	ID            int                  `json:"id"`   // Category ID
+	Name          string               `json:"name"` // Category name
 	Subcategories []baseObjectWithName `json:"subcategories"`
 }
 
 // GroupsGroupCategoryFull struct
 type GroupsGroupCategoryFull struct {
-	ID            int                   `json:"id"`
-	Name          string                `json:"name"`
-	PageCount     int                   `json:"page_count"`
+	ID            int                   `json:"id"`         // Category ID
+	Name          string                `json:"name"`       // Category name
+	PageCount     int                   `json:"page_count"` // Pages number
 	PagePreviews  []GroupsGroup         `json:"page_previews"`
 	Subcategories []GroupsGroupCategory `json:"subcategories"`
 }
@@ -125,12 +175,12 @@ type groupsGroupCategoryType struct {
 
 // GroupsGroupLink struct
 type GroupsGroupLink struct {
-	Desc            string `json:"desc"`
-	EditTitle       int    `json:"edit_title"`
+	Desc            string `json:"desc"`       // Link description
+	EditTitle       int    `json:"edit_title"` // Information whether the title can be edited
 	Name            string `json:"name"`
-	ID              int    `json:"id"`
-	ImageProcessing int    `json:"image_processing"`
-	URL             string `json:"url"`
+	ID              int    `json:"id"`               // Link ID
+	ImageProcessing int    `json:"image_processing"` // Information whether the image on processing
+	URL             string `json:"url"`              // Link URL
 }
 
 type groupsGroupPublicCategoryList struct {
@@ -141,28 +191,28 @@ type groupsGroupPublicCategoryList struct {
 
 // GroupsGroupSettings struct
 type GroupsGroupSettings struct {
-	Access             int                             `json:"access"`
-	Address            string                          `json:"address"`
-	Audio              int                             `json:"audio"`
-	Description        string                          `json:"description"`
-	Docs               int                             `json:"docs"`
-	ObsceneFilter      int                             `json:"obscene_filter"`
-	ObsceneStopwords   int                             `json:"obscene_stopwords"`
-	ObsceneWords       string                          `json:"obscene_words"`
-	Photos             int                             `json:"photos"`
+	Access             int                             `json:"access"`            // Community access settings
+	Address            string                          `json:"address"`           // Community's page domain
+	Audio              int                             `json:"audio"`             // Audio settings
+	Description        string                          `json:"description"`       // Community description
+	Docs               int                             `json:"docs"`              // Docs settings
+	ObsceneFilter      int                             `json:"obscene_filter"`    // Information whether the obscene filter is enabled
+	ObsceneStopwords   int                             `json:"obscene_stopwords"` // Information whether the stopwords filter is enabled
+	ObsceneWords       string                          `json:"obscene_words"`     // The list of stop words
+	Photos             int                             `json:"photos"`            // Photos settings
 	Place              placesPlaceMin                  `json:"place"`
-	PublicCategory     int                             `json:"public_category"`
+	PublicCategory     int                             `json:"public_category"` // Information about the group category
 	PublicCategoryList []groupsGroupPublicCategoryList `json:"public_category_list"`
-	PublicSubcategory  int                             `json:"public_subcategory"`
-	Rss                string                          `json:"rss"`
-	Subject            int                             `json:"subject"`
+	PublicSubcategory  int                             `json:"public_subcategory"` // Information about the group subcategory
+	Rss                string                          `json:"rss"`                // URL of the RSS feed
+	Subject            int                             `json:"subject"`            // Community subject ID
 	SubjectList        []groupsSubjectItem             `json:"subject_list"`
-	Title              string                          `json:"title"`
-	Topics             int                             `json:"topics"`
-	Video              int                             `json:"video"`
-	Wall               int                             `json:"wall"`
-	Website            string                          `json:"website"`
-	Wiki               int                             `json:"wiki"`
+	Title              string                          `json:"title"`   // Community title
+	Topics             int                             `json:"topics"`  // Topics settings
+	Video              int                             `json:"video"`   // Video settings
+	Wall               int                             `json:"wall"`    // Wall settings
+	Website            string                          `json:"website"` // Community website
+	Wiki               int                             `json:"wiki"`    // Wiki settings
 	CountryID          int                             `json:"country_id"`
 	CityID             int                             `json:"city_id"`
 	Messages           int                             `json:"messages"`
@@ -192,34 +242,32 @@ type GroupsGroupSettings struct {
 	} `json:"live_covers"`
 }
 
-type groupsGroupXtrInvitedBy struct {
-	AdminLevel int    `json:"admin_level"`
-	ID         string `json:"id"`
-	InvitedBy  int    `json:"invited_by"`
-	IsAdmin    int    `json:"is_admin"`
-	IsClosed   int    `json:"is_closed"`
-	IsMember   int    `json:"is_member"`
-	Name       string `json:"name"`
-	Photo100   string `json:"photo_100"`
-	Photo200   string `json:"photo_200"`
-	Photo50    string `json:"photo_50"`
-	ScreenName string `json:"screen_name"`
-	Type       string `json:"type"`
+// GroupsGroupXtrInvitedBy struct
+type GroupsGroupXtrInvitedBy struct {
+	AdminLevel   int    `json:"admin_level"`
+	ID           string `json:"id"`          // Community ID
+	InvitedBy    int    `json:"invited_by"`  // Inviter ID
+	IsAdmin      int    `json:"is_admin"`    // Information whether current user is manager
+	IsClosed     int    `json:"is_closed"`   // Information whether community is closed
+	IsMember     int    `json:"is_member"`   // Information whether current user is member
+	Name         string `json:"name"`        // Community name
+	Photo100     string `json:"photo_100"`   // URL of square photo of the community with 100 pixels in width
+	Photo200     string `json:"photo_200"`   // URL of square photo of the community with 200 pixels in width
+	Photo50      string `json:"photo_50"`    // URL of square photo of the community with 50 pixels in width
+	ScreenName   string `json:"screen_name"` // Domain of the community page
+	Type         string `json:"type"`
+	IsAdvertiser int    `json:"is_advertiser"` // Information whether current user is advertiser
 }
 
-type groupsGroupsArray struct {
-	Count int   `json:"count"`
-	Items []int `json:"items"`
-}
-
-type groupsLinksItem struct {
-	Desc      string `json:"desc"`
-	EditTitle int    `json:"edit_title"`
-	ID        int    `json:"id"`
-	Name      string `json:"name"`
-	Photo100  string `json:"photo_100"`
-	Photo50   string `json:"photo_50"`
-	URL       string `json:"url"`
+// GroupsLinksItem struct
+type GroupsLinksItem struct {
+	Desc      string `json:"desc"`       // Link description
+	EditTitle int    `json:"edit_title"` // Information whether the link title can be edited
+	ID        int    `json:"id"`         // Link ID
+	Name      string `json:"name"`       // Link title
+	Photo100  string `json:"photo_100"`  // URL of square image of the link with 100 pixels in width
+	Photo50   string `json:"photo_50"`   // URL of square image of the link with 50 pixels in width
+	URL       string `json:"url"`        // Link URL
 }
 
 // GroupsLongPollEvents struct
@@ -274,48 +322,53 @@ type GroupsLongPollEvents struct {
 
 // GroupsLongPollServer struct
 type GroupsLongPollServer struct {
-	Key    string `json:"key"`
-	Server string `json:"server"`
-	Ts     string `json:"ts"`
+	Key    string `json:"key"`    // Long Poll key
+	Server string `json:"server"` // Long Poll server address
+	Ts     string `json:"ts"`     // Number of the last event
 }
 
 // GroupsLongPollSettings struct
 type GroupsLongPollSettings struct {
-	APIVersion string               `json:"api_version"`
+	APIVersion string               `json:"api_version"` // API version used for the events
 	Events     GroupsLongPollEvents `json:"events"`
-	IsEnabled  bool                 `json:"is_enabled"`
+	IsEnabled  bool                 `json:"is_enabled"` // Shows whether Long Poll is enabled
 }
 
-type groupsMarketInfo struct {
-	ContactID    int            `json:"contact_id"`
+// GroupsMarketInfo struct
+type GroupsMarketInfo struct {
+	ContactID    int            `json:"contact_id"` // Contact person ID
 	Currency     marketCurrency `json:"currency"`
-	CurrencyText string         `json:"currency_text"`
-	Enabled      int            `json:"enabled"`
-	MainAlbumID  int            `json:"main_album_id"`
-	PriceMax     int            `json:"price_max"`
-	PriceMin     int            `json:"price_min"`
+	CurrencyText string         `json:"currency_text"` // Currency name
+	Enabled      int            `json:"enabled"`       // Information whether the market is enabled
+	MainAlbumID  int            `json:"main_album_id"` // Main market album ID
+	PriceMax     int            `json:"price_max"`     // Maximum price
+	PriceMin     int            `json:"price_min"`     // Minimum price
 }
 
-type groupsMemberRole struct {
-	ID   int    `json:"id"`
+// GroupsMemberRole struct
+type GroupsMemberRole struct {
+	ID   int    `json:"id"` // User ID
 	Role string `json:"role"`
 }
 
-type groupsMemberStatus struct {
-	Member int `json:"member"`
-	UserID int `json:"user_id"`
+// GroupsMemberStatus struct
+type GroupsMemberStatus struct {
+	Member      int      `json:"member"`  // Information whether user is a member of the group
+	UserID      int      `json:"user_id"` // User ID
+	Permissions []string `json:"permissions"`
 }
 
-type groupsMemberStatusFull struct {
-	Invitation int `json:"invitation"`
-	Member     int `json:"member"`
-	Request    int `json:"request"`
-	UserID     int `json:"user_id"`
+// GroupsMemberStatusFull struct
+type GroupsMemberStatusFull struct {
+	Invitation int `json:"invitation"` // Information whether user has been invited to the group
+	Member     int `json:"member"`     // Information whether user is a member of the group
+	Request    int `json:"request"`    // Information whether user has send request to the group
+	UserID     int `json:"user_id"`    // User ID
 }
 
 // GroupsOnlineStatus struct
 type GroupsOnlineStatus struct {
-	Minutes int    `json:"minutes"`
+	Minutes int    `json:"minutes"` // Estimated time of answer (for status = answer_mark)
 	Status  string `json:"status"`
 }
 

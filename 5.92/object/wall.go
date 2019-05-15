@@ -57,10 +57,10 @@ type wallViews struct {
 }
 
 type wallWallCommentThread struct {
-	CanPost         int               `json:"can_post"`        // Information whether current user can comment the post
-	Count           int               `json:"count"`           // Comments number
-	GroupsCanPost   bool              `json:"groups_can_post"` // Information whether groups can comment the post
+	CanPost         int               `json:"can_post"` // Information whether current user can comment the post
+	Count           int               `json:"count"`    // Comments number
 	Items           []wallWallComment `json:"items"`
+	GroupsCanPost   bool              `json:"groups_can_post"` // Information whether groups can comment the post
 	ShowReplyButton bool              `json:"show_reply_button"`
 }
 
@@ -115,8 +115,8 @@ type WallWallpost struct {
 	CanEdit      int                      `json:"can_edit"`
 	IsPinned     int                      `json:"is_pinned"`
 	MarkedAsAds  int                      `json:"marked_as_ads"`
-	IsFavorite   bool                     `json:"is_favorite"` // Information whether the post in favorites list
 	Edited       int                      `json:"edited"`      // Date of editing in Unixtime
+	IsFavorite   bool                     `json:"is_favorite"` // Information whether the post in favorites list
 	IsArchived   bool                     `json:"is_archived"` // Is post archived, only for post owners
 }
 
@@ -161,7 +161,8 @@ type wallWallpostAttachment struct {
 	Video             VideoVideo        `json:"video"`
 }
 
-type wallWallpostToID struct {
+// WallWallpostToID struct
+type WallWallpostToID struct {
 	Attachments []wallWallpostAttachment `json:"attachments"`
 	Comments    baseCommentsInfo         `json:"comments"`
 	CopyOwnerID int                      `json:"copy_owner_id"` // ID of the source post owner

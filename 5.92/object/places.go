@@ -1,6 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
-type placesCheckin struct {
+// PlacesCheckin struct
+type PlacesCheckin struct {
 	Date         int     `json:"date"`
 	Distance     int     `json:"distance"`
 	ID           int     `json:"id"`
@@ -16,7 +17,8 @@ type placesCheckin struct {
 	UserID       int     `json:"user_id"`
 }
 
-type placesPlaceFull struct {
+// PlacesPlaceFull struct
+type PlacesPlaceFull struct {
 	Address    string  `json:"address"`
 	Checkins   int     `json:"checkins"`
 	City       int     `json:"city"`
@@ -33,6 +35,7 @@ type placesPlaceFull struct {
 	Type       string  `json:"type"`
 }
 
+// PlacesPlaceMin struct
 type placesPlaceMin struct {
 	Address   string  `json:"address"`
 	Checkins  int     `json:"checkins"`
@@ -47,7 +50,8 @@ type placesPlaceMin struct {
 	Type      string  `json:"type"`
 }
 
-type placesTypes struct {
+// PlacesTypes struct
+type PlacesTypes struct {
 	ID    int    `json:"id"`
 	Icon  string `json:"icon"`
 	Title string `json:"title"`
