@@ -217,10 +217,10 @@ func TestVK_GroupsGetByID(t *testing.T) {
 	vk := Init(serviceToken)
 
 	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsGetByIDResponse
-		wantVkErr    Error
+		name      string
+		argParams map[string]string
+		// wantResponse GroupsGetByIDResponse
+		wantVkErr Error
 	}{
 		{
 			name: "groups.getById",
@@ -257,10 +257,10 @@ func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
 	vk := Init(groupToken)
 
 	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsGetCallbackConfirmationCodeResponse
-		wantVkErr    Error
+		name      string
+		argParams map[string]string
+		// wantResponse GroupsGetCallbackConfirmationCodeResponse
+		wantVkErr Error
 	}{
 		{
 			name: "groups.getCallbackConfirmationCode",

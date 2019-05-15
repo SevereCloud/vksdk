@@ -77,9 +77,6 @@ func TestVK_Execute(t *testing.T) {
 	}
 	vk := Init(groupToken)
 
-	type args struct {
-		Code string
-	}
 	tests := []struct {
 		name         string
 		argCode      string

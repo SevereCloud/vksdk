@@ -13,9 +13,6 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 	}
 	vk := Init(serviceToken)
 
-	type args struct {
-		params map[string]string
-	}
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -55,9 +52,6 @@ func TestVK_UtilsDeleteFromLastShortened(t *testing.T) {
 	}
 	vk := Init(userToken)
 
-	type args struct {
-		params map[string]string
-	}
 	tests := []struct {
 		name      string
 		argParams map[string]string
@@ -93,9 +87,6 @@ func TestVK_UtilsGetLastShortenedLinks(t *testing.T) {
 	}
 	vk := Init(userToken)
 
-	type args struct {
-		params map[string]string
-	}
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -129,9 +120,6 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 	}
 	vk := Init(serviceToken)
 
-	type args struct {
-		params map[string]string
-	}
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -174,9 +162,6 @@ func TestVK_UtilsGetLinkStatsExtended(t *testing.T) {
 	}
 	vk := Init(serviceToken)
 
-	type args struct {
-		params map[string]string
-	}
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -242,9 +227,6 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 	}
 	vk := Init(serviceToken)
 
-	type args struct {
-		params map[string]string
-	}
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -285,9 +267,6 @@ func TestVK_UtilsResolveScreenName(t *testing.T) {
 	}
 	vk := Init(serviceToken)
 
-	type args struct {
-		params map[string]string
-	}
 	tests := []struct {
 		name         string
 		argParams    map[string]string

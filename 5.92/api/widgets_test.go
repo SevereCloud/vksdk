@@ -45,10 +45,10 @@ func TestVK_WidgetsGetPages(t *testing.T) {
 	vk := Init(serviceToken)
 
 	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse WidgetsGetPagesResponse
-		wantVkErr    Error
+		name      string
+		argParams map[string]string
+		// wantResponse WidgetsGetPagesResponse
+		wantVkErr Error
 	}{
 		{
 			name:      "widgets.getPages error",
