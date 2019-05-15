@@ -3,6 +3,7 @@ package callback // import "github.com/SevereCloud/vksdk/5.92/callback"
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/SevereCloud/vksdk/5.92/handler"
@@ -24,6 +25,8 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	var e object.GroupEvent
 	if err := decoder.Decode(&e); err != nil {
+		log.Printf("Callback.HandleFunc: %v", err)
+		// fmt.Fprintf(w, "%v", err)
 		return
 	}
 
@@ -42,7 +45,11 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-	cb.funcList.Handler(e)
+	if err := cb.funcList.Handler(e); err != nil {
+		log.Printf("Callback.HandleFunc: %v", err)
+		// fmt.Fprintf(w, "%v", err)
+		return
+	}
 	fmt.Fprintf(w, "ok")
 }
 

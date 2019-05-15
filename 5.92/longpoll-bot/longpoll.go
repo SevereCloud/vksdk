@@ -62,25 +62,9 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	return nil
 }
 
-// UpdateHTTP update HTTP client
-// func (lp *Longpoll) UpdateHTTP() {
-// 	timeout := time.Second * time.Duration(5+lp.Wait)
-// 	lp.Client = &http.Client{
-// 		Timeout: timeout,
-// 	}
-// 	if lp.VK.ProxyAddress != "" {
-// 		dialer, _ := proxy.SOCKS5("tcp", lp.VK.ProxyAddress, nil, proxy.Direct)
-// 		httpTransport := &http.Transport{
-// 			Dial:              dialer.Dial,
-// 			DisableKeepAlives: true,
-// 		}
-// 		httpTransport.Dial = dialer.Dial
-// 		lp.Client.Transport = httpTransport
-// 	}
-// }
-
 func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 	var response longpollResponse
+	var err error
 
 	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, lp.Wait)
 
@@ -97,7 +81,7 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 
 	err = json.Unmarshal(body, &response)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	switch response.Failed {
@@ -105,18 +89,19 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 		lp.Ts = response.Ts
 	case 1:
 		log.Print(`Longpoll Bots: "failed":1`)
+		// TODO: handler for failed
 		lp.Ts = response.Ts
 	case 2:
 		log.Print(`Longpoll Bots: "failed":2`)
-		lp.updateServer(false)
+		err = lp.updateServer(false)
 	case 3:
 		log.Print(`Longpoll Bots: "failed":3`)
-		lp.updateServer(true)
+		err = lp.updateServer(true)
 	default:
 		log.Printf(`Longpoll Bots: "failed":%d`, response.Failed)
-		lp.updateServer(true)
+		err = lp.updateServer(true)
 	}
-	return response.Updates, nil
+	return response.Updates, err
 }
 
 // Run handler
@@ -128,7 +113,10 @@ func (lp *Longpoll) Run() error {
 			return err
 		}
 		for _, event := range events {
-			lp.funcList.Handler(event)
+			err = lp.funcList.Handler(event)
+			if err != nil {
+				return err
+			}
 		}
 	}
 	return nil
