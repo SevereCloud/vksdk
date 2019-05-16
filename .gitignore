@@ -2,6 +2,7 @@
 _vendor/
 vendor/
 coverage.out
+coverage.txt
 debug.test
 Gopkg.lock
 .vscode/
