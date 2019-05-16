@@ -76,7 +76,7 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	err = json.Unmarshal(body, &response)
@@ -84,6 +84,11 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 		return nil, err
 	}
 
+	err = lp.checkResponse(response)
+	return response.Updates, err
+}
+
+func (lp *Longpoll) checkResponse(response longpollResponse) (err error) {
 	switch response.Failed {
 	case 0:
 		lp.Ts = response.Ts
@@ -101,7 +106,7 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 		log.Printf(`Longpoll Bots: "failed":%d`, response.Failed)
 		err = lp.updateServer(true)
 	}
-	return response.Updates, err
+	return
 }
 
 // Run handler
