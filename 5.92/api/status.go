@@ -12,7 +12,7 @@ type StatusGetResponse struct {
 
 // StatusGet returns data required to show the status of a user or community.
 func (vk *VK) StatusGet(params map[string]string) (response StatusGetResponse, vkErr Error) {
-	vk.requestU("status.get", params, &response, &vkErr)
+	vk.RequestUnmarshal("status.get", params, &response, &vkErr)
 	return
 }
 

@@ -2,7 +2,6 @@ package api
 
 import (
 	"os"
-	"reflect"
 	"testing"
 )
 
@@ -45,37 +44,20 @@ func TestVK_Execute(t *testing.T) {
 	}
 	vk := Init(groupToken)
 
-	tests := []struct {
-		name         string
-		argCode      string
-		wantResponse []byte
-		wantVkErr    Error
-	}{
-		{
-			name:         "execute test",
-			argCode:      `return 1;`,
-			wantResponse: []byte(`1`),
-		},
-		{
-			name:      "execute test error",
-			argCode:   `bad`,
-			wantVkErr: Error{Code: 12},
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.Execute(tt.argCode)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.Execute() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.Execute() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
-			}
-		})
-	}
+	t.Run("Execute test", func(t *testing.T) {
+		var response int
+		var vkErr Error
+		vk.Execute(`return 1;`, &response, &vkErr)
+		if vkErr.Code != 0 {
+			t.Errorf("VK.Execute() gotVkErr = %v, want 0", vkErr)
+		}
+		if response != 1 {
+			t.Error("Execute response error")
+		}
+	})
 }
 
-func TestVK_requestU(t *testing.T) {
+func TestVK_RequestUnmarshal(t *testing.T) {
 	groupToken := os.Getenv("GROUP_TOKEN")
 	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
@@ -107,7 +89,7 @@ func TestVK_requestU(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			vk.requestU(tt.args.method, tt.args.params, tt.args.obj, tt.args.vkErr)
+			vk.RequestUnmarshal(tt.args.method, tt.args.params, tt.args.obj, tt.args.vkErr)
 			if tt.args.vkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.Execute() gotVkErr = %v, want %v", tt.args.vkErr, tt.wantVkErr)
 			}

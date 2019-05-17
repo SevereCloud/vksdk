@@ -8,9 +8,10 @@ import (
 type GroupsAddAddressResponse object.GroupsAddress
 
 // GroupsAddAddress groups.addAddress
+//
 // https://vk.com/dev/groups.addAddress
 func (vk *VK) GroupsAddAddress(params map[string]string) (response GroupsAddAddressResponse, vkErr Error) {
-	vk.requestU("groups.addAddress", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.addAddress", params, &response, &vkErr)
 	return
 }
 
@@ -20,9 +21,10 @@ type GroupsAddCallbackServerResponse struct {
 }
 
 // GroupsAddCallbackServer callback API server to the community.
+//
 // https://vk.com/dev/groups.addCallbackServer
 func (vk *VK) GroupsAddCallbackServer(params map[string]string) (response GroupsAddCallbackServerResponse, vkErr Error) {
-	vk.requestU("groups.addCallbackServer", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.addCallbackServer", params, &response, &vkErr)
 	return
 }
 
@@ -30,13 +32,15 @@ func (vk *VK) GroupsAddCallbackServer(params map[string]string) (response Groups
 type GroupsAddLinkResponse object.GroupsGroupLink
 
 // GroupsAddLink allows to add a link to the community.
+//
 // https://vk.com/dev/groups.addLink
 func (vk *VK) GroupsAddLink(params map[string]string) (response GroupsAddLinkResponse, vkErr Error) {
-	vk.requestU("groups.addLink", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.addLink", params, &response, &vkErr)
 	return
 }
 
 // GroupsApproveRequest allows to approve join request to the community.
+//
 // https://vk.com/dev/groups.approveRequest
 func (vk *VK) GroupsApproveRequest(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.approveRequest", params)
@@ -44,6 +48,7 @@ func (vk *VK) GroupsApproveRequest(params map[string]string) (vkErr Error) {
 }
 
 // GroupsBan adds a user or a group to the community blacklist.
+//
 // https://vk.com/dev/groups.ban
 func (vk *VK) GroupsBan(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.ban", params)
@@ -54,13 +59,15 @@ func (vk *VK) GroupsBan(params map[string]string) (vkErr Error) {
 type GroupsCreateResponse object.GroupsGroup
 
 // GroupsCreate creates a new community.
+//
 // https://vk.com/dev/groups.create
 func (vk *VK) GroupsCreate(params map[string]string) (response GroupsCreateResponse, vkErr Error) {
-	vk.requestU("groups.create", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.create", params, &response, &vkErr)
 	return
 }
 
 // GroupsDeleteAddress groups.deleteAddress
+//
 // https://vk.com/dev/groups.deleteAddress
 func (vk *VK) GroupsDeleteAddress(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.deleteAddress", params)
@@ -68,6 +75,7 @@ func (vk *VK) GroupsDeleteAddress(params map[string]string) (vkErr Error) {
 }
 
 // GroupsDeleteCallbackServer callback API server from the community.
+//
 // https://vk.com/dev/groups.deleteCallbackServer
 func (vk *VK) GroupsDeleteCallbackServer(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.deleteCallbackServer", params)
@@ -75,6 +83,7 @@ func (vk *VK) GroupsDeleteCallbackServer(params map[string]string) (vkErr Error)
 }
 
 // GroupsDeleteLink allows to delete a link from the community.
+//
 // https://vk.com/dev/groups.deleteLink
 func (vk *VK) GroupsDeleteLink(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.deleteLink", params)
@@ -82,6 +91,7 @@ func (vk *VK) GroupsDeleteLink(params map[string]string) (vkErr Error) {
 }
 
 // GroupsDisableOnline disables "online" status in the community.
+//
 // https://vk.com/dev/groups.disableOnline
 func (vk *VK) GroupsDisableOnline(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.disableOnline", params)
@@ -89,6 +99,7 @@ func (vk *VK) GroupsDisableOnline(params map[string]string) (vkErr Error) {
 }
 
 // GroupsEdit edits a community.
+//
 // https://vk.com/dev/groups.edit
 func (vk *VK) GroupsEdit(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.edit", params)
@@ -99,13 +110,15 @@ func (vk *VK) GroupsEdit(params map[string]string) (vkErr Error) {
 type GroupsEditAddressResponse object.GroupsAddress
 
 // GroupsEditAddress groups.editAddress
+//
 // https://vk.com/dev/groups.editAddress
 func (vk *VK) GroupsEditAddress(params map[string]string) (response GroupsEditAddressResponse, vkErr Error) {
-	vk.requestU("groups.editAddress", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.editAddress", params, &response, &vkErr)
 	return
 }
 
 // GroupsEditCallbackServer edits Callback API server in the community.
+//
 // https://vk.com/dev/groups.editCallbackServer
 func (vk *VK) GroupsEditCallbackServer(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.editCallbackServer", params)
@@ -113,6 +126,7 @@ func (vk *VK) GroupsEditCallbackServer(params map[string]string) (vkErr Error) {
 }
 
 // GroupsEditLink allows to edit a link in the community.
+//
 // https://vk.com/dev/groups.editLink
 func (vk *VK) GroupsEditLink(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.editLink", params)
@@ -120,6 +134,7 @@ func (vk *VK) GroupsEditLink(params map[string]string) (vkErr Error) {
 }
 
 // GroupsEditManager allows to add, remove or edit the community manager .
+//
 // https://vk.com/dev/groups.editManager
 func (vk *VK) GroupsEditManager(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.editManager", params)
@@ -127,6 +142,7 @@ func (vk *VK) GroupsEditManager(params map[string]string) (vkErr Error) {
 }
 
 // GroupsEnableOnline enables "online" status in the community.
+//
 // https://vk.com/dev/groups.enableOnline
 func (vk *VK) GroupsEnableOnline(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.enableOnline", params)
@@ -140,10 +156,11 @@ type GroupsGetResponse struct {
 }
 
 // GroupsGet returns a list of the communities to which a user belongs.
+//
 // https://vk.com/dev/groups.get
 func (vk *VK) GroupsGet(params map[string]string) (response GroupsGetResponse, vkErr Error) {
 	params["extended"] = "0"
-	vk.requestU("groups.get", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.get", params, &response, &vkErr)
 	return
 }
 
@@ -154,10 +171,11 @@ type GroupsGetExtendedResponse struct {
 }
 
 // GroupsGetExtended returns a list of the communities to which a user belongs.
+//
 // https://vk.com/dev/groups.get
 func (vk *VK) GroupsGetExtended(params map[string]string) (response GroupsGetExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
-	vk.requestU("groups.get", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.get", params, &response, &vkErr)
 	return
 }
 
@@ -168,9 +186,10 @@ type GroupsGetAddressesResponse struct {
 }
 
 // GroupsGetAddresses groups.getAddresses
+//
 // https://vk.com/dev/groups.getAddresses
 func (vk *VK) GroupsGetAddresses(params map[string]string) (response GroupsGetAddressesResponse, vkErr Error) {
-	vk.requestU("groups.getAddresses", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getAddresses", params, &response, &vkErr)
 	return
 }
 
@@ -181,9 +200,10 @@ type GroupsGetBannedResponse struct {
 }
 
 // GroupsGetBanned returns a list of users on a community blacklist.
+//
 // https://vk.com/dev/groups.getBanned
 func (vk *VK) GroupsGetBanned(params map[string]string) (response GroupsGetBannedResponse, vkErr Error) {
-	vk.requestU("groups.getBanned", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getBanned", params, &response, &vkErr)
 	return
 }
 
@@ -191,9 +211,10 @@ func (vk *VK) GroupsGetBanned(params map[string]string) (response GroupsGetBanne
 type GroupsGetByIDResponse []object.GroupsGroup
 
 // GroupsGetByID returns information about communities by their IDs.
+//
 // https://vk.com/dev/groups.getById
 func (vk *VK) GroupsGetByID(params map[string]string) (response GroupsGetByIDResponse, vkErr Error) {
-	vk.requestU("groups.getById", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getById", params, &response, &vkErr)
 	return
 }
 
@@ -203,9 +224,10 @@ type GroupsGetCallbackConfirmationCodeResponse struct {
 }
 
 // GroupsGetCallbackConfirmationCode returns Callback API confirmation code for the community.
+//
 // https://vk.com/dev/groups.getCallbackConfirmationCode
 func (vk *VK) GroupsGetCallbackConfirmationCode(params map[string]string) (response GroupsGetCallbackConfirmationCodeResponse, vkErr Error) {
-	vk.requestU("groups.getCallbackConfirmationCode", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getCallbackConfirmationCode", params, &response, &vkErr)
 	return
 }
 
@@ -216,9 +238,10 @@ type GroupsGetCallbackServersResponse struct {
 }
 
 // GroupsGetCallbackServers receives a list of Callback API servers from the community.
+//
 // https://vk.com/dev/groups.getCallbackServers
 func (vk *VK) GroupsGetCallbackServers(params map[string]string) (response GroupsGetCallbackServersResponse, vkErr Error) {
-	vk.requestU("groups.getCallbackServers", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getCallbackServers", params, &response, &vkErr)
 	return
 }
 
@@ -227,9 +250,10 @@ type GroupsGetCallbackSettingsResponse object.GroupsCallbackSettings
 
 // GroupsGetCallbackSettings returns Callback API notifications settings.
 // BUG(VK): MessageEdit always 0 https://vk.com/bugtracker?act=show&id=86762
+//
 // https://vk.com/dev/groups.getCallbackSettings
 func (vk *VK) GroupsGetCallbackSettings(params map[string]string) (response GroupsGetCallbackSettingsResponse, vkErr Error) {
-	vk.requestU("groups.getCallbackSettings", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getCallbackSettings", params, &response, &vkErr)
 	return
 }
 
@@ -240,9 +264,10 @@ type GroupsGetCatalogResponse struct {
 }
 
 // GroupsGetCatalog returns communities list for a catalog category.
+//
 // https://vk.com/dev/groups.getCatalog
 func (vk *VK) GroupsGetCatalog(params map[string]string) (response GroupsGetCatalogResponse, vkErr Error) {
-	vk.requestU("groups.getCatalog", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getCatalog", params, &response, &vkErr)
 	return
 }
 
@@ -250,10 +275,11 @@ func (vk *VK) GroupsGetCatalog(params map[string]string) (response GroupsGetCata
 type GroupsGetCatalogInfoResponse object.GroupsGroupCategory
 
 // GroupsGetCatalogInfo returns categories list for communities catalog
+//
 // https://vk.com/dev/groups.getCatalogInfo
 func (vk *VK) GroupsGetCatalogInfo(params map[string]string) (response GroupsGetCatalogInfoResponse, vkErr Error) {
 	params["extended"] = "0"
-	vk.requestU("groups.getCatalogInfo", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getCatalogInfo", params, &response, &vkErr)
 	return
 }
 
@@ -261,10 +287,11 @@ func (vk *VK) GroupsGetCatalogInfo(params map[string]string) (response GroupsGet
 type GroupsGetCatalogInfoExtendedResponse object.GroupsGroupCategoryFull
 
 // GroupsGetCatalogInfoExtended returns categories list for communities catalog
+//
 // https://vk.com/dev/groups.getCatalogInfo
 func (vk *VK) GroupsGetCatalogInfoExtended(params map[string]string) (response GroupsGetCatalogInfoExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
-	vk.requestU("groups.getCatalogInfo", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getCatalogInfo", params, &response, &vkErr)
 	return
 }
 
@@ -275,9 +302,10 @@ type GroupsGetInvitedUsersResponse struct {
 }
 
 // GroupsGetInvitedUsers returns invited users list of a community
+//
 // https://vk.com/dev/groups.getInvitedUsers
 func (vk *VK) GroupsGetInvitedUsers(params map[string]string) (response GroupsGetInvitedUsersResponse, vkErr Error) {
-	vk.requestU("groups.getInvitedUsers", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getInvitedUsers", params, &response, &vkErr)
 	return
 }
 
@@ -288,9 +316,10 @@ type GroupsGetInvitesResponse struct {
 }
 
 // GroupsGetInvites returns a list of invitations to join communities and events.
+//
 // https://vk.com/dev/groups.getInvites
 func (vk *VK) GroupsGetInvites(params map[string]string) (response GroupsGetInvitesResponse, vkErr Error) {
-	vk.requestU("groups.getInvites", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getInvites", params, &response, &vkErr)
 	return
 }
 
@@ -303,9 +332,10 @@ type GroupsGetInvitesExtendedResponse struct {
 }
 
 // GroupsGetInvitesExtended returns a list of invitations to join communities and events.
+//
 // https://vk.com/dev/groups.getInvites
 func (vk *VK) GroupsGetInvitesExtended(params map[string]string) (response GroupsGetInvitesExtendedResponse, vkErr Error) {
-	vk.requestU("groups.getInvites", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getInvites", params, &response, &vkErr)
 	return
 }
 
@@ -313,9 +343,10 @@ func (vk *VK) GroupsGetInvitesExtended(params map[string]string) (response Group
 type GroupsGetLongPollServerResponse object.GroupsLongPollServer
 
 // GroupsGetLongPollServer returns data for Bots Long Poll API connection.
+//
 // https://vk.com/dev/groups.getLongPollServer
 func (vk *VK) GroupsGetLongPollServer(params map[string]string) (response GroupsGetLongPollServerResponse, vkErr Error) {
-	vk.requestU("groups.getLongPollServer", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getLongPollServer", params, &response, &vkErr)
 	return
 }
 
@@ -323,9 +354,10 @@ func (vk *VK) GroupsGetLongPollServer(params map[string]string) (response Groups
 type GroupsGetLongPollSettingsResponse object.GroupsLongPollSettings
 
 // GroupsGetLongPollSettings returns Bots Long Poll API settings.
+//
 // https://vk.com/dev/groups.getLongPollSettings
 func (vk *VK) GroupsGetLongPollSettings(params map[string]string) (response GroupsGetLongPollSettingsResponse, vkErr Error) {
-	vk.requestU("groups.getLongPollSettings", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getLongPollSettings", params, &response, &vkErr)
 	return
 }
 
@@ -336,9 +368,10 @@ type GroupsGetMembersResponse struct {
 }
 
 // GroupsGetMembers returns a list of community members
+//
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembers(params map[string]string) (response GroupsGetMembersResponse, vkErr Error) {
-	vk.requestU("groups.getMembers", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getMembers", params, &response, &vkErr)
 	return
 }
 
@@ -350,10 +383,11 @@ type GroupsGetMembersFilterManagersResponse struct {
 
 // GroupsGetMembersFilterManagers returns a list of community members
 // filter=managers
+//
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembersFilterManagers(params map[string]string) (response GroupsGetMembersFilterManagersResponse, vkErr Error) {
 	params["filter"] = "managers"
-	vk.requestU("groups.getMembers", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getMembers", params, &response, &vkErr)
 	return
 }
 
@@ -361,9 +395,10 @@ func (vk *VK) GroupsGetMembersFilterManagers(params map[string]string) (response
 type GroupsGetOnlineStatusResponse object.GroupsOnlineStatus
 
 // GroupsGetOnlineStatus returns a community's online status.
+//
 // https://vk.com/dev/groups.getOnlineStatus
 func (vk *VK) GroupsGetOnlineStatus(params map[string]string) (response GroupsGetOnlineStatusResponse, vkErr Error) {
-	vk.requestU("groups.getOnlineStatus", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getOnlineStatus", params, &response, &vkErr)
 	return
 }
 
@@ -374,9 +409,10 @@ type GroupsGetRequestsResponse struct {
 }
 
 // GroupsGetRequests returns a list of requests to the community.
+//
 // https://vk.com/dev/groups.getRequests
 func (vk *VK) GroupsGetRequests(params map[string]string) (response GroupsGetRequestsResponse, vkErr Error) {
-	vk.requestU("groups.getRequests", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getRequests", params, &response, &vkErr)
 	return
 }
 
@@ -384,9 +420,10 @@ func (vk *VK) GroupsGetRequests(params map[string]string) (response GroupsGetReq
 type GroupsGetSettingsResponse object.GroupsGroupSettings
 
 // GroupsGetSettings returns community settings.
+//
 // https://vk.com/dev/groups.getSettings
 func (vk *VK) GroupsGetSettings(params map[string]string) (response GroupsGetSettingsResponse, vkErr Error) {
-	vk.requestU("groups.getSettings", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getSettings", params, &response, &vkErr)
 	return
 }
 
@@ -394,13 +431,15 @@ func (vk *VK) GroupsGetSettings(params map[string]string) (response GroupsGetSet
 type GroupsGetTokenPermissionsResponse object.GroupsTokenPermissions
 
 // GroupsGetTokenPermissions returns permissions scope for the community's access_token.
+//
 // https://vk.com/dev/groups.getTokenPermissions
 func (vk *VK) GroupsGetTokenPermissions() (response GroupsGetTokenPermissionsResponse, vkErr Error) {
-	vk.requestU("groups.getTokenPermissions", map[string]string{}, &response, &vkErr)
+	vk.RequestUnmarshal("groups.getTokenPermissions", map[string]string{}, &response, &vkErr)
 	return
 }
 
 // GroupsInvite allows to invite friends to the community.
+//
 // https://vk.com/dev/groups.invite
 func (vk *VK) GroupsInvite(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.invite", params)
@@ -411,9 +450,11 @@ func (vk *VK) GroupsInvite(params map[string]string) (vkErr Error) {
 type GroupsIsMemberResponse struct{}
 
 // TODO: GroupsIsMember returns information specifying whether a user is a member of a community.
+//
 // https://vk.com/dev/groups.isMember
 
 // GroupsJoin with this method you can join the group or public page, and also confirm your participation in an event.
+//
 // https://vk.com/dev/groups.join
 func (vk *VK) GroupsJoin(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.join", params)
@@ -421,6 +462,7 @@ func (vk *VK) GroupsJoin(params map[string]string) (vkErr Error) {
 }
 
 // GroupsLeave with this method you can leave a group, public page, or event.
+//
 // https://vk.com/dev/groups.leave
 func (vk *VK) GroupsLeave(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.leave", params)
@@ -428,6 +470,7 @@ func (vk *VK) GroupsLeave(params map[string]string) (vkErr Error) {
 }
 
 // GroupsRemoveUser removes a user from the community.
+//
 // https://vk.com/dev/groups.removeUser
 func (vk *VK) GroupsRemoveUser(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.removeUser", params)
@@ -435,6 +478,7 @@ func (vk *VK) GroupsRemoveUser(params map[string]string) (vkErr Error) {
 }
 
 // GroupsReorderLink allows to reorder links in the community.
+//
 // https://vk.com/dev/groups.reorderLink
 func (vk *VK) GroupsReorderLink(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.reorderLink", params)
@@ -448,13 +492,15 @@ type GroupsSearchResponse struct {
 }
 
 // GroupsSearch returns a list of communities matching the search criteria.
+//
 // https://vk.com/dev/groups.search
 func (vk *VK) GroupsSearch(params map[string]string) (response GroupsSearchResponse, vkErr Error) {
-	vk.requestU("groups.search", params, &response, &vkErr)
+	vk.RequestUnmarshal("groups.search", params, &response, &vkErr)
 	return
 }
 
 // GroupsSetCallbackSettings allow to set notifications settings for Callback API.
+//
 // https://vk.com/dev/groups.setCallbackSettings
 func (vk *VK) GroupsSetCallbackSettings(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.setCallbackSettings", params)
@@ -462,6 +508,7 @@ func (vk *VK) GroupsSetCallbackSettings(params map[string]string) (vkErr Error) 
 }
 
 // GroupsSetLongPollSettings allows to set Bots Long Poll API settings in the community.
+//
 // https://vk.com/dev/groups.setLongPollSettings
 func (vk *VK) GroupsSetLongPollSettings(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.setLongPollSettings", params)
@@ -469,6 +516,7 @@ func (vk *VK) GroupsSetLongPollSettings(params map[string]string) (vkErr Error) 
 }
 
 // GroupsUnban groups.unban
+//
 // https://vk.com/dev/groups.unban
 func (vk *VK) GroupsUnban(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("groups.unban", params)

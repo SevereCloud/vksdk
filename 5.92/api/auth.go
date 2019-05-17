@@ -4,9 +4,10 @@ package api // import "github.com/SevereCloud/vksdk/5.92/api"
 type AuthCheckResponse int
 
 // AuthCheckPhone checks a user's phone number for correctness.
+//
 // https://vk.com/dev/auth.checkPhone
 func (vk *VK) AuthCheckPhone(params map[string]string) (response AuthCheckResponse, vkErr Error) {
-	vk.requestU("auth.checkPhone", params, &response, &vkErr)
+	vk.RequestUnmarshal("auth.checkPhone", params, &response, &vkErr)
 	return
 }
 
@@ -17,8 +18,9 @@ type AuthRetoreResponse struct {
 }
 
 // AuthRetore allows to restore account access using a code received via SMS.
+//
 // https://vk.com/dev/auth.restore
 func (vk *VK) AuthRetore(params map[string]string) (response AuthRetoreResponse, vkErr Error) {
-	vk.requestU("auth.restore", params, &response, &vkErr)
+	vk.RequestUnmarshal("auth.restore", params, &response, &vkErr)
 	return
 }

@@ -7,9 +7,10 @@ type StreamingGetServerURLResponse struct {
 }
 
 // StreamingGetServerURL allows to receive data for the connection to Streaming API.
+//
 // https://vk.com/dev/streaming.getServerUrl
 func (vk *VK) StreamingGetServerURL() (response StreamingGetServerURLResponse, vkErr Error) {
-	vk.requestU("streaming.getServerUrl", map[string]string{}, &response, &vkErr)
+	vk.RequestUnmarshal("streaming.getServerUrl", map[string]string{}, &response, &vkErr)
 	return
 }
 
@@ -19,9 +20,10 @@ type StreamingGetSettingsResponse struct {
 }
 
 // StreamingGetSettings allows to receive monthly tier for Streaming API.
+//
 // https://vk.com/dev/streaming.getSettings
 func (vk *VK) StreamingGetSettings() (response StreamingGetSettingsResponse, vkErr Error) {
-	vk.requestU("streaming.getSettings", map[string]string{}, &response, &vkErr)
+	vk.RequestUnmarshal("streaming.getSettings", map[string]string{}, &response, &vkErr)
 	return
 }
 
@@ -35,9 +37,10 @@ type StreamingGetStatsResponse []struct {
 }
 
 // StreamingGetStats allows to receive statistics for prepared and received events in Streaming API.
+//
 // https://vk.com/dev/streaming.getStats
 func (vk *VK) StreamingGetStats(params map[string]string) (response StreamingGetStatsResponse, vkErr Error) {
-	vk.requestU("streaming.getStats", params, &response, &vkErr)
+	vk.RequestUnmarshal("streaming.getStats", params, &response, &vkErr)
 	return
 }
 
@@ -47,13 +50,15 @@ type StreamingGetStemResponse struct {
 }
 
 // StreamingGetStem allows to receive the stem of the word.
+//
 // https://vk.com/dev/streaming.getStem
 func (vk *VK) StreamingGetStem(params map[string]string) (response StreamingGetStemResponse, vkErr Error) {
-	vk.requestU("streaming.getStem", params, &response, &vkErr)
+	vk.RequestUnmarshal("streaming.getStem", params, &response, &vkErr)
 	return
 }
 
 // StreamingSetSettings allows to set monthly tier for Streaming API.
+//
 // https://vk.com/dev/streaming.setSettings
 func (vk *VK) StreamingSetSettings(params map[string]string) (vkErr Error) {
 	_, vkErr = vk.Request("streaming.setSettings", params)

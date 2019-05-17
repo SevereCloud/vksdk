@@ -11,8 +11,9 @@ type GiftsGetResponse struct {
 }
 
 // GiftsGet returns a list of user gifts.
+//
 // https://vk.com/dev/gifts.get
 func (vk *VK) GiftsGet(params map[string]string) (response GiftsGetResponse, vkErr Error) {
-	vk.requestU("gifts.get", params, &response, &vkErr)
+	vk.RequestUnmarshal("gifts.get", params, &response, &vkErr)
 	return
 }

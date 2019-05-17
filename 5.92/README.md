@@ -51,28 +51,6 @@ func main() {
 
 ### Костыли
 
-[AccountGetInfo](https://vk.com/dev/account.getInfo) вместо поля `2fa_required`, вернет `TwoFactorRequired`
-
-[Execute](https://vk.com/dev/execute) возвращает Response JSON в `[]byte`.
-
-```go
-var S struct {
-	Text string `json:"text"`
-}
-
-rawResponse, vkErr := vk.Execute(`return {text: "hello"};`)
-if vkErr.Code != 0 {
-	log.Fatal(vkErr.Message)
-}
-
-err := json.Unmarshal(rawResponse, &S)
-if err != nil {
-	panic(err)
-}
-
-fmt.Print(S.Text)
-```
-
 [StorageGet](https://vk.com/dev/storage.get) если нет параметра `keys`, вернет массив из одного объекта.
 ...
 
@@ -86,6 +64,7 @@ fmt.Print(S.Text)
 - [ ] Streaming API
 - [x] HTTP client
 - [ ] Получение токена
+- [ ] Загрузка файлов
 - [ ] Тесты
 - [ ] Англоязычный README
 - [ ] Версионирование

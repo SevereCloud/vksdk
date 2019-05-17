@@ -13,12 +13,13 @@ import (
 )
 
 const (
-	version = "5.92"
-	apiURL  = "https://api.vk.com/method/"
+	version      = "5.92"
+	apiMethodURL = "https://api.vk.com/method/"
 )
 
 // VK struct
 type VK struct {
+	MethodURL   string
 	AccessToken string
 	Version     string
 	Client      *http.Client
@@ -41,6 +42,7 @@ type Error struct {
 
 // Init VK API
 func Init(token string) (vk VK) {
+	vk.MethodURL = apiMethodURL
 	vk.AccessToken = token
 	vk.Version = version
 	vk.Client = &http.Client{}
@@ -54,7 +56,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 		Error    Error `json:"error"`
 	}
 
-	u := apiURL + method
+	u := vk.MethodURL + method
 
 	query := url.Values{}
 	for key, value := range params {
@@ -103,7 +105,8 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 	return handler.Response, handler.Error
 }
 
-func (vk *VK) requestU(method string, params map[string]string, obj interface{}, vkErr *Error) {
+// RequestUnmarshal provides access to VK API methods
+func (vk *VK) RequestUnmarshal(method string, params map[string]string, obj interface{}, vkErr *Error) {
 	rawResponse, rawErr := vk.Request(method, params)
 	*vkErr = rawErr
 	if vkErr.Code != 0 {
@@ -118,10 +121,9 @@ func (vk *VK) requestU(method string, params map[string]string, obj interface{},
 }
 
 // Execute a universal method for calling a sequence of other methods while saving and filtering interim results.
-func (vk *VK) Execute(code string) (response []byte, vkErr Error) {
-	p := make(map[string]string)
-	p["code"] = code
-	response, vkErr = vk.Request("execute", p)
-
-	return
+//
+// https://vk.com/dev/Execute
+func (vk *VK) Execute(code string, obj interface{}, vkErr *Error) {
+	params := map[string]string{"code": code}
+	vk.RequestUnmarshal("execute", params, &obj, vkErr)
 }
