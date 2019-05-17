@@ -20,7 +20,7 @@ func TestLongpoll_Shutdown(t *testing.T) {
 
 }
 
-func TestLongpoll_Handler(t *testing.T) {
+func TestLongpoll_Handler(t *testing.T) { // nolint:gocyclo
 	lp := &Longpoll{}
 	t.Run("MessageNew", func(t *testing.T) {
 		lp.MessageNew(func(obj object.MessageNewObject, groupID int) {})

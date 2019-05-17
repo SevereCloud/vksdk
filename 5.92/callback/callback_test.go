@@ -6,7 +6,7 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-func TestCallback_Handler(t *testing.T) {
+func TestCallback_Handler(t *testing.T) { // nolint:gocyclo
 	cb := &Callback{}
 	t.Run("MessageNew", func(t *testing.T) {
 		cb.MessageNew(func(obj object.MessageNewObject, groupID int) {})

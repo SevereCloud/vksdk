@@ -53,7 +53,7 @@ type FuncList struct {
 
 // Handler group event handler
 // NOTE: cyclomatic complexity 123 of function (FuncList).Handler() is high (> 15) (gocyclo)
-func (funcList FuncList) Handler(e object.GroupEvent) error {
+func (funcList FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 	switch e.Type {
 	case "message_new":
 		var obj object.MessageNewObject
