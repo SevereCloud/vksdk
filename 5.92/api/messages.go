@@ -368,7 +368,6 @@ type MessagesIsMessagesFromGroupAllowedResponse struct {
 // sending messages from the community to current user is allowed.
 //
 // https://vk.com/dev/messages.isMessagesFromGroupAllowed
-// BUG(VK): need group_id with group token vk.com/bugtracker?act=show&id=88011
 func (vk *VK) MessagesIsMessagesFromGroupAllowed(params map[string]string) (response MessagesIsMessagesFromGroupAllowedResponse, vkErr Error) {
 	vk.RequestUnmarshal("messages.isMessagesFromGroupAllowed", params, &response, &vkErr)
 	return
