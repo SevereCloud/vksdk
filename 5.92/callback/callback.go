@@ -30,6 +30,13 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if cb.SecretKeys[e.GroupID] != "" || cb.SecretKey != "" {
+		if e.Secret != cb.SecretKeys[e.GroupID] && e.Secret != cb.SecretKey {
+			fmt.Fprintf(w, "bad secret")
+			return
+		}
+	}
+
 	if e.Type == "confirmation" {
 		if cb.ConfirmationKeys[e.GroupID] != "" {
 			fmt.Fprintf(w, cb.ConfirmationKeys[e.GroupID])
@@ -39,12 +46,6 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if cb.SecretKeys[e.GroupID] != "" || cb.SecretKey != "" {
-		if e.Secret != cb.SecretKeys[e.GroupID] && e.Secret != cb.SecretKey {
-			fmt.Fprintf(w, "bad secret")
-			return
-		}
-	}
 	if err := cb.funcList.Handler(e); err != nil {
 		log.Printf("Callback.HandleFunc: %v", err)
 		// fmt.Fprintf(w, "%v", err)
