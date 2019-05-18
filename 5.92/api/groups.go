@@ -447,11 +447,68 @@ func (vk *VK) GroupsInvite(params map[string]string) (vkErr Error) {
 }
 
 // GroupsIsMemberResponse struct
-type GroupsIsMemberResponse struct{}
+type GroupsIsMemberResponse int
 
-// TODO: GroupsIsMember returns information specifying whether a user is a member of a community.
+// GroupsIsMember returns information specifying whether a user is a member of a community.
+//
+// extended=0
 //
 // https://vk.com/dev/groups.isMember
+func (vk *VK) GroupsIsMember(params map[string]string) (response GroupsIsMemberResponse, vkErr Error) {
+	params["extended"] = "0"
+	vk.RequestUnmarshal("groups.isMember", params, &response, &vkErr)
+	return
+}
+
+// GroupsIsMemberExtendedResponse struct
+type GroupsIsMemberExtendedResponse struct {
+	Invitation int `json:"invitation"` // Information whether user has been invited to the group
+	Member     int `json:"member"`     // Information whether user is a member of the group
+	Request    int `json:"request"`    // Information whether user has send request to the group
+	CanInvite  int `json:"can_invite"` // Information whether user can be invite
+	CanRecall  int `json:"can_recall"` // Information whether user's invite to the group can be recalled
+}
+
+// GroupsIsMemberExtended returns information specifying whether a user is a member of a community.
+//
+// extended=1
+//
+// https://vk.com/dev/groups.isMember
+func (vk *VK) GroupsIsMemberExtended(params map[string]string) (response GroupsIsMemberExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	vk.RequestUnmarshal("groups.isMember", params, &response, &vkErr)
+	return
+}
+
+// GroupsIsMemberUserIDsExtendedResponse struct
+type GroupsIsMemberUserIDsExtendedResponse []object.GroupsMemberStatusFull
+
+// GroupsIsMemberUserIDsExtended returns information specifying whether a user is a member of a community.
+//
+// extended=1
+// need user_ids
+//
+// https://vk.com/dev/groups.isMember
+func (vk *VK) GroupsIsMemberUserIDsExtended(params map[string]string) (response GroupsIsMemberUserIDsExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	vk.RequestUnmarshal("groups.isMember", params, &response, &vkErr)
+	return
+}
+
+// GroupsIsMemberUserIDsResponse struct
+type GroupsIsMemberUserIDsResponse []object.GroupsMemberStatus
+
+// GroupsIsMemberUserIDs returns information specifying whether a user is a member of a community.
+//
+// extended=0
+// need user_ids
+//
+// https://vk.com/dev/groups.isMember
+func (vk *VK) GroupsIsMemberUserIDs(params map[string]string) (response GroupsIsMemberUserIDsResponse, vkErr Error) {
+	params["extended"] = "0"
+	vk.RequestUnmarshal("groups.isMember", params, &response, &vkErr)
+	return
+}
 
 // GroupsJoin with this method you can join the group or public page, and also confirm your participation in an event.
 //

@@ -73,7 +73,6 @@ func main() {
 ### Список методов
 
 - [ ] Ads 0/0
-- [ ] Groups 46/50
 - [ ] Leads 0/0
 - [ ] Market 0/27
 - [ ] Newsfeed 0/18
@@ -96,6 +95,7 @@ func main() {
 - [x] Fave 15/15
 - [x] Friends 19/19
 - [x] Gifts 1/1
+- [x] Groups 50/50
 - [x] LeadForms 7/7
 - [x] Likes 5/5
 - [x] Messages 43/43

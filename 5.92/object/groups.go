@@ -363,6 +363,8 @@ type GroupsMemberStatusFull struct {
 	Invitation int `json:"invitation"` // Information whether user has been invited to the group
 	Member     int `json:"member"`     // Information whether user is a member of the group
 	Request    int `json:"request"`    // Information whether user has send request to the group
+	CanInvite  int `json:"can_invite"` // Information whether user can be invite
+	CanRecall  int `json:"can_recall"` // Information whether user's invite to the group can be recalled
 	UserID     int `json:"user_id"`    // User ID
 }
 
