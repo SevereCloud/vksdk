@@ -687,3 +687,177 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 		})
 	}
 }
+
+func TestVK_GroupsIsMember(t *testing.T) {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+	vk := Init(groupToken)
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse GroupsIsMemberResponse
+		wantVkErr    Error
+	}{
+		{
+			name: "groups.isMembers",
+			argParams: map[string]string{
+				"group_id": "1",
+				"user_id":  "117253521",
+			},
+			wantResponse: 1,
+		},
+		{
+			name:      "groups.isMembers error",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: 100},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vk.GroupsIsMember(tt.argParams)
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.GroupsIsMember() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.GroupsIsMember() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+		})
+	}
+}
+
+func TestVK_GroupsIsMemberExtended(t *testing.T) {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+	vk := Init(groupToken)
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse GroupsIsMemberExtendedResponse
+		wantVkErr    Error
+	}{
+		{
+			name: "groups.isMembers",
+			argParams: map[string]string{
+				"group_id": "1",
+				"user_id":  "117253521",
+			},
+			wantResponse: GroupsIsMemberExtendedResponse{
+				Member:    1,
+				CanInvite: 0,
+			},
+		},
+		{
+			name:      "groups.isMembers error",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: 100},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vk.GroupsIsMemberExtended(tt.argParams)
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.GroupsIsMemberExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.GroupsIsMemberExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+		})
+	}
+}
+
+func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+	vk := Init(groupToken)
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse GroupsIsMemberUserIDsExtendedResponse
+		wantVkErr    Error
+	}{
+		{
+			name: "groups.isMembers",
+			argParams: map[string]string{
+				"group_id": "1",
+				"user_ids": "117253521",
+			},
+			wantResponse: GroupsIsMemberUserIDsExtendedResponse{
+				{
+					Member:    1,
+					CanInvite: 0,
+					UserID:    117253521,
+				},
+			},
+		},
+		{
+			name:      "groups.isMembers error",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: 100},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vk.GroupsIsMemberUserIDsExtended(tt.argParams)
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.GroupsIsMemberUserIDsExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.GroupsIsMemberUserIDsExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+		})
+	}
+}
+
+func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+	vk := Init(groupToken)
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse GroupsIsMemberUserIDsResponse
+		wantVkErr    Error
+	}{
+		{
+			name: "groups.isMembers",
+			argParams: map[string]string{
+				"group_id": "1",
+				"user_ids": "117253521",
+			},
+			wantResponse: GroupsIsMemberUserIDsResponse{
+				{
+					Member: 1,
+					UserID: 117253521,
+				},
+			},
+		},
+		{
+			name:      "groups.isMembers error",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: 100},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vk.GroupsIsMemberUserIDs(tt.argParams)
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.GroupsIsMemberUserIDs() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.GroupsIsMemberUserIDs() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+		})
+	}
+}
