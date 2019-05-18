@@ -157,6 +157,8 @@ type GroupsGetResponse struct {
 
 // GroupsGet returns a list of the communities to which a user belongs.
 //
+// extended=0
+//
 // https://vk.com/dev/groups.get
 func (vk *VK) GroupsGet(params map[string]string) (response GroupsGetResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -171,6 +173,8 @@ type GroupsGetExtendedResponse struct {
 }
 
 // GroupsGetExtended returns a list of the communities to which a user belongs.
+//
+// extended=1
 //
 // https://vk.com/dev/groups.get
 func (vk *VK) GroupsGetExtended(params map[string]string) (response GroupsGetExtendedResponse, vkErr Error) {
@@ -276,6 +280,8 @@ type GroupsGetCatalogInfoResponse object.GroupsGroupCategory
 
 // GroupsGetCatalogInfo returns categories list for communities catalog
 //
+// extended=0
+//
 // https://vk.com/dev/groups.getCatalogInfo
 func (vk *VK) GroupsGetCatalogInfo(params map[string]string) (response GroupsGetCatalogInfoResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -287,6 +293,8 @@ func (vk *VK) GroupsGetCatalogInfo(params map[string]string) (response GroupsGet
 type GroupsGetCatalogInfoExtendedResponse object.GroupsGroupCategoryFull
 
 // GroupsGetCatalogInfoExtended returns categories list for communities catalog
+//
+// extended=1
 //
 // https://vk.com/dev/groups.getCatalogInfo
 func (vk *VK) GroupsGetCatalogInfoExtended(params map[string]string) (response GroupsGetCatalogInfoExtendedResponse, vkErr Error) {

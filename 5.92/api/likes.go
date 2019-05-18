@@ -38,6 +38,8 @@ type LikesGetListResponse struct {
 
 // LikesGetList likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
 //
+// extended=0
+//
 // https://vk.com/dev/likes.getList
 func (vk *VK) LikesGetList(params map[string]string) (response LikesGetListResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -52,6 +54,8 @@ type LikesGetListExtendedResponse struct {
 }
 
 // LikesGetListExtended likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
+//
+// extended=1
 //
 // https://vk.com/dev/likes.getList
 func (vk *VK) LikesGetListExtended(params map[string]string) (response LikesGetListExtendedResponse, vkErr Error) {

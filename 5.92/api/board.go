@@ -84,6 +84,8 @@ type BoardGetCommentsResponse struct {
 
 // BoardGetComments returns a list of comments on a topic on a community's discussion board.
 //
+// extended=0
+//
 // https://vk.com/dev/board.getComments
 func (vk *VK) BoardGetComments(params map[string]string) (response BoardGetCommentsResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -103,6 +105,8 @@ type BoardGetCommentsExtendedResponse struct {
 
 // BoardGetCommentsExtended returns a list of comments on a topic on a community's discussion board.
 //
+// extended=1
+//
 // https://vk.com/dev/board.getComments
 func (vk *VK) BoardGetCommentsExtended(params map[string]string) (response BoardGetCommentsExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
@@ -119,6 +123,8 @@ type BoardGetTopicsResponse struct {
 }
 
 // BoardGetTopics returns a list of topics on a community's discussion board.
+//
+// extended=0
 //
 // https://vk.com/dev/board.getTopics
 func (vk *VK) BoardGetTopics(params map[string]string) (response BoardGetTopicsResponse, vkErr Error) {
@@ -138,6 +144,8 @@ type BoardGetTopicsExtendedResponse struct {
 }
 
 // BoardGetTopicsExtended returns a list of topics on a community's discussion board.
+//
+// extended=1
 //
 // https://vk.com/dev/board.getTopics
 func (vk *VK) BoardGetTopicsExtended(params map[string]string) (response BoardGetTopicsExtendedResponse, vkErr Error) {

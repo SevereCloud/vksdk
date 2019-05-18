@@ -112,6 +112,8 @@ type MessagesGetByIDResponse struct {
 
 // MessagesGetByID returns messages by their IDs.
 //
+// extended=0
+//
 // https://vk.com/dev/messages.getById
 func (vk *VK) MessagesGetByID(params map[string]string) (response MessagesGetByIDResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -128,6 +130,8 @@ type MessagesGetByIDExtendedResponse struct {
 }
 
 // MessagesGetByIDExtended returns messages by their IDs.
+//
+// extended=1
 //
 // https://vk.com/dev/messages.getById
 func (vk *VK) MessagesGetByIDExtended(params map[string]string) (response MessagesGetByIDExtendedResponse, vkErr Error) {
@@ -228,6 +232,8 @@ type MessagesGetConversationsByIDResponse struct {
 
 // MessagesGetConversationsByID returns conversations by their IDs.
 //
+// extended=0
+//
 // https://vk.com/dev/messages.getConversationsById
 func (vk *VK) MessagesGetConversationsByID(params map[string]string) (response MessagesGetConversationsByIDResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -244,6 +250,8 @@ type MessagesGetConversationsByIDExtendedResponse struct {
 }
 
 // MessagesGetConversationsByIDExtended returns conversations by their IDs.
+//
+// extended=1
 //
 // https://vk.com/dev/messages.getConversationsById
 func (vk *VK) MessagesGetConversationsByIDExtended(params map[string]string) (response MessagesGetConversationsByIDExtendedResponse, vkErr Error) {
@@ -504,6 +512,8 @@ type MessagesSendUserIDsResponse []struct {
 }
 
 // MessagesSendUserIDs Sends a message
+//
+// need user_ids
 //
 // https://vk.com/dev/messages.send
 func (vk *VK) MessagesSendUserIDs(params map[string]string) (response MessagesSendUserIDsResponse, vkErr Error) {

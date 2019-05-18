@@ -67,6 +67,8 @@ type AppsGetLeaderboardResponse struct {
 
 // AppsGetLeaderboard returns players rating in the game.
 //
+// extended=0
+//
 // https://vk.com/dev/apps.getLeaderboard
 func (vk *VK) AppsGetLeaderboard(params map[string]string) (response AppsGetLeaderboardResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -85,6 +87,8 @@ type AppsGetLeaderboardExtendedResponse struct {
 }
 
 // AppsGetLeaderboardExtended returns players rating in the game.
+//
+// extended=1
 //
 // https://vk.com/dev/apps.getLeaderboard
 func (vk *VK) AppsGetLeaderboardExtended(params map[string]string) (response AppsGetLeaderboardExtendedResponse, vkErr Error) {

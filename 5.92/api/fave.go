@@ -50,6 +50,8 @@ type FaveGetMarketItemsResponse struct {
 
 // FaveGetMarketItems returns market items bookmarked by current user.
 //
+// extended=0
+//
 // https://vk.com/dev/fave.getMarketItems
 func (vk *VK) FaveGetMarketItems(params map[string]string) (response FaveGetMarketItemsResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -58,6 +60,8 @@ func (vk *VK) FaveGetMarketItems(params map[string]string) (response FaveGetMark
 }
 
 // FaveGetMarketItemsExtended returns market items bookmarked by current user.
+//
+// extended=1
 //
 // https://vk.com/dev/fave.getMarketItems
 func (vk *VK) FaveGetMarketItemsExtended(params map[string]string) (response FaveGetMarketItemsResponse, vkErr Error) {
@@ -89,6 +93,8 @@ type FaveGetPostsResponse struct {
 
 // FaveGetPosts returns a list of wall posts that the current user has liked.
 //
+// extended=0
+//
 // https://vk.com/dev/fave.getPosts
 func (vk *VK) FaveGetPosts(params map[string]string) (response FaveGetPostsResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -105,6 +111,8 @@ type FaveGetPostsExtendedResponse struct {
 }
 
 // FaveGetPostsExtended returns a list of wall posts that the current user has liked.
+//
+// extended=1
 //
 // https://vk.com/dev/fave.getPosts
 func (vk *VK) FaveGetPostsExtended(params map[string]string) (response FaveGetPostsExtendedResponse, vkErr Error) {
@@ -135,6 +143,8 @@ type FaveGetVideosResponse struct {
 
 // FaveGetVideos returns a list of videos that the current user has liked.
 //
+// extended=0
+//
 // https://vk.com/dev/fave.getVideos
 func (vk *VK) FaveGetVideos(params map[string]string) (response FaveGetVideosResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -151,6 +161,8 @@ type FaveGetVideosExtendedResponse struct {
 }
 
 // FaveGetVideosExtended returns a list of videos that the current user has liked.
+//
+// extended=1
 //
 // https://vk.com/dev/fave.getVideos
 func (vk *VK) FaveGetVideosExtended(params map[string]string) (response FaveGetVideosExtendedResponse, vkErr Error) {

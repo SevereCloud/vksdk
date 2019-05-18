@@ -44,6 +44,8 @@ type UtilsGetLinkStatsResponse object.UtilsLinkStats
 
 // UtilsGetLinkStats returns stats data for shortened link.
 //
+// extended=0
+//
 // https://vk.com/dev/utils.getLinkStats
 func (vk *VK) UtilsGetLinkStats(params map[string]string) (response UtilsGetLinkStatsResponse, vkErr Error) {
 	params["extended"] = "0"
@@ -55,6 +57,8 @@ func (vk *VK) UtilsGetLinkStats(params map[string]string) (response UtilsGetLink
 type UtilsGetLinkStatsExtendedResponse object.UtilsLinkStatsExtended
 
 // UtilsGetLinkStatsExtended returns stats data for shortened link.
+//
+// extended=1
 //
 // https://vk.com/dev/utils.getLinkStats
 func (vk *VK) UtilsGetLinkStatsExtended(params map[string]string) (response UtilsGetLinkStatsExtendedResponse, vkErr Error) {

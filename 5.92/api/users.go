@@ -40,6 +40,8 @@ type UsersGetSubscriptionsResponse struct {
 
 // UsersGetSubscriptions returns a list of IDs of users and public pages followed by the user.
 //
+// extended=0
+//
 // https://vk.com/dev/users.getSubscriptions
 // BUG(SevereCloud): UsersGetSubscriptions bad response with extended=1
 func (vk *VK) UsersGetSubscriptions(params map[string]string) (response UsersGetSubscriptionsResponse, vkErr Error) {
