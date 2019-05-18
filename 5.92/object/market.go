@@ -5,7 +5,8 @@ type marketCurrency struct {
 	Name string `json:"name"` // Currency sign
 }
 
-type marketMarketAlbum struct {
+// MarketMarketAlbum struct
+type MarketMarketAlbum struct {
 	Count       int         `json:"count"`    // Items number
 	ID          int         `json:"id"`       // Market album ID
 	OwnerID     int         `json:"owner_id"` // Market album owner's ID
@@ -14,7 +15,8 @@ type marketMarketAlbum struct {
 	UpdatedTime int         `json:"updated_time"` // Date when album has been updated last time in Unixtime
 }
 
-type marketMarketCategory struct {
+// MarketMarketCategory struct
+type MarketMarketCategory struct {
 	ID      int           `json:"id"`   // Category ID
 	Name    string        `json:"name"` // Category name
 	Section marketSection `json:"section"`
@@ -24,7 +26,7 @@ type marketMarketCategory struct {
 type MarketMarketItem struct {
 	AccessKey    string               `json:"access_key"` // Access key for the market item
 	Availability int                  `json:"availability"`
-	Category     marketMarketCategory `json:"category"`
+	Category     MarketMarketCategory `json:"category"`
 	Date         int                  `json:"date"`        // Date when the item has been created in Unixtime
 	Description  string               `json:"description"` // Item description
 	ID           int                  `json:"id"`          // Item ID

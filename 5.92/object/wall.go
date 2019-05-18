@@ -22,7 +22,7 @@ type wallCommentAttachment struct {
 	Doc               DocsDoc           `json:"doc"`
 	Link              baseLink          `json:"link"`
 	Market            MarketMarketItem  `json:"market"`
-	MarketMarketAlbum marketMarketAlbum `json:"market_market_album"`
+	MarketMarketAlbum MarketMarketAlbum `json:"market_market_album"`
 	Note              wallAttachedNote  `json:"note"`
 	Page              PagesWikipageFull `json:"page"`
 	Photo             PhotosPhoto       `json:"photo"`
@@ -59,12 +59,13 @@ type wallViews struct {
 type wallWallCommentThread struct {
 	CanPost         int               `json:"can_post"` // Information whether current user can comment the post
 	Count           int               `json:"count"`    // Comments number
-	Items           []wallWallComment `json:"items"`
+	Items           []WallWallComment `json:"items"`
 	GroupsCanPost   bool              `json:"groups_can_post"` // Information whether groups can comment the post
 	ShowReplyButton bool              `json:"show_reply_button"`
 }
 
-type wallWallComment struct {
+// WallWallComment struct
+type WallWallComment struct {
 	Attachments    []wallCommentAttachment `json:"attachments"`
 	Date           int                     `json:"date"` // Date when the comment has been added in Unixtime
 	Deleted        bool                    `json:"deleted"`
@@ -150,7 +151,7 @@ type wallWallpostAttachment struct {
 	Graffiti          wallGraffiti      `json:"graffiti"`
 	Link              baseLink          `json:"link"`
 	Market            MarketMarketItem  `json:"market"`
-	MarketMarketAlbum marketMarketAlbum `json:"market_market_album"`
+	MarketMarketAlbum MarketMarketAlbum `json:"market_market_album"`
 	Note              wallAttachedNote  `json:"note"`
 	Page              PagesWikipageFull `json:"page"`
 	Photo             PhotosPhoto       `json:"photo"`

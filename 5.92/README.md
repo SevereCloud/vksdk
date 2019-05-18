@@ -74,7 +74,6 @@ func main() {
 
 - [ ] Ads 0/0
 - [ ] Leads 0/0
-- [ ] Market 0/27
 - [ ] Newsfeed 0/18
 - [ ] Orders 0/0
 - [ ] Photos 0/51
@@ -98,6 +97,7 @@ func main() {
 - [x] Groups 50/50
 - [x] LeadForms 7/7
 - [x] Likes 5/5
+- [x] Market 0/27
 - [x] Messages 43/43
 - [x] Notes 10/10
 - [x] Notifications 3/3

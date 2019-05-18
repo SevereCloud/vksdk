@@ -55,19 +55,19 @@ type PhotoNewObject PhotosPhoto
 type PhotoCommentNewFunc func(PhotoCommentNewObject, int)
 
 // PhotoCommentNewObject struct
-type PhotoCommentNewObject wallWallComment
+type PhotoCommentNewObject WallWallComment
 
 // PhotoCommentEditFunc func
 type PhotoCommentEditFunc func(PhotoCommentEditObject, int)
 
 // PhotoCommentEditObject struct
-type PhotoCommentEditObject wallWallComment
+type PhotoCommentEditObject WallWallComment
 
 // PhotoCommentRestoreFunc func
 type PhotoCommentRestoreFunc func(PhotoCommentRestoreObject, int)
 
 // PhotoCommentRestoreObject struct
-type PhotoCommentRestoreObject wallWallComment
+type PhotoCommentRestoreObject WallWallComment
 
 // PhotoCommentDeleteFunc func
 type PhotoCommentDeleteFunc func(PhotoCommentDeleteObject, int)
@@ -97,19 +97,19 @@ type VideoNewObject VideoVideo
 type VideoCommentNewFunc func(VideoCommentNewObject, int)
 
 // VideoCommentNewObject struct
-type VideoCommentNewObject wallWallComment
+type VideoCommentNewObject WallWallComment
 
 // VideoCommentEditFunc func
 type VideoCommentEditFunc func(VideoCommentEditObject, int)
 
 // VideoCommentEditObject struct
-type VideoCommentEditObject wallWallComment
+type VideoCommentEditObject WallWallComment
 
 // VideoCommentRestoreFunc func
 type VideoCommentRestoreFunc func(VideoCommentRestoreObject, int)
 
 // VideoCommentRestoreObject struct
-type VideoCommentRestoreObject wallWallComment
+type VideoCommentRestoreObject WallWallComment
 
 // VideoCommentDeleteFunc func
 type VideoCommentDeleteFunc func(VideoCommentDeleteObject, int)
@@ -139,19 +139,19 @@ type WallRepostObject WallWallpost
 type WallReplyNewFunc func(WallReplyNewObject, int)
 
 // WallReplyNewObject struct
-type WallReplyNewObject wallWallComment
+type WallReplyNewObject WallWallComment
 
 // WallReplyEditFunc func
 type WallReplyEditFunc func(WallReplyEditObject, int)
 
 // WallReplyEditObject struct
-type WallReplyEditObject wallWallComment
+type WallReplyEditObject WallWallComment
 
 // WallReplyRestoreFunc func
 type WallReplyRestoreFunc func(WallReplyRestoreObject, int)
 
 // WallReplyRestoreObject struct
-type WallReplyRestoreObject wallWallComment
+type WallReplyRestoreObject WallWallComment
 
 // WallReplyDeleteFunc func
 type WallReplyDeleteFunc func(WallReplyDeleteObject, int)
@@ -196,19 +196,19 @@ type BoardPostDeleteObject struct {
 type MarketCommentNewFunc func(MarketCommentNewObject, int)
 
 // MarketCommentNewObject struct
-type MarketCommentNewObject wallWallComment
+type MarketCommentNewObject WallWallComment
 
 // MarketCommentEditFunc func
 type MarketCommentEditFunc func(MarketCommentEditObject, int)
 
 // MarketCommentEditObject struct
-type MarketCommentEditObject wallWallComment
+type MarketCommentEditObject WallWallComment
 
 // MarketCommentRestoreFunc func
 type MarketCommentRestoreFunc func(MarketCommentRestoreObject, int)
 
 // MarketCommentRestoreObject struct
-type MarketCommentRestoreObject wallWallComment
+type MarketCommentRestoreObject WallWallComment
 
 // MarketCommentDeleteFunc func
 type MarketCommentDeleteFunc func(MarketCommentDeleteObject, int)

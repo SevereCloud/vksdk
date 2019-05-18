@@ -243,13 +243,13 @@ type messagesMessageAttachment struct {
 	Gift              GiftsLayout          `json:"gift"`
 	Link              baseLink             `json:"link"`
 	Market            MarketMarketItem     `json:"market"`
-	MarketMarketAlbum marketMarketAlbum    `json:"market_market_album"`
+	MarketMarketAlbum MarketMarketAlbum    `json:"market_market_album"`
 	Photo             PhotosPhoto          `json:"photo"`
 	Sticker           baseSticker          `json:"sticker"`
 	Type              string               `json:"type"`
 	Video             VideoVideo           `json:"video"`
 	Wall              wallWallpostAttached `json:"wall"`
-	WallReply         wallWallComment      `json:"wall_reply"`
+	WallReply         WallWallComment      `json:"wall_reply"`
 }
 
 type messagesPinnedMessage struct {

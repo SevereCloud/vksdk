@@ -1,169 +1,283 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-// MarketAddResponse struct
-type MarketAddResponse struct{}
+import (
+	"github.com/SevereCloud/vksdk/5.92/object"
+)
 
-// TODO: market.add adds a new item to the market.
+// MarketAddResponse struct
+type MarketAddResponse struct {
+	MarketItemID int `json:"market_item_id"` // Item ID
+}
+
+// MarketAdd adds a new item to the market.
 //
 // https://vk.com/dev/market.add
+func (vk *VK) MarketAdd(params map[string]string) (response MarketAddResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.add", params, &response, &vkErr)
+	return
+}
 
 // MarketAddAlbumResponse struct
-type MarketAddAlbumResponse struct{}
+type MarketAddAlbumResponse struct {
+	MarketAlbumID int `json:"market_album_id"` // Album ID
+}
 
-// TODO: market.addAlbum creates new collection of items
+// MarketAddAlbum creates new collection of items
 //
 // https://vk.com/dev/market.addAlbum
+func (vk *VK) MarketAddAlbum(params map[string]string) (response MarketAddAlbumResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.addAlbum", params, &response, &vkErr)
+	return
+}
 
-// MarketAddToAlbumResponse struct
-type MarketAddToAlbumResponse struct{}
-
-// TODO: market.addToAlbum adds an item to one or multiple collections.
+// MarketAddToAlbum adds an item to one or multiple collections.
 //
 // https://vk.com/dev/market.addToAlbum
+func (vk *VK) MarketAddToAlbum(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.addToAlbum", params)
+	return
+}
 
 // MarketCreateCommentResponse struct
-type MarketCreateCommentResponse struct{}
+type MarketCreateCommentResponse int
 
-// TODO: market.createComment creates a new comment for an item.
+// MarketCreateComment creates a new comment for an item.
 //
 // https://vk.com/dev/market.createComment
+func (vk *VK) MarketCreateComment(params map[string]string) (response MarketCreateCommentResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.createComment", params, &response, &vkErr)
+	return
+}
 
-// MarketDeleteResponse struct
-type MarketDeleteResponse struct{}
-
-// TODO: market.delete deletes an item.
+// MarketDelete deletes an item.
 //
 // https://vk.com/dev/market.delete
+func (vk *VK) MarketDelete(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.delete", params)
+	return
+}
 
-// MarketDeleteAlbumResponse struct
-type MarketDeleteAlbumResponse struct{}
-
-// TODO: market.deleteAlbum deletes a collection of items.
+// MarketDeleteAlbum deletes a collection of items.
 //
 // https://vk.com/dev/market.deleteAlbum
+func (vk *VK) MarketDeleteAlbum(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.deleteAlbum", params)
+	return
+}
 
 // MarketDeleteCommentResponse struct
-type MarketDeleteCommentResponse struct{}
+type MarketDeleteCommentResponse int
 
-// TODO: market.deleteComment deletes an item's comment
+// MarketDeleteComment deletes an item's comment
 //
 // https://vk.com/dev/market.deleteComment
+func (vk *VK) MarketDeleteComment(params map[string]string) (response MarketDeleteCommentResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.deleteComment", params, &response, &vkErr)
+	return
+}
 
-// MarketEditResponse struct
-type MarketEditResponse struct{}
-
-// TODO: market.edit edits an item.
+// MarketEdit edits an item.
 //
 // https://vk.com/dev/market.edit
+func (vk *VK) MarketEdit(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.edit", params)
+	return
+}
 
-// MarketEditAlbumResponse struct
-type MarketEditAlbumResponse struct{}
-
-// TODO: market.editAlbum edits a collection of items
+// MarketEditAlbum edits a collection of items
 //
 // https://vk.com/dev/market.editAlbum
+func (vk *VK) MarketEditAlbum(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.editAlbum", params)
+	return
+}
 
-// MarketEditCommentResponse struct
-type MarketEditCommentResponse struct{}
-
-// TODO: market.editComment changes item comment's text
+// MarketEditComment changes item comment's text
 //
 // https://vk.com/dev/market.editComment
+func (vk *VK) MarketEditComment(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.editComment", params)
+	return
+}
 
 // MarketGetResponse struct
-type MarketGetResponse struct{}
+type MarketGetResponse struct {
+	Count int                       `json:"count"`
+	Items []object.MarketMarketItem `json:"items"`
+}
 
-// TODO: market.get returns items list for a community.
+// MarketGet returns items list for a community.
 //
 // https://vk.com/dev/market.get
+func (vk *VK) MarketGet(params map[string]string) (response MarketGetResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.get", params, &response, &vkErr)
+	return
+}
 
 // MarketGetAlbumByIDResponse struct
-type MarketGetAlbumByIDResponse struct{}
+type MarketGetAlbumByIDResponse struct {
+	Count int                        `json:"count"`
+	Items []object.MarketMarketAlbum `json:"items"`
+}
 
-// TODO: market.getAlbumById returns items album's data
+// MarketGetAlbumByID returns items album's data
 //
 // https://vk.com/dev/market.getAlbumById
+func (vk *VK) MarketGetAlbumByID(params map[string]string) (response MarketGetAlbumByIDResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.getAlbumById", params, &response, &vkErr)
+	return
+}
 
 // MarketGetAlbumsResponse struct
-type MarketGetAlbumsResponse struct{}
+type MarketGetAlbumsResponse struct {
+	Count int                        `json:"count"`
+	Items []object.MarketMarketAlbum `json:"items"`
+}
 
-// TODO: market.getAlbums returns community's collections list.
+// MarketGetAlbums returns community's collections list.
 //
 // https://vk.com/dev/market.getAlbums
+func (vk *VK) MarketGetAlbums(params map[string]string) (response MarketGetAlbumsResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.getAlbums", params, &response, &vkErr)
+	return
+}
 
 // MarketGetByIDResponse struct
-type MarketGetByIDResponse struct{}
+type MarketGetByIDResponse struct {
+	Count int                       `json:"count"`
+	Items []object.MarketMarketItem `json:"items"`
+}
 
-// TODO: market.getById returns information about market items by their iDs.
+// MarketGetByID returns information about market items by their iDs.
 //
 // https://vk.com/dev/market.getById
+func (vk *VK) MarketGetByID(params map[string]string) (response MarketGetByIDResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.getById", params, &response, &vkErr)
+	return
+}
 
 // MarketGetCategoriesResponse struct
-type MarketGetCategoriesResponse struct{}
+type MarketGetCategoriesResponse struct {
+	Count int                           `json:"count"`
+	Items []object.MarketMarketCategory `json:"items"`
+}
 
-// TODO: market.getCategories returns a list of market categories.
+// MarketGetCategories returns a list of market categories.
 //
 // https://vk.com/dev/market.getCategories
+func (vk *VK) MarketGetCategories(params map[string]string) (response MarketGetCategoriesResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.getCategories", params, &response, &vkErr)
+	return
+}
 
 // MarketGetCommentsResponse struct
-type MarketGetCommentsResponse struct{}
+type MarketGetCommentsResponse struct {
+	Count int                      `json:"count"`
+	Items []object.WallWallComment `json:"items"`
+}
 
-// TODO: market.getComments returns comments list for an item.
+// MarketGetComments returns comments list for an item.
+//
+// extended=0
 //
 // https://vk.com/dev/market.getComments
+func (vk *VK) MarketGetComments(params map[string]string) (response MarketGetCommentsResponse, vkErr Error) {
+	params["extended"] = "0"
+	vk.RequestUnmarshal("market.getComments", params, &response, &vkErr)
+	return
+}
 
-// MarketRemoveFromAlbumResponse struct
-type MarketRemoveFromAlbumResponse struct{}
+// MarketGetCommentsExtendedResponse struct
+type MarketGetCommentsExtendedResponse struct {
+	Count    int                      `json:"count"`
+	Items    []object.WallWallComment `json:"items"`
+	Profiles []object.UsersUser       `json:"profiles"`
+	Groups   []object.GroupsGroup     `json:"groups"`
+}
 
-// TODO: market.removeFromAlbum removes an item from one or multiple collections.
+// MarketGetCommentsExtended returns comments list for an item.
+//
+// extended=1
+//
+// https://vk.com/dev/market.getComments
+func (vk *VK) MarketGetCommentsExtended(params map[string]string) (response MarketGetCommentsExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	vk.RequestUnmarshal("market.getComments", params, &response, &vkErr)
+	return
+}
+
+// MarketRemoveFromAlbum removes an item from one or multiple collections.
 //
 // https://vk.com/dev/market.removeFromAlbum
+func (vk *VK) MarketRemoveFromAlbum(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.removeFromAlbum", params)
+	return
+}
 
-// MarketReorderAlbumsResponse struct
-type MarketReorderAlbumsResponse struct{}
-
-// TODO: market.reorderAlbums reorders the collections list.
+// MarketReorderAlbums reorders the collections list.
 //
 // https://vk.com/dev/market.reorderAlbums
+func (vk *VK) MarketReorderAlbums(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.reorderAlbums", params)
+	return
+}
 
-// MarketReorderItemsResponse struct
-type MarketReorderItemsResponse struct{}
-
-// TODO: market.reorderItems changes item place in a collection.
+// MarketReorderItems changes item place in a collection.
 //
 // https://vk.com/dev/market.reorderItems
+func (vk *VK) MarketReorderItems(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.reorderItems", params)
+	return
+}
 
-// MarketReportResponse struct
-type MarketReportResponse struct{}
-
-// TODO: market.report sends a complaint to the item.
+// MarketReport sends a complaint to the item.
 //
 // https://vk.com/dev/market.report
+func (vk *VK) MarketReport(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.report", params)
+	return
+}
 
-// MarketReportCommentResponse struct
-type MarketReportCommentResponse struct{}
-
-// TODO: market.reportComment sends a complaint to the item's comment.
+// MarketReportComment sends a complaint to the item's comment.
 //
 // https://vk.com/dev/market.reportComment
+func (vk *VK) MarketReportComment(params map[string]string) (vkErr Error) {
+	_, vkErr = vk.Request("market.reportComment", params)
+	return
+}
 
 // MarketRestoreResponse struct
-type MarketRestoreResponse struct{}
+type MarketRestoreResponse int
 
-// TODO: market.restore restores recently deleted item
+// MarketRestore restores recently deleted item
 //
 // https://vk.com/dev/market.restore
+func (vk *VK) MarketRestore(params map[string]string) (response MarketRestoreResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.restore", params, &response, &vkErr)
+	return
+}
 
 // MarketRestoreCommentResponse struct
-type MarketRestoreCommentResponse struct{}
+type MarketRestoreCommentResponse int
 
-// TODO: market.restoreComment restores a recently deleted comment
+// MarketRestoreComment restores a recently deleted comment
 //
 // https://vk.com/dev/market.restoreComment
+func (vk *VK) MarketRestoreComment(params map[string]string) (response MarketRestoreCommentResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.restoreComment", params, &response, &vkErr)
+	return
+}
 
 // MarketSearchResponse struct
-type MarketSearchResponse struct{}
+type MarketSearchResponse struct {
+	Count int                       `json:"count"`
+	Items []object.MarketMarketItem `json:"items"`
+}
 
-// TODO: market.search searches market items in a community's catalog
+// MarketSearch searches market items in a community's catalog
 //
 // https://vk.com/dev/market.search
+func (vk *VK) MarketSearch(params map[string]string) (response MarketSearchResponse, vkErr Error) {
+	vk.RequestUnmarshal("market.search", params, &response, &vkErr)
+	return
+}
