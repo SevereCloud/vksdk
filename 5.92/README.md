@@ -72,15 +72,13 @@ func main() {
 
 ### Список методов
 
-- [ ] Ads 0/0
-- [ ] Leads 0/0
+- [ ] Ads 0/44
+- [ ] Leads 0/6
 - [ ] Newsfeed 0/18
-- [ ] Orders 0/0
+- [ ] Orders 0/8
 - [ ] Photos 0/51
-- [ ] Places 0/0
 - [ ] Prettycards 0/6
-- [ ] Secure 0/0
-- [ ] Podcasts 0/0
+- [ ] Secure 0/10
 - [x] Account 19/19
 - [x] Apps 9/9
 - [x] AppWidgets 8/8
