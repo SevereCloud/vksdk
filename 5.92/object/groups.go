@@ -200,8 +200,7 @@ type GroupsGroupSettings struct {
 	ObsceneStopwords   int                             `json:"obscene_stopwords"` // Information whether the stopwords filter is enabled
 	ObsceneWords       string                          `json:"obscene_words"`     // The list of stop words
 	Photos             int                             `json:"photos"`            // Photos settings
-	Place              placesPlaceMin                  `json:"place"`
-	PublicCategory     int                             `json:"public_category"` // Information about the group category
+	PublicCategory     int                             `json:"public_category"`   // Information about the group category
 	PublicCategoryList []groupsGroupPublicCategoryList `json:"public_category_list"`
 	PublicSubcategory  int                             `json:"public_subcategory"` // Information about the group subcategory
 	Rss                string                          `json:"rss"`                // URL of the RSS feed
