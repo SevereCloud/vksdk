@@ -82,7 +82,6 @@ func main() {
 - [ ] Secure 0/0
 - [ ] Video 0/29
 - [ ] Podcasts 0/0
-- [ ] Wall 0/27
 - [x] Account 19/19
 - [x] Apps 9/9
 - [x] AppWidgets 8/8
@@ -111,4 +110,5 @@ func main() {
 - [x] Streaming 5/5
 - [x] Users 7/7
 - [x] Utils 8/8
+- [x] Wall 28/28
 - [x] Widgets 2/2

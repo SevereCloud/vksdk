@@ -1,11 +1,17 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-// WallCloseCommentsResponse struct
-type WallCloseCommentsResponse struct{}
+import "github.com/SevereCloud/vksdk/5.92/object"
 
-// TODO: wall.closeComments x
+// WallCloseCommentsResponse struct
+type WallCloseCommentsResponse int
+
+// WallCloseComments turn off post commenting
 //
 // https://vk.com/dev/wall.closeComments
+func (vk *VK) WallCloseComments(params map[string]string) (response WallCloseCommentsResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.closeComments", params, &response, &vkErr)
+	return
+}
 
 // WallCreateCommentResponse struct
 type WallCreateCommentResponse struct {
@@ -22,88 +28,244 @@ func (vk *VK) WallCreateComment(params map[string]string) (response WallCreateCo
 }
 
 // WallDeleteResponse struct
-type WallDeleteResponse struct{}
+type WallDeleteResponse int
 
-// TODO: wall.delete deletes a post from a user wall or community wall.
+// WallDelete deletes a post from a user wall or community wall.
 //
 // https://vk.com/dev/wall.delete
+func (vk *VK) WallDelete(params map[string]string) (response WallDeleteResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.delete", params, &response, &vkErr)
+	return
+}
 
 // WallDeleteCommentResponse struct
-type WallDeleteCommentResponse struct{}
+type WallDeleteCommentResponse int
 
-// TODO: wall.deleteComment deletes a comment on a post on a user wall or community wall.
+// WallDeleteComment deletes a comment on a post on a user wall or community wall.
 //
 // https://vk.com/dev/wall.deleteComment
+func (vk *VK) WallDeleteComment(params map[string]string) (response WallDeleteCommentResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.deleteComment", params, &response, &vkErr)
+	return
+}
 
 // WallEditResponse struct
-type WallEditResponse struct{}
+type WallEditResponse int
 
-// TODO: wall.edit edits a post on a user wall or community wall.
+// WallEdit edits a post on a user wall or community wall.
 //
 // https://vk.com/dev/wall.edit
+func (vk *VK) WallEdit(params map[string]string) (response WallEditResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.edit", params, &response, &vkErr)
+	return
+}
 
 // WallEditAdsStealthResponse struct
-type WallEditAdsStealthResponse struct{}
+type WallEditAdsStealthResponse int
 
-// TODO: wall.editAdsStealth allows to edit hidden post.
+// WallEditAdsStealth allows to edit hidden post.
 //
 // https://vk.com/dev/wall.editAdsStealth
+func (vk *VK) WallEditAdsStealth(params map[string]string) (response WallEditAdsStealthResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.editAdsStealth", params, &response, &vkErr)
+	return
+}
 
 // WallEditCommentResponse struct
-type WallEditCommentResponse struct{}
+type WallEditCommentResponse int
 
-// TODO: wall.editComment edits a comment on a user wall or community wall.
+// WallEditComment edits a comment on a user wall or community wall.
 //
 // https://vk.com/dev/wall.editComment
+func (vk *VK) WallEditComment(params map[string]string) (response WallEditCommentResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.editComment", params, &response, &vkErr)
+	return
+}
 
 // WallGetResponse struct
-type WallGetResponse struct{}
+type WallGetResponse struct {
+	Count int                   `json:"count"`
+	Items []object.WallWallpost `json:"items"`
+}
 
-// TODO: wall.get returns a list of posts on a user wall or community wall.
+// WallGet returns a list of posts on a user wall or community wall.
+//
+// extended=0
 //
 // https://vk.com/dev/wall.get
+func (vk *VK) WallGet(params map[string]string) (response WallGetResponse, vkErr Error) {
+	params["extended"] = "0"
+	vk.RequestUnmarshal("wall.get", params, &response, &vkErr)
+	return
+}
+
+// WallGetExtendedResponse struct
+type WallGetExtendedResponse struct {
+	Count    int                   `json:"count"`
+	Items    []object.WallWallpost `json:"items"`
+	Profiles []object.UsersUser    `json:"profiles"`
+	Groups   []object.GroupsGroup  `json:"groups"`
+}
+
+// WallGetExtended returns a list of posts on a user wall or community wall.
+//
+// extended=1
+//
+// https://vk.com/dev/wall.get
+func (vk *VK) WallGetExtended(params map[string]string) (response WallGetExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	vk.RequestUnmarshal("wall.get", params, &response, &vkErr)
+	return
+}
 
 // WallGetByIDResponse struct
-type WallGetByIDResponse struct{}
+type WallGetByIDResponse []object.WallWallpost
 
-// TODO: wall.getById returns a list of posts from user or community walls by their IDs.
+// WallGetByID returns a list of posts from user or community walls by their IDs.
+//
+// extended=0
 //
 // https://vk.com/dev/wall.getById
+func (vk *VK) WallGetByID(params map[string]string) (response WallGetByIDResponse, vkErr Error) {
+	params["extended"] = "0"
+	vk.RequestUnmarshal("wall.getById", params, &response, &vkErr)
+	return
+}
+
+// WallGetByIDExtendedResponse struct
+type WallGetByIDExtendedResponse struct {
+	Items    []object.WallWallpost `json:"items"`
+	Profiles []object.UsersUser    `json:"profiles"`
+	Groups   []object.GroupsGroup  `json:"groups"`
+}
+
+// WallGetByIDExtended returns a list of posts from user or community walls by their IDs.
+//
+// extended=1
+//
+// https://vk.com/dev/wall.getById
+func (vk *VK) WallGetByIDExtended(params map[string]string) (response WallGetByIDExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	vk.RequestUnmarshal("wall.getById", params, &response, &vkErr)
+	return
+}
 
 // WallGetCommentResponse struct
-type WallGetCommentResponse struct{}
+type WallGetCommentResponse struct {
+	Count             int                      `json:"count"`
+	Items             []object.WallWallComment `json:"items"`
+	CanPost           bool                     `json:"can_post"`
+	ShowReplyButton   bool                     `json:"show_reply_button"`
+	GroupsCanPost     bool                     `json:"groups_can_post"`
+	CurrentLevelCount int                      `json:"current_level_count"`
+}
 
-// TODO: wall.getComment allows to obtain wall comment info.
+// WallGetComment allows to obtain wall comment info.
+//
+// extended=0
 //
 // https://vk.com/dev/wall.getComment
+func (vk *VK) WallGetComment(params map[string]string) (response WallGetCommentResponse, vkErr Error) {
+	params["extended"] = "0"
+	vk.RequestUnmarshal("wall.getComment", params, &response, &vkErr)
+	return
+}
+
+// WallGetCommentExtendedResponse struct
+type WallGetCommentExtendedResponse struct {
+	Count             int                      `json:"count"`
+	Items             []object.WallWallComment `json:"items"`
+	CanPost           bool                     `json:"can_post"`
+	ShowReplyButton   bool                     `json:"show_reply_button"`
+	GroupsCanPost     bool                     `json:"groups_can_post"`
+	CurrentLevelCount int                      `json:"current_level_count"`
+	Profiles          []object.UsersUser       `json:"profiles"`
+	Groups            []object.GroupsGroup     `json:"groups"`
+}
+
+// WallGetCommentExtended allows to obtain wall comment info.
+//
+// extended=1
+//
+// https://vk.com/dev/wall.getComment
+func (vk *VK) WallGetCommentExtended(params map[string]string) (response WallGetCommentExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	vk.RequestUnmarshal("wall.getComment", params, &response, &vkErr)
+	return
+}
 
 // WallGetCommentsResponse struct
-type WallGetCommentsResponse struct{}
+type WallGetCommentsResponse struct {
+	Count int                      `json:"count"`
+	Items []object.WallWallComment `json:"items"`
+}
 
-// TODO: wall.getComments returns a list of comments on a post on a user wall or community wall.
+// WallGetComments returns a list of comments on a post on a user wall or community wall.
+//
+// extended=0
 //
 // https://vk.com/dev/wall.getComments
+func (vk *VK) WallGetComments(params map[string]string) (response WallGetCommentsResponse, vkErr Error) {
+	params["extended"] = "0"
+	vk.RequestUnmarshal("wall.getComments", params, &response, &vkErr)
+	return
+}
+
+// WallGetCommentsExtendedResponse struct
+type WallGetCommentsExtendedResponse struct {
+	Count    int                      `json:"count"`
+	Items    []object.WallWallComment `json:"items"`
+	Profiles []object.UsersUser       `json:"profiles"`
+	Groups   []object.GroupsGroup     `json:"groups"`
+}
+
+// WallGetCommentsExtended returns a list of comments on a post on a user wall or community wall.
+//
+// extended=1
+//
+// https://vk.com/dev/wall.getComments
+func (vk *VK) WallGetCommentsExtended(params map[string]string) (response WallGetCommentsExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	vk.RequestUnmarshal("wall.getComments", params, &response, &vkErr)
+	return
+}
 
 // WallGetRepostsResponse struct
-type WallGetRepostsResponse struct{}
+type WallGetRepostsResponse struct {
+	Items    []object.WallWallpost `json:"items"`
+	Profiles []object.UsersUser    `json:"profiles"`
+	Groups   []object.GroupsGroup  `json:"groups"`
+}
 
-// TODO: wall.getReposts returns information about reposts of a post on user wall or community wall.
+// WallGetReposts returns information about reposts of a post on user wall or community wall.
 //
 // https://vk.com/dev/wall.getReposts
+func (vk *VK) WallGetReposts(params map[string]string) (response WallGetRepostsResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.getReposts", params, &response, &vkErr)
+	return
+}
 
 // WallOpenCommentsResponse struct
-type WallOpenCommentsResponse struct{}
+type WallOpenCommentsResponse int
 
-// TODO: wall.openComments x
+// WallOpenComments includes posting comments.
 //
 // https://vk.com/dev/wall.openComments
+func (vk *VK) WallOpenComments(params map[string]string) (response WallOpenCommentsResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.openComments", params, &response, &vkErr)
+	return
+}
 
 // WallPinResponse struct
-type WallPinResponse struct{}
+type WallPinResponse int
 
-// TODO: wall.pin pins the post on wall.
+// WallPin pins the post on wall.
 //
 // https://vk.com/dev/wall.pin
+func (vk *VK) WallPin(params map[string]string) (response WallPinResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.pin", params, &response, &vkErr)
+	return
+}
 
 // WallPostResponse struct
 type WallPostResponse struct {
@@ -119,59 +281,123 @@ func (vk *VK) WallPost(params map[string]string) (response WallPostResponse, vkE
 }
 
 // WallPostAdsStealthResponse struct
-type WallPostAdsStealthResponse struct{}
+type WallPostAdsStealthResponse struct {
+	PostID int `json:"post_id"`
+}
 
-// TODO: wall.postAdsStealth allows to create hidden post which will
+// WallPostAdsStealth allows to create hidden post which will
 // not be shown on the community's wall and can be used for creating
 // an ad with type "Community post".
 //
 // https://vk.com/dev/wall.postAdsStealth
+func (vk *VK) WallPostAdsStealth(params map[string]string) (response WallPostAdsStealthResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.postAdsStealth", params, &response, &vkErr)
+	return
+}
 
 // WallReportCommentResponse struct
-type WallReportCommentResponse struct{}
+type WallReportCommentResponse int
 
-// TODO: wall.reportComment reports (submits a complaint about) a comment on a post on a user wall or community wall.
+// WallReportComment reports (submits a complaint about) a comment on a post on a user wall or community wall.
 //
 // https://vk.com/dev/wall.reportComment
+func (vk *VK) WallReportComment(params map[string]string) (response WallReportCommentResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.reportComment", params, &response, &vkErr)
+	return
+}
 
 // WallReportPostResponse struct
-type WallReportPostResponse struct{}
+type WallReportPostResponse int
 
-// TODO: wall.reportPost reports (submits a complaint about) a post on a user wall or community wall.
+// WallReportPost reports (submits a complaint about) a post on a user wall or community wall.
 //
 // https://vk.com/dev/wall.reportPost
+func (vk *VK) WallReportPost(params map[string]string) (response WallReportPostResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.reportPost", params, &response, &vkErr)
+	return
+}
 
 // WallRepostResponse struct
-type WallRepostResponse struct{}
+type WallRepostResponse struct {
+	Success      int `json:"success"`
+	PostID       int `json:"post_id"`
+	RepostsCount int `json:"reposts_count"`
+	LikesCount   int `json:"likes_count"`
+}
 
-// TODO: wall.repost reposts ( copies) an object to a user wall or community wall.
+// WallRepost reposts ( copies) an object to a user wall or community wall.
 //
 // https://vk.com/dev/wall.repost
+func (vk *VK) WallRepost(params map[string]string) (response WallRepostResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.repost", params, &response, &vkErr)
+	return
+}
 
 // WallRestoreResponse struct
-type WallRestoreResponse struct{}
+type WallRestoreResponse int
 
-// TODO: wall.restore restores a post deleted from a user wall or community wall.
+// WallRestore restores a post deleted from a user wall or community wall.
 //
 // https://vk.com/dev/wall.restore
+func (vk *VK) WallRestore(params map[string]string) (response WallRestoreResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.restore", params, &response, &vkErr)
+	return
+}
 
 // WallRestoreCommentResponse struct
-type WallRestoreCommentResponse struct{}
+type WallRestoreCommentResponse int
 
-// TODO: wall.restoreComment restores a comment deleted from a user wall or community wall.
+// WallRestoreComment restores a comment deleted from a user wall or community wall.
 //
 // https://vk.com/dev/wall.restoreComment
+func (vk *VK) WallRestoreComment(params map[string]string) (response WallRestoreCommentResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.restoreComment", params, &response, &vkErr)
+	return
+}
 
 // WallSearchResponse struct
-type WallSearchResponse struct{}
+type WallSearchResponse struct {
+	Count int                   `json:"count"`
+	Items []object.WallWallpost `json:"items"`
+}
 
-// TODO: wall.search allows to search posts on user or community walls.
+// WallSearch allows to search posts on user or community walls.
+//
+// extended=0
 //
 // https://vk.com/dev/wall.search
+func (vk *VK) WallSearch(params map[string]string) (response WallSearchResponse, vkErr Error) {
+	params["extended"] = "0"
+	vk.RequestUnmarshal("wall.search", params, &response, &vkErr)
+	return
+}
+
+// WallSearchExtendedResponse struct
+type WallSearchExtendedResponse struct {
+	Count    int                   `json:"count"`
+	Items    []object.WallWallpost `json:"items"`
+	Profiles []object.UsersUser    `json:"profiles"`
+	Groups   []object.GroupsGroup  `json:"groups"`
+}
+
+// WallSearchExtended allows to search posts on user or community walls.
+//
+// extended=1
+//
+// https://vk.com/dev/wall.search
+func (vk *VK) WallSearchExtended(params map[string]string) (response WallSearchExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
+	vk.RequestUnmarshal("wall.search", params, &response, &vkErr)
+	return
+}
 
 // WallUnpinResponse struct
-type WallUnpinResponse struct{}
+type WallUnpinResponse int
 
-// TODO: wall.unpin unpins the post on wall.
+// WallUnpin unpins the post on wall.
 //
 // https://vk.com/dev/wall.unpin
+func (vk *VK) WallUnpin(params map[string]string) (response WallUnpinResponse, vkErr Error) {
+	vk.RequestUnmarshal("wall.unpin", params, &response, &vkErr)
+	return
+}

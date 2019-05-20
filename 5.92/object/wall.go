@@ -57,9 +57,9 @@ type wallViews struct {
 }
 
 type wallWallCommentThread struct {
-	CanPost         int               `json:"can_post"` // Information whether current user can comment the post
-	Count           int               `json:"count"`    // Comments number
+	Count           int               `json:"count"` // Comments number
 	Items           []WallWallComment `json:"items"`
+	CanPost         bool              `json:"can_post"`        // Information whether current user can comment the post
 	GroupsCanPost   bool              `json:"groups_can_post"` // Information whether groups can comment the post
 	ShowReplyButton bool              `json:"show_reply_button"`
 }
