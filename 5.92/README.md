@@ -80,7 +80,6 @@ func main() {
 - [ ] Places 0/0
 - [ ] Prettycards 0/6
 - [ ] Secure 0/0
-- [ ] Video 0/29
 - [ ] Podcasts 0/0
 - [x] Account 19/19
 - [x] Apps 9/9
@@ -110,5 +109,6 @@ func main() {
 - [x] Streaming 5/5
 - [x] Users 7/7
 - [x] Utils 8/8
+- [x] Video 0/29
 - [x] Wall 28/28
 - [x] Widgets 2/2
