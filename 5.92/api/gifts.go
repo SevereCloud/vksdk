@@ -1,8 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-import (
-	"github.com/SevereCloud/vksdk/5.92/object"
-)
+import "github.com/SevereCloud/vksdk/5.92/object"
 
 // GiftsGetResponse struct
 type GiftsGetResponse struct {
