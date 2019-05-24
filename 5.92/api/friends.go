@@ -56,35 +56,47 @@ func (vk *VK) FriendsDelete(params map[string]string) (response FriendsDeleteRes
 	return
 }
 
+// FriendsDeleteAllRequestsResponse struct
+type FriendsDeleteAllRequestsResponse int
+
 // FriendsDeleteAllRequests marks all incoming friend requests as viewed.
 //
 // https://vk.com/dev/friends.deleteAllRequests
-func (vk *VK) FriendsDeleteAllRequests() (vkErr Error) {
-	_, vkErr = vk.Request("friends.deleteAllRequests", map[string]string{})
+func (vk *VK) FriendsDeleteAllRequests() (response FriendsDeleteAllRequestsResponse, vkErr Error) {
+	vk.RequestUnmarshal("friends.deleteAllRequests", map[string]string{}, &response, &vkErr)
 	return
 }
+
+// FriendsDeleteListResponse struct
+type FriendsDeleteListResponse int
 
 // FriendsDeleteList deletes a friend list of the current user.
 //
 // https://vk.com/dev/friends.deleteList
-func (vk *VK) FriendsDeleteList(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("friends.deleteList", params)
+func (vk *VK) FriendsDeleteList(params map[string]string) (response FriendsDeleteListResponse, vkErr Error) {
+	vk.RequestUnmarshal("friends.deleteList", params, &response, &vkErr)
 	return
 }
+
+// FriendsEditResponse struct
+type FriendsEditResponse int
 
 // FriendsEdit edits the friend lists of the selected user.
 //
 // https://vk.com/dev/friends.edit
-func (vk *VK) FriendsEdit(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("friends.edit", params)
+func (vk *VK) FriendsEdit(params map[string]string) (response FriendsEditResponse, vkErr Error) {
+	vk.RequestUnmarshal("friends.edit", params, &response, &vkErr)
 	return
 }
+
+// FriendsEditListResponse struct
+type FriendsEditListResponse int
 
 // FriendsEditList edits a friend list of the current user.
 //
 // https://vk.com/dev/friends.editList
-func (vk *VK) FriendsEditList(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("friends.editList", params)
+func (vk *VK) FriendsEditList(params map[string]string) (response FriendsEditListResponse, vkErr Error) {
+	vk.RequestUnmarshal("friends.editList", params, &response, &vkErr)
 	return
 }
 

@@ -4,19 +4,25 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
+// MessagesAddChatUserResponse struct
+type MessagesAddChatUserResponse int
+
 // MessagesAddChatUser adds a new user to a chat.
 //
 // https://vk.com/dev/messages.addChatUser
-func (vk *VK) MessagesAddChatUser(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.addChatUser", params)
+func (vk *VK) MessagesAddChatUser(params map[string]string) (response MessagesAddChatUserResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.addChatUser", params, &response, &vkErr)
 	return
 }
+
+// MessagesAllowMessagesFromGroupResponse struct
+type MessagesAllowMessagesFromGroupResponse int
 
 // MessagesAllowMessagesFromGroup allows sending messages from community to the current user.
 //
 // https://vk.com/dev/messages.allowMessagesFromGroup
-func (vk *VK) MessagesAllowMessagesFromGroup(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.allowMessagesFromGroup", params)
+func (vk *VK) MessagesAllowMessagesFromGroup(params map[string]string) (response MessagesAllowMessagesFromGroupResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.allowMessagesFromGroup", params, &response, &vkErr)
 	return
 }
 
@@ -56,35 +62,47 @@ func (vk *VK) MessagesDeleteChatPhoto(params map[string]string) (response Messag
 	return
 }
 
+// MessagesDeleteConversationResponse struct
+type MessagesDeleteConversationResponse int
+
 // MessagesDeleteConversation deletes private messages in a conversation.
 //
 // https://vk.com/dev/messages.deleteConversation
-func (vk *VK) MessagesDeleteConversation(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.deleteConversation", params)
+func (vk *VK) MessagesDeleteConversation(params map[string]string) (response MessagesDeleteConversationResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.deleteConversation", params, &response, &vkErr)
 	return
 }
+
+// MessagesDenyMessagesFromGroupResponse struct
+type MessagesDenyMessagesFromGroupResponse int
 
 // MessagesDenyMessagesFromGroup denies sending message from community to the current user.
 //
 // https://vk.com/dev/messages.denyMessagesFromGroup
-func (vk *VK) MessagesDenyMessagesFromGroup(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.denyMessagesFromGroup", params)
+func (vk *VK) MessagesDenyMessagesFromGroup(params map[string]string) (response MessagesDenyMessagesFromGroupResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.denyMessagesFromGroup", params, &response, &vkErr)
 	return
 }
+
+// MessagesEditResponse struct
+type MessagesEditResponse int
 
 // MessagesEdit edits the message.
 //
 // https://vk.com/dev/messages.edit
-func (vk *VK) MessagesEdit(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.edit", params)
+func (vk *VK) MessagesEdit(params map[string]string) (response MessagesEditResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.edit", params, &response, &vkErr)
 	return
 }
+
+// MessagesEditChatResponse struct
+type MessagesEditChatResponse int
 
 // MessagesEditChat edits the title of a chat.
 //
 // https://vk.com/dev/messages.editChat
-func (vk *VK) MessagesEditChat(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.editChat", params)
+func (vk *VK) MessagesEditChat(params map[string]string) (response MessagesEditChatResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.editChat", params, &response, &vkErr)
 	return
 }
 
@@ -394,11 +412,14 @@ func (vk *VK) MessagesJoinChatByInviteLink(params map[string]string) (response M
 	return
 }
 
+// MessagesMarkAsAnsweredConversationResponse struct
+type MessagesMarkAsAnsweredConversationResponse int
+
 // MessagesMarkAsAnsweredConversation messages.markAsAnsweredConversation
 //
 // https://vk.com/dev/messages.markAsAnsweredConversation
-func (vk *VK) MessagesMarkAsAnsweredConversation(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.markAsAnsweredConversation", params)
+func (vk *VK) MessagesMarkAsAnsweredConversation(params map[string]string) (response MessagesMarkAsAnsweredConversationResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.markAsAnsweredConversation", params, &response, &vkErr)
 	return
 }
 
@@ -413,19 +434,25 @@ func (vk *VK) MessagesMarkAsImportant(params map[string]string) (response Messag
 	return
 }
 
+// MessagesMarkAsImportantConversationResponse struct
+type MessagesMarkAsImportantConversationResponse int
+
 // MessagesMarkAsImportantConversation messages.markAsImportantConversation
 //
 // https://vk.com/dev/messages.markAsImportantConversation
-func (vk *VK) MessagesMarkAsImportantConversation(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.markAsImportantConversation", params)
+func (vk *VK) MessagesMarkAsImportantConversation(params map[string]string) (response MessagesMarkAsImportantConversationResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.markAsImportantConversation", params, &response, &vkErr)
 	return
 }
+
+// MessagesMarkAsReadResponse struct
+type MessagesMarkAsReadResponse int
 
 // MessagesMarkAsRead marks messages as read.
 //
 // https://vk.com/dev/messages.markAsRead
-func (vk *VK) MessagesMarkAsRead(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.markAsRead", params)
+func (vk *VK) MessagesMarkAsRead(params map[string]string) (response MessagesMarkAsReadResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.markAsRead", params, &response, &vkErr)
 	return
 }
 
@@ -440,19 +467,25 @@ func (vk *VK) MessagesPin(params map[string]string) (response MessagesPinRespons
 	return
 }
 
+// MessagesRemoveChatUserResponse struct
+type MessagesRemoveChatUserResponse int
+
 // MessagesRemoveChatUser Allows the current user to leave a chat or, if the current user started the chat, allows the user to remove another user from the chat.
 //
 // https://vk.com/dev/messages.removeChatUser
-func (vk *VK) MessagesRemoveChatUser(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.removeChatUser", params)
+func (vk *VK) MessagesRemoveChatUser(params map[string]string) (response MessagesRemoveChatUserResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.removeChatUser", params, &response, &vkErr)
 	return
 }
+
+// MessagesRestoreResponse struct
+type MessagesRestoreResponse int
 
 // MessagesRestore restores a deleted message.
 //
 // https://vk.com/dev/messages.restore
-func (vk *VK) MessagesRestore(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.restore", params)
+func (vk *VK) MessagesRestore(params map[string]string) (response MessagesRestoreResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.restore", params, &response, &vkErr)
 	return
 }
 
@@ -533,11 +566,14 @@ func (vk *VK) MessagesSendSticker(params map[string]string) (response MessagesSe
 	return
 }
 
+// MessagesSetActivityResponse struct
+type MessagesSetActivityResponse int
+
 // MessagesSetActivity changes the status of a user as typing in a conversation.
 //
 // https://vk.com/dev/messages.setActivity
-func (vk *VK) MessagesSetActivity(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.setActivity", params)
+func (vk *VK) MessagesSetActivity(params map[string]string) (response MessagesSetActivityResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.setActivity", params, &response, &vkErr)
 	return
 }
 
@@ -555,10 +591,13 @@ func (vk *VK) MessagesSetChatPhoto(params map[string]string) (response MessagesS
 	return
 }
 
+// MessagesUnpinResponse struct
+type MessagesUnpinResponse int
+
 // MessagesUnpin messages.unpin
 //
 // https://vk.com/dev/messages.unpin
-func (vk *VK) MessagesUnpin(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("messages.unpin", params)
+func (vk *VK) MessagesUnpin(params map[string]string) (response MessagesUnpinResponse, vkErr Error) {
+	vk.RequestUnmarshal("messages.unpin", params, &response, &vkErr)
 	return
 }

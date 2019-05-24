@@ -129,11 +129,14 @@ func (vk *VK) AppWidgetsSaveGroupImage(params map[string]string) (response AppWi
 	return
 }
 
+// AppWidgetsUpdateResponse struct
+type AppWidgetsUpdateResponse int
+
 // AppWidgetsUpdate allows to update community app widget.
 //
 // https://vk.com/dev/appWidgets.update
-func (vk *VK) AppWidgetsUpdate(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("appWidgets.update", params)
+func (vk *VK) AppWidgetsUpdate(params map[string]string) (response AppWidgetsUpdateResponse, vkErr Error) {
+	vk.RequestUnmarshal("appWidgets.update", params, &response, &vkErr)
 
 	return
 }

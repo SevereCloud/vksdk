@@ -4,11 +4,14 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
+// PagesClearCacheResponse struct
+type PagesClearCacheResponse int
+
 // PagesClearCache allows to clear the cache of particular external pages which may be attached to VK posts.
 //
 // https://vk.com/dev/pages.clearCache
-func (vk *VK) PagesClearCache(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("pages.clearCache", params)
+func (vk *VK) PagesClearCache(params map[string]string) (response PagesClearCacheResponse, vkErr Error) {
+	vk.RequestUnmarshal("pages.clearCache", params, &response, &vkErr)
 	return
 }
 

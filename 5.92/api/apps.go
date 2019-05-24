@@ -4,12 +4,14 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
+// AppsDeleteAppRequestsResponse struct
+type AppsDeleteAppRequestsResponse int
+
 // AppsDeleteAppRequests deletes all request notifications from the current app.
 //
 // https://vk.com/dev/apps.deleteAppRequests
-func (vk *VK) AppsDeleteAppRequests() (vkErr Error) {
-	_, vkErr = vk.Request("apps.deleteAppRequests", map[string]string{})
-
+func (vk *VK) AppsDeleteAppRequests() (response AppsDeleteAppRequestsResponse, vkErr Error) {
+	vk.RequestUnmarshal("apps.deleteAppRequests", map[string]string{}, &response, &vkErr)
 	return
 }
 

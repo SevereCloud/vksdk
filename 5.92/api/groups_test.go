@@ -58,7 +58,7 @@ func TestVK_GroupsDeleteAddress(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.GroupsDeleteAddress(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vk.GroupsDeleteAddress(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsDeleteAddress() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -85,7 +85,7 @@ func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.GroupsDeleteCallbackServer(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vk.GroupsDeleteCallbackServer(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsDeleteCallbackServer() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -112,7 +112,7 @@ func TestVK_GroupsEditCallbackServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.GroupsEditCallbackServer(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vk.GroupsEditCallbackServer(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsEditCallbackServer() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -143,7 +143,7 @@ func TestVK_GroupsEnableOnline(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.GroupsEnableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vk.GroupsEnableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsEnableOnline() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -175,7 +175,7 @@ func TestVK_GroupsDisableOnline(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.GroupsDisableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vk.GroupsDisableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsDisableOnline() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -553,7 +553,7 @@ func TestVK_GroupsSetCallbackSettings(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.GroupsSetCallbackSettings(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vk.GroupsSetCallbackSettings(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsSetCallbackSettings() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -585,7 +585,7 @@ func TestVK_GroupsSetLongPollSettings(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.GroupsSetLongPollSettings(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vk.GroupsSetLongPollSettings(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsSetLongPollSettings() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})

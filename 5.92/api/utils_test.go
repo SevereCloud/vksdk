@@ -65,18 +65,11 @@ func TestVK_UtilsDeleteFromLastShortened(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.UtilsDeleteFromLastShortened(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
+			_, gotVkErr := vk.UtilsDeleteFromLastShortened(tt.argParams)
+			if !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
 				t.Errorf("VK.UtilsDeleteFromLastShortened() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
-	}
-}
-
-func TestVK_UtilsDeleteFromLastShortenedError(t *testing.T) {
-	vk := Init("")
-	vkErr := vk.UtilsDeleteFromLastShortened(map[string]string{})
-	if vkErr.Code != 5 {
-		t.Errorf("VK.UtilsDeleteFromLastShortened() error bad %d %s", vkErr.Code, vkErr.Message)
 	}
 }
 

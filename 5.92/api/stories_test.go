@@ -27,7 +27,7 @@ func TestVK_StoriesDelete(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.StoriesDelete(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
+			if _, gotVkErr := vk.StoriesDelete(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
 				t.Errorf("VK.StoriesDelete() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -484,7 +484,7 @@ func TestVK_StoriesHideAllReplies(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.StoriesHideAllReplies(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
+			if _, gotVkErr := vk.StoriesHideAllReplies(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
 				t.Errorf("VK.StoriesHideAllReplies() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -512,7 +512,7 @@ func TestVK_StoriesHideReply(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotVkErr := vk.StoriesHideReply(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
+			if _, gotVkErr := vk.StoriesHideReply(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
 				t.Errorf("VK.StoriesHideReply() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})

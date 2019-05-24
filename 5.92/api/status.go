@@ -16,8 +16,11 @@ func (vk *VK) StatusGet(params map[string]string) (response StatusGetResponse, v
 	return
 }
 
+// StatusSetResponse struct
+type StatusSetResponse int
+
 // StatusSet sets a new status for the current user.
-func (vk *VK) StatusSet(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("status.set", params)
+func (vk *VK) StatusSet(params map[string]string) (response StatusSetResponse, vkErr Error) {
+	vk.RequestUnmarshal("status.set", params, &response, &vkErr)
 	return
 }

@@ -4,27 +4,36 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
+// FaveAddGroupResponse struct
+type FaveAddGroupResponse int
+
 // FaveAddGroup adds a community to user faves.
 //
 // https://vk.com/dev/fave.addGroup
-func (vk *VK) FaveAddGroup(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("fave.addGroup", params)
+func (vk *VK) FaveAddGroup(params map[string]string) (response FaveAddGroupResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.addGroup", params, &response, &vkErr)
 	return
 }
+
+// FaveAddLinkResponse struct
+type FaveAddLinkResponse int
 
 // FaveAddLink adds a link to user faves.
 //
 // https://vk.com/dev/fave.addLink
-func (vk *VK) FaveAddLink(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("fave.addLink", params)
+func (vk *VK) FaveAddLink(params map[string]string) (response FaveAddLinkResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.addLink", params, &response, &vkErr)
 	return
 }
+
+// FaveAddUserResponse struct
+type FaveAddUserResponse int
 
 // FaveAddUser adds a profile to user faves.
 //
 // https://vk.com/dev/fave.addUser
-func (vk *VK) FaveAddUser(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("fave.addUser", params)
+func (vk *VK) FaveAddUser(params map[string]string) (response FaveAddUserResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.addUser", params, &response, &vkErr)
 	return
 }
 
@@ -171,26 +180,35 @@ func (vk *VK) FaveGetVideosExtended(params map[string]string) (response FaveGetV
 	return
 }
 
+// FaveRemoveGroupResponse struct
+type FaveRemoveGroupResponse int
+
 // FaveRemoveGroup removes a community from user faves.
 //
 // https://vk.com/dev/fave.removeGroup
-func (vk *VK) FaveRemoveGroup(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("fave.removeGroup", params)
+func (vk *VK) FaveRemoveGroup(params map[string]string) (response FaveRemoveGroupResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.removeGroup", params, &response, &vkErr)
 	return
 }
+
+// FaveRemoveLinkResponse struct
+type FaveRemoveLinkResponse int
 
 // FaveRemoveLink removes link from the user's faves.
 //
 // https://vk.com/dev/fave.removeLink
-func (vk *VK) FaveRemoveLink(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("fave.removeLink", params)
+func (vk *VK) FaveRemoveLink(params map[string]string) (response FaveRemoveLinkResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.removeLink", params, &response, &vkErr)
 	return
 }
+
+// FaveRemoveUserResponse struct
+type FaveRemoveUserResponse int
 
 // FaveRemoveUser removes a profile from user faves.
 //
 // https://vk.com/dev/fave.removeUser
-func (vk *VK) FaveRemoveUser(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("fave.removeUser", params)
+func (vk *VK) FaveRemoveUser(params map[string]string) (response FaveRemoveUserResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.removeUser", params, &response, &vkErr)
 	return
 }

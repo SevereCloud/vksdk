@@ -102,7 +102,7 @@ func TestVK_StreamingSetSettings(t *testing.T) {
 	params["monthly_tier"] = "unlimited"
 	t.Run("StreamingSetSettings not empty", func(t *testing.T) {
 		// TODO: check StreamingSetSettings test
-		vkErr := vk.StreamingSetSettings(params)
+		_, vkErr := vk.StreamingSetSettings(params)
 		if vkErr.Code != 0 {
 			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
 		}
@@ -141,7 +141,7 @@ func TestVK_StreamingError(t *testing.T) {
 	})
 
 	t.Run("StreamingSetSettings error", func(t *testing.T) {
-		vkErr := vk.StreamingSetSettings(map[string]string{})
+		_, vkErr := vk.StreamingSetSettings(map[string]string{})
 		if vkErr.Code != 5 {
 			t.Errorf("StreamingSetSettings error bad %d %s", vkErr.Code, vkErr.Message)
 		}

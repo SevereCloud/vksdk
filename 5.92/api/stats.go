@@ -26,10 +26,13 @@ func (vk *VK) StatsGetPostReach(params map[string]string) (response StatsGetPost
 	return
 }
 
+// StatsTrackVisitorResponse struct
+type StatsTrackVisitorResponse int
+
 // StatsTrackVisitor adds current session's data in the application statistics.
 //
 // https://vk.com/dev/stats.trackVisitor
-func (vk *VK) StatsTrackVisitor() (vkErr Error) {
-	_, vkErr = vk.Request("stats.trackVisitor", map[string]string{})
+func (vk *VK) StatsTrackVisitor() (response StatsTrackVisitorResponse, vkErr Error) {
+	vk.RequestUnmarshal("stats.trackVisitor", map[string]string{}, &response, &vkErr)
 	return
 }

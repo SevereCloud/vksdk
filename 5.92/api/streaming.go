@@ -57,11 +57,14 @@ func (vk *VK) StreamingGetStem(params map[string]string) (response StreamingGetS
 	return
 }
 
+// StreamingSetSettingsResponse struct
+type StreamingSetSettingsResponse int
+
 // StreamingSetSettings allows to set monthly tier for Streaming API.
 //
 // https://vk.com/dev/streaming.setSettings
-func (vk *VK) StreamingSetSettings(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("streaming.setSettings", params)
+func (vk *VK) StreamingSetSettings(params map[string]string) (response StreamingSetSettingsResponse, vkErr Error) {
+	vk.RequestUnmarshal("streaming.setSettings", params, &response, &vkErr)
 
 	return
 }

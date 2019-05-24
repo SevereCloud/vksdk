@@ -17,11 +17,14 @@ func (vk *VK) UtilsCheckLink(params map[string]string) (response UtilsCheckLinkR
 	return
 }
 
+// UtilsDeleteFromLastShortenedResponse struct
+type UtilsDeleteFromLastShortenedResponse int
+
 // UtilsDeleteFromLastShortened deletes shortened link from user's list.
 //
 // https://vk.com/dev/utils.deleteFromLastShortened
-func (vk *VK) UtilsDeleteFromLastShortened(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("utils.deleteFromLastShortened", params)
+func (vk *VK) UtilsDeleteFromLastShortened(params map[string]string) (response UtilsDeleteFromLastShortenedResponse, vkErr Error) {
+	vk.RequestUnmarshal("utils.deleteFromLastShortened", params, &response, &vkErr)
 	return
 }
 

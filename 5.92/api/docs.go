@@ -15,19 +15,25 @@ func (vk *VK) DocsAdd(params map[string]string) (response DocsAddResponse, vkErr
 	return
 }
 
+// DocsDeleteResponse struct
+type DocsDeleteResponse int
+
 // DocsDelete deletes a user or community document.
 //
 // https://vk.com/dev/docs.delete
-func (vk *VK) DocsDelete(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("docs.delete", params)
+func (vk *VK) DocsDelete(params map[string]string) (response DocsDeleteResponse, vkErr Error) {
+	vk.RequestUnmarshal("docs.delete", params, &response, &vkErr)
 	return
 }
+
+// DocsEditResponse struct
+type DocsEditResponse int
 
 // DocsEdit edits a document.
 //
 // https://vk.com/dev/docs.edit
-func (vk *VK) DocsEdit(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("docs.edit", params)
+func (vk *VK) DocsEdit(params map[string]string) (response DocsEditResponse, vkErr Error) {
+	vk.RequestUnmarshal("docs.edit", params, &response, &vkErr)
 	return
 }
 

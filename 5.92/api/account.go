@@ -4,11 +4,14 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
+// AccountBanResponse struct
+type AccountBanResponse int
+
 // AccountBan account.ban
 //
 // https://vk.com/dev/account.ban
-func (vk *VK) AccountBan(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("account.ban", params)
+func (vk *VK) AccountBan(params map[string]string) (response AccountBanResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.ban", params, &response, &vkErr)
 	return
 }
 
@@ -109,11 +112,14 @@ func (vk *VK) AccountGetPushSettings(params map[string]string) (response Account
 	return
 }
 
+// AccountRegisterDeviceResponse struct
+type AccountRegisterDeviceResponse int
+
 // AccountRegisterDevice subscribes an iOS/Android/Windows/Mac based device to receive push notifications
 //
 // https://vk.com/dev/account.registerDevice
-func (vk *VK) AccountRegisterDevice(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("account.registerDevice", params)
+func (vk *VK) AccountRegisterDevice(params map[string]string) (response AccountRegisterDeviceResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.registerDevice", params, &response, &vkErr)
 	return
 }
 
@@ -131,67 +137,91 @@ func (vk *VK) AccountSaveProfileInfo(params map[string]string) (response Account
 	return
 }
 
+// AccountSetInfoResponse struct
+type AccountSetInfoResponse int
+
 // AccountSetInfo allows to edit the current account info.
 //
 // https://vk.com/dev/account.setInfo
-func (vk *VK) AccountSetInfo(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("account.setInfo", params)
+func (vk *VK) AccountSetInfo(params map[string]string) (response AccountSetInfoResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.setInfo", params, &response, &vkErr)
 	return
 }
+
+// AccountSetNameInMenuResponse struct
+type AccountSetNameInMenuResponse int
 
 // AccountSetNameInMenu sets an application screen name
 // (up to 17 characters), that is shown to the user in the left menu.
 //
 // https://vk.com/dev/account.setNameInMenu
-func (vk *VK) AccountSetNameInMenu(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("account.setNameInMenu", params)
+func (vk *VK) AccountSetNameInMenu(params map[string]string) (response AccountSetNameInMenuResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.setNameInMenu", params, &response, &vkErr)
 	return
 }
+
+// AccountSetOfflineResponse struct
+type AccountSetOfflineResponse int
 
 // AccountSetOffline marks a current user as offline.
 //
 // https://vk.com/dev/account.setOffline
-func (vk *VK) AccountSetOffline() (vkErr Error) {
-	_, vkErr = vk.Request("account.setOffline", make(map[string]string))
+func (vk *VK) AccountSetOffline() (response AccountSetOfflineResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.setOffline", make(map[string]string), &response, &vkErr)
 	return
 }
+
+// AccountSetOnlineResponse struct
+type AccountSetOnlineResponse int
 
 // AccountSetOnline marks the current user as online for 5 minutes.
 //
 // https://vk.com/dev/account.setOnline
-func (vk *VK) AccountSetOnline(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("account.setOnline", params)
+func (vk *VK) AccountSetOnline(params map[string]string) (response AccountSetOnlineResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.setOnline", params, &response, &vkErr)
 	return
 }
+
+// AccountSetPushSettingsResponse struct
+type AccountSetPushSettingsResponse int
 
 // AccountSetPushSettings change push settings.
 //
 // https://vk.com/dev/account.setPushSettings
-func (vk *VK) AccountSetPushSettings(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("account.setPushSettings", params)
+func (vk *VK) AccountSetPushSettings(params map[string]string) (response AccountSetPushSettingsResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.setPushSettings", params, &response, &vkErr)
 	return
 }
+
+// AccountSetSilenceModeResponse struct
+type AccountSetSilenceModeResponse int
 
 // AccountSetSilenceMode mutes push notifications for the set period of time.
 //
 // https://vk.com/dev/account.setSilenceMode
-func (vk *VK) AccountSetSilenceMode(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("account.setSilenceMode", params)
+func (vk *VK) AccountSetSilenceMode(params map[string]string) (response AccountSetSilenceModeResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.setSilenceMode", params, &response, &vkErr)
 	return
 }
+
+// AccountUnbanResponse struct
+type AccountUnbanResponse int
 
 // AccountUnban account.unban
 //
 // https://vk.com/dev/account.unban
-func (vk *VK) AccountUnban(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("account.unban", params)
+func (vk *VK) AccountUnban(params map[string]string) (response AccountUnbanResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.unban", params, &response, &vkErr)
 	return
 }
+
+// AccountUnregisterDeviceResponse struct
+type AccountUnregisterDeviceResponse int
 
 // AccountUnregisterDevice unsubscribes a device from push notifications.
 //
 // https://vk.com/dev/account.unregisterDevice
-func (vk *VK) AccountUnregisterDevice(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("account.unregisterDevice", params)
+func (vk *VK) AccountUnregisterDevice(params map[string]string) (response AccountUnregisterDeviceResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.unregisterDevice", params, &response, &vkErr)
 	return
 }

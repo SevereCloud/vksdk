@@ -35,11 +35,14 @@ func (vk *VK) PollsDeleteVote(params map[string]string) (response PollsDeleteVot
 	return
 }
 
+// PollsEditResponse struct
+type PollsEditResponse int
+
 // PollsEdit edits created polls
 //
 // https://vk.com/dev/polls.edit
-func (vk *VK) PollsEdit(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("polls.edit", params)
+func (vk *VK) PollsEdit(params map[string]string) (response PollsEditResponse, vkErr Error) {
+	vk.RequestUnmarshal("polls.edit", params, &response, &vkErr)
 	return
 }
 

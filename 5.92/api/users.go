@@ -61,11 +61,14 @@ func (vk *VK) UsersIsAppUser(params map[string]string) (response UsersIsAppUserR
 	return
 }
 
+// UsersReportResponse struct
+type UsersReportResponse int
+
 // UsersReport reports (submits a complain about) a user.
 //
 // https://vk.com/dev/users.report
-func (vk *VK) UsersReport(params map[string]string) (vkErr Error) {
-	_, vkErr = vk.Request("users.report", params)
+func (vk *VK) UsersReport(params map[string]string) (response UsersReportResponse, vkErr Error) {
+	vk.RequestUnmarshal("users.report", params, &response, &vkErr)
 	return
 }
 
