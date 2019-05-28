@@ -145,12 +145,24 @@ type PhotosGetMarketUploadServerResponse struct{}
 //
 // https://vk.com/dev/photos.getMarketUploadServer
 
-// PhotosGetMessagesUploadServerResponse struct
-type PhotosGetMessagesUploadServerResponse struct{}
-
 // TODO: photos.getMessagesUploadServer returns the server address for photo upload in a private message for a user.
 //
 // https://vk.com/dev/photos.getMessagesUploadServer
+
+// PhotosGetMessagesUploadServerResponse struct
+type PhotosGetMessagesUploadServerResponse struct {
+	AlbumID   int    `json:"album_id"`
+	UploadURL string `json:"upload_url"`
+	UserID    int    `json:"user_id"`
+}
+
+// PhotosGetMessagesUploadServer returns the server address for photo upload onto a messages.
+//
+// https://vk.com/dev/photos.getMessagesUploadServer
+func (vk *VK) PhotosGetMessagesUploadServer(params map[string]string) (response PhotosGetMessagesUploadServerResponse, vkErr Error) {
+	vk.RequestUnmarshal("photos.getMessagesUploadServer", params, &response, &vkErr)
+	return
+}
 
 // PhotosGetNewTagsResponse struct
 type PhotosGetNewTagsResponse struct{}
@@ -301,12 +313,15 @@ type PhotosSaveMarketPhotoResponse struct{}
 // https://vk.com/dev/photos.saveMarketPhoto
 
 // PhotosSaveMessagesPhotoResponse struct
-type PhotosSaveMessagesPhotoResponse struct{}
+type PhotosSaveMessagesPhotoResponse []object.PhotosPhoto
 
-// TODO: photos.saveMessagesPhoto saves a photo after being successfully
-// uploaded.URL obtained with photos.getMessagesUploadServer method.
+// PhotosSaveMessagesPhoto saves a photo after being successfully
 //
 // https://vk.com/dev/photos.saveMessagesPhoto
+func (vk *VK) PhotosSaveMessagesPhoto(params map[string]string) (response PhotosSaveMessagesPhotoResponse, vkErr Error) {
+	vk.RequestUnmarshal("photos.saveMessagesPhoto", params, &response, &vkErr)
+	return
+}
 
 // PhotosSaveOwnerCoverPhotoResponse struct
 type PhotosSaveOwnerCoverPhotoResponse struct{}

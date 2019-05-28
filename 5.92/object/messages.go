@@ -29,7 +29,7 @@ type MessagesMessage struct {
 
 // MessagesKeyboard struct
 type MessagesKeyboard struct {
-	AuthorID int                        `json:"author_id"` // Community or bot, which set this keyboard
+	AuthorID int                        `json:"author_id,omitempty"` // Community or bot, which set this keyboard
 	Buttons  [][]MessagesKeyboardButton `json:"buttons"`
 	OneTime  bool                       `json:"one_time"` // Should this keyboard disappear on first use
 }
@@ -67,12 +67,12 @@ type MessagesKeyboardButton struct {
 
 // MessagesKeyboardButtonAction struct
 type MessagesKeyboardButtonAction struct {
-	AppID   int    `json:"app_id"`   // Fragment value in app link like vk.com/app{app_id}_-654321#hash
-	Hash    string `json:"hash"`     // Fragment value in app link like vk.com/app123456_-654321#{hash}
-	Label   string `json:"label"`    // Label for button
-	OwnerID int    `json:"owner_id"` // Fragment value in app link like vk.com/app123456_{owner_id}#hash
-	Payload string `json:"payload"`  // Additional data sent along with message for developer convenience
-	Type    string `json:"type"`     // Button type
+	AppID   int    `json:"app_id,omitempty"`   // Fragment value in app link like vk.com/app{app_id}_-654321#hash
+	Hash    string `json:"hash,omitempty"`     // Fragment value in app link like vk.com/app123456_-654321#{hash}
+	Label   string `json:"label,omitempty"`    // Label for button
+	OwnerID int    `json:"owner_id,omitempty"` // Fragment value in app link like vk.com/app123456_{owner_id}#hash
+	Payload string `json:"payload"`            // Additional data sent along with message for developer convenience
+	Type    string `json:"type"`               // Button type
 }
 
 // MessagesChat struct
