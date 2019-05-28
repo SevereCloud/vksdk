@@ -315,7 +315,7 @@ type PhotosSaveMarketPhotoResponse struct{}
 // PhotosSaveMessagesPhotoResponse struct
 type PhotosSaveMessagesPhotoResponse []object.PhotosPhoto
 
-// uploaded.URL obtained with photos.getMessagesUploadServer method.
+// PhotosSaveMessagesPhoto saves a photo after being successfully
 //
 // https://vk.com/dev/photos.saveMessagesPhoto
 func (vk *VK) PhotosSaveMessagesPhoto(params map[string]string) (response PhotosSaveMessagesPhotoResponse, vkErr Error) {
