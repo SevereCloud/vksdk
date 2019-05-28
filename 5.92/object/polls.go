@@ -79,5 +79,5 @@ type PollsBackground struct {
 type PollsPhoto struct {
 	ID     int           `json:"id"`
 	Color  string        `json:"color"`
-	Images []photosImage `json:"images"`
+	Images []PhotosImage `json:"images"`
 }
