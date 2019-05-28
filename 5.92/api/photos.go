@@ -329,10 +329,6 @@ func (vk *VK) PhotosGetMarketUploadServer(params map[string]string) (response Ph
 	return
 }
 
-// TODO: photos.getMessagesUploadServer returns the server address for photo upload in a private message for a user.
-//
-// https://vk.com/dev/photos.getMessagesUploadServer
-
 // PhotosGetMessagesUploadServerResponse struct
 type PhotosGetMessagesUploadServerResponse struct {
 	AlbumID   int    `json:"album_id"`
