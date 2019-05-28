@@ -7,7 +7,7 @@ type PhotosPhoto struct {
 	Date               int                `json:"date"`       // Date when uploaded
 	Height             int                `json:"height"`     // Original photo height
 	ID                 int                `json:"id"`         // Photo ID
-	Images             []photosImage      `json:"images"`
+	Images             []PhotosImage      `json:"images"`
 	Lat                float64            `json:"lat"`      // Latitude
 	Long               float64            `json:"long"`     // Longitude
 	OwnerID            int                `json:"owner_id"` // Photo owner's ID
@@ -38,13 +38,15 @@ type PhotosCommentXtrPid struct {
 	FromID         int                     `json:"from_id"` // Author ID
 	ID             int                     `json:"id"`      // Comment ID
 	Likes          baseLikesInfo           `json:"likes"`
+	ParentsStack   []int                   `json:"parents_stack"`
 	Pid            int                     `json:"pid"`              // Photo ID
 	ReplyToComment int                     `json:"reply_to_comment"` // Replied comment ID
 	ReplyToUser    int                     `json:"reply_to_user"`    // Replied user ID
 	Text           string                  `json:"text"`             // Comment text
+	Thread         wallWallCommentThread   `json:"thread"`
 }
 
-type photosImage struct {
+type PhotosImage struct {
 	Height int    `json:"height"` // Height of the photo in px.
 	Type   string `json:"type"`
 	URL    string `json:"url"`   // Photo URL.
@@ -96,15 +98,15 @@ type photosPhotoAlbum struct {
 
 // PhotosPhotoAlbumFull struct
 type PhotosPhotoAlbumFull struct {
-	CanUpload          int                `json:"can_upload"`        // Information whether current user can upload photo to the album
-	CommentsDisabled   int                `json:"comments_disabled"` // Information whether album comments are disabled
-	Created            int                `json:"created"`           // Date when the album has been created in Unixtime
-	Description        string             `json:"description"`       // Photo album description
-	ID                 int                `json:"id"`                // Photo album ID
-	OwnerID            int                `json:"owner_id"`          // Album owner's ID
-	Size               int                `json:"size"`              // Photos number
-	PrivacyComment     []string           `json:"privacy_comment"`
-	PrivacyView        []string           `json:"privacy_view"`
+	CanUpload        int    `json:"can_upload"`        // Information whether current user can upload photo to the album
+	CommentsDisabled int    `json:"comments_disabled"` // Information whether album comments are disabled
+	Created          int    `json:"created"`           // Date when the album has been created in Unixtime
+	Description      string `json:"description"`       // Photo album description
+	ID               int    `json:"id"`                // Photo album ID
+	OwnerID          int    `json:"owner_id"`          // Album owner's ID
+	Size             int    `json:"size"`              // Photos number
+	// TODO: PrivacyComment     interface{}           `json:"privacy_comment"`
+	// TODO: PrivacyView        interface{}           `json:"privacy_view"`
 	Sizes              []photosPhotoSizes `json:"sizes"`
 	ThumbID            int                `json:"thumb_id"`              // Thumb photo ID
 	ThumbIsLast        int                `json:"thumb_is_last"`         // Information whether the album thumb is last photo
@@ -123,7 +125,7 @@ type PhotosPhotoFull struct {
 	Date       int             `json:"date"`   // Date when uploaded
 	Height     int             `json:"height"` // Original photo height
 	ID         int             `json:"id"`     // Photo ID
-	Images     []photosImage   `json:"images"`
+	Images     []PhotosImage   `json:"images"`
 	Lat        float64         `json:"lat"` // Latitude
 	Likes      baseLikes       `json:"likes"`
 	Long       float64         `json:"long"`     // Longitude
@@ -168,7 +170,7 @@ type PhotosPhotoFullXtrRealOffset struct {
 
 type photosPhotoSizes struct {
 	Height int    `json:"height"` // Height in px
-	Src    string `json:"src"`    // URL of the image
+	URL    string `json:"url"`    // URL of the image
 	Type   string `json:"type"`
 	Width  int    `json:"width"` // Width in px
 }
