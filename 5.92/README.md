@@ -13,6 +13,7 @@ go get -u github.com/SevereCloud/vksdk
 - [API](https://github.com/SevereCloud/vksdk/tree/master/5.92/api)
 - [Callback](https://github.com/SevereCloud/vksdk/tree/master/5.92/callback)
 - [Bots Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/5.92/longpoll-bot)
+- [User Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/5.92/longpoll-user)
 
 ## Пример
 
@@ -60,7 +61,7 @@ func main() {
 - [x] Ограничитель на запросы
 - [x] Callback
 - [x] LongPoll bots
-- [ ] LongPoll users
+- [x] LongPoll users
 - [ ] Streaming API
 - [x] HTTP client
 - [ ] Получение токена
