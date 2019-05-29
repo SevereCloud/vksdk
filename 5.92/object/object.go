@@ -38,6 +38,13 @@ type GroupEvent struct {
 	Secret  string          `json:"secret"`
 }
 
+// LongpollResponse struct
+type LongpollResponse struct {
+	Ts      int             `json:"ts"`
+	Updates [][]interface{} `json:"updates"`
+	Failed  int             `json:"failed"`
+}
+
 type baseCommentsInfo struct {
 	CanPost       int  `json:"can_post"`
 	Count         int  `json:"count"`
