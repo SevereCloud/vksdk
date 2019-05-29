@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"strconv"
 	"sync/atomic"
@@ -14,12 +13,6 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/api"
 	"github.com/SevereCloud/vksdk/5.92/handler"
 )
-
-type longpollResponse struct {
-	Ts      string              `json:"ts"`
-	Updates []object.GroupEvent `json:"updates"`
-	Failed  int                 `json:"failed"`
-}
 
 // Longpoll struct
 type Longpoll struct {
@@ -31,8 +24,9 @@ type Longpoll struct {
 	VK      *api.VK
 	Client  *http.Client
 
-	funcList   handler.FuncList
-	inShutdown int32
+	funcList             handler.FuncList
+	funcFullResponseList []func(object.LongpollBotResponse)
+	inShutdown           int32
 }
 
 // Init Longpoll
@@ -63,7 +57,7 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 }
 
 func (lp *Longpoll) check() ([]object.GroupEvent, error) {
-	var response longpollResponse
+	var response object.LongpollBotResponse
 	var err error
 
 	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, lp.Wait)
@@ -88,23 +82,18 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 	return response.Updates, err
 }
 
-func (lp *Longpoll) checkResponse(response longpollResponse) (err error) {
+func (lp *Longpoll) checkResponse(response object.LongpollBotResponse) (err error) {
 	switch response.Failed {
 	case 0:
 		lp.Ts = response.Ts
 	case 1:
-		log.Print(`Longpoll Bots: "failed":1`)
-		// TODO: handler for failed
 		lp.Ts = response.Ts
 	case 2:
-		log.Print(`Longpoll Bots: "failed":2`)
 		err = lp.updateServer(false)
 	case 3:
-		log.Print(`Longpoll Bots: "failed":3`)
 		err = lp.updateServer(true)
 	default:
-		log.Printf(`Longpoll Bots: "failed":%d`, response.Failed)
-		err = lp.updateServer(true)
+		err = fmt.Errorf(`"failed":%d`, response.Failed)
 	}
 	return
 }
@@ -338,3 +327,8 @@ func (lp *Longpoll) LeadFormsNew(f object.LeadFormsNewFunc) {
 }
 
 // TODO: like_add like_remove app_payload message_read
+
+// FullResponse handler
+func (lp *Longpoll) FullResponse(f func(object.LongpollBotResponse)) {
+	lp.funcFullResponseList = append(lp.funcFullResponseList, f)
+}

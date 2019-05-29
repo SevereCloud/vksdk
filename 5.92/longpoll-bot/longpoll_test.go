@@ -268,6 +268,13 @@ func TestLongpoll_Handler(t *testing.T) { // nolint:gocyclo
 			t.Error("Want len = 1")
 		}
 	})
+
+	t.Run("FullResponse", func(t *testing.T) {
+		lp.FullResponse(func(resp object.LongpollBotResponse) {})
+		if len(lp.funcFullResponseList) != 1 {
+			t.Error("Want len = 1")
+		}
+	})
 }
 
 func TestInit(t *testing.T) {
@@ -331,7 +338,7 @@ func TestLongpoll_checkResponse(t *testing.T) {
 
 	tests := []struct {
 		name        string
-		argResponse longpollResponse
+		argResponse object.LongpollBotResponse
 		wantErr     bool
 	}{
 		{
@@ -339,19 +346,20 @@ func TestLongpoll_checkResponse(t *testing.T) {
 		},
 		{
 			name:        "failed: 1",
-			argResponse: longpollResponse{Failed: 1},
+			argResponse: object.LongpollBotResponse{Failed: 1},
 		},
 		{
 			name:        "failed: 2",
-			argResponse: longpollResponse{Failed: 2},
+			argResponse: object.LongpollBotResponse{Failed: 2},
 		},
 		{
 			name:        "failed: 3",
-			argResponse: longpollResponse{Failed: 3},
+			argResponse: object.LongpollBotResponse{Failed: 3},
 		},
 		{
 			name:        "failed: 4",
-			argResponse: longpollResponse{Failed: 4},
+			argResponse: object.LongpollBotResponse{Failed: 4},
+			wantErr:     true,
 		},
 	}
 	for _, tt := range tests {

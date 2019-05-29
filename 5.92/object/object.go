@@ -45,6 +45,12 @@ type LongpollResponse struct {
 	Failed  int             `json:"failed"`
 }
 
+type LongpollBotResponse struct {
+	Ts      string       `json:"ts"`
+	Updates []GroupEvent `json:"updates"`
+	Failed  int          `json:"failed"`
+}
+
 type baseCommentsInfo struct {
 	CanPost       int  `json:"can_post"`
 	Count         int  `json:"count"`

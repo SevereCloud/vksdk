@@ -57,6 +57,14 @@ lp.MessageNew(func(object object.MessageNewObject, groupID int) {
 })
 ```
 
+Если вы хотите получать полный ответ от Long Poll(например для сохранения `ts` или специальной обработки `failed`), можно воспользоваться следующим обработчиком.
+
+```go
+lp.FullResponse(func(resp object.LongpollBotResponse) {
+	...
+})
+```
+
 Полный список событий Вы найдёте [в документации](https://vk.com/dev/groups_events)
 
 ### Запуск и остановка
