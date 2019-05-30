@@ -56,9 +56,9 @@ func (vk *VK) NewsfeedGet(params map[string]string) (response NewsfeedGetRespons
 }
 
 // NewsfeedGetBannedResponse struct
-type NewsfeedGetBannedResponse struct{
-	Members []int              `json:"members"`
-	Groups   []int             `json:"groups"`
+type NewsfeedGetBannedResponse struct {
+	Members []int `json:"members"`
+	Groups  []int `json:"groups"`
 }
 
 // NewsfeedGetBanned returns a list of users and communities banned from the current user's newsfeed.
@@ -73,9 +73,9 @@ func (vk *VK) NewsfeedGetBanned(params map[string]string) (response NewsfeedGetB
 }
 
 // NewsfeedGetBannedExtendedResponse struct
-type NewsfeedGetBannedExtendedResponse struct{
-	Profiles []object.UsersUser               `json:"profiles"`
-	Groups   []object.GroupsGroup             `json:"groups"`
+type NewsfeedGetBannedExtendedResponse struct {
+	Profiles []object.UsersUser   `json:"profiles"`
+	Groups   []object.GroupsGroup `json:"groups"`
 }
 
 // NewsfeedGetBannedExtended returns a list of users and communities banned from the current user's newsfeed.
@@ -90,7 +90,7 @@ func (vk *VK) NewsfeedGetBannedExtended(params map[string]string) (response News
 }
 
 // NewsfeedGetCommentsResponse struct
-type NewsfeedGetCommentsResponse struct{
+type NewsfeedGetCommentsResponse struct {
 	Items    []object.NewsfeedNewsfeedItem `json:"items"`
 	Profiles []object.UsersUser            `json:"profiles"`
 	Groups   []object.GroupsGroup          `json:"groups"`
