@@ -11,8 +11,7 @@ type newsfeedEventActivity struct {
 
 // NewsfeedItemAudio struct
 type NewsfeedItemAudio struct {
-	Audio  newsfeedItemAudioAudio `json:"audio"`
-	PostID int                    `json:"post_id"` // Post ID
+	Audio newsfeedItemAudioAudio `json:"audio"`
 }
 
 type newsfeedItemAudioAudio struct {
@@ -29,7 +28,7 @@ type NewsfeedItemDigest struct {
 	Template    string         `json:"template"` // type of digest
 	Title       string         `json:"title"`
 	TrackCode   string         `json:"track_code"`
-	Type        string         `json:"type"` // type of digest
+	// Type        string         `json:"type"` // type of digest TODO: json-schema fix
 }
 
 // NewsfeedItemFriend struct
@@ -55,40 +54,37 @@ type newsfeedItemNoteNotes struct {
 // NewsfeedItemPhoto struct
 type NewsfeedItemPhoto struct {
 	Photos newsfeedItemPhotoPhotos `json:"photos"`
-	PostID int                     `json:"post_id"` // Post ID
 }
 
 type newsfeedItemPhotoPhotos struct {
-	Count int                     `json:"count"` // Photos number
-	Items []newsfeedNewsfeedPhoto `json:"items"`
+	Count int               `json:"count"` // Photos number
+	Items []PhotosPhotoFull `json:"items"`
 }
 
 // NewsfeedItemPhotoTag struct
 type NewsfeedItemPhotoTag struct {
 	PhotoTags newsfeedItemPhotoTagPhotoTags `json:"photo_tags"`
-	PostID    int                           `json:"post_id"` // Post ID
 }
 
 type newsfeedItemPhotoTagPhotoTags struct {
-	Count int                     `json:"count"` // Tags number
-	Items []newsfeedNewsfeedPhoto `json:"items"`
+	Count int               `json:"count"` // Tags number
+	Items []PhotosPhotoFull `json:"items"`
 }
 
 // NewsfeedItemStoriesBlock struct
 type NewsfeedItemStoriesBlock struct {
 	BlockType string         `json:"block_type"`
 	Stories   []StoriesStory `json:"stories"`
-	Title     string         `json:"title"`
-	TrackCode string         `json:"track_code"`
-	Type      string         `json:"type"`
+	// Title     string         `json:"title"`
+	// TrackCode string `json:"track_code"`
+	// Type      string         `json:"type"` TODO: json-schema fix
 }
 
 // NewsfeedItemTopic struct
 type NewsfeedItemTopic struct {
-	Comments baseCommentsInfo `json:"comments"`
-	Likes    baseLikesInfo    `json:"likes"`
-	PostID   int              `json:"post_id"` // Topic post ID
-	Text     string           `json:"text"`    // Post text
+	// Comments baseCommentsInfo `json:"comments"`
+	// Likes baseLikesInfo `json:"likes"`
+	// Text  string        `json:"text"` // Post text
 }
 
 // NewsfeedItemVideo struct
@@ -109,11 +105,14 @@ type NewsfeedItemWallpost struct {
 	CopyHistory []WallWallpost           `json:"copy_history"`
 	Geo         baseGeo                  `json:"geo"`
 	Likes       baseLikesInfo            `json:"likes"`
-	PostID      int                      `json:"post_id"` // Post ID
 	PostSource  wallPostSource           `json:"post_source"`
 	PostType    string                   `json:"post_type"`
 	Reposts     baseRepostsInfo          `json:"reposts"`
-	Text        string                   `json:"text"` // Post text
+	MarkedAsAds int                      `json:"marked_as_ads,omitempty"` // TODO: json-schema fix
+	Views       wallViews                `json:"views,omitempty"`         // TODO: json-schema fix
+	IsFavorite  bool                     `json:"is_favorite,omitempty"`   // TODO: json-schema fix
+	SignerID    int                      `json:"signer_id,omitempty"`     // TODO: json-schema fix
+	Text        string                   `json:"text"`                    // Post text
 }
 
 // NewsfeedList struct
@@ -125,15 +124,33 @@ type NewsfeedList struct {
 // type newsfeedListFull struct {
 // }
 
-// type newsfeedNewsfeedItem struct {
-// }
+type NewsfeedNewsfeedItem struct {
+	Type     string `json:"type"`
+	SourceID int    `json:"source_id"`
+	Date     int    `json:"date"`
+
+	PostID int `json:"post_id,omitempty"`
+
+	NewsfeedItemWallpost
+	NewsfeedItemPhoto
+	NewsfeedItemPhotoTag
+	NewsfeedItemFriend
+	NewsfeedItemNote
+	NewsfeedItemAudio
+	NewsfeedItemTopic
+	NewsfeedItemVideo
+	NewsfeedItemDigest
+	NewsfeedItemStoriesBlock
+
+	CanEdit   int `json:"can_edit,omitempty"`
+	CreatedBy int `json:"created_by,omitempty"`
+	CanDelete int `json:"can_delete,omitempty"`
+	// TODO: Need more fields
+}
 
 type newsfeedNewsfeedNote struct {
 	Comments int    `json:"comments"` // Comments Number
 	ID       int    `json:"id"`       // Note ID
 	OwnerID  int    `json:"owner_id"` // integer
 	Title    string `json:"title"`    // Note title
-}
-
-type newsfeedNewsfeedPhoto struct {
 }

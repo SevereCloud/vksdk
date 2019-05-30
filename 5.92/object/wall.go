@@ -177,7 +177,8 @@ type WallWallpostToID struct {
 	PostSource  wallPostSource           `json:"post_source"`
 	PostType    string                   `json:"post_type"`
 	Reposts     baseRepostsInfo          `json:"reposts"`
-	SignerID    int                      `json:"signer_id"` // Post signer ID
-	Text        string                   `json:"text"`      // Post text
-	ToID        int                      `json:"to_id"`     // Wall owner's ID
+	SignerID    int                      `json:"signer_id"`   // Post signer ID
+	Text        string                   `json:"text"`        // Post text
+	ToID        int                      `json:"to_id"`       // Wall owner's ID
+	IsFavorite  bool                     `json:"is_favorite"` // Information whether the post in favorites list TODO: json-schema fix
 }
