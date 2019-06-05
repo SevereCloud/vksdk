@@ -7,7 +7,7 @@
 [![VK](https://img.shields.io/badge/chat-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.me/join/AJQ1d6Or8Q00Y_CSOESfbqGt)
 [![license](https://img.shields.io/github/license/SevereCloud/vksdk.svg?maxAge=2592000)](https://github.com/SevereCloud/vksdk/blob/master/LICENSE)
 
-VK SDK for Golang это реализация библиотеки для эффективной работы с VK API
+**VK SDK for Golang** готовая реализация основных функций VK API для языка Go.
 
 ### Возможности
 
@@ -16,7 +16,7 @@ VK SDK for Golang это реализация библиотеки для эфф
   - Реализовано 400+ методов
   - Возможность изменять HTTP клиент
   - Ограничитель запросов
-  - ~~Загрузка файлов~~ #34
+  - ~~Загрузка файлов~~ [#34](https://github.com/SevereCloud/vksdk/issues/34)
 - [Callback API](https://github.com/SevereCloud/vksdk/tree/master/5.92/callback#callback-api)
   - Поддерживает все события
   - Возвращает готовые структуры
@@ -25,13 +25,13 @@ VK SDK for Golang это реализация библиотеки для эфф
   - Возвращает готовые структуры
   - Возможность изменять HTTP клиент
 - [User Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/5.92/longpoll-user#user-long-poll-api)
-  - ~~Возвращает готовые структуры~~ #44
+  - ~~Возвращает готовые структуры~~ [#44](https://github.com/SevereCloud/vksdk/issues/44)
   - Возможность изменять HTTP клиент
-- ~~Streaming api~~ #3
+- ~~Streaming api~~ [#3](https://github.com/SevereCloud/vksdk/issues/3)
 
 ### Статус
 
-Внимание - этот репозиторий в **очень ранней разработке**. Возможны серьезные изменения в коде - cмотри #40
+Внимание - этот репозиторий в **очень ранней разработке**. Возможны серьезные изменения в коде - cмотри [#40](https://github.com/SevereCloud/vksdk/issues/40)
 
 ### Установка
 
@@ -45,26 +45,26 @@ go get -u github.com/SevereCloud/vksdk
 package main
 
 import (
-	"log"
+    "log"
 
-	vkapi "github.com/SevereCloud/vksdk/5.92/api"
+    vkapi "github.com/SevereCloud/vksdk/5.92/api"
 )
 
 func main() {
     vk := vkapi.Init("<TOKEN>") // рекомендуется использовать os.Getenv("TOKEN")
     
     params := map[string]string{
-		"user_ids": "1"
-	}
+        "user_ids": "1"
+    }
 
-	users, vkErr := vk.UsersGet(params)
-	if vkErr.Code != 0 {
-		log.Fatal(vkErr.Message)
-	}
+    users, vkErr := vk.UsersGet(params)
+    if vkErr.Code != 0 {
+        log.Fatal(vkErr.Message)
+    }
 
-	for _, user := range users {
-		log.Printf("Пользователя с id%d зовут %s %s\n", user.ID, user.FirstName, user.LastName)
-	}
+    for _, user := range users {
+        log.Printf("Пользователя с id%d зовут %s %s\n", user.ID, user.FirstName, user.LastName)
+    }
 }
 ```
 
