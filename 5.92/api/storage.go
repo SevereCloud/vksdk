@@ -9,6 +9,7 @@ type StorageGetResponse []object.BaseRequestParam
 
 // StorageGet returns a value of variable with the name set by key parameter.
 //
+// StorageGet always return array!
 // https://vk.com/dev/storage.get
 func (vk *VK) StorageGet(params map[string]string) (response StorageGetResponse, vkErr Error) {
 	_, prs := params["keys"]
