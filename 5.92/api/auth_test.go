@@ -3,6 +3,8 @@ package api
 import (
 	"os"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 func TestVK_AuthCheckPhone(t *testing.T) {
@@ -31,7 +33,7 @@ func TestVK_AuthCheckPhone(t *testing.T) {
 		},
 		{
 			name:      "auth.checkPhone error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {

@@ -4,6 +4,8 @@ import (
 	"os"
 	"reflect"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 func TestVK_UtilsCheckLink(t *testing.T) {
@@ -29,7 +31,7 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 		},
 		{
 			name:      "utils.checkLink error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -60,7 +62,7 @@ func TestVK_UtilsDeleteFromLastShortened(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "utils.deleteFromLastShortened error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -90,7 +92,7 @@ func TestVK_UtilsGetLastShortenedLinks(t *testing.T) {
 		{
 			name:      "utils.getLastShortenedLinks error",
 			argParams: map[string]string{"offset": "-1"},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -132,7 +134,7 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 		{
 			name:      "utils.getLinkStats error",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -174,7 +176,7 @@ func TestVK_UtilsGetLinkStatsExtended(t *testing.T) {
 		{
 			name:      "utils.getLinkStatsExtended error",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 		// TODO: Add test cases.
 	}
@@ -237,7 +239,7 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 		},
 		{
 			name:      "utils.getShortLink error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -281,7 +283,7 @@ func TestVK_UtilsResolveScreenName(t *testing.T) {
 		},
 		{
 			name:      "utils.resolveScreenName error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {

@@ -4,6 +4,8 @@ import (
 	"os"
 	"reflect"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 func TestVK_GroupsAddCallbackServer(t *testing.T) {
@@ -21,7 +23,7 @@ func TestVK_GroupsAddCallbackServer(t *testing.T) {
 	}{
 		{
 			name:      "groups.addCallbackServer error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 		// TODO: Add test cases.
 	}
@@ -52,7 +54,7 @@ func TestVK_GroupsDeleteAddress(t *testing.T) {
 	}{
 		{
 			name:      "groups.deleteAddress error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 		// TODO: Add test cases.
 	}
@@ -79,7 +81,7 @@ func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
 	}{
 		{
 			name:      "groups.deleteCallbackServer error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 		// TODO: Add test cases.
 	}
@@ -106,7 +108,7 @@ func TestVK_GroupsEditCallbackServer(t *testing.T) {
 	}{
 		{
 			name:      "groups.editCallbackServer error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 		// TODO: Add test cases.
 	}
@@ -138,7 +140,7 @@ func TestVK_GroupsEnableOnline(t *testing.T) {
 		},
 		{
 			name:      "groups.enableOnline error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -170,7 +172,7 @@ func TestVK_GroupsDisableOnline(t *testing.T) {
 		},
 		{
 			name:      "groups.disableOnline error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -233,7 +235,7 @@ func TestVK_GroupsGetByID(t *testing.T) {
 			argParams: map[string]string{
 				"group_ids": "0",
 			},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -270,7 +272,7 @@ func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
 		},
 		{
 			name:      "groups.getCallbackConfirmationCode error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -306,7 +308,7 @@ func TestVK_GroupsGetCallbackServers(t *testing.T) {
 		},
 		{
 			name:      "groups.getCallbackSettings error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -369,7 +371,7 @@ func TestVK_GroupsGetLongPollServer(t *testing.T) {
 		},
 		{
 			name:      "groups.getLongPollServer error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -405,7 +407,7 @@ func TestVK_GroupsGetLongPollSettings(t *testing.T) {
 		},
 		{
 			name:      "groups.getLongPollSettings error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -497,7 +499,7 @@ func TestVK_GroupsGetOnlineStatus(t *testing.T) {
 		},
 		{
 			name:      "groups.getOnlineStatus error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -548,7 +550,7 @@ func TestVK_GroupsSetCallbackSettings(t *testing.T) {
 	}{
 		{
 			name:      "groups.setCallbackSettings error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -580,7 +582,7 @@ func TestVK_GroupsSetLongPollSettings(t *testing.T) {
 		},
 		{
 			name:      "groups.setLongPollSettings error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -608,7 +610,7 @@ func TestVK_GroupsGetAddresses(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "groups.getAddresses error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -640,7 +642,7 @@ func TestVK_GroupsEditAddress(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "groups.editAddresses error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -672,7 +674,7 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "groups.addAddresses error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -712,7 +714,7 @@ func TestVK_GroupsIsMember(t *testing.T) {
 		{
 			name:      "groups.isMembers error",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -755,7 +757,7 @@ func TestVK_GroupsIsMemberExtended(t *testing.T) {
 		{
 			name:      "groups.isMembers error",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -801,7 +803,7 @@ func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 		{
 			name:      "groups.isMembers error",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -846,7 +848,7 @@ func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
 		{
 			name:      "groups.isMembers error",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {

@@ -4,6 +4,8 @@ import (
 	"os"
 	"reflect"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 func TestVK_OrdersCancelSubscription(t *testing.T) {
@@ -22,7 +24,7 @@ func TestVK_OrdersCancelSubscription(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "OrdersCancelSubscription error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -54,7 +56,7 @@ func TestVK_OrdersChangeState(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "OrdersChangeState error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -146,7 +148,7 @@ func TestVK_OrdersGetByID(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "OrdersGetByID error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -178,7 +180,7 @@ func TestVK_OrdersGetUserSubscriptionByID(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "OrdersGetUserSubscriptionByID error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -210,7 +212,7 @@ func TestVK_OrdersGetUserSubscriptions(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "OrdersGetUserSubscriptions error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -242,7 +244,7 @@ func TestVK_OrdersUpdateSubscription(t *testing.T) {
 		// TODO: Add test cases.
 		{
 			name:      "OrdersUpdateSubscription error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {

@@ -4,6 +4,8 @@ import (
 	"os"
 	"reflect"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 func TestVK_WidgetsGetComments(t *testing.T) {
@@ -21,7 +23,7 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 	}{
 		{
 			name:      "widgets.getComments error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {

@@ -3,6 +3,8 @@ package api
 import (
 	"os"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 func TestVK_DocsSearch(t *testing.T) {
@@ -25,7 +27,7 @@ func TestVK_DocsSearch(t *testing.T) {
 		},
 		{
 			name:      "docs.search error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -61,7 +63,7 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 		},
 		{
 			name:      "docs.GetWallUploadServer error",
-			wantVkErr: Error{Code: 15},
+			wantVkErr: Error{Code: object.ErrorAccess},
 		},
 	}
 	for _, tt := range tests {
@@ -100,7 +102,7 @@ func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 		// },
 		{
 			name:      "docs.GetMessagesUploadServer error",
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {

@@ -3,6 +3,8 @@ package api
 import (
 	"os"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 func TestVK_WallSearch(t *testing.T) {
@@ -22,7 +24,7 @@ func TestVK_WallSearch(t *testing.T) {
 		{
 			name:      "WallSearch empty",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -55,7 +57,7 @@ func TestVK_WallSearchExtended(t *testing.T) {
 		{
 			name:      "WallSearchExtended empty",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -88,7 +90,7 @@ func TestVK_WallGetReposts(t *testing.T) {
 		{
 			name:      "WallGetReposts empty",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -121,7 +123,7 @@ func TestVK_WallGetCommentsExtended(t *testing.T) {
 		{
 			name:      "WallGetCommentsExtended empty",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -154,7 +156,7 @@ func TestVK_WallGetComments(t *testing.T) {
 		{
 			name:      "WallGetComments empty",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -187,7 +189,7 @@ func TestVK_WallGet(t *testing.T) {
 		{
 			name:      "WallGet empty",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -220,7 +222,7 @@ func TestVK_WallGetExtended(t *testing.T) {
 		{
 			name:      "WallGetExtended empty",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -253,7 +255,7 @@ func TestVK_WallGetByID(t *testing.T) {
 		{
 			name:      "WallGetByID empty",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
@@ -286,7 +288,7 @@ func TestVK_WallGetByIDExtended(t *testing.T) {
 		{
 			name:      "WallGetByIDExtended empty",
 			argParams: map[string]string{},
-			wantVkErr: Error{Code: 100},
+			wantVkErr: Error{Code: object.ErrorParam},
 		},
 	}
 	for _, tt := range tests {
