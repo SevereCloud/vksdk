@@ -8,7 +8,6 @@ type pollsAnswer struct {
 }
 
 // PollsPoll struct
-// TODO: json-schema update
 type PollsPoll struct {
 	AnswerID   int             `json:"answer_id"` // Current user's answer ID
 	Answers    []pollsAnswer   `json:"answers"`
@@ -62,7 +61,6 @@ type pollsVotersUsersFields struct {
 }
 
 // PollsBackground struct
-// TODO: json-schema add
 type PollsBackground struct {
 	Type   string `json:"type"`
 	Angle  int    `json:"angle"`
@@ -75,7 +73,6 @@ type PollsBackground struct {
 }
 
 // PollsPhoto struct
-// TODO: json-schema check
 type PollsPhoto struct {
 	ID     int           `json:"id"`
 	Color  string        `json:"color"`

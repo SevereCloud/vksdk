@@ -180,5 +180,5 @@ type WallWallpostToID struct {
 	SignerID    int                      `json:"signer_id"`   // Post signer ID
 	Text        string                   `json:"text"`        // Post text
 	ToID        int                      `json:"to_id"`       // Wall owner's ID
-	IsFavorite  bool                     `json:"is_favorite"` // Information whether the post in favorites list TODO: json-schema fix
+	IsFavorite  bool                     `json:"is_favorite"` // Information whether the post in favorites list
 }

@@ -28,7 +28,7 @@ type NewsfeedItemDigest struct {
 	Template    string         `json:"template"` // type of digest
 	Title       string         `json:"title"`
 	TrackCode   string         `json:"track_code"`
-	// Type        string         `json:"type"` // type of digest TODO: json-schema fix
+	// Type        string         `json:"type"`
 }
 
 // NewsfeedItemFriend struct
@@ -77,7 +77,7 @@ type NewsfeedItemStoriesBlock struct {
 	Stories   []StoriesStory `json:"stories"`
 	// Title     string         `json:"title"`
 	// TrackCode string `json:"track_code"`
-	// Type      string         `json:"type"` TODO: json-schema fix
+	// Type      string         `json:"type"`
 }
 
 // NewsfeedItemTopic struct
@@ -108,11 +108,11 @@ type NewsfeedItemWallpost struct {
 	PostSource  wallPostSource           `json:"post_source"`
 	PostType    string                   `json:"post_type"`
 	Reposts     baseRepostsInfo          `json:"reposts"`
-	MarkedAsAds int                      `json:"marked_as_ads,omitempty"` // TODO: json-schema fix
-	Views       wallViews                `json:"views,omitempty"`         // TODO: json-schema fix
-	IsFavorite  bool                     `json:"is_favorite,omitempty"`   // TODO: json-schema fix
-	SignerID    int                      `json:"signer_id,omitempty"`     // TODO: json-schema fix
-	Text        string                   `json:"text"`                    // Post text
+	MarkedAsAds int                      `json:"marked_as_ads,omitempty"`
+	Views       wallViews                `json:"views,omitempty"`
+	IsFavorite  bool                     `json:"is_favorite,omitempty"`
+	SignerID    int                      `json:"signer_id,omitempty"`
+	Text        string                   `json:"text"` // Post text
 }
 
 // NewsfeedList struct

@@ -49,7 +49,7 @@ func (vk *VK) OrdersGetAmount(params map[string]string) (response OrdersGetAmoun
 // OrdersGetByIDResponse struct
 type OrdersGetByIDResponse []object.OrdersOrder
 
-// TODO: OrdersGetByID Returns information about orders by their IDs.
+// OrdersGetByID Returns information about orders by their IDs.
 //
 // https://vk.com/dev/orders.getByID
 func (vk *VK) OrdersGetByID(params map[string]string) (response OrdersGetByIDResponse, vkErr Error) {
