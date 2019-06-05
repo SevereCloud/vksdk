@@ -34,8 +34,10 @@ if vkErr.Code != 0 {
 }
 ```
 
-Описание общих ошибок, можно найти на 
-[этой странице](https://vk.com/dev/errors).
+Описание ошибок:
+- [документация VK](https://vk.com/dev/errors)
+- [константы](https://godoc.org/github.com/SevereCloud/vksdk/5.92/object#pkg-constants)
+
 Если `vkErr.Code` оказался отрицательным, значит ошибка на стороне клиента.
 
 #### Запрос любого метода
