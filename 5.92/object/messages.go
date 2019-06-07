@@ -44,7 +44,7 @@ func (keyboard *MessagesKeyboard) AddRow() {
 	}
 }
 
-// AddButton add button in last row
+// AddButton add button in last row. DEPRECATED - PLEASE NOT USE IT!
 func (keyboard *MessagesKeyboard) AddButton(label string, payload string, color string) {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
@@ -53,6 +53,65 @@ func (keyboard *MessagesKeyboard) AddButton(label string, payload string, color 
 			Type:    "text",
 		},
 		Color: color,
+	}
+
+	lastRow := len(keyboard.Buttons) - 1
+	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+}
+
+// AddTextButton add Text button in last row
+func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, color string) {
+	button := MessagesKeyboardButton{
+		Action: MessagesKeyboardButtonAction{
+			Type:    "text",
+			Label:   label,
+			Payload: payload,
+		},
+		Color: color,
+	}
+
+	lastRow := len(keyboard.Buttons) - 1
+	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+}
+
+// AddLocationButton add Location button in last row
+func (keyboard *MessagesKeyboard) AddLocationButton(payload string) {
+	button := MessagesKeyboardButton{
+		Action: MessagesKeyboardButtonAction{
+			Type:    "location",
+			Payload: payload,
+		},
+	}
+
+	lastRow := len(keyboard.Buttons) - 1
+	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+}
+
+// AddVKPayButton add VK Pay button in last row
+func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) {
+	button := MessagesKeyboardButton{
+		Action: MessagesKeyboardButtonAction{
+			Type:    "vkpay",
+			Payload: payload,
+			Hash:    hash,
+		},
+	}
+
+	lastRow := len(keyboard.Buttons) - 1
+	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+}
+
+// AddVKAppsButton add VK Apps button in last row
+func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload, label, hash string) {
+	button := MessagesKeyboardButton{
+		Action: MessagesKeyboardButtonAction{
+			Type:    "open_app",
+			AppID:   appID,
+			OwnerID: ownerID,
+			Payload: payload,
+			Label:   label,
+			Hash:    hash,
+		},
 	}
 
 	lastRow := len(keyboard.Buttons) - 1
@@ -71,7 +130,7 @@ type MessagesKeyboardButtonAction struct {
 	Hash    string `json:"hash,omitempty"`     // Fragment value in app link like vk.com/app123456_-654321#{hash}
 	Label   string `json:"label,omitempty"`    // Label for button
 	OwnerID int    `json:"owner_id,omitempty"` // Fragment value in app link like vk.com/app123456_{owner_id}#hash
-	Payload string `json:"payload"`            // Additional data sent along with message for developer convenience
+	Payload string `json:"payload,omitempty"`  // Additional data sent along with message for developer convenience
 	Type    string `json:"type"`               // Button type
 }
 

@@ -21,18 +21,110 @@ func TestMessagesKeyboard_AddRow(t *testing.T) {
 }
 
 func TestMessagesKeyboard_AddButton(t *testing.T) {
+	const (
+		label   = "label"
+		payload = "payload"
+		color   = "color"
+	)
 	var keyboard MessagesKeyboard
 	keyboard.AddRow()
+
 	t.Run("Add button", func(t *testing.T) {
-		keyboard.AddButton("label", "payload", "color")
-		if keyboard.Buttons[0][0].Color != "color" {
+		keyboard.AddButton(label, payload, color)
+		if keyboard.Buttons[0][0].Color != color {
 			t.Error("Bad button color")
 		}
-		if keyboard.Buttons[0][0].Action.Label != "label" {
+		if keyboard.Buttons[0][0].Action.Label != label {
 			t.Error("Bad button label")
 		}
-		if keyboard.Buttons[0][0].Action.Payload != "payload" {
+		if keyboard.Buttons[0][0].Action.Payload != payload {
 			t.Error("Bad button payload")
+		}
+	})
+}
+
+func TestMessagesKeyboard_AddTextButton(t *testing.T) {
+	const (
+		label   = "label"
+		payload = "payload"
+		color   = "color"
+	)
+	var keyboard MessagesKeyboard
+	keyboard.AddRow()
+
+	t.Run("Add Text button", func(t *testing.T) {
+		keyboard.AddTextButton(label, payload, color)
+		if keyboard.Buttons[0][0].Color != color {
+			t.Error("Bad button color")
+		}
+		if keyboard.Buttons[0][0].Action.Label != label {
+			t.Error("Bad button label")
+		}
+		if keyboard.Buttons[0][0].Action.Payload != payload {
+			t.Error("Bad button payload")
+		}
+	})
+}
+
+func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
+	const payload = "payload"
+	var keyboard MessagesKeyboard
+	keyboard.AddRow()
+
+	t.Run("Add Location button", func(t *testing.T) {
+		keyboard.AddLocationButton(payload)
+		if keyboard.Buttons[0][0].Action.Payload != payload {
+			t.Error("Bad button payload")
+		}
+	})
+}
+
+func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
+	const (
+		payload = "payload"
+		hash    = "hash"
+	)
+	var keyboard MessagesKeyboard
+	keyboard.AddRow()
+
+	t.Run("Add VK Pay button", func(t *testing.T) {
+		keyboard.AddVKPayButton(payload, hash)
+		if keyboard.Buttons[0][0].Action.Payload != payload {
+			t.Error("Bad button payload")
+		}
+		if keyboard.Buttons[0][0].Action.Hash != hash {
+			t.Error("Bad button hash")
+		}
+	})
+}
+
+func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
+	const (
+		appID   = 1
+		ownerID = 2
+		payload = "payload"
+		label   = "label"
+		hash    = "hash"
+	)
+	var keyboard MessagesKeyboard
+	keyboard.AddRow()
+
+	t.Run("Add VK Apps button", func(t *testing.T) {
+		keyboard.AddVKAppsButton(appID, ownerID, payload, label, hash)
+		if keyboard.Buttons[0][0].Action.AppID != appID {
+			t.Error("Bad button appID")
+		}
+		if keyboard.Buttons[0][0].Action.OwnerID != ownerID {
+			t.Error("Bad button ownerID")
+		}
+		if keyboard.Buttons[0][0].Action.Payload != payload {
+			t.Error("Bad button payload")
+		}
+		if keyboard.Buttons[0][0].Action.Label != label {
+			t.Error("Bad button label")
+		}
+		if keyboard.Buttons[0][0].Action.Hash != hash {
+			t.Error("Bad button hash")
 		}
 	})
 }
