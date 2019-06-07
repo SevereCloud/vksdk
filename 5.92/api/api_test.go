@@ -18,6 +18,13 @@ func TestVK_Request(t *testing.T) {
 			t.Errorf("VK.Request() got1 = %v, want -1", vkErr)
 		}
 	})
+	vk.MethodURL = ""
+	t.Run("Client error", func(t *testing.T) {
+		_, vkErr := vk.Request("", map[string]string{})
+		if vkErr.Code != -1 {
+			t.Errorf("VK.Request() got1 = %v, want -1", vkErr)
+		}
+	})
 }
 
 func TestVK_RequestLimit(t *testing.T) {

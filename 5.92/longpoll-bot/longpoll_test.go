@@ -386,3 +386,21 @@ func TestLongpoll_checkResponse(t *testing.T) {
 //
 // 	})
 // }
+
+func TestLongpoll_RunError(t *testing.T) {
+	vk := api.Init("")
+	lp, _ := Init(&vk, 0)
+	lp.Wait = 1
+
+	t.Run("Run client error", func(t *testing.T) {
+		if err := lp.Run(); err == nil {
+			t.Error(err)
+		}
+	})
+	lp.Server = "http://example.com"
+	t.Run("Run json error", func(t *testing.T) {
+		if err := lp.Run(); err == nil {
+			t.Error(err)
+		}
+	})
+}
