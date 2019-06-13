@@ -32,6 +32,7 @@ type MessagesKeyboard struct {
 	AuthorID int                        `json:"author_id,omitempty"` // Community or bot, which set this keyboard
 	Buttons  [][]MessagesKeyboardButton `json:"buttons"`
 	OneTime  bool                       `json:"one_time"` // Should this keyboard disappear on first use
+	Inline   bool                       `json:"inline,omitempty"`
 }
 
 // AddRow add row in MessagesKeyboard
