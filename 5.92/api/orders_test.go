@@ -1,7 +1,6 @@
 package api
 
 import (
-	"os"
 	"reflect"
 	"testing"
 
@@ -9,11 +8,9 @@ import (
 )
 
 func TestVK_OrdersCancelSubscription(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -29,7 +26,7 @@ func TestVK_OrdersCancelSubscription(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.OrdersCancelSubscription(tt.argParams)
+			gotResponse, gotVkErr := vkService.OrdersCancelSubscription(tt.argParams)
 			if gotResponse != tt.wantResponse {
 				t.Errorf("VK.OrdersCancelSubscription() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -41,11 +38,9 @@ func TestVK_OrdersCancelSubscription(t *testing.T) {
 }
 
 func TestVK_OrdersChangeState(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -61,7 +56,7 @@ func TestVK_OrdersChangeState(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.OrdersChangeState(tt.argParams)
+			gotResponse, gotVkErr := vkService.OrdersChangeState(tt.argParams)
 			if gotResponse != tt.wantResponse {
 				t.Errorf("VK.OrdersChangeState() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -73,11 +68,9 @@ func TestVK_OrdersChangeState(t *testing.T) {
 }
 
 func TestVK_OrdersGet(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -93,7 +86,7 @@ func TestVK_OrdersGet(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.OrdersGet(tt.argParams)
+			gotResponse, gotVkErr := vkService.OrdersGet(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGet() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -105,11 +98,9 @@ func TestVK_OrdersGet(t *testing.T) {
 }
 
 func TestVK_OrdersGetAmount(t *testing.T) {
-	userToken := os.Getenv("USER_TOKEN")
-	if userToken == "" {
+	if vkUser.AccessToken == "" {
 		t.Skip("USER_TOKEN empty")
 	}
-	vk := Init(userToken)
 
 	tests := []struct {
 		name         string
@@ -121,7 +112,7 @@ func TestVK_OrdersGetAmount(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.OrdersGetAmount(tt.argParams)
+			gotResponse, gotVkErr := vkUser.OrdersGetAmount(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGetAmount() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -133,11 +124,9 @@ func TestVK_OrdersGetAmount(t *testing.T) {
 }
 
 func TestVK_OrdersGetByID(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -153,7 +142,7 @@ func TestVK_OrdersGetByID(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.OrdersGetByID(tt.argParams)
+			gotResponse, gotVkErr := vkService.OrdersGetByID(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGetByID() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -165,11 +154,9 @@ func TestVK_OrdersGetByID(t *testing.T) {
 }
 
 func TestVK_OrdersGetUserSubscriptionByID(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -185,7 +172,7 @@ func TestVK_OrdersGetUserSubscriptionByID(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.OrdersGetUserSubscriptionByID(tt.argParams)
+			gotResponse, gotVkErr := vkService.OrdersGetUserSubscriptionByID(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGetUserSubscriptionByID() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -197,11 +184,9 @@ func TestVK_OrdersGetUserSubscriptionByID(t *testing.T) {
 }
 
 func TestVK_OrdersGetUserSubscriptions(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -217,7 +202,7 @@ func TestVK_OrdersGetUserSubscriptions(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.OrdersGetUserSubscriptions(tt.argParams)
+			gotResponse, gotVkErr := vkService.OrdersGetUserSubscriptions(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGetUserSubscriptions() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -229,11 +214,9 @@ func TestVK_OrdersGetUserSubscriptions(t *testing.T) {
 }
 
 func TestVK_OrdersUpdateSubscription(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -249,7 +232,7 @@ func TestVK_OrdersUpdateSubscription(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.OrdersUpdateSubscription(tt.argParams)
+			gotResponse, gotVkErr := vkService.OrdersUpdateSubscription(tt.argParams)
 			if gotResponse != tt.wantResponse {
 				t.Errorf("VK.OrdersUpdateSubscription() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}

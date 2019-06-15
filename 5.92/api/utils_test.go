@@ -1,7 +1,6 @@
 package api
 
 import (
-	"os"
 	"reflect"
 	"testing"
 
@@ -9,11 +8,9 @@ import (
 )
 
 func TestVK_UtilsCheckLink(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -36,7 +33,7 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.UtilsCheckLink(tt.argParams)
+			gotResponse, gotVkErr := vkService.UtilsCheckLink(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.UtilsCheckLink() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -48,11 +45,9 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 }
 
 func TestVK_UtilsDeleteFromLastShortened(t *testing.T) {
-	userToken := os.Getenv("USER_TOKEN")
-	if userToken == "" {
+	if vkUser.AccessToken == "" {
 		t.Skip("USER_TOKEN empty")
 	}
-	vk := Init(userToken)
 
 	tests := []struct {
 		name      string
@@ -67,8 +62,8 @@ func TestVK_UtilsDeleteFromLastShortened(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.UtilsDeleteFromLastShortened(tt.argParams)
-			if !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
+			_, gotVkErr := vkUser.UtilsDeleteFromLastShortened(tt.argParams)
+			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.UtilsDeleteFromLastShortened() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -76,11 +71,9 @@ func TestVK_UtilsDeleteFromLastShortened(t *testing.T) {
 }
 
 func TestVK_UtilsGetLastShortenedLinks(t *testing.T) {
-	userToken := os.Getenv("USER_TOKEN")
-	if userToken == "" {
+	if vkUser.AccessToken == "" {
 		t.Skip("USER_TOKEN empty")
 	}
-	vk := Init(userToken)
 
 	tests := []struct {
 		name         string
@@ -97,7 +90,7 @@ func TestVK_UtilsGetLastShortenedLinks(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.UtilsGetLastShortenedLinks(tt.argParams)
+			gotResponse, gotVkErr := vkUser.UtilsGetLastShortenedLinks(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.UtilsGetLastShortenedLinks() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -109,11 +102,9 @@ func TestVK_UtilsGetLastShortenedLinks(t *testing.T) {
 }
 
 func TestVK_UtilsGetLinkStats(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -139,7 +130,7 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.UtilsGetLinkStats(tt.argParams)
+			gotResponse, gotVkErr := vkService.UtilsGetLinkStats(tt.argParams)
 			if gotResponse.Key != tt.wantResponse.Key {
 				t.Errorf("VK.UtilsGetLinkStats() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -151,11 +142,9 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 }
 
 func TestVK_UtilsGetLinkStatsExtended(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -182,7 +171,7 @@ func TestVK_UtilsGetLinkStatsExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.UtilsGetLinkStatsExtended(tt.argParams)
+			gotResponse, gotVkErr := vkService.UtilsGetLinkStatsExtended(tt.argParams)
 			if gotResponse.Key != tt.wantResponse.Key {
 				t.Errorf("VK.UtilsGetLinkStatsExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -194,12 +183,10 @@ func TestVK_UtilsGetLinkStatsExtended(t *testing.T) {
 }
 
 func TestVK_UtilsGetServerTime(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
-	gotResponse, vkErr := vk.UtilsGetServerTime()
+	gotResponse, vkErr := vkService.UtilsGetServerTime()
 	if vkErr.Code != 0 {
 		t.Errorf("VK.UtilsGetServerTime() vkErr.Code = %v, want 0", vkErr)
 	}
@@ -216,11 +203,9 @@ func TestVK_UtilsGetServerTimeError(t *testing.T) {
 }
 
 func TestVK_UtilsGetShortLink(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -244,7 +229,7 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.UtilsGetShortLink(tt.argParams)
+			gotResponse, gotVkErr := vkService.UtilsGetShortLink(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.UtilsGetShortLink() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -256,11 +241,9 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 }
 
 func TestVK_UtilsResolveScreenName(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -288,7 +271,7 @@ func TestVK_UtilsResolveScreenName(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.UtilsResolveScreenName(tt.argParams)
+			gotResponse, gotVkErr := vkService.UtilsResolveScreenName(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.UtilsResolveScreenName() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}

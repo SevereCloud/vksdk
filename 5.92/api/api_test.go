@@ -5,6 +5,18 @@ import (
 	"testing"
 )
 
+var vkGroup, vkService, vkUser VK // nolint:gochecknoglobals
+
+func TestMain(m *testing.M) {
+	vkGroup = Init(os.Getenv("GROUP_TOKEN"))
+	vkService = Init(os.Getenv("SERVICE_TOKEN"))
+	vkUser = Init(os.Getenv("USER_TOKEN"))
+	vkUser.Limit = 3
+
+	runTests := m.Run()
+	os.Exit(runTests)
+}
+
 func TestVK_Request(t *testing.T) {
 	groupToken := os.Getenv("GROUP_TOKEN")
 	if groupToken == "" {
@@ -45,16 +57,14 @@ func TestVK_RequestLimit(t *testing.T) {
 }
 
 func TestVK_Execute(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	t.Run("Execute test", func(t *testing.T) {
 		var response int
 		var vkErr Error
-		vk.Execute(`return 1;`, &response, &vkErr)
+		vkGroup.Execute(`return 1;`, &response, &vkErr)
 		if vkErr.Code != 0 {
 			t.Errorf("VK.Execute() gotVkErr = %v, want 0", vkErr)
 		}
@@ -65,11 +75,9 @@ func TestVK_Execute(t *testing.T) {
 }
 
 func TestVK_RequestUnmarshal(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	var testObj string
 	type args struct {
@@ -96,7 +104,7 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			vk.RequestUnmarshal(tt.args.method, tt.args.params, tt.args.obj, tt.args.vkErr)
+			vkGroup.RequestUnmarshal(tt.args.method, tt.args.params, tt.args.obj, tt.args.vkErr)
 			if tt.args.vkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.Execute() gotVkErr = %v, want %v", tt.args.vkErr, tt.wantVkErr)
 			}

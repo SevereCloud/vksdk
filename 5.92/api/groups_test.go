@@ -9,11 +9,9 @@ import (
 )
 
 func TestVK_GroupsAddCallbackServer(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -29,7 +27,7 @@ func TestVK_GroupsAddCallbackServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsAddCallbackServer(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsAddCallbackServer(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.GroupsAddCallbackServer() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -41,11 +39,9 @@ func TestVK_GroupsAddCallbackServer(t *testing.T) {
 }
 
 func TestVK_GroupsDeleteAddress(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -60,7 +56,7 @@ func TestVK_GroupsDeleteAddress(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.GroupsDeleteAddress(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vkGroup.GroupsDeleteAddress(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsDeleteAddress() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -68,11 +64,9 @@ func TestVK_GroupsDeleteAddress(t *testing.T) {
 }
 
 func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -87,7 +81,7 @@ func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.GroupsDeleteCallbackServer(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vkGroup.GroupsDeleteCallbackServer(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsDeleteCallbackServer() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -95,11 +89,9 @@ func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
 }
 
 func TestVK_GroupsEditCallbackServer(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -114,18 +106,16 @@ func TestVK_GroupsEditCallbackServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.GroupsEditCallbackServer(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vkGroup.GroupsEditCallbackServer(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsEditCallbackServer() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
 	}
 }
 func TestVK_GroupsEnableOnline(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -145,7 +135,7 @@ func TestVK_GroupsEnableOnline(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.GroupsEnableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vkGroup.GroupsEnableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsEnableOnline() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -153,11 +143,9 @@ func TestVK_GroupsEnableOnline(t *testing.T) {
 }
 
 func TestVK_GroupsDisableOnline(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -177,18 +165,16 @@ func TestVK_GroupsDisableOnline(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.GroupsDisableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vkGroup.GroupsDisableOnline(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsDisableOnline() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
 	}
 }
 func TestVK_GroupsGetBanned(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -200,7 +186,7 @@ func TestVK_GroupsGetBanned(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetBanned(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsGetBanned(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.GroupsGetBanned() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -212,11 +198,9 @@ func TestVK_GroupsGetBanned(t *testing.T) {
 }
 
 func TestVK_GroupsGetByID(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -240,7 +224,7 @@ func TestVK_GroupsGetByID(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetByID(tt.argParams)
+			gotResponse, gotVkErr := vkService.GroupsGetByID(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsGetByID() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -252,11 +236,9 @@ func TestVK_GroupsGetByID(t *testing.T) {
 }
 
 func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -277,7 +259,7 @@ func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetCallbackConfirmationCode(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsGetCallbackConfirmationCode(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsGetCallbackConfirmationCode() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -289,11 +271,9 @@ func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
 }
 
 func TestVK_GroupsGetCallbackServers(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -313,7 +293,7 @@ func TestVK_GroupsGetCallbackServers(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetCallbackServers(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsGetCallbackServers(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsGetCallbackServers() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -325,11 +305,9 @@ func TestVK_GroupsGetCallbackServers(t *testing.T) {
 }
 
 func TestVK_GroupsGetCallbackSettings(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -340,7 +318,7 @@ func TestVK_GroupsGetCallbackSettings(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetCallbackSettings(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsGetCallbackSettings(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.GroupsGetCallbackSettings() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -352,11 +330,9 @@ func TestVK_GroupsGetCallbackSettings(t *testing.T) {
 }
 
 func TestVK_GroupsGetLongPollServer(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -376,7 +352,7 @@ func TestVK_GroupsGetLongPollServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetLongPollServer(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsGetLongPollServer(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsGetLongPollServer() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -388,11 +364,9 @@ func TestVK_GroupsGetLongPollServer(t *testing.T) {
 }
 
 func TestVK_GroupsGetLongPollSettings(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -412,7 +386,7 @@ func TestVK_GroupsGetLongPollSettings(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.GroupsGetLongPollSettings(tt.argParams)
+			_, gotVkErr := vkGroup.GroupsGetLongPollSettings(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsGetLongPollSettings() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -421,11 +395,9 @@ func TestVK_GroupsGetLongPollSettings(t *testing.T) {
 }
 
 func TestVK_GroupsGetMembers(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -436,7 +408,7 @@ func TestVK_GroupsGetMembers(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetMembers(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsGetMembers(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.GroupsGetMembers() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -448,11 +420,9 @@ func TestVK_GroupsGetMembers(t *testing.T) {
 }
 
 func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -464,7 +434,7 @@ func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetMembersFilterManagers(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsGetMembersFilterManagers(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.GroupsGetMembersFilterManagers() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -476,11 +446,9 @@ func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
 }
 
 func TestVK_GroupsGetOnlineStatus(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -504,7 +472,7 @@ func TestVK_GroupsGetOnlineStatus(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetOnlineStatus(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsGetOnlineStatus(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.GroupsGetOnlineStatus() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -516,32 +484,23 @@ func TestVK_GroupsGetOnlineStatus(t *testing.T) {
 }
 
 func TestVK_GroupsGetTokenPermissions(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
-	gotResponse, gotVkErr := vk.GroupsGetTokenPermissions()
+	gotResponse, gotVkErr := vkGroup.GroupsGetTokenPermissions()
 	if gotResponse.Mask == 0 {
 		t.Errorf("VK.GroupsGetTokenPermissions() gotResponse = %v", gotResponse)
 	}
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.GroupsGetTokenPermissions() gotVkErr = %v", gotVkErr)
 	}
-	vk = Init("")
-	_, vkErr := vk.GroupsGetTokenPermissions()
-	if vkErr.Code != 5 {
-		t.Errorf("GroupsGetTokenPermissions error bad %d %s", vkErr.Code, vkErr.Message)
-	}
 }
 
 func TestVK_GroupsSetCallbackSettings(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -555,7 +514,7 @@ func TestVK_GroupsSetCallbackSettings(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.GroupsSetCallbackSettings(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vkGroup.GroupsSetCallbackSettings(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsSetCallbackSettings() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -563,11 +522,9 @@ func TestVK_GroupsSetCallbackSettings(t *testing.T) {
 }
 
 func TestVK_GroupsSetLongPollSettings(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 	tests := []struct {
 		name      string
 		argParams map[string]string
@@ -587,7 +544,7 @@ func TestVK_GroupsSetLongPollSettings(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.GroupsSetLongPollSettings(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
+			if _, gotVkErr := vkGroup.GroupsSetLongPollSettings(tt.argParams); gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsSetLongPollSettings() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -595,11 +552,9 @@ func TestVK_GroupsSetLongPollSettings(t *testing.T) {
 }
 
 func TestVK_GroupsGetAddresses(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -615,7 +570,7 @@ func TestVK_GroupsGetAddresses(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsGetAddresses(tt.argParams)
+			gotResponse, gotVkErr := vkService.GroupsGetAddresses(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.GroupsGetAddresses() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -627,11 +582,9 @@ func TestVK_GroupsGetAddresses(t *testing.T) {
 }
 
 func TestVK_GroupsEditAddress(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -647,7 +600,7 @@ func TestVK_GroupsEditAddress(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsEditAddress(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsEditAddress(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.GroupsEditAddress() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -659,11 +612,9 @@ func TestVK_GroupsEditAddress(t *testing.T) {
 }
 
 func TestVK_GroupsAddAddress(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -679,7 +630,7 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsAddAddress(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsAddAddress(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.GroupsAddAddress() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
@@ -691,11 +642,9 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 }
 
 func TestVK_GroupsIsMember(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -719,7 +668,7 @@ func TestVK_GroupsIsMember(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsIsMember(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsIsMember(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsIsMember() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -731,11 +680,9 @@ func TestVK_GroupsIsMember(t *testing.T) {
 }
 
 func TestVK_GroupsIsMemberExtended(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -762,7 +709,7 @@ func TestVK_GroupsIsMemberExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsIsMemberExtended(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsIsMemberExtended(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsIsMemberExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -774,11 +721,9 @@ func TestVK_GroupsIsMemberExtended(t *testing.T) {
 }
 
 func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -808,7 +753,7 @@ func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsIsMemberUserIDsExtended(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsIsMemberUserIDsExtended(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsIsMemberUserIDsExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -820,11 +765,9 @@ func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 }
 
 func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -853,7 +796,7 @@ func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.GroupsIsMemberUserIDs(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.GroupsIsMemberUserIDs(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.GroupsIsMemberUserIDs() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}

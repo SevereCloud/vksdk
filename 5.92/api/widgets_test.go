@@ -1,7 +1,6 @@
 package api
 
 import (
-	"os"
 	"reflect"
 	"testing"
 
@@ -9,11 +8,9 @@ import (
 )
 
 func TestVK_WidgetsGetComments(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -28,7 +25,7 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.WidgetsGetComments(tt.argParams)
+			gotResponse, gotVkErr := vkService.WidgetsGetComments(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.WidgetsGetComments() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -40,11 +37,9 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 }
 
 func TestVK_WidgetsGetPages(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -59,7 +54,7 @@ func TestVK_WidgetsGetPages(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WidgetsGetPages(tt.argParams)
+			_, gotVkErr := vkService.WidgetsGetPages(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.WidgetsGetPages() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}

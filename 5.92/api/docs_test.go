@@ -8,11 +8,9 @@ import (
 )
 
 func TestVK_DocsSearch(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -32,7 +30,7 @@ func TestVK_DocsSearch(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.DocsSearch(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.DocsSearch(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.DocsSearch() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -44,11 +42,9 @@ func TestVK_DocsSearch(t *testing.T) {
 }
 
 func TestVK_DocsGetWallUploadServer(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -68,7 +64,7 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.DocsGetWallUploadServer(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.DocsGetWallUploadServer(tt.argParams)
 
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.DocsGetWallUploadServer() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
@@ -81,11 +77,9 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 }
 
 func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -107,7 +101,7 @@ func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.DocsGetMessagesUploadServer(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.DocsGetMessagesUploadServer(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.DocsGetMessagesUploadServer() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}

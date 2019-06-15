@@ -8,13 +8,11 @@ import (
 )
 
 func TestVK_AuthCheckPhone(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
 	clientSecret := os.Getenv("CLIENT_SECRET")
 	clientID := os.Getenv("CLIENT_ID")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name         string
@@ -38,7 +36,7 @@ func TestVK_AuthCheckPhone(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.AuthCheckPhone(tt.argParams)
+			gotResponse, gotVkErr := vkService.AuthCheckPhone(tt.argParams)
 			if gotResponse != tt.wantResponse {
 				t.Errorf("VK.AuthCheckPhone() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}

@@ -1,19 +1,16 @@
 package api
 
 import (
-	"os"
 	"testing"
 )
 
 func TestVK_StreamingGetServerURL(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	t.Run("StreamingGetServerURL not empty", func(t *testing.T) {
-		response, vkErr := vk.StreamingGetServerURL()
+		response, vkErr := vkService.StreamingGetServerURL()
 		if vkErr.Code != 0 {
 			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
 		}
@@ -28,14 +25,12 @@ func TestVK_StreamingGetServerURL(t *testing.T) {
 }
 
 func TestVK_StreamingGetSettings(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	t.Run("StreamingGetSettings not empty", func(t *testing.T) {
-		response, vkErr := vk.StreamingGetSettings()
+		response, vkErr := vkService.StreamingGetSettings()
 		if vkErr.Code != 0 {
 			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
 		}
@@ -47,11 +42,9 @@ func TestVK_StreamingGetSettings(t *testing.T) {
 }
 
 func TestVK_StreamingGetStats(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	params := make(map[string]string)
 	params["type"] = "received"
@@ -59,7 +52,7 @@ func TestVK_StreamingGetStats(t *testing.T) {
 
 	t.Run("StreamingGetStats not empty", func(t *testing.T) {
 		// TODO: check it
-		_, vkErr := vk.StreamingGetStats(params)
+		_, vkErr := vkService.StreamingGetStats(params)
 		if vkErr.Code != 0 {
 			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
 		}
@@ -71,16 +64,14 @@ func TestVK_StreamingGetStats(t *testing.T) {
 }
 
 func TestVK_StreamingGetStem(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	params := make(map[string]string)
 	params["word"] = "собака"
 	t.Run("StreamingGetStem not empty", func(t *testing.T) {
-		response, vkErr := vk.StreamingGetStem(params)
+		response, vkErr := vkService.StreamingGetStem(params)
 		if vkErr.Code != 0 {
 			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
 		}
@@ -92,17 +83,15 @@ func TestVK_StreamingGetStem(t *testing.T) {
 }
 
 func TestVK_StreamingSetSettings(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	params := make(map[string]string)
 	params["monthly_tier"] = "unlimited"
 	t.Run("StreamingSetSettings not empty", func(t *testing.T) {
 		// TODO: check StreamingSetSettings test
-		_, vkErr := vk.StreamingSetSettings(params)
+		_, vkErr := vkService.StreamingSetSettings(params)
 		if vkErr.Code != 0 {
 			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
 		}

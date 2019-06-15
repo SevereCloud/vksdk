@@ -1,17 +1,14 @@
 package api
 
 import (
-	"os"
 	"reflect"
 	"testing"
 )
 
 func TestVK_StoriesDelete(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -27,7 +24,7 @@ func TestVK_StoriesDelete(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.StoriesDelete(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
+			if _, gotVkErr := vkGroup.StoriesDelete(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
 				t.Errorf("VK.StoriesDelete() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -35,11 +32,9 @@ func TestVK_StoriesDelete(t *testing.T) {
 }
 
 func TestVK_StoriesGet(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -56,7 +51,7 @@ func TestVK_StoriesGet(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGet(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGet(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGet() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -68,11 +63,9 @@ func TestVK_StoriesGet(t *testing.T) {
 }
 
 func TestVK_StoriesGetExtended(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -89,7 +82,7 @@ func TestVK_StoriesGetExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetExtended(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetExtended(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -101,11 +94,9 @@ func TestVK_StoriesGetExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetBanned(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -122,7 +113,7 @@ func TestVK_StoriesGetBanned(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetBanned(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetBanned(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetBanned() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -134,11 +125,9 @@ func TestVK_StoriesGetBanned(t *testing.T) {
 }
 
 func TestVK_StoriesGetBannedExtended(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -155,7 +144,7 @@ func TestVK_StoriesGetBannedExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetBannedExtended(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetBannedExtended(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetBannedExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -167,11 +156,9 @@ func TestVK_StoriesGetBannedExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetByID(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -188,7 +175,7 @@ func TestVK_StoriesGetByID(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetByID(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetByID(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetByID() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -200,11 +187,9 @@ func TestVK_StoriesGetByID(t *testing.T) {
 }
 
 func TestVK_StoriesGetByIDExtended(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -221,7 +206,7 @@ func TestVK_StoriesGetByIDExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetByIDExtended(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetByIDExtended(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetByIDExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -233,11 +218,9 @@ func TestVK_StoriesGetByIDExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetPhotoUploadServer(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -254,7 +237,7 @@ func TestVK_StoriesGetPhotoUploadServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetPhotoUploadServer(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetPhotoUploadServer(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetPhotoUploadServer() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -266,11 +249,9 @@ func TestVK_StoriesGetPhotoUploadServer(t *testing.T) {
 }
 
 func TestVK_StoriesGetReplies(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -287,7 +268,7 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetReplies(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetReplies(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetReplies() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -299,11 +280,9 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 }
 
 func TestVK_StoriesGetRepliesExtended(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -320,7 +299,7 @@ func TestVK_StoriesGetRepliesExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetRepliesExtended(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetRepliesExtended(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetRepliesExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -332,11 +311,9 @@ func TestVK_StoriesGetRepliesExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetStats(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -353,7 +330,7 @@ func TestVK_StoriesGetStats(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetStats(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetStats(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetStats() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -365,11 +342,9 @@ func TestVK_StoriesGetStats(t *testing.T) {
 }
 
 func TestVK_StoriesGetVideoUploadServer(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -386,7 +361,7 @@ func TestVK_StoriesGetVideoUploadServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetVideoUploadServer(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetVideoUploadServer(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetVideoUploadServer() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -398,11 +373,9 @@ func TestVK_StoriesGetVideoUploadServer(t *testing.T) {
 }
 
 func TestVK_StoriesGetViewers(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -419,7 +392,7 @@ func TestVK_StoriesGetViewers(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetViewers(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetViewers(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetViewers() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -431,11 +404,9 @@ func TestVK_StoriesGetViewers(t *testing.T) {
 }
 
 func TestVK_StoriesGetViewersExtended(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name         string
@@ -452,7 +423,7 @@ func TestVK_StoriesGetViewersExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vk.StoriesGetViewersExtended(tt.argParams)
+			gotResponse, gotVkErr := vkGroup.StoriesGetViewersExtended(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.StoriesGetViewersExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -464,11 +435,9 @@ func TestVK_StoriesGetViewersExtended(t *testing.T) {
 }
 
 func TestVK_StoriesHideAllReplies(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -484,7 +453,7 @@ func TestVK_StoriesHideAllReplies(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.StoriesHideAllReplies(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
+			if _, gotVkErr := vkGroup.StoriesHideAllReplies(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
 				t.Errorf("VK.StoriesHideAllReplies() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
@@ -492,11 +461,9 @@ func TestVK_StoriesHideAllReplies(t *testing.T) {
 }
 
 func TestVK_StoriesHideReply(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
+	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
-	vk := Init(groupToken)
 
 	tests := []struct {
 		name      string
@@ -512,7 +479,7 @@ func TestVK_StoriesHideReply(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if _, gotVkErr := vk.StoriesHideReply(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
+			if _, gotVkErr := vkGroup.StoriesHideReply(tt.argParams); !reflect.DeepEqual(gotVkErr, tt.wantVkErr) {
 				t.Errorf("VK.StoriesHideReply() = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})

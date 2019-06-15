@@ -1,18 +1,16 @@
 package api
 
 import (
-	"os"
+	"reflect"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
 func TestVK_WallSearch(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -29,7 +27,7 @@ func TestVK_WallSearch(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WallSearch(tt.argParams)
+			_, gotVkErr := vkService.WallSearch(tt.argParams)
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WallSearch() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			// }
@@ -41,11 +39,9 @@ func TestVK_WallSearch(t *testing.T) {
 }
 
 func TestVK_WallSearchExtended(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -62,7 +58,7 @@ func TestVK_WallSearchExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WallSearchExtended(tt.argParams)
+			_, gotVkErr := vkService.WallSearchExtended(tt.argParams)
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WallSearchExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			// }
@@ -74,11 +70,9 @@ func TestVK_WallSearchExtended(t *testing.T) {
 }
 
 func TestVK_WallGetReposts(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -95,7 +89,7 @@ func TestVK_WallGetReposts(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WallGetReposts(tt.argParams)
+			_, gotVkErr := vkService.WallGetReposts(tt.argParams)
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WallGetReposts() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			// }
@@ -107,11 +101,9 @@ func TestVK_WallGetReposts(t *testing.T) {
 }
 
 func TestVK_WallGetCommentsExtended(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -128,7 +120,7 @@ func TestVK_WallGetCommentsExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WallGetCommentsExtended(tt.argParams)
+			_, gotVkErr := vkService.WallGetCommentsExtended(tt.argParams)
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WallGetCommentsExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			// }
@@ -140,11 +132,9 @@ func TestVK_WallGetCommentsExtended(t *testing.T) {
 }
 
 func TestVK_WallGetComments(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -161,7 +151,7 @@ func TestVK_WallGetComments(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WallGetComments(tt.argParams)
+			_, gotVkErr := vkService.WallGetComments(tt.argParams)
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WallGetComments() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			// }
@@ -173,11 +163,9 @@ func TestVK_WallGetComments(t *testing.T) {
 }
 
 func TestVK_WallGet(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -194,7 +182,7 @@ func TestVK_WallGet(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WallGet(tt.argParams)
+			_, gotVkErr := vkService.WallGet(tt.argParams)
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WallGet() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			// }
@@ -206,11 +194,9 @@ func TestVK_WallGet(t *testing.T) {
 }
 
 func TestVK_WallGetExtended(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -227,7 +213,7 @@ func TestVK_WallGetExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WallGetExtended(tt.argParams)
+			_, gotVkErr := vkService.WallGetExtended(tt.argParams)
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WallGetExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			// }
@@ -239,11 +225,9 @@ func TestVK_WallGetExtended(t *testing.T) {
 }
 
 func TestVK_WallGetByID(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -260,7 +244,7 @@ func TestVK_WallGetByID(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WallGetByID(tt.argParams)
+			_, gotVkErr := vkService.WallGetByID(tt.argParams)
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WallGetByID() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			// }
@@ -272,11 +256,9 @@ func TestVK_WallGetByID(t *testing.T) {
 }
 
 func TestVK_WallGetByIDExtended(t *testing.T) {
-	serviceToken := os.Getenv("SERVICE_TOKEN")
-	if serviceToken == "" {
+	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	vk := Init(serviceToken)
 
 	tests := []struct {
 		name      string
@@ -293,12 +275,601 @@ func TestVK_WallGetByIDExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vk.WallGetByIDExtended(tt.argParams)
+			_, gotVkErr := vkService.WallGetByIDExtended(tt.argParams)
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WallGetByIDExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			// }
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.WallGetByIDExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallCloseComments(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallCloseCommentsResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallCloseComments empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallCloseComments(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallCloseComments() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallCloseComments() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallCreateComment(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallCreateCommentResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallCreateComment empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallCreateComment(tt.argParams)
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.WallCreateComment() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallCreateComment() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallDelete(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallDeleteResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallDelete empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallDelete(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallDelete() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallDelete() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallDeleteComment(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallDeleteCommentResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallDeleteComment empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallDeleteComment(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallDeleteComment() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallDeleteComment() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallEdit(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallEditResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallEdit empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallEdit(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallEdit() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallEdit() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallEditAdsStealth(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallEditAdsStealthResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallEditAdsStealth empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallEditAdsStealth(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallEditAdsStealth() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallEditAdsStealth() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallEditComment(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallEditCommentResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallEditComment empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallEditComment(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallEditComment() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallEditComment() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallGetComment(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallGetCommentResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallGetComment empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallGetComment(tt.argParams)
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.WallGetComment() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallGetComment() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallGetCommentExtended(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallGetCommentExtendedResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallGetCommentExtended empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallGetCommentExtended(tt.argParams)
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.WallGetCommentExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallGetCommentExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallOpenComments(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallOpenCommentsResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallOpenComments empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallOpenComments(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallOpenComments() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallOpenComments() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallPin(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallPinResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallPin empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallPin(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallPin() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallPin() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallPost(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallPostResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallPost empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallPost(tt.argParams)
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.WallPost() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallPost() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallPostAdsStealth(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallPostAdsStealthResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallPostAdsStealth empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallPostAdsStealth(tt.argParams)
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.WallPostAdsStealth() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallPostAdsStealth() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallReportComment(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallReportCommentResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallReportComment empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallReportComment(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallReportComment() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallReportComment() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallReportPost(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallReportPostResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallReportPost empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallReportPost(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallReportPost() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallReportPost() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallRepost(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallRepostResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallRepost empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallRepost(tt.argParams)
+			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+				t.Errorf("VK.WallRepost() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallRepost() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallRestore(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallRestoreResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallRestore empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallRestore(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallRestore() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallRestore() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallRestoreComment(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallRestoreCommentResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallRestoreComment empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallRestoreComment(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallRestoreComment() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallRestoreComment() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			}
+		})
+	}
+}
+
+func TestVK_WallUnpin(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	tests := []struct {
+		name         string
+		argParams    map[string]string
+		wantResponse WallUnpinResponse
+		wantVkErr    Error
+	}{
+		// TODO: Add test cases.
+		{
+			name:      "WallUnpin empty",
+			argParams: map[string]string{},
+			wantVkErr: Error{Code: object.ErrorParam},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResponse, gotVkErr := vkUser.WallUnpin(tt.argParams)
+			if gotResponse != tt.wantResponse {
+				t.Errorf("VK.WallUnpin() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			}
+			if gotVkErr.Code != tt.wantVkErr.Code {
+				t.Errorf("VK.WallUnpin() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
 		})
 	}
