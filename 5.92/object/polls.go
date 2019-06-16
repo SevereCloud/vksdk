@@ -15,7 +15,7 @@ type PollsPoll struct {
 	ID         int             `json:"id"`       // Poll ID
 	OwnerID    int             `json:"owner_id"` // Poll owner's ID
 	Question   string          `json:"question"` // Poll question
-	Votes      string          `json:"votes"`    // Votes number
+	Votes      int             `json:"votes"`    // Votes number
 	AnswerIDs  []int           `json:"answer_ids"`
 	EndDate    int             `json:"end_date"`
 	Anonymous  bool            `json:"anonymous"` // Information whether the pole is anonymous
