@@ -173,7 +173,13 @@ func TestVK_WallGet(t *testing.T) {
 		// wantResponse WallGetResponse
 		wantVkErr Error
 	}{
-		// TODO: Add test cases.
+		{
+			name: "WallGet",
+			argParams: map[string]string{
+				"owner_id": "-86529522",
+				"count":    "1",
+			},
+		},
 		{
 			name:      "WallGet empty",
 			argParams: map[string]string{},
@@ -204,7 +210,13 @@ func TestVK_WallGetExtended(t *testing.T) {
 		// wantResponse WallGetExtendedResponse
 		wantVkErr Error
 	}{
-		// TODO: Add test cases.
+		{
+			name: "WallGetExtended",
+			argParams: map[string]string{
+				"owner_id": "-86529522",
+				"count":    "1",
+			},
+		},
 		{
 			name:      "WallGetExtended empty",
 			argParams: map[string]string{},
@@ -235,7 +247,12 @@ func TestVK_WallGetByID(t *testing.T) {
 		// wantResponse WallGetByIDResponse
 		wantVkErr Error
 	}{
-		// TODO: Add test cases.
+		{
+			name: "WallGetByID",
+			argParams: map[string]string{
+				"posts": "-86529522_204382",
+			},
+		},
 		{
 			name:      "WallGetByID empty",
 			argParams: map[string]string{},
@@ -266,7 +283,12 @@ func TestVK_WallGetByIDExtended(t *testing.T) {
 		// wantResponse WallGetByIDExtendedResponse
 		wantVkErr Error
 	}{
-		// TODO: Add test cases.
+		{
+			name: "WallGetByIDExtended",
+			argParams: map[string]string{
+				"posts": "-86529522_204382",
+			},
+		},
 		{
 			name:      "WallGetByIDExtended empty",
 			argParams: map[string]string{},
@@ -509,12 +531,18 @@ func TestVK_WallGetComment(t *testing.T) {
 	}
 
 	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse WallGetCommentResponse
-		wantVkErr    Error
+		name      string
+		argParams map[string]string
+		// wantResponse WallGetCommentResponse
+		wantVkErr Error
 	}{
-		// TODO: Add test cases.
+		{
+			name: "WallGetComment",
+			argParams: map[string]string{
+				"owner_id":   "66559",
+				"comment_id": "73674",
+			},
+		},
 		{
 			name:      "WallGetComment empty",
 			argParams: map[string]string{},
@@ -523,10 +551,10 @@ func TestVK_WallGetComment(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkUser.WallGetComment(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.WallGetComment() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
+			_, gotVkErr := vkUser.WallGetComment(tt.argParams)
+			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+			// 	t.Errorf("VK.WallGetComment() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			// }
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.WallGetComment() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -540,12 +568,18 @@ func TestVK_WallGetCommentExtended(t *testing.T) {
 	}
 
 	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse WallGetCommentExtendedResponse
-		wantVkErr    Error
+		name      string
+		argParams map[string]string
+		// wantResponse WallGetCommentExtendedResponse
+		wantVkErr Error
 	}{
-		// TODO: Add test cases.
+		{
+			name: "WallGetCommentExtended",
+			argParams: map[string]string{
+				"owner_id":   "66559",
+				"comment_id": "73674",
+			},
+		},
 		{
 			name:      "WallGetCommentExtended empty",
 			argParams: map[string]string{},
@@ -554,10 +588,10 @@ func TestVK_WallGetCommentExtended(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkUser.WallGetCommentExtended(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.WallGetCommentExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
+			_, gotVkErr := vkUser.WallGetCommentExtended(tt.argParams)
+			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
+			// 	t.Errorf("VK.WallGetCommentExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
+			// }
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.WallGetCommentExtended() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
@@ -633,12 +667,17 @@ func TestVK_WallPost(t *testing.T) {
 	}
 
 	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse WallPostResponse
-		wantVkErr    Error
+		name      string
+		argParams map[string]string
+		// wantResponse WallPostResponse
+		wantVkErr Error
 	}{
-		// TODO: Add test cases.
+		{
+			name: "WallPost empty",
+			argParams: map[string]string{
+				"message": "Test post from github.com SevereCloud/vksdk",
+			},
+		},
 		{
 			name:      "WallPost empty",
 			argParams: map[string]string{},
@@ -647,10 +686,7 @@ func TestVK_WallPost(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkUser.WallPost(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.WallPost() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
+			_, gotVkErr := vkUser.WallPost(tt.argParams)
 			if gotVkErr.Code != tt.wantVkErr.Code {
 				t.Errorf("VK.WallPost() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
 			}
