@@ -38,7 +38,7 @@ type StoriesStory struct {
 	ID                   int              `json:"id"`          // Story ID.
 	IsDeleted            bool             `json:"is_deleted"`  // Information whether the story is deleted (false - no, true - yes).
 	IsExpired            bool             `json:"is_expired"`  // Information whether the story is expired (false - no, true - yes).
-	NoSound              bool             `json:"no_sound"` 
+	NoSound              bool             `json:"no_sound"`
 	Link                 storiesStoryLink `json:"link"`
 	OwnerID              int              `json:"owner_id"` // Story owner's ID.
 	ParentStory          *StoriesStory    `json:"parent_story"`
