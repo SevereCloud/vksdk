@@ -50,6 +50,7 @@ func (vk *VK) WallDeleteComment(params map[string]string) (response WallDeleteCo
 }
 
 // WallEditResponse struct
+// TODO: update 5.100
 type WallEditResponse int
 
 // WallEdit edits a post on a user wall or community wall.

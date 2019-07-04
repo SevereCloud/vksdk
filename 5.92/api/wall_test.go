@@ -2,6 +2,7 @@ package api
 
 import (
 	"reflect"
+	"strconv"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/5.92/object"
@@ -436,6 +437,9 @@ func TestVK_WallEdit(t *testing.T) {
 	if vkUser.AccessToken == "" {
 		t.Skip("USER_TOKEN empty")
 	}
+	resp, _ := vkUser.WallPost(map[string]string{
+		"message": "Test edit",
+	})
 
 	tests := []struct {
 		name         string
@@ -443,7 +447,14 @@ func TestVK_WallEdit(t *testing.T) {
 		wantResponse WallEditResponse
 		wantVkErr    Error
 	}{
-		// TODO: Add test cases.
+		{
+			name: "WallEdit empty",
+			argParams: map[string]string{
+				"message": "Test edited",
+				"post_id": strconv.Itoa(resp.PostID),
+			},
+			wantResponse: 1,
+		},
 		{
 			name:      "WallEdit empty",
 			argParams: map[string]string{},
