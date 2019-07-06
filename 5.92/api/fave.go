@@ -4,14 +4,14 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// FaveAddGroupResponse struct
-type FaveAddGroupResponse int
+// FaveAddArticleResponse struct
+type FaveAddArticleResponse int
 
-// FaveAddGroup adds a community to user faves.
+// FaveAddArticle adds a link to user faves.
 //
-// https://vk.com/dev/fave.addGroup
-func (vk *VK) FaveAddGroup(params map[string]string) (response FaveAddGroupResponse, vkErr Error) {
-	vk.RequestUnmarshal("fave.addGroup", params, &response, &vkErr)
+// https://vk.com/dev/fave.addArticle
+func (vk *VK) FaveAddArticle(params map[string]string) (response FaveAddArticleResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.addArticle", params, &response, &vkErr)
 	return
 }
 
@@ -26,168 +26,155 @@ func (vk *VK) FaveAddLink(params map[string]string) (response FaveAddLinkRespons
 	return
 }
 
-// FaveAddUserResponse struct
-type FaveAddUserResponse int
+// FaveAddPageResponse struct
+type FaveAddPageResponse int
 
-// FaveAddUser adds a profile to user faves.
+// FaveAddPage
 //
-// https://vk.com/dev/fave.addUser
-func (vk *VK) FaveAddUser(params map[string]string) (response FaveAddUserResponse, vkErr Error) {
-	vk.RequestUnmarshal("fave.addUser", params, &response, &vkErr)
+// https://vk.com/dev/fave.addPage
+func (vk *VK) FaveAddPage(params map[string]string) (response FaveAddPageResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.addPage", params, &response, &vkErr)
 	return
 }
 
-// FaveGetLinksResponse struct
-type FaveGetLinksResponse struct {
-	Count int                    `json:"count"`
-	Items []object.FaveFavesLink `json:"items"`
-}
+// FaveAddPostResponse struct
+type FaveAddPostResponse int
 
-// FaveGetLinks returns a list of links that the current user has bookmarked.
+// FaveAddPost
 //
-// https://vk.com/dev/fave.getLinks
-func (vk *VK) FaveGetLinks(params map[string]string) (response FaveGetLinksResponse, vkErr Error) {
-	vk.RequestUnmarshal("fave.getLinks", params, &response, &vkErr)
+// https://vk.com/dev/fave.addPost
+func (vk *VK) FaveAddPost(params map[string]string) (response FaveAddPostResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.addPost", params, &response, &vkErr)
 	return
 }
 
-// FaveGetMarketItemsResponse struct
-type FaveGetMarketItemsResponse struct {
-	Count int                       `json:"count"`
-	Items []object.MarketMarketItem `json:"items"`
+// FaveAddProductResponse struct
+type FaveAddProductResponse int
+
+// FaveAddProduct
+//
+// https://vk.com/dev/fave.addProduct
+func (vk *VK) FaveAddProduct(params map[string]string) (response FaveAddProductResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.addProduct", params, &response, &vkErr)
+	return
 }
 
-// FaveGetMarketItems returns market items bookmarked by current user.
+// FaveAddTagResponse struct
+type FaveAddTagResponse object.FaveTag
+
+// FaveAddTag
+//
+// https://vk.com/dev/fave.addTag
+func (vk *VK) FaveAddTag(params map[string]string) (response FaveAddTagResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.addTag", params, &response, &vkErr)
+	return
+}
+
+// FaveAddVideoResponse struct
+type FaveAddVideoResponse int
+
+// FaveAddVideo
+//
+// https://vk.com/dev/fave.addVideo
+func (vk *VK) FaveAddVideo(params map[string]string) (response FaveAddVideoResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.addVideo", params, &response, &vkErr)
+	return
+}
+
+// FaveEditTagResponse struct
+type FaveEditTagResponse int
+
+// FaveEditTag
+//
+// https://vk.com/dev/fave.editTag
+func (vk *VK) FaveEditTag(params map[string]string) (response FaveEditTagResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.editTag", params, &response, &vkErr)
+	return
+}
+
+// FaveGetResponse struct
+type FaveGetResponse struct {
+	Count int               `json:"count"`
+	Items []object.FaveItem `json:"items"`
+}
+
+// FaveGet
 //
 // extended=0
 //
-// https://vk.com/dev/fave.getMarketItems
-func (vk *VK) FaveGetMarketItems(params map[string]string) (response FaveGetMarketItemsResponse, vkErr Error) {
-	params["extended"] = "0"
-	vk.RequestUnmarshal("fave.getMarketItems", params, &response, &vkErr)
-	return
-}
-
-// FaveGetMarketItemsExtended returns market items bookmarked by current user.
-//
-// extended=1
-//
-// https://vk.com/dev/fave.getMarketItems
-func (vk *VK) FaveGetMarketItemsExtended(params map[string]string) (response FaveGetMarketItemsResponse, vkErr Error) {
+// https://vk.com/dev/fave.get
+func (vk *VK) FaveGet(params map[string]string) (response FaveGetResponse, vkErr Error) {
 	params["extended"] = "1"
-	vk.RequestUnmarshal("fave.getMarketItems", params, &response, &vkErr)
+	vk.RequestUnmarshal("fave.get", params, &response, &vkErr)
 	return
 }
 
-// FaveGetPhotosResponse struct
-type FaveGetPhotosResponse struct {
+// FaveGetExtendedResponse struct
+type FaveGetExtendedResponse struct {
 	Count    int                  `json:"count"`
-	Items    []object.PhotosPhoto `json:"items"`
-	NextFrom string               `json:"next_from"`
-}
-
-// FaveGetPhotos returns a list of photos that the current user has liked.
-//
-// https://vk.com/dev/fave.getPhotos
-func (vk *VK) FaveGetPhotos(params map[string]string) (response FaveGetPhotosResponse, vkErr Error) {
-	vk.RequestUnmarshal("fave.getPhotos", params, &response, &vkErr)
-	return
-}
-
-// FaveGetPostsResponse struct
-type FaveGetPostsResponse struct {
-	Count int                   `json:"count"`
-	Items []object.WallWallpost `json:"items"`
-}
-
-// FaveGetPosts returns a list of wall posts that the current user has liked.
-//
-// extended=0
-//
-// https://vk.com/dev/fave.getPosts
-func (vk *VK) FaveGetPosts(params map[string]string) (response FaveGetPostsResponse, vkErr Error) {
-	params["extended"] = "0"
-	vk.RequestUnmarshal("fave.getPosts", params, &response, &vkErr)
-	return
-}
-
-// FaveGetPostsExtendedResponse struct
-type FaveGetPostsExtendedResponse struct {
-	Count    int                   `json:"count"`
-	Items    []object.WallWallpost `json:"items"`
-	Profiles []object.UsersUser    `json:"profiles"`
-	Groups   []object.GroupsGroup  `json:"groups"`
-}
-
-// FaveGetPostsExtended returns a list of wall posts that the current user has liked.
-//
-// extended=1
-//
-// https://vk.com/dev/fave.getPosts
-func (vk *VK) FaveGetPostsExtended(params map[string]string) (response FaveGetPostsExtendedResponse, vkErr Error) {
-	params["extended"] = "1"
-	vk.RequestUnmarshal("fave.getPosts", params, &response, &vkErr)
-	return
-}
-
-// FaveGetUsersResponse struct
-type FaveGetUsersResponse struct {
-	Count int                `json:"count"`
-	Items []object.UsersUser `json:"items"`
-}
-
-// FaveGetUsers returns a list of users whom the current user has bookmarked.
-//
-// https://vk.com/dev/fave.getUsers
-func (vk *VK) FaveGetUsers(params map[string]string) (response FaveGetUsersResponse, vkErr Error) {
-	vk.RequestUnmarshal("fave.getUsers", params, &response, &vkErr)
-	return
-}
-
-// FaveGetVideosResponse struct
-type FaveGetVideosResponse struct {
-	Count int                 `json:"count"`
-	Items []object.VideoVideo `json:"items"`
-}
-
-// FaveGetVideos returns a list of videos that the current user has liked.
-//
-// extended=0
-//
-// https://vk.com/dev/fave.getVideos
-func (vk *VK) FaveGetVideos(params map[string]string) (response FaveGetVideosResponse, vkErr Error) {
-	params["extended"] = "0"
-	vk.RequestUnmarshal("fave.getVideos", params, &response, &vkErr)
-	return
-}
-
-// FaveGetVideosExtendedResponse struct
-type FaveGetVideosExtendedResponse struct {
-	Count    int                  `json:"count"`
-	Items    []object.VideoVideo  `json:"items"`
+	Items    []object.FaveItem    `json:"items"`
 	Profiles []object.UsersUser   `json:"profiles"`
 	Groups   []object.GroupsGroup `json:"groups"`
 }
 
-// FaveGetVideosExtended returns a list of videos that the current user has liked.
+// FaveGetExtended
 //
 // extended=1
 //
-// https://vk.com/dev/fave.getVideos
-func (vk *VK) FaveGetVideosExtended(params map[string]string) (response FaveGetVideosExtendedResponse, vkErr Error) {
+// https://vk.com/dev/fave.get
+func (vk *VK) FaveGetExtended(params map[string]string) (response FaveGetExtendedResponse, vkErr Error) {
 	params["extended"] = "1"
-	vk.RequestUnmarshal("fave.getVideos", params, &response, &vkErr)
+	vk.RequestUnmarshal("fave.get", params, &response, &vkErr)
 	return
 }
 
-// FaveRemoveGroupResponse struct
-type FaveRemoveGroupResponse int
+// FaveGetPagesResponse struct
+type FaveGetPagesResponse struct {
+	Count int               `json:"count"`
+	Items []object.FavePage `json:"items"`
+}
 
-// FaveRemoveGroup removes a community from user faves.
+// FaveGetPages
 //
-// https://vk.com/dev/fave.removeGroup
-func (vk *VK) FaveRemoveGroup(params map[string]string) (response FaveRemoveGroupResponse, vkErr Error) {
-	vk.RequestUnmarshal("fave.removeGroup", params, &response, &vkErr)
+// https://vk.com/dev/fave.getPages
+func (vk *VK) FaveGetPages(params map[string]string) (response FaveGetPagesResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.getPages", params, &response, &vkErr)
+	return
+}
+
+// FaveGetTagsResponse struct
+type FaveGetTagsResponse struct {
+	Count int              `json:"count"`
+	Items []object.FaveTag `json:"items"`
+}
+
+// FaveGetTags
+//
+// https://vk.com/dev/fave.getTags
+func (vk *VK) FaveGetTags() (response FaveGetTagsResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.getTags", map[string]string{}, &response, &vkErr)
+	return
+}
+
+// FaveMarkSeenResponse struct
+type FaveMarkSeenResponse int
+
+// FaveMarkSeen
+//
+// https://vk.com/dev/fave.markSeen
+func (vk *VK) FaveMarkSeen() (response FaveMarkSeenResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.markSeen", map[string]string{}, &response, &vkErr)
+	return
+}
+
+// FaveRemoveArticleResponse struct
+type FaveRemoveArticleResponse int
+
+// FaveRemoveArticle
+//
+// https://vk.com/dev/fave.removeArticle
+func (vk *VK) FaveRemoveArticle(params map[string]string) (response FaveRemoveArticleResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.removeArticle", params, &response, &vkErr)
 	return
 }
 
@@ -202,13 +189,101 @@ func (vk *VK) FaveRemoveLink(params map[string]string) (response FaveRemoveLinkR
 	return
 }
 
-// FaveRemoveUserResponse struct
-type FaveRemoveUserResponse int
+// FaveRemovePageResponse struct
+type FaveRemovePageResponse int
 
-// FaveRemoveUser removes a profile from user faves.
+// FaveRemovePage
 //
-// https://vk.com/dev/fave.removeUser
-func (vk *VK) FaveRemoveUser(params map[string]string) (response FaveRemoveUserResponse, vkErr Error) {
-	vk.RequestUnmarshal("fave.removeUser", params, &response, &vkErr)
+// https://vk.com/dev/fave.removePage
+func (vk *VK) FaveRemovePage(params map[string]string) (response FaveRemovePageResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.removePage", params, &response, &vkErr)
+	return
+}
+
+// FaveRemovePostResponse struct
+type FaveRemovePostResponse int
+
+// FaveRemovePost
+//
+// https://vk.com/dev/fave.removePost
+func (vk *VK) FaveRemovePost(params map[string]string) (response FaveRemovePostResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.removePost", params, &response, &vkErr)
+	return
+}
+
+// FaveRemoveProductResponse struct
+type FaveRemoveProductResponse int
+
+// FaveRemoveProduct
+//
+// https://vk.com/dev/fave.removeProduct
+func (vk *VK) FaveRemoveProduct(params map[string]string) (response FaveRemoveProductResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.removeProduct", params, &response, &vkErr)
+	return
+}
+
+// FaveRemoveTagResponse struct
+type FaveRemoveTagResponse int
+
+// FaveRemoveTag
+//
+// https://vk.com/dev/fave.removeTag
+func (vk *VK) FaveRemoveTag(params map[string]string) (response FaveRemoveTagResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.removeTag", params, &response, &vkErr)
+	return
+}
+
+// FaveRemoveVideoResponse struct
+type FaveRemoveVideoResponse int
+
+// FaveRemoveVideo
+//
+// https://vk.com/dev/fave.removeVideo
+func (vk *VK) FaveRemoveVideo(params map[string]string) (response FaveRemoveVideoResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.removeVideo", params, &response, &vkErr)
+	return
+}
+
+// FaveReorderTagsResponse struct
+type FaveReorderTagsResponse int
+
+// FaveReorderTags
+//
+// https://vk.com/dev/fave.reorderTags
+func (vk *VK) FaveReorderTags(params map[string]string) (response FaveReorderTagsResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.reorderTags", params, &response, &vkErr)
+	return
+}
+
+// FaveSetPageTagsResponse struct
+type FaveSetPageTagsResponse int
+
+// FaveSetPageTags
+//
+// https://vk.com/dev/fave.setPageTags
+func (vk *VK) FaveSetPageTags(params map[string]string) (response FaveSetPageTagsResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.setPageTags", params, &response, &vkErr)
+	return
+}
+
+// FaveSetTagsResponse struct
+type FaveSetTagsResponse int
+
+// FaveSetTags
+//
+// https://vk.com/dev/fave.setTags
+func (vk *VK) FaveSetTags(params map[string]string) (response FaveSetTagsResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.setTags", params, &response, &vkErr)
+	return
+}
+
+// FaveTrackPageInteractionResponse struct
+type FaveTrackPageInteractionResponse int
+
+// FaveTrackPageInteraction
+//
+// https://vk.com/dev/fave.trackPageInteraction
+func (vk *VK) FaveTrackPageInteraction(params map[string]string) (response FaveTrackPageInteractionResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.trackPageInteraction", params, &response, &vkErr)
 	return
 }

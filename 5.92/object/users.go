@@ -27,7 +27,7 @@ type UsersUser struct {
 	IsFriend               int               `json:"is_friend"`
 	FriendStatus           int               `json:"friend_status"`
 	Online                 int               `json:"online"`
-	OnlineApp              string            `json:"online_app"`
+	OnlineApp              int               `json:"online_app"`
 	OnlineMobile           int               `json:"online_mobile"`
 	CanPost                int               `json:"can_post"`
 	CanSeeAllPosts         int               `json:"can_see_all_posts"`

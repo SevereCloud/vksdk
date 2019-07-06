@@ -49,11 +49,11 @@ type VideoVideo struct {
 // videoVideoFiles struct
 type videoVideoFiles struct {
 	External string `json:"external"` // URL of the external player
-	Mp1080   string `json:"mp_1080"`  // URL of the mpeg4 file with 1080p quality
-	Mp240    string `json:"mp_240"`   // URL of the mpeg4 file with 240p quality
-	Mp360    string `json:"mp_360"`   // URL of the mpeg4 file with 360p quality
-	Mp480    string `json:"mp_480"`   // URL of the mpeg4 file with 480p quality
-	Mp720    string `json:"mp_720"`   // URL of the mpeg4 file with 720p quality
+	Mp4_1080 string `json:"mp4_1080"` // URL of the mpeg4 file with 1080p quality
+	Mp4_240  string `json:"mp4_240"`  // URL of the mpeg4 file with 240p quality
+	Mp4_360  string `json:"mp4_360"`  // URL of the mpeg4 file with 360p quality
+	Mp4_480  string `json:"mp4_480"`  // URL of the mpeg4 file with 480p quality
+	Mp4_720  string `json:"mp4_720"`  // URL of the mpeg4 file with 720p quality
 }
 
 // VideoCatBlock struct
@@ -154,6 +154,25 @@ type VideoVideoFull struct {
 	Repeat        int             `json:"repeat"`     // Information whether the video is repeated
 	Title         string          `json:"title"`      // Video title
 	Views         int             `json:"views"`      // Number of views
+	Width         int             `json:"width"`
+	Height        int             `json:"height"`
+	Image         []struct {
+		Height      int    `json:"height"`
+		URL         string `json:"url"`
+		Width       int    `json:"width"`
+		WithPadding int    `json:"with_padding"`
+	} `json:"image"`
+	IsFavorite bool `json:"is_favorite"`
+	FirstFrame []struct {
+		URL    string `json:"url"`
+		Width  int    `json:"width"`
+		Height int    `json:"height"`
+	} `json:"first_frame"`
+	Added         int             `json:"added"`
+	CanLike       int             `json:"can_like"`
+	CanAddToFaves int             `json:"can_add_to_faves"`
+	Type          string          `json:"type"`
+	Reposts       baseRepostsInfo `json:"reposts"`
 }
 
 // VideoVideoTag struct

@@ -173,17 +173,6 @@ type eventsEventAttach struct {
 	Time         int    `json:"time,omitempty"`          // event start time
 }
 
-// FaveFavesLink struct
-type FaveFavesLink struct {
-	Description string `json:"description"`
-	ID          string `json:"id"`
-	Photo100    string `json:"photo_100"`
-	Photo200    string `json:"photo_200"`
-	Photo50     string `json:"photo_50"`
-	Title       string `json:"title"`
-	URL         string `json:"url"`
-}
-
 // OauthError struct
 type OauthError struct {
 	Error            string `json:"error"`
