@@ -104,7 +104,7 @@ type FaveGetResponse struct {
 //
 // https://vk.com/dev/fave.get
 func (vk *VK) FaveGet(params map[string]string) (response FaveGetResponse, vkErr Error) {
-	params["extended"] = "1"
+	params["extended"] = "0"
 	vk.RequestUnmarshal("fave.get", params, &response, &vkErr)
 	return
 }

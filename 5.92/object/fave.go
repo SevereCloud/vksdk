@@ -35,22 +35,3 @@ type FaveItem struct {
 	Product   MarketMarketItem `json:"product,omitempty"`
 	Article   Article          `json:"article,omitempty"`
 }
-
-type Article struct {
-	ID            int         `json:"id"`
-	OwnerID       int         `json:"owner_id"`
-	OwnerName     string      `json:"owner_name"`
-	OwnerPhoto    string      `json:"owner_photo"`
-	State         string      `json:"state"`
-	CanReport     bool        `json:"can_report"`
-	IsFavorite    bool        `json:"is_favorite"`
-	Title         string      `json:"title"`
-	Subtitle      string      `json:"subtitle"`
-	Views         int         `json:"views"`
-	Shares        int         `json:"shares"`
-	URL           string      `json:"url"`
-	ViewURL       string      `json:"view_url"`
-	AccessKey     string      `json:"access_key"`
-	PublishedDate int         `json:"published_date"`
-	Photo         PhotosPhoto `json:"photo"`
-}

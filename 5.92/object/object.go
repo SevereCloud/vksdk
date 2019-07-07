@@ -75,6 +75,7 @@ type baseImage struct {
 	Height int    `json:"height"`
 	URL    string `json:"url"`
 	Width  int    `json:"width"`
+	Type   string `json:"type"`
 }
 
 type baseLikes struct {
@@ -178,4 +179,23 @@ type OauthError struct {
 	Error            string `json:"error"`
 	ErrorDescription string `json:"error_description"`
 	RedirectURI      string `json:"redirect_uri"`
+}
+
+type Article struct {
+	ID            int         `json:"id"`
+	OwnerID       int         `json:"owner_id"`
+	OwnerName     string      `json:"owner_name"`
+	OwnerPhoto    string      `json:"owner_photo"`
+	State         string      `json:"state"`
+	CanReport     bool        `json:"can_report"`
+	IsFavorite    bool        `json:"is_favorite"`
+	Title         string      `json:"title"`
+	Subtitle      string      `json:"subtitle"`
+	Views         int         `json:"views"`
+	Shares        int         `json:"shares"`
+	URL           string      `json:"url"`
+	ViewURL       string      `json:"view_url"`
+	AccessKey     string      `json:"access_key"`
+	PublishedDate int         `json:"published_date"`
+	Photo         PhotosPhoto `json:"photo"`
 }
