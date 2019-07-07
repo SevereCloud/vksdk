@@ -251,7 +251,7 @@ func TestVK_FaveTag(t *testing.T) {
 			t.Errorf("VK.FaveEditTag() gotVkErr = %v, want %v", gotVkErr, 0)
 		}
 	})
-	tags, vkErr := vkUser.FaveGetTags()
+	tags, vkErr := vkUser.FaveGetTags(map[string]string{})
 	if vkErr.Code != 0 {
 		log.Fatal(vkErr)
 	}
@@ -371,7 +371,7 @@ func TestVK_FaveMarkSeen(t *testing.T) {
 
 	time.Sleep(300 * time.Millisecond)
 	t.Run("FaveMarkSeen", func(t *testing.T) {
-		_, gotVkErr := vkUser.FaveMarkSeen()
+		_, gotVkErr := vkUser.FaveMarkSeen(map[string]string{})
 		if gotVkErr.Code != 0 {
 			t.Errorf("VK.FaveMarkSeen() gotVkErr = %v, want %v", gotVkErr, 0)
 		}

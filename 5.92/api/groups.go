@@ -474,8 +474,8 @@ type GroupsGetTokenPermissionsResponse object.GroupsTokenPermissions
 // GroupsGetTokenPermissions returns permissions scope for the community's access_token.
 //
 // https://vk.com/dev/groups.getTokenPermissions
-func (vk *VK) GroupsGetTokenPermissions() (response GroupsGetTokenPermissionsResponse, vkErr Error) {
-	vk.RequestUnmarshal("groups.getTokenPermissions", map[string]string{}, &response, &vkErr)
+func (vk *VK) GroupsGetTokenPermissions(params map[string]string) (response GroupsGetTokenPermissionsResponse, vkErr Error) {
+	vk.RequestUnmarshal("groups.getTokenPermissions", params, &response, &vkErr)
 	return
 }
 

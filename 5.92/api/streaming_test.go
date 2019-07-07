@@ -10,7 +10,7 @@ func TestVK_StreamingGetServerURL(t *testing.T) {
 	}
 
 	t.Run("StreamingGetServerURL not empty", func(t *testing.T) {
-		response, vkErr := vkService.StreamingGetServerURL()
+		response, vkErr := vkService.StreamingGetServerURL(map[string]string{})
 		if vkErr.Code != 0 {
 			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
 		}
@@ -30,7 +30,7 @@ func TestVK_StreamingGetSettings(t *testing.T) {
 	}
 
 	t.Run("StreamingGetSettings not empty", func(t *testing.T) {
-		response, vkErr := vkService.StreamingGetSettings()
+		response, vkErr := vkService.StreamingGetSettings(map[string]string{})
 		if vkErr.Code != 0 {
 			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
 		}
@@ -102,14 +102,14 @@ func TestVK_StreamingError(t *testing.T) {
 	vk := Init("")
 
 	t.Run("StreamingGetServerURL error", func(t *testing.T) {
-		_, vkErr := vk.StreamingGetServerURL()
+		_, vkErr := vk.StreamingGetServerURL(map[string]string{})
 		if vkErr.Code != 5 {
 			t.Errorf("StreamingGetServerURL error bad %d %s", vkErr.Code, vkErr.Message)
 		}
 	})
 
 	t.Run("StreamingGetSettings error", func(t *testing.T) {
-		_, vkErr := vk.StreamingGetSettings()
+		_, vkErr := vk.StreamingGetSettings(map[string]string{})
 		if vkErr.Code != 5 {
 			t.Errorf("StreamingGetSettings error bad %d %s", vkErr.Code, vkErr.Message)
 		}

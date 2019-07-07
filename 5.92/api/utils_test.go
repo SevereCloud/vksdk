@@ -186,7 +186,7 @@ func TestVK_UtilsGetServerTime(t *testing.T) {
 	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
-	gotResponse, vkErr := vkService.UtilsGetServerTime()
+	gotResponse, vkErr := vkService.UtilsGetServerTime(map[string]string{})
 	if vkErr.Code != 0 {
 		t.Errorf("VK.UtilsGetServerTime() vkErr.Code = %v, want 0", vkErr)
 	}
@@ -196,7 +196,7 @@ func TestVK_UtilsGetServerTime(t *testing.T) {
 }
 func TestVK_UtilsGetServerTimeError(t *testing.T) {
 	vk := Init("")
-	_, vkErr := vk.UtilsGetServerTime()
+	_, vkErr := vk.UtilsGetServerTime(map[string]string{})
 	if vkErr.Code != 5 {
 		t.Errorf("VK.UtilsGetServerTime() error bad %d %s", vkErr.Code, vkErr.Message)
 	}

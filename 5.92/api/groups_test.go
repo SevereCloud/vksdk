@@ -487,14 +487,16 @@ func TestVK_GroupsGetTokenPermissions(t *testing.T) {
 	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
+	t.Run("GroupsGetTokenPermissions", func(t *testing.T) {
+		gotResponse, gotVkErr := vkGroup.GroupsGetTokenPermissions(map[string]string{})
+		if gotResponse.Mask == 0 {
+			t.Errorf("VK.GroupsGetTokenPermissions() gotResponse = %v", gotResponse)
+		}
+		if gotVkErr.Code != 0 {
+			t.Errorf("VK.GroupsGetTokenPermissions() gotVkErr = %v", gotVkErr)
+		}
+	})
 
-	gotResponse, gotVkErr := vkGroup.GroupsGetTokenPermissions()
-	if gotResponse.Mask == 0 {
-		t.Errorf("VK.GroupsGetTokenPermissions() gotResponse = %v", gotResponse)
-	}
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.GroupsGetTokenPermissions() gotVkErr = %v", gotVkErr)
-	}
 }
 
 func TestVK_GroupsSetCallbackSettings(t *testing.T) {

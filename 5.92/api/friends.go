@@ -62,8 +62,8 @@ type FriendsDeleteAllRequestsResponse int
 // FriendsDeleteAllRequests marks all incoming friend requests as viewed.
 //
 // https://vk.com/dev/friends.deleteAllRequests
-func (vk *VK) FriendsDeleteAllRequests() (response FriendsDeleteAllRequestsResponse, vkErr Error) {
-	vk.RequestUnmarshal("friends.deleteAllRequests", map[string]string{}, &response, &vkErr)
+func (vk *VK) FriendsDeleteAllRequests(params map[string]string) (response FriendsDeleteAllRequestsResponse, vkErr Error) {
+	vk.RequestUnmarshal("friends.deleteAllRequests", params, &response, &vkErr)
 	return
 }
 

@@ -9,8 +9,8 @@ type StreamingGetServerURLResponse struct {
 // StreamingGetServerURL allows to receive data for the connection to Streaming API.
 //
 // https://vk.com/dev/streaming.getServerUrl
-func (vk *VK) StreamingGetServerURL() (response StreamingGetServerURLResponse, vkErr Error) {
-	vk.RequestUnmarshal("streaming.getServerUrl", map[string]string{}, &response, &vkErr)
+func (vk *VK) StreamingGetServerURL(params map[string]string) (response StreamingGetServerURLResponse, vkErr Error) {
+	vk.RequestUnmarshal("streaming.getServerUrl", params, &response, &vkErr)
 	return
 }
 
@@ -22,8 +22,8 @@ type StreamingGetSettingsResponse struct {
 // StreamingGetSettings allows to receive monthly tier for Streaming API.
 //
 // https://vk.com/dev/streaming.getSettings
-func (vk *VK) StreamingGetSettings() (response StreamingGetSettingsResponse, vkErr Error) {
-	vk.RequestUnmarshal("streaming.getSettings", map[string]string{}, &response, &vkErr)
+func (vk *VK) StreamingGetSettings(params map[string]string) (response StreamingGetSettingsResponse, vkErr Error) {
+	vk.RequestUnmarshal("streaming.getSettings", params, &response, &vkErr)
 	return
 }
 

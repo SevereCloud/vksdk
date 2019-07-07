@@ -76,8 +76,8 @@ type UtilsGetServerTimeResponse int
 // UtilsGetServerTime returns the current time of the VK server.
 //
 // https://vk.com/dev/utils.getServerTime
-func (vk *VK) UtilsGetServerTime() (response UtilsGetServerTimeResponse, vkErr Error) {
-	vk.RequestUnmarshal("utils.getServerTime", map[string]string{}, &response, &vkErr)
+func (vk *VK) UtilsGetServerTime(params map[string]string) (response UtilsGetServerTimeResponse, vkErr Error) {
+	vk.RequestUnmarshal("utils.getServerTime", params, &response, &vkErr)
 	return
 }
 

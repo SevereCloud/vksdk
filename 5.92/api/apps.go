@@ -10,8 +10,8 @@ type AppsDeleteAppRequestsResponse int
 // AppsDeleteAppRequests deletes all request notifications from the current app.
 //
 // https://vk.com/dev/apps.deleteAppRequests
-func (vk *VK) AppsDeleteAppRequests() (response AppsDeleteAppRequestsResponse, vkErr Error) {
-	vk.RequestUnmarshal("apps.deleteAppRequests", map[string]string{}, &response, &vkErr)
+func (vk *VK) AppsDeleteAppRequests(params map[string]string) (response AppsDeleteAppRequestsResponse, vkErr Error) {
+	vk.RequestUnmarshal("apps.deleteAppRequests", params, &response, &vkErr)
 	return
 }
 

@@ -76,7 +76,7 @@ type PrettyCardsGetUploadURLResponse string // Upload URL
 // PrettyCardsGetUploadURL
 //
 // https://vk.com/dev/prettyCards.getUploadURL
-func (vk *VK) PrettyCardsGetUploadURL() (response PrettyCardsGetUploadURLResponse, vkErr Error) {
-	vk.RequestUnmarshal("prettyCards.getUploadURL", map[string]string{}, &response, &vkErr)
+func (vk *VK) PrettyCardsGetUploadURL(params map[string]string) (response PrettyCardsGetUploadURLResponse, vkErr Error) {
+	vk.RequestUnmarshal("prettyCards.getUploadURL", params, &response, &vkErr)
 	return
 }

@@ -151,8 +151,8 @@ type FaveGetTagsResponse struct {
 // FaveGetTags
 //
 // https://vk.com/dev/fave.getTags
-func (vk *VK) FaveGetTags() (response FaveGetTagsResponse, vkErr Error) {
-	vk.RequestUnmarshal("fave.getTags", map[string]string{}, &response, &vkErr)
+func (vk *VK) FaveGetTags(params map[string]string) (response FaveGetTagsResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.getTags", params, &response, &vkErr)
 	return
 }
 
@@ -162,8 +162,8 @@ type FaveMarkSeenResponse int
 // FaveMarkSeen
 //
 // https://vk.com/dev/fave.markSeen
-func (vk *VK) FaveMarkSeen() (response FaveMarkSeenResponse, vkErr Error) {
-	vk.RequestUnmarshal("fave.markSeen", map[string]string{}, &response, &vkErr)
+func (vk *VK) FaveMarkSeen(params map[string]string) (response FaveMarkSeenResponse, vkErr Error) {
+	vk.RequestUnmarshal("fave.markSeen", params, &response, &vkErr)
 	return
 }
 

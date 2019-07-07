@@ -96,8 +96,8 @@ type AccountGetProfileInfoResponse object.AccountUserSettings
 // AccountGetProfileInfo returns the current account info.
 //
 // https://vk.com/dev/account.getProfileInfo
-func (vk *VK) AccountGetProfileInfo() (response AccountGetProfileInfoResponse, vkErr Error) {
-	vk.RequestUnmarshal("account.getProfileInfo", map[string]string{}, &response, &vkErr)
+func (vk *VK) AccountGetProfileInfo(params map[string]string) (response AccountGetProfileInfoResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.getProfileInfo", params, &response, &vkErr)
 	return
 }
 
@@ -166,8 +166,8 @@ type AccountSetOfflineResponse int
 // AccountSetOffline marks a current user as offline.
 //
 // https://vk.com/dev/account.setOffline
-func (vk *VK) AccountSetOffline() (response AccountSetOfflineResponse, vkErr Error) {
-	vk.RequestUnmarshal("account.setOffline", make(map[string]string), &response, &vkErr)
+func (vk *VK) AccountSetOffline(params map[string]string) (response AccountSetOfflineResponse, vkErr Error) {
+	vk.RequestUnmarshal("account.setOffline", params, &response, &vkErr)
 	return
 }
 

@@ -61,8 +61,8 @@ type LeadFormsGetUploadURLResponse string
 // LeadFormsGetUploadURL leadForms.getUploadURL
 //
 // https://vk.com/dev/leadForms.getUploadURL
-func (vk *VK) LeadFormsGetUploadURL() (response LeadFormsGetUploadURLResponse, vkErr Error) {
-	vk.RequestUnmarshal("leadForms.getUploadURL", map[string]string{}, &response, &vkErr)
+func (vk *VK) LeadFormsGetUploadURL(params map[string]string) (response LeadFormsGetUploadURLResponse, vkErr Error) {
+	vk.RequestUnmarshal("leadForms.getUploadURL", params, &response, &vkErr)
 	return
 }
 

@@ -32,7 +32,7 @@ type StatsTrackVisitorResponse int
 // StatsTrackVisitor adds current session's data in the application statistics.
 //
 // https://vk.com/dev/stats.trackVisitor
-func (vk *VK) StatsTrackVisitor() (response StatsTrackVisitorResponse, vkErr Error) {
-	vk.RequestUnmarshal("stats.trackVisitor", map[string]string{}, &response, &vkErr)
+func (vk *VK) StatsTrackVisitor(params map[string]string) (response StatsTrackVisitorResponse, vkErr Error) {
+	vk.RequestUnmarshal("stats.trackVisitor", params, &response, &vkErr)
 	return
 }

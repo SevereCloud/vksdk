@@ -52,8 +52,8 @@ type PollsGetBackgroundsResponse []object.PollsBackground
 // PollsGetBackgrounds return default backgrounds for polls.
 //
 // https://vk.com/dev/polls.getBackgrounds
-func (vk *VK) PollsGetBackgrounds() (response PollsGetBackgroundsResponse, vkErr Error) {
-	vk.RequestUnmarshal("polls.getBackgrounds", map[string]string{}, &response, &vkErr)
+func (vk *VK) PollsGetBackgrounds(params map[string]string) (response PollsGetBackgroundsResponse, vkErr Error) {
+	vk.RequestUnmarshal("polls.getBackgrounds", params, &response, &vkErr)
 	return
 }
 

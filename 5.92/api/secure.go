@@ -43,8 +43,8 @@ type SecureGetSMSHistoryResponse []object.SecureSmsNotification
 // SecureGetSMSHistory Shows a list of SMS notifications sent by the application using secure.sendSMSNotification method.
 //
 // https://vk.com/dev/secure.getSMSHistory
-func (vk *VK) SecureGetSMSHistory() (response SecureGetSMSHistoryResponse, vkErr Error) {
-	vk.RequestUnmarshal("secure.getSMSHistory", map[string]string{}, &response, &vkErr)
+func (vk *VK) SecureGetSMSHistory(params map[string]string) (response SecureGetSMSHistoryResponse, vkErr Error) {
+	vk.RequestUnmarshal("secure.getSMSHistory", params, &response, &vkErr)
 	return
 }
 
