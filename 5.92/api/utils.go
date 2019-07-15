@@ -107,8 +107,7 @@ func (vk *VK) UtilsResolveScreenName(params map[string]string) (response UtilsRe
 
 	err := json.Unmarshal(rawResponse, &response)
 	if err != nil {
-		vkErr.Code = -1
-		vkErr.Message = err.Error()
+		vkErr = NewError(-1, err.Error(), "utils.resolveScreenName", params)
 	}
 
 	return

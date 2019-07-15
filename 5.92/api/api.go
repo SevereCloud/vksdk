@@ -136,6 +136,13 @@ func NewError(code int, message, method string, params map[string]string) (vkErr
 			},
 		)
 	}
+	vkErr.RequestParams = append(
+		vkErr.RequestParams,
+		object.BaseRequestParam{
+			Key:   "v",
+			Value: version,
+		},
+	)
 	return
 }
 
