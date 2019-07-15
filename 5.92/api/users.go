@@ -16,7 +16,10 @@ func (vk *VK) UsersGet(params map[string]string) (response UsersGetResponse, vkE
 }
 
 // UsersGetFollowersResponse struct
-type UsersGetFollowersResponse []int
+type UsersGetFollowersResponse struct {
+	Count int   `json:"count"`
+	Items []int `json:"items"`
+}
 
 // UsersGetFollowers returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 //
@@ -30,7 +33,10 @@ func (vk *VK) UsersGetFollowers(params map[string]string) (response UsersGetFoll
 }
 
 // UsersGetFollowersFieldsResponse struct
-type UsersGetFollowersFieldsResponse []object.UsersUser
+type UsersGetFollowersFieldsResponse struct {
+	Count int                `json:"count"`
+	Items []object.UsersUser `json:"items"`
+}
 
 // UsersGetFollowersFields returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 //

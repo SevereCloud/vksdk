@@ -27,7 +27,7 @@ func TestVK_UsersGetFollowers(t *testing.T) {
 
 	t.Run("UsersGetFollowers", func(t *testing.T) {
 		_, gotVkErr := vkUser.UsersGetFollowers(map[string]string{
-			"user_ids": "1",
+			"user_id": "1",
 		})
 		if gotVkErr.Code != 0 {
 			t.Errorf("VK.UsersGetFollowers() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -35,7 +35,7 @@ func TestVK_UsersGetFollowers(t *testing.T) {
 	})
 	t.Run("UsersGetFollowersFields", func(t *testing.T) {
 		_, gotVkErr := vkUser.UsersGetFollowersFields(map[string]string{
-			"user_ids": "1",
+			"user_id": "1",
 		})
 		if gotVkErr.Code != 0 {
 			t.Errorf("VK.UsersGetFollowersFields() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -80,8 +80,8 @@ func TestVK_UsersReport(t *testing.T) {
 
 	t.Run("UsersReport", func(t *testing.T) {
 		_, gotVkErr := vkUser.UsersReport(map[string]string{
-			"user_ids": "1",
-			"type":     "spam",
+			"user_id": "1",
+			"type":    "spam",
 		})
 		if gotVkErr.Code != 0 {
 			t.Errorf("VK.UsersReport() gotVkErr = %v, want %v", gotVkErr, 0)

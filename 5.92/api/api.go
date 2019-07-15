@@ -85,8 +85,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 
 	resp, err := vk.Client.Post(u, "application/x-www-form-urlencoded", rawBody)
 	if err != nil {
-		handler.Error.Code = -1
-		handler.Error.Message = err.Error()
+		handler.Error = NewError(-1, err.Error(), method, params)
 		return handler.Response, handler.Error
 	}
 	defer resp.Body.Close()
@@ -98,8 +97,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 
 	err = json.Unmarshal(body, &handler)
 	if err != nil {
-		handler.Error.Code = -1
-		handler.Error.Message = err.Error()
+		handler.Error = NewError(-1, err.Error(), method, params)
 	}
 
 	return handler.Response, handler.Error
@@ -115,9 +113,30 @@ func (vk *VK) RequestUnmarshal(method string, params map[string]string, obj inte
 
 	err := json.Unmarshal(rawResponse, &obj)
 	if err != nil {
-		vkErr.Code = -1
-		vkErr.Message = err.Error()
+		*vkErr = NewError(-1, err.Error(), method, params)
 	}
+}
+
+func NewError(code int, message, method string, params map[string]string) (vkErr Error) {
+	vkErr.Code = code
+	vkErr.Message = message
+	vkErr.RequestParams = append(
+		vkErr.RequestParams,
+		object.BaseRequestParam{
+			Key:   "method",
+			Value: method,
+		},
+	)
+	for key, value := range params {
+		vkErr.RequestParams = append(
+			vkErr.RequestParams,
+			object.BaseRequestParam{
+				Key:   key,
+				Value: value,
+			},
+		)
+	}
+	return
 }
 
 // Execute a universal method for calling a sequence of other methods while saving and filtering interim results.

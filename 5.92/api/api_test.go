@@ -48,7 +48,7 @@ func TestVK_Request(t *testing.T) {
 	})
 	vk.MethodURL = ""
 	t.Run("Client error", func(t *testing.T) {
-		_, vkErr := vk.Request("", map[string]string{})
+		_, vkErr := vk.Request("test", map[string]string{"test": "test"})
 		if vkErr.Code != -1 {
 			t.Errorf("VK.Request() got1 = %v, want -1", vkErr)
 		}
