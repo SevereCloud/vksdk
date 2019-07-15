@@ -16,12 +16,31 @@ func (vk *VK) UsersGet(params map[string]string) (response UsersGetResponse, vkE
 }
 
 // UsersGetFollowersResponse struct
-type UsersGetFollowersResponse []object.UsersUser
+type UsersGetFollowersResponse []int
 
 // UsersGetFollowers returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 //
+// fields=""
+//
 // https://vk.com/dev/users.getFollowers
 func (vk *VK) UsersGetFollowers(params map[string]string) (response UsersGetFollowersResponse, vkErr Error) {
+	params["fields"] = ""
+	vk.RequestUnmarshal("users.getFollowers", params, &response, &vkErr)
+	return
+}
+
+// UsersGetFollowersFieldsResponse struct
+type UsersGetFollowersFieldsResponse []object.UsersUser
+
+// UsersGetFollowersFields returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
+//
+// fields not empty
+//
+// https://vk.com/dev/users.getFollowers
+func (vk *VK) UsersGetFollowersFields(params map[string]string) (response UsersGetFollowersFieldsResponse, vkErr Error) {
+	if params["fields"] == "" {
+		params["fields"] = "id"
+	}
 	vk.RequestUnmarshal("users.getFollowers", params, &response, &vkErr)
 	return
 }

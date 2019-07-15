@@ -51,8 +51,8 @@ type UsersUser struct {
 	IsHiddenFromFeed       int               `json:"is_hidden_from_feed"`
 	CommonCount            int               `json:"common_count"`
 	Occupation             usersOccupation   `json:"occupation"`
-	Career                 usersCareer       `json:"career"`
-	Military               usersMilitary     `json:"military"`
+	Career                 []usersCareer     `json:"career"`
+	Military               []usersMilitary   `json:"military"`
 	University             int               `json:"university"`
 	UniversityName         string            `json:"university_name"`
 	Faculty                int               `json:"faculty"`
@@ -152,9 +152,10 @@ type usersMilitary struct {
 }
 
 type usersOccupation struct {
-	ID   int    `json:"id"`   // ID of school, university, company group
-	Name string `json:"name"` // Name of occupation
-	Type string `json:"type"` // Type of occupation
+	// BUG(VK): https://vk.com/bug136108
+	ID   float64 `json:"id"`   // ID of school, university, company group
+	Name string  `json:"name"` // Name of occupation
+	Type string  `json:"type"` // Type of occupation
 }
 
 type usersPersonal struct {
