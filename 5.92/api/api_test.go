@@ -1,17 +1,33 @@
 package api
 
 import (
+	"log"
 	"os"
 	"testing"
 )
 
 var vkGroup, vkService, vkUser VK // nolint:gochecknoglobals
+var vkUserID, vkGroupID int       // nolint:gochecknoglobals
 
 func TestMain(m *testing.M) {
 	vkGroup = Init(os.Getenv("GROUP_TOKEN"))
+	if vkGroup.AccessToken != "" {
+		group, vkErr := vkGroup.GroupsGetByID(map[string]string{})
+		if vkErr.Code != 0 {
+			log.Fatal(vkErr)
+		}
+		vkGroupID = group[0].ID
+	}
 	vkService = Init(os.Getenv("SERVICE_TOKEN"))
 	vkUser = Init(os.Getenv("USER_TOKEN"))
 	vkUser.Limit = 3
+	if vkUser.AccessToken != "" {
+		user, vkErr := vkUser.UsersGet(map[string]string{})
+		if vkErr.Code != 0 {
+			log.Fatal(vkErr)
+		}
+		vkUserID = user[0].ID
+	}
 
 	runTests := m.Run()
 	os.Exit(runTests)
