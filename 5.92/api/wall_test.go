@@ -296,7 +296,7 @@ func TestVK_WallCreateComment(t *testing.T) {
 }
 
 func TestVK_WallPostAdsStealth(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
+	if vkUser.AccessToken == "" || vkGroupID == 0 {
 		t.Skip("USER_TOKEN empty or GroupID not found")
 	}
 
