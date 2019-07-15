@@ -9,6 +9,8 @@ type StatsGetResponse []object.StatsPeriod
 
 // StatsGet returns statistics of a community or an application.
 //
+// BUG(VK): https://vk.com/bug136096
+//
 // https://vk.com/dev/stats.get
 func (vk *VK) StatsGet(params map[string]string) (response StatsGetResponse, vkErr Error) {
 	vk.RequestUnmarshal("stats.get", params, &response, &vkErr)
