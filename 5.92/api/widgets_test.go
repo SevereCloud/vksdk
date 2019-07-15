@@ -18,6 +18,7 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 		wantResponse WidgetsGetCommentsResponse
 		wantVkErr    Error
 	}{
+		// TODO: add test
 		{
 			name:      "widgets.getComments error",
 			wantVkErr: Error{Code: object.ErrorParam},
@@ -47,6 +48,7 @@ func TestVK_WidgetsGetPages(t *testing.T) {
 		// wantResponse WidgetsGetPagesResponse
 		wantVkErr Error
 	}{
+		// TODO: add test
 		{
 			name:      "widgets.getPages error",
 			wantVkErr: Error{Code: 0},
