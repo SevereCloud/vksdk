@@ -45,15 +45,21 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 
 func TestVK_UtilsGetLinkStats(t *testing.T) {
 	if vkGroup.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
+		t.Skip("GROUP_TOKEN empty")
 	}
 
-	_, gotVkErr := vkGroup.UtilsGetLinkStats(map[string]string{
+	params := map[string]string{
 		"key":             "8TDuIz",
 		"interval":        "month",
 		"intervals_count": "12",
-		"extended":        "1",
-	})
+	}
+
+	_, gotVkErr := vkGroup.UtilsGetLinkStats(params)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UtilsGetLinkStats() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+
+	_, gotVkErr = vkGroup.UtilsGetLinkStatsExtended(params)
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.UtilsGetLinkStats() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
