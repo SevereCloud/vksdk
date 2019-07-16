@@ -12,14 +12,12 @@ func TestVK_AuthCheckPhone(t *testing.T) {
 		t.Skip("need params")
 	}
 
-	t.Run("AuthCheckPhone", func(t *testing.T) {
-		_, gotVkErr := vkUser.AuthCheckPhone(map[string]string{
-			"phone":         "+79523071234",
-			"client_id":     clientID,
-			"client_secret": clientSecret,
-		})
-		if gotVkErr.Code != 0 {
-			t.Errorf("VK.AuthCheckPhone() gotVkErr = %v, want %v", gotVkErr, 0)
-		}
+	_, gotVkErr := vkUser.AuthCheckPhone(map[string]string{
+		"phone":         "+79523071234",
+		"client_id":     clientID,
+		"client_secret": clientSecret,
 	})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.AuthCheckPhone() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
 }
