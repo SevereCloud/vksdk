@@ -69,7 +69,6 @@ func TestVK_RequestLimit(t *testing.T) {
 			vk.UsersGet(map[string]string{})
 		}
 	})
-
 }
 
 func TestVK_Execute(t *testing.T) {

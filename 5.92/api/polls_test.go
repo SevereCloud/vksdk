@@ -109,3 +109,6 @@ func TestVK_PollsGetVotersFields(t *testing.T) {
 		t.Errorf("VK.PollsGetVotersFields() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }
+
+// TODO: TestVK_PollsGetPhotoUploadServer
+// TODO: TestVK_PollsSavePhoto
