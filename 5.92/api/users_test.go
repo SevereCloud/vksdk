@@ -82,7 +82,11 @@ func TestVK_UsersReport(t *testing.T) {
 		_, gotVkErr := vkUser.UsersReport(map[string]string{
 			"user_id": "1",
 			"type":    "spam",
+			"comment": "Тестовый репорт - github.com/SevereCloud/vksdk",
 		})
+		if gotVkErr.Code == 15 {
+			t.Skip("Access denied")
+		}
 		if gotVkErr.Code != 0 {
 			t.Errorf("VK.UsersReport() gotVkErr = %v, want %v", gotVkErr, 0)
 		}
