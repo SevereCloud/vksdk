@@ -49,14 +49,34 @@ func (vk *VK) AppsGetCatalog(params map[string]string) (response AppsGetCatalogR
 
 // AppsGetFriendsListResponse struct
 type AppsGetFriendsListResponse struct {
-	Count int                `json:"count"`
-	Items []object.UsersUser `json:"profiles"`
+	Count int   `json:"count"`
+	Items []int `json:"profiles"`
 }
 
 // AppsGetFriendsList creates friends list for requests and invites in current app.
 //
+// extended=0
+//
 // https://vk.com/dev/apps.getFriendsList
 func (vk *VK) AppsGetFriendsList(params map[string]string) (response AppsGetFriendsListResponse, vkErr Error) {
+	params["extended"] = "0"
+	vk.RequestUnmarshal("apps.getFriendsList", params, &response, &vkErr)
+	return
+}
+
+// AppsGetFriendsListExtendedResponse struct
+type AppsGetFriendsListExtendedResponse struct {
+	Count int                `json:"count"`
+	Items []object.UsersUser `json:"profiles"`
+}
+
+// AppsGetFriendsListExtended creates friends list for requests and invites in current app.
+//
+// extended=1
+//
+// https://vk.com/dev/apps.getFriendsList
+func (vk *VK) AppsGetFriendsListExtended(params map[string]string) (response AppsGetFriendsListExtendedResponse, vkErr Error) {
+	params["extended"] = "1"
 	vk.RequestUnmarshal("apps.getFriendsList", params, &response, &vkErr)
 	return
 }
