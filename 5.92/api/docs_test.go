@@ -1,113 +1,122 @@
 package api
 
 import (
-	"os"
+	"strconv"
 	"testing"
-
-	"github.com/SevereCloud/vksdk/5.92/object"
 )
+
+func TestVK_DocsAdd(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	doc, gotVkErr := vkUser.DocsAdd(map[string]string{
+		"owner_id": "-166562603",
+		"doc_id":   "483194018",
+	})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsAdd() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+
+	_, gotVkErr = vkUser.DocsEdit(map[string]string{
+		"owner_id": strconv.Itoa(vkUserID),
+		"doc_id":   strconv.Itoa(int(doc)),
+		"title":    "test_title",
+	})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsEdit() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+
+	_, gotVkErr = vkUser.DocsDelete(map[string]string{
+		"owner_id": strconv.Itoa(vkUserID),
+		"doc_id":   strconv.Itoa(int(doc)),
+	})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsDelete() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_DocsGet(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.DocsGet(map[string]string{
+		"owner_id": "-166562603",
+	})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsGet() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_DocsGetByID(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.DocsGetByID(map[string]string{
+		"docs": "2314852_165123053",
+	})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsGetByID() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_DocsGetTypes(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.DocsGetTypes(map[string]string{})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsGetTypes() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_DocsGetUploadServer(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.DocsGetUploadServer(map[string]string{})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsGetUploadServer() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.DocsGetMessagesUploadServer(map[string]string{})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsGetMessagesUploadServer() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_DocsGetWallUploadServer(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.DocsGetWallUploadServer(map[string]string{})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsGetWallUploadServer() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+// TODO: TestVK_DocsSave
 
 func TestVK_DocsSearch(t *testing.T) {
 	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
 
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantVkErr Error
-	}{
-		{
-			name: "docs.search",
-			argParams: map[string]string{
-				"q": "golang",
-			},
-		},
-		{
-			name:      "docs.search error",
-			wantVkErr: Error{Code: object.ErrorParam},
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkGroup.DocsSearch(tt.argParams)
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.DocsSearch() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
-			}
-			if gotVkErr.Code == 0 && (gotResponse.Count == 0) {
-				t.Errorf("VK.DocsSearch() gotResponse = %v", gotResponse)
-			}
-		})
-	}
-}
-
-func TestVK_DocsGetWallUploadServer(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantVkErr Error
-	}{
-		{
-			name: "groups.GetWallUploadServer",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-			},
-		},
-		{
-			name:      "docs.GetWallUploadServer error",
-			wantVkErr: Error{Code: object.ErrorAccess},
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkGroup.DocsGetWallUploadServer(tt.argParams)
-
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.DocsGetWallUploadServer() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
-			}
-			if gotVkErr.Code == 0 && gotResponse.UploadURL == "" {
-				t.Errorf("VK.DocsGetWallUploadServer() gotResponse = %v", gotResponse)
-			}
-		})
-	}
-}
-
-func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantVkErr Error
-	}{
-		// FIXME: groups.GetMessagesUploadServer need peer_id
-		// {
-		// 	name: "groups.GetMessagesUploadServer",
-		// 	argParams: map[string]string{
-		// 		"group_id": os.Getenv("GROUP_ID"),
-		// 		"peer_id":  "",
-		// 	},
-		// },
-		{
-			name:      "docs.GetMessagesUploadServer error",
-			wantVkErr: Error{Code: object.ErrorParam},
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkGroup.DocsGetMessagesUploadServer(tt.argParams)
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.DocsGetMessagesUploadServer() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
-			}
-			if gotVkErr.Code == 0 && gotResponse.UploadURL == "" {
-				t.Errorf("VK.DocsGetMessagesUploadServer() gotResponse = %v", gotResponse)
-			}
-		})
+	_, gotVkErr := vkGroup.DocsSearch(map[string]string{
+		"q": "golang",
+	})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.DocsSearch() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }
