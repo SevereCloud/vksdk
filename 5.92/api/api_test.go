@@ -19,6 +19,7 @@ func TestMain(m *testing.M) {
 		vkGroupID = group[0].ID
 	}
 	vkService = Init(os.Getenv("SERVICE_TOKEN"))
+	vkService.Limit = 3
 	vkUser = Init(os.Getenv("USER_TOKEN"))
 	vkUser.Limit = 3
 	if vkUser.AccessToken != "" {

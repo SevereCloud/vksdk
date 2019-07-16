@@ -39,7 +39,7 @@ type DatabaseGetCitiesByIDResponse []object.DatabaseCity
 //
 // https://vk.com/dev/database.getCitiesByID
 func (vk *VK) DatabaseGetCitiesByID(params map[string]string) (response DatabaseGetCitiesByIDResponse, vkErr Error) {
-	vk.RequestUnmarshal("database.getCitiesByID", params, &response, &vkErr)
+	vk.RequestUnmarshal("database.getCitiesById", params, &response, &vkErr)
 	return
 }
 
@@ -64,7 +64,7 @@ type DatabaseGetCountriesByIDResponse []object.BaseObject
 //
 // https://vk.com/dev/database.getCountriesByID
 func (vk *VK) DatabaseGetCountriesByID(params map[string]string) (response DatabaseGetCountriesByIDResponse, vkErr Error) {
-	vk.RequestUnmarshal("database.getCountriesByID", params, &response, &vkErr)
+	vk.RequestUnmarshal("database.getCountriesById", params, &response, &vkErr)
 	return
 }
 
