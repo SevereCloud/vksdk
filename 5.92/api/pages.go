@@ -49,7 +49,7 @@ func (vk *VK) PagesGetTitles(params map[string]string) (response PagesGetTitlesR
 }
 
 // PagesGetVersionResponse struct
-type PagesGetVersionResponse []object.PagesWikipageFull
+type PagesGetVersionResponse object.PagesWikipageFull
 
 // PagesGetVersion returns the text of one of the previous versions of a wiki page.
 //
