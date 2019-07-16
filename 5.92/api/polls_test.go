@@ -79,6 +79,17 @@ func TestVK_PollsGetByID(t *testing.T) {
 	})
 }
 
+func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.PollsGetPhotoUploadServer(map[string]string{})
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.PollsGetPhotoUploadServer() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
 func TestVK_PollsGetVoters(t *testing.T) {
 	if vkUser.AccessToken == "" {
 		t.Skip("USER_TOKEN empty")
@@ -110,5 +121,4 @@ func TestVK_PollsGetVotersFields(t *testing.T) {
 	}
 }
 
-// TODO: TestVK_PollsGetPhotoUploadServer
 // TODO: TestVK_PollsSavePhoto
