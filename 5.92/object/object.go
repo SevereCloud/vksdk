@@ -45,6 +45,7 @@ type LongpollResponse struct {
 	Failed  int             `json:"failed"`
 }
 
+// LongpollBotResponse struct
 type LongpollBotResponse struct {
 	Ts      string       `json:"ts"`
 	Updates []GroupEvent `json:"updates"`

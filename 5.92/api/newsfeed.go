@@ -105,6 +105,7 @@ func (vk *VK) NewsfeedGetComments(params map[string]string) (response NewsfeedGe
 	return
 }
 
+// NewsfeedGetListsResponse struct
 type NewsfeedGetListsResponse struct {
 	Count int `json:"count"`
 	Items []struct {

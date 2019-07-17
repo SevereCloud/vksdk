@@ -117,6 +117,7 @@ func (vk *VK) RequestUnmarshal(method string, params map[string]string, obj inte
 	}
 }
 
+// NewError return new Error
 func NewError(code int, message, method string, params map[string]string) (vkErr Error) {
 	vkErr.Code = code
 	vkErr.Message = message

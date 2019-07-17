@@ -1,15 +1,18 @@
 package object
 
+// PodcastsItem struct
 type PodcastsItem struct {
 	OwnerID int `json:"owner_id"`
 }
 
+// PodcastsCategory struct
 type PodcastsCategory struct {
 	ID    int         `json:"id"`
 	Title string      `json:"title"`
 	Cover []baseImage `json:"cover"`
 }
 
+// PodcastsEpisode struct
 type PodcastsEpisode struct {
 	ID           int                 `json:"id"`
 	OwnerID      int                 `json:"owner_id"`
@@ -27,6 +30,7 @@ type PodcastsEpisode struct {
 	PodcastInfo  PodcastsPodcastInfo `json:"podcast_info"`
 }
 
+// PodcastsPodcastInfo struct
 type PodcastsPodcastInfo struct {
 	Cover struct {
 		Sizes []baseImage `json:"cover"`

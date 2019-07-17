@@ -46,6 +46,7 @@ type PhotosCommentXtrPid struct {
 	Thread         wallWallCommentThread   `json:"thread"`
 }
 
+// PhotosImage struct
 type PhotosImage struct {
 	Height int    `json:"height"` // Height of the photo in px.
 	Type   string `json:"type"`

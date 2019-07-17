@@ -29,7 +29,7 @@ func (vk *VK) FaveAddLink(params map[string]string) (response FaveAddLinkRespons
 // FaveAddPageResponse struct
 type FaveAddPageResponse int
 
-// FaveAddPage
+// FaveAddPage method
 //
 // https://vk.com/dev/fave.addPage
 func (vk *VK) FaveAddPage(params map[string]string) (response FaveAddPageResponse, vkErr Error) {
@@ -40,7 +40,7 @@ func (vk *VK) FaveAddPage(params map[string]string) (response FaveAddPageRespons
 // FaveAddPostResponse struct
 type FaveAddPostResponse int
 
-// FaveAddPost
+// FaveAddPost method
 //
 // https://vk.com/dev/fave.addPost
 func (vk *VK) FaveAddPost(params map[string]string) (response FaveAddPostResponse, vkErr Error) {
@@ -51,7 +51,7 @@ func (vk *VK) FaveAddPost(params map[string]string) (response FaveAddPostRespons
 // FaveAddProductResponse struct
 type FaveAddProductResponse int
 
-// FaveAddProduct
+// FaveAddProduct method
 //
 // https://vk.com/dev/fave.addProduct
 func (vk *VK) FaveAddProduct(params map[string]string) (response FaveAddProductResponse, vkErr Error) {
@@ -62,7 +62,7 @@ func (vk *VK) FaveAddProduct(params map[string]string) (response FaveAddProductR
 // FaveAddTagResponse struct
 type FaveAddTagResponse object.FaveTag
 
-// FaveAddTag
+// FaveAddTag method
 //
 // https://vk.com/dev/fave.addTag
 func (vk *VK) FaveAddTag(params map[string]string) (response FaveAddTagResponse, vkErr Error) {
@@ -73,7 +73,7 @@ func (vk *VK) FaveAddTag(params map[string]string) (response FaveAddTagResponse,
 // FaveAddVideoResponse struct
 type FaveAddVideoResponse int
 
-// FaveAddVideo
+// FaveAddVideo method
 //
 // https://vk.com/dev/fave.addVideo
 func (vk *VK) FaveAddVideo(params map[string]string) (response FaveAddVideoResponse, vkErr Error) {
@@ -84,7 +84,7 @@ func (vk *VK) FaveAddVideo(params map[string]string) (response FaveAddVideoRespo
 // FaveEditTagResponse struct
 type FaveEditTagResponse int
 
-// FaveEditTag
+// FaveEditTag method
 //
 // https://vk.com/dev/fave.editTag
 func (vk *VK) FaveEditTag(params map[string]string) (response FaveEditTagResponse, vkErr Error) {
@@ -98,7 +98,7 @@ type FaveGetResponse struct {
 	Items []object.FaveItem `json:"items"`
 }
 
-// FaveGet
+// FaveGet method
 //
 // extended=0
 //
@@ -117,7 +117,7 @@ type FaveGetExtendedResponse struct {
 	Groups   []object.GroupsGroup `json:"groups"`
 }
 
-// FaveGetExtended
+// FaveGetExtended method
 //
 // extended=1
 //
@@ -134,7 +134,7 @@ type FaveGetPagesResponse struct {
 	Items []object.FavePage `json:"items"`
 }
 
-// FaveGetPages
+// FaveGetPages method
 //
 // https://vk.com/dev/fave.getPages
 func (vk *VK) FaveGetPages(params map[string]string) (response FaveGetPagesResponse, vkErr Error) {
@@ -148,7 +148,7 @@ type FaveGetTagsResponse struct {
 	Items []object.FaveTag `json:"items"`
 }
 
-// FaveGetTags
+// FaveGetTags method
 //
 // https://vk.com/dev/fave.getTags
 func (vk *VK) FaveGetTags(params map[string]string) (response FaveGetTagsResponse, vkErr Error) {
@@ -159,7 +159,7 @@ func (vk *VK) FaveGetTags(params map[string]string) (response FaveGetTagsRespons
 // FaveMarkSeenResponse struct
 type FaveMarkSeenResponse int
 
-// FaveMarkSeen
+// FaveMarkSeen method
 //
 // https://vk.com/dev/fave.markSeen
 func (vk *VK) FaveMarkSeen(params map[string]string) (response FaveMarkSeenResponse, vkErr Error) {
@@ -170,7 +170,7 @@ func (vk *VK) FaveMarkSeen(params map[string]string) (response FaveMarkSeenRespo
 // FaveRemoveArticleResponse struct
 type FaveRemoveArticleResponse int
 
-// FaveRemoveArticle
+// FaveRemoveArticle method
 //
 // https://vk.com/dev/fave.removeArticle
 func (vk *VK) FaveRemoveArticle(params map[string]string) (response FaveRemoveArticleResponse, vkErr Error) {
@@ -192,7 +192,7 @@ func (vk *VK) FaveRemoveLink(params map[string]string) (response FaveRemoveLinkR
 // FaveRemovePageResponse struct
 type FaveRemovePageResponse int
 
-// FaveRemovePage
+// FaveRemovePage method
 //
 // https://vk.com/dev/fave.removePage
 func (vk *VK) FaveRemovePage(params map[string]string) (response FaveRemovePageResponse, vkErr Error) {
@@ -203,7 +203,7 @@ func (vk *VK) FaveRemovePage(params map[string]string) (response FaveRemovePageR
 // FaveRemovePostResponse struct
 type FaveRemovePostResponse int
 
-// FaveRemovePost
+// FaveRemovePost method
 //
 // https://vk.com/dev/fave.removePost
 func (vk *VK) FaveRemovePost(params map[string]string) (response FaveRemovePostResponse, vkErr Error) {
@@ -214,7 +214,7 @@ func (vk *VK) FaveRemovePost(params map[string]string) (response FaveRemovePostR
 // FaveRemoveProductResponse struct
 type FaveRemoveProductResponse int
 
-// FaveRemoveProduct
+// FaveRemoveProduct method
 //
 // https://vk.com/dev/fave.removeProduct
 func (vk *VK) FaveRemoveProduct(params map[string]string) (response FaveRemoveProductResponse, vkErr Error) {
@@ -225,7 +225,7 @@ func (vk *VK) FaveRemoveProduct(params map[string]string) (response FaveRemovePr
 // FaveRemoveTagResponse struct
 type FaveRemoveTagResponse int
 
-// FaveRemoveTag
+// FaveRemoveTag method
 //
 // https://vk.com/dev/fave.removeTag
 func (vk *VK) FaveRemoveTag(params map[string]string) (response FaveRemoveTagResponse, vkErr Error) {
@@ -236,7 +236,7 @@ func (vk *VK) FaveRemoveTag(params map[string]string) (response FaveRemoveTagRes
 // FaveRemoveVideoResponse struct
 type FaveRemoveVideoResponse int
 
-// FaveRemoveVideo
+// FaveRemoveVideo method
 //
 // https://vk.com/dev/fave.removeVideo
 func (vk *VK) FaveRemoveVideo(params map[string]string) (response FaveRemoveVideoResponse, vkErr Error) {
@@ -247,7 +247,7 @@ func (vk *VK) FaveRemoveVideo(params map[string]string) (response FaveRemoveVide
 // FaveReorderTagsResponse struct
 type FaveReorderTagsResponse int
 
-// FaveReorderTags
+// FaveReorderTags method
 //
 // https://vk.com/dev/fave.reorderTags
 func (vk *VK) FaveReorderTags(params map[string]string) (response FaveReorderTagsResponse, vkErr Error) {
@@ -258,7 +258,7 @@ func (vk *VK) FaveReorderTags(params map[string]string) (response FaveReorderTag
 // FaveSetPageTagsResponse struct
 type FaveSetPageTagsResponse int
 
-// FaveSetPageTags
+// FaveSetPageTags method
 //
 // https://vk.com/dev/fave.setPageTags
 func (vk *VK) FaveSetPageTags(params map[string]string) (response FaveSetPageTagsResponse, vkErr Error) {
@@ -269,7 +269,7 @@ func (vk *VK) FaveSetPageTags(params map[string]string) (response FaveSetPageTag
 // FaveSetTagsResponse struct
 type FaveSetTagsResponse int
 
-// FaveSetTags
+// FaveSetTags method
 //
 // https://vk.com/dev/fave.setTags
 func (vk *VK) FaveSetTags(params map[string]string) (response FaveSetTagsResponse, vkErr Error) {
@@ -280,7 +280,7 @@ func (vk *VK) FaveSetTags(params map[string]string) (response FaveSetTagsRespons
 // FaveTrackPageInteractionResponse struct
 type FaveTrackPageInteractionResponse int
 
-// FaveTrackPageInteraction
+// FaveTrackPageInteraction method
 //
 // https://vk.com/dev/fave.trackPageInteraction
 func (vk *VK) FaveTrackPageInteraction(params map[string]string) (response FaveTrackPageInteractionResponse, vkErr Error) {

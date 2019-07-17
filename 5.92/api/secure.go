@@ -76,7 +76,7 @@ type SecureGiveEventStickerResponse []struct {
 	Status string `json:"status"`
 }
 
-// SecureGiveEventSticker
+// SecureGiveEventSticker method
 //
 // https://vk.com/dev/secure.giveEventSticker
 func (vk *VK) SecureGiveEventSticker(params map[string]string) (response SecureGiveEventStickerResponse, vkErr Error) {

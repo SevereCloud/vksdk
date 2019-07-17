@@ -8,7 +8,7 @@ type PrettyCardsCreateResponse struct {
 	CardID  string `json:"card_id"`  // Card ID of created pretty card
 }
 
-// PrettyCardsCreate
+// PrettyCardsCreate   method
 //
 // https://vk.com/dev/prettyCards.create
 func (vk *VK) PrettyCardsCreate(params map[string]string) (response PrettyCardsCreateResponse, vkErr Error) {
@@ -23,7 +23,7 @@ type PrettyCardsDeleteResponse struct {
 	Error   string `json:"error"`    // Error reason if error happened
 }
 
-// PrettyCardsDelete
+// PrettyCardsDelete  method
 //
 // https://vk.com/dev/prettyCards.delete
 func (vk *VK) PrettyCardsDelete(params map[string]string) (response PrettyCardsDeleteResponse, vkErr Error) {
@@ -37,7 +37,7 @@ type PrettyCardsEditResponse struct {
 	CardID  string `json:"card_id"`  // Card ID of created pretty card
 }
 
-// PrettyCardsEdit
+// PrettyCardsEdit  method
 //
 // https://vk.com/dev/prettyCards.edit
 func (vk *VK) PrettyCardsEdit(params map[string]string) (response PrettyCardsEditResponse, vkErr Error) {
@@ -51,7 +51,7 @@ type PrettyCardsGetResponse struct {
 	Items []object.PrettyCardsPrettyCard `json:"items"`
 }
 
-// PrettyCardsGet
+// PrettyCardsGet  method
 //
 // https://vk.com/dev/prettyCards.get
 func (vk *VK) PrettyCardsGet(params map[string]string) (response PrettyCardsGetResponse, vkErr Error) {
@@ -62,7 +62,7 @@ func (vk *VK) PrettyCardsGet(params map[string]string) (response PrettyCardsGetR
 // PrettyCardsGetByIDResponse struct
 type PrettyCardsGetByIDResponse []object.PrettyCardsPrettyCard
 
-// PrettyCardsGetByID
+// PrettyCardsGetByID  method
 //
 // https://vk.com/dev/prettyCards.getById
 func (vk *VK) PrettyCardsGetByID(params map[string]string) (response PrettyCardsGetByIDResponse, vkErr Error) {
@@ -73,7 +73,7 @@ func (vk *VK) PrettyCardsGetByID(params map[string]string) (response PrettyCards
 // PrettyCardsGetUploadURLResponse struct
 type PrettyCardsGetUploadURLResponse string // Upload URL
 
-// PrettyCardsGetUploadURL
+// PrettyCardsGetUploadURL  method
 //
 // https://vk.com/dev/prettyCards.getUploadURL
 func (vk *VK) PrettyCardsGetUploadURL(params map[string]string) (response PrettyCardsGetUploadURLResponse, vkErr Error) {

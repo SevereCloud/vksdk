@@ -124,6 +124,7 @@ type NewsfeedList struct {
 // type newsfeedListFull struct {
 // }
 
+// NewsfeedNewsfeedItem struct
 type NewsfeedNewsfeedItem struct {
 	Type     string `json:"type"`
 	SourceID int    `json:"source_id"`

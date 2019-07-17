@@ -13,7 +13,7 @@ type PodcastsGetCatalogResponse struct {
 
 // PodcastsGetCatalog
 //
-// extended=0
+// extended=0 method
 //
 // https://vk.com/dev/podcasts.getCatalog
 func (vk *VK) PodcastsGetCatalog(params map[string]string) (response PodcastsGetCatalogResponse, vkErr Error) {
@@ -31,7 +31,7 @@ type PodcastsGetCatalogExtendedResponse struct {
 
 // PodcastsGetCatalogExtended
 //
-// extended=1
+// extended=1 method
 //
 // https://vk.com/dev/podcasts.getCatalog
 func (vk *VK) PodcastsGetCatalogExtended(params map[string]string) (response PodcastsGetCatalogExtendedResponse, vkErr Error) {
@@ -43,7 +43,7 @@ func (vk *VK) PodcastsGetCatalogExtended(params map[string]string) (response Pod
 // PodcastsGetCategoriesResponse
 type PodcastsGetCategoriesResponse []object.PodcastsCategory
 
-// PodcastsGetCategories
+// PodcastsGetCategories method
 //
 // https://vk.com/dev/podcasts.getCategories
 func (vk *VK) PodcastsGetCategories(params map[string]string) (response PodcastsGetCategoriesResponse, vkErr Error) {
@@ -57,7 +57,7 @@ type PodcastsGetEpisodesResponse struct {
 	Items []object.PodcastsEpisode `json:"items"`
 }
 
-// PodcastsGetEpisodes
+// PodcastsGetEpisodes method
 //
 // https://vk.com/dev/podcasts.getEpisodes
 func (vk *VK) PodcastsGetEpisodes(params map[string]string) (response PodcastsGetEpisodesResponse, vkErr Error) {
@@ -73,7 +73,7 @@ type PodcastsGetFeedResponse struct {
 
 // PodcastsGetFeed
 //
-// extended=0
+// extended=0 method
 //
 // https://vk.com/dev/podcasts.getFeed
 func (vk *VK) PodcastsGetFeed(params map[string]string) (response PodcastsGetFeedResponse, vkErr Error) {
@@ -92,7 +92,7 @@ type PodcastsGetFeedExtendedResponse struct {
 
 // PodcastsGetFeedExtended
 //
-// extended=1
+// extended=1 method
 //
 // https://vk.com/dev/podcasts.getFeed
 func (vk *VK) PodcastsGetFeedExtended(params map[string]string) (response PodcastsGetFeedExtendedResponse, vkErr Error) {
@@ -120,7 +120,7 @@ type PodcastsGetStartPageResponse struct {
 
 // PodcastsGetStartPage
 //
-// extended=0
+// extended=0 method
 //
 // https://vk.com/dev/podcasts.getStartPage
 func (vk *VK) PodcastsGetStartPage(params map[string]string) (response PodcastsGetStartPageResponse, vkErr Error) {
@@ -150,7 +150,7 @@ type PodcastsGetStartPageExtendedResponse struct {
 
 // PodcastsGetStartPageExtended
 //
-// extended=1
+// extended=1 method
 //
 // https://vk.com/dev/podcasts.getStartPage
 func (vk *VK) PodcastsGetStartPageExtended(params map[string]string) (response PodcastsGetStartPageExtendedResponse, vkErr Error) {
@@ -162,7 +162,7 @@ func (vk *VK) PodcastsGetStartPageExtended(params map[string]string) (response P
 // PodcastsMarkAsListenedResponse
 type PodcastsMarkAsListenedResponse int
 
-// PodcastsMarkAsListened
+// PodcastsMarkAsListened method
 //
 // https://vk.com/dev/podcasts.markAsListened
 func (vk *VK) PodcastsMarkAsListened(params map[string]string) (response PodcastsMarkAsListenedResponse, vkErr Error) {
@@ -173,7 +173,7 @@ func (vk *VK) PodcastsMarkAsListened(params map[string]string) (response Podcast
 // PodcastsSubscribeResponse
 type PodcastsSubscribeResponse int
 
-// PodcastsSubscribe
+// PodcastsSubscribe method
 //
 // https://vk.com/dev/podcasts.subscribe
 func (vk *VK) PodcastsSubscribe(params map[string]string) (response PodcastsSubscribeResponse, vkErr Error) {
@@ -184,7 +184,7 @@ func (vk *VK) PodcastsSubscribe(params map[string]string) (response PodcastsSubs
 // PodcastsUnsubscribeResponse
 type PodcastsUnsubscribeResponse int
 
-// PodcastsUnsubscribe
+// PodcastsUnsubscribe method
 //
 // https://vk.com/dev/podcasts.unsubscribe
 func (vk *VK) PodcastsUnsubscribe(params map[string]string) (response PodcastsUnsubscribeResponse, vkErr Error) {
