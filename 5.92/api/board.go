@@ -136,7 +136,7 @@ func (vk *VK) BoardGetCommentsExtended(params map[string]string) (response Board
 type BoardGetTopicsResponse struct {
 	Count        int                 `json:"count"`
 	Items        []object.BoardTopic `json:"items"`
-	DefaultOrder int                 `json:"default_order"`
+	DefaultOrder float64             `json:"default_order"` // BUG(VK): default_order int
 	CanAddTopics int                 `json:"can_add_topics"`
 }
 
@@ -155,7 +155,7 @@ func (vk *VK) BoardGetTopics(params map[string]string) (response BoardGetTopicsR
 type BoardGetTopicsExtendedResponse struct {
 	Count        int                  `json:"count"`
 	Items        []object.BoardTopic  `json:"items"`
-	DefaultOrder int                  `json:"default_order"`
+	DefaultOrder float64              `json:"default_order"` // BUG(VK): default_order int
 	CanAddTopics int                  `json:"can_add_topics"`
 	Profiles     []object.UsersUser   `json:"profiles"`
 	Groups       []object.GroupsGroup `json:"groups"`
@@ -195,12 +195,12 @@ func (vk *VK) BoardRestoreComment(params map[string]string) (response BoardResto
 }
 
 // BoardUnfixTopicRResponse struct
-type BoardUnfixTopicRResponse int
+type BoardUnfixTopicResponse int
 
 // BoardUnfixTopicR unpins a pinned topic from the top of a community's discussion board.
 //
 // https://vk.com/dev/board.unfixTopic
-func (vk *VK) BoardUnfixTopicR(params map[string]string) (response BoardUnfixTopicRResponse, vkErr Error) {
+func (vk *VK) BoardUnfixTopic(params map[string]string) (response BoardUnfixTopicResponse, vkErr Error) {
 	vk.RequestUnmarshal("board.unfixTopic", params, &response, &vkErr)
 	return
 }
