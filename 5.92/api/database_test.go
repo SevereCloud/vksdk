@@ -31,7 +31,6 @@ func TestVK_DatabaseGetCities(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCitiesByID(t *testing.T) {
-	// BUG(VK): https://vk.com/bug136374
 	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
@@ -56,7 +55,6 @@ func TestVK_DatabaseGetCountries(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCountriesByID(t *testing.T) {
-	// BUG(VK): https://vk.com/bug136374
 	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}

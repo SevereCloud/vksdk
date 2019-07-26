@@ -310,6 +310,9 @@ type messagesMessageAttachment struct {
 	Video             VideoVideo           `json:"video"`
 	Wall              wallWallpostAttached `json:"wall"`
 	WallReply         WallWallComment      `json:"wall_reply"`
+	AudioMessage      DocsDoc              `json:"audio_message"`
+	Graffiti          DocsDoc              `json:"graffiti"`
+	Poll              PollsPoll            `json:"poll"`
 }
 
 type messagesPinnedMessage struct {
