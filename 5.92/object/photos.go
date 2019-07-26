@@ -89,7 +89,7 @@ type PhotosOwnerUploadResponse struct {
 type photosPhotoAlbum struct {
 	Created     int         `json:"created"`     // Date when the album has been created in Unixtime
 	Description string      `json:"description"` // Photo album description
-	ID          int         `json:"id"`          // Photo album ID
+	ID          string      `json:"id"`          // BUG(VK): Photo album ID
 	OwnerID     int         `json:"owner_id"`    // Album owner's ID
 	Size        int         `json:"size"`        // Photos number
 	Thumb       PhotosPhoto `json:"thumb"`
