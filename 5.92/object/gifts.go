@@ -9,6 +9,10 @@ type GiftsGift struct {
 	ID       int         `json:"id"`        // Gift ID
 	Message  string      `json:"message"`   // Comment text
 	Privacy  int         `json:"privacy"`
+
+	PaymentType string `json:"payment_type"`
+	Price       int    `json:"price"`
+	PriceStr    string `json:"price_str"`
 }
 
 // GiftsLayout struct

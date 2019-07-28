@@ -15,3 +15,18 @@ func (vk *VK) GiftsGet(params map[string]string) (response GiftsGetResponse, vkE
 	vk.RequestUnmarshal("gifts.get", params, &response, &vkErr)
 	return
 }
+
+// GiftsGetCatalogResponse struct
+type GiftsGetCatalogResponse []struct {
+	Name  string             `json:"name"`
+	Title string             `json:"title"`
+	Items []object.GiftsGift `json:"items"`
+}
+
+// GiftsGetCatalog returns catalog.
+//
+// https://vk.com/dev/gifts.get
+func (vk *VK) GiftsGetCatalog(params map[string]string) (response GiftsGetCatalogResponse, vkErr Error) {
+	vk.RequestUnmarshal("gifts.getCatalog", params, &response, &vkErr)
+	return
+}

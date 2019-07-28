@@ -17,3 +17,15 @@ func TestVK_GiftsGet(t *testing.T) {
 		t.Errorf("VK.GiftsGet() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }
+
+func TestVK_GiftsGetCatalog(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.GiftsGetCatalog(map[string]string{})
+	// NOTE: Access denied: method allowed only for official app
+	if gotVkErr.Code != 0 && gotVkErr.Code != 15 {
+		t.Errorf("VK.GiftsGetCatalog() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
