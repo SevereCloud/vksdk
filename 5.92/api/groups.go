@@ -634,6 +634,17 @@ func (vk *VK) GroupsSetLongPollSettings(params map[string]string) (response Grou
 	return
 }
 
+// GroupsSetSettingsResponse struct
+type GroupsSetSettingsResponse int
+
+// GroupsSetSettings sets community settings
+//
+// https://vk.com/dev/groups.setSettings
+func (vk *VK) GroupsSetSettings(params map[string]string) (response GroupsSetSettingsResponse, vkErr Error) {
+	vk.RequestUnmarshal("groups.setSettings", params, &response, &vkErr)
+	return
+}
+
 // GroupsUnbanResponse struct
 type GroupsUnbanResponse int
 
