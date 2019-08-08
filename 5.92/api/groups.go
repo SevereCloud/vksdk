@@ -404,14 +404,29 @@ func (vk *VK) GroupsGetLongPollSettings(params map[string]string) (response Grou
 
 // GroupsGetMembersResponse struct
 type GroupsGetMembersResponse struct {
-	Count int                `json:"count"`
-	Items []object.UsersUser `json:"items"`
+	Count int   `json:"count"`
+	Items []int `json:"items"`
 }
 
 // GroupsGetMembers returns a list of community members
 //
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembers(params map[string]string) (response GroupsGetMembersResponse, vkErr Error) {
+	params["fields"] = ""
+	vk.RequestUnmarshal("groups.getMembers", params, &response, &vkErr)
+	return
+}
+
+// GroupsGetMembersFieldsResponse struct
+type GroupsGetMembersFieldsResponse struct {
+	Count int                `json:"count"`
+	Items []object.UsersUser `json:"items"`
+}
+
+// GroupsGetMembersFields returns a list of community members
+//
+// https://vk.com/dev/groups.getMembers
+func (vk *VK) GroupsGetMembersFields(params map[string]string) (response GroupsGetMembersFieldsResponse, vkErr Error) {
 	vk.RequestUnmarshal("groups.getMembers", params, &response, &vkErr)
 	return
 }
