@@ -145,15 +145,23 @@ func TestVK_FaveTag(t *testing.T) {
 	}
 
 	time.Sleep(300 * time.Millisecond)
-	tagResponse, vkErr := vkUser.FaveAddTag(map[string]string{
-		"name": "Test1",
+	_, gotVkErr := vkUser.FaveAddTag(map[string]string{
+		"name": "Test0",
 	})
-	if vkErr.Code != 0 {
-		log.Fatal(vkErr)
+	if gotVkErr.Code != 0 {
+		log.Fatal(gotVkErr)
 	}
 
 	time.Sleep(300 * time.Millisecond)
-	_, gotVkErr := vkUser.FaveSetTags(map[string]string{
+	tagResponse, gotVkErr := vkUser.FaveAddTag(map[string]string{
+		"name": "Test1",
+	})
+	if gotVkErr.Code != 0 {
+		log.Fatal(gotVkErr)
+	}
+
+	time.Sleep(300 * time.Millisecond)
+	_, gotVkErr = vkUser.FaveSetTags(map[string]string{
 		"link_url": "https://google.ru",
 		"tag_ids":  strconv.Itoa(tagResponse.ID),
 	})
@@ -248,6 +256,7 @@ func TestVK_FaveGet(t *testing.T) {
 		t.Errorf("VK.FaveGet() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 
+	time.Sleep(300 * time.Millisecond)
 	_, gotVkErr = vkUser.FaveGetExtended(map[string]string{})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.FaveGetExtended() gotVkErr = %v, want %v", gotVkErr, 0)
