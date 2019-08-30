@@ -41,12 +41,13 @@ type Error struct {
 }
 
 // Init VK API
-func Init(token string) (vk VK) {
+func Init(token string) *VK {
+	var vk VK
 	vk.MethodURL = apiMethodURL
 	vk.AccessToken = token
 	vk.Version = version
 	vk.Client = &http.Client{}
-	return
+	return &vk
 }
 
 // Request provides access to VK API methods

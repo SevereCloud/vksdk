@@ -6,8 +6,8 @@ import (
 	"testing"
 )
 
-var vkGroup, vkService, vkUser VK // nolint:gochecknoglobals
-var vkUserID, vkGroupID int       // nolint:gochecknoglobals
+var vkGroup, vkService, vkUser *VK // nolint:gochecknoglobals
+var vkUserID, vkGroupID int        // nolint:gochecknoglobals
 
 func TestMain(m *testing.M) {
 	vkGroup = Init(os.Getenv("GROUP_TOKEN"))

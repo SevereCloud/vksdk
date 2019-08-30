@@ -299,7 +299,7 @@ func TestInit(t *testing.T) {
 		{
 			name: "Init error",
 			args: args{
-				vk:      &badVk,
+				vk:      badVk,
 				groupID: 0,
 			},
 			wantErr: true,
@@ -307,7 +307,7 @@ func TestInit(t *testing.T) {
 		{
 			name: "Init good",
 			args: args{
-				vk:      &vk,
+				vk:      vk,
 				groupID: groupID,
 			},
 			wantErr: false,
@@ -334,7 +334,7 @@ func TestLongpoll_checkResponse(t *testing.T) {
 	}
 	vk := api.Init(groupToken)
 	groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
-	lp, _ := Init(&vk, groupID)
+	lp, _ := Init(vk, groupID)
 
 	tests := []struct {
 		name        string
@@ -389,7 +389,7 @@ func TestLongpoll_checkResponse(t *testing.T) {
 
 func TestLongpoll_RunError(t *testing.T) {
 	vk := api.Init("")
-	lp, _ := Init(&vk, 0)
+	lp, _ := Init(vk, 0)
 	lp.Wait = 1
 
 	t.Run("Run client error", func(t *testing.T) {
