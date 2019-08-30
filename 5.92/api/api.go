@@ -69,6 +69,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 	rawBody := bytes.NewBufferString(query.Encode())
 
 	// Rate limiting
+	var beforeRps int
 	if vk.Limit > 0 {
 		vk.mux.Lock()
 		sleepTime := time.Second - time.Since(vk.lastTime)
@@ -81,6 +82,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 			vk.rps = 0
 		}
 		vk.rps++
+		beforeRps = vk.rps
 		vk.mux.Unlock()
 	}
 
@@ -90,6 +92,21 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 		return handler.Response, handler.Error
 	}
 	defer resp.Body.Close()
+
+	if vk.Limit > 0 {
+		vk.mux.Lock()
+
+		if beforeRps != vk.rps {
+			vk.rps++
+		}
+		sleepTime := time.Second - time.Since(vk.lastTime)
+		if sleepTime < 0 {
+			vk.lastTime = time.Now()
+			vk.rps = 1
+		}
+
+		vk.mux.Unlock()
+	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
