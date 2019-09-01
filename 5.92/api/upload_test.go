@@ -138,3 +138,20 @@ func TestVK_UploadOwnerPhoto(t *testing.T) {
 		t.Errorf("VK.UploadOwnerPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }
+
+func TestVK_UploadMessagesPhoto(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadMessagesPhoto(117253521, response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadMessagesPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}

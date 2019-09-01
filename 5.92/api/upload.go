@@ -254,3 +254,38 @@ func (vk *VK) UploadOwnerPhoto(ownerID int, squareCrop string, file io.Reader) (
 	}, squareCrop, file)
 	return
 }
+
+// UploadMessagesPhoto uploading Photos into a Private Message
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
+func (vk *VK) UploadMessagesPhoto(peerID int, file io.Reader) (response PhotosSaveMessagesPhotoResponse, vkErr Error) {
+	uploadServer, vkErr := vk.PhotosGetMessagesUploadServer(map[string]string{
+		"peer_id": strconv.Itoa(peerID),
+	})
+	if vkErr.Code != 0 {
+		return
+	}
+
+	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	var handler object.PhotosMessageUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	response, vkErr = vk.PhotosSaveMessagesPhoto(map[string]string{
+		"server": strconv.Itoa(handler.Server),
+		"photo":  handler.Photo,
+		"hash":   handler.Hash,
+	})
+	return
+}

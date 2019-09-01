@@ -185,13 +185,13 @@ photosPhoto, vkErr = vk.UploadWallPhotoGroup(groupID, response.Body)
 Загрузка главной фотографии пользователя
 
 ```go
-photosPhoto, vkErr = vk.UploadUserPhoto(response.Body)
+photosPhoto, vkErr = vk.UploadUserPhoto(file)
 ```
 
 Загрузка фотографии пользователя или сообщества с миниатюрой
 
 ```go
-photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, squareСrop,response.Body)
+photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, squareСrop,file)
 ```
 
 Для загрузки главной фотографии сообщества необходимо передать его идентификатор со знаком «минус» в параметре `ownerID`.
@@ -201,7 +201,16 @@ photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, squareСrop,response.Body)
 Загрузка фотографии пользователя или сообщества без миниатюры:
 
 ```go
-photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, "",response.Body)
+photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, "", file)
+```
+
+#### 4. Загрузка фотографии в личное сообщение
+
+Допустимые форматы: JPG, PNG, GIF.
+Ограничения: сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ, соотношение сторон не менее 1:20.
+
+```go
+photosPhoto, vkErr = vk.UploadMessagesPhoto(peerID, file)
 ```
 
 #### TODO: Загрузка файлов реализована не полностью
