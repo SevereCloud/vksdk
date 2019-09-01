@@ -105,6 +105,10 @@ type photosPhotoAlbum struct {
 	Updated     int         `json:"updated"` // Date when the album has been updated last time in Unixtime
 }
 
+func (album photosPhotoAlbum) ToAttachment() string {
+	return fmt.Sprintf("album%d_%s", album.OwnerID, album.ID)
+}
+
 // PhotosPhotoAlbumFull struct
 type PhotosPhotoAlbumFull struct {
 	CanUpload        int    `json:"can_upload"`        // Information whether current user can upload photo to the album
@@ -123,6 +127,10 @@ type PhotosPhotoAlbumFull struct {
 	Title              string             `json:"title"`                 // Photo album title
 	Updated            int                `json:"updated"`               // Date when the album has been updated last time in Unixtime
 	UploadByAdminsOnly int                `json:"upload_by_admins_only"` // Information whether only community administrators can upload photos
+}
+
+func (album PhotosPhotoAlbumFull) ToAttachment() string {
+	return fmt.Sprintf("album%d_%d", album.OwnerID, album.ID)
 }
 
 // PhotosPhotoFull struct
@@ -274,6 +282,10 @@ type PhotosPhotoXtrTagInfo struct {
 	Text       string             `json:"text"`        // Photo caption
 	UserID     int                `json:"user_id"`     // ID of the user who have uploaded the photo
 	Width      int                `json:"width"`       // Original photo width
+}
+
+func (photo PhotosPhotoXtrTagInfo) ToAttachment() string {
+	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
 // PhotosWallUploadResponse struct
