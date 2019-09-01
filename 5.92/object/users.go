@@ -1,5 +1,9 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import (
+	"fmt"
+)
+
 // UsersUser struct
 type UsersUser struct {
 	ID                     int               `json:"id"`
@@ -86,6 +90,10 @@ type UsersUser struct {
 	// TODO: education
 }
 
+func (user UsersUser) ToMention() string {
+	return fmt.Sprintf("[id%d|%s %s]", user.ID, user.FirstName, user.LastName)
+}
+
 // UsersUserMin struct
 type UsersUserMin struct {
 	Deactivated string `json:"deactivated"` // Returns if a profile is deleted or blocked
@@ -93,6 +101,10 @@ type UsersUserMin struct {
 	Hidden      int    `json:"hidden"`      // Returns if a profile is hidden.
 	ID          int    `json:"id"`          // User ID
 	LastName    string `json:"last_name"`   // User last name
+}
+
+func (user UsersUserMin) ToMention() string {
+	return fmt.Sprintf("[id%d|%s %s]", user.ID, user.FirstName, user.LastName)
 }
 
 type usersContacts struct {
