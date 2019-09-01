@@ -1,5 +1,9 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import (
+	"fmt"
+)
+
 type pollsAnswer struct {
 	ID    int     `json:"id"`
 	Rate  float64 `json:"rate"`
@@ -32,6 +36,10 @@ type PollsPoll struct {
 	Friends    []pollsFriend   `json:"friends"`
 	Profiles   []UsersUser     `json:"profiles"`
 	Groups     []GroupsGroup   `json:"groups"`
+}
+
+func (poll PollsPoll) ToAttachment() string {
+	return fmt.Sprintf("poll%d_%d", poll.OwnerID, poll.ID)
 }
 
 type pollsFriend struct {
