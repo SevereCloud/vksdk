@@ -1,5 +1,9 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import (
+	"fmt"
+)
+
 // NotesNote struct
 type NotesNote struct {
 	CanComment     int           `json:"can_comment"` // Information whether current user can comment the note
@@ -14,6 +18,10 @@ type NotesNote struct {
 	ReadComments   int           `json:"read_comments"`
 	PrivacyView    []interface{} `json:"privacy_view"`
 	PrivacyComment []interface{} `json:"privacy_comment"`
+}
+
+func (note NotesNote) ToAttachment() string {
+	return fmt.Sprintf("note%d_%d", note.OwnerID, note.ID)
 }
 
 // NotesNoteComment struct
