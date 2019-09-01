@@ -1,5 +1,9 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import (
+	"fmt"
+)
+
 // VideoVideo struct
 type VideoVideo struct {
 	AccessKey      string          `json:"access_key"`       // Video access key
@@ -44,6 +48,10 @@ type VideoVideo struct {
 	Reposts        baseRepostsInfo `json:"reposts"` // Count of views
 	PrivacyView    []interface{}   `json:"privacy_view"`
 	PrivacyComment []interface{}   `json:"privacy_comment"`
+}
+
+func (video VideoVideo) ToAttachment() string {
+	return fmt.Sprintf("video%d_%d", video.OwnerID, video.ID)
 }
 
 // videoVideoFiles struct
@@ -173,6 +181,10 @@ type VideoVideoFull struct {
 	CanAddToFaves int             `json:"can_add_to_faves"`
 	Type          string          `json:"type"`
 	Reposts       baseRepostsInfo `json:"reposts"`
+}
+
+func (video VideoVideoFull) ToAttachment() string {
+	return fmt.Sprintf("video%d_%d", video.OwnerID, video.ID)
 }
 
 // VideoVideoTag struct
