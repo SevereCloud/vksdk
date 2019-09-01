@@ -1,5 +1,9 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import (
+	"fmt"
+)
+
 // PhotosPhoto struct
 type PhotosPhoto struct {
 	AccessKey          string             `json:"access_key"` // Access key for the photo
@@ -29,6 +33,10 @@ type PhotosPhoto struct {
 	Title              string             `json:"title"`
 	Updated            int                `json:"updated"`
 	UploadByAdminsOnly int                `json:"upload_by_admins_only"`
+}
+
+func (photo PhotosPhoto) ToAttachment() string {
+	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
 // PhotosCommentXtrPid struct
@@ -139,6 +147,10 @@ type PhotosPhotoFull struct {
 	Width      int             `json:"width"`   // Original photo width
 }
 
+func (photo PhotosPhotoFull) ToAttachment() string {
+	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
+}
+
 // PhotosPhotoFullXtrRealOffset struct
 type PhotosPhotoFullXtrRealOffset struct {
 	AccessKey  string             `json:"access_key"` // Access key for the photo
@@ -167,6 +179,10 @@ type PhotosPhotoFullXtrRealOffset struct {
 	Text       string             `json:"text"`    // Photo caption
 	UserID     int                `json:"user_id"` // ID of the user who have uploaded the photo
 	Width      int                `json:"width"`   // Original photo width
+}
+
+func (photo PhotosPhotoFullXtrRealOffset) ToAttachment() string {
+	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
 type photosPhotoSizes struct {
@@ -228,6 +244,10 @@ type PhotosPhotoXtrRealOffset struct {
 	Text       string             `json:"text"`    // Photo caption
 	UserID     int                `json:"user_id"` // ID of the user who have uploaded the photo
 	Width      int                `json:"width"`   // Original photo width
+}
+
+func (photo PhotosPhotoXtrRealOffset) ToAttachment() string {
+	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
 // PhotosPhotoXtrTagInfo struct
