@@ -1,5 +1,9 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import (
+	"fmt"
+)
+
 type marketCurrency struct {
 	ID   int    `json:"id"`   // Currency ID
 	Name string `json:"name"` // Currency sign
@@ -13,6 +17,10 @@ type MarketMarketAlbum struct {
 	Photo       PhotosPhoto `json:"photo"`
 	Title       string      `json:"title"`        // Market album title
 	UpdatedTime int         `json:"updated_time"` // Date when album has been updated last time in Unixtime
+}
+
+func (marketAlbum MarketMarketAlbum) ToAttachment() string {
+	return fmt.Sprintf("market_album%d_%d", marketAlbum.OwnerID, marketAlbum.ID)
 }
 
 // MarketMarketCategory struct
@@ -43,6 +51,10 @@ type MarketMarketItem struct {
 	ViewsCount   int                  `json:"views_count"`
 	URL          string               `json:"url"` // URL to item
 	ButtonTitle  string               `json:"button_title"`
+}
+
+func (market MarketMarketItem) ToAttachment() string {
+	return fmt.Sprintf("market%d_%d", market.OwnerID, market.ID)
 }
 
 type marketPrice struct {
