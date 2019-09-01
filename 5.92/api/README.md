@@ -143,4 +143,72 @@ vk.Client.Transport = httpTransport
 
 ### Загрузка файлов
 
-TODO: Загрузка файлов ещё не реализована
+Загрузка файлов более подробно описана в [документации] (https://vk.com/dev/upload_files)
+
+#### 1. Загрузка фотографий в альбом
+
+Допустимые форматы: JPG, PNG, GIF. 
+Файл объемом не более 50 МБ, соотношение сторон не менее 1:20
+
+Загрузка фотографий в альбом для текущего пользователя:
+
+```go
+photosPhoto, vkErr = vk.UploadPhoto(albumID, response.Body)
+```
+
+Загрузка фотографий в альбом для группы:
+
+```go
+photosPhoto, vkErr = vk.UploadPhotoGroup(groupID, albumID, response.Body)
+```
+
+#### 2. Загрузка фотографий на стену
+
+Допустимые форматы: JPG, PNG, GIF. 
+Файл объемом не более 50 МБ, соотношение сторон не менее 1:20
+
+```go
+photosPhoto, vkErr = vk.UploadWallPhoto(response.Body)
+```
+
+Загрузка фотографий в альбом для группы:
+
+```go
+photosPhoto, vkErr = vk.UploadWallPhotoGroup(groupID, response.Body)
+```
+
+#### TODO: Загрузка файлов реализована не полностью
+
+Смотрите [#34](https://github.com/SevereCloud/vksdk/issues/34)
+
+#### Примеры
+
+Загрузка фотографии в альбом:
+
+```go
+response, err := os.Open("photo.jpeg")
+if err != nil {
+	log.Fatal(err)
+}
+defer response.Body.Close()
+
+photo, vkErr = vk.UploadPhoto(albumID, response.Body)
+if vkErr.Code != 0 {
+	log.Fatal(vkErr.Message)
+}
+```
+
+Загрузка фотографии в альбом из интернета:
+
+```go
+response, err := http.Get("https://sun9-45.userapi.com/c638629/v638629852/2afba/o-dvykjSIB4.jpg")
+if err != nil {
+	log.Fatal(err)
+}
+defer response.Body.Close()
+
+photo, vkErr = vk.UploadPhoto(albumID, response.Body)
+if vkErr.Code != 0 {
+	log.Fatal(vkErr.Message)
+}
+```
