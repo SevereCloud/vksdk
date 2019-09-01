@@ -1,5 +1,9 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import (
+	"fmt"
+)
+
 // DocsDoc struct
 type DocsDoc struct {
 	AccessKey  string         `json:"access_key"` // Access key for the document
@@ -13,6 +17,10 @@ type DocsDoc struct {
 	Title      string         `json:"title"` // Document title
 	Type       int            `json:"type"`  // Document type
 	URL        string         `json:"url"`   // File URL
+}
+
+func (doc DocsDoc) ToAttachment() string {
+	return fmt.Sprintf("doc%d_%d", doc.OwnerID, doc.ID)
 }
 
 type docsDocPreview struct {
