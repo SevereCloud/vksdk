@@ -1,5 +1,9 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import (
+	"fmt"
+)
+
 // GroupsAddress struct
 type GroupsAddress struct {
 	AdditionalAddress string                 `json:"additional_address"` // Additional address to the place (6 floor, left door)
@@ -97,6 +101,10 @@ type GroupsGroup struct {
 	IsSubscribedPodcasts bool                 `json:"is_subscribed_podcasts"` // Information whether current user is subscribed to podcasts
 	CanSubscribePodcasts bool                 `json:"can_subscribe_podcasts"` // Owner in whitelist or not
 	CanSubscribePosts    bool                 `json:"can_subscribe_posts"`    // Can subscribe to wall
+}
+
+func (group GroupsGroup) ToMention() string {
+	return fmt.Sprintf("[club%d|%s]", group.ID, group.Name)
 }
 
 type groupsBanInfo struct {
@@ -244,7 +252,7 @@ type GroupsGroupSettings struct {
 // GroupsGroupXtrInvitedBy struct
 type GroupsGroupXtrInvitedBy struct {
 	AdminLevel   int    `json:"admin_level"`
-	ID           string `json:"id"`          // Community ID
+	ID           int    `json:"id"`          // Community ID
 	InvitedBy    int    `json:"invited_by"`  // Inviter ID
 	IsAdmin      int    `json:"is_admin"`    // Information whether current user is manager
 	IsClosed     int    `json:"is_closed"`   // Information whether community is closed
@@ -256,6 +264,10 @@ type GroupsGroupXtrInvitedBy struct {
 	ScreenName   string `json:"screen_name"` // Domain of the community page
 	Type         string `json:"type"`
 	IsAdvertiser int    `json:"is_advertiser"` // Information whether current user is advertiser
+}
+
+func (group GroupsGroupXtrInvitedBy) ToMention() string {
+	return fmt.Sprintf("[club%d|%s]", group.ID, group.Name)
 }
 
 // GroupsLinksItem struct
