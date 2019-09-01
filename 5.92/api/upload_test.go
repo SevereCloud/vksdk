@@ -104,3 +104,37 @@ func TestVK_UploadGroupWallPhoto(t *testing.T) {
 		t.Errorf("VK.UploadGroupWallPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }
+
+func TestVK_UploadUserPhoto(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadUserPhoto(response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadUserPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadOwnerPhoto(t *testing.T) {
+	if vkUser.AccessToken == "" && vkGroupID == 0 {
+		t.Skip("USER_TOKEN or GROUP_ID empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadOwnerPhoto(-vkGroupID, "10,10,200", response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadOwnerPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}

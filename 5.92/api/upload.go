@@ -68,7 +68,12 @@ func (vk *VK) uploadPhoto(params map[string]string, file io.Reader) (response Ph
 	return
 }
 
-// UploadPhoto upload photo to album
+// UploadPhoto uploading Photos into User Album
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) UploadPhoto(albumID int, file io.Reader) (response PhotosSaveResponse, vkErr Error) {
 	response, vkErr = vk.uploadPhoto(map[string]string{
 		"album_id": strconv.Itoa(albumID),
@@ -76,7 +81,12 @@ func (vk *VK) UploadPhoto(albumID int, file io.Reader) (response PhotosSaveRespo
 	return
 }
 
-// UploadPhotoGroup upload photo to group album
+// UploadPhotoGroup uploading Photos into Group Album
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) UploadPhotoGroup(groupID, albumID int, file io.Reader) (response PhotosSaveResponse, vkErr Error) {
 	response, vkErr = vk.uploadPhoto(map[string]string{
 		"album_id": strconv.Itoa(albumID),
@@ -85,7 +95,12 @@ func (vk *VK) UploadPhotoGroup(groupID, albumID int, file io.Reader) (response P
 	return
 }
 
-// uploadWallPhoto upload photo for wall
+// uploadWallPhoto uploading Photos on Wall
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) uploadWallPhoto(params map[string]string, file io.Reader) (response PhotosSaveWallPhotoResponse, vkErr Error) {
 	uploadServer, vkErr := vk.PhotosGetWallUploadServer(params)
 	if vkErr.Code != 0 {
@@ -114,16 +129,128 @@ func (vk *VK) uploadWallPhoto(params map[string]string, file io.Reader) (respons
 	return
 }
 
-// UploadWallPhoto upload photo for wall
+// UploadWallPhoto uploading Photos on User Wall
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) UploadWallPhoto(file io.Reader) (response PhotosSaveWallPhotoResponse, vkErr Error) {
 	response, vkErr = vk.uploadWallPhoto(map[string]string{}, file)
 	return
 }
 
-// UploadGroupWallPhoto upload photo for group wall
+// UploadGroupWallPhoto uploading Photos on Group Wall
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) UploadGroupWallPhoto(groupID int, file io.Reader) (response PhotosSaveWallPhotoResponse, vkErr Error) {
 	response, vkErr = vk.uploadWallPhoto(map[string]string{
 		"group_id": strconv.Itoa(groupID),
 	}, file)
+	return
+}
+
+// uploadOwnerPhoto uploading Photos into User Profile or Community
+// To upload a photo to a community send its negative id in the owner_id parameter.
+//
+// Following parameters can be sent in addition:
+// squareCrop in x,y,w (no quotes) format where x and y are the coordinates of
+// the preview upper-right corner and w is square side length.
+// That will create a square preview for a photo.
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
+// width+height not more than 14000 px, file size up to 50 Mb.
+func (vk *VK) uploadOwnerPhoto(params map[string]string, squareCrop string, file io.Reader) (response PhotosSaveOwnerPhotoResponse, vkErr Error) {
+	uploadServer, vkErr := vk.PhotosGetOwnerPhotoUploadServer(params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	body := new(bytes.Buffer)
+	writer := multipart.NewWriter(body)
+	part, err := writer.CreateFormFile("photo", "photo.jpeg")
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	_, err = io.Copy(part, file)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	contentType := writer.FormDataContentType()
+
+	if squareCrop != "" {
+		err = writer.WriteField("_square_crop", squareCrop)
+		if err != nil {
+			vkErr = NewError(-1, err.Error(), "", map[string]string{})
+			return
+		}
+	}
+
+	writer.Close()
+
+	resp, err := http.Post(uploadServer.UploadURL, contentType, body) // nolint: gosec
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+	defer resp.Body.Close()
+
+	bodyContent, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	var handler object.PhotosOwnerUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	response, vkErr = vk.PhotosSaveOwnerPhoto(map[string]string{
+		"server": strconv.Itoa(handler.Server),
+		"photo":  handler.Photo,
+		"hash":   handler.Hash,
+	})
+	return response, vkErr
+}
+
+// UploadUserPhoto uploading Photos into User Profile
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
+// width+height not more than 14000 px, file size up to 50 Mb.
+func (vk *VK) UploadUserPhoto(file io.Reader) (response PhotosSaveOwnerPhotoResponse, vkErr Error) {
+	response, vkErr = vk.uploadOwnerPhoto(map[string]string{}, "", file)
+	return
+}
+
+// UploadOwnerPhoto uploading Photos into User Profile or Community
+// To upload a photo to a community send its negative id in the owner_id parameter.
+//
+// Following parameters can be sent in addition:
+// squareCrop in x,y,w (no quotes) format where x and y are the coordinates of
+// the preview upper-right corner and w is square side length.
+// That will create a square preview for a photo.
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
+// width+height not more than 14000 px, file size up to 50 Mb.
+func (vk *VK) UploadOwnerPhoto(ownerID int, squareCrop string, file io.Reader) (response PhotosSaveOwnerPhotoResponse, vkErr Error) {
+	response, vkErr = vk.uploadOwnerPhoto(map[string]string{
+		"owner_id": strconv.Itoa(ownerID),
+	}, squareCrop, file)
 	return
 }
