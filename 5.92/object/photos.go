@@ -35,6 +35,7 @@ type PhotosPhoto struct {
 	UploadByAdminsOnly int                `json:"upload_by_admins_only"`
 }
 
+// ToAttachment return attachment format
 func (photo PhotosPhoto) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
@@ -105,6 +106,7 @@ type photosPhotoAlbum struct {
 	Updated     int         `json:"updated"` // Date when the album has been updated last time in Unixtime
 }
 
+// ToAttachment return attachment format
 func (album photosPhotoAlbum) ToAttachment() string {
 	return fmt.Sprintf("album%d_%s", album.OwnerID, album.ID)
 }
@@ -129,6 +131,7 @@ type PhotosPhotoAlbumFull struct {
 	UploadByAdminsOnly int                `json:"upload_by_admins_only"` // Information whether only community administrators can upload photos
 }
 
+// ToAttachment return attachment format
 func (album PhotosPhotoAlbumFull) ToAttachment() string {
 	return fmt.Sprintf("album%d_%d", album.OwnerID, album.ID)
 }
@@ -155,6 +158,7 @@ type PhotosPhotoFull struct {
 	Width      int             `json:"width"`   // Original photo width
 }
 
+// ToAttachment return attachment format
 func (photo PhotosPhotoFull) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
@@ -189,6 +193,7 @@ type PhotosPhotoFullXtrRealOffset struct {
 	Width      int                `json:"width"`   // Original photo width
 }
 
+// ToAttachment return attachment format
 func (photo PhotosPhotoFullXtrRealOffset) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
@@ -254,6 +259,7 @@ type PhotosPhotoXtrRealOffset struct {
 	Width      int                `json:"width"`   // Original photo width
 }
 
+// ToAttachment return attachment format
 func (photo PhotosPhotoXtrRealOffset) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
@@ -284,6 +290,7 @@ type PhotosPhotoXtrTagInfo struct {
 	Width      int                `json:"width"`       // Original photo width
 }
 
+// ToAttachment return attachment format
 func (photo PhotosPhotoXtrTagInfo) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }

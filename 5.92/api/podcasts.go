@@ -1,10 +1,10 @@
-package api
+package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// PodcastsGetCatalogResponse
+// PodcastsGetCatalogResponse struct
 type PodcastsGetCatalogResponse struct {
 	Items    []object.PodcastsItem `json:"items"`
 	Profiles []object.UsersUser    `json:"profiles"`
@@ -22,7 +22,7 @@ func (vk *VK) PodcastsGetCatalog(params map[string]string) (response PodcastsGet
 	return
 }
 
-// PodcastsGetCatalogExtendedResponse
+// PodcastsGetCatalogExtendedResponse struct
 type PodcastsGetCatalogExtendedResponse struct {
 	Items    []object.PodcastsItem `json:"items"`
 	Profiles []object.UsersUser    `json:"profiles"`
@@ -40,7 +40,7 @@ func (vk *VK) PodcastsGetCatalogExtended(params map[string]string) (response Pod
 	return
 }
 
-// PodcastsGetCategoriesResponse
+// PodcastsGetCategoriesResponse struct
 type PodcastsGetCategoriesResponse []object.PodcastsCategory
 
 // PodcastsGetCategories method
@@ -51,7 +51,7 @@ func (vk *VK) PodcastsGetCategories(params map[string]string) (response Podcasts
 	return
 }
 
-// PodcastsGetEpisodesResponse
+// PodcastsGetEpisodesResponse struct
 type PodcastsGetEpisodesResponse struct {
 	Count int                      `json:"count"`
 	Items []object.PodcastsEpisode `json:"items"`
@@ -65,7 +65,7 @@ func (vk *VK) PodcastsGetEpisodes(params map[string]string) (response PodcastsGe
 	return
 }
 
-// PodcastsGetFeedResponse
+// PodcastsGetFeedResponse struct
 type PodcastsGetFeedResponse struct {
 	Items    []object.PodcastsEpisode `json:"items"`
 	NextFrom string                   `json:"next_from"`
@@ -82,7 +82,7 @@ func (vk *VK) PodcastsGetFeed(params map[string]string) (response PodcastsGetFee
 	return
 }
 
-// PodcastsGetFeedExtendedResponse
+// PodcastsGetFeedExtendedResponse struct
 type PodcastsGetFeedExtendedResponse struct {
 	Items    []object.PodcastsEpisode `json:"items"`
 	NextFrom string                   `json:"next_from"`
@@ -101,7 +101,7 @@ func (vk *VK) PodcastsGetFeedExtended(params map[string]string) (response Podcas
 	return
 }
 
-// PodcastsGetStartPageResponse
+// PodcastsGetStartPageResponse struct
 type PodcastsGetStartPageResponse struct {
 	Order               []string                  `json:"order"`
 	InProgress          []object.PodcastsEpisode  `json:"in_progress"`
@@ -129,7 +129,7 @@ func (vk *VK) PodcastsGetStartPage(params map[string]string) (response PodcastsG
 	return
 }
 
-// PodcastsGetStartPageExtendedResponse
+// PodcastsGetStartPageExtendedResponse struct
 type PodcastsGetStartPageExtendedResponse struct {
 	Order               []string                  `json:"order"`
 	InProgress          []object.PodcastsEpisode  `json:"in_progress"`
@@ -159,7 +159,7 @@ func (vk *VK) PodcastsGetStartPageExtended(params map[string]string) (response P
 	return
 }
 
-// PodcastsMarkAsListenedResponse
+// PodcastsMarkAsListenedResponse struct
 type PodcastsMarkAsListenedResponse int
 
 // PodcastsMarkAsListened method
@@ -170,7 +170,7 @@ func (vk *VK) PodcastsMarkAsListened(params map[string]string) (response Podcast
 	return
 }
 
-// PodcastsSubscribeResponse
+// PodcastsSubscribeResponse struct
 type PodcastsSubscribeResponse int
 
 // PodcastsSubscribe method
@@ -181,7 +181,7 @@ func (vk *VK) PodcastsSubscribe(params map[string]string) (response PodcastsSubs
 	return
 }
 
-// PodcastsUnsubscribeResponse
+// PodcastsUnsubscribeResponse struct
 type PodcastsUnsubscribeResponse int
 
 // PodcastsUnsubscribe method

@@ -90,6 +90,7 @@ type UsersUser struct {
 	// TODO: education
 }
 
+// ToMention return mention
 func (user UsersUser) ToMention() string {
 	return fmt.Sprintf("[id%d|%s %s]", user.ID, user.FirstName, user.LastName)
 }
@@ -103,6 +104,7 @@ type UsersUserMin struct {
 	LastName    string `json:"last_name"`   // User last name
 }
 
+// ToMention return mention
 func (user UsersUserMin) ToMention() string {
 	return fmt.Sprintf("[id%d|%s %s]", user.ID, user.FirstName, user.LastName)
 }

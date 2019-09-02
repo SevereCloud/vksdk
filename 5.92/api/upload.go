@@ -12,6 +12,7 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
+// UploadFile uploading file
 func UploadFile(url string, file io.Reader, fieldname, filename string) (bodyContent []byte, err error) {
 	body := new(bytes.Buffer)
 	writer := multipart.NewWriter(body)
@@ -38,6 +39,12 @@ func UploadFile(url string, file io.Reader, fieldname, filename string) (bodyCon
 	return
 }
 
+// uploadPhoto uploading Photos into Album
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) uploadPhoto(params map[string]string, file io.Reader) (response PhotosSaveResponse, vkErr Error) {
 	uploadServer, vkErr := vk.PhotosGetUploadServer(params)
 	if vkErr.Code != 0 {

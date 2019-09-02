@@ -19,6 +19,7 @@ type DocsDoc struct {
 	URL        string         `json:"url"`   // File URL
 }
 
+// ToAttachment return attachment format
 func (doc DocsDoc) ToAttachment() string {
 	return fmt.Sprintf("doc%d_%d", doc.OwnerID, doc.ID)
 }

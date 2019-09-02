@@ -182,6 +182,7 @@ type OauthError struct {
 	RedirectURI      string `json:"redirect_uri"`
 }
 
+// Article struct
 type Article struct {
 	ID            int         `json:"id"`
 	OwnerID       int         `json:"owner_id"`

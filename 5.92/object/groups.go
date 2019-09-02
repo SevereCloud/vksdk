@@ -103,6 +103,7 @@ type GroupsGroup struct {
 	CanSubscribePosts    bool                 `json:"can_subscribe_posts"`    // Can subscribe to wall
 }
 
+// ToMention return mention
 func (group GroupsGroup) ToMention() string {
 	return fmt.Sprintf("[club%d|%s]", group.ID, group.Name)
 }
@@ -266,6 +267,7 @@ type GroupsGroupXtrInvitedBy struct {
 	IsAdvertiser int    `json:"is_advertiser"` // Information whether current user is advertiser
 }
 
+// ToMention return mention
 func (group GroupsGroupXtrInvitedBy) ToMention() string {
 	return fmt.Sprintf("[club%d|%s]", group.ID, group.Name)
 }

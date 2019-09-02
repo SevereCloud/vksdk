@@ -20,6 +20,7 @@ type NotesNote struct {
 	PrivacyComment []interface{} `json:"privacy_comment"`
 }
 
+// ToAttachment return attachment format
 func (note NotesNote) ToAttachment() string {
 	return fmt.Sprintf("note%d_%d", note.OwnerID, note.ID)
 }

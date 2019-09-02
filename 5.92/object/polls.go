@@ -38,6 +38,7 @@ type PollsPoll struct {
 	Groups     []GroupsGroup   `json:"groups"`
 }
 
+// ToAttachment return attachment format
 func (poll PollsPoll) ToAttachment() string {
 	return fmt.Sprintf("poll%d_%d", poll.OwnerID, poll.ID)
 }

@@ -1,6 +1,10 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
-import "fmt" // AudioAudioFull struct
+import (
+	"fmt"
+)
+
+// AudioAudioFull struct
 type AudioAudioFull struct {
 	ID          int                `json:"id"`
 	OwnerID     int                `json:"owner_id"`
@@ -19,6 +23,7 @@ type AudioAudioFull struct {
 	MainArtists []audioAudioArtist `json:"main_artists"`
 }
 
+// ToAttachment return attachment format
 func (audio AudioAudioFull) ToAttachment() string {
 	return fmt.Sprintf("audio%d_%d", audio.OwnerID, audio.ID)
 }
@@ -42,6 +47,7 @@ type AudioAudio struct {
 	URL          string `json:"url"`      // URL of mp3 file
 }
 
+// ToAttachment return attachment format
 func (audio AudioAudio) ToAttachment() string {
 	return fmt.Sprintf("audio%d_%d", audio.OwnerID, audio.ID)
 }

@@ -50,6 +50,7 @@ type VideoVideo struct {
 	PrivacyComment []interface{}   `json:"privacy_comment"`
 }
 
+// ToAttachment return attachment format
 func (video VideoVideo) ToAttachment() string {
 	return fmt.Sprintf("video%d_%d", video.OwnerID, video.ID)
 }
@@ -183,6 +184,7 @@ type VideoVideoFull struct {
 	Reposts       baseRepostsInfo `json:"reposts"`
 }
 
+// ToAttachment return attachment format
 func (video VideoVideoFull) ToAttachment() string {
 	return fmt.Sprintf("video%d_%d", video.OwnerID, video.ID)
 }

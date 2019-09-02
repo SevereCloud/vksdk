@@ -19,6 +19,7 @@ type MarketMarketAlbum struct {
 	UpdatedTime int         `json:"updated_time"` // Date when album has been updated last time in Unixtime
 }
 
+// ToAttachment return attachment format
 func (marketAlbum MarketMarketAlbum) ToAttachment() string {
 	return fmt.Sprintf("market_album%d_%d", marketAlbum.OwnerID, marketAlbum.ID)
 }
@@ -53,6 +54,7 @@ type MarketMarketItem struct {
 	ButtonTitle  string               `json:"button_title"`
 }
 
+// ToAttachment return attachment format
 func (market MarketMarketItem) ToAttachment() string {
 	return fmt.Sprintf("market%d_%d", market.OwnerID, market.ID)
 }
