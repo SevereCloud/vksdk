@@ -6,14 +6,18 @@ import (
 	"io"
 	"io/ioutil"
 	"mime/multipart"
-	"net/http"
 	"strconv"
 
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
+type uploadError struct {
+	Error     string `json:"error"`
+	ErrorCode int    `json:"error_code"`
+}
+
 // UploadFile uploading file
-func UploadFile(url string, file io.Reader, fieldname, filename string) (bodyContent []byte, err error) {
+func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string) (bodyContent []byte, err error) {
 	body := new(bytes.Buffer)
 	writer := multipart.NewWriter(body)
 	part, err := writer.CreateFormFile(fieldname, filename)
@@ -29,7 +33,7 @@ func UploadFile(url string, file io.Reader, fieldname, filename string) (bodyCon
 	contentType := writer.FormDataContentType()
 	writer.Close()
 
-	resp, err := http.Post(url, contentType, body) // nolint: gosec
+	resp, err := vk.Client.Post(url, contentType, body) // nolint: gosec
 	if err != nil {
 		return
 	}
@@ -51,7 +55,7 @@ func (vk *VK) uploadPhoto(params map[string]string, file io.Reader) (response Ph
 		return
 	}
 
-	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "file1", "file1.jpeg")
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "file1", "file1.jpeg")
 	if err != nil {
 		vkErr = NewError(-1, err.Error(), "", map[string]string{})
 		return
@@ -114,7 +118,7 @@ func (vk *VK) uploadWallPhoto(params map[string]string, file io.Reader) (respons
 		return
 	}
 
-	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
 	if err != nil {
 		vkErr = NewError(-1, err.Error(), "", map[string]string{})
 		return
@@ -204,7 +208,7 @@ func (vk *VK) uploadOwnerPhoto(params map[string]string, squareCrop string, file
 
 	writer.Close()
 
-	resp, err := http.Post(uploadServer.UploadURL, contentType, body) // nolint: gosec
+	resp, err := vk.Client.Post(uploadServer.UploadURL, contentType, body) // nolint: gosec
 	if err != nil {
 		vkErr = NewError(-1, err.Error(), "", map[string]string{})
 		return
@@ -276,7 +280,7 @@ func (vk *VK) UploadMessagesPhoto(peerID int, file io.Reader) (response PhotosSa
 		return
 	}
 
-	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
 	if err != nil {
 		vkErr = NewError(-1, err.Error(), "", map[string]string{})
 		return
@@ -310,7 +314,7 @@ func (vk *VK) uploadChatPhoto(params map[string]string, file io.Reader) (respons
 		return
 	}
 
-	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "file", "photo.jpeg")
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "file", "photo.jpeg")
 	if err != nil {
 		vkErr = NewError(-1, err.Error(), "", map[string]string{})
 		return
@@ -373,7 +377,7 @@ func (vk *VK) uploadMarketPhoto(params map[string]string, file io.Reader) (respo
 		return
 	}
 
-	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "file", "photo.jpeg")
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "file", "photo.jpeg")
 	if err != nil {
 		vkErr = NewError(-1, err.Error(), "", map[string]string{})
 		return
@@ -449,7 +453,7 @@ func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (response Phot
 		return
 	}
 
-	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "file", "photo.jpeg")
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "file", "photo.jpeg")
 	if err != nil {
 		vkErr = NewError(-1, err.Error(), "", map[string]string{})
 		return
@@ -468,5 +472,31 @@ func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (response Phot
 		"photo":    handler.Photo,
 		"hash":     handler.Hash,
 	})
+	return
+}
+
+// UploadVideo uploading Video Files
+//
+// Supported formats: AVI, MP4, 3GP, MPEG, MOV, FLV, WMV.
+func (vk *VK) UploadVideo(params map[string]string, file io.Reader) (response VideoSaveResponse, vkErr Error) {
+	response, vkErr = vk.VideoSave(params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(response.UploadURL, file, "video_file", "video")
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", params)
+		return
+	}
+
+	var videoUploadError uploadError
+	err = json.Unmarshal(bodyContent, &videoUploadError)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+	}
+	if videoUploadError.ErrorCode != 0 {
+		vkErr = NewError(-1, videoUploadError.Error, "", map[string]string{})
+	}
 	return
 }

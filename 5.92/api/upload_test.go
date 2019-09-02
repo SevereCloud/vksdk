@@ -10,15 +10,18 @@ import (
 
 const photoURL = "https://sun9-17.userapi.com/c853620/v853620933/dedb8/_5CIRVR-UA8.jpg"
 
-func Test_UploadFile(t *testing.T) {
+func TestVK_UploadFile(t *testing.T) {
+	vk := Init("")
+
 	f := func(url string, file io.Reader, fieldname, filename string, needErr bool) {
 		t.Helper()
-		_, err := UploadFile(url, file, fieldname, filename)
+		_, err := vk.UploadFile(url, file, fieldname, filename)
 
 		if (err != nil) && !needErr {
 			t.Errorf("VK.UploadWallPhoto() err = %v, want %v", err, needErr)
 		}
 	}
+
 	f("", new(bytes.Buffer), "", "", true)
 }
 
@@ -255,5 +258,22 @@ func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
 	_, gotVkErr := vkUser.UploadMarketAlbumPhoto(vkGroupID, response.Body)
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.UploadMarketAlbumPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadVideo_Error(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadVideo(map[string]string{}, response.Body)
+	if gotVkErr.Code != -1 {
+		t.Errorf("VK.UploadVideo() gotVkErr = %v, want %v", gotVkErr, -1)
 	}
 }

@@ -258,6 +258,18 @@ photosPhoto, vkErr = vk.UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth, 
 photosPhoto, vkErr = vk.UploadMarketAlbumPhoto(groupID, file)
 ```
 
+#### 9. Загрузка видеозаписей
+
+Допустимые форматы: AVI, MP4, 3GP, MPEG, MOV, MP3, FLV, WMV.
+
+[Параметры](https://vk.com/dev/video.save)
+
+```go
+videoUploadResponse, vkErr = vk.UploadVideo(params, file)
+```
+
+После загрузки видеозапись проходит обработку и в списке видеозаписей может появиться спустя некоторое время.
+
 #### TODO: Загрузка файлов реализована не полностью
 
 Смотрите [#34](https://github.com/SevereCloud/vksdk/issues/34)
