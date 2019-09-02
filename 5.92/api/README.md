@@ -316,6 +316,17 @@ docsDoc, vkErr = vk.UploadGroupWallDoc(groupID, title, tags, file)
 docsDoc, vkErr = vk.UploadMessagesDoc(peerID, type, title, tags, file)
 ```
 
+#### 11. Загрузка обложки сообщества
+
+Допустимые форматы: JPG, PNG, GIF.
+Ограничения: минимальный размер фото — 795x200px, сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ. Рекомендуемый размер: 1590x400px. В сутки можно загрузить не более 1500 обложек.
+
+Необходимо указать координаты обрезки фотографии в параметрах `cropX`, `cropY`, `cropX2`, `cropY2`.
+
+```go
+photosPhoto, vkErr = vk.UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2, file)
+```
+
 #### TODO: Загрузка файлов реализована не полностью
 
 Смотрите [#34](https://github.com/SevereCloud/vksdk/issues/34)

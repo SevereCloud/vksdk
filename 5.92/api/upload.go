@@ -440,7 +440,7 @@ func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file i
 	return
 }
 
-// uploadMarketAlbumPhoto uploading a Main Photo to a Group Chat
+// UploadMarketAlbumPhoto uploading a Main Photo to a Group Chat
 //
 // Supported formats: JPG, PNG, GIF.
 //
@@ -615,5 +615,43 @@ func (vk *VK) UploadMessagesDoc(peerID int, typeDoc, title, tags string, file io
 		return
 	}
 	response, vkErr = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+	return
+}
+
+// UploadOwneCoverrPhoto uploading a Main Photo to a Group Chat
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: minimum photo size 795x200px, width+height not more than 14000px,
+// file size up to 50 MB. Recommended size: 1590x400px.
+func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, file io.Reader) (response PhotosSaveOwnerCoverPhotoResponse, vkErr Error) {
+	uploadServer, vkErr := vk.PhotosGetOwnerCoverPhotoUploadServer(map[string]string{
+		"group_id": strconv.Itoa(groupID),
+		"crop_x":   strconv.Itoa(cropX),
+		"crop_y":   strconv.Itoa(cropY),
+		"crop_x2":  strconv.Itoa(cropX2),
+		"crop_y2":  strconv.Itoa(cropY2),
+	})
+	if vkErr.Code != 0 {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	var handler object.PhotosOwnerUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	response, vkErr = vk.PhotosSaveOwnerCoverPhoto(map[string]string{
+		"photo": handler.Photo,
+		"hash":  handler.Hash,
+	})
 	return
 }

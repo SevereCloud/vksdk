@@ -143,8 +143,8 @@ func TestVK_UploadOwnerPhoto(t *testing.T) {
 }
 
 func TestVK_UploadMessagesPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
+	if vkGroup.AccessToken == "" {
+		t.Skip("GROUP_TOKEN empty")
 	}
 
 	response, err := http.Get(photoURL)
@@ -153,7 +153,7 @@ func TestVK_UploadMessagesPhoto(t *testing.T) {
 	}
 	defer response.Body.Close()
 
-	_, gotVkErr := vkUser.UploadMessagesPhoto(117253521, response.Body)
+	_, gotVkErr := vkGroup.UploadMessagesPhoto(117253521, response.Body)
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.UploadMessagesPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
@@ -371,5 +371,22 @@ func TestVK_UploadMessagesDoc(t *testing.T) {
 	_, gotVkErr := vkUser.UploadMessagesDoc(117253521, "doc", "test.jpeg", "test", response.Body)
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.UploadMessagesDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
+	if vkGroup.AccessToken == "" && vkGroupID == 0 {
+		t.Skip("GROUP_TOKEN or GROUP_ID empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkGroup.UploadOwnerCoverPhoto(vkGroupID, 0, 0, 795, 200, response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadOwnerCoverPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }
