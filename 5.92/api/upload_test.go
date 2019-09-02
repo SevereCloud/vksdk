@@ -435,3 +435,91 @@ func TestVK_UploadStoriesVideo_Error(t *testing.T) {
 		t.Errorf("VK.UploadStoriesVideo() gotVkErr = %v, want %v", gotVkErr, -1)
 	}
 }
+
+func TestVK_Upload_Error(t *testing.T) {
+	vk := Init("")
+
+	_, gotVkErr := vk.uploadPhoto(map[string]string{}, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.uploadPhoto() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+	_, gotVkErr = vk.uploadWallPhoto(map[string]string{}, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.uploadWallPhoto() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.uploadOwnerPhoto(map[string]string{}, "", new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.uploadOwnerPhoto() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadMessagesPhoto(1, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.uploadOwnerPhoto() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.uploadChatPhoto(map[string]string{}, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.uploadChatPhoto() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.uploadMarketPhoto(map[string]string{}, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.uploadMarketPhoto() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadMarketAlbumPhoto(1, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadMarketAlbumPhoto() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadVideo(map[string]string{}, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadVideo() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.uploadDoc("", "", "", new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.uploadDoc() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadDoc("", "", new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadDoc() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadGroupDoc(1, "", "", new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadGroupDoc() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadWallDoc("", "", new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadWallDoc() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadGroupWallDoc(1, "", "", new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadGroupWallDoc() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadMessagesDoc(1, "", "", "", new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadMessagesDoc() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadOwnerCoverPhoto(1, 0, 0, 0, 0, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadOwnerCoverPhoto() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadStoriesPhoto(map[string]string{}, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadStoriesPhoto() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+
+	_, gotVkErr = vk.UploadStoriesVideo(map[string]string{}, new(bytes.Buffer))
+	if gotVkErr.Code != 5 {
+		t.Errorf("VK.UploadStoriesVideo() gotVkErr = %v, want %v", gotVkErr, 5)
+	}
+}
