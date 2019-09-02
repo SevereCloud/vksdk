@@ -478,11 +478,6 @@ func TestVK_Upload_Error(t *testing.T) {
 		t.Errorf("VK.UploadVideo() gotVkErr = %v, want %v", gotVkErr, 5)
 	}
 
-	_, gotVkErr = vk.uploadDoc("", "", "", new(bytes.Buffer))
-	if gotVkErr.Code != 5 {
-		t.Errorf("VK.uploadDoc() gotVkErr = %v, want %v", gotVkErr, 5)
-	}
-
 	_, gotVkErr = vk.UploadDoc("", "", new(bytes.Buffer))
 	if gotVkErr.Code != 5 {
 		t.Errorf("VK.UploadDoc() gotVkErr = %v, want %v", gotVkErr, 5)
