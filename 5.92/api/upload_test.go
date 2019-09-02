@@ -390,3 +390,48 @@ func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
 		t.Errorf("VK.UploadOwnerCoverPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }
+
+func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.UploadStoriesPhoto(map[string]string{}, new(bytes.Buffer))
+	if gotVkErr.Code != -1 {
+		t.Errorf("VK.UploadStoriesPhoto() gotVkErr = %v, want %v", gotVkErr, -1)
+	}
+}
+
+func TestVK_UploadStoriesPhoto(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadStoriesPhoto(map[string]string{}, response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadStoriesPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadStoriesVideo_Error(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadStoriesVideo(map[string]string{}, response.Body)
+	if gotVkErr.Code != -1 {
+		t.Errorf("VK.UploadStoriesVideo() gotVkErr = %v, want %v", gotVkErr, -1)
+	}
+}

@@ -486,7 +486,7 @@ func (vk *VK) UploadVideo(params map[string]string, file io.Reader) (response Vi
 		return
 	}
 
-	bodyContent, err := vk.UploadFile(response.UploadURL, file, "video_file", "video")
+	bodyContent, err := vk.UploadFile(response.UploadURL, file, "video_file", "video.mp4")
 	if err != nil {
 		vkErr = NewError(-1, err.Error(), "", params)
 		return
@@ -653,5 +653,86 @@ func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, f
 		"photo": handler.Photo,
 		"hash":  handler.Hash,
 	})
+	return
+}
+
+type UploadStories struct {
+	Stories object.StoriesStory `json:"stories"`
+	Sig     string              `json:"_sig"`
+}
+
+type rawUploadStoriesPhoto struct {
+	UploadStories
+	Error struct {
+		ErrorCode int    `json:"error_code"`
+		Type      string `json:"type"`
+	} `json:"error"`
+}
+
+type rawUploadStoriesVideo struct {
+	UploadStories
+	uploadError
+}
+
+// UploadStoriesPhoto uploading Story
+//
+// Supported formats: JPG, PNG, GIF.
+// Limits: sum of with and height no more than 14000px, file size no more than 10 MB. Video format: h264 video, aac audio, maximum 720х1280, 30fps.
+func (vk *VK) UploadStoriesPhoto(params map[string]string, file io.Reader) (response UploadStories, vkErr Error) {
+	uploadServer, vkErr := vk.StoriesGetPhotoUploadServer(params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "file", "file.jpeg")
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	var handler rawUploadStoriesPhoto
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+	if handler.Error.ErrorCode != 0 {
+		vkErr = NewError(-1, handler.Error.Type, "", map[string]string{})
+	} else {
+		response.Sig = handler.Sig
+		response.Stories = handler.Stories
+	}
+
+	return
+}
+
+// UploadStoriesVideo uploading Story
+//
+// Video format: h264 video, aac audio, maximum 720х1280, 30fps.
+func (vk *VK) UploadStoriesVideo(params map[string]string, file io.Reader) (response UploadStories, vkErr Error) {
+	uploadServer, vkErr := vk.StoriesGetVideoUploadServer(params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "video_file", "video.mp4")
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	var handler rawUploadStoriesVideo
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+	if handler.ErrorCode != 0 {
+		vkErr = NewError(-1, handler.Error, "", map[string]string{})
+	} else {
+		response.Sig = handler.Sig
+		response.Stories = handler.Stories
+	}
+
 	return
 }

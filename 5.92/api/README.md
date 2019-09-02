@@ -279,7 +279,7 @@ videoUploadResponse, vkErr = vk.UploadVideo(params, file)
 
 `tags` - метки для поиска
 
-`type` - тип документа.
+`typeDoc` - тип документа.
 
 - doc - обычный документ;
 - audio_message - голосовое сообщение
@@ -313,7 +313,7 @@ docsDoc, vkErr = vk.UploadGroupWallDoc(groupID, title, tags, file)
 Загрузить документ в личное сообщение:
 
 ```go
-docsDoc, vkErr = vk.UploadMessagesDoc(peerID, type, title, tags, file)
+docsDoc, vkErr = vk.UploadMessagesDoc(peerID, typeDoc, title, tags, file)
 ```
 
 #### 11. Загрузка обложки сообщества
@@ -327,9 +327,31 @@ docsDoc, vkErr = vk.UploadMessagesDoc(peerID, type, title, tags, file)
 photosPhoto, vkErr = vk.UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2, file)
 ```
 
-#### TODO: Загрузка файлов реализована не полностью
+#### 12. Загрузка аудиосообщения
 
-Смотрите [#34](https://github.com/SevereCloud/vksdk/issues/34)
+Допустимые форматы: Ogg Opus.
+Ограничения: sample rate 16kHz, variable bitrate 16 kbit/s, длительность не более 5 минут.
+
+```go
+docsDoc, vkErr = vk.UploadMessagesDoc(peerID, "audio_message", title, tags, file)
+```
+
+#### 13. Загрузка истории
+
+Допустимые форматы:​ JPG, PNG, GIF.
+Ограничения:​ сумма высоты и ширины не более 14000px, файл объемом не более 10МБ. Формат видео: h264 video, aac audio, максимальное разрешение 720х1280, 30fps.
+
+Загрузить истроию с фотографией. [Параметры](https://vk.com/dev/stories.getPhotoUploadServer)
+
+```go
+uploadInfo, vkErr = vk.UploadStoriesPhoto(params, file)
+```
+
+Загрузить истроию с видео. [Параметры](https://vk.com/dev/stories.getVideoUploadServer)
+
+```go
+uploadInfo, vkErr = vk.UploadStoriesVideo(params, file)
+```
 
 #### Примеры
 
