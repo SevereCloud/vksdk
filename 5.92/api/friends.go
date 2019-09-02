@@ -4,13 +4,10 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// FriendsAddResponse struct
-type FriendsAddResponse int
-
 // FriendsAdd approves or creates a friend request.
 //
 // https://vk.com/dev/friends.add
-func (vk *VK) FriendsAdd(params map[string]string) (response FriendsAddResponse, vkErr Error) {
+func (vk *VK) FriendsAdd(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("friends.add", params, &response, &vkErr)
 	return
 }
@@ -56,46 +53,34 @@ func (vk *VK) FriendsDelete(params map[string]string) (response FriendsDeleteRes
 	return
 }
 
-// FriendsDeleteAllRequestsResponse struct
-type FriendsDeleteAllRequestsResponse int
-
 // FriendsDeleteAllRequests marks all incoming friend requests as viewed.
 //
 // https://vk.com/dev/friends.deleteAllRequests
-func (vk *VK) FriendsDeleteAllRequests(params map[string]string) (response FriendsDeleteAllRequestsResponse, vkErr Error) {
+func (vk *VK) FriendsDeleteAllRequests(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("friends.deleteAllRequests", params, &response, &vkErr)
 	return
 }
 
-// FriendsDeleteListResponse struct
-type FriendsDeleteListResponse int
-
 // FriendsDeleteList deletes a friend list of the current user.
 //
 // https://vk.com/dev/friends.deleteList
-func (vk *VK) FriendsDeleteList(params map[string]string) (response FriendsDeleteListResponse, vkErr Error) {
+func (vk *VK) FriendsDeleteList(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("friends.deleteList", params, &response, &vkErr)
 	return
 }
 
-// FriendsEditResponse struct
-type FriendsEditResponse int
-
 // FriendsEdit edits the friend lists of the selected user.
 //
 // https://vk.com/dev/friends.edit
-func (vk *VK) FriendsEdit(params map[string]string) (response FriendsEditResponse, vkErr Error) {
+func (vk *VK) FriendsEdit(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("friends.edit", params, &response, &vkErr)
 	return
 }
 
-// FriendsEditListResponse struct
-type FriendsEditListResponse int
-
 // FriendsEditList edits a friend list of the current user.
 //
 // https://vk.com/dev/friends.editList
-func (vk *VK) FriendsEditList(params map[string]string) (response FriendsEditListResponse, vkErr Error) {
+func (vk *VK) FriendsEditList(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("friends.editList", params, &response, &vkErr)
 	return
 }

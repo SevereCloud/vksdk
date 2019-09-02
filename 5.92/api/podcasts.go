@@ -159,35 +159,26 @@ func (vk *VK) PodcastsGetStartPageExtended(params map[string]string) (response P
 	return
 }
 
-// PodcastsMarkAsListenedResponse struct
-type PodcastsMarkAsListenedResponse int
-
 // PodcastsMarkAsListened method
 //
 // https://vk.com/dev/podcasts.markAsListened
-func (vk *VK) PodcastsMarkAsListened(params map[string]string) (response PodcastsMarkAsListenedResponse, vkErr Error) {
+func (vk *VK) PodcastsMarkAsListened(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("podcasts.markAsListened", params, &response, &vkErr)
 	return
 }
 
-// PodcastsSubscribeResponse struct
-type PodcastsSubscribeResponse int
-
 // PodcastsSubscribe method
 //
 // https://vk.com/dev/podcasts.subscribe
-func (vk *VK) PodcastsSubscribe(params map[string]string) (response PodcastsSubscribeResponse, vkErr Error) {
+func (vk *VK) PodcastsSubscribe(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("podcasts.subscribe", params, &response, &vkErr)
 	return
 }
 
-// PodcastsUnsubscribeResponse struct
-type PodcastsUnsubscribeResponse int
-
 // PodcastsUnsubscribe method
 //
 // https://vk.com/dev/podcasts.unsubscribe
-func (vk *VK) PodcastsUnsubscribe(params map[string]string) (response PodcastsUnsubscribeResponse, vkErr Error) {
+func (vk *VK) PodcastsUnsubscribe(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("podcasts.unsubscribe", params, &response, &vkErr)
 	return
 }

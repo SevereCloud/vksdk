@@ -2,13 +2,10 @@ package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import "github.com/SevereCloud/vksdk/5.92/object"
 
-// PollsAddVoteResponse struct
-type PollsAddVoteResponse int
-
 // PollsAddVote adds the current user's vote to the selected answer in the poll.
 //
 // https://vk.com/dev/polls.addVote
-func (vk *VK) PollsAddVote(params map[string]string) (response PollsAddVoteResponse, vkErr Error) {
+func (vk *VK) PollsAddVote(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("polls.addVote", params, &response, &vkErr)
 	return
 }
@@ -24,24 +21,18 @@ func (vk *VK) PollsCreate(params map[string]string) (response PollsCreateRespons
 	return
 }
 
-// PollsDeleteVoteResponse struct
-type PollsDeleteVoteResponse int
-
 // PollsDeleteVote deletes the current user's vote from the selected answer in the poll.
 //
 // https://vk.com/dev/polls.deleteVote
-func (vk *VK) PollsDeleteVote(params map[string]string) (response PollsDeleteVoteResponse, vkErr Error) {
+func (vk *VK) PollsDeleteVote(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("polls.deleteVote", params, &response, &vkErr)
 	return
 }
 
-// PollsEditResponse struct
-type PollsEditResponse int
-
 // PollsEdit edits created polls
 //
 // https://vk.com/dev/polls.edit
-func (vk *VK) PollsEdit(params map[string]string) (response PollsEditResponse, vkErr Error) {
+func (vk *VK) PollsEdit(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("polls.edit", params, &response, &vkErr)
 	return
 }

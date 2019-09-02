@@ -21,7 +21,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	_, gotVkErr = vkUser.BoardCloseTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(int(topic)),
+		"topic_id": strconv.Itoa(topic),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.BoardCloseTopic() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -29,7 +29,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	_, gotVkErr = vkUser.BoardOpenTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(int(topic)),
+		"topic_id": strconv.Itoa(topic),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.BoardOpenTopic() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -37,7 +37,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	_, gotVkErr = vkUser.BoardEditTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(int(topic)),
+		"topic_id": strconv.Itoa(topic),
 		"title":    "Test topic edited",
 		"text":     "Test edited",
 	})
@@ -47,7 +47,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	_, gotVkErr = vkUser.BoardFixTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(int(topic)),
+		"topic_id": strconv.Itoa(topic),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.BoardFixTopic() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -55,7 +55,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	_, gotVkErr = vkUser.BoardUnfixTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(int(topic)),
+		"topic_id": strconv.Itoa(topic),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.BoardUnfixTopic() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -63,7 +63,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	comment, gotVkErr := vkUser.BoardCreateComment(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(int(topic)),
+		"topic_id": strconv.Itoa(topic),
 		"message":  "topic comment",
 	})
 	if gotVkErr.Code != 0 {
@@ -72,8 +72,8 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	_, gotVkErr = vkUser.BoardEditComment(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
-		"topic_id":   strconv.Itoa(int(topic)),
-		"comment_id": strconv.Itoa(int(comment)),
+		"topic_id":   strconv.Itoa(topic),
+		"comment_id": strconv.Itoa(comment),
 		"message":    "topic comment",
 	})
 	if gotVkErr.Code != 0 {
@@ -82,8 +82,8 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	_, gotVkErr = vkUser.BoardDeleteComment(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
-		"topic_id":   strconv.Itoa(int(topic)),
-		"comment_id": strconv.Itoa(int(comment)),
+		"topic_id":   strconv.Itoa(topic),
+		"comment_id": strconv.Itoa(comment),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.BoardDeleteComment() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -91,8 +91,8 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	_, gotVkErr = vkUser.BoardRestoreComment(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
-		"topic_id":   strconv.Itoa(int(topic)),
-		"comment_id": strconv.Itoa(int(comment)),
+		"topic_id":   strconv.Itoa(topic),
+		"comment_id": strconv.Itoa(comment),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.BoardRestoreComment() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -100,7 +100,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 
 	_, gotVkErr = vkUser.BoardDeleteTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(int(topic)),
+		"topic_id": strconv.Itoa(topic),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.BoardDeleteTopic() gotVkErr = %v, want %v", gotVkErr, 0)

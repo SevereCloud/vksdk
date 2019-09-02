@@ -31,13 +31,10 @@ func (vk *VK) StorageGetKeys(params map[string]string) (response StorageGetKeysR
 	return
 }
 
-// StorageSetResponse struct
-type StorageSetResponse int
-
 // StorageSet saves a value of variable with the name set by key parameter.
 //
 // https://vk.com/dev/storage.set
-func (vk *VK) StorageSet(params map[string]string) (response StorageSetResponse, vkErr Error) {
+func (vk *VK) StorageSet(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("storage.set", params, &response, &vkErr)
 	return
 }

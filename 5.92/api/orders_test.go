@@ -15,7 +15,7 @@ func TestVK_OrdersCancelSubscription(t *testing.T) {
 	tests := []struct {
 		name         string
 		argParams    map[string]string
-		wantResponse OrdersCancelSubscriptionResponse
+		wantResponse int
 		wantVkErr    Error
 	}{
 		// TODO: Add test cases.
@@ -221,7 +221,7 @@ func TestVK_OrdersUpdateSubscription(t *testing.T) {
 	tests := []struct {
 		name         string
 		argParams    map[string]string
-		wantResponse OrdersUpdateSubscriptionResponse
+		wantResponse int
 		wantVkErr    Error
 	}{
 		// TODO: Add test cases.

@@ -21,7 +21,7 @@ func TestVK_NotesAdd(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.NotesEdit(map[string]string{
-		"note_id": strconv.Itoa(int(note)),
+		"note_id": strconv.Itoa(note),
 		"title":   "Test note edited",
 		"text":    "Text note edited",
 	})
@@ -30,7 +30,7 @@ func TestVK_NotesAdd(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.NotesDelete(map[string]string{
-		"note_id": strconv.Itoa(int(note)),
+		"note_id": strconv.Itoa(note),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.NotesDelete() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -52,7 +52,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.NotesEditComment(map[string]string{
-		"comment_id": strconv.Itoa(int(comment)),
+		"comment_id": strconv.Itoa(comment),
 		"owner_id":   "2314852",
 		"message":    "Test note commentedited",
 	})
@@ -61,7 +61,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.NotesDeleteComment(map[string]string{
-		"comment_id": strconv.Itoa(int(comment)),
+		"comment_id": strconv.Itoa(comment),
 		"owner_id":   "2314852",
 	})
 	if gotVkErr.Code != object.ErrorParam {
@@ -69,7 +69,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.NotesRestoreComment(map[string]string{
-		"comment_id": strconv.Itoa(int(comment)),
+		"comment_id": strconv.Itoa(comment),
 		"owner_id":   "2314852",
 	})
 	if gotVkErr.Code != object.ErrorParam {

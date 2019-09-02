@@ -1,14 +1,13 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-import "github.com/SevereCloud/vksdk/5.92/object"
-
-// OrdersCancelSubscriptionResponse struct
-type OrdersCancelSubscriptionResponse int
+import (
+	"github.com/SevereCloud/vksdk/5.92/object"
+)
 
 // OrdersCancelSubscription Allows to cancel subscription.
 //
 // https://vk.com/dev/orders.cancelSubscription
-func (vk *VK) OrdersCancelSubscription(params map[string]string) (response OrdersCancelSubscriptionResponse, vkErr Error) {
+func (vk *VK) OrdersCancelSubscription(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("orders.cancelSubscription", params, &response, &vkErr)
 	return
 }
@@ -82,13 +81,10 @@ func (vk *VK) OrdersGetUserSubscriptions(params map[string]string) (response Ord
 	return
 }
 
-// OrdersUpdateSubscriptionResponse struct
-type OrdersUpdateSubscriptionResponse int
-
 // OrdersUpdateSubscription Allows to update subscription price.
 //
 // https://vk.com/dev/orders.updateSubscription
-func (vk *VK) OrdersUpdateSubscription(params map[string]string) (response OrdersUpdateSubscriptionResponse, vkErr Error) {
+func (vk *VK) OrdersUpdateSubscription(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("orders.updateSubscription", params, &response, &vkErr)
 	return
 }

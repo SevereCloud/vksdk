@@ -4,68 +4,50 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// NotesAddResponse struct
-type NotesAddResponse int
-
 // NotesAdd creates a new note for the current user.
 //
 // https://vk.com/dev/notes.add
-func (vk *VK) NotesAdd(params map[string]string) (response NotesAddResponse, vkErr Error) {
+func (vk *VK) NotesAdd(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("notes.add", params, &response, &vkErr)
 	return
 }
 
-// NotesCreateCommentResponse struct
-type NotesCreateCommentResponse int
-
 // NotesCreateComment adds a new comment on a note.
 //
 // https://vk.com/dev/notes.createComment
-func (vk *VK) NotesCreateComment(params map[string]string) (response NotesCreateCommentResponse, vkErr Error) {
+func (vk *VK) NotesCreateComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("notes.createComment", params, &response, &vkErr)
 	return
 }
 
-// NotesDeleteResponse struct
-type NotesDeleteResponse int
-
 // NotesDelete deletes a note of the current user.
 //
 // https://vk.com/dev/notes.delete
-func (vk *VK) NotesDelete(params map[string]string) (response NotesDeleteResponse, vkErr Error) {
+func (vk *VK) NotesDelete(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("notes.delete", params, &response, &vkErr)
 	return
 }
 
-// NotesDeleteCommentResponse struct
-type NotesDeleteCommentResponse int
-
 // NotesDeleteComment deletes a comment on a note.
 //
 // https://vk.com/dev/notes.deleteComment
-func (vk *VK) NotesDeleteComment(params map[string]string) (response NotesDeleteCommentResponse, vkErr Error) {
+func (vk *VK) NotesDeleteComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("notes.deleteComment", params, &response, &vkErr)
 	return
 }
 
-// NotesEditResponse struct
-type NotesEditResponse int
-
 // NotesEdit edits a note of the current user.
 //
 // https://vk.com/dev/notes.edit
-func (vk *VK) NotesEdit(params map[string]string) (response NotesEditResponse, vkErr Error) {
+func (vk *VK) NotesEdit(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("notes.edit", params, &response, &vkErr)
 	return
 }
 
-// NotesEditCommentResponse struct
-type NotesEditCommentResponse int
-
 // NotesEditComment edits a comment on a note.
 //
 // https://vk.com/dev/notes.editComment
-func (vk *VK) NotesEditComment(params map[string]string) (response NotesEditCommentResponse, vkErr Error) {
+func (vk *VK) NotesEditComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("notes.editComment", params, &response, &vkErr)
 	return
 }
@@ -109,13 +91,10 @@ func (vk *VK) NotesGetComments(params map[string]string) (response NotesGetComme
 	return
 }
 
-// NotesRestoreCommentResponse struct
-type NotesRestoreCommentResponse int
-
 // NotesRestoreComment restores a deleted comment on a note.
 //
 // https://vk.com/dev/notes.restoreComment
-func (vk *VK) NotesRestoreComment(params map[string]string) (response NotesRestoreCommentResponse, vkErr Error) {
+func (vk *VK) NotesRestoreComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("notes.restoreComment", params, &response, &vkErr)
 	return
 }

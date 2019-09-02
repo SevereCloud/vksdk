@@ -26,13 +26,10 @@ func (vk *VK) SecureCheckToken(params map[string]string) (response SecureCheckTo
 	return
 }
 
-// SecureGetAppBalanceResponse struct
-type SecureGetAppBalanceResponse int
-
 // SecureGetAppBalance Returns payment balance of the application in hundredth of a vote.
 //
 // https://vk.com/dev/secure.getAppBalance
-func (vk *VK) SecureGetAppBalance(params map[string]string) (response SecureGetAppBalanceResponse, vkErr Error) {
+func (vk *VK) SecureGetAppBalance(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("secure.getAppBalance", params, &response, &vkErr)
 	return
 }
@@ -95,24 +92,18 @@ func (vk *VK) SecureSendNotification(params map[string]string) (response SecureS
 	return
 }
 
-// SecureSendSMSNotificationResponse struct
-type SecureSendSMSNotificationResponse int
-
 // SecureSendSMSNotification Sends SMS notification to a user's mobile device.
 //
 // https://vk.com/dev/secure.sendSMSNotification
-func (vk *VK) SecureSendSMSNotification(params map[string]string) (response SecureSendSMSNotificationResponse, vkErr Error) {
+func (vk *VK) SecureSendSMSNotification(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("secure.sendSMSNotification", params, &response, &vkErr)
 	return
 }
 
-// SecureSetCounterResponse struct
-type SecureSetCounterResponse int
-
 // SecureSetCounter Sets a counter which is shown to the user in bold in the left menu.
 //
 // https://vk.com/dev/secure.setCounter
-func (vk *VK) SecureSetCounter(params map[string]string) (response SecureSetCounterResponse, vkErr Error) {
+func (vk *VK) SecureSetCounter(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("secure.setCounter", params, &response, &vkErr)
 	return
 }

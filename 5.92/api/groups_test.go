@@ -651,7 +651,7 @@ func TestVK_GroupsIsMember(t *testing.T) {
 	tests := []struct {
 		name         string
 		argParams    map[string]string
-		wantResponse GroupsIsMemberResponse
+		wantResponse int
 		wantVkErr    Error
 	}{
 		{

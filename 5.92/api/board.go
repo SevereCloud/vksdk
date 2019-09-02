@@ -4,90 +4,66 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// BoardAddTopicResponse struct
-type BoardAddTopicResponse int
-
 // BoardAddTopic creates a new topic on a community's discussion board.
 //
 // https://vk.com/dev/board.addTopic
-func (vk *VK) BoardAddTopic(params map[string]string) (response BoardAddTopicResponse, vkErr Error) {
+func (vk *VK) BoardAddTopic(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.addTopic", params, &response, &vkErr)
 	return
 }
 
-// BoardCloseTopicResponse struct
-type BoardCloseTopicResponse int
-
 // BoardCloseTopic closes a topic on a community's discussion board so that comments cannot be posted.
 //
 // https://vk.com/dev/board.closeTopic
-func (vk *VK) BoardCloseTopic(params map[string]string) (response BoardCloseTopicResponse, vkErr Error) {
+func (vk *VK) BoardCloseTopic(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.closeTopic", params, &response, &vkErr)
 	return
 }
 
-// BoardCreateCommentResponse struct
-type BoardCreateCommentResponse int
-
 // BoardCreateComment adds a comment on a topic on a community's discussion board.
 //
 // https://vk.com/dev/board.createComment
-func (vk *VK) BoardCreateComment(params map[string]string) (response BoardCreateCommentResponse, vkErr Error) {
+func (vk *VK) BoardCreateComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.createComment", params, &response, &vkErr)
 	return
 }
 
-// BoardDeleteCommentResponse struct
-type BoardDeleteCommentResponse int
-
 // BoardDeleteComment deletes a comment on a topic on a community's discussion board.
 //
 // https://vk.com/dev/board.deleteComment
-func (vk *VK) BoardDeleteComment(params map[string]string) (response BoardDeleteCommentResponse, vkErr Error) {
+func (vk *VK) BoardDeleteComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.deleteComment", params, &response, &vkErr)
 	return
 }
 
-// BoardDeleteTopicResponse struct
-type BoardDeleteTopicResponse int
-
 // BoardDeleteTopic deletes a topic from a community's discussion board.
 //
 // https://vk.com/dev/board.deleteTopic
-func (vk *VK) BoardDeleteTopic(params map[string]string) (response BoardDeleteTopicResponse, vkErr Error) {
+func (vk *VK) BoardDeleteTopic(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.deleteTopic", params, &response, &vkErr)
 	return
 }
 
-// BoardEditCommentResponse struct
-type BoardEditCommentResponse int
-
 // BoardEditComment edits a comment on a topic on a community's discussion board.
 //
 // https://vk.com/dev/board.editComment
-func (vk *VK) BoardEditComment(params map[string]string) (response BoardEditCommentResponse, vkErr Error) {
+func (vk *VK) BoardEditComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.editComment", params, &response, &vkErr)
 	return
 }
 
-// BoardEditTopicResponse struct
-type BoardEditTopicResponse int
-
 // BoardEditTopic edits the title of a topic on a community's discussion board.
 //
 // https://vk.com/dev/board.editTopic
-func (vk *VK) BoardEditTopic(params map[string]string) (response BoardEditTopicResponse, vkErr Error) {
+func (vk *VK) BoardEditTopic(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.editTopic", params, &response, &vkErr)
 	return
 }
 
-// BoardFixTopicResponse struct
-type BoardFixTopicResponse int
-
 // BoardFixTopic pins a topic (fixes its place) to the top of a community's discussion board.
 //
 // https://vk.com/dev/board.fixTopic
-func (vk *VK) BoardFixTopic(params map[string]string) (response BoardFixTopicResponse, vkErr Error) {
+func (vk *VK) BoardFixTopic(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.fixTopic", params, &response, &vkErr)
 	return
 }
@@ -172,35 +148,26 @@ func (vk *VK) BoardGetTopicsExtended(params map[string]string) (response BoardGe
 	return
 }
 
-// BoardOpenTopicResponse struct
-type BoardOpenTopicResponse int
-
 // BoardOpenTopic re-opens a previously closed topic on a community's discussion board.
 //
 // https://vk.com/dev/board.openTopic
-func (vk *VK) BoardOpenTopic(params map[string]string) (response BoardOpenTopicResponse, vkErr Error) {
+func (vk *VK) BoardOpenTopic(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.openTopic", params, &response, &vkErr)
 	return
 }
 
-// BoardRestoreCommentResponse struct
-type BoardRestoreCommentResponse int
-
 // BoardRestoreComment restores a comment deleted from a topic on a community's discussion board.
 //
 // https://vk.com/dev/board.restoreComment
-func (vk *VK) BoardRestoreComment(params map[string]string) (response BoardRestoreCommentResponse, vkErr Error) {
+func (vk *VK) BoardRestoreComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.restoreComment", params, &response, &vkErr)
 	return
 }
 
-// BoardUnfixTopicResponse struct
-type BoardUnfixTopicResponse int
-
 // BoardUnfixTopic unpins a pinned topic from the top of a community's discussion board.
 //
 // https://vk.com/dev/board.unfixTopic
-func (vk *VK) BoardUnfixTopic(params map[string]string) (response BoardUnfixTopicResponse, vkErr Error) {
+func (vk *VK) BoardUnfixTopic(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("board.unfixTopic", params, &response, &vkErr)
 	return
 }

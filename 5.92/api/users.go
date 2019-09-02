@@ -75,24 +75,18 @@ func (vk *VK) UsersGetSubscriptions(params map[string]string) (response UsersGet
 	return
 }
 
-// UsersIsAppUserResponse struct
-type UsersIsAppUserResponse int
-
 // UsersIsAppUser returns information whether a user installed the application.
 //
 // https://vk.com/dev/users.isAppUser
-func (vk *VK) UsersIsAppUser(params map[string]string) (response UsersIsAppUserResponse, vkErr Error) {
+func (vk *VK) UsersIsAppUser(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("users.isAppUser", params, &response, &vkErr)
 	return
 }
 
-// UsersReportResponse struct
-type UsersReportResponse int
-
 // UsersReport reports (submits a complain about) a user.
 //
 // https://vk.com/dev/users.report
-func (vk *VK) UsersReport(params map[string]string) (response UsersReportResponse, vkErr Error) {
+func (vk *VK) UsersReport(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("users.report", params, &response, &vkErr)
 	return
 }

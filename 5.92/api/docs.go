@@ -4,35 +4,26 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// DocsAddResponse struct
-type DocsAddResponse int
-
 // DocsAdd copies a document to a user's or community's document list.
 //
 // https://vk.com/dev/docs.add
-func (vk *VK) DocsAdd(params map[string]string) (response DocsAddResponse, vkErr Error) {
+func (vk *VK) DocsAdd(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("docs.add", params, &response, &vkErr)
 	return
 }
 
-// DocsDeleteResponse struct
-type DocsDeleteResponse int
-
 // DocsDelete deletes a user or community document.
 //
 // https://vk.com/dev/docs.delete
-func (vk *VK) DocsDelete(params map[string]string) (response DocsDeleteResponse, vkErr Error) {
+func (vk *VK) DocsDelete(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("docs.delete", params, &response, &vkErr)
 	return
 }
 
-// DocsEditResponse struct
-type DocsEditResponse int
-
 // DocsEdit edits a document.
 //
 // https://vk.com/dev/docs.edit
-func (vk *VK) DocsEdit(params map[string]string) (response DocsEditResponse, vkErr Error) {
+func (vk *VK) DocsEdit(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("docs.edit", params, &response, &vkErr)
 	return
 }

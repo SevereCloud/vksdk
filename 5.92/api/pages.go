@@ -4,13 +4,10 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// PagesClearCacheResponse struct
-type PagesClearCacheResponse int
-
 // PagesClearCache allows to clear the cache of particular external pages which may be attached to VK posts.
 //
 // https://vk.com/dev/pages.clearCache
-func (vk *VK) PagesClearCache(params map[string]string) (response PagesClearCacheResponse, vkErr Error) {
+func (vk *VK) PagesClearCache(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("pages.clearCache", params, &response, &vkErr)
 	return
 }
@@ -59,35 +56,26 @@ func (vk *VK) PagesGetVersion(params map[string]string) (response PagesGetVersio
 	return
 }
 
-// PagesParseWikiResponse struct
-type PagesParseWikiResponse string
-
 // PagesParseWiki returns HTML representation of the wiki markup.
 //
 // https://vk.com/dev/pages.parseWiki
-func (vk *VK) PagesParseWiki(params map[string]string) (response PagesParseWikiResponse, vkErr Error) {
+func (vk *VK) PagesParseWiki(params map[string]string) (response string, vkErr Error) {
 	vk.RequestUnmarshal("pages.parseWiki", params, &response, &vkErr)
 	return
 }
 
-// PagesSaveResponse struct
-type PagesSaveResponse int
-
 // PagesSave saves the text of a wiki page.
 //
 // https://vk.com/dev/pages.save
-func (vk *VK) PagesSave(params map[string]string) (response PagesSaveResponse, vkErr Error) {
+func (vk *VK) PagesSave(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("pages.save", params, &response, &vkErr)
 	return
 }
 
-// PagesSaveAccessResponse struct
-type PagesSaveAccessResponse int
-
 // PagesSaveAccess saves modified read and edit access settings for a wiki page.
 //
 // https://vk.com/dev/pages.saveAccess
-func (vk *VK) PagesSaveAccess(params map[string]string) (response PagesSaveAccessResponse, vkErr Error) {
+func (vk *VK) PagesSaveAccess(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("pages.saveAccess", params, &response, &vkErr)
 	return
 }

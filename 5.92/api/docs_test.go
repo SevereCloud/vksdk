@@ -20,7 +20,7 @@ func TestVK_DocsAdd(t *testing.T) {
 
 	_, gotVkErr = vkUser.DocsEdit(map[string]string{
 		"owner_id": strconv.Itoa(vkUserID),
-		"doc_id":   strconv.Itoa(int(doc)),
+		"doc_id":   strconv.Itoa(doc),
 		"title":    "test_title",
 	})
 	if gotVkErr.Code != 0 {
@@ -29,7 +29,7 @@ func TestVK_DocsAdd(t *testing.T) {
 
 	_, gotVkErr = vkUser.DocsDelete(map[string]string{
 		"owner_id": strconv.Itoa(vkUserID),
-		"doc_id":   strconv.Itoa(int(doc)),
+		"doc_id":   strconv.Itoa(doc),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.DocsDelete() gotVkErr = %v, want %v", gotVkErr, 0)

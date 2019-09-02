@@ -66,7 +66,7 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	comment, gotVkErr := vkUser.PhotosCreateComment(map[string]string{
+	commentID, gotVkErr := vkUser.PhotosCreateComment(map[string]string{
 		"owner_id": "540036751",
 		"photo_id": "457239020",
 		"message":  "Test photo comment",
@@ -74,7 +74,6 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.PhotosCreateComment() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
-	commentID := int(comment)
 
 	_, gotVkErr = vkUser.PhotosEditComment(map[string]string{
 		"owner_id":   "540036751",

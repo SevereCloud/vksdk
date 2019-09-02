@@ -30,90 +30,66 @@ func (vk *VK) MarketAddAlbum(params map[string]string) (response MarketAddAlbumR
 	return
 }
 
-// MarketAddToAlbumResponse struct
-type MarketAddToAlbumResponse int
-
 // MarketAddToAlbum adds an item to one or multiple collections.
 //
 // https://vk.com/dev/market.addToAlbum
-func (vk *VK) MarketAddToAlbum(params map[string]string) (response MarketAddToAlbumResponse, vkErr Error) {
+func (vk *VK) MarketAddToAlbum(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.addToAlbum", params, &response, &vkErr)
 	return
 }
 
-// MarketCreateCommentResponse struct
-type MarketCreateCommentResponse int
-
 // MarketCreateComment creates a new comment for an item.
 //
 // https://vk.com/dev/market.createComment
-func (vk *VK) MarketCreateComment(params map[string]string) (response MarketCreateCommentResponse, vkErr Error) {
+func (vk *VK) MarketCreateComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.createComment", params, &response, &vkErr)
 	return
 }
 
-// MarketDeleteResponse struct
-type MarketDeleteResponse int
-
 // MarketDelete deletes an item.
 //
 // https://vk.com/dev/market.delete
-func (vk *VK) MarketDelete(params map[string]string) (response MarketDeleteResponse, vkErr Error) {
+func (vk *VK) MarketDelete(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.delete", params, &response, &vkErr)
 	return
 }
 
-// MarketDeleteAlbumResponse struct
-type MarketDeleteAlbumResponse int
-
 // MarketDeleteAlbum deletes a collection of items.
 //
 // https://vk.com/dev/market.deleteAlbum
-func (vk *VK) MarketDeleteAlbum(params map[string]string) (response MarketDeleteAlbumResponse, vkErr Error) {
+func (vk *VK) MarketDeleteAlbum(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.deleteAlbum", params, &response, &vkErr)
 	return
 }
 
-// MarketDeleteCommentResponse struct
-type MarketDeleteCommentResponse int
-
 // MarketDeleteComment deletes an item's comment
 //
 // https://vk.com/dev/market.deleteComment
-func (vk *VK) MarketDeleteComment(params map[string]string) (response MarketDeleteCommentResponse, vkErr Error) {
+func (vk *VK) MarketDeleteComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.deleteComment", params, &response, &vkErr)
 	return
 }
 
-// MarketEditResponse struct
-type MarketEditResponse int
-
 // MarketEdit edits an item.
 //
 // https://vk.com/dev/market.edit
-func (vk *VK) MarketEdit(params map[string]string) (response MarketEditResponse, vkErr Error) {
+func (vk *VK) MarketEdit(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.edit", params, &response, &vkErr)
 	return
 }
 
-// MarketEditAlbumResponse struct
-type MarketEditAlbumResponse int
-
 // MarketEditAlbum edits a collection of items
 //
 // https://vk.com/dev/market.editAlbum
-func (vk *VK) MarketEditAlbum(params map[string]string) (response MarketEditAlbumResponse, vkErr Error) {
+func (vk *VK) MarketEditAlbum(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.editAlbum", params, &response, &vkErr)
 	return
 }
 
-// MarketEditCommentResponse struct
-type MarketEditCommentResponse int
-
 // MarketEditComment changes item comment's text
 //
 // https://vk.com/dev/market.editComment
-func (vk *VK) MarketEditComment(params map[string]string) (response MarketEditCommentResponse, vkErr Error) {
+func (vk *VK) MarketEditComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.editComment", params, &response, &vkErr)
 	return
 }
@@ -224,79 +200,58 @@ func (vk *VK) MarketGetCommentsExtended(params map[string]string) (response Mark
 	return
 }
 
-// MarketRemoveFromAlbumResponse struct
-type MarketRemoveFromAlbumResponse int
-
 // MarketRemoveFromAlbum removes an item from one or multiple collections.
 //
 // https://vk.com/dev/market.removeFromAlbum
-func (vk *VK) MarketRemoveFromAlbum(params map[string]string) (response MarketRemoveFromAlbumResponse, vkErr Error) {
+func (vk *VK) MarketRemoveFromAlbum(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.removeFromAlbum", params, &response, &vkErr)
 	return
 }
 
-// MarketReorderAlbumsResponse struct
-type MarketReorderAlbumsResponse int
-
 // MarketReorderAlbums reorders the collections list.
 //
 // https://vk.com/dev/market.reorderAlbums
-func (vk *VK) MarketReorderAlbums(params map[string]string) (response MarketReorderAlbumsResponse, vkErr Error) {
+func (vk *VK) MarketReorderAlbums(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.reorderAlbums", params, &response, &vkErr)
 	return
 }
 
-// MarketReorderItemsResponse struct
-type MarketReorderItemsResponse int
-
 // MarketReorderItems changes item place in a collection.
 //
 // https://vk.com/dev/market.reorderItems
-func (vk *VK) MarketReorderItems(params map[string]string) (response MarketReorderItemsResponse, vkErr Error) {
+func (vk *VK) MarketReorderItems(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.reorderItems", params, &response, &vkErr)
 	return
 }
 
-// MarketReportResponse struct
-type MarketReportResponse int
-
 // MarketReport sends a complaint to the item.
 //
 // https://vk.com/dev/market.report
-func (vk *VK) MarketReport(params map[string]string) (response MarketReportResponse, vkErr Error) {
+func (vk *VK) MarketReport(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.report", params, &response, &vkErr)
 	return
 }
 
-// MarketReportCommentResponse struct
-type MarketReportCommentResponse int
-
 // MarketReportComment sends a complaint to the item's comment.
 //
 // https://vk.com/dev/market.reportComment
-func (vk *VK) MarketReportComment(params map[string]string) (response MarketReportCommentResponse, vkErr Error) {
+func (vk *VK) MarketReportComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.reportComment", params, &response, &vkErr)
 	return
 }
 
-// MarketRestoreResponse struct
-type MarketRestoreResponse int
-
 // MarketRestore restores recently deleted item
 //
 // https://vk.com/dev/market.restore
-func (vk *VK) MarketRestore(params map[string]string) (response MarketRestoreResponse, vkErr Error) {
+func (vk *VK) MarketRestore(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.restore", params, &response, &vkErr)
 	return
 }
 
-// MarketRestoreCommentResponse struct
-type MarketRestoreCommentResponse int
-
 // MarketRestoreComment restores a recently deleted comment
 //
 // https://vk.com/dev/market.restoreComment
-func (vk *VK) MarketRestoreComment(params map[string]string) (response MarketRestoreCommentResponse, vkErr Error) {
+func (vk *VK) MarketRestoreComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("market.restoreComment", params, &response, &vkErr)
 	return
 }

@@ -4,57 +4,42 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// FaveAddArticleResponse struct
-type FaveAddArticleResponse int
-
 // FaveAddArticle adds a link to user faves.
 //
 // https://vk.com/dev/fave.addArticle
-func (vk *VK) FaveAddArticle(params map[string]string) (response FaveAddArticleResponse, vkErr Error) {
+func (vk *VK) FaveAddArticle(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.addArticle", params, &response, &vkErr)
 	return
 }
 
-// FaveAddLinkResponse struct
-type FaveAddLinkResponse int
-
 // FaveAddLink adds a link to user faves.
 //
 // https://vk.com/dev/fave.addLink
-func (vk *VK) FaveAddLink(params map[string]string) (response FaveAddLinkResponse, vkErr Error) {
+func (vk *VK) FaveAddLink(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.addLink", params, &response, &vkErr)
 	return
 }
 
-// FaveAddPageResponse struct
-type FaveAddPageResponse int
-
 // FaveAddPage method
 //
 // https://vk.com/dev/fave.addPage
-func (vk *VK) FaveAddPage(params map[string]string) (response FaveAddPageResponse, vkErr Error) {
+func (vk *VK) FaveAddPage(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.addPage", params, &response, &vkErr)
 	return
 }
 
-// FaveAddPostResponse struct
-type FaveAddPostResponse int
-
 // FaveAddPost method
 //
 // https://vk.com/dev/fave.addPost
-func (vk *VK) FaveAddPost(params map[string]string) (response FaveAddPostResponse, vkErr Error) {
+func (vk *VK) FaveAddPost(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.addPost", params, &response, &vkErr)
 	return
 }
 
-// FaveAddProductResponse struct
-type FaveAddProductResponse int
-
 // FaveAddProduct method
 //
 // https://vk.com/dev/fave.addProduct
-func (vk *VK) FaveAddProduct(params map[string]string) (response FaveAddProductResponse, vkErr Error) {
+func (vk *VK) FaveAddProduct(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.addProduct", params, &response, &vkErr)
 	return
 }
@@ -70,24 +55,18 @@ func (vk *VK) FaveAddTag(params map[string]string) (response FaveAddTagResponse,
 	return
 }
 
-// FaveAddVideoResponse struct
-type FaveAddVideoResponse int
-
 // FaveAddVideo method
 //
 // https://vk.com/dev/fave.addVideo
-func (vk *VK) FaveAddVideo(params map[string]string) (response FaveAddVideoResponse, vkErr Error) {
+func (vk *VK) FaveAddVideo(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.addVideo", params, &response, &vkErr)
 	return
 }
 
-// FaveEditTagResponse struct
-type FaveEditTagResponse int
-
 // FaveEditTag method
 //
 // https://vk.com/dev/fave.editTag
-func (vk *VK) FaveEditTag(params map[string]string) (response FaveEditTagResponse, vkErr Error) {
+func (vk *VK) FaveEditTag(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.editTag", params, &response, &vkErr)
 	return
 }
@@ -156,134 +135,98 @@ func (vk *VK) FaveGetTags(params map[string]string) (response FaveGetTagsRespons
 	return
 }
 
-// FaveMarkSeenResponse struct
-type FaveMarkSeenResponse int
-
 // FaveMarkSeen method
 //
 // https://vk.com/dev/fave.markSeen
-func (vk *VK) FaveMarkSeen(params map[string]string) (response FaveMarkSeenResponse, vkErr Error) {
+func (vk *VK) FaveMarkSeen(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.markSeen", params, &response, &vkErr)
 	return
 }
 
-// FaveRemoveArticleResponse struct
-type FaveRemoveArticleResponse int
-
 // FaveRemoveArticle method
 //
 // https://vk.com/dev/fave.removeArticle
-func (vk *VK) FaveRemoveArticle(params map[string]string) (response FaveRemoveArticleResponse, vkErr Error) {
+func (vk *VK) FaveRemoveArticle(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.removeArticle", params, &response, &vkErr)
 	return
 }
 
-// FaveRemoveLinkResponse struct
-type FaveRemoveLinkResponse int
-
 // FaveRemoveLink removes link from the user's faves.
 //
 // https://vk.com/dev/fave.removeLink
-func (vk *VK) FaveRemoveLink(params map[string]string) (response FaveRemoveLinkResponse, vkErr Error) {
+func (vk *VK) FaveRemoveLink(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.removeLink", params, &response, &vkErr)
 	return
 }
 
-// FaveRemovePageResponse struct
-type FaveRemovePageResponse int
-
 // FaveRemovePage method
 //
 // https://vk.com/dev/fave.removePage
-func (vk *VK) FaveRemovePage(params map[string]string) (response FaveRemovePageResponse, vkErr Error) {
+func (vk *VK) FaveRemovePage(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.removePage", params, &response, &vkErr)
 	return
 }
 
-// FaveRemovePostResponse struct
-type FaveRemovePostResponse int
-
 // FaveRemovePost method
 //
 // https://vk.com/dev/fave.removePost
-func (vk *VK) FaveRemovePost(params map[string]string) (response FaveRemovePostResponse, vkErr Error) {
+func (vk *VK) FaveRemovePost(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.removePost", params, &response, &vkErr)
 	return
 }
 
-// FaveRemoveProductResponse struct
-type FaveRemoveProductResponse int
-
 // FaveRemoveProduct method
 //
 // https://vk.com/dev/fave.removeProduct
-func (vk *VK) FaveRemoveProduct(params map[string]string) (response FaveRemoveProductResponse, vkErr Error) {
+func (vk *VK) FaveRemoveProduct(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.removeProduct", params, &response, &vkErr)
 	return
 }
 
-// FaveRemoveTagResponse struct
-type FaveRemoveTagResponse int
-
 // FaveRemoveTag method
 //
 // https://vk.com/dev/fave.removeTag
-func (vk *VK) FaveRemoveTag(params map[string]string) (response FaveRemoveTagResponse, vkErr Error) {
+func (vk *VK) FaveRemoveTag(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.removeTag", params, &response, &vkErr)
 	return
 }
 
-// FaveRemoveVideoResponse struct
-type FaveRemoveVideoResponse int
-
 // FaveRemoveVideo method
 //
 // https://vk.com/dev/fave.removeVideo
-func (vk *VK) FaveRemoveVideo(params map[string]string) (response FaveRemoveVideoResponse, vkErr Error) {
+func (vk *VK) FaveRemoveVideo(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.removeVideo", params, &response, &vkErr)
 	return
 }
 
-// FaveReorderTagsResponse struct
-type FaveReorderTagsResponse int
-
 // FaveReorderTags method
 //
 // https://vk.com/dev/fave.reorderTags
-func (vk *VK) FaveReorderTags(params map[string]string) (response FaveReorderTagsResponse, vkErr Error) {
+func (vk *VK) FaveReorderTags(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.reorderTags", params, &response, &vkErr)
 	return
 }
 
-// FaveSetPageTagsResponse struct
-type FaveSetPageTagsResponse int
-
 // FaveSetPageTags method
 //
 // https://vk.com/dev/fave.setPageTags
-func (vk *VK) FaveSetPageTags(params map[string]string) (response FaveSetPageTagsResponse, vkErr Error) {
+func (vk *VK) FaveSetPageTags(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.setPageTags", params, &response, &vkErr)
 	return
 }
 
-// FaveSetTagsResponse struct
-type FaveSetTagsResponse int
-
 // FaveSetTags method
 //
 // https://vk.com/dev/fave.setTags
-func (vk *VK) FaveSetTags(params map[string]string) (response FaveSetTagsResponse, vkErr Error) {
+func (vk *VK) FaveSetTags(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.setTags", params, &response, &vkErr)
 	return
 }
 
-// FaveTrackPageInteractionResponse struct
-type FaveTrackPageInteractionResponse int
-
 // FaveTrackPageInteraction method
 //
 // https://vk.com/dev/fave.trackPageInteraction
-func (vk *VK) FaveTrackPageInteraction(params map[string]string) (response FaveTrackPageInteractionResponse, vkErr Error) {
+func (vk *VK) FaveTrackPageInteraction(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("fave.trackPageInteraction", params, &response, &vkErr)
 	return
 }

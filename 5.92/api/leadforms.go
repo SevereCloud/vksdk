@@ -55,13 +55,10 @@ func (vk *VK) LeadFormsGetLeads(params map[string]string) (response LeadFormsGet
 	return
 }
 
-// LeadFormsGetUploadURLResponse struct
-type LeadFormsGetUploadURLResponse string
-
 // LeadFormsGetUploadURL leadForms.getUploadURL
 //
 // https://vk.com/dev/leadForms.getUploadURL
-func (vk *VK) LeadFormsGetUploadURL(params map[string]string) (response LeadFormsGetUploadURLResponse, vkErr Error) {
+func (vk *VK) LeadFormsGetUploadURL(params map[string]string) (response string, vkErr Error) {
 	vk.RequestUnmarshal("leadForms.getUploadURL", params, &response, &vkErr)
 	return
 }

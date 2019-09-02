@@ -4,37 +4,28 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// NewsfeedAddBanResponse struct
-type NewsfeedAddBanResponse int
-
 // NewsfeedAddBan prevents news from specified users and communities
 // from appearing in the current user's newsfeed.
 //
 // https://vk.com/dev/newsfeed.addBan
-func (vk *VK) NewsfeedAddBan(params map[string]string) (response NewsfeedAddBanResponse, vkErr Error) {
+func (vk *VK) NewsfeedAddBan(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("newsfeed.addBan", params, &response, &vkErr)
 	return
 }
-
-// NewsfeedDeleteBanResponse struct
-type NewsfeedDeleteBanResponse int
 
 // NewsfeedDeleteBan allows news from previously banned users and
 // communities to be shown in the current user's newsfeed.
 //
 // https://vk.com/dev/newsfeed.deleteBan
-func (vk *VK) NewsfeedDeleteBan(params map[string]string) (response NewsfeedDeleteBanResponse, vkErr Error) {
+func (vk *VK) NewsfeedDeleteBan(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("newsfeed.deleteBan", params, &response, &vkErr)
 	return
 }
 
-// NewsfeedDeleteListResponse struct
-type NewsfeedDeleteListResponse int
-
 // NewsfeedDeleteList The method allows you to delete a custom news list.
 //
 // https://vk.com/dev/newsfeed.deleteList
-func (vk *VK) NewsfeedDeleteList(params map[string]string) (response NewsfeedDeleteListResponse, vkErr Error) {
+func (vk *VK) NewsfeedDeleteList(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("newsfeed.deleteList", params, &response, &vkErr)
 	return
 }
@@ -169,24 +160,18 @@ func (vk *VK) NewsfeedGetSuggestedSources(params map[string]string) (response Ne
 	return
 }
 
-// NewsfeedIgnoreItemHidesResponse struct
-type NewsfeedIgnoreItemHidesResponse int
-
 // NewsfeedIgnoreItemHides an item from the newsfeed.
 //
 // https://vk.com/dev/newsfeed.ignoreItemHides
-func (vk *VK) NewsfeedIgnoreItemHides(params map[string]string) (response NewsfeedIgnoreItemHidesResponse, vkErr Error) {
+func (vk *VK) NewsfeedIgnoreItemHides(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("newsfeed.ignoreItemHides", params, &response, &vkErr)
 	return
 }
 
-// NewsfeedSaveListResponse struct
-type NewsfeedSaveListResponse int
-
 // NewsfeedSaveList creates and edits user newsfeed lists
 //
 // https://vk.com/dev/newsfeed.saveList
-func (vk *VK) NewsfeedSaveList(params map[string]string) (response NewsfeedSaveListResponse, vkErr Error) {
+func (vk *VK) NewsfeedSaveList(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("newsfeed.saveList", params, &response, &vkErr)
 	return
 }
@@ -231,24 +216,18 @@ func (vk *VK) NewsfeedSearchExtended(params map[string]string) (response Newsfee
 	return
 }
 
-// NewsfeedUnignoreItemResponse struct
-type NewsfeedUnignoreItemResponse int
-
 // NewsfeedUnignoreItem returns a hidden item to the newsfeed.
 //
 // https://vk.com/dev/newsfeed.unignoreItem
-func (vk *VK) NewsfeedUnignoreItem(params map[string]string) (response NewsfeedUnignoreItemResponse, vkErr Error) {
+func (vk *VK) NewsfeedUnignoreItem(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("newsfeed.unignoreItem", params, &response, &vkErr)
 	return
 }
 
-// NewsfeedUnsubscribeResponse struct
-type NewsfeedUnsubscribeResponse int
-
 // NewsfeedUnsubscribe unsubscribes the current user from specified newsfeeds.
 //
 // https://vk.com/dev/newsfeed.unsubscribe
-func (vk *VK) NewsfeedUnsubscribe(params map[string]string) (response NewsfeedUnsubscribeResponse, vkErr Error) {
+func (vk *VK) NewsfeedUnsubscribe(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("newsfeed.unsubscribe", params, &response, &vkErr)
 	return
 }

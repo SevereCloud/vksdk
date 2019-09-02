@@ -4,13 +4,10 @@ import (
 	"github.com/SevereCloud/vksdk/5.92/object"
 )
 
-// AppsDeleteAppRequestsResponse struct
-type AppsDeleteAppRequestsResponse int
-
 // AppsDeleteAppRequests deletes all request notifications from the current app.
 //
 // https://vk.com/dev/apps.deleteAppRequests
-func (vk *VK) AppsDeleteAppRequests(params map[string]string) (response AppsDeleteAppRequestsResponse, vkErr Error) {
+func (vk *VK) AppsDeleteAppRequests(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("apps.deleteAppRequests", params, &response, &vkErr)
 	return
 }
@@ -133,25 +130,20 @@ func (vk *VK) AppsGetScopes(params map[string]string) (response AppsGetScopesRes
 	return
 }
 
-// AppsGetScoreResponse struct
-// NOTE: vk wtf!?
-type AppsGetScoreResponse string
-
 // AppsGetScore returns user score in app.
 //
+// NOTE: vk wtf!?
+//
 // https://vk.com/dev/apps.getScore
-func (vk *VK) AppsGetScore(params map[string]string) (response AppsGetScoreResponse, vkErr Error) {
+func (vk *VK) AppsGetScore(params map[string]string) (response string, vkErr Error) {
 	vk.RequestUnmarshal("apps.getScore", params, &response, &vkErr)
 	return
 }
 
-// AppsSendRequestResponse struct
-type AppsSendRequestResponse int
-
 // AppsSendRequest sends a request to another user in an app that uses VK authorization.
 //
 // https://vk.com/dev/apps.sendRequest
-func (vk *VK) AppsSendRequest(params map[string]string) (response AppsSendRequestResponse, vkErr Error) {
+func (vk *VK) AppsSendRequest(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("apps.sendRequest", params, &response, &vkErr)
 	return
 }

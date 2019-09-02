@@ -49,7 +49,7 @@ func TestVK_PagesSave(t *testing.T) {
 
 	history, gotVkErr := vkUser.PagesGetHistory(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
-		"page_id":  strconv.Itoa(int(page)),
+		"page_id":  strconv.Itoa(page),
 	})
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.PagesGetHistory() gotVkErr = %v, want %v", gotVkErr, 0)
@@ -65,7 +65,7 @@ func TestVK_PagesSave(t *testing.T) {
 
 	_, gotVkErr = vkUser.PagesSaveAccess(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
-		"page_id":  strconv.Itoa(int(page)),
+		"page_id":  strconv.Itoa(page),
 		"view":     "0",
 		"edit":     "0",
 	})

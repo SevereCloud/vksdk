@@ -2,24 +2,18 @@ package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
 import "github.com/SevereCloud/vksdk/5.92/object"
 
-// StoriesBanOwnerResponse struct
-type StoriesBanOwnerResponse int
-
 // StoriesBanOwner allows to hide stories from chosen sources from current user's feed.
 //
 // https://vk.com/dev/stories.banOwner
-func (vk *VK) StoriesBanOwner(params map[string]string) (response StoriesBanOwnerResponse, vkErr Error) {
+func (vk *VK) StoriesBanOwner(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("stories.banOwner", params, &response, &vkErr)
 	return
 }
 
-// StoriesDeleteResponse struct
-type StoriesDeleteResponse int
-
 // StoriesDelete allows to delete story.
 //
 // https://vk.com/dev/stories.delete
-func (vk *VK) StoriesDelete(params map[string]string) (response StoriesDeleteResponse, vkErr Error) {
+func (vk *VK) StoriesDelete(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("stories.delete", params, &response, &vkErr)
 	return
 }
@@ -243,35 +237,26 @@ func (vk *VK) StoriesGetViewersExtended(params map[string]string) (response Stor
 	return
 }
 
-// StoriesHideAllRepliesResponse struct
-type StoriesHideAllRepliesResponse int
-
 // StoriesHideAllReplies hides all replies in the last 24 hours from the user to current user's stories.
 //
 // https://vk.com/dev/stories.hideAllReplies
-func (vk *VK) StoriesHideAllReplies(params map[string]string) (response StoriesHideAllRepliesResponse, vkErr Error) {
+func (vk *VK) StoriesHideAllReplies(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("stories.hideAllReplies", params, &response, &vkErr)
 	return
 }
 
-// StoriesHideReplyResponse struct
-type StoriesHideReplyResponse int
-
 // StoriesHideReply hides the reply to the current user's story.
 //
 // https://vk.com/dev/stories.hideReply
-func (vk *VK) StoriesHideReply(params map[string]string) (response StoriesHideReplyResponse, vkErr Error) {
+func (vk *VK) StoriesHideReply(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("stories.hideReply", params, &response, &vkErr)
 	return
 }
 
-// StoriesUnbanOwnerResponse struct
-type StoriesUnbanOwnerResponse int
-
 // StoriesUnbanOwner allows to show stories from hidden sources in current user's feed.
 //
 // https://vk.com/dev/stories.unbanOwner
-func (vk *VK) StoriesUnbanOwner(params map[string]string) (response StoriesUnbanOwnerResponse, vkErr Error) {
+func (vk *VK) StoriesUnbanOwner(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("stories.unbanOwner", params, &response, &vkErr)
 	return
 }

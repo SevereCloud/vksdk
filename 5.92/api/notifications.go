@@ -26,14 +26,11 @@ func (vk *VK) NotificationsGet(params map[string]string) (response Notifications
 	return
 }
 
-// NotificationsMarkAsViewedResponse struct
-type NotificationsMarkAsViewedResponse int
-
 // NotificationsMarkAsViewed resets the counter of new notifications
 // about other users' feedback to the current user's wall posts.
 //
 // https://vk.com/dev/notifications.markAsViewed
-func (vk *VK) NotificationsMarkAsViewed(params map[string]string) (response NotificationsMarkAsViewedResponse, vkErr Error) {
+func (vk *VK) NotificationsMarkAsViewed(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("notifications.markAsViewed", params, &response, &vkErr)
 	return
 }

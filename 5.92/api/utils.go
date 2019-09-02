@@ -17,13 +17,10 @@ func (vk *VK) UtilsCheckLink(params map[string]string) (response UtilsCheckLinkR
 	return
 }
 
-// UtilsDeleteFromLastShortenedResponse struct
-type UtilsDeleteFromLastShortenedResponse int
-
 // UtilsDeleteFromLastShortened deletes shortened link from user's list.
 //
 // https://vk.com/dev/utils.deleteFromLastShortened
-func (vk *VK) UtilsDeleteFromLastShortened(params map[string]string) (response UtilsDeleteFromLastShortenedResponse, vkErr Error) {
+func (vk *VK) UtilsDeleteFromLastShortened(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("utils.deleteFromLastShortened", params, &response, &vkErr)
 	return
 }
@@ -70,13 +67,10 @@ func (vk *VK) UtilsGetLinkStatsExtended(params map[string]string) (response Util
 	return
 }
 
-// UtilsGetServerTimeResponse struct
-type UtilsGetServerTimeResponse int
-
 // UtilsGetServerTime returns the current time of the VK server.
 //
 // https://vk.com/dev/utils.getServerTime
-func (vk *VK) UtilsGetServerTime(params map[string]string) (response UtilsGetServerTimeResponse, vkErr Error) {
+func (vk *VK) UtilsGetServerTime(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("utils.getServerTime", params, &response, &vkErr)
 	return
 }

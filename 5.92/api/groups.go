@@ -39,24 +39,18 @@ func (vk *VK) GroupsAddLink(params map[string]string) (response GroupsAddLinkRes
 	return
 }
 
-// GroupsApproveRequestResponse struct
-type GroupsApproveRequestResponse int
-
 // GroupsApproveRequest allows to approve join request to the community.
 //
 // https://vk.com/dev/groups.approveRequest
-func (vk *VK) GroupsApproveRequest(params map[string]string) (response GroupsApproveRequestResponse, vkErr Error) {
+func (vk *VK) GroupsApproveRequest(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.approveRequest", params, &response, &vkErr)
 	return
 }
 
-// GroupsBanResponse struct
-type GroupsBanResponse int
-
 // GroupsBan adds a user or a group to the community blacklist.
 //
 // https://vk.com/dev/groups.ban
-func (vk *VK) GroupsBan(params map[string]string) (response GroupsBanResponse, vkErr Error) {
+func (vk *VK) GroupsBan(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.ban", params, &response, &vkErr)
 	return
 }
@@ -72,57 +66,42 @@ func (vk *VK) GroupsCreate(params map[string]string) (response GroupsCreateRespo
 	return
 }
 
-// GroupsDeleteAddressResponse struct
-type GroupsDeleteAddressResponse int
-
 // GroupsDeleteAddress groups.deleteAddress
 //
 // https://vk.com/dev/groups.deleteAddress
-func (vk *VK) GroupsDeleteAddress(params map[string]string) (response GroupsDeleteAddressResponse, vkErr Error) {
+func (vk *VK) GroupsDeleteAddress(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.deleteAddress", params, &response, &vkErr)
 	return
 }
 
-// GroupsDeleteCallbackServerResponse struct
-type GroupsDeleteCallbackServerResponse int
-
 // GroupsDeleteCallbackServer callback API server from the community.
 //
 // https://vk.com/dev/groups.deleteCallbackServer
-func (vk *VK) GroupsDeleteCallbackServer(params map[string]string) (response GroupsDeleteCallbackServerResponse, vkErr Error) {
+func (vk *VK) GroupsDeleteCallbackServer(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.deleteCallbackServer", params, &response, &vkErr)
 	return
 }
 
-// GroupsDeleteLinkResponse struct
-type GroupsDeleteLinkResponse int
-
 // GroupsDeleteLink allows to delete a link from the community.
 //
 // https://vk.com/dev/groups.deleteLink
-func (vk *VK) GroupsDeleteLink(params map[string]string) (response GroupsDeleteLinkResponse, vkErr Error) {
+func (vk *VK) GroupsDeleteLink(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.deleteLink", params, &response, &vkErr)
 	return
 }
 
-// GroupsDisableOnlineResponse struct
-type GroupsDisableOnlineResponse int
-
 // GroupsDisableOnline disables "online" status in the community.
 //
 // https://vk.com/dev/groups.disableOnline
-func (vk *VK) GroupsDisableOnline(params map[string]string) (response GroupsDisableOnlineResponse, vkErr Error) {
+func (vk *VK) GroupsDisableOnline(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.disableOnline", params, &response, &vkErr)
 	return
 }
 
-// GroupsEditResponse struct
-type GroupsEditResponse int
-
 // GroupsEdit edits a community.
 //
 // https://vk.com/dev/groups.edit
-func (vk *VK) GroupsEdit(params map[string]string) (response GroupsEditResponse, vkErr Error) {
+func (vk *VK) GroupsEdit(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.edit", params, &response, &vkErr)
 	return
 }
@@ -138,46 +117,34 @@ func (vk *VK) GroupsEditAddress(params map[string]string) (response GroupsEditAd
 	return
 }
 
-// GroupsEditCallbackServerResponse struct
-type GroupsEditCallbackServerResponse int
-
 // GroupsEditCallbackServer edits Callback API server in the community.
 //
 // https://vk.com/dev/groups.editCallbackServer
-func (vk *VK) GroupsEditCallbackServer(params map[string]string) (response GroupsEditCallbackServerResponse, vkErr Error) {
+func (vk *VK) GroupsEditCallbackServer(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.editCallbackServer", params, &response, &vkErr)
 	return
 }
 
-// GroupsEditLinkResponse struct
-type GroupsEditLinkResponse int
-
 // GroupsEditLink allows to edit a link in the community.
 //
 // https://vk.com/dev/groups.editLink
-func (vk *VK) GroupsEditLink(params map[string]string) (response GroupsEditLinkResponse, vkErr Error) {
+func (vk *VK) GroupsEditLink(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.editLink", params, &response, &vkErr)
 	return
 }
 
-// GroupsEditManagerResponse struct
-type GroupsEditManagerResponse int
-
 // GroupsEditManager allows to add, remove or edit the community manager .
 //
 // https://vk.com/dev/groups.editManager
-func (vk *VK) GroupsEditManager(params map[string]string) (response GroupsEditManagerResponse, vkErr Error) {
+func (vk *VK) GroupsEditManager(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.editManager", params, &response, &vkErr)
 	return
 }
 
-// GroupsEnableOnlineResponse struct
-type GroupsEnableOnlineResponse int
-
 // GroupsEnableOnline enables "online" status in the community.
 //
 // https://vk.com/dev/groups.enableOnline
-func (vk *VK) GroupsEnableOnline(params map[string]string) (response GroupsEnableOnlineResponse, vkErr Error) {
+func (vk *VK) GroupsEnableOnline(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.enableOnline", params, &response, &vkErr)
 	return
 }
@@ -494,26 +461,20 @@ func (vk *VK) GroupsGetTokenPermissions(params map[string]string) (response Grou
 	return
 }
 
-// GroupsInviteResponse struct
-type GroupsInviteResponse int
-
 // GroupsInvite allows to invite friends to the community.
 //
 // https://vk.com/dev/groups.invite
-func (vk *VK) GroupsInvite(params map[string]string) (response GroupsInviteResponse, vkErr Error) {
+func (vk *VK) GroupsInvite(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.invite", params, &response, &vkErr)
 	return
 }
-
-// GroupsIsMemberResponse struct
-type GroupsIsMemberResponse int
 
 // GroupsIsMember returns information specifying whether a user is a member of a community.
 //
 // extended=0
 //
 // https://vk.com/dev/groups.isMember
-func (vk *VK) GroupsIsMember(params map[string]string) (response GroupsIsMemberResponse, vkErr Error) {
+func (vk *VK) GroupsIsMember(params map[string]string) (response int, vkErr Error) {
 	params["extended"] = "0"
 	vk.RequestUnmarshal("groups.isMember", params, &response, &vkErr)
 	return
@@ -569,46 +530,34 @@ func (vk *VK) GroupsIsMemberUserIDs(params map[string]string) (response GroupsIs
 	return
 }
 
-// GroupsJoinResponse struct
-type GroupsJoinResponse int
-
 // GroupsJoin with this method you can join the group or public page, and also confirm your participation in an event.
 //
 // https://vk.com/dev/groups.join
-func (vk *VK) GroupsJoin(params map[string]string) (response GroupsJoinResponse, vkErr Error) {
+func (vk *VK) GroupsJoin(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.join", params, &response, &vkErr)
 	return
 }
 
-// GroupsLeaveResponse struct
-type GroupsLeaveResponse int
-
 // GroupsLeave with this method you can leave a group, public page, or event.
 //
 // https://vk.com/dev/groups.leave
-func (vk *VK) GroupsLeave(params map[string]string) (response GroupsLeaveResponse, vkErr Error) {
+func (vk *VK) GroupsLeave(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.leave", params, &response, &vkErr)
 	return
 }
 
-// GroupsRemoveUserResponse struct
-type GroupsRemoveUserResponse int
-
 // GroupsRemoveUser removes a user from the community.
 //
 // https://vk.com/dev/groups.removeUser
-func (vk *VK) GroupsRemoveUser(params map[string]string) (response GroupsRemoveUserResponse, vkErr Error) {
+func (vk *VK) GroupsRemoveUser(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.removeUser", params, &response, &vkErr)
 	return
 }
 
-// GroupsReorderLinkResponse struct
-type GroupsReorderLinkResponse int
-
 // GroupsReorderLink allows to reorder links in the community.
 //
 // https://vk.com/dev/groups.reorderLink
-func (vk *VK) GroupsReorderLink(params map[string]string) (response GroupsReorderLinkResponse, vkErr Error) {
+func (vk *VK) GroupsReorderLink(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.reorderLink", params, &response, &vkErr)
 	return
 }
@@ -627,46 +576,34 @@ func (vk *VK) GroupsSearch(params map[string]string) (response GroupsSearchRespo
 	return
 }
 
-// GroupsSetCallbackSettingsResponse struct
-type GroupsSetCallbackSettingsResponse int
-
 // GroupsSetCallbackSettings allow to set notifications settings for Callback API.
 //
 // https://vk.com/dev/groups.setCallbackSettings
-func (vk *VK) GroupsSetCallbackSettings(params map[string]string) (response GroupsSetCallbackSettingsResponse, vkErr Error) {
+func (vk *VK) GroupsSetCallbackSettings(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.setCallbackSettings", params, &response, &vkErr)
 	return
 }
 
-// GroupsSetLongPollSettingsResponse struct
-type GroupsSetLongPollSettingsResponse int
-
 // GroupsSetLongPollSettings allows to set Bots Long Poll API settings in the community.
 //
 // https://vk.com/dev/groups.setLongPollSettings
-func (vk *VK) GroupsSetLongPollSettings(params map[string]string) (response GroupsSetLongPollSettingsResponse, vkErr Error) {
+func (vk *VK) GroupsSetLongPollSettings(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.setLongPollSettings", params, &response, &vkErr)
 	return
 }
 
-// GroupsSetSettingsResponse struct
-type GroupsSetSettingsResponse int
-
 // GroupsSetSettings sets community settings
 //
 // https://vk.com/dev/groups.setSettings
-func (vk *VK) GroupsSetSettings(params map[string]string) (response GroupsSetSettingsResponse, vkErr Error) {
+func (vk *VK) GroupsSetSettings(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.setSettings", params, &response, &vkErr)
 	return
 }
 
-// GroupsUnbanResponse struct
-type GroupsUnbanResponse int
-
 // GroupsUnban groups.unban
 //
 // https://vk.com/dev/groups.unban
-func (vk *VK) GroupsUnban(params map[string]string) (response GroupsUnbanResponse, vkErr Error) {
+func (vk *VK) GroupsUnban(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("groups.unban", params, &response, &vkErr)
 	return
 }

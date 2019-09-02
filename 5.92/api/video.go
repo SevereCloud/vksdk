@@ -1,14 +1,13 @@
 package api // import "github.com/SevereCloud/vksdk/5.92/api"
 
-import "github.com/SevereCloud/vksdk/5.92/object"
-
-// VideoAddResponse struct
-type VideoAddResponse int
+import (
+	"github.com/SevereCloud/vksdk/5.92/object"
+)
 
 // VideoAdd adds a video to a user or community page.
 //
 // https://vk.com/dev/video.add
-func (vk *VK) VideoAdd(params map[string]string) (response VideoAddResponse, vkErr Error) {
+func (vk *VK) VideoAdd(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.add", params, &response, &vkErr)
 	return
 }
@@ -26,90 +25,66 @@ func (vk *VK) VideoAddAlbum(params map[string]string) (response VideoAddAlbumRes
 	return
 }
 
-// VideoAddToAlbumResponse struct
-type VideoAddToAlbumResponse int
-
 // VideoAddToAlbum allows you to add a video to the album.
 //
 // https://vk.com/dev/video.addToAlbum
-func (vk *VK) VideoAddToAlbum(params map[string]string) (response VideoAddToAlbumResponse, vkErr Error) {
+func (vk *VK) VideoAddToAlbum(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.addToAlbum", params, &response, &vkErr)
 	return
 }
 
-// VideoCreateCommentResponse struct
-type VideoCreateCommentResponse int
-
 // VideoCreateComment adds a new comment on a video.
 //
 // https://vk.com/dev/video.createComment
-func (vk *VK) VideoCreateComment(params map[string]string) (response VideoCreateCommentResponse, vkErr Error) {
+func (vk *VK) VideoCreateComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.createComment", params, &response, &vkErr)
 	return
 }
 
-// VideoDeleteResponse struct
-type VideoDeleteResponse int
-
 // VideoDelete deletes a video from a user or community page.
 //
 // https://vk.com/dev/video.delete
-func (vk *VK) VideoDelete(params map[string]string) (response VideoDeleteResponse, vkErr Error) {
+func (vk *VK) VideoDelete(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.delete", params, &response, &vkErr)
 	return
 }
 
-// VideoDeleteAlbumResponse struct
-type VideoDeleteAlbumResponse int
-
 // VideoDeleteAlbum deletes a video album.
 //
 // https://vk.com/dev/video.deleteAlbum
-func (vk *VK) VideoDeleteAlbum(params map[string]string) (response VideoDeleteAlbumResponse, vkErr Error) {
+func (vk *VK) VideoDeleteAlbum(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.deleteAlbum", params, &response, &vkErr)
 	return
 }
 
-// VideoDeleteCommentResponse struct
-type VideoDeleteCommentResponse int
-
 // VideoDeleteComment deletes a comment on a video.
 //
 // https://vk.com/dev/video.deleteComment
-func (vk *VK) VideoDeleteComment(params map[string]string) (response VideoDeleteCommentResponse, vkErr Error) {
+func (vk *VK) VideoDeleteComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.deleteComment", params, &response, &vkErr)
 	return
 }
 
-// VideoEditResponse struct
-type VideoEditResponse int
-
 // VideoEdit edits information about a video on a user or community page.
 //
 // https://vk.com/dev/video.edit
-func (vk *VK) VideoEdit(params map[string]string) (response VideoEditResponse, vkErr Error) {
+func (vk *VK) VideoEdit(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.edit", params, &response, &vkErr)
 	return
 }
 
-// VideoEditAlbumResponse struct
-type VideoEditAlbumResponse int
-
 // VideoEditAlbum edits the title of a video album.
 //
 // https://vk.com/dev/video.editAlbum
-func (vk *VK) VideoEditAlbum(params map[string]string) (response VideoEditAlbumResponse, vkErr Error) {
+func (vk *VK) VideoEditAlbum(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.editAlbum", params, &response, &vkErr)
 	return
 }
 
-// VideoEditCommentResponse struct
-type VideoEditCommentResponse int
-
 // VideoEditComment edits the text of a comment on a video.
 //
 // https://vk.com/dev/video.editComment
-func (vk *VK) VideoEditComment(params map[string]string) (response VideoEditCommentResponse, vkErr Error) {
+func (vk *VK) VideoEditComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.editComment", params, &response, &vkErr)
 	return
 }
@@ -262,79 +237,58 @@ func (vk *VK) VideoGetCommentsExtended(params map[string]string) (response Video
 	return
 }
 
-// VideoRemoveFromAlbumResponse struct
-type VideoRemoveFromAlbumResponse int
-
 // VideoRemoveFromAlbum Allows you to remove the video from the album.
 //
 // https://vk.com/dev/video.removeFromAlbum
-func (vk *VK) VideoRemoveFromAlbum(params map[string]string) (response VideoRemoveFromAlbumResponse, vkErr Error) {
+func (vk *VK) VideoRemoveFromAlbum(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.removeFromAlbum", params, &response, &vkErr)
 	return
 }
 
-// VideoReorderAlbumsResponse struct
-type VideoReorderAlbumsResponse int
-
 // VideoReorderAlbums reorders the album in the list of user video albums.
 //
 // https://vk.com/dev/video.reorderAlbums
-func (vk *VK) VideoReorderAlbums(params map[string]string) (response VideoReorderAlbumsResponse, vkErr Error) {
+func (vk *VK) VideoReorderAlbums(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.reorderAlbums", params, &response, &vkErr)
 	return
 }
 
-// VideoReorderVideosResponse struct
-type VideoReorderVideosResponse int
-
 // VideoReorderVideos reorders the video in the video album.
 //
 // https://vk.com/dev/video.reorderVideos
-func (vk *VK) VideoReorderVideos(params map[string]string) (response VideoReorderVideosResponse, vkErr Error) {
+func (vk *VK) VideoReorderVideos(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.reorderVideos", params, &response, &vkErr)
 	return
 }
 
-// VideoReportResponse struct
-type VideoReportResponse int
-
 // VideoReport reports (submits a complaint about) a video.
 //
 // https://vk.com/dev/video.report
-func (vk *VK) VideoReport(params map[string]string) (response VideoReportResponse, vkErr Error) {
+func (vk *VK) VideoReport(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.report", params, &response, &vkErr)
 	return
 }
 
-// VideoReportCommentResponse struct
-type VideoReportCommentResponse int
-
 // VideoReportComment reports (submits a complaint about) a comment on a video.
 //
 // https://vk.com/dev/video.reportComment
-func (vk *VK) VideoReportComment(params map[string]string) (response VideoReportCommentResponse, vkErr Error) {
+func (vk *VK) VideoReportComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.reportComment", params, &response, &vkErr)
 	return
 }
 
-// VideoRestoreResponse struct
-type VideoRestoreResponse int
-
 // VideoRestore restores a previously deleted video.
 //
 // https://vk.com/dev/video.restore
-func (vk *VK) VideoRestore(params map[string]string) (response VideoRestoreResponse, vkErr Error) {
+func (vk *VK) VideoRestore(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.restore", params, &response, &vkErr)
 	return
 }
 
-// VideoRestoreCommentResponse struct
-type VideoRestoreCommentResponse int
-
 // VideoRestoreComment restores a previously deleted comment on a video.
 //
 // https://vk.com/dev/video.restoreComment
-func (vk *VK) VideoRestoreComment(params map[string]string) (response VideoRestoreCommentResponse, vkErr Error) {
+func (vk *VK) VideoRestoreComment(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("video.restoreComment", params, &response, &vkErr)
 	return
 }
