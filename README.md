@@ -16,7 +16,7 @@
   - Реализовано 400+ методов
   - Возможность изменять HTTP клиент
   - Ограничитель запросов
-  - ~~Загрузка файлов~~ [#34](https://github.com/SevereCloud/vksdk/issues/34)
+  - Загрузка файлов
 - [Callback API](https://github.com/SevereCloud/vksdk/tree/master/5.92/callback#callback-api)
   - Поддерживает все события
   - Возвращает готовые структуры

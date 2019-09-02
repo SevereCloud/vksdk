@@ -270,6 +270,52 @@ videoUploadResponse, vkErr = vk.UploadVideo(params, file)
 
 После загрузки видеозапись проходит обработку и в списке видеозаписей может появиться спустя некоторое время.
 
+#### 10. Загрузка документов
+
+Допустимые форматы: любые форматы за исключением mp3 и исполняемых файлов.
+Ограничения: файл объемом не более 200 МБ.
+
+`title` - название файла с расширением
+
+`tags` - метки для поиска
+
+`type` - тип документа.
+
+- doc - обычный документ;
+- audio_message - голосовое сообщение
+- graffiti - граффити
+
+
+Загрузить документ:
+
+```go
+docsDoc, vkErr = vk.UploadDoc(title, tags, file)
+```
+
+Загрузить документ в группу:
+
+```go
+docsDoc, vkErr = vk.UploadGroupDoc(groupID, title, tags, file)
+```
+
+Загрузить документ, для последующей отправки документа на стену:
+
+```go
+docsDoc, vkErr = vk.UploadWallDoc(title, tags, file)
+```
+
+Загрузить документ в группу, для последующей отправки документа на стену:
+
+```go
+docsDoc, vkErr = vk.UploadGroupWallDoc(groupID, title, tags, file)
+```
+
+Загрузить документ в личное сообщение:
+
+```go
+docsDoc, vkErr = vk.UploadMessagesDoc(peerID, type, title, tags, file)
+```
+
 #### TODO: Загрузка файлов реализована не полностью
 
 Смотрите [#34](https://github.com/SevereCloud/vksdk/issues/34)

@@ -12,8 +12,10 @@ import (
 )
 
 type uploadError struct {
-	Error     string `json:"error"`
-	ErrorCode int    `json:"error_code"`
+	Error         string `json:"error"`
+	ErrorCode     int    `json:"error_code"`
+	ErrorDescr    string `json:"error_descr"`
+	ErrorIsLogged bool   `json:"error_is_logged"`
 }
 
 // UploadFile uploading file
@@ -498,5 +500,120 @@ func (vk *VK) UploadVideo(params map[string]string, file io.Reader) (response Vi
 	if videoUploadError.ErrorCode != 0 {
 		vkErr = NewError(-1, videoUploadError.Error, "", map[string]string{})
 	}
+	return
+}
+
+// uploadDoc uploading Documents
+//
+// Supported formats: any formats excepting mp3 and executable files.
+//
+// Limits: file size up to 200 MB.
+func (vk *VK) uploadDoc(url, title, tags string, file io.Reader) (response DocsSaveResponse, vkErr Error) {
+	bodyContent, err := vk.UploadFile(url, file, "file", title)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	var docUploadError uploadError
+	err = json.Unmarshal(bodyContent, &docUploadError)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+	if docUploadError.Error != "" {
+		vkErr = NewError(-1, docUploadError.Error, "", map[string]string{})
+		return
+	}
+
+	var handler object.DocsDocUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	response, vkErr = vk.DocsSave(map[string]string{
+		"file":  handler.File,
+		"title": title,
+		"tags":  tags,
+	})
+	return response, vkErr
+}
+
+// UploadDoc uploading Documents
+//
+// Supported formats: any formats excepting mp3 and executable files.
+//
+// Limits: file size up to 200 MB.
+func (vk *VK) UploadDoc(title, tags string, file io.Reader) (response DocsSaveResponse, vkErr Error) {
+	uploadServer, vkErr := vk.DocsGetUploadServer(map[string]string{})
+	if vkErr.Code != 0 {
+		return
+	}
+	response, vkErr = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+	return
+}
+
+// UploadGroupDoc uploading Documents into Community
+//
+// Supported formats: any formats excepting mp3 and executable files.
+//
+// Limits: file size up to 200 MB.
+func (vk *VK) UploadGroupDoc(groupID int, title, tags string, file io.Reader) (response DocsSaveResponse, vkErr Error) {
+	uploadServer, vkErr := vk.DocsGetUploadServer(map[string]string{
+		"group_id": strconv.Itoa(groupID),
+	})
+	if vkErr.Code != 0 {
+		return
+	}
+	response, vkErr = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+	return
+}
+
+// UploadWallDoc uploading Documents on Wall
+//
+// Supported formats: any formats excepting mp3 and executable files.
+//
+// Limits: file size up to 200 MB.
+func (vk *VK) UploadWallDoc(title, tags string, file io.Reader) (response DocsSaveResponse, vkErr Error) {
+	uploadServer, vkErr := vk.DocsGetWallUploadServer(map[string]string{})
+	if vkErr.Code != 0 {
+		return
+	}
+	response, vkErr = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+	return
+}
+
+// UploadGroupWallDoc uploading Documents on Group Wall
+//
+// Supported formats: any formats excepting mp3 and executable files.
+//
+// Limits: file size up to 200 MB.
+func (vk *VK) UploadGroupWallDoc(groupID int, title, tags string, file io.Reader) (response DocsSaveResponse, vkErr Error) {
+	uploadServer, vkErr := vk.DocsGetWallUploadServer(map[string]string{
+		"group_id": strconv.Itoa(groupID),
+	})
+	if vkErr.Code != 0 {
+		return
+	}
+	response, vkErr = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+	return
+}
+
+// UploadMessagesDoc uploading Documents into a Private Message
+//
+// Supported formats: any formats excepting mp3 and executable files.
+//
+// Limits: file size up to 200 MB.
+func (vk *VK) UploadMessagesDoc(peerID int, typeDoc, title, tags string, file io.Reader) (response DocsSaveResponse, vkErr Error) {
+	uploadServer, vkErr := vk.DocsGetMessagesUploadServer(map[string]string{
+		"peer_id": strconv.Itoa(peerID),
+		"type":    typeDoc,
+	})
+	if vkErr.Code != 0 {
+		return
+	}
+	response, vkErr = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
 	return
 }

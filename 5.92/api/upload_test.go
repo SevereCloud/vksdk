@@ -277,3 +277,99 @@ func TestVK_UploadVideo_Error(t *testing.T) {
 		t.Errorf("VK.UploadVideo() gotVkErr = %v, want %v", gotVkErr, -1)
 	}
 }
+
+func TestVK_uploadDoc_Error(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	_, gotVkErr := vkUser.uploadDoc("", "", "", new(bytes.Buffer))
+	if gotVkErr.Code != -1 {
+		t.Errorf("VK.uploadDoc() gotVkErr = %v, want %v", gotVkErr, -1)
+	}
+}
+
+func TestVK_UploadDoc(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadDoc("test.jpeg", "test", response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadGroupDoc(t *testing.T) {
+	if vkUser.AccessToken == "" && vkGroupID == 0 {
+		t.Skip("USER_TOKEN or GROUP_ID empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadGroupDoc(vkGroupID, "test.jpeg", "test", response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadGroupDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadWallDoc(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadWallDoc("test.jpeg", "test", response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadWallDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadGroupWallDoc(t *testing.T) {
+	if vkUser.AccessToken == "" && vkGroupID == 0 {
+		t.Skip("USER_TOKEN or GROUP_ID empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadGroupWallDoc(vkGroupID, "test.jpeg", "test", response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadGroupWallDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadMessagesDoc(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadMessagesDoc(117253521, "doc", "test.jpeg", "test", response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadMessagesDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}

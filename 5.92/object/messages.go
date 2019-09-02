@@ -1,5 +1,40 @@
 package object // import "github.com/SevereCloud/vksdk/5.92/object"
 
+import (
+	"fmt"
+)
+
+// MessagesAudioMessage struct
+type MessagesAudioMessage struct {
+	AccessKey string `json:"access_key"` // Access key for the document
+	ID        int    `json:"id"`         // Document ID
+	OwnerID   int    `json:"owner_id"`   // Document owner ID
+	Duration  int    `json:"duration"`   // Audio message duration in seconds
+	LinkMp3   string `json:"link_mp3"`   // MP3 file URL
+	LinkOgg   string `json:"link_ogg"`   // OGG file URL
+	Waveform  []int  `json:"waveform"`   // Sound visualisation
+}
+
+// ToAttachment return attachment format
+func (doc MessagesAudioMessage) ToAttachment() string {
+	return fmt.Sprintf("doc%d_%d", doc.OwnerID, doc.ID)
+}
+
+// MessagesGraffiti struct
+type MessagesGraffiti struct {
+	AccessKey string `json:"access_key"` // Access key for the document
+	ID        int    `json:"id"`         // Document ID
+	OwnerID   int    `json:"owner_id"`   // Document owner ID
+	URL       string `json:"url"`        // Graffiti URL
+	Width     int    `json:"width"`      // Graffiti width
+	Height    int    `json:"height"`     // Graffiti height
+}
+
+// ToAttachment return attachment format
+func (doc MessagesGraffiti) ToAttachment() string {
+	return fmt.Sprintf("doc%d_%d", doc.OwnerID, doc.ID)
+}
+
 // MessagesMessage struct
 type MessagesMessage struct {
 	AdminAuthorID         int                         `json:"admin_author_id"` // Only for messages from community. Contains user ID of community admin, who sent this message.

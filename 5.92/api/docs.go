@@ -107,7 +107,12 @@ func (vk *VK) DocsGetWallUploadServer(params map[string]string) (response DocsGe
 }
 
 // DocsSaveResponse struct
-type DocsSaveResponse []object.DocsDoc
+type DocsSaveResponse struct {
+	Type         string                      `json:"string"`
+	AudioMessage object.MessagesAudioMessage `json:"audio_message"`
+	Doc          object.DocsDoc              `json:"doc"`
+	Graffiti     object.MessagesGraffiti     `json:"graffiti"`
+}
 
 // DocsSave saves a document after uploading it to a server.
 //
