@@ -356,3 +356,74 @@ func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.R
 	}, file)
 	return
 }
+
+// uploadMarketPhoto uploading a Main Photo to a Group Chat
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 400x400px, aspect ratio from 0.25 to 3,
+// width+height not more than 14000 px, file size up to 50 Mb.
+func (vk *VK) uploadMarketPhoto(params map[string]string, file io.Reader) (response PhotosSaveMarketPhotoResponse, vkErr Error) {
+	uploadServer, vkErr := vk.PhotosGetMarketUploadServer(params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "file", "photo.jpeg")
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	var handler object.PhotosMarketUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	response, vkErr = vk.PhotosSaveMarketPhoto(map[string]string{
+		"group_id":  params["group_id"],
+		"server":    strconv.Itoa(handler.Server),
+		"photo":     handler.Photo,
+		"hash":      handler.Hash,
+		"crop_data": handler.CropData,
+		"crop_hash": handler.CropHash,
+	})
+	return
+}
+
+// UploadMarketPhoto uploading a Market Item Photo without crop
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 400x400px, aspect ratio from 0.25 to 3,
+// width+height not more than 14000 px, file size up to 50 Mb.
+func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (response PhotosSaveMarketPhotoResponse, vkErr Error) {
+	mainPhotoString := "0"
+	if mainPhoto {
+		mainPhotoString = "1"
+	}
+	response, vkErr = vk.uploadMarketPhoto(map[string]string{
+		"group_id":   strconv.Itoa(groupID),
+		"main_photo": mainPhotoString,
+	}, file)
+	return
+}
+
+// UploadMarketPhotoCrop uploading a Market Item Photo with crop
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 400x400px, aspect ratio from 0.25 to 3,
+// width+height not more than 14000 px, file size up to 50 Mb.
+func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file io.Reader) (response PhotosSaveMarketPhotoResponse, vkErr Error) {
+	response, vkErr = vk.uploadMarketPhoto(map[string]string{
+		"group_id":   strconv.Itoa(groupID),
+		"main_photo": "1",
+		"crop_x":     strconv.Itoa(cropX),
+		"crop_y":     strconv.Itoa(cropY),
+		"crop_width": strconv.Itoa(cropWidth),
+	}, file)
+	return
+}

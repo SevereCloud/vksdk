@@ -189,3 +189,54 @@ func TestVK_UploadChatPhotoCrop(t *testing.T) {
 		t.Errorf("VK.UploadChatPhotoCrop() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }
+
+func TestVK_UploadMarketPhoto(t *testing.T) {
+	if vkUser.AccessToken == "" && vkGroupID == 0 {
+		t.Skip("USER_TOKEN or GROUP_ID empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadMarketPhoto(vkGroupID, false, response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadMarketPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadMarketPhotoMain(t *testing.T) {
+	if vkUser.AccessToken == "" && vkGroupID == 0 {
+		t.Skip("USER_TOKEN or GROUP_ID empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadMarketPhoto(vkGroupID, true, response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadMarketPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadMarketPhotoCrop(t *testing.T) {
+	if vkUser.AccessToken == "" && vkGroupID == 0 {
+		t.Skip("USER_TOKEN or GROUP_ID empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadMarketPhotoCrop(vkGroupID, 0, 0, 400, response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadMarketPhotoCrop() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}

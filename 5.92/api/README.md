@@ -218,18 +218,36 @@ photosPhoto, vkErr = vk.UploadMessagesPhoto(peerID, file)
 Допустимые форматы: JPG, PNG, GIF.
 Ограничения: размер не менее 200x200px, соотношение сторон от 0.25 до 3, сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ, соотношение сторон не менее 1:20.
 
-Без обрезки
+Без обрезки:
 
 ```go
 messageInfo, vkErr = vk.UploadChatPhoto(peerID, file)
 ```
 
-С обрезкой
+С обрезкой:
 
 ```go
 messageInfo, vkErr = vk.UploadChatPhotoCrop(peerID, cropX, cropY, cropWidth, file)
 ```
 
+#### 6. Загрузка фотографии для товара
+
+Допустимые форматы: JPG, PNG, GIF.
+Ограничения: минимальный размер фото — 400x400px, сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ, соотношение сторон не менее 1:20.
+
+Если Вы хотите загрузить основную фотографию товара, необходимо передать параметр `mainPhoto = true`.  Если фотография не основная, она не будет обрезаться.
+
+Без обрезки:
+
+```go
+photosPhoto, vkErr = vk.UploadMarketPhoto(groupID, mainPhoto, file)
+```
+
+Основную фотографию c обрезкой:
+
+```go
+photosPhoto, vkErr = vk.UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth, file)
+```
 
 #### TODO: Загрузка файлов реализована не полностью
 
