@@ -301,8 +301,9 @@ func (vk *VK) UploadMessagesPhoto(peerID int, file io.Reader) (response PhotosSa
 //
 // Supported formats: JPG, PNG, GIF.
 //
-// Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
-// width+height not more than 14000 px, file size up to 50 Mb.
+// Limits: size not less than 200x200px,
+// width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) uploadChatPhoto(params map[string]string, file io.Reader) (response MessagesSetChatPhotoResponse, vkErr Error) {
 	uploadServer, vkErr := vk.PhotosGetChatUploadServer(params)
 	if vkErr.Code != 0 {
@@ -332,8 +333,9 @@ func (vk *VK) uploadChatPhoto(params map[string]string, file io.Reader) (respons
 //
 // Supported formats: JPG, PNG, GIF.
 //
-// Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
-// width+height not more than 14000 px, file size up to 50 Mb.
+// Limits: size not less than 200x200px,
+// width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) UploadChatPhoto(chatID int, file io.Reader) (response MessagesSetChatPhotoResponse, vkErr Error) {
 	response, vkErr = vk.uploadChatPhoto(map[string]string{
 		"chat_id": strconv.Itoa(chatID),
@@ -345,8 +347,9 @@ func (vk *VK) UploadChatPhoto(chatID int, file io.Reader) (response MessagesSetC
 //
 // Supported formats: JPG, PNG, GIF.
 //
-// Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
-// width+height not more than 14000 px, file size up to 50 Mb.
+// Limits: size not less than 200x200px,
+// width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.Reader) (response MessagesSetChatPhotoResponse, vkErr Error) {
 	response, vkErr = vk.uploadChatPhoto(map[string]string{
 		"chat_id":    strconv.Itoa(chatID),
@@ -357,12 +360,13 @@ func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.R
 	return
 }
 
-// uploadMarketPhoto uploading a Main Photo to a Group Chat
+// uploadMarketPhoto uploading a Market Item Photo
 //
 // Supported formats: JPG, PNG, GIF.
 //
-// Limits: size not less than 400x400px, aspect ratio from 0.25 to 3,
-// width+height not more than 14000 px, file size up to 50 Mb.
+// Limits: size not less than 400x400px,
+// width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) uploadMarketPhoto(params map[string]string, file io.Reader) (response PhotosSaveMarketPhotoResponse, vkErr Error) {
 	uploadServer, vkErr := vk.PhotosGetMarketUploadServer(params)
 	if vkErr.Code != 0 {
@@ -397,8 +401,9 @@ func (vk *VK) uploadMarketPhoto(params map[string]string, file io.Reader) (respo
 //
 // Supported formats: JPG, PNG, GIF.
 //
-// Limits: size not less than 400x400px, aspect ratio from 0.25 to 3,
-// width+height not more than 14000 px, file size up to 50 Mb.
+// Limits: size not less than 400x400px,
+// width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (response PhotosSaveMarketPhotoResponse, vkErr Error) {
 	mainPhotoString := "0"
 	if mainPhoto {
@@ -415,8 +420,9 @@ func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (re
 //
 // Supported formats: JPG, PNG, GIF.
 //
-// Limits: size not less than 400x400px, aspect ratio from 0.25 to 3,
-// width+height not more than 14000 px, file size up to 50 Mb.
+// Limits: size not less than 400x400px,
+// width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
 func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file io.Reader) (response PhotosSaveMarketPhotoResponse, vkErr Error) {
 	response, vkErr = vk.uploadMarketPhoto(map[string]string{
 		"group_id":   strconv.Itoa(groupID),
@@ -425,5 +431,42 @@ func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file i
 		"crop_y":     strconv.Itoa(cropY),
 		"crop_width": strconv.Itoa(cropWidth),
 	}, file)
+	return
+}
+
+// uploadMarketAlbumPhoto uploading a Main Photo to a Group Chat
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 1280x720px,
+// width+height not more than 14000 px, file size up to 50 Mb,
+// aspect ratio of at least 1:20
+func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (response PhotosSaveMarketAlbumPhotoResponse, vkErr Error) {
+	uploadServer, vkErr := vk.PhotosGetMarketAlbumUploadServer(map[string]string{
+		"group_id": strconv.Itoa(groupID),
+	})
+	if vkErr.Code != 0 {
+		return
+	}
+
+	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "file", "photo.jpeg")
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	var handler object.PhotosMarketAlbumUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	response, vkErr = vk.PhotosSaveMarketAlbumPhoto(map[string]string{
+		"group_id": strconv.Itoa(groupID),
+		"server":   strconv.Itoa(handler.Server),
+		"photo":    handler.Photo,
+		"hash":     handler.Hash,
+	})
 	return
 }

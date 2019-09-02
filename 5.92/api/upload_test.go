@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-const photoURL = "https://sun9-45.userapi.com/c638629/v638629852/2afba/o-dvykjSIB4.jpg"
+const photoURL = "https://sun9-17.userapi.com/c853620/v853620933/dedb8/_5CIRVR-UA8.jpg"
 
 func Test_UploadFile(t *testing.T) {
 	f := func(url string, file io.Reader, fieldname, filename string, needErr bool) {
@@ -238,5 +238,22 @@ func TestVK_UploadMarketPhotoCrop(t *testing.T) {
 	_, gotVkErr := vkUser.UploadMarketPhotoCrop(vkGroupID, 0, 0, 400, response.Body)
 	if gotVkErr.Code != 0 {
 		t.Errorf("VK.UploadMarketPhotoCrop() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
+	if vkUser.AccessToken == "" && vkGroupID == 0 {
+		t.Skip("USER_TOKEN or GROUP_ID empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadMarketAlbumPhoto(vkGroupID, response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadMarketAlbumPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }

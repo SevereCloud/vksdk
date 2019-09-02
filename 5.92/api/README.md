@@ -249,6 +249,15 @@ photosPhoto, vkErr = vk.UploadMarketPhoto(groupID, mainPhoto, file)
 photosPhoto, vkErr = vk.UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth, file)
 ```
 
+#### 7. Загрузка фотографии для подборки товаров
+
+Допустимые форматы: JPG, PNG, GIF.
+Ограничения: минимальный размер фото — 1280x720px, сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ, соотношение сторон не менее 1:20.
+
+```go
+photosPhoto, vkErr = vk.UploadMarketAlbumPhoto(groupID, file)
+```
+
 #### TODO: Загрузка файлов реализована не полностью
 
 Смотрите [#34](https://github.com/SevereCloud/vksdk/issues/34)

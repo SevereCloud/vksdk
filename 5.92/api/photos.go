@@ -512,14 +512,14 @@ func (vk *VK) PhotosSave(params map[string]string) (response PhotosSaveResponse,
 	return
 }
 
-// PhotosSaveMarketAlbumResponse struct
-type PhotosSaveMarketAlbumResponse []object.PhotosPhoto
+// PhotosSaveMarketAlbumPhotoResponse struct
+type PhotosSaveMarketAlbumPhotoResponse []object.PhotosPhoto
 
-// PhotosSaveMarketAlbum photo Saves market album photos after successful uploading.
+// PhotosSaveMarketAlbumPhoto photo Saves market album photos after successful uploading.
 //
-// https://vk.com/dev/photos.saveMarketAlbum
-func (vk *VK) PhotosSaveMarketAlbum(params map[string]string) (response PhotosSaveMarketAlbumResponse, vkErr Error) {
-	vk.RequestUnmarshal("photos.saveMarketAlbum", params, &response, &vkErr)
+// https://vk.com/dev/photos.saveMarketAlbumPhoto
+func (vk *VK) PhotosSaveMarketAlbumPhoto(params map[string]string) (response PhotosSaveMarketAlbumPhotoResponse, vkErr Error) {
+	vk.RequestUnmarshal("photos.saveMarketAlbumPhoto", params, &response, &vkErr)
 	return
 }
 
