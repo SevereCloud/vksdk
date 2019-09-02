@@ -32,7 +32,7 @@ type MessagesCreateChatResponse int
 // MessagesCreateChat creates a chat with several participants.
 //
 // https://vk.com/dev/messages.createChat
-func (vk *VK) MessagesCreateChat(params map[string]string) (response MessagesCreateChatResponse, vkErr Error) {
+func (vk *VK) MessagesCreateChat(params map[string]string) (response int, vkErr Error) {
 	vk.RequestUnmarshal("messages.createChat", params, &response, &vkErr)
 	return
 }

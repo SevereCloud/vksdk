@@ -213,6 +213,24 @@ photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, "", file)
 photosPhoto, vkErr = vk.UploadMessagesPhoto(peerID, file)
 ```
 
+#### 5. Загрузка главной фотографии для чата
+
+Допустимые форматы: JPG, PNG, GIF.
+Ограничения: размер не менее 200x200px, соотношение сторон от 0.25 до 3, сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ, соотношение сторон не менее 1:20.
+
+Без обрезки
+
+```go
+messageInfo, vkErr = vk.UploadChatPhoto(peerID, file)
+```
+
+С обрезкой
+
+```go
+messageInfo, vkErr = vk.UploadChatPhotoCrop(peerID, cropX, cropY, cropWidth, file)
+```
+
+
 #### TODO: Загрузка файлов реализована не полностью
 
 Смотрите [#34](https://github.com/SevereCloud/vksdk/issues/34)

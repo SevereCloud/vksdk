@@ -6,8 +6,8 @@ import (
 	"testing"
 )
 
-var vkGroup, vkService, vkUser *VK // nolint:gochecknoglobals
-var vkUserID, vkGroupID int        // nolint:gochecknoglobals
+var vkGroup, vkService, vkUser *VK    // nolint:gochecknoglobals
+var vkUserID, vkGroupID, vkChatID int // nolint:gochecknoglobals
 
 func TestMain(m *testing.M) {
 	vkGroup = Init(os.Getenv("GROUP_TOKEN"))
@@ -28,6 +28,13 @@ func TestMain(m *testing.M) {
 			log.Fatal(vkErr)
 		}
 		vkUserID = user[0].ID
+
+		vkChatID, vkErr = vkUser.MessagesCreateChat(map[string]string{
+			"title": "TestChat",
+		})
+		if vkErr.Code != 0 {
+			log.Fatal(vkErr)
+		}
 	}
 
 	runTests := m.Run()

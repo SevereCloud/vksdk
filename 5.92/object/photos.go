@@ -63,6 +63,11 @@ type PhotosImage struct {
 	Width  int    `json:"width"` // Width of the photo in px.
 }
 
+// PhotosChatUploadResponse struct
+type PhotosChatUploadResponse struct {
+	Response string `json:"response"` // Uploaded photo data
+}
+
 // PhotosMarketAlbumUploadResponse struct
 type PhotosMarketAlbumUploadResponse struct {
 	GID    int    `json:"gid"`    // Community ID

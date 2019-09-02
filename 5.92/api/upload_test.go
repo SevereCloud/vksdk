@@ -155,3 +155,37 @@ func TestVK_UploadMessagesPhoto(t *testing.T) {
 		t.Errorf("VK.UploadMessagesPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
 	}
 }
+
+func TestVK_UploadChatPhoto(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadChatPhoto(vkChatID, response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadChatPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}
+
+func TestVK_UploadChatPhotoCrop(t *testing.T) {
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, gotVkErr := vkUser.UploadChatPhotoCrop(vkChatID, 0, 0, 200, response.Body)
+	if gotVkErr.Code != 0 {
+		t.Errorf("VK.UploadChatPhotoCrop() gotVkErr = %v, want %v", gotVkErr, 0)
+	}
+}

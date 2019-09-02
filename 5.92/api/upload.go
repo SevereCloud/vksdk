@@ -296,3 +296,63 @@ func (vk *VK) UploadMessagesPhoto(peerID int, file io.Reader) (response PhotosSa
 	})
 	return
 }
+
+// uploadChatPhoto uploading a Main Photo to a Group Chat
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
+// width+height not more than 14000 px, file size up to 50 Mb.
+func (vk *VK) uploadChatPhoto(params map[string]string, file io.Reader) (response MessagesSetChatPhotoResponse, vkErr Error) {
+	uploadServer, vkErr := vk.PhotosGetChatUploadServer(params)
+	if vkErr.Code != 0 {
+		return
+	}
+
+	bodyContent, err := UploadFile(uploadServer.UploadURL, file, "file", "photo.jpeg")
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	var handler object.PhotosChatUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		vkErr = NewError(-1, err.Error(), "", map[string]string{})
+		return
+	}
+
+	response, vkErr = vk.MessagesSetChatPhoto(map[string]string{
+		"file": handler.Response,
+	})
+	return
+}
+
+// UploadChatPhoto uploading a Main Photo to a Group Chat without crop
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
+// width+height not more than 14000 px, file size up to 50 Mb.
+func (vk *VK) UploadChatPhoto(chatID int, file io.Reader) (response MessagesSetChatPhotoResponse, vkErr Error) {
+	response, vkErr = vk.uploadChatPhoto(map[string]string{
+		"chat_id": strconv.Itoa(chatID),
+	}, file)
+	return
+}
+
+// UploadChatPhotoCrop uploading a Main Photo to a Group Chat with crop
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
+// width+height not more than 14000 px, file size up to 50 Mb.
+func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.Reader) (response MessagesSetChatPhotoResponse, vkErr Error) {
+	response, vkErr = vk.uploadChatPhoto(map[string]string{
+		"chat_id":    strconv.Itoa(chatID),
+		"crop_x":     strconv.Itoa(cropX),
+		"crop_y":     strconv.Itoa(cropY),
+		"crop_width": strconv.Itoa(cropWidth),
+	}, file)
+	return
+}
