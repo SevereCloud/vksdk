@@ -104,7 +104,7 @@ const (
 	ErrorMessagesTooNewPts                 = 908  // Value of ts or pts is too new
 	ErrorMessagesEditExpired               = 909  // Can't edit this message, because it's too old
 	ErrorMessagesTooBig                    = 910  // Can't sent this message, because it's too big
-	ErrorMessagesKeyboardInvaliD           = 911  // Keyboard format is invalid
+	ErrorMessagesKeyboardInvalid           = 911  // Keyboard format is invalid
 	ErrorMessagesChatBotFeature            = 912  // This is a chat bot feature, change this status in settings
 	ErrorMessagesTooLongForwards           = 913  // Too many forwarded messages
 	ErrorMessagesTooLongMessage            = 914  // Message is too long
