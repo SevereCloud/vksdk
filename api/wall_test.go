@@ -181,8 +181,8 @@ func TestVK_WallCreateComment(t *testing.T) {
 	}
 
 	comment, vkErr := vkUser.WallCreateComment(map[string]string{
-		"owner_id": "540036751",
-		"post_id":  "29",
+		"owner_id": "117253521",
+		"post_id":  "2342",
 		"message":  "Test comment",
 	})
 	if vkErr.Code != 0 {
@@ -190,7 +190,7 @@ func TestVK_WallCreateComment(t *testing.T) {
 	}
 
 	_, gotVkErr := vkUser.WallEditComment(map[string]string{
-		"owner_id":   "540036751",
+		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(comment.CommentID),
 		"message":    "Test comment edited",
 	})
@@ -199,7 +199,7 @@ func TestVK_WallCreateComment(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.WallDeleteComment(map[string]string{
-		"owner_id":   "540036751",
+		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(comment.CommentID),
 	})
 	if gotVkErr.Code != 0 {
@@ -207,7 +207,7 @@ func TestVK_WallCreateComment(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.WallRestoreComment(map[string]string{
-		"owner_id":   "540036751",
+		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(comment.CommentID),
 	})
 	if gotVkErr.Code != 0 {
