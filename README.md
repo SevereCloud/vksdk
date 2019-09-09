@@ -11,20 +11,20 @@
 
 ### Возможности
 
-- [API](https://github.com/SevereCloud/vksdk/tree/master/5.92/api#api)
+- [API](https://github.com/SevereCloud/vksdk/tree/master/api#api)
   - Возвращает готовые структуры
   - Реализовано 400+ методов
   - Возможность изменять HTTP клиент
   - Ограничитель запросов
   - Загрузка файлов
-- [Callback API](https://github.com/SevereCloud/vksdk/tree/master/5.92/callback#callback-api)
+- [Callback API](https://github.com/SevereCloud/vksdk/tree/master/callback#callback-api)
   - Поддерживает все события
   - Возвращает готовые структуры
-- [Bots Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/5.92/longpoll-bot#bots-long-poll-api)
+- [Bots Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/longpoll-bot#bots-long-poll-api)
   - Поддерживает все события
   - Возвращает готовые структуры
   - Возможность изменять HTTP клиент
-- [User Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/5.92/longpoll-user#user-long-poll-api)
+- [User Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/longpoll-user#user-long-poll-api)
   - ~~Возвращает готовые структуры~~ [#44](https://github.com/SevereCloud/vksdk/issues/44)
   - Возможность изменять HTTP клиент
 - ~~Streaming api~~ [#3](https://github.com/SevereCloud/vksdk/issues/3)
@@ -47,7 +47,7 @@ package main
 import (
     "log"
 
-    vkapi "github.com/SevereCloud/vksdk/5.92/api"
+    vkapi "github.com/SevereCloud/vksdk/api"
 )
 
 func main() {

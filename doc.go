@@ -1,10 +1,10 @@
 // Package vksdk implements the basic VK API functions
 //
-// API - http://godoc.org/github.com/SevereCloud/vksdk/5.92/api
+// API - https://godoc.org/github.com/SevereCloud/vksdk/api
 //
-// Callback API - http://godoc.org/github.com/SevereCloud/vksdk/5.92/callback
+// Callback API - https://godoc.org/github.com/SevereCloud/vksdk/callback
 //
-// Bots Long Poll API - http://godoc.org/github.com/SevereCloud/vksdk/5.92/longpoll-bot
+// Bots Long Poll API - https://godoc.org/github.com/SevereCloud/vksdk/longpoll-bot
 //
-// User Long Poll API - http://godoc.org/github.com/SevereCloud/vksdk/5.92/longpoll-user
+// User Long Poll API - https://godoc.org/github.com/SevereCloud/vksdk/longpoll-user
 package vksdk
