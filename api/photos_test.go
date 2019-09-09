@@ -67,8 +67,8 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 	}
 
 	commentID, gotVkErr := vkUser.PhotosCreateComment(map[string]string{
-		"owner_id": "540036751",
-		"photo_id": "457239020",
+		"owner_id": "117253521",
+		"photo_id": "456247631",
 		"message":  "Test photo comment",
 	})
 	if gotVkErr.Code != 0 {
@@ -76,7 +76,7 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.PhotosEditComment(map[string]string{
-		"owner_id":   "540036751",
+		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(commentID),
 		"message":    "Test photo comment edited",
 	})
@@ -85,7 +85,7 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.PhotosDeleteComment(map[string]string{
-		"owner_id":   "540036751",
+		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(commentID),
 	})
 	if gotVkErr.Code != 0 {
@@ -93,7 +93,7 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 	}
 
 	_, gotVkErr = vkUser.PhotosRestoreComment(map[string]string{
-		"owner_id":   "540036751",
+		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(commentID),
 	})
 	if gotVkErr.Code != 0 {
