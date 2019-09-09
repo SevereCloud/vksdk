@@ -24,7 +24,7 @@ func TestVK_PollsCreate(t *testing.T) {
 		"question": "questionEdit",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsEdit() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PollsEdit() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.PollsAddVote(map[string]string{
@@ -33,7 +33,7 @@ func TestVK_PollsCreate(t *testing.T) {
 		"answer_ids": strconv.Itoa(poll.Answers[0].ID),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsAddVote() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PollsAddVote() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.PollsDeleteVote(map[string]string{
@@ -42,7 +42,7 @@ func TestVK_PollsCreate(t *testing.T) {
 		"answer_ids": strconv.Itoa(poll.Answers[0].ID),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsDeleteVote() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PollsDeleteVote() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -53,7 +53,7 @@ func TestVK_PollsGetBackgrounds(t *testing.T) {
 
 	_, gotVkErr := vkUser.PollsGetBackgrounds(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsGetBackgrounds() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PollsGetBackgrounds() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -65,7 +65,7 @@ func TestVK_PollsGetByID(t *testing.T) {
 		t.Helper()
 		_, gotVkErr := vkUser.PollsGetByID(params)
 		if gotVkErr.Code != 0 {
-			t.Errorf("VK.PollsGetByID() gotVkErr = %v, want %v", gotVkErr, 0)
+			t.Errorf("VK.PollsGetByID() gotVkErr = %v", gotVkErr)
 		}
 	}
 
@@ -86,7 +86,7 @@ func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
 
 	_, gotVkErr := vkUser.PollsGetPhotoUploadServer(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsGetPhotoUploadServer() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PollsGetPhotoUploadServer() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -101,7 +101,7 @@ func TestVK_PollsGetVoters(t *testing.T) {
 		"answer_ids": "1144979948, 1144979949, 1144979950",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsGetVoters() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PollsGetVoters() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -117,7 +117,7 @@ func TestVK_PollsGetVotersFields(t *testing.T) {
 		"fields":     "nickname, screen_name, sex",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsGetVotersFields() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PollsGetVotersFields() gotVkErr = %v", gotVkErr)
 	}
 }
 

@@ -17,7 +17,7 @@ func TestVK_FaveArticle(t *testing.T) {
 		"url": "https://vk.com/@vkappsdev-vk-apps-kak-popast-v-katalog",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveAddArticle() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveAddArticle() gotVkErr = %v", gotVkErr)
 	}
 
 	res, vkErr := vkUser.FaveGet(map[string]string{"item_type": "article"})
@@ -31,7 +31,7 @@ func TestVK_FaveArticle(t *testing.T) {
 		"article_id": strconv.Itoa(res.Items[0].Article.ID),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveAddArticle() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveAddArticle() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -45,7 +45,7 @@ func TestVK_FaveLink(t *testing.T) {
 		"link": "https://ya.ru",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveAddLink() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveAddLink() gotVkErr = %v", gotVkErr)
 	}
 
 	res, vkErr := vkUser.FaveGet(map[string]string{"item_type": "link"})
@@ -58,7 +58,7 @@ func TestVK_FaveLink(t *testing.T) {
 		"link_id": res.Items[0].Link.ID,
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveRemoveLink() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveRemoveLink() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -72,7 +72,7 @@ func TestVK_FavePage(t *testing.T) {
 		"user_id": "1",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveAddPage() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveAddPage() gotVkErr = %v", gotVkErr)
 	}
 
 	time.Sleep(300 * time.Millisecond)
@@ -80,14 +80,14 @@ func TestVK_FavePage(t *testing.T) {
 		"user_id": "1",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveAddPage() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveAddPage() gotVkErr = %v", gotVkErr)
 	}
 	time.Sleep(300 * time.Millisecond)
 	_, gotVkErr = vkUser.FaveRemovePage(map[string]string{
 		"user_id": "1",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveRemovePage() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveRemovePage() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -102,7 +102,7 @@ func TestVK_FavePost(t *testing.T) {
 		"id":       "5713",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveAddPost() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveAddPost() gotVkErr = %v", gotVkErr)
 	}
 
 	time.Sleep(300 * time.Millisecond)
@@ -111,7 +111,7 @@ func TestVK_FavePost(t *testing.T) {
 		"id":       "5713",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveRemovePost() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveRemovePost() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -126,7 +126,7 @@ func TestVK_FaveProduct(t *testing.T) {
 		"id":       "3398864",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveAddProduct() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveAddProduct() gotVkErr = %v", gotVkErr)
 	}
 
 	time.Sleep(300 * time.Millisecond)
@@ -135,7 +135,7 @@ func TestVK_FaveProduct(t *testing.T) {
 		"id":       "3398864",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveRemoveProduct() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveRemoveProduct() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -166,7 +166,7 @@ func TestVK_FaveTag(t *testing.T) {
 		"tag_ids":  strconv.Itoa(tagResponse.ID),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveSetTags() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveSetTags() gotVkErr = %v", gotVkErr)
 	}
 
 	time.Sleep(300 * time.Millisecond)
@@ -175,7 +175,7 @@ func TestVK_FaveTag(t *testing.T) {
 		"tag_ids":  strconv.Itoa(tagResponse.ID),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveSetPageTags() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveSetPageTags() gotVkErr = %v", gotVkErr)
 	}
 
 	time.Sleep(300 * time.Millisecond)
@@ -184,7 +184,7 @@ func TestVK_FaveTag(t *testing.T) {
 		"name": "Test2",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveEditTag() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveEditTag() gotVkErr = %v", gotVkErr)
 	}
 
 	tags, vkErr := vkUser.FaveGetTags(map[string]string{})
@@ -206,7 +206,7 @@ func TestVK_FaveTag(t *testing.T) {
 		"ids": ids,
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveReorderTags() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveReorderTags() gotVkErr = %v", gotVkErr)
 	}
 
 	time.Sleep(300 * time.Millisecond)
@@ -214,7 +214,7 @@ func TestVK_FaveTag(t *testing.T) {
 		"id": strconv.Itoa(tags.Items[tags.Count-1].ID),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveRemoveTag() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveRemoveTag() gotVkErr = %v", gotVkErr)
 	}
 
 	_, _ = vkUser.FaveRemoveTag(map[string]string{
@@ -232,7 +232,7 @@ func TestVK_FaveVideo(t *testing.T) {
 		"id":       "456239018",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveAddVideo() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveAddVideo() gotVkErr = %v", gotVkErr)
 	}
 
 	time.Sleep(300 * time.Millisecond)
@@ -241,7 +241,7 @@ func TestVK_FaveVideo(t *testing.T) {
 		"id":       "456239018",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveRemoveVideo() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveRemoveVideo() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -253,13 +253,13 @@ func TestVK_FaveGet(t *testing.T) {
 	time.Sleep(300 * time.Millisecond)
 	_, gotVkErr := vkUser.FaveGet(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveGet() gotVkErr = %v", gotVkErr)
 	}
 
 	time.Sleep(300 * time.Millisecond)
 	_, gotVkErr = vkUser.FaveGetExtended(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveGetExtended() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveGetExtended() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -271,7 +271,7 @@ func TestVK_FaveGetPages(t *testing.T) {
 	time.Sleep(300 * time.Millisecond)
 	_, gotVkErr := vkUser.FaveGetPages(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveGetPages() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveGetPages() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -283,6 +283,6 @@ func TestVK_FaveMarkSeen(t *testing.T) {
 	time.Sleep(300 * time.Millisecond)
 	_, gotVkErr := vkUser.FaveMarkSeen(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.FaveMarkSeen() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.FaveMarkSeen() gotVkErr = %v", gotVkErr)
 	}
 }

@@ -15,6 +15,6 @@ func TestVK_SearchGetHints(t *testing.T) {
 		"search_global": "1",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.SearchGetHints() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.SearchGetHints() gotVkErr = %v", gotVkErr)
 	}
 }

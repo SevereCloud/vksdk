@@ -15,7 +15,7 @@ func TestVK_LikesAdd(t *testing.T) {
 		"item_id":  "45546",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.LikesAdd() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.LikesAdd() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -30,7 +30,7 @@ func TestVK_LikesDelete(t *testing.T) {
 		"item_id":  "45546",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.LikesDelete() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.LikesDelete() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -47,12 +47,12 @@ func TestVK_LikesGetList(t *testing.T) {
 
 	_, gotVkErr := vkUser.LikesGetList(params)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.LikesGetList() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.LikesGetList() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.LikesGetListExtended(params)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.LikesGetListExtended() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.LikesGetListExtended() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -67,6 +67,6 @@ func TestVK_LikesIsLiked(t *testing.T) {
 		"item_id":  "45546",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.LikesIsLiked() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.LikesIsLiked() gotVkErr = %v", gotVkErr)
 	}
 }

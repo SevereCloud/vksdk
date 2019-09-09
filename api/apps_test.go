@@ -11,7 +11,7 @@ func TestVK_AppsDeleteAppRequests(t *testing.T) {
 
 	_, gotVkErr := vkUser.AppsDeleteAppRequests(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsDeleteAppRequests() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.AppsDeleteAppRequests() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -25,7 +25,7 @@ func TestVK_AppsGet(t *testing.T) {
 		"extended": "1",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.AppsGet() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -36,7 +36,7 @@ func TestVK_AppsGetCatalog(t *testing.T) {
 
 	_, gotVkErr := vkService.AppsGetCatalog(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGetCatalog() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.AppsGetCatalog() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -47,12 +47,12 @@ func TestVK_AppsGetFriendsList(t *testing.T) {
 
 	_, gotVkErr := vkUser.AppsGetFriendsList(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGetFriendsList() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.AppsGetFriendsList() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.AppsGetFriendsListExtended(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGetFriendsList() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.AppsGetFriendsList() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -65,7 +65,7 @@ func TestVK_AppsGetScopes(t *testing.T) {
 
 	_, gotVkErr := vkUser.AppsGetScopes(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGetScopes() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.AppsGetScopes() gotVkErr = %v", gotVkErr)
 	}
 }
 

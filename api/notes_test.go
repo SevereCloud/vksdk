@@ -17,7 +17,7 @@ func TestVK_NotesAdd(t *testing.T) {
 		"text":  "Text note",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesAdd() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesAdd() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.NotesEdit(map[string]string{
@@ -26,14 +26,14 @@ func TestVK_NotesAdd(t *testing.T) {
 		"text":    "Text note edited",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesEdit() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesEdit() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.NotesDelete(map[string]string{
 		"note_id": strconv.Itoa(note),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesDelete() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesDelete() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -48,7 +48,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 		"message":  "Test note comment",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesCreateComment() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesCreateComment() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.NotesEditComment(map[string]string{
@@ -57,7 +57,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 		"message":    "Test note commentedited",
 	})
 	if gotVkErr.Code != object.ErrorParam {
-		t.Errorf("VK.NotesEditComment() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesEditComment() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.NotesDeleteComment(map[string]string{
@@ -65,7 +65,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 		"owner_id":   "2314852",
 	})
 	if gotVkErr.Code != object.ErrorParam {
-		t.Errorf("VK.NotesDeleteComment() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesDeleteComment() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.NotesRestoreComment(map[string]string{
@@ -73,7 +73,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 		"owner_id":   "2314852",
 	})
 	if gotVkErr.Code != object.ErrorParam {
-		t.Errorf("VK.NotesRestoreComment() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesRestoreComment() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -86,7 +86,7 @@ func TestVK_NotesGet(t *testing.T) {
 		"user_id": "66748",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesGet() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -101,7 +101,7 @@ func TestVK_NotesGetByID(t *testing.T) {
 		"need_wiki": "1",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesGetByID() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesGetByID() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -115,6 +115,6 @@ func TestVK_NotesGetComments(t *testing.T) {
 		"owner_id": "66748",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesGetComments() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotesGetComments() gotVkErr = %v", gotVkErr)
 	}
 }

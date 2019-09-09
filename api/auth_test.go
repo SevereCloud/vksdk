@@ -18,6 +18,6 @@ func TestVK_AuthCheckPhone(t *testing.T) {
 		"client_secret": clientSecret,
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AuthCheckPhone() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.AuthCheckPhone() gotVkErr = %v", gotVkErr)
 	}
 }

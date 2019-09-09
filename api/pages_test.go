@@ -14,7 +14,7 @@ func TestVK_PagesClearCache(t *testing.T) {
 		"url": "https://ya.ru",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PagesClearCache() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PagesClearCache() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -29,7 +29,7 @@ func TestVK_PagesGet(t *testing.T) {
 		"need_html": "1",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PagesGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PagesGet() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -44,7 +44,7 @@ func TestVK_PagesSave(t *testing.T) {
 		"text":     "Test text",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PagesSave() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PagesSave() gotVkErr = %v", gotVkErr)
 	}
 
 	history, gotVkErr := vkUser.PagesGetHistory(map[string]string{
@@ -52,7 +52,7 @@ func TestVK_PagesSave(t *testing.T) {
 		"page_id":  strconv.Itoa(page),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PagesGetHistory() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PagesGetHistory() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.PagesGetVersion(map[string]string{
@@ -60,7 +60,7 @@ func TestVK_PagesSave(t *testing.T) {
 		"version_id": strconv.Itoa(history[0].ID),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PagesGetVersion() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PagesGetVersion() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.PagesSaveAccess(map[string]string{
@@ -70,7 +70,7 @@ func TestVK_PagesSave(t *testing.T) {
 		"edit":     "0",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PagesSaveAccess() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PagesSaveAccess() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -83,7 +83,7 @@ func TestVK_PagesGetTitles(t *testing.T) {
 		"group_id": "87938575",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PagesGetTitles() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PagesGetTitles() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -97,6 +97,6 @@ func TestVK_PagesParseWiki(t *testing.T) {
 		"group_id": "37273781",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PagesParseWiki() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.PagesParseWiki() gotVkErr = %v", gotVkErr)
 	}
 }

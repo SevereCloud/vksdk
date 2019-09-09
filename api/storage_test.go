@@ -14,7 +14,7 @@ func TestVK_StorageSet(t *testing.T) {
 		"value": "Hello",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StorageSet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.StorageSet() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -25,7 +25,7 @@ func TestVK_StorageGetKeys(t *testing.T) {
 
 	_, gotVkErr := vkUser.StorageGetKeys(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StorageGetKeys() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.StorageGetKeys() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -38,6 +38,6 @@ func TestVK_StorageGet(t *testing.T) {
 		"key": "test",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StorageGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.StorageGet() gotVkErr = %v", gotVkErr)
 	}
 }

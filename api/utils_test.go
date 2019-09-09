@@ -13,7 +13,7 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 		"url": "http://google.ru",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsCheckLink() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UtilsCheckLink() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -27,19 +27,19 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 		"private": "1",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetShortLink() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UtilsGetShortLink() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.UtilsGetLastShortenedLinks(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetLastShortenedLinks() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UtilsGetLastShortenedLinks() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.UtilsDeleteFromLastShortened(map[string]string{
 		"key": shortLink.Key,
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsDeleteFromLastShortened() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UtilsDeleteFromLastShortened() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -56,12 +56,12 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 
 	_, gotVkErr := vkGroup.UtilsGetLinkStats(params)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetLinkStats() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UtilsGetLinkStats() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkGroup.UtilsGetLinkStatsExtended(params)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetLinkStats() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UtilsGetLinkStats() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -72,7 +72,7 @@ func TestVK_UtilsGetServerTime(t *testing.T) {
 
 	_, gotVkErr := vkGroup.UtilsGetServerTime(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetServerTime() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UtilsGetServerTime() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -87,7 +87,7 @@ func TestVK_UtilsResolveScreenName(t *testing.T) {
 			"screen_name": name,
 		})
 		if gotVkErr.Code != 0 {
-			t.Errorf("VK.UtilsResolveScreenName() gotVkErr = %v, want %v", gotVkErr, 0)
+			t.Errorf("VK.UtilsResolveScreenName() gotVkErr = %v", gotVkErr)
 		}
 	}
 

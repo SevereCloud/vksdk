@@ -34,7 +34,7 @@ func TestVK_UploadPhoto(t *testing.T) {
 		"title": "test",
 	})
 	if gotVkErr.Code != 0 {
-		t.Fatalf("VK.PhotosCreateAlbum() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Fatalf("VK.PhotosCreateAlbum() gotVkErr = %v", gotVkErr)
 	}
 
 	response, err := http.Get(photoURL)
@@ -45,7 +45,7 @@ func TestVK_UploadPhoto(t *testing.T) {
 
 	_, gotVkErr = vkUser.UploadPhoto(album.ID, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -59,7 +59,7 @@ func TestVK_UploadPhotoGroup(t *testing.T) {
 		"group_id": strconv.Itoa(vkGroupID),
 	})
 	if gotVkErr.Code != 0 {
-		t.Fatalf("VK.PhotosCreateAlbum() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Fatalf("VK.PhotosCreateAlbum() gotVkErr = %v", gotVkErr)
 	}
 
 	response, err := http.Get(photoURL)
@@ -70,7 +70,7 @@ func TestVK_UploadPhotoGroup(t *testing.T) {
 
 	_, gotVkErr = vkUser.UploadPhotoGroup(vkGroupID, album.ID, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadPhotoGroup() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadPhotoGroup() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -87,7 +87,7 @@ func TestVK_UploadWallPhoto(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadWallPhoto(response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadWallPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadWallPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -104,7 +104,7 @@ func TestVK_UploadGroupWallPhoto(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadGroupWallPhoto(vkGroupID, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadGroupWallPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadGroupWallPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -121,7 +121,7 @@ func TestVK_UploadUserPhoto(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadUserPhoto(response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadUserPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadUserPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -138,7 +138,7 @@ func TestVK_UploadOwnerPhoto(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadOwnerPhoto(-vkGroupID, "10,10,200", response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadOwnerPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadOwnerPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -155,7 +155,7 @@ func TestVK_UploadMessagesPhoto(t *testing.T) {
 
 	_, gotVkErr := vkGroup.UploadMessagesPhoto(117253521, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadMessagesPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadMessagesPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -172,7 +172,7 @@ func TestVK_UploadChatPhoto(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadChatPhoto(vkChatID, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadChatPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadChatPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -189,7 +189,7 @@ func TestVK_UploadChatPhotoCrop(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadChatPhotoCrop(vkChatID, 0, 0, 200, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadChatPhotoCrop() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadChatPhotoCrop() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -206,7 +206,7 @@ func TestVK_UploadMarketPhoto(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadMarketPhoto(vkGroupID, false, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadMarketPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadMarketPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -223,7 +223,7 @@ func TestVK_UploadMarketPhotoMain(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadMarketPhoto(vkGroupID, true, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadMarketPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadMarketPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -240,7 +240,7 @@ func TestVK_UploadMarketPhotoCrop(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadMarketPhotoCrop(vkGroupID, 0, 0, 400, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadMarketPhotoCrop() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadMarketPhotoCrop() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -257,7 +257,7 @@ func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadMarketAlbumPhoto(vkGroupID, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadMarketAlbumPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadMarketAlbumPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -302,7 +302,7 @@ func TestVK_UploadDoc(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadDoc("test.jpeg", "test", response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadDoc() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -319,7 +319,7 @@ func TestVK_UploadGroupDoc(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadGroupDoc(vkGroupID, "test.jpeg", "test", response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadGroupDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadGroupDoc() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -336,7 +336,7 @@ func TestVK_UploadWallDoc(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadWallDoc("test.jpeg", "test", response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadWallDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadWallDoc() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -353,7 +353,7 @@ func TestVK_UploadGroupWallDoc(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadGroupWallDoc(vkGroupID, "test.jpeg", "test", response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadGroupWallDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadGroupWallDoc() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -370,7 +370,7 @@ func TestVK_UploadMessagesDoc(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadMessagesDoc(117253521, "doc", "test.jpeg", "test", response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadMessagesDoc() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadMessagesDoc() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -387,7 +387,7 @@ func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
 
 	_, gotVkErr := vkGroup.UploadOwnerCoverPhoto(vkGroupID, 0, 0, 795, 200, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadOwnerCoverPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadOwnerCoverPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -415,7 +415,7 @@ func TestVK_UploadStoriesPhoto(t *testing.T) {
 
 	_, gotVkErr := vkUser.UploadStoriesPhoto(map[string]string{}, response.Body)
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UploadStoriesPhoto() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.UploadStoriesPhoto() gotVkErr = %v", gotVkErr)
 	}
 }
 

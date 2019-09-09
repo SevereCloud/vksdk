@@ -13,7 +13,7 @@ func TestVK_NotificationsGet(t *testing.T) {
 		"count": "30",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotificationsGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotificationsGet() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -24,6 +24,6 @@ func TestVK_NotificationsMarkAsViewed(t *testing.T) {
 
 	_, gotVkErr := vkUser.NotificationsMarkAsViewed(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotificationsMarkAsViewed() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.NotificationsMarkAsViewed() gotVkErr = %v", gotVkErr)
 	}
 }

@@ -14,7 +14,7 @@ func TestVK_GiftsGet(t *testing.T) {
 		"count":   "20",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.GiftsGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.GiftsGet() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -26,6 +26,6 @@ func TestVK_GiftsGetCatalog(t *testing.T) {
 	_, gotVkErr := vkUser.GiftsGetCatalog(map[string]string{})
 	// NOTE: Access denied: method allowed only for official app
 	if gotVkErr.Code != 0 && gotVkErr.Code != 15 {
-		t.Errorf("VK.GiftsGetCatalog() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.GiftsGetCatalog() gotVkErr = %v", gotVkErr)
 	}
 }

@@ -11,7 +11,7 @@ func TestVK_StatusGet(t *testing.T) {
 
 	_, gotVkErr := vkUser.StatusGet(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StatusGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.StatusGet() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -24,6 +24,6 @@ func TestVK_StatusSet(t *testing.T) {
 		"text": "Hello world",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StatusSet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.StatusSet() gotVkErr = %v", gotVkErr)
 	}
 }

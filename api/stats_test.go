@@ -18,7 +18,7 @@ func TestVK_StatsGet(t *testing.T) {
 		"extended":        "1",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StatsGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.StatsGet() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -29,6 +29,6 @@ func TestVK_StatsTrackVisitor(t *testing.T) {
 
 	_, gotVkErr := vkUser.StatsTrackVisitor(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StatsTrackVisitor() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.StatsTrackVisitor() gotVkErr = %v", gotVkErr)
 	}
 }

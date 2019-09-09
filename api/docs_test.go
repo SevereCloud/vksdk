@@ -15,7 +15,7 @@ func TestVK_DocsAdd(t *testing.T) {
 		"doc_id":   "483194018",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsAdd() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsAdd() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.DocsEdit(map[string]string{
@@ -24,7 +24,7 @@ func TestVK_DocsAdd(t *testing.T) {
 		"title":    "test_title",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsEdit() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsEdit() gotVkErr = %v", gotVkErr)
 	}
 
 	_, gotVkErr = vkUser.DocsDelete(map[string]string{
@@ -32,7 +32,7 @@ func TestVK_DocsAdd(t *testing.T) {
 		"doc_id":   strconv.Itoa(doc),
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsDelete() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsDelete() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -45,7 +45,7 @@ func TestVK_DocsGet(t *testing.T) {
 		"owner_id": "-166562603",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsGet() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsGet() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -58,7 +58,7 @@ func TestVK_DocsGetByID(t *testing.T) {
 		"docs": "2314852_165123053",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsGetByID() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsGetByID() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -69,7 +69,7 @@ func TestVK_DocsGetTypes(t *testing.T) {
 
 	_, gotVkErr := vkUser.DocsGetTypes(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsGetTypes() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsGetTypes() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -80,7 +80,7 @@ func TestVK_DocsGetUploadServer(t *testing.T) {
 
 	_, gotVkErr := vkUser.DocsGetUploadServer(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsGetUploadServer() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsGetUploadServer() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -91,7 +91,7 @@ func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 
 	_, gotVkErr := vkUser.DocsGetMessagesUploadServer(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsGetMessagesUploadServer() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsGetMessagesUploadServer() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -102,7 +102,7 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 
 	_, gotVkErr := vkUser.DocsGetWallUploadServer(map[string]string{})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsGetWallUploadServer() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsGetWallUploadServer() gotVkErr = %v", gotVkErr)
 	}
 }
 
@@ -117,6 +117,6 @@ func TestVK_DocsSearch(t *testing.T) {
 		"q": "golang",
 	})
 	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DocsSearch() gotVkErr = %v, want %v", gotVkErr, 0)
+		t.Errorf("VK.DocsSearch() gotVkErr = %v", gotVkErr)
 	}
 }
