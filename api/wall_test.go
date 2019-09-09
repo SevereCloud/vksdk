@@ -114,6 +114,8 @@ func TestVK_WallGetByID(t *testing.T) {
 }
 
 func TestVK_WallGetComment(t *testing.T) {
+	// BUG(VK): https://github.com/SevereCloud/vksdk/issues/55
+	t.Skip("BUG")
 	if vkUser.AccessToken == "" {
 		t.Skip("USER_TOKEN empty")
 	}
