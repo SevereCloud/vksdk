@@ -42,12 +42,14 @@ func (vk *VK) WallDeleteComment(params map[string]string) (response int, vkErr E
 	return
 }
 
+type WallEditResponse struct {
+	PostID int `json:"post_id"`
+}
+
 // WallEdit edits a post on a user wall or community wall.
 //
-// TODO: update 5.100
-//
 // https://vk.com/dev/wall.edit
-func (vk *VK) WallEdit(params map[string]string) (response int, vkErr Error) {
+func (vk *VK) WallEdit(params map[string]string) (response WallEditResponse, vkErr Error) {
 	vk.RequestUnmarshal("wall.edit", params, &response, &vkErr)
 	return
 }
