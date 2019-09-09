@@ -80,21 +80,6 @@ func (keyboard *MessagesKeyboard) AddRow() {
 	}
 }
 
-// AddButton add button in last row. DEPRECATED - PLEASE NOT USE IT!
-func (keyboard *MessagesKeyboard) AddButton(label string, payload string, color string) {
-	button := MessagesKeyboardButton{
-		Action: MessagesKeyboardButtonAction{
-			Label:   label,
-			Payload: payload,
-			Type:    "text",
-		},
-		Color: color,
-	}
-
-	lastRow := len(keyboard.Buttons) - 1
-	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
-}
-
 // AddTextButton add Text button in last row
 func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, color string) {
 	button := MessagesKeyboardButton{
