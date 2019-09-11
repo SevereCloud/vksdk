@@ -45,9 +45,9 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	params := map[string]string{
 		"lp_version": strconv.Itoa(lp.Version),
 	}
-	serverSetting, vkErr := lp.VK.MessagesGetLongPollServer(params)
-	if vkErr.Code != 0 {
-		return fmt.Errorf(vkErr.Message)
+	serverSetting, err := lp.VK.MessagesGetLongPollServer(params)
+	if err != nil {
+		return err
 	}
 
 	lp.Key = serverSetting.Key

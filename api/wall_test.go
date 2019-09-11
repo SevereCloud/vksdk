@@ -11,64 +11,64 @@ func TestVK_WallPost(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	post, vkErr := vkUser.WallPost(map[string]string{
+	post, err := vkUser.WallPost(map[string]string{
 		"message": "Test post",
 	})
-	if vkErr.Code != 0 {
-		log.Fatal(vkErr)
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	_, gotVkErr := vkUser.WallPin(map[string]string{
+	_, err = vkUser.WallPin(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallPin() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallPin() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallUnpin(map[string]string{
+	_, err = vkUser.WallUnpin(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallUnpin() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallUnpin() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallCloseComments(map[string]string{
+	_, err = vkUser.WallCloseComments(map[string]string{
 		"post_id":  strconv.Itoa(post.PostID),
 		"owner_id": strconv.Itoa(vkUserID),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallCloseComments() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallCloseComments() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallOpenComments(map[string]string{
+	_, err = vkUser.WallOpenComments(map[string]string{
 		"post_id":  strconv.Itoa(post.PostID),
 		"owner_id": strconv.Itoa(vkUserID),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallOpenComments() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallOpenComments() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallEdit(map[string]string{
+	_, err = vkUser.WallEdit(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 		"message": "Test post edited",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallEdit() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallEdit() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallDelete(map[string]string{
+	_, err = vkUser.WallDelete(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallDelete() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallDelete() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallRestore(map[string]string{
+	_, err = vkUser.WallRestore(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 		"message": "Test post edited",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallRestore() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallRestore() err = %v", err)
 	}
 }
 
@@ -82,14 +82,14 @@ func TestVK_WallGet(t *testing.T) {
 		"count":    "100",
 	}
 
-	_, gotVkErr := vkService.WallGet(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallGet() gotVkErr = %v", gotVkErr)
+	_, err := vkService.WallGet(params)
+	if err != nil {
+		t.Errorf("VK.WallGet() err = %v", err)
 	}
 
-	_, gotVkErr = vkService.WallGetExtended(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallGetExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkService.WallGetExtended(params)
+	if err != nil {
+		t.Errorf("VK.WallGetExtended() err = %v", err)
 	}
 }
 
@@ -102,14 +102,14 @@ func TestVK_WallGetByID(t *testing.T) {
 		"posts": "-1_340393",
 	}
 
-	_, gotVkErr := vkService.WallGetByID(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallGetByID() gotVkErr = %v", gotVkErr)
+	_, err := vkService.WallGetByID(params)
+	if err != nil {
+		t.Errorf("VK.WallGetByID() err = %v", err)
 	}
 
-	_, gotVkErr = vkService.WallGetByIDExtended(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallGetByIDExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkService.WallGetByIDExtended(params)
+	if err != nil {
+		t.Errorf("VK.WallGetByIDExtended() err = %v", err)
 	}
 }
 
@@ -125,14 +125,14 @@ func TestVK_WallGetComment(t *testing.T) {
 		"comment_id": "73674",
 	}
 
-	_, gotVkErr := vkUser.WallGetComment(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallGetComment() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.WallGetComment(params)
+	if err != nil {
+		t.Errorf("VK.WallGetComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallGetCommentExtended(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallGetCommentExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.WallGetCommentExtended(params)
+	if err != nil {
+		t.Errorf("VK.WallGetCommentExtended() err = %v", err)
 	}
 }
 
@@ -149,14 +149,14 @@ func TestVK_WallGetComments(t *testing.T) {
 		"thread_items_count": "10",
 	}
 
-	_, gotVkErr := vkService.WallGetComments(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallGetComments() gotVkErr = %v", gotVkErr)
+	_, err := vkService.WallGetComments(params)
+	if err != nil {
+		t.Errorf("VK.WallGetComments() err = %v", err)
 	}
 
-	_, gotVkErr = vkService.WallGetCommentsExtended(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallGetCommentsExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkService.WallGetCommentsExtended(params)
+	if err != nil {
+		t.Errorf("VK.WallGetCommentsExtended() err = %v", err)
 	}
 }
 
@@ -165,13 +165,13 @@ func TestVK_WallGetReposts(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.WallGetReposts(map[string]string{
+	_, err := vkService.WallGetReposts(map[string]string{
 		"owner_id": "1",
 		"post_id":  "2442097",
 		"count":    "1000",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallGetReposts() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallGetReposts() err = %v", err)
 	}
 }
 
@@ -180,38 +180,38 @@ func TestVK_WallCreateComment(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	comment, vkErr := vkUser.WallCreateComment(map[string]string{
+	comment, err := vkUser.WallCreateComment(map[string]string{
 		"owner_id": "117253521",
 		"post_id":  "2342",
 		"message":  "Test comment",
 	})
-	if vkErr.Code != 0 {
-		log.Fatal(vkErr)
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	_, gotVkErr := vkUser.WallEditComment(map[string]string{
+	_, err = vkUser.WallEditComment(map[string]string{
 		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(comment.CommentID),
 		"message":    "Test comment edited",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallEditComment() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallEditComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallDeleteComment(map[string]string{
+	_, err = vkUser.WallDeleteComment(map[string]string{
 		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(comment.CommentID),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallDeleteComment() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallDeleteComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallRestoreComment(map[string]string{
+	_, err = vkUser.WallRestoreComment(map[string]string{
 		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(comment.CommentID),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallRestoreComment() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallRestoreComment() err = %v", err)
 	}
 }
 
@@ -220,21 +220,21 @@ func TestVK_WallPostAdsStealth(t *testing.T) {
 		t.Skip("USER_TOKEN empty or GroupID not found")
 	}
 
-	post, gotVkErr := vkUser.WallPostAdsStealth(map[string]string{
+	post, err := vkUser.WallPostAdsStealth(map[string]string{
 		"owner_id": strconv.Itoa(-vkGroupID),
 		"message":  "Test AdsStealth",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallPostAdsStealth() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallPostAdsStealth() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.WallEditAdsStealth(map[string]string{
+	_, err = vkUser.WallEditAdsStealth(map[string]string{
 		"owner_id": strconv.Itoa(-vkGroupID),
 		"post_id":  strconv.Itoa(post.PostID),
 		"message":  "Test AdsStealth edited",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallEditAdsStealth() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallEditAdsStealth() err = %v", err)
 	}
 }
 
@@ -243,13 +243,13 @@ func TestVK_WallReportComment(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.WallReportComment(map[string]string{
+	_, err := vkUser.WallReportComment(map[string]string{
 		"owner_id":   "66748",
 		"comment_id": "4136",
 		// "reason":   "3",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallReportComment() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallReportComment() err = %v", err)
 	}
 }
 
@@ -258,13 +258,13 @@ func TestVK_WallReportPost(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.WallReportPost(map[string]string{
+	_, err := vkUser.WallReportPost(map[string]string{
 		"owner_id": "66748",
 		"post_id":  "3821",
 		"reason":   "3",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallReportPost() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallReportPost() err = %v", err)
 	}
 }
 
@@ -273,11 +273,11 @@ func TestVK_WallRepost(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.WallRepost(map[string]string{
+	_, err := vkUser.WallRepost(map[string]string{
 		"object": "wall85635407_3133",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallRepost() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.WallRepost() err = %v", err)
 	}
 }
 
@@ -292,13 +292,13 @@ func TestVK_WallSearch(t *testing.T) {
 		"count":    "100",
 	}
 
-	_, gotVkErr := vkService.WallSearch(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallSearch() gotVkErr = %v", gotVkErr)
+	_, err := vkService.WallSearch(params)
+	if err != nil {
+		t.Errorf("VK.WallSearch() err = %v", err)
 	}
 
-	_, gotVkErr = vkService.WallSearchExtended(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.WallSearchExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkService.WallSearchExtended(params)
+	if err != nil {
+		t.Errorf("VK.WallSearchExtended() err = %v", err)
 	}
 }

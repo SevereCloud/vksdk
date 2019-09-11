@@ -43,9 +43,9 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	params := map[string]string{
 		"group_id": strconv.Itoa(lp.GroupID),
 	}
-	serverSetting, vkErr := lp.VK.GroupsGetLongPollServer(params)
-	if vkErr.Code != 0 {
-		return fmt.Errorf(vkErr.Message)
+	serverSetting, err := lp.VK.GroupsGetLongPollServer(params)
+	if err != nil {
+		return err
 	}
 
 	lp.Key = serverSetting.Key

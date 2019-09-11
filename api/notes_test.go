@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/errors"
 )
 
 func TestVK_NotesAdd(t *testing.T) {
@@ -12,28 +12,28 @@ func TestVK_NotesAdd(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	note, gotVkErr := vkUser.NotesAdd(map[string]string{
+	note, err := vkUser.NotesAdd(map[string]string{
 		"title": "Test note",
 		"text":  "Text note",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesAdd() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.NotesAdd() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.NotesEdit(map[string]string{
+	_, err = vkUser.NotesEdit(map[string]string{
 		"note_id": strconv.Itoa(note),
 		"title":   "Test note edited",
 		"text":    "Text note edited",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesEdit() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.NotesEdit() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.NotesDelete(map[string]string{
+	_, err = vkUser.NotesDelete(map[string]string{
 		"note_id": strconv.Itoa(note),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesDelete() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.NotesDelete() err = %v", err)
 	}
 }
 
@@ -42,38 +42,38 @@ func TestVK_NotesCreateComment(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	comment, gotVkErr := vkUser.NotesCreateComment(map[string]string{
+	comment, err := vkUser.NotesCreateComment(map[string]string{
 		"note_id":  "11751647",
 		"owner_id": "2314852",
 		"message":  "Test note comment",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesCreateComment() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.NotesCreateComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.NotesEditComment(map[string]string{
+	_, err = vkUser.NotesEditComment(map[string]string{
 		"comment_id": strconv.Itoa(comment),
 		"owner_id":   "2314852",
 		"message":    "Test note commentedited",
 	})
-	if gotVkErr.Code != object.ErrorParam {
-		t.Errorf("VK.NotesEditComment() gotVkErr = %v", gotVkErr)
+	if errors.GetType(err) != errors.Param {
+		t.Errorf("VK.NotesEditComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.NotesDeleteComment(map[string]string{
+	_, err = vkUser.NotesDeleteComment(map[string]string{
 		"comment_id": strconv.Itoa(comment),
 		"owner_id":   "2314852",
 	})
-	if gotVkErr.Code != object.ErrorParam {
-		t.Errorf("VK.NotesDeleteComment() gotVkErr = %v", gotVkErr)
+	if errors.GetType(err) != errors.Param {
+		t.Errorf("VK.NotesDeleteComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.NotesRestoreComment(map[string]string{
+	_, err = vkUser.NotesRestoreComment(map[string]string{
 		"comment_id": strconv.Itoa(comment),
 		"owner_id":   "2314852",
 	})
-	if gotVkErr.Code != object.ErrorParam {
-		t.Errorf("VK.NotesRestoreComment() gotVkErr = %v", gotVkErr)
+	if errors.GetType(err) != errors.Param {
+		t.Errorf("VK.NotesRestoreComment() err = %v", err)
 	}
 }
 
@@ -82,11 +82,11 @@ func TestVK_NotesGet(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.NotesGet(map[string]string{
+	_, err := vkUser.NotesGet(map[string]string{
 		"user_id": "66748",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesGet() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.NotesGet() err = %v", err)
 	}
 }
 
@@ -95,13 +95,13 @@ func TestVK_NotesGetByID(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.NotesGetByID(map[string]string{
+	_, err := vkUser.NotesGetByID(map[string]string{
 		"note_id":   "11582572",
 		"owner_id":  "66748",
 		"need_wiki": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesGetByID() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.NotesGetByID() err = %v", err)
 	}
 }
 
@@ -110,11 +110,11 @@ func TestVK_NotesGetComments(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.NotesGetComments(map[string]string{
+	_, err := vkUser.NotesGetComments(map[string]string{
 		"note_id":  "11582572",
 		"owner_id": "66748",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.NotesGetComments() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.NotesGetComments() err = %v", err)
 	}
 }

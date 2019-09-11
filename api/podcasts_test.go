@@ -11,46 +11,46 @@ func TestVK_PodcastsGet(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.PodcastsGetCatalog(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsGetCatalog() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.PodcastsGetCatalog(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.PodcastsGetCatalog() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PodcastsGetCatalogExtended(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsGetCatalogExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.PodcastsGetCatalogExtended(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.PodcastsGetCatalogExtended() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PodcastsGetCategories(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsGetCategories() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.PodcastsGetCategories(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.PodcastsGetCategories() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PodcastsGetEpisodes(map[string]string{
+	_, err = vkUser.PodcastsGetEpisodes(map[string]string{
 		"owner_id": "-37473931",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsGetEpisodes() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.PodcastsGetEpisodes() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PodcastsGetFeed(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsGetFeed() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.PodcastsGetFeed(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.PodcastsGetFeed() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PodcastsGetFeedExtended(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsGetFeedExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.PodcastsGetFeedExtended(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.PodcastsGetFeedExtended() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PodcastsGetStartPage(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsGetStartPage() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.PodcastsGetStartPage(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.PodcastsGetStartPage() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PodcastsGetStartPageExtended(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsGetStartPageExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.PodcastsGetStartPageExtended(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.PodcastsGetStartPageExtended() err = %v", err)
 	}
 }
 
@@ -59,12 +59,12 @@ func TestVK_PodcastsMarkAsListened(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.PodcastsMarkAsListened(map[string]string{
+	_, err := vkUser.PodcastsMarkAsListened(map[string]string{
 		"owner_id":   "-37473931",
 		"episode_id": "456239025",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsMarkAsListened() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.PodcastsMarkAsListened() err = %v", err)
 	}
 }
 
@@ -73,17 +73,17 @@ func TestVK_PodcastsSubscribe(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.PodcastsSubscribe(map[string]string{
+	_, err := vkUser.PodcastsSubscribe(map[string]string{
 		"owner_id": "-37473931",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsSubscribe() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.PodcastsSubscribe() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PodcastsUnsubscribe(map[string]string{
+	_, err = vkUser.PodcastsUnsubscribe(map[string]string{
 		"owner_id": "-37473931",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PodcastsUnsubscribe() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.PodcastsUnsubscribe() err = %v", err)
 	}
 }

@@ -9,11 +9,11 @@ func TestVK_DatabaseGetChairs(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetChairs(map[string]string{
+	_, err := vkService.DatabaseGetChairs(map[string]string{
 		"faculty_id": "15",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetChairs() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetChairs() err = %v", err)
 	}
 }
 
@@ -22,11 +22,11 @@ func TestVK_DatabaseGetCities(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetCities(map[string]string{
+	_, err := vkService.DatabaseGetCities(map[string]string{
 		"country_id": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetCities() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetCities() err = %v", err)
 	}
 }
 
@@ -35,11 +35,11 @@ func TestVK_DatabaseGetCitiesByID(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetCitiesByID(map[string]string{
+	_, err := vkService.DatabaseGetCitiesByID(map[string]string{
 		"city_ids": "1,5,192",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetCitiesByID() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetCitiesByID() err = %v", err)
 	}
 }
 
@@ -48,9 +48,9 @@ func TestVK_DatabaseGetCountries(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetCountries(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetCountries() gotVkErr = %v", gotVkErr)
+	_, err := vkService.DatabaseGetCountries(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.DatabaseGetCountries() err = %v", err)
 	}
 }
 
@@ -59,11 +59,11 @@ func TestVK_DatabaseGetCountriesByID(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetCountriesByID(map[string]string{
+	_, err := vkService.DatabaseGetCountriesByID(map[string]string{
 		"country_ids": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetCountriesByID() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetCountriesByID() err = %v", err)
 	}
 }
 
@@ -72,11 +72,11 @@ func TestVK_DatabaseGetFaculties(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetFaculties(map[string]string{
+	_, err := vkService.DatabaseGetFaculties(map[string]string{
 		"university_id": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetFaculties() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetFaculties() err = %v", err)
 	}
 }
 
@@ -85,12 +85,12 @@ func TestVK_DatabaseGetMetroStations(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetMetroStations(map[string]string{
+	_, err := vkService.DatabaseGetMetroStations(map[string]string{
 		"city_id":  "1",
 		"extended": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetMetroStations() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetMetroStations() err = %v", err)
 	}
 }
 
@@ -99,11 +99,11 @@ func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetMetroStationsByID(map[string]string{
+	_, err := vkService.DatabaseGetMetroStationsByID(map[string]string{
 		"station_ids": "189, 181",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetMetroStationsByID() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetMetroStationsByID() err = %v", err)
 	}
 }
 
@@ -112,11 +112,11 @@ func TestVK_DatabaseGetRegions(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetRegions(map[string]string{
+	_, err := vkService.DatabaseGetRegions(map[string]string{
 		"country_id": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetRegions() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetRegions() err = %v", err)
 	}
 }
 
@@ -125,11 +125,11 @@ func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetSchoolClasses(map[string]string{
+	_, err := vkService.DatabaseGetSchoolClasses(map[string]string{
 		"country_id": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetSchoolClasses() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetSchoolClasses() err = %v", err)
 	}
 }
 
@@ -138,12 +138,12 @@ func TestVK_DatabaseGetSchools(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetSchools(map[string]string{
+	_, err := vkService.DatabaseGetSchools(map[string]string{
 		"q":       "56",
 		"city_id": "2",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetSchools() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetSchools() err = %v", err)
 	}
 }
 
@@ -152,10 +152,10 @@ func TestVK_DatabaseGetUniversities(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.DatabaseGetUniversities(map[string]string{
+	_, err := vkService.DatabaseGetUniversities(map[string]string{
 		"q": "СПб",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.DatabaseGetUniversities() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.DatabaseGetUniversities() err = %v", err)
 	}
 }

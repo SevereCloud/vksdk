@@ -11,38 +11,38 @@ func TestVK_PollsCreate(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	poll, gotVkErr := vkUser.PollsCreate(map[string]string{
+	poll, err := vkUser.PollsCreate(map[string]string{
 		"question":    "question",
 		"add_answers": `["yes", "no", "maybe"]`,
 	})
-	if gotVkErr.Code != 0 {
-		log.Fatal(gotVkErr)
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	_, gotVkErr = vkUser.PollsEdit(map[string]string{
+	_, err = vkUser.PollsEdit(map[string]string{
 		"poll_id":  strconv.Itoa(poll.ID),
 		"question": "questionEdit",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsEdit() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.PollsEdit() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PollsAddVote(map[string]string{
+	_, err = vkUser.PollsAddVote(map[string]string{
 		"owner_id":   strconv.Itoa(poll.OwnerID),
 		"poll_id":    strconv.Itoa(poll.ID),
 		"answer_ids": strconv.Itoa(poll.Answers[0].ID),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsAddVote() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.PollsAddVote() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.PollsDeleteVote(map[string]string{
+	_, err = vkUser.PollsDeleteVote(map[string]string{
 		"owner_id":   strconv.Itoa(poll.OwnerID),
 		"poll_id":    strconv.Itoa(poll.ID),
 		"answer_ids": strconv.Itoa(poll.Answers[0].ID),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsDeleteVote() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.PollsDeleteVote() err = %v", err)
 	}
 }
 
@@ -51,9 +51,9 @@ func TestVK_PollsGetBackgrounds(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.PollsGetBackgrounds(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsGetBackgrounds() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.PollsGetBackgrounds(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.PollsGetBackgrounds() err = %v", err)
 	}
 }
 
@@ -63,9 +63,9 @@ func TestVK_PollsGetByID(t *testing.T) {
 	}
 	f := func(params map[string]string) {
 		t.Helper()
-		_, gotVkErr := vkUser.PollsGetByID(params)
-		if gotVkErr.Code != 0 {
-			t.Errorf("VK.PollsGetByID() gotVkErr = %v", gotVkErr)
+		_, err := vkUser.PollsGetByID(params)
+		if err != nil {
+			t.Errorf("VK.PollsGetByID() err = %v", err)
 		}
 	}
 
@@ -84,9 +84,9 @@ func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.PollsGetPhotoUploadServer(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsGetPhotoUploadServer() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.PollsGetPhotoUploadServer(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.PollsGetPhotoUploadServer() err = %v", err)
 	}
 }
 
@@ -95,13 +95,13 @@ func TestVK_PollsGetVoters(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.PollsGetVoters(map[string]string{
+	_, err := vkUser.PollsGetVoters(map[string]string{
 		"owner_id":   "-169097025",
 		"poll_id":    "341032442",
 		"answer_ids": "1144979948, 1144979949, 1144979950",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsGetVoters() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.PollsGetVoters() err = %v", err)
 	}
 }
 
@@ -110,14 +110,14 @@ func TestVK_PollsGetVotersFields(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.PollsGetVotersFields(map[string]string{
+	_, err := vkUser.PollsGetVotersFields(map[string]string{
 		"owner_id":   "-169097025",
 		"poll_id":    "341032442",
 		"answer_ids": "1144979948, 1144979949, 1144979950",
 		"fields":     "nickname, screen_name, sex",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.PollsGetVotersFields() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.PollsGetVotersFields() err = %v", err)
 	}
 }
 

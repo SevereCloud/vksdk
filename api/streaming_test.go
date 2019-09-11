@@ -2,6 +2,8 @@ package api
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/errors"
 )
 
 func TestVK_StreamingGetServerURL(t *testing.T) {
@@ -10,9 +12,9 @@ func TestVK_StreamingGetServerURL(t *testing.T) {
 	}
 
 	t.Run("StreamingGetServerURL not empty", func(t *testing.T) {
-		response, vkErr := vkService.StreamingGetServerURL(map[string]string{})
-		if vkErr.Code != 0 {
-			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
+		response, err := vkService.StreamingGetServerURL(map[string]string{})
+		if err != nil {
+			t.Errorf("%v", err)
 		}
 
 		if response.Endpoint == "" {
@@ -30,9 +32,9 @@ func TestVK_StreamingGetSettings(t *testing.T) {
 	}
 
 	t.Run("StreamingGetSettings not empty", func(t *testing.T) {
-		response, vkErr := vkService.StreamingGetSettings(map[string]string{})
-		if vkErr.Code != 0 {
-			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
+		response, err := vkService.StreamingGetSettings(map[string]string{})
+		if err != nil {
+			t.Errorf("%v", err)
 		}
 
 		if response.MonthlyLimit == "" {
@@ -52,9 +54,9 @@ func TestVK_StreamingGetStats(t *testing.T) {
 
 	t.Run("StreamingGetStats not empty", func(t *testing.T) {
 		// TODO: check it
-		_, vkErr := vkService.StreamingGetStats(params)
-		if vkErr.Code != 0 {
-			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
+		_, err := vkService.StreamingGetStats(params)
+		if err != nil {
+			t.Errorf("%v", err)
 		}
 
 		// if len(response) == 0 {
@@ -71,9 +73,9 @@ func TestVK_StreamingGetStem(t *testing.T) {
 	params := make(map[string]string)
 	params["word"] = "собака"
 	t.Run("StreamingGetStem not empty", func(t *testing.T) {
-		response, vkErr := vkService.StreamingGetStem(params)
-		if vkErr.Code != 0 {
-			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
+		response, err := vkService.StreamingGetStem(params)
+		if err != nil {
+			t.Errorf("%v", err)
 		}
 
 		if response.Stem != "собак" {
@@ -91,9 +93,9 @@ func TestVK_StreamingSetSettings(t *testing.T) {
 	params["monthly_tier"] = "unlimited"
 	t.Run("StreamingSetSettings not empty", func(t *testing.T) {
 		// TODO: check StreamingSetSettings test
-		_, vkErr := vkService.StreamingSetSettings(params)
-		if vkErr.Code != 0 {
-			t.Errorf("%d %s", vkErr.Code, vkErr.Message)
+		_, err := vkService.StreamingSetSettings(params)
+		if err != nil {
+			t.Errorf("%v", err)
 		}
 	})
 }
@@ -102,37 +104,37 @@ func TestVK_StreamingError(t *testing.T) {
 	vk := Init("")
 
 	t.Run("StreamingGetServerURL error", func(t *testing.T) {
-		_, vkErr := vk.StreamingGetServerURL(map[string]string{})
-		if vkErr.Code != 5 {
-			t.Errorf("StreamingGetServerURL error bad %d %s", vkErr.Code, vkErr.Message)
+		_, err := vk.StreamingGetServerURL(map[string]string{})
+		if errors.GetType(err) != errors.Auth {
+			t.Errorf("StreamingGetServerURL error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingGetSettings error", func(t *testing.T) {
-		_, vkErr := vk.StreamingGetSettings(map[string]string{})
-		if vkErr.Code != 5 {
-			t.Errorf("StreamingGetSettings error bad %d %s", vkErr.Code, vkErr.Message)
+		_, err := vk.StreamingGetSettings(map[string]string{})
+		if errors.GetType(err) != errors.Auth {
+			t.Errorf("StreamingGetSettings error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingGetStats error", func(t *testing.T) {
-		_, vkErr := vk.StreamingGetStats(map[string]string{})
-		if vkErr.Code != 5 {
-			t.Errorf("StreamingGetStats error bad %d %s", vkErr.Code, vkErr.Message)
+		_, err := vk.StreamingGetStats(map[string]string{})
+		if errors.GetType(err) != errors.Auth {
+			t.Errorf("StreamingGetStats error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingGetStem error", func(t *testing.T) {
-		_, vkErr := vk.StreamingGetStem(map[string]string{})
-		if vkErr.Code != 5 {
-			t.Errorf("StreamingGetStem error bad %d %s", vkErr.Code, vkErr.Message)
+		_, err := vk.StreamingGetStem(map[string]string{})
+		if errors.GetType(err) != errors.Auth {
+			t.Errorf("StreamingGetStem error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingSetSettings error", func(t *testing.T) {
-		_, vkErr := vk.StreamingSetSettings(map[string]string{})
-		if vkErr.Code != 5 {
-			t.Errorf("StreamingSetSettings error bad %d %s", vkErr.Code, vkErr.Message)
+		_, err := vk.StreamingSetSettings(map[string]string{})
+		if errors.GetType(err) != errors.Auth {
+			t.Errorf("StreamingSetSettings error bad %v", err)
 		}
 	})
 }

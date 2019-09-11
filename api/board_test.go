@@ -10,100 +10,100 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	topic, gotVkErr := vkUser.BoardAddTopic(map[string]string{
+	topic, err := vkUser.BoardAddTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"title":    "Test topic",
 		"text":     "Test",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardAddTopic() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardAddTopic() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardCloseTopic(map[string]string{
+	_, err = vkUser.BoardCloseTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardCloseTopic() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardCloseTopic() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardOpenTopic(map[string]string{
+	_, err = vkUser.BoardOpenTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardOpenTopic() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardOpenTopic() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardEditTopic(map[string]string{
+	_, err = vkUser.BoardEditTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 		"title":    "Test topic edited",
 		"text":     "Test edited",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardEditTopic() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardEditTopic() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardFixTopic(map[string]string{
+	_, err = vkUser.BoardFixTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardFixTopic() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardFixTopic() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardUnfixTopic(map[string]string{
+	_, err = vkUser.BoardUnfixTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardUnfixTopic() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardUnfixTopic() err = %v", err)
 	}
 
-	comment, gotVkErr := vkUser.BoardCreateComment(map[string]string{
+	comment, err := vkUser.BoardCreateComment(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 		"message":  "topic comment",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardCreateComment() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardCreateComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardEditComment(map[string]string{
+	_, err = vkUser.BoardEditComment(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
 		"topic_id":   strconv.Itoa(topic),
 		"comment_id": strconv.Itoa(comment),
 		"message":    "topic comment",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardEditComment() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardEditComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardDeleteComment(map[string]string{
+	_, err = vkUser.BoardDeleteComment(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
 		"topic_id":   strconv.Itoa(topic),
 		"comment_id": strconv.Itoa(comment),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardDeleteComment() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardDeleteComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardRestoreComment(map[string]string{
+	_, err = vkUser.BoardRestoreComment(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
 		"topic_id":   strconv.Itoa(topic),
 		"comment_id": strconv.Itoa(comment),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardRestoreComment() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardRestoreComment() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardDeleteTopic(map[string]string{
+	_, err = vkUser.BoardDeleteTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardDeleteTopic() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.BoardDeleteTopic() err = %v", err)
 	}
 }
 
@@ -117,14 +117,14 @@ func TestVK_BoardGetComments(t *testing.T) {
 		"topic_id": "21972169",
 	}
 
-	_, gotVkErr := vkUser.BoardGetComments(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardGetComments() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.BoardGetComments(params)
+	if err != nil {
+		t.Errorf("VK.BoardGetComments() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardGetCommentsExtended(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardGetCommentsExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.BoardGetCommentsExtended(params)
+	if err != nil {
+		t.Errorf("VK.BoardGetCommentsExtended() err = %v", err)
 	}
 }
 
@@ -138,13 +138,13 @@ func TestVK_BoardGetTopics(t *testing.T) {
 		"topic_id": "21972169",
 	}
 
-	_, gotVkErr := vkUser.BoardGetTopics(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardGetTopics() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.BoardGetTopics(params)
+	if err != nil {
+		t.Errorf("VK.BoardGetTopics() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.BoardGetTopicsExtended(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.BoardGetTopicsExtended() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.BoardGetTopicsExtended(params)
+	if err != nil {
+		t.Errorf("VK.BoardGetTopicsExtended() err = %v", err)
 	}
 }

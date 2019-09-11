@@ -13,8 +13,8 @@ type LeadFormsCreateResponse struct {
 // LeadFormsCreate leadForms.create
 //
 // https://vk.com/dev/leadForms.create
-func (vk *VK) LeadFormsCreate(params map[string]string) (response LeadFormsCreateResponse, vkErr Error) {
-	vk.RequestUnmarshal("leadForms.create", params, &response, &vkErr)
+func (vk *VK) LeadFormsCreate(params map[string]string) (response LeadFormsCreateResponse, err error) {
+	err = vk.RequestUnmarshal("leadForms.create", params, &response)
 	return
 }
 
@@ -26,8 +26,8 @@ type LeadFormsDeleteResponse struct {
 // LeadFormsDelete leadForms.delete
 //
 // https://vk.com/dev/leadForms.delete
-func (vk *VK) LeadFormsDelete(params map[string]string) (response LeadFormsDeleteResponse, vkErr Error) {
-	vk.RequestUnmarshal("leadForms.delete", params, &response, &vkErr)
+func (vk *VK) LeadFormsDelete(params map[string]string) (response LeadFormsDeleteResponse, err error) {
+	err = vk.RequestUnmarshal("leadForms.delete", params, &response)
 	return
 }
 
@@ -37,8 +37,8 @@ type LeadFormsGetResponse object.LeadFormsForm
 // LeadFormsGet leadForms.get
 //
 // https://vk.com/dev/leadForms.get
-func (vk *VK) LeadFormsGet(params map[string]string) (response LeadFormsGetResponse, vkErr Error) {
-	vk.RequestUnmarshal("leadForms.get", params, &response, &vkErr)
+func (vk *VK) LeadFormsGet(params map[string]string) (response LeadFormsGetResponse, err error) {
+	err = vk.RequestUnmarshal("leadForms.get", params, &response)
 	return
 }
 
@@ -50,16 +50,16 @@ type LeadFormsGetLeadsResponse struct {
 // LeadFormsGetLeads leadForms.getLeads
 //
 // https://vk.com/dev/leadForms.getLeads
-func (vk *VK) LeadFormsGetLeads(params map[string]string) (response LeadFormsGetLeadsResponse, vkErr Error) {
-	vk.RequestUnmarshal("leadForms.getLeads", params, &response, &vkErr)
+func (vk *VK) LeadFormsGetLeads(params map[string]string) (response LeadFormsGetLeadsResponse, err error) {
+	err = vk.RequestUnmarshal("leadForms.getLeads", params, &response)
 	return
 }
 
 // LeadFormsGetUploadURL leadForms.getUploadURL
 //
 // https://vk.com/dev/leadForms.getUploadURL
-func (vk *VK) LeadFormsGetUploadURL(params map[string]string) (response string, vkErr Error) {
-	vk.RequestUnmarshal("leadForms.getUploadURL", params, &response, &vkErr)
+func (vk *VK) LeadFormsGetUploadURL(params map[string]string) (response string, err error) {
+	err = vk.RequestUnmarshal("leadForms.getUploadURL", params, &response)
 	return
 }
 
@@ -69,8 +69,8 @@ type LeadFormsListResponse []object.LeadFormsForm
 // LeadFormsList leadForms.list
 //
 // https://vk.com/dev/leadForms.list
-func (vk *VK) LeadFormsList(params map[string]string) (response LeadFormsListResponse, vkErr Error) {
-	vk.RequestUnmarshal("leadForms.list", params, &response, &vkErr)
+func (vk *VK) LeadFormsList(params map[string]string) (response LeadFormsListResponse, err error) {
+	err = vk.RequestUnmarshal("leadForms.list", params, &response)
 	return
 }
 
@@ -83,7 +83,7 @@ type LeadFormsUpdateResponse struct {
 // LeadFormsUpdate leadForms.update
 //
 // https://vk.com/dev/leadForms.update
-func (vk *VK) LeadFormsUpdate(params map[string]string) (response LeadFormsUpdateResponse, vkErr Error) {
-	vk.RequestUnmarshal("leadForms.update", params, &response, &vkErr)
+func (vk *VK) LeadFormsUpdate(params map[string]string) (response LeadFormsUpdateResponse, err error) {
+	err = vk.RequestUnmarshal("leadForms.update", params, &response)
 	return
 }

@@ -9,6 +9,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/SevereCloud/vksdk/errors"
 	"github.com/SevereCloud/vksdk/object"
 )
 
@@ -51,10 +52,10 @@ func Init(token string) *VK {
 }
 
 // Request provides access to VK API methods
-func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
+func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 	var handler struct {
 		Response json.RawMessage
-		Error    Error `json:"error"`
+		Error    object.Error `json:"error"`
 	}
 
 	u := vk.MethodURL + method
@@ -88,8 +89,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 
 	resp, err := vk.Client.Post(u, "application/x-www-form-urlencoded", rawBody)
 	if err != nil {
-		handler.Error = NewError(-1, err.Error(), method, params)
-		return handler.Response, handler.Error
+		return nil, err
 	}
 	defer resp.Body.Close()
 
@@ -110,65 +110,32 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, Error) {
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	err = json.Unmarshal(body, &handler)
 	if err != nil {
-		handler.Error = NewError(-1, err.Error(), method, params)
+		return nil, err
 	}
+	err = errors.New(handler.Error)
 
-	return handler.Response, handler.Error
+	return handler.Response, err
 }
 
 // RequestUnmarshal provides access to VK API methods
-func (vk *VK) RequestUnmarshal(method string, params map[string]string, obj interface{}, vkErr *Error) {
-	rawResponse, rawErr := vk.Request(method, params)
-	*vkErr = rawErr
-	if vkErr.Code != 0 {
-		return
-	}
-
-	err := json.Unmarshal(rawResponse, &obj)
+func (vk *VK) RequestUnmarshal(method string, params map[string]string, obj interface{}) error {
+	rawResponse, err := vk.Request(method, params)
 	if err != nil {
-		*vkErr = NewError(-1, err.Error(), method, params)
+		return err
 	}
-}
 
-// NewError return new Error
-func NewError(code int, message, method string, params map[string]string) (vkErr Error) {
-	vkErr.Code = code
-	vkErr.Message = message
-	vkErr.RequestParams = append(
-		vkErr.RequestParams,
-		object.BaseRequestParam{
-			Key:   "method",
-			Value: method,
-		},
-	)
-	for key, value := range params {
-		vkErr.RequestParams = append(
-			vkErr.RequestParams,
-			object.BaseRequestParam{
-				Key:   key,
-				Value: value,
-			},
-		)
-	}
-	vkErr.RequestParams = append(
-		vkErr.RequestParams,
-		object.BaseRequestParam{
-			Key:   "v",
-			Value: version,
-		},
-	)
-	return
+	return json.Unmarshal(rawResponse, &obj)
 }
 
 // Execute a universal method for calling a sequence of other methods while saving and filtering interim results.
 //
 // https://vk.com/dev/Execute
-func (vk *VK) Execute(code string, obj interface{}, vkErr *Error) {
+func (vk *VK) Execute(code string, obj interface{}) error {
 	params := map[string]string{"code": code}
-	vk.RequestUnmarshal("execute", params, &obj, vkErr)
+	return vk.RequestUnmarshal("execute", params, &obj)
 }

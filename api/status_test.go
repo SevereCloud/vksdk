@@ -9,9 +9,9 @@ func TestVK_StatusGet(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.StatusGet(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StatusGet() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.StatusGet(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.StatusGet() err = %v", err)
 	}
 }
 
@@ -20,10 +20,10 @@ func TestVK_StatusSet(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.StatusSet(map[string]string{
+	_, err := vkUser.StatusSet(map[string]string{
 		"text": "Hello world",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StatusSet() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.StatusSet() err = %v", err)
 	}
 }

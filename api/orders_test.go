@@ -3,8 +3,6 @@ package api
 import (
 	"reflect"
 	"testing"
-
-	"github.com/SevereCloud/vksdk/object"
 )
 
 func TestVK_OrdersCancelSubscription(t *testing.T) {
@@ -16,22 +14,22 @@ func TestVK_OrdersCancelSubscription(t *testing.T) {
 		name         string
 		argParams    map[string]string
 		wantResponse int
-		wantVkErr    Error
+		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		{
-			name:      "OrdersCancelSubscription error",
-			wantVkErr: Error{Code: object.ErrorParam},
+			name:    "OrdersCancelSubscription error",
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkService.OrdersCancelSubscription(tt.argParams)
+			gotResponse, err := vkService.OrdersCancelSubscription(tt.argParams)
 			if gotResponse != tt.wantResponse {
 				t.Errorf("VK.OrdersCancelSubscription() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.OrdersCancelSubscription() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.OrdersCancelSubscription() err = %v, want %v", err, tt.wantErr)
 			}
 		})
 	}
@@ -46,22 +44,22 @@ func TestVK_OrdersChangeState(t *testing.T) {
 		name         string
 		argParams    map[string]string
 		wantResponse OrdersChangeStateResponse
-		wantVkErr    Error
+		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		{
-			name:      "OrdersChangeState error",
-			wantVkErr: Error{Code: object.ErrorParam},
+			name:    "OrdersChangeState error",
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkService.OrdersChangeState(tt.argParams)
+			gotResponse, err := vkService.OrdersChangeState(tt.argParams)
 			if gotResponse != tt.wantResponse {
 				t.Errorf("VK.OrdersChangeState() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.OrdersChangeState() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.OrdersChangeState() err = %v, want %v", err, tt.wantErr)
 			}
 		})
 	}
@@ -76,7 +74,7 @@ func TestVK_OrdersGet(t *testing.T) {
 		name         string
 		argParams    map[string]string
 		wantResponse OrdersGetResponse
-		wantVkErr    Error
+		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		{
@@ -86,12 +84,12 @@ func TestVK_OrdersGet(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkService.OrdersGet(tt.argParams)
+			gotResponse, err := vkService.OrdersGet(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGet() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.OrdersGet() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.OrdersGet() err = %v, want %v", err, tt.wantErr)
 			}
 		})
 	}
@@ -106,18 +104,18 @@ func TestVK_OrdersGetAmount(t *testing.T) {
 		name         string
 		argParams    map[string]string
 		wantResponse OrdersGetAmountResponse
-		wantVkErr    Error
+		wantErr      bool
 	}{
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkUser.OrdersGetAmount(tt.argParams)
+			gotResponse, err := vkUser.OrdersGetAmount(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGetAmount() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.OrdersGetAmount() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.OrdersGetAmount() err = %v, want %v", err, tt.wantErr)
 			}
 		})
 	}
@@ -132,22 +130,22 @@ func TestVK_OrdersGetByID(t *testing.T) {
 		name         string
 		argParams    map[string]string
 		wantResponse OrdersGetByIDResponse
-		wantVkErr    Error
+		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		{
-			name:      "OrdersGetByID error",
-			wantVkErr: Error{Code: object.ErrorParam},
+			name:    "OrdersGetByID error",
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkService.OrdersGetByID(tt.argParams)
+			gotResponse, err := vkService.OrdersGetByID(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGetByID() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.OrdersGetByID() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.OrdersGetByID() err = %v, want %v", err, tt.wantErr)
 			}
 		})
 	}
@@ -162,22 +160,22 @@ func TestVK_OrdersGetUserSubscriptionByID(t *testing.T) {
 		name         string
 		argParams    map[string]string
 		wantResponse OrdersGetUserSubscriptionByIDResponse
-		wantVkErr    Error
+		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		{
-			name:      "OrdersGetUserSubscriptionByID error",
-			wantVkErr: Error{Code: object.ErrorParam},
+			name:    "OrdersGetUserSubscriptionByID error",
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkService.OrdersGetUserSubscriptionByID(tt.argParams)
+			gotResponse, err := vkService.OrdersGetUserSubscriptionByID(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGetUserSubscriptionByID() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.OrdersGetUserSubscriptionByID() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.OrdersGetUserSubscriptionByID() err = %v, want %v", err, tt.wantErr)
 			}
 		})
 	}
@@ -192,22 +190,22 @@ func TestVK_OrdersGetUserSubscriptions(t *testing.T) {
 		name         string
 		argParams    map[string]string
 		wantResponse OrdersGetUserSubscriptionsResponse
-		wantVkErr    Error
+		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		{
-			name:      "OrdersGetUserSubscriptions error",
-			wantVkErr: Error{Code: object.ErrorParam},
+			name:    "OrdersGetUserSubscriptions error",
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkService.OrdersGetUserSubscriptions(tt.argParams)
+			gotResponse, err := vkService.OrdersGetUserSubscriptions(tt.argParams)
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.OrdersGetUserSubscriptions() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.OrdersGetUserSubscriptions() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.OrdersGetUserSubscriptions() err = %v, want %v", err, tt.wantErr)
 			}
 		})
 	}
@@ -222,22 +220,22 @@ func TestVK_OrdersUpdateSubscription(t *testing.T) {
 		name         string
 		argParams    map[string]string
 		wantResponse int
-		wantVkErr    Error
+		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		{
-			name:      "OrdersUpdateSubscription error",
-			wantVkErr: Error{Code: object.ErrorParam},
+			name:    "OrdersUpdateSubscription error",
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkService.OrdersUpdateSubscription(tt.argParams)
+			gotResponse, err := vkService.OrdersUpdateSubscription(tt.argParams)
 			if gotResponse != tt.wantResponse {
 				t.Errorf("VK.OrdersUpdateSubscription() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
 			}
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.OrdersUpdateSubscription() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.OrdersUpdateSubscription() err = %v, want %v", err, tt.wantErr)
 			}
 		})
 	}

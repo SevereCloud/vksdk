@@ -9,12 +9,12 @@ func TestVK_SearchGetHints(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.SearchGetHints(map[string]string{
+	_, err := vkUser.SearchGetHints(map[string]string{
 		"q":             "VK API",
 		"limit":         "20",
 		"search_global": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.SearchGetHints() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.SearchGetHints() err = %v", err)
 	}
 }

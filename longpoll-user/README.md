@@ -1,6 +1,7 @@
 # User Long Poll API
 
-[Документация User Long Poll API](https://vk.com/dev/using_longpoll)
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/longpoll-user)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/using_longpoll)
 
 ## Подключение User Long Poll API
 

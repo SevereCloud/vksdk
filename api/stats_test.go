@@ -11,14 +11,14 @@ func TestVK_StatsGet(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.StatsGet(map[string]string{
+	_, err := vkUser.StatsGet(map[string]string{
 		"group_id":        strconv.Itoa(vkGroupID),
 		"interval":        "day",
 		"intervals_count": "10",
 		"extended":        "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StatsGet() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.StatsGet() err = %v", err)
 	}
 }
 
@@ -27,8 +27,8 @@ func TestVK_StatsTrackVisitor(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.StatsTrackVisitor(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StatsTrackVisitor() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.StatsTrackVisitor(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.StatsTrackVisitor() err = %v", err)
 	}
 }

@@ -9,11 +9,11 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.UtilsCheckLink(map[string]string{
+	_, err := vkUser.UtilsCheckLink(map[string]string{
 		"url": "http://google.ru",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsCheckLink() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.UtilsCheckLink() err = %v", err)
 	}
 }
 
@@ -22,24 +22,24 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	shortLink, gotVkErr := vkUser.UtilsGetShortLink(map[string]string{
+	shortLink, err := vkUser.UtilsGetShortLink(map[string]string{
 		"url":     "http://google.ru",
 		"private": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetShortLink() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.UtilsGetShortLink() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.UtilsGetLastShortenedLinks(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetLastShortenedLinks() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.UtilsGetLastShortenedLinks(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.UtilsGetLastShortenedLinks() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.UtilsDeleteFromLastShortened(map[string]string{
+	_, err = vkUser.UtilsDeleteFromLastShortened(map[string]string{
 		"key": shortLink.Key,
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsDeleteFromLastShortened() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.UtilsDeleteFromLastShortened() err = %v", err)
 	}
 }
 
@@ -54,14 +54,14 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 		"intervals_count": "12",
 	}
 
-	_, gotVkErr := vkGroup.UtilsGetLinkStats(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetLinkStats() gotVkErr = %v", gotVkErr)
+	_, err := vkGroup.UtilsGetLinkStats(params)
+	if err != nil {
+		t.Errorf("VK.UtilsGetLinkStats() err = %v", err)
 	}
 
-	_, gotVkErr = vkGroup.UtilsGetLinkStatsExtended(params)
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetLinkStats() gotVkErr = %v", gotVkErr)
+	_, err = vkGroup.UtilsGetLinkStatsExtended(params)
+	if err != nil {
+		t.Errorf("VK.UtilsGetLinkStats() err = %v", err)
 	}
 }
 
@@ -70,9 +70,9 @@ func TestVK_UtilsGetServerTime(t *testing.T) {
 		t.Skip("GROUP_TOKEN empty")
 	}
 
-	_, gotVkErr := vkGroup.UtilsGetServerTime(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.UtilsGetServerTime() gotVkErr = %v", gotVkErr)
+	_, err := vkGroup.UtilsGetServerTime(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.UtilsGetServerTime() err = %v", err)
 	}
 }
 
@@ -83,11 +83,11 @@ func TestVK_UtilsResolveScreenName(t *testing.T) {
 
 	f := func(name string) {
 		t.Helper()
-		_, gotVkErr := vkGroup.UtilsResolveScreenName(map[string]string{
+		_, err := vkGroup.UtilsResolveScreenName(map[string]string{
 			"screen_name": name,
 		})
-		if gotVkErr.Code != 0 {
-			t.Errorf("VK.UtilsResolveScreenName() gotVkErr = %v", gotVkErr)
+		if err != nil {
+			t.Errorf("VK.UtilsResolveScreenName() err = %v", err)
 		}
 	}
 

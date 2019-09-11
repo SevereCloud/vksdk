@@ -9,9 +9,9 @@ func TestVK_AppsDeleteAppRequests(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.AppsDeleteAppRequests(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsDeleteAppRequests() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.AppsDeleteAppRequests(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.AppsDeleteAppRequests() err = %v", err)
 	}
 }
 
@@ -20,12 +20,12 @@ func TestVK_AppsGet(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.AppsGet(map[string]string{
+	_, err := vkService.AppsGet(map[string]string{
 		"app_id":   "4063926",
 		"extended": "1",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGet() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.AppsGet() err = %v", err)
 	}
 }
 
@@ -34,9 +34,9 @@ func TestVK_AppsGetCatalog(t *testing.T) {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 
-	_, gotVkErr := vkService.AppsGetCatalog(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGetCatalog() gotVkErr = %v", gotVkErr)
+	_, err := vkService.AppsGetCatalog(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.AppsGetCatalog() err = %v", err)
 	}
 }
 
@@ -45,14 +45,14 @@ func TestVK_AppsGetFriendsList(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.AppsGetFriendsList(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGetFriendsList() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.AppsGetFriendsList(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.AppsGetFriendsList() err = %v", err)
 	}
 
-	_, gotVkErr = vkUser.AppsGetFriendsListExtended(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGetFriendsList() gotVkErr = %v", gotVkErr)
+	_, err = vkUser.AppsGetFriendsListExtended(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.AppsGetFriendsList() err = %v", err)
 	}
 }
 
@@ -63,9 +63,9 @@ func TestVK_AppsGetScopes(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.AppsGetScopes(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.AppsGetScopes() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.AppsGetScopes(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.AppsGetScopes() err = %v", err)
 	}
 }
 

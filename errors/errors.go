@@ -1,4 +1,4 @@
-package errors // import "github.com/SevereCloud/vksdk/object/errors"
+package errors // import "github.com/SevereCloud/vksdk/errors"
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 // Error codes. See https://vk.com/dev/errors
 // NOTE: what about iota?
 const (
-	NoType                            ErrorType = -1   // NoType error
+	NoType                            ErrorType = 0    // NoType error
 	Unknown                           ErrorType = 1    // Unknown error occurred
 	Disabled                          ErrorType = 2    // Application is disabled. Enable your application or use test mode
 	Method                            ErrorType = 3    // Unknown method passed
@@ -197,18 +197,15 @@ func (error customError) Error() string {
 }
 
 // New creates a no type error
-func New(msg string) error {
-	return customError{errorType: NoType, originalError: errors.New(msg)}
-}
-
-// Newf creates a no type error with formatted message
-func Newf(msg string, args ...interface{}) error {
-	return customError{errorType: NoType, originalError: errors.New(fmt.Sprintf(msg, args...))}
-}
-
-// Wrap an error with a string
-func Wrap(err error, msg string) error {
-	return Wrapf(err, msg)
+func New(vkErr object.Error) error {
+	if vkErr.Code == 0 {
+		return nil
+	}
+	return customError{
+		errorType:     ErrorType(vkErr.Code),
+		originalError: errors.New(vkErr.Message),
+		context:       vkErr,
+	}
 }
 
 // Cause gives the original error
@@ -216,24 +213,14 @@ func Cause(err error) error {
 	return errors.Cause(err)
 }
 
-// Wrapf an error with format string
-func Wrapf(err error, msg string, args ...interface{}) error {
-	wrappedError := errors.Wrapf(err, msg, args...)
-	if customErr, ok := err.(customError); ok {
-		return customError{
-			errorType:     customErr.errorType,
-			originalError: wrappedError,
-			context:       customErr.context,
-		}
-	}
-
-	return customError{errorType: NoType, originalError: wrappedError}
-}
-
 // AddErrorContext adds a context to an error
 func AddErrorContext(err error, context object.Error) error {
 	if customErr, ok := err.(customError); ok {
-		return customError{errorType: customErr.errorType, originalError: customErr.originalError, context: context}
+		return customError{
+			errorType:     customErr.errorType,
+			originalError: customErr.originalError,
+			context:       context,
+		}
 	}
 
 	return customError{errorType: NoType, originalError: err, context: context}

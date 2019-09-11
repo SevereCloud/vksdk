@@ -1,6 +1,7 @@
 # API
 
-[Документация VK API](https://vk.com/dev/first_guide)
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/first_guide)
 
 
 ### Версия API
@@ -26,19 +27,43 @@ vk := api.Init("<TOKEN>")
 Пример запроса [`users.get`](https://vk.com/dev/users.get)
 
 ```go
-users, vkErr := vk.UsersGet(map[string]string{
+users, err := vk.UsersGet(map[string]string{
 	"user_ids": "1"
 })
-if vkErr.Code != 0 {
-	log.Fatal(vkErr.Message)
+if err != nil {
+	log.Fatal(err)
 }
 ```
 
-Описание ошибок:
-- [документация VK](https://vk.com/dev/errors)
-- [константы](https://godoc.org/github.com/SevereCloud/vksdk/object#pkg-constants)
+#### Обработка ошибок
 
-Если `vkErr.Code` оказался отрицательным, значит ошибка на стороне клиента.
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/errors)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/errors)
+
+Пример обработки ошибки
+
+```go
+// import "github.com/SevereCloud/vksdk/errors"
+
+switch errors.GetType(err) {
+case errors.NoType:
+	log.Print("Ошибка не связанная с работай самого апи")
+case Captcha:
+	log.Print("Требуется ввод кода с картинки (Captcha)")
+case 1:
+	log.Print("Код ошибки 1")
+default:
+	log.Print("Другая ошибка")
+}
+```
+
+Получение ошибки, [отправленной ВК](http://godoc.org/github.com/SevereCloud/vksdk/object#Error)
+
+```go
+// import "github.com/SevereCloud/vksdk/errors"
+
+vkErr := errors.GetErrorContext(err)
+```
 
 #### Запрос любого метода
 
@@ -47,34 +72,35 @@ if vkErr.Code != 0 {
 ```go
 // Определяем структуру, которую вернет API
 var response []object.UsersUser
-var vkErr api.Error
+var err api.Error
 
 params := map[string]string{
 	"user_ids": "1"
 }
 
 // Делаем запрос
-vk.RequestUnmarshal("users.get", params, &response, &vkErr)
-if vkErr.Code != 0 {
-	log.Fatal(vkErr.Message)
+err = vk.RequestUnmarshal("users.get", params, &response)
+if err != nil {
+	log.Fatal(err)
 }
 ```
 
 #### Execute
 
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api#VK.Execute)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/execute)
+
 Универсальный метод, который позволяет запускать последовательность других 
 методов, сохраняя и фильтруя промежуточные результаты.
-
-[Документация VK](https://vk.com/dev/execute)
 
 ```go
 var response struct {
 	Text string `json:"text"`
 }
 
-vk.Execute(`return {text: "hello"};`, &response, &vkErr)
-if vkErr.Code != 0 {
-	log.Fatal(vkErr.Message)
+err = vk.Execute(`return {text: "hello"};`, &response)
+if err != nil {
+	log.Fatal(err)
 }
 
 log.Print(response.Text)
@@ -105,6 +131,8 @@ C помощью параметра `vk.Limit` можно установить �
 
 ### Ошибка с Captcha
 
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/captcha_error)
+
 Если какое-либо действие (например, отправка сообщения) выполняется 
 пользователем слишком часто, то запрос к API может возвращать ошибку 
 "Captcha needed". При этом пользователю понадобится ввести код с изображения 
@@ -116,12 +144,12 @@ C помощью параметра `vk.Limit` можно установить �
 
 Если возникает данная ошибка, то в сообщении об ошибке передаются также 
 следующие параметры:
-- `vkErr.CaptchaSID` - идентификатор captcha
-- `vkErr.CaptchaImg` - ссылка на изображение, которое нужно показать 
+- `err.CaptchaSID` - идентификатор captcha
+- `err.CaptchaImg` - ссылка на изображение, которое нужно показать 
   пользователю, чтобы он ввел текст с этого изображения.
 
 В этом случае следует запросить пользователя ввести текст с изображения 
-`vkErr.CaptchaImg` и повторить запрос, добавив в него параметры:
+`err.CaptchaImg` и повторить запрос, добавив в него параметры:
 - `captcha_sid` - полученный идентификатор
 - `captcha_key` - текст, который ввел пользователь
 
@@ -143,7 +171,7 @@ vk.Client.Transport = httpTransport
 
 ### Загрузка файлов
 
-Загрузка файлов более подробно описана в [документации] (https://vk.com/dev/upload_files)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/upload_files)
 
 #### 1. Загрузка фотографий в альбом
 
@@ -153,13 +181,13 @@ vk.Client.Transport = httpTransport
 Загрузка фотографий в альбом для текущего пользователя:
 
 ```go
-photosPhoto, vkErr = vk.UploadPhoto(albumID, response.Body)
+photosPhoto, err = vk.UploadPhoto(albumID, response.Body)
 ```
 
 Загрузка фотографий в альбом для группы:
 
 ```go
-photosPhoto, vkErr = vk.UploadPhotoGroup(groupID, albumID, response.Body)
+photosPhoto, err = vk.UploadPhotoGroup(groupID, albumID, response.Body)
 ```
 
 #### 2. Загрузка фотографий на стену
@@ -168,13 +196,13 @@ photosPhoto, vkErr = vk.UploadPhotoGroup(groupID, albumID, response.Body)
 Файл объемом не более 50 МБ, соотношение сторон не менее 1:20
 
 ```go
-photosPhoto, vkErr = vk.UploadWallPhoto(response.Body)
+photosPhoto, err = vk.UploadWallPhoto(response.Body)
 ```
 
 Загрузка фотографий в альбом для группы:
 
 ```go
-photosPhoto, vkErr = vk.UploadWallPhotoGroup(groupID, response.Body)
+photosPhoto, err = vk.UploadWallPhotoGroup(groupID, response.Body)
 ```
 
 #### 3. Загрузка главной фотографии пользователя или сообщества
@@ -185,13 +213,13 @@ photosPhoto, vkErr = vk.UploadWallPhotoGroup(groupID, response.Body)
 Загрузка главной фотографии пользователя
 
 ```go
-photosPhoto, vkErr = vk.UploadUserPhoto(file)
+photosPhoto, err = vk.UploadUserPhoto(file)
 ```
 
 Загрузка фотографии пользователя или сообщества с миниатюрой
 
 ```go
-photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, squareСrop,file)
+photosPhoto, err = vk.UploadOwnerPhoto(ownerID, squareСrop,file)
 ```
 
 Для загрузки главной фотографии сообщества необходимо передать его идентификатор со знаком «минус» в параметре `ownerID`.
@@ -201,7 +229,7 @@ photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, squareСrop,file)
 Загрузка фотографии пользователя или сообщества без миниатюры:
 
 ```go
-photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, "", file)
+photosPhoto, err = vk.UploadOwnerPhoto(ownerID, "", file)
 ```
 
 #### 4. Загрузка фотографии в личное сообщение
@@ -210,7 +238,7 @@ photosPhoto, vkErr = vk.UploadOwnerPhoto(ownerID, "", file)
 Ограничения: сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ, соотношение сторон не менее 1:20.
 
 ```go
-photosPhoto, vkErr = vk.UploadMessagesPhoto(peerID, file)
+photosPhoto, err = vk.UploadMessagesPhoto(peerID, file)
 ```
 
 #### 5. Загрузка главной фотографии для чата
@@ -221,13 +249,13 @@ photosPhoto, vkErr = vk.UploadMessagesPhoto(peerID, file)
 Без обрезки:
 
 ```go
-messageInfo, vkErr = vk.UploadChatPhoto(peerID, file)
+messageInfo, err = vk.UploadChatPhoto(peerID, file)
 ```
 
 С обрезкой:
 
 ```go
-messageInfo, vkErr = vk.UploadChatPhotoCrop(peerID, cropX, cropY, cropWidth, file)
+messageInfo, err = vk.UploadChatPhotoCrop(peerID, cropX, cropY, cropWidth, file)
 ```
 
 #### 6. Загрузка фотографии для товара
@@ -240,13 +268,13 @@ messageInfo, vkErr = vk.UploadChatPhotoCrop(peerID, cropX, cropY, cropWidth, fil
 Без обрезки:
 
 ```go
-photosPhoto, vkErr = vk.UploadMarketPhoto(groupID, mainPhoto, file)
+photosPhoto, err = vk.UploadMarketPhoto(groupID, mainPhoto, file)
 ```
 
 Основную фотографию c обрезкой:
 
 ```go
-photosPhoto, vkErr = vk.UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth, file)
+photosPhoto, err = vk.UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth, file)
 ```
 
 #### 7. Загрузка фотографии для подборки товаров
@@ -255,7 +283,7 @@ photosPhoto, vkErr = vk.UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth, 
 Ограничения: минимальный размер фото — 1280x720px, сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ, соотношение сторон не менее 1:20.
 
 ```go
-photosPhoto, vkErr = vk.UploadMarketAlbumPhoto(groupID, file)
+photosPhoto, err = vk.UploadMarketAlbumPhoto(groupID, file)
 ```
 
 #### 9. Загрузка видеозаписей
@@ -265,7 +293,7 @@ photosPhoto, vkErr = vk.UploadMarketAlbumPhoto(groupID, file)
 [Параметры](https://vk.com/dev/video.save)
 
 ```go
-videoUploadResponse, vkErr = vk.UploadVideo(params, file)
+videoUploadResponse, err = vk.UploadVideo(params, file)
 ```
 
 После загрузки видеозапись проходит обработку и в списке видеозаписей может появиться спустя некоторое время.
@@ -289,31 +317,31 @@ videoUploadResponse, vkErr = vk.UploadVideo(params, file)
 Загрузить документ:
 
 ```go
-docsDoc, vkErr = vk.UploadDoc(title, tags, file)
+docsDoc, err = vk.UploadDoc(title, tags, file)
 ```
 
 Загрузить документ в группу:
 
 ```go
-docsDoc, vkErr = vk.UploadGroupDoc(groupID, title, tags, file)
+docsDoc, err = vk.UploadGroupDoc(groupID, title, tags, file)
 ```
 
 Загрузить документ, для последующей отправки документа на стену:
 
 ```go
-docsDoc, vkErr = vk.UploadWallDoc(title, tags, file)
+docsDoc, err = vk.UploadWallDoc(title, tags, file)
 ```
 
 Загрузить документ в группу, для последующей отправки документа на стену:
 
 ```go
-docsDoc, vkErr = vk.UploadGroupWallDoc(groupID, title, tags, file)
+docsDoc, err = vk.UploadGroupWallDoc(groupID, title, tags, file)
 ```
 
 Загрузить документ в личное сообщение:
 
 ```go
-docsDoc, vkErr = vk.UploadMessagesDoc(peerID, typeDoc, title, tags, file)
+docsDoc, err = vk.UploadMessagesDoc(peerID, typeDoc, title, tags, file)
 ```
 
 #### 11. Загрузка обложки сообщества
@@ -324,7 +352,7 @@ docsDoc, vkErr = vk.UploadMessagesDoc(peerID, typeDoc, title, tags, file)
 Необходимо указать координаты обрезки фотографии в параметрах `cropX`, `cropY`, `cropX2`, `cropY2`.
 
 ```go
-photosPhoto, vkErr = vk.UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2, file)
+photosPhoto, err = vk.UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2, file)
 ```
 
 #### 12. Загрузка аудиосообщения
@@ -333,7 +361,7 @@ photosPhoto, vkErr = vk.UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cro
 Ограничения: sample rate 16kHz, variable bitrate 16 kbit/s, длительность не более 5 минут.
 
 ```go
-docsDoc, vkErr = vk.UploadMessagesDoc(peerID, "audio_message", title, tags, file)
+docsDoc, err = vk.UploadMessagesDoc(peerID, "audio_message", title, tags, file)
 ```
 
 #### 13. Загрузка истории
@@ -344,13 +372,13 @@ docsDoc, vkErr = vk.UploadMessagesDoc(peerID, "audio_message", title, tags, file
 Загрузить истроию с фотографией. [Параметры](https://vk.com/dev/stories.getPhotoUploadServer)
 
 ```go
-uploadInfo, vkErr = vk.UploadStoriesPhoto(params, file)
+uploadInfo, err = vk.UploadStoriesPhoto(params, file)
 ```
 
 Загрузить истроию с видео. [Параметры](https://vk.com/dev/stories.getVideoUploadServer)
 
 ```go
-uploadInfo, vkErr = vk.UploadStoriesVideo(params, file)
+uploadInfo, err = vk.UploadStoriesVideo(params, file)
 ```
 
 #### Примеры
@@ -364,9 +392,9 @@ if err != nil {
 }
 defer response.Body.Close()
 
-photo, vkErr = vk.UploadPhoto(albumID, response.Body)
-if vkErr.Code != 0 {
-	log.Fatal(vkErr.Message)
+photo, err = vk.UploadPhoto(albumID, response.Body)
+if err != nil {
+	log.Fatal(err)
 }
 ```
 
@@ -379,8 +407,8 @@ if err != nil {
 }
 defer response.Body.Close()
 
-photo, vkErr = vk.UploadPhoto(albumID, response.Body)
-if vkErr.Code != 0 {
-	log.Fatal(vkErr.Message)
+photo, err = vk.UploadPhoto(albumID, response.Body)
+if err != nil {
+	log.Fatal(err)
 }
 ```

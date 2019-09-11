@@ -3,8 +3,6 @@ package api
 import (
 	"reflect"
 	"testing"
-
-	"github.com/SevereCloud/vksdk/object"
 )
 
 func TestVK_WidgetsGetComments(t *testing.T) {
@@ -16,19 +14,19 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 		name         string
 		argParams    map[string]string
 		wantResponse WidgetsGetCommentsResponse
-		wantVkErr    Error
+		wantErr      bool
 	}{
 		// TODO: add test
 		{
-			name:      "widgets.getComments error",
-			wantVkErr: Error{Code: object.ErrorParam},
+			name:    "widgets.getComments error",
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, gotVkErr := vkService.WidgetsGetComments(tt.argParams)
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.WidgetsGetComments() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			gotResponse, err := vkService.WidgetsGetComments(tt.argParams)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.WidgetsGetComments() err = %v, want %v", err, tt.wantErr)
 			}
 			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 				t.Errorf("VK.WidgetsGetComments() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
@@ -46,19 +44,19 @@ func TestVK_WidgetsGetPages(t *testing.T) {
 		name      string
 		argParams map[string]string
 		// wantResponse WidgetsGetPagesResponse
-		wantVkErr Error
+		wantErr bool
 	}{
 		// TODO: add test
 		{
-			name:      "widgets.getPages error",
-			wantVkErr: Error{Code: 0},
+			name:    "widgets.getPages error",
+			wantErr: false,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, gotVkErr := vkService.WidgetsGetPages(tt.argParams)
-			if gotVkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.WidgetsGetPages() gotVkErr = %v, want %v", gotVkErr, tt.wantVkErr)
+			_, err := vkService.WidgetsGetPages(tt.argParams)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("VK.WidgetsGetPages() err = %v, want %v", err, tt.wantErr)
 			}
 			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
 			// 	t.Errorf("VK.WidgetsGetPages() gotResponse = %v, want %v", gotResponse, tt.wantResponse)

@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/SevereCloud/vksdk.svg?branch=master)](https://travis-ci.com/SevereCloud/vksdk)
 [![GolangCI](https://golangci.com/badges/github.com/SevereCloud/vksdk.svg)](https://golangci.com/r/github.com/SevereCloud/vksdk)
 [![Documentation](https://godoc.org/github.com/SevereCloud/vksdk?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk)
+[![VK Developers](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/)
 [![codecov](https://codecov.io/gh/SevereCloud/vksdk/branch/master/graph/badge.svg)](https://codecov.io/gh/SevereCloud/vksdk)
 [![VK](https://img.shields.io/badge/chat-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.me/join/AJQ1d6Or8Q00Y_CSOESfbqGt)
 [![license](https://img.shields.io/github/license/SevereCloud/vksdk.svg?maxAge=2592000)](https://github.com/SevereCloud/vksdk/blob/master/LICENSE)
@@ -57,9 +58,9 @@ func main() {
         "user_ids": "1"
     }
 
-    users, vkErr := vk.UsersGet(params)
-    if vkErr.Code != 0 {
-        log.Fatal(vkErr.Message)
+    users, err := vk.UsersGet(params)
+    if err != nil {
+        log.Fatal(err)
     }
 
     for _, user := range users {

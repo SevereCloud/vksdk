@@ -9,12 +9,12 @@ func TestVK_StorageSet(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.StorageSet(map[string]string{
+	_, err := vkUser.StorageSet(map[string]string{
 		"key":   "test",
 		"value": "Hello",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StorageSet() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.StorageSet() err = %v", err)
 	}
 }
 
@@ -23,9 +23,9 @@ func TestVK_StorageGetKeys(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.StorageGetKeys(map[string]string{})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StorageGetKeys() gotVkErr = %v", gotVkErr)
+	_, err := vkUser.StorageGetKeys(map[string]string{})
+	if err != nil {
+		t.Errorf("VK.StorageGetKeys() err = %v", err)
 	}
 }
 
@@ -34,10 +34,10 @@ func TestVK_StorageGet(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
-	_, gotVkErr := vkUser.StorageGet(map[string]string{
+	_, err := vkUser.StorageGet(map[string]string{
 		"key": "test",
 	})
-	if gotVkErr.Code != 0 {
-		t.Errorf("VK.StorageGet() gotVkErr = %v", gotVkErr)
+	if err != nil {
+		t.Errorf("VK.StorageGet() err = %v", err)
 	}
 }

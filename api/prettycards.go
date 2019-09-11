@@ -11,8 +11,8 @@ type PrettyCardsCreateResponse struct {
 // PrettyCardsCreate   method
 //
 // https://vk.com/dev/prettyCards.create
-func (vk *VK) PrettyCardsCreate(params map[string]string) (response PrettyCardsCreateResponse, vkErr Error) {
-	vk.RequestUnmarshal("prettyCards.create", params, &response, &vkErr)
+func (vk *VK) PrettyCardsCreate(params map[string]string) (response PrettyCardsCreateResponse, err error) {
+	err = vk.RequestUnmarshal("prettyCards.create", params, &response)
 	return
 }
 
@@ -26,8 +26,8 @@ type PrettyCardsDeleteResponse struct {
 // PrettyCardsDelete  method
 //
 // https://vk.com/dev/prettyCards.delete
-func (vk *VK) PrettyCardsDelete(params map[string]string) (response PrettyCardsDeleteResponse, vkErr Error) {
-	vk.RequestUnmarshal("prettyCards.delete", params, &response, &vkErr)
+func (vk *VK) PrettyCardsDelete(params map[string]string) (response PrettyCardsDeleteResponse, err error) {
+	err = vk.RequestUnmarshal("prettyCards.delete", params, &response)
 	return
 }
 
@@ -40,8 +40,8 @@ type PrettyCardsEditResponse struct {
 // PrettyCardsEdit  method
 //
 // https://vk.com/dev/prettyCards.edit
-func (vk *VK) PrettyCardsEdit(params map[string]string) (response PrettyCardsEditResponse, vkErr Error) {
-	vk.RequestUnmarshal("prettyCards.edit", params, &response, &vkErr)
+func (vk *VK) PrettyCardsEdit(params map[string]string) (response PrettyCardsEditResponse, err error) {
+	err = vk.RequestUnmarshal("prettyCards.edit", params, &response)
 	return
 }
 
@@ -54,8 +54,8 @@ type PrettyCardsGetResponse struct {
 // PrettyCardsGet  method
 //
 // https://vk.com/dev/prettyCards.get
-func (vk *VK) PrettyCardsGet(params map[string]string) (response PrettyCardsGetResponse, vkErr Error) {
-	vk.RequestUnmarshal("prettyCards.get", params, &response, &vkErr)
+func (vk *VK) PrettyCardsGet(params map[string]string) (response PrettyCardsGetResponse, err error) {
+	err = vk.RequestUnmarshal("prettyCards.get", params, &response)
 	return
 }
 
@@ -65,8 +65,8 @@ type PrettyCardsGetByIDResponse []object.PrettyCardsPrettyCard
 // PrettyCardsGetByID  method
 //
 // https://vk.com/dev/prettyCards.getById
-func (vk *VK) PrettyCardsGetByID(params map[string]string) (response PrettyCardsGetByIDResponse, vkErr Error) {
-	vk.RequestUnmarshal("prettyCards.getById", params, &response, &vkErr)
+func (vk *VK) PrettyCardsGetByID(params map[string]string) (response PrettyCardsGetByIDResponse, err error) {
+	err = vk.RequestUnmarshal("prettyCards.getById", params, &response)
 	return
 }
 
@@ -76,7 +76,7 @@ type PrettyCardsGetUploadURLResponse string // Upload URL
 // PrettyCardsGetUploadURL  method
 //
 // https://vk.com/dev/prettyCards.getUploadURL
-func (vk *VK) PrettyCardsGetUploadURL(params map[string]string) (response PrettyCardsGetUploadURLResponse, vkErr Error) {
-	vk.RequestUnmarshal("prettyCards.getUploadURL", params, &response, &vkErr)
+func (vk *VK) PrettyCardsGetUploadURL(params map[string]string) (response PrettyCardsGetUploadURLResponse, err error) {
+	err = vk.RequestUnmarshal("prettyCards.getUploadURL", params, &response)
 	return
 }

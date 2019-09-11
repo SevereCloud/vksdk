@@ -12,9 +12,9 @@ var vkUserID, vkGroupID, vkChatID int // nolint:gochecknoglobals
 func TestMain(m *testing.M) {
 	vkGroup = Init(os.Getenv("GROUP_TOKEN"))
 	if vkGroup.AccessToken != "" {
-		group, vkErr := vkGroup.GroupsGetByID(map[string]string{})
-		if vkErr.Code != 0 {
-			log.Fatal(vkErr)
+		group, err := vkGroup.GroupsGetByID(map[string]string{})
+		if err != nil {
+			log.Fatal(err)
 		}
 		vkGroupID = group[0].ID
 	}
@@ -23,17 +23,17 @@ func TestMain(m *testing.M) {
 	vkUser = Init(os.Getenv("USER_TOKEN"))
 	vkUser.Limit = 3
 	if vkUser.AccessToken != "" {
-		user, vkErr := vkUser.UsersGet(map[string]string{})
-		if vkErr.Code != 0 {
-			log.Fatal(vkErr)
+		user, err := vkUser.UsersGet(map[string]string{})
+		if err != nil {
+			log.Fatal(err)
 		}
 		vkUserID = user[0].ID
 
-		vkChatID, vkErr = vkUser.MessagesCreateChat(map[string]string{
+		vkChatID, err = vkUser.MessagesCreateChat(map[string]string{
 			"title": "TestChat",
 		})
-		if vkErr.Code != 0 {
-			log.Fatal(vkErr)
+		if err != nil {
+			log.Fatal(err)
 		}
 	}
 
@@ -49,16 +49,16 @@ func TestVK_Request(t *testing.T) {
 	vk := Init(groupToken)
 
 	t.Run("Request 403 error", func(t *testing.T) {
-		_, vkErr := vk.Request("", map[string]string{})
-		if vkErr.Code != -1 {
-			t.Errorf("VK.Request() got1 = %v, want -1", vkErr)
+		_, err := vk.Request("", map[string]string{})
+		if err == nil {
+			t.Errorf("VK.Request() got1 = %v, want -1", err)
 		}
 	})
 	vk.MethodURL = ""
 	t.Run("Client error", func(t *testing.T) {
-		_, vkErr := vk.Request("test", map[string]string{"test": "test"})
-		if vkErr.Code != -1 {
-			t.Errorf("VK.Request() got1 = %v, want -1", vkErr)
+		_, err := vk.Request("test", map[string]string{"test": "test"})
+		if err == nil {
+			t.Errorf("VK.Request() got1 = %v, want -1", err)
 		}
 	})
 }
@@ -72,9 +72,10 @@ func TestVK_RequestLimit(t *testing.T) {
 	vk.Limit = 2
 
 	t.Run("vk.Limit", func(t *testing.T) {
-		go vk.UsersGet(map[string]string{})
+		// TODO: check err
+		go vk.UsersGet(map[string]string{}) // nolint: errcheck
 		for i := 0; i < 2; i++ {
-			vk.UsersGet(map[string]string{})
+			vk.UsersGet(map[string]string{}) // nolint: errcheck
 		}
 	})
 }
@@ -86,10 +87,9 @@ func TestVK_Execute(t *testing.T) {
 
 	t.Run("Execute test", func(t *testing.T) {
 		var response int
-		var vkErr Error
-		vkGroup.Execute(`return 1;`, &response, &vkErr)
-		if vkErr.Code != 0 {
-			t.Errorf("VK.Execute() gotVkErr = %v, want 0", vkErr)
+		err := vkGroup.Execute(`return 1;`, &response)
+		if err != nil {
+			t.Errorf("VK.Execute() err = %v, want 0", err)
 		}
 		if response != 1 {
 			t.Error("Execute response error")
@@ -107,12 +107,11 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 		method string
 		params map[string]string
 		obj    interface{}
-		vkErr  *Error
 	}
 	tests := []struct {
-		name      string
-		args      args
-		wantVkErr Error
+		name    string
+		args    args
+		wantErr bool
 	}{
 		{
 			name: "execute error",
@@ -120,16 +119,14 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 				method: "execute",
 				params: map[string]string{"code": "return 1;"},
 				obj:    &testObj,
-				vkErr:  &Error{},
 			},
-			wantVkErr: Error{Code: -1},
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			vkGroup.RequestUnmarshal(tt.args.method, tt.args.params, tt.args.obj, tt.args.vkErr)
-			if tt.args.vkErr.Code != tt.wantVkErr.Code {
-				t.Errorf("VK.Execute() gotVkErr = %v, want %v", tt.args.vkErr, tt.wantVkErr)
+			if err := vkGroup.RequestUnmarshal(tt.args.method, tt.args.params, tt.args.obj); (err != nil) != tt.wantErr {
+				t.Errorf("VK.RequestUnmarshal() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
 	}

@@ -9,8 +9,8 @@ type StreamingGetServerURLResponse struct {
 // StreamingGetServerURL allows to receive data for the connection to Streaming API.
 //
 // https://vk.com/dev/streaming.getServerUrl
-func (vk *VK) StreamingGetServerURL(params map[string]string) (response StreamingGetServerURLResponse, vkErr Error) {
-	vk.RequestUnmarshal("streaming.getServerUrl", params, &response, &vkErr)
+func (vk *VK) StreamingGetServerURL(params map[string]string) (response StreamingGetServerURLResponse, err error) {
+	err = vk.RequestUnmarshal("streaming.getServerUrl", params, &response)
 	return
 }
 
@@ -22,8 +22,8 @@ type StreamingGetSettingsResponse struct {
 // StreamingGetSettings allows to receive monthly tier for Streaming API.
 //
 // https://vk.com/dev/streaming.getSettings
-func (vk *VK) StreamingGetSettings(params map[string]string) (response StreamingGetSettingsResponse, vkErr Error) {
-	vk.RequestUnmarshal("streaming.getSettings", params, &response, &vkErr)
+func (vk *VK) StreamingGetSettings(params map[string]string) (response StreamingGetSettingsResponse, err error) {
+	err = vk.RequestUnmarshal("streaming.getSettings", params, &response)
 	return
 }
 
@@ -39,8 +39,8 @@ type StreamingGetStatsResponse []struct {
 // StreamingGetStats allows to receive statistics for prepared and received events in Streaming API.
 //
 // https://vk.com/dev/streaming.getStats
-func (vk *VK) StreamingGetStats(params map[string]string) (response StreamingGetStatsResponse, vkErr Error) {
-	vk.RequestUnmarshal("streaming.getStats", params, &response, &vkErr)
+func (vk *VK) StreamingGetStats(params map[string]string) (response StreamingGetStatsResponse, err error) {
+	err = vk.RequestUnmarshal("streaming.getStats", params, &response)
 	return
 }
 
@@ -52,16 +52,16 @@ type StreamingGetStemResponse struct {
 // StreamingGetStem allows to receive the stem of the word.
 //
 // https://vk.com/dev/streaming.getStem
-func (vk *VK) StreamingGetStem(params map[string]string) (response StreamingGetStemResponse, vkErr Error) {
-	vk.RequestUnmarshal("streaming.getStem", params, &response, &vkErr)
+func (vk *VK) StreamingGetStem(params map[string]string) (response StreamingGetStemResponse, err error) {
+	err = vk.RequestUnmarshal("streaming.getStem", params, &response)
 	return
 }
 
 // StreamingSetSettings allows to set monthly tier for Streaming API.
 //
 // https://vk.com/dev/streaming.setSettings
-func (vk *VK) StreamingSetSettings(params map[string]string) (response int, vkErr Error) {
-	vk.RequestUnmarshal("streaming.setSettings", params, &response, &vkErr)
+func (vk *VK) StreamingSetSettings(params map[string]string) (response int, err error) {
+	err = vk.RequestUnmarshal("streaming.setSettings", params, &response)
 
 	return
 }

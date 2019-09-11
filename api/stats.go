@@ -12,8 +12,8 @@ type StatsGetResponse []object.StatsPeriod
 // BUG(VK): https://vk.com/bug136096
 //
 // https://vk.com/dev/stats.get
-func (vk *VK) StatsGet(params map[string]string) (response StatsGetResponse, vkErr Error) {
-	vk.RequestUnmarshal("stats.get", params, &response, &vkErr)
+func (vk *VK) StatsGet(params map[string]string) (response StatsGetResponse, err error) {
+	err = vk.RequestUnmarshal("stats.get", params, &response)
 	return
 }
 
@@ -23,15 +23,15 @@ type StatsGetPostReachResponse []object.StatsWallpostStat
 // StatsGetPostReach returns stats for a wall post.
 //
 // https://vk.com/dev/stats.getPostReach
-func (vk *VK) StatsGetPostReach(params map[string]string) (response StatsGetPostReachResponse, vkErr Error) {
-	vk.RequestUnmarshal("stats.getPostReach", params, &response, &vkErr)
+func (vk *VK) StatsGetPostReach(params map[string]string) (response StatsGetPostReachResponse, err error) {
+	err = vk.RequestUnmarshal("stats.getPostReach", params, &response)
 	return
 }
 
 // StatsTrackVisitor adds current session's data in the application statistics.
 //
 // https://vk.com/dev/stats.trackVisitor
-func (vk *VK) StatsTrackVisitor(params map[string]string) (response int, vkErr Error) {
-	vk.RequestUnmarshal("stats.trackVisitor", params, &response, &vkErr)
+func (vk *VK) StatsTrackVisitor(params map[string]string) (response int, err error) {
+	err = vk.RequestUnmarshal("stats.trackVisitor", params, &response)
 	return
 }
