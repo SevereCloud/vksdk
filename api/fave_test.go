@@ -180,6 +180,14 @@ func TestVK_FaveTag(t *testing.T) {
 	}
 
 	time.Sleep(sleepTime)
+	_, err = vkUser.FaveAddPage(map[string]string{
+		"group_id": "1",
+	})
+	if err != nil {
+		t.Errorf("VK.FaveAddPage() err = %v", err)
+	}
+
+	time.Sleep(sleepTime)
 	_, err = vkUser.FaveSetPageTags(map[string]string{
 		"group_id": "1",
 		"tag_ids":  strconv.Itoa(tagResponse.ID),
