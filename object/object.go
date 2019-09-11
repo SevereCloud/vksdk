@@ -201,3 +201,13 @@ type Article struct {
 	PublishedDate int         `json:"published_date"`
 	Photo         PhotosPhoto `json:"photo"`
 }
+
+// Error struct
+type Error struct {
+	Code          int                `json:"error_code"`
+	Message       string             `json:"error_msg"`
+	Text          string             `json:"error_text"`
+	CaptchaSID    string             `json:"captcha_sid"`
+	CaptchaImg    string             `json:"captcha_img"`
+	RequestParams []BaseRequestParam `json:"request_params"`
+}
