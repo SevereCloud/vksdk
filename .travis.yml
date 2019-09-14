@@ -6,10 +6,10 @@ cache:
     - $HOME/gopath/pkg/mod
 
 go:
-  - 1.12
+  - 1.x
 
 before_script:
-  - curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.18
+  - curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.18.0
 
 script:
   - golangci-lint run
