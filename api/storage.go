@@ -15,6 +15,7 @@ func (vk *VK) StorageGet(params map[string]string) (response StorageGetResponse,
 	_, prs := params["keys"]
 	if !prs {
 		params["keys"] = params["key"]
+		params["key"] = ""
 	}
 	err = vk.RequestUnmarshal("storage.get", params, &response)
 	return
