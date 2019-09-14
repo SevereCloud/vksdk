@@ -6,3 +6,4 @@ linters:
     - gocyclo
     - scopelint
     - depguard
+    - funlen
