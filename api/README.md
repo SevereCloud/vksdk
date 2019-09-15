@@ -405,6 +405,16 @@ photosPhoto, err = vk.UploadOwnerPollsPhoto(ownerID, file)
 photo, err = vk.UploadPrettyCardsPhoto(file)
 ```
 
+#### Загрузка обложки для формы
+
+Для форм сбора заявок используются прямоугольные изображения размером 1200х300. В случае загрузки изображения другого размера, оно будет автоматически обрезано до требуемого. Допустимые форматы: JPG, PNG, BMP, TIFF или GIF. Ограничения: файл объемом не более 5 МБ.
+
+```go
+photo, err = vk.UploadLeadFormsPhoto(file)
+```
+
+Полученные данные можно использовать в методах [leadForms.create](https://vk.com/dev/leadForms.create) и [leadForms.edit](https://vk.com/dev/leadForms.edit).
+
 Полученные данные можно использовать в методах [prettyCards.create](https://vk.com/dev/prettyCards.create) и [prettyCards.edit](https://vk.com/dev/prettyCards.edit).
 
 #### Примеры
