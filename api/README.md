@@ -381,6 +381,21 @@ uploadInfo, err = vk.UploadStoriesPhoto(params, file)
 uploadInfo, err = vk.UploadStoriesVideo(params, file)
 ```
 
+#### Загрузка фоновой фотографии в опрос
+
+Допустимые форматы: JPG, PNG, GIF. 
+Ограничения: сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ, соотношение сторон не менее 1:20.
+
+```go
+photosPhoto, vkErr = vk.UploadPollsPhoto(file)
+```
+
+```go
+photosPhoto, vkErr = vk.UploadOwnerPollsPhoto(ownerID, file)
+```
+
+Для загрузки фотографии сообщества необходимо передать его идентификатор со знаком «минус» в параметре `ownerID`.
+
 #### Примеры
 
 Загрузка фотографии в альбом:

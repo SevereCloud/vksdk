@@ -710,3 +710,53 @@ func (vk *VK) UploadStoriesVideo(params map[string]string, file io.Reader) (resp
 
 	return
 }
+
+// uploadPollsPhoto uploading a Poll Photo
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: minimum photo size 795x200px, width+height not more than 14000px,
+// file size up to 50 MB. Recommended size: 1590x400px.
+func (vk *VK) uploadPollsPhoto(params map[string]string, file io.Reader) (response PollsSavePhotoResponse, err error) {
+	uploadServer, err := vk.PollsGetPhotoUploadServer(params)
+	if err != nil {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
+	if err != nil {
+		return
+	}
+
+	var handler object.PollsPhotoUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		return
+	}
+
+	response, err = vk.PollsSavePhoto(map[string]string{
+		"photo": handler.Photo,
+		"hash":  handler.Hash,
+	})
+	return
+}
+
+// UploadPollsPhoto uploading a Poll Photo
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: minimum photo size 795x200px, width+height not more than 14000px,
+// file size up to 50 MB. Recommended size: 1590x400px.
+func (vk *VK) UploadPollsPhoto(file io.Reader) (response PollsSavePhotoResponse, err error) {
+	return vk.uploadPollsPhoto(map[string]string{}, file)
+}
+
+// UploadOwnerPollsPhoto uploading a Poll Photo
+//
+// Supported formats: JPG, PNG, GIF.
+//
+// Limits: minimum photo size 795x200px, width+height not more than 14000px,
+// file size up to 50 MB. Recommended size: 1590x400px.
+func (vk *VK) UploadOwnerPollsPhoto(ownerID int, file io.Reader) (response PollsSavePhotoResponse, err error) {
+	return vk.uploadPollsPhoto(map[string]string{"owner_id": strconv.Itoa(ownerID)}, file)
+}

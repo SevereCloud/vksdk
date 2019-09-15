@@ -87,3 +87,8 @@ type PollsPhoto struct {
 	Color  string        `json:"color"`
 	Images []PhotosImage `json:"images"`
 }
+
+type PollsPhotoUploadResponse struct {
+	Photo string `json:"photo"` // Uploaded photo data
+	Hash  string `json:"hash"`  // Uploaded hash
+}
