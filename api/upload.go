@@ -760,3 +760,37 @@ func (vk *VK) UploadPollsPhoto(file io.Reader) (response PollsSavePhotoResponse,
 func (vk *VK) UploadOwnerPollsPhoto(ownerID int, file io.Reader) (response PollsSavePhotoResponse, err error) {
 	return vk.uploadPollsPhoto(map[string]string{"owner_id": strconv.Itoa(ownerID)}, file)
 }
+
+type uploadPrettyCardsPhotoHandler struct {
+	Photo   string `json:"photo"`
+	ErrCode int    `json:"errcode"`
+}
+
+// UploadPrettyCardsPhoto uploading a Pretty Card Photo
+//
+// Video format: h264 video, aac audio, maximum 720х1280, 30fps.
+func (vk *VK) UploadPrettyCardsPhoto(file io.Reader) (response string, err error) {
+	uploadURL, err := vk.PrettyCardsGetUploadURL(map[string]string{})
+	if err != nil {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(uploadURL, file, "file", "photo.jpg")
+	if err != nil {
+		return
+	}
+
+	var handler uploadPrettyCardsPhotoHandler
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		return
+	}
+
+	response = handler.Photo
+	if handler.ErrCode != 0 {
+		// TODO: new type error
+		err = fmt.Errorf("%d", handler.ErrCode)
+	}
+
+	return
+}

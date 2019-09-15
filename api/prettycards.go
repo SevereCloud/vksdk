@@ -70,13 +70,10 @@ func (vk *VK) PrettyCardsGetByID(params map[string]string) (response PrettyCards
 	return
 }
 
-// PrettyCardsGetUploadURLResponse struct
-type PrettyCardsGetUploadURLResponse string // Upload URL
-
 // PrettyCardsGetUploadURL  method
 //
 // https://vk.com/dev/prettyCards.getUploadURL
-func (vk *VK) PrettyCardsGetUploadURL(params map[string]string) (response PrettyCardsGetUploadURLResponse, err error) {
+func (vk *VK) PrettyCardsGetUploadURL(params map[string]string) (response string, err error) {
 	err = vk.RequestUnmarshal("prettyCards.getUploadURL", params, &response)
 	return
 }

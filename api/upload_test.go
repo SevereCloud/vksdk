@@ -472,6 +472,23 @@ func TestVK_UploadOwnerPollsPhoto(t *testing.T) {
 	}
 }
 
+func TestVK_UploadPrettyCardsPhoto(t *testing.T) {
+	if vkUser.AccessToken == "" && vkGroupID == 0 {
+		t.Skip("USER_TOKEN or GROUP_ID empty")
+	}
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, err = vkUser.UploadPrettyCardsPhoto(response.Body)
+	if err != nil {
+		t.Errorf("VK.UploadPrettyCardsPhoto() err = %v", err)
+	}
+}
+
 func TestVK_Upload_Error(t *testing.T) {
 	vk := Init("")
 
@@ -556,6 +573,11 @@ func TestVK_Upload_Error(t *testing.T) {
 
 	_, err = vk.uploadPollsPhoto(map[string]string{}, new(bytes.Buffer))
 	if errors.GetType(err) != errors.Auth {
-		t.Errorf("VK.UploadStoriesVideo() err = %v, want %v", err, 5)
+		t.Errorf("VK.uploadPollsPhoto() err = %v, want %v", err, 5)
+	}
+
+	_, err = vk.UploadPrettyCardsPhoto(new(bytes.Buffer))
+	if errors.GetType(err) != errors.Auth {
+		t.Errorf("VK.UploadPrettyCardsPhoto() err = %v, want %v", err, 5)
 	}
 }

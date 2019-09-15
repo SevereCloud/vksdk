@@ -387,14 +387,25 @@ uploadInfo, err = vk.UploadStoriesVideo(params, file)
 Ограничения: сумма высоты и ширины не более 14000px, файл объемом не более 50 МБ, соотношение сторон не менее 1:20.
 
 ```go
-photosPhoto, vkErr = vk.UploadPollsPhoto(file)
+photosPhoto, err = vk.UploadPollsPhoto(file)
 ```
 
 ```go
-photosPhoto, vkErr = vk.UploadOwnerPollsPhoto(ownerID, file)
+photosPhoto, err = vk.UploadOwnerPollsPhoto(ownerID, file)
 ```
 
 Для загрузки фотографии сообщества необходимо передать его идентификатор со знаком «минус» в параметре `ownerID`.
+
+#### Загрузка фотографии для карточки
+
+Для карточек используются квадратные изображения минимальным размером 400х400. В случае загрузки неквадратного изображения, оно будет обрезано до квадратного.
+Допустимые форматы: JPG, PNG, BMP, TIFF или GIF. Ограничения: файл объемом не более 5 МБ.
+
+```go
+photo, err = vk.UploadPrettyCardsPhoto(file)
+```
+
+Полученные данные можно использовать в методах [prettyCards.create](https://vk.com/dev/prettyCards.create) и [prettyCards.edit](https://vk.com/dev/prettyCards.edit).
 
 #### Примеры
 
