@@ -5,9 +5,7 @@ import (
 )
 
 func TestVK_SearchGetHints(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.SearchGetHints(map[string]string{
 		"q":             "VK API",

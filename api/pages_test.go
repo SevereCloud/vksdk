@@ -6,9 +6,7 @@ import (
 )
 
 func TestVK_PagesClearCache(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.PagesClearCache(map[string]string{
 		"url": "https://ya.ru",
@@ -19,9 +17,7 @@ func TestVK_PagesClearCache(t *testing.T) {
 }
 
 func TestVK_PagesGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PagesGet(map[string]string{
 		"owner_id":  "-87938575",
@@ -34,9 +30,8 @@ func TestVK_PagesGet(t *testing.T) {
 }
 
 func TestVK_PagesSave(t *testing.T) {
-	if vkUser.AccessToken == "" || vkGroupID == 0 {
-		t.Skip("USER_TOKEN empty or vkGroupID=0")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	page, err := vkUser.PagesSave(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
@@ -75,9 +70,7 @@ func TestVK_PagesSave(t *testing.T) {
 }
 
 func TestVK_PagesGetTitles(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PagesGetTitles(map[string]string{
 		"group_id": "87938575",
@@ -88,9 +81,7 @@ func TestVK_PagesGetTitles(t *testing.T) {
 }
 
 func TestVK_PagesParseWiki(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PagesParseWiki(map[string]string{
 		"text":     `[[photo-37273781_295853750|nolink;| ]]`,

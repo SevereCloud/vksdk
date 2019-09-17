@@ -6,6 +6,27 @@ import (
 	"testing"
 )
 
+func needUserToken(t *testing.T) {
+	t.Helper()
+	if vkUser.AccessToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
+}
+
+func needGroupToken(t *testing.T) {
+	t.Helper()
+	if vkGroup.AccessToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+}
+
+func needServiceToken(t *testing.T) {
+	t.Helper()
+	if vkService.AccessToken == "" {
+		t.Skip("SERVICE_TOKEN empty")
+	}
+}
+
 var vkGroup, vkService, vkUser *VK    // nolint:gochecknoglobals
 var vkUserID, vkGroupID, vkChatID int // nolint:gochecknoglobals
 
@@ -81,9 +102,7 @@ func TestVK_RequestLimit(t *testing.T) {
 }
 
 func TestVK_Execute(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	t.Run("Execute test", func(t *testing.T) {
 		var response int
@@ -98,9 +117,7 @@ func TestVK_Execute(t *testing.T) {
 }
 
 func TestVK_RequestUnmarshal(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	var testObj string
 	type args struct {

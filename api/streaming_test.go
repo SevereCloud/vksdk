@@ -7,9 +7,7 @@ import (
 )
 
 func TestVK_StreamingGetServerURL(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	t.Run("StreamingGetServerURL not empty", func(t *testing.T) {
 		response, err := vkService.StreamingGetServerURL(map[string]string{})
@@ -27,9 +25,7 @@ func TestVK_StreamingGetServerURL(t *testing.T) {
 }
 
 func TestVK_StreamingGetSettings(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	t.Run("StreamingGetSettings not empty", func(t *testing.T) {
 		response, err := vkService.StreamingGetSettings(map[string]string{})
@@ -44,9 +40,7 @@ func TestVK_StreamingGetSettings(t *testing.T) {
 }
 
 func TestVK_StreamingGetStats(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	params := make(map[string]string)
 	params["type"] = "received"
@@ -66,9 +60,7 @@ func TestVK_StreamingGetStats(t *testing.T) {
 }
 
 func TestVK_StreamingGetStem(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	params := make(map[string]string)
 	params["word"] = "собака"
@@ -85,9 +77,7 @@ func TestVK_StreamingGetStem(t *testing.T) {
 }
 
 func TestVK_StreamingSetSettings(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	params := make(map[string]string)
 	params["monthly_tier"] = "unlimited"

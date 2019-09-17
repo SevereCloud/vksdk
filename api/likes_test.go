@@ -5,9 +5,7 @@ import (
 )
 
 func TestVK_LikesAdd(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.LikesAdd(map[string]string{
 		"type":     "post",
@@ -20,9 +18,7 @@ func TestVK_LikesAdd(t *testing.T) {
 }
 
 func TestVK_LikesDelete(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.LikesDelete(map[string]string{
 		"type":     "post",
@@ -35,9 +31,7 @@ func TestVK_LikesDelete(t *testing.T) {
 }
 
 func TestVK_LikesGetList(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	params := map[string]string{
 		"type":     "post",
@@ -57,9 +51,7 @@ func TestVK_LikesGetList(t *testing.T) {
 }
 
 func TestVK_LikesIsLiked(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.LikesIsLiked(map[string]string{
 		"type":     "post",

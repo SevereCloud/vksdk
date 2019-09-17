@@ -10,9 +10,7 @@ import (
 const sleepTime = 300 * time.Millisecond
 
 func TestVK_FaveArticle(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveAddArticle(map[string]string{
@@ -38,9 +36,7 @@ func TestVK_FaveArticle(t *testing.T) {
 }
 
 func TestVK_FaveLink(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveAddLink(map[string]string{
@@ -65,9 +61,7 @@ func TestVK_FaveLink(t *testing.T) {
 }
 
 func TestVK_FavePage(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveAddPage(map[string]string{
@@ -94,9 +88,7 @@ func TestVK_FavePage(t *testing.T) {
 }
 
 func TestVK_FavePost(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveAddPost(map[string]string{
@@ -118,9 +110,7 @@ func TestVK_FavePost(t *testing.T) {
 }
 
 func TestVK_FaveProduct(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveAddProduct(map[string]string{
@@ -142,9 +132,7 @@ func TestVK_FaveProduct(t *testing.T) {
 }
 
 func TestVK_FaveTag(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveAddTag(map[string]string{
@@ -240,9 +228,7 @@ func TestVK_FaveTag(t *testing.T) {
 	})
 }
 func TestVK_FaveVideo(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveAddVideo(map[string]string{
@@ -264,9 +250,7 @@ func TestVK_FaveVideo(t *testing.T) {
 }
 
 func TestVK_FaveGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveGet(map[string]string{})
@@ -282,9 +266,7 @@ func TestVK_FaveGet(t *testing.T) {
 }
 
 func TestVK_FaveGetPages(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveGetPages(map[string]string{})
@@ -294,9 +276,7 @@ func TestVK_FaveGetPages(t *testing.T) {
 }
 
 func TestVK_FaveMarkSeen(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	time.Sleep(sleepTime)
 	_, err := vkUser.FaveMarkSeen(map[string]string{})

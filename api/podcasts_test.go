@@ -7,9 +7,7 @@ import (
 func TestVK_PodcastsGet(t *testing.T) {
 	// FIXME: 7 Permission to perform this action is denied
 	t.Skip("7 Permission to perform this action is denied")
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PodcastsGetCatalog(map[string]string{})
 	if err != nil {
@@ -55,9 +53,7 @@ func TestVK_PodcastsGet(t *testing.T) {
 }
 
 func TestVK_PodcastsMarkAsListened(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PodcastsMarkAsListened(map[string]string{
 		"owner_id":   "-37473931",
@@ -69,9 +65,7 @@ func TestVK_PodcastsMarkAsListened(t *testing.T) {
 }
 
 func TestVK_PodcastsSubscribe(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PodcastsSubscribe(map[string]string{
 		"owner_id": "-37473931",

@@ -6,9 +6,7 @@ import (
 )
 
 func TestVK_DocsAdd(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	doc, err := vkUser.DocsAdd(map[string]string{
 		"owner_id": "-166562603",
@@ -37,9 +35,7 @@ func TestVK_DocsAdd(t *testing.T) {
 }
 
 func TestVK_DocsGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.DocsGet(map[string]string{
 		"owner_id": "-166562603",
@@ -50,9 +46,7 @@ func TestVK_DocsGet(t *testing.T) {
 }
 
 func TestVK_DocsGetByID(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.DocsGetByID(map[string]string{
 		"docs": "2314852_165123053",
@@ -63,9 +57,7 @@ func TestVK_DocsGetByID(t *testing.T) {
 }
 
 func TestVK_DocsGetTypes(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.DocsGetTypes(map[string]string{})
 	if err != nil {
@@ -74,9 +66,7 @@ func TestVK_DocsGetTypes(t *testing.T) {
 }
 
 func TestVK_DocsGetUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.DocsGetUploadServer(map[string]string{})
 	if err != nil {
@@ -85,9 +75,7 @@ func TestVK_DocsGetUploadServer(t *testing.T) {
 }
 
 func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.DocsGetMessagesUploadServer(map[string]string{})
 	if err != nil {
@@ -96,9 +84,7 @@ func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 }
 
 func TestVK_DocsGetWallUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.DocsGetWallUploadServer(map[string]string{})
 	if err != nil {
@@ -109,9 +95,7 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 // TODO: TestVK_DocsSave
 
 func TestVK_DocsSearch(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	_, err := vkGroup.DocsSearch(map[string]string{
 		"q": "golang",

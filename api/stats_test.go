@@ -7,9 +7,7 @@ import (
 
 func TestVK_StatsGet(t *testing.T) {
 	t.Skip("See https://vk.com/bug136096")
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.StatsGet(map[string]string{
 		"group_id":        strconv.Itoa(vkGroupID),
@@ -23,9 +21,7 @@ func TestVK_StatsGet(t *testing.T) {
 }
 
 func TestVK_StatsTrackVisitor(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.StatsTrackVisitor(map[string]string{})
 	if err != nil {

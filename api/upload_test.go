@@ -28,9 +28,7 @@ func TestVK_UploadFile(t *testing.T) {
 }
 
 func TestVK_UploadPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	album, err := vkUser.PhotosCreateAlbum(map[string]string{
 		"title": "test",
@@ -52,9 +50,8 @@ func TestVK_UploadPhoto(t *testing.T) {
 }
 
 func TestVK_UploadPhotoGroup(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	album, err := vkUser.PhotosCreateAlbum(map[string]string{
 		"title":    "test",
@@ -77,9 +74,7 @@ func TestVK_UploadPhotoGroup(t *testing.T) {
 }
 
 func TestVK_UploadWallPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -94,9 +89,8 @@ func TestVK_UploadWallPhoto(t *testing.T) {
 }
 
 func TestVK_UploadGroupWallPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -111,9 +105,7 @@ func TestVK_UploadGroupWallPhoto(t *testing.T) {
 }
 
 func TestVK_UploadUserPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -128,9 +120,8 @@ func TestVK_UploadUserPhoto(t *testing.T) {
 }
 
 func TestVK_UploadOwnerPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -145,9 +136,7 @@ func TestVK_UploadOwnerPhoto(t *testing.T) {
 }
 
 func TestVK_UploadMessagesPhoto(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -162,9 +151,7 @@ func TestVK_UploadMessagesPhoto(t *testing.T) {
 }
 
 func TestVK_UploadChatPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -179,9 +166,7 @@ func TestVK_UploadChatPhoto(t *testing.T) {
 }
 
 func TestVK_UploadChatPhotoCrop(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -196,9 +181,8 @@ func TestVK_UploadChatPhotoCrop(t *testing.T) {
 }
 
 func TestVK_UploadMarketPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -213,9 +197,8 @@ func TestVK_UploadMarketPhoto(t *testing.T) {
 }
 
 func TestVK_UploadMarketPhotoMain(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -230,9 +213,8 @@ func TestVK_UploadMarketPhotoMain(t *testing.T) {
 }
 
 func TestVK_UploadMarketPhotoCrop(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -247,9 +229,8 @@ func TestVK_UploadMarketPhotoCrop(t *testing.T) {
 }
 
 func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -264,9 +245,7 @@ func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
 }
 
 func TestVK_UploadVideo_Error(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -281,9 +260,7 @@ func TestVK_UploadVideo_Error(t *testing.T) {
 }
 
 func TestVK_uploadDoc_Error(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.uploadDoc("", "", "", new(bytes.Buffer))
 	if errors.GetType(err) != errors.NoType {
@@ -292,9 +269,7 @@ func TestVK_uploadDoc_Error(t *testing.T) {
 }
 
 func TestVK_UploadDoc(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -309,9 +284,8 @@ func TestVK_UploadDoc(t *testing.T) {
 }
 
 func TestVK_UploadGroupDoc(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -326,9 +300,7 @@ func TestVK_UploadGroupDoc(t *testing.T) {
 }
 
 func TestVK_UploadWallDoc(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -343,9 +315,8 @@ func TestVK_UploadWallDoc(t *testing.T) {
 }
 
 func TestVK_UploadGroupWallDoc(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -360,9 +331,7 @@ func TestVK_UploadGroupWallDoc(t *testing.T) {
 }
 
 func TestVK_UploadMessagesDoc(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -377,9 +346,8 @@ func TestVK_UploadMessagesDoc(t *testing.T) {
 }
 
 func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
-	if vkGroup.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("GROUP_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -394,9 +362,7 @@ func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
 }
 
 func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.UploadStoriesPhoto(map[string]string{}, new(bytes.Buffer))
 	if errors.GetType(err) != errors.NoType {
@@ -405,9 +371,7 @@ func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
 }
 
 func TestVK_UploadStoriesPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -422,9 +386,7 @@ func TestVK_UploadStoriesPhoto(t *testing.T) {
 }
 
 func TestVK_UploadStoriesVideo_Error(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -439,9 +401,7 @@ func TestVK_UploadStoriesVideo_Error(t *testing.T) {
 }
 
 func TestVK_UploadPollsPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -456,9 +416,8 @@ func TestVK_UploadPollsPhoto(t *testing.T) {
 }
 
 func TestVK_UploadOwnerPollsPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" && vkGroupID == 0 {
-		t.Skip("USER_TOKEN or GROUP_ID empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -473,9 +432,7 @@ func TestVK_UploadOwnerPollsPhoto(t *testing.T) {
 }
 
 func TestVK_UploadPrettyCardsPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {
@@ -490,9 +447,7 @@ func TestVK_UploadPrettyCardsPhoto(t *testing.T) {
 }
 
 func TestVK_UploadLeadFormsPhoto(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	response, err := http.Get(photoURL)
 	if err != nil {

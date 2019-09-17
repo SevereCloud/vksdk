@@ -8,9 +8,7 @@ import (
 )
 
 func TestVK_NotesAdd(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	note, err := vkUser.NotesAdd(map[string]string{
 		"title": "Test note",
@@ -38,9 +36,7 @@ func TestVK_NotesAdd(t *testing.T) {
 }
 
 func TestVK_NotesCreateComment(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	comment, err := vkUser.NotesCreateComment(map[string]string{
 		"note_id":  "11751647",
@@ -78,9 +74,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 }
 
 func TestVK_NotesGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.NotesGet(map[string]string{
 		"user_id": "66748",
@@ -91,9 +85,7 @@ func TestVK_NotesGet(t *testing.T) {
 }
 
 func TestVK_NotesGetByID(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.NotesGetByID(map[string]string{
 		"note_id":   "11582572",
@@ -106,9 +98,7 @@ func TestVK_NotesGetByID(t *testing.T) {
 }
 
 func TestVK_NotesGetComments(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.NotesGetComments(map[string]string{
 		"note_id":  "11582572",

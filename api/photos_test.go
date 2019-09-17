@@ -6,9 +6,7 @@ import (
 )
 
 func TestVK_PhotosConfirmTag(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosConfirmTag(map[string]string{
 		"photo_id": "1234",
@@ -20,9 +18,7 @@ func TestVK_PhotosConfirmTag(t *testing.T) {
 }
 
 func TestVK_PhotosCopy(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosCopy(map[string]string{
 		"owner_id": "1",
@@ -34,9 +30,7 @@ func TestVK_PhotosCopy(t *testing.T) {
 }
 
 func TestVK_PhotosCreateAlbum(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	album, err := vkUser.PhotosCreateAlbum(map[string]string{
 		"title": "TestAlbum",
@@ -62,9 +56,7 @@ func TestVK_PhotosCreateAlbum(t *testing.T) {
 }
 
 func TestVK_PhotosCreateComment(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	commentID, err := vkUser.PhotosCreateComment(map[string]string{
 		"owner_id": "233157978",
@@ -105,9 +97,7 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 // TODO: TestVK_PhotosEdit
 
 func TestVK_PhotosGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	params := map[string]string{
 		"owner_id": "-1",
@@ -126,9 +116,7 @@ func TestVK_PhotosGet(t *testing.T) {
 }
 
 func TestVK_PhotosGetAlbums(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetAlbums(map[string]string{
 		"owner_id":    "185014513",
@@ -142,9 +130,7 @@ func TestVK_PhotosGetAlbums(t *testing.T) {
 }
 
 func TestVK_PhotosGetAlbumsCount(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetAlbumsCount(map[string]string{
 		"user_id": "185014513",
@@ -155,9 +141,7 @@ func TestVK_PhotosGetAlbumsCount(t *testing.T) {
 }
 
 func TestVK_PhotosGetAll(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	params := map[string]string{
 		"owner_id":    "1",
@@ -176,9 +160,7 @@ func TestVK_PhotosGetAll(t *testing.T) {
 }
 
 func TestVK_PhotosGetAllComments(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetAllComments(map[string]string{
 		"owner_id": "66748",
@@ -189,9 +171,7 @@ func TestVK_PhotosGetAllComments(t *testing.T) {
 }
 
 func TestVK_PhotosGetByID(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	params := map[string]string{
 		"photos": "1_278184324,1_295770249",
@@ -208,9 +188,7 @@ func TestVK_PhotosGetByID(t *testing.T) {
 }
 
 func TestVK_PhotosGetChatUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetChatUploadServer(map[string]string{
 		"chat_id": "1",
@@ -221,9 +199,7 @@ func TestVK_PhotosGetChatUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetComments(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	params := map[string]string{
 		"owner_id":   "1",
@@ -243,9 +219,8 @@ func TestVK_PhotosGetComments(t *testing.T) {
 }
 
 func TestVK_PhotosGetMarketAlbumUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" || vkGroupID == 0 {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	_, err := vkUser.PhotosGetMarketAlbumUploadServer(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
@@ -256,9 +231,8 @@ func TestVK_PhotosGetMarketAlbumUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetMarketUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" || vkGroupID == 0 {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	_, err := vkUser.PhotosGetMarketUploadServer(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
@@ -269,9 +243,7 @@ func TestVK_PhotosGetMarketUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetMessagesUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetMessagesUploadServer(map[string]string{
 		"peer_id": "1",
@@ -282,9 +254,7 @@ func TestVK_PhotosGetMessagesUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetNewTags(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetNewTags(map[string]string{})
 	if err != nil {
@@ -293,9 +263,8 @@ func TestVK_PhotosGetNewTags(t *testing.T) {
 }
 
 func TestVK_PhotosGetOwnerCoverPhotoUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" || vkGroupID == 0 {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	_, err := vkUser.PhotosGetOwnerCoverPhotoUploadServer(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
@@ -306,9 +275,7 @@ func TestVK_PhotosGetOwnerCoverPhotoUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetOwnerPhotoUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetOwnerPhotoUploadServer(map[string]string{})
 	if err != nil {
@@ -317,9 +284,7 @@ func TestVK_PhotosGetOwnerPhotoUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetTags(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetTags(map[string]string{
 		"owner_id": "3420",
@@ -331,9 +296,7 @@ func TestVK_PhotosGetTags(t *testing.T) {
 }
 
 func TestVK_PhotosGetUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetUploadServer(map[string]string{
 		"group_id": "25557243",
@@ -345,9 +308,7 @@ func TestVK_PhotosGetUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetUserPhotos(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	params := map[string]string{
 		"user_id": "110794238",
@@ -365,9 +326,7 @@ func TestVK_PhotosGetUserPhotos(t *testing.T) {
 }
 
 func TestVK_PhotosGetWallUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosGetWallUploadServer(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
@@ -385,9 +344,7 @@ func TestVK_PhotosGetWallUploadServer(t *testing.T) {
 // TODO: TestVK_PhotosReorderPhotos
 
 func TestVK_PhotosReport(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosReport(map[string]string{
 		"owner_id": "66748",
@@ -399,9 +356,7 @@ func TestVK_PhotosReport(t *testing.T) {
 }
 
 func TestVK_PhotosReportComment(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosReportComment(map[string]string{
 		"owner_id":   "66748",
@@ -421,9 +376,7 @@ func TestVK_PhotosReportComment(t *testing.T) {
 // TODO: TestVK_PhotosSaveWallPhoto
 
 func TestVK_PhotosSearch(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PhotosSearch(map[string]string{
 		"q": "Nature",

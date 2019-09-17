@@ -5,9 +5,7 @@ import (
 )
 
 func TestVK_DatabaseGetChairs(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetChairs(map[string]string{
 		"faculty_id": "15",
@@ -18,9 +16,7 @@ func TestVK_DatabaseGetChairs(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCities(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetCities(map[string]string{
 		"country_id": "1",
@@ -31,9 +27,7 @@ func TestVK_DatabaseGetCities(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCitiesByID(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetCitiesByID(map[string]string{
 		"city_ids": "1,5,192",
@@ -44,9 +38,7 @@ func TestVK_DatabaseGetCitiesByID(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCountries(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetCountries(map[string]string{})
 	if err != nil {
@@ -55,9 +47,7 @@ func TestVK_DatabaseGetCountries(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCountriesByID(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetCountriesByID(map[string]string{
 		"country_ids": "1",
@@ -68,9 +58,7 @@ func TestVK_DatabaseGetCountriesByID(t *testing.T) {
 }
 
 func TestVK_DatabaseGetFaculties(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetFaculties(map[string]string{
 		"university_id": "1",
@@ -81,9 +69,7 @@ func TestVK_DatabaseGetFaculties(t *testing.T) {
 }
 
 func TestVK_DatabaseGetMetroStations(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetMetroStations(map[string]string{
 		"city_id":  "1",
@@ -95,9 +81,7 @@ func TestVK_DatabaseGetMetroStations(t *testing.T) {
 }
 
 func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetMetroStationsByID(map[string]string{
 		"station_ids": "189, 181",
@@ -108,9 +92,7 @@ func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
 }
 
 func TestVK_DatabaseGetRegions(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetRegions(map[string]string{
 		"country_id": "1",
@@ -121,9 +103,7 @@ func TestVK_DatabaseGetRegions(t *testing.T) {
 }
 
 func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetSchoolClasses(map[string]string{
 		"country_id": "1",
@@ -134,9 +114,7 @@ func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
 }
 
 func TestVK_DatabaseGetSchools(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetSchools(map[string]string{
 		"q":       "56",
@@ -148,9 +126,7 @@ func TestVK_DatabaseGetSchools(t *testing.T) {
 }
 
 func TestVK_DatabaseGetUniversities(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.DatabaseGetUniversities(map[string]string{
 		"q": "СПб",

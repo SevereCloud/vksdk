@@ -5,9 +5,7 @@ import (
 )
 
 func TestVK_StorageSet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.StorageSet(map[string]string{
 		"key":   "test",
@@ -19,9 +17,7 @@ func TestVK_StorageSet(t *testing.T) {
 }
 
 func TestVK_StorageGetKeys(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.StorageGetKeys(map[string]string{})
 	if err != nil {
@@ -30,9 +26,7 @@ func TestVK_StorageGetKeys(t *testing.T) {
 }
 
 func TestVK_StorageGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.StorageGet(map[string]string{
 		"key": "test",

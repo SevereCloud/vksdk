@@ -5,9 +5,7 @@ import (
 )
 
 func TestVK_StatusGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.StatusGet(map[string]string{})
 	if err != nil {
@@ -16,9 +14,7 @@ func TestVK_StatusGet(t *testing.T) {
 }
 
 func TestVK_StatusSet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.StatusSet(map[string]string{
 		"text": "Hello world",

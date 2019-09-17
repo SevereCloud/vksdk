@@ -7,9 +7,7 @@ import (
 )
 
 func TestVK_UsersGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.UsersGet(map[string]string{
 		"user_ids": "1",
@@ -21,9 +19,7 @@ func TestVK_UsersGet(t *testing.T) {
 }
 
 func TestVK_UsersGetFollowers(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.UsersGetFollowers(map[string]string{
 		"user_id": "1",
@@ -41,9 +37,7 @@ func TestVK_UsersGetFollowers(t *testing.T) {
 }
 
 func TestVK_UsersGetSubscriptions(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.UsersGetSubscriptions(map[string]string{
 		"user_id": "117253521",
@@ -54,9 +48,7 @@ func TestVK_UsersGetSubscriptions(t *testing.T) {
 }
 
 func TestVK_UsersIsAppUser(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.UsersIsAppUser(map[string]string{
 		"user_id": "1",
@@ -67,9 +59,7 @@ func TestVK_UsersIsAppUser(t *testing.T) {
 }
 
 func TestVK_UsersReport(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.UsersReport(map[string]string{
 		"user_id": "1",
@@ -85,9 +75,7 @@ func TestVK_UsersReport(t *testing.T) {
 }
 
 func TestVK_UsersSearch(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.UsersSearch(map[string]string{
 		"q":      "Vasya Babich",

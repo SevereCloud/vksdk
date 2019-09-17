@@ -5,9 +5,7 @@ import (
 )
 
 func TestVK_AppsDeleteAppRequests(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.AppsDeleteAppRequests(map[string]string{})
 	if err != nil {
@@ -16,9 +14,7 @@ func TestVK_AppsDeleteAppRequests(t *testing.T) {
 }
 
 func TestVK_AppsGet(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.AppsGet(map[string]string{
 		"app_id":   "4063926",
@@ -30,9 +26,7 @@ func TestVK_AppsGet(t *testing.T) {
 }
 
 func TestVK_AppsGetCatalog(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.AppsGetCatalog(map[string]string{})
 	if err != nil {
@@ -41,9 +35,7 @@ func TestVK_AppsGetCatalog(t *testing.T) {
 }
 
 func TestVK_AppsGetFriendsList(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.AppsGetFriendsList(map[string]string{})
 	if err != nil {
@@ -59,9 +51,7 @@ func TestVK_AppsGetFriendsList(t *testing.T) {
 // TODO: TestVK_AppsGetLeaderboard
 
 func TestVK_AppsGetScopes(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.AppsGetScopes(map[string]string{})
 	if err != nil {

@@ -6,9 +6,7 @@ import (
 )
 
 func TestVK_OrdersCancelSubscription(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name         string
@@ -36,9 +34,7 @@ func TestVK_OrdersCancelSubscription(t *testing.T) {
 }
 
 func TestVK_OrdersChangeState(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name         string
@@ -66,9 +62,7 @@ func TestVK_OrdersChangeState(t *testing.T) {
 }
 
 func TestVK_OrdersGet(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name         string
@@ -96,9 +90,7 @@ func TestVK_OrdersGet(t *testing.T) {
 }
 
 func TestVK_OrdersGetAmount(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	tests := []struct {
 		name         string
@@ -122,9 +114,7 @@ func TestVK_OrdersGetAmount(t *testing.T) {
 }
 
 func TestVK_OrdersGetByID(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name         string
@@ -152,9 +142,7 @@ func TestVK_OrdersGetByID(t *testing.T) {
 }
 
 func TestVK_OrdersGetUserSubscriptionByID(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name         string
@@ -182,9 +170,7 @@ func TestVK_OrdersGetUserSubscriptionByID(t *testing.T) {
 }
 
 func TestVK_OrdersGetUserSubscriptions(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name         string
@@ -212,9 +198,7 @@ func TestVK_OrdersGetUserSubscriptions(t *testing.T) {
 }
 
 func TestVK_OrdersUpdateSubscription(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name         string

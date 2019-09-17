@@ -7,9 +7,7 @@ import (
 )
 
 func TestVK_PollsCreate(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	poll, err := vkUser.PollsCreate(map[string]string{
 		"question":    "question",
@@ -47,9 +45,7 @@ func TestVK_PollsCreate(t *testing.T) {
 }
 
 func TestVK_PollsGetBackgrounds(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PollsGetBackgrounds(map[string]string{})
 	if err != nil {
@@ -58,9 +54,7 @@ func TestVK_PollsGetBackgrounds(t *testing.T) {
 }
 
 func TestVK_PollsGetByID(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 	f := func(params map[string]string) {
 		t.Helper()
 		_, err := vkUser.PollsGetByID(params)
@@ -80,9 +74,7 @@ func TestVK_PollsGetByID(t *testing.T) {
 }
 
 func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PollsGetPhotoUploadServer(map[string]string{})
 	if err != nil {
@@ -91,9 +83,7 @@ func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
 }
 
 func TestVK_PollsGetVoters(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PollsGetVoters(map[string]string{
 		"owner_id":   "-169097025",
@@ -106,9 +96,7 @@ func TestVK_PollsGetVoters(t *testing.T) {
 }
 
 func TestVK_PollsGetVotersFields(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.PollsGetVotersFields(map[string]string{
 		"owner_id":   "-169097025",

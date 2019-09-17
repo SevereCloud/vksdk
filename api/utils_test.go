@@ -5,9 +5,7 @@ import (
 )
 
 func TestVK_UtilsCheckLink(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.UtilsCheckLink(map[string]string{
 		"url": "http://google.ru",
@@ -18,9 +16,7 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 }
 
 func TestVK_UtilsGetShortLink(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	shortLink, err := vkUser.UtilsGetShortLink(map[string]string{
 		"url":     "http://google.ru",
@@ -44,9 +40,7 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 }
 
 func TestVK_UtilsGetLinkStats(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	params := map[string]string{
 		"key":             "8TDuIz",
@@ -66,9 +60,7 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 }
 
 func TestVK_UtilsGetServerTime(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	_, err := vkGroup.UtilsGetServerTime(map[string]string{})
 	if err != nil {
@@ -77,9 +69,7 @@ func TestVK_UtilsGetServerTime(t *testing.T) {
 }
 
 func TestVK_UtilsResolveScreenName(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	f := func(name string) {
 		t.Helper()

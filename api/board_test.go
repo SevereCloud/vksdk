@@ -6,9 +6,7 @@ import (
 )
 
 func TestVK_BoardAddTopic(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	topic, err := vkUser.BoardAddTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
@@ -108,9 +106,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 }
 
 func TestVK_BoardGetComments(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	params := map[string]string{
 		"group_id": "1",
@@ -129,9 +125,7 @@ func TestVK_BoardGetComments(t *testing.T) {
 }
 
 func TestVK_BoardGetTopics(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	params := map[string]string{
 		"group_id": "1",

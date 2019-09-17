@@ -7,9 +7,7 @@ import (
 )
 
 func TestVK_GiftsGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.GiftsGet(map[string]string{
 		"user_id": "1",
@@ -21,9 +19,7 @@ func TestVK_GiftsGet(t *testing.T) {
 }
 
 func TestVK_GiftsGetCatalog(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.GiftsGetCatalog(map[string]string{})
 	// NOTE: Access denied: method allowed only for official app

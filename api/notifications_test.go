@@ -5,9 +5,7 @@ import (
 )
 
 func TestVK_NotificationsGet(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.NotificationsGet(map[string]string{
 		"count": "30",
@@ -18,9 +16,7 @@ func TestVK_NotificationsGet(t *testing.T) {
 }
 
 func TestVK_NotificationsMarkAsViewed(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.NotificationsMarkAsViewed(map[string]string{})
 	if err != nil {

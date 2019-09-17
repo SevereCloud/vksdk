@@ -7,9 +7,7 @@ import (
 )
 
 func TestVK_WallPost(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	post, err := vkUser.WallPost(map[string]string{
 		"message": "Test post",
@@ -73,9 +71,7 @@ func TestVK_WallPost(t *testing.T) {
 }
 
 func TestVK_WallGet(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	params := map[string]string{
 		"owner_id": "-86529522",
@@ -94,9 +90,7 @@ func TestVK_WallGet(t *testing.T) {
 }
 
 func TestVK_WallGetByID(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	params := map[string]string{
 		"posts": "-1_340393",
@@ -116,9 +110,7 @@ func TestVK_WallGetByID(t *testing.T) {
 func TestVK_WallGetComment(t *testing.T) {
 	// BUG(VK): https://github.com/SevereCloud/vksdk/issues/55
 	t.Skip("BUG")
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	params := map[string]string{
 		"owner_id":   "66559",
@@ -137,9 +129,7 @@ func TestVK_WallGetComment(t *testing.T) {
 }
 
 func TestVK_WallGetComments(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	params := map[string]string{
 		"owner_id":           "85635407",
@@ -161,9 +151,7 @@ func TestVK_WallGetComments(t *testing.T) {
 }
 
 func TestVK_WallGetReposts(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	_, err := vkService.WallGetReposts(map[string]string{
 		"owner_id": "1",
@@ -176,9 +164,7 @@ func TestVK_WallGetReposts(t *testing.T) {
 }
 
 func TestVK_WallCreateComment(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	comment, err := vkUser.WallCreateComment(map[string]string{
 		"owner_id": "117253521",
@@ -216,9 +202,8 @@ func TestVK_WallCreateComment(t *testing.T) {
 }
 
 func TestVK_WallPostAdsStealth(t *testing.T) {
-	if vkUser.AccessToken == "" || vkGroupID == 0 {
-		t.Skip("USER_TOKEN empty or GroupID not found")
-	}
+	needUserToken(t)
+	needGroupToken(t)
 
 	post, err := vkUser.WallPostAdsStealth(map[string]string{
 		"owner_id": strconv.Itoa(-vkGroupID),
@@ -239,9 +224,7 @@ func TestVK_WallPostAdsStealth(t *testing.T) {
 }
 
 func TestVK_WallReportComment(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.WallReportComment(map[string]string{
 		"owner_id":   "66748",
@@ -254,9 +237,7 @@ func TestVK_WallReportComment(t *testing.T) {
 }
 
 func TestVK_WallReportPost(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.WallReportPost(map[string]string{
 		"owner_id": "66748",
@@ -269,9 +250,7 @@ func TestVK_WallReportPost(t *testing.T) {
 }
 
 func TestVK_WallRepost(t *testing.T) {
-	if vkUser.AccessToken == "" {
-		t.Skip("USER_TOKEN empty")
-	}
+	needUserToken(t)
 
 	_, err := vkUser.WallRepost(map[string]string{
 		"object": "wall85635407_3133",
@@ -282,9 +261,7 @@ func TestVK_WallRepost(t *testing.T) {
 }
 
 func TestVK_WallSearch(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	params := map[string]string{
 		"owner_id": "6",

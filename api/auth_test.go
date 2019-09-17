@@ -6,9 +6,10 @@ import (
 )
 
 func TestVK_AuthCheckPhone(t *testing.T) {
+	needServiceToken(t)
 	clientSecret := os.Getenv("CLIENT_SECRET")
 	clientID := os.Getenv("CLIENT_ID")
-	if vkService.AccessToken == "" || clientSecret == "" || clientID == "" {
+	if clientSecret == "" || clientID == "" {
 		t.Skip("need params")
 	}
 

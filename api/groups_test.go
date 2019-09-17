@@ -7,9 +7,7 @@ import (
 )
 
 func TestVK_GroupsAddCallbackServer(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -37,9 +35,7 @@ func TestVK_GroupsAddCallbackServer(t *testing.T) {
 }
 
 func TestVK_GroupsDeleteAddress(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -62,9 +58,7 @@ func TestVK_GroupsDeleteAddress(t *testing.T) {
 }
 
 func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -87,9 +81,7 @@ func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
 }
 
 func TestVK_GroupsEditCallbackServer(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -111,9 +103,7 @@ func TestVK_GroupsEditCallbackServer(t *testing.T) {
 	}
 }
 func TestVK_GroupsEnableOnline(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -141,9 +131,7 @@ func TestVK_GroupsEnableOnline(t *testing.T) {
 }
 
 func TestVK_GroupsDisableOnline(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -170,9 +158,7 @@ func TestVK_GroupsDisableOnline(t *testing.T) {
 	}
 }
 func TestVK_GroupsGetBanned(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -196,9 +182,7 @@ func TestVK_GroupsGetBanned(t *testing.T) {
 }
 
 func TestVK_GroupsGetByID(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name      string
@@ -231,9 +215,7 @@ func TestVK_GroupsGetByID(t *testing.T) {
 }
 
 func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -263,9 +245,7 @@ func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
 }
 
 func TestVK_GroupsGetCallbackServers(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -297,9 +277,7 @@ func TestVK_GroupsGetCallbackServers(t *testing.T) {
 }
 
 func TestVK_GroupsGetCallbackSettings(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -322,9 +300,7 @@ func TestVK_GroupsGetCallbackSettings(t *testing.T) {
 }
 
 func TestVK_GroupsGetLongPollServer(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -353,9 +329,7 @@ func TestVK_GroupsGetLongPollServer(t *testing.T) {
 }
 
 func TestVK_GroupsGetLongPollSettings(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -384,9 +358,7 @@ func TestVK_GroupsGetLongPollSettings(t *testing.T) {
 }
 
 func TestVK_GroupsGetMembers(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 	tests := []struct {
 		name         string
 		argParams    map[string]string
@@ -409,9 +381,7 @@ func TestVK_GroupsGetMembers(t *testing.T) {
 }
 
 func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -435,9 +405,7 @@ func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
 }
 
 func TestVK_GroupsGetOnlineStatus(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -473,9 +441,7 @@ func TestVK_GroupsGetOnlineStatus(t *testing.T) {
 }
 
 func TestVK_GroupsGetTokenPermissions(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 	t.Run("GroupsGetTokenPermissions", func(t *testing.T) {
 		gotResponse, err := vkGroup.GroupsGetTokenPermissions(map[string]string{})
 		if gotResponse.Mask == 0 {
@@ -489,9 +455,7 @@ func TestVK_GroupsGetTokenPermissions(t *testing.T) {
 }
 
 func TestVK_GroupsSetCallbackSettings(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -513,9 +477,7 @@ func TestVK_GroupsSetCallbackSettings(t *testing.T) {
 }
 
 func TestVK_GroupsSetLongPollSettings(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 	tests := []struct {
 		name      string
 		argParams map[string]string
@@ -543,9 +505,7 @@ func TestVK_GroupsSetLongPollSettings(t *testing.T) {
 }
 
 func TestVK_GroupsGetAddresses(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name         string
@@ -573,9 +533,7 @@ func TestVK_GroupsGetAddresses(t *testing.T) {
 }
 
 func TestVK_GroupsEditAddress(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -603,9 +561,7 @@ func TestVK_GroupsEditAddress(t *testing.T) {
 }
 
 func TestVK_GroupsAddAddress(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -633,9 +589,7 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 }
 
 func TestVK_GroupsIsMember(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -671,9 +625,7 @@ func TestVK_GroupsIsMember(t *testing.T) {
 }
 
 func TestVK_GroupsIsMemberExtended(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -712,9 +664,7 @@ func TestVK_GroupsIsMemberExtended(t *testing.T) {
 }
 
 func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -756,9 +706,7 @@ func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 }
 
 func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string

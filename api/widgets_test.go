@@ -6,9 +6,7 @@ import (
 )
 
 func TestVK_WidgetsGetComments(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name         string
@@ -36,9 +34,7 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 }
 
 func TestVK_WidgetsGetPages(t *testing.T) {
-	if vkService.AccessToken == "" {
-		t.Skip("SERVICE_TOKEN empty")
-	}
+	needServiceToken(t)
 
 	tests := []struct {
 		name      string

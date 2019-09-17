@@ -6,9 +6,7 @@ import (
 )
 
 func TestVK_StoriesGet(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -37,9 +35,7 @@ func TestVK_StoriesGet(t *testing.T) {
 }
 
 func TestVK_StoriesGetExtended(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -68,9 +64,7 @@ func TestVK_StoriesGetExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetBanned(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -99,9 +93,7 @@ func TestVK_StoriesGetBanned(t *testing.T) {
 }
 
 func TestVK_StoriesGetBannedExtended(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -130,9 +122,7 @@ func TestVK_StoriesGetBannedExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetByID(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -161,9 +151,7 @@ func TestVK_StoriesGetByID(t *testing.T) {
 }
 
 func TestVK_StoriesGetByIDExtended(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -192,9 +180,7 @@ func TestVK_StoriesGetByIDExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetPhotoUploadServer(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -223,9 +209,7 @@ func TestVK_StoriesGetPhotoUploadServer(t *testing.T) {
 }
 
 func TestVK_StoriesGetReplies(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -254,9 +238,7 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 }
 
 func TestVK_StoriesGetRepliesExtended(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -285,9 +267,7 @@ func TestVK_StoriesGetRepliesExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetStats(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -316,9 +296,7 @@ func TestVK_StoriesGetStats(t *testing.T) {
 }
 
 func TestVK_StoriesGetVideoUploadServer(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -347,9 +325,7 @@ func TestVK_StoriesGetVideoUploadServer(t *testing.T) {
 }
 
 func TestVK_StoriesGetViewers(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -378,9 +354,7 @@ func TestVK_StoriesGetViewers(t *testing.T) {
 }
 
 func TestVK_StoriesGetViewersExtended(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name         string
@@ -409,9 +383,7 @@ func TestVK_StoriesGetViewersExtended(t *testing.T) {
 }
 
 func TestVK_StoriesHideAllReplies(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
@@ -435,9 +407,7 @@ func TestVK_StoriesHideAllReplies(t *testing.T) {
 }
 
 func TestVK_StoriesHideReply(t *testing.T) {
-	if vkGroup.AccessToken == "" {
-		t.Skip("GROUP_TOKEN empty")
-	}
+	needGroupToken(t)
 
 	tests := []struct {
 		name      string
