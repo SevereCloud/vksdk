@@ -830,7 +830,7 @@ func (vk *VK) UploadLeadFormsPhoto(file io.Reader) (response string, err error) 
 }
 
 // UploadAppImage uploading a Image into App collection for community app widgets.
-func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.AppWidgetsAppImage, err error) {
+func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.AppWidgetsImage, err error) {
 	uploadServer, err := vk.AppWidgetsGetAppImageUploadServer(map[string]string{
 		"iamge_type": imageType,
 	})
@@ -850,6 +850,33 @@ func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.
 	}
 
 	response, err = vk.AppWidgetsSaveAppImage(map[string]string{
+		"image": handler.Image,
+		"hash":  handler.Hash,
+	})
+	return
+}
+
+// UploadGroupImage uploading a Image into Community collection for community app widgets.
+func (vk *VK) UploadGroupImage(imageType string, file io.Reader) (response object.AppWidgetsImage, err error) {
+	uploadServer, err := vk.AppWidgetsGetGroupImageUploadServer(map[string]string{
+		"iamge_type": imageType,
+	})
+	if err != nil {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
+	if err != nil {
+		return
+	}
+
+	var handler object.AppWidgetsGroupImageUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		return
+	}
+
+	response, err = vk.AppWidgetsSaveGroupImage(map[string]string{
 		"image": handler.Image,
 		"hash":  handler.Hash,
 	})

@@ -428,6 +428,20 @@ func TestVK_UploadAppImage(t *testing.T) {
 	assert.NoError(t, err)
 }
 
+func TestVK_UploadGroupImage(t *testing.T) {
+	t.Skip("Access rights required: app_widget.")
+	needGroupToken(t)
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	_, err = vkGroup.UploadGroupImage("160x160", response.Body)
+	assert.NoError(t, err)
+}
+
 func TestVK_Upload_Error(t *testing.T) {
 	vk := Init("")
 
@@ -489,5 +503,8 @@ func TestVK_Upload_Error(t *testing.T) {
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
 	_, err = vk.UploadAppImage("", new(bytes.Buffer))
+	assert.Equal(t, errors.GetType(err), errors.Auth)
+
+	_, err = vk.UploadGroupImage("", new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 }

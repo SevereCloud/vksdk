@@ -429,7 +429,22 @@ photo, err = vk.UploadLeadFormsPhoto(file)
 - 510x128
 
 ```go
-photosPhoto, vkErr = vk.UploadAppImage(imageType, file)
+image, err = vk.UploadAppImage(imageType, file)
+```
+
+#### Загрузки фотографии в коллекцию сообщества для виджетов приложений сообществ
+
+`imageType` (string) - тип изображения. 
+
+Возможные значения:
+- 24x24
+- 50x50
+- 160x160
+- 160x240
+- 510x128
+
+```go
+image, err = vk.UploadGroupAppImage(imageType, file)
 ```
 
 #### Примеры
