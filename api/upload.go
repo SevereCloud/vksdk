@@ -828,3 +828,30 @@ func (vk *VK) UploadLeadFormsPhoto(file io.Reader) (response string, err error) 
 
 	return
 }
+
+// UploadAppImage uploading a Image into App collection for community app widgets.
+func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.AppWidgetsAppImage, err error) {
+	uploadServer, err := vk.AppWidgetsGetAppImageUploadServer(map[string]string{
+		"iamge_type": imageType,
+	})
+	if err != nil {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
+	if err != nil {
+		return
+	}
+
+	var handler object.AppWidgetsAppImageUploadResponse
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		return
+	}
+
+	response, err = vk.AppWidgetsSaveAppImage(map[string]string{
+		"image": handler.Image,
+		"hash":  handler.Hash,
+	})
+	return
+}

@@ -417,6 +417,21 @@ photo, err = vk.UploadLeadFormsPhoto(file)
 
 Полученные данные можно использовать в методах [prettyCards.create](https://vk.com/dev/prettyCards.create) и [prettyCards.edit](https://vk.com/dev/prettyCards.edit).
 
+#### Загрузки фотографии в коллекцию приложения для виджетов приложений сообществ
+
+`imageType` (string) - тип изображения. 
+
+Возможные значения:
+- 24x24
+- 50x50
+- 160x160
+- 160x240
+- 510x128
+
+```go
+photosPhoto, vkErr = vk.UploadAppImage(imageType, file)
+```
+
 #### Примеры
 
 Загрузка фотографии в альбом:
