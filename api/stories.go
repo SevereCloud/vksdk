@@ -253,6 +253,42 @@ func (vk *VK) StoriesHideReply(params map[string]string) (response int, err erro
 	return
 }
 
+// StoriesSearchResponse struct
+type StoriesSearchResponse struct {
+	Count int                     `json:"count"`
+	Items [][]object.StoriesStory `json:"items"`
+}
+
+// StoriesSearch returns search results for stories.
+//
+// extended=0
+//
+// https://vk.com/dev/stories.search
+func (vk *VK) StoriesSearch(params map[string]string) (response StoriesSearchResponse, err error) {
+	params["extended"] = "0"
+	err = vk.RequestUnmarshal("stories.search", params, &response)
+	return
+}
+
+// StoriesSearchExtendedResponse struct
+type StoriesSearchExtendedResponse struct {
+	Count    int                     `json:"count"`
+	Items    [][]object.StoriesStory `json:"items"`
+	Profiles []object.UsersUser      `json:"profiles"`
+	Groups   []object.GroupsGroup    `json:"groups"`
+}
+
+// StoriesSearchExtended returns search results for stories.
+//
+// extended=1
+//
+// https://vk.com/dev/stories.search
+func (vk *VK) StoriesSearchExtended(params map[string]string) (response StoriesSearchExtendedResponse, err error) {
+	params["extended"] = "1"
+	err = vk.RequestUnmarshal("stories.search", params, &response)
+	return
+}
+
 // StoriesUnbanOwner allows to show stories from hidden sources in current user's feed.
 //
 // https://vk.com/dev/stories.unbanOwner
