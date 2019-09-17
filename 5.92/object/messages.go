@@ -354,7 +354,7 @@ type messagesPinnedMessage struct {
 	Attachments           []messagesMessageAttachment `json:"attachments"`
 	ConversationMessageID int                         `json:"conversation_message_id"` // Unique auto-incremented number for all messages with this peer
 	Date                  int                         `json:"date"`                    // Date when the message has been sent in Unixtime
-	FromID                int                         `json:"from_id"`        // Message author's ID
+	FromID                int                         `json:"from_id"`                 // Message author's ID
 	FwdMessages           *MessagesMessage            `json:"fwd_messages"`
 	Geo                   baseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`      // Message ID
