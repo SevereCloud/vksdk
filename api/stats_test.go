@@ -3,6 +3,8 @@ package api
 import (
 	"strconv"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_StatsGet(t *testing.T) {
@@ -15,16 +17,12 @@ func TestVK_StatsGet(t *testing.T) {
 		"intervals_count": "10",
 		"extended":        "1",
 	})
-	if err != nil {
-		t.Errorf("VK.StatsGet() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_StatsTrackVisitor(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.StatsTrackVisitor(map[string]string{})
-	if err != nil {
-		t.Errorf("VK.StatsTrackVisitor() err = %v", err)
-	}
+	assert.NoError(t, err)
 }

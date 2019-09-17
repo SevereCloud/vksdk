@@ -2,6 +2,8 @@ package api
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_UtilsCheckLink(t *testing.T) {
@@ -10,9 +12,7 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 	_, err := vkUser.UtilsCheckLink(map[string]string{
 		"url": "http://google.ru",
 	})
-	if err != nil {
-		t.Errorf("VK.UtilsCheckLink() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_UtilsGetShortLink(t *testing.T) {
@@ -22,21 +22,15 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 		"url":     "http://google.ru",
 		"private": "1",
 	})
-	if err != nil {
-		t.Errorf("VK.UtilsGetShortLink() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.UtilsGetLastShortenedLinks(map[string]string{})
-	if err != nil {
-		t.Errorf("VK.UtilsGetLastShortenedLinks() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.UtilsDeleteFromLastShortened(map[string]string{
 		"key": shortLink.Key,
 	})
-	if err != nil {
-		t.Errorf("VK.UtilsDeleteFromLastShortened() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_UtilsGetLinkStats(t *testing.T) {
@@ -49,23 +43,17 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 	}
 
 	_, err := vkGroup.UtilsGetLinkStats(params)
-	if err != nil {
-		t.Errorf("VK.UtilsGetLinkStats() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkGroup.UtilsGetLinkStatsExtended(params)
-	if err != nil {
-		t.Errorf("VK.UtilsGetLinkStats() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_UtilsGetServerTime(t *testing.T) {
 	needGroupToken(t)
 
 	_, err := vkGroup.UtilsGetServerTime(map[string]string{})
-	if err != nil {
-		t.Errorf("VK.UtilsGetServerTime() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_UtilsResolveScreenName(t *testing.T) {

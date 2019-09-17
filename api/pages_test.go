@@ -3,6 +3,8 @@ package api
 import (
 	"strconv"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_PagesClearCache(t *testing.T) {
@@ -11,9 +13,7 @@ func TestVK_PagesClearCache(t *testing.T) {
 	_, err := vkService.PagesClearCache(map[string]string{
 		"url": "https://ya.ru",
 	})
-	if err != nil {
-		t.Errorf("VK.PagesClearCache() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_PagesGet(t *testing.T) {
@@ -24,9 +24,7 @@ func TestVK_PagesGet(t *testing.T) {
 		"page_id":   "51298167",
 		"need_html": "1",
 	})
-	if err != nil {
-		t.Errorf("VK.PagesGet() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_PagesSave(t *testing.T) {
@@ -38,25 +36,19 @@ func TestVK_PagesSave(t *testing.T) {
 		"title":    "Test",
 		"text":     "Test text",
 	})
-	if err != nil {
-		t.Errorf("VK.PagesSave() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	history, err := vkUser.PagesGetHistory(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"page_id":  strconv.Itoa(page),
 	})
-	if err != nil {
-		t.Errorf("VK.PagesGetHistory() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.PagesGetVersion(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
 		"version_id": strconv.Itoa(history[0].ID),
 	})
-	if err != nil {
-		t.Errorf("VK.PagesGetVersion() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.PagesSaveAccess(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
@@ -64,9 +56,7 @@ func TestVK_PagesSave(t *testing.T) {
 		"view":     "0",
 		"edit":     "0",
 	})
-	if err != nil {
-		t.Errorf("VK.PagesSaveAccess() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_PagesGetTitles(t *testing.T) {
@@ -75,9 +65,7 @@ func TestVK_PagesGetTitles(t *testing.T) {
 	_, err := vkUser.PagesGetTitles(map[string]string{
 		"group_id": "87938575",
 	})
-	if err != nil {
-		t.Errorf("VK.PagesGetTitles() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_PagesParseWiki(t *testing.T) {
@@ -87,7 +75,5 @@ func TestVK_PagesParseWiki(t *testing.T) {
 		"text":     `[[photo-37273781_295853750|nolink;| ]]`,
 		"group_id": "37273781",
 	})
-	if err != nil {
-		t.Errorf("VK.PagesParseWiki() err = %v", err)
-	}
+	assert.NoError(t, err)
 }

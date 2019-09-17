@@ -3,6 +3,8 @@ package api
 import (
 	"strconv"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_BoardAddTopic(t *testing.T) {
@@ -13,25 +15,19 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		"title":    "Test topic",
 		"text":     "Test",
 	})
-	if err != nil {
-		t.Errorf("VK.BoardAddTopic() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardCloseTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if err != nil {
-		t.Errorf("VK.BoardCloseTopic() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardOpenTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if err != nil {
-		t.Errorf("VK.BoardOpenTopic() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardEditTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
@@ -39,34 +35,26 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		"title":    "Test topic edited",
 		"text":     "Test edited",
 	})
-	if err != nil {
-		t.Errorf("VK.BoardEditTopic() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardFixTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if err != nil {
-		t.Errorf("VK.BoardFixTopic() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardUnfixTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if err != nil {
-		t.Errorf("VK.BoardUnfixTopic() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	comment, err := vkUser.BoardCreateComment(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 		"message":  "topic comment",
 	})
-	if err != nil {
-		t.Errorf("VK.BoardCreateComment() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardEditComment(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
@@ -74,35 +62,27 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		"comment_id": strconv.Itoa(comment),
 		"message":    "topic comment",
 	})
-	if err != nil {
-		t.Errorf("VK.BoardEditComment() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardDeleteComment(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
 		"topic_id":   strconv.Itoa(topic),
 		"comment_id": strconv.Itoa(comment),
 	})
-	if err != nil {
-		t.Errorf("VK.BoardDeleteComment() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardRestoreComment(map[string]string{
 		"group_id":   strconv.Itoa(vkGroupID),
 		"topic_id":   strconv.Itoa(topic),
 		"comment_id": strconv.Itoa(comment),
 	})
-	if err != nil {
-		t.Errorf("VK.BoardRestoreComment() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardDeleteTopic(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 		"topic_id": strconv.Itoa(topic),
 	})
-	if err != nil {
-		t.Errorf("VK.BoardDeleteTopic() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_BoardGetComments(t *testing.T) {
@@ -114,14 +94,10 @@ func TestVK_BoardGetComments(t *testing.T) {
 	}
 
 	_, err := vkUser.BoardGetComments(params)
-	if err != nil {
-		t.Errorf("VK.BoardGetComments() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardGetCommentsExtended(params)
-	if err != nil {
-		t.Errorf("VK.BoardGetCommentsExtended() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_BoardGetTopics(t *testing.T) {
@@ -133,12 +109,8 @@ func TestVK_BoardGetTopics(t *testing.T) {
 	}
 
 	_, err := vkUser.BoardGetTopics(params)
-	if err != nil {
-		t.Errorf("VK.BoardGetTopics() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.BoardGetTopicsExtended(params)
-	if err != nil {
-		t.Errorf("VK.BoardGetTopicsExtended() err = %v", err)
-	}
+	assert.NoError(t, err)
 }

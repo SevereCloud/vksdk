@@ -2,6 +2,8 @@ package api
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_SearchGetHints(t *testing.T) {
@@ -12,7 +14,5 @@ func TestVK_SearchGetHints(t *testing.T) {
 		"limit":         "20",
 		"search_global": "1",
 	})
-	if err != nil {
-		t.Errorf("VK.SearchGetHints() err = %v", err)
-	}
+	assert.NoError(t, err)
 }

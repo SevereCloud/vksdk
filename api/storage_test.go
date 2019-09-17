@@ -2,6 +2,8 @@ package api
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_StorageSet(t *testing.T) {
@@ -11,18 +13,14 @@ func TestVK_StorageSet(t *testing.T) {
 		"key":   "test",
 		"value": "Hello",
 	})
-	if err != nil {
-		t.Errorf("VK.StorageSet() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_StorageGetKeys(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.StorageGetKeys(map[string]string{})
-	if err != nil {
-		t.Errorf("VK.StorageGetKeys() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_StorageGet(t *testing.T) {
@@ -31,7 +29,5 @@ func TestVK_StorageGet(t *testing.T) {
 	_, err := vkUser.StorageGet(map[string]string{
 		"key": "test",
 	})
-	if err != nil {
-		t.Errorf("VK.StorageGet() err = %v", err)
-	}
+	assert.NoError(t, err)
 }

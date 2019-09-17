@@ -3,6 +3,8 @@ package api
 import (
 	"os"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_AuthCheckPhone(t *testing.T) {
@@ -18,7 +20,5 @@ func TestVK_AuthCheckPhone(t *testing.T) {
 		"client_id":     clientID,
 		"client_secret": clientSecret,
 	})
-	if err != nil {
-		t.Errorf("VK.AuthCheckPhone() err = %v", err)
-	}
+	assert.NoError(t, err)
 }

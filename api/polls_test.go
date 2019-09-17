@@ -4,6 +4,8 @@ import (
 	"log"
 	"strconv"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_PollsCreate(t *testing.T) {
@@ -21,36 +23,28 @@ func TestVK_PollsCreate(t *testing.T) {
 		"poll_id":  strconv.Itoa(poll.ID),
 		"question": "questionEdit",
 	})
-	if err != nil {
-		t.Errorf("VK.PollsEdit() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.PollsAddVote(map[string]string{
 		"owner_id":   strconv.Itoa(poll.OwnerID),
 		"poll_id":    strconv.Itoa(poll.ID),
 		"answer_ids": strconv.Itoa(poll.Answers[0].ID),
 	})
-	if err != nil {
-		t.Errorf("VK.PollsAddVote() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.PollsDeleteVote(map[string]string{
 		"owner_id":   strconv.Itoa(poll.OwnerID),
 		"poll_id":    strconv.Itoa(poll.ID),
 		"answer_ids": strconv.Itoa(poll.Answers[0].ID),
 	})
-	if err != nil {
-		t.Errorf("VK.PollsDeleteVote() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_PollsGetBackgrounds(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.PollsGetBackgrounds(map[string]string{})
-	if err != nil {
-		t.Errorf("VK.PollsGetBackgrounds() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_PollsGetByID(t *testing.T) {
@@ -77,9 +71,7 @@ func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.PollsGetPhotoUploadServer(map[string]string{})
-	if err != nil {
-		t.Errorf("VK.PollsGetPhotoUploadServer() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_PollsGetVoters(t *testing.T) {
@@ -90,9 +82,7 @@ func TestVK_PollsGetVoters(t *testing.T) {
 		"poll_id":    "341032442",
 		"answer_ids": "1144979948, 1144979949, 1144979950",
 	})
-	if err != nil {
-		t.Errorf("VK.PollsGetVoters() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_PollsGetVotersFields(t *testing.T) {
@@ -104,9 +94,7 @@ func TestVK_PollsGetVotersFields(t *testing.T) {
 		"answer_ids": "1144979948, 1144979949, 1144979950",
 		"fields":     "nickname, screen_name, sex",
 	})
-	if err != nil {
-		t.Errorf("VK.PollsGetVotersFields() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 // TODO: TestVK_PollsSavePhoto

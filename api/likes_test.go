@@ -2,6 +2,8 @@ package api
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_LikesAdd(t *testing.T) {
@@ -12,9 +14,7 @@ func TestVK_LikesAdd(t *testing.T) {
 		"owner_id": "1",
 		"item_id":  "45546",
 	})
-	if err != nil {
-		t.Errorf("VK.LikesAdd() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_LikesDelete(t *testing.T) {
@@ -25,9 +25,7 @@ func TestVK_LikesDelete(t *testing.T) {
 		"owner_id": "1",
 		"item_id":  "45546",
 	})
-	if err != nil {
-		t.Errorf("VK.LikesDelete() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_LikesGetList(t *testing.T) {
@@ -40,14 +38,10 @@ func TestVK_LikesGetList(t *testing.T) {
 	}
 
 	_, err := vkUser.LikesGetList(params)
-	if err != nil {
-		t.Errorf("VK.LikesGetList() err = %v", err)
-	}
+	assert.NoError(t, err)
 
 	_, err = vkUser.LikesGetListExtended(params)
-	if err != nil {
-		t.Errorf("VK.LikesGetListExtended() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_LikesIsLiked(t *testing.T) {
@@ -58,7 +52,5 @@ func TestVK_LikesIsLiked(t *testing.T) {
 		"owner_id": "1",
 		"item_id":  "45546",
 	})
-	if err != nil {
-		t.Errorf("VK.LikesIsLiked() err = %v", err)
-	}
+	assert.NoError(t, err)
 }

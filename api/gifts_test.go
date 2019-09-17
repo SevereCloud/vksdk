@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/errors"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_GiftsGet(t *testing.T) {
@@ -13,9 +14,7 @@ func TestVK_GiftsGet(t *testing.T) {
 		"user_id": "1",
 		"count":   "20",
 	})
-	if err != nil {
-		t.Errorf("VK.GiftsGet() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_GiftsGetCatalog(t *testing.T) {

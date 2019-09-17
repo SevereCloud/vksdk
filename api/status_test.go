@@ -2,15 +2,15 @@ package api
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_StatusGet(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.StatusGet(map[string]string{})
-	if err != nil {
-		t.Errorf("VK.StatusGet() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
 
 func TestVK_StatusSet(t *testing.T) {
@@ -19,7 +19,5 @@ func TestVK_StatusSet(t *testing.T) {
 	_, err := vkUser.StatusSet(map[string]string{
 		"text": "Hello world",
 	})
-	if err != nil {
-		t.Errorf("VK.StatusSet() err = %v", err)
-	}
+	assert.NoError(t, err)
 }
