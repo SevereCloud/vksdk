@@ -87,10 +87,9 @@ func (vk *VK) MessagesEditChat(params map[string]string) (response int, err erro
 
 // MessagesGetByConversationMessageIDResponse struct
 type MessagesGetByConversationMessageIDResponse struct {
-	Count    int                      `json:"count"`
-	Items    []object.MessagesMessage `json:"items"`
-	Profiles []object.UsersUser       `json:"profiles"`
-	Groups   []object.GroupsGroup     `json:"groups"`
+	Count int                      `json:"count"`
+	Items []object.MessagesMessage `json:"items"`
+	object.ExtendedResponse
 }
 
 // MessagesGetByConversationMessageID messages.getByConversationMessageId
@@ -120,10 +119,9 @@ func (vk *VK) MessagesGetByID(params map[string]string) (response MessagesGetByI
 
 // MessagesGetByIDExtendedResponse struct
 type MessagesGetByIDExtendedResponse struct {
-	Count    int                      `json:"count"`
-	Items    []object.MessagesMessage `json:"items"`
-	Profiles []object.UsersUser       `json:"profiles"`
-	Groups   []object.GroupsGroup     `json:"groups"`
+	Count int                      `json:"count"`
+	Items []object.MessagesMessage `json:"items"`
+	object.ExtendedResponse
 }
 
 // MessagesGetByIDExtended returns messages by their IDs.
@@ -161,9 +159,8 @@ func (vk *VK) MessagesGetChatChatIDs(params map[string]string) (response Message
 
 // MessagesGetChatPreviewResponse struct
 type MessagesGetChatPreviewResponse struct {
-	Preview  object.MessagesChat  `json:"preview"`
-	Profiles []object.UsersUser   `json:"profiles"`
-	Groups   []object.GroupsGroup `json:"groups"`
+	Preview object.MessagesChat `json:"preview"`
+	object.ExtendedResponse
 }
 
 // MessagesGetChatPreview allows to receive chat preview by the invitation link.
@@ -191,8 +188,7 @@ type MessagesGetConversationMembersResponse struct {
 		OnlyAdminsEditInfo bool `json:"only_admins_edit_info"`
 		AdminsPromoteUsers bool `json:"admins_promote_users"`
 	} `json:"chat_restrictions"`
-	Profiles []object.UsersUser   `json:"profiles"`
-	Groups   []object.GroupsGroup `json:"groups"`
+	object.ExtendedResponse
 }
 
 // MessagesGetConversationMembers Returns a list of IDs of users participating in a conversation.
@@ -240,10 +236,9 @@ func (vk *VK) MessagesGetConversationsByID(params map[string]string) (response M
 
 // MessagesGetConversationsByIDExtendedResponse struct
 type MessagesGetConversationsByIDExtendedResponse struct {
-	Count    int                           `json:"count"`
-	Items    []object.MessagesConversation `json:"items"`
-	Profiles []object.UsersUser            `json:"profiles"`
-	Groups   []object.GroupsGroup          `json:"groups"`
+	Count int                           `json:"count"`
+	Items []object.MessagesConversation `json:"items"`
+	object.ExtendedResponse
 }
 
 // MessagesGetConversationsByIDExtended returns conversations by their IDs.
@@ -472,10 +467,9 @@ func (vk *VK) MessagesSearch(params map[string]string) (response MessagesSearchR
 
 // MessagesSearchConversationsResponse struct
 type MessagesSearchConversationsResponse struct {
-	Count    int                           `json:"count"`
-	Items    []object.MessagesConversation `json:"items"`
-	Profiles []object.UsersUser            `json:"profiles"`
-	Groups   []object.GroupsGroup          `json:"groups"`
+	Count int                           `json:"count"`
+	Items []object.MessagesConversation `json:"items"`
+	object.ExtendedResponse
 }
 
 // MessagesSearchConversations returns a list of conversations that match search criteria.

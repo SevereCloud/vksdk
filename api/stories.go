@@ -37,10 +37,9 @@ func (vk *VK) StoriesGet(params map[string]string) (response StoriesGetResponse,
 
 // StoriesGetExtendedResponse struct
 type StoriesGetExtendedResponse struct {
-	Count    int                   `json:"count"`
-	Items    []object.StoriesStory `json:"items"`
-	Profiles []object.UsersUser    `json:"profiles"`
-	Groups   []object.GroupsGroup  `json:"groups"`
+	Count int                   `json:"count"`
+	Items []object.StoriesStory `json:"items"`
+	object.ExtendedResponse
 }
 
 // StoriesGetExtended returns stories available for current user.
@@ -73,10 +72,9 @@ func (vk *VK) StoriesGetBanned(params map[string]string) (response StoriesGetBan
 
 // StoriesGetBannedExtendedResponse struct
 type StoriesGetBannedExtendedResponse struct {
-	Count    int                  `json:"count"`
-	Items    []int                `json:"items"`
-	Profiles []object.UsersUser   `json:"profiles"`
-	Groups   []object.GroupsGroup `json:"groups"`
+	Count int   `json:"count"`
+	Items []int `json:"items"`
+	object.ExtendedResponse
 }
 
 // StoriesGetBannedExtended returns list of sources hidden from current user's feed.
@@ -109,10 +107,9 @@ func (vk *VK) StoriesGetByID(params map[string]string) (response StoriesGetByIDR
 
 // StoriesGetByIDExtendedResponse struct
 type StoriesGetByIDExtendedResponse struct {
-	Count    int                   `json:"count"`
-	Items    []object.StoriesStory `json:"items"`
-	Profiles []object.UsersUser    `json:"profiles"`
-	Groups   []object.GroupsGroup  `json:"groups"`
+	Count int                   `json:"count"`
+	Items []object.StoriesStory `json:"items"`
+	object.ExtendedResponse
 }
 
 // StoriesGetByIDExtended returns story by its ID.
@@ -160,10 +157,9 @@ func (vk *VK) StoriesGetReplies(params map[string]string) (response StoriesGetRe
 
 // StoriesGetRepliesExtendedResponse struct
 type StoriesGetRepliesExtendedResponse struct {
-	Count    int                     `json:"count"`
-	Items    [][]object.StoriesStory `json:"items"`
-	Profiles []object.UsersUser      `json:"profiles"`
-	Groups   []object.GroupsGroup    `json:"groups"`
+	Count int                     `json:"count"`
+	Items [][]object.StoriesStory `json:"items"`
+	object.ExtendedResponse
 }
 
 // StoriesGetRepliesExtended returns replies to the story.
@@ -272,10 +268,9 @@ func (vk *VK) StoriesSearch(params map[string]string) (response StoriesSearchRes
 
 // StoriesSearchExtendedResponse struct
 type StoriesSearchExtendedResponse struct {
-	Count    int                     `json:"count"`
-	Items    [][]object.StoriesStory `json:"items"`
-	Profiles []object.UsersUser      `json:"profiles"`
-	Groups   []object.GroupsGroup    `json:"groups"`
+	Count int                     `json:"count"`
+	Items [][]object.StoriesStory `json:"items"`
+	object.ExtendedResponse
 }
 
 // StoriesSearchExtended returns search results for stories.

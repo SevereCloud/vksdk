@@ -211,3 +211,8 @@ type Error struct {
 	CaptchaImg    string             `json:"captcha_img"`
 	RequestParams []BaseRequestParam `json:"request_params"`
 }
+
+type ExtendedResponse struct {
+	Profiles []UsersUser   `json:"profiles"`
+	Groups   []GroupsGroup `json:"groups"`
+}

@@ -108,10 +108,9 @@ func (vk *VK) VideoGet(params map[string]string) (response VideoGetResponse, err
 
 // VideoGetExtendedResponse struct
 type VideoGetExtendedResponse struct {
-	Count    int                  `json:"count"`
-	Items    []object.VideoVideo  `json:"items"`
-	Profiles []object.UsersUser   `json:"profiles"`
-	Groups   []object.GroupsGroup `json:"groups"`
+	Count int                 `json:"count"`
+	Items []object.VideoVideo `json:"items"`
+	object.ExtendedResponse
 }
 
 // VideoGetExtended returns detailed information about videos.
@@ -220,10 +219,9 @@ func (vk *VK) VideoGetComments(params map[string]string) (response VideoGetComme
 
 // VideoGetCommentsExtendedResponse struct
 type VideoGetCommentsExtendedResponse struct {
-	Count    int                      `json:"count"`
-	Items    []object.WallWallComment `json:"items"`
-	Profiles []object.UsersUser       `json:"profiles"`
-	Groups   []object.GroupsGroup     `json:"groups"`
+	Count int                      `json:"count"`
+	Items []object.WallWallComment `json:"items"`
+	object.ExtendedResponse
 }
 
 // VideoGetCommentsExtended returns a list of comments on a video.
@@ -323,10 +321,9 @@ func (vk *VK) VideoSearch(params map[string]string) (response VideoSearchRespons
 
 // VideoSearchExtendedResponse struct
 type VideoSearchExtendedResponse struct {
-	Count    int                  `json:"count"`
-	Items    []object.VideoVideo  `json:"items"`
-	Profiles []object.UsersUser   `json:"profiles"`
-	Groups   []object.GroupsGroup `json:"groups"`
+	Count int                 `json:"count"`
+	Items []object.VideoVideo `json:"items"`
+	object.ExtendedResponse
 }
 
 // VideoSearchExtended returns a list of videos under the set search criterion.

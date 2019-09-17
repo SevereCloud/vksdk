@@ -89,10 +89,9 @@ func (vk *VK) WallGet(params map[string]string) (response WallGetResponse, err e
 
 // WallGetExtendedResponse struct
 type WallGetExtendedResponse struct {
-	Count    int                   `json:"count"`
-	Items    []object.WallWallpost `json:"items"`
-	Profiles []object.UsersUser    `json:"profiles"`
-	Groups   []object.GroupsGroup  `json:"groups"`
+	Count int                   `json:"count"`
+	Items []object.WallWallpost `json:"items"`
+	object.ExtendedResponse
 }
 
 // WallGetExtended returns a list of posts on a user wall or community wall.
@@ -122,9 +121,8 @@ func (vk *VK) WallGetByID(params map[string]string) (response WallGetByIDRespons
 
 // WallGetByIDExtendedResponse struct
 type WallGetByIDExtendedResponse struct {
-	Items    []object.WallWallpost `json:"items"`
-	Profiles []object.UsersUser    `json:"profiles"`
-	Groups   []object.GroupsGroup  `json:"groups"`
+	Items []object.WallWallpost `json:"items"`
+	object.ExtendedResponse
 }
 
 // WallGetByIDExtended returns a list of posts from user or community walls by their IDs.
@@ -201,10 +199,9 @@ func (vk *VK) WallGetComments(params map[string]string) (response WallGetComment
 
 // WallGetCommentsExtendedResponse struct
 type WallGetCommentsExtendedResponse struct {
-	Count    int                      `json:"count"`
-	Items    []object.WallWallComment `json:"items"`
-	Profiles []object.UsersUser       `json:"profiles"`
-	Groups   []object.GroupsGroup     `json:"groups"`
+	Count int                      `json:"count"`
+	Items []object.WallWallComment `json:"items"`
+	object.ExtendedResponse
 }
 
 // WallGetCommentsExtended returns a list of comments on a post on a user wall or community wall.
@@ -220,9 +217,8 @@ func (vk *VK) WallGetCommentsExtended(params map[string]string) (response WallGe
 
 // WallGetRepostsResponse struct
 type WallGetRepostsResponse struct {
-	Items    []object.WallWallpost `json:"items"`
-	Profiles []object.UsersUser    `json:"profiles"`
-	Groups   []object.GroupsGroup  `json:"groups"`
+	Items []object.WallWallpost `json:"items"`
+	object.ExtendedResponse
 }
 
 // WallGetReposts returns information about reposts of a post on user wall or community wall.
@@ -344,10 +340,9 @@ func (vk *VK) WallSearch(params map[string]string) (response WallSearchResponse,
 
 // WallSearchExtendedResponse struct
 type WallSearchExtendedResponse struct {
-	Count    int                   `json:"count"`
-	Items    []object.WallWallpost `json:"items"`
-	Profiles []object.UsersUser    `json:"profiles"`
-	Groups   []object.GroupsGroup  `json:"groups"`
+	Count int                   `json:"count"`
+	Items []object.WallWallpost `json:"items"`
+	object.ExtendedResponse
 }
 
 // WallSearchExtended allows to search posts on user or community walls.

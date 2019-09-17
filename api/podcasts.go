@@ -6,9 +6,8 @@ import (
 
 // PodcastsGetCatalogResponse struct
 type PodcastsGetCatalogResponse struct {
-	Items    []object.PodcastsItem `json:"items"`
-	Profiles []object.UsersUser    `json:"profiles"`
-	Groups   []object.GroupsGroup  `json:"groups"`
+	Items []object.PodcastsItem `json:"items"`
+	object.ExtendedResponse
 }
 
 // PodcastsGetCatalog
@@ -24,9 +23,8 @@ func (vk *VK) PodcastsGetCatalog(params map[string]string) (response PodcastsGet
 
 // PodcastsGetCatalogExtendedResponse struct
 type PodcastsGetCatalogExtendedResponse struct {
-	Items    []object.PodcastsItem `json:"items"`
-	Profiles []object.UsersUser    `json:"profiles"`
-	Groups   []object.GroupsGroup  `json:"groups"`
+	Items []object.PodcastsItem `json:"items"`
+	object.ExtendedResponse
 }
 
 // PodcastsGetCatalogExtended
@@ -86,8 +84,7 @@ func (vk *VK) PodcastsGetFeed(params map[string]string) (response PodcastsGetFee
 type PodcastsGetFeedExtendedResponse struct {
 	Items    []object.PodcastsEpisode `json:"items"`
 	NextFrom string                   `json:"next_from"`
-	Profiles []object.UsersUser       `json:"profiles"`
-	Groups   []object.GroupsGroup     `json:"groups"`
+	object.ExtendedResponse
 }
 
 // PodcastsGetFeedExtended
@@ -144,8 +141,7 @@ type PodcastsGetStartPageExtendedResponse struct {
 		Category object.PodcastsCategory `json:"category"`
 		Items    []object.PodcastsItem   `json:"items"`
 	} `json:"catalog"`
-	Profiles []object.UsersUser   `json:"profiles"`
-	Groups   []object.GroupsGroup `json:"groups"`
+	object.ExtendedResponse
 }
 
 // PodcastsGetStartPageExtended
