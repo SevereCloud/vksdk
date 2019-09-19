@@ -44,14 +44,16 @@ type MarketMarketItem struct {
 	ThumbPhoto   string               `json:"thumb_photo"` // URL of the preview image
 	Title        string               `json:"title"`       // Item title
 	IsFavorite   bool                 `json:"is_favorite"`
-	AlbumsIds    []int                `json:"albums_ids"`
+	AlbumsIDs    []int                `json:"albums_ids"`
 	Photos       []PhotosPhoto        `json:"photos"`
 	CanComment   int                  `json:"can_comment"`
 	CanRepost    int                  `json:"can_repost"`
 	Likes        baseLikesInfo        `json:"likes"`
+	Reposts      baseRepostsInfo      `json:"reposts"`
 	ViewsCount   int                  `json:"views_count"`
 	URL          string               `json:"url"` // URL to item
 	ButtonTitle  string               `json:"button_title"`
+	ExternalID   string               `json:"external_id"`
 }
 
 // ToAttachment return attachment format

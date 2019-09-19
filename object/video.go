@@ -136,36 +136,36 @@ type VideoVideoAlbumFull struct {
 
 // VideoVideoFull struct
 type VideoVideoFull struct {
-	AccessKey     string          `json:"access_key"`  // Video access key
-	AddingDate    int             `json:"adding_date"` // Date when the video has been added in Unixtime
-	CanAdd        int             `json:"can_add"`     // Information whether current user can add the video
-	CanComment    int             `json:"can_comment"` // Information whether current user can comment the video
-	CanEdit       int             `json:"can_edit"`    // Information whether current user can edit the video
-	CanRepost     int             `json:"can_repost"`  // Information whether current user can comment the video
-	Comments      int             `json:"comments"`    // Number of comments
-	Date          int             `json:"date"`        // Date when video has been uploaded in Unixtime
-	Description   string          `json:"description"` // Video description
-	Duration      int             `json:"duration"`    // Video duration in seconds
-	Files         videoVideoFiles `json:"files"`
-	FirstFrame130 string          `json:"first_frame_130"` // URL of the first frame for the corresponding width.
-	FirstFrame160 string          `json:"first_frame_160"` // URL of the first frame for the corresponding width.
-	FirstFrame320 string          `json:"first_frame_320"` // URL of the first frame for the corresponding width.
-	FirstFrame800 string          `json:"first_frame_800"` // URL of the first frame for the corresponding width.
-	ID            int             `json:"id"`              // Video ID
-	Likes         baseLikes       `json:"likes"`
-	Live          int             `json:"live"`       // Returns if the video is live translation
-	OwnerID       int             `json:"owner_id"`   // Video owner ID
-	Photo130      string          `json:"photo_130"`  // URL of the preview image with 130 px in width
-	Photo320      string          `json:"photo_320"`  // URL of the preview image with 320 px in width
-	Photo800      string          `json:"photo_800"`  // URL of the preview image with 800 px in width
-	Player        string          `json:"player"`     // URL of the page with a player that can be used to play the video in the browser.
-	Processing    int             `json:"processing"` // Returns if the video is processing
-	Repeat        int             `json:"repeat"`     // Information whether the video is repeated
-	Title         string          `json:"title"`      // Video title
-	Views         int             `json:"views"`      // Number of views
-	Width         int             `json:"width"`
-	Height        int             `json:"height"`
-	Image         []struct {
+	AccessKey   string          `json:"access_key"`  // Video access key
+	AddingDate  int             `json:"adding_date"` // Date when the video has been added in Unixtime
+	CanAdd      int             `json:"can_add"`     // Information whether current user can add the video
+	CanComment  int             `json:"can_comment"` // Information whether current user can comment the video
+	CanEdit     int             `json:"can_edit"`    // Information whether current user can edit the video
+	CanRepost   int             `json:"can_repost"`  // Information whether current user can comment the video
+	Comments    int             `json:"comments"`    // Number of comments
+	Date        int             `json:"date"`        // Date when video has been uploaded in Unixtime
+	Description string          `json:"description"` // Video description
+	Duration    int             `json:"duration"`    // Video duration in seconds
+	Files       videoVideoFiles `json:"files"`
+	// FirstFrame130 string          `json:"first_frame_130"` // URL of the first frame for the corresponding width.
+	// FirstFrame160 string          `json:"first_frame_160"` // URL of the first frame for the corresponding width.
+	// FirstFrame320 string          `json:"first_frame_320"` // URL of the first frame for the corresponding width.
+	// FirstFrame800 string          `json:"first_frame_800"` // URL of the first frame for the corresponding width.
+	ID      int       `json:"id"` // Video ID
+	Likes   baseLikes `json:"likes"`
+	Live    int       `json:"live"`     // Returns if the video is live translation
+	OwnerID int       `json:"owner_id"` // Video owner ID
+	// Photo130      string          `json:"photo_130"`  // URL of the preview image with 130 px in width
+	// Photo320      string          `json:"photo_320"`  // URL of the preview image with 320 px in width
+	// Photo800      string          `json:"photo_800"`  // URL of the preview image with 800 px in width
+	Player     string `json:"player"`     // URL of the page with a player that can be used to play the video in the browser.
+	Processing int    `json:"processing"` // Returns if the video is processing
+	Repeat     int    `json:"repeat"`     // Information whether the video is repeated
+	Title      string `json:"title"`      // Video title
+	Views      int    `json:"views"`      // Number of views
+	Width      int    `json:"width"`
+	Height     int    `json:"height"`
+	Image      []struct {
 		Height      int    `json:"height"`
 		URL         string `json:"url"`
 		Width       int    `json:"width"`

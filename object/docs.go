@@ -32,7 +32,14 @@ type docsDocPreview struct {
 }
 
 type docsDocPreviewPhoto struct {
-	Sizes []photosPhotoSizes `json:"sizes"`
+	Sizes []docsDocPreviewPhotoSizes `json:"sizes"`
+}
+
+type docsDocPreviewPhotoSizes struct {
+	Height int    `json:"height"` // Height in px
+	Src    string `json:"src"`    // URL of the image
+	Type   string `json:"type"`
+	Width  int    `json:"width"` // Width in px
 }
 
 type docsDocPreviewGraffiti struct {
@@ -42,10 +49,10 @@ type docsDocPreviewGraffiti struct {
 }
 
 type docsDocPreviewVideo struct {
-	Filesize int    `json:"filesize"` // Video file size in bites
-	Height   int    `json:"height"`   // Video's height in pixels
-	Src      string `json:"src"`      // Video URL
-	Width    int    `json:"width"`    // Video's width in pixels
+	FileSize int    `json:"file_size"` // Video file size in bites
+	Height   int    `json:"height"`    // Video's height in pixels
+	Src      string `json:"src"`       // Video URL
+	Width    int    `json:"width"`     // Video's width in pixels
 }
 
 type docsDocPreviewAudioMessage struct {
@@ -59,7 +66,7 @@ type docsDocPreviewAudioMessage struct {
 type DocsDocTypes struct {
 	Count int    `json:"count"` // Number of docs
 	ID    int    `json:"id"`    // Doc type ID
-	Title string `json:"title"` // Doc type title
+	Name  string `json:"name"`  // Doc type title
 }
 
 // DocsDocUploadResponse struct

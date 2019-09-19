@@ -87,12 +87,21 @@ type UsersUser struct {
 	Counters               usersUserCounters `json:"counters"`
 	Contacts               usersContacts     `json:"contacts"`
 	FoundWith              int               `json:"found_with"` // TODO: check it
+	OnlineInfo             UsersOnlineInfo   `json:"online_info"`
 	// TODO: education
 }
 
 // ToMention return mention
 func (user UsersUser) ToMention() string {
 	return fmt.Sprintf("[id%d|%s %s]", user.ID, user.FirstName, user.LastName)
+}
+
+// UsersOnlineInfo struct
+type UsersOnlineInfo struct {
+	AppID    int  `json:"app_id"`
+	Visible  bool `json:"visible"`
+	IsOnline bool `json:"is_online"`
+	IsMobile bool `json:"is_mobile"`
 }
 
 // UsersUserMin struct

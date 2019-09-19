@@ -15,15 +15,16 @@ type BoardTopic struct {
 
 // BoardTopicComment struct
 type BoardTopicComment struct {
-	Attachments  []wallCommentAttachment `json:"attachments"`
-	Date         int                     `json:"date"`        // Date when the comment has been added in Unixtime
-	FromID       int                     `json:"from_id"`     // Author ID
-	ID           int                     `json:"id"`          // Comment ID
-	RealOffset   int                     `json:"real_offset"` // Real position of the comment
-	Text         string                  `json:"text"`        // Comment text
-	TopicID      int                     `json:"topic_id"`
-	TopicOwnerID int                     `json:"topic_owner_id"`
-	Likes        baseLikesInfo           `json:"likes"`
+	Attachments []wallCommentAttachment `json:"attachments"`
+	Date        int                     `json:"date"`    // Date when the comment has been added in Unixtime
+	FromID      int                     `json:"from_id"` // Author ID
+	ID          int                     `json:"id"`      // Comment ID
+	// RealOffset   int                     `json:"real_offset"` // Real position of the comment
+	Text string `json:"text"` // Comment text
+	// TopicID      int                     `json:"topic_id"`
+	// TopicOwnerID int                     `json:"topic_owner_id"`
+	Likes   baseLikesInfo `json:"likes"`
+	CanEdit int           `json:"can_edit"` // Information whether current user can edit the comment
 }
 
 // BoardTopicPoll struct

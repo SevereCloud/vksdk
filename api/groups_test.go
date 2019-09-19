@@ -1,747 +1,374 @@
 package api
 
 import (
-	"os"
-	"reflect"
+	"strconv"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
+
+func TestVK_GroupsAddAddress(t *testing.T) {
+	needGroupToken(t)
+
+	res, err := vkGroup.GroupsAddAddress(map[string]string{
+		"group_id":           strconv.Itoa(vkGroupID),
+		"title":              "Точка встречи parkrun",
+		"address":            "Сосновкий лесопарк",
+		"additional_address": "Парковая дорожка между футбольным полем и спортивной площадкой",
+		"country_id":         "1",
+		"city_id":            "2",
+		"metro_id":           "189",
+		"latitude":           "60.0179405118554",
+		"longitude":          "30.365817365050702",
+		"phone":              "88005553535",
+		"work_info_status":   "always_opened",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res.ID)
+	assert.NotEmpty(t, res.Title)
+	assert.NotEmpty(t, res.Address)
+	assert.NotEmpty(t, res.AdditionalAddress)
+	assert.NotEmpty(t, res.CountryID)
+	assert.NotEmpty(t, res.CityID)
+	assert.NotEmpty(t, res.MetroStationID)
+	assert.NotEmpty(t, res.Latitude)
+	assert.NotEmpty(t, res.Longitude)
+	assert.NotEmpty(t, res.WorkInfoStatus)
+	assert.NotEmpty(t, res.TimeOffset)
+	assert.NotEmpty(t, res.Phone)
+	// if assert.NotEmpty(t, res.Timetable) {
+	// 	assert.NotEmpty(t, res.Timetable.Sat.OpenTime)
+	// 	assert.NotEmpty(t, res.Timetable.Sat.CloseTime)
+	// 	assert.NotEmpty(t, res.Timetable.Sat.BreakOpenTime)
+	// 	assert.NotEmpty(t, res.Timetable.Sat.BreakCloseTime)
+	// }
+
+	res2, err := vkGroup.GroupsEditAddress(map[string]string{
+		"group_id":            strconv.Itoa(vkGroupID),
+		"address_id":          strconv.Itoa(res.ID),
+		"title":               "Точка встречи parkrun",
+		"addres2s":            "Сосновкий лесопарк",
+		"additional_addres2s": "Парковая дорожка между футбольным полем и спортивной площадкой",
+		"country_id":          "1",
+		"city_id":             "2",
+		"metro_id":            "189",
+		"latitude":            "60.0179405118554",
+		"longitude":           "30.365817365050702",
+		"phone":               "88005553535",
+		"work_info_status":    "always_opened",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res2.ID)
+	assert.NotEmpty(t, res2.Title)
+	assert.NotEmpty(t, res2.Address)
+	assert.NotEmpty(t, res2.AdditionalAddress)
+	assert.NotEmpty(t, res2.CountryID)
+	assert.NotEmpty(t, res2.CityID)
+	assert.NotEmpty(t, res2.MetroStationID)
+	assert.NotEmpty(t, res2.Latitude)
+	assert.NotEmpty(t, res2.Longitude)
+	assert.NotEmpty(t, res2.WorkInfoStatus)
+	assert.NotEmpty(t, res2.TimeOffset)
+	assert.NotEmpty(t, res2.Phone)
+	// if assert.NotEmpty(t, res2.Timetable) {
+	// 	assert.NotEmpty(t, res2.Timetable.Sat.OpenTime)
+	// 	assert.NotEmpty(t, res2.Timetable.Sat.CloseTime)
+	// 	assert.NotEmpty(t, res2.Timetable.Sat.BreakOpenTime)
+	// 	assert.NotEmpty(t, res2.Timetable.Sat.BreakCloseTime)
+	// }
+
+	res3, err := vkGroup.GroupsDeleteAddress(map[string]string{
+		"group_id":   strconv.Itoa(vkGroupID),
+		"address_id": strconv.Itoa(res.ID),
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res3)
+}
 
 func TestVK_GroupsAddCallbackServer(t *testing.T) {
 	needGroupToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsAddCallbackServerResponse
-		wantErr      bool
-	}{
-		{
-			name:    "groups.addCallbackServer error",
-			wantErr: true,
-		},
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsAddCallbackServer(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsAddCallbackServer() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsAddCallbackServer() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+	res, err := vkGroup.GroupsAddCallbackServer(map[string]string{
+		"group_id": strconv.Itoa(vkGroupID),
+		"url":      "https://example.com",
+		"title":    "test",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res.ServerID)
+
+	res2, err := vkGroup.GroupsEditCallbackServer(map[string]string{
+		"group_id":   strconv.Itoa(vkGroupID),
+		"server_id":  strconv.Itoa(res.ServerID),
+		"url":        "https://example.com",
+		"title":      "test edit",
+		"secret_key": "secret_key",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res2)
+
+	servers, err := vkGroup.GroupsGetCallbackServers(map[string]string{
+		"group_id":   strconv.Itoa(vkGroupID),
+		"server_ids": strconv.Itoa(res.ServerID),
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, servers.Count)
+	assert.NotEmpty(t, servers.Items[0].CreatorID)
+	assert.NotEmpty(t, servers.Items[0].ID)
+	assert.NotEmpty(t, servers.Items[0].Title)
+	assert.NotEmpty(t, servers.Items[0].Status)
+	assert.NotEmpty(t, servers.Items[0].URL)
+	assert.NotEmpty(t, servers.Items[0].SecretKey)
+
+	res2, err = vkGroup.GroupsDeleteCallbackServer(map[string]string{
+		"group_id":  strconv.Itoa(vkGroupID),
+		"server_id": strconv.Itoa(res.ServerID),
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res2)
 }
 
-func TestVK_GroupsDeleteAddress(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name:    "groups.deleteAddress error",
-			wantErr: true,
-		},
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if _, err := vkGroup.GroupsDeleteAddress(tt.argParams); (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsDeleteAddress() = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_GroupsAddLink(t *testing.T) {
+	// TODO: Add test cases.
 }
 
-func TestVK_GroupsDeleteCallbackServer(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name:    "groups.deleteCallbackServer error",
-			wantErr: true,
-		},
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if _, err := vkGroup.GroupsDeleteCallbackServer(tt.argParams); (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsDeleteCallbackServer() = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_GroupsApproveRequest(t *testing.T) {
+	// TODO: Add test cases.
 }
 
-func TestVK_GroupsEditCallbackServer(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name:    "groups.editCallbackServer error",
-			wantErr: true,
-		},
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if _, err := vkGroup.GroupsEditCallbackServer(tt.argParams); (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsEditCallbackServer() = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_GroupsBan(t *testing.T) {
+	// TODO: Add test cases.
 }
-func TestVK_GroupsEnableOnline(t *testing.T) {
-	needGroupToken(t)
 
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name: "groups.enableOnline",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-			},
-		},
-		{
-			name:    "groups.enableOnline error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if _, err := vkGroup.GroupsEnableOnline(tt.argParams); (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsEnableOnline() = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_GroupsCreate(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsDeleteLink(t *testing.T) {
+	// TODO: Add test cases.
 }
 
 func TestVK_GroupsDisableOnline(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name: "groups.disableOnline",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-			},
-		},
-		{
-			name:    "groups.disableOnline error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if _, err := vkGroup.GroupsDisableOnline(tt.argParams); (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsDisableOnline() = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-func TestVK_GroupsGetBanned(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsGetBannedResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsGetBanned(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsGetBanned() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetBanned() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+	// TODO: Add test cases.
 }
 
-func TestVK_GroupsGetByID(t *testing.T) {
-	needServiceToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		// wantResponse GroupsGetByIDResponse
-		wantErr bool
-	}{
-		{
-			name: "groups.getById",
-			argParams: map[string]string{
-				"group_ids": "1",
-			},
-		},
-		{
-			name: "groups.getById error",
-			argParams: map[string]string{
-				"group_ids": "0",
-			},
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			_, err := vkService.GroupsGetByID(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetByID() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_GroupsEdit(t *testing.T) {
+	// TODO: Add test cases.
 }
 
-func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		// wantResponse GroupsGetCallbackConfirmationCodeResponse
-		wantErr bool
-	}{
-		{
-			name: "groups.getCallbackConfirmationCode",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-			},
-		},
-		{
-			name:    "groups.getCallbackConfirmationCode error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			_, err := vkGroup.GroupsGetCallbackConfirmationCode(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetCallbackConfirmationCode() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_GroupsEditLink(t *testing.T) {
+	// TODO: Add test cases.
 }
 
-func TestVK_GroupsGetCallbackServers(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name: "groups.getCallbackSettings",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-			},
-		},
-		{
-			name:    "groups.getCallbackSettings error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsGetCallbackServers(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetCallbackServers() err = %v, want %v", err, tt.wantErr)
-			}
-			if err != nil && (gotResponse.Count != len(gotResponse.Items)) {
-				t.Errorf("VK.GroupsGetCallbackServers() gotResponse = %v", gotResponse)
-			}
-		})
-	}
+func TestVK_GroupsEditManager(t *testing.T) {
+	// TODO: Add test cases.
 }
 
-func TestVK_GroupsGetCallbackSettings(t *testing.T) {
-	needGroupToken(t)
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsGetCallbackSettingsResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsGetCallbackSettings(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsGetCallbackSettings() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetCallbackSettings() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_GroupsEnableOnline(t *testing.T) {
+	// TODO: Add test cases.
 }
 
-func TestVK_GroupsGetLongPollServer(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name: "groups.getLongPollServer enabled",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-			},
-		},
-		{
-			name:    "groups.getLongPollServer error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			_, err := vkGroup.GroupsGetLongPollServer(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetLongPollServer() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_GroupsGet(t *testing.T) {
+	// TODO: Add test cases.
 }
 
-func TestVK_GroupsGetLongPollSettings(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name: "groups.getLongPollSettings enabled",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-			},
-		},
-		{
-			name:    "groups.getLongPollSettings error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			_, err := vkGroup.GroupsGetLongPollSettings(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetLongPollSettings() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestVK_GroupsGetMembers(t *testing.T) {
-	needGroupToken(t)
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsGetMembersResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsGetMembers(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsGetMembers() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetMembers() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsGetMembersFilterManagersResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsGetMembersFilterManagers(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsGetMembersFilterManagers() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetMembersFilterManagers() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestVK_GroupsGetOnlineStatus(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsGetOnlineStatusResponse
-		wantErr      bool
-	}{
-		{
-			name: "groups.getOnlineStatus enabled",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-			},
-			wantResponse: GroupsGetOnlineStatusResponse{
-				Status: "none",
-			},
-		},
-		{
-			name:    "groups.getOnlineStatus error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsGetOnlineStatus(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsGetOnlineStatus() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetOnlineStatus() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestVK_GroupsGetTokenPermissions(t *testing.T) {
-	needGroupToken(t)
-	t.Run("GroupsGetTokenPermissions", func(t *testing.T) {
-		gotResponse, err := vkGroup.GroupsGetTokenPermissions(map[string]string{})
-		if gotResponse.Mask == 0 {
-			t.Errorf("VK.GroupsGetTokenPermissions() gotResponse = %v", gotResponse)
-		}
-		if err != nil {
-			t.Errorf("VK.GroupsGetTokenPermissions() err = %v", err)
-		}
-	})
-
-}
-
-func TestVK_GroupsSetCallbackSettings(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name:    "groups.setCallbackSettings error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if _, err := vkGroup.GroupsSetCallbackSettings(tt.argParams); (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsSetCallbackSettings() = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestVK_GroupsSetLongPollSettings(t *testing.T) {
-	needGroupToken(t)
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		wantErr   bool
-	}{
-		{
-			name: "groups.setLongPollSettings enabled",
-			argParams: map[string]string{
-				"group_id": os.Getenv("GROUP_ID"),
-				"enabled":  "1",
-			},
-		},
-		{
-			name:    "groups.setLongPollSettings error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if _, err := vkGroup.GroupsSetLongPollSettings(tt.argParams); (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsSetLongPollSettings() = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_GroupsGetExtended(t *testing.T) {
+	// TODO: Add test cases.
 }
 
 func TestVK_GroupsGetAddresses(t *testing.T) {
 	needServiceToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsGetAddressesResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		{
-			name:    "groups.getAddresses error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkService.GroupsGetAddresses(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsGetAddresses() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsGetAddresses() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestVK_GroupsEditAddress(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsEditAddressResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		{
-			name:    "groups.editAddresses error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsEditAddress(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsEditAddress() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsEditAddress() err = %v, want %v", err, tt.wantErr)
-			}
-		})
+	res, err := vkService.GroupsGetAddresses(map[string]string{
+		"group_id": "167450351",
+		"count":    "1",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res.Count)
+	assert.NotEmpty(t, res.Items)
+	for _, address := range res.Items {
+		assert.NotEmpty(t, address.ID)
+		assert.NotEmpty(t, address.Title)
+		assert.NotEmpty(t, address.Address)
+		// assert.NotEmpty(t, address.AdditionalAddress)
+		assert.NotEmpty(t, address.CountryID)
+		assert.NotEmpty(t, address.CityID)
+		// assert.NotEmpty(t, address.MetroStationID)
+		assert.NotEmpty(t, address.Latitude)
+		assert.NotEmpty(t, address.Longitude)
+		assert.NotEmpty(t, address.WorkInfoStatus)
+		assert.NotEmpty(t, address.TimeOffset)
+		assert.NotEmpty(t, address.Phone)
+		if assert.NotEmpty(t, address.Timetable) {
+			assert.NotEmpty(t, address.Timetable.Sat.OpenTime)
+			assert.NotEmpty(t, address.Timetable.Sat.CloseTime)
+			// assert.NotEmpty(t, address.Timetable.Sat.BreakOpenTime)
+			// assert.NotEmpty(t, address.Timetable.Sat.BreakCloseTime)
+		}
 	}
 }
 
-func TestVK_GroupsAddAddress(t *testing.T) {
+func TestVK_GroupsGetBanned(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetByID(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetCallbackConfirmationCode(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetCallbackSettings(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetCatalog(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetCatalogInfo(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetCatalogInfoExtended(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetInvitedUsers(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetInvites(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetInvitesExtended(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetLongPollServer(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetLongPollSettings(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetMembers(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetMembersFields(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetOnlineStatus(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetRequests(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetSettings(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsGetTokenPermissions(t *testing.T) {
 	needGroupToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsAddAddressResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		{
-			name:    "groups.addAddresses error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsAddAddress(tt.argParams)
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsAddAddress() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsAddAddress() err = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+	res, err := vkGroup.GroupsGetTokenPermissions(map[string]string{})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res.Mask)
+	assert.NotEmpty(t, res.Permissions[0].Name)
+	assert.NotEmpty(t, res.Permissions[0].Setting)
+}
+
+func TestVK_GroupsInvite(t *testing.T) {
+	// TODO: Add test cases.
 }
 
 func TestVK_GroupsIsMember(t *testing.T) {
 	needGroupToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse int
-		wantErr      bool
-	}{
-		{
-			name: "groups.isMembers",
-			argParams: map[string]string{
-				"group_id": "1",
-				"user_id":  "117253521",
-			},
-			wantResponse: 1,
-		},
-		{
-			name:      "groups.isMembers error",
-			argParams: map[string]string{},
-			wantErr:   true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsIsMember(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsIsMember() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsIsMember() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
+	res, err := vkGroup.GroupsIsMember(map[string]string{
+		"group_id": "134304772",
+		"user_id":  "216916273",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 }
 
 func TestVK_GroupsIsMemberExtended(t *testing.T) {
 	needGroupToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsIsMemberExtendedResponse
-		wantErr      bool
-	}{
-		{
-			name: "groups.isMembers",
-			argParams: map[string]string{
-				"group_id": "1",
-				"user_id":  "117253521",
-			},
-			wantResponse: GroupsIsMemberExtendedResponse{
-				Member:    1,
-				CanInvite: 0,
-			},
-		},
-		{
-			name:      "groups.isMembers error",
-			argParams: map[string]string{},
-			wantErr:   true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsIsMemberExtended(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsIsMemberExtended() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsIsMemberExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
+	res, err := vkGroup.GroupsIsMemberExtended(map[string]string{
+		"group_id": "134304772",
+		"user_id":  "216916273",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res.Member)
 }
 
 func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 	needGroupToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsIsMemberUserIDsExtendedResponse
-		wantErr      bool
-	}{
-		{
-			name: "groups.isMembers",
-			argParams: map[string]string{
-				"group_id": "1",
-				"user_ids": "117253521",
-			},
-			wantResponse: GroupsIsMemberUserIDsExtendedResponse{
-				{
-					Member:    1,
-					CanInvite: 0,
-					UserID:    117253521,
-				},
-			},
-		},
-		{
-			name:      "groups.isMembers error",
-			argParams: map[string]string{},
-			wantErr:   true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsIsMemberUserIDsExtended(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsIsMemberUserIDsExtended() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsIsMemberUserIDsExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
+	res, err := vkGroup.GroupsIsMemberUserIDsExtended(map[string]string{
+		"group_id": "134304772",
+		"user_ids": "216916273",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res[0].Member)
+	assert.NotEmpty(t, res[0].UserID)
 }
 
 func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
-	needGroupToken(t)
+	res, err := vkGroup.GroupsIsMemberUserIDs(map[string]string{
+		"group_id": "134304772",
+		"user_ids": "216916273",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res[0].Member)
+	assert.NotEmpty(t, res[0].UserID)
+}
 
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse GroupsIsMemberUserIDsResponse
-		wantErr      bool
-	}{
-		{
-			name: "groups.isMembers",
-			argParams: map[string]string{
-				"group_id": "1",
-				"user_ids": "117253521",
-			},
-			wantResponse: GroupsIsMemberUserIDsResponse{
-				{
-					Member: 1,
-					UserID: 117253521,
-				},
-			},
-		},
-		{
-			name:      "groups.isMembers error",
-			argParams: map[string]string{},
-			wantErr:   true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.GroupsIsMemberUserIDs(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.GroupsIsMemberUserIDs() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.GroupsIsMemberUserIDs() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
+func TestVK_GroupsJoin(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsLeave(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsRemoveUser(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsReorderLink(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsSearch(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsSetCallbackSettings(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsSetLongPollSettings(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsSetSettings(t *testing.T) {
+	// TODO: Add test cases.
+}
+
+func TestVK_GroupsUnban(t *testing.T) {
+	// TODO: Add test cases.
 }

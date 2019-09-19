@@ -19,6 +19,7 @@ type AppsApp struct {
 	ID              int           `json:"id"`            // Application ID
 	International   int           `json:"international"` // Information whether the application is multilanguage
 	IsInCatalog     int           `json:"is_in_catalog"` // Information whether application is in mobile catalog
+	Installed       bool          `json:"installed"`
 	LeaderboardType int           `json:"leaderboard_type"`
 	MembersCount    int           `json:"members_count"`  // Members number
 	PlatformID      int           `json:"platform_id"`    // Application ID in store
