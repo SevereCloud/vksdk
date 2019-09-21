@@ -50,12 +50,12 @@ func TestMain(m *testing.M) {
 		}
 		vkUserID = user[0].ID
 
-		// vkChatID, err = vkUser.MessagesCreateChat(map[string]string{
-		// 	"title": "TestChat",
-		// })
-		// if err != nil {
-		// 	log.Fatal(err)
-		// }
+		vkChatID, err = vkUser.MessagesCreateChat(map[string]string{
+			"title": "TestChat",
+		})
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	runTests := m.Run()

@@ -17,18 +17,21 @@ func TestVK_NotesAdd(t *testing.T) {
 		"text":  "Text note",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, note)
 
-	_, err = vkUser.NotesEdit(map[string]string{
+	res, err := vkUser.NotesEdit(map[string]string{
 		"note_id": strconv.Itoa(note),
 		"title":   "Test note edited",
 		"text":    "Text note edited",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 
-	_, err = vkUser.NotesDelete(map[string]string{
+	res, err = vkUser.NotesDelete(map[string]string{
 		"note_id": strconv.Itoa(note),
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 }
 
 func TestVK_NotesCreateComment(t *testing.T) {
@@ -40,6 +43,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 		"message":  "Test note comment",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, comment)
 
 	_, err = vkUser.NotesEditComment(map[string]string{
 		"comment_id": strconv.Itoa(comment),
@@ -64,21 +68,39 @@ func TestVK_NotesCreateComment(t *testing.T) {
 func TestVK_NotesGet(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.NotesGet(map[string]string{
+	res, err := vkUser.NotesGet(map[string]string{
 		"user_id": "66748",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res.Count)
+	if assert.NotEmpty(t, res.Items) {
+		assert.NotEmpty(t, res.Items[0].ID)
+		assert.NotEmpty(t, res.Items[0].OwnerID)
+		// assert.NotEmpty(t, res.Items[0].Comments)
+		assert.NotEmpty(t, res.Items[0].Date)
+		assert.NotEmpty(t, res.Items[0].Title)
+		assert.NotEmpty(t, res.Items[0].Text)
+		assert.NotEmpty(t, res.Items[0].ViewURL)
+	}
 }
 
 func TestVK_NotesGetByID(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.NotesGetByID(map[string]string{
+	res, err := vkUser.NotesGetByID(map[string]string{
 		"note_id":   "11582572",
 		"owner_id":  "66748",
 		"need_wiki": "1",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res.ID)
+	assert.NotEmpty(t, res.OwnerID)
+	// assert.NotEmpty(t, res.Items[0].Comments)
+	assert.NotEmpty(t, res.Date)
+	assert.NotEmpty(t, res.Title)
+	assert.NotEmpty(t, res.Text)
+	assert.NotEmpty(t, res.CanComment)
+	assert.NotEmpty(t, res.ViewURL)
 }
 
 func TestVK_NotesGetComments(t *testing.T) {

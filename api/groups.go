@@ -276,7 +276,10 @@ func (vk *VK) GroupsGetCatalog(params map[string]string) (response GroupsGetCata
 }
 
 // GroupsGetCatalogInfoResponse struct
-type GroupsGetCatalogInfoResponse object.GroupsGroupCategory
+type GroupsGetCatalogInfoResponse struct {
+	Enabled    int                          `json:"enabled"`
+	Categories []object.GroupsGroupCategory `json:"categories"`
+}
 
 // GroupsGetCatalogInfo returns categories list for communities catalog
 //
@@ -290,7 +293,10 @@ func (vk *VK) GroupsGetCatalogInfo(params map[string]string) (response GroupsGet
 }
 
 // GroupsGetCatalogInfoExtendedResponse struct
-type GroupsGetCatalogInfoExtendedResponse object.GroupsGroupCategoryFull
+type GroupsGetCatalogInfoExtendedResponse struct {
+	Enabled    int                              `json:"enabled"`
+	Categories []object.GroupsGroupCategoryFull `json:"categories"`
+}
 
 // GroupsGetCatalogInfoExtended returns categories list for communities catalog
 //
@@ -393,6 +399,9 @@ type GroupsGetMembersFieldsResponse struct {
 //
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembersFields(params map[string]string) (response GroupsGetMembersFieldsResponse, err error) {
+	if params["fields"] == "" {
+		params["fields"] = "id"
+	}
 	err = vk.RequestUnmarshal("groups.getMembers", params, &response)
 	return
 }
@@ -426,14 +435,32 @@ func (vk *VK) GroupsGetOnlineStatus(params map[string]string) (response GroupsGe
 
 // GroupsGetRequestsResponse struct
 type GroupsGetRequestsResponse struct {
-	Count int                `json:"count"`
-	Items []object.UsersUser `json:"items"`
+	Count int   `json:"count"`
+	Items []int `json:"items"`
 }
 
 // GroupsGetRequests returns a list of requests to the community.
 //
 // https://vk.com/dev/groups.getRequests
 func (vk *VK) GroupsGetRequests(params map[string]string) (response GroupsGetRequestsResponse, err error) {
+	params["fields"] = ""
+	err = vk.RequestUnmarshal("groups.getRequests", params, &response)
+	return
+}
+
+// GroupsGetRequestsFieldsResponse struct
+type GroupsGetRequestsFieldsResponse struct {
+	Count int                `json:"count"`
+	Items []object.UsersUser `json:"items"`
+}
+
+// GroupsGetRequestsFields returns a list of requests to the community.
+//
+// https://vk.com/dev/groups.getRequests
+func (vk *VK) GroupsGetRequestsFields(params map[string]string) (response GroupsGetRequestsFieldsResponse, err error) {
+	if params["fields"] == "" {
+		params["fields"] = "id"
+	}
 	err = vk.RequestUnmarshal("groups.getRequests", params, &response)
 	return
 }

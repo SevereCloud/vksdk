@@ -68,6 +68,7 @@ type GroupsGroup struct {
 	Market               GroupsMarketInfo     `json:"market"`
 	MemberStatus         int                  `json:"member_status"` // Current user's member status
 	IsFavorite           int                  `json:"is_favorite"`   // Information whether community is in faves
+	IsAdult              int                  `json:"adult"`         // Information whether community is adult
 	IsSubscribed         int                  `json:"is_subscribed"` // Information whether current user is subscribed
 	City                 BaseObject           `json:"city"`
 	Country              BaseCountry          `json:"country"`
@@ -83,6 +84,7 @@ type GroupsGroup struct {
 	FixedPost            int                  `json:"fixed_post"`        // Fixed post ID
 	CanCreateTopic       int                  `json:"can_create_topic"`  // Information whether current user can create topic
 	CanUploadVideo       int                  `json:"can_upload_video"`  // Information whether current user can upload video
+	CanUploadDoc         int                  `json:"can_upload_doc"`    // Information whether current user can upload doc
 	HasPhoto             int                  `json:"has_photo"`         // Information whether community has photo
 	Status               string               `json:"status"`            // Community status
 	MainAlbumID          int                  `json:"main_album_id"`     // Community's main photo album ID
@@ -101,11 +103,22 @@ type GroupsGroup struct {
 	IsSubscribedPodcasts bool                 `json:"is_subscribed_podcasts"` // Information whether current user is subscribed to podcasts
 	CanSubscribePodcasts bool                 `json:"can_subscribe_podcasts"` // Owner in whitelist or not
 	CanSubscribePosts    bool                 `json:"can_subscribe_posts"`    // Can subscribe to wall
+	HasMarketApp         bool                 `json:"has_market_app"`         // Information whether community has market app
+	LiveCovers           GroupsLiveCovers     `json:"live_covers"`
+	CropPhoto            usersCropPhoto       `json:"crop_photo"`
+	IsHiddenFromFeed     int                  `json:"is_hidden_from_feed"`
+	Wall                 int                  `json:"wall"`
 }
 
 // ToMention return mention
 func (group GroupsGroup) ToMention() string {
 	return fmt.Sprintf("[club%d|%s]", group.ID, group.Name)
+}
+
+type GroupsLiveCovers struct {
+	IsEnabled  bool     `json:"is_enabled"`
+	IsScalable bool     `json:"is_scalable"`
+	StoryIds   []string `json:"story_ids"`
 }
 
 type groupsBanInfo struct {
@@ -170,11 +183,11 @@ type GroupsGroupCategory struct {
 
 // GroupsGroupCategoryFull struct
 type GroupsGroupCategoryFull struct {
-	ID            int                   `json:"id"`         // Category ID
-	Name          string                `json:"name"`       // Category name
-	PageCount     int                   `json:"page_count"` // Pages number
-	PagePreviews  []GroupsGroup         `json:"page_previews"`
-	Subcategories []GroupsGroupCategory `json:"subcategories"`
+	ID            int                       `json:"id"`         // Category ID
+	Name          string                    `json:"name"`       // Category name
+	PageCount     int                       `json:"page_count"` // Pages number
+	PagePreviews  []GroupsGroup             `json:"page_previews"`
+	Subcategories []GroupsGroupCategoryFull `json:"subcategories"`
 }
 
 type groupsGroupCategoryType struct {
@@ -207,7 +220,7 @@ type GroupsGroupSettings struct {
 	Docs               int                             `json:"docs"`              // Docs settings
 	ObsceneFilter      int                             `json:"obscene_filter"`    // Information whether the obscene filter is enabled
 	ObsceneStopwords   int                             `json:"obscene_stopwords"` // Information whether the stopwords filter is enabled
-	ObsceneWords       string                          `json:"obscene_words"`     // The list of stop words
+	ObsceneWords       []string                        `json:"obscene_words"`     // The list of stop words
 	Photos             int                             `json:"photos"`            // Photos settings
 	PublicCategory     int                             `json:"public_category"`   // Information about the group category
 	PublicCategoryList []groupsGroupPublicCategoryList `json:"public_category_list"`
@@ -340,6 +353,8 @@ type GroupsLongPollServer struct {
 	Ts     string `json:"ts"`     // Number of the last event
 }
 
+// TODO: func (g GroupsLongPollServer) GetURL() string {
+
 // GroupsLongPollSettings struct
 type GroupsLongPollSettings struct {
 	APIVersion string               `json:"api_version"` // API version used for the events
@@ -354,8 +369,8 @@ type GroupsMarketInfo struct {
 	CurrencyText string         `json:"currency_text"` // Currency name
 	Enabled      int            `json:"enabled"`       // Information whether the market is enabled
 	MainAlbumID  int            `json:"main_album_id"` // Main market album ID
-	PriceMax     int            `json:"price_max"`     // Maximum price
-	PriceMin     int            `json:"price_min"`     // Minimum price
+	PriceMax     string         `json:"price_max"`     // Maximum price
+	PriceMin     string         `json:"price_min"`     // Minimum price
 }
 
 // GroupsMemberRole struct

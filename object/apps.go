@@ -2,24 +2,25 @@ package object // import "github.com/SevereCloud/vksdk/object"
 
 // AppsApp struct
 type AppsApp struct {
-	AuthorGroup     int           `json:"author_group"`     // Official community's ID
-	AuthorID        int           `json:"author_id"`        // Application author's ID
-	AuthorURL       string        `json:"author_url"`       // Application author's URL
-	Banner1120      string        `json:"banner_1120"`      // URL of the app banner with 1120 px in width
-	Banner560       string        `json:"banner_560"`       // URL of the app banner with 560 px in width
-	CatalogPosition int           `json:"catalog_position"` // Catalog position
-	Description     string        `json:"description"`      // Application description
-	Friends         []int         `json:"friends"`
-	Genre           string        `json:"genre"`         // Genre name
-	GenreID         int           `json:"genre_id"`      // Genre ID
-	Icon139         string        `json:"icon_139"`      // URL of the app icon with 139 px in width
-	Icon150         string        `json:"icon_150"`      // URL of the app icon with 150 px in width
-	Icon278         string        `json:"icon_278"`      // URL of the app icon with 279 px in width
-	Icon75          string        `json:"icon_75"`       // URL of the app icon with 75 px in width
-	ID              int           `json:"id"`            // Application ID
-	International   int           `json:"international"` // Information whether the application is multilanguage
-	IsInCatalog     int           `json:"is_in_catalog"` // Information whether application is in mobile catalog
-	Installed       bool          `json:"installed"`
+	AuthorGroup     int    `json:"author_group"`     // Official community's ID
+	AuthorID        int    `json:"author_id"`        // Application author's ID
+	AuthorURL       string `json:"author_url"`       // Application author's URL
+	Banner1120      string `json:"banner_1120"`      // URL of the app banner with 1120 px in width
+	Banner560       string `json:"banner_560"`       // URL of the app banner with 560 px in width
+	CatalogPosition int    `json:"catalog_position"` // Catalog position
+	Description     string `json:"description"`      // Application description
+	Friends         []int  `json:"friends"`
+	Genre           string `json:"genre"`         // Genre name
+	GenreID         int    `json:"genre_id"`      // Genre ID
+	Icon139         string `json:"icon_139"`      // URL of the app icon with 139 px in width
+	Icon150         string `json:"icon_150"`      // URL of the app icon with 150 px in width
+	Icon278         string `json:"icon_278"`      // URL of the app icon with 279 px in width
+	Icon75          string `json:"icon_75"`       // URL of the app icon with 75 px in width
+	ID              int    `json:"id"`            // Application ID
+	International   int    `json:"international"` // Information whether the application is multilanguage
+	IsInCatalog     int    `json:"is_in_catalog"` // Information whether application is in mobile catalog
+	// BUG(VK): https://github.com/SevereCloud/vksdk/issues/63
+	// Installed       bool          `json:"installed"`
 	LeaderboardType int           `json:"leaderboard_type"`
 	MembersCount    int           `json:"members_count"`  // Members number
 	PlatformID      int           `json:"platform_id"`    // Application ID in store
