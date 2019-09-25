@@ -333,6 +333,17 @@ type messagesMessageAttachment struct {
 	AudioMessage      DocsDoc              `json:"audio_message"`
 	Graffiti          DocsDoc              `json:"graffiti"`
 	Poll              PollsPoll            `json:"poll"`
+	Call              MessageCall          `json:"call"`
+}
+
+// MessageCall struct
+type MessageCall struct {
+	InitiatorID int    `json:"initiator_id"`
+	ReceiverID  int    `json:"receiver_id"`
+	State       string `json:"state"`
+	Time        int    `json:"time"`
+	Duration    int    `json:"duration"`
+	Video       bool   `json:"video"`
 }
 
 type messagesPinnedMessage struct {
