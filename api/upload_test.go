@@ -146,7 +146,7 @@ func TestVK_UploadChatPhoto(t *testing.T) {
 	}
 	defer response.Body.Close()
 
-	_, err = vkUser.UploadChatPhoto(vkChatID, response.Body)
+	_, err = vkUser.UploadChatPhoto(needChatID(t), response.Body)
 	assert.NoError(t, err)
 }
 
@@ -159,7 +159,7 @@ func TestVK_UploadChatPhotoCrop(t *testing.T) {
 	}
 	defer response.Body.Close()
 
-	_, err = vkUser.UploadChatPhotoCrop(vkChatID, 0, 0, 200, response.Body)
+	_, err = vkUser.UploadChatPhotoCrop(needChatID(t), 0, 0, 200, response.Body)
 	assert.NoError(t, err)
 }
 

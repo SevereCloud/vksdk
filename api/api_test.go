@@ -27,6 +27,21 @@ func needServiceToken(t *testing.T) {
 	}
 }
 
+func needChatID(t *testing.T) int {
+	t.Helper()
+	needUserToken(t)
+	if vkChatID == 0 {
+		var err error
+		vkChatID, err = vkUser.MessagesCreateChat(map[string]string{
+			"title": "TestChat",
+		})
+		if err != nil {
+			t.Skip("Get chatID", err)
+		}
+	}
+	return vkChatID
+}
+
 var vkGroup, vkService, vkUser *VK    // nolint:gochecknoglobals
 var vkUserID, vkGroupID, vkChatID int // nolint:gochecknoglobals
 
@@ -49,13 +64,6 @@ func TestMain(m *testing.M) {
 			log.Fatal(err)
 		}
 		vkUserID = user[0].ID
-
-		vkChatID, err = vkUser.MessagesCreateChat(map[string]string{
-			"title": "TestChat",
-		})
-		if err != nil {
-			log.Fatal(err)
-		}
 	}
 
 	runTests := m.Run()
