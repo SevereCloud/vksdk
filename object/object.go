@@ -85,10 +85,11 @@ type baseLikes struct {
 }
 
 type baseLikesInfo struct {
-	CanLike    int `json:"can_like"`
-	CanPublish int `json:"can_publish"`
-	Count      int `json:"count"`
-	UserLikes  int `json:"user_likes"`
+	CanLike int `json:"can_like"`
+	// BUG(VK): https://github.com/SevereCloud/vksdk/issues/55
+	// CanPublish int `json:"can_publish"`
+	Count     int `json:"count"`
+	UserLikes int `json:"user_likes"`
 }
 
 type baseLink struct {
