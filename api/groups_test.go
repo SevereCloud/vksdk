@@ -171,10 +171,16 @@ func TestVK_GroupsDeleteLink(t *testing.T) {
 	// TODO: Add test cases.
 }
 
-func TestVK_GroupsDisableOnline(t *testing.T) {
+func TestVK_GroupsEnableOnline(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsDisableOnline(map[string]string{
+	res, err := vkGroup.GroupsEnableOnline(map[string]string{
+		"group_id": strconv.Itoa(vkGroupID),
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
+
+	res, err = vkGroup.GroupsDisableOnline(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 	})
 	assert.NoError(t, err)
@@ -191,16 +197,6 @@ func TestVK_GroupsEditLink(t *testing.T) {
 
 func TestVK_GroupsEditManager(t *testing.T) {
 	// TODO: Add test cases.
-}
-
-func TestVK_GroupsEnableOnline(t *testing.T) {
-	needGroupToken(t)
-
-	res, err := vkGroup.GroupsEnableOnline(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-	})
-	assert.NoError(t, err)
-	assert.NotEmpty(t, res)
 }
 
 func TestVK_GroupsGet(t *testing.T) {
