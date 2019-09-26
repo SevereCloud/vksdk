@@ -138,7 +138,6 @@ func (vk *VK) WallGetByIDExtended(params map[string]string) (response WallGetByI
 
 // WallGetCommentResponse struct
 type WallGetCommentResponse struct {
-	Count             int                      `json:"count"`
 	Items             []object.WallWallComment `json:"items"`
 	CanPost           bool                     `json:"can_post"`
 	ShowReplyButton   bool                     `json:"show_reply_button"`
@@ -182,8 +181,12 @@ func (vk *VK) WallGetCommentExtended(params map[string]string) (response WallGet
 
 // WallGetCommentsResponse struct
 type WallGetCommentsResponse struct {
-	Count int                      `json:"count"`
-	Items []object.WallWallComment `json:"items"`
+	CanPost           bool                     `json:"can_post"`
+	ShowReplyButton   bool                     `json:"show_reply_button"`
+	GroupsCanPost     bool                     `json:"groups_can_post"`
+	CurrentLevelCount int                      `json:"current_level_count"`
+	Count             int                      `json:"count"`
+	Items             []object.WallWallComment `json:"items"`
 }
 
 // WallGetComments returns a list of comments on a post on a user wall or community wall.
@@ -199,8 +202,12 @@ func (vk *VK) WallGetComments(params map[string]string) (response WallGetComment
 
 // WallGetCommentsExtendedResponse struct
 type WallGetCommentsExtendedResponse struct {
-	Count int                      `json:"count"`
-	Items []object.WallWallComment `json:"items"`
+	CanPost           bool                     `json:"can_post"`
+	ShowReplyButton   bool                     `json:"show_reply_button"`
+	GroupsCanPost     bool                     `json:"groups_can_post"`
+	CurrentLevelCount int                      `json:"current_level_count"`
+	Count             int                      `json:"count"`
+	Items             []object.WallWallComment `json:"items"`
 	object.ExtendedResponse
 }
 

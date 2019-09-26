@@ -11,6 +11,7 @@ type UsersUser struct {
 	LastName               string            `json:"last_name"`
 	IsClosed               bool              `json:"is_closed"`
 	CanAccessClosed        bool              `json:"can_access_closed"`
+	CanBeInvitedGroup      bool              `json:"can_be_invited_group"`
 	Sex                    int               `json:"sex"`
 	Nickname               string            `json:"nickname"`
 	Domain                 string            `json:"domain"`
@@ -190,6 +191,7 @@ type usersPersonal struct {
 	Political  int      `json:"political"`   // User's political views
 	Religion   string   `json:"religion"`    // User's religion
 	Smoking    int      `json:"smoking"`     // User's views on smoking
+	ReligionID int      `json:"religion_id"`
 }
 
 type usersRelative struct {

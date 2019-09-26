@@ -1,7 +1,6 @@
 package api
 
 import (
-	"log"
 	"strconv"
 	"testing"
 
@@ -14,48 +13,56 @@ func TestVK_WallPost(t *testing.T) {
 	post, err := vkUser.WallPost(map[string]string{
 		"message": "Test post",
 	})
-	if err != nil {
-		log.Fatal(err)
+	if !assert.NoError(t, err) {
+		t.Fatal(err)
 	}
+	assert.NotEmpty(t, post)
 
-	_, err = vkUser.WallPin(map[string]string{
+	res, err := vkUser.WallPin(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 
-	_, err = vkUser.WallUnpin(map[string]string{
+	res, err = vkUser.WallUnpin(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 
-	_, err = vkUser.WallCloseComments(map[string]string{
+	res, err = vkUser.WallCloseComments(map[string]string{
 		"post_id":  strconv.Itoa(post.PostID),
 		"owner_id": strconv.Itoa(vkUserID),
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 
-	_, err = vkUser.WallOpenComments(map[string]string{
+	res, err = vkUser.WallOpenComments(map[string]string{
 		"post_id":  strconv.Itoa(post.PostID),
 		"owner_id": strconv.Itoa(vkUserID),
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 
-	_, err = vkUser.WallEdit(map[string]string{
+	edit, err := vkUser.WallEdit(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 		"message": "Test post edited",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, edit.PostID)
 
-	_, err = vkUser.WallDelete(map[string]string{
+	res, err = vkUser.WallDelete(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 
-	_, err = vkUser.WallRestore(map[string]string{
+	res, err = vkUser.WallRestore(map[string]string{
 		"post_id": strconv.Itoa(post.PostID),
 		"message": "Test post edited",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 }
 
 func TestVK_WallGet(t *testing.T) {
@@ -66,8 +73,25 @@ func TestVK_WallGet(t *testing.T) {
 		"count":    "100",
 	}
 
-	_, err := vkService.WallGet(params)
+	get, err := vkService.WallGet(params)
 	assert.NoError(t, err)
+	assert.NotEmpty(t, get.Count)
+	if assert.NotEmpty(t, get.Items) {
+		for _, item := range get.Items {
+			assert.NotEmpty(t, item.ID)
+			assert.NotEmpty(t, item.FromID)
+			assert.NotEmpty(t, item.OwnerID)
+			assert.NotEmpty(t, item.Date)
+			// assert.NotEmpty(t, item.MarkedAsAds)
+			assert.NotEmpty(t, item.PostType)
+			assert.NotEmpty(t, item.Text)
+			assert.NotEmpty(t, item.PostSource)
+			assert.NotEmpty(t, item.Comments)
+			assert.NotEmpty(t, item.Likes)
+			assert.NotEmpty(t, item.Reposts)
+			assert.NotEmpty(t, item.Views)
+		}
+	}
 
 	_, err = vkService.WallGetExtended(params)
 	assert.NoError(t, err)
@@ -80,16 +104,26 @@ func TestVK_WallGetByID(t *testing.T) {
 		"posts": "-1_340393",
 	}
 
-	_, err := vkService.WallGetByID(params)
+	res, err := vkService.WallGetByID(params)
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res[0].ID)
+	assert.NotEmpty(t, res[0].FromID)
+	assert.NotEmpty(t, res[0].OwnerID)
+	assert.NotEmpty(t, res[0].Date)
+	// assert.NotEmpty(t, item.MarkedAsAds)
+	assert.NotEmpty(t, res[0].PostType)
+	// assert.NotEmpty(t, res[0].Text)
+	assert.NotEmpty(t, res[0].PostSource)
+	assert.NotEmpty(t, res[0].Comments)
+	assert.NotEmpty(t, res[0].Likes)
+	assert.NotEmpty(t, res[0].Reposts)
+	// assert.NotEmpty(t, res[0].Views)
 
 	_, err = vkService.WallGetByIDExtended(params)
 	assert.NoError(t, err)
 }
 
 func TestVK_WallGetComment(t *testing.T) {
-	// BUG(VK): https://github.com/SevereCloud/vksdk/issues/55
-	t.Skip("BUG")
 	needUserToken(t)
 
 	params := map[string]string{
@@ -97,8 +131,22 @@ func TestVK_WallGetComment(t *testing.T) {
 		"comment_id": "73674",
 	}
 
-	_, err := vkUser.WallGetComment(params)
+	res, err := vkUser.WallGetComment(params)
 	assert.NoError(t, err)
+	if assert.NotEmpty(t, res.Items) {
+		assert.NotEmpty(t, res.Items[0].ID)
+		assert.NotEmpty(t, res.Items[0].FromID)
+		assert.NotEmpty(t, res.Items[0].PostID)
+		assert.NotEmpty(t, res.Items[0].OwnerID)
+		// assert.NotEmpty(t, res.Items[0].ParentsStack)
+		assert.NotEmpty(t, res.Items[0].Date)
+		assert.NotEmpty(t, res.Items[0].Text)
+		assert.NotEmpty(t, res.Items[0].Likes)
+		assert.NotEmpty(t, res.Items[0].ReplyToUser)
+		assert.NotEmpty(t, res.Items[0].ReplyToUser)
+		assert.NotEmpty(t, res.Items[0].ReplyToComment)
+		assert.NotEmpty(t, res.Items[0].Thread)
+	}
 
 	_, err = vkUser.WallGetCommentExtended(params)
 	assert.NoError(t, err)
@@ -115,11 +163,15 @@ func TestVK_WallGetComments(t *testing.T) {
 		"thread_items_count": "10",
 	}
 
-	_, err := vkService.WallGetComments(params)
+	res, err := vkService.WallGetComments(params)
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res.Count)
+	assert.NotEmpty(t, res.Items)
 
-	_, err = vkService.WallGetCommentsExtended(params)
+	resEx, err := vkService.WallGetCommentsExtended(params)
 	assert.NoError(t, err)
+	assert.NotEmpty(t, resEx.Count)
+	assert.NotEmpty(t, resEx.Items)
 }
 
 func TestVK_WallGetReposts(t *testing.T) {
@@ -131,6 +183,7 @@ func TestVK_WallGetReposts(t *testing.T) {
 		"count":    "1000",
 	})
 	assert.NoError(t, err)
+	// assert.NotEmpty(t, res.Items)
 }
 
 func TestVK_WallCreateComment(t *testing.T) {
@@ -141,28 +194,32 @@ func TestVK_WallCreateComment(t *testing.T) {
 		"post_id":  "2342",
 		"message":  "Test comment",
 	})
-	if err != nil {
-		log.Fatal(err)
+	if !assert.NoError(t, err) {
+		t.Fatal(err)
 	}
+	assert.NotEmpty(t, comment.CommentID)
 
-	_, err = vkUser.WallEditComment(map[string]string{
+	res, err := vkUser.WallEditComment(map[string]string{
 		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(comment.CommentID),
 		"message":    "Test comment edited",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 
-	_, err = vkUser.WallDeleteComment(map[string]string{
+	res, err = vkUser.WallDeleteComment(map[string]string{
 		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(comment.CommentID),
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 
-	_, err = vkUser.WallRestoreComment(map[string]string{
+	res, err = vkUser.WallRestoreComment(map[string]string{
 		"owner_id":   "117253521",
 		"comment_id": strconv.Itoa(comment.CommentID),
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 }
 
 func TestVK_WallPostAdsStealth(t *testing.T) {
@@ -174,44 +231,52 @@ func TestVK_WallPostAdsStealth(t *testing.T) {
 		"message":  "Test AdsStealth",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, post.PostID)
 
-	_, err = vkUser.WallEditAdsStealth(map[string]string{
+	res, err := vkUser.WallEditAdsStealth(map[string]string{
 		"owner_id": strconv.Itoa(-vkGroupID),
 		"post_id":  strconv.Itoa(post.PostID),
 		"message":  "Test AdsStealth edited",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 }
 
 func TestVK_WallReportComment(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.WallReportComment(map[string]string{
+	res, err := vkUser.WallReportComment(map[string]string{
 		"owner_id":   "66748",
 		"comment_id": "4136",
 		// "reason":   "3",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 }
 
 func TestVK_WallReportPost(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.WallReportPost(map[string]string{
+	res, err := vkUser.WallReportPost(map[string]string{
 		"owner_id": "66748",
 		"post_id":  "3821",
 		"reason":   "3",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 }
 
 func TestVK_WallRepost(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.WallRepost(map[string]string{
+	res, err := vkUser.WallRepost(map[string]string{
 		"object": "wall85635407_3133",
 	})
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res.Success)
+	assert.NotEmpty(t, res.RepostsCount)
+	assert.NotEmpty(t, res.PostID)
+	assert.NotEmpty(t, res.LikesCount)
 }
 
 func TestVK_WallSearch(t *testing.T) {
@@ -223,9 +288,13 @@ func TestVK_WallSearch(t *testing.T) {
 		"count":    "100",
 	}
 
-	_, err := vkService.WallSearch(params)
+	res, err := vkService.WallSearch(params)
 	assert.NoError(t, err)
+	assert.NotEmpty(t, res.Count)
+	assert.NotEmpty(t, res.Items)
 
-	_, err = vkService.WallSearchExtended(params)
+	resEx, err := vkService.WallSearchExtended(params)
 	assert.NoError(t, err)
+	assert.NotEmpty(t, resEx.Count)
+	assert.NotEmpty(t, resEx.Items)
 }
