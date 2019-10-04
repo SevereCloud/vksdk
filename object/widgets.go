@@ -39,19 +39,14 @@ type WidgetsWidgetComment struct {
 	ID          int                     `json:"id"`      // Comment ID
 	Likes       baseLikesInfo           `json:"likes"`
 	Media       widgetsCommentMedia     `json:"media"`
-	PostType    int                     `json:"post_type"` // Post type
+	PostType    string                  `json:"post_type"` // Post type
 	Reposts     baseRepostsInfo         `json:"reposts"`
 	Text        string                  `json:"text"`  // Comment text
 	ToID        int                     `json:"to_id"` // Wall owner
-	PostSource  struct {
-		Link struct {
-			URL         string `json:"url"`
-			Title       string `json:"title"`
-			Description string `json:"description"`
-		} `json:"link"`
-		Type string `json:"type"`
-		Data string `json:"data"`
-	} `json:"post_source"`
+	PostSource  wallPostSource          `json:"post_source"`
+	Views       struct {
+		Count int `json:"count"`
+	} `json:"views"`
 	IsFavorite bool `json:"is_favorite"`
 }
 

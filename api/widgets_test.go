@@ -1,62 +1,41 @@
 package api
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_WidgetsGetComments(t *testing.T) {
 	needServiceToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    map[string]string
-		wantResponse WidgetsGetCommentsResponse
-		wantErr      bool
-	}{
-		// TODO: add test
-		{
-			name:    "widgets.getComments error",
-			wantErr: true,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkService.WidgetsGetComments(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.WidgetsGetComments() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.WidgetsGetComments() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
+	res, err := vkService.WidgetsGetComments(map[string]string{
+		"widget_api_id": "6862945",
+		"url":           "http://irsay.ru/irsay_duine/",
+	})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res.Count)
+	if assert.NotEmpty(t, res.Posts) {
+		post := res.Posts[0]
+		assert.NotEmpty(t, post.ID)
+		assert.NotEmpty(t, post.FromID)
+		assert.NotEmpty(t, post.ToID)
+		assert.NotEmpty(t, post.Date)
+		assert.NotEmpty(t, post.PostType)
+		assert.NotEmpty(t, post.Text)
+		assert.NotEmpty(t, post.PostSource)
+		assert.NotEmpty(t, post.Comments)
+		// assert.NotEmpty(t, post.Likes)
+		// assert.NotEmpty(t, post.Reposts)
+		assert.NotEmpty(t, post.Views)
+		// assert.NotEmpty(t, post.IsFavorite)
 	}
 }
 
 func TestVK_WidgetsGetPages(t *testing.T) {
 	needServiceToken(t)
 
-	tests := []struct {
-		name      string
-		argParams map[string]string
-		// wantResponse WidgetsGetPagesResponse
-		wantErr bool
-	}{
-		// TODO: add test
-		{
-			name:    "widgets.getPages error",
-			wantErr: false,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			_, err := vkService.WidgetsGetPages(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.WidgetsGetPages() err = %v, want %v", err, tt.wantErr)
-			}
-			// if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-			// 	t.Errorf("VK.WidgetsGetPages() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			// }
-		})
-	}
+	res, err := vkService.WidgetsGetPages(map[string]string{})
+	assert.NoError(t, err)
+	assert.NotEmpty(t, res)
 }
