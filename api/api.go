@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	version      = "5.101"
+	version      = "5.103"
 	apiMethodURL = "https://api.vk.com/method/"
 )
 
