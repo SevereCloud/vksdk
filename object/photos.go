@@ -204,10 +204,11 @@ func (photo PhotosPhotoFullXtrRealOffset) ToAttachment() string {
 }
 
 type photosPhotoSizes struct {
-	Height int    `json:"height"` // Height in px
-	URL    string `json:"url"`    // URL of the image
-	Type   string `json:"type"`
-	Width  int    `json:"width"` // Width in px
+	// BUG(VK): json: cannot unmarshal number 180.000000 into Go struct field photosPhotoSizes.height of type int
+	Height float64 `json:"height"` // Height in px
+	URL    string  `json:"url"`    // URL of the image
+	Type   string  `json:"type"`
+	Width  int     `json:"width"` // Width in px
 }
 
 // PhotosPhotoTag struct
