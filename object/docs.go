@@ -17,6 +17,7 @@ type DocsDoc struct {
 	Title      string         `json:"title"` // Document title
 	Type       int            `json:"type"`  // Document type
 	URL        string         `json:"url"`   // File URL
+	docsDocPreviewAudioMessage
 }
 
 // ToAttachment return attachment format
@@ -36,10 +37,11 @@ type docsDocPreviewPhoto struct {
 }
 
 type docsDocPreviewPhotoSizes struct {
-	Height int    `json:"height"` // Height in px
-	Src    string `json:"src"`    // URL of the image
-	Type   string `json:"type"`
-	Width  int    `json:"width"` // Width in px
+	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field docsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type int
+	Height float64 `json:"height"` // Height in px
+	Src    string  `json:"src"`    // URL of the image
+	Type   string  `json:"type"`
+	Width  int     `json:"width"` // Width in px
 }
 
 type docsDocPreviewGraffiti struct {
