@@ -42,8 +42,8 @@ func TestVK_PodcastsMarkAsListened(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.PodcastsMarkAsListened(map[string]string{
-		"owner_id":   "-37473931",
-		"episode_id": "456239025",
+		"owner_id":   "-76982440",
+		"episode_id": "456239890",
 	})
 	assert.NoError(t, err)
 }
