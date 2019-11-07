@@ -208,7 +208,7 @@ type photosPhotoSizes struct {
 	Height float64 `json:"height"` // Height in px
 	URL    string  `json:"url"`    // URL of the image
 	Type   string  `json:"type"`
-	Width  int     `json:"width"` // Width in px
+	Width  float64 `json:"width"` // Width in px
 }
 
 // PhotosPhotoTag struct

@@ -41,7 +41,7 @@ type docsDocPreviewPhotoSizes struct {
 	Height float64 `json:"height"` // Height in px
 	Src    string  `json:"src"`    // URL of the image
 	Type   string  `json:"type"`
-	Width  int     `json:"width"` // Width in px
+	Width  float64 `json:"width"` // Width in px
 }
 
 type docsDocPreviewGraffiti struct {
