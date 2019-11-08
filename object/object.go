@@ -73,10 +73,10 @@ type baseGeo struct {
 }
 
 type baseImage struct {
-	Height int    `json:"height"`
-	URL    string `json:"url"`
-	Width  int    `json:"width"`
-	Type   string `json:"type"`
+	Height float64 `json:"height"`
+	URL    string  `json:"url"`
+	Width  float64 `json:"width"`
+	Type   string  `json:"type"`
 }
 
 type baseLikes struct {

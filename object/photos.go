@@ -57,10 +57,8 @@ type PhotosCommentXtrPid struct {
 
 // PhotosImage struct
 type PhotosImage struct {
-	Height int    `json:"height"` // Height of the photo in px.
-	Type   string `json:"type"`
-	URL    string `json:"url"`   // Photo URL.
-	Width  int    `json:"width"` // Width of the photo in px.
+	baseImage
+	Type string `json:"type"`
 }
 
 // PhotosChatUploadResponse struct
@@ -205,10 +203,8 @@ func (photo PhotosPhotoFullXtrRealOffset) ToAttachment() string {
 
 type photosPhotoSizes struct {
 	// BUG(VK): json: cannot unmarshal number 180.000000 into Go struct field photosPhotoSizes.height of type int
-	Height float64 `json:"height"` // Height in px
-	URL    string  `json:"url"`    // URL of the image
-	Type   string  `json:"type"`
-	Width  float64 `json:"width"` // Width in px
+	baseImage
+	Type string `json:"type"`
 }
 
 // PhotosPhotoTag struct
