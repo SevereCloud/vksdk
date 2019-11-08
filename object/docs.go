@@ -38,8 +38,10 @@ type docsDocPreviewPhoto struct {
 
 type docsDocPreviewPhotoSizes struct {
 	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field docsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type int
-	baseImage
-	Type string `json:"type"`
+	Height float64 `json:"height"` // Height in px
+	Src    string  `json:"src"`    // URL of the image
+	Type   string  `json:"type"`
+	Width  float64 `json:"width"` // Width in px
 }
 
 type docsDocPreviewGraffiti struct {
