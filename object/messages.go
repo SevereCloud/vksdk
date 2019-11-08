@@ -50,6 +50,7 @@ type MessagesMessage struct {
 	ID                    int                         `json:"id"`        // Message ID
 	Important             bool                        `json:"important"` // Is it an important message
 	IsHidden              bool                        `json:"is_hidden"`
+	IsCropped             bool                        `json:"is_cropped"`
 	Keyboard              MessagesKeyboard            `json:"keyboard"`
 	Out                   int                         `json:"out"` // Information whether the message is outcoming
 	Payload               string                      `json:"payload"`
