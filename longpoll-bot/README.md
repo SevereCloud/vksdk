@@ -9,7 +9,7 @@
 
 ### Версия API
 
-Данная библиотека поддерживает версию API **5.101**.
+Данная библиотека поддерживает версию API **5.103**.
 
 ### Инициализация
 
@@ -107,7 +107,7 @@ func main() {
 	}
 
 	lp.MessageNew(func(obj object.MessageNewObject, groupID int) {
-		log.Print(obj.Text)
+		log.Print(obj.Message.Text)
 	})
 
 	lp.Run()

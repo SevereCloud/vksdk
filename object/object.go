@@ -217,3 +217,12 @@ type ExtendedResponse struct {
 	Profiles []UsersUser   `json:"profiles"`
 	Groups   []GroupsGroup `json:"groups"`
 }
+
+type ClientInfo struct {
+	ButtonActions  []string `json:"button_actions"`
+	Keyboard       bool     `json:"keyboard"`
+	InlineKeyboard bool     `json:"inline_keyboard"`
+	LangID         int      `json:"lang_id"`
+}
+
+// TODO: const for LangID

@@ -4,7 +4,10 @@ package object // import "github.com/SevereCloud/vksdk/object"
 type MessageNewFunc func(MessageNewObject, int)
 
 // MessageNewObject struct
-type MessageNewObject MessagesMessage
+type MessageNewObject struct {
+	Message    MessagesMessage `json:"message"`
+	ClientInfo ClientInfo      `json:"client_info"`
+}
 
 // MessageReplyFunc func
 type MessageReplyFunc func(MessageReplyObject, int)

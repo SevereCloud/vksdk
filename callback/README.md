@@ -10,7 +10,7 @@
 
 ### Версия API
 
-Данная библиотека поддерживает версию API **5.101**.
+Данная библиотека поддерживает версию API **5.103**.
 
 ### Подтверждение сервера
 
@@ -65,7 +65,7 @@ func main() {
 	// cb.ConfirmationKeys[170561776] = "693d0ba9"
 
 	cb.MessageNew(func(obj object.MessageNewObject, groupID int) {
-		log.Print(obj.Text)
+		log.Print(obj.Message.Text)
 	})
 
 	http.HandleFunc("/callback", cb.HandleFunc)
