@@ -47,6 +47,31 @@ func TestMessagesKeyboard_AddTextButton(t *testing.T) {
 	})
 }
 
+func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
+	const (
+		payload = "payload"
+		label   = "label"
+		link    = "https://vk.com"
+	)
+
+	var keyboard MessagesKeyboard
+
+	keyboard.AddRow()
+
+	t.Run("Add Open Link button", func(t *testing.T) {
+		keyboard.AddOpenLinkButton(link, label, payload)
+		if keyboard.Buttons[0][0].Action.Payload != payload {
+			t.Error("Bad button payload")
+		}
+		if keyboard.Buttons[0][0].Action.Label != label {
+			t.Error("Bad button label")
+		}
+		if keyboard.Buttons[0][0].Action.Link != link {
+			t.Error("Bad button link")
+		}
+	})
+}
+
 func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
 	const payload = "payload"
 

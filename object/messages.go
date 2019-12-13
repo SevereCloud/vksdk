@@ -85,7 +85,7 @@ func (keyboard *MessagesKeyboard) AddRow() {
 func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, color string) {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
-			Type:    "text",
+			Type:    ButtonText,
 			Label:   label,
 			Payload: payload,
 		},
@@ -96,11 +96,26 @@ func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, co
 	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
 }
 
+// AddOpenLinkButton add Open Link button in last row
+func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label, payload string) {
+	button := MessagesKeyboardButton{
+		Action: MessagesKeyboardButtonAction{
+			Type:    ButtonOpenLink,
+			Payload: payload,
+			Label:   label,
+			Link:    link,
+		},
+	}
+
+	lastRow := len(keyboard.Buttons) - 1
+	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+}
+
 // AddLocationButton add Location button in last row
 func (keyboard *MessagesKeyboard) AddLocationButton(payload string) {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
-			Type:    "location",
+			Type:    ButtonLocation,
 			Payload: payload,
 		},
 	}
@@ -113,7 +128,7 @@ func (keyboard *MessagesKeyboard) AddLocationButton(payload string) {
 func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
-			Type:    "vkpay",
+			Type:    ButtonVKPay,
 			Payload: payload,
 			Hash:    hash,
 		},
@@ -127,7 +142,7 @@ func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) {
 func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload, label, hash string) {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
-			Type:    "open_app",
+			Type:    ButtonVKApp,
 			AppID:   appID,
 			OwnerID: ownerID,
 			Payload: payload,
@@ -154,6 +169,7 @@ type MessagesKeyboardButtonAction struct {
 	OwnerID int    `json:"owner_id,omitempty"` // Fragment value in app link like vk.com/app123456_{owner_id}#hash
 	Payload string `json:"payload,omitempty"`  // Additional data sent along with message for developer convenience
 	Type    string `json:"type"`               // Button type
+	Link    string `json:"link"`               // Link URL
 }
 
 // MessagesChat struct

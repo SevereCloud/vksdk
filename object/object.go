@@ -227,3 +227,12 @@ type ClientInfo struct {
 }
 
 // TODO: const for LangID
+
+// Button action type
+const (
+	ButtonText     = "text"
+	ButtonVKPay    = "vkpay"
+	ButtonVKApp    = "open_app"
+	ButtonLocation = "location"
+	ButtonOpenLink = "open_link"
+)
