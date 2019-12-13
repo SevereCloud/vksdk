@@ -35,6 +35,7 @@ type GroupEvent struct {
 	Type    string          `json:"type"`
 	Object  json.RawMessage `json:"object"`
 	GroupID int             `json:"group_id"`
+	EventID string          `json:"event_id"`
 	Secret  string          `json:"secret"`
 }
 
