@@ -365,7 +365,7 @@ func TestVK_GroupsGetCatalogInfo(t *testing.T) {
 	res, err := vkUser.GroupsGetCatalogInfo(map[string]string{})
 	assert.NoError(t, err)
 	// assert.NotEmpty(t, res.Categories[0].ID)
-	assert.NotEmpty(t, res.Categories[0].Name)
+	assert.NotEmpty(t, res.Enabled)
 }
 
 func TestVK_GroupsGetCatalogInfoExtended(t *testing.T) {
