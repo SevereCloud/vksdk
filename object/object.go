@@ -226,7 +226,98 @@ type ClientInfo struct {
 	LangID         int      `json:"lang_id"`
 }
 
-// TODO: const for LangID
+// Language code
+const (
+	LangRU               = 0   // Русский
+	LangUK               = 1   // Українська
+	LangBE               = 2   // Беларуская (тарашкевiца)
+	LangEN               = 3   // English
+	LangES               = 4   // Español
+	LangFI               = 5   // Suomi
+	LangDE               = 6   // Deutsch
+	LangIT               = 7   // Italiano
+	LangBG               = 8   // Български
+	LangHR               = 9   // Hrvatski
+	LangHU               = 10  // Magyar
+	LangSR               = 11  // Српски
+	LangPT               = 12  // Português
+	LangEL               = 14  // Ελληνικά
+	LangPL               = 15  // Polski
+	LangFR               = 16  // Français
+	LangKO               = 17  // 한국어
+	LangZH               = 18  // 汉语
+	LangLT               = 19  // Lietuvių
+	LangJA               = 20  // 日本語
+	LangCS               = 21  // Čeština
+	LangET               = 22  // Eesti
+	LangTT               = 50  // Татарча
+	LangBA               = 51  // Башҡортса
+	LangCV               = 52  // Чăвашла
+	LangSK               = 53  // Slovenčina
+	LangRO               = 54  // Română
+	LangNO               = 55  // Norsk
+	LangLV               = 56  // Latviešu
+	LangAZ               = 57  // Azərbaycan dili
+	LangHY               = 58  // Հայերեն
+	LangSQ               = 59  // Shqip
+	LangSV               = 60  // Svenska
+	LangNL               = 61  // Nederlands
+	LangTK               = 62  // Türkmen
+	LangKA               = 63  // ქართული
+	LangDA               = 64  // Dansk
+	LangUZ               = 65  // O‘zbek
+	LangMO               = 66  // Moldovenească
+	LangBUA              = 67  // Буряад
+	LangTH               = 68  // ภาษาไทย
+	LangID               = 69  // Bahasa Indonesia
+	LangTG               = 70  // Тоҷикӣ
+	LangSL               = 71  // Slovenščina
+	LangBS               = 72  // Bosanski
+	LangPTBR             = 73  // Português brasileiro
+	LangFA               = 74  // فارسی
+	LangVI               = 75  // Tiếng Việt
+	LangHI               = 76  // हिन्दी
+	LangSI               = 77  // සිංහල
+	LangBN               = 78  // বাংলা
+	LangTL               = 79  // Tagalog
+	LangMN               = 80  // Монгол
+	LangMY               = 81  // ဗမာစာ
+	LangTR               = 82  // Türkçe
+	LangNE               = 83  // नेपाली
+	LangUR               = 85  // اردو
+	LangKY               = 87  // Кыргыз тили
+	LangPA               = 90  // پنجابی
+	LangOS               = 91  // Ирон
+	LangKN               = 94  // ಕನ್ನಡ
+	LangSW               = 95  // Kiswahili
+	LangKK               = 97  // Қазақша
+	LangAR               = 98  // العربية
+	LangHE               = 99  // עברית
+	LangPreRevolutionary = 100 // Дореволюцiонный
+	LangMYV              = 101 // Эрзянь кель
+	LangKDB              = 102 // Адыгэбзэ
+	LangSAH              = 105 // Саха тыла
+	LangADY              = 106 // Адыгабзэ
+	LangUDM              = 107 // Удмурт
+	LangCHM              = 108 // Марий йылме
+	LangBE2              = 114 // Беларуская
+	LangLEZ              = 118 // Лезги чІал
+	LangTW               = 119 // 臺灣話
+	LangKUM              = 236 // Къумукъ тил
+	LangMVL              = 270 // Mirandés
+	LangSLA              = 298 // Русинськый
+	LangKRL              = 379 // Karjalan kieli
+	LangTYV              = 344 // Тыва дыл
+	LangXAL              = 357 // Хальмг келн
+	LangTLY              = 373 // Tolışə zıvon
+	LangKV               = 375 // Коми кыв
+	LangUKClassic        = 452 // Українська (клясична)
+	LangUKGalitska       = 454 // Українська (Галицка)
+	LangKAB              = 457 // Taqbaylit
+	LangEO               = 555 // Esperanto
+	LangLA               = 666 // Lingua Latina
+	LangSoviet           = 777 // Советский
+)
 
 // Button action type
 const (
