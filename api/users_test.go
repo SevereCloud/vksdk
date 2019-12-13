@@ -116,16 +116,6 @@ func TestVK_UsersGetSubscriptions(t *testing.T) {
 	assert.NotEmpty(t, res)
 }
 
-func TestVK_UsersIsAppUser(t *testing.T) {
-	needUserToken(t)
-
-	_, err := vkUser.UsersIsAppUser(map[string]string{
-		"user_id": "1",
-	})
-	// assert.NotEmpty(t, res)
-	assert.NoError(t, err)
-}
-
 func TestVK_UsersReport(t *testing.T) {
 	needUserToken(t)
 

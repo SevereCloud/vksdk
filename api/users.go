@@ -79,14 +79,6 @@ func (vk *VK) UsersGetSubscriptions(params map[string]string) (response UsersGet
 	return
 }
 
-// UsersIsAppUser returns information whether a user installed the application.
-//
-// https://vk.com/dev/users.isAppUser
-func (vk *VK) UsersIsAppUser(params map[string]string) (response int, err error) {
-	err = vk.RequestUnmarshal("users.isAppUser", params, &response)
-	return
-}
-
 // UsersReport reports (submits a complain about) a user.
 //
 // https://vk.com/dev/users.report
