@@ -222,6 +222,7 @@ type ClientInfo struct {
 	ButtonActions  []string `json:"button_actions"`
 	Keyboard       bool     `json:"keyboard"`
 	InlineKeyboard bool     `json:"inline_keyboard"`
+	Carousel       bool     `json:"carousel"`
 	LangID         int      `json:"lang_id"`
 }
 
