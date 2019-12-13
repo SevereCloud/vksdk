@@ -43,6 +43,7 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		} else {
 			fmt.Fprintf(w, cb.ConfirmationKey)
 		}
+
 		return
 	}
 
@@ -51,6 +52,7 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		// fmt.Fprintf(w, "%v", err)
 		return
 	}
+
 	fmt.Fprintf(w, "ok")
 }
 

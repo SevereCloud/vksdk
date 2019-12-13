@@ -84,6 +84,7 @@ type BoardGetCommentsResponse struct {
 func (vk *VK) BoardGetComments(params map[string]string) (response BoardGetCommentsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("board.getComments", params, &response)
+
 	return
 }
 
@@ -105,6 +106,7 @@ type BoardGetCommentsExtendedResponse struct {
 func (vk *VK) BoardGetCommentsExtended(params map[string]string) (response BoardGetCommentsExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("board.getComments", params, &response)
+
 	return
 }
 
@@ -124,6 +126,7 @@ type BoardGetTopicsResponse struct {
 func (vk *VK) BoardGetTopics(params map[string]string) (response BoardGetTopicsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("board.getTopics", params, &response)
+
 	return
 }
 
@@ -145,6 +148,7 @@ type BoardGetTopicsExtendedResponse struct {
 func (vk *VK) BoardGetTopicsExtended(params map[string]string) (response BoardGetTopicsExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("board.getTopics", params, &response)
+
 	return
 }
 

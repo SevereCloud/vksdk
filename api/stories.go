@@ -32,6 +32,7 @@ type StoriesGetResponse struct {
 func (vk *VK) StoriesGet(params map[string]string) (response StoriesGetResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("stories.get", params, &response)
+
 	return
 }
 
@@ -50,6 +51,7 @@ type StoriesGetExtendedResponse struct {
 func (vk *VK) StoriesGetExtended(params map[string]string) (response StoriesGetExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("stories.get", params, &response)
+
 	return
 }
 
@@ -67,6 +69,7 @@ type StoriesGetBannedResponse struct {
 func (vk *VK) StoriesGetBanned(params map[string]string) (response StoriesGetBannedResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("stories.getBanned", params, &response)
+
 	return
 }
 
@@ -85,6 +88,7 @@ type StoriesGetBannedExtendedResponse struct {
 func (vk *VK) StoriesGetBannedExtended(params map[string]string) (response StoriesGetBannedExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("stories.getBanned", params, &response)
+
 	return
 }
 
@@ -102,6 +106,7 @@ type StoriesGetByIDResponse struct {
 func (vk *VK) StoriesGetByID(params map[string]string) (response StoriesGetByIDResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("stories.getById", params, &response)
+
 	return
 }
 
@@ -120,6 +125,7 @@ type StoriesGetByIDExtendedResponse struct {
 func (vk *VK) StoriesGetByIDExtended(params map[string]string) (response StoriesGetByIDExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("stories.getById", params, &response)
+
 	return
 }
 
@@ -152,6 +158,7 @@ type StoriesGetRepliesResponse struct {
 func (vk *VK) StoriesGetReplies(params map[string]string) (response StoriesGetRepliesResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("stories.getReplies", params, &response)
+
 	return
 }
 
@@ -170,6 +177,7 @@ type StoriesGetRepliesExtendedResponse struct {
 func (vk *VK) StoriesGetRepliesExtended(params map[string]string) (response StoriesGetRepliesExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("stories.getReplies", params, &response)
+
 	return
 }
 
@@ -213,6 +221,7 @@ type StoriesGetViewersResponse struct {
 func (vk *VK) StoriesGetViewers(params map[string]string) (response StoriesGetViewersResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("stories.getViewers", params, &response)
+
 	return
 }
 
@@ -230,6 +239,7 @@ type StoriesGetViewersExtendedResponse struct {
 func (vk *VK) StoriesGetViewersExtended(params map[string]string) (response StoriesGetViewersExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("stories.getViewers", params, &response)
+
 	return
 }
 
@@ -263,6 +273,7 @@ type StoriesSearchResponse struct {
 func (vk *VK) StoriesSearch(params map[string]string) (response StoriesSearchResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("stories.search", params, &response)
+
 	return
 }
 
@@ -281,6 +292,7 @@ type StoriesSearchExtendedResponse struct {
 func (vk *VK) StoriesSearchExtended(params map[string]string) (response StoriesSearchExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("stories.search", params, &response)
+
 	return
 }
 

@@ -114,6 +114,7 @@ type MessagesGetByIDResponse struct {
 func (vk *VK) MessagesGetByID(params map[string]string) (response MessagesGetByIDResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("messages.getById", params, &response)
+
 	return
 }
 
@@ -132,6 +133,7 @@ type MessagesGetByIDExtendedResponse struct {
 func (vk *VK) MessagesGetByIDExtended(params map[string]string) (response MessagesGetByIDExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("messages.getById", params, &response)
+
 	return
 }
 
@@ -231,6 +233,7 @@ type MessagesGetConversationsByIDResponse struct {
 func (vk *VK) MessagesGetConversationsByID(params map[string]string) (response MessagesGetConversationsByIDResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("messages.getConversationsById", params, &response)
+
 	return
 }
 
@@ -249,6 +252,7 @@ type MessagesGetConversationsByIDExtendedResponse struct {
 func (vk *VK) MessagesGetConversationsByIDExtended(params map[string]string) (response MessagesGetConversationsByIDExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("messages.getConversationsById", params, &response)
+
 	return
 }
 
@@ -486,6 +490,7 @@ func (vk *VK) MessagesSearchConversations(params map[string]string) (response Me
 func (vk *VK) MessagesSend(params map[string]string) (response int, err error) {
 	params["user_ids"] = ""
 	err = vk.RequestUnmarshal("messages.send", params, &response)
+
 	return
 }
 
@@ -515,6 +520,7 @@ func (vk *VK) MessagesSendUserIDs(params map[string]string) (response MessagesSe
 func (vk *VK) MessagesSendSticker(params map[string]string) (response int, err error) {
 	params["user_ids"] = ""
 	err = vk.RequestUnmarshal("messages.sendSticker", params, &response)
+
 	return
 }
 

@@ -18,6 +18,7 @@ func testFave(t *testing.T, f object.FaveItem) {
 	assert.NotEmpty(t, f.AddedDate, "f.AddedDate")
 	// assert.NotEmpty(t, f.Seen, "f.Seen")
 	assert.NotEmpty(t, f.Type, "f.Type")
+
 	switch f.Type {
 	case "link":
 		if assert.NotEmpty(t, f.Link, "f.Link") {
@@ -73,34 +74,40 @@ func testFave(t *testing.T, f object.FaveItem) {
 			if assert.NotEmpty(t, f.Product.Category, "f.Product.Category") {
 				assert.NotEmpty(t, f.Product.Category.ID, "f.Product.Category.ID")
 				assert.NotEmpty(t, f.Product.Category.Name, "f.Product.Category.Name")
+
 				if assert.NotEmpty(t, f.Product.Category.Section, "f.Product.Category.Section") {
 					// assert.NotEmpty(t, f.Product.Category.Section.ID, "f.Product.Category.Section.ID")
 					assert.NotEmpty(t, f.Product.Category.Section.Name, "f.Product.Category.Section.Name")
 				}
 			}
+
 			assert.NotEmpty(t, f.Product.Date, "f.Product.Date")
 			assert.NotEmpty(t, f.Product.Description, "f.Product.Description")
 			// assert.NotEmpty(t,f.Product.ExternalID)
 			assert.NotEmpty(t, f.Product.ID, "f.Product.ID")
 			// assert.NotEmpty(t,f.Product.IsFavorite)
 			assert.NotEmpty(t, f.Product.OwnerID, "f.Product.OwnerID")
+
 			if assert.NotEmpty(t, f.Product.Price, "f.Product.Price") {
 				assert.NotEmpty(t, f.Product.Price.Amount, "f.Product.Price.Amount")
+
 				if assert.NotEmpty(t, f.Product.Price.Currency, "f.Product.Price.Currency") {
 					assert.NotEmpty(t, f.Product.Price.Currency.ID, "f.Product.Price.Currency.ID")
 					assert.NotEmpty(t, f.Product.Price.Currency.Name, "f.Product.Price.Currency.Name")
 				}
+
 				assert.NotEmpty(t, f.Product.Price.Text, "f.Product.Price.Text")
 			}
+
 			assert.NotEmpty(t, f.Product.ThumbPhoto, "f.Product.ThumbPhoto")
 			assert.NotEmpty(t, f.Product.Title, "f.Product.Title")
 			// assert.NotEmpty(t,f.Product.AlbumsIDs)
-			assert.NotEmpty(t, f.Product.Photos, "f.Product.Photos")
 			// assert.NotEmpty(t, f.Product.CanComment, "f.Product.CanComment")
 			// assert.NotEmpty(t, f.Product.CanRepost, "f.Product.CanRepost")
 			// assert.NotEmpty(t, f.Product.Likes, "f.Product.Likes")
 			// assert.NotEmpty(t, f.Product.Reposts, "f.Product.Reposts")
 			// assert.NotEmpty(t, f.Product.ViewsCount, "f.Product.ViewsCount")
+			assert.NotEmpty(t, f.Product.Photos, "f.Product.Photos")
 		}
 	case "article":
 		if assert.NotEmpty(t, f.Article, "f.Article") {
@@ -129,7 +136,9 @@ func TestVK_Fave(t *testing.T) {
 	if !assert.NoError(t, err) {
 		log.Fatal(err)
 	}
+
 	assert.NotEmpty(t, fave.Count)
+
 	if assert.NotEmpty(t, fave.Items) {
 		for _, f := range fave.Items {
 			testFave(t, f)
@@ -141,6 +150,7 @@ func TestVK_FaveArticle(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveAddArticle(map[string]string{
 		"url": "https://vk.com/@vkappsdev-vk-apps-kak-popast-v-katalog",
 	})
@@ -151,7 +161,9 @@ func TestVK_FaveArticle(t *testing.T) {
 	if !assert.NoError(t, err) {
 		log.Fatal(err)
 	}
+
 	assert.NotEmpty(t, fave.Count)
+
 	if assert.NotEmpty(t, fave.Items) {
 		for _, f := range fave.Items {
 			testFave(t, f)
@@ -159,6 +171,7 @@ func TestVK_FaveArticle(t *testing.T) {
 	}
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveRemoveArticle(map[string]string{
 		"owner_id":   strconv.Itoa(fave.Items[0].Article.OwnerID),
 		"article_id": strconv.Itoa(fave.Items[0].Article.ID),
@@ -171,6 +184,7 @@ func TestVK_FaveLink(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveAddLink(map[string]string{
 		"link": "https://google.ru",
 	})
@@ -181,7 +195,9 @@ func TestVK_FaveLink(t *testing.T) {
 	if !assert.NoError(t, err) {
 		log.Fatal(err)
 	}
+
 	assert.NotEmpty(t, fave.Count)
+
 	if assert.NotEmpty(t, fave.Items) {
 		for _, f := range fave.Items {
 			testFave(t, f)
@@ -189,6 +205,7 @@ func TestVK_FaveLink(t *testing.T) {
 	}
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveRemoveLink(map[string]string{
 		"link_id": fave.Items[0].Link.ID,
 	})
@@ -200,6 +217,7 @@ func TestVK_FavePage(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveAddPage(map[string]string{
 		"user_id": "1",
 	})
@@ -207,6 +225,7 @@ func TestVK_FavePage(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveTrackPageInteraction(map[string]string{
 		"user_id": "1",
 	})
@@ -214,6 +233,7 @@ func TestVK_FavePage(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveRemovePage(map[string]string{
 		"user_id": "1",
 	})
@@ -225,6 +245,7 @@ func TestVK_FavePost(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveAddPost(map[string]string{
 		"owner_id": "-28551727",
 		"id":       "5713",
@@ -233,6 +254,7 @@ func TestVK_FavePost(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveRemovePost(map[string]string{
 		"owner_id": "-28551727",
 		"id":       "5713",
@@ -245,6 +267,7 @@ func TestVK_FaveProduct(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveAddProduct(map[string]string{
 		"owner_id": "-169097025",
 		"id":       "3398864",
@@ -253,6 +276,7 @@ func TestVK_FaveProduct(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveRemoveProduct(map[string]string{
 		"owner_id": "-169097025",
 		"id":       "3398864",
@@ -265,16 +289,19 @@ func TestVK_FaveTag(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	tag, err := vkUser.FaveAddTag(map[string]string{
 		"name": "Test0",
 	})
 	assert.NoError(t, err)
+
 	if assert.NotEmpty(t, tag) {
 		assert.NotEmpty(t, tag.ID)
 		assert.NotEmpty(t, tag.Name)
 	}
 
 	time.Sleep(sleepTime)
+
 	tagResponse, err := vkUser.FaveAddTag(map[string]string{
 		"name": "Test1",
 	})
@@ -282,6 +309,7 @@ func TestVK_FaveTag(t *testing.T) {
 	assert.NotEmpty(t, tagResponse)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveAddLink(map[string]string{
 		"link": "https://google.ru",
 	})
@@ -289,6 +317,7 @@ func TestVK_FaveTag(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveSetTags(map[string]string{
 		"link_url": "https://google.ru",
 		"tag_ids":  strconv.Itoa(tagResponse.ID),
@@ -297,6 +326,7 @@ func TestVK_FaveTag(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveAddPage(map[string]string{
 		"group_id": "1",
 	})
@@ -304,6 +334,7 @@ func TestVK_FaveTag(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveSetPageTags(map[string]string{
 		"group_id": "1",
 		"tag_ids":  strconv.Itoa(tagResponse.ID),
@@ -312,6 +343,7 @@ func TestVK_FaveTag(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveEditTag(map[string]string{
 		"id":   strconv.Itoa(tagResponse.ID),
 		"name": "Test2",
@@ -333,6 +365,7 @@ func TestVK_FaveTag(t *testing.T) {
 	}
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveReorderTags(map[string]string{
 		"ids": ids,
 	})
@@ -340,6 +373,7 @@ func TestVK_FaveTag(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveRemoveTag(map[string]string{
 		"id": strconv.Itoa(tags.Items[tags.Count-1].ID),
 	})
@@ -354,6 +388,7 @@ func TestVK_FaveVideo(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveAddVideo(map[string]string{
 		"owner_id": "-84585194",
 		"id":       "456239018",
@@ -362,6 +397,7 @@ func TestVK_FaveVideo(t *testing.T) {
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	res, err = vkUser.FaveRemoveVideo(map[string]string{
 		"owner_id": "-84585194",
 		"id":       "456239018",
@@ -374,11 +410,13 @@ func TestVK_FaveGet(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveGet(map[string]string{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
+
 	_, err = vkUser.FaveGetExtended(map[string]string{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -388,15 +426,18 @@ func TestVK_FaveGetPages(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveGetPages(map[string]string{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		for _, page := range res.Items {
 			assert.NotEmpty(t, page.Description)
 			assert.NotEmpty(t, page.Type)
 			// assert.NotEmpty(t, page.Tags)
 			assert.NotEmpty(t, page.UpdatedDate)
+
 			switch page.Type {
 			case "user":
 				assert.NotEmpty(t, page.User.ID)
@@ -414,6 +455,7 @@ func TestVK_FaveGetPages(t *testing.T) {
 				assert.NotEmpty(t, page.Group.Photo100)
 				assert.NotEmpty(t, page.Group.Photo200)
 			}
+
 			assert.NotEmpty(t, page.Description)
 		}
 	}
@@ -423,6 +465,7 @@ func TestVK_FaveMarkSeen(t *testing.T) {
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
+
 	res, err := vkUser.FaveMarkSeen(map[string]string{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)

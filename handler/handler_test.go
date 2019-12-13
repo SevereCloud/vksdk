@@ -18,6 +18,7 @@ func TestFuncList_HandlerMessageNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -60,6 +61,7 @@ func TestFuncList_HandlerMessageReply(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -102,6 +104,7 @@ func TestFuncList_HandlerMessageEdit(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -144,6 +147,7 @@ func TestFuncList_HandlerMessageAllow(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -186,6 +190,7 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -228,6 +233,7 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -270,6 +276,7 @@ func TestFuncList_HandlerPhotoNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -312,6 +319,7 @@ func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -354,6 +362,7 @@ func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -396,6 +405,7 @@ func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -438,6 +448,7 @@ func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -480,6 +491,7 @@ func TestFuncList_HandlerAudioNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -522,6 +534,7 @@ func TestFuncList_HandlerVideoNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -564,6 +577,7 @@ func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -606,6 +620,7 @@ func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -648,6 +663,7 @@ func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -690,6 +706,7 @@ func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -732,6 +749,7 @@ func TestFuncList_HandlerWallPostNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -774,6 +792,7 @@ func TestFuncList_HandlerWallRepost(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -816,6 +835,7 @@ func TestFuncList_HandlerWallReplyNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -858,6 +878,7 @@ func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -900,6 +921,7 @@ func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -942,6 +964,7 @@ func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -984,6 +1007,7 @@ func TestFuncList_HandlerBoardPostNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1026,6 +1050,7 @@ func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1068,6 +1093,7 @@ func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1110,6 +1136,7 @@ func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1152,6 +1179,7 @@ func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1194,6 +1222,7 @@ func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1236,6 +1265,7 @@ func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1278,6 +1308,7 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1320,6 +1351,7 @@ func TestFuncList_HandlerGroupLeave(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1362,6 +1394,7 @@ func TestFuncList_HandlerGroupJoin(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1404,6 +1437,7 @@ func TestFuncList_HandlerUserBlock(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1446,6 +1480,7 @@ func TestFuncList_HandlerUserUnblock(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1488,6 +1523,7 @@ func TestFuncList_HandlerPollVoteNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1530,6 +1566,7 @@ func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1572,6 +1609,7 @@ func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1614,6 +1652,7 @@ func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1656,6 +1695,7 @@ func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent
@@ -1698,6 +1738,7 @@ func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
 			},
 		},
 	}
+
 	tests := []struct {
 		name    string
 		argE    object.GroupEvent

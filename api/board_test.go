@@ -108,6 +108,7 @@ func TestVK_BoardGetComments(t *testing.T) {
 	res, err := vkUser.BoardGetComments(params)
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].FromID)
@@ -115,21 +116,22 @@ func TestVK_BoardGetComments(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].Text)
 		assert.NotEmpty(t, res.Items[0].Likes)
 		assert.NotEmpty(t, res.Items[0].Likes.CanLike)
-		// assert.NotEmpty(t, res.Items[0].CanEdit)
 	}
 
 	res2, err := vkUser.BoardGetCommentsExtended(params)
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res2.Count)
+
 	if assert.NotEmpty(t, res2.Items) {
 		assert.NotEmpty(t, res2.Items[0].ID)
 		assert.NotEmpty(t, res2.Items[0].FromID)
 		assert.NotEmpty(t, res2.Items[0].Date)
 		assert.NotEmpty(t, res2.Items[0].Text)
 		assert.NotEmpty(t, res2.Items[0].Likes)
-		assert.NotEmpty(t, res.Items[0].Likes.CanLike)
 		// assert.NotEmpty(t, res.Items[0].CanEdit)
+		assert.NotEmpty(t, res.Items[0].Likes.CanLike)
 	}
+
 	if assert.NotEmpty(t, res2.Profiles) {
 		assert.NotEmpty(t, res2.Profiles[0].ID)
 		assert.NotEmpty(t, res2.Profiles[0].FirstName)
@@ -153,6 +155,7 @@ func TestVK_BoardGetTopics(t *testing.T) {
 	res, err := vkUser.BoardGetTopics(params)
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)
@@ -164,12 +167,14 @@ func TestVK_BoardGetTopics(t *testing.T) {
 		// assert.NotEmpty(t, res.Items[0].IsFixed)
 		assert.NotEmpty(t, res.Items[0].Comments)
 	}
+
 	assert.NotEmpty(t, res.DefaultOrder)
 	// assert.NotEmpty(t, res.CanAddTopics)
 
 	res2, err := vkUser.BoardGetTopicsExtended(params)
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res2.Count)
+
 	if assert.NotEmpty(t, res2.Items) {
 		assert.NotEmpty(t, res2.Items[0].ID)
 		assert.NotEmpty(t, res2.Items[0].Title)
@@ -181,6 +186,7 @@ func TestVK_BoardGetTopics(t *testing.T) {
 		// assert.NotEmpty(t, res2.Items[0].IsFixed)
 		assert.NotEmpty(t, res2.Items[0].Comments)
 	}
+
 	assert.NotEmpty(t, res2.DefaultOrder)
 	// assert.NotEmpty(t, res2.CanAddTopics)
 	if assert.NotEmpty(t, res2.Profiles) {

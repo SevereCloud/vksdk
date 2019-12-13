@@ -201,6 +201,7 @@ func New(vkErr object.Error) error {
 	if vkErr.Code == 0 {
 		return nil
 	}
+
 	return customError{
 		errorType:     ErrorType(vkErr.Code),
 		originalError: errors.New(vkErr.Message),

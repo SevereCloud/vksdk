@@ -10,7 +10,6 @@ import (
 )
 
 func TestContext(t *testing.T) {
-
 	err := errors.Unknown.New("an_error")
 	expectedContext := object.Error{Code: 1}
 	errWithContext := errors.AddErrorContext(err, expectedContext)

@@ -9,6 +9,7 @@ func TestMarketMarketItem_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -25,6 +26,7 @@ func TestMarketMarketItem_ToAttachment(t *testing.T) {
 			want:   "market-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			market := MarketMarketItem{
@@ -43,6 +45,7 @@ func TestMarketMarketAlbum_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -59,6 +62,7 @@ func TestMarketMarketAlbum_ToAttachment(t *testing.T) {
 			want:   "market_album-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			marketAlbum := MarketMarketAlbum{

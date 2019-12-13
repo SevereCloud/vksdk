@@ -7,6 +7,7 @@ func TestNotesNote_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -23,6 +24,7 @@ func TestNotesNote_ToAttachment(t *testing.T) {
 			want:   "note-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			note := NotesNote{

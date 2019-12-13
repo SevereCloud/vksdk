@@ -55,6 +55,7 @@ func TestVK_PagesSave(t *testing.T) {
 		"page_id":  strconv.Itoa(page),
 	})
 	assert.NoError(t, err)
+
 	if assert.NotEmpty(t, history) {
 		assert.NotEmpty(t, history[0].Date)
 		assert.NotEmpty(t, history[0].EditorID)

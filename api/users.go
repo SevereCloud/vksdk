@@ -29,6 +29,7 @@ type UsersGetFollowersResponse struct {
 func (vk *VK) UsersGetFollowers(params map[string]string) (response UsersGetFollowersResponse, err error) {
 	params["fields"] = ""
 	err = vk.RequestUnmarshal("users.getFollowers", params, &response)
+
 	return
 }
 
@@ -47,7 +48,9 @@ func (vk *VK) UsersGetFollowersFields(params map[string]string) (response UsersG
 	if params["fields"] == "" {
 		params["fields"] = "id"
 	}
+
 	err = vk.RequestUnmarshal("users.getFollowers", params, &response)
+
 	return
 }
 
@@ -72,6 +75,7 @@ type UsersGetSubscriptionsResponse struct {
 func (vk *VK) UsersGetSubscriptions(params map[string]string) (response UsersGetSubscriptionsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("users.getSubscriptions", params, &response)
+
 	return
 }
 

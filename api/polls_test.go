@@ -49,8 +49,10 @@ func TestVK_PollsGetBackgrounds(t *testing.T) {
 
 func TestVK_PollsGetByID(t *testing.T) {
 	needUserToken(t)
+
 	f := func(params map[string]string) {
 		t.Helper()
+
 		_, err := vkUser.PollsGetByID(params)
 		if err != nil {
 			t.Errorf("VK.PollsGetByID() err = %v", err)

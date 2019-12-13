@@ -17,11 +17,11 @@ func TestLongpoll_Shutdown(t *testing.T) {
 			t.Error("inShutdown != 1")
 		}
 	})
-
 }
 
 func TestLongpoll_Handler(t *testing.T) { // nolint:gocyclo
 	lp := &Longpoll{}
+
 	t.Run("MessageNew", func(t *testing.T) {
 		lp.MessageNew(func(obj object.MessageNewObject, groupID int) {})
 		if len(lp.funcList.MessageNew) != 1 {
@@ -282,6 +282,7 @@ func TestInit(t *testing.T) {
 	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
+
 	vk := api.Init(groupToken)
 	badVk := api.Init("")
 	groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
@@ -290,6 +291,7 @@ func TestInit(t *testing.T) {
 		vk      *api.VK
 		groupID int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -313,6 +315,7 @@ func TestInit(t *testing.T) {
 			wantErr: false,
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			_, err := Init(tt.args.vk, tt.args.groupID)
@@ -332,6 +335,7 @@ func TestLongpoll_checkResponse(t *testing.T) {
 	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
+
 	vk := api.Init(groupToken)
 	groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
 	lp, _ := Init(vk, groupID)
@@ -397,7 +401,9 @@ func TestLongpoll_RunError(t *testing.T) {
 			t.Error(err)
 		}
 	})
+
 	lp.Server = "http://example.com"
+
 	t.Run("Run json error", func(t *testing.T) {
 		if err := lp.Run(); err == nil {
 			t.Error(err)

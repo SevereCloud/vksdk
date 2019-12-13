@@ -7,6 +7,7 @@ func TestGroupsGroup_ToMention(t *testing.T) {
 		ID   int
 		Name string
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -17,6 +18,7 @@ func TestGroupsGroup_ToMention(t *testing.T) {
 			want:   "[club1|Api club]",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			group := GroupsGroup{
@@ -35,6 +37,7 @@ func TestGroupsGroupXtrInvitedBy_ToMention(t *testing.T) {
 		ID   int
 		Name string
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -45,6 +48,7 @@ func TestGroupsGroupXtrInvitedBy_ToMention(t *testing.T) {
 			want:   "[club1|Api club]",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			group := GroupsGroupXtrInvitedBy{

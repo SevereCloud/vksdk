@@ -84,6 +84,7 @@ type WallGetResponse struct {
 func (vk *VK) WallGet(params map[string]string) (response WallGetResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("wall.get", params, &response)
+
 	return
 }
 
@@ -102,6 +103,7 @@ type WallGetExtendedResponse struct {
 func (vk *VK) WallGetExtended(params map[string]string) (response WallGetExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("wall.get", params, &response)
+
 	return
 }
 
@@ -116,6 +118,7 @@ type WallGetByIDResponse []object.WallWallpost
 func (vk *VK) WallGetByID(params map[string]string) (response WallGetByIDResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("wall.getById", params, &response)
+
 	return
 }
 
@@ -133,6 +136,7 @@ type WallGetByIDExtendedResponse struct {
 func (vk *VK) WallGetByIDExtended(params map[string]string) (response WallGetByIDExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("wall.getById", params, &response)
+
 	return
 }
 
@@ -153,6 +157,7 @@ type WallGetCommentResponse struct {
 func (vk *VK) WallGetComment(params map[string]string) (response WallGetCommentResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("wall.getComment", params, &response)
+
 	return
 }
 
@@ -176,6 +181,7 @@ type WallGetCommentExtendedResponse struct {
 func (vk *VK) WallGetCommentExtended(params map[string]string) (response WallGetCommentExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("wall.getComment", params, &response)
+
 	return
 }
 
@@ -197,6 +203,7 @@ type WallGetCommentsResponse struct {
 func (vk *VK) WallGetComments(params map[string]string) (response WallGetCommentsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("wall.getComments", params, &response)
+
 	return
 }
 
@@ -219,6 +226,7 @@ type WallGetCommentsExtendedResponse struct {
 func (vk *VK) WallGetCommentsExtended(params map[string]string) (response WallGetCommentsExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("wall.getComments", params, &response)
+
 	return
 }
 
@@ -342,6 +350,7 @@ type WallSearchResponse struct {
 func (vk *VK) WallSearch(params map[string]string) (response WallSearchResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("wall.search", params, &response)
+
 	return
 }
 
@@ -360,6 +369,7 @@ type WallSearchExtendedResponse struct {
 func (vk *VK) WallSearchExtended(params map[string]string) (response WallSearchExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("wall.search", params, &response)
+
 	return
 }
 

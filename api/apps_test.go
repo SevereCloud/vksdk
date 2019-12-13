@@ -23,6 +23,7 @@ func TestVK_AppsGet(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].Type)
 		assert.NotEmpty(t, res.Items[0].Title)
@@ -42,8 +43,6 @@ func TestVK_AppsGet(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].PublishedDate)
 		assert.NotEmpty(t, res.Items[0].Section)
 	}
-	// assert.NotEmpty(t, res.Profiles)
-	// assert.NotEmpty(t, res.Groups)
 }
 
 func TestVK_AppsGetCatalog(t *testing.T) {
@@ -65,8 +64,6 @@ func TestVK_AppsGetFriendsList(t *testing.T) {
 
 	_, err = vkUser.AppsGetFriendsListExtended(map[string]string{})
 	assert.NoError(t, err)
-	// assert.NotEmpty(t, res2.Count)
-	// assert.NotEmpty(t, res2.Items)
 }
 
 // TODO: TestVK_AppsGetLeaderboard
@@ -77,6 +74,7 @@ func TestVK_AppsGetScopes(t *testing.T) {
 	res, err := vkUser.AppsGetScopes(map[string]string{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].Name)
 		assert.NotEmpty(t, res.Items[0].Title)

@@ -8,6 +8,7 @@ import (
 
 func needUserToken(t *testing.T) {
 	t.Helper()
+
 	if vkUser.AccessToken == "" {
 		t.Skip("USER_TOKEN empty")
 	}
@@ -15,6 +16,7 @@ func needUserToken(t *testing.T) {
 
 func needGroupToken(t *testing.T) {
 	t.Helper()
+
 	if vkGroup.AccessToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
@@ -22,6 +24,7 @@ func needGroupToken(t *testing.T) {
 
 func needServiceToken(t *testing.T) {
 	t.Helper()
+
 	if vkService.AccessToken == "" {
 		t.Skip("SERVICE_TOKEN empty")
 	}
@@ -30,8 +33,10 @@ func needServiceToken(t *testing.T) {
 func needChatID(t *testing.T) int {
 	t.Helper()
 	needUserToken(t)
+
 	if vkChatID == 0 {
 		var err error
+
 		vkChatID, err = vkUser.MessagesCreateChat(map[string]string{
 			"title": "TestChat",
 		})
@@ -39,6 +44,7 @@ func needChatID(t *testing.T) int {
 			t.Skip("Get chatID", err)
 		}
 	}
+
 	return vkChatID
 }
 
@@ -52,17 +58,21 @@ func TestMain(m *testing.M) {
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		vkGroupID = group[0].ID
 	}
+
 	vkService = Init(os.Getenv("SERVICE_TOKEN"))
 	vkService.Limit = 3
 	vkUser = Init(os.Getenv("USER_TOKEN"))
 	vkUser.Limit = 3
+
 	if vkUser.AccessToken != "" {
 		user, err := vkUser.UsersGet(map[string]string{})
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		vkUserID = user[0].ID
 	}
 
@@ -75,6 +85,7 @@ func TestVK_Request(t *testing.T) {
 	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
+
 	vk := Init(groupToken)
 
 	t.Run("Request 403 error", func(t *testing.T) {
@@ -83,7 +94,9 @@ func TestVK_Request(t *testing.T) {
 			t.Errorf("VK.Request() got1 = %v, want -1", err)
 		}
 	})
+
 	vk.MethodURL = ""
+
 	t.Run("Client error", func(t *testing.T) {
 		_, err := vk.Request("test", map[string]string{"test": "test"})
 		if err == nil {
@@ -97,6 +110,7 @@ func TestVK_RequestLimit(t *testing.T) {
 	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
+
 	vk := Init(groupToken)
 	vk.Limit = 2
 
@@ -128,11 +142,13 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 	needGroupToken(t)
 
 	var testObj string
+
 	type args struct {
 		method string
 		params map[string]string
 		obj    interface{}
 	}
+
 	tests := []struct {
 		name    string
 		args    args
@@ -148,6 +164,7 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 			wantErr: true,
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if err := vkGroup.RequestUnmarshal(tt.args.method, tt.args.params, tt.args.obj); (err != nil) != tt.wantErr {

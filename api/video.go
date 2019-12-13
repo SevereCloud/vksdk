@@ -103,6 +103,7 @@ type VideoGetResponse struct {
 func (vk *VK) VideoGet(params map[string]string) (response VideoGetResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.get", params, &response)
+
 	return
 }
 
@@ -121,6 +122,7 @@ type VideoGetExtendedResponse struct {
 func (vk *VK) VideoGetExtended(params map[string]string) (response VideoGetExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("video.get", params, &response)
+
 	return
 }
 
@@ -149,6 +151,7 @@ type VideoGetAlbumsResponse struct {
 func (vk *VK) VideoGetAlbums(params map[string]string) (response VideoGetAlbumsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.getAlbums", params, &response)
+
 	return
 }
 
@@ -166,6 +169,7 @@ type VideoGetAlbumsExtendedResponse struct {
 func (vk *VK) VideoGetAlbumsExtended(params map[string]string) (response VideoGetAlbumsExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("video.getAlbums", params, &response)
+
 	return
 }
 
@@ -180,6 +184,7 @@ type VideoGetAlbumsByVideoResponse []int
 func (vk *VK) VideoGetAlbumsByVideo(params map[string]string) (response VideoGetAlbumsByVideoResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.getAlbumsByVideo", params, &response)
+
 	return
 }
 
@@ -197,6 +202,7 @@ type VideoGetAlbumsByVideoExtendedResponse struct {
 func (vk *VK) VideoGetAlbumsByVideoExtended(params map[string]string) (response VideoGetAlbumsByVideoExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("video.getAlbumsByVideo", params, &response)
+
 	return
 }
 
@@ -214,6 +220,7 @@ type VideoGetCommentsResponse struct {
 func (vk *VK) VideoGetComments(params map[string]string) (response VideoGetCommentsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.getComments", params, &response)
+
 	return
 }
 
@@ -232,6 +239,7 @@ type VideoGetCommentsExtendedResponse struct {
 func (vk *VK) VideoGetCommentsExtended(params map[string]string) (response VideoGetCommentsExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("video.getComments", params, &response)
+
 	return
 }
 
@@ -316,6 +324,7 @@ type VideoSearchResponse struct {
 func (vk *VK) VideoSearch(params map[string]string) (response VideoSearchResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.search", params, &response)
+
 	return
 }
 
@@ -334,5 +343,6 @@ type VideoSearchExtendedResponse struct {
 func (vk *VK) VideoSearchExtended(params map[string]string) (response VideoSearchExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("video.search", params, &response)
+
 	return
 }

@@ -59,6 +59,7 @@ type NewsfeedGetBannedResponse struct {
 func (vk *VK) NewsfeedGetBanned(params map[string]string) (response NewsfeedGetBannedResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("newsfeed.getBanned", params, &response)
+
 	return
 }
 
@@ -75,6 +76,7 @@ type NewsfeedGetBannedExtendedResponse struct {
 func (vk *VK) NewsfeedGetBannedExtended(params map[string]string) (response NewsfeedGetBannedExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("newsfeed.getBanned", params, &response)
+
 	return
 }
 
@@ -189,6 +191,7 @@ type NewsfeedSearchResponse struct {
 func (vk *VK) NewsfeedSearch(params map[string]string) (response NewsfeedSearchResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("newsfeed.search", params, &response)
+
 	return
 }
 
@@ -210,6 +213,7 @@ type NewsfeedSearchExtendedResponse struct {
 func (vk *VK) NewsfeedSearchExtended(params map[string]string) (response NewsfeedSearchExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("newsfeed.search", params, &response)
+
 	return
 }
 

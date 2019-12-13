@@ -7,6 +7,7 @@ func TestAudioAudioFull_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -41,6 +42,7 @@ func TestAudioAudio_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields

@@ -233,6 +233,7 @@ func TestVK_GroupsGetAddresses(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
+
 	for _, address := range res.Items {
 		assert.NotEmpty(t, address.ID)
 		assert.NotEmpty(t, address.Title)
@@ -246,11 +247,12 @@ func TestVK_GroupsGetAddresses(t *testing.T) {
 		assert.NotEmpty(t, address.WorkInfoStatus)
 		assert.NotEmpty(t, address.TimeOffset)
 		assert.NotEmpty(t, address.Phone)
+
 		if assert.NotEmpty(t, address.Timetable) {
 			assert.NotEmpty(t, address.Timetable.Sat.OpenTime)
-			assert.NotEmpty(t, address.Timetable.Sat.CloseTime)
 			// assert.NotEmpty(t, address.Timetable.Sat.BreakOpenTime)
 			// assert.NotEmpty(t, address.Timetable.Sat.BreakCloseTime)
+			assert.NotEmpty(t, address.Timetable.Sat.CloseTime)
 		}
 	}
 }
@@ -261,8 +263,8 @@ func TestVK_GroupsGetBanned(t *testing.T) {
 	_, err := vkGroup.GroupsGetBanned(map[string]string{
 		"group_id": strconv.Itoa(vkGroupID),
 	})
-	assert.NoError(t, err)
 	// assert.NotEmpty(t, res)
+	assert.NoError(t, err)
 }
 
 func TestVK_GroupsGetByID(t *testing.T) {
@@ -274,6 +276,7 @@ func TestVK_GroupsGetByID(t *testing.T) {
 	})
 
 	assert.NoError(t, err)
+
 	if assert.NotEmpty(t, res[0]) {
 		group := res[0]
 		assert.NotEmpty(t, group.ID)
@@ -303,6 +306,7 @@ func TestVK_GroupsGetByID(t *testing.T) {
 		// assert.NotEmpty(t, group.CanCreateTopic)
 		// assert.NotEmpty(t, group.CanUploadVideo)
 		assert.NotEmpty(t, group.Status)
+
 		if assert.NotEmpty(t, group.Links) {
 			assert.NotEmpty(t, group.Links[0].ID)
 			assert.NotEmpty(t, group.Links[0].URL)
@@ -330,10 +334,12 @@ func TestVK_GroupsGetByID(t *testing.T) {
 		assert.NotEmpty(t, group.CropPhoto)
 		// assert.NotEmpty(t, group.IsHiddenFromFeed)
 		assert.NotEmpty(t, group.Wall)
+
 		if assert.NotEmpty(t, group.Cover) {
 			assert.NotEmpty(t, group.Cover.Enabled)
 			assert.NotEmpty(t, group.Cover.Images)
 		}
+
 		assert.NotEmpty(t, group.HasPhoto)
 		// assert.NotEmpty(t, group.CanMessage)
 		assert.NotEmpty(t, group.Photo50)

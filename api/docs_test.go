@@ -41,6 +41,7 @@ func TestVK_DocsGet(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)
@@ -60,6 +61,7 @@ func TestVK_DocsGetByID(t *testing.T) {
 		"docs": "2314852_165123053",
 	})
 	assert.NoError(t, err)
+
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].ID)
 		assert.NotEmpty(t, res[0].Title)
@@ -69,6 +71,7 @@ func TestVK_DocsGetByID(t *testing.T) {
 		assert.NotEmpty(t, res[0].URL)
 		assert.NotEmpty(t, res[0].Date)
 		assert.NotEmpty(t, res[0].Type)
+
 		if assert.NotEmpty(t, res[0].Preview) {
 			if assert.NotEmpty(t, res[0].Preview.Photo.Sizes) {
 				size := res[0].Preview.Photo.Sizes[0]
@@ -77,6 +80,7 @@ func TestVK_DocsGetByID(t *testing.T) {
 				assert.NotEmpty(t, size.Height)
 				assert.NotEmpty(t, size.Type)
 			}
+
 			assert.NotEmpty(t, res[0].Preview.Video.Src)
 			assert.NotEmpty(t, res[0].Preview.Video.Width)
 			assert.NotEmpty(t, res[0].Preview.Video.Height)
@@ -91,6 +95,7 @@ func TestVK_DocsGetTypes(t *testing.T) {
 	res, err := vkUser.DocsGetTypes(map[string]string{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Name)
@@ -132,6 +137,7 @@ func TestVK_DocsSearch(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].OwnerID)

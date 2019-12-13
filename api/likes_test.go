@@ -58,6 +58,6 @@ func TestVK_LikesIsLiked(t *testing.T) {
 		"owner_id": "1",
 		"item_id":  "45546",
 	})
-	assert.NoError(t, err)
 	// assert.NotEmpty(t, res)
+	assert.NoError(t, err)
 }

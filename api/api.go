@@ -48,6 +48,7 @@ func Init(token string) *VK {
 	vk.AccessToken = token
 	vk.Version = version
 	vk.Client = &http.Client{}
+
 	return &vk
 }
 
@@ -61,9 +62,11 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 	u := vk.MethodURL + method
 
 	query := url.Values{}
+
 	for key, value := range params {
 		query.Set(key, value)
 	}
+
 	query.Set("access_token", vk.AccessToken)
 	query.Set("v", vk.Version)
 
@@ -71,8 +74,10 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 
 	// Rate limiting
 	var beforeRps int
+
 	if vk.Limit > 0 {
 		vk.mux.Lock()
+
 		sleepTime := time.Second - time.Since(vk.lastTime)
 		if sleepTime < 0 {
 			vk.lastTime = time.Now()
@@ -99,6 +104,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 		if beforeRps != vk.rps {
 			vk.rps++
 		}
+
 		sleepTime := time.Second - time.Since(vk.lastTime)
 		if sleepTime < 0 {
 			vk.lastTime = time.Now()
@@ -117,6 +123,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	err = errors.New(handler.Error)
 
 	return handler.Response, err

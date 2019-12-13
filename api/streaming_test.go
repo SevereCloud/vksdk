@@ -64,6 +64,7 @@ func TestVK_StreamingGetStem(t *testing.T) {
 
 	params := make(map[string]string)
 	params["word"] = "собака"
+
 	t.Run("StreamingGetStem not empty", func(t *testing.T) {
 		response, err := vkService.StreamingGetStem(params)
 		if err != nil {
@@ -81,6 +82,7 @@ func TestVK_StreamingSetSettings(t *testing.T) {
 
 	params := make(map[string]string)
 	params["monthly_tier"] = "unlimited"
+
 	t.Run("StreamingSetSettings not empty", func(t *testing.T) {
 		// TODO: check StreamingSetSettings test
 		_, err := vkService.StreamingSetSettings(params)

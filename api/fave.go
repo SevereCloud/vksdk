@@ -85,6 +85,7 @@ type FaveGetResponse struct {
 func (vk *VK) FaveGet(params map[string]string) (response FaveGetResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("fave.get", params, &response)
+
 	return
 }
 
@@ -103,6 +104,7 @@ type FaveGetExtendedResponse struct {
 func (vk *VK) FaveGetExtended(params map[string]string) (response FaveGetExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("fave.get", params, &response)
+
 	return
 }
 

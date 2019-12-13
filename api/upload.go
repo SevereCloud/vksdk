@@ -23,6 +23,7 @@ type uploadError struct {
 func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string) (bodyContent []byte, err error) {
 	body := new(bytes.Buffer)
 	writer := multipart.NewWriter(body)
+
 	part, err := writer.CreateFormFile(fieldname, filename)
 	if err != nil {
 		return
@@ -43,6 +44,7 @@ func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string)
 	defer resp.Body.Close()
 
 	bodyContent, err = ioutil.ReadAll(resp.Body)
+
 	return
 }
 
@@ -64,6 +66,7 @@ func (vk *VK) uploadPhoto(params map[string]string, file io.Reader) (response Ph
 	}
 
 	var handler object.PhotosPhotoUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -77,6 +80,7 @@ func (vk *VK) uploadPhoto(params map[string]string, file io.Reader) (response Ph
 		"album_id":    params["album_id"],
 		"group_id":    params["group_id"],
 	})
+
 	return
 }
 
@@ -90,6 +94,7 @@ func (vk *VK) UploadPhoto(albumID int, file io.Reader) (response PhotosSaveRespo
 	response, err = vk.uploadPhoto(map[string]string{
 		"album_id": strconv.Itoa(albumID),
 	}, file)
+
 	return
 }
 
@@ -104,6 +109,7 @@ func (vk *VK) UploadPhotoGroup(groupID, albumID int, file io.Reader) (response P
 		"album_id": strconv.Itoa(albumID),
 		"group_id": strconv.Itoa(groupID),
 	}, file)
+
 	return
 }
 
@@ -125,6 +131,7 @@ func (vk *VK) uploadWallPhoto(params map[string]string, file io.Reader) (respons
 	}
 
 	var handler object.PhotosWallUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -136,6 +143,7 @@ func (vk *VK) uploadWallPhoto(params map[string]string, file io.Reader) (respons
 		"hash":     handler.Hash,
 		"group_id": params["group_id"],
 	})
+
 	return
 }
 
@@ -160,6 +168,7 @@ func (vk *VK) UploadGroupWallPhoto(groupID int, file io.Reader) (response Photos
 	response, err = vk.uploadWallPhoto(map[string]string{
 		"group_id": strconv.Itoa(groupID),
 	}, file)
+
 	return
 }
 
@@ -183,6 +192,7 @@ func (vk *VK) uploadOwnerPhoto(params map[string]string, squareCrop string, file
 
 	body := new(bytes.Buffer)
 	writer := multipart.NewWriter(body)
+
 	part, err := writer.CreateFormFile("photo", "photo.jpeg")
 	if err != nil {
 		return
@@ -216,6 +226,7 @@ func (vk *VK) uploadOwnerPhoto(params map[string]string, squareCrop string, file
 	}
 
 	var handler object.PhotosOwnerUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -226,6 +237,7 @@ func (vk *VK) uploadOwnerPhoto(params map[string]string, squareCrop string, file
 		"photo":  handler.Photo,
 		"hash":   handler.Hash,
 	})
+
 	return response, err
 }
 
@@ -256,6 +268,7 @@ func (vk *VK) UploadOwnerPhoto(ownerID int, squareCrop string, file io.Reader) (
 	response, err = vk.uploadOwnerPhoto(map[string]string{
 		"owner_id": strconv.Itoa(ownerID),
 	}, squareCrop, file)
+
 	return
 }
 
@@ -279,6 +292,7 @@ func (vk *VK) UploadMessagesPhoto(peerID int, file io.Reader) (response PhotosSa
 	}
 
 	var handler object.PhotosMessageUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -289,6 +303,7 @@ func (vk *VK) UploadMessagesPhoto(peerID int, file io.Reader) (response PhotosSa
 		"photo":  handler.Photo,
 		"hash":   handler.Hash,
 	})
+
 	return
 }
 
@@ -311,6 +326,7 @@ func (vk *VK) uploadChatPhoto(params map[string]string, file io.Reader) (respons
 	}
 
 	var handler object.PhotosChatUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -319,6 +335,7 @@ func (vk *VK) uploadChatPhoto(params map[string]string, file io.Reader) (respons
 	response, err = vk.MessagesSetChatPhoto(map[string]string{
 		"file": handler.Response,
 	})
+
 	return
 }
 
@@ -333,6 +350,7 @@ func (vk *VK) UploadChatPhoto(chatID int, file io.Reader) (response MessagesSetC
 	response, err = vk.uploadChatPhoto(map[string]string{
 		"chat_id": strconv.Itoa(chatID),
 	}, file)
+
 	return
 }
 
@@ -350,6 +368,7 @@ func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.R
 		"crop_y":     strconv.Itoa(cropY),
 		"crop_width": strconv.Itoa(cropWidth),
 	}, file)
+
 	return
 }
 
@@ -372,6 +391,7 @@ func (vk *VK) uploadMarketPhoto(params map[string]string, file io.Reader) (respo
 	}
 
 	var handler object.PhotosMarketUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -385,6 +405,7 @@ func (vk *VK) uploadMarketPhoto(params map[string]string, file io.Reader) (respo
 		"crop_data": handler.CropData,
 		"crop_hash": handler.CropHash,
 	})
+
 	return
 }
 
@@ -400,10 +421,12 @@ func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (re
 	if mainPhoto {
 		mainPhotoString = "1"
 	}
+
 	response, err = vk.uploadMarketPhoto(map[string]string{
 		"group_id":   strconv.Itoa(groupID),
 		"main_photo": mainPhotoString,
 	}, file)
+
 	return
 }
 
@@ -422,6 +445,7 @@ func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file i
 		"crop_y":     strconv.Itoa(cropY),
 		"crop_width": strconv.Itoa(cropWidth),
 	}, file)
+
 	return
 }
 
@@ -446,6 +470,7 @@ func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (response Phot
 	}
 
 	var handler object.PhotosMarketAlbumUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -457,6 +482,7 @@ func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (response Phot
 		"photo":    handler.Photo,
 		"hash":     handler.Hash,
 	})
+
 	return
 }
 
@@ -475,13 +501,16 @@ func (vk *VK) UploadVideo(params map[string]string, file io.Reader) (response Vi
 	}
 
 	var videoUploadError uploadError
+
 	err = json.Unmarshal(bodyContent, &videoUploadError)
 	if err != nil {
 		return
 	}
+
 	if videoUploadError.ErrorCode != 0 {
 		err = fmt.Errorf(videoUploadError.Error)
 	}
+
 	return
 }
 
@@ -497,16 +526,19 @@ func (vk *VK) uploadDoc(url, title, tags string, file io.Reader) (response DocsS
 	}
 
 	var docUploadError uploadError
+
 	err = json.Unmarshal(bodyContent, &docUploadError)
 	if err != nil {
 		return
 	}
+
 	if docUploadError.Error != "" {
 		err = fmt.Errorf(docUploadError.Error)
 		return
 	}
 
 	var handler object.DocsDocUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -517,6 +549,7 @@ func (vk *VK) uploadDoc(url, title, tags string, file io.Reader) (response DocsS
 		"title": title,
 		"tags":  tags,
 	})
+
 	return response, err
 }
 
@@ -530,7 +563,9 @@ func (vk *VK) UploadDoc(title, tags string, file io.Reader) (response DocsSaveRe
 	if err != nil {
 		return
 	}
+
 	response, err = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+
 	return
 }
 
@@ -546,7 +581,9 @@ func (vk *VK) UploadGroupDoc(groupID int, title, tags string, file io.Reader) (r
 	if err != nil {
 		return
 	}
+
 	response, err = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+
 	return
 }
 
@@ -560,7 +597,9 @@ func (vk *VK) UploadWallDoc(title, tags string, file io.Reader) (response DocsSa
 	if err != nil {
 		return
 	}
+
 	response, err = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+
 	return
 }
 
@@ -576,7 +615,9 @@ func (vk *VK) UploadGroupWallDoc(groupID int, title, tags string, file io.Reader
 	if err != nil {
 		return
 	}
+
 	response, err = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+
 	return
 }
 
@@ -593,7 +634,9 @@ func (vk *VK) UploadMessagesDoc(peerID int, typeDoc, title, tags string, file io
 	if err != nil {
 		return
 	}
+
 	response, err = vk.uploadDoc(uploadServer.UploadURL, title, tags, file)
+
 	return
 }
 
@@ -621,6 +664,7 @@ func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, f
 	}
 
 	var handler object.PhotosOwnerUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -630,6 +674,7 @@ func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, f
 		"photo": handler.Photo,
 		"hash":  handler.Hash,
 	})
+
 	return
 }
 
@@ -667,10 +712,12 @@ func (vk *VK) UploadStoriesPhoto(params map[string]string, file io.Reader) (resp
 	}
 
 	var handler rawUploadStoriesPhoto
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
 	}
+
 	if handler.Error.ErrorCode != 0 {
 		err = fmt.Errorf(handler.Error.Type)
 	} else {
@@ -696,10 +743,12 @@ func (vk *VK) UploadStoriesVideo(params map[string]string, file io.Reader) (resp
 	}
 
 	var handler rawUploadStoriesVideo
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
 	}
+
 	if handler.ErrorCode != 0 {
 		// TODO: new type error
 		err = fmt.Errorf(handler.Error)
@@ -729,6 +778,7 @@ func (vk *VK) uploadPollsPhoto(params map[string]string, file io.Reader) (respon
 	}
 
 	var handler object.PollsPhotoUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -738,6 +788,7 @@ func (vk *VK) uploadPollsPhoto(params map[string]string, file io.Reader) (respon
 		"photo": handler.Photo,
 		"hash":  handler.Hash,
 	})
+
 	return
 }
 
@@ -781,12 +832,14 @@ func (vk *VK) UploadPrettyCardsPhoto(file io.Reader) (response string, err error
 	}
 
 	var handler uploadPrettyCardsPhotoHandler
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
 	}
 
 	response = handler.Photo
+
 	if handler.ErrCode != 0 {
 		// TODO: new type error
 		err = fmt.Errorf("%d", handler.ErrCode)
@@ -815,12 +868,14 @@ func (vk *VK) UploadLeadFormsPhoto(file io.Reader) (response string, err error) 
 	}
 
 	var handler uploadLeadFormsPhotoHandler
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
 	}
 
 	response = handler.Photo
+
 	if handler.ErrCode != 0 {
 		// TODO: new type error
 		err = fmt.Errorf("%d", handler.ErrCode)
@@ -844,6 +899,7 @@ func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.
 	}
 
 	var handler object.AppWidgetsAppImageUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -853,6 +909,7 @@ func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.
 		"image": handler.Image,
 		"hash":  handler.Hash,
 	})
+
 	return
 }
 
@@ -871,6 +928,7 @@ func (vk *VK) UploadGroupImage(imageType string, file io.Reader) (response objec
 	}
 
 	var handler object.AppWidgetsGroupImageUploadResponse
+
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
 		return
@@ -880,5 +938,6 @@ func (vk *VK) UploadGroupImage(imageType string, file io.Reader) (response objec
 		"image": handler.Image,
 		"hash":  handler.Hash,
 	})
+
 	return
 }

@@ -8,6 +8,7 @@ func TestUsersUser_ToMention(t *testing.T) {
 		FirstName string
 		LastName  string
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -18,6 +19,7 @@ func TestUsersUser_ToMention(t *testing.T) {
 			want:   "[id1|Ivan Ivanov]",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			user := UsersUser{
@@ -38,6 +40,7 @@ func TestUsersUserMin_ToMention(t *testing.T) {
 		FirstName string
 		LastName  string
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -48,6 +51,7 @@ func TestUsersUserMin_ToMention(t *testing.T) {
 			want:   "[id1|Ivan Ivanov]",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			user := UsersUserMin{

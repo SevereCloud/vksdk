@@ -18,6 +18,7 @@ type PodcastsGetCatalogResponse struct {
 func (vk *VK) PodcastsGetCatalog(params map[string]string) (response PodcastsGetCatalogResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("podcasts.getCatalog", params, &response)
+
 	return
 }
 
@@ -35,6 +36,7 @@ type PodcastsGetCatalogExtendedResponse struct {
 func (vk *VK) PodcastsGetCatalogExtended(params map[string]string) (response PodcastsGetCatalogExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("podcasts.getCatalog", params, &response)
+
 	return
 }
 
@@ -77,6 +79,7 @@ type PodcastsGetFeedResponse struct {
 func (vk *VK) PodcastsGetFeed(params map[string]string) (response PodcastsGetFeedResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("podcasts.getFeed", params, &response)
+
 	return
 }
 
@@ -95,6 +98,7 @@ type PodcastsGetFeedExtendedResponse struct {
 func (vk *VK) PodcastsGetFeedExtended(params map[string]string) (response PodcastsGetFeedExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("podcasts.getFeed", params, &response)
+
 	return
 }
 
@@ -123,6 +127,7 @@ type PodcastsGetStartPageResponse struct {
 func (vk *VK) PodcastsGetStartPage(params map[string]string) (response PodcastsGetStartPageResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("podcasts.getStartPage", params, &response)
+
 	return
 }
 
@@ -152,6 +157,7 @@ type PodcastsGetStartPageExtendedResponse struct {
 func (vk *VK) PodcastsGetStartPageExtended(params map[string]string) (response PodcastsGetStartPageExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("podcasts.getStartPage", params, &response)
+
 	return
 }
 

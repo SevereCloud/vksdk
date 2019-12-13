@@ -36,6 +36,7 @@ func Init(vk *api.VK, groupID int) (lp Longpoll, err error) {
 	lp.Wait = 25
 	lp.Client = &http.Client{}
 	err = lp.updateServer(true)
+
 	return
 }
 
@@ -43,6 +44,7 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	params := map[string]string{
 		"group_id": strconv.Itoa(lp.GroupID),
 	}
+
 	serverSetting, err := lp.VK.GroupsGetLongPollServer(params)
 	if err != nil {
 		return err
@@ -50,15 +52,16 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 
 	lp.Key = serverSetting.Key
 	lp.Server = serverSetting.Server
+
 	if updateTs {
 		lp.Ts = serverSetting.Ts
 	}
+
 	return nil
 }
 
 func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 	var response object.LongpollBotResponse
-	var err error
 
 	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, lp.Wait)
 
@@ -79,6 +82,7 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 	}
 
 	err = lp.checkResponse(response)
+
 	return response.Updates, err
 }
 
@@ -95,17 +99,20 @@ func (lp *Longpoll) checkResponse(response object.LongpollBotResponse) (err erro
 	default:
 		err = fmt.Errorf(`"failed":%d`, response.Failed)
 	}
+
 	return
 }
 
 // Run handler
 func (lp *Longpoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
+
 	for atomic.LoadInt32(&lp.inShutdown) == 0 {
 		events, err := lp.check()
 		if err != nil {
 			return err
 		}
+
 		for _, event := range events {
 			err = lp.funcList.Handler(event)
 			if err != nil {
@@ -113,6 +120,7 @@ func (lp *Longpoll) Run() error {
 			}
 		}
 	}
+
 	return nil
 }
 

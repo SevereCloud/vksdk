@@ -50,6 +50,7 @@ type UtilsGetLinkStatsResponse object.UtilsLinkStats
 func (vk *VK) UtilsGetLinkStats(params map[string]string) (response UtilsGetLinkStatsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("utils.getLinkStats", params, &response)
+
 	return
 }
 
@@ -64,6 +65,7 @@ type UtilsGetLinkStatsExtendedResponse object.UtilsLinkStatsExtended
 func (vk *VK) UtilsGetLinkStatsExtended(params map[string]string) (response UtilsGetLinkStatsExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("utils.getLinkStats", params, &response)
+
 	return
 }
 
@@ -100,5 +102,6 @@ func (vk *VK) UtilsResolveScreenName(params map[string]string) (response UtilsRe
 	}
 
 	err = json.Unmarshal(rawResponse, &response)
+
 	return
 }

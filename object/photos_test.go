@@ -9,6 +9,7 @@ func TestPhotosPhoto_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -25,6 +26,7 @@ func TestPhotosPhoto_ToAttachment(t *testing.T) {
 			want:   "photo-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			photo := PhotosPhoto{
@@ -43,6 +45,7 @@ func TestPhotosPhotoFull_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -59,6 +62,7 @@ func TestPhotosPhotoFull_ToAttachment(t *testing.T) {
 			want:   "photo-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			photo := PhotosPhotoFull{
@@ -77,6 +81,7 @@ func TestPhotosPhotoFullXtrRealOffset_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -93,6 +98,7 @@ func TestPhotosPhotoFullXtrRealOffset_ToAttachment(t *testing.T) {
 			want:   "photo-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			photo := PhotosPhotoFullXtrRealOffset{
@@ -111,6 +117,7 @@ func TestPhotosPhotoXtrRealOffset_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -127,6 +134,7 @@ func TestPhotosPhotoXtrRealOffset_ToAttachment(t *testing.T) {
 			want:   "photo-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			photo := PhotosPhotoXtrRealOffset{
@@ -145,6 +153,7 @@ func Test_photosPhotoAlbum_ToAttachment(t *testing.T) {
 		ID      string
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -161,6 +170,7 @@ func Test_photosPhotoAlbum_ToAttachment(t *testing.T) {
 			want:   "album-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			album := photosPhotoAlbum{
@@ -179,6 +189,7 @@ func TestPhotosPhotoAlbumFull_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -195,6 +206,7 @@ func TestPhotosPhotoAlbumFull_ToAttachment(t *testing.T) {
 			want:   "album-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			album := PhotosPhotoAlbumFull{
@@ -213,6 +225,7 @@ func TestPhotosPhotoXtrTagInfo_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -229,6 +242,7 @@ func TestPhotosPhotoXtrTagInfo_ToAttachment(t *testing.T) {
 			want:   "photo-10_20",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			photo := PhotosPhotoXtrTagInfo{

@@ -12,6 +12,7 @@ import (
 
 func TestCallback_Handler(t *testing.T) { // nolint:gocyclo
 	cb := &Callback{}
+
 	t.Run("MessageNew", func(t *testing.T) {
 		cb.MessageNew(func(obj object.MessageNewObject, groupID int) {})
 		if len(cb.funcList.MessageNew) != 1 {
@@ -268,6 +269,7 @@ func TestCallback_HandleFunc(t *testing.T) {
 		SecretKey        string
 		funcList         handler.FuncList
 	}
+
 	tests := []struct {
 		name     string
 		fields   fields
@@ -424,6 +426,7 @@ func TestCallback_HandleFunc(t *testing.T) {
 			expected: "ok",
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			cb := Callback{

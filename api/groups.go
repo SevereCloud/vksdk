@@ -163,6 +163,7 @@ type GroupsGetResponse struct {
 func (vk *VK) GroupsGet(params map[string]string) (response GroupsGetResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("groups.get", params, &response)
+
 	return
 }
 
@@ -180,6 +181,7 @@ type GroupsGetExtendedResponse struct {
 func (vk *VK) GroupsGetExtended(params map[string]string) (response GroupsGetExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("groups.get", params, &response)
+
 	return
 }
 
@@ -289,6 +291,7 @@ type GroupsGetCatalogInfoResponse struct {
 func (vk *VK) GroupsGetCatalogInfo(params map[string]string) (response GroupsGetCatalogInfoResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("groups.getCatalogInfo", params, &response)
+
 	return
 }
 
@@ -306,6 +309,7 @@ type GroupsGetCatalogInfoExtendedResponse struct {
 func (vk *VK) GroupsGetCatalogInfoExtended(params map[string]string) (response GroupsGetCatalogInfoExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("groups.getCatalogInfo", params, &response)
+
 	return
 }
 
@@ -386,6 +390,7 @@ type GroupsGetMembersResponse struct {
 func (vk *VK) GroupsGetMembers(params map[string]string) (response GroupsGetMembersResponse, err error) {
 	params["fields"] = ""
 	err = vk.RequestUnmarshal("groups.getMembers", params, &response)
+
 	return
 }
 
@@ -402,7 +407,9 @@ func (vk *VK) GroupsGetMembersFields(params map[string]string) (response GroupsG
 	if params["fields"] == "" {
 		params["fields"] = "id"
 	}
+
 	err = vk.RequestUnmarshal("groups.getMembers", params, &response)
+
 	return
 }
 
@@ -419,6 +426,7 @@ type GroupsGetMembersFilterManagersResponse struct {
 func (vk *VK) GroupsGetMembersFilterManagers(params map[string]string) (response GroupsGetMembersFilterManagersResponse, err error) {
 	params["filter"] = "managers"
 	err = vk.RequestUnmarshal("groups.getMembers", params, &response)
+
 	return
 }
 
@@ -445,6 +453,7 @@ type GroupsGetRequestsResponse struct {
 func (vk *VK) GroupsGetRequests(params map[string]string) (response GroupsGetRequestsResponse, err error) {
 	params["fields"] = ""
 	err = vk.RequestUnmarshal("groups.getRequests", params, &response)
+
 	return
 }
 
@@ -461,7 +470,9 @@ func (vk *VK) GroupsGetRequestsFields(params map[string]string) (response Groups
 	if params["fields"] == "" {
 		params["fields"] = "id"
 	}
+
 	err = vk.RequestUnmarshal("groups.getRequests", params, &response)
+
 	return
 }
 
@@ -503,6 +514,7 @@ func (vk *VK) GroupsInvite(params map[string]string) (response int, err error) {
 func (vk *VK) GroupsIsMember(params map[string]string) (response int, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("groups.isMember", params, &response)
+
 	return
 }
 
@@ -523,6 +535,7 @@ type GroupsIsMemberExtendedResponse struct {
 func (vk *VK) GroupsIsMemberExtended(params map[string]string) (response GroupsIsMemberExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("groups.isMember", params, &response)
+
 	return
 }
 
@@ -538,6 +551,7 @@ type GroupsIsMemberUserIDsExtendedResponse []object.GroupsMemberStatusFull
 func (vk *VK) GroupsIsMemberUserIDsExtended(params map[string]string) (response GroupsIsMemberUserIDsExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("groups.isMember", params, &response)
+
 	return
 }
 
@@ -553,6 +567,7 @@ type GroupsIsMemberUserIDsResponse []object.GroupsMemberStatus
 func (vk *VK) GroupsIsMemberUserIDs(params map[string]string) (response GroupsIsMemberUserIDsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("groups.isMember", params, &response)
+
 	return
 }
 

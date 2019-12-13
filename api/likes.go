@@ -44,6 +44,7 @@ type LikesGetListResponse struct {
 func (vk *VK) LikesGetList(params map[string]string) (response LikesGetListResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("likes.getList", params, &response)
+
 	return
 }
 
@@ -61,6 +62,7 @@ type LikesGetListExtendedResponse struct {
 func (vk *VK) LikesGetListExtended(params map[string]string) (response LikesGetListExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("likes.getList", params, &response)
+
 	return
 }
 

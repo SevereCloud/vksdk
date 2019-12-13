@@ -72,6 +72,7 @@ func TestVK_UtilsResolveScreenName(t *testing.T) {
 
 	f := func(name string) {
 		t.Helper()
+
 		_, err := vkGroup.UtilsResolveScreenName(map[string]string{
 			"screen_name": name,
 		})

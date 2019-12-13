@@ -14,6 +14,7 @@ func TestVK_DatabaseGetChairs(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)
@@ -29,12 +30,13 @@ func TestVK_DatabaseGetCities(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)
 		assert.NotEmpty(t, res.Items[0].Area)
-		assert.NotEmpty(t, res.Items[0].Region)
 		// assert.NotEmpty(t, res.Items[0].Important)
+		assert.NotEmpty(t, res.Items[0].Region)
 	}
 }
 
@@ -45,6 +47,7 @@ func TestVK_DatabaseGetCitiesByID(t *testing.T) {
 		"city_ids": "1,5,192",
 	})
 	assert.NoError(t, err)
+
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].ID)
 		assert.NotEmpty(t, res[0].Title)
@@ -57,6 +60,7 @@ func TestVK_DatabaseGetCountries(t *testing.T) {
 	res, err := vkService.DatabaseGetCountries(map[string]string{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)
@@ -70,6 +74,7 @@ func TestVK_DatabaseGetCountriesByID(t *testing.T) {
 		"country_ids": "1",
 	})
 	assert.NoError(t, err)
+
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].ID)
 		assert.NotEmpty(t, res[0].Title)
@@ -84,6 +89,7 @@ func TestVK_DatabaseGetFaculties(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)
@@ -99,6 +105,7 @@ func TestVK_DatabaseGetMetroStations(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Name)
@@ -113,6 +120,7 @@ func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
 		"station_ids": "189, 181",
 	})
 	assert.NoError(t, err)
+
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].ID)
 		assert.NotEmpty(t, res[0].Name)
@@ -128,6 +136,7 @@ func TestVK_DatabaseGetRegions(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)
@@ -153,6 +162,7 @@ func TestVK_DatabaseGetSchools(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)
@@ -167,6 +177,7 @@ func TestVK_DatabaseGetUniversities(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)

@@ -178,6 +178,7 @@ type MarketGetCommentsResponse struct {
 func (vk *VK) MarketGetComments(params map[string]string) (response MarketGetCommentsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("market.getComments", params, &response)
+
 	return
 }
 
@@ -196,6 +197,7 @@ type MarketGetCommentsExtendedResponse struct {
 func (vk *VK) MarketGetCommentsExtended(params map[string]string) (response MarketGetCommentsExtendedResponse, err error) {
 	params["extended"] = "1"
 	err = vk.RequestUnmarshal("market.getComments", params, &response)
+
 	return
 }
 

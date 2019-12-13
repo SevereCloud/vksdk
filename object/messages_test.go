@@ -6,12 +6,14 @@ import (
 
 func TestMessagesKeyboard_AddRow(t *testing.T) {
 	var keyboard MessagesKeyboard
+
 	t.Run("add 1 row", func(t *testing.T) {
 		keyboard.AddRow()
 		if len(keyboard.Buttons) != 1 {
 			t.Error("Keyboard len != 1")
 		}
 	})
+
 	t.Run("add 2 row", func(t *testing.T) {
 		keyboard.AddRow()
 		if len(keyboard.Buttons) != 2 {
@@ -26,7 +28,9 @@ func TestMessagesKeyboard_AddTextButton(t *testing.T) {
 		payload = "payload"
 		color   = "color"
 	)
+
 	var keyboard MessagesKeyboard
+
 	keyboard.AddRow()
 
 	t.Run("Add Text button", func(t *testing.T) {
@@ -45,7 +49,9 @@ func TestMessagesKeyboard_AddTextButton(t *testing.T) {
 
 func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
 	const payload = "payload"
+
 	var keyboard MessagesKeyboard
+
 	keyboard.AddRow()
 
 	t.Run("Add Location button", func(t *testing.T) {
@@ -61,7 +67,9 @@ func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
 		payload = "payload"
 		hash    = "hash"
 	)
+
 	var keyboard MessagesKeyboard
+
 	keyboard.AddRow()
 
 	t.Run("Add VK Pay button", func(t *testing.T) {
@@ -83,7 +91,9 @@ func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
 		label   = "label"
 		hash    = "hash"
 	)
+
 	var keyboard MessagesKeyboard
+
 	keyboard.AddRow()
 
 	t.Run("Add VK Apps button", func(t *testing.T) {
@@ -111,6 +121,7 @@ func TestMessagesAudioMessage_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields
@@ -145,6 +156,7 @@ func TestMessagesGraffiti_ToAttachment(t *testing.T) {
 		ID      int
 		OwnerID int
 	}
+
 	tests := []struct {
 		name   string
 		fields fields

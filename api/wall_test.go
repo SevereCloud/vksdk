@@ -16,6 +16,7 @@ func TestVK_WallPost(t *testing.T) {
 	if !assert.NoError(t, err) {
 		t.Fatal(err)
 	}
+
 	assert.NotEmpty(t, post)
 
 	res, err := vkUser.WallPin(map[string]string{
@@ -76,6 +77,7 @@ func TestVK_WallGet(t *testing.T) {
 	get, err := vkService.WallGet(params)
 	assert.NoError(t, err)
 	assert.NotEmpty(t, get.Count)
+
 	if assert.NotEmpty(t, get.Items) {
 		for _, item := range get.Items {
 			assert.NotEmpty(t, item.ID)
@@ -133,6 +135,7 @@ func TestVK_WallGetComment(t *testing.T) {
 
 	res, err := vkUser.WallGetComment(params)
 	assert.NoError(t, err)
+
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].FromID)
@@ -182,8 +185,8 @@ func TestVK_WallGetReposts(t *testing.T) {
 		"post_id":  "2442097",
 		"count":    "1000",
 	})
-	assert.NoError(t, err)
 	// assert.NotEmpty(t, res.Items)
+	assert.NoError(t, err)
 }
 
 func TestVK_WallCreateComment(t *testing.T) {
@@ -197,6 +200,7 @@ func TestVK_WallCreateComment(t *testing.T) {
 	if !assert.NoError(t, err) {
 		t.Fatal(err)
 	}
+
 	assert.NotEmpty(t, comment.CommentID)
 
 	res, err := vkUser.WallEditComment(map[string]string{

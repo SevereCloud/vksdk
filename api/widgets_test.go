@@ -15,6 +15,7 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
+
 	if assert.NotEmpty(t, res.Posts) {
 		post := res.Posts[0]
 		assert.NotEmpty(t, post.ID)
@@ -24,11 +25,11 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 		assert.NotEmpty(t, post.PostType)
 		assert.NotEmpty(t, post.Text)
 		assert.NotEmpty(t, post.PostSource)
-		assert.NotEmpty(t, post.Comments)
 		// assert.NotEmpty(t, post.Likes)
 		// assert.NotEmpty(t, post.Reposts)
 		// assert.NotEmpty(t, post.Views)
 		// assert.NotEmpty(t, post.IsFavorite)
+		assert.NotEmpty(t, post.Comments)
 	}
 }
 

@@ -18,8 +18,8 @@ func TestVK_UploadFile(t *testing.T) {
 
 	f := func(url string, file io.Reader, fieldname, filename string, needErr bool) {
 		t.Helper()
-		_, err := vk.UploadFile(url, file, fieldname, filename)
 
+		_, err := vk.UploadFile(url, file, fieldname, filename)
 		if (err != nil) && !needErr {
 			t.Errorf("VK.UploadWallPhoto() err = %v, want %v", err, needErr)
 		}

@@ -38,6 +38,7 @@ func Init(vk *api.VK, mode int) (lp Longpoll, err error) {
 	lp.funcList = make(FuncList)
 	lp.Client = &http.Client{}
 	err = lp.updateServer(true)
+
 	return
 }
 
@@ -46,15 +47,18 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 		"lp_version": strconv.Itoa(lp.Version),
 	}
 	serverSetting, err := lp.VK.MessagesGetLongPollServer(params)
+
 	if err != nil {
 		return err
 	}
 
 	lp.Key = serverSetting.Key
 	lp.Server = serverSetting.Server
+
 	if updateTs {
 		lp.Ts = serverSetting.Ts
 	}
+
 	return nil
 }
 
@@ -86,6 +90,7 @@ func (lp *Longpoll) check() (response object.LongpollResponse, err error) {
 	}
 
 	err = lp.checkResponse(response)
+
 	return
 }
 
@@ -104,24 +109,29 @@ func (lp *Longpoll) checkResponse(response object.LongpollResponse) (err error) 
 	default:
 		err = fmt.Errorf(`"failed":%d`, response.Failed)
 	}
+
 	return
 }
 
 // Run handler
 func (lp *Longpoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
+
 	for atomic.LoadInt32(&lp.inShutdown) == 0 {
 		resp, err := lp.check()
 		if err != nil {
 			return err
 		}
+
 		for _, event := range resp.Updates {
 			lp.funcList.Handler(event)
 		}
+
 		for _, f := range lp.funcFullResponseList {
 			f(resp)
 		}
 	}
+
 	return nil
 }
 
