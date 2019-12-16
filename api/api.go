@@ -14,8 +14,61 @@ import (
 )
 
 const (
-	version      = "5.103"
-	apiMethodURL = "https://api.vk.com/method/"
+	Version      = "5.103"
+	APIMethodURL = "https://api.vk.com/method/"
+)
+
+// Limits
+//
+// VKontakte API methods (except for methods from secure and ads sections)
+// with user access key or service access key can be accessed
+// no more than 3 times per second. The community access key is limited
+// to 20 requests per second.
+//
+// Maximum amount of calls to the secure section methods depends
+// on the app's users amount. If an app has less than
+// 10 000 users, 5 requests per second,
+// up to 100 000 – 8 requests,
+// up to 1 000 000 – 20 requests,
+// 1 000 000+ – 35 requests.//
+//
+// The ads section methods are subject to their own limitations,
+// you can read them on this page - https://vk.com/dev/ads_limits
+//
+// If one of this limits is exceeded, the server will return following error:
+// "Too many requests per second". (errors.TooMany)
+//
+// If your app's logic implies many requests in a row, check the execute method.
+// It allows for up to 25 requests for different methods in a single request.
+//
+// In addition to restrictions on the frequency of calls, there are also
+// quantitative restrictions on calling the same type of methods.
+//
+// After exceeding the quantitative limit, access to a particular method may
+// require entering a captcha (see https://vk.com/dev/captcha_error),
+// and may also be temporarily restricted (in this case, the server does
+// not return a response to the call of a particular method, but handles
+// any other requests without problems).
+//
+// If this error occurs, the following parameters are also passed in
+// the error message:
+//
+// CaptchaSID - identifier captcha
+//
+// CaptchaImg - a link to the image that you want to show the user
+// to enter text from that image.
+//
+// In this case, you should ask the user to enter text from
+// the CaptchaImg image and repeat the request by adding parameters to it:
+//
+// captcha_sid - the obtained identifier
+//
+// captcha_key - text entered by the user
+//
+// More info: https://vk.com/dev/api_requests
+const (
+	LimitUserToken  = 3
+	LimitGroupToken = 20
 )
 
 // VK struct
@@ -42,12 +95,24 @@ type Error struct {
 }
 
 // Init VK API
+//
+// The VKSDK will use the http.DefaultClient.
+// This means that if the http.DefaultClient is modified by other components
+// of your application the modifications will be picked up by the SDK as well.
+//
+// In some cases this might be intended, but it is a better practice
+// to create a custom HTTP Client to share explicitly through
+// your application. You can configure the VKSDK to use  the custom
+// HTTP Client by setting the VK.Client value.
+//
+// This set limit 20 requests per second.
 func Init(token string) *VK {
 	var vk VK
-	vk.MethodURL = apiMethodURL
+	vk.MethodURL = APIMethodURL
 	vk.AccessToken = token
-	vk.Version = version
-	vk.Client = &http.Client{}
+	vk.Version = Version
+	vk.Client = http.DefaultClient
+	vk.Limit = LimitGroupToken
 
 	return &vk
 }
