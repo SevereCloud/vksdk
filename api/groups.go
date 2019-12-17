@@ -404,7 +404,7 @@ type GroupsGetMembersFieldsResponse struct {
 //
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembersFields(params Params) (response GroupsGetMembersFieldsResponse, err error) {
-	if params["fields"] == "" {
+	if v, prs := params["fields"]; v == "" || !prs {
 		params["fields"] = "id"
 	}
 
@@ -467,7 +467,7 @@ type GroupsGetRequestsFieldsResponse struct {
 //
 // https://vk.com/dev/groups.getRequests
 func (vk *VK) GroupsGetRequestsFields(params Params) (response GroupsGetRequestsFieldsResponse, err error) {
-	if params["fields"] == "" {
+	if v, prs := params["fields"]; v == "" || !prs {
 		params["fields"] = "id"
 	}
 

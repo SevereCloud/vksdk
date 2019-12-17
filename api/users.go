@@ -45,7 +45,7 @@ type UsersGetFollowersFieldsResponse struct {
 //
 // https://vk.com/dev/users.getFollowers
 func (vk *VK) UsersGetFollowersFields(params Params) (response UsersGetFollowersFieldsResponse, err error) {
-	if params["fields"] == "" {
+	if v, prs := params["fields"]; v == "" || !prs {
 		params["fields"] = "id"
 	}
 
