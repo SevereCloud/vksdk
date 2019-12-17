@@ -2,6 +2,8 @@ package object
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMessagesKeyboard_AddRow(t *testing.T) {
@@ -209,4 +211,15 @@ func TestMessagesGraffiti_ToAttachment(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestMessagesKeyboard_ToJSON(t *testing.T) {
+	f := func(keyboard MessagesKeyboard, want string) {
+		t.Helper()
+
+		got := keyboard.ToJSON()
+		assert.Equal(t, got, want)
+	}
+
+	f(NewMessagesKeyboard(false, false), `{"buttons":[],"one_time":false}`)
 }

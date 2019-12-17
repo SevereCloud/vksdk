@@ -1,6 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
@@ -69,6 +70,14 @@ type MessagesKeyboard struct {
 	Buttons  [][]MessagesKeyboardButton `json:"buttons"`
 	OneTime  bool                       `json:"one_time"` // Should this keyboard disappear on first use
 	Inline   bool                       `json:"inline,omitempty"`
+}
+
+func NewMessagesKeyboard(oneTime bool, inline bool) MessagesKeyboard {
+	return MessagesKeyboard{
+		Buttons: [][]MessagesKeyboardButton{},
+		OneTime: oneTime,
+		Inline:  inline,
+	}
 }
 
 // AddRow add row in MessagesKeyboard
@@ -153,6 +162,12 @@ func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload, l
 
 	lastRow := len(keyboard.Buttons) - 1
 	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+}
+
+// ToJSON returns the JSON encoding of MessagesKeyboard
+func (keyboard MessagesKeyboard) ToJSON() string {
+	b, _ := json.Marshal(keyboard)
+	return string(b)
 }
 
 // MessagesKeyboardButton struct

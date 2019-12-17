@@ -3,9 +3,10 @@ package api // import "github.com/SevereCloud/vksdk/api"
 import (
 	"bytes"
 	"encoding/json"
-	"io/ioutil"
+	"fmt"
 	"net/http"
 	"net/url"
+	"reflect"
 	"sync"
 	"time"
 
@@ -115,6 +116,73 @@ func Init(token string) *VK {
 	return &vk
 }
 
+type attachment interface {
+	ToAttachment() string
+}
+
+type jsonObject interface {
+	ToJSON() string
+}
+
+func fmtBool(value bool) string {
+	if value {
+		return "1"
+	}
+
+	return "0"
+}
+
+func fmtReflectValue(value reflect.Value, depth int) string {
+	switch f := value; value.Kind() {
+	case reflect.Invalid:
+		return ""
+	case reflect.Bool:
+		return fmtBool(f.Bool())
+	case reflect.Array, reflect.Slice:
+		s := ""
+
+		for i := 0; i < f.Len(); i++ {
+			if i > 0 {
+				s += ","
+			}
+
+			s += fmtValue(f.Index(i).Interface(), depth)
+		}
+
+		return s
+	case reflect.Ptr:
+		// pointer to array or slice or struct? ok at top level
+		// but not embedded (avoid loops)
+		if depth == 0 && f.Pointer() != 0 {
+			switch a := f.Elem(); a.Kind() {
+			case reflect.Array, reflect.Slice, reflect.Struct, reflect.Map:
+				return fmtValue(a.Interface(), depth+1)
+			}
+		}
+	}
+
+	return fmt.Sprint(value)
+}
+
+func fmtValue(value interface{}, depth int) string {
+	if value == nil {
+		return ""
+	}
+
+	switch f := value.(type) {
+	case bool:
+		return fmtBool(f)
+	case attachment:
+		return f.ToAttachment()
+	case jsonObject:
+		return f.ToJSON()
+	case reflect.Value:
+		return fmtReflectValue(f, depth)
+	}
+
+	return fmtReflectValue(reflect.ValueOf(value), depth)
+}
+
 // Request provides access to VK API methods
 func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 	var handler struct {
@@ -127,7 +195,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 	query := url.Values{}
 
 	for key, value := range params {
-		query.Set(key, value)
+		query.Set(key, fmtValue(value, 0))
 	}
 
 	query.Set("access_token", vk.AccessToken)
@@ -177,12 +245,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 		vk.mux.Unlock()
 	}
 
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	err = json.Unmarshal(body, &handler)
+	err = json.NewDecoder(resp.Body).Decode(&handler)
 	if err != nil {
 		return nil, err
 	}

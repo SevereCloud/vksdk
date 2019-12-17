@@ -3,7 +3,12 @@ package api
 import (
 	"log"
 	"os"
+	"reflect"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/object"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func needUserToken(t *testing.T) {
@@ -172,4 +177,47 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 			}
 		})
 	}
+}
+
+type renamedBool bool
+
+func Test_fmtValue(t *testing.T) {
+	f := func(value interface{}, want string) {
+		t.Helper()
+
+		got := fmtValue(value, 0)
+		assert.Equal(t, got, want)
+	}
+
+	f(nil, "")
+	f(reflect.ValueOf(nil), "")
+	f(reflect.Value{}, "")
+
+	f(true, "1")
+	f(false, "0")
+	f(renamedBool(true), "1")
+
+	f(123, "123")
+	f(1.1, "1.1")
+	f("abc", "abc")
+
+	// Attachment
+	photo := object.PhotosPhoto{
+		OwnerID: 321,
+		ID:      123,
+	}
+	f(photo, "photo321_123")
+
+	// Keyboard
+	keyboard := object.NewMessagesKeyboard(true, false)
+	f(keyboard, keyboard.ToJSON())
+
+	// Slice
+	intSlice := []int{1, 2, 3}
+	f(intSlice, "1,2,3")
+	f([]object.PhotosPhoto{photo, photo}, "photo321_123,photo321_123")
+
+	// Pointer
+	f(&intSlice, "1,2,3")
+	f(&photo, "photo321_123")
 }
