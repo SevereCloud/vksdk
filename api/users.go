@@ -10,7 +10,7 @@ type UsersGetResponse []object.UsersUser
 // UsersGet returns detailed information on users
 //
 // https://vk.com/dev/users.get
-func (vk *VK) UsersGet(params map[string]string) (response UsersGetResponse, err error) {
+func (vk *VK) UsersGet(params Params) (response UsersGetResponse, err error) {
 	err = vk.RequestUnmarshal("users.get", params, &response)
 	return
 }
@@ -26,7 +26,7 @@ type UsersGetFollowersResponse struct {
 // fields=""
 //
 // https://vk.com/dev/users.getFollowers
-func (vk *VK) UsersGetFollowers(params map[string]string) (response UsersGetFollowersResponse, err error) {
+func (vk *VK) UsersGetFollowers(params Params) (response UsersGetFollowersResponse, err error) {
 	params["fields"] = ""
 	err = vk.RequestUnmarshal("users.getFollowers", params, &response)
 
@@ -44,7 +44,7 @@ type UsersGetFollowersFieldsResponse struct {
 // fields not empty
 //
 // https://vk.com/dev/users.getFollowers
-func (vk *VK) UsersGetFollowersFields(params map[string]string) (response UsersGetFollowersFieldsResponse, err error) {
+func (vk *VK) UsersGetFollowersFields(params Params) (response UsersGetFollowersFieldsResponse, err error) {
 	if params["fields"] == "" {
 		params["fields"] = "id"
 	}
@@ -72,7 +72,7 @@ type UsersGetSubscriptionsResponse struct {
 //
 // https://vk.com/dev/users.getSubscriptions
 // BUG(SevereCloud): UsersGetSubscriptions bad response with extended=1
-func (vk *VK) UsersGetSubscriptions(params map[string]string) (response UsersGetSubscriptionsResponse, err error) {
+func (vk *VK) UsersGetSubscriptions(params Params) (response UsersGetSubscriptionsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("users.getSubscriptions", params, &response)
 
@@ -82,7 +82,7 @@ func (vk *VK) UsersGetSubscriptions(params map[string]string) (response UsersGet
 // UsersReport reports (submits a complain about) a user.
 //
 // https://vk.com/dev/users.report
-func (vk *VK) UsersReport(params map[string]string) (response int, err error) {
+func (vk *VK) UsersReport(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("users.report", params, &response)
 	return
 }
@@ -96,7 +96,7 @@ type UsersSearchResponse struct {
 // UsersSearch returns a list of users matching the search criteria.
 //
 // https://vk.com/dev/users.search
-func (vk *VK) UsersSearch(params map[string]string) (response UsersSearchResponse, err error) {
+func (vk *VK) UsersSearch(params Params) (response UsersSearchResponse, err error) {
 	err = vk.RequestUnmarshal("users.search", params, &response)
 	return
 }

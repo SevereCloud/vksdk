@@ -17,7 +17,7 @@ func TestVK_AuthCheckPhone(t *testing.T) {
 		t.Skip("need params")
 	}
 
-	_, err := vkUser.AuthCheckPhone(map[string]string{
+	_, err := vkUser.AuthCheckPhone(Params{
 		"phone":         "+79523071234",
 		"client_id":     clientID,
 		"client_secret": clientSecret,

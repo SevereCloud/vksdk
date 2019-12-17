@@ -7,7 +7,7 @@ import (
 // VideoAdd adds a video to a user or community page.
 //
 // https://vk.com/dev/video.add
-func (vk *VK) VideoAdd(params map[string]string) (response int, err error) {
+func (vk *VK) VideoAdd(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.add", params, &response)
 	return
 }
@@ -20,7 +20,7 @@ type VideoAddAlbumResponse struct {
 // VideoAddAlbum creates an empty album for videos.
 //
 // https://vk.com/dev/video.addAlbum
-func (vk *VK) VideoAddAlbum(params map[string]string) (response VideoAddAlbumResponse, err error) {
+func (vk *VK) VideoAddAlbum(params Params) (response VideoAddAlbumResponse, err error) {
 	err = vk.RequestUnmarshal("video.addAlbum", params, &response)
 	return
 }
@@ -28,7 +28,7 @@ func (vk *VK) VideoAddAlbum(params map[string]string) (response VideoAddAlbumRes
 // VideoAddToAlbum allows you to add a video to the album.
 //
 // https://vk.com/dev/video.addToAlbum
-func (vk *VK) VideoAddToAlbum(params map[string]string) (response int, err error) {
+func (vk *VK) VideoAddToAlbum(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.addToAlbum", params, &response)
 	return
 }
@@ -36,7 +36,7 @@ func (vk *VK) VideoAddToAlbum(params map[string]string) (response int, err error
 // VideoCreateComment adds a new comment on a video.
 //
 // https://vk.com/dev/video.createComment
-func (vk *VK) VideoCreateComment(params map[string]string) (response int, err error) {
+func (vk *VK) VideoCreateComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.createComment", params, &response)
 	return
 }
@@ -44,7 +44,7 @@ func (vk *VK) VideoCreateComment(params map[string]string) (response int, err er
 // VideoDelete deletes a video from a user or community page.
 //
 // https://vk.com/dev/video.delete
-func (vk *VK) VideoDelete(params map[string]string) (response int, err error) {
+func (vk *VK) VideoDelete(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.delete", params, &response)
 	return
 }
@@ -52,7 +52,7 @@ func (vk *VK) VideoDelete(params map[string]string) (response int, err error) {
 // VideoDeleteAlbum deletes a video album.
 //
 // https://vk.com/dev/video.deleteAlbum
-func (vk *VK) VideoDeleteAlbum(params map[string]string) (response int, err error) {
+func (vk *VK) VideoDeleteAlbum(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.deleteAlbum", params, &response)
 	return
 }
@@ -60,7 +60,7 @@ func (vk *VK) VideoDeleteAlbum(params map[string]string) (response int, err erro
 // VideoDeleteComment deletes a comment on a video.
 //
 // https://vk.com/dev/video.deleteComment
-func (vk *VK) VideoDeleteComment(params map[string]string) (response int, err error) {
+func (vk *VK) VideoDeleteComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.deleteComment", params, &response)
 	return
 }
@@ -68,7 +68,7 @@ func (vk *VK) VideoDeleteComment(params map[string]string) (response int, err er
 // VideoEdit edits information about a video on a user or community page.
 //
 // https://vk.com/dev/video.edit
-func (vk *VK) VideoEdit(params map[string]string) (response int, err error) {
+func (vk *VK) VideoEdit(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.edit", params, &response)
 	return
 }
@@ -76,7 +76,7 @@ func (vk *VK) VideoEdit(params map[string]string) (response int, err error) {
 // VideoEditAlbum edits the title of a video album.
 //
 // https://vk.com/dev/video.editAlbum
-func (vk *VK) VideoEditAlbum(params map[string]string) (response int, err error) {
+func (vk *VK) VideoEditAlbum(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.editAlbum", params, &response)
 	return
 }
@@ -84,7 +84,7 @@ func (vk *VK) VideoEditAlbum(params map[string]string) (response int, err error)
 // VideoEditComment edits the text of a comment on a video.
 //
 // https://vk.com/dev/video.editComment
-func (vk *VK) VideoEditComment(params map[string]string) (response int, err error) {
+func (vk *VK) VideoEditComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.editComment", params, &response)
 	return
 }
@@ -100,7 +100,7 @@ type VideoGetResponse struct {
 // extended=0
 //
 // https://vk.com/dev/video.get
-func (vk *VK) VideoGet(params map[string]string) (response VideoGetResponse, err error) {
+func (vk *VK) VideoGet(params Params) (response VideoGetResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.get", params, &response)
 
@@ -119,8 +119,8 @@ type VideoGetExtendedResponse struct {
 // extended=1
 //
 // https://vk.com/dev/video.get
-func (vk *VK) VideoGetExtended(params map[string]string) (response VideoGetExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) VideoGetExtended(params Params) (response VideoGetExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("video.get", params, &response)
 
 	return
@@ -132,7 +132,7 @@ type VideoGetAlbumByIDResponse object.VideoVideoAlbumFull
 // VideoGetAlbumByID returns video album info
 //
 // https://vk.com/dev/video.getAlbumById
-func (vk *VK) VideoGetAlbumByID(params map[string]string) (response VideoGetAlbumByIDResponse, err error) {
+func (vk *VK) VideoGetAlbumByID(params Params) (response VideoGetAlbumByIDResponse, err error) {
 	err = vk.RequestUnmarshal("video.getAlbumById", params, &response)
 	return
 }
@@ -148,7 +148,7 @@ type VideoGetAlbumsResponse struct {
 // extended=0
 //
 // https://vk.com/dev/video.getAlbums
-func (vk *VK) VideoGetAlbums(params map[string]string) (response VideoGetAlbumsResponse, err error) {
+func (vk *VK) VideoGetAlbums(params Params) (response VideoGetAlbumsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.getAlbums", params, &response)
 
@@ -166,8 +166,8 @@ type VideoGetAlbumsExtendedResponse struct {
 // extended=1
 //
 // https://vk.com/dev/video.getAlbums
-func (vk *VK) VideoGetAlbumsExtended(params map[string]string) (response VideoGetAlbumsExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) VideoGetAlbumsExtended(params Params) (response VideoGetAlbumsExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("video.getAlbums", params, &response)
 
 	return
@@ -181,7 +181,7 @@ type VideoGetAlbumsByVideoResponse []int
 // extended=0
 //
 // https://vk.com/dev/video.getAlbumsByVideo
-func (vk *VK) VideoGetAlbumsByVideo(params map[string]string) (response VideoGetAlbumsByVideoResponse, err error) {
+func (vk *VK) VideoGetAlbumsByVideo(params Params) (response VideoGetAlbumsByVideoResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.getAlbumsByVideo", params, &response)
 
@@ -199,8 +199,8 @@ type VideoGetAlbumsByVideoExtendedResponse struct {
 // extended=1
 //
 // https://vk.com/dev/video.getAlbumsByVideo
-func (vk *VK) VideoGetAlbumsByVideoExtended(params map[string]string) (response VideoGetAlbumsByVideoExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) VideoGetAlbumsByVideoExtended(params Params) (response VideoGetAlbumsByVideoExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("video.getAlbumsByVideo", params, &response)
 
 	return
@@ -217,7 +217,7 @@ type VideoGetCommentsResponse struct {
 // extended=0
 //
 // https://vk.com/dev/video.getComments
-func (vk *VK) VideoGetComments(params map[string]string) (response VideoGetCommentsResponse, err error) {
+func (vk *VK) VideoGetComments(params Params) (response VideoGetCommentsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.getComments", params, &response)
 
@@ -236,8 +236,8 @@ type VideoGetCommentsExtendedResponse struct {
 // extended=1
 //
 // https://vk.com/dev/video.getComments
-func (vk *VK) VideoGetCommentsExtended(params map[string]string) (response VideoGetCommentsExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) VideoGetCommentsExtended(params Params) (response VideoGetCommentsExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("video.getComments", params, &response)
 
 	return
@@ -246,7 +246,7 @@ func (vk *VK) VideoGetCommentsExtended(params map[string]string) (response Video
 // VideoRemoveFromAlbum Allows you to remove the video from the album.
 //
 // https://vk.com/dev/video.removeFromAlbum
-func (vk *VK) VideoRemoveFromAlbum(params map[string]string) (response int, err error) {
+func (vk *VK) VideoRemoveFromAlbum(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.removeFromAlbum", params, &response)
 	return
 }
@@ -254,7 +254,7 @@ func (vk *VK) VideoRemoveFromAlbum(params map[string]string) (response int, err 
 // VideoReorderAlbums reorders the album in the list of user video albums.
 //
 // https://vk.com/dev/video.reorderAlbums
-func (vk *VK) VideoReorderAlbums(params map[string]string) (response int, err error) {
+func (vk *VK) VideoReorderAlbums(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.reorderAlbums", params, &response)
 	return
 }
@@ -262,7 +262,7 @@ func (vk *VK) VideoReorderAlbums(params map[string]string) (response int, err er
 // VideoReorderVideos reorders the video in the video album.
 //
 // https://vk.com/dev/video.reorderVideos
-func (vk *VK) VideoReorderVideos(params map[string]string) (response int, err error) {
+func (vk *VK) VideoReorderVideos(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.reorderVideos", params, &response)
 	return
 }
@@ -270,7 +270,7 @@ func (vk *VK) VideoReorderVideos(params map[string]string) (response int, err er
 // VideoReport reports (submits a complaint about) a video.
 //
 // https://vk.com/dev/video.report
-func (vk *VK) VideoReport(params map[string]string) (response int, err error) {
+func (vk *VK) VideoReport(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.report", params, &response)
 	return
 }
@@ -278,7 +278,7 @@ func (vk *VK) VideoReport(params map[string]string) (response int, err error) {
 // VideoReportComment reports (submits a complaint about) a comment on a video.
 //
 // https://vk.com/dev/video.reportComment
-func (vk *VK) VideoReportComment(params map[string]string) (response int, err error) {
+func (vk *VK) VideoReportComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.reportComment", params, &response)
 	return
 }
@@ -286,7 +286,7 @@ func (vk *VK) VideoReportComment(params map[string]string) (response int, err er
 // VideoRestore restores a previously deleted video.
 //
 // https://vk.com/dev/video.restore
-func (vk *VK) VideoRestore(params map[string]string) (response int, err error) {
+func (vk *VK) VideoRestore(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.restore", params, &response)
 	return
 }
@@ -294,7 +294,7 @@ func (vk *VK) VideoRestore(params map[string]string) (response int, err error) {
 // VideoRestoreComment restores a previously deleted comment on a video.
 //
 // https://vk.com/dev/video.restoreComment
-func (vk *VK) VideoRestoreComment(params map[string]string) (response int, err error) {
+func (vk *VK) VideoRestoreComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.restoreComment", params, &response)
 	return
 }
@@ -305,7 +305,7 @@ type VideoSaveResponse object.VideoSaveResult
 // VideoSave returns a server address (required for upload) and video data.
 //
 // https://vk.com/dev/video.save
-func (vk *VK) VideoSave(params map[string]string) (response VideoSaveResponse, err error) {
+func (vk *VK) VideoSave(params Params) (response VideoSaveResponse, err error) {
 	err = vk.RequestUnmarshal("video.save", params, &response)
 	return
 }
@@ -321,7 +321,7 @@ type VideoSearchResponse struct {
 // extended=0
 //
 // https://vk.com/dev/video.search
-func (vk *VK) VideoSearch(params map[string]string) (response VideoSearchResponse, err error) {
+func (vk *VK) VideoSearch(params Params) (response VideoSearchResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("video.search", params, &response)
 
@@ -340,8 +340,8 @@ type VideoSearchExtendedResponse struct {
 // extended=1
 //
 // https://vk.com/dev/video.search
-func (vk *VK) VideoSearchExtended(params map[string]string) (response VideoSearchExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) VideoSearchExtended(params Params) (response VideoSearchExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("video.search", params, &response)
 
 	return

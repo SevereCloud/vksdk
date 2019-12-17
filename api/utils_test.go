@@ -9,7 +9,7 @@ import (
 func TestVK_UtilsCheckLink(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.UtilsCheckLink(map[string]string{
+	res, err := vkUser.UtilsCheckLink(Params{
 		"url": "http://google.ru",
 	})
 	assert.NoError(t, err)
@@ -20,19 +20,19 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 func TestVK_UtilsGetShortLink(t *testing.T) {
 	needUserToken(t)
 
-	shortLink, err := vkUser.UtilsGetShortLink(map[string]string{
+	shortLink, err := vkUser.UtilsGetShortLink(Params{
 		"url":     "http://google.ru",
-		"private": "1",
+		"private": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, shortLink)
 
-	res, err := vkUser.UtilsGetLastShortenedLinks(map[string]string{})
+	res, err := vkUser.UtilsGetLastShortenedLinks(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 
-	del, err := vkUser.UtilsDeleteFromLastShortened(map[string]string{
+	del, err := vkUser.UtilsDeleteFromLastShortened(Params{
 		"key": shortLink.Key,
 	})
 	assert.NoError(t, err)
@@ -42,10 +42,10 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 func TestVK_UtilsGetLinkStats(t *testing.T) {
 	needGroupToken(t)
 
-	params := map[string]string{
+	params := Params{
 		"key":             "8TDuIz",
 		"interval":        "month",
-		"intervals_count": "12",
+		"intervals_count": 12,
 	}
 
 	res, err := vkGroup.UtilsGetLinkStats(params)
@@ -62,7 +62,7 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 func TestVK_UtilsGetServerTime(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.UtilsGetServerTime(map[string]string{})
+	res, err := vkGroup.UtilsGetServerTime(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 }
@@ -73,7 +73,7 @@ func TestVK_UtilsResolveScreenName(t *testing.T) {
 	f := func(name string) {
 		t.Helper()
 
-		_, err := vkGroup.UtilsResolveScreenName(map[string]string{
+		_, err := vkGroup.UtilsResolveScreenName(Params{
 			"screen_name": name,
 		})
 		if err != nil {

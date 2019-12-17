@@ -1,7 +1,6 @@
 package api
 
 import (
-	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -10,53 +9,53 @@ import (
 func TestVK_VideoAddDeleteRestore(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.VideoAdd(map[string]string{
-		"target_id": strconv.Itoa(vkUserID),
-		"owner_id":  "-139533130",
-		"video_id":  "456239332",
+	res, err := vkUser.VideoAdd(Params{
+		"target_id": vkUserID,
+		"owner_id":  -139533130,
+		"video_id":  456239332,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.VideoDelete(map[string]string{
-		"target_id": strconv.Itoa(vkUserID),
-		"owner_id":  "-139533130",
-		"video_id":  "456239332",
+	res, err = vkUser.VideoDelete(Params{
+		"target_id": vkUserID,
+		"owner_id":  -139533130,
+		"video_id":  456239332,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.VideoRestore(map[string]string{
-		"target_id": strconv.Itoa(vkUserID),
-		"owner_id":  "-139533130",
-		"video_id":  "456239332",
+	res, err = vkUser.VideoRestore(Params{
+		"target_id": vkUserID,
+		"owner_id":  -139533130,
+		"video_id":  456239332,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	_, _ = vkUser.VideoDelete(map[string]string{
-		"target_id": strconv.Itoa(vkUserID),
-		"owner_id":  "-139533130",
-		"video_id":  "456239332",
+	_, _ = vkUser.VideoDelete(Params{
+		"target_id": vkUserID,
+		"owner_id":  -139533130,
+		"video_id":  456239332,
 	})
 }
 
 func TestVK_VideoAddAlbum(t *testing.T) {
-	album, err := vkUser.VideoAddAlbum(map[string]string{
+	album, err := vkUser.VideoAddAlbum(Params{
 		"title": "Test",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, album.AlbumID)
 
-	res, err := vkUser.VideoEditAlbum(map[string]string{
-		"album_id": strconv.Itoa(album.AlbumID),
+	res, err := vkUser.VideoEditAlbum(Params{
+		"album_id": album.AlbumID,
 		"title":    "Test edit",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.VideoDeleteAlbum(map[string]string{
-		"album_id": strconv.Itoa(album.AlbumID),
+	res, err = vkUser.VideoDeleteAlbum(Params{
+		"album_id": album.AlbumID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)

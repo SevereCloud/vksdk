@@ -9,8 +9,8 @@ import (
 func TestVK_WidgetsGetComments(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.WidgetsGetComments(map[string]string{
-		"widget_api_id": "6862945",
+	res, err := vkService.WidgetsGetComments(Params{
+		"widget_api_id": 6862945,
 		"url":           "http://irsay.ru/irsay_duine/",
 	})
 	assert.NoError(t, err)
@@ -36,7 +36,7 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 func TestVK_WidgetsGetPages(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.WidgetsGetPages(map[string]string{})
+	res, err := vkService.WidgetsGetPages(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 }

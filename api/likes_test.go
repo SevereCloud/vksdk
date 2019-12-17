@@ -9,10 +9,10 @@ import (
 func TestVK_LikesAdd(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.LikesAdd(map[string]string{
+	res, err := vkUser.LikesAdd(Params{
 		"type":     "post",
-		"owner_id": "1",
-		"item_id":  "45546",
+		"owner_id": 1,
+		"item_id":  45546,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Likes)
@@ -21,10 +21,10 @@ func TestVK_LikesAdd(t *testing.T) {
 func TestVK_LikesDelete(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.LikesDelete(map[string]string{
+	res, err := vkUser.LikesDelete(Params{
 		"type":     "post",
-		"owner_id": "1",
-		"item_id":  "45546",
+		"owner_id": 1,
+		"item_id":  45546,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Likes)
@@ -33,10 +33,10 @@ func TestVK_LikesDelete(t *testing.T) {
 func TestVK_LikesGetList(t *testing.T) {
 	needUserToken(t)
 
-	params := map[string]string{
+	params := Params{
 		"type":     "post",
-		"owner_id": "1",
-		"item_id":  "45546",
+		"owner_id": 1,
+		"item_id":  45546,
 	}
 
 	res, err := vkUser.LikesGetList(params)
@@ -53,10 +53,10 @@ func TestVK_LikesGetList(t *testing.T) {
 func TestVK_LikesIsLiked(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.LikesIsLiked(map[string]string{
+	_, err := vkUser.LikesIsLiked(Params{
 		"type":     "post",
-		"owner_id": "1",
-		"item_id":  "45546",
+		"owner_id": 1,
+		"item_id":  45546,
 	})
 	// assert.NotEmpty(t, res)
 	assert.NoError(t, err)

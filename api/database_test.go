@@ -9,8 +9,8 @@ import (
 func TestVK_DatabaseGetChairs(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetChairs(map[string]string{
-		"faculty_id": "15",
+	res, err := vkService.DatabaseGetChairs(Params{
+		"faculty_id": 15,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -24,9 +24,9 @@ func TestVK_DatabaseGetChairs(t *testing.T) {
 func TestVK_DatabaseGetCities(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetCities(map[string]string{
-		"country_id": "1",
-		"need_all":   "1",
+	res, err := vkService.DatabaseGetCities(Params{
+		"country_id": 1,
+		"need_all":   true,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -43,7 +43,7 @@ func TestVK_DatabaseGetCities(t *testing.T) {
 func TestVK_DatabaseGetCitiesByID(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetCitiesByID(map[string]string{
+	res, err := vkService.DatabaseGetCitiesByID(Params{
 		"city_ids": "1,5,192",
 	})
 	assert.NoError(t, err)
@@ -57,7 +57,7 @@ func TestVK_DatabaseGetCitiesByID(t *testing.T) {
 func TestVK_DatabaseGetCountries(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetCountries(map[string]string{})
+	res, err := vkService.DatabaseGetCountries(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
 
@@ -70,8 +70,8 @@ func TestVK_DatabaseGetCountries(t *testing.T) {
 func TestVK_DatabaseGetCountriesByID(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetCountriesByID(map[string]string{
-		"country_ids": "1",
+	res, err := vkService.DatabaseGetCountriesByID(Params{
+		"country_ids": 1,
 	})
 	assert.NoError(t, err)
 
@@ -84,8 +84,8 @@ func TestVK_DatabaseGetCountriesByID(t *testing.T) {
 func TestVK_DatabaseGetFaculties(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetFaculties(map[string]string{
-		"university_id": "1",
+	res, err := vkService.DatabaseGetFaculties(Params{
+		"university_id": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -99,9 +99,9 @@ func TestVK_DatabaseGetFaculties(t *testing.T) {
 func TestVK_DatabaseGetMetroStations(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetMetroStations(map[string]string{
-		"city_id":  "1",
-		"extended": "1",
+	res, err := vkService.DatabaseGetMetroStations(Params{
+		"city_id":  1,
+		"extended": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -116,7 +116,7 @@ func TestVK_DatabaseGetMetroStations(t *testing.T) {
 func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetMetroStationsByID(map[string]string{
+	res, err := vkService.DatabaseGetMetroStationsByID(Params{
 		"station_ids": "189, 181",
 	})
 	assert.NoError(t, err)
@@ -131,8 +131,8 @@ func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
 func TestVK_DatabaseGetRegions(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetRegions(map[string]string{
-		"country_id": "1",
+	res, err := vkService.DatabaseGetRegions(Params{
+		"country_id": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -146,8 +146,8 @@ func TestVK_DatabaseGetRegions(t *testing.T) {
 func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetSchoolClasses(map[string]string{
-		"country_id": "1",
+	res, err := vkService.DatabaseGetSchoolClasses(Params{
+		"country_id": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -156,9 +156,9 @@ func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
 func TestVK_DatabaseGetSchools(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetSchools(map[string]string{
-		"q":       "56",
-		"city_id": "2",
+	res, err := vkService.DatabaseGetSchools(Params{
+		"q":       56,
+		"city_id": 2,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -172,7 +172,7 @@ func TestVK_DatabaseGetSchools(t *testing.T) {
 func TestVK_DatabaseGetUniversities(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetUniversities(map[string]string{
+	res, err := vkService.DatabaseGetUniversities(Params{
 		"q": "СПб",
 	})
 	assert.NoError(t, err)

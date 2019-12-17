@@ -42,7 +42,7 @@ func needChatID(t *testing.T) int {
 	if vkChatID == 0 {
 		var err error
 
-		vkChatID, err = vkUser.MessagesCreateChat(map[string]string{
+		vkChatID, err = vkUser.MessagesCreateChat(Params{
 			"title": "TestChat",
 		})
 		if err != nil {
@@ -59,7 +59,7 @@ var vkUserID, vkGroupID, vkChatID int // nolint:gochecknoglobals
 func TestMain(m *testing.M) {
 	vkGroup = Init(os.Getenv("GROUP_TOKEN"))
 	if vkGroup.AccessToken != "" {
-		group, err := vkGroup.GroupsGetByID(map[string]string{})
+		group, err := vkGroup.GroupsGetByID(Params{})
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -73,7 +73,7 @@ func TestMain(m *testing.M) {
 	vkUser.Limit = 3
 
 	if vkUser.AccessToken != "" {
-		user, err := vkUser.UsersGet(map[string]string{})
+		user, err := vkUser.UsersGet(Params{})
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -94,7 +94,7 @@ func TestVK_Request(t *testing.T) {
 	vk := Init(groupToken)
 
 	t.Run("Request 403 error", func(t *testing.T) {
-		_, err := vk.Request("", map[string]string{})
+		_, err := vk.Request("", Params{})
 		if err == nil {
 			t.Errorf("VK.Request() got1 = %v, want -1", err)
 		}
@@ -103,7 +103,7 @@ func TestVK_Request(t *testing.T) {
 	vk.MethodURL = ""
 
 	t.Run("Client error", func(t *testing.T) {
-		_, err := vk.Request("test", map[string]string{"test": "test"})
+		_, err := vk.Request("test", Params{"test": "test"})
 		if err == nil {
 			t.Errorf("VK.Request() got1 = %v, want -1", err)
 		}
@@ -121,9 +121,9 @@ func TestVK_RequestLimit(t *testing.T) {
 
 	t.Run("vk.Limit", func(t *testing.T) {
 		// TODO: check err
-		go vk.UsersGet(map[string]string{}) // nolint: errcheck
+		go vk.UsersGet(Params{}) // nolint: errcheck
 		for i := 0; i < 2; i++ {
-			vk.UsersGet(map[string]string{}) // nolint: errcheck
+			vk.UsersGet(Params{}) // nolint: errcheck
 		}
 	})
 }
@@ -150,7 +150,7 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 
 	type args struct {
 		method string
-		params map[string]string
+		params Params
 		obj    interface{}
 	}
 
@@ -163,7 +163,7 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 			name: "execute error",
 			args: args{
 				method: "execute",
-				params: map[string]string{"code": "return 1;"},
+				params: Params{"code": "return 1;"},
 				obj:    &testObj,
 			},
 			wantErr: true,

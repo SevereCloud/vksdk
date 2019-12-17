@@ -116,75 +116,10 @@ func Init(token string) *VK {
 	return &vk
 }
 
-type attachment interface {
-	ToAttachment() string
-}
-
-type jsonObject interface {
-	ToJSON() string
-}
-
-func fmtBool(value bool) string {
-	if value {
-		return "1"
-	}
-
-	return "0"
-}
-
-func fmtReflectValue(value reflect.Value, depth int) string {
-	switch f := value; value.Kind() {
-	case reflect.Invalid:
-		return ""
-	case reflect.Bool:
-		return fmtBool(f.Bool())
-	case reflect.Array, reflect.Slice:
-		s := ""
-
-		for i := 0; i < f.Len(); i++ {
-			if i > 0 {
-				s += ","
-			}
-
-			s += fmtValue(f.Index(i).Interface(), depth)
-		}
-
-		return s
-	case reflect.Ptr:
-		// pointer to array or slice or struct? ok at top level
-		// but not embedded (avoid loops)
-		if depth == 0 && f.Pointer() != 0 {
-			switch a := f.Elem(); a.Kind() {
-			case reflect.Array, reflect.Slice, reflect.Struct, reflect.Map:
-				return fmtValue(a.Interface(), depth+1)
-			}
-		}
-	}
-
-	return fmt.Sprint(value)
-}
-
-func fmtValue(value interface{}, depth int) string {
-	if value == nil {
-		return ""
-	}
-
-	switch f := value.(type) {
-	case bool:
-		return fmtBool(f)
-	case attachment:
-		return f.ToAttachment()
-	case jsonObject:
-		return f.ToJSON()
-	case reflect.Value:
-		return fmtReflectValue(f, depth)
-	}
-
-	return fmtReflectValue(reflect.ValueOf(value), depth)
-}
+type Params map[string]interface{}
 
 // Request provides access to VK API methods
-func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
+func (vk *VK) Request(method string, params Params) ([]byte, error) {
 	var handler struct {
 		Response json.RawMessage
 		Error    object.Error `json:"error"`
@@ -256,7 +191,7 @@ func (vk *VK) Request(method string, params map[string]string) ([]byte, error) {
 }
 
 // RequestUnmarshal provides access to VK API methods
-func (vk *VK) RequestUnmarshal(method string, params map[string]string, obj interface{}) error {
+func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) error {
 	rawResponse, err := vk.Request(method, params)
 	if err != nil {
 		return err
@@ -269,6 +204,73 @@ func (vk *VK) RequestUnmarshal(method string, params map[string]string, obj inte
 //
 // https://vk.com/dev/Execute
 func (vk *VK) Execute(code string, obj interface{}) error {
-	params := map[string]string{"code": code}
+	params := Params{"code": code}
 	return vk.RequestUnmarshal("execute", params, &obj)
+}
+
+type attachment interface {
+	ToAttachment() string
+}
+
+type jsonObject interface {
+	ToJSON() string
+}
+
+func fmtBool(value bool) string {
+	if value {
+		return "1"
+	}
+
+	return "0"
+}
+
+func fmtReflectValue(value reflect.Value, depth int) string {
+	switch f := value; value.Kind() {
+	case reflect.Invalid:
+		return ""
+	case reflect.Bool:
+		return fmtBool(f.Bool())
+	case reflect.Array, reflect.Slice:
+		s := ""
+
+		for i := 0; i < f.Len(); i++ {
+			if i > 0 {
+				s += ","
+			}
+
+			s += fmtValue(f.Index(i).Interface(), depth)
+		}
+
+		return s
+	case reflect.Ptr:
+		// pointer to array or slice or struct? ok at top level
+		// but not embedded (avoid loops)
+		if depth == 0 && f.Pointer() != 0 {
+			switch a := f.Elem(); a.Kind() {
+			case reflect.Array, reflect.Slice, reflect.Struct, reflect.Map:
+				return fmtValue(a.Interface(), depth+1)
+			}
+		}
+	}
+
+	return fmt.Sprint(value)
+}
+
+func fmtValue(value interface{}, depth int) string {
+	if value == nil {
+		return ""
+	}
+
+	switch f := value.(type) {
+	case bool:
+		return fmtBool(f)
+	case attachment:
+		return f.ToAttachment()
+	case jsonObject:
+		return f.ToJSON()
+	case reflect.Value:
+		return fmtReflectValue(f, depth)
+	}
+
+	return fmtReflectValue(reflect.ValueOf(value), depth)
 }

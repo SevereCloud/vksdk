@@ -12,7 +12,7 @@ type LikesAddResponse struct {
 // LikesAdd adds the specified object to the Likes list of the current user.
 //
 // https://vk.com/dev/likes.add
-func (vk *VK) LikesAdd(params map[string]string) (response LikesAddResponse, err error) {
+func (vk *VK) LikesAdd(params Params) (response LikesAddResponse, err error) {
 	err = vk.RequestUnmarshal("likes.add", params, &response)
 	return
 }
@@ -25,7 +25,7 @@ type LikesDeleteResponse struct {
 // LikesDelete deletes the specified object from the Likes list of the current user.
 //
 // https://vk.com/dev/likes.delete
-func (vk *VK) LikesDelete(params map[string]string) (response LikesDeleteResponse, err error) {
+func (vk *VK) LikesDelete(params Params) (response LikesDeleteResponse, err error) {
 	err = vk.RequestUnmarshal("likes.delete", params, &response)
 	return
 }
@@ -41,7 +41,7 @@ type LikesGetListResponse struct {
 // extended=0
 //
 // https://vk.com/dev/likes.getList
-func (vk *VK) LikesGetList(params map[string]string) (response LikesGetListResponse, err error) {
+func (vk *VK) LikesGetList(params Params) (response LikesGetListResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("likes.getList", params, &response)
 
@@ -59,8 +59,8 @@ type LikesGetListExtendedResponse struct {
 // extended=1
 //
 // https://vk.com/dev/likes.getList
-func (vk *VK) LikesGetListExtended(params map[string]string) (response LikesGetListExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) LikesGetListExtended(params Params) (response LikesGetListExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("likes.getList", params, &response)
 
 	return
@@ -75,7 +75,7 @@ type LikesIsLikedResponse struct {
 // LikesIsLiked checks for the object in the Likes list of the specified user.
 //
 // https://vk.com/dev/likes.isLiked
-func (vk *VK) LikesIsLiked(params map[string]string) (response LikesIsLikedResponse, err error) {
+func (vk *VK) LikesIsLiked(params Params) (response LikesIsLikedResponse, err error) {
 	err = vk.RequestUnmarshal("likes.isLiked", params, &response)
 	return
 }

@@ -15,7 +15,7 @@ type PodcastsGetCatalogResponse struct {
 // extended=0 method
 //
 // https://vk.com/dev/podcasts.getCatalog
-func (vk *VK) PodcastsGetCatalog(params map[string]string) (response PodcastsGetCatalogResponse, err error) {
+func (vk *VK) PodcastsGetCatalog(params Params) (response PodcastsGetCatalogResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("podcasts.getCatalog", params, &response)
 
@@ -33,8 +33,8 @@ type PodcastsGetCatalogExtendedResponse struct {
 // extended=1 method
 //
 // https://vk.com/dev/podcasts.getCatalog
-func (vk *VK) PodcastsGetCatalogExtended(params map[string]string) (response PodcastsGetCatalogExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) PodcastsGetCatalogExtended(params Params) (response PodcastsGetCatalogExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("podcasts.getCatalog", params, &response)
 
 	return
@@ -46,7 +46,7 @@ type PodcastsGetCategoriesResponse []object.PodcastsCategory
 // PodcastsGetCategories method
 //
 // https://vk.com/dev/podcasts.getCategories
-func (vk *VK) PodcastsGetCategories(params map[string]string) (response PodcastsGetCategoriesResponse, err error) {
+func (vk *VK) PodcastsGetCategories(params Params) (response PodcastsGetCategoriesResponse, err error) {
 	err = vk.RequestUnmarshal("podcasts.getCategories", params, &response)
 	return
 }
@@ -60,7 +60,7 @@ type PodcastsGetEpisodesResponse struct {
 // PodcastsGetEpisodes method
 //
 // https://vk.com/dev/podcasts.getEpisodes
-func (vk *VK) PodcastsGetEpisodes(params map[string]string) (response PodcastsGetEpisodesResponse, err error) {
+func (vk *VK) PodcastsGetEpisodes(params Params) (response PodcastsGetEpisodesResponse, err error) {
 	err = vk.RequestUnmarshal("podcasts.getEpisodes", params, &response)
 	return
 }
@@ -76,7 +76,7 @@ type PodcastsGetFeedResponse struct {
 // extended=0 method
 //
 // https://vk.com/dev/podcasts.getFeed
-func (vk *VK) PodcastsGetFeed(params map[string]string) (response PodcastsGetFeedResponse, err error) {
+func (vk *VK) PodcastsGetFeed(params Params) (response PodcastsGetFeedResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("podcasts.getFeed", params, &response)
 
@@ -95,8 +95,8 @@ type PodcastsGetFeedExtendedResponse struct {
 // extended=1 method
 //
 // https://vk.com/dev/podcasts.getFeed
-func (vk *VK) PodcastsGetFeedExtended(params map[string]string) (response PodcastsGetFeedExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) PodcastsGetFeedExtended(params Params) (response PodcastsGetFeedExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("podcasts.getFeed", params, &response)
 
 	return
@@ -124,7 +124,7 @@ type PodcastsGetStartPageResponse struct {
 // extended=0 method
 //
 // https://vk.com/dev/podcasts.getStartPage
-func (vk *VK) PodcastsGetStartPage(params map[string]string) (response PodcastsGetStartPageResponse, err error) {
+func (vk *VK) PodcastsGetStartPage(params Params) (response PodcastsGetStartPageResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("podcasts.getStartPage", params, &response)
 
@@ -154,8 +154,8 @@ type PodcastsGetStartPageExtendedResponse struct {
 // extended=1 method
 //
 // https://vk.com/dev/podcasts.getStartPage
-func (vk *VK) PodcastsGetStartPageExtended(params map[string]string) (response PodcastsGetStartPageExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) PodcastsGetStartPageExtended(params Params) (response PodcastsGetStartPageExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("podcasts.getStartPage", params, &response)
 
 	return
@@ -164,7 +164,7 @@ func (vk *VK) PodcastsGetStartPageExtended(params map[string]string) (response P
 // PodcastsMarkAsListened method
 //
 // https://vk.com/dev/podcasts.markAsListened
-func (vk *VK) PodcastsMarkAsListened(params map[string]string) (response int, err error) {
+func (vk *VK) PodcastsMarkAsListened(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("podcasts.markAsListened", params, &response)
 	return
 }
@@ -172,7 +172,7 @@ func (vk *VK) PodcastsMarkAsListened(params map[string]string) (response int, er
 // PodcastsSubscribe method
 //
 // https://vk.com/dev/podcasts.subscribe
-func (vk *VK) PodcastsSubscribe(params map[string]string) (response int, err error) {
+func (vk *VK) PodcastsSubscribe(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("podcasts.subscribe", params, &response)
 	return
 }
@@ -180,7 +180,7 @@ func (vk *VK) PodcastsSubscribe(params map[string]string) (response int, err err
 // PodcastsUnsubscribe method
 //
 // https://vk.com/dev/podcasts.unsubscribe
-func (vk *VK) PodcastsUnsubscribe(params map[string]string) (response int, err error) {
+func (vk *VK) PodcastsUnsubscribe(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("podcasts.unsubscribe", params, &response)
 	return
 }

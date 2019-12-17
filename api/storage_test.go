@@ -9,7 +9,7 @@ import (
 func TestVK_StorageSet(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.StorageSet(map[string]string{
+	_, err := vkUser.StorageSet(Params{
 		"key":   "test",
 		"value": "Hello",
 	})
@@ -19,14 +19,14 @@ func TestVK_StorageSet(t *testing.T) {
 func TestVK_StorageGetKeys(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.StorageGetKeys(map[string]string{})
+	_, err := vkUser.StorageGetKeys(Params{})
 	assert.NoError(t, err)
 }
 
 func TestVK_StorageGet(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.StorageGet(map[string]string{
+	_, err := vkUser.StorageGet(Params{
 		"key": "test",
 	})
 	assert.NoError(t, err)

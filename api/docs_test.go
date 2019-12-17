@@ -1,7 +1,6 @@
 package api
 
 import (
-	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -10,24 +9,24 @@ import (
 func TestVK_DocsAdd(t *testing.T) {
 	needUserToken(t)
 
-	doc, err := vkUser.DocsAdd(map[string]string{
-		"owner_id": "-166562603",
-		"doc_id":   "483194018",
+	doc, err := vkUser.DocsAdd(Params{
+		"owner_id": -166562603,
+		"doc_id":   483194018,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, doc)
 
-	res, err := vkUser.DocsEdit(map[string]string{
-		"owner_id": strconv.Itoa(vkUserID),
-		"doc_id":   strconv.Itoa(doc),
+	res, err := vkUser.DocsEdit(Params{
+		"owner_id": vkUserID,
+		"doc_id":   doc,
 		"title":    "test_title",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.DocsDelete(map[string]string{
-		"owner_id": strconv.Itoa(vkUserID),
-		"doc_id":   strconv.Itoa(doc),
+	res, err = vkUser.DocsDelete(Params{
+		"owner_id": vkUserID,
+		"doc_id":   doc,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -36,8 +35,8 @@ func TestVK_DocsAdd(t *testing.T) {
 func TestVK_DocsGet(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGet(map[string]string{
-		"owner_id": "-166562603",
+	res, err := vkUser.DocsGet(Params{
+		"owner_id": -166562603,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -57,7 +56,7 @@ func TestVK_DocsGet(t *testing.T) {
 func TestVK_DocsGetByID(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetByID(map[string]string{
+	res, err := vkUser.DocsGetByID(Params{
 		"docs": "2314852_165123053",
 	})
 	assert.NoError(t, err)
@@ -92,7 +91,7 @@ func TestVK_DocsGetByID(t *testing.T) {
 func TestVK_DocsGetTypes(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetTypes(map[string]string{})
+	res, err := vkUser.DocsGetTypes(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
 
@@ -106,7 +105,7 @@ func TestVK_DocsGetTypes(t *testing.T) {
 func TestVK_DocsGetUploadServer(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetUploadServer(map[string]string{})
+	res, err := vkUser.DocsGetUploadServer(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
@@ -114,7 +113,7 @@ func TestVK_DocsGetUploadServer(t *testing.T) {
 func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetMessagesUploadServer(map[string]string{})
+	res, err := vkUser.DocsGetMessagesUploadServer(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
@@ -122,7 +121,7 @@ func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 func TestVK_DocsGetWallUploadServer(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetWallUploadServer(map[string]string{})
+	res, err := vkUser.DocsGetWallUploadServer(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
@@ -132,7 +131,7 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 func TestVK_DocsSearch(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.DocsSearch(map[string]string{
+	res, err := vkGroup.DocsSearch(Params{
 		"q": "golang",
 	})
 	assert.NoError(t, err)

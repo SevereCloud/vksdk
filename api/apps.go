@@ -7,7 +7,7 @@ import (
 // AppsDeleteAppRequests deletes all request notifications from the current app.
 //
 // https://vk.com/dev/apps.deleteAppRequests
-func (vk *VK) AppsDeleteAppRequests(params map[string]string) (response int, err error) {
+func (vk *VK) AppsDeleteAppRequests(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("apps.deleteAppRequests", params, &response)
 	return
 }
@@ -22,7 +22,7 @@ type AppsGetResponse struct {
 // AppsGet returns applications data.
 //
 // https://vk.com/dev/apps.get
-func (vk *VK) AppsGet(params map[string]string) (response AppsGetResponse, err error) {
+func (vk *VK) AppsGet(params Params) (response AppsGetResponse, err error) {
 	err = vk.RequestUnmarshal("apps.get", params, &response)
 	return
 }
@@ -37,7 +37,7 @@ type AppsGetCatalogResponse struct {
 // AppsGetCatalog returns a list of applications (apps) available to users in the App Catalog.
 //
 // https://vk.com/dev/apps.getCatalog
-func (vk *VK) AppsGetCatalog(params map[string]string) (response AppsGetCatalogResponse, err error) {
+func (vk *VK) AppsGetCatalog(params Params) (response AppsGetCatalogResponse, err error) {
 	err = vk.RequestUnmarshal("apps.getCatalog", params, &response)
 	return
 }
@@ -53,7 +53,7 @@ type AppsGetFriendsListResponse struct {
 // extended=0
 //
 // https://vk.com/dev/apps.getFriendsList
-func (vk *VK) AppsGetFriendsList(params map[string]string) (response AppsGetFriendsListResponse, err error) {
+func (vk *VK) AppsGetFriendsList(params Params) (response AppsGetFriendsListResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("apps.getFriendsList", params, &response)
 
@@ -71,8 +71,8 @@ type AppsGetFriendsListExtendedResponse struct {
 // extended=1
 //
 // https://vk.com/dev/apps.getFriendsList
-func (vk *VK) AppsGetFriendsListExtended(params map[string]string) (response AppsGetFriendsListExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) AppsGetFriendsListExtended(params Params) (response AppsGetFriendsListExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("apps.getFriendsList", params, &response)
 
 	return
@@ -89,7 +89,7 @@ type AppsGetLeaderboardResponse struct {
 // extended=0
 //
 // https://vk.com/dev/apps.getLeaderboard
-func (vk *VK) AppsGetLeaderboard(params map[string]string) (response AppsGetLeaderboardResponse, err error) {
+func (vk *VK) AppsGetLeaderboard(params Params) (response AppsGetLeaderboardResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("apps.getLeaderboard", params, &response)
 
@@ -111,8 +111,8 @@ type AppsGetLeaderboardExtendedResponse struct {
 // extended=1
 //
 // https://vk.com/dev/apps.getLeaderboard
-func (vk *VK) AppsGetLeaderboardExtended(params map[string]string) (response AppsGetLeaderboardExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) AppsGetLeaderboardExtended(params Params) (response AppsGetLeaderboardExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("apps.getLeaderboard", params, &response)
 
 	return
@@ -127,7 +127,7 @@ type AppsGetScopesResponse struct {
 // AppsGetScopes x
 //
 // https://vk.com/dev/apps.getScopes
-func (vk *VK) AppsGetScopes(params map[string]string) (response AppsGetScopesResponse, err error) {
+func (vk *VK) AppsGetScopes(params Params) (response AppsGetScopesResponse, err error) {
 	err = vk.RequestUnmarshal("apps.getScopes", params, &response)
 	return
 }
@@ -137,7 +137,7 @@ func (vk *VK) AppsGetScopes(params map[string]string) (response AppsGetScopesRes
 // NOTE: vk wtf!?
 //
 // https://vk.com/dev/apps.getScore
-func (vk *VK) AppsGetScore(params map[string]string) (response string, err error) {
+func (vk *VK) AppsGetScore(params Params) (response string, err error) {
 	err = vk.RequestUnmarshal("apps.getScore", params, &response)
 	return
 }
@@ -145,7 +145,7 @@ func (vk *VK) AppsGetScore(params map[string]string) (response string, err error
 // AppsSendRequest sends a request to another user in an app that uses VK authorization.
 //
 // https://vk.com/dev/apps.sendRequest
-func (vk *VK) AppsSendRequest(params map[string]string) (response int, err error) {
+func (vk *VK) AppsSendRequest(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("apps.sendRequest", params, &response)
 	return
 }

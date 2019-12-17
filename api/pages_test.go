@@ -1,7 +1,6 @@
 package api
 
 import (
-	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -10,7 +9,7 @@ import (
 func TestVK_PagesClearCache(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.PagesClearCache(map[string]string{
+	res, err := vkService.PagesClearCache(Params{
 		"url": "https://ya.ru",
 	})
 	assert.NoError(t, err)
@@ -20,10 +19,10 @@ func TestVK_PagesClearCache(t *testing.T) {
 func TestVK_PagesGet(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.PagesGet(map[string]string{
-		"owner_id":  "-87938575",
-		"page_id":   "51298167",
-		"need_html": "1",
+	res, err := vkUser.PagesGet(Params{
+		"owner_id":  -87938575,
+		"page_id":   51298167,
+		"need_html": true,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.ID)
@@ -42,17 +41,17 @@ func TestVK_PagesSave(t *testing.T) {
 	needUserToken(t)
 	needGroupToken(t)
 
-	page, err := vkUser.PagesSave(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	page, err := vkUser.PagesSave(Params{
+		"group_id": vkGroupID,
 		"title":    "Test",
 		"text":     "Test text",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, page)
 
-	history, err := vkUser.PagesGetHistory(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-		"page_id":  strconv.Itoa(page),
+	history, err := vkUser.PagesGetHistory(Params{
+		"group_id": vkGroupID,
+		"page_id":  page,
 	})
 	assert.NoError(t, err)
 
@@ -64,9 +63,9 @@ func TestVK_PagesSave(t *testing.T) {
 		assert.NotEmpty(t, history[0].Length)
 	}
 
-	version, err := vkUser.PagesGetVersion(map[string]string{
-		"group_id":   strconv.Itoa(vkGroupID),
-		"version_id": strconv.Itoa(history[0].ID),
+	version, err := vkUser.PagesGetVersion(Params{
+		"group_id":   vkGroupID,
+		"version_id": history[0].ID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, version.ID)
@@ -78,11 +77,11 @@ func TestVK_PagesSave(t *testing.T) {
 	// assert.NotEmpty(t, version.Created)
 	// assert.NotEmpty(t, version.Views)
 
-	res, err := vkUser.PagesSaveAccess(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-		"page_id":  strconv.Itoa(page),
-		"view":     "0",
-		"edit":     "0",
+	res, err := vkUser.PagesSaveAccess(Params{
+		"group_id": vkGroupID,
+		"page_id":  page,
+		"view":     false,
+		"edit":     false,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -91,8 +90,8 @@ func TestVK_PagesSave(t *testing.T) {
 func TestVK_PagesGetTitles(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.PagesGetTitles(map[string]string{
-		"group_id": "87938575",
+	res, err := vkUser.PagesGetTitles(Params{
+		"group_id": 87938575,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -101,9 +100,9 @@ func TestVK_PagesGetTitles(t *testing.T) {
 func TestVK_PagesParseWiki(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.PagesParseWiki(map[string]string{
+	res, err := vkUser.PagesParseWiki(Params{
 		"text":     `[[photo-37273781_295853750|nolink;| ]]`,
-		"group_id": "37273781",
+		"group_id": 37273781,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)

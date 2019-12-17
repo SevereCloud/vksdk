@@ -10,14 +10,14 @@ func TestVK_StoriesGet(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGet error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -39,14 +39,14 @@ func TestVK_StoriesGetExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetExtended error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -68,14 +68,14 @@ func TestVK_StoriesGetBanned(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetBanned error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -97,14 +97,14 @@ func TestVK_StoriesGetBannedExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetBannedExtended error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -126,14 +126,14 @@ func TestVK_StoriesGetByID(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetByID error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -155,14 +155,14 @@ func TestVK_StoriesGetByIDExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetByIDExtended error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -184,14 +184,14 @@ func TestVK_StoriesGetPhotoUploadServer(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetPhotoUploadServer error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -213,14 +213,14 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetReplies error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -242,14 +242,14 @@ func TestVK_StoriesGetRepliesExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetRepliesExtended error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -271,14 +271,14 @@ func TestVK_StoriesGetStats(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetStats error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -300,14 +300,14 @@ func TestVK_StoriesGetVideoUploadServer(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetVideoUploadServer error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -329,14 +329,14 @@ func TestVK_StoriesGetViewers(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetViewers error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -358,14 +358,14 @@ func TestVK_StoriesGetViewersExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    map[string]string
+		argParams    Params
 		wantResponse GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesGetViewersExtended error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -387,13 +387,13 @@ func TestVK_StoriesHideAllReplies(t *testing.T) {
 
 	tests := []struct {
 		name      string
-		argParams map[string]string
+		argParams Params
 		wantErr   Error
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesHideAllReplies error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}
@@ -411,13 +411,13 @@ func TestVK_StoriesHideReply(t *testing.T) {
 
 	tests := []struct {
 		name      string
-		argParams map[string]string
+		argParams Params
 		wantErr   Error
 	}{
 		// TODO: Add test cases.
 		// {
 		// 	name:      "StoriesHideReply error",
-		// 	argParams: map[string]string{},
+		// 	argParams: Params{},
 		// 	wantErr: Error{Code: 100},
 		// },
 	}

@@ -11,7 +11,7 @@ type SearchGetHintsResponse struct {
 // SearchGetHints allows the programmer to do a quick search for any substring.
 //
 // https://vk.com/dev/search.getHints
-func (vk *VK) SearchGetHints(params map[string]string) (response SearchGetHintsResponse, err error) {
+func (vk *VK) SearchGetHints(params Params) (response SearchGetHintsResponse, err error) {
 	err = vk.RequestUnmarshal("search.getHints", params, &response)
 	return
 }

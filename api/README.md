@@ -18,8 +18,8 @@ vk := api.Init("<TOKEN>")
 
 ### Запросы к API
 
-- `users.get` -> `vk.UsersGet(map[string]string{})`
-- `groups.get` с extended=1 -> `vk.GroupsGetExtended(map[string]string{})`
+- `users.get` -> `vk.UsersGet(Params{})`
+- `groups.get` с extended=1 -> `vk.GroupsGetExtended(Params{})`
 
 Список всех методов можно найти на 
 [данной странице](https://godoc.org/github.com/SevereCloud/vksdk/api#VK).
@@ -27,8 +27,8 @@ vk := api.Init("<TOKEN>")
 Пример запроса [`users.get`](https://vk.com/dev/users.get)
 
 ```go
-users, err := vk.UsersGet(map[string]string{
-	"user_ids": "1"
+users, err := vk.UsersGet(api.Params{
+	"user_ids": 1,
 })
 if err != nil {
 	log.Fatal(err)
@@ -74,8 +74,8 @@ vkErr := errors.GetErrorContext(err)
 var response []object.UsersUser
 var err api.Error
 
-params := map[string]string{
-	"user_ids": "1"
+params := Params{
+	"user_ids": 1,
 }
 
 // Делаем запрос

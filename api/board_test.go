@@ -1,7 +1,6 @@
 package api
 
 import (
-	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -10,87 +9,87 @@ import (
 func TestVK_BoardAddTopic(t *testing.T) {
 	needUserToken(t)
 
-	topic, err := vkUser.BoardAddTopic(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	topic, err := vkUser.BoardAddTopic(Params{
+		"group_id": vkGroupID,
 		"title":    "Test topic",
 		"text":     "Test",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, topic)
 
-	res, err := vkUser.BoardCloseTopic(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(topic),
+	res, err := vkUser.BoardCloseTopic(Params{
+		"group_id": vkGroupID,
+		"topic_id": topic,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.BoardOpenTopic(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(topic),
+	res, err = vkUser.BoardOpenTopic(Params{
+		"group_id": vkGroupID,
+		"topic_id": topic,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.BoardEditTopic(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(topic),
+	res, err = vkUser.BoardEditTopic(Params{
+		"group_id": vkGroupID,
+		"topic_id": topic,
 		"title":    "Test topic edited",
 		"text":     "Test edited",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.BoardFixTopic(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(topic),
+	res, err = vkUser.BoardFixTopic(Params{
+		"group_id": vkGroupID,
+		"topic_id": topic,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.BoardUnfixTopic(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(topic),
+	res, err = vkUser.BoardUnfixTopic(Params{
+		"group_id": vkGroupID,
+		"topic_id": topic,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	comment, err := vkUser.BoardCreateComment(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(topic),
+	comment, err := vkUser.BoardCreateComment(Params{
+		"group_id": vkGroupID,
+		"topic_id": topic,
 		"message":  "topic comment",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, comment)
 
-	res, err = vkUser.BoardEditComment(map[string]string{
-		"group_id":   strconv.Itoa(vkGroupID),
-		"topic_id":   strconv.Itoa(topic),
-		"comment_id": strconv.Itoa(comment),
+	res, err = vkUser.BoardEditComment(Params{
+		"group_id":   vkGroupID,
+		"topic_id":   topic,
+		"comment_id": comment,
 		"message":    "topic comment",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.BoardDeleteComment(map[string]string{
-		"group_id":   strconv.Itoa(vkGroupID),
-		"topic_id":   strconv.Itoa(topic),
-		"comment_id": strconv.Itoa(comment),
+	res, err = vkUser.BoardDeleteComment(Params{
+		"group_id":   vkGroupID,
+		"topic_id":   topic,
+		"comment_id": comment,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.BoardRestoreComment(map[string]string{
-		"group_id":   strconv.Itoa(vkGroupID),
-		"topic_id":   strconv.Itoa(topic),
-		"comment_id": strconv.Itoa(comment),
+	res, err = vkUser.BoardRestoreComment(Params{
+		"group_id":   vkGroupID,
+		"topic_id":   topic,
+		"comment_id": comment,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.BoardDeleteTopic(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
-		"topic_id": strconv.Itoa(topic),
+	res, err = vkUser.BoardDeleteTopic(Params{
+		"group_id": vkGroupID,
+		"topic_id": topic,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -99,10 +98,10 @@ func TestVK_BoardAddTopic(t *testing.T) {
 func TestVK_BoardGetComments(t *testing.T) {
 	needUserToken(t)
 
-	params := map[string]string{
-		"group_id":   "1",
-		"topic_id":   "21972169",
-		"need_likes": "1",
+	params := Params{
+		"group_id":   1,
+		"topic_id":   21972169,
+		"need_likes": true,
 	}
 
 	res, err := vkUser.BoardGetComments(params)
@@ -147,9 +146,9 @@ func TestVK_BoardGetComments(t *testing.T) {
 func TestVK_BoardGetTopics(t *testing.T) {
 	needUserToken(t)
 
-	params := map[string]string{
-		"group_id":  "1",
-		"topic_ids": "21972169",
+	params := Params{
+		"group_id":  1,
+		"topic_ids": 21972169,
 	}
 
 	res, err := vkUser.BoardGetTopics(params)

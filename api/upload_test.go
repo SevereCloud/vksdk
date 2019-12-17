@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"io"
 	"net/http"
-	"strconv"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/errors"
@@ -31,7 +30,7 @@ func TestVK_UploadFile(t *testing.T) {
 func TestVK_UploadPhoto(t *testing.T) {
 	needUserToken(t)
 
-	album, err := vkUser.PhotosCreateAlbum(map[string]string{
+	album, err := vkUser.PhotosCreateAlbum(Params{
 		"title": "test",
 	})
 	if err != nil {
@@ -52,9 +51,9 @@ func TestVK_UploadPhotoGroup(t *testing.T) {
 	needUserToken(t)
 	needGroupToken(t)
 
-	album, err := vkUser.PhotosCreateAlbum(map[string]string{
+	album, err := vkUser.PhotosCreateAlbum(Params{
 		"title":    "test",
-		"group_id": strconv.Itoa(vkGroupID),
+		"group_id": vkGroupID,
 	})
 	if err != nil {
 		t.Fatalf("VK.PhotosCreateAlbum() err = %v", err)
@@ -228,7 +227,7 @@ func TestVK_UploadVideo_Error(t *testing.T) {
 	}
 	defer response.Body.Close()
 
-	_, err = vkUser.UploadVideo(map[string]string{}, response.Body)
+	_, err = vkUser.UploadVideo(Params{}, response.Body)
 	if errors.GetType(err) != errors.NoType {
 		t.Errorf("VK.UploadVideo() err = %v, want %v", err, -1)
 	}
@@ -327,7 +326,7 @@ func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
 func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.UploadStoriesPhoto(map[string]string{}, new(bytes.Buffer))
+	_, err := vkUser.UploadStoriesPhoto(Params{}, new(bytes.Buffer))
 	if errors.GetType(err) != errors.NoType {
 		t.Errorf("VK.UploadStoriesPhoto() err = %v, want %v", err, -1)
 	}
@@ -342,7 +341,7 @@ func TestVK_UploadStoriesPhoto(t *testing.T) {
 	}
 	defer response.Body.Close()
 
-	_, err = vkUser.UploadStoriesPhoto(map[string]string{}, response.Body)
+	_, err = vkUser.UploadStoriesPhoto(Params{}, response.Body)
 	assert.NoError(t, err)
 }
 
@@ -355,7 +354,7 @@ func TestVK_UploadStoriesVideo_Error(t *testing.T) {
 	}
 	defer response.Body.Close()
 
-	_, err = vkUser.UploadStoriesVideo(map[string]string{}, response.Body)
+	_, err = vkUser.UploadStoriesVideo(Params{}, response.Body)
 	if errors.GetType(err) != errors.NoType {
 		t.Errorf("VK.UploadStoriesVideo() err = %v, want %v", err, -1)
 	}
@@ -445,28 +444,28 @@ func TestVK_UploadGroupImage(t *testing.T) {
 func TestVK_Upload_Error(t *testing.T) {
 	vk := Init("")
 
-	_, err := vk.uploadPhoto(map[string]string{}, new(bytes.Buffer))
+	_, err := vk.uploadPhoto(Params{}, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
-	_, err = vk.uploadWallPhoto(map[string]string{}, new(bytes.Buffer))
+	_, err = vk.uploadWallPhoto(Params{}, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
-	_, err = vk.uploadOwnerPhoto(map[string]string{}, "", new(bytes.Buffer))
+	_, err = vk.uploadOwnerPhoto(Params{}, "", new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
 	_, err = vk.UploadMessagesPhoto(1, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
-	_, err = vk.uploadChatPhoto(map[string]string{}, new(bytes.Buffer))
+	_, err = vk.uploadChatPhoto(Params{}, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
-	_, err = vk.uploadMarketPhoto(map[string]string{}, new(bytes.Buffer))
+	_, err = vk.uploadMarketPhoto(Params{}, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
 	_, err = vk.UploadMarketAlbumPhoto(1, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
-	_, err = vk.UploadVideo(map[string]string{}, new(bytes.Buffer))
+	_, err = vk.UploadVideo(Params{}, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
 	_, err = vk.UploadDoc("", "", new(bytes.Buffer))
@@ -487,13 +486,13 @@ func TestVK_Upload_Error(t *testing.T) {
 	_, err = vk.UploadOwnerCoverPhoto(1, 0, 0, 0, 0, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
-	_, err = vk.UploadStoriesPhoto(map[string]string{}, new(bytes.Buffer))
+	_, err = vk.UploadStoriesPhoto(Params{}, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
-	_, err = vk.UploadStoriesVideo(map[string]string{}, new(bytes.Buffer))
+	_, err = vk.UploadStoriesVideo(Params{}, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
-	_, err = vk.uploadPollsPhoto(map[string]string{}, new(bytes.Buffer))
+	_, err = vk.uploadPollsPhoto(Params{}, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)
 
 	_, err = vk.UploadPrettyCardsPhoto(new(bytes.Buffer))

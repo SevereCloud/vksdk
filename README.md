@@ -48,14 +48,14 @@ package main
 import (
     "log"
 
-    vkapi "github.com/SevereCloud/vksdk/api"
+    "github.com/SevereCloud/vksdk/api"
 )
 
 func main() {
-    vk := vkapi.Init("<TOKEN>") // рекомендуется использовать os.Getenv("TOKEN")
+    vk := api.Init("<TOKEN>") // рекомендуется использовать os.Getenv("TOKEN")
     
-    params := map[string]string{
-        "user_ids": "1"
+    params := api.Params{
+        "user_ids": 1
     }
 
     users, err := vk.UsersGet(params)

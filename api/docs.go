@@ -7,7 +7,7 @@ import (
 // DocsAdd copies a document to a user's or community's document list.
 //
 // https://vk.com/dev/docs.add
-func (vk *VK) DocsAdd(params map[string]string) (response int, err error) {
+func (vk *VK) DocsAdd(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("docs.add", params, &response)
 	return
 }
@@ -15,7 +15,7 @@ func (vk *VK) DocsAdd(params map[string]string) (response int, err error) {
 // DocsDelete deletes a user or community document.
 //
 // https://vk.com/dev/docs.delete
-func (vk *VK) DocsDelete(params map[string]string) (response int, err error) {
+func (vk *VK) DocsDelete(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("docs.delete", params, &response)
 	return
 }
@@ -23,7 +23,7 @@ func (vk *VK) DocsDelete(params map[string]string) (response int, err error) {
 // DocsEdit edits a document.
 //
 // https://vk.com/dev/docs.edit
-func (vk *VK) DocsEdit(params map[string]string) (response int, err error) {
+func (vk *VK) DocsEdit(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("docs.edit", params, &response)
 	return
 }
@@ -37,7 +37,7 @@ type DocsGetResponse struct {
 // DocsGet returns detailed information about user or community documents.
 //
 // https://vk.com/dev/docs.get
-func (vk *VK) DocsGet(params map[string]string) (response DocsGetResponse, err error) {
+func (vk *VK) DocsGet(params Params) (response DocsGetResponse, err error) {
 	err = vk.RequestUnmarshal("docs.get", params, &response)
 	return
 }
@@ -48,7 +48,7 @@ type DocsGetByIDResponse []object.DocsDoc
 // DocsGetByID returns information about documents by their IDs.
 //
 // https://vk.com/dev/docs.getById
-func (vk *VK) DocsGetByID(params map[string]string) (response DocsGetByIDResponse, err error) {
+func (vk *VK) DocsGetByID(params Params) (response DocsGetByIDResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getById", params, &response)
 	return
 }
@@ -61,7 +61,7 @@ type DocsGetMessagesUploadServerResponse struct {
 // DocsGetMessagesUploadServer returns the server address for document upload.
 //
 // https://vk.com/dev/docs.getMessagesUploadServer
-func (vk *VK) DocsGetMessagesUploadServer(params map[string]string) (response DocsGetMessagesUploadServerResponse, err error) {
+func (vk *VK) DocsGetMessagesUploadServer(params Params) (response DocsGetMessagesUploadServerResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getMessagesUploadServer", params, &response)
 	return
 }
@@ -75,7 +75,7 @@ type DocsGetTypesResponse struct {
 // DocsGetTypes returns documents types available for current user.
 //
 // https://vk.com/dev/docs.getTypes
-func (vk *VK) DocsGetTypes(params map[string]string) (response DocsGetTypesResponse, err error) {
+func (vk *VK) DocsGetTypes(params Params) (response DocsGetTypesResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getTypes", params, &response)
 	return
 }
@@ -88,7 +88,7 @@ type DocsGetUploadServerResponse struct {
 // DocsGetUploadServer returns the server address for document upload.
 //
 // https://vk.com/dev/docs.getUploadServer
-func (vk *VK) DocsGetUploadServer(params map[string]string) (response DocsGetUploadServerResponse, err error) {
+func (vk *VK) DocsGetUploadServer(params Params) (response DocsGetUploadServerResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getUploadServer", params, &response)
 	return
 }
@@ -101,7 +101,7 @@ type DocsGetWallUploadServerResponse struct {
 // DocsGetWallUploadServer returns the server address for document upload onto a user's or community's wall.
 //
 // https://vk.com/dev/docs.getWallUploadServer
-func (vk *VK) DocsGetWallUploadServer(params map[string]string) (response DocsGetWallUploadServerResponse, err error) {
+func (vk *VK) DocsGetWallUploadServer(params Params) (response DocsGetWallUploadServerResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getWallUploadServer", params, &response)
 	return
 }
@@ -117,7 +117,7 @@ type DocsSaveResponse struct {
 // DocsSave saves a document after uploading it to a server.
 //
 // https://vk.com/dev/docs.save
-func (vk *VK) DocsSave(params map[string]string) (response DocsSaveResponse, err error) {
+func (vk *VK) DocsSave(params Params) (response DocsSaveResponse, err error) {
 	err = vk.RequestUnmarshal("docs.save", params, &response)
 	return
 }
@@ -131,7 +131,7 @@ type DocsSearchResponse struct {
 // DocsSearch returns a list of documents matching the search criteria.
 //
 // https://vk.com/dev/docs.search
-func (vk *VK) DocsSearch(params map[string]string) (response DocsSearchResponse, err error) {
+func (vk *VK) DocsSearch(params Params) (response DocsSearchResponse, err error) {
 	err = vk.RequestUnmarshal("docs.search", params, &response)
 	return
 }

@@ -12,7 +12,7 @@ type UtilsCheckLinkResponse object.UtilsLinkChecked
 // UtilsCheckLink checks whether a link is blocked in VK.
 //
 // https://vk.com/dev/utils.checkLink
-func (vk *VK) UtilsCheckLink(params map[string]string) (response UtilsCheckLinkResponse, err error) {
+func (vk *VK) UtilsCheckLink(params Params) (response UtilsCheckLinkResponse, err error) {
 	err = vk.RequestUnmarshal("utils.checkLink", params, &response)
 	return
 }
@@ -20,7 +20,7 @@ func (vk *VK) UtilsCheckLink(params map[string]string) (response UtilsCheckLinkR
 // UtilsDeleteFromLastShortened deletes shortened link from user's list.
 //
 // https://vk.com/dev/utils.deleteFromLastShortened
-func (vk *VK) UtilsDeleteFromLastShortened(params map[string]string) (response int, err error) {
+func (vk *VK) UtilsDeleteFromLastShortened(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("utils.deleteFromLastShortened", params, &response)
 	return
 }
@@ -34,7 +34,7 @@ type UtilsGetLastShortenedLinksResponse struct {
 // UtilsGetLastShortenedLinks returns a list of user's shortened links.
 //
 // https://vk.com/dev/utils.getLastShortenedLinks
-func (vk *VK) UtilsGetLastShortenedLinks(params map[string]string) (response UtilsGetLastShortenedLinksResponse, err error) {
+func (vk *VK) UtilsGetLastShortenedLinks(params Params) (response UtilsGetLastShortenedLinksResponse, err error) {
 	err = vk.RequestUnmarshal("utils.getLastShortenedLinks", params, &response)
 	return
 }
@@ -47,7 +47,7 @@ type UtilsGetLinkStatsResponse object.UtilsLinkStats
 // extended=0
 //
 // https://vk.com/dev/utils.getLinkStats
-func (vk *VK) UtilsGetLinkStats(params map[string]string) (response UtilsGetLinkStatsResponse, err error) {
+func (vk *VK) UtilsGetLinkStats(params Params) (response UtilsGetLinkStatsResponse, err error) {
 	params["extended"] = "0"
 	err = vk.RequestUnmarshal("utils.getLinkStats", params, &response)
 
@@ -62,8 +62,8 @@ type UtilsGetLinkStatsExtendedResponse object.UtilsLinkStatsExtended
 // extended=1
 //
 // https://vk.com/dev/utils.getLinkStats
-func (vk *VK) UtilsGetLinkStatsExtended(params map[string]string) (response UtilsGetLinkStatsExtendedResponse, err error) {
-	params["extended"] = "1"
+func (vk *VK) UtilsGetLinkStatsExtended(params Params) (response UtilsGetLinkStatsExtendedResponse, err error) {
+	params["extended"] = true
 	err = vk.RequestUnmarshal("utils.getLinkStats", params, &response)
 
 	return
@@ -72,7 +72,7 @@ func (vk *VK) UtilsGetLinkStatsExtended(params map[string]string) (response Util
 // UtilsGetServerTime returns the current time of the VK server.
 //
 // https://vk.com/dev/utils.getServerTime
-func (vk *VK) UtilsGetServerTime(params map[string]string) (response int, err error) {
+func (vk *VK) UtilsGetServerTime(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("utils.getServerTime", params, &response)
 	return
 }
@@ -83,7 +83,7 @@ type UtilsGetShortLinkResponse object.UtilsShortLink
 // UtilsGetShortLink allows to receive a link shortened via vk.cc.
 //
 // https://vk.com/dev/utils.getShortLink
-func (vk *VK) UtilsGetShortLink(params map[string]string) (response UtilsGetShortLinkResponse, err error) {
+func (vk *VK) UtilsGetShortLink(params Params) (response UtilsGetShortLinkResponse, err error) {
 	err = vk.RequestUnmarshal("utils.getShortLink", params, &response)
 	return
 }
@@ -94,7 +94,7 @@ type UtilsResolveScreenNameResponse object.UtilsDomainResolved
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.
 //
 // https://vk.com/dev/utils.resolveScreenName
-func (vk *VK) UtilsResolveScreenName(params map[string]string) (response UtilsResolveScreenNameResponse, err error) {
+func (vk *VK) UtilsResolveScreenName(params Params) (response UtilsResolveScreenNameResponse, err error) {
 	rawResponse, err := vk.Request("utils.resolveScreenName", params)
 	// Если короткое имя screen_name не занято, то будет возвращён пустой объект.
 	if err != nil || string(rawResponse) == "[]" {

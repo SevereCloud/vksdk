@@ -1,7 +1,6 @@
 package api
 
 import (
-	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -11,11 +10,11 @@ func TestVK_StatsGet(t *testing.T) {
 	t.Skip("See https://vk.com/bug136096")
 	needUserToken(t)
 
-	_, err := vkUser.StatsGet(map[string]string{
-		"group_id":        strconv.Itoa(vkGroupID),
+	_, err := vkUser.StatsGet(Params{
+		"group_id":        vkGroupID,
 		"interval":        "day",
-		"intervals_count": "10",
-		"extended":        "1",
+		"intervals_count": 10,
+		"extended":        true,
 	})
 	assert.NoError(t, err)
 }
@@ -23,6 +22,6 @@ func TestVK_StatsGet(t *testing.T) {
 func TestVK_StatsTrackVisitor(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.StatsTrackVisitor(map[string]string{})
+	_, err := vkUser.StatsTrackVisitor(Params{})
 	assert.NoError(t, err)
 }

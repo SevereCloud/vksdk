@@ -7,7 +7,7 @@ import (
 // NotesAdd creates a new note for the current user.
 //
 // https://vk.com/dev/notes.add
-func (vk *VK) NotesAdd(params map[string]string) (response int, err error) {
+func (vk *VK) NotesAdd(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("notes.add", params, &response)
 	return
 }
@@ -15,7 +15,7 @@ func (vk *VK) NotesAdd(params map[string]string) (response int, err error) {
 // NotesCreateComment adds a new comment on a note.
 //
 // https://vk.com/dev/notes.createComment
-func (vk *VK) NotesCreateComment(params map[string]string) (response int, err error) {
+func (vk *VK) NotesCreateComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("notes.createComment", params, &response)
 	return
 }
@@ -23,7 +23,7 @@ func (vk *VK) NotesCreateComment(params map[string]string) (response int, err er
 // NotesDelete deletes a note of the current user.
 //
 // https://vk.com/dev/notes.delete
-func (vk *VK) NotesDelete(params map[string]string) (response int, err error) {
+func (vk *VK) NotesDelete(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("notes.delete", params, &response)
 	return
 }
@@ -31,7 +31,7 @@ func (vk *VK) NotesDelete(params map[string]string) (response int, err error) {
 // NotesDeleteComment deletes a comment on a note.
 //
 // https://vk.com/dev/notes.deleteComment
-func (vk *VK) NotesDeleteComment(params map[string]string) (response int, err error) {
+func (vk *VK) NotesDeleteComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("notes.deleteComment", params, &response)
 	return
 }
@@ -39,7 +39,7 @@ func (vk *VK) NotesDeleteComment(params map[string]string) (response int, err er
 // NotesEdit edits a note of the current user.
 //
 // https://vk.com/dev/notes.edit
-func (vk *VK) NotesEdit(params map[string]string) (response int, err error) {
+func (vk *VK) NotesEdit(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("notes.edit", params, &response)
 	return
 }
@@ -47,7 +47,7 @@ func (vk *VK) NotesEdit(params map[string]string) (response int, err error) {
 // NotesEditComment edits a comment on a note.
 //
 // https://vk.com/dev/notes.editComment
-func (vk *VK) NotesEditComment(params map[string]string) (response int, err error) {
+func (vk *VK) NotesEditComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("notes.editComment", params, &response)
 	return
 }
@@ -61,7 +61,7 @@ type NotesGetResponse struct {
 // NotesGet returns a list of notes created by a user.
 //
 // https://vk.com/dev/notes.get
-func (vk *VK) NotesGet(params map[string]string) (response NotesGetResponse, err error) {
+func (vk *VK) NotesGet(params Params) (response NotesGetResponse, err error) {
 	err = vk.RequestUnmarshal("notes.get", params, &response)
 	return
 }
@@ -72,7 +72,7 @@ type NotesGetByIDResponse object.NotesNote
 // NotesGetByID returns a note by its ID.
 //
 // https://vk.com/dev/notes.getById
-func (vk *VK) NotesGetByID(params map[string]string) (response NotesGetByIDResponse, err error) {
+func (vk *VK) NotesGetByID(params Params) (response NotesGetByIDResponse, err error) {
 	err = vk.RequestUnmarshal("notes.getById", params, &response)
 	return
 }
@@ -86,7 +86,7 @@ type NotesGetCommentsResponse struct {
 // NotesGetComments returns a list of comments on a note.
 //
 // https://vk.com/dev/notes.getComments
-func (vk *VK) NotesGetComments(params map[string]string) (response NotesGetCommentsResponse, err error) {
+func (vk *VK) NotesGetComments(params Params) (response NotesGetCommentsResponse, err error) {
 	err = vk.RequestUnmarshal("notes.getComments", params, &response)
 	return
 }
@@ -94,7 +94,7 @@ func (vk *VK) NotesGetComments(params map[string]string) (response NotesGetComme
 // NotesRestoreComment restores a deleted comment on a note.
 //
 // https://vk.com/dev/notes.restoreComment
-func (vk *VK) NotesRestoreComment(params map[string]string) (response int, err error) {
+func (vk *VK) NotesRestoreComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("notes.restoreComment", params, &response)
 	return
 }

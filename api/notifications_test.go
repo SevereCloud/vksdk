@@ -9,8 +9,8 @@ import (
 func TestVK_NotificationsGet(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.NotificationsGet(map[string]string{
-		"count": "30",
+	res, err := vkUser.NotificationsGet(Params{
+		"count": 30,
 	})
 	assert.NoError(t, err)
 	// assert.NotEmpty(t, res.Count)
@@ -22,7 +22,7 @@ func TestVK_NotificationsGet(t *testing.T) {
 func TestVK_NotificationsMarkAsViewed(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.NotificationsMarkAsViewed(map[string]string{})
+	res, err := vkUser.NotificationsMarkAsViewed(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 }

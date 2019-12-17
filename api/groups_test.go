@@ -1,7 +1,6 @@
 package api
 
 import (
-	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -10,16 +9,16 @@ import (
 func TestVK_GroupsAddAddress(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsAddAddress(map[string]string{
-		"group_id":           strconv.Itoa(vkGroupID),
+	res, err := vkGroup.GroupsAddAddress(Params{
+		"group_id":           vkGroupID,
 		"title":              "Точка встречи parkrun",
 		"address":            "Сосновкий лесопарк",
 		"additional_address": "Парковая дорожка между футбольным полем и спортивной площадкой",
-		"country_id":         "1",
-		"city_id":            "2",
-		"metro_id":           "189",
-		"latitude":           "60.0179405118554",
-		"longitude":          "30.365817365050702",
+		"country_id":         1,
+		"city_id":            2,
+		"metro_id":           189,
+		"latitude":           60.0179405118554,
+		"longitude":          30.365817365050702,
 		"phone":              "88005553535",
 		"work_info_status":   "always_opened",
 	})
@@ -43,17 +42,17 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 	// 	assert.NotEmpty(t, res.Timetable.Sat.BreakCloseTime)
 	// }
 
-	res2, err := vkGroup.GroupsEditAddress(map[string]string{
-		"group_id":            strconv.Itoa(vkGroupID),
-		"address_id":          strconv.Itoa(res.ID),
+	res2, err := vkGroup.GroupsEditAddress(Params{
+		"group_id":            vkGroupID,
+		"address_id":          res.ID,
 		"title":               "Точка встречи parkrun",
 		"addres2s":            "Сосновкий лесопарк",
 		"additional_addres2s": "Парковая дорожка между футбольным полем и спортивной площадкой",
-		"country_id":          "1",
-		"city_id":             "2",
-		"metro_id":            "189",
-		"latitude":            "60.0179405118554",
-		"longitude":           "30.365817365050702",
+		"country_id":          1,
+		"city_id":             2,
+		"metro_id":            189,
+		"latitude":            60.0179405118554,
+		"longitude":           30.365817365050702,
 		"phone":               "88005553535",
 		"work_info_status":    "always_opened",
 	})
@@ -77,9 +76,9 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 	// 	assert.NotEmpty(t, res2.Timetable.Sat.BreakCloseTime)
 	// }
 
-	res3, err := vkGroup.GroupsDeleteAddress(map[string]string{
-		"group_id":   strconv.Itoa(vkGroupID),
-		"address_id": strconv.Itoa(res.ID),
+	res3, err := vkGroup.GroupsDeleteAddress(Params{
+		"group_id":   vkGroupID,
+		"address_id": res.ID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res3)
@@ -88,17 +87,17 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 func TestVK_GroupsAddCallbackServer(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsAddCallbackServer(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	res, err := vkGroup.GroupsAddCallbackServer(Params{
+		"group_id": vkGroupID,
 		"url":      "https://example.com",
 		"title":    "test",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.ServerID)
 
-	res2, err := vkGroup.GroupsEditCallbackServer(map[string]string{
-		"group_id":   strconv.Itoa(vkGroupID),
-		"server_id":  strconv.Itoa(res.ServerID),
+	res2, err := vkGroup.GroupsEditCallbackServer(Params{
+		"group_id":   vkGroupID,
+		"server_id":  res.ServerID,
 		"url":        "https://example.com",
 		"title":      "test edit",
 		"secret_key": "secret_key",
@@ -106,17 +105,17 @@ func TestVK_GroupsAddCallbackServer(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res2)
 
-	res2, err = vkGroup.GroupsSetCallbackSettings(map[string]string{
-		"group_id":    strconv.Itoa(vkGroupID),
-		"server_id":   strconv.Itoa(res.ServerID),
-		"message_new": "1",
+	res2, err = vkGroup.GroupsSetCallbackSettings(Params{
+		"group_id":    vkGroupID,
+		"server_id":   res.ServerID,
+		"message_new": true,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res2)
 
-	servers, err := vkGroup.GroupsGetCallbackServers(map[string]string{
-		"group_id":   strconv.Itoa(vkGroupID),
-		"server_ids": strconv.Itoa(res.ServerID),
+	servers, err := vkGroup.GroupsGetCallbackServers(Params{
+		"group_id":   vkGroupID,
+		"server_ids": res.ServerID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, servers.Count)
@@ -127,25 +126,25 @@ func TestVK_GroupsAddCallbackServer(t *testing.T) {
 	assert.NotEmpty(t, servers.Items[0].URL)
 	assert.NotEmpty(t, servers.Items[0].SecretKey)
 
-	setting, err := vkGroup.GroupsGetCallbackSettings(map[string]string{
-		"group_id":  strconv.Itoa(vkGroupID),
-		"server_id": strconv.Itoa(res.ServerID),
+	setting, err := vkGroup.GroupsGetCallbackSettings(Params{
+		"group_id":  vkGroupID,
+		"server_id": res.ServerID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, setting.APIVersion)
 	// assert.NotEmpty(t, setting.Events)
 
-	code, err := vkGroup.GroupsGetCallbackConfirmationCode(map[string]string{
-		"group_id":  strconv.Itoa(vkGroupID),
-		"server_id": strconv.Itoa(res.ServerID),
+	code, err := vkGroup.GroupsGetCallbackConfirmationCode(Params{
+		"group_id":  vkGroupID,
+		"server_id": res.ServerID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, code.Code)
 	// assert.NotEmpty(t, setting.Events)
 
-	res2, err = vkGroup.GroupsDeleteCallbackServer(map[string]string{
-		"group_id":  strconv.Itoa(vkGroupID),
-		"server_id": strconv.Itoa(res.ServerID),
+	res2, err = vkGroup.GroupsDeleteCallbackServer(Params{
+		"group_id":  vkGroupID,
+		"server_id": res.ServerID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res2)
@@ -174,14 +173,14 @@ func TestVK_GroupsDeleteLink(t *testing.T) {
 func TestVK_GroupsEnableOnline(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsEnableOnline(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	res, err := vkGroup.GroupsEnableOnline(Params{
+		"group_id": vkGroupID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkGroup.GroupsDisableOnline(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	res, err = vkGroup.GroupsDisableOnline(Params{
+		"group_id": vkGroupID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -202,8 +201,8 @@ func TestVK_GroupsEditManager(t *testing.T) {
 func TestVK_GroupsGet(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.GroupsGet(map[string]string{
-		"user_id": "117253521",
+	res, err := vkUser.GroupsGet(Params{
+		"user_id": 117253521,
 		"fields":  "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_datef,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
 	})
 	assert.NoError(t, err)
@@ -214,8 +213,8 @@ func TestVK_GroupsGet(t *testing.T) {
 func TestVK_GroupsGetExtended(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.GroupsGetExtended(map[string]string{
-		"user_id": "117253521",
+	res, err := vkUser.GroupsGetExtended(Params{
+		"user_id": 117253521,
 		"fields":  "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_datef,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
 	})
 	assert.NoError(t, err)
@@ -226,9 +225,9 @@ func TestVK_GroupsGetExtended(t *testing.T) {
 func TestVK_GroupsGetAddresses(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.GroupsGetAddresses(map[string]string{
-		"group_id": "167450351",
-		"count":    "1",
+	res, err := vkService.GroupsGetAddresses(Params{
+		"group_id": 167450351,
+		"count":    1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -260,8 +259,8 @@ func TestVK_GroupsGetAddresses(t *testing.T) {
 func TestVK_GroupsGetBanned(t *testing.T) {
 	needGroupToken(t)
 
-	_, err := vkGroup.GroupsGetBanned(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	_, err := vkGroup.GroupsGetBanned(Params{
+		"group_id": vkGroupID,
 	})
 	// assert.NotEmpty(t, res)
 	assert.NoError(t, err)
@@ -270,7 +269,7 @@ func TestVK_GroupsGetBanned(t *testing.T) {
 func TestVK_GroupsGetByID(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsGetByID(map[string]string{
+	res, err := vkGroup.GroupsGetByID(Params{
 		"group_ids": "apiclub",
 		"fields":    "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_datef,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
 	})
@@ -351,8 +350,8 @@ func TestVK_GroupsGetByID(t *testing.T) {
 func TestVK_GroupsGetCatalog(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.GroupsGetCatalog(map[string]string{
-		"category_id": "0",
+	res, err := vkUser.GroupsGetCatalog(Params{
+		"category_id": 0,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -362,7 +361,7 @@ func TestVK_GroupsGetCatalog(t *testing.T) {
 func TestVK_GroupsGetCatalogInfo(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.GroupsGetCatalogInfo(map[string]string{})
+	res, err := vkUser.GroupsGetCatalogInfo(Params{})
 	assert.NoError(t, err)
 	// assert.NotEmpty(t, res.Categories[0].ID)
 	assert.NotEmpty(t, res.Enabled)
@@ -371,7 +370,7 @@ func TestVK_GroupsGetCatalogInfo(t *testing.T) {
 func TestVK_GroupsGetCatalogInfoExtended(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.GroupsGetCatalogInfoExtended(map[string]string{})
+	res, err := vkUser.GroupsGetCatalogInfoExtended(Params{})
 	assert.NoError(t, err)
 	// if assert.NotEmpty(t, res.Categories) {
 	// 	assert.NotEmpty(t, res.Categories[0].Name)
@@ -385,8 +384,8 @@ func TestVK_GroupsGetInvitedUsers(t *testing.T) {
 	needGroupToken(t)
 	needUserToken(t)
 
-	_, err := vkUser.GroupsGetInvitedUsers(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	_, err := vkUser.GroupsGetInvitedUsers(Params{
+		"group_id": vkGroupID,
 	})
 	assert.NoError(t, err)
 }
@@ -394,22 +393,22 @@ func TestVK_GroupsGetInvitedUsers(t *testing.T) {
 func TestVK_GroupsGetInvites(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.GroupsGetInvites(map[string]string{})
+	_, err := vkUser.GroupsGetInvites(Params{})
 	assert.NoError(t, err)
 }
 
 func TestVK_GroupsGetInvitesExtended(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.GroupsGetInvitesExtended(map[string]string{})
+	_, err := vkUser.GroupsGetInvitesExtended(Params{})
 	assert.NoError(t, err)
 }
 
 func TestVK_GroupsGetLongPollServer(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsGetLongPollServer(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	res, err := vkGroup.GroupsGetLongPollServer(Params{
+		"group_id": vkGroupID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Key)
@@ -420,8 +419,8 @@ func TestVK_GroupsGetLongPollServer(t *testing.T) {
 func TestVK_GroupsGetLongPollSettings(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsGetLongPollSettings(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	res, err := vkGroup.GroupsGetLongPollSettings(Params{
+		"group_id": vkGroupID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Events)
@@ -431,8 +430,8 @@ func TestVK_GroupsGetLongPollSettings(t *testing.T) {
 func TestVK_GroupsGetMembers(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.GroupsGetMembers(map[string]string{
-		"group_id": "1",
+	res, err := vkService.GroupsGetMembers(Params{
+		"group_id": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -442,8 +441,8 @@ func TestVK_GroupsGetMembers(t *testing.T) {
 func TestVK_GroupsGetMembersFields(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.GroupsGetMembersFields(map[string]string{
-		"group_id": "1",
+	res, err := vkService.GroupsGetMembersFields(Params{
+		"group_id": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -454,8 +453,8 @@ func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
 	needUserToken(t)
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsGetMembersFilterManagers(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	res, err := vkGroup.GroupsGetMembersFilterManagers(Params{
+		"group_id": vkGroupID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -465,8 +464,8 @@ func TestVK_GroupsGetMembersFilterManagers(t *testing.T) {
 func TestVK_GroupsGetOnlineStatus(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsGetOnlineStatus(map[string]string{
-		"group_id": "126054662",
+	res, err := vkGroup.GroupsGetOnlineStatus(Params{
+		"group_id": 126054662,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Status)
@@ -476,8 +475,8 @@ func TestVK_GroupsGetRequests(t *testing.T) {
 	needUserToken(t)
 	needGroupToken(t)
 
-	_, err := vkUser.GroupsGetRequests(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	_, err := vkUser.GroupsGetRequests(Params{
+		"group_id": vkGroupID,
 	})
 	assert.NoError(t, err)
 }
@@ -486,8 +485,8 @@ func TestVK_GroupsGetRequestsFields(t *testing.T) {
 	needUserToken(t)
 	needGroupToken(t)
 
-	_, err := vkUser.GroupsGetRequestsFields(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	_, err := vkUser.GroupsGetRequestsFields(Params{
+		"group_id": vkGroupID,
 	})
 	assert.NoError(t, err)
 }
@@ -496,8 +495,8 @@ func TestVK_GroupsGetSettings(t *testing.T) {
 	needUserToken(t)
 	needGroupToken(t)
 
-	res, err := vkUser.GroupsGetSettings(map[string]string{
-		"group_id": strconv.Itoa(vkGroupID),
+	res, err := vkUser.GroupsGetSettings(Params{
+		"group_id": vkGroupID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Title)
@@ -506,7 +505,7 @@ func TestVK_GroupsGetSettings(t *testing.T) {
 func TestVK_GroupsGetTokenPermissions(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsGetTokenPermissions(map[string]string{})
+	res, err := vkGroup.GroupsGetTokenPermissions(Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Mask)
 	assert.NotEmpty(t, res.Permissions[0].Name)
@@ -520,9 +519,9 @@ func TestVK_GroupsInvite(t *testing.T) {
 func TestVK_GroupsIsMember(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsIsMember(map[string]string{
-		"group_id": "134304772",
-		"user_id":  "216916273",
+	res, err := vkGroup.GroupsIsMember(Params{
+		"group_id": 134304772,
+		"user_id":  216916273,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -531,9 +530,9 @@ func TestVK_GroupsIsMember(t *testing.T) {
 func TestVK_GroupsIsMemberExtended(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsIsMemberExtended(map[string]string{
-		"group_id": "134304772",
-		"user_id":  "216916273",
+	res, err := vkGroup.GroupsIsMemberExtended(Params{
+		"group_id": 134304772,
+		"user_id":  216916273,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Member)
@@ -542,9 +541,9 @@ func TestVK_GroupsIsMemberExtended(t *testing.T) {
 func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsIsMemberUserIDsExtended(map[string]string{
-		"group_id": "134304772",
-		"user_ids": "216916273",
+	res, err := vkGroup.GroupsIsMemberUserIDsExtended(Params{
+		"group_id": 134304772,
+		"user_ids": 216916273,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res[0].Member)
@@ -552,9 +551,9 @@ func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 }
 
 func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
-	res, err := vkGroup.GroupsIsMemberUserIDs(map[string]string{
-		"group_id": "134304772",
-		"user_ids": "216916273",
+	res, err := vkGroup.GroupsIsMemberUserIDs(Params{
+		"group_id": 134304772,
+		"user_ids": 216916273,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res[0].Member)
@@ -564,8 +563,8 @@ func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
 func TestVK_GroupsJoin(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.GroupsJoin(map[string]string{
-		"group_id": "1",
+	res, err := vkUser.GroupsJoin(Params{
+		"group_id": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -574,8 +573,8 @@ func TestVK_GroupsJoin(t *testing.T) {
 func TestVK_GroupsLeave(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.GroupsLeave(map[string]string{
-		"group_id": "1",
+	res, err := vkUser.GroupsLeave(Params{
+		"group_id": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
@@ -592,7 +591,7 @@ func TestVK_GroupsReorderLink(t *testing.T) {
 func TestVK_GroupsSearch(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.GroupsSearch(map[string]string{
+	res, err := vkUser.GroupsSearch(Params{
 		"q": "Golang",
 	})
 	assert.NoError(t, err)

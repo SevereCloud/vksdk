@@ -11,13 +11,13 @@ type StatusGetResponse struct {
 }
 
 // StatusGet returns data required to show the status of a user or community.
-func (vk *VK) StatusGet(params map[string]string) (response StatusGetResponse, err error) {
+func (vk *VK) StatusGet(params Params) (response StatusGetResponse, err error) {
 	err = vk.RequestUnmarshal("status.get", params, &response)
 	return
 }
 
 // StatusSet sets a new status for the current user.
-func (vk *VK) StatusSet(params map[string]string) (response int, err error) {
+func (vk *VK) StatusSet(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("status.set", params, &response)
 	return
 }

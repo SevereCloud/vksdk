@@ -9,10 +9,10 @@ import (
 func TestVK_SearchGetHints(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.SearchGetHints(map[string]string{
+	_, err := vkUser.SearchGetHints(Params{
 		"q":             "VK API",
-		"limit":         "20",
-		"search_global": "1",
+		"limit":         20,
+		"search_global": true,
 	})
 	assert.NoError(t, err)
 }

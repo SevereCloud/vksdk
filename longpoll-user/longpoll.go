@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"strconv"
 	"sync/atomic"
 
 	"github.com/SevereCloud/vksdk/api"
@@ -43,8 +42,8 @@ func Init(vk *api.VK, mode int) (lp Longpoll, err error) {
 }
 
 func (lp *Longpoll) updateServer(updateTs bool) error {
-	params := map[string]string{
-		"lp_version": strconv.Itoa(lp.Version),
+	params := api.Params{
+		"lp_version": lp.Version,
 	}
 	serverSetting, err := lp.VK.MessagesGetLongPollServer(params)
 

@@ -10,7 +10,7 @@ type SecureAddAppEventResponse int // FIXME: not found documentation. https://gi
 // SecureAddAppEvent Adds user activity information to an application
 //
 // https://vk.com/dev/secure.addAppEvent
-func (vk *VK) SecureAddAppEvent(params map[string]string) (response SecureAddAppEventResponse, err error) {
+func (vk *VK) SecureAddAppEvent(params Params) (response SecureAddAppEventResponse, err error) {
 	err = vk.RequestUnmarshal("secure.addAppEvent", params, &response)
 	return
 }
@@ -21,7 +21,7 @@ type SecureCheckTokenResponse object.SecureTokenChecked
 // SecureCheckToken Checks the user authentification in IFrame and Flash apps using the access_token parameter.
 //
 // https://vk.com/dev/secure.checkToken
-func (vk *VK) SecureCheckToken(params map[string]string) (response SecureCheckTokenResponse, err error) {
+func (vk *VK) SecureCheckToken(params Params) (response SecureCheckTokenResponse, err error) {
 	err = vk.RequestUnmarshal("secure.checkToken", params, &response)
 	return
 }
@@ -29,7 +29,7 @@ func (vk *VK) SecureCheckToken(params map[string]string) (response SecureCheckTo
 // SecureGetAppBalance Returns payment balance of the application in hundredth of a vote.
 //
 // https://vk.com/dev/secure.getAppBalance
-func (vk *VK) SecureGetAppBalance(params map[string]string) (response int, err error) {
+func (vk *VK) SecureGetAppBalance(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("secure.getAppBalance", params, &response)
 	return
 }
@@ -40,7 +40,7 @@ type SecureGetSMSHistoryResponse []object.SecureSmsNotification
 // SecureGetSMSHistory Shows a list of SMS notifications sent by the application using secure.sendSMSNotification method.
 //
 // https://vk.com/dev/secure.getSMSHistory
-func (vk *VK) SecureGetSMSHistory(params map[string]string) (response SecureGetSMSHistoryResponse, err error) {
+func (vk *VK) SecureGetSMSHistory(params Params) (response SecureGetSMSHistoryResponse, err error) {
 	err = vk.RequestUnmarshal("secure.getSMSHistory", params, &response)
 	return
 }
@@ -51,7 +51,7 @@ type SecureGetTransactionsHistoryResponse []object.SecureTransaction
 // SecureGetTransactionsHistory Shows history of votes transaction between users and the application.
 //
 // https://vk.com/dev/secure.getTransactionsHistory
-func (vk *VK) SecureGetTransactionsHistory(params map[string]string) (response SecureGetTransactionsHistoryResponse, err error) {
+func (vk *VK) SecureGetTransactionsHistory(params Params) (response SecureGetTransactionsHistoryResponse, err error) {
 	err = vk.RequestUnmarshal("secure.getTransactionsHistory", params, &response)
 	return
 }
@@ -62,7 +62,7 @@ type SecureGetUserLevelResponse []object.SecureLevel
 // SecureGetUserLevel Returns one of the previously set game levels of one or more users in the application.
 //
 // https://vk.com/dev/secure.getUserLevel
-func (vk *VK) SecureGetUserLevel(params map[string]string) (response SecureGetUserLevelResponse, err error) {
+func (vk *VK) SecureGetUserLevel(params Params) (response SecureGetUserLevelResponse, err error) {
 	err = vk.RequestUnmarshal("secure.getUserLevel", params, &response)
 	return
 }
@@ -76,7 +76,7 @@ type SecureGiveEventStickerResponse []struct {
 // SecureGiveEventSticker method
 //
 // https://vk.com/dev/secure.giveEventSticker
-func (vk *VK) SecureGiveEventSticker(params map[string]string) (response SecureGiveEventStickerResponse, err error) {
+func (vk *VK) SecureGiveEventSticker(params Params) (response SecureGiveEventStickerResponse, err error) {
 	err = vk.RequestUnmarshal("secure.giveEventSticker", params, &response)
 	return
 }
@@ -87,7 +87,7 @@ type SecureSendNotificationResponse []int //User ID
 // SecureSendNotification Sends notification to the user.
 //
 // https://vk.com/dev/secure.sendNotification
-func (vk *VK) SecureSendNotification(params map[string]string) (response SecureSendNotificationResponse, err error) {
+func (vk *VK) SecureSendNotification(params Params) (response SecureSendNotificationResponse, err error) {
 	err = vk.RequestUnmarshal("secure.sendNotification", params, &response)
 	return
 }
@@ -95,7 +95,7 @@ func (vk *VK) SecureSendNotification(params map[string]string) (response SecureS
 // SecureSendSMSNotification Sends SMS notification to a user's mobile device.
 //
 // https://vk.com/dev/secure.sendSMSNotification
-func (vk *VK) SecureSendSMSNotification(params map[string]string) (response int, err error) {
+func (vk *VK) SecureSendSMSNotification(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("secure.sendSMSNotification", params, &response)
 	return
 }
@@ -103,7 +103,7 @@ func (vk *VK) SecureSendSMSNotification(params map[string]string) (response int,
 // SecureSetCounter Sets a counter which is shown to the user in bold in the left menu.
 //
 // https://vk.com/dev/secure.setCounter
-func (vk *VK) SecureSetCounter(params map[string]string) (response int, err error) {
+func (vk *VK) SecureSetCounter(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("secure.setCounter", params, &response)
 	return
 }

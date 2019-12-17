@@ -11,7 +11,7 @@ type StorageGetResponse []object.BaseRequestParam
 //
 // StorageGet always return array!
 // https://vk.com/dev/storage.get
-func (vk *VK) StorageGet(params map[string]string) (response StorageGetResponse, err error) {
+func (vk *VK) StorageGet(params Params) (response StorageGetResponse, err error) {
 	_, prs := params["keys"]
 	if !prs {
 		params["keys"] = params["key"]
@@ -29,7 +29,7 @@ type StorageGetKeysResponse []string
 // StorageGetKeys returns the names of all variables.
 //
 // https://vk.com/dev/storage.getKeys
-func (vk *VK) StorageGetKeys(params map[string]string) (response StorageGetKeysResponse, err error) {
+func (vk *VK) StorageGetKeys(params Params) (response StorageGetKeysResponse, err error) {
 	err = vk.RequestUnmarshal("storage.getKeys", params, &response)
 	return
 }
@@ -37,7 +37,7 @@ func (vk *VK) StorageGetKeys(params map[string]string) (response StorageGetKeysR
 // StorageSet saves a value of variable with the name set by key parameter.
 //
 // https://vk.com/dev/storage.set
-func (vk *VK) StorageSet(params map[string]string) (response int, err error) {
+func (vk *VK) StorageSet(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("storage.set", params, &response)
 	return
 }

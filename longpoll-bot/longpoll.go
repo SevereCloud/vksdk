@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"strconv"
 	"sync/atomic"
 
 	"github.com/SevereCloud/vksdk/object"
@@ -41,8 +40,8 @@ func Init(vk *api.VK, groupID int) (lp Longpoll, err error) {
 }
 
 func (lp *Longpoll) updateServer(updateTs bool) error {
-	params := map[string]string{
-		"group_id": strconv.Itoa(lp.GroupID),
+	params := api.Params{
+		"group_id": lp.GroupID,
 	}
 
 	serverSetting, err := lp.VK.GroupsGetLongPollServer(params)

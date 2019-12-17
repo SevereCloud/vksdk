@@ -7,7 +7,7 @@ import (
 // OrdersCancelSubscription Allows to cancel subscription.
 //
 // https://vk.com/dev/orders.cancelSubscription
-func (vk *VK) OrdersCancelSubscription(params map[string]string) (response int, err error) {
+func (vk *VK) OrdersCancelSubscription(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("orders.cancelSubscription", params, &response)
 	return
 }
@@ -18,7 +18,7 @@ type OrdersChangeStateResponse string // New state
 // OrdersChangeState Changes order status.
 //
 // https://vk.com/dev/orders.changeState
-func (vk *VK) OrdersChangeState(params map[string]string) (response OrdersChangeStateResponse, err error) {
+func (vk *VK) OrdersChangeState(params Params) (response OrdersChangeStateResponse, err error) {
 	err = vk.RequestUnmarshal("orders.changeState", params, &response)
 	return
 }
@@ -29,7 +29,7 @@ type OrdersGetResponse []object.OrdersOrder
 // OrdersGet Returns a list of orders.
 //
 // https://vk.com/dev/orders.get
-func (vk *VK) OrdersGet(params map[string]string) (response OrdersGetResponse, err error) {
+func (vk *VK) OrdersGet(params Params) (response OrdersGetResponse, err error) {
 	err = vk.RequestUnmarshal("orders.get", params, &response)
 	return
 }
@@ -40,7 +40,7 @@ type OrdersGetAmountResponse []object.OrdersAmount
 // OrdersGetAmount Returns the cost of votes in the user's consent.
 //
 // https://vk.com/dev/orders.getAmount
-func (vk *VK) OrdersGetAmount(params map[string]string) (response OrdersGetAmountResponse, err error) {
+func (vk *VK) OrdersGetAmount(params Params) (response OrdersGetAmountResponse, err error) {
 	err = vk.RequestUnmarshal("orders.getAmount", params, &response)
 	return
 }
@@ -51,7 +51,7 @@ type OrdersGetByIDResponse []object.OrdersOrder
 // OrdersGetByID Returns information about orders by their IDs.
 //
 // https://vk.com/dev/orders.getByID
-func (vk *VK) OrdersGetByID(params map[string]string) (response OrdersGetByIDResponse, err error) {
+func (vk *VK) OrdersGetByID(params Params) (response OrdersGetByIDResponse, err error) {
 	err = vk.RequestUnmarshal("orders.getById", params, &response)
 	return
 }
@@ -62,7 +62,7 @@ type OrdersGetUserSubscriptionByIDResponse object.OrdersSubscription
 // OrdersGetUserSubscriptionByID Allows to get subscription by its ID.
 //
 // https://vk.com/dev/orders.getUserSubscriptionById
-func (vk *VK) OrdersGetUserSubscriptionByID(params map[string]string) (response OrdersGetUserSubscriptionByIDResponse, err error) {
+func (vk *VK) OrdersGetUserSubscriptionByID(params Params) (response OrdersGetUserSubscriptionByIDResponse, err error) {
 	err = vk.RequestUnmarshal("orders.getUserSubscriptionById", params, &response)
 	return
 }
@@ -76,7 +76,7 @@ type OrdersGetUserSubscriptionsResponse struct {
 // OrdersGetUserSubscriptions Allows to get user's active subscriptions.
 //
 // https://vk.com/dev/orders.getUserSubscriptions
-func (vk *VK) OrdersGetUserSubscriptions(params map[string]string) (response OrdersGetUserSubscriptionsResponse, err error) {
+func (vk *VK) OrdersGetUserSubscriptions(params Params) (response OrdersGetUserSubscriptionsResponse, err error) {
 	err = vk.RequestUnmarshal("orders.getUserSubscriptions", params, &response)
 	return
 }
@@ -84,7 +84,7 @@ func (vk *VK) OrdersGetUserSubscriptions(params map[string]string) (response Ord
 // OrdersUpdateSubscription Allows to update subscription price.
 //
 // https://vk.com/dev/orders.updateSubscription
-func (vk *VK) OrdersUpdateSubscription(params map[string]string) (response int, err error) {
+func (vk *VK) OrdersUpdateSubscription(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("orders.updateSubscription", params, &response)
 	return
 }
