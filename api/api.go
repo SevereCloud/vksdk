@@ -18,8 +18,6 @@ const (
 	APIMethodURL = "https://api.vk.com/method/"
 )
 
-// Limits
-//
 // VKontakte API methods (except for methods from secure and ads sections)
 // with user access key or service access key can be accessed
 // no more than 3 times per second. The community access key is limited
@@ -30,7 +28,7 @@ const (
 // 10 000 users, 5 requests per second,
 // up to 100 000 – 8 requests,
 // up to 1 000 000 – 20 requests,
-// 1 000 000+ – 35 requests.//
+// 1 000 000+ – 35 requests.
 //
 // The ads section methods are subject to their own limitations,
 // you can read them on this page - https://vk.com/dev/ads_limits
@@ -53,7 +51,7 @@ const (
 // If this error occurs, the following parameters are also passed in
 // the error message:
 //
-// CaptchaSID - identifier captcha
+// CaptchaSID - identifier captcha.
 //
 // CaptchaImg - a link to the image that you want to show the user
 // to enter text from that image.
