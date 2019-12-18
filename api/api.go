@@ -208,14 +208,6 @@ func (vk *VK) Execute(code string, obj interface{}) error {
 	return vk.RequestUnmarshal("execute", params, &obj)
 }
 
-type attachment interface {
-	ToAttachment() string
-}
-
-type jsonObject interface {
-	ToJSON() string
-}
-
 func fmtBool(value bool) string {
 	if value {
 		return "1"
@@ -264,9 +256,9 @@ func fmtValue(value interface{}, depth int) string {
 	switch f := value.(type) {
 	case bool:
 		return fmtBool(f)
-	case attachment:
+	case object.Attachment:
 		return f.ToAttachment()
-	case jsonObject:
+	case object.JSONObject:
 		return f.ToJSON()
 	case reflect.Value:
 		return fmtReflectValue(f, depth)

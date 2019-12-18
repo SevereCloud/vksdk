@@ -2,6 +2,14 @@ package object // import "github.com/SevereCloud/vksdk/object"
 
 import "encoding/json"
 
+type Attachment interface {
+	ToAttachment() string
+}
+
+type JSONObject interface {
+	ToJSON() string
+}
+
 // BaseCountry struct
 type BaseCountry struct {
 	ID    int    `json:"id"`
