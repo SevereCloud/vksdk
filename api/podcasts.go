@@ -7,7 +7,6 @@ import (
 // PodcastsGetCatalogResponse struct
 type PodcastsGetCatalogResponse struct {
 	Items []object.PodcastsItem `json:"items"`
-	object.ExtendedResponse
 }
 
 // PodcastsGetCatalog
