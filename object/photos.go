@@ -98,7 +98,7 @@ type PhotosOwnerUploadResponse struct {
 	Server int    `json:"server"` // Upload server number
 }
 
-type photosPhotoAlbum struct {
+type PhotosPhotoAlbum struct {
 	Created     int         `json:"created"`     // Date when the album has been created in Unixtime
 	Description string      `json:"description"` // Photo album description
 	ID          string      `json:"id"`          // BUG(VK): Photo album ID
@@ -110,7 +110,7 @@ type photosPhotoAlbum struct {
 }
 
 // ToAttachment return attachment format
-func (album photosPhotoAlbum) ToAttachment() string {
+func (album PhotosPhotoAlbum) ToAttachment() string {
 	return fmt.Sprintf("album%d_%s", album.OwnerID, album.ID)
 }
 

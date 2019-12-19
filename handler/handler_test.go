@@ -1,15 +1,16 @@
-package handler
+package handler_test
 
 import (
 	"testing"
 
+	"github.com/SevereCloud/vksdk/handler"
 	"github.com/SevereCloud/vksdk/object"
 )
 
 const GID = 123456
 
 func TestFuncList_HandlerMessageNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MessageNew: []object.MessageNewFunc{
 			func(obj object.MessageNewObject, groupID int) {
 				if groupID != GID {
@@ -52,7 +53,7 @@ func TestFuncList_HandlerMessageNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageReply(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MessageReply: []object.MessageReplyFunc{
 			func(obj object.MessageReplyObject, groupID int) {
 				if groupID != GID {
@@ -95,7 +96,7 @@ func TestFuncList_HandlerMessageReply(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageEdit(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MessageEdit: []object.MessageEditFunc{
 			func(obj object.MessageEditObject, groupID int) {
 				if groupID != GID {
@@ -138,7 +139,7 @@ func TestFuncList_HandlerMessageEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageAllow(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MessageAllow: []object.MessageAllowFunc{
 			func(obj object.MessageAllowObject, groupID int) {
 				if groupID != GID {
@@ -181,7 +182,7 @@ func TestFuncList_HandlerMessageAllow(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageDeny(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MessageDeny: []object.MessageDenyFunc{
 			func(obj object.MessageDenyObject, groupID int) {
 				if groupID != GID {
@@ -224,7 +225,7 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageTypingState(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MessageTypingState: []object.MessageTypingStateFunc{
 			func(obj object.MessageTypingStateObject, groupID int) {
 				if groupID != GID {
@@ -267,7 +268,7 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		PhotoNew: []object.PhotoNewFunc{
 			func(obj object.PhotoNewObject, groupID int) {
 				if groupID != GID {
@@ -310,7 +311,7 @@ func TestFuncList_HandlerPhotoNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		PhotoCommentNew: []object.PhotoCommentNewFunc{
 			func(obj object.PhotoCommentNewObject, groupID int) {
 				if groupID != GID {
@@ -353,7 +354,7 @@ func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		PhotoCommentEdit: []object.PhotoCommentEditFunc{
 			func(obj object.PhotoCommentEditObject, groupID int) {
 				if groupID != GID {
@@ -396,7 +397,7 @@ func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		PhotoCommentRestore: []object.PhotoCommentRestoreFunc{
 			func(obj object.PhotoCommentRestoreObject, groupID int) {
 				if groupID != GID {
@@ -439,7 +440,7 @@ func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		PhotoCommentDelete: []object.PhotoCommentDeleteFunc{
 			func(obj object.PhotoCommentDeleteObject, groupID int) {
 				if groupID != GID {
@@ -482,7 +483,7 @@ func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerAudioNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		AudioNew: []object.AudioNewFunc{
 			func(obj object.AudioNewObject, groupID int) {
 				if groupID != GID {
@@ -525,7 +526,7 @@ func TestFuncList_HandlerAudioNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		VideoNew: []object.VideoNewFunc{
 			func(obj object.VideoNewObject, groupID int) {
 				if groupID != GID {
@@ -568,7 +569,7 @@ func TestFuncList_HandlerVideoNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		VideoCommentNew: []object.VideoCommentNewFunc{
 			func(obj object.VideoCommentNewObject, groupID int) {
 				if groupID != GID {
@@ -611,7 +612,7 @@ func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		VideoCommentEdit: []object.VideoCommentEditFunc{
 			func(obj object.VideoCommentEditObject, groupID int) {
 				if groupID != GID {
@@ -654,7 +655,7 @@ func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		VideoCommentRestore: []object.VideoCommentRestoreFunc{
 			func(obj object.VideoCommentRestoreObject, groupID int) {
 				if groupID != GID {
@@ -697,7 +698,7 @@ func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		VideoCommentDelete: []object.VideoCommentDeleteFunc{
 			func(obj object.VideoCommentDeleteObject, groupID int) {
 				if groupID != GID {
@@ -740,7 +741,7 @@ func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallPostNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		WallPostNew: []object.WallPostNewFunc{
 			func(obj object.WallPostNewObject, groupID int) {
 				if groupID != GID {
@@ -783,7 +784,7 @@ func TestFuncList_HandlerWallPostNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallRepost(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		WallRepost: []object.WallRepostFunc{
 			func(obj object.WallRepostObject, groupID int) {
 				if groupID != GID {
@@ -826,7 +827,7 @@ func TestFuncList_HandlerWallRepost(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		WallReplyNew: []object.WallReplyNewFunc{
 			func(obj object.WallReplyNewObject, groupID int) {
 				if groupID != GID {
@@ -869,7 +870,7 @@ func TestFuncList_HandlerWallReplyNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		WallReplyEdit: []object.WallReplyEditFunc{
 			func(obj object.WallReplyEditObject, groupID int) {
 				if groupID != GID {
@@ -912,7 +913,7 @@ func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		WallReplyRestore: []object.WallReplyRestoreFunc{
 			func(obj object.WallReplyRestoreObject, groupID int) {
 				if groupID != GID {
@@ -955,7 +956,7 @@ func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		WallReplyDelete: []object.WallReplyDeleteFunc{
 			func(obj object.WallReplyDeleteObject, groupID int) {
 				if groupID != GID {
@@ -998,7 +999,7 @@ func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		BoardPostNew: []object.BoardPostNewFunc{
 			func(obj object.BoardPostNewObject, groupID int) {
 				if groupID != GID {
@@ -1041,7 +1042,7 @@ func TestFuncList_HandlerBoardPostNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		BoardPostEdit: []object.BoardPostEditFunc{
 			func(obj object.BoardPostEditObject, groupID int) {
 				if groupID != GID {
@@ -1084,7 +1085,7 @@ func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		BoardPostRestore: []object.BoardPostRestoreFunc{
 			func(obj object.BoardPostRestoreObject, groupID int) {
 				if groupID != GID {
@@ -1127,7 +1128,7 @@ func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		BoardPostDelete: []object.BoardPostDeleteFunc{
 			func(obj object.BoardPostDeleteObject, groupID int) {
 				if groupID != GID {
@@ -1170,7 +1171,7 @@ func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MarketCommentNew: []object.MarketCommentNewFunc{
 			func(obj object.MarketCommentNewObject, groupID int) {
 				if groupID != GID {
@@ -1213,7 +1214,7 @@ func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MarketCommentEdit: []object.MarketCommentEditFunc{
 			func(obj object.MarketCommentEditObject, groupID int) {
 				if groupID != GID {
@@ -1256,7 +1257,7 @@ func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MarketCommentRestore: []object.MarketCommentRestoreFunc{
 			func(obj object.MarketCommentRestoreObject, groupID int) {
 				if groupID != GID {
@@ -1299,7 +1300,7 @@ func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		MarketCommentDelete: []object.MarketCommentDeleteFunc{
 			func(obj object.MarketCommentDeleteObject, groupID int) {
 				if groupID != GID {
@@ -1342,7 +1343,7 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupLeave(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		GroupLeave: []object.GroupLeaveFunc{
 			func(obj object.GroupLeaveObject, groupID int) {
 				if groupID != GID {
@@ -1385,7 +1386,7 @@ func TestFuncList_HandlerGroupLeave(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupJoin(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		GroupJoin: []object.GroupJoinFunc{
 			func(obj object.GroupJoinObject, groupID int) {
 				if groupID != GID {
@@ -1428,7 +1429,7 @@ func TestFuncList_HandlerGroupJoin(t *testing.T) {
 }
 
 func TestFuncList_HandlerUserBlock(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		UserBlock: []object.UserBlockFunc{
 			func(obj object.UserBlockObject, groupID int) {
 				if groupID != GID {
@@ -1471,7 +1472,7 @@ func TestFuncList_HandlerUserBlock(t *testing.T) {
 }
 
 func TestFuncList_HandlerUserUnblock(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		UserUnblock: []object.UserUnblockFunc{
 			func(obj object.UserUnblockObject, groupID int) {
 				if groupID != GID {
@@ -1514,7 +1515,7 @@ func TestFuncList_HandlerUserUnblock(t *testing.T) {
 }
 
 func TestFuncList_HandlerPollVoteNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		PollVoteNew: []object.PollVoteNewFunc{
 			func(obj object.PollVoteNewObject, groupID int) {
 				if groupID != GID {
@@ -1557,7 +1558,7 @@ func TestFuncList_HandlerPollVoteNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		GroupOfficersEdit: []object.GroupOfficersEditFunc{
 			func(obj object.GroupOfficersEditObject, groupID int) {
 				if groupID != GID {
@@ -1600,7 +1601,7 @@ func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		GroupChangeSettings: []object.GroupChangeSettingsFunc{
 			func(obj object.GroupChangeSettingsObject, groupID int) {
 				if groupID != GID {
@@ -1643,7 +1644,7 @@ func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		GroupChangePhoto: []object.GroupChangePhotoFunc{
 			func(obj object.GroupChangePhotoObject, groupID int) {
 				if groupID != GID {
@@ -1686,7 +1687,7 @@ func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
 }
 
 func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		VkpayTransaction: []object.VkpayTransactionFunc{
 			func(obj object.VkpayTransactionObject, groupID int) {
 				if groupID != GID {
@@ -1729,7 +1730,7 @@ func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
 }
 
 func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
-	funcList := FuncList{
+	funcList := handler.FuncList{
 		LeadFormsNew: []object.LeadFormsNewFunc{
 			func(obj object.LeadFormsNewObject, groupID int) {
 				if groupID != GID {

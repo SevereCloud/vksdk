@@ -1,75 +1,29 @@
-package object
+package object_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/SevereCloud/vksdk/object"
+)
 
 func TestVideoVideo_ToAttachment(t *testing.T) {
-	type fields struct {
-		ID      int
-		OwnerID int
+	f := func(video object.VideoVideo, want string) {
+		if got := video.ToAttachment(); got != want {
+			t.Errorf("VideoVideo.ToAttachment() = %v, want %v", got, want)
+		}
 	}
 
-	tests := []struct {
-		name   string
-		fields fields
-		want   string
-	}{
-		{
-			name:   "video20_10",
-			fields: fields{10, 20},
-			want:   "video20_10",
-		},
-		{
-			name:   "video-10_20",
-			fields: fields{20, -10},
-			want:   "video-10_20",
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			video := VideoVideo{
-				ID:      tt.fields.ID,
-				OwnerID: tt.fields.OwnerID,
-			}
-			if got := video.ToAttachment(); got != tt.want {
-				t.Errorf("VideoVideo.ToAttachment() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	f(object.VideoVideo{ID: 10, OwnerID: 20}, "video20_10")
+	f(object.VideoVideo{ID: 20, OwnerID: -10}, "video-10_20")
 }
 
 func TestVideoVideoFull_ToAttachment(t *testing.T) {
-	type fields struct {
-		ID      int
-		OwnerID int
+	f := func(video object.VideoVideoFull, want string) {
+		if got := video.ToAttachment(); got != want {
+			t.Errorf("VideoVideoFull.ToAttachment() = %v, want %v", got, want)
+		}
 	}
 
-	tests := []struct {
-		name   string
-		fields fields
-		want   string
-	}{
-		{
-			name:   "video20_10",
-			fields: fields{10, 20},
-			want:   "video20_10",
-		},
-		{
-			name:   "video-10_20",
-			fields: fields{20, -10},
-			want:   "video-10_20",
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			video := VideoVideoFull{
-				ID:      tt.fields.ID,
-				OwnerID: tt.fields.OwnerID,
-			}
-			if got := video.ToAttachment(); got != tt.want {
-				t.Errorf("VideoVideoFull.ToAttachment() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	f(object.VideoVideoFull{ID: 10, OwnerID: 20}, "video20_10")
+	f(object.VideoVideoFull{ID: 20, OwnerID: -10}, "video-10_20")
 }

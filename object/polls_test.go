@@ -1,39 +1,18 @@
-package object
+package object_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/SevereCloud/vksdk/object"
+)
 
 func TestPollsPoll_ToAttachment(t *testing.T) {
-	type fields struct {
-		ID      int
-		OwnerID int
+	f := func(poll object.PollsPoll, want string) {
+		if got := poll.ToAttachment(); got != want {
+			t.Errorf("PollsPoll.ToAttachment() = %v, want %v", got, want)
+		}
 	}
 
-	tests := []struct {
-		name   string
-		fields fields
-		want   string
-	}{
-		{
-			name:   "poll20_10",
-			fields: fields{10, 20},
-			want:   "poll20_10",
-		},
-		{
-			name:   "poll-10_20",
-			fields: fields{20, -10},
-			want:   "poll-10_20",
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			poll := PollsPoll{
-				ID:      tt.fields.ID,
-				OwnerID: tt.fields.OwnerID,
-			}
-			if got := poll.ToAttachment(); got != tt.want {
-				t.Errorf("PollsPoll.ToAttachment() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	f(object.PollsPoll{ID: 10, OwnerID: 20}, "poll20_10")
+	f(object.PollsPoll{ID: 20, OwnerID: -10}, "poll-10_20")
 }

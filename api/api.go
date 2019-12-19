@@ -130,7 +130,7 @@ func (vk *VK) Request(method string, params Params) ([]byte, error) {
 	query := url.Values{}
 
 	for key, value := range params {
-		query.Set(key, fmtValue(value, 0))
+		query.Set(key, FmtValue(value, 0))
 	}
 
 	query.Set("access_token", vk.AccessToken)
@@ -230,7 +230,7 @@ func fmtReflectValue(value reflect.Value, depth int) string {
 				s += ","
 			}
 
-			s += fmtValue(f.Index(i).Interface(), depth)
+			s += FmtValue(f.Index(i).Interface(), depth)
 		}
 
 		return s
@@ -240,7 +240,7 @@ func fmtReflectValue(value reflect.Value, depth int) string {
 		if depth == 0 && f.Pointer() != 0 {
 			switch a := f.Elem(); a.Kind() {
 			case reflect.Array, reflect.Slice, reflect.Struct, reflect.Map:
-				return fmtValue(a.Interface(), depth+1)
+				return FmtValue(a.Interface(), depth+1)
 			}
 		}
 	}
@@ -248,7 +248,8 @@ func fmtReflectValue(value reflect.Value, depth int) string {
 	return fmt.Sprint(value)
 }
 
-func fmtValue(value interface{}, depth int) string {
+// FmtValue return vk format string
+func FmtValue(value interface{}, depth int) string {
 	if value == nil {
 		return ""
 	}

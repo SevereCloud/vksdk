@@ -1,67 +1,33 @@
-package object
+package object_test
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/SevereCloud/vksdk/object"
+)
 
 func TestUsersUser_ToMention(t *testing.T) {
-	type fields struct {
-		ID        int
-		FirstName string
-		LastName  string
+	f := func(user object.UsersUser, want string) {
+		if got := user.ToMention(); got != want {
+			t.Errorf("UsersUser.ToMention() = %v, want %v", got, want)
+		}
 	}
 
-	tests := []struct {
-		name   string
-		fields fields
-		want   string
-	}{
-		{
-			fields: fields{1, "Ivan", "Ivanov"},
-			want:   "[id1|Ivan Ivanov]",
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			user := UsersUser{
-				ID:        tt.fields.ID,
-				FirstName: tt.fields.FirstName,
-				LastName:  tt.fields.LastName,
-			}
-			if got := user.ToMention(); got != tt.want {
-				t.Errorf("UsersUser.ToMention() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	f(
+		object.UsersUser{ID: 1, FirstName: "Ivan", LastName: "Ivanov"},
+		"[id1|Ivan Ivanov]",
+	)
 }
 
 func TestUsersUserMin_ToMention(t *testing.T) {
-	type fields struct {
-		ID        int
-		FirstName string
-		LastName  string
+	f := func(user object.UsersUserMin, want string) {
+		if got := user.ToMention(); got != want {
+			t.Errorf("UsersUserMin.ToMention() = %v, want %v", got, want)
+		}
 	}
 
-	tests := []struct {
-		name   string
-		fields fields
-		want   string
-	}{
-		{
-			fields: fields{1, "Ivan", "Ivanov"},
-			want:   "[id1|Ivan Ivanov]",
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			user := UsersUserMin{
-				ID:        tt.fields.ID,
-				FirstName: tt.fields.FirstName,
-				LastName:  tt.fields.LastName,
-			}
-			if got := user.ToMention(); got != tt.want {
-				t.Errorf("UsersUserMin.ToMention() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	f(
+		object.UsersUserMin{ID: 1, FirstName: "Ivan", LastName: "Ivanov"},
+		"[id1|Ivan Ivanov]",
+	)
 }

@@ -1,27 +1,21 @@
-package object
+package object_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/object"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestMessagesKeyboard_AddRow(t *testing.T) {
-	var keyboard MessagesKeyboard
+	keyboard := object.NewMessagesKeyboard(false, false)
 
-	t.Run("add 1 row", func(t *testing.T) {
-		keyboard.AddRow()
-		if len(keyboard.Buttons) != 1 {
-			t.Error("Keyboard len != 1")
-		}
-	})
+	keyboard.AddRow()
+	assert.Len(t, keyboard.Buttons, 1)
 
-	t.Run("add 2 row", func(t *testing.T) {
-		keyboard.AddRow()
-		if len(keyboard.Buttons) != 2 {
-			t.Error("Keyboard len != 2")
-		}
-	})
+	keyboard.AddRow()
+	assert.Len(t, keyboard.Buttons, 2)
 }
 
 func TestMessagesKeyboard_AddTextButton(t *testing.T) {
@@ -31,22 +25,14 @@ func TestMessagesKeyboard_AddTextButton(t *testing.T) {
 		color   = "color"
 	)
 
-	var keyboard MessagesKeyboard
+	keyboard := object.NewMessagesKeyboard(false, false)
 
 	keyboard.AddRow()
 
-	t.Run("Add Text button", func(t *testing.T) {
-		keyboard.AddTextButton(label, payload, color)
-		if keyboard.Buttons[0][0].Color != color {
-			t.Error("Bad button color")
-		}
-		if keyboard.Buttons[0][0].Action.Label != label {
-			t.Error("Bad button label")
-		}
-		if keyboard.Buttons[0][0].Action.Payload != payload {
-			t.Error("Bad button payload")
-		}
-	})
+	keyboard.AddTextButton(label, payload, color)
+	assert.Equal(t, keyboard.Buttons[0][0].Color, color)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
 }
 
 func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
@@ -56,37 +42,25 @@ func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
 		link    = "https://vk.com"
 	)
 
-	var keyboard MessagesKeyboard
+	keyboard := object.NewMessagesKeyboard(false, false)
 
 	keyboard.AddRow()
 
-	t.Run("Add Open Link button", func(t *testing.T) {
-		keyboard.AddOpenLinkButton(link, label, payload)
-		if keyboard.Buttons[0][0].Action.Payload != payload {
-			t.Error("Bad button payload")
-		}
-		if keyboard.Buttons[0][0].Action.Label != label {
-			t.Error("Bad button label")
-		}
-		if keyboard.Buttons[0][0].Action.Link != link {
-			t.Error("Bad button link")
-		}
-	})
+	keyboard.AddOpenLinkButton(link, label, payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Link, link)
 }
 
 func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
 	const payload = "payload"
 
-	var keyboard MessagesKeyboard
+	keyboard := object.NewMessagesKeyboard(false, false)
 
 	keyboard.AddRow()
 
-	t.Run("Add Location button", func(t *testing.T) {
-		keyboard.AddLocationButton(payload)
-		if keyboard.Buttons[0][0].Action.Payload != payload {
-			t.Error("Bad button payload")
-		}
-	})
+	keyboard.AddLocationButton(payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
 }
 
 func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
@@ -95,19 +69,13 @@ func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
 		hash    = "hash"
 	)
 
-	var keyboard MessagesKeyboard
+	keyboard := object.NewMessagesKeyboard(false, false)
 
 	keyboard.AddRow()
 
-	t.Run("Add VK Pay button", func(t *testing.T) {
-		keyboard.AddVKPayButton(payload, hash)
-		if keyboard.Buttons[0][0].Action.Payload != payload {
-			t.Error("Bad button payload")
-		}
-		if keyboard.Buttons[0][0].Action.Hash != hash {
-			t.Error("Bad button hash")
-		}
-	})
+	keyboard.AddVKPayButton(payload, hash)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Hash, hash)
 }
 
 func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
@@ -119,107 +87,50 @@ func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
 		hash    = "hash"
 	)
 
-	var keyboard MessagesKeyboard
+	keyboard := object.NewMessagesKeyboard(false, false)
 
 	keyboard.AddRow()
 
-	t.Run("Add VK Apps button", func(t *testing.T) {
-		keyboard.AddVKAppsButton(appID, ownerID, payload, label, hash)
-		if keyboard.Buttons[0][0].Action.AppID != appID {
-			t.Error("Bad button appID")
-		}
-		if keyboard.Buttons[0][0].Action.OwnerID != ownerID {
-			t.Error("Bad button ownerID")
-		}
-		if keyboard.Buttons[0][0].Action.Payload != payload {
-			t.Error("Bad button payload")
-		}
-		if keyboard.Buttons[0][0].Action.Label != label {
-			t.Error("Bad button label")
-		}
-		if keyboard.Buttons[0][0].Action.Hash != hash {
-			t.Error("Bad button hash")
-		}
-	})
+	keyboard.AddVKAppsButton(appID, ownerID, payload, label, hash)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.AppID, appID)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.OwnerID, ownerID)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Hash, hash)
 }
 
 func TestMessagesAudioMessage_ToAttachment(t *testing.T) {
-	type fields struct {
-		ID      int
-		OwnerID int
+	f := func(doc object.MessagesAudioMessage, want string) {
+		if got := doc.ToAttachment(); got != want {
+			t.Errorf("MessagesAudioMessage.ToAttachment() = %v, want %v", got, want)
+		}
 	}
 
-	tests := []struct {
-		name   string
-		fields fields
-		want   string
-	}{
-		{
-			name:   "doc20_10",
-			fields: fields{10, 20},
-			want:   "doc20_10",
-		},
-		{
-			name:   "doc-10_20",
-			fields: fields{20, -10},
-			want:   "doc-10_20",
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			doc := MessagesAudioMessage{
-				ID:      tt.fields.ID,
-				OwnerID: tt.fields.OwnerID,
-			}
-			if got := doc.ToAttachment(); got != tt.want {
-				t.Errorf("MessagesAudioMessage.ToAttachment() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	f(object.MessagesAudioMessage{ID: 10, OwnerID: 20}, "doc20_10")
+	f(object.MessagesAudioMessage{ID: 20, OwnerID: -10}, "doc-10_20")
 }
 
 func TestMessagesGraffiti_ToAttachment(t *testing.T) {
-	type fields struct {
-		ID      int
-		OwnerID int
+	f := func(doc object.MessagesGraffiti, want string) {
+		if got := doc.ToAttachment(); got != want {
+			t.Errorf("MessagesGraffiti.ToAttachment() = %v, want %v", got, want)
+		}
 	}
 
-	tests := []struct {
-		name   string
-		fields fields
-		want   string
-	}{
-		{
-			name:   "doc20_10",
-			fields: fields{10, 20},
-			want:   "doc20_10",
-		},
-		{
-			name:   "doc-10_20",
-			fields: fields{20, -10},
-			want:   "doc-10_20",
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			doc := MessagesGraffiti{
-				ID:      tt.fields.ID,
-				OwnerID: tt.fields.OwnerID,
-			}
-			if got := doc.ToAttachment(); got != tt.want {
-				t.Errorf("MessagesGraffiti.ToAttachment() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	f(object.MessagesGraffiti{ID: 10, OwnerID: 20}, "doc20_10")
+	f(object.MessagesGraffiti{ID: 20, OwnerID: -10}, "doc-10_20")
 }
 
 func TestMessagesKeyboard_ToJSON(t *testing.T) {
-	f := func(keyboard MessagesKeyboard, want string) {
+	f := func(keyboard object.MessagesKeyboard, want string) {
 		t.Helper()
 
 		got := keyboard.ToJSON()
 		assert.Equal(t, got, want)
 	}
 
-	f(NewMessagesKeyboard(false, false), `{"buttons":[],"one_time":false}`)
+	f(
+		object.NewMessagesKeyboard(false, false),
+		`{"buttons":[],"one_time":false}`,
+	)
 }

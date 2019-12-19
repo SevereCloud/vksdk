@@ -1,7 +1,9 @@
-package api
+package api_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -9,7 +11,7 @@ import (
 func TestVK_WallPost(t *testing.T) {
 	needUserToken(t)
 
-	post, err := vkUser.WallPost(Params{
+	post, err := vkUser.WallPost(api.Params{
 		"message": "Test post",
 	})
 	if !assert.NoError(t, err) {
@@ -18,46 +20,46 @@ func TestVK_WallPost(t *testing.T) {
 
 	assert.NotEmpty(t, post)
 
-	res, err := vkUser.WallPin(Params{
+	res, err := vkUser.WallPin(api.Params{
 		"post_id": post.PostID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.WallUnpin(Params{
+	res, err = vkUser.WallUnpin(api.Params{
 		"post_id": post.PostID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.WallCloseComments(Params{
+	res, err = vkUser.WallCloseComments(api.Params{
 		"post_id":  post.PostID,
 		"owner_id": vkUserID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.WallOpenComments(Params{
+	res, err = vkUser.WallOpenComments(api.Params{
 		"post_id":  post.PostID,
 		"owner_id": vkUserID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	edit, err := vkUser.WallEdit(Params{
+	edit, err := vkUser.WallEdit(api.Params{
 		"post_id": post.PostID,
 		"message": "Test post edited",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, edit.PostID)
 
-	res, err = vkUser.WallDelete(Params{
+	res, err = vkUser.WallDelete(api.Params{
 		"post_id": post.PostID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.WallRestore(Params{
+	res, err = vkUser.WallRestore(api.Params{
 		"post_id": post.PostID,
 		"message": "Test post edited",
 	})
@@ -68,7 +70,7 @@ func TestVK_WallPost(t *testing.T) {
 func TestVK_WallGet(t *testing.T) {
 	needServiceToken(t)
 
-	params := Params{
+	params := api.Params{
 		"owner_id": -86529522,
 		"count":    100,
 	}
@@ -101,7 +103,7 @@ func TestVK_WallGet(t *testing.T) {
 func TestVK_WallGetByID(t *testing.T) {
 	needServiceToken(t)
 
-	params := Params{
+	params := api.Params{
 		"posts": "-1_340393",
 	}
 
@@ -127,7 +129,7 @@ func TestVK_WallGetByID(t *testing.T) {
 func TestVK_WallGetComment(t *testing.T) {
 	needUserToken(t)
 
-	params := Params{
+	params := api.Params{
 		"owner_id":   66559,
 		"comment_id": 73674,
 	}
@@ -157,7 +159,7 @@ func TestVK_WallGetComment(t *testing.T) {
 func TestVK_WallGetComments(t *testing.T) {
 	needServiceToken(t)
 
-	params := Params{
+	params := api.Params{
 		"owner_id":           85635407,
 		"post_id":            3199,
 		"need_likes":         1,
@@ -179,7 +181,7 @@ func TestVK_WallGetComments(t *testing.T) {
 func TestVK_WallGetReposts(t *testing.T) {
 	needServiceToken(t)
 
-	_, err := vkService.WallGetReposts(Params{
+	_, err := vkService.WallGetReposts(api.Params{
 		"owner_id": 1,
 		"post_id":  2442097,
 		"count":    1000,
@@ -191,7 +193,7 @@ func TestVK_WallGetReposts(t *testing.T) {
 func TestVK_WallCreateComment(t *testing.T) {
 	needUserToken(t)
 
-	comment, err := vkUser.WallCreateComment(Params{
+	comment, err := vkUser.WallCreateComment(api.Params{
 		"owner_id": 117253521,
 		"post_id":  2342,
 		"message":  "Test comment",
@@ -202,7 +204,7 @@ func TestVK_WallCreateComment(t *testing.T) {
 
 	assert.NotEmpty(t, comment.CommentID)
 
-	res, err := vkUser.WallEditComment(Params{
+	res, err := vkUser.WallEditComment(api.Params{
 		"owner_id":   117253521,
 		"comment_id": comment.CommentID,
 		"message":    "Test comment edited",
@@ -210,14 +212,14 @@ func TestVK_WallCreateComment(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.WallDeleteComment(Params{
+	res, err = vkUser.WallDeleteComment(api.Params{
 		"owner_id":   117253521,
 		"comment_id": comment.CommentID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.WallRestoreComment(Params{
+	res, err = vkUser.WallRestoreComment(api.Params{
 		"owner_id":   117253521,
 		"comment_id": comment.CommentID,
 	})
@@ -229,14 +231,14 @@ func TestVK_WallPostAdsStealth(t *testing.T) {
 	needUserToken(t)
 	needGroupToken(t)
 
-	post, err := vkUser.WallPostAdsStealth(Params{
+	post, err := vkUser.WallPostAdsStealth(api.Params{
 		"owner_id": -vkGroupID,
 		"message":  "Test AdsStealth",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, post.PostID)
 
-	res, err := vkUser.WallEditAdsStealth(Params{
+	res, err := vkUser.WallEditAdsStealth(api.Params{
 		"owner_id": -vkGroupID,
 		"post_id":  post.PostID,
 		"message":  "Test AdsStealth edited",
@@ -248,7 +250,7 @@ func TestVK_WallPostAdsStealth(t *testing.T) {
 func TestVK_WallReportComment(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.WallReportComment(Params{
+	res, err := vkUser.WallReportComment(api.Params{
 		"owner_id":   66748,
 		"comment_id": 4136,
 		// "reason":   3,
@@ -260,7 +262,7 @@ func TestVK_WallReportComment(t *testing.T) {
 func TestVK_WallReportPost(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.WallReportPost(Params{
+	res, err := vkUser.WallReportPost(api.Params{
 		"owner_id": 66748,
 		"post_id":  3821,
 		"reason":   3,
@@ -272,7 +274,7 @@ func TestVK_WallReportPost(t *testing.T) {
 func TestVK_WallRepost(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.WallRepost(Params{
+	res, err := vkUser.WallRepost(api.Params{
 		"object": "wall85635407_3133",
 	})
 	assert.NoError(t, err)
@@ -285,7 +287,7 @@ func TestVK_WallRepost(t *testing.T) {
 func TestVK_WallSearch(t *testing.T) {
 	needServiceToken(t)
 
-	params := Params{
+	params := api.Params{
 		"owner_id": 6,
 		"query":    "vk",
 		"count":    100,

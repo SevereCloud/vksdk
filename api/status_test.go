@@ -1,7 +1,9 @@
-package api
+package api_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -9,14 +11,14 @@ import (
 func TestVK_StatusGet(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.StatusGet(Params{})
+	_, err := vkUser.StatusGet(api.Params{})
 	assert.NoError(t, err)
 }
 
 func TestVK_StatusSet(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.StatusSet(Params{
+	_, err := vkUser.StatusSet(api.Params{
 		"text": "Hello world",
 	})
 	assert.NoError(t, err)

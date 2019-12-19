@@ -1,7 +1,9 @@
-package api
+package api_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -9,14 +11,14 @@ import (
 func TestVK_DocsAdd(t *testing.T) {
 	needUserToken(t)
 
-	doc, err := vkUser.DocsAdd(Params{
+	doc, err := vkUser.DocsAdd(api.Params{
 		"owner_id": -166562603,
 		"doc_id":   483194018,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, doc)
 
-	res, err := vkUser.DocsEdit(Params{
+	res, err := vkUser.DocsEdit(api.Params{
 		"owner_id": vkUserID,
 		"doc_id":   doc,
 		"title":    "test_title",
@@ -24,7 +26,7 @@ func TestVK_DocsAdd(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.DocsDelete(Params{
+	res, err = vkUser.DocsDelete(api.Params{
 		"owner_id": vkUserID,
 		"doc_id":   doc,
 	})
@@ -35,7 +37,7 @@ func TestVK_DocsAdd(t *testing.T) {
 func TestVK_DocsGet(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGet(Params{
+	res, err := vkUser.DocsGet(api.Params{
 		"owner_id": -166562603,
 	})
 	assert.NoError(t, err)
@@ -56,7 +58,7 @@ func TestVK_DocsGet(t *testing.T) {
 func TestVK_DocsGetByID(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetByID(Params{
+	res, err := vkUser.DocsGetByID(api.Params{
 		"docs": "2314852_165123053",
 	})
 	assert.NoError(t, err)
@@ -91,7 +93,7 @@ func TestVK_DocsGetByID(t *testing.T) {
 func TestVK_DocsGetTypes(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetTypes(Params{})
+	res, err := vkUser.DocsGetTypes(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
 
@@ -105,7 +107,7 @@ func TestVK_DocsGetTypes(t *testing.T) {
 func TestVK_DocsGetUploadServer(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetUploadServer(Params{})
+	res, err := vkUser.DocsGetUploadServer(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
@@ -113,7 +115,7 @@ func TestVK_DocsGetUploadServer(t *testing.T) {
 func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetMessagesUploadServer(Params{})
+	res, err := vkUser.DocsGetMessagesUploadServer(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
@@ -121,7 +123,7 @@ func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 func TestVK_DocsGetWallUploadServer(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetWallUploadServer(Params{})
+	res, err := vkUser.DocsGetWallUploadServer(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
@@ -131,7 +133,7 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 func TestVK_DocsSearch(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.DocsSearch(Params{
+	res, err := vkGroup.DocsSearch(api.Params{
 		"q": "golang",
 	})
 	assert.NoError(t, err)

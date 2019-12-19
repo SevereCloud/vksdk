@@ -1,9 +1,11 @@
-package api
+package api_test
 
 import (
 	"log"
 	"testing"
 	"time"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/SevereCloud/vksdk/object"
 	"github.com/stretchr/testify/assert"
@@ -131,7 +133,7 @@ func testFave(t *testing.T, f object.FaveItem) {
 }
 
 func TestVK_Fave(t *testing.T) {
-	fave, err := vkUser.FaveGet(Params{})
+	fave, err := vkUser.FaveGet(api.Params{})
 	if !assert.NoError(t, err) {
 		log.Fatal(err)
 	}
@@ -150,13 +152,13 @@ func TestVK_FaveArticle(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveAddArticle(Params{
+	res, err := vkUser.FaveAddArticle(api.Params{
 		"url": "https://vk.com/@vkappsdev-vk-apps-kak-popast-v-katalog",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	fave, err := vkUser.FaveGet(Params{"item_type": "article"})
+	fave, err := vkUser.FaveGet(api.Params{"item_type": "article"})
 	if !assert.NoError(t, err) {
 		log.Fatal(err)
 	}
@@ -171,7 +173,7 @@ func TestVK_FaveArticle(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveRemoveArticle(Params{
+	res, err = vkUser.FaveRemoveArticle(api.Params{
 		"owner_id":   fave.Items[0].Article.OwnerID,
 		"article_id": fave.Items[0].Article.ID,
 	})
@@ -184,13 +186,13 @@ func TestVK_FaveLink(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveAddLink(Params{
+	res, err := vkUser.FaveAddLink(api.Params{
 		"link": "https://google.ru",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	fave, err := vkUser.FaveGet(Params{"item_type": "link"})
+	fave, err := vkUser.FaveGet(api.Params{"item_type": "link"})
 	if !assert.NoError(t, err) {
 		log.Fatal(err)
 	}
@@ -205,7 +207,7 @@ func TestVK_FaveLink(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveRemoveLink(Params{
+	res, err = vkUser.FaveRemoveLink(api.Params{
 		"link_id": fave.Items[0].Link.ID,
 	})
 	assert.NoError(t, err)
@@ -217,7 +219,7 @@ func TestVK_FavePage(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveAddPage(Params{
+	res, err := vkUser.FaveAddPage(api.Params{
 		"user_id": 1,
 	})
 	assert.NoError(t, err)
@@ -225,7 +227,7 @@ func TestVK_FavePage(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveTrackPageInteraction(Params{
+	res, err = vkUser.FaveTrackPageInteraction(api.Params{
 		"user_id": 1,
 	})
 	assert.NoError(t, err)
@@ -233,7 +235,7 @@ func TestVK_FavePage(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveRemovePage(Params{
+	res, err = vkUser.FaveRemovePage(api.Params{
 		"user_id": 1,
 	})
 	assert.NoError(t, err)
@@ -245,7 +247,7 @@ func TestVK_FavePost(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveAddPost(Params{
+	res, err := vkUser.FaveAddPost(api.Params{
 		"owner_id": -28551727,
 		"id":       5713,
 	})
@@ -254,7 +256,7 @@ func TestVK_FavePost(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveRemovePost(Params{
+	res, err = vkUser.FaveRemovePost(api.Params{
 		"owner_id": -28551727,
 		"id":       5713,
 	})
@@ -267,7 +269,7 @@ func TestVK_FaveProduct(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveAddProduct(Params{
+	res, err := vkUser.FaveAddProduct(api.Params{
 		"owner_id": -169097025,
 		"id":       3398864,
 	})
@@ -276,7 +278,7 @@ func TestVK_FaveProduct(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveRemoveProduct(Params{
+	res, err = vkUser.FaveRemoveProduct(api.Params{
 		"owner_id": -169097025,
 		"id":       3398864,
 	})
@@ -289,7 +291,7 @@ func TestVK_FaveTag(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	tag, err := vkUser.FaveAddTag(Params{
+	tag, err := vkUser.FaveAddTag(api.Params{
 		"name": "Test0",
 	})
 	assert.NoError(t, err)
@@ -301,7 +303,7 @@ func TestVK_FaveTag(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	tagResponse, err := vkUser.FaveAddTag(Params{
+	tagResponse, err := vkUser.FaveAddTag(api.Params{
 		"name": "Test1",
 	})
 	assert.NoError(t, err)
@@ -309,7 +311,7 @@ func TestVK_FaveTag(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveAddLink(Params{
+	res, err := vkUser.FaveAddLink(api.Params{
 		"link": "https://google.ru",
 	})
 	assert.NoError(t, err)
@@ -317,7 +319,7 @@ func TestVK_FaveTag(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveSetTags(Params{
+	res, err = vkUser.FaveSetTags(api.Params{
 		"link_url": "https://google.ru",
 		"tag_ids":  tagResponse.ID,
 	})
@@ -326,7 +328,7 @@ func TestVK_FaveTag(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveAddPage(Params{
+	res, err = vkUser.FaveAddPage(api.Params{
 		"group_id": 1,
 	})
 	assert.NoError(t, err)
@@ -334,7 +336,7 @@ func TestVK_FaveTag(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveSetPageTags(Params{
+	res, err = vkUser.FaveSetPageTags(api.Params{
 		"group_id": 1,
 		"tag_ids":  tagResponse.ID,
 	})
@@ -343,14 +345,14 @@ func TestVK_FaveTag(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveEditTag(Params{
+	res, err = vkUser.FaveEditTag(api.Params{
 		"id":   tagResponse.ID,
 		"name": "Test2",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	tags, err := vkUser.FaveGetTags(Params{})
+	tags, err := vkUser.FaveGetTags(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, tags)
 
@@ -362,7 +364,7 @@ func TestVK_FaveTag(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveReorderTags(Params{
+	res, err = vkUser.FaveReorderTags(api.Params{
 		"ids": ids,
 	})
 	assert.NoError(t, err)
@@ -370,13 +372,13 @@ func TestVK_FaveTag(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveRemoveTag(Params{
+	res, err = vkUser.FaveRemoveTag(api.Params{
 		"id": tags.Items[tags.Count-1].ID,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	_, _ = vkUser.FaveRemoveTag(Params{
+	_, _ = vkUser.FaveRemoveTag(api.Params{
 		"id": tags.Items[tags.Count-2].ID,
 	})
 }
@@ -385,7 +387,7 @@ func TestVK_FaveVideo(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveAddVideo(Params{
+	res, err := vkUser.FaveAddVideo(api.Params{
 		"owner_id": -84585194,
 		"id":       456239018,
 	})
@@ -394,7 +396,7 @@ func TestVK_FaveVideo(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err = vkUser.FaveRemoveVideo(Params{
+	res, err = vkUser.FaveRemoveVideo(api.Params{
 		"owner_id": -84585194,
 		"id":       456239018,
 	})
@@ -407,13 +409,13 @@ func TestVK_FaveGet(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveGet(Params{})
+	res, err := vkUser.FaveGet(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
 
-	_, err = vkUser.FaveGetExtended(Params{})
+	_, err = vkUser.FaveGetExtended(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 }
@@ -423,7 +425,7 @@ func TestVK_FaveGetPages(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveGetPages(Params{})
+	res, err := vkUser.FaveGetPages(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
 
@@ -462,7 +464,7 @@ func TestVK_FaveMarkSeen(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveMarkSeen(Params{})
+	res, err := vkUser.FaveMarkSeen(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 }

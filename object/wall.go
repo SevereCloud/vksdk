@@ -143,7 +143,7 @@ type wallWallpostAttached struct {
 
 type wallWallpostAttachment struct {
 	AccessKey         string            `json:"access_key"` // Access key for the audio
-	Album             photosPhotoAlbum  `json:"album"`
+	Album             PhotosPhotoAlbum  `json:"album"`
 	App               wallAppPost       `json:"app"`
 	Audio             AudioAudioFull    `json:"audio"`
 	Doc               DocsDoc           `json:"doc"`

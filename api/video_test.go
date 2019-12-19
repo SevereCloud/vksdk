@@ -1,7 +1,9 @@
-package api
+package api_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -9,7 +11,7 @@ import (
 func TestVK_VideoAddDeleteRestore(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.VideoAdd(Params{
+	res, err := vkUser.VideoAdd(api.Params{
 		"target_id": vkUserID,
 		"owner_id":  -139533130,
 		"video_id":  456239332,
@@ -17,7 +19,7 @@ func TestVK_VideoAddDeleteRestore(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.VideoDelete(Params{
+	res, err = vkUser.VideoDelete(api.Params{
 		"target_id": vkUserID,
 		"owner_id":  -139533130,
 		"video_id":  456239332,
@@ -25,7 +27,7 @@ func TestVK_VideoAddDeleteRestore(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.VideoRestore(Params{
+	res, err = vkUser.VideoRestore(api.Params{
 		"target_id": vkUserID,
 		"owner_id":  -139533130,
 		"video_id":  456239332,
@@ -33,7 +35,7 @@ func TestVK_VideoAddDeleteRestore(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	_, _ = vkUser.VideoDelete(Params{
+	_, _ = vkUser.VideoDelete(api.Params{
 		"target_id": vkUserID,
 		"owner_id":  -139533130,
 		"video_id":  456239332,
@@ -41,20 +43,20 @@ func TestVK_VideoAddDeleteRestore(t *testing.T) {
 }
 
 func TestVK_VideoAddAlbum(t *testing.T) {
-	album, err := vkUser.VideoAddAlbum(Params{
+	album, err := vkUser.VideoAddAlbum(api.Params{
 		"title": "Test",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, album.AlbumID)
 
-	res, err := vkUser.VideoEditAlbum(Params{
+	res, err := vkUser.VideoEditAlbum(api.Params{
 		"album_id": album.AlbumID,
 		"title":    "Test edit",
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 
-	res, err = vkUser.VideoDeleteAlbum(Params{
+	res, err = vkUser.VideoDeleteAlbum(api.Params{
 		"album_id": album.AlbumID,
 	})
 	assert.NoError(t, err)

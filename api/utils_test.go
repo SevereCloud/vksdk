@@ -1,7 +1,9 @@
-package api
+package api_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -9,7 +11,7 @@ import (
 func TestVK_UtilsCheckLink(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.UtilsCheckLink(Params{
+	res, err := vkUser.UtilsCheckLink(api.Params{
 		"url": "http://google.ru",
 	})
 	assert.NoError(t, err)
@@ -20,19 +22,19 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 func TestVK_UtilsGetShortLink(t *testing.T) {
 	needUserToken(t)
 
-	shortLink, err := vkUser.UtilsGetShortLink(Params{
+	shortLink, err := vkUser.UtilsGetShortLink(api.Params{
 		"url":     "http://google.ru",
 		"private": 1,
 	})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, shortLink)
 
-	res, err := vkUser.UtilsGetLastShortenedLinks(Params{})
+	res, err := vkUser.UtilsGetLastShortenedLinks(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 
-	del, err := vkUser.UtilsDeleteFromLastShortened(Params{
+	del, err := vkUser.UtilsDeleteFromLastShortened(api.Params{
 		"key": shortLink.Key,
 	})
 	assert.NoError(t, err)
@@ -42,7 +44,7 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 func TestVK_UtilsGetLinkStats(t *testing.T) {
 	needGroupToken(t)
 
-	params := Params{
+	params := api.Params{
 		"key":             "8TDuIz",
 		"interval":        "month",
 		"intervals_count": 12,
@@ -62,7 +64,7 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 func TestVK_UtilsGetServerTime(t *testing.T) {
 	needGroupToken(t)
 
-	res, err := vkGroup.UtilsGetServerTime(Params{})
+	res, err := vkGroup.UtilsGetServerTime(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 }
@@ -73,7 +75,7 @@ func TestVK_UtilsResolveScreenName(t *testing.T) {
 	f := func(name string) {
 		t.Helper()
 
-		_, err := vkGroup.UtilsResolveScreenName(Params{
+		_, err := vkGroup.UtilsResolveScreenName(api.Params{
 			"screen_name": name,
 		})
 		if err != nil {

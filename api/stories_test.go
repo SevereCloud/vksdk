@@ -1,8 +1,10 @@
-package api
+package api_test
 
 import (
 	"reflect"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 )
 
 func TestVK_StoriesGet(t *testing.T) {
@@ -10,8 +12,8 @@ func TestVK_StoriesGet(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -39,8 +41,8 @@ func TestVK_StoriesGetExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -68,8 +70,8 @@ func TestVK_StoriesGetBanned(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -97,8 +99,8 @@ func TestVK_StoriesGetBannedExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -126,8 +128,8 @@ func TestVK_StoriesGetByID(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -155,8 +157,8 @@ func TestVK_StoriesGetByIDExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -184,8 +186,8 @@ func TestVK_StoriesGetPhotoUploadServer(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -213,8 +215,8 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -242,8 +244,8 @@ func TestVK_StoriesGetRepliesExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -271,8 +273,8 @@ func TestVK_StoriesGetStats(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -300,8 +302,8 @@ func TestVK_StoriesGetVideoUploadServer(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -329,8 +331,8 @@ func TestVK_StoriesGetViewers(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -358,8 +360,8 @@ func TestVK_StoriesGetViewersExtended(t *testing.T) {
 
 	tests := []struct {
 		name         string
-		argParams    Params
-		wantResponse GroupsAddLinkResponse
+		argParams    api.Params
+		wantResponse api.GroupsAddLinkResponse
 		wantErr      bool
 	}{
 		// TODO: Add test cases.
@@ -387,8 +389,8 @@ func TestVK_StoriesHideAllReplies(t *testing.T) {
 
 	tests := []struct {
 		name      string
-		argParams Params
-		wantErr   Error
+		argParams api.Params
+		wantErr   api.Error
 	}{
 		// TODO: Add test cases.
 		// {
@@ -411,8 +413,8 @@ func TestVK_StoriesHideReply(t *testing.T) {
 
 	tests := []struct {
 		name      string
-		argParams Params
-		wantErr   Error
+		argParams api.Params
+		wantErr   api.Error
 	}{
 		// TODO: Add test cases.
 		// {

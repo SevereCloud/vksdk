@@ -1,7 +1,9 @@
-package api
+package api_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -9,7 +11,7 @@ import (
 func TestVK_NotificationsGet(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.NotificationsGet(Params{
+	res, err := vkUser.NotificationsGet(api.Params{
 		"count": 30,
 	})
 	assert.NoError(t, err)
@@ -22,7 +24,7 @@ func TestVK_NotificationsGet(t *testing.T) {
 func TestVK_NotificationsMarkAsViewed(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.NotificationsMarkAsViewed(Params{})
+	res, err := vkUser.NotificationsMarkAsViewed(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res)
 }

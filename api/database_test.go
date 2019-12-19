@@ -1,7 +1,9 @@
-package api
+package api_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -9,7 +11,7 @@ import (
 func TestVK_DatabaseGetChairs(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetChairs(Params{
+	res, err := vkService.DatabaseGetChairs(api.Params{
 		"faculty_id": 15,
 	})
 	assert.NoError(t, err)
@@ -24,7 +26,7 @@ func TestVK_DatabaseGetChairs(t *testing.T) {
 func TestVK_DatabaseGetCities(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetCities(Params{
+	res, err := vkService.DatabaseGetCities(api.Params{
 		"country_id": 1,
 		"need_all":   true,
 	})
@@ -43,7 +45,7 @@ func TestVK_DatabaseGetCities(t *testing.T) {
 func TestVK_DatabaseGetCitiesByID(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetCitiesByID(Params{
+	res, err := vkService.DatabaseGetCitiesByID(api.Params{
 		"city_ids": "1,5,192",
 	})
 	assert.NoError(t, err)
@@ -57,7 +59,7 @@ func TestVK_DatabaseGetCitiesByID(t *testing.T) {
 func TestVK_DatabaseGetCountries(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetCountries(Params{})
+	res, err := vkService.DatabaseGetCountries(api.Params{})
 	assert.NoError(t, err)
 	assert.NotEmpty(t, res.Count)
 
@@ -70,7 +72,7 @@ func TestVK_DatabaseGetCountries(t *testing.T) {
 func TestVK_DatabaseGetCountriesByID(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetCountriesByID(Params{
+	res, err := vkService.DatabaseGetCountriesByID(api.Params{
 		"country_ids": 1,
 	})
 	assert.NoError(t, err)
@@ -84,7 +86,7 @@ func TestVK_DatabaseGetCountriesByID(t *testing.T) {
 func TestVK_DatabaseGetFaculties(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetFaculties(Params{
+	res, err := vkService.DatabaseGetFaculties(api.Params{
 		"university_id": 1,
 	})
 	assert.NoError(t, err)
@@ -99,7 +101,7 @@ func TestVK_DatabaseGetFaculties(t *testing.T) {
 func TestVK_DatabaseGetMetroStations(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetMetroStations(Params{
+	res, err := vkService.DatabaseGetMetroStations(api.Params{
 		"city_id":  1,
 		"extended": 1,
 	})
@@ -116,7 +118,7 @@ func TestVK_DatabaseGetMetroStations(t *testing.T) {
 func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetMetroStationsByID(Params{
+	res, err := vkService.DatabaseGetMetroStationsByID(api.Params{
 		"station_ids": "189, 181",
 	})
 	assert.NoError(t, err)
@@ -131,7 +133,7 @@ func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
 func TestVK_DatabaseGetRegions(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetRegions(Params{
+	res, err := vkService.DatabaseGetRegions(api.Params{
 		"country_id": 1,
 	})
 	assert.NoError(t, err)
@@ -146,7 +148,7 @@ func TestVK_DatabaseGetRegions(t *testing.T) {
 func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetSchoolClasses(Params{
+	res, err := vkService.DatabaseGetSchoolClasses(api.Params{
 		"country_id": 1,
 	})
 	assert.NoError(t, err)
@@ -156,7 +158,7 @@ func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
 func TestVK_DatabaseGetSchools(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetSchools(Params{
+	res, err := vkService.DatabaseGetSchools(api.Params{
 		"q":       56,
 		"city_id": 2,
 	})
@@ -172,7 +174,7 @@ func TestVK_DatabaseGetSchools(t *testing.T) {
 func TestVK_DatabaseGetUniversities(t *testing.T) {
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetUniversities(Params{
+	res, err := vkService.DatabaseGetUniversities(api.Params{
 		"q": "СПб",
 	})
 	assert.NoError(t, err)

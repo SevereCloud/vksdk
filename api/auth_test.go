@@ -1,8 +1,10 @@
-package api
+package api_test
 
 import (
 	"os"
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -17,7 +19,7 @@ func TestVK_AuthCheckPhone(t *testing.T) {
 		t.Skip("need params")
 	}
 
-	_, err := vkUser.AuthCheckPhone(Params{
+	_, err := vkUser.AuthCheckPhone(api.Params{
 		"phone":         "+79523071234",
 		"client_id":     clientID,
 		"client_secret": clientSecret,

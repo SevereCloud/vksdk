@@ -18,8 +18,8 @@ vk := api.Init("<TOKEN>")
 
 ### Запросы к API
 
-- `users.get` -> `vk.UsersGet(Params{})`
-- `groups.get` с extended=1 -> `vk.GroupsGetExtended(Params{})`
+- `users.get` -> `vk.UsersGet(api.Params{})`
+- `groups.get` с extended=1 -> `vk.GroupsGetExtended(api.Params{})`
 
 Список всех методов можно найти на 
 [данной странице](https://godoc.org/github.com/SevereCloud/vksdk/api#VK).
@@ -74,7 +74,7 @@ vkErr := errors.GetErrorContext(err)
 var response []object.UsersUser
 var err api.Error
 
-params := Params{
+params := api.Params{
 	"user_ids": 1,
 }
 

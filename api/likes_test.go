@@ -1,7 +1,9 @@
-package api
+package api_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -9,7 +11,7 @@ import (
 func TestVK_LikesAdd(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.LikesAdd(Params{
+	res, err := vkUser.LikesAdd(api.Params{
 		"type":     "post",
 		"owner_id": 1,
 		"item_id":  45546,
@@ -21,7 +23,7 @@ func TestVK_LikesAdd(t *testing.T) {
 func TestVK_LikesDelete(t *testing.T) {
 	needUserToken(t)
 
-	res, err := vkUser.LikesDelete(Params{
+	res, err := vkUser.LikesDelete(api.Params{
 		"type":     "post",
 		"owner_id": 1,
 		"item_id":  45546,
@@ -33,7 +35,7 @@ func TestVK_LikesDelete(t *testing.T) {
 func TestVK_LikesGetList(t *testing.T) {
 	needUserToken(t)
 
-	params := Params{
+	params := api.Params{
 		"type":     "post",
 		"owner_id": 1,
 		"item_id":  45546,
@@ -53,7 +55,7 @@ func TestVK_LikesGetList(t *testing.T) {
 func TestVK_LikesIsLiked(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.LikesIsLiked(Params{
+	_, err := vkUser.LikesIsLiked(api.Params{
 		"type":     "post",
 		"owner_id": 1,
 		"item_id":  45546,
