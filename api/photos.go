@@ -439,11 +439,11 @@ func (vk *VK) PhotosMakeCover(params Params) (response int, err error) {
 	return
 }
 
-// PhotosMoveMoves a photo from one album to another.
+// PhotosMove a photo from one album to another.
 //
 // https://vk.com/dev/photos.moveMoves
-func (vk *VK) PhotosMoveMoves(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.moveMoves", params, &response)
+func (vk *VK) PhotosMove(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("photos.move", params, &response)
 	return
 }
 

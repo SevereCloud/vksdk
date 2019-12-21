@@ -1,9 +1,11 @@
 package api_test
 
 import (
+	"net/http"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/object"
 )
 
 func TestVK_PhotosConfirmTag(t *testing.T) {
@@ -34,6 +36,38 @@ func TestVK_PhotosCreateAlbum(t *testing.T) {
 	})
 	noError(t, err)
 
+	afterAlbum, err := vkUser.PhotosCreateAlbum(api.Params{
+		"title": "TestAlbum",
+	})
+	noError(t, err)
+
+	photo := LoadPhoto(t, album.ID)
+	afterPhoto := LoadPhoto(t, album.ID)
+
+	_, err = vkUser.PhotosMakeCover(api.Params{
+		"photo_id": photo.ID,
+		"album_id": album.ID,
+	})
+	noError(t, err)
+
+	_, err = vkUser.PhotosReorderPhotos(api.Params{
+		"photo_id": photo.ID,
+		"after":    afterPhoto.ID,
+	})
+	noError(t, err)
+
+	_, err = vkUser.PhotosMove(api.Params{
+		"photo_id":        photo.ID,
+		"target_album_id": afterAlbum.ID,
+	})
+	noError(t, err)
+
+	_, err = vkUser.PhotosReorderAlbums(api.Params{
+		"album_id": album.ID,
+		"after":    afterAlbum.ID,
+	})
+	noError(t, err)
+
 	_, err = vkUser.PhotosEditAlbum(api.Params{
 		"album_id": album.ID,
 		"title":    "TestAlbum edited",
@@ -42,6 +76,11 @@ func TestVK_PhotosCreateAlbum(t *testing.T) {
 
 	_, err = vkUser.PhotosDeleteAlbum(api.Params{
 		"album_id": album.ID,
+	})
+	noError(t, err)
+
+	_, err = vkUser.PhotosDeleteAlbum(api.Params{
+		"album_id": afterAlbum.ID,
 	})
 	noError(t, err)
 }
@@ -76,8 +115,52 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 	noError(t, err)
 }
 
-// TODO: TestVK_PhotosDelete
-// TODO: TestVK_PhotosEdit
+func LoadPhoto(t *testing.T, albumID int) object.PhotosPhoto {
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	photoSave, err := vkUser.UploadPhoto(albumID, response.Body)
+	noError(t, err)
+
+	photo := photoSave[0]
+
+	tagID, err := vkUser.PhotosPutTag(api.Params{
+		"photo_id": photo.ID,
+		"user_id":  vkUserID,
+		"x":        10,
+		"y":        10,
+		"x2":       80,
+		"y2":       80,
+	})
+	noError(t, err)
+
+	_, err = vkUser.PhotosRemoveTag(api.Params{
+		"photo_id": photo.ID,
+		"tag_id":   tagID,
+	})
+	noError(t, err)
+
+	_, err = vkUser.PhotosEdit(api.Params{
+		"photo_id": photo.ID,
+		"caption":  "test",
+	})
+	noError(t, err)
+
+	_, err = vkUser.PhotosDelete(api.Params{
+		"photo_id": photo.ID,
+	})
+	noError(t, err)
+
+	_, err = vkUser.PhotosRestore(api.Params{
+		"photo_id": photo.ID,
+	})
+	noError(t, err)
+
+	return photo
+}
 
 func TestVK_PhotosGet(t *testing.T) {
 	needUserToken(t)
@@ -272,13 +355,6 @@ func TestVK_PhotosGetWallUploadServer(t *testing.T) {
 	})
 	noError(t, err)
 }
-
-// TODO: TestVK_PhotosMakeCover
-// TODO: TestVK_PhotosMove
-// TODO: TestVK_PhotosPutTag
-// TODO: TestVK_PhotosRemoveTag
-// TODO: TestVK_PhotosReorderAlbums
-// TODO: TestVK_PhotosReorderPhotos
 
 func TestVK_PhotosReport(t *testing.T) {
 	needUserToken(t)
