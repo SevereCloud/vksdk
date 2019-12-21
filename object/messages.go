@@ -204,6 +204,7 @@ type MessagesChat struct {
 	Members      []int                     `json:"members"`
 	Photo        messagesChatSettingsPhoto `json:"photo"`
 	Joined       bool                      `json:"joined"`
+	LocalID      int                       `json:"local_id"`
 }
 
 // MessagesChatFull struct
@@ -260,7 +261,7 @@ type messagesConversationChatSettings struct {
 	PinnedMessage messagesPinnedMessage     `json:"pinned_message"`
 	State         string                    `json:"state"`
 	Title         string                    `json:"title"`
-	ActiveIds     []int                     `json:"active_ids"`
+	ActiveIDS     []int                     `json:"active_ids"`
 	ACL           struct {
 		CanInvite           bool `json:"can_invite"`
 		CanChangeInfo       bool `json:"can_change_info"`
@@ -268,6 +269,8 @@ type messagesConversationChatSettings struct {
 		CanPromoteUsers     bool `json:"can_promote_users"`
 		CanSeeInviteLink    bool `json:"can_see_invite_link"`
 		CanChangeInviteLink bool `json:"can_change_invite_link"`
+		CanCopyChat         bool `json:"can_copy_chat"`
+		CanModerate         bool `json:"can_moderate"`
 	} `json:"acl"`
 	IsGroupChannel bool `json:"is_group_channel"`
 	OwnerID        int  `json:"owner_id"`
@@ -383,7 +386,7 @@ type messagesPinnedMessage struct {
 	ConversationMessageID int                         `json:"conversation_message_id"` // Unique auto-incremented number for all messages with this peer
 	Date                  int                         `json:"date"`                    // Date when the message has been sent in Unixtime
 	FromID                int                         `json:"from_id"`                 // Message author's ID
-	FwdMessages           *MessagesMessage            `json:"fwd_messages"`
+	FwdMessages           []*MessagesMessage          `json:"fwd_messages"`
 	Geo                   baseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`      // Message ID
 	PeerID                int                         `json:"peer_id"` // Peer ID

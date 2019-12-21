@@ -18,9 +18,10 @@ func noError(t *testing.T, err error) bool {
 	switch errors.GetType(err) {
 	case errors.TooMany:
 		t.Skip("Too many requests per second")
-
 	case errors.Server:
 		t.Skip("Internal server error")
+	case errors.Permission:
+		t.Skip("Permission to perform this action is denied")
 	}
 
 	return assert.NoError(t, err)

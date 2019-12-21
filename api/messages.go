@@ -53,10 +53,15 @@ func (vk *VK) MessagesDeleteChatPhoto(params Params) (response MessagesDeleteCha
 	return
 }
 
+// MessagesDeleteConversationResponse struct
+type MessagesDeleteConversationResponse struct {
+	LastDeletedID int `json:"last_deleted_id"` // Id of the last message, that was deleted
+}
+
 // MessagesDeleteConversation deletes private messages in a conversation.
 //
 // https://vk.com/dev/messages.deleteConversation
-func (vk *VK) MessagesDeleteConversation(params Params) (response int, err error) {
+func (vk *VK) MessagesDeleteConversation(params Params) (response MessagesDeleteConversationResponse, err error) {
 	err = vk.RequestUnmarshal("messages.deleteConversation", params, &response)
 	return
 }
