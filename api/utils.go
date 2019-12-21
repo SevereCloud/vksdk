@@ -48,7 +48,7 @@ type UtilsGetLinkStatsResponse object.UtilsLinkStats
 //
 // https://vk.com/dev/utils.getLinkStats
 func (vk *VK) UtilsGetLinkStats(params Params) (response UtilsGetLinkStatsResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("utils.getLinkStats", params, &response)
 
 	return

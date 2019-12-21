@@ -101,7 +101,7 @@ type VideoGetResponse struct {
 //
 // https://vk.com/dev/video.get
 func (vk *VK) VideoGet(params Params) (response VideoGetResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("video.get", params, &response)
 
 	return
@@ -149,7 +149,7 @@ type VideoGetAlbumsResponse struct {
 //
 // https://vk.com/dev/video.getAlbums
 func (vk *VK) VideoGetAlbums(params Params) (response VideoGetAlbumsResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("video.getAlbums", params, &response)
 
 	return
@@ -182,7 +182,7 @@ type VideoGetAlbumsByVideoResponse []int
 //
 // https://vk.com/dev/video.getAlbumsByVideo
 func (vk *VK) VideoGetAlbumsByVideo(params Params) (response VideoGetAlbumsByVideoResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("video.getAlbumsByVideo", params, &response)
 
 	return
@@ -218,7 +218,7 @@ type VideoGetCommentsResponse struct {
 //
 // https://vk.com/dev/video.getComments
 func (vk *VK) VideoGetComments(params Params) (response VideoGetCommentsResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("video.getComments", params, &response)
 
 	return
@@ -322,7 +322,7 @@ type VideoSearchResponse struct {
 //
 // https://vk.com/dev/video.search
 func (vk *VK) VideoSearch(params Params) (response VideoSearchResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("video.search", params, &response)
 
 	return

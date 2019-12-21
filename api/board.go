@@ -82,7 +82,7 @@ type BoardGetCommentsResponse struct {
 //
 // https://vk.com/dev/board.getComments
 func (vk *VK) BoardGetComments(params Params) (response BoardGetCommentsResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("board.getComments", params, &response)
 
 	return
@@ -124,7 +124,7 @@ type BoardGetTopicsResponse struct {
 //
 // https://vk.com/dev/board.getTopics
 func (vk *VK) BoardGetTopics(params Params) (response BoardGetTopicsResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("board.getTopics", params, &response)
 
 	return

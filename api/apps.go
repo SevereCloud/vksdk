@@ -54,7 +54,7 @@ type AppsGetFriendsListResponse struct {
 //
 // https://vk.com/dev/apps.getFriendsList
 func (vk *VK) AppsGetFriendsList(params Params) (response AppsGetFriendsListResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("apps.getFriendsList", params, &response)
 
 	return
@@ -90,7 +90,7 @@ type AppsGetLeaderboardResponse struct {
 //
 // https://vk.com/dev/apps.getLeaderboard
 func (vk *VK) AppsGetLeaderboard(params Params) (response AppsGetLeaderboardResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("apps.getLeaderboard", params, &response)
 
 	return

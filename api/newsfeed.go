@@ -57,7 +57,7 @@ type NewsfeedGetBannedResponse struct {
 //
 // https://vk.com/dev/newsfeed.getBanned
 func (vk *VK) NewsfeedGetBanned(params Params) (response NewsfeedGetBannedResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("newsfeed.getBanned", params, &response)
 
 	return
@@ -189,7 +189,7 @@ type NewsfeedSearchResponse struct {
 //
 // https://vk.com/dev/newsfeed.search
 func (vk *VK) NewsfeedSearch(params Params) (response NewsfeedSearchResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("newsfeed.search", params, &response)
 
 	return

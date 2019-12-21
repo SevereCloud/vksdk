@@ -161,7 +161,7 @@ type GroupsGetResponse struct {
 //
 // https://vk.com/dev/groups.get
 func (vk *VK) GroupsGet(params Params) (response GroupsGetResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("groups.get", params, &response)
 
 	return
@@ -289,7 +289,7 @@ type GroupsGetCatalogInfoResponse struct {
 //
 // https://vk.com/dev/groups.getCatalogInfo
 func (vk *VK) GroupsGetCatalogInfo(params Params) (response GroupsGetCatalogInfoResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("groups.getCatalogInfo", params, &response)
 
 	return
@@ -512,7 +512,7 @@ func (vk *VK) GroupsInvite(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMember(params Params) (response int, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("groups.isMember", params, &response)
 
 	return
@@ -565,7 +565,7 @@ type GroupsIsMemberUserIDsResponse []object.GroupsMemberStatus
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMemberUserIDs(params Params) (response GroupsIsMemberUserIDsResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("groups.isMember", params, &response)
 
 	return

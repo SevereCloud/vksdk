@@ -73,7 +73,7 @@ type UsersGetSubscriptionsResponse struct {
 // https://vk.com/dev/users.getSubscriptions
 // BUG(SevereCloud): UsersGetSubscriptions bad response with extended=1
 func (vk *VK) UsersGetSubscriptions(params Params) (response UsersGetSubscriptionsResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("users.getSubscriptions", params, &response)
 
 	return

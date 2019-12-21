@@ -99,7 +99,7 @@ type PhotosGetResponse struct {
 //
 // https://vk.com/dev/photos.get
 func (vk *VK) PhotosGet(params Params) (response PhotosGetResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("photos.get", params, &response)
 
 	return
@@ -158,7 +158,7 @@ type PhotosGetAllResponse struct {
 //
 // https://vk.com/dev/photos.getAll
 func (vk *VK) PhotosGetAll(params Params) (response PhotosGetAllResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("photos.getAll", params, &response)
 
 	return
@@ -207,7 +207,7 @@ type PhotosGetByIDResponse []object.PhotosPhoto
 //
 // https://vk.com/dev/photos.getById
 func (vk *VK) PhotosGetByID(params Params) (response PhotosGetByIDResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("photos.getById", params, &response)
 
 	return
@@ -254,7 +254,7 @@ type PhotosGetCommentsResponse struct {
 //
 // https://vk.com/dev/photos.getComments
 func (vk *VK) PhotosGetComments(params Params) (response PhotosGetCommentsResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("photos.getComments", params, &response)
 
 	return
@@ -396,7 +396,7 @@ type PhotosGetUserPhotosResponse struct {
 //
 // https://vk.com/dev/photos.getUserPhotos
 func (vk *VK) PhotosGetUserPhotos(params Params) (response PhotosGetUserPhotosResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("photos.getUserPhotos", params, &response)
 
 	return

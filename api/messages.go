@@ -112,7 +112,7 @@ type MessagesGetByIDResponse struct {
 //
 // https://vk.com/dev/messages.getById
 func (vk *VK) MessagesGetByID(params Params) (response MessagesGetByIDResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("messages.getById", params, &response)
 
 	return
@@ -231,7 +231,7 @@ type MessagesGetConversationsByIDResponse struct {
 //
 // https://vk.com/dev/messages.getConversationsById
 func (vk *VK) MessagesGetConversationsByID(params Params) (response MessagesGetConversationsByIDResponse, err error) {
-	params["extended"] = "0"
+	params["extended"] = false
 	err = vk.RequestUnmarshal("messages.getConversationsById", params, &response)
 
 	return
