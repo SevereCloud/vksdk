@@ -163,7 +163,7 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 
 	var testObj string
 
-	err := vkGroup.RequestUnmarshal("execute", api.Params{"code": "return 1;"}, testObj)
+	err := vkGroup.RequestUnmarshal("t/t", api.Params{}, testObj)
 	if err == nil {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}

@@ -71,8 +71,8 @@ func TestVK_WallGet(t *testing.T) {
 	needServiceToken(t)
 
 	params := api.Params{
-		"owner_id": -86529522,
-		"count":    100,
+		"owner_id": -22822305,
+		"count":    10,
 	}
 
 	get, err := vkService.WallGet(params)
