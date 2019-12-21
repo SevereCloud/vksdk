@@ -19,8 +19,8 @@ type VideoVideo struct {
 	Description    string            `json:"description"`      // Video description
 	Duration       int               `json:"duration"`         // Video duration in seconds
 	Files          videoVideoFiles   `json:"files"`
-	FirstFrame     []videoVideoImage `json:"first_frame"`
-	Image          []videoVideoImage `json:"image"`
+	FirstFrame     []VideoVideoImage `json:"first_frame"`
+	Image          []VideoVideoImage `json:"image"`
 	Height         int               `json:"height"` // Video height
 	ID             int               `json:"id"`     // Video ID
 	IsFavorite     bool              `json:"is_favorite"`
@@ -121,13 +121,14 @@ type VideoVideoAlbum struct {
 type VideoVideoAlbumFull struct {
 	Count       int               `json:"count"`        // Total number of videos in album
 	ID          int               `json:"id"`           // Album ID
-	Image       []videoVideoImage `json:"image"`        // Album cover image in different sizes
+	Image       []VideoVideoImage `json:"image"`        // Album cover image in different sizes
 	IsSystem    int               `json:"is_system"`    // Information whether album is system
 	OwnerID     int               `json:"owner_id"`     // Album owner's ID
 	Photo160    string            `json:"photo_160"`    // URL of the preview image with 160px in width
 	Photo320    string            `json:"photo_320"`    // URL of the preview image with 320px in width
 	Title       string            `json:"title"`        // Album title
 	UpdatedTime int               `json:"updated_time"` // Date when the album has been updated last time in Unixtime
+	ImageBlur   int               `json:"image_blur"`
 }
 
 // VideoVideoFull struct
@@ -154,9 +155,9 @@ type VideoVideoFull struct {
 	Views         int               `json:"views"`      // Number of views
 	Width         int               `json:"width"`
 	Height        int               `json:"height"`
-	Image         []videoVideoImage `json:"image"`
+	Image         []VideoVideoImage `json:"image"`
 	IsFavorite    bool              `json:"is_favorite"`
-	FirstFrame    []videoVideoImage `json:"first_frame"`
+	FirstFrame    []VideoVideoImage `json:"first_frame"`
 	Added         int               `json:"added"`
 	CanLike       int               `json:"can_like"`
 	CanAddToFaves int               `json:"can_add_to_faves"`
@@ -205,7 +206,7 @@ type VideoVideoTagInfo struct {
 	Views       int             `json:"views"`
 }
 
-type videoVideoImage struct {
+type VideoVideoImage struct {
 	baseImage
 	WithPadding int `json:"with_padding"`
 }
