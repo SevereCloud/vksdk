@@ -17,7 +17,7 @@ func TestVK_NotesAdd(t *testing.T) {
 		"title": "Test note",
 		"text":  "Text note",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, note)
 
 	res, err := vkUser.NotesEdit(api.Params{
@@ -25,13 +25,13 @@ func TestVK_NotesAdd(t *testing.T) {
 		"title":   "Test note edited",
 		"text":    "Text note edited",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.NotesDelete(api.Params{
 		"note_id": note,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -44,7 +44,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 		"message":  "Test note comment",
 	})
 	// NOTE: note comment deprecated
-	assert.NoError(t, err)
+	noError(t, err)
 	// assert.NotEmpty(t, comment)
 
 	_, err = vkUser.NotesEditComment(api.Params{
@@ -73,7 +73,7 @@ func TestVK_NotesGet(t *testing.T) {
 	res, err := vkUser.NotesGet(api.Params{
 		"user_id": 66748,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -95,7 +95,7 @@ func TestVK_NotesGetByID(t *testing.T) {
 		"owner_id":  66748,
 		"need_wiki": true,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.ID)
 	assert.NotEmpty(t, res.OwnerID)
 	// assert.NotEmpty(t, res.Items[0].Comments)
@@ -113,5 +113,5 @@ func TestVK_NotesGetComments(t *testing.T) {
 		"note_id":  11582572,
 		"owner_id": 66748,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }

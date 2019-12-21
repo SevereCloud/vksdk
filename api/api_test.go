@@ -7,11 +7,24 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
+	"github.com/SevereCloud/vksdk/errors"
 	"github.com/SevereCloud/vksdk/object"
-
 	"github.com/stretchr/testify/assert"
 )
+
+func noError(t *testing.T, err error) bool {
+	t.Helper()
+
+	switch errors.GetType(err) {
+	case errors.TooMany:
+		t.Skip("Too many requests per second")
+
+	case errors.Server:
+		t.Skip("Internal server error")
+	}
+
+	return assert.NoError(t, err)
+}
 
 func needUserToken(t *testing.T) {
 	t.Helper()

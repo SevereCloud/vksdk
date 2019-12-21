@@ -5,8 +5,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_AuthCheckPhone(t *testing.T) {
@@ -24,5 +22,5 @@ func TestVK_AuthCheckPhone(t *testing.T) {
 		"client_id":     clientID,
 		"client_secret": clientSecret,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }

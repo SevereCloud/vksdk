@@ -16,7 +16,7 @@ func TestVK_UsersGet(t *testing.T) {
 		"user_ids": 1,
 		"fields":   "photo_id, verified, sex, bdate, city, country, home_town, has_photo, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, domain, has_mobile, contacts, site, education, universities, schools, status, last_seen, followers_count, common_count, occupation, nickname, relatives, relation, personal, connections, exports, activities, interests, music, movies, tv, books, games, about, quotes, can_post, can_see_all_posts, can_see_audio, can_write_private_message, can_send_friend_request, is_favorite, is_hidden_from_feed, timezone, screen_name, maiden_name, crop_photo, is_friend, friend_status, career, military, blacklisted, blacklisted_by_me, can_be_invited_group",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	if assert.NotEmpty(t, res) {
 		for _, user := range res {
@@ -98,14 +98,14 @@ func TestVK_UsersGetFollowers(t *testing.T) {
 	res, err := vkUser.UsersGetFollowers(api.Params{
 		"user_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 
 	_, err = vkUser.UsersGetFollowersFields(api.Params{
 		"user_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UsersGetSubscriptions(t *testing.T) {
@@ -114,7 +114,7 @@ func TestVK_UsersGetSubscriptions(t *testing.T) {
 	res, err := vkUser.UsersGetSubscriptions(api.Params{
 		"user_id": 117253521,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -130,7 +130,7 @@ func TestVK_UsersReport(t *testing.T) {
 		t.Skip("Access denied")
 	}
 
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -141,7 +141,7 @@ func TestVK_UsersSearch(t *testing.T) {
 		"q":      "Vasya Babich",
 		"fields": "photo_id, verified, sex, bdate, city, country, home_town, has_photo, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, domain, has_mobile, contacts, site, education, universities, schools, status, last_seen, followers_count, common_count, occupation, nickname, relatives, relation, personal, connections, exports, activities, interests, music, movies, tv, books, games, about, quotes, can_post, can_see_all_posts, can_see_audio, can_write_private_message, can_send_friend_request, is_favorite, is_hidden_from_feed, timezone, screen_name, maiden_name, crop_photo, is_friend, friend_status, career, military, blacklisted, blacklisted_by_me, can_be_invited_group",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 }

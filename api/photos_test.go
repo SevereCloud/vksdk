@@ -4,8 +4,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_PhotosConfirmTag(t *testing.T) {
@@ -15,7 +13,7 @@ func TestVK_PhotosConfirmTag(t *testing.T) {
 		"photo_id": 1234,
 		"tag_id":   5678,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosCopy(t *testing.T) {
@@ -25,7 +23,7 @@ func TestVK_PhotosCopy(t *testing.T) {
 		"owner_id": 1,
 		"photo_id": 306810815,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosCreateAlbum(t *testing.T) {
@@ -34,18 +32,18 @@ func TestVK_PhotosCreateAlbum(t *testing.T) {
 	album, err := vkUser.PhotosCreateAlbum(api.Params{
 		"title": "TestAlbum",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PhotosEditAlbum(api.Params{
 		"album_id": album.ID,
 		"title":    "TestAlbum edited",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PhotosDeleteAlbum(api.Params{
 		"album_id": album.ID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosCreateComment(t *testing.T) {
@@ -56,26 +54,26 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 		"photo_id": 456250946,
 		"message":  "Test photo comment",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PhotosEditComment(api.Params{
 		"owner_id":   233157978,
 		"comment_id": commentID,
 		"message":    "Test photo comment edited",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PhotosDeleteComment(api.Params{
 		"owner_id":   233157978,
 		"comment_id": commentID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PhotosRestoreComment(api.Params{
 		"owner_id":   233157978,
 		"comment_id": commentID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 // TODO: TestVK_PhotosDelete
@@ -90,10 +88,10 @@ func TestVK_PhotosGet(t *testing.T) {
 	}
 
 	_, err := vkUser.PhotosGet(params)
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PhotosGetExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetAlbums(t *testing.T) {
@@ -105,7 +103,7 @@ func TestVK_PhotosGetAlbums(t *testing.T) {
 		"need_covers": true,
 		"photo_sizes": true,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetAlbumsCount(t *testing.T) {
@@ -114,7 +112,7 @@ func TestVK_PhotosGetAlbumsCount(t *testing.T) {
 	_, err := vkUser.PhotosGetAlbumsCount(api.Params{
 		"user_id": 185014513,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetAll(t *testing.T) {
@@ -126,10 +124,10 @@ func TestVK_PhotosGetAll(t *testing.T) {
 	}
 
 	_, err := vkUser.PhotosGetAll(params)
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PhotosGetAllExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetAllComments(t *testing.T) {
@@ -138,7 +136,7 @@ func TestVK_PhotosGetAllComments(t *testing.T) {
 	_, err := vkUser.PhotosGetAllComments(api.Params{
 		"owner_id": 66748,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetByID(t *testing.T) {
@@ -149,9 +147,9 @@ func TestVK_PhotosGetByID(t *testing.T) {
 	}
 
 	_, err := vkUser.PhotosGetByID(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	_, err = vkUser.PhotosGetByIDExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetChatUploadServer(t *testing.T) {
@@ -160,7 +158,7 @@ func TestVK_PhotosGetChatUploadServer(t *testing.T) {
 	_, err := vkUser.PhotosGetChatUploadServer(api.Params{
 		"chat_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetComments(t *testing.T) {
@@ -173,10 +171,10 @@ func TestVK_PhotosGetComments(t *testing.T) {
 	}
 
 	_, err := vkUser.PhotosGetComments(params)
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PhotosGetCommentsExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetMarketAlbumUploadServer(t *testing.T) {
@@ -186,7 +184,7 @@ func TestVK_PhotosGetMarketAlbumUploadServer(t *testing.T) {
 	_, err := vkUser.PhotosGetMarketAlbumUploadServer(api.Params{
 		"group_id": vkGroupID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetMarketUploadServer(t *testing.T) {
@@ -196,7 +194,7 @@ func TestVK_PhotosGetMarketUploadServer(t *testing.T) {
 	_, err := vkUser.PhotosGetMarketUploadServer(api.Params{
 		"group_id": vkGroupID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetMessagesUploadServer(t *testing.T) {
@@ -205,14 +203,14 @@ func TestVK_PhotosGetMessagesUploadServer(t *testing.T) {
 	_, err := vkUser.PhotosGetMessagesUploadServer(api.Params{
 		"peer_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetNewTags(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetNewTags(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetOwnerCoverPhotoUploadServer(t *testing.T) {
@@ -222,14 +220,14 @@ func TestVK_PhotosGetOwnerCoverPhotoUploadServer(t *testing.T) {
 	_, err := vkUser.PhotosGetOwnerCoverPhotoUploadServer(api.Params{
 		"group_id": vkGroupID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetOwnerPhotoUploadServer(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetOwnerPhotoUploadServer(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetTags(t *testing.T) {
@@ -239,7 +237,7 @@ func TestVK_PhotosGetTags(t *testing.T) {
 		"owner_id": 3420,
 		"photo_id": 341642982,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetUploadServer(t *testing.T) {
@@ -249,7 +247,7 @@ func TestVK_PhotosGetUploadServer(t *testing.T) {
 		"group_id": 25557243,
 		"album_id": 156000927,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetUserPhotos(t *testing.T) {
@@ -260,10 +258,10 @@ func TestVK_PhotosGetUserPhotos(t *testing.T) {
 	}
 
 	_, err := vkUser.PhotosGetUserPhotos(params)
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PhotosGetUserPhotosExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosGetWallUploadServer(t *testing.T) {
@@ -272,7 +270,7 @@ func TestVK_PhotosGetWallUploadServer(t *testing.T) {
 	_, err := vkUser.PhotosGetWallUploadServer(api.Params{
 		"group_id": vkGroupID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 // TODO: TestVK_PhotosMakeCover
@@ -289,7 +287,7 @@ func TestVK_PhotosReport(t *testing.T) {
 		"owner_id": 66748,
 		"photo_id": 312071876,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosReportComment(t *testing.T) {
@@ -299,7 +297,7 @@ func TestVK_PhotosReportComment(t *testing.T) {
 		"owner_id":   66748,
 		"comment_id": 823,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PhotosSearch(t *testing.T) {
@@ -308,5 +306,5 @@ func TestVK_PhotosSearch(t *testing.T) {
 	_, err := vkUser.PhotosSearch(api.Params{
 		"q": "Nature",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }

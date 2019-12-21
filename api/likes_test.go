@@ -16,7 +16,7 @@ func TestVK_LikesAdd(t *testing.T) {
 		"owner_id": 1,
 		"item_id":  45546,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Likes)
 }
 
@@ -28,7 +28,7 @@ func TestVK_LikesDelete(t *testing.T) {
 		"owner_id": 1,
 		"item_id":  45546,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Likes)
 }
 
@@ -42,12 +42,12 @@ func TestVK_LikesGetList(t *testing.T) {
 	}
 
 	res, err := vkUser.LikesGetList(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 
 	_, err = vkUser.LikesGetListExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 }
@@ -61,5 +61,5 @@ func TestVK_LikesIsLiked(t *testing.T) {
 		"item_id":  45546,
 	})
 	// assert.NotEmpty(t, res)
-	assert.NoError(t, err)
+	noError(t, err)
 }

@@ -14,7 +14,7 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 		"widget_api_id": 6862945,
 		"url":           "http://irsay.ru/irsay_duine/",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Posts) {
@@ -38,6 +38,6 @@ func TestVK_WidgetsGetPages(t *testing.T) {
 	needServiceToken(t)
 
 	res, err := vkService.WidgetsGetPages(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }

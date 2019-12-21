@@ -4,8 +4,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_SearchGetHints(t *testing.T) {
@@ -16,5 +14,5 @@ func TestVK_SearchGetHints(t *testing.T) {
 		"limit":         20,
 		"search_global": true,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }

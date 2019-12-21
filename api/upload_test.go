@@ -46,7 +46,7 @@ func TestVK_UploadPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadPhoto(album.ID, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadPhotoGroup(t *testing.T) {
@@ -68,7 +68,7 @@ func TestVK_UploadPhotoGroup(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadPhotoGroup(vkGroupID, album.ID, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadWallPhoto(t *testing.T) {
@@ -81,7 +81,7 @@ func TestVK_UploadWallPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadWallPhoto(response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadGroupWallPhoto(t *testing.T) {
@@ -95,7 +95,7 @@ func TestVK_UploadGroupWallPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadGroupWallPhoto(vkGroupID, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadUserPhoto(t *testing.T) {
@@ -108,7 +108,7 @@ func TestVK_UploadUserPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadUserPhoto(response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadOwnerPhoto(t *testing.T) {
@@ -122,7 +122,7 @@ func TestVK_UploadOwnerPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadOwnerPhoto(-vkGroupID, "10,10,200", response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadMessagesPhoto(t *testing.T) {
@@ -135,7 +135,7 @@ func TestVK_UploadMessagesPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkGroup.UploadMessagesPhoto(117253521, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadChatPhoto(t *testing.T) {
@@ -148,7 +148,7 @@ func TestVK_UploadChatPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadChatPhoto(needChatID(t), response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadChatPhotoCrop(t *testing.T) {
@@ -161,7 +161,7 @@ func TestVK_UploadChatPhotoCrop(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadChatPhotoCrop(needChatID(t), 0, 0, 200, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadMarketPhoto(t *testing.T) {
@@ -175,7 +175,7 @@ func TestVK_UploadMarketPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadMarketPhoto(vkGroupID, false, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadMarketPhotoMain(t *testing.T) {
@@ -189,7 +189,7 @@ func TestVK_UploadMarketPhotoMain(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadMarketPhoto(vkGroupID, true, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadMarketPhotoCrop(t *testing.T) {
@@ -203,7 +203,7 @@ func TestVK_UploadMarketPhotoCrop(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadMarketPhotoCrop(vkGroupID, 0, 0, 400, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
@@ -217,7 +217,7 @@ func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadMarketAlbumPhoto(vkGroupID, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadVideo_Error(t *testing.T) {
@@ -254,7 +254,7 @@ func TestVK_UploadDoc(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadDoc("test.jpeg", "test", response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadGroupDoc(t *testing.T) {
@@ -268,7 +268,7 @@ func TestVK_UploadGroupDoc(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadGroupDoc(vkGroupID, "test.jpeg", "test", response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadWallDoc(t *testing.T) {
@@ -281,7 +281,7 @@ func TestVK_UploadWallDoc(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadWallDoc("test.jpeg", "test", response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadGroupWallDoc(t *testing.T) {
@@ -295,7 +295,7 @@ func TestVK_UploadGroupWallDoc(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadGroupWallDoc(vkGroupID, "test.jpeg", "test", response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadMessagesDoc(t *testing.T) {
@@ -308,7 +308,7 @@ func TestVK_UploadMessagesDoc(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadMessagesDoc(117253521, "doc", "test.jpeg", "test", response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
@@ -322,7 +322,7 @@ func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkGroup.UploadOwnerCoverPhoto(vkGroupID, 0, 0, 795, 200, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
@@ -344,7 +344,7 @@ func TestVK_UploadStoriesPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadStoriesPhoto(api.Params{}, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadStoriesVideo_Error(t *testing.T) {
@@ -372,7 +372,7 @@ func TestVK_UploadPollsPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadPollsPhoto(response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadOwnerPollsPhoto(t *testing.T) {
@@ -386,7 +386,7 @@ func TestVK_UploadOwnerPollsPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadOwnerPollsPhoto(vkGroupID, response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadPrettyCardsPhoto(t *testing.T) {
@@ -399,7 +399,7 @@ func TestVK_UploadPrettyCardsPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadPrettyCardsPhoto(response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadLeadFormsPhoto(t *testing.T) {
@@ -412,7 +412,7 @@ func TestVK_UploadLeadFormsPhoto(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadLeadFormsPhoto(response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadAppImage(t *testing.T) {
@@ -426,7 +426,7 @@ func TestVK_UploadAppImage(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkService.UploadAppImage("160x160", response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_UploadGroupImage(t *testing.T) {
@@ -440,7 +440,7 @@ func TestVK_UploadGroupImage(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkGroup.UploadGroupImage("160x160", response.Body)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_Upload_Error(t *testing.T) {

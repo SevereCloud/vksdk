@@ -5,8 +5,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_PollsCreate(t *testing.T) {
@@ -24,28 +22,28 @@ func TestVK_PollsCreate(t *testing.T) {
 		"poll_id":  poll.ID,
 		"question": "questionEdit",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PollsAddVote(api.Params{
 		"owner_id":   poll.OwnerID,
 		"poll_id":    poll.ID,
 		"answer_ids": poll.Answers[0].ID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PollsDeleteVote(api.Params{
 		"owner_id":   poll.OwnerID,
 		"poll_id":    poll.ID,
 		"answer_ids": poll.Answers[0].ID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PollsGetBackgrounds(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.PollsGetBackgrounds(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PollsGetByID(t *testing.T) {
@@ -74,7 +72,7 @@ func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.PollsGetPhotoUploadServer(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PollsGetVoters(t *testing.T) {
@@ -85,7 +83,7 @@ func TestVK_PollsGetVoters(t *testing.T) {
 		"poll_id":    341032442,
 		"answer_ids": []int{1144979948, 1144979949, 1144979950},
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PollsGetVotersFields(t *testing.T) {
@@ -97,7 +95,7 @@ func TestVK_PollsGetVotersFields(t *testing.T) {
 		"answer_ids": []int{1144979948, 1144979949, 1144979950},
 		"fields":     "nickname, screen_name, sex",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 // TODO: TestVK_PollsSavePhoto

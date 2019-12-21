@@ -14,7 +14,7 @@ func TestVK_WallPost(t *testing.T) {
 	post, err := vkUser.WallPost(api.Params{
 		"message": "Test post",
 	})
-	if !assert.NoError(t, err) {
+	if !noError(t, err) {
 		t.Fatal(err)
 	}
 
@@ -23,47 +23,47 @@ func TestVK_WallPost(t *testing.T) {
 	res, err := vkUser.WallPin(api.Params{
 		"post_id": post.PostID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.WallUnpin(api.Params{
 		"post_id": post.PostID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.WallCloseComments(api.Params{
 		"post_id":  post.PostID,
 		"owner_id": vkUserID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.WallOpenComments(api.Params{
 		"post_id":  post.PostID,
 		"owner_id": vkUserID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	edit, err := vkUser.WallEdit(api.Params{
 		"post_id": post.PostID,
 		"message": "Test post edited",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, edit.PostID)
 
 	res, err = vkUser.WallDelete(api.Params{
 		"post_id": post.PostID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.WallRestore(api.Params{
 		"post_id": post.PostID,
 		"message": "Test post edited",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -76,7 +76,7 @@ func TestVK_WallGet(t *testing.T) {
 	}
 
 	get, err := vkService.WallGet(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, get.Count)
 
 	if assert.NotEmpty(t, get.Items) {
@@ -97,7 +97,7 @@ func TestVK_WallGet(t *testing.T) {
 	}
 
 	_, err = vkService.WallGetExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_WallGetByID(t *testing.T) {
@@ -108,7 +108,7 @@ func TestVK_WallGetByID(t *testing.T) {
 	}
 
 	res, err := vkService.WallGetByID(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res[0].ID)
 	assert.NotEmpty(t, res[0].FromID)
 	assert.NotEmpty(t, res[0].OwnerID)
@@ -123,7 +123,7 @@ func TestVK_WallGetByID(t *testing.T) {
 	// assert.NotEmpty(t, res[0].Views)
 
 	_, err = vkService.WallGetByIDExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_WallGetComment(t *testing.T) {
@@ -135,7 +135,7 @@ func TestVK_WallGetComment(t *testing.T) {
 	}
 
 	res, err := vkUser.WallGetComment(params)
-	assert.NoError(t, err)
+	noError(t, err)
 
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
@@ -153,7 +153,7 @@ func TestVK_WallGetComment(t *testing.T) {
 	}
 
 	_, err = vkUser.WallGetCommentExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_WallGetComments(t *testing.T) {
@@ -168,12 +168,12 @@ func TestVK_WallGetComments(t *testing.T) {
 	}
 
 	res, err := vkService.WallGetComments(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 
 	resEx, err := vkService.WallGetCommentsExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, resEx.Count)
 	assert.NotEmpty(t, resEx.Items)
 }
@@ -187,7 +187,7 @@ func TestVK_WallGetReposts(t *testing.T) {
 		"count":    1000,
 	})
 	// assert.NotEmpty(t, res.Items)
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_WallCreateComment(t *testing.T) {
@@ -198,7 +198,7 @@ func TestVK_WallCreateComment(t *testing.T) {
 		"post_id":  2342,
 		"message":  "Test comment",
 	})
-	if !assert.NoError(t, err) {
+	if !noError(t, err) {
 		t.Fatal(err)
 	}
 
@@ -209,21 +209,21 @@ func TestVK_WallCreateComment(t *testing.T) {
 		"comment_id": comment.CommentID,
 		"message":    "Test comment edited",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.WallDeleteComment(api.Params{
 		"owner_id":   117253521,
 		"comment_id": comment.CommentID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.WallRestoreComment(api.Params{
 		"owner_id":   117253521,
 		"comment_id": comment.CommentID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -235,7 +235,7 @@ func TestVK_WallPostAdsStealth(t *testing.T) {
 		"owner_id": -vkGroupID,
 		"message":  "Test AdsStealth",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, post.PostID)
 
 	res, err := vkUser.WallEditAdsStealth(api.Params{
@@ -243,7 +243,7 @@ func TestVK_WallPostAdsStealth(t *testing.T) {
 		"post_id":  post.PostID,
 		"message":  "Test AdsStealth edited",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -255,7 +255,7 @@ func TestVK_WallReportComment(t *testing.T) {
 		"comment_id": 4136,
 		// "reason":   3,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -267,7 +267,7 @@ func TestVK_WallReportPost(t *testing.T) {
 		"post_id":  3821,
 		"reason":   3,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -277,7 +277,7 @@ func TestVK_WallRepost(t *testing.T) {
 	res, err := vkUser.WallRepost(api.Params{
 		"object": "wall85635407_3133",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Success)
 	assert.NotEmpty(t, res.RepostsCount)
 	assert.NotEmpty(t, res.PostID)
@@ -294,12 +294,12 @@ func TestVK_WallSearch(t *testing.T) {
 	}
 
 	res, err := vkService.WallSearch(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 
 	resEx, err := vkService.WallSearchExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, resEx.Count)
 	assert.NotEmpty(t, resEx.Items)
 }

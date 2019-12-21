@@ -4,8 +4,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_StatsGet(t *testing.T) {
@@ -18,12 +16,12 @@ func TestVK_StatsGet(t *testing.T) {
 		"intervals_count": 10,
 		"extended":        true,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_StatsTrackVisitor(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.StatsTrackVisitor(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 }

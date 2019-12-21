@@ -14,7 +14,7 @@ func TestVK_PagesClearCache(t *testing.T) {
 	res, err := vkService.PagesClearCache(api.Params{
 		"url": "https://ya.ru",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -26,7 +26,7 @@ func TestVK_PagesGet(t *testing.T) {
 		"page_id":   51298167,
 		"need_html": true,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.ID)
 	assert.NotEmpty(t, res.GroupID)
 	assert.NotEmpty(t, res.Title)
@@ -48,14 +48,14 @@ func TestVK_PagesSave(t *testing.T) {
 		"title":    "Test",
 		"text":     "Test text",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, page)
 
 	history, err := vkUser.PagesGetHistory(api.Params{
 		"group_id": vkGroupID,
 		"page_id":  page,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	if assert.NotEmpty(t, history) {
 		assert.NotEmpty(t, history[0].Date)
@@ -69,7 +69,7 @@ func TestVK_PagesSave(t *testing.T) {
 		"group_id":   vkGroupID,
 		"version_id": history[0].ID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, version.ID)
 	assert.NotEmpty(t, version.GroupID)
 	assert.NotEmpty(t, version.Title)
@@ -85,7 +85,7 @@ func TestVK_PagesSave(t *testing.T) {
 		"view":     false,
 		"edit":     false,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -95,7 +95,7 @@ func TestVK_PagesGetTitles(t *testing.T) {
 	res, err := vkUser.PagesGetTitles(api.Params{
 		"group_id": 87938575,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -106,6 +106,6 @@ func TestVK_PagesParseWiki(t *testing.T) {
 		"text":     `[[photo-37273781_295853750|nolink;| ]]`,
 		"group_id": 37273781,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }

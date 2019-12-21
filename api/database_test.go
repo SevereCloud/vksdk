@@ -14,7 +14,7 @@ func TestVK_DatabaseGetChairs(t *testing.T) {
 	res, err := vkService.DatabaseGetChairs(api.Params{
 		"faculty_id": 15,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -30,7 +30,7 @@ func TestVK_DatabaseGetCities(t *testing.T) {
 		"country_id": 1,
 		"need_all":   true,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -48,7 +48,7 @@ func TestVK_DatabaseGetCitiesByID(t *testing.T) {
 	res, err := vkService.DatabaseGetCitiesByID(api.Params{
 		"city_ids": "1,5,192",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].ID)
@@ -60,7 +60,7 @@ func TestVK_DatabaseGetCountries(t *testing.T) {
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetCountries(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -75,7 +75,7 @@ func TestVK_DatabaseGetCountriesByID(t *testing.T) {
 	res, err := vkService.DatabaseGetCountriesByID(api.Params{
 		"country_ids": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].ID)
@@ -89,7 +89,7 @@ func TestVK_DatabaseGetFaculties(t *testing.T) {
 	res, err := vkService.DatabaseGetFaculties(api.Params{
 		"university_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -105,7 +105,7 @@ func TestVK_DatabaseGetMetroStations(t *testing.T) {
 		"city_id":  1,
 		"extended": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -121,7 +121,7 @@ func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
 	res, err := vkService.DatabaseGetMetroStationsByID(api.Params{
 		"station_ids": "189, 181",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].ID)
@@ -136,7 +136,7 @@ func TestVK_DatabaseGetRegions(t *testing.T) {
 	res, err := vkService.DatabaseGetRegions(api.Params{
 		"country_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -151,7 +151,7 @@ func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
 	res, err := vkService.DatabaseGetSchoolClasses(api.Params{
 		"country_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -162,7 +162,7 @@ func TestVK_DatabaseGetSchools(t *testing.T) {
 		"q":       56,
 		"city_id": 2,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -177,7 +177,7 @@ func TestVK_DatabaseGetUniversities(t *testing.T) {
 	res, err := vkService.DatabaseGetUniversities(api.Params{
 		"q": "СПб",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {

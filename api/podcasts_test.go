@@ -4,8 +4,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_PodcastsGet(t *testing.T) {
@@ -14,30 +12,30 @@ func TestVK_PodcastsGet(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.PodcastsGetCatalog(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PodcastsGetCatalogExtended(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PodcastsGetCategories(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PodcastsGetEpisodes(api.Params{
 		"owner_id": -37473931,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PodcastsGetFeed(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PodcastsGetFeedExtended(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PodcastsGetStartPage(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PodcastsGetStartPageExtended(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PodcastsMarkAsListened(t *testing.T) {
@@ -47,7 +45,7 @@ func TestVK_PodcastsMarkAsListened(t *testing.T) {
 		"owner_id":   -76982440,
 		"episode_id": 456239890,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }
 
 func TestVK_PodcastsSubscribe(t *testing.T) {
@@ -56,10 +54,10 @@ func TestVK_PodcastsSubscribe(t *testing.T) {
 	_, err := vkUser.PodcastsSubscribe(api.Params{
 		"owner_id": -37473931,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	_, err = vkUser.PodcastsUnsubscribe(api.Params{
 		"owner_id": -37473931,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 }

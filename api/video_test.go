@@ -16,7 +16,7 @@ func TestVK_VideoAddDeleteRestore(t *testing.T) {
 		"owner_id":  -139533130,
 		"video_id":  456239332,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.VideoDelete(api.Params{
@@ -24,7 +24,7 @@ func TestVK_VideoAddDeleteRestore(t *testing.T) {
 		"owner_id":  -139533130,
 		"video_id":  456239332,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.VideoRestore(api.Params{
@@ -32,7 +32,7 @@ func TestVK_VideoAddDeleteRestore(t *testing.T) {
 		"owner_id":  -139533130,
 		"video_id":  456239332,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	_, _ = vkUser.VideoDelete(api.Params{
@@ -46,20 +46,20 @@ func TestVK_VideoAddAlbum(t *testing.T) {
 	album, err := vkUser.VideoAddAlbum(api.Params{
 		"title": "Test",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, album.AlbumID)
 
 	res, err := vkUser.VideoEditAlbum(api.Params{
 		"album_id": album.AlbumID,
 		"title":    "Test edit",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.VideoDeleteAlbum(api.Params{
 		"album_id": album.AlbumID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 

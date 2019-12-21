@@ -16,7 +16,7 @@ func TestVK_GiftsGet(t *testing.T) {
 		"user_id": 1,
 		"count":   20,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {

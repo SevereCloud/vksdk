@@ -134,7 +134,7 @@ func testFave(t *testing.T, f object.FaveItem) {
 
 func TestVK_Fave(t *testing.T) {
 	fave, err := vkUser.FaveGet(api.Params{})
-	if !assert.NoError(t, err) {
+	if !noError(t, err) {
 		log.Fatal(err)
 	}
 
@@ -155,11 +155,11 @@ func TestVK_FaveArticle(t *testing.T) {
 	res, err := vkUser.FaveAddArticle(api.Params{
 		"url": "https://vk.com/@vkappsdev-vk-apps-kak-popast-v-katalog",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	fave, err := vkUser.FaveGet(api.Params{"item_type": "article"})
-	if !assert.NoError(t, err) {
+	if !noError(t, err) {
 		log.Fatal(err)
 	}
 
@@ -177,7 +177,7 @@ func TestVK_FaveArticle(t *testing.T) {
 		"owner_id":   fave.Items[0].Article.OwnerID,
 		"article_id": fave.Items[0].Article.ID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -189,11 +189,11 @@ func TestVK_FaveLink(t *testing.T) {
 	res, err := vkUser.FaveAddLink(api.Params{
 		"link": "https://google.ru",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	fave, err := vkUser.FaveGet(api.Params{"item_type": "link"})
-	if !assert.NoError(t, err) {
+	if !noError(t, err) {
 		log.Fatal(err)
 	}
 
@@ -210,7 +210,7 @@ func TestVK_FaveLink(t *testing.T) {
 	res, err = vkUser.FaveRemoveLink(api.Params{
 		"link_id": fave.Items[0].Link.ID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -222,7 +222,7 @@ func TestVK_FavePage(t *testing.T) {
 	res, err := vkUser.FaveAddPage(api.Params{
 		"user_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -230,7 +230,7 @@ func TestVK_FavePage(t *testing.T) {
 	res, err = vkUser.FaveTrackPageInteraction(api.Params{
 		"user_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -238,7 +238,7 @@ func TestVK_FavePage(t *testing.T) {
 	res, err = vkUser.FaveRemovePage(api.Params{
 		"user_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -251,7 +251,7 @@ func TestVK_FavePost(t *testing.T) {
 		"owner_id": -28551727,
 		"id":       5713,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -260,7 +260,7 @@ func TestVK_FavePost(t *testing.T) {
 		"owner_id": -28551727,
 		"id":       5713,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -273,7 +273,7 @@ func TestVK_FaveProduct(t *testing.T) {
 		"owner_id": -169097025,
 		"id":       3398864,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -282,7 +282,7 @@ func TestVK_FaveProduct(t *testing.T) {
 		"owner_id": -169097025,
 		"id":       3398864,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -294,7 +294,7 @@ func TestVK_FaveTag(t *testing.T) {
 	tag, err := vkUser.FaveAddTag(api.Params{
 		"name": "Test0",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	if assert.NotEmpty(t, tag) {
 		assert.NotEmpty(t, tag.ID)
@@ -306,7 +306,7 @@ func TestVK_FaveTag(t *testing.T) {
 	tagResponse, err := vkUser.FaveAddTag(api.Params{
 		"name": "Test1",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, tagResponse)
 
 	time.Sleep(sleepTime)
@@ -314,7 +314,7 @@ func TestVK_FaveTag(t *testing.T) {
 	res, err := vkUser.FaveAddLink(api.Params{
 		"link": "https://google.ru",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -323,7 +323,7 @@ func TestVK_FaveTag(t *testing.T) {
 		"link_url": "https://google.ru",
 		"tag_ids":  tagResponse.ID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -331,7 +331,7 @@ func TestVK_FaveTag(t *testing.T) {
 	res, err = vkUser.FaveAddPage(api.Params{
 		"group_id": 1,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -340,7 +340,7 @@ func TestVK_FaveTag(t *testing.T) {
 		"group_id": 1,
 		"tag_ids":  tagResponse.ID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -349,11 +349,11 @@ func TestVK_FaveTag(t *testing.T) {
 		"id":   tagResponse.ID,
 		"name": "Test2",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	tags, err := vkUser.FaveGetTags(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, tags)
 
 	// FaveReorderTags need all tags
@@ -367,7 +367,7 @@ func TestVK_FaveTag(t *testing.T) {
 	res, err = vkUser.FaveReorderTags(api.Params{
 		"ids": ids,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -375,7 +375,7 @@ func TestVK_FaveTag(t *testing.T) {
 	res, err = vkUser.FaveRemoveTag(api.Params{
 		"id": tags.Items[tags.Count-1].ID,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	_, _ = vkUser.FaveRemoveTag(api.Params{
@@ -391,7 +391,7 @@ func TestVK_FaveVideo(t *testing.T) {
 		"owner_id": -84585194,
 		"id":       456239018,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
@@ -400,7 +400,7 @@ func TestVK_FaveVideo(t *testing.T) {
 		"owner_id": -84585194,
 		"id":       456239018,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -410,13 +410,13 @@ func TestVK_FaveGet(t *testing.T) {
 	time.Sleep(sleepTime)
 
 	res, err := vkUser.FaveGet(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
 
 	_, err = vkUser.FaveGetExtended(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -426,7 +426,7 @@ func TestVK_FaveGetPages(t *testing.T) {
 	time.Sleep(sleepTime)
 
 	res, err := vkUser.FaveGetPages(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -465,6 +465,6 @@ func TestVK_FaveMarkSeen(t *testing.T) {
 	time.Sleep(sleepTime)
 
 	res, err := vkUser.FaveMarkSeen(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }

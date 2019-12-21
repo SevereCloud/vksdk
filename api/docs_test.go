@@ -15,7 +15,7 @@ func TestVK_DocsAdd(t *testing.T) {
 		"owner_id": -166562603,
 		"doc_id":   483194018,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, doc)
 
 	res, err := vkUser.DocsEdit(api.Params{
@@ -23,14 +23,14 @@ func TestVK_DocsAdd(t *testing.T) {
 		"doc_id":   doc,
 		"title":    "test_title",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.DocsDelete(api.Params{
 		"owner_id": vkUserID,
 		"doc_id":   doc,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -40,7 +40,7 @@ func TestVK_DocsGet(t *testing.T) {
 	res, err := vkUser.DocsGet(api.Params{
 		"owner_id": -166562603,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -61,7 +61,7 @@ func TestVK_DocsGetByID(t *testing.T) {
 	res, err := vkUser.DocsGetByID(api.Params{
 		"docs": "2314852_165123053",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].ID)
@@ -94,7 +94,7 @@ func TestVK_DocsGetTypes(t *testing.T) {
 	needUserToken(t)
 
 	res, err := vkUser.DocsGetTypes(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -108,7 +108,7 @@ func TestVK_DocsGetUploadServer(t *testing.T) {
 	needUserToken(t)
 
 	res, err := vkUser.DocsGetUploadServer(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
 
@@ -116,7 +116,7 @@ func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 	needUserToken(t)
 
 	res, err := vkUser.DocsGetMessagesUploadServer(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
 
@@ -124,7 +124,7 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 	needUserToken(t)
 
 	res, err := vkUser.DocsGetWallUploadServer(api.Params{})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
 
@@ -136,7 +136,7 @@ func TestVK_DocsSearch(t *testing.T) {
 	res, err := vkGroup.DocsSearch(api.Params{
 		"q": "golang",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {

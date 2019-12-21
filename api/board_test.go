@@ -16,21 +16,21 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		"title":    "Test topic",
 		"text":     "Test",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, topic)
 
 	res, err := vkUser.BoardCloseTopic(api.Params{
 		"group_id": vkGroupID,
 		"topic_id": topic,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.BoardOpenTopic(api.Params{
 		"group_id": vkGroupID,
 		"topic_id": topic,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.BoardEditTopic(api.Params{
@@ -39,21 +39,21 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		"title":    "Test topic edited",
 		"text":     "Test edited",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.BoardFixTopic(api.Params{
 		"group_id": vkGroupID,
 		"topic_id": topic,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.BoardUnfixTopic(api.Params{
 		"group_id": vkGroupID,
 		"topic_id": topic,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	comment, err := vkUser.BoardCreateComment(api.Params{
@@ -61,7 +61,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		"topic_id": topic,
 		"message":  "topic comment",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, comment)
 
 	res, err = vkUser.BoardEditComment(api.Params{
@@ -70,7 +70,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		"comment_id": comment,
 		"message":    "topic comment",
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.BoardDeleteComment(api.Params{
@@ -78,7 +78,7 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		"topic_id":   topic,
 		"comment_id": comment,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.BoardRestoreComment(api.Params{
@@ -86,14 +86,14 @@ func TestVK_BoardAddTopic(t *testing.T) {
 		"topic_id":   topic,
 		"comment_id": comment,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	res, err = vkUser.BoardDeleteTopic(api.Params{
 		"group_id": vkGroupID,
 		"topic_id": topic,
 	})
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res)
 }
 
@@ -107,7 +107,7 @@ func TestVK_BoardGetComments(t *testing.T) {
 	}
 
 	res, err := vkUser.BoardGetComments(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -120,7 +120,7 @@ func TestVK_BoardGetComments(t *testing.T) {
 	}
 
 	res2, err := vkUser.BoardGetCommentsExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res2.Count)
 
 	if assert.NotEmpty(t, res2.Items) {
@@ -154,7 +154,7 @@ func TestVK_BoardGetTopics(t *testing.T) {
 	}
 
 	res, err := vkUser.BoardGetTopics(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
@@ -173,7 +173,7 @@ func TestVK_BoardGetTopics(t *testing.T) {
 	// assert.NotEmpty(t, res.CanAddTopics)
 
 	res2, err := vkUser.BoardGetTopicsExtended(params)
-	assert.NoError(t, err)
+	noError(t, err)
 	assert.NotEmpty(t, res2.Count)
 
 	if assert.NotEmpty(t, res2.Items) {
