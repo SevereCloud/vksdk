@@ -22,6 +22,8 @@ func noError(t *testing.T, err error) bool {
 		t.Skip("Internal server error")
 	case errors.Permission:
 		t.Skip("Permission to perform this action is denied")
+	case errors.Captcha:
+		t.Skip("Captcha needed")
 	}
 
 	return assert.NoError(t, err)
