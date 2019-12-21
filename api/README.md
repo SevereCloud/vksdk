@@ -48,7 +48,7 @@ if err != nil {
 switch errors.GetType(err) {
 case errors.NoType:
 	log.Print("Ошибка не связанная с работай самого апи")
-case Captcha:
+case errors.Captcha:
 	log.Print("Требуется ввод кода с картинки (Captcha)")
 case 1:
 	log.Print("Код ошибки 1")

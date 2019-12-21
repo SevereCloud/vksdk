@@ -10,88 +10,194 @@ import (
 // Error codes. See https://vk.com/dev/errors
 // NOTE: what about iota?
 const (
-	NoType                            ErrorType = 0    // NoType error
-	Unknown                           ErrorType = 1    // Unknown error occurred
-	Disabled                          ErrorType = 2    // Application is disabled. Enable your application or use test mode
-	Method                            ErrorType = 3    // Unknown method passed
-	Signature                         ErrorType = 4    // Incorrect signature
-	Auth                              ErrorType = 5    // User authorization failed
-	TooMany                           ErrorType = 6    // Too many requests per second
-	Permission                        ErrorType = 7    // Permission to perform this action is denied
-	Request                           ErrorType = 8    // Invalid request
-	Flood                             ErrorType = 9    // Flood control
-	Server                            ErrorType = 10   // Internal server error
-	EnabledInTest                     ErrorType = 11   // In test mode application should be disabled or user should be authorized
-	Captcha                           ErrorType = 14   // Captcha needed
-	Access                            ErrorType = 15   // Access denied
-	AuthHTTPS                         ErrorType = 16   // HTTP authorization failed
-	AuthValidation                    ErrorType = 17   // Validation required
-	UserDeleted                       ErrorType = 18   // User was deleted or banned
-	Blocked                           ErrorType = 19   // Content blocked
-	MethodPermission                  ErrorType = 20   // Permission to perform this action is denied for non-standalone applications
-	MethodAds                         ErrorType = 21   // Permission to perform this action is allowed only for standalone and OpenAPI applications
-	Upload                            ErrorType = 22   // Upload error
-	MethodDisabled                    ErrorType = 23   // This method was disabled
-	NeedConfirmation                  ErrorType = 24   // Confirmation required
-	NeedTokenConfirmation             ErrorType = 25   // Token confirmation required
-	GroupAuth                         ErrorType = 27   // Group authorization failed
-	AppAuth                           ErrorType = 28   // Application authorization failed
-	RateLimit                         ErrorType = 29   // Rate limit reached
-	PrivateProfile                    ErrorType = 30   // This profile is private
-	Param                             ErrorType = 100  // One of the parameters specified was missing or invalid
-	ParamAPIID                        ErrorType = 101  // Invalid application API ID
-	Limits                            ErrorType = 103  // Out of limits
-	NotFound                          ErrorType = 104  // Not found
-	SaveFile                          ErrorType = 105  // Couldn't save file
-	ActionFailed                      ErrorType = 106  // Unable to process action
-	ParamUserID                       ErrorType = 113  // Invalid user id
-	ParamAlbumID                      ErrorType = 114  // Invalid album id
-	ParamServer                       ErrorType = 118  // Invalid server
-	ParamTitle                        ErrorType = 119  // Invalid title
-	ParamPhotos                       ErrorType = 122  // Invalid photos
-	ParamHash                         ErrorType = 121  // Invalid hash
-	ParamPhoto                        ErrorType = 129  // Invalid photo
-	ParamGroupID                      ErrorType = 125  // Invalid group id
-	ParamPageID                       ErrorType = 140  // Page not found
-	AccessPage                        ErrorType = 141  // Access to page denied
-	MobileNotActivated                ErrorType = 146  // The mobile number of the user is unknown
-	InsufficientFunds                 ErrorType = 147  // Application has insufficient funds
-	AccessMenu                        ErrorType = 148  // Access to the menu of the user denied
-	ParamTimestamp                    ErrorType = 150  // Invalid timestamp
-	FriendsListID                     ErrorType = 171  // Invalid list id
-	FriendsListLimit                  ErrorType = 173  // Reached the maximum number of lists
-	FriendsAddYourself                ErrorType = 174  // Cannot add user himself as friend
-	FriendsAddInEnemy                 ErrorType = 175  // Cannot add this user to friends as they have put you on their blacklist
-	FriendsAddEnemy                   ErrorType = 176  // Cannot add this user to friends as you put him on blacklist
-	FriendsAddNotFound                ErrorType = 177  // Cannot add this user to friends as user not found
-	ParamNoteID                       ErrorType = 180  // Note not found
-	AccessNote                        ErrorType = 181  // Access to note denied
-	AccessNoteComment                 ErrorType = 182  // You can't comment this note
-	AccessComment                     ErrorType = 183  // Access to comment denied
-	AccessAlbum                       ErrorType = 200  // Access denied
-	AccessAudio                       ErrorType = 201  // Access denied
-	AccessGroup                       ErrorType = 203  // Access to group denied
-	AccessVideo                       ErrorType = 204  // Access denied
-	AccessMarket                      ErrorType = 205  // Access denied
-	WallAccessPost                    ErrorType = 210  // Access to wall's post denied
-	WallAccessComment                 ErrorType = 211  // Access to wall's comment denied
-	WallAccessReplies                 ErrorType = 212  // Access to post comments denied
-	WallAccessAddReply                ErrorType = 213  // Access to status replies denied
-	WallAddPost                       ErrorType = 214  // Access to adding post denied
-	WallAdsPublished                  ErrorType = 219  // Advertisement post was recently added
-	WallTooManyRecipients             ErrorType = 220  // Too many recipients
-	StatusNoAudio                     ErrorType = 221  // User disabled track name broadcast
-	WallLinksForbidden                ErrorType = 222  // Hyperlinks are forbidden
-	WallReplyOwnerFlood               ErrorType = 223  // Too many replies
-	WallAdsPostLimitReached           ErrorType = 224  // Too many ads posts
-	PollsAccess                       ErrorType = 250  // Access to poll denied
-	PollsAnswerID                     ErrorType = 252  // Invalid answer id
-	PollsPollID                       ErrorType = 251  // Invalid poll id
-	PollsAccessWithoutVote            ErrorType = 253  // Access denied, please vote first
-	AccessGroups                      ErrorType = 260  // Access to the groups list is denied due to the user's privacy settings
-	AlbumFull                         ErrorType = 300  // This album is full
-	AlbumsLimit                       ErrorType = 302  // Albums number limit is reached
-	VotesPermission                   ErrorType = 500  // Permission denied. You must enable votes processing in application settings
+	NoType ErrorType = 0 // NoType error
+	// Unknown error occurred
+	//
+	// Try again later.
+	Unknown ErrorType = 1
+	// Application is disabled. Enable your application or use test mode
+	//
+	// You need to switch on the app in Settings (https://vk.com/editapp?id={Your API_ID}
+	// or use the test mode (test_mode=1).
+	Disabled ErrorType = 2
+	// Unknown method passed
+	//
+	// Check the method name: http://vk.com/dev/methods
+	Method    ErrorType = 3
+	Signature ErrorType = 4 // Incorrect signature
+	// User authorization failed
+	//
+	// Make sure that you use a correct authorization type
+	Auth ErrorType = 5
+	// Too many requests per second
+	//
+	// Decrease the request frequency or use the execute method.
+	// More details on frequency limits here:
+	// https://vk.com/dev/api_requests
+	TooMany ErrorType = 6
+	// Permission to perform this action is denied
+	//
+	// Make sure that your have received required permissions during the authorization.
+	// You can do it with the account.getAppPermissions method.
+	// https://vk.com/dev/permissions
+	Permission ErrorType = 7
+
+	// Invalid request
+	//
+	// Check the request syntax and used parameters list (it can be found on a method description page)
+	Request ErrorType = 8
+	// Flood control
+	//
+	// You need to decrease the count of identical requests. For more efficient work you may use execute.
+	Flood ErrorType = 9
+	// Internal server error
+	//
+	// Try again later.
+	Server ErrorType = 10
+	// In test mode application should be disabled or user should be authorized
+	//
+	// Switch the app off in Settings: https://vk.com/editapp?id={Your API_ID}
+	EnabledInTest ErrorType = 11
+	// Captcha needed
+	//
+	// See https://vk.com/dev/captcha_error
+	Captcha ErrorType = 14
+	// Access denied
+	//
+	// Make sure that you use correct identifiers and the content is available for the user in the full version of the site.
+	Access ErrorType = 15
+	// HTTP authorization failed
+	//
+	// To avoid this error check if a user has the 'Use secure connection' option enabled with the account.getInfo method.
+	AuthHTTPS ErrorType = 16
+	// Validation required
+	//
+	// Make sure that you don't use a token received with http://vk.com/dev/auth_mobile for a request from the server. It's restricted.
+	//
+	// https://vk.com/dev/need_validation
+	AuthValidation ErrorType = 17
+	UserDeleted    ErrorType = 18 // User was deleted or banned
+	Blocked        ErrorType = 19 // Content blocked
+	// Permission to perform this action is denied for non-standalone applications
+	//
+	// If you see this error despite your app has the Standalone type, make sure that you use redirect_uri=https://oauth.vk.com/blank.html.
+	// Details here: https://vk.com/dev/auth_mobile
+	MethodPermission ErrorType = 20
+	MethodAds        ErrorType = 21 // Permission to perform this action is allowed only for standalone and OpenAPI applications
+	Upload           ErrorType = 22 // Upload error
+	// This method was disabled
+	//
+	// All the methods available now are listed here: http://vk.com/dev/methods
+	MethodDisabled ErrorType = 23
+	// Confirmation required
+	//
+	// In some cases VK requires to request action confirmation from the user (for Standalone apps only).
+	//
+	// Following parameter is transmitted with the error message as well:
+	//
+	// confirmation_text – text of the message to be shown in the default confirmation window.
+	//
+	// The app should display the default confirmation windos
+	// with text from confirmation_text and two buttons: "Continue" and "Cancel".
+	// If user confirms the action repeat the request with an extra parameter: confirm = 1.
+	//
+	// https://vk.com/dev/need_confirmation
+	NeedConfirmation      ErrorType = 24
+	NeedTokenConfirmation ErrorType = 25 // Token confirmation required
+	GroupAuth             ErrorType = 27 // Group authorization failed
+	AppAuth               ErrorType = 28 // Application authorization failed
+	// Rate limit reached
+	//
+	// More details on rate limits here: https://vk.com/dev/data_limits
+	RateLimit      ErrorType = 29
+	PrivateProfile ErrorType = 30 // This profile is private
+	// One of the parameters specified was missing or invalid
+	//
+	// Check the reqired parameters list and their format on a method description page.
+	Param ErrorType = 100
+	// Invalid application API ID
+	//
+	// Find the app in the administrated list in settings: http://vk.com/apps?act=settings
+	// And set the correct API_ID in the request.
+	ParamAPIID   ErrorType = 101
+	Limits       ErrorType = 103 // Out of limits
+	NotFound     ErrorType = 104 // Not found
+	SaveFile     ErrorType = 105 // Couldn't save file
+	ActionFailed ErrorType = 106 // Unable to process action
+	// Invalid user id
+	//
+	// Make sure that you use a correct id. You can get an id using a screen
+	// name with the utils.resolveScreenName method
+	ParamUserID        ErrorType = 113
+	ParamAlbumID       ErrorType = 114 // Invalid album id
+	ParamServer        ErrorType = 118 // Invalid server
+	ParamTitle         ErrorType = 119 // Invalid title
+	ParamPhotos        ErrorType = 122 // Invalid photos
+	ParamHash          ErrorType = 121 // Invalid hash
+	ParamPhoto         ErrorType = 129 // Invalid photo
+	ParamGroupID       ErrorType = 125 // Invalid group id
+	ParamPageID        ErrorType = 140 // Page not found
+	AccessPage         ErrorType = 141 // Access to page denied
+	MobileNotActivated ErrorType = 146 // The mobile number of the user is unknown
+	InsufficientFunds  ErrorType = 147 // Application has insufficient funds
+	AccessMenu         ErrorType = 148 // Access to the menu of the user denied
+	// Invalid timestamp
+	//
+	// You may get a correct value with the utils.getServerTime method
+	ParamTimestamp     ErrorType = 150
+	FriendsListID      ErrorType = 171 // Invalid list id
+	FriendsListLimit   ErrorType = 173 // Reached the maximum number of lists
+	FriendsAddYourself ErrorType = 174 // Cannot add user himself as friend
+	FriendsAddInEnemy  ErrorType = 175 // Cannot add this user to friends as they have put you on their blacklist
+	FriendsAddEnemy    ErrorType = 176 // Cannot add this user to friends as you put him on blacklist
+	FriendsAddNotFound ErrorType = 177 // Cannot add this user to friends as user not found
+	ParamNoteID        ErrorType = 180 // Note not found
+	AccessNote         ErrorType = 181 // Access to note denied
+	AccessNoteComment  ErrorType = 182 // You can't comment this note
+	AccessComment      ErrorType = 183 // Access to comment denied
+	// Access to album denied
+	//
+	// Make sure you use correct ids (owner_id is always positive for users,
+	// negative for communities) and the current user has access to the
+	// requested content in the full version of the site.
+	AccessAlbum ErrorType = 200
+	// Access to audio denied
+	//
+	// Make sure you use correct ids (owner_id is always positive for users,
+	// negative for communities) and the current user has access to the
+	// requested content in the full version of the site.
+	AccessAudio ErrorType = 201
+	// Access to group denied
+	//
+	// Make sure that the current user is a member or admin of the community (for closed and private groups and events).
+	AccessGroup             ErrorType = 203
+	AccessVideo             ErrorType = 204 // Access denied
+	AccessMarket            ErrorType = 205 // Access denied
+	WallAccessPost          ErrorType = 210 // Access to wall's post denied
+	WallAccessComment       ErrorType = 211 // Access to wall's comment denied
+	WallAccessReplies       ErrorType = 212 // Access to post comments denied
+	WallAccessAddReply      ErrorType = 213 // Access to status replies denied
+	WallAddPost             ErrorType = 214 // Access to adding post denied
+	WallAdsPublished        ErrorType = 219 // Advertisement post was recently added
+	WallTooManyRecipients   ErrorType = 220 // Too many recipients
+	StatusNoAudio           ErrorType = 221 // User disabled track name broadcast
+	WallLinksForbidden      ErrorType = 222 // Hyperlinks are forbidden
+	WallReplyOwnerFlood     ErrorType = 223 // Too many replies
+	WallAdsPostLimitReached ErrorType = 224 // Too many ads posts
+	PollsAccess             ErrorType = 250 // Access to poll denied
+	PollsAnswerID           ErrorType = 252 // Invalid answer id
+	PollsPollID             ErrorType = 251 // Invalid poll id
+	PollsAccessWithoutVote  ErrorType = 253 // Access denied, please vote first
+	AccessGroups            ErrorType = 260 // Access to the groups list is denied due to the user's privacy settings
+	// This album is full
+	//
+	// You need to delete the odd objects from the album or use another album.
+	AlbumFull   ErrorType = 300
+	AlbumsLimit ErrorType = 302 // Albums number limit is reached
+	// Permission denied. You must enable votes processing in application settings
+	//
+	// Check the app settings: http://vk.com/editapp?id={Your API_ID}&section=payments
+	VotesPermission                   ErrorType = 500
 	Votes                             ErrorType = 503  // Not enough votes
 	AdsPermission                     ErrorType = 600  // Permission denied. You have no access to operations specified with given object(s)
 	WeightedFlood                     ErrorType = 601  // Permission denied. You have requested too many actions this day. Try later
@@ -160,6 +266,12 @@ const (
 	PrettyCardsTooManyCards           ErrorType = 1901 // Too many cards
 	PrettyCardsCardIsConnectedToPost  ErrorType = 1902 // Card is connected to post
 	CallbackServersLimit              ErrorType = 2000 // Servers number limit is reached
+	Recaptcha                         ErrorType = 3300 // Recaptcha needed
+	PhoneValidation                   ErrorType = 3301 // Phone validation needed
+	PasswordValidation                ErrorType = 3302 // Password validation needed
+	OtpAppValidation                  ErrorType = 3303 // Otp app validation needed
+	EmailConfirmation                 ErrorType = 3304 // Email confirmation needed
+	AssertVotes                       ErrorType = 3305 // Assert votes
 )
 
 // ErrorType is the type of an error
