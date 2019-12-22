@@ -109,7 +109,7 @@ type NewsfeedItemWallpost struct {
 	PostType    string                   `json:"post_type"`
 	Reposts     baseRepostsInfo          `json:"reposts"`
 	MarkedAsAds int                      `json:"marked_as_ads,omitempty"`
-	Views       int                      `json:"views,omitempty"`
+	Views       interface{}              `json:"views,omitempty"` // BUG: Views int or wallViews
 	IsFavorite  bool                     `json:"is_favorite,omitempty"`
 	SignerID    int                      `json:"signer_id,omitempty"`
 	Text        string                   `json:"text"` // Post text
