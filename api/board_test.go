@@ -10,6 +10,7 @@ import (
 
 func TestVK_BoardAddTopic(t *testing.T) {
 	needUserToken(t)
+	needGroupToken(t)
 
 	topic, err := vkUser.BoardAddTopic(api.Params{
 		"group_id": vkGroupID,

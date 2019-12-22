@@ -79,7 +79,7 @@ func TestMain(m *testing.M) {
 	if vkGroup.AccessToken != "" {
 		group, err := vkGroup.GroupsGetByID(api.Params{})
 		if err != nil {
-			log.Fatal(err)
+			log.Fatalf("GROUP_TOKEN bad: %v", err)
 		}
 
 		vkGroupID = group[0].ID
@@ -93,7 +93,7 @@ func TestMain(m *testing.M) {
 	if vkUser.AccessToken != "" {
 		user, err := vkUser.UsersGet(api.Params{})
 		if err != nil {
-			log.Fatal(err)
+			log.Fatalf("USER_TOKEN bad: %v", err)
 		}
 
 		vkUserID = user[0].ID

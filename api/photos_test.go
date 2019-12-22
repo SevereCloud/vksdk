@@ -349,6 +349,7 @@ func TestVK_PhotosGetUserPhotos(t *testing.T) {
 
 func TestVK_PhotosGetWallUploadServer(t *testing.T) {
 	needUserToken(t)
+	needGroupToken(t)
 
 	_, err := vkUser.PhotosGetWallUploadServer(api.Params{
 		"group_id": vkGroupID,

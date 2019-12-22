@@ -553,6 +553,8 @@ func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 }
 
 func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
+	needGroupToken(t)
+
 	res, err := vkGroup.GroupsIsMemberUserIDs(api.Params{
 		"group_id": 134304772,
 		"user_ids": 216916273,

@@ -9,6 +9,7 @@ import (
 func TestVK_StatsGet(t *testing.T) {
 	t.Skip("See https://vk.com/bug136096")
 	needUserToken(t)
+	needGroupToken(t)
 
 	_, err := vkUser.StatsGet(api.Params{
 		"group_id":        vkGroupID,

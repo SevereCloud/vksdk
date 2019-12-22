@@ -133,6 +133,8 @@ func testFave(t *testing.T, f object.FaveItem) {
 }
 
 func TestVK_Fave(t *testing.T) {
+	needUserToken(t)
+
 	fave, err := vkUser.FaveGet(api.Params{})
 	if !noError(t, err) {
 		log.Fatal(err)
