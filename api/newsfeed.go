@@ -102,7 +102,7 @@ type NewsfeedGetListsResponse struct {
 		ID        int    `json:"id"`
 		Title     string `json:"title"`
 		NoReposts int    `json:"no_reposts"`
-		SourceIds []int  `json:"source_ids"`
+		SourceIDS []int  `json:"source_ids"`
 	} `json:"items"`
 }
 
@@ -153,6 +153,8 @@ type NewsfeedGetSuggestedSourcesResponse struct {
 
 // NewsfeedGetSuggestedSources returns communities and users that current user is suggested to follow.
 //
+// BUG: group.is_closed int | user.is_closed bool
+//
 // https://vk.com/dev/newsfeed.getSuggestedSources
 func (vk *VK) NewsfeedGetSuggestedSources(params Params) (response NewsfeedGetSuggestedSourcesResponse, err error) {
 	err = vk.RequestUnmarshal("newsfeed.getSuggestedSources", params, &response)
@@ -161,9 +163,9 @@ func (vk *VK) NewsfeedGetSuggestedSources(params Params) (response NewsfeedGetSu
 
 // NewsfeedIgnoreItemHides an item from the newsfeed.
 //
-// https://vk.com/dev/newsfeed.ignoreItemHides
-func (vk *VK) NewsfeedIgnoreItemHides(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("newsfeed.ignoreItemHides", params, &response)
+// https://vk.com/dev/newsfeed.ignoreItem
+func (vk *VK) NewsfeedIgnoreItem(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("newsfeed.ignoreItem", params, &response)
 	return
 }
 

@@ -257,8 +257,9 @@ func TestVK_MessagesGetHistoryAttachments(t *testing.T) {
 	needUserToken(t)
 	chatID := needChatID(t)
 
-	_, err := vkUser.MessagesGetHistory(api.Params{
-		"peer_id": 2000000000 + chatID,
+	_, err := vkUser.MessagesGetHistoryAttachments(api.Params{
+		"peer_id":    2000000000 + chatID,
+		"media_type": "photo",
 	})
 	noError(t, err)
 }
@@ -420,7 +421,7 @@ func TestVK_MessagesSetActivity(t *testing.T) {
 	needUserToken(t)
 	chatID := needChatID(t)
 
-	_, err := vkUser.MessagesUnpin(api.Params{
+	_, err := vkUser.MessagesSetActivity(api.Params{
 		"peer_id": 2000000000 + chatID,
 		"type":    "typing",
 	})
