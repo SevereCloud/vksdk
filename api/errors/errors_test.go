@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/errors"
+	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/SevereCloud/vksdk/object"
 	"github.com/stretchr/testify/assert"
 )

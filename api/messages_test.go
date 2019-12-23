@@ -3,7 +3,7 @@ package api_test
 import (
 	"testing"
 
-	"github.com/SevereCloud/vksdk/errors"
+	"github.com/SevereCloud/vksdk/api/errors"
 
 	"github.com/SevereCloud/vksdk/api"
 	"github.com/stretchr/testify/assert"

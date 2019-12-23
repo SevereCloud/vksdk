@@ -8,7 +8,7 @@ import (
 
 	"github.com/SevereCloud/vksdk/api"
 
-	"github.com/SevereCloud/vksdk/errors"
+	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/stretchr/testify/assert"
 )
 

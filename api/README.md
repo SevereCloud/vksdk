@@ -37,13 +37,13 @@ if err != nil {
 
 #### Обработка ошибок
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/errors)
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api/errors)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/errors)
 
 Пример обработки ошибки
 
 ```go
-// import "github.com/SevereCloud/vksdk/errors"
+// import "github.com/SevereCloud/vksdk/api/errors"
 
 switch errors.GetType(err) {
 case errors.NoType:
@@ -60,7 +60,7 @@ default:
 Получение ошибки, [отправленной ВК](http://godoc.org/github.com/SevereCloud/vksdk/object#Error)
 
 ```go
-// import "github.com/SevereCloud/vksdk/errors"
+// import "github.com/SevereCloud/vksdk/api/errors"
 
 vkErr := errors.GetErrorContext(err)
 ```

@@ -1,4 +1,4 @@
-package errors // import "github.com/SevereCloud/vksdk/errors"
+package errors // import "github.com/SevereCloud/vksdk/api/errors"
 
 import (
 	"fmt"
@@ -8,7 +8,6 @@ import (
 )
 
 // Error codes. See https://vk.com/dev/errors
-// NOTE: what about iota?
 const (
 	NoType ErrorType = 0 // NoType error
 	// Unknown error occurred

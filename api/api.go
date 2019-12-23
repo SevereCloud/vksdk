@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/SevereCloud/vksdk/errors"
+	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/SevereCloud/vksdk/object"
 )
 

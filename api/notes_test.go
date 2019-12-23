@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/SevereCloud/vksdk/errors"
+	"github.com/SevereCloud/vksdk/api/errors"
 )
 
 func TestVK_NotesAdd(t *testing.T) {
