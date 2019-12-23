@@ -69,16 +69,11 @@ type baseCommentsInfo struct {
 	CanOpen       bool `json:"can_open"`
 }
 
-type baseGeoCoordinates struct {
-	Latitude  float64 `json:"latitude"`
-	Longitude float64 `json:"longitude"`
-}
-
 type baseGeo struct {
-	Coordinates baseGeoCoordinates `json:"coordinates"`
-	Place       basePlace          `json:"place"`
-	Showmap     int                `json:"showmap"`
-	Type        string             `json:"type"`
+	Coordinates string    `json:"coordinates"`
+	Place       basePlace `json:"place"`
+	Showmap     int       `json:"showmap"`
+	Type        string    `json:"type"`
 }
 
 type baseImage struct {
