@@ -334,19 +334,6 @@ func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
 	}
 }
 
-func TestVK_UploadStoriesPhoto(t *testing.T) {
-	needUserToken(t)
-
-	response, err := http.Get(photoURL)
-	if err != nil {
-		t.Fatalf("%v", err)
-	}
-	defer response.Body.Close()
-
-	_, err = vkUser.UploadStoriesPhoto(api.Params{}, response.Body)
-	noError(t, err)
-}
-
 func TestVK_UploadStoriesVideo_Error(t *testing.T) {
 	needUserToken(t)
 

@@ -1,433 +1,138 @@
 package api_test
 
 import (
-	"reflect"
+	"net/http"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
+	"github.com/stretchr/testify/assert"
 )
 
-func TestVK_StoriesGet(t *testing.T) {
-	needGroupToken(t)
+func TestVK_StoriesBanOwner(t *testing.T) {
+	needUserToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGet error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGet(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGet() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGet() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
+	_, err := vkUser.StoriesBanOwner(api.Params{
+		"owners_ids": []int{-1, 1},
+	})
+	noError(t, err)
+
+	banned, err := vkUser.StoriesGetBanned(api.Params{})
+	noError(t, err)
+	assert.NotEmpty(t, banned.Count)
+	assert.NotEmpty(t, banned.Items)
+
+	bannedEx, err := vkUser.StoriesGetBannedExtended(api.Params{})
+	noError(t, err)
+	assert.NotEmpty(t, bannedEx.Count)
+	assert.NotEmpty(t, bannedEx.Items)
+	assert.NotEmpty(t, bannedEx.Profiles)
+	assert.NotEmpty(t, bannedEx.Groups)
+
+	_, err = vkUser.StoriesUnbanOwner(api.Params{
+		"owners_ids": []int{-1, 1},
+	})
+	noError(t, err)
+}
+
+func TestVK_StoriesGet(t *testing.T) {
+	needUserToken(t)
+
+	_, err := vkUser.StoriesGet(api.Params{})
+	noError(t, err)
 }
 
 func TestVK_StoriesGetExtended(t *testing.T) {
-	needGroupToken(t)
+	needUserToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetExtended error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetExtended(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetExtended() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
-}
-
-func TestVK_StoriesGetBanned(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetBanned error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetBanned(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetBanned() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetBanned() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
-}
-
-func TestVK_StoriesGetBannedExtended(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetBannedExtended error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetBannedExtended(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetBannedExtended() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetBannedExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
+	_, err := vkUser.StoriesGetExtended(api.Params{})
+	noError(t, err)
 }
 
 func TestVK_StoriesGetByID(t *testing.T) {
 	needGroupToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetByID error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetByID(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetByID() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetByID() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
+	_, err := vkGroup.StoriesGetByID(api.Params{
+		"stories": "93388_21539,93388_20904",
+	})
+	noError(t, err)
 }
 
 func TestVK_StoriesGetByIDExtended(t *testing.T) {
 	needGroupToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetByIDExtended error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetByIDExtended(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetByIDExtended() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetByIDExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
-}
-
-func TestVK_StoriesGetPhotoUploadServer(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetPhotoUploadServer error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetPhotoUploadServer(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetPhotoUploadServer() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetPhotoUploadServer() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
+	_, err := vkGroup.StoriesGetByIDExtended(api.Params{
+		"stories": "93388_21539,93388_20904",
+	})
+	noError(t, err)
 }
 
 func TestVK_StoriesGetReplies(t *testing.T) {
 	needGroupToken(t)
 
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetReplies error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetReplies(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetReplies() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetReplies() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
-}
+	defer response.Body.Close()
 
-func TestVK_StoriesGetRepliesExtended(t *testing.T) {
-	needGroupToken(t)
+	res, err := vkGroup.UploadStoriesPhoto(api.Params{
+		"add_to_news": true,
+	}, response.Body)
+	noError(t, err)
+	assert.NotEmpty(t, res.Stories)
+	// assert.NotEmpty(t, res.Sig)
 
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetRepliesExtended error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
+	params := api.Params{
+		"owner_id": res.Stories.OwnerID,
+		"story_id": res.Stories.ID,
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetRepliesExtended(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetRepliesExtended() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetRepliesExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
-}
 
-func TestVK_StoriesGetStats(t *testing.T) {
-	needGroupToken(t)
+	_, err = vkGroup.StoriesGetReplies(params)
+	noError(t, err)
 
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetStats error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetStats(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetStats() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetStats() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
-}
+	_, err = vkGroup.StoriesGetRepliesExtended(params)
+	noError(t, err)
 
-func TestVK_StoriesGetVideoUploadServer(t *testing.T) {
-	needGroupToken(t)
+	_, err = vkGroup.StoriesGetStats(params)
+	noError(t, err)
 
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetVideoUploadServer error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetVideoUploadServer(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetVideoUploadServer() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetVideoUploadServer() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
-}
+	_, err = vkGroup.StoriesGetViewers(params)
+	noError(t, err)
 
-func TestVK_StoriesGetViewers(t *testing.T) {
-	needGroupToken(t)
+	_, err = vkGroup.StoriesGetViewersExtended(params)
+	noError(t, err)
 
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetViewers error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetViewers(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetViewers() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetViewers() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
-}
-
-func TestVK_StoriesGetViewersExtended(t *testing.T) {
-	needGroupToken(t)
-
-	tests := []struct {
-		name         string
-		argParams    api.Params
-		wantResponse api.GroupsAddLinkResponse
-		wantErr      bool
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesGetViewersExtended error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotResponse, err := vkGroup.StoriesGetViewersExtended(tt.argParams)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("VK.StoriesGetViewersExtended() err = %v, want %v", err, tt.wantErr)
-			}
-			if !reflect.DeepEqual(gotResponse, tt.wantResponse) {
-				t.Errorf("VK.StoriesGetViewersExtended() gotResponse = %v, want %v", gotResponse, tt.wantResponse)
-			}
-		})
-	}
+	_, err = vkGroup.StoriesDelete(params)
+	noError(t, err)
 }
 
 func TestVK_StoriesHideAllReplies(t *testing.T) {
-	needGroupToken(t)
+	needUserToken(t)
 
-	tests := []struct {
-		name      string
-		argParams api.Params
-		wantErr   api.Error
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesHideAllReplies error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if _, err := vkGroup.StoriesHideAllReplies(tt.argParams); !reflect.DeepEqual(err, tt.wantErr) {
-				t.Errorf("VK.StoriesHideAllReplies() = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+	_, err := vkUser.StoriesHideAllReplies(api.Params{
+		"owner_id": 1,
+	})
+	noError(t, err)
 }
 
 func TestVK_StoriesHideReply(t *testing.T) {
-	needGroupToken(t)
+	// TODO: Add test case
+}
 
-	tests := []struct {
-		name      string
-		argParams api.Params
-		wantErr   api.Error
-	}{
-		// TODO: Add test cases.
-		// {
-		// 	name:      "StoriesHideReply error",
-		// 	argParams: Params{},
-		// 	wantErr: Error{Code: 100},
-		// },
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if _, err := vkGroup.StoriesHideReply(tt.argParams); !reflect.DeepEqual(err, tt.wantErr) {
-				t.Errorf("VK.StoriesHideReply() = %v, want %v", err, tt.wantErr)
-			}
-		})
-	}
+func TestVK_StoriesSearch(t *testing.T) {
+	needUserToken(t)
+
+	_, err := vkUser.StoriesSearch(api.Params{
+		"q": "test",
+	})
+	noError(t, err)
+}
+
+func TestVK_StoriesSearchExtended(t *testing.T) {
+	needUserToken(t)
+
+	_, err := vkUser.StoriesSearchExtended(api.Params{
+		"q": "test",
+	})
+	noError(t, err)
 }

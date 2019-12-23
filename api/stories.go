@@ -20,8 +20,8 @@ func (vk *VK) StoriesDelete(params Params) (response int, err error) {
 
 // StoriesGetResponse struct
 type StoriesGetResponse struct {
-	Count int                   `json:"count"`
-	Items []object.StoriesStory `json:"items"`
+	Count int                     `json:"count"`
+	Items [][]object.StoriesStory `json:"items"`
 }
 
 // StoriesGet returns stories available for current user.
@@ -38,8 +38,8 @@ func (vk *VK) StoriesGet(params Params) (response StoriesGetResponse, err error)
 
 // StoriesGetExtendedResponse struct
 type StoriesGetExtendedResponse struct {
-	Count int                   `json:"count"`
-	Items []object.StoriesStory `json:"items"`
+	Count int                     `json:"count"`
+	Items [][]object.StoriesStory `json:"items"`
 	object.ExtendedResponse
 }
 

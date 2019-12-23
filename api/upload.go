@@ -673,13 +673,13 @@ func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, f
 }
 
 type UploadStories struct {
-	Stories object.StoriesStory `json:"stories"`
+	Stories object.StoriesStory `json:"story"`
 	Sig     string              `json:"_sig"`
 }
 
 type rawUploadStoriesPhoto struct {
-	UploadStories
-	Error struct {
+	Response UploadStories `json:"response"`
+	Error    struct {
 		ErrorCode int    `json:"error_code"`
 		Type      string `json:"type"`
 	} `json:"error"`
@@ -693,7 +693,11 @@ type rawUploadStoriesVideo struct {
 // UploadStoriesPhoto uploading Story
 //
 // Supported formats: JPG, PNG, GIF.
-// Limits: sum of with and height no more than 14000px, file size no more than 10 MB. Video format: h264 video, aac audio, maximum 720х1280, 30fps.
+// Limits: sum of with and height no more than 14000px, file size no
+// more than 10 MB. Video format: h264 video, aac audio,
+// maximum 720х1280, 30fps.
+//
+// https://vk.com/dev/stories.getPhotoUploadServer
 func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response UploadStories, err error) {
 	uploadServer, err := vk.StoriesGetPhotoUploadServer(params)
 	if err != nil {
@@ -715,8 +719,8 @@ func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response Upload
 	if handler.Error.ErrorCode != 0 {
 		err = fmt.Errorf(handler.Error.Type)
 	} else {
-		response.Sig = handler.Sig
-		response.Stories = handler.Stories
+		response.Sig = handler.Response.Sig
+		response.Stories = handler.Response.Stories
 	}
 
 	return
