@@ -48,8 +48,8 @@ type MarketMarketItem struct {
 	Photos       []PhotosPhoto        `json:"photos"`
 	CanComment   int                  `json:"can_comment"`
 	CanRepost    int                  `json:"can_repost"`
-	Likes        baseLikesInfo        `json:"likes"`
-	Reposts      baseRepostsInfo      `json:"reposts"`
+	Likes        BaseLikesInfo        `json:"likes"`
+	Reposts      BaseRepostsInfo      `json:"reposts"`
 	ViewsCount   int                  `json:"views_count"`
 	URL          string               `json:"url"` // URL to item
 	ButtonTitle  string               `json:"button_title"`

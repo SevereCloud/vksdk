@@ -6,9 +6,9 @@ import "encoding/json"
 type NotificationsFeedback struct {
 	Attachments []wallWallpostAttachment `json:"attachments"`
 	FromID      int                      `json:"from_id"` // Reply author's ID
-	Geo         baseGeo                  `json:"geo"`
+	Geo         BaseGeo                  `json:"geo"`
 	ID          int                      `json:"id"` // Item ID
-	Likes       baseLikesInfo            `json:"likes"`
+	Likes       BaseLikesInfo            `json:"likes"`
 	Text        string                   `json:"text"`  // Reply text
 	ToID        int                      `json:"to_id"` // Wall owner's ID
 }

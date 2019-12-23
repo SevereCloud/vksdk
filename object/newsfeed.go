@@ -38,7 +38,7 @@ type NewsfeedItemFriend struct {
 
 type newsfeedItemFriendFriends struct {
 	Count int          `json:"count"` // Number of friends has been added
-	Items []baseUserID `json:"items"`
+	Items []BaseUserID `json:"items"`
 }
 
 // NewsfeedItemNote struct
@@ -82,8 +82,8 @@ type NewsfeedItemStoriesBlock struct {
 
 // NewsfeedItemTopic struct
 type NewsfeedItemTopic struct {
-	// Comments baseCommentsInfo `json:"comments"`
-	// Likes baseLikesInfo `json:"likes"`
+	// Comments BaseCommentsInfo `json:"comments"`
+	// Likes BaseLikesInfo `json:"likes"`
 	// Text  string        `json:"text"` // Post text
 }
 
@@ -101,13 +101,13 @@ type newsfeedItemVideoVideo struct {
 type NewsfeedItemWallpost struct {
 	Activity    newsfeedEventActivity    `json:"activity"`
 	Attachments []wallWallpostAttachment `json:"attachments"`
-	Comments    baseCommentsInfo         `json:"comments"`
+	Comments    BaseCommentsInfo         `json:"comments"`
 	CopyHistory []WallWallpost           `json:"copy_history"`
-	Geo         baseGeo                  `json:"geo"`
-	Likes       baseLikesInfo            `json:"likes"`
+	Geo         BaseGeo                  `json:"geo"`
+	Likes       BaseLikesInfo            `json:"likes"`
 	PostSource  wallPostSource           `json:"post_source"`
 	PostType    string                   `json:"post_type"`
-	Reposts     baseRepostsInfo          `json:"reposts"`
+	Reposts     BaseRepostsInfo          `json:"reposts"`
 	MarkedAsAds int                      `json:"marked_as_ads,omitempty"`
 	Views       interface{}              `json:"views,omitempty"` // BUG: Views int or wallViews
 	IsFavorite  bool                     `json:"is_favorite,omitempty"`

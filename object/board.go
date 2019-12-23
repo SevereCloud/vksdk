@@ -23,7 +23,7 @@ type BoardTopicComment struct {
 	Text string `json:"text"` // Comment text
 	// TopicID      int                     `json:"topic_id"`
 	// TopicOwnerID int                     `json:"topic_owner_id"`
-	Likes   baseLikesInfo `json:"likes"`
+	Likes   BaseLikesInfo `json:"likes"`
 	CanEdit int           `json:"can_edit"` // Information whether current user can edit the comment
 }
 

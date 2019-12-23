@@ -166,7 +166,7 @@ type groupsCountersGroup struct {
 
 type groupsCover struct {
 	Enabled int         `json:"enabled"` // Information whether cover is enabled
-	Images  []baseImage `json:"images"`
+	Images  []BaseImage `json:"images"`
 }
 
 type groupsGroupBanInfo struct {
@@ -178,7 +178,7 @@ type groupsGroupBanInfo struct {
 type GroupsGroupCategory struct {
 	ID            int                  `json:"id"`   // Category ID
 	Name          string               `json:"name"` // Category name
-	Subcategories []baseObjectWithName `json:"subcategories"`
+	Subcategories []BaseObjectWithName `json:"subcategories"`
 }
 
 // GroupsGroupCategoryFull struct

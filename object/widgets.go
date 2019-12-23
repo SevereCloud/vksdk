@@ -37,10 +37,10 @@ type WidgetsWidgetComment struct {
 	Date        int                     `json:"date"`    // Date when the comment has been added in Unixtime
 	FromID      int                     `json:"from_id"` // Comment author ID
 	ID          int                     `json:"id"`      // Comment ID
-	Likes       baseLikesInfo           `json:"likes"`
+	Likes       BaseLikesInfo           `json:"likes"`
 	Media       widgetsCommentMedia     `json:"media"`
 	PostType    string                  `json:"post_type"` // Post type
-	Reposts     baseRepostsInfo         `json:"reposts"`
+	Reposts     BaseRepostsInfo         `json:"reposts"`
 	Text        string                  `json:"text"`  // Comment text
 	ToID        int                     `json:"to_id"` // Wall owner
 	PostSource  wallPostSource          `json:"post_source"`

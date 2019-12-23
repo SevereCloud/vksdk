@@ -27,7 +27,7 @@ type BaseObjectCount struct {
 	Count int `json:"count"`
 }
 
-type baseObjectWithName struct {
+type BaseObjectWithName struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
@@ -61,7 +61,7 @@ type LongpollBotResponse struct {
 	Failed  int          `json:"failed"`
 }
 
-type baseCommentsInfo struct {
+type BaseCommentsInfo struct {
 	CanPost       int  `json:"can_post"`
 	Count         int  `json:"count"`
 	GroupsCanPost bool `json:"groups_can_post"`
@@ -69,26 +69,26 @@ type baseCommentsInfo struct {
 	CanOpen       bool `json:"can_open"`
 }
 
-type baseGeo struct {
+type BaseGeo struct {
 	Coordinates string    `json:"coordinates"`
-	Place       basePlace `json:"place"`
+	Place       BasePlace `json:"place"`
 	Showmap     int       `json:"showmap"`
 	Type        string    `json:"type"`
 }
 
-type baseImage struct {
+type BaseImage struct {
 	Height float64 `json:"height"`
 	URL    string  `json:"url"`
 	Width  float64 `json:"width"`
 	Type   string  `json:"type"`
 }
 
-type baseLikes struct {
+type BaseLikes struct {
 	Count     int `json:"count"`
 	UserLikes int `json:"user_likes"`
 }
 
-type baseLikesInfo struct {
+type BaseLikesInfo struct {
 	CanLike int `json:"can_like"`
 	// BUG(VK): https://github.com/SevereCloud/vksdk/issues/55
 	// CanPublish int `json:"can_publish"`
@@ -96,80 +96,90 @@ type baseLikesInfo struct {
 	UserLikes int `json:"user_likes"`
 }
 
-type baseLink struct {
-	Application baseLinkApplication `json:"application"`
-	Button      baseLinkButton      `json:"button"`
+type BaseLink struct {
+	Application BaseLinkApplication `json:"application"`
+	Button      BaseLinkButton      `json:"button"`
 	Caption     string              `json:"caption"`
 	Description string              `json:"description"`
 	Photo       PhotosPhoto         `json:"photo"`
 	PreviewPage string              `json:"preview_page"`
 	PreviewURL  string              `json:"preview_url"`
-	Product     baseLinkProduct     `json:"product"`
-	Rating      baseLinkRating      `json:"rating"`
+	Product     BaseLinkProduct     `json:"product"`
+	Rating      BaseLinkRating      `json:"rating"`
 	Title       string              `json:"title"`
 	URL         string              `json:"url"`
 }
 
-type baseLinkApplication struct {
+type BaseLinkApplication struct {
 	AppID float64                  `json:"app_id"`
-	Store baseLinkApplicationStore `json:"store"`
+	Store BaseLinkApplicationStore `json:"store"`
 }
 
-type baseLinkApplicationStore struct {
+type BaseLinkApplicationStore struct {
 	ID   float64 `json:"id"`
 	Name string  `json:"name"`
 }
 
-type baseLinkButton struct {
-	Action baseLinkButtonAction `json:"action"`
+type BaseLinkButton struct {
+	Action BaseLinkButtonAction `json:"action"`
 	Title  string               `json:"title"`
 }
 
-type baseLinkButtonAction struct {
+type BaseLinkButtonAction struct {
 	Type string `json:"type"`
 	URL  string `json:"url"`
 }
 
-type baseLinkProduct struct {
+type BaseLinkProduct struct {
 	Price marketPrice `json:"price"`
 }
 
-type baseLinkRating struct {
+type BaseLinkRating struct {
 	ReviewsCount int     `json:"reviews_count"`
 	Stars        float64 `json:"stars"`
 }
 
-type basePlace struct {
-	Address   string  `json:"address"`
-	Checkins  int     `json:"checkins"`
-	City      string  `json:"city"`
-	Country   string  `json:"country"`
-	Created   int     `json:"created"`
-	ID        int     `json:"id"`
-	Icon      string  `json:"icon"`
-	Latitude  float64 `json:"latitude"`
-	Longitude float64 `json:"longitude"`
-	Title     string  `json:"title"`
-	Type      string  `json:"type"`
+type BasePlace struct {
+	Address        string             `json:"address"`
+	Checkins       int                `json:"checkins"`
+	City           interface{}        `json:"city"` // BUG(VK): https://github.com/VKCOM/vk-api-schema/issues/143
+	Country        interface{}        `json:"country"`
+	Created        int                `json:"created"`
+	ID             int                `json:"id"`
+	Icon           string             `json:"icon"`
+	Latitude       float64            `json:"latitude"`
+	Longitude      float64            `json:"longitude"`
+	Title          string             `json:"title"`
+	Type           string             `json:"type"`
+	IsDeleted      bool               `json:"is_deleted"`
+	TotalCheckins  int                `json:"total_checkins"`
+	Updated        int                `json:"updated"`
+	CategoryObject BaseCategoryObject `json:"category_object"`
 }
 
-type baseRepostsInfo struct {
+type BaseCategoryObject struct {
+	ID    int         `json:"id"`
+	Title string      `json:"title"`
+	Icons []BaseImage `json:"icons"`
+}
+
+type BaseRepostsInfo struct {
 	Count        int `json:"count"`
 	UserReposted int `json:"user_reposted"`
 }
 
-type baseSticker struct {
-	Images               []baseImage `json:"images"`
-	ImagesWithBackground []baseImage `json:"images_with_background"`
+type BaseSticker struct {
+	Images               []BaseImage `json:"images"`
+	ImagesWithBackground []BaseImage `json:"images_with_background"`
 	ProductID            int         `json:"product_id"`
 	StickerID            int         `json:"sticker_id"`
 }
 
-type baseUserID struct {
+type BaseUserID struct {
 	UserID int `json:"user_id"`
 }
 
-type eventsEventAttach struct {
+type EventsEventAttach struct {
 	Address      string `json:"address,omitempty"`       // address of event
 	ButtonText   string `json:"button_text"`             // text of attach
 	Friends      []int  `json:"friends"`                 // array of friends ids

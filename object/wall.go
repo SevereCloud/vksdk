@@ -20,13 +20,13 @@ type wallAttachedNote struct {
 type wallCommentAttachment struct {
 	Audio             AudioAudioFull    `json:"audio"`
 	Doc               DocsDoc           `json:"doc"`
-	Link              baseLink          `json:"link"`
+	Link              BaseLink          `json:"link"`
 	Market            MarketMarketItem  `json:"market"`
 	MarketMarketAlbum MarketMarketAlbum `json:"market_market_album"`
 	Note              wallAttachedNote  `json:"note"`
 	Page              PagesWikipageFull `json:"page"`
 	Photo             PhotosPhoto       `json:"photo"`
-	Sticker           baseSticker       `json:"sticker"`
+	Sticker           BaseSticker       `json:"sticker"`
 	Type              string            `json:"type"`
 	Video             VideoVideo        `json:"video"`
 }
@@ -71,7 +71,7 @@ type WallWallComment struct {
 	Deleted        bool                    `json:"deleted"`
 	FromID         int                     `json:"from_id"` // Author ID
 	ID             int                     `json:"id"`      // Comment ID
-	Likes          baseLikesInfo           `json:"likes"`
+	Likes          BaseLikesInfo           `json:"likes"`
 	RealOffset     int                     `json:"real_offset"`      // Real position of the comment
 	ReplyToComment int                     `json:"reply_to_comment"` // Replied comment ID
 	ReplyToUser    int                     `json:"reply_to_user"`    // Replied user ID
@@ -101,14 +101,14 @@ type WallWallpost struct {
 	ReplyOwnerID int                      `json:"reply_owner_id"`
 	ReplyPostID  int                      `json:"reply_post_id"`
 	FriendsOnly  int                      `json:"friends_only"`
-	Comments     baseCommentsInfo         `json:"comments"`
-	Likes        baseLikesInfo            `json:"likes"`   // Count of likes
-	Reposts      baseRepostsInfo          `json:"reposts"` // Count of views
+	Comments     BaseCommentsInfo         `json:"comments"`
+	Likes        BaseLikesInfo            `json:"likes"`   // Count of likes
+	Reposts      BaseRepostsInfo          `json:"reposts"` // Count of views
 	Views        wallViews                `json:"views"`   // Count of views
 	PostType     string                   `json:"post_type"`
 	PostSource   wallPostSource           `json:"post_source"`
 	Attachments  []wallWallpostAttachment `json:"attachments"`
-	Geo          baseGeo                  `json:"geo"`
+	Geo          BaseGeo                  `json:"geo"`
 	SignerID     int                      `json:"signer_id"` // Post signer ID
 	CopyHistory  []WallWallpost           `json:"copy_history"`
 	CanPin       int                      `json:"can_pin"`
@@ -124,18 +124,18 @@ type WallWallpost struct {
 type wallWallpostAttached struct {
 	Attachments []wallWallpostAttachment `json:"attachments"`
 	CanDelete   int                      `json:"can_delete"`
-	Comments    baseCommentsInfo         `json:"comments"`
+	Comments    BaseCommentsInfo         `json:"comments"`
 	CopyOwnerID int                      `json:"copy_owner_id"`
 	CopyPostID  int                      `json:"copy_post_id"`
 	CopyText    string                   `json:"copy_text"`
 	Date        int                      `json:"date"`
 	FromID      int                      `json:"from_id"`
-	Geo         baseGeo                  `json:"geo"`
+	Geo         BaseGeo                  `json:"geo"`
 	ID          int                      `json:"id"`
-	Likes       baseLikesInfo            `json:"likes"`
+	Likes       BaseLikesInfo            `json:"likes"`
 	PostSource  wallPostSource           `json:"post_source"`
 	PostType    string                   `json:"post_type"`
-	Reposts     baseRepostsInfo          `json:"reposts"`
+	Reposts     BaseRepostsInfo          `json:"reposts"`
 	SignerID    int                      `json:"signer_id"`
 	Text        string                   `json:"text"`
 	ToID        int                      `json:"to_id"`
@@ -147,9 +147,9 @@ type wallWallpostAttachment struct {
 	App               wallAppPost       `json:"app"`
 	Audio             AudioAudioFull    `json:"audio"`
 	Doc               DocsDoc           `json:"doc"`
-	Event             eventsEventAttach `json:"event"`
+	Event             EventsEventAttach `json:"event"`
 	Graffiti          wallGraffiti      `json:"graffiti"`
-	Link              baseLink          `json:"link"`
+	Link              BaseLink          `json:"link"`
 	Market            MarketMarketItem  `json:"market"`
 	MarketMarketAlbum MarketMarketAlbum `json:"market_market_album"`
 	Note              wallAttachedNote  `json:"note"`
@@ -165,18 +165,18 @@ type wallWallpostAttachment struct {
 // WallWallpostToID struct
 type WallWallpostToID struct {
 	Attachments []wallWallpostAttachment `json:"attachments"`
-	Comments    baseCommentsInfo         `json:"comments"`
+	Comments    BaseCommentsInfo         `json:"comments"`
 	CopyOwnerID int                      `json:"copy_owner_id"` // ID of the source post owner
 	CopyPostID  int                      `json:"copy_post_id"`  // ID of the source post
 	Date        int                      `json:"date"`          // Date of publishing in Unixtime
 	FromID      int                      `json:"from_id"`       // Post author ID
-	Geo         baseGeo                  `json:"geo"`
+	Geo         BaseGeo                  `json:"geo"`
 	ID          int                      `json:"id"` // Post ID
-	Likes       baseLikesInfo            `json:"likes"`
+	Likes       BaseLikesInfo            `json:"likes"`
 	PostID      int                      `json:"post_id"` // wall post ID (if comment)
 	PostSource  wallPostSource           `json:"post_source"`
 	PostType    string                   `json:"post_type"`
-	Reposts     baseRepostsInfo          `json:"reposts"`
+	Reposts     BaseRepostsInfo          `json:"reposts"`
 	SignerID    int                      `json:"signer_id"`   // Post signer ID
 	Text        string                   `json:"text"`        // Post text
 	ToID        int                      `json:"to_id"`       // Wall owner's ID

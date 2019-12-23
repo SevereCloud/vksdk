@@ -16,5 +16,5 @@ type AppWidgetsGroupImageUploadResponse struct {
 type AppWidgetsImage struct {
 	ID     string    `json:"id"`
 	Type   string    `json:"type"`
-	Images baseImage `json:"images"`
+	Images BaseImage `json:"images"`
 }

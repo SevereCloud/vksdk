@@ -40,8 +40,8 @@ type VideoVideo struct {
 	Platform       string            `json:"platform"`
 	LocalViews     int               `json:"local_views"`
 	IsPrivate      int               `json:"is_private"`
-	Likes          baseLikesInfo     `json:"likes"`   // Count of likes
-	Reposts        baseRepostsInfo   `json:"reposts"` // Count of views
+	Likes          BaseLikesInfo     `json:"likes"`   // Count of likes
+	Reposts        BaseRepostsInfo   `json:"reposts"` // Count of views
 	PrivacyView    []interface{}     `json:"privacy_view"`
 	PrivacyComment []interface{}     `json:"privacy_comment"`
 }
@@ -145,7 +145,7 @@ type VideoVideoFull struct {
 	Duration      int               `json:"duration"`    // Video duration in seconds
 	Files         videoVideoFiles   `json:"files"`
 	ID            int               `json:"id"` // Video ID
-	Likes         baseLikes         `json:"likes"`
+	Likes         BaseLikes         `json:"likes"`
 	Live          int               `json:"live"`       // Returns if the video is live translation
 	OwnerID       int               `json:"owner_id"`   // Video owner ID
 	Player        string            `json:"player"`     // URL of the page with a player that can be used to play the video in the browser.
@@ -162,7 +162,7 @@ type VideoVideoFull struct {
 	CanLike       int               `json:"can_like"`
 	CanAddToFaves int               `json:"can_add_to_faves"`
 	Type          string            `json:"type"`
-	Reposts       baseRepostsInfo   `json:"reposts"`
+	Reposts       BaseRepostsInfo   `json:"reposts"`
 }
 
 // ToAttachment return attachment format
@@ -207,6 +207,6 @@ type VideoVideoTagInfo struct {
 }
 
 type VideoVideoImage struct {
-	baseImage
+	BaseImage
 	WithPadding int `json:"with_padding"`
 }

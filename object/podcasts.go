@@ -9,7 +9,7 @@ type PodcastsItem struct {
 type PodcastsCategory struct {
 	ID    int         `json:"id"`
 	Title string      `json:"title"`
-	Cover []baseImage `json:"cover"`
+	Cover []BaseImage `json:"cover"`
 }
 
 // PodcastsEpisode struct
@@ -33,7 +33,7 @@ type PodcastsEpisode struct {
 // PodcastsPodcastInfo struct
 type PodcastsPodcastInfo struct {
 	Cover struct {
-		Sizes []baseImage `json:"cover"`
+		Sizes []BaseImage `json:"cover"`
 	}
 	Plays       int    `json:"plays"`
 	IsFavorite  bool   `json:"is_favorite"`

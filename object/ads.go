@@ -45,7 +45,7 @@ type AdsCampaign struct {
 type AdsCategory struct {
 	ID            int                  `json:"id"`   // Category ID
 	Name          string               `json:"name"` // Category name
-	Subcategories []baseObjectWithName `json:"subcategories"`
+	Subcategories []BaseObjectWithName `json:"subcategories"`
 }
 
 // AdsClient struct

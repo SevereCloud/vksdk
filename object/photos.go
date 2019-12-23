@@ -46,7 +46,7 @@ type PhotosCommentXtrPid struct {
 	Date           int                     `json:"date"`    // Date when the comment has been added in Unixtime
 	FromID         int                     `json:"from_id"` // Author ID
 	ID             int                     `json:"id"`      // Comment ID
-	Likes          baseLikesInfo           `json:"likes"`
+	Likes          BaseLikesInfo           `json:"likes"`
 	ParentsStack   []int                   `json:"parents_stack"`
 	Pid            int                     `json:"pid"`              // Photo ID
 	ReplyToComment int                     `json:"reply_to_comment"` // Replied comment ID
@@ -57,7 +57,7 @@ type PhotosCommentXtrPid struct {
 
 // PhotosImage struct
 type PhotosImage struct {
-	baseImage
+	BaseImage
 	Type string `json:"type"`
 }
 
@@ -150,7 +150,7 @@ type PhotosPhotoFull struct {
 	ID         int             `json:"id"`     // Photo ID
 	Images     []PhotosImage   `json:"images"`
 	Lat        float64         `json:"lat"` // Latitude
-	Likes      baseLikes       `json:"likes"`
+	Likes      BaseLikes       `json:"likes"`
 	Long       float64         `json:"long"`     // Longitude
 	OwnerID    int             `json:"owner_id"` // Photo owner's ID
 	PostID     int             `json:"post_id"`  // Post ID
@@ -177,7 +177,7 @@ type PhotosPhotoFullXtrRealOffset struct {
 	Hidden     int                `json:"hidden"` // Returns if the photo is hidden above the wall
 	ID         int                `json:"id"`     // Photo ID
 	Lat        float64            `json:"lat"`    // Latitude
-	Likes      baseLikes          `json:"likes"`
+	Likes      BaseLikes          `json:"likes"`
 	Long       float64            `json:"long"`        // Longitude
 	OwnerID    int                `json:"owner_id"`    // Photo owner's ID
 	Photo1280  string             `json:"photo_1280"`  // URL of image with 1280 px width
@@ -203,7 +203,7 @@ func (photo PhotosPhotoFullXtrRealOffset) ToAttachment() string {
 
 type photosPhotoSizes struct {
 	// BUG(VK): json: cannot unmarshal number 180.000000 into Go struct field photosPhotoSizes.height of type int
-	baseImage
+	BaseImage
 	Type string `json:"type"`
 }
 

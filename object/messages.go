@@ -47,7 +47,7 @@ type MessagesMessage struct {
 	FromID                int                         `json:"from_id"`                 // Message author's ID
 	FwdMessages           []MessagesMessage           `json:"fwd_messages"`            // Forwarded messages
 	ReplyMessage          *MessagesMessage            `json:"reply_message"`
-	Geo                   baseGeo                     `json:"geo"`
+	Geo                   BaseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`        // Message ID
 	Important             bool                        `json:"important"` // Is it an important message
 	IsHidden              bool                        `json:"is_hidden"`
@@ -313,13 +313,13 @@ type MessagesHistoryAttachment struct {
 type messagesHistoryMessageAttachment struct {
 	Audio  AudioAudioFull `json:"audio"`
 	Doc    DocsDoc        `json:"doc"`
-	Link   baseLink       `json:"link"`
-	Market baseLink       `json:"market"`
+	Link   BaseLink       `json:"link"`
+	Market BaseLink       `json:"market"`
 	Photo  PhotosPhoto    `json:"photo"`
-	Share  baseLink       `json:"share"`
+	Share  BaseLink       `json:"share"`
 	Type   string         `json:"type"`
 	Video  VideoVideo     `json:"video"`
-	Wall   baseLink       `json:"wall"`
+	Wall   BaseLink       `json:"wall"`
 }
 
 // MessagesLastActivity struct
@@ -356,11 +356,11 @@ type messagesMessageAttachment struct {
 	Audio             AudioAudioFull       `json:"audio"`
 	Doc               DocsDoc              `json:"doc"`
 	Gift              GiftsLayout          `json:"gift"`
-	Link              baseLink             `json:"link"`
+	Link              BaseLink             `json:"link"`
 	Market            MarketMarketItem     `json:"market"`
 	MarketMarketAlbum MarketMarketAlbum    `json:"market_market_album"`
 	Photo             PhotosPhoto          `json:"photo"`
-	Sticker           baseSticker          `json:"sticker"`
+	Sticker           BaseSticker          `json:"sticker"`
 	Type              string               `json:"type"`
 	Video             VideoVideo           `json:"video"`
 	Wall              wallWallpostAttached `json:"wall"`
@@ -387,7 +387,7 @@ type messagesPinnedMessage struct {
 	Date                  int                         `json:"date"`                    // Date when the message has been sent in Unixtime
 	FromID                int                         `json:"from_id"`                 // Message author's ID
 	FwdMessages           []*MessagesMessage          `json:"fwd_messages"`
-	Geo                   baseGeo                     `json:"geo"`
+	Geo                   BaseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`      // Message ID
 	PeerID                int                         `json:"peer_id"` // Peer ID
 	ReplyMessage          *MessagesMessage            `json:"reply_message"`

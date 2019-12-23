@@ -301,7 +301,7 @@ func TestVK_MarketReportComment(t *testing.T) {
 	_, err := vkUser.MarketReportComment(api.Params{
 		"owner_id":   -124527492,
 		"comment_id": 54,
-		"reason":     0,
+		"reason":     6,
 	})
 	noError(t, err)
 }
