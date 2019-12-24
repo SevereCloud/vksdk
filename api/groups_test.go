@@ -153,7 +153,39 @@ func TestVK_GroupsAddCallbackServer(t *testing.T) {
 }
 
 func TestVK_GroupsAddLink(t *testing.T) {
-	// TODO: Add test cases.
+	needUserToken(t)
+	needGroupToken(t)
+
+	link, err := vkUser.GroupsAddLink(api.Params{
+		"group_id": vkGroupID,
+		"link":     "https://yandex.ru",
+		"text":     "test",
+	})
+	noError(t, err)
+	assert.NotEmpty(t, link.ID)
+	assert.NotEmpty(t, link.URL)
+	assert.NotEmpty(t, link.Name)
+	assert.NotEmpty(t, link.Desc)
+
+	_, err = vkUser.GroupsEditLink(api.Params{
+		"group_id": vkGroupID,
+		"link_id":  link.ID,
+		"text":     "test edit",
+	})
+	noError(t, err)
+
+	_, err = vkUser.GroupsReorderLink(api.Params{
+		"group_id": vkGroupID,
+		"link_id":  link.ID,
+		"after":    0,
+	})
+	noError(t, err)
+
+	_, err = vkUser.GroupsDeleteLink(api.Params{
+		"group_id": vkGroupID,
+		"link_id":  link.ID,
+	})
+	noError(t, err)
 }
 
 func TestVK_GroupsApproveRequest(t *testing.T) {
@@ -161,15 +193,78 @@ func TestVK_GroupsApproveRequest(t *testing.T) {
 }
 
 func TestVK_GroupsBan(t *testing.T) {
-	// TODO: Add test cases.
+	needUserToken(t)
+	needGroupToken(t)
+
+	_, err := vkUser.GroupsBan(api.Params{
+		"group_id": vkGroupID,
+		"owner_id": 1,
+		"reason":   2,
+		"comment":  "test",
+	})
+	noError(t, err)
+
+	res, err := vkGroup.GroupsGetBanned(api.Params{
+		"group_id": vkGroupID,
+	})
+	noError(t, err)
+	assert.NotEmpty(t, res.Count)
+
+	if assert.NotEmpty(t, res.Items) {
+		assert.NotEmpty(t, res.Items[0].Type)
+		assert.NotEmpty(t, res.Items[0].BanInfo.AdminID)
+		assert.NotEmpty(t, res.Items[0].BanInfo.Date)
+	}
+
+	_, err = vkUser.GroupsUnban(api.Params{
+		"group_id": vkGroupID,
+		"owner_id": 1,
+	})
+	noError(t, err)
 }
 
 func TestVK_GroupsCreate(t *testing.T) {
-	// TODO: Add test cases.
-}
+	needUserToken(t)
 
-func TestVK_GroupsDeleteLink(t *testing.T) {
-	// TODO: Add test cases.
+	group, err := vkUser.GroupsCreate(api.Params{
+		"title":       "My Community",
+		"description": "Community description",
+		"type":        "group",
+	})
+	noError(t, err)
+	assert.NotEmpty(t, group.ID)
+	assert.NotEmpty(t, group.Name)
+	assert.NotEmpty(t, group.AdminLevel)
+	assert.NotEmpty(t, group.IsAdmin)
+	assert.NotEmpty(t, group.IsMember)
+	assert.NotEmpty(t, group.Name)
+	assert.NotEmpty(t, group.Photo100)
+	assert.NotEmpty(t, group.Photo200)
+	assert.NotEmpty(t, group.Photo50)
+	assert.NotEmpty(t, group.ScreenName)
+	assert.NotEmpty(t, group.Type)
+
+	_, err = vkUser.GroupsEdit(api.Params{
+		"group_id":    group.ID,
+		"description": "Community description edit",
+	})
+	noError(t, err)
+
+	_, err = vkUser.GroupsSetSettings(api.Params{
+		"group_id":          group.ID,
+		"messages":          true,
+		"bots_capabilities": true,
+		"bots_start_button": true,
+		"bots_add_to_chat":  true,
+	})
+	noError(t, err)
+
+	_, err = vkUser.GroupsSetLongPollSettings(api.Params{
+		"group_id":    group.ID,
+		"enabled":     true,
+		"api_version": api.Version,
+	})
+	noError(t, err)
 }
 
 func TestVK_GroupsEnableOnline(t *testing.T) {
@@ -186,14 +281,6 @@ func TestVK_GroupsEnableOnline(t *testing.T) {
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res)
-}
-
-func TestVK_GroupsEdit(t *testing.T) {
-	// TODO: Add test cases.
-}
-
-func TestVK_GroupsEditLink(t *testing.T) {
-	// TODO: Add test cases.
 }
 
 func TestVK_GroupsEditManager(t *testing.T) {
@@ -256,16 +343,6 @@ func TestVK_GroupsGetAddresses(t *testing.T) {
 			assert.NotEmpty(t, address.Timetable.Sat.CloseTime)
 		}
 	}
-}
-
-func TestVK_GroupsGetBanned(t *testing.T) {
-	needGroupToken(t)
-
-	_, err := vkGroup.GroupsGetBanned(api.Params{
-		"group_id": vkGroupID,
-	})
-	// assert.NotEmpty(t, res)
-	noError(t, err)
 }
 
 func TestVK_GroupsGetByID(t *testing.T) {
@@ -588,10 +665,6 @@ func TestVK_GroupsRemoveUser(t *testing.T) {
 	// TODO: Add test cases.
 }
 
-func TestVK_GroupsReorderLink(t *testing.T) {
-	// TODO: Add test cases.
-}
-
 func TestVK_GroupsSearch(t *testing.T) {
 	needUserToken(t)
 
@@ -601,16 +674,4 @@ func TestVK_GroupsSearch(t *testing.T) {
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
-}
-
-func TestVK_GroupsSetLongPollSettings(t *testing.T) {
-	// TODO: Add test cases.
-}
-
-func TestVK_GroupsSetSettings(t *testing.T) {
-	// TODO: Add test cases.
-}
-
-func TestVK_GroupsUnban(t *testing.T) {
-	// TODO: Add test cases.
 }
