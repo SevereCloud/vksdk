@@ -1,5 +1,10 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
+import (
+	"bytes"
+	"encoding/json"
+)
+
 // MessageNewFunc func
 type MessageNewFunc func(MessageNewObject, int)
 
@@ -7,6 +12,24 @@ type MessageNewFunc func(MessageNewObject, int)
 type MessageNewObject struct {
 	Message    MessagesMessage `json:"message"`
 	ClientInfo ClientInfo      `json:"client_info"`
+}
+
+func (a *MessageNewObject) UnmarshalJSON(b []byte) (err error) {
+	type r MessageNewObject
+
+	var v r
+
+	if bytes.Contains(b, []byte(`"message":`)) {
+		err = json.Unmarshal(b, &v)
+	} else {
+		// Support v < 5.103
+		err = json.Unmarshal(b, &v.Message)
+	}
+
+	a.Message = v.Message
+	a.ClientInfo = v.ClientInfo
+
+	return
 }
 
 // MessageReplyFunc func
