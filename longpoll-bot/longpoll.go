@@ -3,7 +3,6 @@ package longpoll // import "github.com/SevereCloud/vksdk/longpoll-bot"
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 	"sync/atomic"
 
@@ -70,12 +69,7 @@ func (lp *Longpoll) check() ([]object.GroupEvent, error) {
 	}
 	defer resp.Body.Close()
 
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	err = json.Unmarshal(body, &response)
+	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
 		return nil, err
 	}
