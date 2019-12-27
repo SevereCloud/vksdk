@@ -1,11 +1,11 @@
 # VK SDK for Golang
 
 [![Build Status](https://travis-ci.com/SevereCloud/vksdk.svg?branch=master)](https://travis-ci.com/SevereCloud/vksdk)
-[![GolangCI](https://golangci.com/badges/github.com/SevereCloud/vksdk.svg)](https://golangci.com/r/github.com/SevereCloud/vksdk)
 [![Documentation](https://godoc.org/github.com/SevereCloud/vksdk?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk)
 [![VK Developers](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/)
 [![codecov](https://codecov.io/gh/SevereCloud/vksdk/branch/master/graph/badge.svg)](https://codecov.io/gh/SevereCloud/vksdk)
-[![VK](https://img.shields.io/badge/chat-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.me/join/AJQ1d6Or8Q00Y_CSOESfbqGt)
+[![VK chat](https://img.shields.io/badge/chat-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.me/join/AJQ1d6Or8Q00Y_CSOESfbqGt)
+[![release](https://img.shields.io/github/v/tag/SevereCloud/vksdk?label=release)](https://github.com/SevereCloud/vksdk/releases)
 [![license](https://img.shields.io/github/license/SevereCloud/vksdk.svg?maxAge=2592000)](https://github.com/SevereCloud/vksdk/blob/master/LICENSE)
 
 **VK SDK for Golang** готовая реализация основных функций VK API для языка Go.
@@ -29,15 +29,14 @@
   - ~~Возвращает готовые структуры~~ [#44](https://github.com/SevereCloud/vksdk/issues/44)
   - Возможность изменять HTTP клиент
 - ~~Streaming api~~ [#3](https://github.com/SevereCloud/vksdk/issues/3)
-
-### Статус
-
-Внимание - этот репозиторий в **очень ранней разработке**. Возможны серьезные изменения в коде - cмотри [#40](https://github.com/SevereCloud/vksdk/issues/40)
+- [VK Mini Apps](https://github.com/SevereCloud/vksdk/tree/master/vkapps#vk-mini-apps)
+  - Проверка параметров запуска
+  - Промежуточный http обработчик
 
 ### Установка
 
 ```shell
-go get -u github.com/SevereCloud/vksdk
+go get github.com/SevereCloud/vksdk@latest
 ```
 
 ### Пример
