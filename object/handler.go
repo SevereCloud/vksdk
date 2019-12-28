@@ -378,9 +378,9 @@ type VkpayTransactionFunc func(VkpayTransactionObject, int)
 // VkpayTransactionObject struct
 type VkpayTransactionObject struct {
 	FromID      int    `json:"from_id"`
-	Amount      string `json:"amount"` // FIXME: string or int?
+	Amount      int    `json:"amount"`
 	Description string `json:"description"`
-	Date        string `json:"date"` // FIXME: string or int?
+	Date        int    `json:"date"`
 }
 
 // LeadFormsNewFunc func

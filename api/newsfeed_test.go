@@ -80,7 +80,7 @@ func TestVK_NewsfeedGetRecommended(t *testing.T) {
 }
 
 func TestVK_NewsfeedGetSuggestedSources(t *testing.T) {
-	// TODO: FIXME: NewsfeedGetSuggestedSources have bug
+	// FIXME: NewsfeedGetSuggestedSources have bug
 	// needUserToken(t)
 
 	// res, err := vkUser.NewsfeedGetSuggestedSources(api.Params{})
