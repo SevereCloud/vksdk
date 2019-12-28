@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/tools/vkapps"
+	"github.com/SevereCloud/vksdk/vkapps"
 )
 
 func TestParamsVerify(t *testing.T) {

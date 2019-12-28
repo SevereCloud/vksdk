@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/SevereCloud/vksdk/tools/vkapps"
+	"github.com/SevereCloud/vksdk/vkapps"
 )
 
 func ExampleParamsVerification() {
