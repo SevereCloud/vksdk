@@ -237,7 +237,6 @@ func TestVK_GroupsCreate(t *testing.T) {
 	assert.NotEmpty(t, group.AdminLevel)
 	assert.NotEmpty(t, group.IsAdmin)
 	assert.NotEmpty(t, group.IsMember)
-	assert.NotEmpty(t, group.Name)
 	assert.NotEmpty(t, group.Photo100)
 	assert.NotEmpty(t, group.Photo200)
 	assert.NotEmpty(t, group.Photo50)
