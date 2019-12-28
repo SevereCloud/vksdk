@@ -1,32 +1,30 @@
-package handler_test
+package events_test
 
 import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/SevereCloud/vksdk/handler"
+	"github.com/SevereCloud/vksdk/events"
 	"github.com/SevereCloud/vksdk/object"
 )
 
 const GID = 123456
 
 func TestFuncList_HandlerMessageNew(t *testing.T) {
-	funcList := handler.FuncList{
-		MessageNew: []object.MessageNewFunc{
-			func(obj object.MessageNewObject, groupID int) {
-				t.Helper()
+	var fl events.FuncList
 
-				assert.Equal(t, groupID, GID)
-				assert.NotEmpty(t, obj.Message)
-			},
-		},
-	}
+	fl.MessageNew(func(obj object.MessageNewObject, groupID int) {
+		t.Helper()
+
+		assert.Equal(t, groupID, GID)
+		assert.NotEmpty(t, obj.Message)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
 		t.Helper()
 
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -57,16 +55,14 @@ func TestFuncList_HandlerMessageNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageReply(t *testing.T) {
-	funcList := handler.FuncList{
-		MessageReply: []object.MessageReplyFunc{
-			func(obj object.MessageReplyObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.MessageReply(func(obj object.MessageReplyObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -89,16 +85,14 @@ func TestFuncList_HandlerMessageReply(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageEdit(t *testing.T) {
-	funcList := handler.FuncList{
-		MessageEdit: []object.MessageEditFunc{
-			func(obj object.MessageEditObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.MessageEdit(func(obj object.MessageEditObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -121,16 +115,14 @@ func TestFuncList_HandlerMessageEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageAllow(t *testing.T) {
-	funcList := handler.FuncList{
-		MessageAllow: []object.MessageAllowFunc{
-			func(obj object.MessageAllowObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.MessageAllow(func(obj object.MessageAllowObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -153,23 +145,21 @@ func TestFuncList_HandlerMessageAllow(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageDeny(t *testing.T) {
-	funcList := handler.FuncList{
-		MessageDeny: []object.MessageDenyFunc{
-			func(obj object.MessageDenyObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.MessageDeny(func(obj object.MessageDenyObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
 		object.GroupEvent{
-			Type:    "messages_deny",
+			Type:    "message_deny",
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
@@ -177,7 +167,7 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 	)
 	f(
 		object.GroupEvent{
-			Type:   "messages_deny",
+			Type:   "message_deny",
 			Object: []byte(""),
 		},
 		true,
@@ -185,16 +175,14 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageTypingState(t *testing.T) {
-	funcList := handler.FuncList{
-		MessageTypingState: []object.MessageTypingStateFunc{
-			func(obj object.MessageTypingStateObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.MessageTypingState(func(obj object.MessageTypingStateObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -217,16 +205,14 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoNew(t *testing.T) {
-	funcList := handler.FuncList{
-		PhotoNew: []object.PhotoNewFunc{
-			func(obj object.PhotoNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.PhotoNew(func(obj object.PhotoNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -249,16 +235,14 @@ func TestFuncList_HandlerPhotoNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
-	funcList := handler.FuncList{
-		PhotoCommentNew: []object.PhotoCommentNewFunc{
-			func(obj object.PhotoCommentNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.PhotoCommentNew(func(obj object.PhotoCommentNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -281,16 +265,14 @@ func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
-	funcList := handler.FuncList{
-		PhotoCommentEdit: []object.PhotoCommentEditFunc{
-			func(obj object.PhotoCommentEditObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.PhotoCommentEdit(func(obj object.PhotoCommentEditObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -313,16 +295,14 @@ func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
-	funcList := handler.FuncList{
-		PhotoCommentRestore: []object.PhotoCommentRestoreFunc{
-			func(obj object.PhotoCommentRestoreObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.PhotoCommentRestore(func(obj object.PhotoCommentRestoreObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -345,16 +325,14 @@ func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
-	funcList := handler.FuncList{
-		PhotoCommentDelete: []object.PhotoCommentDeleteFunc{
-			func(obj object.PhotoCommentDeleteObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.PhotoCommentDelete(func(obj object.PhotoCommentDeleteObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -377,16 +355,14 @@ func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerAudioNew(t *testing.T) {
-	funcList := handler.FuncList{
-		AudioNew: []object.AudioNewFunc{
-			func(obj object.AudioNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.AudioNew(func(obj object.AudioNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -409,16 +385,14 @@ func TestFuncList_HandlerAudioNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoNew(t *testing.T) {
-	funcList := handler.FuncList{
-		VideoNew: []object.VideoNewFunc{
-			func(obj object.VideoNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.VideoNew(func(obj object.VideoNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -441,16 +415,14 @@ func TestFuncList_HandlerVideoNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
-	funcList := handler.FuncList{
-		VideoCommentNew: []object.VideoCommentNewFunc{
-			func(obj object.VideoCommentNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.VideoCommentNew(func(obj object.VideoCommentNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -473,16 +445,14 @@ func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
-	funcList := handler.FuncList{
-		VideoCommentEdit: []object.VideoCommentEditFunc{
-			func(obj object.VideoCommentEditObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.VideoCommentEdit(func(obj object.VideoCommentEditObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -505,16 +475,14 @@ func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
-	funcList := handler.FuncList{
-		VideoCommentRestore: []object.VideoCommentRestoreFunc{
-			func(obj object.VideoCommentRestoreObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.VideoCommentRestore(func(obj object.VideoCommentRestoreObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -537,16 +505,14 @@ func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
-	funcList := handler.FuncList{
-		VideoCommentDelete: []object.VideoCommentDeleteFunc{
-			func(obj object.VideoCommentDeleteObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.VideoCommentDelete(func(obj object.VideoCommentDeleteObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -569,16 +535,14 @@ func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallPostNew(t *testing.T) {
-	funcList := handler.FuncList{
-		WallPostNew: []object.WallPostNewFunc{
-			func(obj object.WallPostNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.WallPostNew(func(obj object.WallPostNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -601,16 +565,14 @@ func TestFuncList_HandlerWallPostNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallRepost(t *testing.T) {
-	funcList := handler.FuncList{
-		WallRepost: []object.WallRepostFunc{
-			func(obj object.WallRepostObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.WallRepost(func(obj object.WallRepostObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -633,16 +595,14 @@ func TestFuncList_HandlerWallRepost(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyNew(t *testing.T) {
-	funcList := handler.FuncList{
-		WallReplyNew: []object.WallReplyNewFunc{
-			func(obj object.WallReplyNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.WallReplyNew(func(obj object.WallReplyNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -665,16 +625,14 @@ func TestFuncList_HandlerWallReplyNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
-	funcList := handler.FuncList{
-		WallReplyEdit: []object.WallReplyEditFunc{
-			func(obj object.WallReplyEditObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.WallReplyEdit(func(obj object.WallReplyEditObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -697,16 +655,14 @@ func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
-	funcList := handler.FuncList{
-		WallReplyRestore: []object.WallReplyRestoreFunc{
-			func(obj object.WallReplyRestoreObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.WallReplyRestore(func(obj object.WallReplyRestoreObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -729,16 +685,14 @@ func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
-	funcList := handler.FuncList{
-		WallReplyDelete: []object.WallReplyDeleteFunc{
-			func(obj object.WallReplyDeleteObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.WallReplyDelete(func(obj object.WallReplyDeleteObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -761,16 +715,14 @@ func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostNew(t *testing.T) {
-	funcList := handler.FuncList{
-		BoardPostNew: []object.BoardPostNewFunc{
-			func(obj object.BoardPostNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.BoardPostNew(func(obj object.BoardPostNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -793,16 +745,14 @@ func TestFuncList_HandlerBoardPostNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
-	funcList := handler.FuncList{
-		BoardPostEdit: []object.BoardPostEditFunc{
-			func(obj object.BoardPostEditObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.BoardPostEdit(func(obj object.BoardPostEditObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -825,16 +775,14 @@ func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
-	funcList := handler.FuncList{
-		BoardPostRestore: []object.BoardPostRestoreFunc{
-			func(obj object.BoardPostRestoreObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.BoardPostRestore(func(obj object.BoardPostRestoreObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -857,16 +805,14 @@ func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
-	funcList := handler.FuncList{
-		BoardPostDelete: []object.BoardPostDeleteFunc{
-			func(obj object.BoardPostDeleteObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.BoardPostDelete(func(obj object.BoardPostDeleteObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -889,16 +835,14 @@ func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
-	funcList := handler.FuncList{
-		MarketCommentNew: []object.MarketCommentNewFunc{
-			func(obj object.MarketCommentNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.MarketCommentNew(func(obj object.MarketCommentNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -921,16 +865,14 @@ func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
-	funcList := handler.FuncList{
-		MarketCommentEdit: []object.MarketCommentEditFunc{
-			func(obj object.MarketCommentEditObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.MarketCommentEdit(func(obj object.MarketCommentEditObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -953,16 +895,14 @@ func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
-	funcList := handler.FuncList{
-		MarketCommentRestore: []object.MarketCommentRestoreFunc{
-			func(obj object.MarketCommentRestoreObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.MarketCommentRestore(func(obj object.MarketCommentRestoreObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -985,16 +925,14 @@ func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
-	funcList := handler.FuncList{
-		MarketCommentDelete: []object.MarketCommentDeleteFunc{
-			func(obj object.MarketCommentDeleteObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.MarketCommentDelete(func(obj object.MarketCommentDeleteObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1017,16 +955,14 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupLeave(t *testing.T) {
-	funcList := handler.FuncList{
-		GroupLeave: []object.GroupLeaveFunc{
-			func(obj object.GroupLeaveObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.GroupLeave(func(obj object.GroupLeaveObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1049,16 +985,14 @@ func TestFuncList_HandlerGroupLeave(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupJoin(t *testing.T) {
-	funcList := handler.FuncList{
-		GroupJoin: []object.GroupJoinFunc{
-			func(obj object.GroupJoinObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.GroupJoin(func(obj object.GroupJoinObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1081,16 +1015,14 @@ func TestFuncList_HandlerGroupJoin(t *testing.T) {
 }
 
 func TestFuncList_HandlerUserBlock(t *testing.T) {
-	funcList := handler.FuncList{
-		UserBlock: []object.UserBlockFunc{
-			func(obj object.UserBlockObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.UserBlock(func(obj object.UserBlockObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1113,16 +1045,14 @@ func TestFuncList_HandlerUserBlock(t *testing.T) {
 }
 
 func TestFuncList_HandlerUserUnblock(t *testing.T) {
-	funcList := handler.FuncList{
-		UserUnblock: []object.UserUnblockFunc{
-			func(obj object.UserUnblockObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.UserUnblock(func(obj object.UserUnblockObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1145,16 +1075,14 @@ func TestFuncList_HandlerUserUnblock(t *testing.T) {
 }
 
 func TestFuncList_HandlerPollVoteNew(t *testing.T) {
-	funcList := handler.FuncList{
-		PollVoteNew: []object.PollVoteNewFunc{
-			func(obj object.PollVoteNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.PollVoteNew(func(obj object.PollVoteNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1177,16 +1105,14 @@ func TestFuncList_HandlerPollVoteNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
-	funcList := handler.FuncList{
-		GroupOfficersEdit: []object.GroupOfficersEditFunc{
-			func(obj object.GroupOfficersEditObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.GroupOfficersEdit(func(obj object.GroupOfficersEditObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1209,16 +1135,14 @@ func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
-	funcList := handler.FuncList{
-		GroupChangeSettings: []object.GroupChangeSettingsFunc{
-			func(obj object.GroupChangeSettingsObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.GroupChangeSettings(func(obj object.GroupChangeSettingsObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1241,16 +1165,14 @@ func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
-	funcList := handler.FuncList{
-		GroupChangePhoto: []object.GroupChangePhotoFunc{
-			func(obj object.GroupChangePhotoObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.GroupChangePhoto(func(obj object.GroupChangePhotoObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1273,16 +1195,14 @@ func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
 }
 
 func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
-	funcList := handler.FuncList{
-		VkpayTransaction: []object.VkpayTransactionFunc{
-			func(obj object.VkpayTransactionObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.VkpayTransaction(func(obj object.VkpayTransactionObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1305,16 +1225,14 @@ func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
 }
 
 func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
-	funcList := handler.FuncList{
-		LeadFormsNew: []object.LeadFormsNewFunc{
-			func(obj object.LeadFormsNewObject, groupID int) {
-				assert.Equal(t, groupID, GID)
-			},
-		},
-	}
+	var fl events.FuncList
+
+	fl.LeadFormsNew(func(obj object.LeadFormsNewObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
 
 	f := func(e object.GroupEvent, wantErr bool) {
-		if err := funcList.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1330,6 +1248,66 @@ func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
 	f(
 		object.GroupEvent{
 			Type:   "lead_forms_new",
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_HandlerAppPayload(t *testing.T) {
+	var fl events.FuncList
+
+	fl.AppPayload(func(obj object.AppPayloadObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
+
+	f := func(e object.GroupEvent, wantErr bool) {
+		if err := fl.Handler(e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		object.GroupEvent{
+			Type:    "app_payload",
+			Object:  []byte(`{"user_id":117253521,"app_id":6703670,"payload":"{\"foo\":\"bar\"}"}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		object.GroupEvent{
+			Type:   "app_payload",
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_HandlerMessageRead(t *testing.T) {
+	var fl events.FuncList
+
+	fl.MessageRead(func(obj object.MessageReadObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
+
+	f := func(e object.GroupEvent, wantErr bool) {
+		if err := fl.Handler(e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		object.GroupEvent{
+			Type:    "message_read",
+			Object:  []byte(`{"from_id":1,"peer_id":1,"read_message_id":1}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		object.GroupEvent{
+			Type:   "message_read",
 			Object: []byte(""),
 		},
 		true,

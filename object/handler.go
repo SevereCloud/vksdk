@@ -400,3 +400,23 @@ type LeadFormsNewObject struct {
 		Answer   string `json:"answer"`
 	} `json:"answers"`
 }
+
+// AppPayloadFunc func
+type AppPayloadFunc func(AppPayloadObject, int)
+
+// AppPayloadObject struct
+type AppPayloadObject struct {
+	UserID  int    `json:"user_id"`
+	AppID   int    `json:"app_id"`
+	Payload string `json:"payload"`
+}
+
+// MessageReadFunc func
+type MessageReadFunc func(MessageReadObject, int)
+
+// MessageReadObject struct
+type MessageReadObject struct {
+	FromID        int `json:"from_id"`
+	PeerID        int `json:"peer_id"`
+	ReadMessageID int `json:"read_message_id"`
+}
