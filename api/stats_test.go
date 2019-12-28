@@ -7,7 +7,6 @@ import (
 )
 
 func TestVK_StatsGet(t *testing.T) {
-	t.Skip("See https://vk.com/bug136096")
 	needUserToken(t)
 	needGroupToken(t)
 
