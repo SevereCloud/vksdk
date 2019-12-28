@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCallback_HandleFunc(t *testing.T) {
@@ -22,7 +24,8 @@ func TestCallback_HandleFunc(t *testing.T) {
 		expected string
 	}{
 		{
-			name: "check Decode error",
+			name:     "check Decode error",
+			expected: "Bad Request\n",
 		},
 		// ConfirmationKey test
 		{
@@ -93,7 +96,7 @@ func TestCallback_HandleFunc(t *testing.T) {
 				SecretKey:       "secret_654321",
 			},
 			body:     `{"type": "confirmation", "group_id": 123456, "secret": "secret_123456"}`,
-			expected: "bad secret",
+			expected: "Bad Secret\n",
 		},
 		{
 			name: "check SecretKeys",
@@ -116,7 +119,7 @@ func TestCallback_HandleFunc(t *testing.T) {
 				},
 			},
 			body:     `{"type": "confirmation", "group_id": 123456, "secret": "secret_123456"}`,
-			expected: "bad secret",
+			expected: "Bad Secret\n",
 		},
 		{
 			name: "check SecretKeys not found",
@@ -157,7 +160,7 @@ func TestCallback_HandleFunc(t *testing.T) {
 			name:     "check bad message_new",
 			fields:   fields{},
 			body:     `{"type": "message_new", "object": 1}`,
-			expected: "",
+			expected: "Bad Request\n",
 		},
 		{
 			name:   "check good message_new",
@@ -193,10 +196,7 @@ func TestCallback_HandleFunc(t *testing.T) {
 
 			handler.ServeHTTP(rr, req)
 
-			if rr.Body.String() != tt.expected {
-				t.Errorf("handler returned unexpected body: got %v want %v",
-					rr.Body.String(), tt.expected)
-			}
+			assert.Equal(t, tt.expected, rr.Body.String())
 		})
 	}
 }

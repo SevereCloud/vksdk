@@ -26,13 +26,14 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	var e object.GroupEvent
 	if err := decoder.Decode(&e); err != nil {
 		log.Printf("Callback.HandleFunc: %v", err)
-		// fmt.Fprintf(w, "%v", err)
+		http.Error(w, "Bad Request", http.StatusBadRequest)
+
 		return
 	}
 
 	if cb.SecretKeys[e.GroupID] != "" || cb.SecretKey != "" {
 		if e.Secret != cb.SecretKeys[e.GroupID] && e.Secret != cb.SecretKey {
-			fmt.Fprintf(w, "bad secret")
+			http.Error(w, "Bad Secret", http.StatusForbidden)
 			return
 		}
 	}
@@ -49,7 +50,8 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	if err := cb.Handler(e); err != nil {
 		log.Printf("Callback.HandleFunc: %v", err)
-		// fmt.Fprintf(w, "%v", err)
+		http.Error(w, "Bad Request", http.StatusBadRequest)
+
 		return
 	}
 
