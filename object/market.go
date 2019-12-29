@@ -40,7 +40,7 @@ type MarketMarketItem struct {
 	Description  string               `json:"description"` // Item description
 	ID           int                  `json:"id"`          // Item ID
 	OwnerID      int                  `json:"owner_id"`    // Item owner's ID
-	Price        marketPrice          `json:"price"`
+	Price        MarketPrice          `json:"price"`
 	ThumbPhoto   string               `json:"thumb_photo"` // URL of the preview image
 	Title        string               `json:"title"`       // Item title
 	IsFavorite   bool                 `json:"is_favorite"`
@@ -61,7 +61,7 @@ func (market MarketMarketItem) ToAttachment() string {
 	return fmt.Sprintf("market%d_%d", market.OwnerID, market.ID)
 }
 
-type marketPrice struct {
+type MarketPrice struct {
 	Amount       string         `json:"amount"` // Amount
 	Currency     marketCurrency `json:"currency"`
 	DiscountRate int            `json:"discount_rate"`
