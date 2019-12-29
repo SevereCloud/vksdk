@@ -46,8 +46,8 @@ type UsersUser struct {
 	Site                   string            `json:"site"`
 	Status                 string            `json:"status"`
 	StatusAudio            AudioAudioFull    `json:"status_audio"`
-	LastSeen               usersLastSeen     `json:"last_seen"`
-	CropPhoto              usersCropPhoto    `json:"crop_photo"`
+	LastSeen               UsersLastSeen     `json:"last_seen"`
+	CropPhoto              UsersCropPhoto    `json:"crop_photo"`
 	Verified               int               `json:"verified"`
 	FollowersCount         int               `json:"followers_count"`
 	Blacklisted            int               `json:"blacklisted"`
@@ -55,9 +55,9 @@ type UsersUser struct {
 	IsFavorite             int               `json:"is_favorite"`
 	IsHiddenFromFeed       int               `json:"is_hidden_from_feed"`
 	CommonCount            int               `json:"common_count"`
-	Occupation             usersOccupation   `json:"occupation"`
-	Career                 []usersCareer     `json:"career"`
-	Military               []usersMilitary   `json:"military"`
+	Occupation             UsersOccupation   `json:"occupation"`
+	Career                 []UsersCareer     `json:"career"`
+	Military               []UsersMilitary   `json:"military"`
 	University             int               `json:"university"`
 	UniversityName         string            `json:"university_name"`
 	Faculty                int               `json:"faculty"`
@@ -65,7 +65,7 @@ type UsersUser struct {
 	Graduation             int               `json:"graduation"`
 	HomeTown               string            `json:"home_town"`
 	Relation               int               `json:"relation"`
-	Personal               usersPersonal     `json:"personal"`
+	Personal               UsersPersonal     `json:"personal"`
 	Interests              string            `json:"interests"`
 	Music                  string            `json:"music"`
 	Activities             string            `json:"activities"`
@@ -73,10 +73,10 @@ type UsersUser struct {
 	Tv                     string            `json:"tv"`
 	Books                  string            `json:"books"`
 	Games                  string            `json:"games"`
-	Universities           []usersUniversity `json:"universities"`
-	Schools                []usersSchool     `json:"schools"`
+	Universities           []UsersUniversity `json:"universities"`
+	Schools                []UsersSchool     `json:"schools"`
 	About                  string            `json:"about"`
-	Relatives              []usersRelative   `json:"relatives"`
+	Relatives              []UsersRelative   `json:"relatives"`
 	Quotes                 string            `json:"quotes"`
 	Lists                  []int             `json:"lists"`
 	Deactivated            string            `json:"deactivated"`
@@ -84,9 +84,10 @@ type UsersUser struct {
 	Trending               int               `json:"trending"`
 	Timezone               int               `json:"timezone"`
 	MaidenName             string            `json:"maiden_name"`
-	Exports                usersExports      `json:"exports"`
-	Counters               usersUserCounters `json:"counters"`
-	Contacts               usersContacts     `json:"contacts"`
+	Exports                UsersExports      `json:"exports"`
+	Counters               UsersUserCounters `json:"counters"`
+	MobilePhone            string            `json:"mobile_phone"`
+	HomePhone              string            `json:"home_phone"`
 	FoundWith              int               `json:"found_with"` // TODO: check it
 	OnlineInfo             UsersOnlineInfo   `json:"online_info"`
 	// TODO: education
@@ -119,12 +120,8 @@ func (user UsersUserMin) ToMention() string {
 	return fmt.Sprintf("[id%d|%s %s]", user.ID, user.FirstName, user.LastName)
 }
 
-type usersContacts struct {
-	MobilePhone string `json:"mobile_phone"`
-	HomePhone   string `json:"home_phone"`
-}
-
-type usersCareer struct {
+// UsersCareer struct
+type UsersCareer struct {
 	CityID    int    `json:"city_id"`    // City ID
 	Company   string `json:"company"`    // Company name
 	CountryID int    `json:"country_id"` // Country ID
@@ -135,38 +132,44 @@ type usersCareer struct {
 	Until     int    `json:"until"`      // Till year
 }
 
-type usersCropPhoto struct {
-	Crop  usersCropPhotoCrop `json:"crop"`
+// UsersCropPhoto struct
+type UsersCropPhoto struct {
+	Crop  UsersCropPhotoCrop `json:"crop"`
 	Photo PhotosPhoto        `json:"photo"`
-	Rect  usersCropPhotoRect `json:"rect"`
+	Rect  UsersCropPhotoRect `json:"rect"`
 }
 
-type usersCropPhotoCrop struct {
+// UsersCropPhotoCrop struct
+type UsersCropPhotoCrop struct {
 	X  float64 `json:"x"`  // Coordinate X of the left upper corner
 	X2 float64 `json:"x2"` // Coordinate X of the right lower corner
 	Y  float64 `json:"y"`  // Coordinate Y of the left upper corner
 	Y2 float64 `json:"y2"` // Coordinate Y of the right lower corner
 }
 
-type usersCropPhotoRect struct {
+// UsersCropPhotoRect struct
+type UsersCropPhotoRect struct {
 	X  float64 `json:"x"`  // Coordinate X of the left upper corner
 	X2 float64 `json:"x2"` // Coordinate X of the right lower corner
 	Y  float64 `json:"y"`  // Coordinate Y of the left upper corner
 	Y2 float64 `json:"y2"` // Coordinate Y of the right lower corner
 }
 
-type usersExports struct {
+// UsersExports struct
+type UsersExports struct {
 	Facebook    int `json:"facebook"`
 	Livejournal int `json:"livejournal"`
 	Twitter     int `json:"twitter"`
 }
 
-type usersLastSeen struct {
+// UsersLastSeen struct
+type UsersLastSeen struct {
 	Platform int `json:"platform"` // Type of the platform that used for the last authorization
 	Time     int `json:"time"`     // Last visit date (in Unix time)
 }
 
-type usersMilitary struct {
+// UsersMilitary struct
+type UsersMilitary struct {
 	CountryID int    `json:"country_id"` // Country ID
 	From      int    `json:"from"`       // From year
 	ID        int    `json:"id"`         // Military ID
@@ -175,14 +178,16 @@ type usersMilitary struct {
 	Until     int    `json:"until"`      // Till year
 }
 
-type usersOccupation struct {
+// UsersOccupation struct
+type UsersOccupation struct {
 	// BUG(VK): https://vk.com/bug136108
 	ID   float64 `json:"id"`   // ID of school, university, company group
 	Name string  `json:"name"` // Name of occupation
 	Type string  `json:"type"` // Type of occupation
 }
 
-type usersPersonal struct {
+// UsersPersonal struct
+type UsersPersonal struct {
 	Alcohol    int      `json:"alcohol"`     // User's views on alcohol
 	InspiredBy string   `json:"inspired_by"` // User's inspired by
 	Langs      []string `json:"langs"`
@@ -194,14 +199,16 @@ type usersPersonal struct {
 	ReligionID int      `json:"religion_id"`
 }
 
-type usersRelative struct {
+// UsersRelative struct
+type UsersRelative struct {
 	BirthDate string `json:"birth_date"` // Date of child birthday (format dd.mm.yyyy)
 	ID        int    `json:"id"`         // Relative ID
 	Name      string `json:"name"`       // Name of relative
 	Type      string `json:"type"`       // Relative type
 }
 
-type usersSchool struct {
+// UsersSchool struct
+type UsersSchool struct {
 	City          int    `json:"city"`           // City ID
 	Class         string `json:"class"`          // School class letter
 	Country       int    `json:"country"`        // Country ID
@@ -214,7 +221,8 @@ type usersSchool struct {
 	YearTo        int    `json:"year_to"`        // Year the user finished to study
 }
 
-type usersUniversity struct {
+// UsersUniversity struct
+type UsersUniversity struct {
 	Chair           int    `json:"chair"`            // Chair ID
 	ChairName       string `json:"chair_name"`       // Chair name
 	City            int    `json:"city"`             // City ID
@@ -228,7 +236,8 @@ type usersUniversity struct {
 	Name            string `json:"name"`             // University name
 }
 
-type usersUserCounters struct {
+// UsersUserCounters struct
+type UsersUserCounters struct {
 	Albums        int `json:"albums"`         // Albums number
 	Audios        int `json:"audios"`         // Audios number
 	Followers     int `json:"followers"`      // Followers number

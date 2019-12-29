@@ -26,7 +26,7 @@ type PhotosPhoto struct {
 	PrivacyComment     []string           `json:"privacy_comment"`
 	PrivacyView        []string           `json:"privacy_view"`
 	Size               int                `json:"size"`
-	Sizes              []photosPhotoSizes `json:"sizes"`
+	Sizes              []PhotosPhotoSizes `json:"sizes"`
 	ThumbID            int                `json:"thumb_id"`
 	ThumbIsLast        int                `json:"thumb_is_last"`
 	ThumbSrc           string             `json:"thumb_src"`
@@ -42,7 +42,7 @@ func (photo PhotosPhoto) ToAttachment() string {
 
 // PhotosCommentXtrPid struct
 type PhotosCommentXtrPid struct {
-	Attachments    []wallCommentAttachment `json:"attachments"`
+	Attachments    []WallCommentAttachment `json:"attachments"`
 	Date           int                     `json:"date"`    // Date when the comment has been added in Unixtime
 	FromID         int                     `json:"from_id"` // Author ID
 	ID             int                     `json:"id"`      // Comment ID
@@ -52,7 +52,7 @@ type PhotosCommentXtrPid struct {
 	ReplyToComment int                     `json:"reply_to_comment"` // Replied comment ID
 	ReplyToUser    int                     `json:"reply_to_user"`    // Replied user ID
 	Text           string                  `json:"text"`             // Comment text
-	Thread         wallWallCommentThread   `json:"thread"`
+	Thread         WallWallCommentThread   `json:"thread"`
 }
 
 // PhotosImage struct
@@ -98,6 +98,7 @@ type PhotosOwnerUploadResponse struct {
 	Server int    `json:"server"` // Upload server number
 }
 
+// PhotosPhotoAlbum struct
 type PhotosPhotoAlbum struct {
 	Created     int         `json:"created"`     // Date when the album has been created in Unixtime
 	Description string      `json:"description"` // Photo album description
@@ -125,7 +126,7 @@ type PhotosPhotoAlbumFull struct {
 	Size             int    `json:"size"`              // Photos number
 	// TODO: PrivacyComment     interface{}           `json:"privacy_comment"`
 	// TODO: PrivacyView        interface{}           `json:"privacy_view"`
-	Sizes              []photosPhotoSizes `json:"sizes"`
+	Sizes              []PhotosPhotoSizes `json:"sizes"`
 	ThumbID            int                `json:"thumb_id"`              // Thumb photo ID
 	ThumbIsLast        int                `json:"thumb_is_last"`         // Information whether the album thumb is last photo
 	ThumbSrc           string             `json:"thumb_src"`             // URL of the thumb image
@@ -189,7 +190,7 @@ type PhotosPhotoFullXtrRealOffset struct {
 	PostID     int                `json:"post_id"`     // Post ID
 	RealOffset int                `json:"real_offset"` // Real position of the photo
 	Reposts    BaseObjectCount    `json:"reposts"`
-	Sizes      []photosPhotoSizes `json:"sizes"`
+	Sizes      []PhotosPhotoSizes `json:"sizes"`
 	Tags       BaseObjectCount    `json:"tags"`
 	Text       string             `json:"text"`    // Photo caption
 	UserID     int                `json:"user_id"` // ID of the user who have uploaded the photo
@@ -201,8 +202,9 @@ func (photo PhotosPhotoFullXtrRealOffset) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
-type photosPhotoSizes struct {
-	// BUG(VK): json: cannot unmarshal number 180.000000 into Go struct field photosPhotoSizes.height of type int
+// PhotosPhotoSizes struct
+type PhotosPhotoSizes struct {
+	// BUG(VK): json: cannot unmarshal number 180.000000 into Go struct field PhotosPhotoSizes.height of type int
 	BaseImage
 	Type string `json:"type"`
 }
@@ -255,7 +257,7 @@ type PhotosPhotoXtrRealOffset struct {
 	Photo807   string             `json:"photo_807"`   // URL of image with 807 px width
 	PostID     int                `json:"post_id"`     // Post ID
 	RealOffset int                `json:"real_offset"` // Real position of the photo
-	Sizes      []photosPhotoSizes `json:"sizes"`
+	Sizes      []PhotosPhotoSizes `json:"sizes"`
 	Text       string             `json:"text"`    // Photo caption
 	UserID     int                `json:"user_id"` // ID of the user who have uploaded the photo
 	Width      int                `json:"width"`   // Original photo width
@@ -284,7 +286,7 @@ type PhotosPhotoXtrTagInfo struct {
 	Photo807   string             `json:"photo_807"`  // URL of image with 807 px width
 	PlacerID   int                `json:"placer_id"`  // ID of the tag creator
 	PostID     int                `json:"post_id"`    // Post ID
-	Sizes      []photosPhotoSizes `json:"sizes"`
+	Sizes      []PhotosPhotoSizes `json:"sizes"`
 	TagCreated int                `json:"tag_created"` // Date when tag has been added in Unixtime
 	TagID      int                `json:"tag_id"`      // Tag ID
 	Text       string             `json:"text"`        // Photo caption

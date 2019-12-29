@@ -25,13 +25,13 @@ type UtilsLinkChecked struct {
 // UtilsLinkStats struct
 type UtilsLinkStats struct {
 	Key   string       `json:"key"` // Link key (characters after vk.cc/)
-	Stats []utilsStats `json:"stats"`
+	Stats []UtilsStats `json:"stats"`
 }
 
 // UtilsLinkStatsExtended struct
 type UtilsLinkStatsExtended struct {
 	Key   string               `json:"key"` // Link key (characters after vk.cc/)
-	Stats []utilsStatsExtended `json:"stats"`
+	Stats []UtilsStatsExtended `json:"stats"`
 }
 
 // UtilsShortLink struct
@@ -42,30 +42,35 @@ type UtilsShortLink struct {
 	URL       string `json:"url"`        // Full URL
 }
 
-type utilsStats struct {
+// UtilsStats struct
+type UtilsStats struct {
 	Timestamp int `json:"timestamp"` // Start time
 	Views     int `json:"views"`     // Total views number
 }
 
-type utilsStatsCity struct {
+// UtilsStatsCity struct
+type UtilsStatsCity struct {
 	CityID int `json:"city_id"` // City ID
 	Views  int `json:"views"`   // Views number
 }
 
-type utilsStatsCountry struct {
+// UtilsStatsCountry struct
+type UtilsStatsCountry struct {
 	CountryID int `json:"country_id"` // Country ID
 	Views     int `json:"views"`      // Views number
 }
 
-type utilsStatsExtended struct {
-	Cities    []utilsStatsCity    `json:"cities"`
-	Countries []utilsStatsCountry `json:"countries"`
-	SexAge    []utilsStatsSexAge  `json:"sex_age"`
+// UtilsStatsExtended struct
+type UtilsStatsExtended struct {
+	Cities    []UtilsStatsCity    `json:"cities"`
+	Countries []UtilsStatsCountry `json:"countries"`
+	SexAge    []UtilsStatsSexAge  `json:"sex_age"`
 	Timestamp int                 `json:"timestamp"` // Start time
 	Views     int                 `json:"views"`     // Total views number
 }
 
-type utilsStatsSexAge struct {
+// UtilsStatsSexAge struct
+type UtilsStatsSexAge struct {
 	AgeRange string `json:"age_range"` // Age denotation
 	Female   int    `json:"female"`    //  Views by female users
 	Male     int    `json:"male"`      //  Views by male users

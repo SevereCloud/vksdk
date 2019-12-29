@@ -39,13 +39,13 @@ func (doc MessagesGraffiti) ToAttachment() string {
 // MessagesMessage struct
 type MessagesMessage struct {
 	AdminAuthorID         int                         `json:"admin_author_id"` // Only for messages from community. Contains user ID of community admin, who sent this message.
-	Action                messagesMessageAction       `json:"action"`
-	Attachments           []messagesMessageAttachment `json:"attachments"`
+	Action                MessagesMessageAction       `json:"action"`
+	Attachments           []MessagesMessageAttachment `json:"attachments"`
 	ConversationMessageID int                         `json:"conversation_message_id"` // Unique auto-incremented number for all messages with this peer
 	Date                  int                         `json:"date"`                    // Date when the message has been sent in Unixtime
 	Deleted               int                         `json:"deleted"`                 // Is it an deleted message
 	FromID                int                         `json:"from_id"`                 // Message author's ID
-	FwdMessages           []MessagesMessage           `json:"fwd_messages"`            // Forwarded messages
+	FwdMessages           []MessagesMessage           `json:"fwd_Messages"`            // Forwarded messages
 	ReplyMessage          *MessagesMessage            `json:"reply_message"`
 	Geo                   BaseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`        // Message ID
@@ -196,13 +196,13 @@ type MessagesChat struct {
 	Photo100     string                    `json:"photo_100"` // URL of the preview image with 100 px in width
 	Photo200     string                    `json:"photo_200"` // URL of the preview image with 200 px in width
 	Photo50      string                    `json:"photo_50"`  // URL of the preview image with 50 px in width
-	PushSettings messagesChatPushSettings  `json:"push_settings"`
+	PushSettings MessagesChatPushSettings  `json:"push_settings"`
 	Title        string                    `json:"title"` // Chat title
 	Type         string                    `json:"type"`  // Chat type
 	Users        []int                     `json:"users"`
 	MembersCount int                       `json:"members_count"`
 	Members      []int                     `json:"members"`
-	Photo        messagesChatSettingsPhoto `json:"photo"`
+	Photo        MessagesChatSettingsPhoto `json:"photo"`
 	Joined       bool                      `json:"joined"`
 	LocalID      int                       `json:"local_id"`
 }
@@ -216,18 +216,20 @@ type MessagesChatFull struct {
 	Photo100     string                     `json:"photo_100"` // URL of the preview image with 100 px in width
 	Photo200     string                     `json:"photo_200"` // URL of the preview image with 200 px in width
 	Photo50      string                     `json:"photo_50"`  // URL of the preview image with 50 px in width
-	PushSettings messagesChatPushSettings   `json:"push_settings"`
+	PushSettings MessagesChatPushSettings   `json:"push_settings"`
 	Title        string                     `json:"title"` // Chat title
 	Type         string                     `json:"type"`  // Chat type
-	Users        []messagesUserXtrInvitedBy `json:"users"`
+	Users        []MessagesUserXtrInvitedBy `json:"users"`
 }
 
-type messagesChatPushSettings struct {
+// MessagesChatPushSettings struct
+type MessagesChatPushSettings struct {
 	DisabledUntil int `json:"disabled_until"` // Time until that notifications are disabled
 	Sound         int `json:"sound"`          // Information whether the sound is on
 }
 
-type messagesChatSettingsPhoto struct {
+// MessagesChatSettingsPhoto struct
+type MessagesChatSettingsPhoto struct {
 	Photo100 string `json:"photo_100"`
 	Photo200 string `json:"photo_200"`
 	Photo50  string `json:"photo_50"`
@@ -235,30 +237,32 @@ type messagesChatSettingsPhoto struct {
 
 // MessagesConversation struct
 type MessagesConversation struct {
-	CanWrite        messagesConversationCanWrite     `json:"can_write"`
-	ChatSettings    messagesConversationChatSettings `json:"chat_settings"`
+	CanWrite        MessagesConversationCanWrite     `json:"can_write"`
+	ChatSettings    MessagesConversationChatSettings `json:"chat_settings"`
 	InRead          int                              `json:"in_read"`         // Last message user have read
 	LastMessageID   int                              `json:"last_message_id"` // ID of the last message in conversation
 	Mentions        []int                            `json:"mentions"`        // IDs of messages with mentions
 	MessageRequest  string                           `json:"message_request"`
 	OutRead         int                              `json:"out_read"` // Last outcoming message have been read by the opponent
-	Peer            messagesConversationPeer         `json:"peer"`
-	PushSettings    messagesConversationPushSettings `json:"push_settings"`
+	Peer            MessagesConversationPeer         `json:"peer"`
+	PushSettings    MessagesConversationPushSettings `json:"push_settings"`
 	Important       bool                             `json:"important"`
 	Unanswered      bool                             `json:"unanswered"`
 	UnreadCount     int                              `json:"unread_count"` // Unread messages number
 	CurrentKeyboard MessagesKeyboard                 `json:"current_keyboard"`
 }
 
-type messagesConversationCanWrite struct {
+// MessagesConversationCanWrite struct
+type MessagesConversationCanWrite struct {
 	Allowed bool `json:"allowed"`
 	Reason  int  `json:"reason"`
 }
 
-type messagesConversationChatSettings struct {
+// MessagesConversationChatSettings struct
+type MessagesConversationChatSettings struct {
 	MembersCount  int                       `json:"members_count"`
-	Photo         messagesChatSettingsPhoto `json:"photo"`
-	PinnedMessage messagesPinnedMessage     `json:"pinned_message"`
+	Photo         MessagesChatSettingsPhoto `json:"photo"`
+	PinnedMessage MessagesPinnedMessage     `json:"pinned_message"`
 	State         string                    `json:"state"`
 	Title         string                    `json:"title"`
 	ActiveIDS     []int                     `json:"active_ids"`
@@ -276,13 +280,15 @@ type messagesConversationChatSettings struct {
 	OwnerID        int  `json:"owner_id"`
 }
 
-type messagesConversationPeer struct {
+// MessagesConversationPeer struct
+type MessagesConversationPeer struct {
 	ID      int    `json:"id"`
 	LocalID int    `json:"local_id"`
 	Type    string `json:"type"`
 }
 
-type messagesConversationPushSettings struct {
+// MessagesConversationPushSettings struct
+type MessagesConversationPushSettings struct {
 	DisabledUntil   int  `json:"disabled_until"`
 	DisabledForever bool `json:"disabled_forever"`
 	NoSound         bool `json:"no_sound"`
@@ -306,11 +312,12 @@ type MessagesDialog struct {
 
 // MessagesHistoryAttachment struct
 type MessagesHistoryAttachment struct {
-	Attachment messagesHistoryMessageAttachment `json:"attachment"`
+	Attachment MessagesHistoryMessageAttachment `json:"attachment"`
 	MessageID  int                              `json:"message_id"` // Message ID
 }
 
-type messagesHistoryMessageAttachment struct {
+// MessagesHistoryMessageAttachment struct
+type MessagesHistoryMessageAttachment struct {
 	Audio  AudioAudioFull `json:"audio"`
 	Doc    DocsDoc        `json:"doc"`
 	Link   BaseLink       `json:"link"`
@@ -336,23 +343,26 @@ type MessagesLongpollParams struct {
 	Ts     int    `json:"ts"`     // Timestamp
 }
 
-type messagesMessageAction struct {
+// MessagesMessageAction struct
+type MessagesMessageAction struct {
 	ConversationMessageID int                        `json:"conversation_message_id"` // Message ID
 	Email                 string                     `json:"email"`                   // Email address for chat_invite_user or chat_kick_user actions
 	MemberID              int                        `json:"member_id"`               // User or email peer ID
 	Message               string                     `json:"message"`                 // Message body of related message
-	Photo                 messagesMessageActionPhoto `json:"photo"`
+	Photo                 MessagesMessageActionPhoto `json:"photo"`
 	Text                  string                     `json:"text"` // New chat title for chat_create and chat_title_update actions
 	Type                  string                     `json:"type"`
 }
 
-type messagesMessageActionPhoto struct {
+// MessagesMessageActionPhoto struct
+type MessagesMessageActionPhoto struct {
 	Photo100 string `json:"photo_100"` // URL of the preview image with 100px in width
 	Photo200 string `json:"photo_200"` // URL of the preview image with 200px in width
 	Photo50  string `json:"photo_50"`  // URL of the preview image with 50px in width
 }
 
-type messagesMessageAttachment struct {
+// MessagesMessageAttachment struct
+type MessagesMessageAttachment struct {
 	Audio             AudioAudioFull       `json:"audio"`
 	Doc               DocsDoc              `json:"doc"`
 	Gift              GiftsLayout          `json:"gift"`
@@ -363,7 +373,7 @@ type messagesMessageAttachment struct {
 	Sticker           BaseSticker          `json:"sticker"`
 	Type              string               `json:"type"`
 	Video             VideoVideo           `json:"video"`
-	Wall              wallWallpostAttached `json:"wall"`
+	Wall              WallWallpostAttached `json:"wall"`
 	WallReply         WallWallComment      `json:"wall_reply"`
 	AudioMessage      DocsDoc              `json:"audio_message"`
 	Graffiti          DocsDoc              `json:"graffiti"`
@@ -381,12 +391,13 @@ type MessageCall struct {
 	Video       bool   `json:"video"`
 }
 
-type messagesPinnedMessage struct {
-	Attachments           []messagesMessageAttachment `json:"attachments"`
-	ConversationMessageID int                         `json:"conversation_message_id"` // Unique auto-incremented number for all messages with this peer
+// MessagesPinnedMessage struct
+type MessagesPinnedMessage struct {
+	Attachments           []MessagesMessageAttachment `json:"attachments"`
+	ConversationMessageID int                         `json:"conversation_message_id"` // Unique auto-incremented number for all Messages with this peer
 	Date                  int                         `json:"date"`                    // Date when the message has been sent in Unixtime
 	FromID                int                         `json:"from_id"`                 // Message author's ID
-	FwdMessages           []*MessagesMessage          `json:"fwd_messages"`
+	FwdMessages           []*MessagesMessage          `json:"fwd_Messages"`
 	Geo                   BaseGeo                     `json:"geo"`
 	ID                    int                         `json:"id"`      // Message ID
 	PeerID                int                         `json:"peer_id"` // Peer ID
@@ -394,5 +405,6 @@ type messagesPinnedMessage struct {
 	Text                  string                      `json:"text"` // Message text
 }
 
-type messagesUserXtrInvitedBy struct {
+// MessagesUserXtrInvitedBy struct
+type MessagesUserXtrInvitedBy struct {
 }

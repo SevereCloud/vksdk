@@ -11,10 +11,11 @@ type AccountNameRequest struct {
 // AccountPushConversations struct
 type AccountPushConversations struct {
 	Count int                             `json:"count"` // Items count
-	Items []*accountPushConversationsItem `json:"items"`
+	Items []*AccountPushConversationsItem `json:"items"`
 }
 
-type accountPushConversationsItem struct {
+// AccountPushConversationsItem struct
+type AccountPushConversationsItem struct {
 	DisabledUntil int `json:"disabled_until"` // Time until that notifications are disabled in seconds
 	PeerID        int `json:"peer_id"`        // Peer ID
 	Sound         int `json:"sound"`          // Information whether the sound are enabled

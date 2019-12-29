@@ -2,10 +2,12 @@ package object // import "github.com/SevereCloud/vksdk/object"
 
 import "encoding/json"
 
+// Attachment interface
 type Attachment interface {
 	ToAttachment() string
 }
 
+// JSONObject interface
 type JSONObject interface {
 	ToJSON() string
 }
@@ -27,6 +29,7 @@ type BaseObjectCount struct {
 	Count int `json:"count"`
 }
 
+// BaseObjectWithName struct
 type BaseObjectWithName struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
@@ -61,6 +64,7 @@ type LongpollBotResponse struct {
 	Failed  int          `json:"failed"`
 }
 
+// BaseCommentsInfo struct
 type BaseCommentsInfo struct {
 	CanPost       int  `json:"can_post"`
 	Count         int  `json:"count"`
@@ -69,6 +73,7 @@ type BaseCommentsInfo struct {
 	CanOpen       bool `json:"can_open"`
 }
 
+// BaseGeo struct
 type BaseGeo struct {
 	Coordinates string    `json:"coordinates"`
 	Place       BasePlace `json:"place"`
@@ -76,6 +81,7 @@ type BaseGeo struct {
 	Type        string    `json:"type"`
 }
 
+// BaseImage struct
 type BaseImage struct {
 	Height float64 `json:"height"`
 	URL    string  `json:"url"`
@@ -83,11 +89,13 @@ type BaseImage struct {
 	Type   string  `json:"type"`
 }
 
+// BaseLikes struct
 type BaseLikes struct {
 	Count     int `json:"count"`
 	UserLikes int `json:"user_likes"`
 }
 
+// BaseLikesInfo struct
 type BaseLikesInfo struct {
 	CanLike int `json:"can_like"`
 	// BUG(VK): https://github.com/SevereCloud/vksdk/issues/55
@@ -96,6 +104,7 @@ type BaseLikesInfo struct {
 	UserLikes int `json:"user_likes"`
 }
 
+// BaseLink struct
 type BaseLink struct {
 	Application BaseLinkApplication `json:"application"`
 	Button      BaseLinkButton      `json:"button"`
@@ -110,35 +119,42 @@ type BaseLink struct {
 	URL         string              `json:"url"`
 }
 
+// BaseLinkApplication struct
 type BaseLinkApplication struct {
 	AppID float64                  `json:"app_id"`
 	Store BaseLinkApplicationStore `json:"store"`
 }
 
+// BaseLinkApplicationStore struct
 type BaseLinkApplicationStore struct {
 	ID   float64 `json:"id"`
 	Name string  `json:"name"`
 }
 
+// BaseLinkButton struct
 type BaseLinkButton struct {
 	Action BaseLinkButtonAction `json:"action"`
 	Title  string               `json:"title"`
 }
 
+// BaseLinkButtonAction struct
 type BaseLinkButtonAction struct {
 	Type string `json:"type"`
 	URL  string `json:"url"`
 }
 
+// BaseLinkProduct struct
 type BaseLinkProduct struct {
 	Price MarketPrice `json:"price"`
 }
 
+// BaseLinkRating struct
 type BaseLinkRating struct {
 	ReviewsCount int     `json:"reviews_count"`
 	Stars        float64 `json:"stars"`
 }
 
+// BasePlace struct
 type BasePlace struct {
 	Address        string             `json:"address"`
 	Checkins       int                `json:"checkins"`
@@ -157,17 +173,20 @@ type BasePlace struct {
 	CategoryObject BaseCategoryObject `json:"category_object"`
 }
 
+// BaseCategoryObject struct
 type BaseCategoryObject struct {
 	ID    int         `json:"id"`
 	Title string      `json:"title"`
 	Icons []BaseImage `json:"icons"`
 }
 
+// BaseRepostsInfo struct
 type BaseRepostsInfo struct {
 	Count        int `json:"count"`
 	UserReposted int `json:"user_reposted"`
 }
 
+// BaseSticker struct
 type BaseSticker struct {
 	Images               []BaseImage `json:"images"`
 	ImagesWithBackground []BaseImage `json:"images_with_background"`
@@ -175,10 +194,12 @@ type BaseSticker struct {
 	StickerID            int         `json:"sticker_id"`
 }
 
+// BaseUserID struct
 type BaseUserID struct {
 	UserID int `json:"user_id"`
 }
 
+// EventsEventAttach struct
 type EventsEventAttach struct {
 	Address      string `json:"address,omitempty"`       // address of event
 	ButtonText   string `json:"button_text"`             // text of attach
@@ -227,11 +248,13 @@ type Error struct {
 	RequestParams []BaseRequestParam `json:"request_params"`
 }
 
+// ExtendedResponse struct
 type ExtendedResponse struct {
 	Profiles []UsersUser   `json:"profiles"`
 	Groups   []GroupsGroup `json:"groups"`
 }
 
+// ClientInfo struct
 type ClientInfo struct {
 	ButtonActions  []string `json:"button_actions"`
 	Keyboard       bool     `json:"keyboard"`

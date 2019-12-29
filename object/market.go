@@ -4,7 +4,8 @@ import (
 	"fmt"
 )
 
-type marketCurrency struct {
+// MarketCurrency struct
+type MarketCurrency struct {
 	ID   int    `json:"id"`   // Currency ID
 	Name string `json:"name"` // Currency sign
 }
@@ -28,7 +29,7 @@ func (marketAlbum MarketMarketAlbum) ToAttachment() string {
 type MarketMarketCategory struct {
 	ID      int           `json:"id"`   // Category ID
 	Name    string        `json:"name"` // Category name
-	Section marketSection `json:"section"`
+	Section MarketSection `json:"section"`
 }
 
 // MarketMarketItem struct
@@ -61,15 +62,17 @@ func (market MarketMarketItem) ToAttachment() string {
 	return fmt.Sprintf("market%d_%d", market.OwnerID, market.ID)
 }
 
+// MarketPrice struct
 type MarketPrice struct {
 	Amount       string         `json:"amount"` // Amount
-	Currency     marketCurrency `json:"currency"`
+	Currency     MarketCurrency `json:"currency"`
 	DiscountRate int            `json:"discount_rate"`
 	OldAmount    string         `json:"old_amount"`
 	Text         string         `json:"text"` // Text
 }
 
-type marketSection struct {
+// MarketSection struct
+type MarketSection struct {
 	ID   int    `json:"id"`   // Section ID
 	Name string `json:"name"` // Section name
 }

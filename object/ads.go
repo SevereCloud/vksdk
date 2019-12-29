@@ -1,6 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-type adsAccesses struct {
+// AdsAccesses struct
+type AdsAccesses struct {
 	ClientID string `json:"client_id"`
 	Role     string `json:"role"`
 }
@@ -93,18 +94,19 @@ type AdsCriteria struct {
 // AdsDemoStats struct
 type AdsDemoStats struct {
 	ID    int                `json:"id"` // Object ID
-	Stats adsDemostatsFormat `json:"stats"`
+	Stats AdsDemostatsFormat `json:"stats"`
 	Type  string             `json:"type"`
 }
 
-type adsDemostatsFormat struct {
-	Age     []adsStatsAge    `json:"age"`
-	Cities  []adsStatsCities `json:"cities"`
+// AdsDemostatsFormat struc
+type AdsDemostatsFormat struct {
+	Age     []AdsStatsAge    `json:"age"`
+	Cities  []AdsStatsCities `json:"cities"`
 	Day     string           `json:"day"`     // Day as YYYY-MM-DD
 	Month   string           `json:"month"`   // Month as YYYY-MM
 	Overall int              `json:"overall"` // 1 if period=overall
-	Sex     []adsStatsSex    `json:"sex"`
-	SexAge  []adsStatsSexAge `json:"sex_age"`
+	Sex     []AdsStatsSex    `json:"sex"`
+	SexAge  []AdsStatsSexAge `json:"sex_age"`
 }
 
 // AdsFloodStats struct
@@ -120,42 +122,47 @@ type AdsLinkStatus struct {
 	Status      string `json:"status"`       // Link status
 }
 
-type adsParagraphs struct {
+// AdsParagraphs struct
+type AdsParagraphs struct {
 	Paragraph string `json:"paragraph"` // Rules paragraph
 }
 
 // AdsRejectReason struct
 type AdsRejectReason struct {
 	Comment string     `json:"comment"` // Comment text
-	Rules   []adsRules `json:"rules"`
+	Rules   []AdsRules `json:"rules"`
 }
 
-type adsRules struct {
-	Paragraphs []adsParagraphs `json:"paragraphs"`
+// AdsRules struct
+type AdsRules struct {
+	Paragraphs []AdsParagraphs `json:"paragraphs"`
 	Title      string          `json:"title"` // Comment
 }
 
 // AdsStats struct
 type AdsStats struct {
 	ID    int            `json:"id"` // Object ID
-	Stats adsStatsFormat `json:"stats"`
+	Stats AdsStatsFormat `json:"stats"`
 	Type  string         `json:"type"`
 }
 
-type adsStatsAge struct {
+// AdsStatsAge struct
+type AdsStatsAge struct {
 	ClicksRate      float64 `json:"clicks_rate"`      // Clicks rate
 	ImpressionsRate float64 `json:"impressions_rate"` // Impressions rate
 	Value           string  `json:"value"`            // Age interval
 }
 
-type adsStatsCities struct {
+// AdsStatsCities struct
+type AdsStatsCities struct {
 	ClicksRate      float64 `json:"clicks_rate"`      // Clicks rate
 	ImpressionsRate float64 `json:"impressions_rate"` // Impressions rate
 	Name            string  `json:"name"`             // City name
 	Value           int     `json:"value"`            // City ID
 }
 
-type adsStatsFormat struct {
+// AdsStatsFormat struct
+type AdsStatsFormat struct {
 	Clicks          int    `json:"clicks"`            // Clicks number
 	Day             string `json:"day"`               // Day as YYYY-MM-DD
 	Impressions     int    `json:"impressions"`       // Impressions number
@@ -170,13 +177,15 @@ type adsStatsFormat struct {
 	VideoViewsHalf  int    `json:"video_views_half"`  // Video views (half of video)
 }
 
-type adsStatsSex struct {
+// AdsStatsSex struct
+type AdsStatsSex struct {
 	ClicksRate      float64 `json:"clicks_rate"`      // Clicks rate
 	ImpressionsRate float64 `json:"impressions_rate"` // Impressions rate
 	Value           string  `json:"value"`
 }
 
-type adsStatsSexAge struct {
+// AdsStatsSexAge struct
+type AdsStatsSexAge struct {
 	ClicksRate      float64 `json:"clicks_rate"`      // Clicks rate
 	ImpressionsRate float64 `json:"impressions_rate"` // Impressions rate
 	Value           string  `json:"value"`            // Sex and age interval
@@ -234,7 +243,7 @@ type AdsTargetGroup struct {
 
 // AdsUsers struct
 type AdsUsers struct {
-	Accesses []adsAccesses `json:"accesses"`
+	Accesses []AdsAccesses `json:"accesses"`
 	UserID   int           `json:"user_id"` // User ID
 }
 

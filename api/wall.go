@@ -42,6 +42,7 @@ func (vk *VK) WallDeleteComment(params Params) (response int, err error) {
 	return
 }
 
+// WallEditResponse struct
 type WallEditResponse struct {
 	PostID int `json:"post_id"`
 }

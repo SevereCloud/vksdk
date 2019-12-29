@@ -12,12 +12,12 @@ type DocsDoc struct {
 	ID         int            `json:"id"`         // Document ID
 	IsLicensed int            `json:"is_licensed"`
 	OwnerID    int            `json:"owner_id"` // Document owner ID
-	Preview    docsDocPreview `json:"preview"`
+	Preview    DocsDocPreview `json:"preview"`
 	Size       int            `json:"size"`  // File size in bites
 	Title      string         `json:"title"` // Document title
 	Type       int            `json:"type"`  // Document type
 	URL        string         `json:"url"`   // File URL
-	docsDocPreviewAudioMessage
+	DocsDocPreviewAudioMessage
 }
 
 // ToAttachment return attachment format
@@ -25,39 +25,45 @@ func (doc DocsDoc) ToAttachment() string {
 	return fmt.Sprintf("doc%d_%d", doc.OwnerID, doc.ID)
 }
 
-type docsDocPreview struct {
-	Photo        docsDocPreviewPhoto        `json:"photo"`
-	Graffiti     docsDocPreviewGraffiti     `json:"graffiti"`
-	Video        docsDocPreviewVideo        `json:"video"`
-	AudioMessage docsDocPreviewAudioMessage `json:"audio_message"`
+// DocsDocPreview struct
+type DocsDocPreview struct {
+	Photo        DocsDocPreviewPhoto        `json:"photo"`
+	Graffiti     DocsDocPreviewGraffiti     `json:"graffiti"`
+	Video        DocsDocPreviewVideo        `json:"video"`
+	AudioMessage DocsDocPreviewAudioMessage `json:"audio_message"`
 }
 
-type docsDocPreviewPhoto struct {
-	Sizes []docsDocPreviewPhotoSizes `json:"sizes"`
+// DocsDocPreviewPhoto struct
+type DocsDocPreviewPhoto struct {
+	Sizes []DocsDocPreviewPhotoSizes `json:"sizes"`
 }
 
-type docsDocPreviewPhotoSizes struct {
-	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field docsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type int
+// DocsDocPreviewPhotoSizes struct
+type DocsDocPreviewPhotoSizes struct {
+	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field DocsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type Int
 	Height float64 `json:"height"` // Height in px
 	Src    string  `json:"src"`    // URL of the image
 	Type   string  `json:"type"`
 	Width  float64 `json:"width"` // Width in px
 }
 
-type docsDocPreviewGraffiti struct {
+// DocsDocPreviewGraffiti struct
+type DocsDocPreviewGraffiti struct {
 	Src    string `json:"src"`
 	Width  int    `json:"width"`
 	Height int    `json:"height"`
 }
 
-type docsDocPreviewVideo struct {
+//  DocsDocPreviewVideo struct
+type DocsDocPreviewVideo struct {
 	FileSize int    `json:"file_size"` // Video file size in bites
 	Height   int    `json:"height"`    // Video's height in pixels
 	Src      string `json:"src"`       // Video URL
 	Width    int    `json:"width"`     // Video's width in pixels
 }
 
-type docsDocPreviewAudioMessage struct {
+// DocsDocPreviewAudioMessage struct
+type DocsDocPreviewAudioMessage struct {
 	Duration int    `json:"duration"`
 	Waveform []int  `json:"waveform"`
 	LinkOgg  string `json:"link_ogg"`
@@ -68,7 +74,7 @@ type docsDocPreviewAudioMessage struct {
 type DocsDocTypes struct {
 	Count int    `json:"count"` // Number of docs
 	ID    int    `json:"id"`    // Doc type ID
-	Name  string `json:"name"`  // Doc type title
+	Name  string `json:"name"`  // Doc type Title
 }
 
 // DocsDocUploadResponse struct

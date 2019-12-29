@@ -18,7 +18,7 @@ type VideoVideo struct {
 	Date           int               `json:"date"`             // Date when video has been uploaded in Unixtime
 	Description    string            `json:"description"`      // Video description
 	Duration       int               `json:"duration"`         // Video duration in seconds
-	Files          videoVideoFiles   `json:"files"`
+	Files          VideoVideoFiles   `json:"files"`
 	FirstFrame     []VideoVideoImage `json:"first_frame"`
 	Image          []VideoVideoImage `json:"image"`
 	Height         int               `json:"height"` // Video height
@@ -51,8 +51,8 @@ func (video VideoVideo) ToAttachment() string {
 	return fmt.Sprintf("video%d_%d", video.OwnerID, video.ID)
 }
 
-// videoVideoFiles struct
-type videoVideoFiles struct {
+// VideoVideoFiles struct
+type VideoVideoFiles struct {
 	External string `json:"external"` // URL of the external player
 	Mp4_1080 string `json:"mp4_1080"` // URL of the mpeg4 file with 1080p quality
 	Mp4_240  string `json:"mp4_240"`  // URL of the mpeg4 file with 240p quality
@@ -65,14 +65,15 @@ type videoVideoFiles struct {
 type VideoCatBlock struct {
 	CanHide int               `json:"can_hide"`
 	ID      int               `json:"id"`
-	Items   []videoCatElement `json:"items"`
+	Items   []VideoCatElement `json:"items"`
 	Name    string            `json:"name"`
 	Next    string            `json:"next"`
 	Type    string            `json:"type"`
 	View    string            `json:"view"`
 }
 
-type videoCatElement struct {
+// VideoCatElement struct
+type VideoCatElement struct {
 	CanAdd      int    `json:"can_add"`
 	CanEdit     int    `json:"can_edit"`
 	Comments    int    `json:"comments"`
@@ -143,7 +144,7 @@ type VideoVideoFull struct {
 	Date          int               `json:"date"`        // Date when video has been uploaded in Unixtime
 	Description   string            `json:"description"` // Video description
 	Duration      int               `json:"duration"`    // Video duration in seconds
-	Files         videoVideoFiles   `json:"files"`
+	Files         VideoVideoFiles   `json:"files"`
 	ID            int               `json:"id"` // Video ID
 	Likes         BaseLikes         `json:"likes"`
 	Live          int               `json:"live"`       // Returns if the video is live translation
@@ -190,7 +191,7 @@ type VideoVideoTagInfo struct {
 	Date        int             `json:"date"`
 	Description string          `json:"description"`
 	Duration    int             `json:"duration"`
-	Files       videoVideoFiles `json:"files"`
+	Files       VideoVideoFiles `json:"files"`
 	ID          int             `json:"id"`
 	Live        int             `json:"live"`
 	OwnerID     int             `json:"owner_id"`
@@ -206,6 +207,7 @@ type VideoVideoTagInfo struct {
 	Views       int             `json:"views"`
 }
 
+// VideoVideoImage struct
 type VideoVideoImage struct {
 	BaseImage
 	WithPadding int `json:"with_padding"`

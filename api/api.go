@@ -117,6 +117,7 @@ func Init(token string) *VK {
 	return &vk
 }
 
+// Params type
 type Params map[string]interface{}
 
 // Request provides access to VK API methods

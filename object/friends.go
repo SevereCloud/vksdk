@@ -28,11 +28,13 @@ type FriendsRequests struct {
 	UserID int                   `json:"user_id"` // User ID
 }
 
+// FriendsRequestsMutual struct
 type FriendsRequestsMutual struct {
 	Count int   `json:"count"` // Total mutual friends number
 	Users []int `json:"users"`
 }
 
+// FriendsRequestsXtrMessage struct
 type FriendsRequestsXtrMessage struct {
 	From    string                `json:"from"`    // ID of the user by whom friend has been suggested
 	Message string                `json:"message"` // Message sent with a request

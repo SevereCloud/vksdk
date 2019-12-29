@@ -2,11 +2,12 @@ package object // import "github.com/SevereCloud/vksdk/object"
 
 // OrdersAmount struct
 type OrdersAmount struct {
-	Amounts  []ordersAmountItem `json:"amounts"`
+	Amounts  []OrdersAmountItem `json:"amounts"`
 	Currency string             `json:"currency"` // Currency name
 }
 
-type ordersAmountItem struct {
+// OrdersAmountItem struct
+type OrdersAmountItem struct {
 	Amount      int    `json:"amount"`      // Votes amount in user's currency
 	Description string `json:"description"` // Amount description
 	Votes       string `json:"votes"`       // Votes number

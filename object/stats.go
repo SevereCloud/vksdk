@@ -1,6 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-type statsActivity struct {
+// StatsActivity struct
+type StatsActivity struct {
 	Comments     int `json:"comments"`     // Comments number
 	Copies       int `json:"copies"`       // Reposts number
 	Hidden       int `json:"hidden"`       // Hidden from news count
@@ -9,13 +10,15 @@ type statsActivity struct {
 	Unsubscribed int `json:"unsubscribed"` // Unsubscribed count
 }
 
-type statsCity struct {
+// StatsCity struct
+type StatsCity struct {
 	Count int    `json:"count"` // Visitors number
 	Name  string `json:"name"`  // City name
 	Value int    `json:"value"` // City ID
 }
 
-type statsCountry struct {
+// StatsCountry struct
+type StatsCountry struct {
 	Code  string `json:"code"`  // Country code
 	Count int    `json:"count"` // Visitors number
 	Name  string `json:"name"`  // Country name
@@ -24,36 +27,39 @@ type statsCountry struct {
 
 // StatsPeriod struct
 type StatsPeriod struct {
-	Activity   statsActivity `json:"activity"`
+	Activity   StatsActivity `json:"activity"`
 	PeriodFrom int           `json:"period_from"` // Unix timestamp
 	PeriodTo   int           `json:"period_to"`   // Unix timestamp
-	Reach      statsReach    `json:"reach"`
-	Visitors   statsViews    `json:"visitors"`
+	Reach      StatsReach    `json:"reach"`
+	Visitors   StatsViews    `json:"visitors"`
 }
 
-type statsReach struct {
-	Age              []statsSexAge  `json:"age"`
-	Cities           []statsCity    `json:"cities"`
-	Countries        []statsCountry `json:"countries"`
+// StatsReach struct
+type StatsReach struct {
+	Age              []StatsSexAge  `json:"age"`
+	Cities           []StatsCity    `json:"cities"`
+	Countries        []StatsCountry `json:"countries"`
 	MobileReach      int            `json:"mobile_reach"`      // Reach count from mobile devices
 	Reach            int            `json:"reach"`             // Reach count
 	ReachSubscribers int            `json:"reach_subscribers"` // Subscribers reach count
-	Sex              []statsSexAge  `json:"sex"`
-	SexAge           []statsSexAge  `json:"sex_age"`
+	Sex              []StatsSexAge  `json:"sex"`
+	SexAge           []StatsSexAge  `json:"sex_age"`
 }
 
-type statsSexAge struct {
+// StatsSexAge struct
+type StatsSexAge struct {
 	Count int    `json:"count"` // Visitors number
 	Value string `json:"value"` // Sex/age value
 }
 
-type statsViews struct {
-	Age         []statsSexAge  `json:"age"`
-	Cities      []statsCity    `json:"cities"`
-	Countries   []statsCountry `json:"countries"`
+// StatsViews struct
+type StatsViews struct {
+	Age         []StatsSexAge  `json:"age"`
+	Cities      []StatsCity    `json:"cities"`
+	Countries   []StatsCountry `json:"countries"`
 	MobileViews int            `json:"mobile_views"` // Number of views from mobile devices
-	Sex         []statsSexAge  `json:"sex"`
-	SexAge      []statsSexAge  `json:"sex_age"`
+	Sex         []StatsSexAge  `json:"sex"`
+	SexAge      []StatsSexAge  `json:"sex_age"`
 	Views       int            `json:"views"`    // Views number
 	Visitors    int            `json:"visitors"` // Visitors number
 }

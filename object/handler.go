@@ -311,12 +311,14 @@ type GroupOfficersEditObject struct {
 	LevelNew int `json:"level_new"`
 }
 
-type changes struct {
+// Changes struct
+type Changes struct {
 	OldValue string `json:"old_value"`
 	NewValue string `json:"new_value"`
 }
 
-type changesInt struct {
+// ChangesInt struct
+type ChangesInt struct {
 	OldValue int `json:"old_value"`
 	NewValue int `json:"new_value"`
 }
@@ -331,36 +333,36 @@ type GroupChangeSettingsFunc func(GroupChangeSettingsObject, int)
 type GroupChangeSettingsObject struct {
 	UserID  int `json:"user_id"`
 	Changes struct {
-		Title                 changes    `json:"title"`
-		Description           changes    `json:"description"`
-		Access                changesInt `json:"access"`
-		ScreenName            changes    `json:"screen_name"`
-		PublicCategory        changesInt `json:"public_category"`
-		PublicSubcategory     changesInt `json:"public_subcategory"`
-		AgeLimits             changesInt `json:"age_limits"`
-		Website               changes    `json:"website"`
-		StatusDefault         changes    `json:"status_default"`
-		Wall                  changesInt `json:"wall"`                    // на основе ответа
-		Replies               changesInt `json:"replies"`                 // на основе ответа
-		Topics                changesInt `json:"topics"`                  // на основе ответа
-		Audio                 changesInt `json:"audio"`                   // на основе ответа
-		Photos                changesInt `json:"photos"`                  // на основе ответа
-		Video                 changesInt `json:"video"`                   // на основе ответа
-		Market                changesInt `json:"market"`                  // на основе ответа
-		Docs                  changesInt `json:"docs"`                    // на основе ответа
-		Messages              changesInt `json:"messages"`                // на основе ответа
-		EventGroupID          changesInt `json:"event_group_id"`          // на основе ответа
-		Links                 changes    `json:"links"`                   // на основе ответа
-		Email                 changes    `json:"email"`                   // на основе ответа
-		EventStartDate        changesInt `json:"event_start_date::"`      // на основе ответа
-		EventFinishDate       changesInt `json:"event_finish_date:"`      // на основе ответа
-		Subject               changes    `json:"subject"`                 // на основе ответа
-		MarketWiki            changes    `json:"market_wiki"`             // на основе ответа
-		DisableMarketComments changesInt `json:"disable_market_comments"` // на основе ответа
-		Phone                 changesInt `json:"phone"`                   // на основе ответа
-		CountryID             changesInt `json:"country_id"`              // на основе ответа
-		CityID                changesInt `json:"city_id"`                 // на основе ответа
-	} `json:"changes"`
+		Title                 Changes    `json:"title"`
+		Description           Changes    `json:"description"`
+		Access                ChangesInt `json:"access"`
+		ScreenName            Changes    `json:"screen_name"`
+		PublicCategory        ChangesInt `json:"public_category"`
+		PublicSubcategory     ChangesInt `json:"public_subcategory"`
+		AgeLimits             ChangesInt `json:"age_limits"`
+		Website               Changes    `json:"website"`
+		StatusDefault         Changes    `json:"status_default"`
+		Wall                  ChangesInt `json:"wall"`                    // на основе ответа
+		Replies               ChangesInt `json:"replies"`                 // на основе ответа
+		Topics                ChangesInt `json:"topics"`                  // на основе ответа
+		Audio                 ChangesInt `json:"audio"`                   // на основе ответа
+		Photos                ChangesInt `json:"photos"`                  // на основе ответа
+		Video                 ChangesInt `json:"video"`                   // на основе ответа
+		Market                ChangesInt `json:"market"`                  // на основе ответа
+		Docs                  ChangesInt `json:"docs"`                    // на основе ответа
+		Messages              ChangesInt `json:"messages"`                // на основе ответа
+		EventGroupID          ChangesInt `json:"event_group_id"`          // на основе ответа
+		Links                 Changes    `json:"links"`                   // на основе ответа
+		Email                 Changes    `json:"email"`                   // на основе ответа
+		EventStartDate        ChangesInt `json:"event_start_date::"`      // на основе ответа
+		EventFinishDate       ChangesInt `json:"event_finish_date:"`      // на основе ответа
+		Subject               Changes    `json:"subject"`                 // на основе ответа
+		MarketWiki            Changes    `json:"market_wiki"`             // на основе ответа
+		DisableMarketComments ChangesInt `json:"disable_market_comments"` // на основе ответа
+		Phone                 ChangesInt `json:"phone"`                   // на основе ответа
+		CountryID             ChangesInt `json:"country_id"`              // на основе ответа
+		CityID                ChangesInt `json:"city_id"`                 // на основе ответа
+	} `json:"Changes"`
 }
 
 // GroupChangePhotoFunc func

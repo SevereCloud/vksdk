@@ -20,7 +20,7 @@ type AudioAudioFull struct {
 	GenreID     int                `json:"genre_id"`
 	TrackCode   string             `json:"track_code"`
 	NoSearch    int                `json:"no_search"`
-	MainArtists []audioAudioArtist `json:"main_artists"`
+	MainArtists []AudioAudioArtist `json:"main_artists"`
 }
 
 // ToAttachment return attachment format
@@ -28,7 +28,8 @@ func (audio AudioAudioFull) ToAttachment() string {
 	return fmt.Sprintf("audio%d_%d", audio.OwnerID, audio.ID)
 }
 
-type audioAudioArtist struct {
+// AudioAudioArtist struct
+type AudioAudioArtist struct {
 	Name   string `json:"name"`
 	ID     string `json:"id"`
 	Domain string `json:"domain"`

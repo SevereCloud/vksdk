@@ -672,6 +672,7 @@ func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, f
 	return
 }
 
+// UploadStories struct
 type UploadStories struct {
 	Stories object.StoriesStory `json:"story"`
 	Sig     string              `json:"_sig"`

@@ -4,7 +4,8 @@ import (
 	"fmt"
 )
 
-type pollsAnswer struct {
+// PollsAnswer struct
+type PollsAnswer struct {
 	ID    int     `json:"id"`
 	Rate  float64 `json:"rate"`
 	Text  string  `json:"text"`
@@ -14,7 +15,7 @@ type pollsAnswer struct {
 // PollsPoll struct
 type PollsPoll struct {
 	AnswerID   int             `json:"answer_id"` // Current user's answer ID
-	Answers    []pollsAnswer   `json:"answers"`
+	Answers    []PollsAnswer   `json:"answers"`
 	Created    int             `json:"created"`  // Date when poll has been created in Unixtime
 	ID         int             `json:"id"`       // Poll ID
 	OwnerID    int             `json:"owner_id"` // Poll owner's ID
@@ -33,7 +34,7 @@ type PollsPoll struct {
 	Photo      PhotosPhoto     `json:"photo"`
 	AuthorID   int             `json:"author_id"`
 	Background PollsBackground `json:"background"`
-	Friends    []pollsFriend   `json:"friends"`
+	Friends    []PollsFriend   `json:"friends"`
 	Profiles   []UsersUser     `json:"profiles"`
 	Groups     []GroupsGroup   `json:"groups"`
 }
@@ -43,17 +44,19 @@ func (poll PollsPoll) ToAttachment() string {
 	return fmt.Sprintf("poll%d_%d", poll.OwnerID, poll.ID)
 }
 
-type pollsFriend struct {
+// PollsFriend struct
+type PollsFriend struct {
 	ID int `json:"id"`
 }
 
 // PollsVoters struct
 type PollsVoters struct {
 	AnswerID int              `json:"answer_id"` // Answer ID
-	Users    pollsVotersUsers `json:"users"`
+	Users    PollsVotersUsers `json:"users"`
 }
 
-type pollsVotersUsers struct {
+// PollsVotersUsers struct
+type PollsVotersUsers struct {
 	Count int   `json:"count"` // Votes number
 	Items []int `json:"items"`
 }
@@ -61,10 +64,11 @@ type pollsVotersUsers struct {
 // PollsVotersFields struct
 type PollsVotersFields struct {
 	AnswerID int                    `json:"answer_id"` // Answer ID
-	Users    pollsVotersUsersFields `json:"users"`
+	Users    PollsVotersUsersFields `json:"users"`
 }
 
-type pollsVotersUsersFields struct {
+// PollsVotersUsersFields struct
+type PollsVotersUsersFields struct {
 	Count int         `json:"count"` // Votes number
 	Items []UsersUser `json:"items"`
 }
@@ -88,6 +92,7 @@ type PollsPhoto struct {
 	Images []PhotosImage `json:"images"`
 }
 
+// PollsPhotoUploadResponse struct
 type PollsPhotoUploadResponse struct {
 	Photo string `json:"photo"` // Uploaded photo data
 	Hash  string `json:"hash"`  // Uploaded hash

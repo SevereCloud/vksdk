@@ -15,7 +15,7 @@ type BoardTopic struct {
 
 // BoardTopicComment struct
 type BoardTopicComment struct {
-	Attachments []wallCommentAttachment `json:"attachments"`
+	Attachments []WallCommentAttachment `json:"attachments"`
 	Date        int                     `json:"date"`    // Date when the comment has been added in Unixtime
 	FromID      int                     `json:"from_id"` // Author ID
 	ID          int                     `json:"id"`      // Comment ID
@@ -30,7 +30,7 @@ type BoardTopicComment struct {
 // BoardTopicPoll struct
 type BoardTopicPoll struct {
 	AnswerID int           `json:"answer_id"` // Current user's answer ID
-	Answers  []pollsAnswer `json:"answers"`
+	Answers  []PollsAnswer `json:"answers"`
 	Created  int           `json:"created"`   // Date when poll has been created in Unixtime
 	IsClosed int           `json:"is_closed"` // Information whether the poll is closed
 	OwnerID  int           `json:"owner_id"`  // Poll owner's ID

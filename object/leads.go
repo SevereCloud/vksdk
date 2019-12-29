@@ -33,14 +33,15 @@ type LeadsEntry struct {
 type LeadsLead struct {
 	Completed   int           `json:"completed"` // Completed offers number
 	Cost        int           `json:"cost"`      // Offer cost
-	Days        leadsLeadDays `json:"days"`
+	Days        LeadsLeadDays `json:"days"`
 	Impressions int           `json:"impressions"` // Impressions number
 	Limit       int           `json:"limit"`       // Lead limit
 	Spent       int           `json:"spent"`       // Amount of spent votes
 	Started     int           `json:"started"`     // Started offers number
 }
 
-type leadsLeadDays struct {
+// LeadsLeadDays struct
+type LeadsLeadDays struct {
 	Completed   int `json:"completed"`   // Completed offers number
 	Impressions int `json:"impressions"` // Impressions number
 	Spent       int `json:"spent"`       // Amount of spent votes

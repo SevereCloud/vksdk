@@ -17,24 +17,24 @@ type GroupsAddress struct {
 	MetroStationID    int                    `json:"metro_station_id"`   // Metro id of address
 	Phone             string                 `json:"phone"`              // Address phone
 	TimeOffset        int                    `json:"time_offset"`        // Time offset int minutes from utc time
-	Timetable         groupsAddressTimetable `json:"timetable"`          // Week timetable for the address
+	Timetable         GroupsAddressTimetable `json:"timetable"`          // Week timetable for the address
 	Title             string                 `json:"title"`              // Title of the place (Zinger, etc)
 	WorkInfoStatus    string                 `json:"work_info_status"`   // Status of information about timetable
 }
 
-// groupsAddressTimetable Timetable for a week
-type groupsAddressTimetable struct {
-	Fri groupsAddressTimetableDay `json:"fri"` // Timetable for friday
-	Mon groupsAddressTimetableDay `json:"mon"` // Timetable for monday
-	Sat groupsAddressTimetableDay `json:"sat"` // Timetable for saturday
-	Sun groupsAddressTimetableDay `json:"sun"` // Timetable for sunday
-	Thu groupsAddressTimetableDay `json:"thu"` // Timetable for thursday
-	Tue groupsAddressTimetableDay `json:"tue"` // Timetable for tuesday
-	Wed groupsAddressTimetableDay `json:"wed"` // Timetable for wednesday
+// GroupsAddressTimetable Timetable for a week
+type GroupsAddressTimetable struct {
+	Fri GroupsAddressTimetableDay `json:"fri"` // Timetable for friday
+	Mon GroupsAddressTimetableDay `json:"mon"` // Timetable for monday
+	Sat GroupsAddressTimetableDay `json:"sat"` // Timetable for saturday
+	Sun GroupsAddressTimetableDay `json:"sun"` // Timetable for sunday
+	Thu GroupsAddressTimetableDay `json:"thu"` // Timetable for thursday
+	Tue GroupsAddressTimetableDay `json:"tue"` // Timetable for tuesday
+	Wed GroupsAddressTimetableDay `json:"wed"` // Timetable for wednesday
 }
 
-// groupsAddressTimetableDay Timetable for one day
-type groupsAddressTimetableDay struct {
+// GroupsAddressTimetableDay Timetable for one day
+type GroupsAddressTimetableDay struct {
 	BreakCloseTime int `json:"break_close_time"` // Close time of the break in minutes
 	BreakOpenTime  int `json:"break_open_time"`  // Start time of the break in minutes
 	CloseTime      int `json:"close_time"`       // Close time in minutes
@@ -76,8 +76,8 @@ type GroupsGroup struct {
 	Description          string               `json:"description"`   // Community description
 	WikiPage             string               `json:"wiki_page"`     // Community's main wiki page title
 	MembersCount         int                  `json:"members_count"` // Community members number
-	Counters             groupsCountersGroup  `json:"counters"`
-	Cover                groupsCover          `json:"cover"`
+	Counters             GroupsCountersGroup  `json:"counters"`
+	Cover                GroupsCover          `json:"cover"`
 	CanPost              int                  `json:"can_post"`          // Information whether current user can post on community's wall
 	CanSeeAllPosts       int                  `json:"can_see_all_posts"` // Information whether current user can see all posts on community's wall
 	Activity             string               `json:"activity"`          // Type of group, start date of event or category of public page
@@ -89,7 +89,7 @@ type GroupsGroup struct {
 	Status               string               `json:"status"`            // Community status
 	MainAlbumID          int                  `json:"main_album_id"`     // Community's main photo album ID
 	Links                []GroupsLinksItem    `json:"links"`
-	Contacts             []groupsContactsItem `json:"contacts"`
+	Contacts             []GroupsContactsItem `json:"contacts"`
 	Site                 string               `json:"site"` // Community's website
 	MainSection          int                  `json:"main_section"`
 	Trending             int                  `json:"trending"`               // Information whether the community has a fire pictogram.
@@ -98,14 +98,14 @@ type GroupsGroup struct {
 	CanSendNotify        int                  `json:"can_send_notify"`        // Information whether community can send notifications by phone number to current user
 	OnlineStatus         GroupsOnlineStatus   `json:"online_status"`          // Status of replies in community messages
 	AgeLimits            int                  `json:"age_limits"`             // Information whether age limit
-	BanInfo              groupsGroupBanInfo   `json:"ban_info"`               // User ban info
-	Addresses            GroupsAddressesInfo  `json:"addresses"`              // Info about addresses in groups
+	BanInfo              GroupsGroupBanInfo   `json:"ban_info"`               // User ban info
+	Addresses            GroupsAddressesInfo  `json:"addresses"`              // Info about addresses in Groups
 	IsSubscribedPodcasts bool                 `json:"is_subscribed_podcasts"` // Information whether current user is subscribed to podcasts
 	CanSubscribePodcasts bool                 `json:"can_subscribe_podcasts"` // Owner in whitelist or not
 	CanSubscribePosts    bool                 `json:"can_subscribe_posts"`    // Can subscribe to wall
 	HasMarketApp         bool                 `json:"has_market_app"`         // Information whether community has market app
 	LiveCovers           GroupsLiveCovers     `json:"live_covers"`
-	CropPhoto            usersCropPhoto       `json:"crop_photo"`
+	CropPhoto            UsersCropPhoto       `json:"crop_photo"`
 	IsHiddenFromFeed     int                  `json:"is_hidden_from_feed"`
 	Wall                 int                  `json:"wall"`
 }
@@ -115,13 +115,15 @@ func (group GroupsGroup) ToMention() string {
 	return fmt.Sprintf("[club%d|%s]", group.ID, group.Name)
 }
 
+// GroupsLiveCovers struct
 type GroupsLiveCovers struct {
 	IsEnabled  bool     `json:"is_enabled"`
 	IsScalable bool     `json:"is_scalable"`
 	StoryIds   []string `json:"story_ids"`
 }
 
-type groupsBanInfo struct {
+// GroupsBanInfo struct
+type GroupsBanInfo struct {
 	AdminID        int    `json:"admin_id"` // Administrator ID
 	Comment        string `json:"comment"`  // Comment for a ban
 	Date           int    `json:"date"`     // Date when user has been added to blacklist in Unixtime
@@ -146,14 +148,16 @@ type GroupsCallbackSettings struct {
 	Events     GroupsLongPollEvents `json:"events"`
 }
 
-type groupsContactsItem struct {
+// GroupsContactsItem struct
+type GroupsContactsItem struct {
 	Desc   string `json:"desc"`    // Contact description
 	Email  string `json:"email"`   // Contact email
 	Phone  string `json:"phone"`   // Contact phone
 	UserID int    `json:"user_id"` // User ID
 }
 
-type groupsCountersGroup struct {
+// GroupsCountersGroup struct
+type GroupsCountersGroup struct {
 	Addresses int `json:"addresses"` // Addresses number
 	Albums    int `json:"albums"`    // Photo albums number
 	Audios    int `json:"audios"`    // Audios number
@@ -164,12 +168,14 @@ type groupsCountersGroup struct {
 	Videos    int `json:"videos"`    // Videos number
 }
 
-type groupsCover struct {
+// GroupsCover struct
+type GroupsCover struct {
 	Enabled int         `json:"enabled"` // Information whether cover is enabled
 	Images  []BaseImage `json:"images"`
 }
 
-type groupsGroupBanInfo struct {
+// GroupsGroupBanInfo struct
+type GroupsGroupBanInfo struct {
 	Comment string `json:"comment"`  // Ban comment
 	EndDate int    `json:"end_date"` // End date of ban in Unixtime
 }
@@ -190,7 +196,8 @@ type GroupsGroupCategoryFull struct {
 	Subcategories []GroupsGroupCategoryFull `json:"subcategories"`
 }
 
-type groupsGroupCategoryType struct {
+// GroupsGroupCategoryType struct
+type GroupsGroupCategoryType struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
@@ -205,10 +212,11 @@ type GroupsGroupLink struct {
 	URL             string `json:"url"`              // Link URL
 }
 
-type groupsGroupPublicCategoryList struct {
+// GroupsGroupPublicCategoryList struct
+type GroupsGroupPublicCategoryList struct {
 	ID           int                       `json:"id"`
 	Name         string                    `json:"name"`
-	SubtypesList []groupsGroupCategoryType `json:"subtypes_list"`
+	SubtypesList []GroupsGroupCategoryType `json:"subtypes_list"`
 }
 
 // GroupsGroupSettings struct
@@ -223,11 +231,11 @@ type GroupsGroupSettings struct {
 	ObsceneWords       []string                        `json:"obscene_words"`     // The list of stop words
 	Photos             int                             `json:"photos"`            // Photos settings
 	PublicCategory     int                             `json:"public_category"`   // Information about the group category
-	PublicCategoryList []groupsGroupPublicCategoryList `json:"public_category_list"`
+	PublicCategoryList []GroupsGroupPublicCategoryList `json:"public_category_list"`
 	PublicSubcategory  int                             `json:"public_subcategory"` // Information about the group subcategory
 	Rss                string                          `json:"rss"`                // URL of the RSS feed
 	Subject            int                             `json:"subject"`            // Community subject ID
-	SubjectList        []groupsSubjectItem             `json:"subject_list"`
+	SubjectList        []GroupsSubjectItem             `json:"subject_list"`
 	Title              string                          `json:"title"`   // Community title
 	Topics             int                             `json:"topics"`  // Topics settings
 	Video              int                             `json:"video"`   // Video settings
@@ -365,7 +373,7 @@ type GroupsLongPollSettings struct {
 // GroupsMarketInfo struct
 type GroupsMarketInfo struct {
 	ContactID    int            `json:"contact_id"` // Contact person ID
-	Currency     marketCurrency `json:"currency"`
+	Currency     MarketCurrency `json:"currency"`
 	CurrencyText string         `json:"currency_text"` // Currency name
 	Enabled      int            `json:"enabled"`       // Information whether the market is enabled
 	MainAlbumID  int            `json:"main_album_id"` // Main market album ID
@@ -404,18 +412,20 @@ type GroupsOnlineStatus struct {
 
 // GroupsOwnerXtrBanInfo struct
 type GroupsOwnerXtrBanInfo struct {
-	BanInfo groupsBanInfo `json:"ban_info"`
+	BanInfo GroupsBanInfo `json:"ban_info"`
 	Group   GroupsGroup   `json:"group"`
 	Profile UsersUser     `json:"profile"`
 	Type    string        `json:"type"`
 }
 
-type groupsSubjectItem struct {
+// GroupsSubjectItem struct
+type GroupsSubjectItem struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
 
-type groupsTokenPermissionSetting struct {
+// GroupsTokenPermissionSetting struct
+type GroupsTokenPermissionSetting struct {
 	Name    string `json:"name"`
 	Setting int    `json:"setting"`
 }
@@ -423,5 +433,5 @@ type groupsTokenPermissionSetting struct {
 // GroupsTokenPermissions struct
 type GroupsTokenPermissions struct {
 	Mask        int                            `json:"mask"`
-	Permissions []groupsTokenPermissionSetting `json:"permissions"`
+	Permissions []GroupsTokenPermissionSetting `json:"permissions"`
 }

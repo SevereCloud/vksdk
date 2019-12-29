@@ -1,6 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-type newsfeedEventActivity struct {
+// NewsfeedEventActivity struct
+type NewsfeedEventActivity struct {
 	Address      string `json:"address"`       // address of event
 	ButtonText   string `json:"button_text"`   // text of attach
 	Friends      []int  `json:"friends"`       // array of friends ids
@@ -11,10 +12,11 @@ type newsfeedEventActivity struct {
 
 // NewsfeedItemAudio struct
 type NewsfeedItemAudio struct {
-	Audio newsfeedItemAudioAudio `json:"audio"`
+	Audio NewsfeedItemAudioAudio `json:"audio"`
 }
 
-type newsfeedItemAudioAudio struct {
+// NewsfeedItemAudioAudio struct
+type NewsfeedItemAudioAudio struct {
 	Count int              `json:"count"` // Audios number
 	Items []AudioAudioFull `json:"items"`
 }
@@ -33,40 +35,44 @@ type NewsfeedItemDigest struct {
 
 // NewsfeedItemFriend struct
 type NewsfeedItemFriend struct {
-	Friends newsfeedItemFriendFriends `json:"friends"`
+	Friends NewsfeedItemFriendFriends `json:"friends"`
 }
 
-type newsfeedItemFriendFriends struct {
+// NewsfeedItemFriendFriends struct
+type NewsfeedItemFriendFriends struct {
 	Count int          `json:"count"` // Number of friends has been added
 	Items []BaseUserID `json:"items"`
 }
 
 // NewsfeedItemNote struct
 type NewsfeedItemNote struct {
-	Notes newsfeedItemNoteNotes `json:"notes"`
+	Notes NewsfeedItemNoteNotes `json:"notes"`
 }
 
-type newsfeedItemNoteNotes struct {
+// NewsfeedItemNoteNotes struct
+type NewsfeedItemNoteNotes struct {
 	Count int                    `json:"count"` // Notes number
-	Items []newsfeedNewsfeedNote `json:"items"`
+	Items []NewsfeedNewsfeedNote `json:"items"`
 }
 
 // NewsfeedItemPhoto struct
 type NewsfeedItemPhoto struct {
-	Photos newsfeedItemPhotoPhotos `json:"photos"`
+	Photos NewsfeedItemPhotoPhotos `json:"photos"`
 }
 
-type newsfeedItemPhotoPhotos struct {
+// NewsfeedItemPhotoPhotos struct
+type NewsfeedItemPhotoPhotos struct {
 	Count int               `json:"count"` // Photos number
 	Items []PhotosPhotoFull `json:"items"`
 }
 
 // NewsfeedItemPhotoTag struct
 type NewsfeedItemPhotoTag struct {
-	PhotoTags newsfeedItemPhotoTagPhotoTags `json:"photo_tags"`
+	PhotoTags NewsfeedItemPhotoTagPhotoTags `json:"photo_tags"`
 }
 
-type newsfeedItemPhotoTagPhotoTags struct {
+// NewsfeedItemPhotoTagPhotoTags struct
+type NewsfeedItemPhotoTagPhotoTags struct {
 	Count int               `json:"count"` // Tags number
 	Items []PhotosPhotoFull `json:"items"`
 }
@@ -89,23 +95,24 @@ type NewsfeedItemTopic struct {
 
 // NewsfeedItemVideo struct
 type NewsfeedItemVideo struct {
-	Video newsfeedItemVideoVideo `json:"video"`
+	Video NewsfeedItemVideoVideo `json:"video"`
 }
 
-type newsfeedItemVideoVideo struct {
+// NewsfeedItemVideoVideo struct
+type NewsfeedItemVideoVideo struct {
 	Count int          `json:"count"` // Tags number
 	Items []VideoVideo `json:"items"`
 }
 
 // NewsfeedItemWallpost struct
 type NewsfeedItemWallpost struct {
-	Activity    newsfeedEventActivity    `json:"activity"`
-	Attachments []wallWallpostAttachment `json:"attachments"`
+	Activity    NewsfeedEventActivity    `json:"activity"`
+	Attachments []WallWallpostAttachment `json:"attachments"`
 	Comments    BaseCommentsInfo         `json:"comments"`
 	CopyHistory []WallWallpost           `json:"copy_history"`
 	Geo         BaseGeo                  `json:"geo"`
 	Likes       BaseLikesInfo            `json:"likes"`
-	PostSource  wallPostSource           `json:"post_source"`
+	PostSource  WallPostSource           `json:"post_source"`
 	PostType    string                   `json:"post_type"`
 	Reposts     BaseRepostsInfo          `json:"reposts"`
 	MarkedAsAds int                      `json:"marked_as_ads,omitempty"`
@@ -121,7 +128,7 @@ type NewsfeedList struct {
 	Title string `json:"title"` // List title
 }
 
-// type newsfeedListFull struct {
+// type NewsfeedListFull struct {
 // }
 
 // NewsfeedNewsfeedItem struct
@@ -149,7 +156,8 @@ type NewsfeedNewsfeedItem struct {
 	// TODO: Need more fields
 }
 
-type newsfeedNewsfeedNote struct {
+// NewsfeedNewsfeedNote struct
+type NewsfeedNewsfeedNote struct {
 	Comments int    `json:"comments"` // Comments Number
 	ID       int    `json:"id"`       // Note ID
 	OwnerID  int    `json:"owner_id"` // integer

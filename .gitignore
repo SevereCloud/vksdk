@@ -1,6 +1,5 @@
 _vendor/
 vendor/
-coverage.out
+*.out
 coverage.txt
-debug.test
-Gopkg.lock
+*.test
