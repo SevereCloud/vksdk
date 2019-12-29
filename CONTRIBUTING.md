@@ -19,7 +19,7 @@ git clone git@github.com:<your name>/vksdk.git
 Создайте новую ветку
 
 ```sh
-git checkout -b [name_of_your_new_branch]
+git checkout -b <name_of_your_new_branch>
 ```
 
 ## Тестирование изменений
@@ -63,7 +63,7 @@ git commit
 Отправьте изменения в ваш репозиторий
 
 ```sh
-git push origin [name_of_your_new_branch]
+git push origin <name_of_your_new_branch>
 ```
 
 Затем откройте [pull request](https://github.com/SevereCloud/vksdk/pulls)
