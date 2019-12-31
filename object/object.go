@@ -145,7 +145,9 @@ type BaseLinkButtonAction struct {
 
 // BaseLinkProduct struct
 type BaseLinkProduct struct {
-	Price MarketPrice `json:"price"`
+	Price       MarketPrice `json:"price"`
+	Merchant    string      `json:"merchant"`
+	OrdersCount int         `json:"orders_count"`
 }
 
 // BaseLinkRating struct

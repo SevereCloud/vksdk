@@ -78,7 +78,6 @@ type StoriesClickableSticker struct {
 	Type          string                  `json:"type"`
 	ClickableArea []StoriesClickablePoint `json:"clickable_area"`
 	Style         string                  `json:"style"`
-	Subtype       string                  `json:"subtype"`
 
 	// type=post
 	PostOwnerID int `json:"post_owner_id"`
@@ -104,7 +103,22 @@ type StoriesClickableSticker struct {
 	Hashtag string `json:"hashtag,omitempty"`
 
 	// type=market_item
-	MarketItem MarketMarketItem `json:"market_item"`
+	MarketItem MarketMarketItem       `json:"market_item"`
+	Product    BaseLinkProduct        `json:"product"`
+	Button     MessagesKeyboardButton `json:"button"`
+	Rating     BaseLinkRating         `json:"rating"`
+	Subtype    string                 `json:"subtype"`
+
+	// type=link
+	LinkObject  BaseLink `json:"link_object"`
+	TooltipText string   `json:"tooltip_text"`
+
+	// type=story_reply
+	OwnerID int `json:"owner_id"`
+	StoryID int `json:"story_id"`
+
+	// type=owner
+	// OwnerID int `json:"owner_id"`
 }
 
 // StoriesClickablePoint struct
