@@ -9,7 +9,7 @@ import (
 )
 
 func TestMessagesKeyboard_AddRow(t *testing.T) {
-	keyboard := object.NewMessagesKeyboard(false, false)
+	keyboard := object.NewMessagesKeyboard(false)
 
 	keyboard.AddRow()
 	assert.Len(t, keyboard.Buttons, 1)
@@ -25,7 +25,7 @@ func TestMessagesKeyboard_AddTextButton(t *testing.T) {
 		color   = "color"
 	)
 
-	keyboard := object.NewMessagesKeyboard(false, false)
+	keyboard := object.NewMessagesKeyboard(false)
 
 	keyboard.AddRow()
 
@@ -42,7 +42,7 @@ func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
 		link    = "https://vk.com"
 	)
 
-	keyboard := object.NewMessagesKeyboard(false, false)
+	keyboard := object.NewMessagesKeyboard(false)
 
 	keyboard.AddRow()
 
@@ -55,7 +55,7 @@ func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
 func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
 	const payload = "payload"
 
-	keyboard := object.NewMessagesKeyboard(false, false)
+	keyboard := object.NewMessagesKeyboard(false)
 
 	keyboard.AddRow()
 
@@ -69,7 +69,7 @@ func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
 		hash    = "hash"
 	)
 
-	keyboard := object.NewMessagesKeyboard(false, false)
+	keyboard := object.NewMessagesKeyboard(false)
 
 	keyboard.AddRow()
 
@@ -87,7 +87,7 @@ func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
 		hash    = "hash"
 	)
 
-	keyboard := object.NewMessagesKeyboard(false, false)
+	keyboard := object.NewMessagesKeyboard(false)
 
 	keyboard.AddRow()
 
@@ -130,7 +130,15 @@ func TestMessagesKeyboard_ToJSON(t *testing.T) {
 	}
 
 	f(
-		object.NewMessagesKeyboard(false, false),
-		`{"buttons":[],"one_time":false}`,
+		object.NewMessagesKeyboard(false),
+		`{"buttons":[]}`,
+	)
+	f(
+		object.NewMessagesKeyboard(true),
+		`{"buttons":[],"one_time":true}`,
+	)
+	f(
+		object.NewMessagesKeyboardInline(),
+		`{"buttons":[],"inline":true}`,
 	)
 }

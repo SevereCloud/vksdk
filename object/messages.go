@@ -68,15 +68,23 @@ type MessagesMessage struct {
 type MessagesKeyboard struct {
 	AuthorID int                        `json:"author_id,omitempty"` // Community or bot, which set this keyboard
 	Buttons  [][]MessagesKeyboardButton `json:"buttons"`
-	OneTime  bool                       `json:"one_time"` // Should this keyboard disappear on first use
+	OneTime  bool                       `json:"one_time,omitempty"` // Should this keyboard disappear on first use
 	Inline   bool                       `json:"inline,omitempty"`
 }
 
-func NewMessagesKeyboard(oneTime bool, inline bool) MessagesKeyboard {
+// NewMessagesKeyboard return MessagesKeyboard
+func NewMessagesKeyboard(oneTime bool) MessagesKeyboard {
 	return MessagesKeyboard{
 		Buttons: [][]MessagesKeyboardButton{},
 		OneTime: oneTime,
-		Inline:  inline,
+	}
+}
+
+// NewMessagesKeyboardInline return inline MessagesKeyboard
+func NewMessagesKeyboardInline() MessagesKeyboard {
+	return MessagesKeyboard{
+		Buttons: [][]MessagesKeyboardButton{},
+		Inline:  true,
 	}
 }
 

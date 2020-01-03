@@ -1,0 +1,26 @@
+package params_test
+
+import (
+	"testing"
+
+	"github.com/SevereCloud/vksdk/api/params"
+	"github.com/stretchr/testify/assert"
+)
+
+func TestSearchGetHintsBulder(t *testing.T) {
+	b := params.NewSearchGetHintsBulder()
+
+	b.Q("text")
+	b.Offset(1)
+	b.Limit(1)
+	b.Filters([]string{"text"})
+	b.Fields([]string{"text"})
+	b.SearchGlobal(true)
+
+	assert.Equal(t, b.Params["q"], "text")
+	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, b.Params["limit"], 1)
+	assert.Equal(t, b.Params["filters"], []string{"text"})
+	assert.Equal(t, b.Params["fields"], []string{"text"})
+	assert.Equal(t, b.Params["search_global"], true)
+}

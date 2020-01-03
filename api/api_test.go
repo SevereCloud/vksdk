@@ -138,7 +138,6 @@ func TestVK_RequestLimit(t *testing.T) {
 	vk.Limit = 2
 
 	t.Run("vk.Limit", func(t *testing.T) {
-		// TODO: check err
 		go vk.UsersGet(api.Params{}) // nolint: errcheck
 		for i := 0; i < 2; i++ {
 			vk.UsersGet(api.Params{}) // nolint: errcheck
