@@ -201,7 +201,7 @@ func Test_FmtValue(t *testing.T) {
 	f(photo, "photo321_123")
 
 	// Keyboard
-	keyboard := object.NewMessagesKeyboard(true, false)
+	keyboard := object.NewMessagesKeyboard(true)
 	f(keyboard, keyboard.ToJSON())
 
 	// Slice
