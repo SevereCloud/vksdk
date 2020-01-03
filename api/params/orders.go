@@ -4,209 +4,209 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// OrdersCancelSubscriptionBulder builder
+// OrdersCancelSubscriptionBuilder builder
 //
 // https://vk.com/dev/orders.cancelSubscription
-type OrdersCancelSubscriptionBulder struct {
+type OrdersCancelSubscriptionBuilder struct {
 	api.Params
 }
 
-// NewOrdersCancelSubscriptionBulder func
-func NewOrdersCancelSubscriptionBulder() *OrdersCancelSubscriptionBulder {
-	return &OrdersCancelSubscriptionBulder{api.Params{}}
+// NewOrdersCancelSubscriptionBuilder func
+func NewOrdersCancelSubscriptionBuilder() *OrdersCancelSubscriptionBuilder {
+	return &OrdersCancelSubscriptionBuilder{api.Params{}}
 }
 
 // UserID parameter
-func (b *OrdersCancelSubscriptionBulder) UserID(v int) {
+func (b *OrdersCancelSubscriptionBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // SubscriptionID parameter
-func (b *OrdersCancelSubscriptionBulder) SubscriptionID(v int) {
+func (b *OrdersCancelSubscriptionBuilder) SubscriptionID(v int) {
 	b.Params["subscription_id"] = v
 }
 
 // PendingCancel parameter
-func (b *OrdersCancelSubscriptionBulder) PendingCancel(v bool) {
+func (b *OrdersCancelSubscriptionBuilder) PendingCancel(v bool) {
 	b.Params["pending_cancel"] = v
 }
 
-// OrdersChangeStateBulder builder
+// OrdersChangeStateBuilder builder
 //
 // Changes order status.
 //
 // https://vk.com/dev/orders.changeState
-type OrdersChangeStateBulder struct {
+type OrdersChangeStateBuilder struct {
 	api.Params
 }
 
-// NewOrdersChangeStateBulder func
-func NewOrdersChangeStateBulder() *OrdersChangeStateBulder {
-	return &OrdersChangeStateBulder{api.Params{}}
+// NewOrdersChangeStateBuilder func
+func NewOrdersChangeStateBuilder() *OrdersChangeStateBuilder {
+	return &OrdersChangeStateBuilder{api.Params{}}
 }
 
 // OrderID order ID.
-func (b *OrdersChangeStateBulder) OrderID(v int) {
+func (b *OrdersChangeStateBuilder) OrderID(v int) {
 	b.Params["order_id"] = v
 }
 
 // Action action to be done with the order. Available actions: *cancel — to cancel unconfirmed order. *charge — to confirm unconfirmed order. Applies only if processing of [vk.com/dev/payments_status|order_change_state] notification failed. *refund — to cancel confirmed order.
-func (b *OrdersChangeStateBulder) Action(v string) {
+func (b *OrdersChangeStateBuilder) Action(v string) {
 	b.Params["action"] = v
 }
 
 // AppOrderID internal ID of the order in the application.
-func (b *OrdersChangeStateBulder) AppOrderID(v int) {
+func (b *OrdersChangeStateBuilder) AppOrderID(v int) {
 	b.Params["app_order_id"] = v
 }
 
 // TestMode if this parameter is set to 1, this method returns a list of test mode orders. By default — 0.
-func (b *OrdersChangeStateBulder) TestMode(v bool) {
+func (b *OrdersChangeStateBuilder) TestMode(v bool) {
 	b.Params["test_mode"] = v
 }
 
-// OrdersGetBulder builder
+// OrdersGetBuilder builder
 //
 // Returns a list of orders.
 //
 // https://vk.com/dev/orders.get
-type OrdersGetBulder struct {
+type OrdersGetBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetBulder func
-func NewOrdersGetBulder() *OrdersGetBulder {
-	return &OrdersGetBulder{api.Params{}}
+// NewOrdersGetBuilder func
+func NewOrdersGetBuilder() *OrdersGetBuilder {
+	return &OrdersGetBuilder{api.Params{}}
 }
 
 // Offset parameter
-func (b *OrdersGetBulder) Offset(v int) {
+func (b *OrdersGetBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count number of returned orders.
-func (b *OrdersGetBulder) Count(v int) {
+func (b *OrdersGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // TestMode if this parameter is set to 1, this method returns a list of test mode orders. By default — 0.
-func (b *OrdersGetBulder) TestMode(v bool) {
+func (b *OrdersGetBuilder) TestMode(v bool) {
 	b.Params["test_mode"] = v
 }
 
-// OrdersGetAmountBulder builder
+// OrdersGetAmountBuilder builder
 //
 // https://vk.com/dev/orders.getAmount
-type OrdersGetAmountBulder struct {
+type OrdersGetAmountBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetAmountBulder func
-func NewOrdersGetAmountBulder() *OrdersGetAmountBulder {
-	return &OrdersGetAmountBulder{api.Params{}}
+// NewOrdersGetAmountBuilder func
+func NewOrdersGetAmountBuilder() *OrdersGetAmountBuilder {
+	return &OrdersGetAmountBuilder{api.Params{}}
 }
 
 // UserID parameter
-func (b *OrdersGetAmountBulder) UserID(v int) {
+func (b *OrdersGetAmountBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // Votes parameter
-func (b *OrdersGetAmountBulder) Votes(v []string) {
+func (b *OrdersGetAmountBuilder) Votes(v []string) {
 	b.Params["votes"] = v
 }
 
-// OrdersGetByIDBulder builder
+// OrdersGetByIDBuilder builder
 //
 // Returns information about orders by their IDs.
 //
 // https://vk.com/dev/orders.getById
-type OrdersGetByIDBulder struct {
+type OrdersGetByIDBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetByIDBulder func
-func NewOrdersGetByIDBulder() *OrdersGetByIDBulder {
-	return &OrdersGetByIDBulder{api.Params{}}
+// NewOrdersGetByIDBuilder func
+func NewOrdersGetByIDBuilder() *OrdersGetByIDBuilder {
+	return &OrdersGetByIDBuilder{api.Params{}}
 }
 
 // OrderID order ID.
-func (b *OrdersGetByIDBulder) OrderID(v int) {
+func (b *OrdersGetByIDBuilder) OrderID(v int) {
 	b.Params["order_id"] = v
 }
 
 // OrderIDs order IDs (when information about several orders is requested).
-func (b *OrdersGetByIDBulder) OrderIDs(v []int) {
+func (b *OrdersGetByIDBuilder) OrderIDs(v []int) {
 	b.Params["order_ids"] = v
 }
 
 // TestMode if this parameter is set to 1, this method returns a list of test mode orders. By default — 0.
-func (b *OrdersGetByIDBulder) TestMode(v bool) {
+func (b *OrdersGetByIDBuilder) TestMode(v bool) {
 	b.Params["test_mode"] = v
 }
 
-// OrdersGetUserSubscriptionByIDBulder builder
+// OrdersGetUserSubscriptionByIDBuilder builder
 //
 // https://vk.com/dev/orders.getUserSubscriptionById
-type OrdersGetUserSubscriptionByIDBulder struct {
+type OrdersGetUserSubscriptionByIDBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetUserSubscriptionByIDBulder func
-func NewOrdersGetUserSubscriptionByIDBulder() *OrdersGetUserSubscriptionByIDBulder {
-	return &OrdersGetUserSubscriptionByIDBulder{api.Params{}}
+// NewOrdersGetUserSubscriptionByIDBuilder func
+func NewOrdersGetUserSubscriptionByIDBuilder() *OrdersGetUserSubscriptionByIDBuilder {
+	return &OrdersGetUserSubscriptionByIDBuilder{api.Params{}}
 }
 
 // UserID parameter
-func (b *OrdersGetUserSubscriptionByIDBulder) UserID(v int) {
+func (b *OrdersGetUserSubscriptionByIDBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // SubscriptionID parameter
-func (b *OrdersGetUserSubscriptionByIDBulder) SubscriptionID(v int) {
+func (b *OrdersGetUserSubscriptionByIDBuilder) SubscriptionID(v int) {
 	b.Params["subscription_id"] = v
 }
 
-// OrdersGetUserSubscriptionsBulder builder
+// OrdersGetUserSubscriptionsBuilder builder
 //
 // https://vk.com/dev/orders.getUserSubscriptions
-type OrdersGetUserSubscriptionsBulder struct {
+type OrdersGetUserSubscriptionsBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetUserSubscriptionsBulder func
-func NewOrdersGetUserSubscriptionsBulder() *OrdersGetUserSubscriptionsBulder {
-	return &OrdersGetUserSubscriptionsBulder{api.Params{}}
+// NewOrdersGetUserSubscriptionsBuilder func
+func NewOrdersGetUserSubscriptionsBuilder() *OrdersGetUserSubscriptionsBuilder {
+	return &OrdersGetUserSubscriptionsBuilder{api.Params{}}
 }
 
 // UserID parameter
-func (b *OrdersGetUserSubscriptionsBulder) UserID(v int) {
+func (b *OrdersGetUserSubscriptionsBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// OrdersUpdateSubscriptionBulder builder
+// OrdersUpdateSubscriptionBuilder builder
 //
 // https://vk.com/dev/orders.updateSubscription
-type OrdersUpdateSubscriptionBulder struct {
+type OrdersUpdateSubscriptionBuilder struct {
 	api.Params
 }
 
-// NewOrdersUpdateSubscriptionBulder func
-func NewOrdersUpdateSubscriptionBulder() *OrdersUpdateSubscriptionBulder {
-	return &OrdersUpdateSubscriptionBulder{api.Params{}}
+// NewOrdersUpdateSubscriptionBuilder func
+func NewOrdersUpdateSubscriptionBuilder() *OrdersUpdateSubscriptionBuilder {
+	return &OrdersUpdateSubscriptionBuilder{api.Params{}}
 }
 
 // UserID parameter
-func (b *OrdersUpdateSubscriptionBulder) UserID(v int) {
+func (b *OrdersUpdateSubscriptionBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // SubscriptionID parameter
-func (b *OrdersUpdateSubscriptionBulder) SubscriptionID(v int) {
+func (b *OrdersUpdateSubscriptionBuilder) SubscriptionID(v int) {
 	b.Params["subscription_id"] = v
 }
 
 // Price parameter
-func (b *OrdersUpdateSubscriptionBulder) Price(v int) {
+func (b *OrdersUpdateSubscriptionBuilder) Price(v int) {
 	b.Params["price"] = v
 }

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestMarketAddBulder(t *testing.T) {
-	b := params.NewMarketAddBulder()
+func TestMarketAddBuilder(t *testing.T) {
+	b := params.NewMarketAddBuilder()
 
 	b.OwnerID(1)
 	b.Name("text")
@@ -33,8 +33,8 @@ func TestMarketAddBulder(t *testing.T) {
 	assert.Equal(t, b.Params["url"], "text")
 }
 
-func TestMarketAddAlbumBulder(t *testing.T) {
-	b := params.NewMarketAddAlbumBulder()
+func TestMarketAddAlbumBuilder(t *testing.T) {
+	b := params.NewMarketAddAlbumBuilder()
 
 	b.OwnerID(1)
 	b.Title("text")
@@ -47,8 +47,8 @@ func TestMarketAddAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["main_album"], true)
 }
 
-func TestMarketAddToAlbumBulder(t *testing.T) {
-	b := params.NewMarketAddToAlbumBulder()
+func TestMarketAddToAlbumBuilder(t *testing.T) {
+	b := params.NewMarketAddToAlbumBuilder()
 
 	b.OwnerID(1)
 	b.ItemID(1)
@@ -59,8 +59,8 @@ func TestMarketAddToAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["album_ids"], []int{1})
 }
 
-func TestMarketCreateCommentBulder(t *testing.T) {
-	b := params.NewMarketCreateCommentBulder()
+func TestMarketCreateCommentBuilder(t *testing.T) {
+	b := params.NewMarketCreateCommentBuilder()
 
 	b.OwnerID(1)
 	b.ItemID(1)
@@ -81,8 +81,8 @@ func TestMarketCreateCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["guid"], "text")
 }
 
-func TestMarketDeleteBulder(t *testing.T) {
-	b := params.NewMarketDeleteBulder()
+func TestMarketDeleteBuilder(t *testing.T) {
+	b := params.NewMarketDeleteBuilder()
 
 	b.OwnerID(1)
 	b.ItemID(1)
@@ -91,8 +91,8 @@ func TestMarketDeleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["item_id"], 1)
 }
 
-func TestMarketDeleteAlbumBulder(t *testing.T) {
-	b := params.NewMarketDeleteAlbumBulder()
+func TestMarketDeleteAlbumBuilder(t *testing.T) {
+	b := params.NewMarketDeleteAlbumBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)
@@ -101,8 +101,8 @@ func TestMarketDeleteAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["album_id"], 1)
 }
 
-func TestMarketDeleteCommentBulder(t *testing.T) {
-	b := params.NewMarketDeleteCommentBulder()
+func TestMarketDeleteCommentBuilder(t *testing.T) {
+	b := params.NewMarketDeleteCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -111,8 +111,8 @@ func TestMarketDeleteCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestMarketEditBulder(t *testing.T) {
-	b := params.NewMarketEditBulder()
+func TestMarketEditBuilder(t *testing.T) {
+	b := params.NewMarketEditBuilder()
 
 	b.OwnerID(1)
 	b.ItemID(1)
@@ -137,8 +137,8 @@ func TestMarketEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["url"], "text")
 }
 
-func TestMarketEditAlbumBulder(t *testing.T) {
-	b := params.NewMarketEditAlbumBulder()
+func TestMarketEditAlbumBuilder(t *testing.T) {
+	b := params.NewMarketEditAlbumBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)
@@ -153,8 +153,8 @@ func TestMarketEditAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["main_album"], true)
 }
 
-func TestMarketEditCommentBulder(t *testing.T) {
-	b := params.NewMarketEditCommentBulder()
+func TestMarketEditCommentBuilder(t *testing.T) {
+	b := params.NewMarketEditCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -167,8 +167,8 @@ func TestMarketEditCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["attachments"], []string{"text"})
 }
 
-func TestMarketGetBulder(t *testing.T) {
-	b := params.NewMarketGetBulder()
+func TestMarketGetBuilder(t *testing.T) {
+	b := params.NewMarketGetBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)
@@ -183,8 +183,8 @@ func TestMarketGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestMarketGetAlbumByIDBulder(t *testing.T) {
-	b := params.NewMarketGetAlbumByIDBulder()
+func TestMarketGetAlbumByIDBuilder(t *testing.T) {
+	b := params.NewMarketGetAlbumByIDBuilder()
 
 	b.OwnerID(1)
 	b.AlbumIDs([]int{1})
@@ -193,8 +193,8 @@ func TestMarketGetAlbumByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["album_ids"], []int{1})
 }
 
-func TestMarketGetAlbumsBulder(t *testing.T) {
-	b := params.NewMarketGetAlbumsBulder()
+func TestMarketGetAlbumsBuilder(t *testing.T) {
+	b := params.NewMarketGetAlbumsBuilder()
 
 	b.OwnerID(1)
 	b.Offset(1)
@@ -205,8 +205,8 @@ func TestMarketGetAlbumsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestMarketGetByIDBulder(t *testing.T) {
-	b := params.NewMarketGetByIDBulder()
+func TestMarketGetByIDBuilder(t *testing.T) {
+	b := params.NewMarketGetByIDBuilder()
 
 	b.ItemIDs([]string{"text"})
 	b.Extended(true)
@@ -215,8 +215,8 @@ func TestMarketGetByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestMarketGetCategoriesBulder(t *testing.T) {
-	b := params.NewMarketGetCategoriesBulder()
+func TestMarketGetCategoriesBuilder(t *testing.T) {
+	b := params.NewMarketGetCategoriesBuilder()
 
 	b.Count(1)
 	b.Offset(1)
@@ -225,8 +225,8 @@ func TestMarketGetCategoriesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["offset"], 1)
 }
 
-func TestMarketGetCommentsBulder(t *testing.T) {
-	b := params.NewMarketGetCommentsBulder()
+func TestMarketGetCommentsBuilder(t *testing.T) {
+	b := params.NewMarketGetCommentsBuilder()
 
 	b.OwnerID(1)
 	b.ItemID(1)
@@ -249,8 +249,8 @@ func TestMarketGetCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestMarketRemoveFromAlbumBulder(t *testing.T) {
-	b := params.NewMarketRemoveFromAlbumBulder()
+func TestMarketRemoveFromAlbumBuilder(t *testing.T) {
+	b := params.NewMarketRemoveFromAlbumBuilder()
 
 	b.OwnerID(1)
 	b.ItemID(1)
@@ -261,8 +261,8 @@ func TestMarketRemoveFromAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["album_ids"], []int{1})
 }
 
-func TestMarketReorderAlbumsBulder(t *testing.T) {
-	b := params.NewMarketReorderAlbumsBulder()
+func TestMarketReorderAlbumsBuilder(t *testing.T) {
+	b := params.NewMarketReorderAlbumsBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)
@@ -275,8 +275,8 @@ func TestMarketReorderAlbumsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["after"], 1)
 }
 
-func TestMarketReorderItemsBulder(t *testing.T) {
-	b := params.NewMarketReorderItemsBulder()
+func TestMarketReorderItemsBuilder(t *testing.T) {
+	b := params.NewMarketReorderItemsBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)
@@ -291,8 +291,8 @@ func TestMarketReorderItemsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["after"], 1)
 }
 
-func TestMarketReportBulder(t *testing.T) {
-	b := params.NewMarketReportBulder()
+func TestMarketReportBuilder(t *testing.T) {
+	b := params.NewMarketReportBuilder()
 
 	b.OwnerID(1)
 	b.ItemID(1)
@@ -303,8 +303,8 @@ func TestMarketReportBulder(t *testing.T) {
 	assert.Equal(t, b.Params["reason"], 1)
 }
 
-func TestMarketReportCommentBulder(t *testing.T) {
-	b := params.NewMarketReportCommentBulder()
+func TestMarketReportCommentBuilder(t *testing.T) {
+	b := params.NewMarketReportCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -315,8 +315,8 @@ func TestMarketReportCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["reason"], 1)
 }
 
-func TestMarketRestoreBulder(t *testing.T) {
-	b := params.NewMarketRestoreBulder()
+func TestMarketRestoreBuilder(t *testing.T) {
+	b := params.NewMarketRestoreBuilder()
 
 	b.OwnerID(1)
 	b.ItemID(1)
@@ -325,8 +325,8 @@ func TestMarketRestoreBulder(t *testing.T) {
 	assert.Equal(t, b.Params["item_id"], 1)
 }
 
-func TestMarketRestoreCommentBulder(t *testing.T) {
-	b := params.NewMarketRestoreCommentBulder()
+func TestMarketRestoreCommentBuilder(t *testing.T) {
+	b := params.NewMarketRestoreCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -335,8 +335,8 @@ func TestMarketRestoreCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestMarketSearchBulder(t *testing.T) {
-	b := params.NewMarketSearchBulder()
+func TestMarketSearchBuilder(t *testing.T) {
+	b := params.NewMarketSearchBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)

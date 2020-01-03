@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestOrdersCancelSubscriptionBulder(t *testing.T) {
-	b := params.NewOrdersCancelSubscriptionBulder()
+func TestOrdersCancelSubscriptionBuilder(t *testing.T) {
+	b := params.NewOrdersCancelSubscriptionBuilder()
 
 	b.UserID(1)
 	b.SubscriptionID(1)
@@ -19,8 +19,8 @@ func TestOrdersCancelSubscriptionBulder(t *testing.T) {
 	assert.Equal(t, b.Params["pending_cancel"], true)
 }
 
-func TestOrdersChangeStateBulder(t *testing.T) {
-	b := params.NewOrdersChangeStateBulder()
+func TestOrdersChangeStateBuilder(t *testing.T) {
+	b := params.NewOrdersChangeStateBuilder()
 
 	b.OrderID(1)
 	b.Action("text")
@@ -33,8 +33,8 @@ func TestOrdersChangeStateBulder(t *testing.T) {
 	assert.Equal(t, b.Params["test_mode"], true)
 }
 
-func TestOrdersGetBulder(t *testing.T) {
-	b := params.NewOrdersGetBulder()
+func TestOrdersGetBuilder(t *testing.T) {
+	b := params.NewOrdersGetBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -45,8 +45,8 @@ func TestOrdersGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["test_mode"], true)
 }
 
-func TestOrdersGetAmountBulder(t *testing.T) {
-	b := params.NewOrdersGetAmountBulder()
+func TestOrdersGetAmountBuilder(t *testing.T) {
+	b := params.NewOrdersGetAmountBuilder()
 
 	b.UserID(1)
 	b.Votes([]string{"text"})
@@ -55,8 +55,8 @@ func TestOrdersGetAmountBulder(t *testing.T) {
 	assert.Equal(t, b.Params["votes"], []string{"text"})
 }
 
-func TestOrdersGetByIDBulder(t *testing.T) {
-	b := params.NewOrdersGetByIDBulder()
+func TestOrdersGetByIDBuilder(t *testing.T) {
+	b := params.NewOrdersGetByIDBuilder()
 
 	b.OrderID(1)
 	b.OrderIDs([]int{1})
@@ -67,8 +67,8 @@ func TestOrdersGetByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["test_mode"], true)
 }
 
-func TestOrdersGetUserSubscriptionByIDBulder(t *testing.T) {
-	b := params.NewOrdersGetUserSubscriptionByIDBulder()
+func TestOrdersGetUserSubscriptionByIDBuilder(t *testing.T) {
+	b := params.NewOrdersGetUserSubscriptionByIDBuilder()
 
 	b.UserID(1)
 	b.SubscriptionID(1)
@@ -77,16 +77,16 @@ func TestOrdersGetUserSubscriptionByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["subscription_id"], 1)
 }
 
-func TestOrdersGetUserSubscriptionsBulder(t *testing.T) {
-	b := params.NewOrdersGetUserSubscriptionsBulder()
+func TestOrdersGetUserSubscriptionsBuilder(t *testing.T) {
+	b := params.NewOrdersGetUserSubscriptionsBuilder()
 
 	b.UserID(1)
 
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestOrdersUpdateSubscriptionBulder(t *testing.T) {
-	b := params.NewOrdersUpdateSubscriptionBulder()
+func TestOrdersUpdateSubscriptionBuilder(t *testing.T) {
+	b := params.NewOrdersUpdateSubscriptionBuilder()
 
 	b.UserID(1)
 	b.SubscriptionID(1)

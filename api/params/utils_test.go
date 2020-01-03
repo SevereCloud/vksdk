@@ -7,24 +7,24 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestUtilsCheckLinkBulder(t *testing.T) {
-	b := params.NewUtilsCheckLinkBulder()
+func TestUtilsCheckLinkBuilder(t *testing.T) {
+	b := params.NewUtilsCheckLinkBuilder()
 
 	b.URL("text")
 
 	assert.Equal(t, b.Params["url"], "text")
 }
 
-func TestUtilsDeleteFromLastShortenedBulder(t *testing.T) {
-	b := params.NewUtilsDeleteFromLastShortenedBulder()
+func TestUtilsDeleteFromLastShortenedBuilder(t *testing.T) {
+	b := params.NewUtilsDeleteFromLastShortenedBuilder()
 
 	b.Key("text")
 
 	assert.Equal(t, b.Params["key"], "text")
 }
 
-func TestUtilsGetLastShortenedLinksBulder(t *testing.T) {
-	b := params.NewUtilsGetLastShortenedLinksBulder()
+func TestUtilsGetLastShortenedLinksBuilder(t *testing.T) {
+	b := params.NewUtilsGetLastShortenedLinksBuilder()
 
 	b.Count(1)
 	b.Offset(1)
@@ -33,8 +33,8 @@ func TestUtilsGetLastShortenedLinksBulder(t *testing.T) {
 	assert.Equal(t, b.Params["offset"], 1)
 }
 
-func TestUtilsGetLinkStatsBulder(t *testing.T) {
-	b := params.NewUtilsGetLinkStatsBulder()
+func TestUtilsGetLinkStatsBuilder(t *testing.T) {
+	b := params.NewUtilsGetLinkStatsBuilder()
 
 	b.Key("text")
 	b.Source("text")
@@ -51,8 +51,8 @@ func TestUtilsGetLinkStatsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestUtilsGetShortLinkBulder(t *testing.T) {
-	b := params.NewUtilsGetShortLinkBulder()
+func TestUtilsGetShortLinkBuilder(t *testing.T) {
+	b := params.NewUtilsGetShortLinkBuilder()
 
 	b.URL("text")
 	b.Private(true)
@@ -61,8 +61,8 @@ func TestUtilsGetShortLinkBulder(t *testing.T) {
 	assert.Equal(t, b.Params["private"], true)
 }
 
-func TestUtilsResolveScreenNameBulder(t *testing.T) {
-	b := params.NewUtilsResolveScreenNameBulder()
+func TestUtilsResolveScreenNameBuilder(t *testing.T) {
+	b := params.NewUtilsResolveScreenNameBuilder()
 
 	b.ScreenName("text")
 

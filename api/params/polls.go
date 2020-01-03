@@ -4,291 +4,291 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// PollsAddVoteBulder builder
+// PollsAddVoteBuilder builder
 //
 // Adds the current user's vote to the selected answer in the poll.
 //
 // https://vk.com/dev/polls.addVote
-type PollsAddVoteBulder struct {
+type PollsAddVoteBuilder struct {
 	api.Params
 }
 
-// NewPollsAddVoteBulder func
-func NewPollsAddVoteBulder() *PollsAddVoteBulder {
-	return &PollsAddVoteBulder{api.Params{}}
+// NewPollsAddVoteBuilder func
+func NewPollsAddVoteBuilder() *PollsAddVoteBuilder {
+	return &PollsAddVoteBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the poll. Use a negative value to designate a community ID.
-func (b *PollsAddVoteBulder) OwnerID(v int) {
+func (b *PollsAddVoteBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PollID Poll ID.
-func (b *PollsAddVoteBulder) PollID(v int) {
+func (b *PollsAddVoteBuilder) PollID(v int) {
 	b.Params["poll_id"] = v
 }
 
 // AnswerIDs parameter
-func (b *PollsAddVoteBulder) AnswerIDs(v []int) {
+func (b *PollsAddVoteBuilder) AnswerIDs(v []int) {
 	b.Params["answer_ids"] = v
 }
 
 // IsBoard parameter
-func (b *PollsAddVoteBulder) IsBoard(v bool) {
+func (b *PollsAddVoteBuilder) IsBoard(v bool) {
 	b.Params["is_board"] = v
 }
 
-// PollsCreateBulder builder
+// PollsCreateBuilder builder
 //
 // Creates polls that can be attached to the users' or communities' posts.
 //
 // https://vk.com/dev/polls.create
-type PollsCreateBulder struct {
+type PollsCreateBuilder struct {
 	api.Params
 }
 
-// NewPollsCreateBulder func
-func NewPollsCreateBulder() *PollsCreateBulder {
-	return &PollsCreateBulder{api.Params{}}
+// NewPollsCreateBuilder func
+func NewPollsCreateBuilder() *PollsCreateBuilder {
+	return &PollsCreateBuilder{api.Params{}}
 }
 
 // Question question text
-func (b *PollsCreateBulder) Question(v string) {
+func (b *PollsCreateBuilder) Question(v string) {
 	b.Params["question"] = v
 }
 
 // IsAnonymous '1' – anonymous poll, participants list is hidden,, '0' – public poll, participants list is available,, Default value is '0'.
-func (b *PollsCreateBulder) IsAnonymous(v bool) {
+func (b *PollsCreateBuilder) IsAnonymous(v bool) {
 	b.Params["is_anonymous"] = v
 }
 
 // IsMultiple parameter
-func (b *PollsCreateBulder) IsMultiple(v bool) {
+func (b *PollsCreateBuilder) IsMultiple(v bool) {
 	b.Params["is_multiple"] = v
 }
 
 // EndDate parameter
-func (b *PollsCreateBulder) EndDate(v int) {
+func (b *PollsCreateBuilder) EndDate(v int) {
 	b.Params["end_date"] = v
 }
 
 // OwnerID If a poll will be added to a communty it is required to send a negative group identifier. Current user by default.
-func (b *PollsCreateBulder) OwnerID(v int) {
+func (b *PollsCreateBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AddAnswers available answers list, for example: " ["yes","no","maybe"]", There can be from 1 to 10 answers.
-func (b *PollsCreateBulder) AddAnswers(v string) {
+func (b *PollsCreateBuilder) AddAnswers(v string) {
 	b.Params["add_answers"] = v
 }
 
 // PhotoID parameter
-func (b *PollsCreateBulder) PhotoID(v int) {
+func (b *PollsCreateBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // BackgroundID parameter
-func (b *PollsCreateBulder) BackgroundID(v string) {
+func (b *PollsCreateBuilder) BackgroundID(v string) {
 	b.Params["background_id"] = v
 }
 
-// PollsDeleteVoteBulder builder
+// PollsDeleteVoteBuilder builder
 //
 // Deletes the current user's vote from the selected answer in the poll.
 //
 // https://vk.com/dev/polls.deleteVote
-type PollsDeleteVoteBulder struct {
+type PollsDeleteVoteBuilder struct {
 	api.Params
 }
 
-// NewPollsDeleteVoteBulder func
-func NewPollsDeleteVoteBulder() *PollsDeleteVoteBulder {
-	return &PollsDeleteVoteBulder{api.Params{}}
+// NewPollsDeleteVoteBuilder func
+func NewPollsDeleteVoteBuilder() *PollsDeleteVoteBuilder {
+	return &PollsDeleteVoteBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the poll. Use a negative value to designate a community ID.
-func (b *PollsDeleteVoteBulder) OwnerID(v int) {
+func (b *PollsDeleteVoteBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PollID Poll ID.
-func (b *PollsDeleteVoteBulder) PollID(v int) {
+func (b *PollsDeleteVoteBuilder) PollID(v int) {
 	b.Params["poll_id"] = v
 }
 
 // AnswerID Answer ID.
-func (b *PollsDeleteVoteBulder) AnswerID(v int) {
+func (b *PollsDeleteVoteBuilder) AnswerID(v int) {
 	b.Params["answer_id"] = v
 }
 
 // IsBoard parameter
-func (b *PollsDeleteVoteBulder) IsBoard(v bool) {
+func (b *PollsDeleteVoteBuilder) IsBoard(v bool) {
 	b.Params["is_board"] = v
 }
 
-// PollsEditBulder builder
+// PollsEditBuilder builder
 //
 // Edits created polls
 //
 // https://vk.com/dev/polls.edit
-type PollsEditBulder struct {
+type PollsEditBuilder struct {
 	api.Params
 }
 
-// NewPollsEditBulder func
-func NewPollsEditBulder() *PollsEditBulder {
-	return &PollsEditBulder{api.Params{}}
+// NewPollsEditBuilder func
+func NewPollsEditBuilder() *PollsEditBuilder {
+	return &PollsEditBuilder{api.Params{}}
 }
 
 // OwnerID poll owner id
-func (b *PollsEditBulder) OwnerID(v int) {
+func (b *PollsEditBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PollID edited poll's id
-func (b *PollsEditBulder) PollID(v int) {
+func (b *PollsEditBuilder) PollID(v int) {
 	b.Params["poll_id"] = v
 }
 
 // Question new question text
-func (b *PollsEditBulder) Question(v string) {
+func (b *PollsEditBuilder) Question(v string) {
 	b.Params["question"] = v
 }
 
 // AddAnswers answers list, for example: , "["yes","no","maybe"]"
-func (b *PollsEditBulder) AddAnswers(v string) {
+func (b *PollsEditBuilder) AddAnswers(v string) {
 	b.Params["add_answers"] = v
 }
 
 // EditAnswers object containing answers that need to be edited,, key – answer id, value – new answer text. Example: {"382967099":"option1", "382967103":"option2"}"
-func (b *PollsEditBulder) EditAnswers(v string) {
+func (b *PollsEditBuilder) EditAnswers(v string) {
 	b.Params["edit_answers"] = v
 }
 
 // DeleteAnswers list of answer ids to be deleted. For example: "[382967099, 382967103]"
-func (b *PollsEditBulder) DeleteAnswers(v string) {
+func (b *PollsEditBuilder) DeleteAnswers(v string) {
 	b.Params["delete_answers"] = v
 }
 
 // EndDate parameter
-func (b *PollsEditBulder) EndDate(v int) {
+func (b *PollsEditBuilder) EndDate(v int) {
 	b.Params["end_date"] = v
 }
 
 // PhotoID parameter
-func (b *PollsEditBulder) PhotoID(v int) {
+func (b *PollsEditBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // BackgroundID parameter
-func (b *PollsEditBulder) BackgroundID(v string) {
+func (b *PollsEditBuilder) BackgroundID(v string) {
 	b.Params["background_id"] = v
 }
 
-// PollsGetByIDBulder builder
+// PollsGetByIDBuilder builder
 //
 // Returns detailed information about a poll by its ID.
 //
 // https://vk.com/dev/polls.getById
-type PollsGetByIDBulder struct {
+type PollsGetByIDBuilder struct {
 	api.Params
 }
 
-// NewPollsGetByIDBulder func
-func NewPollsGetByIDBulder() *PollsGetByIDBulder {
-	return &PollsGetByIDBulder{api.Params{}}
+// NewPollsGetByIDBuilder func
+func NewPollsGetByIDBuilder() *PollsGetByIDBuilder {
+	return &PollsGetByIDBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the poll. Use a negative value to designate a community ID.
-func (b *PollsGetByIDBulder) OwnerID(v int) {
+func (b *PollsGetByIDBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // IsBoard '1' – poll is in a board, '0' – poll is on a wall. '0' by default.
-func (b *PollsGetByIDBulder) IsBoard(v bool) {
+func (b *PollsGetByIDBuilder) IsBoard(v bool) {
 	b.Params["is_board"] = v
 }
 
 // PollID Poll ID.
-func (b *PollsGetByIDBulder) PollID(v int) {
+func (b *PollsGetByIDBuilder) PollID(v int) {
 	b.Params["poll_id"] = v
 }
 
 // Extended parameter
-func (b *PollsGetByIDBulder) Extended(v bool) {
+func (b *PollsGetByIDBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // FriendsCount parameter
-func (b *PollsGetByIDBulder) FriendsCount(v int) {
+func (b *PollsGetByIDBuilder) FriendsCount(v int) {
 	b.Params["friends_count"] = v
 }
 
 // Fields parameter
-func (b *PollsGetByIDBulder) Fields(v []string) {
+func (b *PollsGetByIDBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
 // NameCase parameter
-func (b *PollsGetByIDBulder) NameCase(v string) {
+func (b *PollsGetByIDBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }
 
-// PollsGetVotersBulder builder
+// PollsGetVotersBuilder builder
 //
 // Returns a list of IDs of users who selected specific answers in the poll.
 //
 // https://vk.com/dev/polls.getVoters
-type PollsGetVotersBulder struct {
+type PollsGetVotersBuilder struct {
 	api.Params
 }
 
-// NewPollsGetVotersBulder func
-func NewPollsGetVotersBulder() *PollsGetVotersBulder {
-	return &PollsGetVotersBulder{api.Params{}}
+// NewPollsGetVotersBuilder func
+func NewPollsGetVotersBuilder() *PollsGetVotersBuilder {
+	return &PollsGetVotersBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the poll. Use a negative value to designate a community ID.
-func (b *PollsGetVotersBulder) OwnerID(v int) {
+func (b *PollsGetVotersBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PollID Poll ID.
-func (b *PollsGetVotersBulder) PollID(v int) {
+func (b *PollsGetVotersBuilder) PollID(v int) {
 	b.Params["poll_id"] = v
 }
 
 // AnswerIDs Answer IDs.
-func (b *PollsGetVotersBulder) AnswerIDs(v []int) {
+func (b *PollsGetVotersBuilder) AnswerIDs(v []int) {
 	b.Params["answer_ids"] = v
 }
 
 // IsBoard parameter
-func (b *PollsGetVotersBulder) IsBoard(v bool) {
+func (b *PollsGetVotersBuilder) IsBoard(v bool) {
 	b.Params["is_board"] = v
 }
 
 // FriendsOnly '1' — to return only current user's friends, '0' — to return all users (default),
-func (b *PollsGetVotersBulder) FriendsOnly(v bool) {
+func (b *PollsGetVotersBuilder) FriendsOnly(v bool) {
 	b.Params["friends_only"] = v
 }
 
 // Offset Offset needed to return a specific subset of voters. '0' — (default)
-func (b *PollsGetVotersBulder) Offset(v int) {
+func (b *PollsGetVotersBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of user IDs to return (if the 'friends_only' parameter is not set, maximum '1000', otherwise '10'). '100' — (default)
-func (b *PollsGetVotersBulder) Count(v int) {
+func (b *PollsGetVotersBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate (birthdate)', 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters'.
-func (b *PollsGetVotersBulder) Fields(v []string) {
+func (b *PollsGetVotersBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
 // NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive , 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
-func (b *PollsGetVotersBulder) NameCase(v string) {
+func (b *PollsGetVotersBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }

@@ -7,16 +7,16 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPagesClearCacheBulder(t *testing.T) {
-	b := params.NewPagesClearCacheBulder()
+func TestPagesClearCacheBuilder(t *testing.T) {
+	b := params.NewPagesClearCacheBuilder()
 
 	b.URL("text")
 
 	assert.Equal(t, b.Params["url"], "text")
 }
 
-func TestPagesGetBulder(t *testing.T) {
-	b := params.NewPagesGetBulder()
+func TestPagesGetBuilder(t *testing.T) {
+	b := params.NewPagesGetBuilder()
 
 	b.OwnerID(1)
 	b.PageID(1)
@@ -35,8 +35,8 @@ func TestPagesGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["need_html"], true)
 }
 
-func TestPagesGetHistoryBulder(t *testing.T) {
-	b := params.NewPagesGetHistoryBulder()
+func TestPagesGetHistoryBuilder(t *testing.T) {
+	b := params.NewPagesGetHistoryBuilder()
 
 	b.PageID(1)
 	b.GroupID(1)
@@ -47,16 +47,16 @@ func TestPagesGetHistoryBulder(t *testing.T) {
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestPagesGetTitlesBulder(t *testing.T) {
-	b := params.NewPagesGetTitlesBulder()
+func TestPagesGetTitlesBuilder(t *testing.T) {
+	b := params.NewPagesGetTitlesBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestPagesGetVersionBulder(t *testing.T) {
-	b := params.NewPagesGetVersionBulder()
+func TestPagesGetVersionBuilder(t *testing.T) {
+	b := params.NewPagesGetVersionBuilder()
 
 	b.VersionID(1)
 	b.GroupID(1)
@@ -69,8 +69,8 @@ func TestPagesGetVersionBulder(t *testing.T) {
 	assert.Equal(t, b.Params["need_html"], true)
 }
 
-func TestPagesParseWikiBulder(t *testing.T) {
-	b := params.NewPagesParseWikiBulder()
+func TestPagesParseWikiBuilder(t *testing.T) {
+	b := params.NewPagesParseWikiBuilder()
 
 	b.Text("text")
 	b.GroupID(1)
@@ -79,8 +79,8 @@ func TestPagesParseWikiBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestPagesSaveBulder(t *testing.T) {
-	b := params.NewPagesSaveBulder()
+func TestPagesSaveBuilder(t *testing.T) {
+	b := params.NewPagesSaveBuilder()
 
 	b.Text("text")
 	b.PageID(1)
@@ -95,8 +95,8 @@ func TestPagesSaveBulder(t *testing.T) {
 	assert.Equal(t, b.Params["title"], "text")
 }
 
-func TestPagesSaveAccessBulder(t *testing.T) {
-	b := params.NewPagesSaveAccessBulder()
+func TestPagesSaveAccessBuilder(t *testing.T) {
+	b := params.NewPagesSaveAccessBuilder()
 
 	b.PageID(1)
 	b.GroupID(1)

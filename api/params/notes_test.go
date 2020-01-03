@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNotesAddBulder(t *testing.T) {
-	b := params.NewNotesAddBulder()
+func TestNotesAddBuilder(t *testing.T) {
+	b := params.NewNotesAddBuilder()
 
 	b.Title("text")
 	b.Text("text")
@@ -21,8 +21,8 @@ func TestNotesAddBulder(t *testing.T) {
 	assert.Equal(t, b.Params["privacy_comment"], []string{"text"})
 }
 
-func TestNotesCreateCommentBulder(t *testing.T) {
-	b := params.NewNotesCreateCommentBulder()
+func TestNotesCreateCommentBuilder(t *testing.T) {
+	b := params.NewNotesCreateCommentBuilder()
 
 	b.NoteID(1)
 	b.OwnerID(1)
@@ -37,16 +37,16 @@ func TestNotesCreateCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["guid"], "text")
 }
 
-func TestNotesDeleteBulder(t *testing.T) {
-	b := params.NewNotesDeleteBulder()
+func TestNotesDeleteBuilder(t *testing.T) {
+	b := params.NewNotesDeleteBuilder()
 
 	b.NoteID(1)
 
 	assert.Equal(t, b.Params["note_id"], 1)
 }
 
-func TestNotesDeleteCommentBulder(t *testing.T) {
-	b := params.NewNotesDeleteCommentBulder()
+func TestNotesDeleteCommentBuilder(t *testing.T) {
+	b := params.NewNotesDeleteCommentBuilder()
 
 	b.CommentID(1)
 	b.OwnerID(1)
@@ -55,8 +55,8 @@ func TestNotesDeleteCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["owner_id"], 1)
 }
 
-func TestNotesEditBulder(t *testing.T) {
-	b := params.NewNotesEditBulder()
+func TestNotesEditBuilder(t *testing.T) {
+	b := params.NewNotesEditBuilder()
 
 	b.NoteID(1)
 	b.Title("text")
@@ -71,8 +71,8 @@ func TestNotesEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["privacy_comment"], []string{"text"})
 }
 
-func TestNotesEditCommentBulder(t *testing.T) {
-	b := params.NewNotesEditCommentBulder()
+func TestNotesEditCommentBuilder(t *testing.T) {
+	b := params.NewNotesEditCommentBuilder()
 
 	b.CommentID(1)
 	b.OwnerID(1)
@@ -83,8 +83,8 @@ func TestNotesEditCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["message"], "text")
 }
 
-func TestNotesGetBulder(t *testing.T) {
-	b := params.NewNotesGetBulder()
+func TestNotesGetBuilder(t *testing.T) {
+	b := params.NewNotesGetBuilder()
 
 	b.NoteIDs([]int{1})
 	b.UserID(1)
@@ -99,8 +99,8 @@ func TestNotesGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["sort"], 1)
 }
 
-func TestNotesGetByIDBulder(t *testing.T) {
-	b := params.NewNotesGetByIDBulder()
+func TestNotesGetByIDBuilder(t *testing.T) {
+	b := params.NewNotesGetByIDBuilder()
 
 	b.NoteID(1)
 	b.OwnerID(1)
@@ -111,8 +111,8 @@ func TestNotesGetByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["need_wiki"], true)
 }
 
-func TestNotesGetCommentsBulder(t *testing.T) {
-	b := params.NewNotesGetCommentsBulder()
+func TestNotesGetCommentsBuilder(t *testing.T) {
+	b := params.NewNotesGetCommentsBuilder()
 
 	b.NoteID(1)
 	b.OwnerID(1)
@@ -127,8 +127,8 @@ func TestNotesGetCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestNotesRestoreCommentBulder(t *testing.T) {
-	b := params.NewNotesRestoreCommentBulder()
+func TestNotesRestoreCommentBuilder(t *testing.T) {
+	b := params.NewNotesRestoreCommentBuilder()
 
 	b.CommentID(1)
 	b.OwnerID(1)

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestStatsGetBulder(t *testing.T) {
-	b := params.NewStatsGetBulder()
+func TestStatsGetBuilder(t *testing.T) {
+	b := params.NewStatsGetBuilder()
 
 	b.GroupID(1)
 	b.AppID(1)
@@ -31,8 +31,8 @@ func TestStatsGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestStatsGetPostReachBulder(t *testing.T) {
-	b := params.NewStatsGetPostReachBulder()
+func TestStatsGetPostReachBuilder(t *testing.T) {
+	b := params.NewStatsGetPostReachBuilder()
 
 	b.OwnerID("text")
 	b.PostID(1)
@@ -41,8 +41,8 @@ func TestStatsGetPostReachBulder(t *testing.T) {
 	assert.Equal(t, b.Params["post_id"], 1)
 }
 
-func TestStatsTrackVisitorBulder(t *testing.T) {
-	b := params.NewStatsTrackVisitorBulder()
+func TestStatsTrackVisitorBuilder(t *testing.T) {
+	b := params.NewStatsTrackVisitorBuilder()
 
 	b.ID("text")
 

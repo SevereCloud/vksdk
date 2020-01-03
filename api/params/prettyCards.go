@@ -4,172 +4,172 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// PrettyCardsCreateBulder builder
+// PrettyCardsCreateBuilder builder
 //
 // https://vk.com/dev/prettyCards.create
-type PrettyCardsCreateBulder struct {
+type PrettyCardsCreateBuilder struct {
 	api.Params
 }
 
-// NewPrettyCardsCreateBulder func
-func NewPrettyCardsCreateBulder() *PrettyCardsCreateBulder {
-	return &PrettyCardsCreateBulder{api.Params{}}
+// NewPrettyCardsCreateBuilder func
+func NewPrettyCardsCreateBuilder() *PrettyCardsCreateBuilder {
+	return &PrettyCardsCreateBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *PrettyCardsCreateBulder) OwnerID(v int) {
+func (b *PrettyCardsCreateBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // Photo parameter
-func (b *PrettyCardsCreateBulder) Photo(v string) {
+func (b *PrettyCardsCreateBuilder) Photo(v string) {
 	b.Params["photo"] = v
 }
 
 // Title parameter
-func (b *PrettyCardsCreateBulder) Title(v string) {
+func (b *PrettyCardsCreateBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
 // Link parameter
-func (b *PrettyCardsCreateBulder) Link(v string) {
+func (b *PrettyCardsCreateBuilder) Link(v string) {
 	b.Params["link"] = v
 }
 
 // Price parameter
-func (b *PrettyCardsCreateBulder) Price(v string) {
+func (b *PrettyCardsCreateBuilder) Price(v string) {
 	b.Params["price"] = v
 }
 
 // PriceOld parameter
-func (b *PrettyCardsCreateBulder) PriceOld(v string) {
+func (b *PrettyCardsCreateBuilder) PriceOld(v string) {
 	b.Params["price_old"] = v
 }
 
 // Button parameter
-func (b *PrettyCardsCreateBulder) Button(v string) {
+func (b *PrettyCardsCreateBuilder) Button(v string) {
 	b.Params["button"] = v
 }
 
-// PrettyCardsDeleteBulder builder
+// PrettyCardsDeleteBuilder builder
 //
 // https://vk.com/dev/prettyCards.delete
-type PrettyCardsDeleteBulder struct {
+type PrettyCardsDeleteBuilder struct {
 	api.Params
 }
 
-// NewPrettyCardsDeleteBulder func
-func NewPrettyCardsDeleteBulder() *PrettyCardsDeleteBulder {
-	return &PrettyCardsDeleteBulder{api.Params{}}
+// NewPrettyCardsDeleteBuilder func
+func NewPrettyCardsDeleteBuilder() *PrettyCardsDeleteBuilder {
+	return &PrettyCardsDeleteBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *PrettyCardsDeleteBulder) OwnerID(v int) {
+func (b *PrettyCardsDeleteBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CardID parameter
-func (b *PrettyCardsDeleteBulder) CardID(v int) {
+func (b *PrettyCardsDeleteBuilder) CardID(v int) {
 	b.Params["card_id"] = v
 }
 
-// PrettyCardsEditBulder builder
+// PrettyCardsEditBuilder builder
 //
 // https://vk.com/dev/prettyCards.edit
-type PrettyCardsEditBulder struct {
+type PrettyCardsEditBuilder struct {
 	api.Params
 }
 
-// NewPrettyCardsEditBulder func
-func NewPrettyCardsEditBulder() *PrettyCardsEditBulder {
-	return &PrettyCardsEditBulder{api.Params{}}
+// NewPrettyCardsEditBuilder func
+func NewPrettyCardsEditBuilder() *PrettyCardsEditBuilder {
+	return &PrettyCardsEditBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *PrettyCardsEditBulder) OwnerID(v int) {
+func (b *PrettyCardsEditBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CardID parameter
-func (b *PrettyCardsEditBulder) CardID(v int) {
+func (b *PrettyCardsEditBuilder) CardID(v int) {
 	b.Params["card_id"] = v
 }
 
 // Photo parameter
-func (b *PrettyCardsEditBulder) Photo(v string) {
+func (b *PrettyCardsEditBuilder) Photo(v string) {
 	b.Params["photo"] = v
 }
 
 // Title parameter
-func (b *PrettyCardsEditBulder) Title(v string) {
+func (b *PrettyCardsEditBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
 // Link parameter
-func (b *PrettyCardsEditBulder) Link(v string) {
+func (b *PrettyCardsEditBuilder) Link(v string) {
 	b.Params["link"] = v
 }
 
 // Price parameter
-func (b *PrettyCardsEditBulder) Price(v string) {
+func (b *PrettyCardsEditBuilder) Price(v string) {
 	b.Params["price"] = v
 }
 
 // PriceOld parameter
-func (b *PrettyCardsEditBulder) PriceOld(v string) {
+func (b *PrettyCardsEditBuilder) PriceOld(v string) {
 	b.Params["price_old"] = v
 }
 
 // Button parameter
-func (b *PrettyCardsEditBulder) Button(v string) {
+func (b *PrettyCardsEditBuilder) Button(v string) {
 	b.Params["button"] = v
 }
 
-// PrettyCardsGetBulder builder
+// PrettyCardsGetBuilder builder
 //
 // https://vk.com/dev/prettyCards.get
-type PrettyCardsGetBulder struct {
+type PrettyCardsGetBuilder struct {
 	api.Params
 }
 
-// NewPrettyCardsGetBulder func
-func NewPrettyCardsGetBulder() *PrettyCardsGetBulder {
-	return &PrettyCardsGetBulder{api.Params{}}
+// NewPrettyCardsGetBuilder func
+func NewPrettyCardsGetBuilder() *PrettyCardsGetBuilder {
+	return &PrettyCardsGetBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *PrettyCardsGetBulder) OwnerID(v int) {
+func (b *PrettyCardsGetBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // Offset parameter
-func (b *PrettyCardsGetBulder) Offset(v int) {
+func (b *PrettyCardsGetBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count parameter
-func (b *PrettyCardsGetBulder) Count(v int) {
+func (b *PrettyCardsGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// PrettyCardsGetByIDBulder builder
+// PrettyCardsGetByIDBuilder builder
 //
 // https://vk.com/dev/prettyCards.getById
-type PrettyCardsGetByIDBulder struct {
+type PrettyCardsGetByIDBuilder struct {
 	api.Params
 }
 
-// NewPrettyCardsGetByIDBulder func
-func NewPrettyCardsGetByIDBulder() *PrettyCardsGetByIDBulder {
-	return &PrettyCardsGetByIDBulder{api.Params{}}
+// NewPrettyCardsGetByIDBuilder func
+func NewPrettyCardsGetByIDBuilder() *PrettyCardsGetByIDBuilder {
+	return &PrettyCardsGetByIDBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *PrettyCardsGetByIDBulder) OwnerID(v int) {
+func (b *PrettyCardsGetByIDBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CardIDs parameter
-func (b *PrettyCardsGetByIDBulder) CardIDs(v []int) {
+func (b *PrettyCardsGetByIDBuilder) CardIDs(v []int) {
 	b.Params["card_ids"] = v
 }

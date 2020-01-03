@@ -4,486 +4,486 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// AccountBanBulder builder
+// AccountBanBuilder builder
 //
 // https://vk.com/dev/account.ban
-type AccountBanBulder struct {
+type AccountBanBuilder struct {
 	api.Params
 }
 
-// NewAccountBanBulder func
-func NewAccountBanBulder() *AccountBanBulder {
-	return &AccountBanBulder{api.Params{}}
+// NewAccountBanBuilder func
+func NewAccountBanBuilder() *AccountBanBuilder {
+	return &AccountBanBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *AccountBanBulder) OwnerID(v int) {
+func (b *AccountBanBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
-// AccountChangePasswordBulder builder
+// AccountChangePasswordBuilder builder
 //
 // Changes a user password after access is successfully restored with the [vk.com/dev/auth.restore|auth.restore] method.
 //
 // https://vk.com/dev/account.changePassword
-type AccountChangePasswordBulder struct {
+type AccountChangePasswordBuilder struct {
 	api.Params
 }
 
-// NewAccountChangePasswordBulder func
-func NewAccountChangePasswordBulder() *AccountChangePasswordBulder {
-	return &AccountChangePasswordBulder{api.Params{}}
+// NewAccountChangePasswordBuilder func
+func NewAccountChangePasswordBuilder() *AccountChangePasswordBuilder {
+	return &AccountChangePasswordBuilder{api.Params{}}
 }
 
 // RestoreSID Session id received after the [vk.com/dev/auth.restore|auth.restore] method is executed. (If the password is changed right after the access was restored)
-func (b *AccountChangePasswordBulder) RestoreSID(v string) {
+func (b *AccountChangePasswordBuilder) RestoreSID(v string) {
 	b.Params["restore_sid"] = v
 }
 
 // ChangePasswordHash Hash received after a successful OAuth authorization with a code got by SMS. (If the password is changed right after the access was restored)
-func (b *AccountChangePasswordBulder) ChangePasswordHash(v string) {
+func (b *AccountChangePasswordBuilder) ChangePasswordHash(v string) {
 	b.Params["change_password_hash"] = v
 }
 
 // OldPassword Current user password.
-func (b *AccountChangePasswordBulder) OldPassword(v string) {
+func (b *AccountChangePasswordBuilder) OldPassword(v string) {
 	b.Params["old_password"] = v
 }
 
 // NewPassword New password that will be set as a current
-func (b *AccountChangePasswordBulder) NewPassword(v string) {
+func (b *AccountChangePasswordBuilder) NewPassword(v string) {
 	b.Params["new_password"] = v
 }
 
-// AccountGetActiveOffersBulder builder
+// AccountGetActiveOffersBuilder builder
 //
 // Returns a list of active ads (offers) which executed by the user will bring him/her respective number of votes to his balance in the application.
 //
 // https://vk.com/dev/account.getActiveOffers
-type AccountGetActiveOffersBulder struct {
+type AccountGetActiveOffersBuilder struct {
 	api.Params
 }
 
-// NewAccountGetActiveOffersBulder func
-func NewAccountGetActiveOffersBulder() *AccountGetActiveOffersBulder {
-	return &AccountGetActiveOffersBulder{api.Params{}}
+// NewAccountGetActiveOffersBuilder func
+func NewAccountGetActiveOffersBuilder() *AccountGetActiveOffersBuilder {
+	return &AccountGetActiveOffersBuilder{api.Params{}}
 }
 
 // Offset parameter
-func (b *AccountGetActiveOffersBulder) Offset(v int) {
+func (b *AccountGetActiveOffersBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of results to return.
-func (b *AccountGetActiveOffersBulder) Count(v int) {
+func (b *AccountGetActiveOffersBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// AccountGetAppPermissionsBulder builder
+// AccountGetAppPermissionsBuilder builder
 //
 // Gets settings of the user in this application.
 //
 // https://vk.com/dev/account.getAppPermissions
-type AccountGetAppPermissionsBulder struct {
+type AccountGetAppPermissionsBuilder struct {
 	api.Params
 }
 
-// NewAccountGetAppPermissionsBulder func
-func NewAccountGetAppPermissionsBulder() *AccountGetAppPermissionsBulder {
-	return &AccountGetAppPermissionsBulder{api.Params{}}
+// NewAccountGetAppPermissionsBuilder func
+func NewAccountGetAppPermissionsBuilder() *AccountGetAppPermissionsBuilder {
+	return &AccountGetAppPermissionsBuilder{api.Params{}}
 }
 
 // UserID User ID whose settings information shall be got. By default: current user.
-func (b *AccountGetAppPermissionsBulder) UserID(v int) {
+func (b *AccountGetAppPermissionsBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// AccountGetBannedBulder builder
+// AccountGetBannedBuilder builder
 //
 // Returns a user's blacklist.
 //
 // https://vk.com/dev/account.getBanned
-type AccountGetBannedBulder struct {
+type AccountGetBannedBuilder struct {
 	api.Params
 }
 
-// NewAccountGetBannedBulder func
-func NewAccountGetBannedBulder() *AccountGetBannedBulder {
-	return &AccountGetBannedBulder{api.Params{}}
+// NewAccountGetBannedBuilder func
+func NewAccountGetBannedBuilder() *AccountGetBannedBuilder {
+	return &AccountGetBannedBuilder{api.Params{}}
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *AccountGetBannedBulder) Offset(v int) {
+func (b *AccountGetBannedBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of results to return.
-func (b *AccountGetBannedBulder) Count(v int) {
+func (b *AccountGetBannedBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// AccountGetCountersBulder builder
+// AccountGetCountersBuilder builder
 //
 // Returns non-null values of user counters.
 //
 // https://vk.com/dev/account.getCounters
-type AccountGetCountersBulder struct {
+type AccountGetCountersBuilder struct {
 	api.Params
 }
 
-// NewAccountGetCountersBulder func
-func NewAccountGetCountersBulder() *AccountGetCountersBulder {
-	return &AccountGetCountersBulder{api.Params{}}
+// NewAccountGetCountersBuilder func
+func NewAccountGetCountersBuilder() *AccountGetCountersBuilder {
+	return &AccountGetCountersBuilder{api.Params{}}
 }
 
 // Filter Counters to be returned.
-func (b *AccountGetCountersBulder) Filter(v []string) {
+func (b *AccountGetCountersBuilder) Filter(v []string) {
 	b.Params["filter"] = v
 }
 
-// AccountGetInfoBulder builder
+// AccountGetInfoBuilder builder
 //
 // Returns current account info.
 //
 // https://vk.com/dev/account.getInfo
-type AccountGetInfoBulder struct {
+type AccountGetInfoBuilder struct {
 	api.Params
 }
 
-// NewAccountGetInfoBulder func
-func NewAccountGetInfoBulder() *AccountGetInfoBulder {
-	return &AccountGetInfoBulder{api.Params{}}
+// NewAccountGetInfoBuilder func
+func NewAccountGetInfoBuilder() *AccountGetInfoBuilder {
+	return &AccountGetInfoBuilder{api.Params{}}
 }
 
 // Fields Fields to return. Possible values: *'country' — user country,, *'https_required' — is "HTTPS only" option enabled,, *'own_posts_default' — is "Show my posts only" option is enabled,, *'no_wall_replies' — are wall replies disabled or not,, *'intro' — is intro passed by user or not,, *'lang' — user language. By default: all.
-func (b *AccountGetInfoBulder) Fields(v []string) {
+func (b *AccountGetInfoBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// AccountGetPushSettingsBulder builder
+// AccountGetPushSettingsBuilder builder
 //
 // Gets settings of push notifications.
 //
 // https://vk.com/dev/account.getPushSettings
-type AccountGetPushSettingsBulder struct {
+type AccountGetPushSettingsBuilder struct {
 	api.Params
 }
 
-// NewAccountGetPushSettingsBulder func
-func NewAccountGetPushSettingsBulder() *AccountGetPushSettingsBulder {
-	return &AccountGetPushSettingsBulder{api.Params{}}
+// NewAccountGetPushSettingsBuilder func
+func NewAccountGetPushSettingsBuilder() *AccountGetPushSettingsBuilder {
+	return &AccountGetPushSettingsBuilder{api.Params{}}
 }
 
 // DeviceID Unique device ID.
-func (b *AccountGetPushSettingsBulder) DeviceID(v string) {
+func (b *AccountGetPushSettingsBuilder) DeviceID(v string) {
 	b.Params["device_id"] = v
 }
 
-// AccountRegisterDeviceBulder builder
+// AccountRegisterDeviceBuilder builder
 //
 // Subscribes an iOS/Android/Windows Phone-based device to receive push notifications
 //
 // https://vk.com/dev/account.registerDevice
-type AccountRegisterDeviceBulder struct {
+type AccountRegisterDeviceBuilder struct {
 	api.Params
 }
 
-// NewAccountRegisterDeviceBulder func
-func NewAccountRegisterDeviceBulder() *AccountRegisterDeviceBulder {
-	return &AccountRegisterDeviceBulder{api.Params{}}
+// NewAccountRegisterDeviceBuilder func
+func NewAccountRegisterDeviceBuilder() *AccountRegisterDeviceBuilder {
+	return &AccountRegisterDeviceBuilder{api.Params{}}
 }
 
 // Token Device token used to send notifications. (for mpns, the token shall be URL for sending of notifications)
-func (b *AccountRegisterDeviceBulder) Token(v string) {
+func (b *AccountRegisterDeviceBuilder) Token(v string) {
 	b.Params["token"] = v
 }
 
 // DeviceModel String name of device model.
-func (b *AccountRegisterDeviceBulder) DeviceModel(v string) {
+func (b *AccountRegisterDeviceBuilder) DeviceModel(v string) {
 	b.Params["device_model"] = v
 }
 
 // DeviceYear Device year.
-func (b *AccountRegisterDeviceBulder) DeviceYear(v int) {
+func (b *AccountRegisterDeviceBuilder) DeviceYear(v int) {
 	b.Params["device_year"] = v
 }
 
 // DeviceID Unique device ID.
-func (b *AccountRegisterDeviceBulder) DeviceID(v string) {
+func (b *AccountRegisterDeviceBuilder) DeviceID(v string) {
 	b.Params["device_id"] = v
 }
 
 // SystemVersion String version of device operating system.
-func (b *AccountRegisterDeviceBulder) SystemVersion(v string) {
+func (b *AccountRegisterDeviceBuilder) SystemVersion(v string) {
 	b.Params["system_version"] = v
 }
 
 // Settings Push settings in a [vk.com/dev/push_settings|special format].
-func (b *AccountRegisterDeviceBulder) Settings(v string) {
+func (b *AccountRegisterDeviceBuilder) Settings(v string) {
 	b.Params["settings"] = v
 }
 
 // Sandbox parameter
-func (b *AccountRegisterDeviceBulder) Sandbox(v bool) {
+func (b *AccountRegisterDeviceBuilder) Sandbox(v bool) {
 	b.Params["sandbox"] = v
 }
 
-// AccountSaveProfileInfoBulder builder
+// AccountSaveProfileInfoBuilder builder
 //
 // Edits current profile info.
 //
 // https://vk.com/dev/account.saveProfileInfo
-type AccountSaveProfileInfoBulder struct {
+type AccountSaveProfileInfoBuilder struct {
 	api.Params
 }
 
-// NewAccountSaveProfileInfoBulder func
-func NewAccountSaveProfileInfoBulder() *AccountSaveProfileInfoBulder {
-	return &AccountSaveProfileInfoBulder{api.Params{}}
+// NewAccountSaveProfileInfoBuilder func
+func NewAccountSaveProfileInfoBuilder() *AccountSaveProfileInfoBuilder {
+	return &AccountSaveProfileInfoBuilder{api.Params{}}
 }
 
 // FirstName User first name.
-func (b *AccountSaveProfileInfoBulder) FirstName(v string) {
+func (b *AccountSaveProfileInfoBuilder) FirstName(v string) {
 	b.Params["first_name"] = v
 }
 
 // LastName User last name.
-func (b *AccountSaveProfileInfoBulder) LastName(v string) {
+func (b *AccountSaveProfileInfoBuilder) LastName(v string) {
 	b.Params["last_name"] = v
 }
 
 // MaidenName User maiden name (female only)
-func (b *AccountSaveProfileInfoBulder) MaidenName(v string) {
+func (b *AccountSaveProfileInfoBuilder) MaidenName(v string) {
 	b.Params["maiden_name"] = v
 }
 
 // ScreenName User screen name.
-func (b *AccountSaveProfileInfoBulder) ScreenName(v string) {
+func (b *AccountSaveProfileInfoBuilder) ScreenName(v string) {
 	b.Params["screen_name"] = v
 }
 
 // CancelRequestID ID of the name change request to be canceled. If this parameter is sent, all the others are ignored.
-func (b *AccountSaveProfileInfoBulder) CancelRequestID(v int) {
+func (b *AccountSaveProfileInfoBuilder) CancelRequestID(v int) {
 	b.Params["cancel_request_id"] = v
 }
 
 // Sex User sex. Possible values: , * '1' – female,, * '2' – male.
-func (b *AccountSaveProfileInfoBulder) Sex(v int) {
+func (b *AccountSaveProfileInfoBuilder) Sex(v int) {
 	b.Params["sex"] = v
 }
 
 // Relation User relationship status. Possible values: , * '1' – single,, * '2' – in a relationship,, * '3' – engaged,, * '4' – married,, * '5' – it's complicated,, * '6' – actively searching,, * '7' – in love,, * '0' – not specified.
-func (b *AccountSaveProfileInfoBulder) Relation(v int) {
+func (b *AccountSaveProfileInfoBuilder) Relation(v int) {
 	b.Params["relation"] = v
 }
 
 // RelationPartnerID ID of the relationship partner.
-func (b *AccountSaveProfileInfoBulder) RelationPartnerID(v int) {
+func (b *AccountSaveProfileInfoBuilder) RelationPartnerID(v int) {
 	b.Params["relation_partner_id"] = v
 }
 
 // Bdate User birth date, format: DD.MM.YYYY.
-func (b *AccountSaveProfileInfoBulder) Bdate(v string) {
+func (b *AccountSaveProfileInfoBuilder) Bdate(v string) {
 	b.Params["bdate"] = v
 }
 
 // BdateVisibility Birth date visibility. Returned values: , * '1' – show birth date,, * '2' – show only month and day,, * '0' – hide birth date.
-func (b *AccountSaveProfileInfoBulder) BdateVisibility(v int) {
+func (b *AccountSaveProfileInfoBuilder) BdateVisibility(v int) {
 	b.Params["bdate_visibility"] = v
 }
 
 // HomeTown User home town.
-func (b *AccountSaveProfileInfoBulder) HomeTown(v string) {
+func (b *AccountSaveProfileInfoBuilder) HomeTown(v string) {
 	b.Params["home_town"] = v
 }
 
 // CountryID User country.
-func (b *AccountSaveProfileInfoBulder) CountryID(v int) {
+func (b *AccountSaveProfileInfoBuilder) CountryID(v int) {
 	b.Params["country_id"] = v
 }
 
 // CityID User city.
-func (b *AccountSaveProfileInfoBulder) CityID(v int) {
+func (b *AccountSaveProfileInfoBuilder) CityID(v int) {
 	b.Params["city_id"] = v
 }
 
 // Status Status text.
-func (b *AccountSaveProfileInfoBulder) Status(v string) {
+func (b *AccountSaveProfileInfoBuilder) Status(v string) {
 	b.Params["status"] = v
 }
 
-// AccountSetInfoBulder builder
+// AccountSetInfoBuilder builder
 //
 // Allows to edit the current account info.
 //
 // https://vk.com/dev/account.setInfo
-type AccountSetInfoBulder struct {
+type AccountSetInfoBuilder struct {
 	api.Params
 }
 
-// NewAccountSetInfoBulder func
-func NewAccountSetInfoBulder() *AccountSetInfoBulder {
-	return &AccountSetInfoBulder{api.Params{}}
+// NewAccountSetInfoBuilder func
+func NewAccountSetInfoBuilder() *AccountSetInfoBuilder {
+	return &AccountSetInfoBuilder{api.Params{}}
 }
 
 // Name Setting name.
-func (b *AccountSetInfoBulder) Name(v string) {
+func (b *AccountSetInfoBuilder) Name(v string) {
 	b.Params["name"] = v
 }
 
 // Value Setting value.
-func (b *AccountSetInfoBulder) Value(v string) {
+func (b *AccountSetInfoBuilder) Value(v string) {
 	b.Params["value"] = v
 }
 
-// AccountSetNameInMenuBulder builder
+// AccountSetNameInMenuBuilder builder
 //
 // Sets an application screen name (up to 17 characters), that is shown to the user in the left menu.
 //
 // https://vk.com/dev/account.setNameInMenu
-type AccountSetNameInMenuBulder struct {
+type AccountSetNameInMenuBuilder struct {
 	api.Params
 }
 
-// NewAccountSetNameInMenuBulder func
-func NewAccountSetNameInMenuBulder() *AccountSetNameInMenuBulder {
-	return &AccountSetNameInMenuBulder{api.Params{}}
+// NewAccountSetNameInMenuBuilder func
+func NewAccountSetNameInMenuBuilder() *AccountSetNameInMenuBuilder {
+	return &AccountSetNameInMenuBuilder{api.Params{}}
 }
 
 // UserID User ID.
-func (b *AccountSetNameInMenuBulder) UserID(v int) {
+func (b *AccountSetNameInMenuBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // Name Application screen name.
-func (b *AccountSetNameInMenuBulder) Name(v string) {
+func (b *AccountSetNameInMenuBuilder) Name(v string) {
 	b.Params["name"] = v
 }
 
-// AccountSetOnlineBulder builder
+// AccountSetOnlineBuilder builder
 //
 // Marks the current user as online for 15 minutes.
 //
 // https://vk.com/dev/account.setOnline
-type AccountSetOnlineBulder struct {
+type AccountSetOnlineBuilder struct {
 	api.Params
 }
 
-// NewAccountSetOnlineBulder func
-func NewAccountSetOnlineBulder() *AccountSetOnlineBulder {
-	return &AccountSetOnlineBulder{api.Params{}}
+// NewAccountSetOnlineBuilder func
+func NewAccountSetOnlineBuilder() *AccountSetOnlineBuilder {
+	return &AccountSetOnlineBuilder{api.Params{}}
 }
 
 // Voip '1' if videocalls are available for current device.
-func (b *AccountSetOnlineBulder) Voip(v bool) {
+func (b *AccountSetOnlineBuilder) Voip(v bool) {
 	b.Params["voip"] = v
 }
 
-// AccountSetPushSettingsBulder builder
+// AccountSetPushSettingsBuilder builder
 //
 // Change push settings.
 //
 // https://vk.com/dev/account.setPushSettings
-type AccountSetPushSettingsBulder struct {
+type AccountSetPushSettingsBuilder struct {
 	api.Params
 }
 
-// NewAccountSetPushSettingsBulder func
-func NewAccountSetPushSettingsBulder() *AccountSetPushSettingsBulder {
-	return &AccountSetPushSettingsBulder{api.Params{}}
+// NewAccountSetPushSettingsBuilder func
+func NewAccountSetPushSettingsBuilder() *AccountSetPushSettingsBuilder {
+	return &AccountSetPushSettingsBuilder{api.Params{}}
 }
 
 // DeviceID Unique device ID.
-func (b *AccountSetPushSettingsBulder) DeviceID(v string) {
+func (b *AccountSetPushSettingsBuilder) DeviceID(v string) {
 	b.Params["device_id"] = v
 }
 
 // Settings Push settings in a [vk.com/dev/push_settings|special format].
-func (b *AccountSetPushSettingsBulder) Settings(v string) {
+func (b *AccountSetPushSettingsBuilder) Settings(v string) {
 	b.Params["settings"] = v
 }
 
 // Key Notification key.
-func (b *AccountSetPushSettingsBulder) Key(v string) {
+func (b *AccountSetPushSettingsBuilder) Key(v string) {
 	b.Params["key"] = v
 }
 
 // Value New value for the key in a [vk.com/dev/push_settings|special format].
-func (b *AccountSetPushSettingsBulder) Value(v []string) {
+func (b *AccountSetPushSettingsBuilder) Value(v []string) {
 	b.Params["value"] = v
 }
 
-// AccountSetSilenceModeBulder builder
+// AccountSetSilenceModeBuilder builder
 //
 // Mutes push notifications for the set period of time.
 //
 // https://vk.com/dev/account.setSilenceMode
-type AccountSetSilenceModeBulder struct {
+type AccountSetSilenceModeBuilder struct {
 	api.Params
 }
 
-// NewAccountSetSilenceModeBulder func
-func NewAccountSetSilenceModeBulder() *AccountSetSilenceModeBulder {
-	return &AccountSetSilenceModeBulder{api.Params{}}
+// NewAccountSetSilenceModeBuilder func
+func NewAccountSetSilenceModeBuilder() *AccountSetSilenceModeBuilder {
+	return &AccountSetSilenceModeBuilder{api.Params{}}
 }
 
 // DeviceID Unique device ID.
-func (b *AccountSetSilenceModeBulder) DeviceID(v string) {
+func (b *AccountSetSilenceModeBuilder) DeviceID(v string) {
 	b.Params["device_id"] = v
 }
 
 // Time Time in seconds for what notifications should be disabled. '-1' to disable forever.
-func (b *AccountSetSilenceModeBulder) Time(v int) {
+func (b *AccountSetSilenceModeBuilder) Time(v int) {
 	b.Params["time"] = v
 }
 
 // PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'Chat ID', e.g. '2000000001'. For community: '- Community ID', e.g. '-12345'. "
-func (b *AccountSetSilenceModeBulder) PeerID(v int) {
+func (b *AccountSetSilenceModeBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
 
 // Sound '1' — to enable sound in this dialog, '0' — to disable sound. Only if 'peer_id' contains user or community ID.
-func (b *AccountSetSilenceModeBulder) Sound(v int) {
+func (b *AccountSetSilenceModeBuilder) Sound(v int) {
 	b.Params["sound"] = v
 }
 
-// AccountUnbanBulder builder
+// AccountUnbanBuilder builder
 //
 // https://vk.com/dev/account.unban
-type AccountUnbanBulder struct {
+type AccountUnbanBuilder struct {
 	api.Params
 }
 
-// NewAccountUnbanBulder func
-func NewAccountUnbanBulder() *AccountUnbanBulder {
-	return &AccountUnbanBulder{api.Params{}}
+// NewAccountUnbanBuilder func
+func NewAccountUnbanBuilder() *AccountUnbanBuilder {
+	return &AccountUnbanBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *AccountUnbanBulder) OwnerID(v int) {
+func (b *AccountUnbanBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
-// AccountUnregisterDeviceBulder builder
+// AccountUnregisterDeviceBuilder builder
 //
 // Unsubscribes a device from push notifications.
 //
 // https://vk.com/dev/account.unregisterDevice
-type AccountUnregisterDeviceBulder struct {
+type AccountUnregisterDeviceBuilder struct {
 	api.Params
 }
 
-// NewAccountUnregisterDeviceBulder func
-func NewAccountUnregisterDeviceBulder() *AccountUnregisterDeviceBulder {
-	return &AccountUnregisterDeviceBulder{api.Params{}}
+// NewAccountUnregisterDeviceBuilder func
+func NewAccountUnregisterDeviceBuilder() *AccountUnregisterDeviceBuilder {
+	return &AccountUnregisterDeviceBuilder{api.Params{}}
 }
 
 // DeviceID Unique device ID.
-func (b *AccountUnregisterDeviceBulder) DeviceID(v string) {
+func (b *AccountUnregisterDeviceBuilder) DeviceID(v string) {
 	b.Params["device_id"] = v
 }
 
 // Sandbox parameter
-func (b *AccountUnregisterDeviceBulder) Sandbox(v bool) {
+func (b *AccountUnregisterDeviceBuilder) Sandbox(v bool) {
 	b.Params["sandbox"] = v
 }

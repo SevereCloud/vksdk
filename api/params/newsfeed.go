@@ -4,535 +4,535 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// NewsfeedAddBanBulder builder
+// NewsfeedAddBanBuilder builder
 //
 // Prevents news from specified users and communities from appearing in the current user's newsfeed.
 //
 // https://vk.com/dev/newsfeed.addBan
-type NewsfeedAddBanBulder struct {
+type NewsfeedAddBanBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedAddBanBulder func
-func NewNewsfeedAddBanBulder() *NewsfeedAddBanBulder {
-	return &NewsfeedAddBanBulder{api.Params{}}
+// NewNewsfeedAddBanBuilder func
+func NewNewsfeedAddBanBuilder() *NewsfeedAddBanBuilder {
+	return &NewsfeedAddBanBuilder{api.Params{}}
 }
 
 // UserIDs parameter
-func (b *NewsfeedAddBanBulder) UserIDs(v []int) {
+func (b *NewsfeedAddBanBuilder) UserIDs(v []int) {
 	b.Params["user_ids"] = v
 }
 
 // GroupIDs parameter
-func (b *NewsfeedAddBanBulder) GroupIDs(v []int) {
+func (b *NewsfeedAddBanBuilder) GroupIDs(v []int) {
 	b.Params["group_ids"] = v
 }
 
-// NewsfeedDeleteBanBulder builder
+// NewsfeedDeleteBanBuilder builder
 //
 // Allows news from previously banned users and communities to be shown in the current user's newsfeed.
 //
 // https://vk.com/dev/newsfeed.deleteBan
-type NewsfeedDeleteBanBulder struct {
+type NewsfeedDeleteBanBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedDeleteBanBulder func
-func NewNewsfeedDeleteBanBulder() *NewsfeedDeleteBanBulder {
-	return &NewsfeedDeleteBanBulder{api.Params{}}
+// NewNewsfeedDeleteBanBuilder func
+func NewNewsfeedDeleteBanBuilder() *NewsfeedDeleteBanBuilder {
+	return &NewsfeedDeleteBanBuilder{api.Params{}}
 }
 
 // UserIDs parameter
-func (b *NewsfeedDeleteBanBulder) UserIDs(v []int) {
+func (b *NewsfeedDeleteBanBuilder) UserIDs(v []int) {
 	b.Params["user_ids"] = v
 }
 
 // GroupIDs parameter
-func (b *NewsfeedDeleteBanBulder) GroupIDs(v []int) {
+func (b *NewsfeedDeleteBanBuilder) GroupIDs(v []int) {
 	b.Params["group_ids"] = v
 }
 
-// NewsfeedDeleteListBulder builder
+// NewsfeedDeleteListBuilder builder
 //
 // https://vk.com/dev/newsfeed.deleteList
-type NewsfeedDeleteListBulder struct {
+type NewsfeedDeleteListBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedDeleteListBulder func
-func NewNewsfeedDeleteListBulder() *NewsfeedDeleteListBulder {
-	return &NewsfeedDeleteListBulder{api.Params{}}
+// NewNewsfeedDeleteListBuilder func
+func NewNewsfeedDeleteListBuilder() *NewsfeedDeleteListBuilder {
+	return &NewsfeedDeleteListBuilder{api.Params{}}
 }
 
 // ListID parameter
-func (b *NewsfeedDeleteListBulder) ListID(v int) {
+func (b *NewsfeedDeleteListBuilder) ListID(v int) {
 	b.Params["list_id"] = v
 }
 
-// NewsfeedGetBulder builder
+// NewsfeedGetBuilder builder
 //
 // Returns data required to show newsfeed for the current user.
 //
 // https://vk.com/dev/newsfeed.get
-type NewsfeedGetBulder struct {
+type NewsfeedGetBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetBulder func
-func NewNewsfeedGetBulder() *NewsfeedGetBulder {
-	return &NewsfeedGetBulder{api.Params{}}
+// NewNewsfeedGetBuilder func
+func NewNewsfeedGetBuilder() *NewsfeedGetBuilder {
+	return &NewsfeedGetBuilder{api.Params{}}
 }
 
 // Filters Filters to apply: 'post' — new wall posts, 'photo' — new photos, 'photo_tag' — new photo tags, 'wall_photo' — new wall photos, 'friend' — new friends, 'note' — new notes
-func (b *NewsfeedGetBulder) Filters(v []string) {
+func (b *NewsfeedGetBuilder) Filters(v []string) {
 	b.Params["filters"] = v
 }
 
 // ReturnBanned '1' — to return news items from banned sources
-func (b *NewsfeedGetBulder) ReturnBanned(v bool) {
+func (b *NewsfeedGetBuilder) ReturnBanned(v bool) {
 	b.Params["return_banned"] = v
 }
 
 // StartTime Earliest timestamp (in Unix time) of a news item to return. By default, 24 hours ago.
-func (b *NewsfeedGetBulder) StartTime(v int) {
+func (b *NewsfeedGetBuilder) StartTime(v int) {
 	b.Params["start_time"] = v
 }
 
 // EndTime Latest timestamp (in Unix time) of a news item to return. By default, the current time.
-func (b *NewsfeedGetBulder) EndTime(v int) {
+func (b *NewsfeedGetBuilder) EndTime(v int) {
 	b.Params["end_time"] = v
 }
 
 // MaxPhotos Maximum number of photos to return. By default, '5'.
-func (b *NewsfeedGetBulder) MaxPhotos(v int) {
+func (b *NewsfeedGetBuilder) MaxPhotos(v int) {
 	b.Params["max_photos"] = v
 }
 
 // SourceIDs Sources to obtain news from, separated by commas. User IDs can be specified in formats '' or 'u' , where '' is the user's friend ID. Community IDs can be specified in formats '-' or 'g' , where '' is the community ID. If the parameter is not set, all of the user's friends and communities are returned, except for banned sources, which can be obtained with the [vk.com/dev/newsfeed.getBanned|newsfeed.getBanned] method.
-func (b *NewsfeedGetBulder) SourceIDs(v string) {
+func (b *NewsfeedGetBuilder) SourceIDs(v string) {
 	b.Params["source_ids"] = v
 }
 
 // StartFrom identifier required to get the next page of results. Value for this parameter is returned in 'next_from' field in a reply.
-func (b *NewsfeedGetBulder) StartFrom(v string) {
+func (b *NewsfeedGetBuilder) StartFrom(v string) {
 	b.Params["start_from"] = v
 }
 
 // Count Number of news items to return (default 50, maximum 100). For auto feed, you can use the 'new_offset' parameter returned by this method.
-func (b *NewsfeedGetBulder) Count(v int) {
+func (b *NewsfeedGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
-func (b *NewsfeedGetBulder) Fields(v []string) {
+func (b *NewsfeedGetBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
 // Section parameter
-func (b *NewsfeedGetBulder) Section(v string) {
+func (b *NewsfeedGetBuilder) Section(v string) {
 	b.Params["section"] = v
 }
 
-// NewsfeedGetBannedBulder builder
+// NewsfeedGetBannedBuilder builder
 //
 // Returns a list of users and communities banned from the current user's newsfeed.
 //
 // https://vk.com/dev/newsfeed.getBanned
-type NewsfeedGetBannedBulder struct {
+type NewsfeedGetBannedBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetBannedBulder func
-func NewNewsfeedGetBannedBulder() *NewsfeedGetBannedBulder {
-	return &NewsfeedGetBannedBulder{api.Params{}}
+// NewNewsfeedGetBannedBuilder func
+func NewNewsfeedGetBannedBuilder() *NewsfeedGetBannedBuilder {
+	return &NewsfeedGetBannedBuilder{api.Params{}}
 }
 
 // Extended '1' — return extra information about users and communities
-func (b *NewsfeedGetBannedBulder) Extended(v bool) {
+func (b *NewsfeedGetBannedBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Fields Profile fields to return.
-func (b *NewsfeedGetBannedBulder) Fields(v []string) {
+func (b *NewsfeedGetBannedBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
 // NameCase Case for declension of user name and surname: 'nom' — nominative (default), 'gen' — genitive , 'dat' — dative, 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
-func (b *NewsfeedGetBannedBulder) NameCase(v string) {
+func (b *NewsfeedGetBannedBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }
 
-// NewsfeedGetCommentsBulder builder
+// NewsfeedGetCommentsBuilder builder
 //
 // Returns a list of comments in the current user's newsfeed.
 //
 // https://vk.com/dev/newsfeed.getComments
-type NewsfeedGetCommentsBulder struct {
+type NewsfeedGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetCommentsBulder func
-func NewNewsfeedGetCommentsBulder() *NewsfeedGetCommentsBulder {
-	return &NewsfeedGetCommentsBulder{api.Params{}}
+// NewNewsfeedGetCommentsBuilder func
+func NewNewsfeedGetCommentsBuilder() *NewsfeedGetCommentsBuilder {
+	return &NewsfeedGetCommentsBuilder{api.Params{}}
 }
 
 // Count Number of comments to return. For auto feed, you can use the 'new_offset' parameter returned by this method.
-func (b *NewsfeedGetCommentsBulder) Count(v int) {
+func (b *NewsfeedGetCommentsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Filters Filters to apply: 'post' — new comments on wall posts, 'photo' — new comments on photos, 'video' — new comments on videos, 'topic' — new comments on discussions, 'note' — new comments on notes,
-func (b *NewsfeedGetCommentsBulder) Filters(v []string) {
+func (b *NewsfeedGetCommentsBuilder) Filters(v []string) {
 	b.Params["filters"] = v
 }
 
 // Reposts Object ID, comments on repost of which shall be returned, e.g. 'wall1_45486'. (If the parameter is set, the 'filters' parameter is optional.),
-func (b *NewsfeedGetCommentsBulder) Reposts(v string) {
+func (b *NewsfeedGetCommentsBuilder) Reposts(v string) {
 	b.Params["reposts"] = v
 }
 
 // StartTime Earliest timestamp (in Unix time) of a comment to return. By default, 24 hours ago.
-func (b *NewsfeedGetCommentsBulder) StartTime(v int) {
+func (b *NewsfeedGetCommentsBuilder) StartTime(v int) {
 	b.Params["start_time"] = v
 }
 
 // EndTime Latest timestamp (in Unix time) of a comment to return. By default, the current time.
-func (b *NewsfeedGetCommentsBulder) EndTime(v int) {
+func (b *NewsfeedGetCommentsBuilder) EndTime(v int) {
 	b.Params["end_time"] = v
 }
 
 // LastCommentsCount parameter
-func (b *NewsfeedGetCommentsBulder) LastCommentsCount(v int) {
+func (b *NewsfeedGetCommentsBuilder) LastCommentsCount(v int) {
 	b.Params["last_comments_count"] = v
 }
 
 // StartFrom Identificator needed to return the next page with results. Value for this parameter returns in 'next_from' field.
-func (b *NewsfeedGetCommentsBulder) StartFrom(v string) {
+func (b *NewsfeedGetCommentsBuilder) StartFrom(v string) {
 	b.Params["start_from"] = v
 }
 
 // Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
-func (b *NewsfeedGetCommentsBulder) Fields(v []string) {
+func (b *NewsfeedGetCommentsBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NewsfeedGetListsBulder builder
+// NewsfeedGetListsBuilder builder
 //
 // Returns a list of newsfeeds followed by the current user.
 //
 // https://vk.com/dev/newsfeed.getLists
-type NewsfeedGetListsBulder struct {
+type NewsfeedGetListsBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetListsBulder func
-func NewNewsfeedGetListsBulder() *NewsfeedGetListsBulder {
-	return &NewsfeedGetListsBulder{api.Params{}}
+// NewNewsfeedGetListsBuilder func
+func NewNewsfeedGetListsBuilder() *NewsfeedGetListsBuilder {
+	return &NewsfeedGetListsBuilder{api.Params{}}
 }
 
 // ListIDs numeric list identifiers.
-func (b *NewsfeedGetListsBulder) ListIDs(v []int) {
+func (b *NewsfeedGetListsBuilder) ListIDs(v []int) {
 	b.Params["list_ids"] = v
 }
 
 // Extended Return additional list info
-func (b *NewsfeedGetListsBulder) Extended(v bool) {
+func (b *NewsfeedGetListsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// NewsfeedGetMentionsBulder builder
+// NewsfeedGetMentionsBuilder builder
 //
 // Returns a list of posts on user walls in which the current user is mentioned.
 //
 // https://vk.com/dev/newsfeed.getMentions
-type NewsfeedGetMentionsBulder struct {
+type NewsfeedGetMentionsBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetMentionsBulder func
-func NewNewsfeedGetMentionsBulder() *NewsfeedGetMentionsBulder {
-	return &NewsfeedGetMentionsBulder{api.Params{}}
+// NewNewsfeedGetMentionsBuilder func
+func NewNewsfeedGetMentionsBuilder() *NewsfeedGetMentionsBuilder {
+	return &NewsfeedGetMentionsBuilder{api.Params{}}
 }
 
 // OwnerID Owner ID.
-func (b *NewsfeedGetMentionsBulder) OwnerID(v int) {
+func (b *NewsfeedGetMentionsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // StartTime Earliest timestamp (in Unix time) of a post to return. By default, 24 hours ago.
-func (b *NewsfeedGetMentionsBulder) StartTime(v int) {
+func (b *NewsfeedGetMentionsBuilder) StartTime(v int) {
 	b.Params["start_time"] = v
 }
 
 // EndTime Latest timestamp (in Unix time) of a post to return. By default, the current time.
-func (b *NewsfeedGetMentionsBulder) EndTime(v int) {
+func (b *NewsfeedGetMentionsBuilder) EndTime(v int) {
 	b.Params["end_time"] = v
 }
 
 // Offset Offset needed to return a specific subset of posts.
-func (b *NewsfeedGetMentionsBulder) Offset(v int) {
+func (b *NewsfeedGetMentionsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of posts to return.
-func (b *NewsfeedGetMentionsBulder) Count(v int) {
+func (b *NewsfeedGetMentionsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// NewsfeedGetRecommendedBulder builder
+// NewsfeedGetRecommendedBuilder builder
 //
 // , Returns a list of newsfeeds recommended to the current user.
 //
 // https://vk.com/dev/newsfeed.getRecommended
-type NewsfeedGetRecommendedBulder struct {
+type NewsfeedGetRecommendedBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetRecommendedBulder func
-func NewNewsfeedGetRecommendedBulder() *NewsfeedGetRecommendedBulder {
-	return &NewsfeedGetRecommendedBulder{api.Params{}}
+// NewNewsfeedGetRecommendedBuilder func
+func NewNewsfeedGetRecommendedBuilder() *NewsfeedGetRecommendedBuilder {
+	return &NewsfeedGetRecommendedBuilder{api.Params{}}
 }
 
 // StartTime Earliest timestamp (in Unix time) of a news item to return. By default, 24 hours ago.
-func (b *NewsfeedGetRecommendedBulder) StartTime(v int) {
+func (b *NewsfeedGetRecommendedBuilder) StartTime(v int) {
 	b.Params["start_time"] = v
 }
 
 // EndTime Latest timestamp (in Unix time) of a news item to return. By default, the current time.
-func (b *NewsfeedGetRecommendedBulder) EndTime(v int) {
+func (b *NewsfeedGetRecommendedBuilder) EndTime(v int) {
 	b.Params["end_time"] = v
 }
 
 // MaxPhotos Maximum number of photos to return. By default, '5'.
-func (b *NewsfeedGetRecommendedBulder) MaxPhotos(v int) {
+func (b *NewsfeedGetRecommendedBuilder) MaxPhotos(v int) {
 	b.Params["max_photos"] = v
 }
 
 // StartFrom 'new_from' value obtained in previous call.
-func (b *NewsfeedGetRecommendedBulder) StartFrom(v string) {
+func (b *NewsfeedGetRecommendedBuilder) StartFrom(v string) {
 	b.Params["start_from"] = v
 }
 
 // Count Number of news items to return.
-func (b *NewsfeedGetRecommendedBulder) Count(v int) {
+func (b *NewsfeedGetRecommendedBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
-func (b *NewsfeedGetRecommendedBulder) Fields(v []string) {
+func (b *NewsfeedGetRecommendedBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NewsfeedGetSuggestedSourcesBulder builder
+// NewsfeedGetSuggestedSourcesBuilder builder
 //
 // Returns communities and users that current user is suggested to follow.
 //
 // https://vk.com/dev/newsfeed.getSuggestedSources
-type NewsfeedGetSuggestedSourcesBulder struct {
+type NewsfeedGetSuggestedSourcesBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetSuggestedSourcesBulder func
-func NewNewsfeedGetSuggestedSourcesBulder() *NewsfeedGetSuggestedSourcesBulder {
-	return &NewsfeedGetSuggestedSourcesBulder{api.Params{}}
+// NewNewsfeedGetSuggestedSourcesBuilder func
+func NewNewsfeedGetSuggestedSourcesBuilder() *NewsfeedGetSuggestedSourcesBuilder {
+	return &NewsfeedGetSuggestedSourcesBuilder{api.Params{}}
 }
 
 // Offset offset required to choose a particular subset of communities or users.
-func (b *NewsfeedGetSuggestedSourcesBulder) Offset(v int) {
+func (b *NewsfeedGetSuggestedSourcesBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count amount of communities or users to return.
-func (b *NewsfeedGetSuggestedSourcesBulder) Count(v int) {
+func (b *NewsfeedGetSuggestedSourcesBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Shuffle shuffle the returned list or not.
-func (b *NewsfeedGetSuggestedSourcesBulder) Shuffle(v bool) {
+func (b *NewsfeedGetSuggestedSourcesBuilder) Shuffle(v bool) {
 	b.Params["shuffle"] = v
 }
 
 // Fields list of extra fields to be returned. See available fields for [vk.com/dev/fields|users] and [vk.com/dev/fields_groups|communities].
-func (b *NewsfeedGetSuggestedSourcesBulder) Fields(v []string) {
+func (b *NewsfeedGetSuggestedSourcesBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NewsfeedIgnoreItemBulder builder
+// NewsfeedIgnoreItemBuilder builder
 //
 // Hides an item from the newsfeed.
 //
 // https://vk.com/dev/newsfeed.ignoreItem
-type NewsfeedIgnoreItemBulder struct {
+type NewsfeedIgnoreItemBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedIgnoreItemBulder func
-func NewNewsfeedIgnoreItemBulder() *NewsfeedIgnoreItemBulder {
-	return &NewsfeedIgnoreItemBulder{api.Params{}}
+// NewNewsfeedIgnoreItemBuilder func
+func NewNewsfeedIgnoreItemBuilder() *NewsfeedIgnoreItemBuilder {
+	return &NewsfeedIgnoreItemBuilder{api.Params{}}
 }
 
 // Type Item type. Possible values: *'wall' – post on the wall,, *'tag' – tag on a photo,, *'profilephoto' – profile photo,, *'video' – video,, *'audio' – audio.
-func (b *NewsfeedIgnoreItemBulder) Type(v string) {
+func (b *NewsfeedIgnoreItemBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
 // OwnerID Item owner's identifier (user or community), "Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community "
-func (b *NewsfeedIgnoreItemBulder) OwnerID(v int) {
+func (b *NewsfeedIgnoreItemBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Item identifier
-func (b *NewsfeedIgnoreItemBulder) ItemID(v int) {
+func (b *NewsfeedIgnoreItemBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
-// NewsfeedSaveListBulder builder
+// NewsfeedSaveListBuilder builder
 //
 // Creates and edits user newsfeed lists
 //
 // https://vk.com/dev/newsfeed.saveList
-type NewsfeedSaveListBulder struct {
+type NewsfeedSaveListBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedSaveListBulder func
-func NewNewsfeedSaveListBulder() *NewsfeedSaveListBulder {
-	return &NewsfeedSaveListBulder{api.Params{}}
+// NewNewsfeedSaveListBuilder func
+func NewNewsfeedSaveListBuilder() *NewsfeedSaveListBuilder {
+	return &NewsfeedSaveListBuilder{api.Params{}}
 }
 
 // ListID numeric list identifier (if not sent, will be set automatically).
-func (b *NewsfeedSaveListBulder) ListID(v int) {
+func (b *NewsfeedSaveListBuilder) ListID(v int) {
 	b.Params["list_id"] = v
 }
 
 // Title list name.
-func (b *NewsfeedSaveListBulder) Title(v string) {
+func (b *NewsfeedSaveListBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
 // SourceIDs users and communities identifiers to be added to the list. Community identifiers must be negative numbers.
-func (b *NewsfeedSaveListBulder) SourceIDs(v []int) {
+func (b *NewsfeedSaveListBuilder) SourceIDs(v []int) {
 	b.Params["source_ids"] = v
 }
 
 // NoReposts reposts display on and off ('1' is for off).
-func (b *NewsfeedSaveListBulder) NoReposts(v bool) {
+func (b *NewsfeedSaveListBuilder) NoReposts(v bool) {
 	b.Params["no_reposts"] = v
 }
 
-// NewsfeedSearchBulder builder
+// NewsfeedSearchBuilder builder
 //
 // Returns search results by statuses.
 //
 // https://vk.com/dev/newsfeed.search
-type NewsfeedSearchBulder struct {
+type NewsfeedSearchBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedSearchBulder func
-func NewNewsfeedSearchBulder() *NewsfeedSearchBulder {
-	return &NewsfeedSearchBulder{api.Params{}}
+// NewNewsfeedSearchBuilder func
+func NewNewsfeedSearchBuilder() *NewsfeedSearchBuilder {
+	return &NewsfeedSearchBuilder{api.Params{}}
 }
 
 // Q Search query string (e.g., 'New Year').
-func (b *NewsfeedSearchBulder) Q(v string) {
+func (b *NewsfeedSearchBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
 // Extended '1' — to return additional information about the user or community that placed the post.
-func (b *NewsfeedSearchBulder) Extended(v bool) {
+func (b *NewsfeedSearchBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Count Number of posts to return.
-func (b *NewsfeedSearchBulder) Count(v int) {
+func (b *NewsfeedSearchBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Latitude Geographical latitude point (in degrees, -90 to 90) within which to search.
-func (b *NewsfeedSearchBulder) Latitude(v float64) {
+func (b *NewsfeedSearchBuilder) Latitude(v float64) {
 	b.Params["latitude"] = v
 }
 
 // Longitude Geographical longitude point (in degrees, -180 to 180) within which to search.
-func (b *NewsfeedSearchBulder) Longitude(v float64) {
+func (b *NewsfeedSearchBuilder) Longitude(v float64) {
 	b.Params["longitude"] = v
 }
 
 // StartTime Earliest timestamp (in Unix time) of a news item to return. By default, 24 hours ago.
-func (b *NewsfeedSearchBulder) StartTime(v int) {
+func (b *NewsfeedSearchBuilder) StartTime(v int) {
 	b.Params["start_time"] = v
 }
 
 // EndTime Latest timestamp (in Unix time) of a news item to return. By default, the current time.
-func (b *NewsfeedSearchBulder) EndTime(v int) {
+func (b *NewsfeedSearchBuilder) EndTime(v int) {
 	b.Params["end_time"] = v
 }
 
 // StartFrom parameter
-func (b *NewsfeedSearchBulder) StartFrom(v string) {
+func (b *NewsfeedSearchBuilder) StartFrom(v string) {
 	b.Params["start_from"] = v
 }
 
 // Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
-func (b *NewsfeedSearchBulder) Fields(v []string) {
+func (b *NewsfeedSearchBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NewsfeedUnignoreItemBulder builder
+// NewsfeedUnignoreItemBuilder builder
 //
 // Returns a hidden item to the newsfeed.
 //
 // https://vk.com/dev/newsfeed.unignoreItem
-type NewsfeedUnignoreItemBulder struct {
+type NewsfeedUnignoreItemBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedUnignoreItemBulder func
-func NewNewsfeedUnignoreItemBulder() *NewsfeedUnignoreItemBulder {
-	return &NewsfeedUnignoreItemBulder{api.Params{}}
+// NewNewsfeedUnignoreItemBuilder func
+func NewNewsfeedUnignoreItemBuilder() *NewsfeedUnignoreItemBuilder {
+	return &NewsfeedUnignoreItemBuilder{api.Params{}}
 }
 
 // Type Item type. Possible values: *'wall' – post on the wall,, *'tag' – tag on a photo,, *'profilephoto' – profile photo,, *'video' – video,, *'audio' – audio.
-func (b *NewsfeedUnignoreItemBulder) Type(v string) {
+func (b *NewsfeedUnignoreItemBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
 // OwnerID Item owner's identifier (user or community), "Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community "
-func (b *NewsfeedUnignoreItemBulder) OwnerID(v int) {
+func (b *NewsfeedUnignoreItemBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Item identifier
-func (b *NewsfeedUnignoreItemBulder) ItemID(v int) {
+func (b *NewsfeedUnignoreItemBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
-// NewsfeedUnsubscribeBulder builder
+// NewsfeedUnsubscribeBuilder builder
 //
 // Unsubscribes the current user from specified newsfeeds.
 //
 // https://vk.com/dev/newsfeed.unsubscribe
-type NewsfeedUnsubscribeBulder struct {
+type NewsfeedUnsubscribeBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedUnsubscribeBulder func
-func NewNewsfeedUnsubscribeBulder() *NewsfeedUnsubscribeBulder {
-	return &NewsfeedUnsubscribeBulder{api.Params{}}
+// NewNewsfeedUnsubscribeBuilder func
+func NewNewsfeedUnsubscribeBuilder() *NewsfeedUnsubscribeBuilder {
+	return &NewsfeedUnsubscribeBuilder{api.Params{}}
 }
 
 // Type Type of object from which to unsubscribe: 'note' — note, 'photo' — photo, 'post' — post on user wall or community wall, 'topic' — topic, 'video' — video
-func (b *NewsfeedUnsubscribeBulder) Type(v string) {
+func (b *NewsfeedUnsubscribeBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
 // OwnerID Object owner ID.
-func (b *NewsfeedUnsubscribeBulder) OwnerID(v int) {
+func (b *NewsfeedUnsubscribeBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Object ID.
-func (b *NewsfeedUnsubscribeBulder) ItemID(v int) {
+func (b *NewsfeedUnsubscribeBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }

@@ -4,104 +4,104 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// StorageGetBulder builder
+// StorageGetBuilder builder
 //
 // Returns a value of variable with the name set by key parameter.
 //
 // https://vk.com/dev/storage.get
-type StorageGetBulder struct {
+type StorageGetBuilder struct {
 	api.Params
 }
 
-// NewStorageGetBulder func
-func NewStorageGetBulder() *StorageGetBulder {
-	return &StorageGetBulder{api.Params{}}
+// NewStorageGetBuilder func
+func NewStorageGetBuilder() *StorageGetBuilder {
+	return &StorageGetBuilder{api.Params{}}
 }
 
 // Key parameter
-func (b *StorageGetBulder) Key(v string) {
+func (b *StorageGetBuilder) Key(v string) {
 	b.Params["key"] = v
 }
 
 // Keys parameter
-func (b *StorageGetBulder) Keys(v []string) {
+func (b *StorageGetBuilder) Keys(v []string) {
 	b.Params["keys"] = v
 }
 
 // UserID parameter
-func (b *StorageGetBulder) UserID(v int) {
+func (b *StorageGetBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // Global parameter
-func (b *StorageGetBulder) Global(v bool) {
+func (b *StorageGetBuilder) Global(v bool) {
 	b.Params["global"] = v
 }
 
-// StorageGetKeysBulder builder
+// StorageGetKeysBuilder builder
 //
 // Returns the names of all variables.
 //
 // https://vk.com/dev/storage.getKeys
-type StorageGetKeysBulder struct {
+type StorageGetKeysBuilder struct {
 	api.Params
 }
 
-// NewStorageGetKeysBulder func
-func NewStorageGetKeysBulder() *StorageGetKeysBulder {
-	return &StorageGetKeysBulder{api.Params{}}
+// NewStorageGetKeysBuilder func
+func NewStorageGetKeysBuilder() *StorageGetKeysBuilder {
+	return &StorageGetKeysBuilder{api.Params{}}
 }
 
 // UserID user id, whose variables names are returned if they were requested with a server method.
-func (b *StorageGetKeysBulder) UserID(v int) {
+func (b *StorageGetKeysBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // Global parameter
-func (b *StorageGetKeysBulder) Global(v bool) {
+func (b *StorageGetKeysBuilder) Global(v bool) {
 	b.Params["global"] = v
 }
 
 // Offset parameter
-func (b *StorageGetKeysBulder) Offset(v int) {
+func (b *StorageGetKeysBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count amount of variable names the info needs to be collected from.
-func (b *StorageGetKeysBulder) Count(v int) {
+func (b *StorageGetKeysBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// StorageSetBulder builder
+// StorageSetBuilder builder
 //
 // Saves a value of variable with the name set by 'key' parameter.
 //
 // https://vk.com/dev/storage.set
-type StorageSetBulder struct {
+type StorageSetBuilder struct {
 	api.Params
 }
 
-// NewStorageSetBulder func
-func NewStorageSetBulder() *StorageSetBulder {
-	return &StorageSetBulder{api.Params{}}
+// NewStorageSetBuilder func
+func NewStorageSetBuilder() *StorageSetBuilder {
+	return &StorageSetBuilder{api.Params{}}
 }
 
 // Key parameter
-func (b *StorageSetBulder) Key(v string) {
+func (b *StorageSetBuilder) Key(v string) {
 	b.Params["key"] = v
 }
 
 // Value parameter
-func (b *StorageSetBulder) Value(v string) {
+func (b *StorageSetBuilder) Value(v string) {
 	b.Params["value"] = v
 }
 
 // UserID parameter
-func (b *StorageSetBulder) UserID(v int) {
+func (b *StorageSetBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // Global parameter
-func (b *StorageSetBulder) Global(v bool) {
+func (b *StorageSetBuilder) Global(v bool) {
 	b.Params["global"] = v
 }

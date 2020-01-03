@@ -7,16 +7,16 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAccountBanBulder(t *testing.T) {
-	b := params.NewAccountBanBulder()
+func TestAccountBanBuilder(t *testing.T) {
+	b := params.NewAccountBanBuilder()
 
 	b.OwnerID(1)
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 }
 
-func TestAccountChangePasswordBulder(t *testing.T) {
-	b := params.NewAccountChangePasswordBulder()
+func TestAccountChangePasswordBuilder(t *testing.T) {
+	b := params.NewAccountChangePasswordBuilder()
 
 	b.RestoreSID("text")
 	b.ChangePasswordHash("text")
@@ -29,8 +29,8 @@ func TestAccountChangePasswordBulder(t *testing.T) {
 	assert.Equal(t, b.Params["new_password"], "text")
 }
 
-func TestAccountGetActiveOffersBulder(t *testing.T) {
-	b := params.NewAccountGetActiveOffersBulder()
+func TestAccountGetActiveOffersBuilder(t *testing.T) {
+	b := params.NewAccountGetActiveOffersBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -39,16 +39,16 @@ func TestAccountGetActiveOffersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestAccountGetAppPermissionsBulder(t *testing.T) {
-	b := params.NewAccountGetAppPermissionsBulder()
+func TestAccountGetAppPermissionsBuilder(t *testing.T) {
+	b := params.NewAccountGetAppPermissionsBuilder()
 
 	b.UserID(1)
 
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestAccountGetBannedBulder(t *testing.T) {
-	b := params.NewAccountGetBannedBulder()
+func TestAccountGetBannedBuilder(t *testing.T) {
+	b := params.NewAccountGetBannedBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -57,32 +57,32 @@ func TestAccountGetBannedBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestAccountGetCountersBulder(t *testing.T) {
-	b := params.NewAccountGetCountersBulder()
+func TestAccountGetCountersBuilder(t *testing.T) {
+	b := params.NewAccountGetCountersBuilder()
 
 	b.Filter([]string{"text"})
 
 	assert.Equal(t, b.Params["filter"], []string{"text"})
 }
 
-func TestAccountGetInfoBulder(t *testing.T) {
-	b := params.NewAccountGetInfoBulder()
+func TestAccountGetInfoBuilder(t *testing.T) {
+	b := params.NewAccountGetInfoBuilder()
 
 	b.Fields([]string{"text"})
 
 	assert.Equal(t, b.Params["fields"], []string{"text"})
 }
 
-func TestAccountGetPushSettingsBulder(t *testing.T) {
-	b := params.NewAccountGetPushSettingsBulder()
+func TestAccountGetPushSettingsBuilder(t *testing.T) {
+	b := params.NewAccountGetPushSettingsBuilder()
 
 	b.DeviceID("text")
 
 	assert.Equal(t, b.Params["device_id"], "text")
 }
 
-func TestAccountRegisterDeviceBulder(t *testing.T) {
-	b := params.NewAccountRegisterDeviceBulder()
+func TestAccountRegisterDeviceBuilder(t *testing.T) {
+	b := params.NewAccountRegisterDeviceBuilder()
 
 	b.Token("text")
 	b.DeviceModel("text")
@@ -101,8 +101,8 @@ func TestAccountRegisterDeviceBulder(t *testing.T) {
 	assert.Equal(t, b.Params["sandbox"], true)
 }
 
-func TestAccountSaveProfileInfoBulder(t *testing.T) {
-	b := params.NewAccountSaveProfileInfoBulder()
+func TestAccountSaveProfileInfoBuilder(t *testing.T) {
+	b := params.NewAccountSaveProfileInfoBuilder()
 
 	b.FirstName("text")
 	b.LastName("text")
@@ -135,8 +135,8 @@ func TestAccountSaveProfileInfoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["status"], "text")
 }
 
-func TestAccountSetInfoBulder(t *testing.T) {
-	b := params.NewAccountSetInfoBulder()
+func TestAccountSetInfoBuilder(t *testing.T) {
+	b := params.NewAccountSetInfoBuilder()
 
 	b.Name("text")
 	b.Value("text")
@@ -145,8 +145,8 @@ func TestAccountSetInfoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["value"], "text")
 }
 
-func TestAccountSetNameInMenuBulder(t *testing.T) {
-	b := params.NewAccountSetNameInMenuBulder()
+func TestAccountSetNameInMenuBuilder(t *testing.T) {
+	b := params.NewAccountSetNameInMenuBuilder()
 
 	b.UserID(1)
 	b.Name("text")
@@ -155,16 +155,16 @@ func TestAccountSetNameInMenuBulder(t *testing.T) {
 	assert.Equal(t, b.Params["name"], "text")
 }
 
-func TestAccountSetOnlineBulder(t *testing.T) {
-	b := params.NewAccountSetOnlineBulder()
+func TestAccountSetOnlineBuilder(t *testing.T) {
+	b := params.NewAccountSetOnlineBuilder()
 
 	b.Voip(true)
 
 	assert.Equal(t, b.Params["voip"], true)
 }
 
-func TestAccountSetPushSettingsBulder(t *testing.T) {
-	b := params.NewAccountSetPushSettingsBulder()
+func TestAccountSetPushSettingsBuilder(t *testing.T) {
+	b := params.NewAccountSetPushSettingsBuilder()
 
 	b.DeviceID("text")
 	b.Settings("text")
@@ -177,8 +177,8 @@ func TestAccountSetPushSettingsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["value"], []string{"text"})
 }
 
-func TestAccountSetSilenceModeBulder(t *testing.T) {
-	b := params.NewAccountSetSilenceModeBulder()
+func TestAccountSetSilenceModeBuilder(t *testing.T) {
+	b := params.NewAccountSetSilenceModeBuilder()
 
 	b.DeviceID("text")
 	b.Time(1)
@@ -191,16 +191,16 @@ func TestAccountSetSilenceModeBulder(t *testing.T) {
 	assert.Equal(t, b.Params["sound"], 1)
 }
 
-func TestAccountUnbanBulder(t *testing.T) {
-	b := params.NewAccountUnbanBulder()
+func TestAccountUnbanBuilder(t *testing.T) {
+	b := params.NewAccountUnbanBuilder()
 
 	b.OwnerID(1)
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 }
 
-func TestAccountUnregisterDeviceBulder(t *testing.T) {
-	b := params.NewAccountUnregisterDeviceBulder()
+func TestAccountUnregisterDeviceBuilder(t *testing.T) {
+	b := params.NewAccountUnregisterDeviceBuilder()
 
 	b.DeviceID("text")
 	b.Sandbox(true)

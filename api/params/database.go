@@ -4,355 +4,355 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// DatabaseGetChairsBulder builder
+// DatabaseGetChairsBuilder builder
 //
 // Returns list of chairs on a specified faculty.
 //
 // https://vk.com/dev/database.getChairs
-type DatabaseGetChairsBulder struct {
+type DatabaseGetChairsBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetChairsBulder func
-func NewDatabaseGetChairsBulder() *DatabaseGetChairsBulder {
-	return &DatabaseGetChairsBulder{api.Params{}}
+// NewDatabaseGetChairsBuilder func
+func NewDatabaseGetChairsBuilder() *DatabaseGetChairsBuilder {
+	return &DatabaseGetChairsBuilder{api.Params{}}
 }
 
 // FacultyID id of the faculty to get chairs from
-func (b *DatabaseGetChairsBulder) FacultyID(v int) {
+func (b *DatabaseGetChairsBuilder) FacultyID(v int) {
 	b.Params["faculty_id"] = v
 }
 
 // Offset offset required to get a certain subset of chairs
-func (b *DatabaseGetChairsBulder) Offset(v int) {
+func (b *DatabaseGetChairsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count amount of chairs to get
-func (b *DatabaseGetChairsBulder) Count(v int) {
+func (b *DatabaseGetChairsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// DatabaseGetCitiesBulder builder
+// DatabaseGetCitiesBuilder builder
 //
 // Returns a list of cities.
 //
 // https://vk.com/dev/database.getCities
-type DatabaseGetCitiesBulder struct {
+type DatabaseGetCitiesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetCitiesBulder func
-func NewDatabaseGetCitiesBulder() *DatabaseGetCitiesBulder {
-	return &DatabaseGetCitiesBulder{api.Params{}}
+// NewDatabaseGetCitiesBuilder func
+func NewDatabaseGetCitiesBuilder() *DatabaseGetCitiesBuilder {
+	return &DatabaseGetCitiesBuilder{api.Params{}}
 }
 
 // CountryID Country ID.
-func (b *DatabaseGetCitiesBulder) CountryID(v int) {
+func (b *DatabaseGetCitiesBuilder) CountryID(v int) {
 	b.Params["country_id"] = v
 }
 
 // RegionID Region ID.
-func (b *DatabaseGetCitiesBulder) RegionID(v int) {
+func (b *DatabaseGetCitiesBuilder) RegionID(v int) {
 	b.Params["region_id"] = v
 }
 
 // Q Search query.
-func (b *DatabaseGetCitiesBulder) Q(v string) {
+func (b *DatabaseGetCitiesBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
 // NeedAll '1' — to return all cities in the country, '0' — to return major cities in the country (default),
-func (b *DatabaseGetCitiesBulder) NeedAll(v bool) {
+func (b *DatabaseGetCitiesBuilder) NeedAll(v bool) {
 	b.Params["need_all"] = v
 }
 
 // Offset Offset needed to return a specific subset of cities.
-func (b *DatabaseGetCitiesBulder) Offset(v int) {
+func (b *DatabaseGetCitiesBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of cities to return.
-func (b *DatabaseGetCitiesBulder) Count(v int) {
+func (b *DatabaseGetCitiesBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// DatabaseGetCitiesByIDBulder builder
+// DatabaseGetCitiesByIDBuilder builder
 //
 // Returns information about cities by their IDs.
 //
 // https://vk.com/dev/database.getCitiesById
-type DatabaseGetCitiesByIDBulder struct {
+type DatabaseGetCitiesByIDBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetCitiesByIDBulder func
-func NewDatabaseGetCitiesByIDBulder() *DatabaseGetCitiesByIDBulder {
-	return &DatabaseGetCitiesByIDBulder{api.Params{}}
+// NewDatabaseGetCitiesByIDBuilder func
+func NewDatabaseGetCitiesByIDBuilder() *DatabaseGetCitiesByIDBuilder {
+	return &DatabaseGetCitiesByIDBuilder{api.Params{}}
 }
 
 // CityIDs City IDs.
-func (b *DatabaseGetCitiesByIDBulder) CityIDs(v []int) {
+func (b *DatabaseGetCitiesByIDBuilder) CityIDs(v []int) {
 	b.Params["city_ids"] = v
 }
 
-// DatabaseGetCountriesBulder builder
+// DatabaseGetCountriesBuilder builder
 //
 // Returns a list of countries.
 //
 // https://vk.com/dev/database.getCountries
-type DatabaseGetCountriesBulder struct {
+type DatabaseGetCountriesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetCountriesBulder func
-func NewDatabaseGetCountriesBulder() *DatabaseGetCountriesBulder {
-	return &DatabaseGetCountriesBulder{api.Params{}}
+// NewDatabaseGetCountriesBuilder func
+func NewDatabaseGetCountriesBuilder() *DatabaseGetCountriesBuilder {
+	return &DatabaseGetCountriesBuilder{api.Params{}}
 }
 
 // NeedAll '1' — to return a full list of all countries, '0' — to return a list of countries near the current user's country (default).
-func (b *DatabaseGetCountriesBulder) NeedAll(v bool) {
+func (b *DatabaseGetCountriesBuilder) NeedAll(v bool) {
 	b.Params["need_all"] = v
 }
 
 // Code Country codes in [vk.com/dev/country_codes|ISO 3166-1 alpha-2] standard.
-func (b *DatabaseGetCountriesBulder) Code(v string) {
+func (b *DatabaseGetCountriesBuilder) Code(v string) {
 	b.Params["code"] = v
 }
 
 // Offset Offset needed to return a specific subset of countries.
-func (b *DatabaseGetCountriesBulder) Offset(v int) {
+func (b *DatabaseGetCountriesBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of countries to return.
-func (b *DatabaseGetCountriesBulder) Count(v int) {
+func (b *DatabaseGetCountriesBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// DatabaseGetCountriesByIDBulder builder
+// DatabaseGetCountriesByIDBuilder builder
 //
 // Returns information about countries by their IDs.
 //
 // https://vk.com/dev/database.getCountriesById
-type DatabaseGetCountriesByIDBulder struct {
+type DatabaseGetCountriesByIDBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetCountriesByIDBulder func
-func NewDatabaseGetCountriesByIDBulder() *DatabaseGetCountriesByIDBulder {
-	return &DatabaseGetCountriesByIDBulder{api.Params{}}
+// NewDatabaseGetCountriesByIDBuilder func
+func NewDatabaseGetCountriesByIDBuilder() *DatabaseGetCountriesByIDBuilder {
+	return &DatabaseGetCountriesByIDBuilder{api.Params{}}
 }
 
 // CountryIDs Country IDs.
-func (b *DatabaseGetCountriesByIDBulder) CountryIDs(v []int) {
+func (b *DatabaseGetCountriesByIDBuilder) CountryIDs(v []int) {
 	b.Params["country_ids"] = v
 }
 
-// DatabaseGetFacultiesBulder builder
+// DatabaseGetFacultiesBuilder builder
 //
 // Returns a list of faculties (i.e., university departments).
 //
 // https://vk.com/dev/database.getFaculties
-type DatabaseGetFacultiesBulder struct {
+type DatabaseGetFacultiesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetFacultiesBulder func
-func NewDatabaseGetFacultiesBulder() *DatabaseGetFacultiesBulder {
-	return &DatabaseGetFacultiesBulder{api.Params{}}
+// NewDatabaseGetFacultiesBuilder func
+func NewDatabaseGetFacultiesBuilder() *DatabaseGetFacultiesBuilder {
+	return &DatabaseGetFacultiesBuilder{api.Params{}}
 }
 
 // UniversityID University ID.
-func (b *DatabaseGetFacultiesBulder) UniversityID(v int) {
+func (b *DatabaseGetFacultiesBuilder) UniversityID(v int) {
 	b.Params["university_id"] = v
 }
 
 // Offset Offset needed to return a specific subset of faculties.
-func (b *DatabaseGetFacultiesBulder) Offset(v int) {
+func (b *DatabaseGetFacultiesBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of faculties to return.
-func (b *DatabaseGetFacultiesBulder) Count(v int) {
+func (b *DatabaseGetFacultiesBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// DatabaseGetMetroStationsBulder builder
+// DatabaseGetMetroStationsBuilder builder
 //
 // Get metro stations by city
 //
 // https://vk.com/dev/database.getMetroStations
-type DatabaseGetMetroStationsBulder struct {
+type DatabaseGetMetroStationsBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetMetroStationsBulder func
-func NewDatabaseGetMetroStationsBulder() *DatabaseGetMetroStationsBulder {
-	return &DatabaseGetMetroStationsBulder{api.Params{}}
+// NewDatabaseGetMetroStationsBuilder func
+func NewDatabaseGetMetroStationsBuilder() *DatabaseGetMetroStationsBuilder {
+	return &DatabaseGetMetroStationsBuilder{api.Params{}}
 }
 
 // CityID parameter
-func (b *DatabaseGetMetroStationsBulder) CityID(v int) {
+func (b *DatabaseGetMetroStationsBuilder) CityID(v int) {
 	b.Params["city_id"] = v
 }
 
 // Offset parameter
-func (b *DatabaseGetMetroStationsBulder) Offset(v int) {
+func (b *DatabaseGetMetroStationsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count parameter
-func (b *DatabaseGetMetroStationsBulder) Count(v int) {
+func (b *DatabaseGetMetroStationsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Extended parameter
-func (b *DatabaseGetMetroStationsBulder) Extended(v bool) {
+func (b *DatabaseGetMetroStationsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// DatabaseGetMetroStationsByIDBulder builder
+// DatabaseGetMetroStationsByIDBuilder builder
 //
 // Get metro station by his id
 //
 // https://vk.com/dev/database.getMetroStationsById
-type DatabaseGetMetroStationsByIDBulder struct {
+type DatabaseGetMetroStationsByIDBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetMetroStationsByIDBulder func
-func NewDatabaseGetMetroStationsByIDBulder() *DatabaseGetMetroStationsByIDBulder {
-	return &DatabaseGetMetroStationsByIDBulder{api.Params{}}
+// NewDatabaseGetMetroStationsByIDBuilder func
+func NewDatabaseGetMetroStationsByIDBuilder() *DatabaseGetMetroStationsByIDBuilder {
+	return &DatabaseGetMetroStationsByIDBuilder{api.Params{}}
 }
 
 // StationIDs parameter
-func (b *DatabaseGetMetroStationsByIDBulder) StationIDs(v []int) {
+func (b *DatabaseGetMetroStationsByIDBuilder) StationIDs(v []int) {
 	b.Params["station_ids"] = v
 }
 
-// DatabaseGetRegionsBulder builder
+// DatabaseGetRegionsBuilder builder
 //
 // Returns a list of regions.
 //
 // https://vk.com/dev/database.getRegions
-type DatabaseGetRegionsBulder struct {
+type DatabaseGetRegionsBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetRegionsBulder func
-func NewDatabaseGetRegionsBulder() *DatabaseGetRegionsBulder {
-	return &DatabaseGetRegionsBulder{api.Params{}}
+// NewDatabaseGetRegionsBuilder func
+func NewDatabaseGetRegionsBuilder() *DatabaseGetRegionsBuilder {
+	return &DatabaseGetRegionsBuilder{api.Params{}}
 }
 
 // CountryID Country ID, received in [vk.com/dev/database.getCountries|database.getCountries] method.
-func (b *DatabaseGetRegionsBulder) CountryID(v int) {
+func (b *DatabaseGetRegionsBuilder) CountryID(v int) {
 	b.Params["country_id"] = v
 }
 
 // Q Search query.
-func (b *DatabaseGetRegionsBulder) Q(v string) {
+func (b *DatabaseGetRegionsBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
 // Offset Offset needed to return specific subset of regions.
-func (b *DatabaseGetRegionsBulder) Offset(v int) {
+func (b *DatabaseGetRegionsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of regions to return.
-func (b *DatabaseGetRegionsBulder) Count(v int) {
+func (b *DatabaseGetRegionsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// DatabaseGetSchoolClassesBulder builder
+// DatabaseGetSchoolClassesBuilder builder
 //
 // Returns a list of school classes specified for the country.
 //
 // https://vk.com/dev/database.getSchoolClasses
-type DatabaseGetSchoolClassesBulder struct {
+type DatabaseGetSchoolClassesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetSchoolClassesBulder func
-func NewDatabaseGetSchoolClassesBulder() *DatabaseGetSchoolClassesBulder {
-	return &DatabaseGetSchoolClassesBulder{api.Params{}}
+// NewDatabaseGetSchoolClassesBuilder func
+func NewDatabaseGetSchoolClassesBuilder() *DatabaseGetSchoolClassesBuilder {
+	return &DatabaseGetSchoolClassesBuilder{api.Params{}}
 }
 
 // CountryID Country ID.
-func (b *DatabaseGetSchoolClassesBulder) CountryID(v int) {
+func (b *DatabaseGetSchoolClassesBuilder) CountryID(v int) {
 	b.Params["country_id"] = v
 }
 
-// DatabaseGetSchoolsBulder builder
+// DatabaseGetSchoolsBuilder builder
 //
 // Returns a list of schools.
 //
 // https://vk.com/dev/database.getSchools
-type DatabaseGetSchoolsBulder struct {
+type DatabaseGetSchoolsBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetSchoolsBulder func
-func NewDatabaseGetSchoolsBulder() *DatabaseGetSchoolsBulder {
-	return &DatabaseGetSchoolsBulder{api.Params{}}
+// NewDatabaseGetSchoolsBuilder func
+func NewDatabaseGetSchoolsBuilder() *DatabaseGetSchoolsBuilder {
+	return &DatabaseGetSchoolsBuilder{api.Params{}}
 }
 
 // Q Search query.
-func (b *DatabaseGetSchoolsBulder) Q(v string) {
+func (b *DatabaseGetSchoolsBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
 // CityID City ID.
-func (b *DatabaseGetSchoolsBulder) CityID(v int) {
+func (b *DatabaseGetSchoolsBuilder) CityID(v int) {
 	b.Params["city_id"] = v
 }
 
 // Offset Offset needed to return a specific subset of schools.
-func (b *DatabaseGetSchoolsBulder) Offset(v int) {
+func (b *DatabaseGetSchoolsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of schools to return.
-func (b *DatabaseGetSchoolsBulder) Count(v int) {
+func (b *DatabaseGetSchoolsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// DatabaseGetUniversitiesBulder builder
+// DatabaseGetUniversitiesBuilder builder
 //
 // Returns a list of higher education institutions.
 //
 // https://vk.com/dev/database.getUniversities
-type DatabaseGetUniversitiesBulder struct {
+type DatabaseGetUniversitiesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetUniversitiesBulder func
-func NewDatabaseGetUniversitiesBulder() *DatabaseGetUniversitiesBulder {
-	return &DatabaseGetUniversitiesBulder{api.Params{}}
+// NewDatabaseGetUniversitiesBuilder func
+func NewDatabaseGetUniversitiesBuilder() *DatabaseGetUniversitiesBuilder {
+	return &DatabaseGetUniversitiesBuilder{api.Params{}}
 }
 
 // Q Search query.
-func (b *DatabaseGetUniversitiesBulder) Q(v string) {
+func (b *DatabaseGetUniversitiesBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
 // CountryID Country ID.
-func (b *DatabaseGetUniversitiesBulder) CountryID(v int) {
+func (b *DatabaseGetUniversitiesBuilder) CountryID(v int) {
 	b.Params["country_id"] = v
 }
 
 // CityID City ID.
-func (b *DatabaseGetUniversitiesBulder) CityID(v int) {
+func (b *DatabaseGetUniversitiesBuilder) CityID(v int) {
 	b.Params["city_id"] = v
 }
 
 // Offset Offset needed to return a specific subset of universities.
-func (b *DatabaseGetUniversitiesBulder) Offset(v int) {
+func (b *DatabaseGetUniversitiesBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of universities to return.
-func (b *DatabaseGetUniversitiesBulder) Count(v int) {
+func (b *DatabaseGetUniversitiesBuilder) Count(v int) {
 	b.Params["count"] = v
 }

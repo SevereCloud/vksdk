@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNotificationsGetBulder(t *testing.T) {
-	b := params.NewNotificationsGetBulder()
+func TestNotificationsGetBuilder(t *testing.T) {
+	b := params.NewNotificationsGetBuilder()
 
 	b.Count(1)
 	b.StartFrom("text")
@@ -23,8 +23,8 @@ func TestNotificationsGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["end_time"], 1)
 }
 
-func TestNotificationsSendMessageBulder(t *testing.T) {
-	b := params.NewNotificationsSendMessageBulder()
+func TestNotificationsSendMessageBuilder(t *testing.T) {
+	b := params.NewNotificationsSendMessageBuilder()
 
 	b.UserIDs([]int{1})
 	b.Message("text")

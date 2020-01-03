@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestDatabaseGetChairsBulder(t *testing.T) {
-	b := params.NewDatabaseGetChairsBulder()
+func TestDatabaseGetChairsBuilder(t *testing.T) {
+	b := params.NewDatabaseGetChairsBuilder()
 
 	b.FacultyID(1)
 	b.Offset(1)
@@ -19,8 +19,8 @@ func TestDatabaseGetChairsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestDatabaseGetCitiesBulder(t *testing.T) {
-	b := params.NewDatabaseGetCitiesBulder()
+func TestDatabaseGetCitiesBuilder(t *testing.T) {
+	b := params.NewDatabaseGetCitiesBuilder()
 
 	b.CountryID(1)
 	b.RegionID(1)
@@ -37,16 +37,16 @@ func TestDatabaseGetCitiesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestDatabaseGetCitiesByIDBulder(t *testing.T) {
-	b := params.NewDatabaseGetCitiesByIDBulder()
+func TestDatabaseGetCitiesByIDBuilder(t *testing.T) {
+	b := params.NewDatabaseGetCitiesByIDBuilder()
 
 	b.CityIDs([]int{1})
 
 	assert.Equal(t, b.Params["city_ids"], []int{1})
 }
 
-func TestDatabaseGetCountriesBulder(t *testing.T) {
-	b := params.NewDatabaseGetCountriesBulder()
+func TestDatabaseGetCountriesBuilder(t *testing.T) {
+	b := params.NewDatabaseGetCountriesBuilder()
 
 	b.NeedAll(true)
 	b.Code("text")
@@ -59,16 +59,16 @@ func TestDatabaseGetCountriesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestDatabaseGetCountriesByIDBulder(t *testing.T) {
-	b := params.NewDatabaseGetCountriesByIDBulder()
+func TestDatabaseGetCountriesByIDBuilder(t *testing.T) {
+	b := params.NewDatabaseGetCountriesByIDBuilder()
 
 	b.CountryIDs([]int{1})
 
 	assert.Equal(t, b.Params["country_ids"], []int{1})
 }
 
-func TestDatabaseGetFacultiesBulder(t *testing.T) {
-	b := params.NewDatabaseGetFacultiesBulder()
+func TestDatabaseGetFacultiesBuilder(t *testing.T) {
+	b := params.NewDatabaseGetFacultiesBuilder()
 
 	b.UniversityID(1)
 	b.Offset(1)
@@ -79,8 +79,8 @@ func TestDatabaseGetFacultiesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestDatabaseGetMetroStationsBulder(t *testing.T) {
-	b := params.NewDatabaseGetMetroStationsBulder()
+func TestDatabaseGetMetroStationsBuilder(t *testing.T) {
+	b := params.NewDatabaseGetMetroStationsBuilder()
 
 	b.CityID(1)
 	b.Offset(1)
@@ -93,16 +93,16 @@ func TestDatabaseGetMetroStationsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestDatabaseGetMetroStationsByIDBulder(t *testing.T) {
-	b := params.NewDatabaseGetMetroStationsByIDBulder()
+func TestDatabaseGetMetroStationsByIDBuilder(t *testing.T) {
+	b := params.NewDatabaseGetMetroStationsByIDBuilder()
 
 	b.StationIDs([]int{1})
 
 	assert.Equal(t, b.Params["station_ids"], []int{1})
 }
 
-func TestDatabaseGetRegionsBulder(t *testing.T) {
-	b := params.NewDatabaseGetRegionsBulder()
+func TestDatabaseGetRegionsBuilder(t *testing.T) {
+	b := params.NewDatabaseGetRegionsBuilder()
 
 	b.CountryID(1)
 	b.Q("text")
@@ -115,16 +115,16 @@ func TestDatabaseGetRegionsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestDatabaseGetSchoolClassesBulder(t *testing.T) {
-	b := params.NewDatabaseGetSchoolClassesBulder()
+func TestDatabaseGetSchoolClassesBuilder(t *testing.T) {
+	b := params.NewDatabaseGetSchoolClassesBuilder()
 
 	b.CountryID(1)
 
 	assert.Equal(t, b.Params["country_id"], 1)
 }
 
-func TestDatabaseGetSchoolsBulder(t *testing.T) {
-	b := params.NewDatabaseGetSchoolsBulder()
+func TestDatabaseGetSchoolsBuilder(t *testing.T) {
+	b := params.NewDatabaseGetSchoolsBuilder()
 
 	b.Q("text")
 	b.CityID(1)
@@ -137,8 +137,8 @@ func TestDatabaseGetSchoolsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestDatabaseGetUniversitiesBulder(t *testing.T) {
-	b := params.NewDatabaseGetUniversitiesBulder()
+func TestDatabaseGetUniversitiesBuilder(t *testing.T) {
+	b := params.NewDatabaseGetUniversitiesBuilder()
 
 	b.Q("text")
 	b.CountryID(1)

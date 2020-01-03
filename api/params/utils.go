@@ -4,151 +4,151 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// UtilsCheckLinkBulder builder
+// UtilsCheckLinkBuilder builder
 //
 // Checks whether a link is blocked in VK.
 //
 // https://vk.com/dev/utils.checkLink
-type UtilsCheckLinkBulder struct {
+type UtilsCheckLinkBuilder struct {
 	api.Params
 }
 
-// NewUtilsCheckLinkBulder func
-func NewUtilsCheckLinkBulder() *UtilsCheckLinkBulder {
-	return &UtilsCheckLinkBulder{api.Params{}}
+// NewUtilsCheckLinkBuilder func
+func NewUtilsCheckLinkBuilder() *UtilsCheckLinkBuilder {
+	return &UtilsCheckLinkBuilder{api.Params{}}
 }
 
 // URL Link to check (e.g., 'http://google.com').
-func (b *UtilsCheckLinkBulder) URL(v string) {
+func (b *UtilsCheckLinkBuilder) URL(v string) {
 	b.Params["url"] = v
 }
 
-// UtilsDeleteFromLastShortenedBulder builder
+// UtilsDeleteFromLastShortenedBuilder builder
 //
 // Deletes shortened link from user's list.
 //
 // https://vk.com/dev/utils.deleteFromLastShortened
-type UtilsDeleteFromLastShortenedBulder struct {
+type UtilsDeleteFromLastShortenedBuilder struct {
 	api.Params
 }
 
-// NewUtilsDeleteFromLastShortenedBulder func
-func NewUtilsDeleteFromLastShortenedBulder() *UtilsDeleteFromLastShortenedBulder {
-	return &UtilsDeleteFromLastShortenedBulder{api.Params{}}
+// NewUtilsDeleteFromLastShortenedBuilder func
+func NewUtilsDeleteFromLastShortenedBuilder() *UtilsDeleteFromLastShortenedBuilder {
+	return &UtilsDeleteFromLastShortenedBuilder{api.Params{}}
 }
 
 // Key Link key (characters after vk.cc/).
-func (b *UtilsDeleteFromLastShortenedBulder) Key(v string) {
+func (b *UtilsDeleteFromLastShortenedBuilder) Key(v string) {
 	b.Params["key"] = v
 }
 
-// UtilsGetLastShortenedLinksBulder builder
+// UtilsGetLastShortenedLinksBuilder builder
 //
 // Returns a list of user's shortened links.
 //
 // https://vk.com/dev/utils.getLastShortenedLinks
-type UtilsGetLastShortenedLinksBulder struct {
+type UtilsGetLastShortenedLinksBuilder struct {
 	api.Params
 }
 
-// NewUtilsGetLastShortenedLinksBulder func
-func NewUtilsGetLastShortenedLinksBulder() *UtilsGetLastShortenedLinksBulder {
-	return &UtilsGetLastShortenedLinksBulder{api.Params{}}
+// NewUtilsGetLastShortenedLinksBuilder func
+func NewUtilsGetLastShortenedLinksBuilder() *UtilsGetLastShortenedLinksBuilder {
+	return &UtilsGetLastShortenedLinksBuilder{api.Params{}}
 }
 
 // Count Number of links to return.
-func (b *UtilsGetLastShortenedLinksBulder) Count(v int) {
+func (b *UtilsGetLastShortenedLinksBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Offset Offset needed to return a specific subset of links.
-func (b *UtilsGetLastShortenedLinksBulder) Offset(v int) {
+func (b *UtilsGetLastShortenedLinksBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
-// UtilsGetLinkStatsBulder builder
+// UtilsGetLinkStatsBuilder builder
 //
 // Returns stats data for shortened link.
 //
 // https://vk.com/dev/utils.getLinkStats
-type UtilsGetLinkStatsBulder struct {
+type UtilsGetLinkStatsBuilder struct {
 	api.Params
 }
 
-// NewUtilsGetLinkStatsBulder func
-func NewUtilsGetLinkStatsBulder() *UtilsGetLinkStatsBulder {
-	return &UtilsGetLinkStatsBulder{api.Params{}}
+// NewUtilsGetLinkStatsBuilder func
+func NewUtilsGetLinkStatsBuilder() *UtilsGetLinkStatsBuilder {
+	return &UtilsGetLinkStatsBuilder{api.Params{}}
 }
 
 // Key Link key (characters after vk.cc/).
-func (b *UtilsGetLinkStatsBulder) Key(v string) {
+func (b *UtilsGetLinkStatsBuilder) Key(v string) {
 	b.Params["key"] = v
 }
 
 // Source Source of scope
-func (b *UtilsGetLinkStatsBulder) Source(v string) {
+func (b *UtilsGetLinkStatsBuilder) Source(v string) {
 	b.Params["source"] = v
 }
 
 // AccessKey Access key for private link stats.
-func (b *UtilsGetLinkStatsBulder) AccessKey(v string) {
+func (b *UtilsGetLinkStatsBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
 // Interval Interval.
-func (b *UtilsGetLinkStatsBulder) Interval(v string) {
+func (b *UtilsGetLinkStatsBuilder) Interval(v string) {
 	b.Params["interval"] = v
 }
 
 // IntervalsCount Number of intervals to return.
-func (b *UtilsGetLinkStatsBulder) IntervalsCount(v int) {
+func (b *UtilsGetLinkStatsBuilder) IntervalsCount(v int) {
 	b.Params["intervals_count"] = v
 }
 
 // Extended 1 — to return extended stats data (sex, age, geo). 0 — to return views number only.
-func (b *UtilsGetLinkStatsBulder) Extended(v bool) {
+func (b *UtilsGetLinkStatsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// UtilsGetShortLinkBulder builder
+// UtilsGetShortLinkBuilder builder
 //
 // Allows to receive a link shortened via vk.cc.
 //
 // https://vk.com/dev/utils.getShortLink
-type UtilsGetShortLinkBulder struct {
+type UtilsGetShortLinkBuilder struct {
 	api.Params
 }
 
-// NewUtilsGetShortLinkBulder func
-func NewUtilsGetShortLinkBulder() *UtilsGetShortLinkBulder {
-	return &UtilsGetShortLinkBulder{api.Params{}}
+// NewUtilsGetShortLinkBuilder func
+func NewUtilsGetShortLinkBuilder() *UtilsGetShortLinkBuilder {
+	return &UtilsGetShortLinkBuilder{api.Params{}}
 }
 
 // URL URL to be shortened.
-func (b *UtilsGetShortLinkBulder) URL(v string) {
+func (b *UtilsGetShortLinkBuilder) URL(v string) {
 	b.Params["url"] = v
 }
 
 // Private 1 — private stats, 0 — public stats.
-func (b *UtilsGetShortLinkBulder) Private(v bool) {
+func (b *UtilsGetShortLinkBuilder) Private(v bool) {
 	b.Params["private"] = v
 }
 
-// UtilsResolveScreenNameBulder builder
+// UtilsResolveScreenNameBuilder builder
 //
 // Detects a type of object (e.g., user, community, application) and its ID by screen name.
 //
 // https://vk.com/dev/utils.resolveScreenName
-type UtilsResolveScreenNameBulder struct {
+type UtilsResolveScreenNameBuilder struct {
 	api.Params
 }
 
-// NewUtilsResolveScreenNameBulder func
-func NewUtilsResolveScreenNameBulder() *UtilsResolveScreenNameBulder {
-	return &UtilsResolveScreenNameBulder{api.Params{}}
+// NewUtilsResolveScreenNameBuilder func
+func NewUtilsResolveScreenNameBuilder() *UtilsResolveScreenNameBuilder {
+	return &UtilsResolveScreenNameBuilder{api.Params{}}
 }
 
 // ScreenName Screen name of the user, community (e.g., 'apiclub,' 'andrew', or 'rules_of_war'), or application.
-func (b *UtilsResolveScreenNameBulder) ScreenName(v string) {
+func (b *UtilsResolveScreenNameBuilder) ScreenName(v string) {
 	b.Params["screen_name"] = v
 }

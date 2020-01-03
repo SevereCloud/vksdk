@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestSearchGetHintsBulder(t *testing.T) {
-	b := params.NewSearchGetHintsBulder()
+func TestSearchGetHintsBuilder(t *testing.T) {
+	b := params.NewSearchGetHintsBuilder()
 
 	b.Q("text")
 	b.Offset(1)

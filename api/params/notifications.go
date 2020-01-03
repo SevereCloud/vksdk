@@ -4,73 +4,73 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// NotificationsGetBulder builder
+// NotificationsGetBuilder builder
 //
 // Returns a list of notifications about other users' feedback to the current user's wall posts.
 //
 // https://vk.com/dev/notifications.get
-type NotificationsGetBulder struct {
+type NotificationsGetBuilder struct {
 	api.Params
 }
 
-// NewNotificationsGetBulder func
-func NewNotificationsGetBulder() *NotificationsGetBulder {
-	return &NotificationsGetBulder{api.Params{}}
+// NewNotificationsGetBuilder func
+func NewNotificationsGetBuilder() *NotificationsGetBuilder {
+	return &NotificationsGetBuilder{api.Params{}}
 }
 
 // Count Number of notifications to return.
-func (b *NotificationsGetBulder) Count(v int) {
+func (b *NotificationsGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // StartFrom parameter
-func (b *NotificationsGetBulder) StartFrom(v string) {
+func (b *NotificationsGetBuilder) StartFrom(v string) {
 	b.Params["start_from"] = v
 }
 
 // Filters Type of notifications to return: 'wall' — wall posts, 'mentions' — mentions in wall posts, comments, or topics, 'comments' — comments to wall posts, photos, and videos, 'likes' — likes, 'reposted' — wall posts that are copied from the current user's wall, 'followers' — new followers, 'friends' — accepted friend requests
-func (b *NotificationsGetBulder) Filters(v []string) {
+func (b *NotificationsGetBuilder) Filters(v []string) {
 	b.Params["filters"] = v
 }
 
 // StartTime Earliest timestamp (in Unix time) of a notification to return. By default, 24 hours ago.
-func (b *NotificationsGetBulder) StartTime(v int) {
+func (b *NotificationsGetBuilder) StartTime(v int) {
 	b.Params["start_time"] = v
 }
 
 // EndTime Latest timestamp (in Unix time) of a notification to return. By default, the current time.
-func (b *NotificationsGetBulder) EndTime(v int) {
+func (b *NotificationsGetBuilder) EndTime(v int) {
 	b.Params["end_time"] = v
 }
 
-// NotificationsSendMessageBulder builder
+// NotificationsSendMessageBuilder builder
 //
 // https://vk.com/dev/notifications.sendMessage
-type NotificationsSendMessageBulder struct {
+type NotificationsSendMessageBuilder struct {
 	api.Params
 }
 
-// NewNotificationsSendMessageBulder func
-func NewNotificationsSendMessageBulder() *NotificationsSendMessageBulder {
-	return &NotificationsSendMessageBulder{api.Params{}}
+// NewNotificationsSendMessageBuilder func
+func NewNotificationsSendMessageBuilder() *NotificationsSendMessageBuilder {
+	return &NotificationsSendMessageBuilder{api.Params{}}
 }
 
 // UserIDs parameter
-func (b *NotificationsSendMessageBulder) UserIDs(v []int) {
+func (b *NotificationsSendMessageBuilder) UserIDs(v []int) {
 	b.Params["user_ids"] = v
 }
 
 // Message parameter
-func (b *NotificationsSendMessageBulder) Message(v string) {
+func (b *NotificationsSendMessageBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
 // Fragment parameter
-func (b *NotificationsSendMessageBulder) Fragment(v string) {
+func (b *NotificationsSendMessageBuilder) Fragment(v string) {
 	b.Params["fragment"] = v
 }
 
 // GroupID parameter
-func (b *NotificationsSendMessageBulder) GroupID(v int) {
+func (b *NotificationsSendMessageBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }

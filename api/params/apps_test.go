@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAppsGetBulder(t *testing.T) {
-	b := params.NewAppsGetBulder()
+func TestAppsGetBuilder(t *testing.T) {
+	b := params.NewAppsGetBuilder()
 
 	b.AppID(1)
 	b.AppIDs([]string{"text"})
@@ -27,8 +27,8 @@ func TestAppsGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["name_case"], "text")
 }
 
-func TestAppsGetCatalogBulder(t *testing.T) {
-	b := params.NewAppsGetCatalogBulder()
+func TestAppsGetCatalogBuilder(t *testing.T) {
+	b := params.NewAppsGetCatalogBuilder()
 
 	b.Sort("text")
 	b.Offset(1)
@@ -55,8 +55,8 @@ func TestAppsGetCatalogBulder(t *testing.T) {
 	assert.Equal(t, b.Params["filter"], "text")
 }
 
-func TestAppsGetFriendsListBulder(t *testing.T) {
-	b := params.NewAppsGetFriendsListBulder()
+func TestAppsGetFriendsListBuilder(t *testing.T) {
+	b := params.NewAppsGetFriendsListBuilder()
 
 	b.Extended(true)
 	b.Count(1)
@@ -71,8 +71,8 @@ func TestAppsGetFriendsListBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestAppsGetLeaderboardBulder(t *testing.T) {
-	b := params.NewAppsGetLeaderboardBulder()
+func TestAppsGetLeaderboardBuilder(t *testing.T) {
+	b := params.NewAppsGetLeaderboardBuilder()
 
 	b.Type("text")
 	b.Global(true)
@@ -83,24 +83,24 @@ func TestAppsGetLeaderboardBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestAppsGetScopesBulder(t *testing.T) {
-	b := params.NewAppsGetScopesBulder()
+func TestAppsGetScopesBuilder(t *testing.T) {
+	b := params.NewAppsGetScopesBuilder()
 
 	b.Type("text")
 
 	assert.Equal(t, b.Params["type"], "text")
 }
 
-func TestAppsGetScoreBulder(t *testing.T) {
-	b := params.NewAppsGetScoreBulder()
+func TestAppsGetScoreBuilder(t *testing.T) {
+	b := params.NewAppsGetScoreBuilder()
 
 	b.UserID(1)
 
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestAppsSendRequestBulder(t *testing.T) {
-	b := params.NewAppsSendRequestBulder()
+func TestAppsSendRequestBuilder(t *testing.T) {
+	b := params.NewAppsSendRequestBuilder()
 
 	b.UserID(1)
 	b.Text("text")

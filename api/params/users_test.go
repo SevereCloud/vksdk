@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestUsersGetBulder(t *testing.T) {
-	b := params.NewUsersGetBulder()
+func TestUsersGetBuilder(t *testing.T) {
+	b := params.NewUsersGetBuilder()
 
 	b.UserIDs([]string{"text"})
 	b.Fields([]string{"test"})
@@ -19,8 +19,8 @@ func TestUsersGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["name_case"], "text")
 }
 
-func TestUsersGetFollowersBulder(t *testing.T) {
-	b := params.NewUsersGetFollowersBulder()
+func TestUsersGetFollowersBuilder(t *testing.T) {
+	b := params.NewUsersGetFollowersBuilder()
 
 	b.UserID(1)
 	b.Offset(1)
@@ -35,8 +35,8 @@ func TestUsersGetFollowersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["name_case"], "text")
 }
 
-func TestUsersGetSubscriptionsBulder(t *testing.T) {
-	b := params.NewUsersGetSubscriptionsBulder()
+func TestUsersGetSubscriptionsBuilder(t *testing.T) {
+	b := params.NewUsersGetSubscriptionsBuilder()
 
 	b.UserID(1)
 	b.Extended(true)
@@ -51,16 +51,16 @@ func TestUsersGetSubscriptionsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestUsersIsAppUserBulder(t *testing.T) {
-	b := params.NewUsersIsAppUserBulder()
+func TestUsersIsAppUserBuilder(t *testing.T) {
+	b := params.NewUsersIsAppUserBuilder()
 
 	b.UserID(1)
 
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestUsersReportBulder(t *testing.T) {
-	b := params.NewUsersReportBulder()
+func TestUsersReportBuilder(t *testing.T) {
+	b := params.NewUsersReportBuilder()
 
 	b.UserID(1)
 	b.Type("text")
@@ -71,8 +71,8 @@ func TestUsersReportBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment"], "text")
 }
 
-func TestUsersSearchBulder(t *testing.T) {
-	b := params.NewUsersSearchBulder()
+func TestUsersSearchBuilder(t *testing.T) {
+	b := params.NewUsersSearchBuilder()
 
 	b.Q("text")
 	b.Sort(1)

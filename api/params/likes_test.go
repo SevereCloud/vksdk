@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestLikesAddBulder(t *testing.T) {
-	b := params.NewLikesAddBulder()
+func TestLikesAddBuilder(t *testing.T) {
+	b := params.NewLikesAddBuilder()
 
 	b.Type("text")
 	b.OwnerID(1)
@@ -21,8 +21,8 @@ func TestLikesAddBulder(t *testing.T) {
 	assert.Equal(t, b.Params["access_key"], "text")
 }
 
-func TestLikesDeleteBulder(t *testing.T) {
-	b := params.NewLikesDeleteBulder()
+func TestLikesDeleteBuilder(t *testing.T) {
+	b := params.NewLikesDeleteBuilder()
 
 	b.Type("text")
 	b.OwnerID(1)
@@ -33,8 +33,8 @@ func TestLikesDeleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["item_id"], 1)
 }
 
-func TestLikesGetListBulder(t *testing.T) {
-	b := params.NewLikesGetListBulder()
+func TestLikesGetListBuilder(t *testing.T) {
+	b := params.NewLikesGetListBuilder()
 
 	b.Type("text")
 	b.OwnerID(1)
@@ -59,8 +59,8 @@ func TestLikesGetListBulder(t *testing.T) {
 	assert.Equal(t, b.Params["skip_own"], true)
 }
 
-func TestLikesIsLikedBulder(t *testing.T) {
-	b := params.NewLikesIsLikedBulder()
+func TestLikesIsLikedBuilder(t *testing.T) {
+	b := params.NewLikesIsLikedBuilder()
 
 	b.UserID(1)
 	b.Type("text")

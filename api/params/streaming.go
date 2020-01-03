@@ -4,19 +4,19 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// StreamingSetSettingsBulder builder
+// StreamingSetSettingsBuilder builder
 //
 // https://vk.com/dev/streaming.setSettings
-type StreamingSetSettingsBulder struct {
+type StreamingSetSettingsBuilder struct {
 	api.Params
 }
 
-// NewStreamingSetSettingsBulder func
-func NewStreamingSetSettingsBulder() *StreamingSetSettingsBulder {
-	return &StreamingSetSettingsBulder{api.Params{}}
+// NewStreamingSetSettingsBuilder func
+func NewStreamingSetSettingsBuilder() *StreamingSetSettingsBuilder {
+	return &StreamingSetSettingsBuilder{api.Params{}}
 }
 
 // MonthlyTier parameter
-func (b *StreamingSetSettingsBulder) MonthlyTier(v string) {
+func (b *StreamingSetSettingsBuilder) MonthlyTier(v string) {
 	b.Params["monthly_tier"] = v
 }

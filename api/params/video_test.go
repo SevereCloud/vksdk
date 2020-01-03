@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestVideoAddBulder(t *testing.T) {
-	b := params.NewVideoAddBulder()
+func TestVideoAddBuilder(t *testing.T) {
+	b := params.NewVideoAddBuilder()
 
 	b.TargetID(1)
 	b.VideoID(1)
@@ -19,8 +19,8 @@ func TestVideoAddBulder(t *testing.T) {
 	assert.Equal(t, b.Params["owner_id"], 1)
 }
 
-func TestVideoAddAlbumBulder(t *testing.T) {
-	b := params.NewVideoAddAlbumBulder()
+func TestVideoAddAlbumBuilder(t *testing.T) {
+	b := params.NewVideoAddAlbumBuilder()
 
 	b.GroupID(1)
 	b.Title("text")
@@ -31,8 +31,8 @@ func TestVideoAddAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["privacy"], []string{"text"})
 }
 
-func TestVideoAddToAlbumBulder(t *testing.T) {
-	b := params.NewVideoAddToAlbumBulder()
+func TestVideoAddToAlbumBuilder(t *testing.T) {
+	b := params.NewVideoAddToAlbumBuilder()
 
 	b.TargetID(1)
 	b.AlbumID(1)
@@ -47,8 +47,8 @@ func TestVideoAddToAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["video_id"], 1)
 }
 
-func TestVideoCreateCommentBulder(t *testing.T) {
-	b := params.NewVideoCreateCommentBulder()
+func TestVideoCreateCommentBuilder(t *testing.T) {
+	b := params.NewVideoCreateCommentBuilder()
 
 	b.OwnerID(1)
 	b.VideoID(1)
@@ -69,8 +69,8 @@ func TestVideoCreateCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["guid"], "text")
 }
 
-func TestVideoDeleteBulder(t *testing.T) {
-	b := params.NewVideoDeleteBulder()
+func TestVideoDeleteBuilder(t *testing.T) {
+	b := params.NewVideoDeleteBuilder()
 
 	b.VideoID(1)
 	b.OwnerID(1)
@@ -81,8 +81,8 @@ func TestVideoDeleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["target_id"], 1)
 }
 
-func TestVideoDeleteAlbumBulder(t *testing.T) {
-	b := params.NewVideoDeleteAlbumBulder()
+func TestVideoDeleteAlbumBuilder(t *testing.T) {
+	b := params.NewVideoDeleteAlbumBuilder()
 
 	b.GroupID(1)
 	b.AlbumID(1)
@@ -91,8 +91,8 @@ func TestVideoDeleteAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["album_id"], 1)
 }
 
-func TestVideoDeleteCommentBulder(t *testing.T) {
-	b := params.NewVideoDeleteCommentBulder()
+func TestVideoDeleteCommentBuilder(t *testing.T) {
+	b := params.NewVideoDeleteCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -101,8 +101,8 @@ func TestVideoDeleteCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestVideoEditBulder(t *testing.T) {
-	b := params.NewVideoEditBulder()
+func TestVideoEditBuilder(t *testing.T) {
+	b := params.NewVideoEditBuilder()
 
 	b.OwnerID(1)
 	b.VideoID(1)
@@ -123,8 +123,8 @@ func TestVideoEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["repeat"], true)
 }
 
-func TestVideoEditAlbumBulder(t *testing.T) {
-	b := params.NewVideoEditAlbumBulder()
+func TestVideoEditAlbumBuilder(t *testing.T) {
+	b := params.NewVideoEditAlbumBuilder()
 
 	b.GroupID(1)
 	b.AlbumID(1)
@@ -137,8 +137,8 @@ func TestVideoEditAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["privacy"], []string{"text"})
 }
 
-func TestVideoEditCommentBulder(t *testing.T) {
-	b := params.NewVideoEditCommentBulder()
+func TestVideoEditCommentBuilder(t *testing.T) {
+	b := params.NewVideoEditCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -151,8 +151,8 @@ func TestVideoEditCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["attachments"], []string{"text"})
 }
 
-func TestVideoGetBulder(t *testing.T) {
-	b := params.NewVideoGetBulder()
+func TestVideoGetBuilder(t *testing.T) {
+	b := params.NewVideoGetBuilder()
 
 	b.OwnerID(1)
 	b.Videos([]string{"text"})
@@ -169,8 +169,8 @@ func TestVideoGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestVideoGetAlbumByIDBulder(t *testing.T) {
-	b := params.NewVideoGetAlbumByIDBulder()
+func TestVideoGetAlbumByIDBuilder(t *testing.T) {
+	b := params.NewVideoGetAlbumByIDBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)
@@ -179,8 +179,8 @@ func TestVideoGetAlbumByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["album_id"], 1)
 }
 
-func TestVideoGetAlbumsBulder(t *testing.T) {
-	b := params.NewVideoGetAlbumsBulder()
+func TestVideoGetAlbumsBuilder(t *testing.T) {
+	b := params.NewVideoGetAlbumsBuilder()
 
 	b.OwnerID(1)
 	b.Offset(1)
@@ -195,8 +195,8 @@ func TestVideoGetAlbumsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["need_system"], true)
 }
 
-func TestVideoGetAlbumsByVideoBulder(t *testing.T) {
-	b := params.NewVideoGetAlbumsByVideoBulder()
+func TestVideoGetAlbumsByVideoBuilder(t *testing.T) {
+	b := params.NewVideoGetAlbumsByVideoBuilder()
 
 	b.TargetID(1)
 	b.OwnerID(1)
@@ -209,8 +209,8 @@ func TestVideoGetAlbumsByVideoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestVideoGetCommentsBulder(t *testing.T) {
-	b := params.NewVideoGetCommentsBulder()
+func TestVideoGetCommentsBuilder(t *testing.T) {
+	b := params.NewVideoGetCommentsBuilder()
 
 	b.OwnerID(1)
 	b.VideoID(1)
@@ -233,8 +233,8 @@ func TestVideoGetCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"text"})
 }
 
-func TestVideoRemoveFromAlbumBulder(t *testing.T) {
-	b := params.NewVideoRemoveFromAlbumBulder()
+func TestVideoRemoveFromAlbumBuilder(t *testing.T) {
+	b := params.NewVideoRemoveFromAlbumBuilder()
 
 	b.TargetID(1)
 	b.AlbumID(1)
@@ -249,8 +249,8 @@ func TestVideoRemoveFromAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["video_id"], 1)
 }
 
-func TestVideoReorderAlbumsBulder(t *testing.T) {
-	b := params.NewVideoReorderAlbumsBulder()
+func TestVideoReorderAlbumsBuilder(t *testing.T) {
+	b := params.NewVideoReorderAlbumsBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)
@@ -263,8 +263,8 @@ func TestVideoReorderAlbumsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["after"], 1)
 }
 
-func TestVideoReorderVideosBulder(t *testing.T) {
-	b := params.NewVideoReorderVideosBulder()
+func TestVideoReorderVideosBuilder(t *testing.T) {
+	b := params.NewVideoReorderVideosBuilder()
 
 	b.TargetID(1)
 	b.AlbumID(1)
@@ -285,8 +285,8 @@ func TestVideoReorderVideosBulder(t *testing.T) {
 	assert.Equal(t, b.Params["after_video_id"], 1)
 }
 
-func TestVideoReportBulder(t *testing.T) {
-	b := params.NewVideoReportBulder()
+func TestVideoReportBuilder(t *testing.T) {
+	b := params.NewVideoReportBuilder()
 
 	b.OwnerID(1)
 	b.VideoID(1)
@@ -301,8 +301,8 @@ func TestVideoReportBulder(t *testing.T) {
 	assert.Equal(t, b.Params["search_query"], "text")
 }
 
-func TestVideoReportCommentBulder(t *testing.T) {
-	b := params.NewVideoReportCommentBulder()
+func TestVideoReportCommentBuilder(t *testing.T) {
+	b := params.NewVideoReportCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -313,8 +313,8 @@ func TestVideoReportCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["reason"], 1)
 }
 
-func TestVideoRestoreBulder(t *testing.T) {
-	b := params.NewVideoRestoreBulder()
+func TestVideoRestoreBuilder(t *testing.T) {
+	b := params.NewVideoRestoreBuilder()
 
 	b.VideoID(1)
 	b.OwnerID(1)
@@ -323,8 +323,8 @@ func TestVideoRestoreBulder(t *testing.T) {
 	assert.Equal(t, b.Params["owner_id"], 1)
 }
 
-func TestVideoRestoreCommentBulder(t *testing.T) {
-	b := params.NewVideoRestoreCommentBulder()
+func TestVideoRestoreCommentBuilder(t *testing.T) {
+	b := params.NewVideoRestoreCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -333,8 +333,8 @@ func TestVideoRestoreCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestVideoSaveBulder(t *testing.T) {
-	b := params.NewVideoSaveBulder()
+func TestVideoSaveBuilder(t *testing.T) {
+	b := params.NewVideoSaveBuilder()
 
 	b.Name("text")
 	b.Description("text")
@@ -363,8 +363,8 @@ func TestVideoSaveBulder(t *testing.T) {
 	assert.Equal(t, b.Params["compression"], true)
 }
 
-func TestVideoSearchBulder(t *testing.T) {
-	b := params.NewVideoSearchBulder()
+func TestVideoSearchBuilder(t *testing.T) {
+	b := params.NewVideoSearchBuilder()
 
 	b.Q("text")
 	b.Sort(1)

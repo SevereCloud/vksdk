@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAuthCheckPhoneBulder(t *testing.T) {
-	b := params.NewAuthCheckPhoneBulder()
+func TestAuthCheckPhoneBuilder(t *testing.T) {
+	b := params.NewAuthCheckPhoneBuilder()
 
 	b.Phone("text")
 	b.ClientID(1)
@@ -21,8 +21,8 @@ func TestAuthCheckPhoneBulder(t *testing.T) {
 	assert.Equal(t, b.Params["auth_by_phone"], true)
 }
 
-func TestAuthRestoreBulder(t *testing.T) {
-	b := params.NewAuthRestoreBulder()
+func TestAuthRestoreBuilder(t *testing.T) {
+	b := params.NewAuthRestoreBuilder()
 
 	b.Phone("text")
 	b.LastName("text")

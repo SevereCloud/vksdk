@@ -7,16 +7,16 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestStoriesBanOwnerBulder(t *testing.T) {
-	b := params.NewStoriesBanOwnerBulder()
+func TestStoriesBanOwnerBuilder(t *testing.T) {
+	b := params.NewStoriesBanOwnerBuilder()
 
 	b.OwnersIDs([]int{1})
 
 	assert.Equal(t, b.Params["owners_ids"], []int{1})
 }
 
-func TestStoriesDeleteBulder(t *testing.T) {
-	b := params.NewStoriesDeleteBulder()
+func TestStoriesDeleteBuilder(t *testing.T) {
+	b := params.NewStoriesDeleteBuilder()
 
 	b.OwnerID(1)
 	b.StoryID(1)
@@ -25,8 +25,8 @@ func TestStoriesDeleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["story_id"], 1)
 }
 
-func TestStoriesGetBulder(t *testing.T) {
-	b := params.NewStoriesGetBulder()
+func TestStoriesGetBuilder(t *testing.T) {
+	b := params.NewStoriesGetBuilder()
 
 	b.OwnerID(1)
 	b.Extended(true)
@@ -35,8 +35,8 @@ func TestStoriesGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestStoriesGetBannedBulder(t *testing.T) {
-	b := params.NewStoriesGetBannedBulder()
+func TestStoriesGetBannedBuilder(t *testing.T) {
+	b := params.NewStoriesGetBannedBuilder()
 
 	b.Extended(true)
 	b.Fields([]string{"test"})
@@ -45,8 +45,8 @@ func TestStoriesGetBannedBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestStoriesGetByIDBulder(t *testing.T) {
-	b := params.NewStoriesGetByIDBulder()
+func TestStoriesGetByIDBuilder(t *testing.T) {
+	b := params.NewStoriesGetByIDBuilder()
 
 	b.Stories([]string{"text"})
 	b.Extended(true)
@@ -57,8 +57,8 @@ func TestStoriesGetByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestStoriesGetPhotoUploadServerBulder(t *testing.T) {
-	b := params.NewStoriesGetPhotoUploadServerBulder()
+func TestStoriesGetPhotoUploadServerBuilder(t *testing.T) {
+	b := params.NewStoriesGetPhotoUploadServerBuilder()
 
 	b.AddToNews(true)
 	b.UserIDs([]int{1})
@@ -75,8 +75,8 @@ func TestStoriesGetPhotoUploadServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestStoriesGetRepliesBulder(t *testing.T) {
-	b := params.NewStoriesGetRepliesBulder()
+func TestStoriesGetRepliesBuilder(t *testing.T) {
+	b := params.NewStoriesGetRepliesBuilder()
 
 	b.OwnerID(1)
 	b.StoryID(1)
@@ -91,8 +91,8 @@ func TestStoriesGetRepliesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestStoriesGetStatsBulder(t *testing.T) {
-	b := params.NewStoriesGetStatsBulder()
+func TestStoriesGetStatsBuilder(t *testing.T) {
+	b := params.NewStoriesGetStatsBuilder()
 
 	b.OwnerID(1)
 	b.StoryID(1)
@@ -101,8 +101,8 @@ func TestStoriesGetStatsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["story_id"], 1)
 }
 
-func TestStoriesGetVideoUploadServerBulder(t *testing.T) {
-	b := params.NewStoriesGetVideoUploadServerBulder()
+func TestStoriesGetVideoUploadServerBuilder(t *testing.T) {
+	b := params.NewStoriesGetVideoUploadServerBuilder()
 
 	b.AddToNews(true)
 	b.UserIDs([]int{1})
@@ -119,8 +119,8 @@ func TestStoriesGetVideoUploadServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestStoriesGetViewersBulder(t *testing.T) {
-	b := params.NewStoriesGetViewersBulder()
+func TestStoriesGetViewersBuilder(t *testing.T) {
+	b := params.NewStoriesGetViewersBuilder()
 
 	b.OwnerID(1)
 	b.StoryID(1)
@@ -135,8 +135,8 @@ func TestStoriesGetViewersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestStoriesHideAllRepliesBulder(t *testing.T) {
-	b := params.NewStoriesHideAllRepliesBulder()
+func TestStoriesHideAllRepliesBuilder(t *testing.T) {
+	b := params.NewStoriesHideAllRepliesBuilder()
 
 	b.OwnerID(1)
 	b.GroupID(1)
@@ -145,8 +145,8 @@ func TestStoriesHideAllRepliesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestStoriesHideReplyBulder(t *testing.T) {
-	b := params.NewStoriesHideReplyBulder()
+func TestStoriesHideReplyBuilder(t *testing.T) {
+	b := params.NewStoriesHideReplyBuilder()
 
 	b.OwnerID(1)
 	b.StoryID(1)
@@ -155,8 +155,8 @@ func TestStoriesHideReplyBulder(t *testing.T) {
 	assert.Equal(t, b.Params["story_id"], 1)
 }
 
-func TestStoriesUnbanOwnerBulder(t *testing.T) {
-	b := params.NewStoriesUnbanOwnerBulder()
+func TestStoriesUnbanOwnerBuilder(t *testing.T) {
+	b := params.NewStoriesUnbanOwnerBuilder()
 
 	b.OwnersIDs([]int{1})
 

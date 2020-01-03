@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestSecureAddAppEventBulder(t *testing.T) {
-	b := params.NewSecureAddAppEventBulder()
+func TestSecureAddAppEventBuilder(t *testing.T) {
+	b := params.NewSecureAddAppEventBuilder()
 
 	b.UserID(1)
 	b.ActivityID(1)
@@ -19,8 +19,8 @@ func TestSecureAddAppEventBulder(t *testing.T) {
 	assert.Equal(t, b.Params["value"], 1)
 }
 
-func TestSecureCheckTokenBulder(t *testing.T) {
-	b := params.NewSecureCheckTokenBulder()
+func TestSecureCheckTokenBuilder(t *testing.T) {
+	b := params.NewSecureCheckTokenBuilder()
 
 	b.Token("text")
 	b.IP("text")
@@ -29,8 +29,8 @@ func TestSecureCheckTokenBulder(t *testing.T) {
 	assert.Equal(t, b.Params["ip"], "text")
 }
 
-func TestSecureGetSMSHistoryBulder(t *testing.T) {
-	b := params.NewSecureGetSMSHistoryBulder()
+func TestSecureGetSMSHistoryBuilder(t *testing.T) {
+	b := params.NewSecureGetSMSHistoryBuilder()
 
 	b.UserID(1)
 	b.DateFrom(1)
@@ -43,8 +43,8 @@ func TestSecureGetSMSHistoryBulder(t *testing.T) {
 	assert.Equal(t, b.Params["limit"], 1)
 }
 
-func TestSecureGetTransactionsHistoryBulder(t *testing.T) {
-	b := params.NewSecureGetTransactionsHistoryBulder()
+func TestSecureGetTransactionsHistoryBuilder(t *testing.T) {
+	b := params.NewSecureGetTransactionsHistoryBuilder()
 
 	b.Type(1)
 	b.UIDFrom(1)
@@ -61,16 +61,16 @@ func TestSecureGetTransactionsHistoryBulder(t *testing.T) {
 	assert.Equal(t, b.Params["limit"], 1)
 }
 
-func TestSecureGetUserLevelBulder(t *testing.T) {
-	b := params.NewSecureGetUserLevelBulder()
+func TestSecureGetUserLevelBuilder(t *testing.T) {
+	b := params.NewSecureGetUserLevelBuilder()
 
 	b.UserIDs([]int{1})
 
 	assert.Equal(t, b.Params["user_ids"], []int{1})
 }
 
-func TestSecureGiveEventStickerBulder(t *testing.T) {
-	b := params.NewSecureGiveEventStickerBulder()
+func TestSecureGiveEventStickerBuilder(t *testing.T) {
+	b := params.NewSecureGiveEventStickerBuilder()
 
 	b.UserIDs([]int{1})
 	b.AchievementID(1)
@@ -79,8 +79,8 @@ func TestSecureGiveEventStickerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["achievement_id"], 1)
 }
 
-func TestSecureSendNotificationBulder(t *testing.T) {
-	b := params.NewSecureSendNotificationBulder()
+func TestSecureSendNotificationBuilder(t *testing.T) {
+	b := params.NewSecureSendNotificationBuilder()
 
 	b.UserIDs([]int{1})
 	b.UserID(1)
@@ -91,8 +91,8 @@ func TestSecureSendNotificationBulder(t *testing.T) {
 	assert.Equal(t, b.Params["message"], "text")
 }
 
-func TestSecureSendSMSNotificationBulder(t *testing.T) {
-	b := params.NewSecureSendSMSNotificationBulder()
+func TestSecureSendSMSNotificationBuilder(t *testing.T) {
+	b := params.NewSecureSendSMSNotificationBuilder()
 
 	b.UserID(1)
 	b.Message("text")
@@ -101,8 +101,8 @@ func TestSecureSendSMSNotificationBulder(t *testing.T) {
 	assert.Equal(t, b.Params["message"], "text")
 }
 
-func TestSecureSetCounterBulder(t *testing.T) {
-	b := params.NewSecureSetCounterBulder()
+func TestSecureSetCounterBuilder(t *testing.T) {
+	b := params.NewSecureSetCounterBuilder()
 
 	b.Counters([]string{"text"})
 	b.UserID(1)

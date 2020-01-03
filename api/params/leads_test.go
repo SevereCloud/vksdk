@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestLeadsCheckUserBulder(t *testing.T) {
-	b := params.NewLeadsCheckUserBulder()
+func TestLeadsCheckUserBuilder(t *testing.T) {
+	b := params.NewLeadsCheckUserBuilder()
 
 	b.LeadID(1)
 	b.TestResult(1)
@@ -25,8 +25,8 @@ func TestLeadsCheckUserBulder(t *testing.T) {
 	assert.Equal(t, b.Params["country"], "text")
 }
 
-func TestLeadsCompleteBulder(t *testing.T) {
-	b := params.NewLeadsCompleteBulder()
+func TestLeadsCompleteBuilder(t *testing.T) {
+	b := params.NewLeadsCompleteBuilder()
 
 	b.VkSID("text")
 	b.Secret("text")
@@ -37,8 +37,8 @@ func TestLeadsCompleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment"], "text")
 }
 
-func TestLeadsGetStatsBulder(t *testing.T) {
-	b := params.NewLeadsGetStatsBulder()
+func TestLeadsGetStatsBuilder(t *testing.T) {
+	b := params.NewLeadsGetStatsBuilder()
 
 	b.LeadID(1)
 	b.Secret("text")
@@ -51,8 +51,8 @@ func TestLeadsGetStatsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["date_end"], "text")
 }
 
-func TestLeadsGetUsersBulder(t *testing.T) {
-	b := params.NewLeadsGetUsersBulder()
+func TestLeadsGetUsersBuilder(t *testing.T) {
+	b := params.NewLeadsGetUsersBuilder()
 
 	b.OfferID(1)
 	b.Secret("text")
@@ -69,16 +69,16 @@ func TestLeadsGetUsersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["reverse"], true)
 }
 
-func TestLeadsMetricHitBulder(t *testing.T) {
-	b := params.NewLeadsMetricHitBulder()
+func TestLeadsMetricHitBuilder(t *testing.T) {
+	b := params.NewLeadsMetricHitBuilder()
 
 	b.Data("text")
 
 	assert.Equal(t, b.Params["data"], "text")
 }
 
-func TestLeadsStartBulder(t *testing.T) {
-	b := params.NewLeadsStartBulder()
+func TestLeadsStartBuilder(t *testing.T) {
+	b := params.NewLeadsStartBuilder()
 
 	b.LeadID(1)
 	b.Secret("text")

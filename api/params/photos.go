@@ -4,1646 +4,1646 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// PhotosConfirmTagBulder builder
+// PhotosConfirmTagBuilder builder
 //
 // Confirms a tag on a photo.
 //
 // https://vk.com/dev/photos.confirmTag
-type PhotosConfirmTagBulder struct {
+type PhotosConfirmTagBuilder struct {
 	api.Params
 }
 
-// NewPhotosConfirmTagBulder func
-func NewPhotosConfirmTagBulder() *PhotosConfirmTagBulder {
-	return &PhotosConfirmTagBulder{api.Params{}}
+// NewPhotosConfirmTagBuilder func
+func NewPhotosConfirmTagBuilder() *PhotosConfirmTagBuilder {
+	return &PhotosConfirmTagBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosConfirmTagBulder) OwnerID(v int) {
+func (b *PhotosConfirmTagBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosConfirmTagBulder) PhotoID(v string) {
+func (b *PhotosConfirmTagBuilder) PhotoID(v string) {
 	b.Params["photo_id"] = v
 }
 
 // TagID Tag ID.
-func (b *PhotosConfirmTagBulder) TagID(v int) {
+func (b *PhotosConfirmTagBuilder) TagID(v int) {
 	b.Params["tag_id"] = v
 }
 
-// PhotosCopyBulder builder
+// PhotosCopyBuilder builder
 //
 // Allows to copy a photo to the "Saved photos" album
 //
 // https://vk.com/dev/photos.copy
-type PhotosCopyBulder struct {
+type PhotosCopyBuilder struct {
 	api.Params
 }
 
-// NewPhotosCopyBulder func
-func NewPhotosCopyBulder() *PhotosCopyBulder {
-	return &PhotosCopyBulder{api.Params{}}
+// NewPhotosCopyBuilder func
+func NewPhotosCopyBuilder() *PhotosCopyBuilder {
+	return &PhotosCopyBuilder{api.Params{}}
 }
 
 // OwnerID photo's owner ID
-func (b *PhotosCopyBulder) OwnerID(v int) {
+func (b *PhotosCopyBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID photo ID
-func (b *PhotosCopyBulder) PhotoID(v int) {
+func (b *PhotosCopyBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // AccessKey for private photos
-func (b *PhotosCopyBulder) AccessKey(v string) {
+func (b *PhotosCopyBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
-// PhotosCreateAlbumBulder builder
+// PhotosCreateAlbumBuilder builder
 //
 // Creates an empty photo album.
 //
 // https://vk.com/dev/photos.createAlbum
-type PhotosCreateAlbumBulder struct {
+type PhotosCreateAlbumBuilder struct {
 	api.Params
 }
 
-// NewPhotosCreateAlbumBulder func
-func NewPhotosCreateAlbumBulder() *PhotosCreateAlbumBulder {
-	return &PhotosCreateAlbumBulder{api.Params{}}
+// NewPhotosCreateAlbumBuilder func
+func NewPhotosCreateAlbumBuilder() *PhotosCreateAlbumBuilder {
+	return &PhotosCreateAlbumBuilder{api.Params{}}
 }
 
 // Title Album title.
-func (b *PhotosCreateAlbumBulder) Title(v string) {
+func (b *PhotosCreateAlbumBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
 // GroupID ID of the community in which the album will be created.
-func (b *PhotosCreateAlbumBulder) GroupID(v int) {
+func (b *PhotosCreateAlbumBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
 // Description Album description.
-func (b *PhotosCreateAlbumBulder) Description(v string) {
+func (b *PhotosCreateAlbumBuilder) Description(v string) {
 	b.Params["description"] = v
 }
 
 // PrivacyView parameter
-func (b *PhotosCreateAlbumBulder) PrivacyView(v []string) {
+func (b *PhotosCreateAlbumBuilder) PrivacyView(v []string) {
 	b.Params["privacy_view"] = v
 }
 
 // PrivacyComment parameter
-func (b *PhotosCreateAlbumBulder) PrivacyComment(v []string) {
+func (b *PhotosCreateAlbumBuilder) PrivacyComment(v []string) {
 	b.Params["privacy_comment"] = v
 }
 
 // UploadByAdminsOnly parameter
-func (b *PhotosCreateAlbumBulder) UploadByAdminsOnly(v bool) {
+func (b *PhotosCreateAlbumBuilder) UploadByAdminsOnly(v bool) {
 	b.Params["upload_by_admins_only"] = v
 }
 
 // CommentsDisabled parameter
-func (b *PhotosCreateAlbumBulder) CommentsDisabled(v bool) {
+func (b *PhotosCreateAlbumBuilder) CommentsDisabled(v bool) {
 	b.Params["comments_disabled"] = v
 }
 
-// PhotosCreateCommentBulder builder
+// PhotosCreateCommentBuilder builder
 //
 // Adds a new comment on the photo.
 //
 // https://vk.com/dev/photos.createComment
-type PhotosCreateCommentBulder struct {
+type PhotosCreateCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosCreateCommentBulder func
-func NewPhotosCreateCommentBulder() *PhotosCreateCommentBulder {
-	return &PhotosCreateCommentBulder{api.Params{}}
+// NewPhotosCreateCommentBuilder func
+func NewPhotosCreateCommentBuilder() *PhotosCreateCommentBuilder {
+	return &PhotosCreateCommentBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosCreateCommentBulder) OwnerID(v int) {
+func (b *PhotosCreateCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosCreateCommentBulder) PhotoID(v int) {
+func (b *PhotosCreateCommentBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // Message Comment text.
-func (b *PhotosCreateCommentBulder) Message(v string) {
+func (b *PhotosCreateCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
 // Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID. Example: "photo100172_166443618,photo66748_265827614"
-func (b *PhotosCreateCommentBulder) Attachments(v []string) {
+func (b *PhotosCreateCommentBuilder) Attachments(v []string) {
 	b.Params["attachments"] = v
 }
 
 // FromGroup '1' — to post a comment from the community
-func (b *PhotosCreateCommentBulder) FromGroup(v bool) {
+func (b *PhotosCreateCommentBuilder) FromGroup(v bool) {
 	b.Params["from_group"] = v
 }
 
 // ReplyToComment parameter
-func (b *PhotosCreateCommentBulder) ReplyToComment(v int) {
+func (b *PhotosCreateCommentBuilder) ReplyToComment(v int) {
 	b.Params["reply_to_comment"] = v
 }
 
 // StickerID parameter
-func (b *PhotosCreateCommentBulder) StickerID(v int) {
+func (b *PhotosCreateCommentBuilder) StickerID(v int) {
 	b.Params["sticker_id"] = v
 }
 
 // AccessKey parameter
-func (b *PhotosCreateCommentBulder) AccessKey(v string) {
+func (b *PhotosCreateCommentBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
 // GUID parameter
-func (b *PhotosCreateCommentBulder) GUID(v string) {
+func (b *PhotosCreateCommentBuilder) GUID(v string) {
 	b.Params["guid"] = v
 }
 
-// PhotosDeleteBulder builder
+// PhotosDeleteBuilder builder
 //
 // Deletes a photo.
 //
 // https://vk.com/dev/photos.delete
-type PhotosDeleteBulder struct {
+type PhotosDeleteBuilder struct {
 	api.Params
 }
 
-// NewPhotosDeleteBulder func
-func NewPhotosDeleteBulder() *PhotosDeleteBulder {
-	return &PhotosDeleteBulder{api.Params{}}
+// NewPhotosDeleteBuilder func
+func NewPhotosDeleteBuilder() *PhotosDeleteBuilder {
+	return &PhotosDeleteBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosDeleteBulder) OwnerID(v int) {
+func (b *PhotosDeleteBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosDeleteBulder) PhotoID(v int) {
+func (b *PhotosDeleteBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
-// PhotosDeleteAlbumBulder builder
+// PhotosDeleteAlbumBuilder builder
 //
 // Deletes a photo album belonging to the current user.
 //
 // https://vk.com/dev/photos.deleteAlbum
-type PhotosDeleteAlbumBulder struct {
+type PhotosDeleteAlbumBuilder struct {
 	api.Params
 }
 
-// NewPhotosDeleteAlbumBulder func
-func NewPhotosDeleteAlbumBulder() *PhotosDeleteAlbumBulder {
-	return &PhotosDeleteAlbumBulder{api.Params{}}
+// NewPhotosDeleteAlbumBuilder func
+func NewPhotosDeleteAlbumBuilder() *PhotosDeleteAlbumBuilder {
+	return &PhotosDeleteAlbumBuilder{api.Params{}}
 }
 
 // AlbumID Album ID.
-func (b *PhotosDeleteAlbumBulder) AlbumID(v int) {
+func (b *PhotosDeleteAlbumBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // GroupID ID of the community that owns the album.
-func (b *PhotosDeleteAlbumBulder) GroupID(v int) {
+func (b *PhotosDeleteAlbumBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// PhotosDeleteCommentBulder builder
+// PhotosDeleteCommentBuilder builder
 //
 // Deletes a comment on the photo.
 //
 // https://vk.com/dev/photos.deleteComment
-type PhotosDeleteCommentBulder struct {
+type PhotosDeleteCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosDeleteCommentBulder func
-func NewPhotosDeleteCommentBulder() *PhotosDeleteCommentBulder {
-	return &PhotosDeleteCommentBulder{api.Params{}}
+// NewPhotosDeleteCommentBuilder func
+func NewPhotosDeleteCommentBuilder() *PhotosDeleteCommentBuilder {
+	return &PhotosDeleteCommentBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosDeleteCommentBulder) OwnerID(v int) {
+func (b *PhotosDeleteCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CommentID Comment ID.
-func (b *PhotosDeleteCommentBulder) CommentID(v int) {
+func (b *PhotosDeleteCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
-// PhotosEditBulder builder
+// PhotosEditBuilder builder
 //
 // Edits the caption of a photo.
 //
 // https://vk.com/dev/photos.edit
-type PhotosEditBulder struct {
+type PhotosEditBuilder struct {
 	api.Params
 }
 
-// NewPhotosEditBulder func
-func NewPhotosEditBulder() *PhotosEditBulder {
-	return &PhotosEditBulder{api.Params{}}
+// NewPhotosEditBuilder func
+func NewPhotosEditBuilder() *PhotosEditBuilder {
+	return &PhotosEditBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosEditBulder) OwnerID(v int) {
+func (b *PhotosEditBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosEditBulder) PhotoID(v int) {
+func (b *PhotosEditBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // Caption New caption for the photo. If this parameter is not set, it is considered to be equal to an empty string.
-func (b *PhotosEditBulder) Caption(v string) {
+func (b *PhotosEditBuilder) Caption(v string) {
 	b.Params["caption"] = v
 }
 
 // Latitude parameter
-func (b *PhotosEditBulder) Latitude(v float64) {
+func (b *PhotosEditBuilder) Latitude(v float64) {
 	b.Params["latitude"] = v
 }
 
 // Longitude parameter
-func (b *PhotosEditBulder) Longitude(v float64) {
+func (b *PhotosEditBuilder) Longitude(v float64) {
 	b.Params["longitude"] = v
 }
 
 // PlaceStr parameter
-func (b *PhotosEditBulder) PlaceStr(v string) {
+func (b *PhotosEditBuilder) PlaceStr(v string) {
 	b.Params["place_str"] = v
 }
 
 // FoursquareID parameter
-func (b *PhotosEditBulder) FoursquareID(v string) {
+func (b *PhotosEditBuilder) FoursquareID(v string) {
 	b.Params["foursquare_id"] = v
 }
 
 // DeletePlace parameter
-func (b *PhotosEditBulder) DeletePlace(v bool) {
+func (b *PhotosEditBuilder) DeletePlace(v bool) {
 	b.Params["delete_place"] = v
 }
 
-// PhotosEditAlbumBulder builder
+// PhotosEditAlbumBuilder builder
 //
 // Edits information about a photo album.
 //
 // https://vk.com/dev/photos.editAlbum
-type PhotosEditAlbumBulder struct {
+type PhotosEditAlbumBuilder struct {
 	api.Params
 }
 
-// NewPhotosEditAlbumBulder func
-func NewPhotosEditAlbumBulder() *PhotosEditAlbumBulder {
-	return &PhotosEditAlbumBulder{api.Params{}}
+// NewPhotosEditAlbumBuilder func
+func NewPhotosEditAlbumBuilder() *PhotosEditAlbumBuilder {
+	return &PhotosEditAlbumBuilder{api.Params{}}
 }
 
 // AlbumID ID of the photo album to be edited.
-func (b *PhotosEditAlbumBulder) AlbumID(v int) {
+func (b *PhotosEditAlbumBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // Title New album title.
-func (b *PhotosEditAlbumBulder) Title(v string) {
+func (b *PhotosEditAlbumBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
 // Description New album description.
-func (b *PhotosEditAlbumBulder) Description(v string) {
+func (b *PhotosEditAlbumBuilder) Description(v string) {
 	b.Params["description"] = v
 }
 
 // OwnerID ID of the user or community that owns the album.
-func (b *PhotosEditAlbumBulder) OwnerID(v int) {
+func (b *PhotosEditAlbumBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PrivacyView parameter
-func (b *PhotosEditAlbumBulder) PrivacyView(v []string) {
+func (b *PhotosEditAlbumBuilder) PrivacyView(v []string) {
 	b.Params["privacy_view"] = v
 }
 
 // PrivacyComment parameter
-func (b *PhotosEditAlbumBulder) PrivacyComment(v []string) {
+func (b *PhotosEditAlbumBuilder) PrivacyComment(v []string) {
 	b.Params["privacy_comment"] = v
 }
 
 // UploadByAdminsOnly parameter
-func (b *PhotosEditAlbumBulder) UploadByAdminsOnly(v bool) {
+func (b *PhotosEditAlbumBuilder) UploadByAdminsOnly(v bool) {
 	b.Params["upload_by_admins_only"] = v
 }
 
 // CommentsDisabled parameter
-func (b *PhotosEditAlbumBulder) CommentsDisabled(v bool) {
+func (b *PhotosEditAlbumBuilder) CommentsDisabled(v bool) {
 	b.Params["comments_disabled"] = v
 }
 
-// PhotosEditCommentBulder builder
+// PhotosEditCommentBuilder builder
 //
 // Edits a comment on a photo.
 //
 // https://vk.com/dev/photos.editComment
-type PhotosEditCommentBulder struct {
+type PhotosEditCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosEditCommentBulder func
-func NewPhotosEditCommentBulder() *PhotosEditCommentBulder {
-	return &PhotosEditCommentBulder{api.Params{}}
+// NewPhotosEditCommentBuilder func
+func NewPhotosEditCommentBuilder() *PhotosEditCommentBuilder {
+	return &PhotosEditCommentBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosEditCommentBulder) OwnerID(v int) {
+func (b *PhotosEditCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CommentID Comment ID.
-func (b *PhotosEditCommentBulder) CommentID(v int) {
+func (b *PhotosEditCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
 // Message New text of the comment.
-func (b *PhotosEditCommentBulder) Message(v string) {
+func (b *PhotosEditCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
 // Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID. Example: "photo100172_166443618,photo66748_265827614"
-func (b *PhotosEditCommentBulder) Attachments(v []string) {
+func (b *PhotosEditCommentBuilder) Attachments(v []string) {
 	b.Params["attachments"] = v
 }
 
-// PhotosGetBulder builder
+// PhotosGetBuilder builder
 //
 // Returns a list of a user's or community's photos.
 //
 // https://vk.com/dev/photos.get
-type PhotosGetBulder struct {
+type PhotosGetBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetBulder func
-func NewPhotosGetBulder() *PhotosGetBulder {
-	return &PhotosGetBulder{api.Params{}}
+// NewPhotosGetBuilder func
+func NewPhotosGetBuilder() *PhotosGetBuilder {
+	return &PhotosGetBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photos. Use a negative value to designate a community ID.
-func (b *PhotosGetBulder) OwnerID(v int) {
+func (b *PhotosGetBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumID Photo album ID. To return information about photos from service albums, use the following string values: 'profile, wall, saved'.
-func (b *PhotosGetBulder) AlbumID(v string) {
+func (b *PhotosGetBuilder) AlbumID(v string) {
 	b.Params["album_id"] = v
 }
 
 // PhotoIDs Photo IDs.
-func (b *PhotosGetBulder) PhotoIDs(v []string) {
+func (b *PhotosGetBuilder) PhotoIDs(v []string) {
 	b.Params["photo_ids"] = v
 }
 
 // Rev Sort order: '1' — reverse chronological, '0' — chronological
-func (b *PhotosGetBulder) Rev(v bool) {
+func (b *PhotosGetBuilder) Rev(v bool) {
 	b.Params["rev"] = v
 }
 
 // Extended '1' — to return additional 'likes', 'comments', and 'tags' fields, '0' — (default)
-func (b *PhotosGetBulder) Extended(v bool) {
+func (b *PhotosGetBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // FeedType Type of feed obtained in 'feed' field of the method.
-func (b *PhotosGetBulder) FeedType(v string) {
+func (b *PhotosGetBuilder) FeedType(v string) {
 	b.Params["feed_type"] = v
 }
 
 // Feed unixtime, that can be obtained with [vk.com/dev/newsfeed.get|newsfeed.get] method in date field to get all photos uploaded by the user on a specific day, or photos the user has been tagged on. Also, 'uid' parameter of the user the event happened with shall be specified.
-func (b *PhotosGetBulder) Feed(v int) {
+func (b *PhotosGetBuilder) Feed(v int) {
 	b.Params["feed"] = v
 }
 
 // PhotoSizes '1' — to return photo sizes in a [vk.com/dev/photo_sizes|special format]
-func (b *PhotosGetBulder) PhotoSizes(v bool) {
+func (b *PhotosGetBuilder) PhotoSizes(v bool) {
 	b.Params["photo_sizes"] = v
 }
 
 // Offset parameter
-func (b *PhotosGetBulder) Offset(v int) {
+func (b *PhotosGetBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count parameter
-func (b *PhotosGetBulder) Count(v int) {
+func (b *PhotosGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// PhotosGetAlbumsBulder builder
+// PhotosGetAlbumsBuilder builder
 //
 // Returns a list of a user's or community's photo albums.
 //
 // https://vk.com/dev/photos.getAlbums
-type PhotosGetAlbumsBulder struct {
+type PhotosGetAlbumsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetAlbumsBulder func
-func NewPhotosGetAlbumsBulder() *PhotosGetAlbumsBulder {
-	return &PhotosGetAlbumsBulder{api.Params{}}
+// NewPhotosGetAlbumsBuilder func
+func NewPhotosGetAlbumsBuilder() *PhotosGetAlbumsBuilder {
+	return &PhotosGetAlbumsBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the albums.
-func (b *PhotosGetAlbumsBulder) OwnerID(v int) {
+func (b *PhotosGetAlbumsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumIDs Album IDs.
-func (b *PhotosGetAlbumsBulder) AlbumIDs(v []int) {
+func (b *PhotosGetAlbumsBuilder) AlbumIDs(v []int) {
 	b.Params["album_ids"] = v
 }
 
 // Offset Offset needed to return a specific subset of albums.
-func (b *PhotosGetAlbumsBulder) Offset(v int) {
+func (b *PhotosGetAlbumsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of albums to return.
-func (b *PhotosGetAlbumsBulder) Count(v int) {
+func (b *PhotosGetAlbumsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // NeedSystem '1' — to return system albums with negative IDs
-func (b *PhotosGetAlbumsBulder) NeedSystem(v bool) {
+func (b *PhotosGetAlbumsBuilder) NeedSystem(v bool) {
 	b.Params["need_system"] = v
 }
 
 // NeedCovers '1' — to return an additional 'thumb_src' field, '0' — (default)
-func (b *PhotosGetAlbumsBulder) NeedCovers(v bool) {
+func (b *PhotosGetAlbumsBuilder) NeedCovers(v bool) {
 	b.Params["need_covers"] = v
 }
 
 // PhotoSizes '1' — to return photo sizes in a
-func (b *PhotosGetAlbumsBulder) PhotoSizes(v bool) {
+func (b *PhotosGetAlbumsBuilder) PhotoSizes(v bool) {
 	b.Params["photo_sizes"] = v
 }
 
-// PhotosGetAlbumsCountBulder builder
+// PhotosGetAlbumsCountBuilder builder
 //
 // Returns the number of photo albums belonging to a user or community.
 //
 // https://vk.com/dev/photos.getAlbumsCount
-type PhotosGetAlbumsCountBulder struct {
+type PhotosGetAlbumsCountBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetAlbumsCountBulder func
-func NewPhotosGetAlbumsCountBulder() *PhotosGetAlbumsCountBulder {
-	return &PhotosGetAlbumsCountBulder{api.Params{}}
+// NewPhotosGetAlbumsCountBuilder func
+func NewPhotosGetAlbumsCountBuilder() *PhotosGetAlbumsCountBuilder {
+	return &PhotosGetAlbumsCountBuilder{api.Params{}}
 }
 
 // UserID User ID.
-func (b *PhotosGetAlbumsCountBulder) UserID(v int) {
+func (b *PhotosGetAlbumsCountBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // GroupID Community ID.
-func (b *PhotosGetAlbumsCountBulder) GroupID(v int) {
+func (b *PhotosGetAlbumsCountBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// PhotosGetAllBulder builder
+// PhotosGetAllBuilder builder
 //
 // Returns a list of photos belonging to a user or community, in reverse chronological order.
 //
 // https://vk.com/dev/photos.getAll
-type PhotosGetAllBulder struct {
+type PhotosGetAllBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetAllBulder func
-func NewPhotosGetAllBulder() *PhotosGetAllBulder {
-	return &PhotosGetAllBulder{api.Params{}}
+// NewPhotosGetAllBuilder func
+func NewPhotosGetAllBuilder() *PhotosGetAllBuilder {
+	return &PhotosGetAllBuilder{api.Params{}}
 }
 
 // OwnerID ID of a user or community that owns the photos. Use a negative value to designate a community ID.
-func (b *PhotosGetAllBulder) OwnerID(v int) {
+func (b *PhotosGetAllBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // Extended '1' — to return detailed information about photos
-func (b *PhotosGetAllBulder) Extended(v bool) {
+func (b *PhotosGetAllBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Offset Offset needed to return a specific subset of photos. By default, '0'.
-func (b *PhotosGetAllBulder) Offset(v int) {
+func (b *PhotosGetAllBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of photos to return.
-func (b *PhotosGetAllBulder) Count(v int) {
+func (b *PhotosGetAllBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // PhotoSizes '1' – to return image sizes in [vk.com/dev/photo_sizes|special format].
-func (b *PhotosGetAllBulder) PhotoSizes(v bool) {
+func (b *PhotosGetAllBuilder) PhotoSizes(v bool) {
 	b.Params["photo_sizes"] = v
 }
 
 // NoServiceAlbums '1' – to return photos only from standard albums, '0' – to return all photos including those in service albums, e.g., 'My wall photos' (default)
-func (b *PhotosGetAllBulder) NoServiceAlbums(v bool) {
+func (b *PhotosGetAllBuilder) NoServiceAlbums(v bool) {
 	b.Params["no_service_albums"] = v
 }
 
 // NeedHidden '1' – to show information about photos being hidden from the block above the wall.
-func (b *PhotosGetAllBulder) NeedHidden(v bool) {
+func (b *PhotosGetAllBuilder) NeedHidden(v bool) {
 	b.Params["need_hidden"] = v
 }
 
 // SkipHidden '1' – not to return photos being hidden from the block above the wall. Works only with owner_id>0, no_service_albums is ignored.
-func (b *PhotosGetAllBulder) SkipHidden(v bool) {
+func (b *PhotosGetAllBuilder) SkipHidden(v bool) {
 	b.Params["skip_hidden"] = v
 }
 
-// PhotosGetAllCommentsBulder builder
+// PhotosGetAllCommentsBuilder builder
 //
 // Returns a list of comments on a specific photo album or all albums of the user sorted in reverse chronological order.
 //
 // https://vk.com/dev/photos.getAllComments
-type PhotosGetAllCommentsBulder struct {
+type PhotosGetAllCommentsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetAllCommentsBulder func
-func NewPhotosGetAllCommentsBulder() *PhotosGetAllCommentsBulder {
-	return &PhotosGetAllCommentsBulder{api.Params{}}
+// NewPhotosGetAllCommentsBuilder func
+func NewPhotosGetAllCommentsBuilder() *PhotosGetAllCommentsBuilder {
+	return &PhotosGetAllCommentsBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the album(s).
-func (b *PhotosGetAllCommentsBulder) OwnerID(v int) {
+func (b *PhotosGetAllCommentsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumID Album ID. If the parameter is not set, comments on all of the user's albums will be returned.
-func (b *PhotosGetAllCommentsBulder) AlbumID(v int) {
+func (b *PhotosGetAllCommentsBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // NeedLikes '1' — to return an additional 'likes' field, '0' — (default)
-func (b *PhotosGetAllCommentsBulder) NeedLikes(v bool) {
+func (b *PhotosGetAllCommentsBuilder) NeedLikes(v bool) {
 	b.Params["need_likes"] = v
 }
 
 // Offset Offset needed to return a specific subset of comments. By default, '0'.
-func (b *PhotosGetAllCommentsBulder) Offset(v int) {
+func (b *PhotosGetAllCommentsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of comments to return. By default, '20'. Maximum value, '100'.
-func (b *PhotosGetAllCommentsBulder) Count(v int) {
+func (b *PhotosGetAllCommentsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// PhotosGetByIDBulder builder
+// PhotosGetByIDBuilder builder
 //
 // Returns information about photos by their IDs.
 //
 // https://vk.com/dev/photos.getById
-type PhotosGetByIDBulder struct {
+type PhotosGetByIDBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetByIDBulder func
-func NewPhotosGetByIDBulder() *PhotosGetByIDBulder {
-	return &PhotosGetByIDBulder{api.Params{}}
+// NewPhotosGetByIDBuilder func
+func NewPhotosGetByIDBuilder() *PhotosGetByIDBuilder {
+	return &PhotosGetByIDBuilder{api.Params{}}
 }
 
 // Photos IDs separated with a comma, that are IDs of users who posted photos and IDs of photos themselves with an underscore character between such IDs. To get information about a photo in the group album, you shall specify group ID instead of user ID. Example: "1_129207899,6492_135055734, , -20629724_271945303"
-func (b *PhotosGetByIDBulder) Photos(v []string) {
+func (b *PhotosGetByIDBuilder) Photos(v []string) {
 	b.Params["photos"] = v
 }
 
 // Extended '1' — to return additional fields, '0' — (default)
-func (b *PhotosGetByIDBulder) Extended(v bool) {
+func (b *PhotosGetByIDBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // PhotoSizes '1' — to return photo sizes in a
-func (b *PhotosGetByIDBulder) PhotoSizes(v bool) {
+func (b *PhotosGetByIDBuilder) PhotoSizes(v bool) {
 	b.Params["photo_sizes"] = v
 }
 
-// PhotosGetChatUploadServerBulder builder
+// PhotosGetChatUploadServerBuilder builder
 //
 // Returns an upload link for chat cover pictures.
 //
 // https://vk.com/dev/photos.getChatUploadServer
-type PhotosGetChatUploadServerBulder struct {
+type PhotosGetChatUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetChatUploadServerBulder func
-func NewPhotosGetChatUploadServerBulder() *PhotosGetChatUploadServerBulder {
-	return &PhotosGetChatUploadServerBulder{api.Params{}}
+// NewPhotosGetChatUploadServerBuilder func
+func NewPhotosGetChatUploadServerBuilder() *PhotosGetChatUploadServerBuilder {
+	return &PhotosGetChatUploadServerBuilder{api.Params{}}
 }
 
 // ChatID ID of the chat for which you want to upload a cover photo.
-func (b *PhotosGetChatUploadServerBulder) ChatID(v int) {
+func (b *PhotosGetChatUploadServerBuilder) ChatID(v int) {
 	b.Params["chat_id"] = v
 }
 
 // CropX parameter
-func (b *PhotosGetChatUploadServerBulder) CropX(v int) {
+func (b *PhotosGetChatUploadServerBuilder) CropX(v int) {
 	b.Params["crop_x"] = v
 }
 
 // CropY parameter
-func (b *PhotosGetChatUploadServerBulder) CropY(v int) {
+func (b *PhotosGetChatUploadServerBuilder) CropY(v int) {
 	b.Params["crop_y"] = v
 }
 
 // CropWidth Width (in pixels) of the photo after cropping.
-func (b *PhotosGetChatUploadServerBulder) CropWidth(v int) {
+func (b *PhotosGetChatUploadServerBuilder) CropWidth(v int) {
 	b.Params["crop_width"] = v
 }
 
-// PhotosGetCommentsBulder builder
+// PhotosGetCommentsBuilder builder
 //
 // Returns a list of comments on a photo.
 //
 // https://vk.com/dev/photos.getComments
-type PhotosGetCommentsBulder struct {
+type PhotosGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetCommentsBulder func
-func NewPhotosGetCommentsBulder() *PhotosGetCommentsBulder {
-	return &PhotosGetCommentsBulder{api.Params{}}
+// NewPhotosGetCommentsBuilder func
+func NewPhotosGetCommentsBuilder() *PhotosGetCommentsBuilder {
+	return &PhotosGetCommentsBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosGetCommentsBulder) OwnerID(v int) {
+func (b *PhotosGetCommentsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosGetCommentsBulder) PhotoID(v int) {
+func (b *PhotosGetCommentsBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // NeedLikes '1' — to return an additional 'likes' field, '0' — (default)
-func (b *PhotosGetCommentsBulder) NeedLikes(v bool) {
+func (b *PhotosGetCommentsBuilder) NeedLikes(v bool) {
 	b.Params["need_likes"] = v
 }
 
 // StartCommentID parameter
-func (b *PhotosGetCommentsBulder) StartCommentID(v int) {
+func (b *PhotosGetCommentsBuilder) StartCommentID(v int) {
 	b.Params["start_comment_id"] = v
 }
 
 // Offset Offset needed to return a specific subset of comments. By default, '0'.
-func (b *PhotosGetCommentsBulder) Offset(v int) {
+func (b *PhotosGetCommentsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of comments to return.
-func (b *PhotosGetCommentsBulder) Count(v int) {
+func (b *PhotosGetCommentsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Sort Sort order: 'asc' — old first, 'desc' — new first
-func (b *PhotosGetCommentsBulder) Sort(v string) {
+func (b *PhotosGetCommentsBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
 
 // AccessKey parameter
-func (b *PhotosGetCommentsBulder) AccessKey(v string) {
+func (b *PhotosGetCommentsBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
 // Extended parameter
-func (b *PhotosGetCommentsBulder) Extended(v bool) {
+func (b *PhotosGetCommentsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Fields parameter
-func (b *PhotosGetCommentsBulder) Fields(v []string) {
+func (b *PhotosGetCommentsBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// PhotosGetMarketAlbumUploadServerBulder builder
+// PhotosGetMarketAlbumUploadServerBuilder builder
 //
 // Returns the server address for market album photo upload.
 //
 // https://vk.com/dev/photos.getMarketAlbumUploadServer
-type PhotosGetMarketAlbumUploadServerBulder struct {
+type PhotosGetMarketAlbumUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetMarketAlbumUploadServerBulder func
-func NewPhotosGetMarketAlbumUploadServerBulder() *PhotosGetMarketAlbumUploadServerBulder {
-	return &PhotosGetMarketAlbumUploadServerBulder{api.Params{}}
+// NewPhotosGetMarketAlbumUploadServerBuilder func
+func NewPhotosGetMarketAlbumUploadServerBuilder() *PhotosGetMarketAlbumUploadServerBuilder {
+	return &PhotosGetMarketAlbumUploadServerBuilder{api.Params{}}
 }
 
 // GroupID Community ID.
-func (b *PhotosGetMarketAlbumUploadServerBulder) GroupID(v int) {
+func (b *PhotosGetMarketAlbumUploadServerBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// PhotosGetMarketUploadServerBulder builder
+// PhotosGetMarketUploadServerBuilder builder
 //
 // Returns the server address for market photo upload.
 //
 // https://vk.com/dev/photos.getMarketUploadServer
-type PhotosGetMarketUploadServerBulder struct {
+type PhotosGetMarketUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetMarketUploadServerBulder func
-func NewPhotosGetMarketUploadServerBulder() *PhotosGetMarketUploadServerBulder {
-	return &PhotosGetMarketUploadServerBulder{api.Params{}}
+// NewPhotosGetMarketUploadServerBuilder func
+func NewPhotosGetMarketUploadServerBuilder() *PhotosGetMarketUploadServerBuilder {
+	return &PhotosGetMarketUploadServerBuilder{api.Params{}}
 }
 
 // GroupID Community ID.
-func (b *PhotosGetMarketUploadServerBulder) GroupID(v int) {
+func (b *PhotosGetMarketUploadServerBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
 // MainPhoto '1' if you want to upload the main item photo.
-func (b *PhotosGetMarketUploadServerBulder) MainPhoto(v bool) {
+func (b *PhotosGetMarketUploadServerBuilder) MainPhoto(v bool) {
 	b.Params["main_photo"] = v
 }
 
 // CropX X coordinate of the crop left upper corner.
-func (b *PhotosGetMarketUploadServerBulder) CropX(v int) {
+func (b *PhotosGetMarketUploadServerBuilder) CropX(v int) {
 	b.Params["crop_x"] = v
 }
 
 // CropY Y coordinate of the crop left upper corner.
-func (b *PhotosGetMarketUploadServerBulder) CropY(v int) {
+func (b *PhotosGetMarketUploadServerBuilder) CropY(v int) {
 	b.Params["crop_y"] = v
 }
 
 // CropWidth Width of the cropped photo in px.
-func (b *PhotosGetMarketUploadServerBulder) CropWidth(v int) {
+func (b *PhotosGetMarketUploadServerBuilder) CropWidth(v int) {
 	b.Params["crop_width"] = v
 }
 
-// PhotosGetMessagesUploadServerBulder builder
+// PhotosGetMessagesUploadServerBuilder builder
 //
 // Returns the server address for photo upload in a private message for a user.
 //
 // https://vk.com/dev/photos.getMessagesUploadServer
-type PhotosGetMessagesUploadServerBulder struct {
+type PhotosGetMessagesUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetMessagesUploadServerBulder func
-func NewPhotosGetMessagesUploadServerBulder() *PhotosGetMessagesUploadServerBulder {
-	return &PhotosGetMessagesUploadServerBulder{api.Params{}}
+// NewPhotosGetMessagesUploadServerBuilder func
+func NewPhotosGetMessagesUploadServerBuilder() *PhotosGetMessagesUploadServerBuilder {
+	return &PhotosGetMessagesUploadServerBuilder{api.Params{}}
 }
 
 // PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'Chat ID', e.g. '2000000001'. For community: '- Community ID', e.g. '-12345'. "
-func (b *PhotosGetMessagesUploadServerBulder) PeerID(v int) {
+func (b *PhotosGetMessagesUploadServerBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
 
-// PhotosGetNewTagsBulder builder
+// PhotosGetNewTagsBuilder builder
 //
 // Returns a list of photos with tags that have not been viewed.
 //
 // https://vk.com/dev/photos.getNewTags
-type PhotosGetNewTagsBulder struct {
+type PhotosGetNewTagsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetNewTagsBulder func
-func NewPhotosGetNewTagsBulder() *PhotosGetNewTagsBulder {
-	return &PhotosGetNewTagsBulder{api.Params{}}
+// NewPhotosGetNewTagsBuilder func
+func NewPhotosGetNewTagsBuilder() *PhotosGetNewTagsBuilder {
+	return &PhotosGetNewTagsBuilder{api.Params{}}
 }
 
 // Offset Offset needed to return a specific subset of photos.
-func (b *PhotosGetNewTagsBulder) Offset(v int) {
+func (b *PhotosGetNewTagsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of photos to return.
-func (b *PhotosGetNewTagsBulder) Count(v int) {
+func (b *PhotosGetNewTagsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// PhotosGetOwnerCoverPhotoUploadServerBulder builder
+// PhotosGetOwnerCoverPhotoUploadServerBuilder builder
 //
 // Returns the server address for owner cover upload.
 //
 // https://vk.com/dev/photos.getOwnerCoverPhotoUploadServer
-type PhotosGetOwnerCoverPhotoUploadServerBulder struct {
+type PhotosGetOwnerCoverPhotoUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetOwnerCoverPhotoUploadServerBulder func
-func NewPhotosGetOwnerCoverPhotoUploadServerBulder() *PhotosGetOwnerCoverPhotoUploadServerBulder {
-	return &PhotosGetOwnerCoverPhotoUploadServerBulder{api.Params{}}
+// NewPhotosGetOwnerCoverPhotoUploadServerBuilder func
+func NewPhotosGetOwnerCoverPhotoUploadServerBuilder() *PhotosGetOwnerCoverPhotoUploadServerBuilder {
+	return &PhotosGetOwnerCoverPhotoUploadServerBuilder{api.Params{}}
 }
 
 // GroupID ID of community that owns the album (if the photo will be uploaded to a community album).
-func (b *PhotosGetOwnerCoverPhotoUploadServerBulder) GroupID(v int) {
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
 // CropX X coordinate of the left-upper corner
-func (b *PhotosGetOwnerCoverPhotoUploadServerBulder) CropX(v int) {
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropX(v int) {
 	b.Params["crop_x"] = v
 }
 
 // CropY Y coordinate of the left-upper corner
-func (b *PhotosGetOwnerCoverPhotoUploadServerBulder) CropY(v int) {
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropY(v int) {
 	b.Params["crop_y"] = v
 }
 
 // CropX2 X coordinate of the right-bottom corner
-func (b *PhotosGetOwnerCoverPhotoUploadServerBulder) CropX2(v int) {
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropX2(v int) {
 	b.Params["crop_x2"] = v
 }
 
 // CropY2 Y coordinate of the right-bottom corner
-func (b *PhotosGetOwnerCoverPhotoUploadServerBulder) CropY2(v int) {
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropY2(v int) {
 	b.Params["crop_y2"] = v
 }
 
-// PhotosGetOwnerPhotoUploadServerBulder builder
+// PhotosGetOwnerPhotoUploadServerBuilder builder
 //
 // Returns an upload server address for a profile or community photo.
 //
 // https://vk.com/dev/photos.getOwnerPhotoUploadServer
-type PhotosGetOwnerPhotoUploadServerBulder struct {
+type PhotosGetOwnerPhotoUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetOwnerPhotoUploadServerBulder func
-func NewPhotosGetOwnerPhotoUploadServerBulder() *PhotosGetOwnerPhotoUploadServerBulder {
-	return &PhotosGetOwnerPhotoUploadServerBulder{api.Params{}}
+// NewPhotosGetOwnerPhotoUploadServerBuilder func
+func NewPhotosGetOwnerPhotoUploadServerBuilder() *PhotosGetOwnerPhotoUploadServerBuilder {
+	return &PhotosGetOwnerPhotoUploadServerBuilder{api.Params{}}
 }
 
 // OwnerID identifier of a community or current user. "Note that community id must be negative. 'owner_id=1' – user, 'owner_id=-1' – community, "
-func (b *PhotosGetOwnerPhotoUploadServerBulder) OwnerID(v int) {
+func (b *PhotosGetOwnerPhotoUploadServerBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
-// PhotosGetTagsBulder builder
+// PhotosGetTagsBuilder builder
 //
 // Returns a list of tags on a photo.
 //
 // https://vk.com/dev/photos.getTags
-type PhotosGetTagsBulder struct {
+type PhotosGetTagsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetTagsBulder func
-func NewPhotosGetTagsBulder() *PhotosGetTagsBulder {
-	return &PhotosGetTagsBulder{api.Params{}}
+// NewPhotosGetTagsBuilder func
+func NewPhotosGetTagsBuilder() *PhotosGetTagsBuilder {
+	return &PhotosGetTagsBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosGetTagsBulder) OwnerID(v int) {
+func (b *PhotosGetTagsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosGetTagsBulder) PhotoID(v int) {
+func (b *PhotosGetTagsBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // AccessKey parameter
-func (b *PhotosGetTagsBulder) AccessKey(v string) {
+func (b *PhotosGetTagsBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
-// PhotosGetUploadServerBulder builder
+// PhotosGetUploadServerBuilder builder
 //
 // Returns the server address for photo upload.
 //
 // https://vk.com/dev/photos.getUploadServer
-type PhotosGetUploadServerBulder struct {
+type PhotosGetUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetUploadServerBulder func
-func NewPhotosGetUploadServerBulder() *PhotosGetUploadServerBulder {
-	return &PhotosGetUploadServerBulder{api.Params{}}
+// NewPhotosGetUploadServerBuilder func
+func NewPhotosGetUploadServerBuilder() *PhotosGetUploadServerBuilder {
+	return &PhotosGetUploadServerBuilder{api.Params{}}
 }
 
 // GroupID ID of community that owns the album (if the photo will be uploaded to a community album).
-func (b *PhotosGetUploadServerBulder) GroupID(v int) {
+func (b *PhotosGetUploadServerBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
 // AlbumID parameter
-func (b *PhotosGetUploadServerBulder) AlbumID(v int) {
+func (b *PhotosGetUploadServerBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
-// PhotosGetUserPhotosBulder builder
+// PhotosGetUserPhotosBuilder builder
 //
 // Returns a list of photos in which a user is tagged.
 //
 // https://vk.com/dev/photos.getUserPhotos
-type PhotosGetUserPhotosBulder struct {
+type PhotosGetUserPhotosBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetUserPhotosBulder func
-func NewPhotosGetUserPhotosBulder() *PhotosGetUserPhotosBulder {
-	return &PhotosGetUserPhotosBulder{api.Params{}}
+// NewPhotosGetUserPhotosBuilder func
+func NewPhotosGetUserPhotosBuilder() *PhotosGetUserPhotosBuilder {
+	return &PhotosGetUserPhotosBuilder{api.Params{}}
 }
 
 // UserID User ID.
-func (b *PhotosGetUserPhotosBulder) UserID(v int) {
+func (b *PhotosGetUserPhotosBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // Offset Offset needed to return a specific subset of photos. By default, '0'.
-func (b *PhotosGetUserPhotosBulder) Offset(v int) {
+func (b *PhotosGetUserPhotosBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of photos to return. Maximum value is 1000.
-func (b *PhotosGetUserPhotosBulder) Count(v int) {
+func (b *PhotosGetUserPhotosBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Extended '1' — to return an additional 'likes' field, '0' — (default)
-func (b *PhotosGetUserPhotosBulder) Extended(v bool) {
+func (b *PhotosGetUserPhotosBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Sort Sort order: '1' — by date the tag was added in ascending order, '0' — by date the tag was added in descending order
-func (b *PhotosGetUserPhotosBulder) Sort(v string) {
+func (b *PhotosGetUserPhotosBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
 
-// PhotosGetWallUploadServerBulder builder
+// PhotosGetWallUploadServerBuilder builder
 //
 // Returns the server address for photo upload onto a user's wall.
 //
 // https://vk.com/dev/photos.getWallUploadServer
-type PhotosGetWallUploadServerBulder struct {
+type PhotosGetWallUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetWallUploadServerBulder func
-func NewPhotosGetWallUploadServerBulder() *PhotosGetWallUploadServerBulder {
-	return &PhotosGetWallUploadServerBulder{api.Params{}}
+// NewPhotosGetWallUploadServerBuilder func
+func NewPhotosGetWallUploadServerBuilder() *PhotosGetWallUploadServerBuilder {
+	return &PhotosGetWallUploadServerBuilder{api.Params{}}
 }
 
 // GroupID ID of community to whose wall the photo will be uploaded.
-func (b *PhotosGetWallUploadServerBulder) GroupID(v int) {
+func (b *PhotosGetWallUploadServerBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// PhotosMakeCoverBulder builder
+// PhotosMakeCoverBuilder builder
 //
 // Makes a photo into an album cover.
 //
 // https://vk.com/dev/photos.makeCover
-type PhotosMakeCoverBulder struct {
+type PhotosMakeCoverBuilder struct {
 	api.Params
 }
 
-// NewPhotosMakeCoverBulder func
-func NewPhotosMakeCoverBulder() *PhotosMakeCoverBulder {
-	return &PhotosMakeCoverBulder{api.Params{}}
+// NewPhotosMakeCoverBuilder func
+func NewPhotosMakeCoverBuilder() *PhotosMakeCoverBuilder {
+	return &PhotosMakeCoverBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosMakeCoverBulder) OwnerID(v int) {
+func (b *PhotosMakeCoverBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosMakeCoverBulder) PhotoID(v int) {
+func (b *PhotosMakeCoverBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // AlbumID Album ID.
-func (b *PhotosMakeCoverBulder) AlbumID(v int) {
+func (b *PhotosMakeCoverBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
-// PhotosMoveBulder builder
+// PhotosMoveBuilder builder
 //
 // Moves a photo from one album to another.
 //
 // https://vk.com/dev/photos.move
-type PhotosMoveBulder struct {
+type PhotosMoveBuilder struct {
 	api.Params
 }
 
-// NewPhotosMoveBulder func
-func NewPhotosMoveBulder() *PhotosMoveBulder {
-	return &PhotosMoveBulder{api.Params{}}
+// NewPhotosMoveBuilder func
+func NewPhotosMoveBuilder() *PhotosMoveBuilder {
+	return &PhotosMoveBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosMoveBulder) OwnerID(v int) {
+func (b *PhotosMoveBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // TargetAlbumID ID of the album to which the photo will be moved.
-func (b *PhotosMoveBulder) TargetAlbumID(v int) {
+func (b *PhotosMoveBuilder) TargetAlbumID(v int) {
 	b.Params["target_album_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosMoveBulder) PhotoID(v int) {
+func (b *PhotosMoveBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
-// PhotosPutTagBulder builder
+// PhotosPutTagBuilder builder
 //
 // Adds a tag on the photo.
 //
 // https://vk.com/dev/photos.putTag
-type PhotosPutTagBulder struct {
+type PhotosPutTagBuilder struct {
 	api.Params
 }
 
-// NewPhotosPutTagBulder func
-func NewPhotosPutTagBulder() *PhotosPutTagBulder {
-	return &PhotosPutTagBulder{api.Params{}}
+// NewPhotosPutTagBuilder func
+func NewPhotosPutTagBuilder() *PhotosPutTagBuilder {
+	return &PhotosPutTagBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosPutTagBulder) OwnerID(v int) {
+func (b *PhotosPutTagBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosPutTagBulder) PhotoID(v int) {
+func (b *PhotosPutTagBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // UserID ID of the user to be tagged.
-func (b *PhotosPutTagBulder) UserID(v int) {
+func (b *PhotosPutTagBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // X Upper left-corner coordinate of the tagged area (as a percentage of the photo's width).
-func (b *PhotosPutTagBulder) X(v float64) {
+func (b *PhotosPutTagBuilder) X(v float64) {
 	b.Params["x"] = v
 }
 
 // Y Upper left-corner coordinate of the tagged area (as a percentage of the photo's height).
-func (b *PhotosPutTagBulder) Y(v float64) {
+func (b *PhotosPutTagBuilder) Y(v float64) {
 	b.Params["y"] = v
 }
 
 // X2 Lower right-corner coordinate of the tagged area (as a percentage of the photo's width).
-func (b *PhotosPutTagBulder) X2(v float64) {
+func (b *PhotosPutTagBuilder) X2(v float64) {
 	b.Params["x2"] = v
 }
 
 // Y2 Lower right-corner coordinate of the tagged area (as a percentage of the photo's height).
-func (b *PhotosPutTagBulder) Y2(v float64) {
+func (b *PhotosPutTagBuilder) Y2(v float64) {
 	b.Params["y2"] = v
 }
 
-// PhotosRemoveTagBulder builder
+// PhotosRemoveTagBuilder builder
 //
 // Removes a tag from a photo.
 //
 // https://vk.com/dev/photos.removeTag
-type PhotosRemoveTagBulder struct {
+type PhotosRemoveTagBuilder struct {
 	api.Params
 }
 
-// NewPhotosRemoveTagBulder func
-func NewPhotosRemoveTagBulder() *PhotosRemoveTagBulder {
-	return &PhotosRemoveTagBulder{api.Params{}}
+// NewPhotosRemoveTagBuilder func
+func NewPhotosRemoveTagBuilder() *PhotosRemoveTagBuilder {
+	return &PhotosRemoveTagBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosRemoveTagBulder) OwnerID(v int) {
+func (b *PhotosRemoveTagBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosRemoveTagBulder) PhotoID(v int) {
+func (b *PhotosRemoveTagBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // TagID Tag ID.
-func (b *PhotosRemoveTagBulder) TagID(v int) {
+func (b *PhotosRemoveTagBuilder) TagID(v int) {
 	b.Params["tag_id"] = v
 }
 
-// PhotosReorderAlbumsBulder builder
+// PhotosReorderAlbumsBuilder builder
 //
 // Reorders the album in the list of user albums.
 //
 // https://vk.com/dev/photos.reorderAlbums
-type PhotosReorderAlbumsBulder struct {
+type PhotosReorderAlbumsBuilder struct {
 	api.Params
 }
 
-// NewPhotosReorderAlbumsBulder func
-func NewPhotosReorderAlbumsBulder() *PhotosReorderAlbumsBulder {
-	return &PhotosReorderAlbumsBulder{api.Params{}}
+// NewPhotosReorderAlbumsBuilder func
+func NewPhotosReorderAlbumsBuilder() *PhotosReorderAlbumsBuilder {
+	return &PhotosReorderAlbumsBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the album.
-func (b *PhotosReorderAlbumsBulder) OwnerID(v int) {
+func (b *PhotosReorderAlbumsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumID Album ID.
-func (b *PhotosReorderAlbumsBulder) AlbumID(v int) {
+func (b *PhotosReorderAlbumsBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // Before ID of the album before which the album in question shall be placed.
-func (b *PhotosReorderAlbumsBulder) Before(v int) {
+func (b *PhotosReorderAlbumsBuilder) Before(v int) {
 	b.Params["before"] = v
 }
 
 // After ID of the album after which the album in question shall be placed.
-func (b *PhotosReorderAlbumsBulder) After(v int) {
+func (b *PhotosReorderAlbumsBuilder) After(v int) {
 	b.Params["after"] = v
 }
 
-// PhotosReorderPhotosBulder builder
+// PhotosReorderPhotosBuilder builder
 //
 // Reorders the photo in the list of photos of the user album.
 //
 // https://vk.com/dev/photos.reorderPhotos
-type PhotosReorderPhotosBulder struct {
+type PhotosReorderPhotosBuilder struct {
 	api.Params
 }
 
-// NewPhotosReorderPhotosBulder func
-func NewPhotosReorderPhotosBulder() *PhotosReorderPhotosBulder {
-	return &PhotosReorderPhotosBulder{api.Params{}}
+// NewPhotosReorderPhotosBuilder func
+func NewPhotosReorderPhotosBuilder() *PhotosReorderPhotosBuilder {
+	return &PhotosReorderPhotosBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosReorderPhotosBulder) OwnerID(v int) {
+func (b *PhotosReorderPhotosBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosReorderPhotosBulder) PhotoID(v int) {
+func (b *PhotosReorderPhotosBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // Before ID of the photo before which the photo in question shall be placed.
-func (b *PhotosReorderPhotosBulder) Before(v int) {
+func (b *PhotosReorderPhotosBuilder) Before(v int) {
 	b.Params["before"] = v
 }
 
 // After ID of the photo after which the photo in question shall be placed.
-func (b *PhotosReorderPhotosBulder) After(v int) {
+func (b *PhotosReorderPhotosBuilder) After(v int) {
 	b.Params["after"] = v
 }
 
-// PhotosReportBulder builder
+// PhotosReportBuilder builder
 //
 // Reports (submits a complaint about) a photo.
 //
 // https://vk.com/dev/photos.report
-type PhotosReportBulder struct {
+type PhotosReportBuilder struct {
 	api.Params
 }
 
-// NewPhotosReportBulder func
-func NewPhotosReportBulder() *PhotosReportBulder {
-	return &PhotosReportBulder{api.Params{}}
+// NewPhotosReportBuilder func
+func NewPhotosReportBuilder() *PhotosReportBuilder {
+	return &PhotosReportBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosReportBulder) OwnerID(v int) {
+func (b *PhotosReportBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosReportBulder) PhotoID(v int) {
+func (b *PhotosReportBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // Reason Reason for the complaint: '0' – spam, '1' – child pornography, '2' – extremism, '3' – violence, '4' – drug propaganda, '5' – adult material, '6' – insult, abuse
-func (b *PhotosReportBulder) Reason(v int) {
+func (b *PhotosReportBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
 
-// PhotosReportCommentBulder builder
+// PhotosReportCommentBuilder builder
 //
 // Reports (submits a complaint about) a comment on a photo.
 //
 // https://vk.com/dev/photos.reportComment
-type PhotosReportCommentBulder struct {
+type PhotosReportCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosReportCommentBulder func
-func NewPhotosReportCommentBulder() *PhotosReportCommentBulder {
-	return &PhotosReportCommentBulder{api.Params{}}
+// NewPhotosReportCommentBuilder func
+func NewPhotosReportCommentBuilder() *PhotosReportCommentBuilder {
+	return &PhotosReportCommentBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosReportCommentBulder) OwnerID(v int) {
+func (b *PhotosReportCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CommentID ID of the comment being reported.
-func (b *PhotosReportCommentBulder) CommentID(v int) {
+func (b *PhotosReportCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
 // Reason Reason for the complaint: '0' – spam, '1' – child pornography, '2' – extremism, '3' – violence, '4' – drug propaganda, '5' – adult material, '6' – insult, abuse
-func (b *PhotosReportCommentBulder) Reason(v int) {
+func (b *PhotosReportCommentBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
 
-// PhotosRestoreBulder builder
+// PhotosRestoreBuilder builder
 //
 // Restores a deleted photo.
 //
 // https://vk.com/dev/photos.restore
-type PhotosRestoreBulder struct {
+type PhotosRestoreBuilder struct {
 	api.Params
 }
 
-// NewPhotosRestoreBulder func
-func NewPhotosRestoreBulder() *PhotosRestoreBulder {
-	return &PhotosRestoreBulder{api.Params{}}
+// NewPhotosRestoreBuilder func
+func NewPhotosRestoreBuilder() *PhotosRestoreBuilder {
+	return &PhotosRestoreBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosRestoreBulder) OwnerID(v int) {
+func (b *PhotosRestoreBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // PhotoID Photo ID.
-func (b *PhotosRestoreBulder) PhotoID(v int) {
+func (b *PhotosRestoreBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
-// PhotosRestoreCommentBulder builder
+// PhotosRestoreCommentBuilder builder
 //
 // Restores a deleted comment on a photo.
 //
 // https://vk.com/dev/photos.restoreComment
-type PhotosRestoreCommentBulder struct {
+type PhotosRestoreCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosRestoreCommentBulder func
-func NewPhotosRestoreCommentBulder() *PhotosRestoreCommentBulder {
-	return &PhotosRestoreCommentBulder{api.Params{}}
+// NewPhotosRestoreCommentBuilder func
+func NewPhotosRestoreCommentBuilder() *PhotosRestoreCommentBuilder {
+	return &PhotosRestoreCommentBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosRestoreCommentBulder) OwnerID(v int) {
+func (b *PhotosRestoreCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CommentID ID of the deleted comment.
-func (b *PhotosRestoreCommentBulder) CommentID(v int) {
+func (b *PhotosRestoreCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
-// PhotosSaveBulder builder
+// PhotosSaveBuilder builder
 //
 // Saves photos after successful uploading.
 //
 // https://vk.com/dev/photos.save
-type PhotosSaveBulder struct {
+type PhotosSaveBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveBulder func
-func NewPhotosSaveBulder() *PhotosSaveBulder {
-	return &PhotosSaveBulder{api.Params{}}
+// NewPhotosSaveBuilder func
+func NewPhotosSaveBuilder() *PhotosSaveBuilder {
+	return &PhotosSaveBuilder{api.Params{}}
 }
 
 // AlbumID ID of the album to save photos to.
-func (b *PhotosSaveBulder) AlbumID(v int) {
+func (b *PhotosSaveBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // GroupID ID of the community to save photos to.
-func (b *PhotosSaveBulder) GroupID(v int) {
+func (b *PhotosSaveBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
 // Server Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveBulder) Server(v int) {
+func (b *PhotosSaveBuilder) Server(v int) {
 	b.Params["server"] = v
 }
 
 // PhotosList Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveBulder) PhotosList(v string) {
+func (b *PhotosSaveBuilder) PhotosList(v string) {
 	b.Params["photos_list"] = v
 }
 
 // Hash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveBulder) Hash(v string) {
+func (b *PhotosSaveBuilder) Hash(v string) {
 	b.Params["hash"] = v
 }
 
 // Latitude Geographical latitude, in degrees (from '-90' to '90').
-func (b *PhotosSaveBulder) Latitude(v float64) {
+func (b *PhotosSaveBuilder) Latitude(v float64) {
 	b.Params["latitude"] = v
 }
 
 // Longitude Geographical longitude, in degrees (from '-180' to '180').
-func (b *PhotosSaveBulder) Longitude(v float64) {
+func (b *PhotosSaveBuilder) Longitude(v float64) {
 	b.Params["longitude"] = v
 }
 
 // Caption Text describing the photo. 2048 digits max.
-func (b *PhotosSaveBulder) Caption(v string) {
+func (b *PhotosSaveBuilder) Caption(v string) {
 	b.Params["caption"] = v
 }
 
-// PhotosSaveMarketAlbumPhotoBulder builder
+// PhotosSaveMarketAlbumPhotoBuilder builder
 //
 // Saves market album photos after successful uploading.
 //
 // https://vk.com/dev/photos.saveMarketAlbumPhoto
-type PhotosSaveMarketAlbumPhotoBulder struct {
+type PhotosSaveMarketAlbumPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveMarketAlbumPhotoBulder func
-func NewPhotosSaveMarketAlbumPhotoBulder() *PhotosSaveMarketAlbumPhotoBulder {
-	return &PhotosSaveMarketAlbumPhotoBulder{api.Params{}}
+// NewPhotosSaveMarketAlbumPhotoBuilder func
+func NewPhotosSaveMarketAlbumPhotoBuilder() *PhotosSaveMarketAlbumPhotoBuilder {
+	return &PhotosSaveMarketAlbumPhotoBuilder{api.Params{}}
 }
 
 // GroupID Community ID.
-func (b *PhotosSaveMarketAlbumPhotoBulder) GroupID(v int) {
+func (b *PhotosSaveMarketAlbumPhotoBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
 // Photo Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketAlbumPhotoBulder) Photo(v string) {
+func (b *PhotosSaveMarketAlbumPhotoBuilder) Photo(v string) {
 	b.Params["photo"] = v
 }
 
 // Server Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketAlbumPhotoBulder) Server(v int) {
+func (b *PhotosSaveMarketAlbumPhotoBuilder) Server(v int) {
 	b.Params["server"] = v
 }
 
 // Hash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketAlbumPhotoBulder) Hash(v string) {
+func (b *PhotosSaveMarketAlbumPhotoBuilder) Hash(v string) {
 	b.Params["hash"] = v
 }
 
-// PhotosSaveMarketPhotoBulder builder
+// PhotosSaveMarketPhotoBuilder builder
 //
 // Saves market photos after successful uploading.
 //
 // https://vk.com/dev/photos.saveMarketPhoto
-type PhotosSaveMarketPhotoBulder struct {
+type PhotosSaveMarketPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveMarketPhotoBulder func
-func NewPhotosSaveMarketPhotoBulder() *PhotosSaveMarketPhotoBulder {
-	return &PhotosSaveMarketPhotoBulder{api.Params{}}
+// NewPhotosSaveMarketPhotoBuilder func
+func NewPhotosSaveMarketPhotoBuilder() *PhotosSaveMarketPhotoBuilder {
+	return &PhotosSaveMarketPhotoBuilder{api.Params{}}
 }
 
 // GroupID Community ID.
-func (b *PhotosSaveMarketPhotoBulder) GroupID(v int) {
+func (b *PhotosSaveMarketPhotoBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
 // Photo Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBulder) Photo(v string) {
+func (b *PhotosSaveMarketPhotoBuilder) Photo(v string) {
 	b.Params["photo"] = v
 }
 
 // Server Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBulder) Server(v int) {
+func (b *PhotosSaveMarketPhotoBuilder) Server(v int) {
 	b.Params["server"] = v
 }
 
 // Hash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBulder) Hash(v string) {
+func (b *PhotosSaveMarketPhotoBuilder) Hash(v string) {
 	b.Params["hash"] = v
 }
 
 // CropData Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBulder) CropData(v string) {
+func (b *PhotosSaveMarketPhotoBuilder) CropData(v string) {
 	b.Params["crop_data"] = v
 }
 
 // CropHash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBulder) CropHash(v string) {
+func (b *PhotosSaveMarketPhotoBuilder) CropHash(v string) {
 	b.Params["crop_hash"] = v
 }
 
-// PhotosSaveMessagesPhotoBulder builder
+// PhotosSaveMessagesPhotoBuilder builder
 //
 // Saves a photo after being successfully uploaded. URL obtained with [vk.com/dev/photos.getMessagesUploadServer|photos.getMessagesUploadServer] method.
 //
 // https://vk.com/dev/photos.saveMessagesPhoto
-type PhotosSaveMessagesPhotoBulder struct {
+type PhotosSaveMessagesPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveMessagesPhotoBulder func
-func NewPhotosSaveMessagesPhotoBulder() *PhotosSaveMessagesPhotoBulder {
-	return &PhotosSaveMessagesPhotoBulder{api.Params{}}
+// NewPhotosSaveMessagesPhotoBuilder func
+func NewPhotosSaveMessagesPhotoBuilder() *PhotosSaveMessagesPhotoBuilder {
+	return &PhotosSaveMessagesPhotoBuilder{api.Params{}}
 }
 
 // Photo Parameter returned when the photo is [vk.com/dev/upload_files|uploaded to the server].
-func (b *PhotosSaveMessagesPhotoBulder) Photo(v string) {
+func (b *PhotosSaveMessagesPhotoBuilder) Photo(v string) {
 	b.Params["photo"] = v
 }
 
 // Server parameter
-func (b *PhotosSaveMessagesPhotoBulder) Server(v int) {
+func (b *PhotosSaveMessagesPhotoBuilder) Server(v int) {
 	b.Params["server"] = v
 }
 
 // Hash parameter
-func (b *PhotosSaveMessagesPhotoBulder) Hash(v string) {
+func (b *PhotosSaveMessagesPhotoBuilder) Hash(v string) {
 	b.Params["hash"] = v
 }
 
-// PhotosSaveOwnerCoverPhotoBulder builder
+// PhotosSaveOwnerCoverPhotoBuilder builder
 //
 // Saves cover photo after successful uploading.
 //
 // https://vk.com/dev/photos.saveOwnerCoverPhoto
-type PhotosSaveOwnerCoverPhotoBulder struct {
+type PhotosSaveOwnerCoverPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveOwnerCoverPhotoBulder func
-func NewPhotosSaveOwnerCoverPhotoBulder() *PhotosSaveOwnerCoverPhotoBulder {
-	return &PhotosSaveOwnerCoverPhotoBulder{api.Params{}}
+// NewPhotosSaveOwnerCoverPhotoBuilder func
+func NewPhotosSaveOwnerCoverPhotoBuilder() *PhotosSaveOwnerCoverPhotoBuilder {
+	return &PhotosSaveOwnerCoverPhotoBuilder{api.Params{}}
 }
 
 // Hash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveOwnerCoverPhotoBulder) Hash(v string) {
+func (b *PhotosSaveOwnerCoverPhotoBuilder) Hash(v string) {
 	b.Params["hash"] = v
 }
 
 // Photo Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveOwnerCoverPhotoBulder) Photo(v string) {
+func (b *PhotosSaveOwnerCoverPhotoBuilder) Photo(v string) {
 	b.Params["photo"] = v
 }
 
-// PhotosSaveOwnerPhotoBulder builder
+// PhotosSaveOwnerPhotoBuilder builder
 //
 // Saves a profile or community photo. Upload URL can be got with the [vk.com/dev/photos.getOwnerPhotoUploadServer|photos.getOwnerPhotoUploadServer] method.
 //
 // https://vk.com/dev/photos.saveOwnerPhoto
-type PhotosSaveOwnerPhotoBulder struct {
+type PhotosSaveOwnerPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveOwnerPhotoBulder func
-func NewPhotosSaveOwnerPhotoBulder() *PhotosSaveOwnerPhotoBulder {
-	return &PhotosSaveOwnerPhotoBulder{api.Params{}}
+// NewPhotosSaveOwnerPhotoBuilder func
+func NewPhotosSaveOwnerPhotoBuilder() *PhotosSaveOwnerPhotoBuilder {
+	return &PhotosSaveOwnerPhotoBuilder{api.Params{}}
 }
 
 // Server parameter returned after [vk.com/dev/upload_files|photo upload].
-func (b *PhotosSaveOwnerPhotoBulder) Server(v string) {
+func (b *PhotosSaveOwnerPhotoBuilder) Server(v string) {
 	b.Params["server"] = v
 }
 
 // Hash parameter returned after [vk.com/dev/upload_files|photo upload].
-func (b *PhotosSaveOwnerPhotoBulder) Hash(v string) {
+func (b *PhotosSaveOwnerPhotoBuilder) Hash(v string) {
 	b.Params["hash"] = v
 }
 
 // Photo parameter returned after [vk.com/dev/upload_files|photo upload].
-func (b *PhotosSaveOwnerPhotoBulder) Photo(v string) {
+func (b *PhotosSaveOwnerPhotoBuilder) Photo(v string) {
 	b.Params["photo"] = v
 }
 
-// PhotosSaveWallPhotoBulder builder
+// PhotosSaveWallPhotoBuilder builder
 //
 // Saves a photo to a user's or community's wall after being uploaded.
 //
 // https://vk.com/dev/photos.saveWallPhoto
-type PhotosSaveWallPhotoBulder struct {
+type PhotosSaveWallPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveWallPhotoBulder func
-func NewPhotosSaveWallPhotoBulder() *PhotosSaveWallPhotoBulder {
-	return &PhotosSaveWallPhotoBulder{api.Params{}}
+// NewPhotosSaveWallPhotoBuilder func
+func NewPhotosSaveWallPhotoBuilder() *PhotosSaveWallPhotoBuilder {
+	return &PhotosSaveWallPhotoBuilder{api.Params{}}
 }
 
 // UserID ID of the user on whose wall the photo will be saved.
-func (b *PhotosSaveWallPhotoBulder) UserID(v int) {
+func (b *PhotosSaveWallPhotoBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // GroupID ID of community on whose wall the photo will be saved.
-func (b *PhotosSaveWallPhotoBulder) GroupID(v int) {
+func (b *PhotosSaveWallPhotoBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
 // Photo Parameter returned when the the photo is [vk.com/dev/upload_files|uploaded to the server].
-func (b *PhotosSaveWallPhotoBulder) Photo(v string) {
+func (b *PhotosSaveWallPhotoBuilder) Photo(v string) {
 	b.Params["photo"] = v
 }
 
 // Server parameter
-func (b *PhotosSaveWallPhotoBulder) Server(v int) {
+func (b *PhotosSaveWallPhotoBuilder) Server(v int) {
 	b.Params["server"] = v
 }
 
 // Hash parameter
-func (b *PhotosSaveWallPhotoBulder) Hash(v string) {
+func (b *PhotosSaveWallPhotoBuilder) Hash(v string) {
 	b.Params["hash"] = v
 }
 
 // Latitude Geographical latitude, in degrees (from '-90' to '90').
-func (b *PhotosSaveWallPhotoBulder) Latitude(v float64) {
+func (b *PhotosSaveWallPhotoBuilder) Latitude(v float64) {
 	b.Params["latitude"] = v
 }
 
 // Longitude Geographical longitude, in degrees (from '-180' to '180').
-func (b *PhotosSaveWallPhotoBulder) Longitude(v float64) {
+func (b *PhotosSaveWallPhotoBuilder) Longitude(v float64) {
 	b.Params["longitude"] = v
 }
 
 // Caption Text describing the photo. 2048 digits max.
-func (b *PhotosSaveWallPhotoBulder) Caption(v string) {
+func (b *PhotosSaveWallPhotoBuilder) Caption(v string) {
 	b.Params["caption"] = v
 }
 
-// PhotosSearchBulder builder
+// PhotosSearchBuilder builder
 //
 // Returns a list of photos.
 //
 // https://vk.com/dev/photos.search
-type PhotosSearchBulder struct {
+type PhotosSearchBuilder struct {
 	api.Params
 }
 
-// NewPhotosSearchBulder func
-func NewPhotosSearchBulder() *PhotosSearchBulder {
-	return &PhotosSearchBulder{api.Params{}}
+// NewPhotosSearchBuilder func
+func NewPhotosSearchBuilder() *PhotosSearchBuilder {
+	return &PhotosSearchBuilder{api.Params{}}
 }
 
 // Q Search query string.
-func (b *PhotosSearchBulder) Q(v string) {
+func (b *PhotosSearchBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
 // Lat Geographical latitude, in degrees (from '-90' to '90').
-func (b *PhotosSearchBulder) Lat(v float64) {
+func (b *PhotosSearchBuilder) Lat(v float64) {
 	b.Params["lat"] = v
 }
 
 // Long Geographical longitude, in degrees (from '-180' to '180').
-func (b *PhotosSearchBulder) Long(v float64) {
+func (b *PhotosSearchBuilder) Long(v float64) {
 	b.Params["long"] = v
 }
 
 // StartTime parameter
-func (b *PhotosSearchBulder) StartTime(v int) {
+func (b *PhotosSearchBuilder) StartTime(v int) {
 	b.Params["start_time"] = v
 }
 
 // EndTime parameter
-func (b *PhotosSearchBulder) EndTime(v int) {
+func (b *PhotosSearchBuilder) EndTime(v int) {
 	b.Params["end_time"] = v
 }
 
 // Sort Sort order:
-func (b *PhotosSearchBulder) Sort(v int) {
+func (b *PhotosSearchBuilder) Sort(v int) {
 	b.Params["sort"] = v
 }
 
 // Offset Offset needed to return a specific subset of photos.
-func (b *PhotosSearchBulder) Offset(v int) {
+func (b *PhotosSearchBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of photos to return.
-func (b *PhotosSearchBulder) Count(v int) {
+func (b *PhotosSearchBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Radius Radius of search in meters (works very approximately). Available values: '10', '100', '800', '6000', '50000'.
-func (b *PhotosSearchBulder) Radius(v int) {
+func (b *PhotosSearchBuilder) Radius(v int) {
 	b.Params["radius"] = v
 }

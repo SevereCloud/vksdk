@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestWidgetsGetCommentsBulder(t *testing.T) {
-	b := params.NewWidgetsGetCommentsBulder()
+func TestWidgetsGetCommentsBuilder(t *testing.T) {
+	b := params.NewWidgetsGetCommentsBuilder()
 
 	b.WidgetAPIID(1)
 	b.URL("text")
@@ -27,8 +27,8 @@ func TestWidgetsGetCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestWidgetsGetPagesBulder(t *testing.T) {
-	b := params.NewWidgetsGetPagesBulder()
+func TestWidgetsGetPagesBuilder(t *testing.T) {
+	b := params.NewWidgetsGetPagesBuilder()
 
 	b.WidgetAPIID(1)
 	b.Order("text")

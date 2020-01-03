@@ -4,501 +4,501 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// FaveAddArticleBulder builder
+// FaveAddArticleBuilder builder
 //
 // https://vk.com/dev/fave.addArticle
-type FaveAddArticleBulder struct {
+type FaveAddArticleBuilder struct {
 	api.Params
 }
 
-// NewFaveAddArticleBulder func
-func NewFaveAddArticleBulder() *FaveAddArticleBulder {
-	return &FaveAddArticleBulder{api.Params{}}
+// NewFaveAddArticleBuilder func
+func NewFaveAddArticleBuilder() *FaveAddArticleBuilder {
+	return &FaveAddArticleBuilder{api.Params{}}
 }
 
 // URL parameter
-func (b *FaveAddArticleBulder) URL(v string) {
+func (b *FaveAddArticleBuilder) URL(v string) {
 	b.Params["url"] = v
 }
 
-// FaveAddLinkBulder builder
+// FaveAddLinkBuilder builder
 //
 // Adds a link to user faves.
 //
 // https://vk.com/dev/fave.addLink
-type FaveAddLinkBulder struct {
+type FaveAddLinkBuilder struct {
 	api.Params
 }
 
-// NewFaveAddLinkBulder func
-func NewFaveAddLinkBulder() *FaveAddLinkBulder {
-	return &FaveAddLinkBulder{api.Params{}}
+// NewFaveAddLinkBuilder func
+func NewFaveAddLinkBuilder() *FaveAddLinkBuilder {
+	return &FaveAddLinkBuilder{api.Params{}}
 }
 
 // Link Link URL.
-func (b *FaveAddLinkBulder) Link(v string) {
+func (b *FaveAddLinkBuilder) Link(v string) {
 	b.Params["link"] = v
 }
 
-// FaveAddPageBulder builder
+// FaveAddPageBuilder builder
 //
 // https://vk.com/dev/fave.addPage
-type FaveAddPageBulder struct {
+type FaveAddPageBuilder struct {
 	api.Params
 }
 
-// NewFaveAddPageBulder func
-func NewFaveAddPageBulder() *FaveAddPageBulder {
-	return &FaveAddPageBulder{api.Params{}}
+// NewFaveAddPageBuilder func
+func NewFaveAddPageBuilder() *FaveAddPageBuilder {
+	return &FaveAddPageBuilder{api.Params{}}
 }
 
 // UserID parameter
-func (b *FaveAddPageBulder) UserID(v int) {
+func (b *FaveAddPageBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // GroupID parameter
-func (b *FaveAddPageBulder) GroupID(v int) {
+func (b *FaveAddPageBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// FaveAddPostBulder builder
+// FaveAddPostBuilder builder
 //
 // https://vk.com/dev/fave.addPost
-type FaveAddPostBulder struct {
+type FaveAddPostBuilder struct {
 	api.Params
 }
 
-// NewFaveAddPostBulder func
-func NewFaveAddPostBulder() *FaveAddPostBulder {
-	return &FaveAddPostBulder{api.Params{}}
+// NewFaveAddPostBuilder func
+func NewFaveAddPostBuilder() *FaveAddPostBuilder {
+	return &FaveAddPostBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *FaveAddPostBulder) OwnerID(v int) {
+func (b *FaveAddPostBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ID parameter
-func (b *FaveAddPostBulder) ID(v int) {
+func (b *FaveAddPostBuilder) ID(v int) {
 	b.Params["id"] = v
 }
 
 // AccessKey parameter
-func (b *FaveAddPostBulder) AccessKey(v string) {
+func (b *FaveAddPostBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
-// FaveAddProductBulder builder
+// FaveAddProductBuilder builder
 //
 // https://vk.com/dev/fave.addProduct
-type FaveAddProductBulder struct {
+type FaveAddProductBuilder struct {
 	api.Params
 }
 
-// NewFaveAddProductBulder func
-func NewFaveAddProductBulder() *FaveAddProductBulder {
-	return &FaveAddProductBulder{api.Params{}}
+// NewFaveAddProductBuilder func
+func NewFaveAddProductBuilder() *FaveAddProductBuilder {
+	return &FaveAddProductBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *FaveAddProductBulder) OwnerID(v int) {
+func (b *FaveAddProductBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ID parameter
-func (b *FaveAddProductBulder) ID(v int) {
+func (b *FaveAddProductBuilder) ID(v int) {
 	b.Params["id"] = v
 }
 
 // AccessKey parameter
-func (b *FaveAddProductBulder) AccessKey(v string) {
+func (b *FaveAddProductBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
-// FaveAddTagBulder builder
+// FaveAddTagBuilder builder
 //
 // https://vk.com/dev/fave.addTag
-type FaveAddTagBulder struct {
+type FaveAddTagBuilder struct {
 	api.Params
 }
 
-// NewFaveAddTagBulder func
-func NewFaveAddTagBulder() *FaveAddTagBulder {
-	return &FaveAddTagBulder{api.Params{}}
+// NewFaveAddTagBuilder func
+func NewFaveAddTagBuilder() *FaveAddTagBuilder {
+	return &FaveAddTagBuilder{api.Params{}}
 }
 
 // Name parameter
-func (b *FaveAddTagBulder) Name(v string) {
+func (b *FaveAddTagBuilder) Name(v string) {
 	b.Params["name"] = v
 }
 
-// FaveAddVideoBulder builder
+// FaveAddVideoBuilder builder
 //
 // https://vk.com/dev/fave.addVideo
-type FaveAddVideoBulder struct {
+type FaveAddVideoBuilder struct {
 	api.Params
 }
 
-// NewFaveAddVideoBulder func
-func NewFaveAddVideoBulder() *FaveAddVideoBulder {
-	return &FaveAddVideoBulder{api.Params{}}
+// NewFaveAddVideoBuilder func
+func NewFaveAddVideoBuilder() *FaveAddVideoBuilder {
+	return &FaveAddVideoBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *FaveAddVideoBulder) OwnerID(v int) {
+func (b *FaveAddVideoBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ID parameter
-func (b *FaveAddVideoBulder) ID(v int) {
+func (b *FaveAddVideoBuilder) ID(v int) {
 	b.Params["id"] = v
 }
 
 // AccessKey parameter
-func (b *FaveAddVideoBulder) AccessKey(v string) {
+func (b *FaveAddVideoBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
-// FaveEditTagBulder builder
+// FaveEditTagBuilder builder
 //
 // https://vk.com/dev/fave.editTag
-type FaveEditTagBulder struct {
+type FaveEditTagBuilder struct {
 	api.Params
 }
 
-// NewFaveEditTagBulder func
-func NewFaveEditTagBulder() *FaveEditTagBulder {
-	return &FaveEditTagBulder{api.Params{}}
+// NewFaveEditTagBuilder func
+func NewFaveEditTagBuilder() *FaveEditTagBuilder {
+	return &FaveEditTagBuilder{api.Params{}}
 }
 
 // ID parameter
-func (b *FaveEditTagBulder) ID(v int) {
+func (b *FaveEditTagBuilder) ID(v int) {
 	b.Params["id"] = v
 }
 
 // Name parameter
-func (b *FaveEditTagBulder) Name(v string) {
+func (b *FaveEditTagBuilder) Name(v string) {
 	b.Params["name"] = v
 }
 
-// FaveGetBulder builder
+// FaveGetBuilder builder
 //
 // https://vk.com/dev/fave.get
-type FaveGetBulder struct {
+type FaveGetBuilder struct {
 	api.Params
 }
 
-// NewFaveGetBulder func
-func NewFaveGetBulder() *FaveGetBulder {
-	return &FaveGetBulder{api.Params{}}
+// NewFaveGetBuilder func
+func NewFaveGetBuilder() *FaveGetBuilder {
+	return &FaveGetBuilder{api.Params{}}
 }
 
 // Extended '1' — to return additional 'wall', 'profiles', and 'groups' fields. By default: '0'.
-func (b *FaveGetBulder) Extended(v bool) {
+func (b *FaveGetBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // ItemType parameter
-func (b *FaveGetBulder) ItemType(v string) {
+func (b *FaveGetBuilder) ItemType(v string) {
 	b.Params["item_type"] = v
 }
 
 // TagID Tag ID.
-func (b *FaveGetBulder) TagID(v int) {
+func (b *FaveGetBuilder) TagID(v int) {
 	b.Params["tag_id"] = v
 }
 
 // Offset Offset needed to return a specific subset of users.
-func (b *FaveGetBulder) Offset(v int) {
+func (b *FaveGetBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of users to return.
-func (b *FaveGetBulder) Count(v int) {
+func (b *FaveGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Fields parameter
-func (b *FaveGetBulder) Fields(v string) {
+func (b *FaveGetBuilder) Fields(v string) {
 	b.Params["fields"] = v
 }
 
 // IsFromSnackbar parameter
-func (b *FaveGetBulder) IsFromSnackbar(v bool) {
+func (b *FaveGetBuilder) IsFromSnackbar(v bool) {
 	b.Params["is_from_snackbar"] = v
 }
 
-// FaveGetPagesBulder builder
+// FaveGetPagesBuilder builder
 //
 // https://vk.com/dev/fave.getPages
-type FaveGetPagesBulder struct {
+type FaveGetPagesBuilder struct {
 	api.Params
 }
 
-// NewFaveGetPagesBulder func
-func NewFaveGetPagesBulder() *FaveGetPagesBulder {
-	return &FaveGetPagesBulder{api.Params{}}
+// NewFaveGetPagesBuilder func
+func NewFaveGetPagesBuilder() *FaveGetPagesBuilder {
+	return &FaveGetPagesBuilder{api.Params{}}
 }
 
 // Offset parameter
-func (b *FaveGetPagesBulder) Offset(v int) {
+func (b *FaveGetPagesBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count parameter
-func (b *FaveGetPagesBulder) Count(v int) {
+func (b *FaveGetPagesBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Type parameter
-func (b *FaveGetPagesBulder) Type(v string) {
+func (b *FaveGetPagesBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
 // Fields parameter
-func (b *FaveGetPagesBulder) Fields(v []string) {
+func (b *FaveGetPagesBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
 // TagID parameter
-func (b *FaveGetPagesBulder) TagID(v int) {
+func (b *FaveGetPagesBuilder) TagID(v int) {
 	b.Params["tag_id"] = v
 }
 
-// FaveRemoveArticleBulder builder
+// FaveRemoveArticleBuilder builder
 //
 // https://vk.com/dev/fave.removeArticle
-type FaveRemoveArticleBulder struct {
+type FaveRemoveArticleBuilder struct {
 	api.Params
 }
 
-// NewFaveRemoveArticleBulder func
-func NewFaveRemoveArticleBulder() *FaveRemoveArticleBulder {
-	return &FaveRemoveArticleBulder{api.Params{}}
+// NewFaveRemoveArticleBuilder func
+func NewFaveRemoveArticleBuilder() *FaveRemoveArticleBuilder {
+	return &FaveRemoveArticleBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *FaveRemoveArticleBulder) OwnerID(v int) {
+func (b *FaveRemoveArticleBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ArticleID parameter
-func (b *FaveRemoveArticleBulder) ArticleID(v int) {
+func (b *FaveRemoveArticleBuilder) ArticleID(v int) {
 	b.Params["article_id"] = v
 }
 
-// FaveRemoveLinkBulder builder
+// FaveRemoveLinkBuilder builder
 //
 // Removes link from the user's faves.
 //
 // https://vk.com/dev/fave.removeLink
-type FaveRemoveLinkBulder struct {
+type FaveRemoveLinkBuilder struct {
 	api.Params
 }
 
-// NewFaveRemoveLinkBulder func
-func NewFaveRemoveLinkBulder() *FaveRemoveLinkBulder {
-	return &FaveRemoveLinkBulder{api.Params{}}
+// NewFaveRemoveLinkBuilder func
+func NewFaveRemoveLinkBuilder() *FaveRemoveLinkBuilder {
+	return &FaveRemoveLinkBuilder{api.Params{}}
 }
 
 // LinkID Link ID (can be obtained by [vk.com/dev/faves.getLinks|faves.getLinks] method).
-func (b *FaveRemoveLinkBulder) LinkID(v string) {
+func (b *FaveRemoveLinkBuilder) LinkID(v string) {
 	b.Params["link_id"] = v
 }
 
 // Link Link URL
-func (b *FaveRemoveLinkBulder) Link(v string) {
+func (b *FaveRemoveLinkBuilder) Link(v string) {
 	b.Params["link"] = v
 }
 
-// FaveRemovePageBulder builder
+// FaveRemovePageBuilder builder
 //
 // https://vk.com/dev/fave.removePage
-type FaveRemovePageBulder struct {
+type FaveRemovePageBuilder struct {
 	api.Params
 }
 
-// NewFaveRemovePageBulder func
-func NewFaveRemovePageBulder() *FaveRemovePageBulder {
-	return &FaveRemovePageBulder{api.Params{}}
+// NewFaveRemovePageBuilder func
+func NewFaveRemovePageBuilder() *FaveRemovePageBuilder {
+	return &FaveRemovePageBuilder{api.Params{}}
 }
 
 // UserID parameter
-func (b *FaveRemovePageBulder) UserID(v int) {
+func (b *FaveRemovePageBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // GroupID parameter
-func (b *FaveRemovePageBulder) GroupID(v int) {
+func (b *FaveRemovePageBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// FaveRemovePostBulder builder
+// FaveRemovePostBuilder builder
 //
 // https://vk.com/dev/fave.removePost
-type FaveRemovePostBulder struct {
+type FaveRemovePostBuilder struct {
 	api.Params
 }
 
-// NewFaveRemovePostBulder func
-func NewFaveRemovePostBulder() *FaveRemovePostBulder {
-	return &FaveRemovePostBulder{api.Params{}}
+// NewFaveRemovePostBuilder func
+func NewFaveRemovePostBuilder() *FaveRemovePostBuilder {
+	return &FaveRemovePostBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *FaveRemovePostBulder) OwnerID(v int) {
+func (b *FaveRemovePostBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ID parameter
-func (b *FaveRemovePostBulder) ID(v int) {
+func (b *FaveRemovePostBuilder) ID(v int) {
 	b.Params["id"] = v
 }
 
-// FaveRemoveProductBulder builder
+// FaveRemoveProductBuilder builder
 //
 // https://vk.com/dev/fave.removeProduct
-type FaveRemoveProductBulder struct {
+type FaveRemoveProductBuilder struct {
 	api.Params
 }
 
-// NewFaveRemoveProductBulder func
-func NewFaveRemoveProductBulder() *FaveRemoveProductBulder {
-	return &FaveRemoveProductBulder{api.Params{}}
+// NewFaveRemoveProductBuilder func
+func NewFaveRemoveProductBuilder() *FaveRemoveProductBuilder {
+	return &FaveRemoveProductBuilder{api.Params{}}
 }
 
 // OwnerID parameter
-func (b *FaveRemoveProductBulder) OwnerID(v int) {
+func (b *FaveRemoveProductBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ID parameter
-func (b *FaveRemoveProductBulder) ID(v int) {
+func (b *FaveRemoveProductBuilder) ID(v int) {
 	b.Params["id"] = v
 }
 
-// FaveRemoveTagBulder builder
+// FaveRemoveTagBuilder builder
 //
 // https://vk.com/dev/fave.removeTag
-type FaveRemoveTagBulder struct {
+type FaveRemoveTagBuilder struct {
 	api.Params
 }
 
-// NewFaveRemoveTagBulder func
-func NewFaveRemoveTagBulder() *FaveRemoveTagBulder {
-	return &FaveRemoveTagBulder{api.Params{}}
+// NewFaveRemoveTagBuilder func
+func NewFaveRemoveTagBuilder() *FaveRemoveTagBuilder {
+	return &FaveRemoveTagBuilder{api.Params{}}
 }
 
 // ID parameter
-func (b *FaveRemoveTagBulder) ID(v int) {
+func (b *FaveRemoveTagBuilder) ID(v int) {
 	b.Params["id"] = v
 }
 
-// FaveReorderTagsBulder builder
+// FaveReorderTagsBuilder builder
 //
 // https://vk.com/dev/fave.reorderTags
-type FaveReorderTagsBulder struct {
+type FaveReorderTagsBuilder struct {
 	api.Params
 }
 
-// NewFaveReorderTagsBulder func
-func NewFaveReorderTagsBulder() *FaveReorderTagsBulder {
-	return &FaveReorderTagsBulder{api.Params{}}
+// NewFaveReorderTagsBuilder func
+func NewFaveReorderTagsBuilder() *FaveReorderTagsBuilder {
+	return &FaveReorderTagsBuilder{api.Params{}}
 }
 
 // IDs parameter
-func (b *FaveReorderTagsBulder) IDs(v []int) {
+func (b *FaveReorderTagsBuilder) IDs(v []int) {
 	b.Params["ids"] = v
 }
 
-// FaveSetPageTagsBulder builder
+// FaveSetPageTagsBuilder builder
 //
 // https://vk.com/dev/fave.setPageTags
-type FaveSetPageTagsBulder struct {
+type FaveSetPageTagsBuilder struct {
 	api.Params
 }
 
-// NewFaveSetPageTagsBulder func
-func NewFaveSetPageTagsBulder() *FaveSetPageTagsBulder {
-	return &FaveSetPageTagsBulder{api.Params{}}
+// NewFaveSetPageTagsBuilder func
+func NewFaveSetPageTagsBuilder() *FaveSetPageTagsBuilder {
+	return &FaveSetPageTagsBuilder{api.Params{}}
 }
 
 // UserID parameter
-func (b *FaveSetPageTagsBulder) UserID(v int) {
+func (b *FaveSetPageTagsBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // GroupID parameter
-func (b *FaveSetPageTagsBulder) GroupID(v int) {
+func (b *FaveSetPageTagsBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
 // TagIDs parameter
-func (b *FaveSetPageTagsBulder) TagIDs(v []int) {
+func (b *FaveSetPageTagsBuilder) TagIDs(v []int) {
 	b.Params["tag_ids"] = v
 }
 
-// FaveSetTagsBulder builder
+// FaveSetTagsBuilder builder
 //
 // https://vk.com/dev/fave.setTags
-type FaveSetTagsBulder struct {
+type FaveSetTagsBuilder struct {
 	api.Params
 }
 
-// NewFaveSetTagsBulder func
-func NewFaveSetTagsBulder() *FaveSetTagsBulder {
-	return &FaveSetTagsBulder{api.Params{}}
+// NewFaveSetTagsBuilder func
+func NewFaveSetTagsBuilder() *FaveSetTagsBuilder {
+	return &FaveSetTagsBuilder{api.Params{}}
 }
 
 // ItemType parameter
-func (b *FaveSetTagsBulder) ItemType(v string) {
+func (b *FaveSetTagsBuilder) ItemType(v string) {
 	b.Params["item_type"] = v
 }
 
 // ItemOwnerID parameter
-func (b *FaveSetTagsBulder) ItemOwnerID(v int) {
+func (b *FaveSetTagsBuilder) ItemOwnerID(v int) {
 	b.Params["item_owner_id"] = v
 }
 
 // ItemID parameter
-func (b *FaveSetTagsBulder) ItemID(v int) {
+func (b *FaveSetTagsBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
 // TagIDs parameter
-func (b *FaveSetTagsBulder) TagIDs(v []int) {
+func (b *FaveSetTagsBuilder) TagIDs(v []int) {
 	b.Params["tag_ids"] = v
 }
 
 // LinkID parameter
-func (b *FaveSetTagsBulder) LinkID(v string) {
+func (b *FaveSetTagsBuilder) LinkID(v string) {
 	b.Params["link_id"] = v
 }
 
 // LinkURL parameter
-func (b *FaveSetTagsBulder) LinkURL(v string) {
+func (b *FaveSetTagsBuilder) LinkURL(v string) {
 	b.Params["link_url"] = v
 }
 
-// FaveTrackPageInteractionBulder builder
+// FaveTrackPageInteractionBuilder builder
 //
 // https://vk.com/dev/fave.trackPageInteraction
-type FaveTrackPageInteractionBulder struct {
+type FaveTrackPageInteractionBuilder struct {
 	api.Params
 }
 
-// NewFaveTrackPageInteractionBulder func
-func NewFaveTrackPageInteractionBulder() *FaveTrackPageInteractionBulder {
-	return &FaveTrackPageInteractionBulder{api.Params{}}
+// NewFaveTrackPageInteractionBuilder func
+func NewFaveTrackPageInteractionBuilder() *FaveTrackPageInteractionBuilder {
+	return &FaveTrackPageInteractionBuilder{api.Params{}}
 }
 
 // UserID parameter
-func (b *FaveTrackPageInteractionBulder) UserID(v int) {
+func (b *FaveTrackPageInteractionBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
 // GroupID parameter
-func (b *FaveTrackPageInteractionBulder) GroupID(v int) {
+func (b *FaveTrackPageInteractionBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }

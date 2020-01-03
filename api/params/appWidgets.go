@@ -4,26 +4,26 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// AppWidgetsUpdateBulder builder
+// AppWidgetsUpdateBuilder builder
 //
 // Allows to update community app widget
 //
 // https://vk.com/dev/appWidgets.update
-type AppWidgetsUpdateBulder struct {
+type AppWidgetsUpdateBuilder struct {
 	api.Params
 }
 
-// NewAppWidgetsUpdateBulder func
-func NewAppWidgetsUpdateBulder() *AppWidgetsUpdateBulder {
-	return &AppWidgetsUpdateBulder{api.Params{}}
+// NewAppWidgetsUpdateBuilder func
+func NewAppWidgetsUpdateBuilder() *AppWidgetsUpdateBuilder {
+	return &AppWidgetsUpdateBuilder{api.Params{}}
 }
 
 // Code parameter
-func (b *AppWidgetsUpdateBulder) Code(v string) {
+func (b *AppWidgetsUpdateBuilder) Code(v string) {
 	b.Params["code"] = v
 }
 
 // Type parameter
-func (b *AppWidgetsUpdateBulder) Type(v string) {
+func (b *AppWidgetsUpdateBuilder) Type(v string) {
 	b.Params["type"] = v
 }

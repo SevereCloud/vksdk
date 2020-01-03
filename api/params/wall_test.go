@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestWallCloseCommentsBulder(t *testing.T) {
-	b := params.NewWallCloseCommentsBulder()
+func TestWallCloseCommentsBuilder(t *testing.T) {
+	b := params.NewWallCloseCommentsBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -17,8 +17,8 @@ func TestWallCloseCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["post_id"], 1)
 }
 
-func TestWallCreateCommentBulder(t *testing.T) {
-	b := params.NewWallCreateCommentBulder()
+func TestWallCreateCommentBuilder(t *testing.T) {
+	b := params.NewWallCreateCommentBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -39,8 +39,8 @@ func TestWallCreateCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["guid"], "text")
 }
 
-func TestWallDeleteBulder(t *testing.T) {
-	b := params.NewWallDeleteBulder()
+func TestWallDeleteBuilder(t *testing.T) {
+	b := params.NewWallDeleteBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -49,8 +49,8 @@ func TestWallDeleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["post_id"], 1)
 }
 
-func TestWallDeleteCommentBulder(t *testing.T) {
-	b := params.NewWallDeleteCommentBulder()
+func TestWallDeleteCommentBuilder(t *testing.T) {
+	b := params.NewWallDeleteCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -59,8 +59,8 @@ func TestWallDeleteCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestWallEditBulder(t *testing.T) {
-	b := params.NewWallEditBulder()
+func TestWallEditBuilder(t *testing.T) {
+	b := params.NewWallEditBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -97,8 +97,8 @@ func TestWallEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["poster_bkg_access_hash"], "text")
 }
 
-func TestWallEditAdsStealthBulder(t *testing.T) {
-	b := params.NewWallEditAdsStealthBulder()
+func TestWallEditAdsStealthBuilder(t *testing.T) {
+	b := params.NewWallEditAdsStealthBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -127,8 +127,8 @@ func TestWallEditAdsStealthBulder(t *testing.T) {
 	assert.Equal(t, b.Params["link_video"], "text")
 }
 
-func TestWallEditCommentBulder(t *testing.T) {
-	b := params.NewWallEditCommentBulder()
+func TestWallEditCommentBuilder(t *testing.T) {
+	b := params.NewWallEditCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -141,8 +141,8 @@ func TestWallEditCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["attachments"], []string{"text"})
 }
 
-func TestWallGetBulder(t *testing.T) {
-	b := params.NewWallGetBulder()
+func TestWallGetBuilder(t *testing.T) {
+	b := params.NewWallGetBuilder()
 
 	b.OwnerID(1)
 	b.Domain("text")
@@ -161,8 +161,8 @@ func TestWallGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestWallGetByIDBulder(t *testing.T) {
-	b := params.NewWallGetByIDBulder()
+func TestWallGetByIDBuilder(t *testing.T) {
+	b := params.NewWallGetByIDBuilder()
 
 	b.Posts([]string{"text"})
 	b.Extended(true)
@@ -175,8 +175,8 @@ func TestWallGetByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestWallGetCommentsBulder(t *testing.T) {
-	b := params.NewWallGetCommentsBulder()
+func TestWallGetCommentsBuilder(t *testing.T) {
+	b := params.NewWallGetCommentsBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -205,8 +205,8 @@ func TestWallGetCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["thread_items_count"], 1)
 }
 
-func TestWallGetRepostsBulder(t *testing.T) {
-	b := params.NewWallGetRepostsBulder()
+func TestWallGetRepostsBuilder(t *testing.T) {
+	b := params.NewWallGetRepostsBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -219,8 +219,8 @@ func TestWallGetRepostsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestWallOpenCommentsBulder(t *testing.T) {
-	b := params.NewWallOpenCommentsBulder()
+func TestWallOpenCommentsBuilder(t *testing.T) {
+	b := params.NewWallOpenCommentsBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -229,8 +229,8 @@ func TestWallOpenCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["post_id"], 1)
 }
 
-func TestWallPinBulder(t *testing.T) {
-	b := params.NewWallPinBulder()
+func TestWallPinBuilder(t *testing.T) {
+	b := params.NewWallPinBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -239,8 +239,8 @@ func TestWallPinBulder(t *testing.T) {
 	assert.Equal(t, b.Params["post_id"], 1)
 }
 
-func TestWallPostBulder(t *testing.T) {
-	b := params.NewWallPostBulder()
+func TestWallPostBuilder(t *testing.T) {
+	b := params.NewWallPostBuilder()
 
 	b.OwnerID(1)
 	b.FriendsOnly(true)
@@ -277,8 +277,8 @@ func TestWallPostBulder(t *testing.T) {
 	assert.Equal(t, b.Params["mute_notifications"], true)
 }
 
-func TestWallPostAdsStealthBulder(t *testing.T) {
-	b := params.NewWallPostAdsStealthBulder()
+func TestWallPostAdsStealthBuilder(t *testing.T) {
+	b := params.NewWallPostAdsStealthBuilder()
 
 	b.OwnerID(1)
 	b.Message("text")
@@ -307,8 +307,8 @@ func TestWallPostAdsStealthBulder(t *testing.T) {
 	assert.Equal(t, b.Params["link_video"], "text")
 }
 
-func TestWallReportCommentBulder(t *testing.T) {
-	b := params.NewWallReportCommentBulder()
+func TestWallReportCommentBuilder(t *testing.T) {
+	b := params.NewWallReportCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -319,8 +319,8 @@ func TestWallReportCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["reason"], 1)
 }
 
-func TestWallReportPostBulder(t *testing.T) {
-	b := params.NewWallReportPostBulder()
+func TestWallReportPostBuilder(t *testing.T) {
+	b := params.NewWallReportPostBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -331,8 +331,8 @@ func TestWallReportPostBulder(t *testing.T) {
 	assert.Equal(t, b.Params["reason"], 1)
 }
 
-func TestWallRepostBulder(t *testing.T) {
-	b := params.NewWallRepostBulder()
+func TestWallRepostBuilder(t *testing.T) {
+	b := params.NewWallRepostBuilder()
 
 	b.Object("text")
 	b.Message("text")
@@ -347,8 +347,8 @@ func TestWallRepostBulder(t *testing.T) {
 	assert.Equal(t, b.Params["mute_notifications"], true)
 }
 
-func TestWallRestoreBulder(t *testing.T) {
-	b := params.NewWallRestoreBulder()
+func TestWallRestoreBuilder(t *testing.T) {
+	b := params.NewWallRestoreBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)
@@ -357,8 +357,8 @@ func TestWallRestoreBulder(t *testing.T) {
 	assert.Equal(t, b.Params["post_id"], 1)
 }
 
-func TestWallRestoreCommentBulder(t *testing.T) {
-	b := params.NewWallRestoreCommentBulder()
+func TestWallRestoreCommentBuilder(t *testing.T) {
+	b := params.NewWallRestoreCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -367,8 +367,8 @@ func TestWallRestoreCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestWallSearchBulder(t *testing.T) {
-	b := params.NewWallSearchBulder()
+func TestWallSearchBuilder(t *testing.T) {
+	b := params.NewWallSearchBuilder()
 
 	b.OwnerID(1)
 	b.Domain("text")
@@ -389,8 +389,8 @@ func TestWallSearchBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestWallUnpinBulder(t *testing.T) {
-	b := params.NewWallUnpinBulder()
+func TestWallUnpinBuilder(t *testing.T) {
+	b := params.NewWallUnpinBuilder()
 
 	b.OwnerID(1)
 	b.PostID(1)

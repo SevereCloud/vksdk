@@ -4,873 +4,873 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// MarketAddBulder builder
+// MarketAddBuilder builder
 //
 // Ads a new item to the market.
 //
 // https://vk.com/dev/market.add
-type MarketAddBulder struct {
+type MarketAddBuilder struct {
 	api.Params
 }
 
-// NewMarketAddBulder func
-func NewMarketAddBulder() *MarketAddBulder {
-	return &MarketAddBulder{api.Params{}}
+// NewMarketAddBuilder func
+func NewMarketAddBuilder() *MarketAddBuilder {
+	return &MarketAddBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketAddBulder) OwnerID(v int) {
+func (b *MarketAddBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // Name Item name.
-func (b *MarketAddBulder) Name(v string) {
+func (b *MarketAddBuilder) Name(v string) {
 	b.Params["name"] = v
 }
 
 // Description Item description.
-func (b *MarketAddBulder) Description(v string) {
+func (b *MarketAddBuilder) Description(v string) {
 	b.Params["description"] = v
 }
 
 // CategoryID Item category ID.
-func (b *MarketAddBulder) CategoryID(v int) {
+func (b *MarketAddBuilder) CategoryID(v int) {
 	b.Params["category_id"] = v
 }
 
 // Price Item price.
-func (b *MarketAddBulder) Price(v float64) {
+func (b *MarketAddBuilder) Price(v float64) {
 	b.Params["price"] = v
 }
 
 // OldPrice parameter
-func (b *MarketAddBulder) OldPrice(v float64) {
+func (b *MarketAddBuilder) OldPrice(v float64) {
 	b.Params["old_price"] = v
 }
 
 // Deleted Item status ('1' — deleted, '0' — not deleted).
-func (b *MarketAddBulder) Deleted(v bool) {
+func (b *MarketAddBuilder) Deleted(v bool) {
 	b.Params["deleted"] = v
 }
 
 // MainPhotoID Cover photo ID.
-func (b *MarketAddBulder) MainPhotoID(v int) {
+func (b *MarketAddBuilder) MainPhotoID(v int) {
 	b.Params["main_photo_id"] = v
 }
 
 // PhotoIDs IDs of additional photos.
-func (b *MarketAddBulder) PhotoIDs(v []int) {
+func (b *MarketAddBuilder) PhotoIDs(v []int) {
 	b.Params["photo_ids"] = v
 }
 
 // URL Url for button in market item.
-func (b *MarketAddBulder) URL(v string) {
+func (b *MarketAddBuilder) URL(v string) {
 	b.Params["url"] = v
 }
 
-// MarketAddAlbumBulder builder
+// MarketAddAlbumBuilder builder
 //
 // Creates new collection of items
 //
 // https://vk.com/dev/market.addAlbum
-type MarketAddAlbumBulder struct {
+type MarketAddAlbumBuilder struct {
 	api.Params
 }
 
-// NewMarketAddAlbumBulder func
-func NewMarketAddAlbumBulder() *MarketAddAlbumBulder {
-	return &MarketAddAlbumBulder{api.Params{}}
+// NewMarketAddAlbumBuilder func
+func NewMarketAddAlbumBuilder() *MarketAddAlbumBuilder {
+	return &MarketAddAlbumBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketAddAlbumBulder) OwnerID(v int) {
+func (b *MarketAddAlbumBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // Title Collection title.
-func (b *MarketAddAlbumBulder) Title(v string) {
+func (b *MarketAddAlbumBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
 // PhotoID Cover photo ID.
-func (b *MarketAddAlbumBulder) PhotoID(v int) {
+func (b *MarketAddAlbumBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // MainAlbum Set as main ('1' – set, '0' – no).
-func (b *MarketAddAlbumBulder) MainAlbum(v bool) {
+func (b *MarketAddAlbumBuilder) MainAlbum(v bool) {
 	b.Params["main_album"] = v
 }
 
-// MarketAddToAlbumBulder builder
+// MarketAddToAlbumBuilder builder
 //
 // Adds an item to one or multiple collections.
 //
 // https://vk.com/dev/market.addToAlbum
-type MarketAddToAlbumBulder struct {
+type MarketAddToAlbumBuilder struct {
 	api.Params
 }
 
-// NewMarketAddToAlbumBulder func
-func NewMarketAddToAlbumBulder() *MarketAddToAlbumBulder {
-	return &MarketAddToAlbumBulder{api.Params{}}
+// NewMarketAddToAlbumBuilder func
+func NewMarketAddToAlbumBuilder() *MarketAddToAlbumBuilder {
+	return &MarketAddToAlbumBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketAddToAlbumBulder) OwnerID(v int) {
+func (b *MarketAddToAlbumBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Item ID.
-func (b *MarketAddToAlbumBulder) ItemID(v int) {
+func (b *MarketAddToAlbumBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
 // AlbumIDs Collections IDs to add item to.
-func (b *MarketAddToAlbumBulder) AlbumIDs(v []int) {
+func (b *MarketAddToAlbumBuilder) AlbumIDs(v []int) {
 	b.Params["album_ids"] = v
 }
 
-// MarketCreateCommentBulder builder
+// MarketCreateCommentBuilder builder
 //
 // Creates a new comment for an item.
 //
 // https://vk.com/dev/market.createComment
-type MarketCreateCommentBulder struct {
+type MarketCreateCommentBuilder struct {
 	api.Params
 }
 
-// NewMarketCreateCommentBulder func
-func NewMarketCreateCommentBulder() *MarketCreateCommentBulder {
-	return &MarketCreateCommentBulder{api.Params{}}
+// NewMarketCreateCommentBuilder func
+func NewMarketCreateCommentBuilder() *MarketCreateCommentBuilder {
+	return &MarketCreateCommentBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketCreateCommentBulder) OwnerID(v int) {
+func (b *MarketCreateCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Item ID.
-func (b *MarketCreateCommentBulder) ItemID(v int) {
+func (b *MarketCreateCommentBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
 // Message Comment text (required if 'attachments' parameter is not specified)
-func (b *MarketCreateCommentBulder) Message(v string) {
+func (b *MarketCreateCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
 // Attachments Comma-separated list of objects attached to a comment. The field is submitted the following way: , "'<owner_id>_<media_id>,<owner_id>_<media_id>'", , '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document", , '<owner_id>' - media owner id, '<media_id>' - media attachment id, , For example: "photo100172_166443618,photo66748_265827614",
-func (b *MarketCreateCommentBulder) Attachments(v []string) {
+func (b *MarketCreateCommentBuilder) Attachments(v []string) {
 	b.Params["attachments"] = v
 }
 
 // FromGroup '1' - comment will be published on behalf of a community, '0' - on behalf of a user (by default).
-func (b *MarketCreateCommentBulder) FromGroup(v bool) {
+func (b *MarketCreateCommentBuilder) FromGroup(v bool) {
 	b.Params["from_group"] = v
 }
 
 // ReplyToComment ID of a comment to reply with current comment to.
-func (b *MarketCreateCommentBulder) ReplyToComment(v int) {
+func (b *MarketCreateCommentBuilder) ReplyToComment(v int) {
 	b.Params["reply_to_comment"] = v
 }
 
 // StickerID Sticker ID.
-func (b *MarketCreateCommentBulder) StickerID(v int) {
+func (b *MarketCreateCommentBuilder) StickerID(v int) {
 	b.Params["sticker_id"] = v
 }
 
 // GUID Random value to avoid resending one comment.
-func (b *MarketCreateCommentBulder) GUID(v string) {
+func (b *MarketCreateCommentBuilder) GUID(v string) {
 	b.Params["guid"] = v
 }
 
-// MarketDeleteBulder builder
+// MarketDeleteBuilder builder
 //
 // Deletes an item.
 //
 // https://vk.com/dev/market.delete
-type MarketDeleteBulder struct {
+type MarketDeleteBuilder struct {
 	api.Params
 }
 
-// NewMarketDeleteBulder func
-func NewMarketDeleteBulder() *MarketDeleteBulder {
-	return &MarketDeleteBulder{api.Params{}}
+// NewMarketDeleteBuilder func
+func NewMarketDeleteBuilder() *MarketDeleteBuilder {
+	return &MarketDeleteBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketDeleteBulder) OwnerID(v int) {
+func (b *MarketDeleteBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Item ID.
-func (b *MarketDeleteBulder) ItemID(v int) {
+func (b *MarketDeleteBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
-// MarketDeleteAlbumBulder builder
+// MarketDeleteAlbumBuilder builder
 //
 // Deletes a collection of items.
 //
 // https://vk.com/dev/market.deleteAlbum
-type MarketDeleteAlbumBulder struct {
+type MarketDeleteAlbumBuilder struct {
 	api.Params
 }
 
-// NewMarketDeleteAlbumBulder func
-func NewMarketDeleteAlbumBulder() *MarketDeleteAlbumBulder {
-	return &MarketDeleteAlbumBulder{api.Params{}}
+// NewMarketDeleteAlbumBuilder func
+func NewMarketDeleteAlbumBuilder() *MarketDeleteAlbumBuilder {
+	return &MarketDeleteAlbumBuilder{api.Params{}}
 }
 
 // OwnerID ID of an collection owner community.
-func (b *MarketDeleteAlbumBulder) OwnerID(v int) {
+func (b *MarketDeleteAlbumBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumID Collection ID.
-func (b *MarketDeleteAlbumBulder) AlbumID(v int) {
+func (b *MarketDeleteAlbumBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
-// MarketDeleteCommentBulder builder
+// MarketDeleteCommentBuilder builder
 //
 // Deletes an item's comment
 //
 // https://vk.com/dev/market.deleteComment
-type MarketDeleteCommentBulder struct {
+type MarketDeleteCommentBuilder struct {
 	api.Params
 }
 
-// NewMarketDeleteCommentBulder func
-func NewMarketDeleteCommentBulder() *MarketDeleteCommentBulder {
-	return &MarketDeleteCommentBulder{api.Params{}}
+// NewMarketDeleteCommentBuilder func
+func NewMarketDeleteCommentBuilder() *MarketDeleteCommentBuilder {
+	return &MarketDeleteCommentBuilder{api.Params{}}
 }
 
 // OwnerID identifier of an item owner community, "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
-func (b *MarketDeleteCommentBulder) OwnerID(v int) {
+func (b *MarketDeleteCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CommentID comment id
-func (b *MarketDeleteCommentBulder) CommentID(v int) {
+func (b *MarketDeleteCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
-// MarketEditBulder builder
+// MarketEditBuilder builder
 //
 // Edits an item.
 //
 // https://vk.com/dev/market.edit
-type MarketEditBulder struct {
+type MarketEditBuilder struct {
 	api.Params
 }
 
-// NewMarketEditBulder func
-func NewMarketEditBulder() *MarketEditBulder {
-	return &MarketEditBulder{api.Params{}}
+// NewMarketEditBuilder func
+func NewMarketEditBuilder() *MarketEditBuilder {
+	return &MarketEditBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketEditBulder) OwnerID(v int) {
+func (b *MarketEditBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Item ID.
-func (b *MarketEditBulder) ItemID(v int) {
+func (b *MarketEditBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
 // Name Item name.
-func (b *MarketEditBulder) Name(v string) {
+func (b *MarketEditBuilder) Name(v string) {
 	b.Params["name"] = v
 }
 
 // Description Item description.
-func (b *MarketEditBulder) Description(v string) {
+func (b *MarketEditBuilder) Description(v string) {
 	b.Params["description"] = v
 }
 
 // CategoryID Item category ID.
-func (b *MarketEditBulder) CategoryID(v int) {
+func (b *MarketEditBuilder) CategoryID(v int) {
 	b.Params["category_id"] = v
 }
 
 // Price Item price.
-func (b *MarketEditBulder) Price(v float64) {
+func (b *MarketEditBuilder) Price(v float64) {
 	b.Params["price"] = v
 }
 
 // Deleted Item status ('1' — deleted, '0' — not deleted).
-func (b *MarketEditBulder) Deleted(v bool) {
+func (b *MarketEditBuilder) Deleted(v bool) {
 	b.Params["deleted"] = v
 }
 
 // MainPhotoID Cover photo ID.
-func (b *MarketEditBulder) MainPhotoID(v int) {
+func (b *MarketEditBuilder) MainPhotoID(v int) {
 	b.Params["main_photo_id"] = v
 }
 
 // PhotoIDs IDs of additional photos.
-func (b *MarketEditBulder) PhotoIDs(v []int) {
+func (b *MarketEditBuilder) PhotoIDs(v []int) {
 	b.Params["photo_ids"] = v
 }
 
 // URL Url for button in market item.
-func (b *MarketEditBulder) URL(v string) {
+func (b *MarketEditBuilder) URL(v string) {
 	b.Params["url"] = v
 }
 
-// MarketEditAlbumBulder builder
+// MarketEditAlbumBuilder builder
 //
 // Edits a collection of items
 //
 // https://vk.com/dev/market.editAlbum
-type MarketEditAlbumBulder struct {
+type MarketEditAlbumBuilder struct {
 	api.Params
 }
 
-// NewMarketEditAlbumBulder func
-func NewMarketEditAlbumBulder() *MarketEditAlbumBulder {
-	return &MarketEditAlbumBulder{api.Params{}}
+// NewMarketEditAlbumBuilder func
+func NewMarketEditAlbumBuilder() *MarketEditAlbumBuilder {
+	return &MarketEditAlbumBuilder{api.Params{}}
 }
 
 // OwnerID ID of an collection owner community.
-func (b *MarketEditAlbumBulder) OwnerID(v int) {
+func (b *MarketEditAlbumBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumID Collection ID.
-func (b *MarketEditAlbumBulder) AlbumID(v int) {
+func (b *MarketEditAlbumBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // Title Collection title.
-func (b *MarketEditAlbumBulder) Title(v string) {
+func (b *MarketEditAlbumBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
 // PhotoID Cover photo id
-func (b *MarketEditAlbumBulder) PhotoID(v int) {
+func (b *MarketEditAlbumBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
 // MainAlbum Set as main ('1' – set, '0' – no).
-func (b *MarketEditAlbumBulder) MainAlbum(v bool) {
+func (b *MarketEditAlbumBuilder) MainAlbum(v bool) {
 	b.Params["main_album"] = v
 }
 
-// MarketEditCommentBulder builder
+// MarketEditCommentBuilder builder
 //
 // Chages item comment's text
 //
 // https://vk.com/dev/market.editComment
-type MarketEditCommentBulder struct {
+type MarketEditCommentBuilder struct {
 	api.Params
 }
 
-// NewMarketEditCommentBulder func
-func NewMarketEditCommentBulder() *MarketEditCommentBulder {
-	return &MarketEditCommentBulder{api.Params{}}
+// NewMarketEditCommentBuilder func
+func NewMarketEditCommentBuilder() *MarketEditCommentBuilder {
+	return &MarketEditCommentBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketEditCommentBulder) OwnerID(v int) {
+func (b *MarketEditCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CommentID Comment ID.
-func (b *MarketEditCommentBulder) CommentID(v int) {
+func (b *MarketEditCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
 // Message New comment text (required if 'attachments' are not specified), , 2048 symbols maximum.
-func (b *MarketEditCommentBulder) Message(v string) {
+func (b *MarketEditCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
 // Attachments Comma-separated list of objects attached to a comment. The field is submitted the following way: , "'<owner_id>_<media_id>,<owner_id>_<media_id>'", , '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document", , '<owner_id>' - media owner id, '<media_id>' - media attachment id, , For example: "photo100172_166443618,photo66748_265827614",
-func (b *MarketEditCommentBulder) Attachments(v []string) {
+func (b *MarketEditCommentBuilder) Attachments(v []string) {
 	b.Params["attachments"] = v
 }
 
-// MarketGetBulder builder
+// MarketGetBuilder builder
 //
 // Returns items list for a community.
 //
 // https://vk.com/dev/market.get
-type MarketGetBulder struct {
+type MarketGetBuilder struct {
 	api.Params
 }
 
-// NewMarketGetBulder func
-func NewMarketGetBulder() *MarketGetBulder {
-	return &MarketGetBulder{api.Params{}}
+// NewMarketGetBuilder func
+func NewMarketGetBuilder() *MarketGetBuilder {
+	return &MarketGetBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community, "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
-func (b *MarketGetBulder) OwnerID(v int) {
+func (b *MarketGetBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumID parameter
-func (b *MarketGetBulder) AlbumID(v int) {
+func (b *MarketGetBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // Count Number of items to return.
-func (b *MarketGetBulder) Count(v int) {
+func (b *MarketGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *MarketGetBulder) Offset(v int) {
+func (b *MarketGetBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Extended '1' – method will return additional fields: 'likes, can_comment, car_repost, photos'. These parameters are not returned by default.
-func (b *MarketGetBulder) Extended(v bool) {
+func (b *MarketGetBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// MarketGetAlbumByIDBulder builder
+// MarketGetAlbumByIDBuilder builder
 //
 // Returns items album's data
 //
 // https://vk.com/dev/market.getAlbumById
-type MarketGetAlbumByIDBulder struct {
+type MarketGetAlbumByIDBuilder struct {
 	api.Params
 }
 
-// NewMarketGetAlbumByIDBulder func
-func NewMarketGetAlbumByIDBulder() *MarketGetAlbumByIDBulder {
-	return &MarketGetAlbumByIDBulder{api.Params{}}
+// NewMarketGetAlbumByIDBuilder func
+func NewMarketGetAlbumByIDBuilder() *MarketGetAlbumByIDBuilder {
+	return &MarketGetAlbumByIDBuilder{api.Params{}}
 }
 
 // OwnerID identifier of an album owner community, "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
-func (b *MarketGetAlbumByIDBulder) OwnerID(v int) {
+func (b *MarketGetAlbumByIDBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumIDs collections identifiers to obtain data from
-func (b *MarketGetAlbumByIDBulder) AlbumIDs(v []int) {
+func (b *MarketGetAlbumByIDBuilder) AlbumIDs(v []int) {
 	b.Params["album_ids"] = v
 }
 
-// MarketGetAlbumsBulder builder
+// MarketGetAlbumsBuilder builder
 //
 // Returns community's collections list.
 //
 // https://vk.com/dev/market.getAlbums
-type MarketGetAlbumsBulder struct {
+type MarketGetAlbumsBuilder struct {
 	api.Params
 }
 
-// NewMarketGetAlbumsBulder func
-func NewMarketGetAlbumsBulder() *MarketGetAlbumsBulder {
-	return &MarketGetAlbumsBulder{api.Params{}}
+// NewMarketGetAlbumsBuilder func
+func NewMarketGetAlbumsBuilder() *MarketGetAlbumsBuilder {
+	return &MarketGetAlbumsBuilder{api.Params{}}
 }
 
 // OwnerID ID of an items owner community.
-func (b *MarketGetAlbumsBulder) OwnerID(v int) {
+func (b *MarketGetAlbumsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *MarketGetAlbumsBulder) Offset(v int) {
+func (b *MarketGetAlbumsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of items to return.
-func (b *MarketGetAlbumsBulder) Count(v int) {
+func (b *MarketGetAlbumsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// MarketGetByIDBulder builder
+// MarketGetByIDBuilder builder
 //
 // Returns information about market items by their ids.
 //
 // https://vk.com/dev/market.getById
-type MarketGetByIDBulder struct {
+type MarketGetByIDBuilder struct {
 	api.Params
 }
 
-// NewMarketGetByIDBulder func
-func NewMarketGetByIDBulder() *MarketGetByIDBulder {
-	return &MarketGetByIDBulder{api.Params{}}
+// NewMarketGetByIDBuilder func
+func NewMarketGetByIDBuilder() *MarketGetByIDBuilder {
+	return &MarketGetByIDBuilder{api.Params{}}
 }
 
 // ItemIDs Comma-separated ids list: {user id}_{item id}. If an item belongs to a community -{community id} is used. " 'Videos' value example: , '-4363_136089719,13245770_137352259'"
-func (b *MarketGetByIDBulder) ItemIDs(v []string) {
+func (b *MarketGetByIDBuilder) ItemIDs(v []string) {
 	b.Params["item_ids"] = v
 }
 
 // Extended '1' – to return additional fields: 'likes, can_comment, car_repost, photos'. By default: '0'.
-func (b *MarketGetByIDBulder) Extended(v bool) {
+func (b *MarketGetByIDBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// MarketGetCategoriesBulder builder
+// MarketGetCategoriesBuilder builder
 //
 // Returns a list of market categories.
 //
 // https://vk.com/dev/market.getCategories
-type MarketGetCategoriesBulder struct {
+type MarketGetCategoriesBuilder struct {
 	api.Params
 }
 
-// NewMarketGetCategoriesBulder func
-func NewMarketGetCategoriesBulder() *MarketGetCategoriesBulder {
-	return &MarketGetCategoriesBulder{api.Params{}}
+// NewMarketGetCategoriesBuilder func
+func NewMarketGetCategoriesBuilder() *MarketGetCategoriesBuilder {
+	return &MarketGetCategoriesBuilder{api.Params{}}
 }
 
 // Count Number of results to return.
-func (b *MarketGetCategoriesBulder) Count(v int) {
+func (b *MarketGetCategoriesBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *MarketGetCategoriesBulder) Offset(v int) {
+func (b *MarketGetCategoriesBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
-// MarketGetCommentsBulder builder
+// MarketGetCommentsBuilder builder
 //
 // Returns comments list for an item.
 //
 // https://vk.com/dev/market.getComments
-type MarketGetCommentsBulder struct {
+type MarketGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewMarketGetCommentsBulder func
-func NewMarketGetCommentsBulder() *MarketGetCommentsBulder {
-	return &MarketGetCommentsBulder{api.Params{}}
+// NewMarketGetCommentsBuilder func
+func NewMarketGetCommentsBuilder() *MarketGetCommentsBuilder {
+	return &MarketGetCommentsBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community
-func (b *MarketGetCommentsBulder) OwnerID(v int) {
+func (b *MarketGetCommentsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Item ID.
-func (b *MarketGetCommentsBulder) ItemID(v int) {
+func (b *MarketGetCommentsBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
 // NeedLikes '1' — to return likes info.
-func (b *MarketGetCommentsBulder) NeedLikes(v bool) {
+func (b *MarketGetCommentsBuilder) NeedLikes(v bool) {
 	b.Params["need_likes"] = v
 }
 
 // StartCommentID ID of a comment to start a list from (details below).
-func (b *MarketGetCommentsBulder) StartCommentID(v int) {
+func (b *MarketGetCommentsBuilder) StartCommentID(v int) {
 	b.Params["start_comment_id"] = v
 }
 
 // Offset parameter
-func (b *MarketGetCommentsBulder) Offset(v int) {
+func (b *MarketGetCommentsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of results to return.
-func (b *MarketGetCommentsBulder) Count(v int) {
+func (b *MarketGetCommentsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Sort Sort order ('asc' — from old to new, 'desc' — from new to old)
-func (b *MarketGetCommentsBulder) Sort(v string) {
+func (b *MarketGetCommentsBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
 
 // Extended '1' — comments will be returned as numbered objects, in addition lists of 'profiles' and 'groups' objects will be returned.
-func (b *MarketGetCommentsBulder) Extended(v bool) {
+func (b *MarketGetCommentsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Fields List of additional profile fields to return. See the [vk.com/dev/fields|details]
-func (b *MarketGetCommentsBulder) Fields(v []string) {
+func (b *MarketGetCommentsBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// MarketRemoveFromAlbumBulder builder
+// MarketRemoveFromAlbumBuilder builder
 //
 // Removes an item from one or multiple collections.
 //
 // https://vk.com/dev/market.removeFromAlbum
-type MarketRemoveFromAlbumBulder struct {
+type MarketRemoveFromAlbumBuilder struct {
 	api.Params
 }
 
-// NewMarketRemoveFromAlbumBulder func
-func NewMarketRemoveFromAlbumBulder() *MarketRemoveFromAlbumBulder {
-	return &MarketRemoveFromAlbumBulder{api.Params{}}
+// NewMarketRemoveFromAlbumBuilder func
+func NewMarketRemoveFromAlbumBuilder() *MarketRemoveFromAlbumBuilder {
+	return &MarketRemoveFromAlbumBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketRemoveFromAlbumBulder) OwnerID(v int) {
+func (b *MarketRemoveFromAlbumBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Item ID.
-func (b *MarketRemoveFromAlbumBulder) ItemID(v int) {
+func (b *MarketRemoveFromAlbumBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
 // AlbumIDs Collections IDs to remove item from.
-func (b *MarketRemoveFromAlbumBulder) AlbumIDs(v []int) {
+func (b *MarketRemoveFromAlbumBuilder) AlbumIDs(v []int) {
 	b.Params["album_ids"] = v
 }
 
-// MarketReorderAlbumsBulder builder
+// MarketReorderAlbumsBuilder builder
 //
 // Reorders the collections list.
 //
 // https://vk.com/dev/market.reorderAlbums
-type MarketReorderAlbumsBulder struct {
+type MarketReorderAlbumsBuilder struct {
 	api.Params
 }
 
-// NewMarketReorderAlbumsBulder func
-func NewMarketReorderAlbumsBulder() *MarketReorderAlbumsBulder {
-	return &MarketReorderAlbumsBulder{api.Params{}}
+// NewMarketReorderAlbumsBuilder func
+func NewMarketReorderAlbumsBuilder() *MarketReorderAlbumsBuilder {
+	return &MarketReorderAlbumsBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketReorderAlbumsBulder) OwnerID(v int) {
+func (b *MarketReorderAlbumsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumID Collection ID.
-func (b *MarketReorderAlbumsBulder) AlbumID(v int) {
+func (b *MarketReorderAlbumsBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // Before ID of a collection to place current collection before it.
-func (b *MarketReorderAlbumsBulder) Before(v int) {
+func (b *MarketReorderAlbumsBuilder) Before(v int) {
 	b.Params["before"] = v
 }
 
 // After ID of a collection to place current collection after it.
-func (b *MarketReorderAlbumsBulder) After(v int) {
+func (b *MarketReorderAlbumsBuilder) After(v int) {
 	b.Params["after"] = v
 }
 
-// MarketReorderItemsBulder builder
+// MarketReorderItemsBuilder builder
 //
 // Changes item place in a collection.
 //
 // https://vk.com/dev/market.reorderItems
-type MarketReorderItemsBulder struct {
+type MarketReorderItemsBuilder struct {
 	api.Params
 }
 
-// NewMarketReorderItemsBulder func
-func NewMarketReorderItemsBulder() *MarketReorderItemsBulder {
-	return &MarketReorderItemsBulder{api.Params{}}
+// NewMarketReorderItemsBuilder func
+func NewMarketReorderItemsBuilder() *MarketReorderItemsBuilder {
+	return &MarketReorderItemsBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketReorderItemsBulder) OwnerID(v int) {
+func (b *MarketReorderItemsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumID ID of a collection to reorder items in. Set 0 to reorder full items list.
-func (b *MarketReorderItemsBulder) AlbumID(v int) {
+func (b *MarketReorderItemsBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // ItemID Item ID.
-func (b *MarketReorderItemsBulder) ItemID(v int) {
+func (b *MarketReorderItemsBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
 // Before ID of an item to place current item before it.
-func (b *MarketReorderItemsBulder) Before(v int) {
+func (b *MarketReorderItemsBuilder) Before(v int) {
 	b.Params["before"] = v
 }
 
 // After ID of an item to place current item after it.
-func (b *MarketReorderItemsBulder) After(v int) {
+func (b *MarketReorderItemsBuilder) After(v int) {
 	b.Params["after"] = v
 }
 
-// MarketReportBulder builder
+// MarketReportBuilder builder
 //
 // Sends a complaint to the item.
 //
 // https://vk.com/dev/market.report
-type MarketReportBulder struct {
+type MarketReportBuilder struct {
 	api.Params
 }
 
-// NewMarketReportBulder func
-func NewMarketReportBulder() *MarketReportBulder {
-	return &MarketReportBulder{api.Params{}}
+// NewMarketReportBuilder func
+func NewMarketReportBuilder() *MarketReportBuilder {
+	return &MarketReportBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketReportBulder) OwnerID(v int) {
+func (b *MarketReportBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Item ID.
-func (b *MarketReportBulder) ItemID(v int) {
+func (b *MarketReportBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
 // Reason Complaint reason. Possible values: *'0' — spam,, *'1' — child porn,, *'2' — extremism,, *'3' — violence,, *'4' — drugs propaganda,, *'5' — adult materials,, *'6' — insult.
-func (b *MarketReportBulder) Reason(v int) {
+func (b *MarketReportBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
 
-// MarketReportCommentBulder builder
+// MarketReportCommentBuilder builder
 //
 // Sends a complaint to the item's comment.
 //
 // https://vk.com/dev/market.reportComment
-type MarketReportCommentBulder struct {
+type MarketReportCommentBuilder struct {
 	api.Params
 }
 
-// NewMarketReportCommentBulder func
-func NewMarketReportCommentBulder() *MarketReportCommentBulder {
-	return &MarketReportCommentBulder{api.Params{}}
+// NewMarketReportCommentBuilder func
+func NewMarketReportCommentBuilder() *MarketReportCommentBuilder {
+	return &MarketReportCommentBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketReportCommentBulder) OwnerID(v int) {
+func (b *MarketReportCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CommentID Comment ID.
-func (b *MarketReportCommentBulder) CommentID(v int) {
+func (b *MarketReportCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
 // Reason Complaint reason. Possible values: *'0' — spam,, *'1' — child porn,, *'2' — extremism,, *'3' — violence,, *'4' — drugs propaganda,, *'5' — adult materials,, *'6' — insult.
-func (b *MarketReportCommentBulder) Reason(v int) {
+func (b *MarketReportCommentBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
 
-// MarketRestoreBulder builder
+// MarketRestoreBuilder builder
 //
 // Restores recently deleted item
 //
 // https://vk.com/dev/market.restore
-type MarketRestoreBulder struct {
+type MarketRestoreBuilder struct {
 	api.Params
 }
 
-// NewMarketRestoreBulder func
-func NewMarketRestoreBulder() *MarketRestoreBulder {
-	return &MarketRestoreBulder{api.Params{}}
+// NewMarketRestoreBuilder func
+func NewMarketRestoreBuilder() *MarketRestoreBuilder {
+	return &MarketRestoreBuilder{api.Params{}}
 }
 
 // OwnerID ID of an item owner community.
-func (b *MarketRestoreBulder) OwnerID(v int) {
+func (b *MarketRestoreBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // ItemID Deleted item ID.
-func (b *MarketRestoreBulder) ItemID(v int) {
+func (b *MarketRestoreBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
-// MarketRestoreCommentBulder builder
+// MarketRestoreCommentBuilder builder
 //
 // Restores a recently deleted comment
 //
 // https://vk.com/dev/market.restoreComment
-type MarketRestoreCommentBulder struct {
+type MarketRestoreCommentBuilder struct {
 	api.Params
 }
 
-// NewMarketRestoreCommentBulder func
-func NewMarketRestoreCommentBulder() *MarketRestoreCommentBulder {
-	return &MarketRestoreCommentBulder{api.Params{}}
+// NewMarketRestoreCommentBuilder func
+func NewMarketRestoreCommentBuilder() *MarketRestoreCommentBuilder {
+	return &MarketRestoreCommentBuilder{api.Params{}}
 }
 
 // OwnerID identifier of an item owner community, "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
-func (b *MarketRestoreCommentBulder) OwnerID(v int) {
+func (b *MarketRestoreCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // CommentID deleted comment id
-func (b *MarketRestoreCommentBulder) CommentID(v int) {
+func (b *MarketRestoreCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
-// MarketSearchBulder builder
+// MarketSearchBuilder builder
 //
 // Searches market items in a community's catalog
 //
 // https://vk.com/dev/market.search
-type MarketSearchBulder struct {
+type MarketSearchBuilder struct {
 	api.Params
 }
 
-// NewMarketSearchBulder func
-func NewMarketSearchBulder() *MarketSearchBulder {
-	return &MarketSearchBulder{api.Params{}}
+// NewMarketSearchBuilder func
+func NewMarketSearchBuilder() *MarketSearchBuilder {
+	return &MarketSearchBuilder{api.Params{}}
 }
 
 // OwnerID ID of an items owner community.
-func (b *MarketSearchBulder) OwnerID(v int) {
+func (b *MarketSearchBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // AlbumID parameter
-func (b *MarketSearchBulder) AlbumID(v int) {
+func (b *MarketSearchBuilder) AlbumID(v int) {
 	b.Params["album_id"] = v
 }
 
 // Q Search query, for example "pink slippers".
-func (b *MarketSearchBulder) Q(v string) {
+func (b *MarketSearchBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
 // PriceFrom Minimum item price value.
-func (b *MarketSearchBulder) PriceFrom(v int) {
+func (b *MarketSearchBuilder) PriceFrom(v int) {
 	b.Params["price_from"] = v
 }
 
 // PriceTo Maximum item price value.
-func (b *MarketSearchBulder) PriceTo(v int) {
+func (b *MarketSearchBuilder) PriceTo(v int) {
 	b.Params["price_to"] = v
 }
 
 // Tags Comma-separated tag IDs list.
-func (b *MarketSearchBulder) Tags(v []int) {
+func (b *MarketSearchBuilder) Tags(v []int) {
 	b.Params["tags"] = v
 }
 
 // Sort parameter
-func (b *MarketSearchBulder) Sort(v int) {
+func (b *MarketSearchBuilder) Sort(v int) {
 	b.Params["sort"] = v
 }
 
 // Rev '0' — do not use reverse order, '1' — use reverse order
-func (b *MarketSearchBulder) Rev(v int) {
+func (b *MarketSearchBuilder) Rev(v int) {
 	b.Params["rev"] = v
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *MarketSearchBulder) Offset(v int) {
+func (b *MarketSearchBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count Number of items to return.
-func (b *MarketSearchBulder) Count(v int) {
+func (b *MarketSearchBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Extended '1' – to return additional fields: 'likes, can_comment, car_repost, photos'. By default: '0'.
-func (b *MarketSearchBulder) Extended(v bool) {
+func (b *MarketSearchBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Status parameter
-func (b *MarketSearchBulder) Status(v int) {
+func (b *MarketSearchBuilder) Status(v int) {
 	b.Params["status"] = v
 }

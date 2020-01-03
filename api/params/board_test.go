@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestBoardAddTopicBulder(t *testing.T) {
-	b := params.NewBoardAddTopicBulder()
+func TestBoardAddTopicBuilder(t *testing.T) {
+	b := params.NewBoardAddTopicBuilder()
 
 	b.GroupID(1)
 	b.Title("text")
@@ -23,8 +23,8 @@ func TestBoardAddTopicBulder(t *testing.T) {
 	assert.Equal(t, b.Params["attachments"], []string{"text"})
 }
 
-func TestBoardCloseTopicBulder(t *testing.T) {
-	b := params.NewBoardCloseTopicBulder()
+func TestBoardCloseTopicBuilder(t *testing.T) {
+	b := params.NewBoardCloseTopicBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -33,8 +33,8 @@ func TestBoardCloseTopicBulder(t *testing.T) {
 	assert.Equal(t, b.Params["topic_id"], 1)
 }
 
-func TestBoardCreateCommentBulder(t *testing.T) {
-	b := params.NewBoardCreateCommentBulder()
+func TestBoardCreateCommentBuilder(t *testing.T) {
+	b := params.NewBoardCreateCommentBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -53,8 +53,8 @@ func TestBoardCreateCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["guid"], "text")
 }
 
-func TestBoardDeleteCommentBulder(t *testing.T) {
-	b := params.NewBoardDeleteCommentBulder()
+func TestBoardDeleteCommentBuilder(t *testing.T) {
+	b := params.NewBoardDeleteCommentBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -65,8 +65,8 @@ func TestBoardDeleteCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestBoardDeleteTopicBulder(t *testing.T) {
-	b := params.NewBoardDeleteTopicBulder()
+func TestBoardDeleteTopicBuilder(t *testing.T) {
+	b := params.NewBoardDeleteTopicBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -75,8 +75,8 @@ func TestBoardDeleteTopicBulder(t *testing.T) {
 	assert.Equal(t, b.Params["topic_id"], 1)
 }
 
-func TestBoardEditCommentBulder(t *testing.T) {
-	b := params.NewBoardEditCommentBulder()
+func TestBoardEditCommentBuilder(t *testing.T) {
+	b := params.NewBoardEditCommentBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -91,8 +91,8 @@ func TestBoardEditCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["attachments"], []string{"text"})
 }
 
-func TestBoardEditTopicBulder(t *testing.T) {
-	b := params.NewBoardEditTopicBulder()
+func TestBoardEditTopicBuilder(t *testing.T) {
+	b := params.NewBoardEditTopicBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -103,8 +103,8 @@ func TestBoardEditTopicBulder(t *testing.T) {
 	assert.Equal(t, b.Params["title"], "text")
 }
 
-func TestBoardFixTopicBulder(t *testing.T) {
-	b := params.NewBoardFixTopicBulder()
+func TestBoardFixTopicBuilder(t *testing.T) {
+	b := params.NewBoardFixTopicBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -113,8 +113,8 @@ func TestBoardFixTopicBulder(t *testing.T) {
 	assert.Equal(t, b.Params["topic_id"], 1)
 }
 
-func TestBoardGetCommentsBulder(t *testing.T) {
-	b := params.NewBoardGetCommentsBulder()
+func TestBoardGetCommentsBuilder(t *testing.T) {
+	b := params.NewBoardGetCommentsBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -135,8 +135,8 @@ func TestBoardGetCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["sort"], "text")
 }
 
-func TestBoardGetTopicsBulder(t *testing.T) {
-	b := params.NewBoardGetTopicsBulder()
+func TestBoardGetTopicsBuilder(t *testing.T) {
+	b := params.NewBoardGetTopicsBuilder()
 
 	b.GroupID(1)
 	b.TopicIDs([]int{1})
@@ -157,8 +157,8 @@ func TestBoardGetTopicsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["preview_length"], 1)
 }
 
-func TestBoardOpenTopicBulder(t *testing.T) {
-	b := params.NewBoardOpenTopicBulder()
+func TestBoardOpenTopicBuilder(t *testing.T) {
+	b := params.NewBoardOpenTopicBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -167,8 +167,8 @@ func TestBoardOpenTopicBulder(t *testing.T) {
 	assert.Equal(t, b.Params["topic_id"], 1)
 }
 
-func TestBoardRestoreCommentBulder(t *testing.T) {
-	b := params.NewBoardRestoreCommentBulder()
+func TestBoardRestoreCommentBuilder(t *testing.T) {
+	b := params.NewBoardRestoreCommentBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)
@@ -179,8 +179,8 @@ func TestBoardRestoreCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestBoardUnfixTopicBulder(t *testing.T) {
-	b := params.NewBoardUnfixTopicBulder()
+func TestBoardUnfixTopicBuilder(t *testing.T) {
+	b := params.NewBoardUnfixTopicBuilder()
 
 	b.GroupID(1)
 	b.TopicID(1)

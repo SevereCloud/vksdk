@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAppWidgetsUpdateBulder(t *testing.T) {
-	b := params.NewAppWidgetsUpdateBulder()
+func TestAppWidgetsUpdateBuilder(t *testing.T) {
+	b := params.NewAppWidgetsUpdateBuilder()
 
 	b.Code("text")
 	b.Type("text")

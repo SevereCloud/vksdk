@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPhotosConfirmTagBulder(t *testing.T) {
-	b := params.NewPhotosConfirmTagBulder()
+func TestPhotosConfirmTagBuilder(t *testing.T) {
+	b := params.NewPhotosConfirmTagBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID("text")
@@ -19,8 +19,8 @@ func TestPhotosConfirmTagBulder(t *testing.T) {
 	assert.Equal(t, b.Params["tag_id"], 1)
 }
 
-func TestPhotosCopyBulder(t *testing.T) {
-	b := params.NewPhotosCopyBulder()
+func TestPhotosCopyBuilder(t *testing.T) {
+	b := params.NewPhotosCopyBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -31,8 +31,8 @@ func TestPhotosCopyBulder(t *testing.T) {
 	assert.Equal(t, b.Params["access_key"], "text")
 }
 
-func TestPhotosCreateAlbumBulder(t *testing.T) {
-	b := params.NewPhotosCreateAlbumBulder()
+func TestPhotosCreateAlbumBuilder(t *testing.T) {
+	b := params.NewPhotosCreateAlbumBuilder()
 
 	b.Title("text")
 	b.GroupID(1)
@@ -51,8 +51,8 @@ func TestPhotosCreateAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comments_disabled"], true)
 }
 
-func TestPhotosCreateCommentBulder(t *testing.T) {
-	b := params.NewPhotosCreateCommentBulder()
+func TestPhotosCreateCommentBuilder(t *testing.T) {
+	b := params.NewPhotosCreateCommentBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -75,8 +75,8 @@ func TestPhotosCreateCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["guid"], "text")
 }
 
-func TestPhotosDeleteBulder(t *testing.T) {
-	b := params.NewPhotosDeleteBulder()
+func TestPhotosDeleteBuilder(t *testing.T) {
+	b := params.NewPhotosDeleteBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -85,8 +85,8 @@ func TestPhotosDeleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["photo_id"], 1)
 }
 
-func TestPhotosDeleteAlbumBulder(t *testing.T) {
-	b := params.NewPhotosDeleteAlbumBulder()
+func TestPhotosDeleteAlbumBuilder(t *testing.T) {
+	b := params.NewPhotosDeleteAlbumBuilder()
 
 	b.AlbumID(1)
 	b.GroupID(1)
@@ -95,8 +95,8 @@ func TestPhotosDeleteAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestPhotosDeleteCommentBulder(t *testing.T) {
-	b := params.NewPhotosDeleteCommentBulder()
+func TestPhotosDeleteCommentBuilder(t *testing.T) {
+	b := params.NewPhotosDeleteCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -105,8 +105,8 @@ func TestPhotosDeleteCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestPhotosEditBulder(t *testing.T) {
-	b := params.NewPhotosEditBulder()
+func TestPhotosEditBuilder(t *testing.T) {
+	b := params.NewPhotosEditBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -127,8 +127,8 @@ func TestPhotosEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["delete_place"], true)
 }
 
-func TestPhotosEditAlbumBulder(t *testing.T) {
-	b := params.NewPhotosEditAlbumBulder()
+func TestPhotosEditAlbumBuilder(t *testing.T) {
+	b := params.NewPhotosEditAlbumBuilder()
 
 	b.AlbumID(1)
 	b.Title("text")
@@ -149,8 +149,8 @@ func TestPhotosEditAlbumBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comments_disabled"], true)
 }
 
-func TestPhotosEditCommentBulder(t *testing.T) {
-	b := params.NewPhotosEditCommentBulder()
+func TestPhotosEditCommentBuilder(t *testing.T) {
+	b := params.NewPhotosEditCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -163,8 +163,8 @@ func TestPhotosEditCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["attachments"], []string{"text"})
 }
 
-func TestPhotosGetBulder(t *testing.T) {
-	b := params.NewPhotosGetBulder()
+func TestPhotosGetBuilder(t *testing.T) {
+	b := params.NewPhotosGetBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID("text")
@@ -189,8 +189,8 @@ func TestPhotosGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestPhotosGetAlbumsBulder(t *testing.T) {
-	b := params.NewPhotosGetAlbumsBulder()
+func TestPhotosGetAlbumsBuilder(t *testing.T) {
+	b := params.NewPhotosGetAlbumsBuilder()
 
 	b.OwnerID(1)
 	b.AlbumIDs([]int{1})
@@ -209,8 +209,8 @@ func TestPhotosGetAlbumsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["photo_sizes"], true)
 }
 
-func TestPhotosGetAlbumsCountBulder(t *testing.T) {
-	b := params.NewPhotosGetAlbumsCountBulder()
+func TestPhotosGetAlbumsCountBuilder(t *testing.T) {
+	b := params.NewPhotosGetAlbumsCountBuilder()
 
 	b.UserID(1)
 	b.GroupID(1)
@@ -219,8 +219,8 @@ func TestPhotosGetAlbumsCountBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestPhotosGetAllBulder(t *testing.T) {
-	b := params.NewPhotosGetAllBulder()
+func TestPhotosGetAllBuilder(t *testing.T) {
+	b := params.NewPhotosGetAllBuilder()
 
 	b.OwnerID(1)
 	b.Extended(true)
@@ -241,8 +241,8 @@ func TestPhotosGetAllBulder(t *testing.T) {
 	assert.Equal(t, b.Params["skip_hidden"], true)
 }
 
-func TestPhotosGetAllCommentsBulder(t *testing.T) {
-	b := params.NewPhotosGetAllCommentsBulder()
+func TestPhotosGetAllCommentsBuilder(t *testing.T) {
+	b := params.NewPhotosGetAllCommentsBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)
@@ -257,8 +257,8 @@ func TestPhotosGetAllCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestPhotosGetByIDBulder(t *testing.T) {
-	b := params.NewPhotosGetByIDBulder()
+func TestPhotosGetByIDBuilder(t *testing.T) {
+	b := params.NewPhotosGetByIDBuilder()
 
 	b.Photos([]string{"text"})
 	b.Extended(true)
@@ -269,8 +269,8 @@ func TestPhotosGetByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["photo_sizes"], true)
 }
 
-func TestPhotosGetChatUploadServerBulder(t *testing.T) {
-	b := params.NewPhotosGetChatUploadServerBulder()
+func TestPhotosGetChatUploadServerBuilder(t *testing.T) {
+	b := params.NewPhotosGetChatUploadServerBuilder()
 
 	b.ChatID(1)
 	b.CropX(1)
@@ -283,8 +283,8 @@ func TestPhotosGetChatUploadServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["crop_width"], 1)
 }
 
-func TestPhotosGetCommentsBulder(t *testing.T) {
-	b := params.NewPhotosGetCommentsBulder()
+func TestPhotosGetCommentsBuilder(t *testing.T) {
+	b := params.NewPhotosGetCommentsBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -309,16 +309,16 @@ func TestPhotosGetCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestPhotosGetMarketAlbumUploadServerBulder(t *testing.T) {
-	b := params.NewPhotosGetMarketAlbumUploadServerBulder()
+func TestPhotosGetMarketAlbumUploadServerBuilder(t *testing.T) {
+	b := params.NewPhotosGetMarketAlbumUploadServerBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestPhotosGetMarketUploadServerBulder(t *testing.T) {
-	b := params.NewPhotosGetMarketUploadServerBulder()
+func TestPhotosGetMarketUploadServerBuilder(t *testing.T) {
+	b := params.NewPhotosGetMarketUploadServerBuilder()
 
 	b.GroupID(1)
 	b.MainPhoto(true)
@@ -333,16 +333,16 @@ func TestPhotosGetMarketUploadServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["crop_width"], 1)
 }
 
-func TestPhotosGetMessagesUploadServerBulder(t *testing.T) {
-	b := params.NewPhotosGetMessagesUploadServerBulder()
+func TestPhotosGetMessagesUploadServerBuilder(t *testing.T) {
+	b := params.NewPhotosGetMessagesUploadServerBuilder()
 
 	b.PeerID(1)
 
 	assert.Equal(t, b.Params["peer_id"], 1)
 }
 
-func TestPhotosGetNewTagsBulder(t *testing.T) {
-	b := params.NewPhotosGetNewTagsBulder()
+func TestPhotosGetNewTagsBuilder(t *testing.T) {
+	b := params.NewPhotosGetNewTagsBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -351,8 +351,8 @@ func TestPhotosGetNewTagsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestPhotosGetOwnerCoverPhotoUploadServerBulder(t *testing.T) {
-	b := params.NewPhotosGetOwnerCoverPhotoUploadServerBulder()
+func TestPhotosGetOwnerCoverPhotoUploadServerBuilder(t *testing.T) {
+	b := params.NewPhotosGetOwnerCoverPhotoUploadServerBuilder()
 
 	b.GroupID(1)
 	b.CropX(1)
@@ -367,16 +367,16 @@ func TestPhotosGetOwnerCoverPhotoUploadServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["crop_y2"], 1)
 }
 
-func TestPhotosGetOwnerPhotoUploadServerBulder(t *testing.T) {
-	b := params.NewPhotosGetOwnerPhotoUploadServerBulder()
+func TestPhotosGetOwnerPhotoUploadServerBuilder(t *testing.T) {
+	b := params.NewPhotosGetOwnerPhotoUploadServerBuilder()
 
 	b.OwnerID(1)
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 }
 
-func TestPhotosGetTagsBulder(t *testing.T) {
-	b := params.NewPhotosGetTagsBulder()
+func TestPhotosGetTagsBuilder(t *testing.T) {
+	b := params.NewPhotosGetTagsBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -387,8 +387,8 @@ func TestPhotosGetTagsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["access_key"], "text")
 }
 
-func TestPhotosGetUploadServerBulder(t *testing.T) {
-	b := params.NewPhotosGetUploadServerBulder()
+func TestPhotosGetUploadServerBuilder(t *testing.T) {
+	b := params.NewPhotosGetUploadServerBuilder()
 
 	b.GroupID(1)
 	b.AlbumID(1)
@@ -397,8 +397,8 @@ func TestPhotosGetUploadServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["album_id"], 1)
 }
 
-func TestPhotosGetUserPhotosBulder(t *testing.T) {
-	b := params.NewPhotosGetUserPhotosBulder()
+func TestPhotosGetUserPhotosBuilder(t *testing.T) {
+	b := params.NewPhotosGetUserPhotosBuilder()
 
 	b.UserID(1)
 	b.Offset(1)
@@ -413,16 +413,16 @@ func TestPhotosGetUserPhotosBulder(t *testing.T) {
 	assert.Equal(t, b.Params["sort"], "text")
 }
 
-func TestPhotosGetWallUploadServerBulder(t *testing.T) {
-	b := params.NewPhotosGetWallUploadServerBulder()
+func TestPhotosGetWallUploadServerBuilder(t *testing.T) {
+	b := params.NewPhotosGetWallUploadServerBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestPhotosMakeCoverBulder(t *testing.T) {
-	b := params.NewPhotosMakeCoverBulder()
+func TestPhotosMakeCoverBuilder(t *testing.T) {
+	b := params.NewPhotosMakeCoverBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -433,8 +433,8 @@ func TestPhotosMakeCoverBulder(t *testing.T) {
 	assert.Equal(t, b.Params["album_id"], 1)
 }
 
-func TestPhotosMoveBulder(t *testing.T) {
-	b := params.NewPhotosMoveBulder()
+func TestPhotosMoveBuilder(t *testing.T) {
+	b := params.NewPhotosMoveBuilder()
 
 	b.OwnerID(1)
 	b.TargetAlbumID(1)
@@ -445,8 +445,8 @@ func TestPhotosMoveBulder(t *testing.T) {
 	assert.Equal(t, b.Params["photo_id"], 1)
 }
 
-func TestPhotosPutTagBulder(t *testing.T) {
-	b := params.NewPhotosPutTagBulder()
+func TestPhotosPutTagBuilder(t *testing.T) {
+	b := params.NewPhotosPutTagBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -465,8 +465,8 @@ func TestPhotosPutTagBulder(t *testing.T) {
 	assert.Equal(t, b.Params["y2"], 1.1)
 }
 
-func TestPhotosRemoveTagBulder(t *testing.T) {
-	b := params.NewPhotosRemoveTagBulder()
+func TestPhotosRemoveTagBuilder(t *testing.T) {
+	b := params.NewPhotosRemoveTagBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -477,8 +477,8 @@ func TestPhotosRemoveTagBulder(t *testing.T) {
 	assert.Equal(t, b.Params["tag_id"], 1)
 }
 
-func TestPhotosReorderAlbumsBulder(t *testing.T) {
-	b := params.NewPhotosReorderAlbumsBulder()
+func TestPhotosReorderAlbumsBuilder(t *testing.T) {
+	b := params.NewPhotosReorderAlbumsBuilder()
 
 	b.OwnerID(1)
 	b.AlbumID(1)
@@ -491,8 +491,8 @@ func TestPhotosReorderAlbumsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["after"], 1)
 }
 
-func TestPhotosReorderPhotosBulder(t *testing.T) {
-	b := params.NewPhotosReorderPhotosBulder()
+func TestPhotosReorderPhotosBuilder(t *testing.T) {
+	b := params.NewPhotosReorderPhotosBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -505,8 +505,8 @@ func TestPhotosReorderPhotosBulder(t *testing.T) {
 	assert.Equal(t, b.Params["after"], 1)
 }
 
-func TestPhotosReportBulder(t *testing.T) {
-	b := params.NewPhotosReportBulder()
+func TestPhotosReportBuilder(t *testing.T) {
+	b := params.NewPhotosReportBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -517,8 +517,8 @@ func TestPhotosReportBulder(t *testing.T) {
 	assert.Equal(t, b.Params["reason"], 1)
 }
 
-func TestPhotosReportCommentBulder(t *testing.T) {
-	b := params.NewPhotosReportCommentBulder()
+func TestPhotosReportCommentBuilder(t *testing.T) {
+	b := params.NewPhotosReportCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -529,8 +529,8 @@ func TestPhotosReportCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["reason"], 1)
 }
 
-func TestPhotosRestoreBulder(t *testing.T) {
-	b := params.NewPhotosRestoreBulder()
+func TestPhotosRestoreBuilder(t *testing.T) {
+	b := params.NewPhotosRestoreBuilder()
 
 	b.OwnerID(1)
 	b.PhotoID(1)
@@ -539,8 +539,8 @@ func TestPhotosRestoreBulder(t *testing.T) {
 	assert.Equal(t, b.Params["photo_id"], 1)
 }
 
-func TestPhotosRestoreCommentBulder(t *testing.T) {
-	b := params.NewPhotosRestoreCommentBulder()
+func TestPhotosRestoreCommentBuilder(t *testing.T) {
+	b := params.NewPhotosRestoreCommentBuilder()
 
 	b.OwnerID(1)
 	b.CommentID(1)
@@ -549,8 +549,8 @@ func TestPhotosRestoreCommentBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_id"], 1)
 }
 
-func TestPhotosSaveBulder(t *testing.T) {
-	b := params.NewPhotosSaveBulder()
+func TestPhotosSaveBuilder(t *testing.T) {
+	b := params.NewPhotosSaveBuilder()
 
 	b.AlbumID(1)
 	b.GroupID(1)
@@ -571,8 +571,8 @@ func TestPhotosSaveBulder(t *testing.T) {
 	assert.Equal(t, b.Params["caption"], "text")
 }
 
-func TestPhotosSaveMarketAlbumPhotoBulder(t *testing.T) {
-	b := params.NewPhotosSaveMarketAlbumPhotoBulder()
+func TestPhotosSaveMarketAlbumPhotoBuilder(t *testing.T) {
+	b := params.NewPhotosSaveMarketAlbumPhotoBuilder()
 
 	b.GroupID(1)
 	b.Photo("text")
@@ -585,8 +585,8 @@ func TestPhotosSaveMarketAlbumPhotoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["hash"], "text")
 }
 
-func TestPhotosSaveMarketPhotoBulder(t *testing.T) {
-	b := params.NewPhotosSaveMarketPhotoBulder()
+func TestPhotosSaveMarketPhotoBuilder(t *testing.T) {
+	b := params.NewPhotosSaveMarketPhotoBuilder()
 
 	b.GroupID(1)
 	b.Photo("text")
@@ -603,8 +603,8 @@ func TestPhotosSaveMarketPhotoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["crop_hash"], "text")
 }
 
-func TestPhotosSaveMessagesPhotoBulder(t *testing.T) {
-	b := params.NewPhotosSaveMessagesPhotoBulder()
+func TestPhotosSaveMessagesPhotoBuilder(t *testing.T) {
+	b := params.NewPhotosSaveMessagesPhotoBuilder()
 
 	b.Photo("text")
 	b.Server(1)
@@ -615,8 +615,8 @@ func TestPhotosSaveMessagesPhotoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["hash"], "text")
 }
 
-func TestPhotosSaveOwnerCoverPhotoBulder(t *testing.T) {
-	b := params.NewPhotosSaveOwnerCoverPhotoBulder()
+func TestPhotosSaveOwnerCoverPhotoBuilder(t *testing.T) {
+	b := params.NewPhotosSaveOwnerCoverPhotoBuilder()
 
 	b.Hash("text")
 	b.Photo("text")
@@ -625,8 +625,8 @@ func TestPhotosSaveOwnerCoverPhotoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["photo"], "text")
 }
 
-func TestPhotosSaveOwnerPhotoBulder(t *testing.T) {
-	b := params.NewPhotosSaveOwnerPhotoBulder()
+func TestPhotosSaveOwnerPhotoBuilder(t *testing.T) {
+	b := params.NewPhotosSaveOwnerPhotoBuilder()
 
 	b.Server("text")
 	b.Hash("text")
@@ -637,8 +637,8 @@ func TestPhotosSaveOwnerPhotoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["photo"], "text")
 }
 
-func TestPhotosSaveWallPhotoBulder(t *testing.T) {
-	b := params.NewPhotosSaveWallPhotoBulder()
+func TestPhotosSaveWallPhotoBuilder(t *testing.T) {
+	b := params.NewPhotosSaveWallPhotoBuilder()
 
 	b.UserID(1)
 	b.GroupID(1)
@@ -659,8 +659,8 @@ func TestPhotosSaveWallPhotoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["caption"], "text")
 }
 
-func TestPhotosSearchBulder(t *testing.T) {
-	b := params.NewPhotosSearchBulder()
+func TestPhotosSearchBuilder(t *testing.T) {
+	b := params.NewPhotosSearchBuilder()
 
 	b.Q("text")
 	b.Lat(1.1)

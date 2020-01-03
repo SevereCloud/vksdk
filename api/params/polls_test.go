@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPollsAddVoteBulder(t *testing.T) {
-	b := params.NewPollsAddVoteBulder()
+func TestPollsAddVoteBuilder(t *testing.T) {
+	b := params.NewPollsAddVoteBuilder()
 
 	b.OwnerID(1)
 	b.PollID(1)
@@ -21,8 +21,8 @@ func TestPollsAddVoteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["is_board"], true)
 }
 
-func TestPollsCreateBulder(t *testing.T) {
-	b := params.NewPollsCreateBulder()
+func TestPollsCreateBuilder(t *testing.T) {
+	b := params.NewPollsCreateBuilder()
 
 	b.Question("text")
 	b.IsAnonymous(true)
@@ -43,8 +43,8 @@ func TestPollsCreateBulder(t *testing.T) {
 	assert.Equal(t, b.Params["background_id"], "text")
 }
 
-func TestPollsDeleteVoteBulder(t *testing.T) {
-	b := params.NewPollsDeleteVoteBulder()
+func TestPollsDeleteVoteBuilder(t *testing.T) {
+	b := params.NewPollsDeleteVoteBuilder()
 
 	b.OwnerID(1)
 	b.PollID(1)
@@ -57,8 +57,8 @@ func TestPollsDeleteVoteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["is_board"], true)
 }
 
-func TestPollsEditBulder(t *testing.T) {
-	b := params.NewPollsEditBulder()
+func TestPollsEditBuilder(t *testing.T) {
+	b := params.NewPollsEditBuilder()
 
 	b.OwnerID(1)
 	b.PollID(1)
@@ -81,8 +81,8 @@ func TestPollsEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["background_id"], "text")
 }
 
-func TestPollsGetByIDBulder(t *testing.T) {
-	b := params.NewPollsGetByIDBulder()
+func TestPollsGetByIDBuilder(t *testing.T) {
+	b := params.NewPollsGetByIDBuilder()
 
 	b.OwnerID(1)
 	b.IsBoard(true)
@@ -101,8 +101,8 @@ func TestPollsGetByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["name_case"], "text")
 }
 
-func TestPollsGetVotersBulder(t *testing.T) {
-	b := params.NewPollsGetVotersBulder()
+func TestPollsGetVotersBuilder(t *testing.T) {
+	b := params.NewPollsGetVotersBuilder()
 
 	b.OwnerID(1)
 	b.PollID(1)

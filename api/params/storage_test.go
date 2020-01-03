@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestStorageGetBulder(t *testing.T) {
-	b := params.NewStorageGetBulder()
+func TestStorageGetBuilder(t *testing.T) {
+	b := params.NewStorageGetBuilder()
 
 	b.Key("text")
 	b.Keys([]string{"text"})
@@ -21,8 +21,8 @@ func TestStorageGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["global"], true)
 }
 
-func TestStorageGetKeysBulder(t *testing.T) {
-	b := params.NewStorageGetKeysBulder()
+func TestStorageGetKeysBuilder(t *testing.T) {
+	b := params.NewStorageGetKeysBuilder()
 
 	b.UserID(1)
 	b.Global(true)
@@ -35,8 +35,8 @@ func TestStorageGetKeysBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestStorageSetBulder(t *testing.T) {
-	b := params.NewStorageSetBulder()
+func TestStorageSetBuilder(t *testing.T) {
+	b := params.NewStorageSetBuilder()
 
 	b.Key("text")
 	b.Value("text")

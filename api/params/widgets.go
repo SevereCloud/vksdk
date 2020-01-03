@@ -4,90 +4,90 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// WidgetsGetCommentsBulder builder
+// WidgetsGetCommentsBuilder builder
 //
 // Gets a list of comments for the page added through the [vk.com/dev/Comments|Comments widget].
 //
 // https://vk.com/dev/widgets.getComments
-type WidgetsGetCommentsBulder struct {
+type WidgetsGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewWidgetsGetCommentsBulder func
-func NewWidgetsGetCommentsBulder() *WidgetsGetCommentsBulder {
-	return &WidgetsGetCommentsBulder{api.Params{}}
+// NewWidgetsGetCommentsBuilder func
+func NewWidgetsGetCommentsBuilder() *WidgetsGetCommentsBuilder {
+	return &WidgetsGetCommentsBuilder{api.Params{}}
 }
 
 // WidgetAPIID parameter
-func (b *WidgetsGetCommentsBulder) WidgetAPIID(v int) {
+func (b *WidgetsGetCommentsBuilder) WidgetAPIID(v int) {
 	b.Params["widget_api_id"] = v
 }
 
 // URL parameter
-func (b *WidgetsGetCommentsBulder) URL(v string) {
+func (b *WidgetsGetCommentsBuilder) URL(v string) {
 	b.Params["url"] = v
 }
 
 // PageID parameter
-func (b *WidgetsGetCommentsBulder) PageID(v string) {
+func (b *WidgetsGetCommentsBuilder) PageID(v string) {
 	b.Params["page_id"] = v
 }
 
 // Order parameter
-func (b *WidgetsGetCommentsBulder) Order(v string) {
+func (b *WidgetsGetCommentsBuilder) Order(v string) {
 	b.Params["order"] = v
 }
 
 // Fields parameter
-func (b *WidgetsGetCommentsBulder) Fields(v []string) {
+func (b *WidgetsGetCommentsBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
 // Offset parameter
-func (b *WidgetsGetCommentsBulder) Offset(v int) {
+func (b *WidgetsGetCommentsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count parameter
-func (b *WidgetsGetCommentsBulder) Count(v int) {
+func (b *WidgetsGetCommentsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// WidgetsGetPagesBulder builder
+// WidgetsGetPagesBuilder builder
 //
 // Gets a list of application/site pages where the [vk.com/dev/Comments|Comments widget] or [vk.com/dev/Like|Like widget] is installed.
 //
 // https://vk.com/dev/widgets.getPages
-type WidgetsGetPagesBulder struct {
+type WidgetsGetPagesBuilder struct {
 	api.Params
 }
 
-// NewWidgetsGetPagesBulder func
-func NewWidgetsGetPagesBulder() *WidgetsGetPagesBulder {
-	return &WidgetsGetPagesBulder{api.Params{}}
+// NewWidgetsGetPagesBuilder func
+func NewWidgetsGetPagesBuilder() *WidgetsGetPagesBuilder {
+	return &WidgetsGetPagesBuilder{api.Params{}}
 }
 
 // WidgetAPIID parameter
-func (b *WidgetsGetPagesBulder) WidgetAPIID(v int) {
+func (b *WidgetsGetPagesBuilder) WidgetAPIID(v int) {
 	b.Params["widget_api_id"] = v
 }
 
 // Order parameter
-func (b *WidgetsGetPagesBulder) Order(v string) {
+func (b *WidgetsGetPagesBuilder) Order(v string) {
 	b.Params["order"] = v
 }
 
 // Period parameter
-func (b *WidgetsGetPagesBulder) Period(v string) {
+func (b *WidgetsGetPagesBuilder) Period(v string) {
 	b.Params["period"] = v
 }
 
 // Offset parameter
-func (b *WidgetsGetPagesBulder) Offset(v int) {
+func (b *WidgetsGetPagesBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Count parameter
-func (b *WidgetsGetPagesBulder) Count(v int) {
+func (b *WidgetsGetPagesBuilder) Count(v int) {
 	b.Params["count"] = v
 }

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFriendsAddBulder(t *testing.T) {
-	b := params.NewFriendsAddBulder()
+func TestFriendsAddBuilder(t *testing.T) {
+	b := params.NewFriendsAddBuilder()
 
 	b.UserID(1)
 	b.Text("text")
@@ -19,8 +19,8 @@ func TestFriendsAddBulder(t *testing.T) {
 	assert.Equal(t, b.Params["follow"], true)
 }
 
-func TestFriendsAddListBulder(t *testing.T) {
-	b := params.NewFriendsAddListBulder()
+func TestFriendsAddListBuilder(t *testing.T) {
+	b := params.NewFriendsAddListBuilder()
 
 	b.Name("text")
 	b.UserIDs([]int{1})
@@ -29,8 +29,8 @@ func TestFriendsAddListBulder(t *testing.T) {
 	assert.Equal(t, b.Params["user_ids"], []int{1})
 }
 
-func TestFriendsAreFriendsBulder(t *testing.T) {
-	b := params.NewFriendsAreFriendsBulder()
+func TestFriendsAreFriendsBuilder(t *testing.T) {
+	b := params.NewFriendsAreFriendsBuilder()
 
 	b.UserIDs([]int{1})
 	b.NeedSign(true)
@@ -39,24 +39,24 @@ func TestFriendsAreFriendsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["need_sign"], true)
 }
 
-func TestFriendsDeleteBulder(t *testing.T) {
-	b := params.NewFriendsDeleteBulder()
+func TestFriendsDeleteBuilder(t *testing.T) {
+	b := params.NewFriendsDeleteBuilder()
 
 	b.UserID(1)
 
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestFriendsDeleteListBulder(t *testing.T) {
-	b := params.NewFriendsDeleteListBulder()
+func TestFriendsDeleteListBuilder(t *testing.T) {
+	b := params.NewFriendsDeleteListBuilder()
 
 	b.ListID(1)
 
 	assert.Equal(t, b.Params["list_id"], 1)
 }
 
-func TestFriendsEditBulder(t *testing.T) {
-	b := params.NewFriendsEditBulder()
+func TestFriendsEditBuilder(t *testing.T) {
+	b := params.NewFriendsEditBuilder()
 
 	b.UserID(1)
 	b.ListIDs([]int{1})
@@ -65,8 +65,8 @@ func TestFriendsEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["list_ids"], []int{1})
 }
 
-func TestFriendsEditListBulder(t *testing.T) {
-	b := params.NewFriendsEditListBulder()
+func TestFriendsEditListBuilder(t *testing.T) {
+	b := params.NewFriendsEditListBuilder()
 
 	b.Name("text")
 	b.ListID(1)
@@ -81,8 +81,8 @@ func TestFriendsEditListBulder(t *testing.T) {
 	assert.Equal(t, b.Params["delete_user_ids"], []int{1})
 }
 
-func TestFriendsGetBulder(t *testing.T) {
-	b := params.NewFriendsGetBulder()
+func TestFriendsGetBuilder(t *testing.T) {
+	b := params.NewFriendsGetBuilder()
 
 	b.UserID(1)
 	b.Order("text")
@@ -103,8 +103,8 @@ func TestFriendsGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["ref"], "text")
 }
 
-func TestFriendsGetByPhonesBulder(t *testing.T) {
-	b := params.NewFriendsGetByPhonesBulder()
+func TestFriendsGetByPhonesBuilder(t *testing.T) {
+	b := params.NewFriendsGetByPhonesBuilder()
 
 	b.Phones([]string{"text"})
 	b.Fields([]string{"test"})
@@ -113,8 +113,8 @@ func TestFriendsGetByPhonesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestFriendsGetListsBulder(t *testing.T) {
-	b := params.NewFriendsGetListsBulder()
+func TestFriendsGetListsBuilder(t *testing.T) {
+	b := params.NewFriendsGetListsBuilder()
 
 	b.UserID(1)
 	b.ReturnSystem(true)
@@ -123,8 +123,8 @@ func TestFriendsGetListsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["return_system"], true)
 }
 
-func TestFriendsGetMutualBulder(t *testing.T) {
-	b := params.NewFriendsGetMutualBulder()
+func TestFriendsGetMutualBuilder(t *testing.T) {
+	b := params.NewFriendsGetMutualBuilder()
 
 	b.SourceUID(1)
 	b.TargetUID(1)
@@ -141,8 +141,8 @@ func TestFriendsGetMutualBulder(t *testing.T) {
 	assert.Equal(t, b.Params["offset"], 1)
 }
 
-func TestFriendsGetOnlineBulder(t *testing.T) {
-	b := params.NewFriendsGetOnlineBulder()
+func TestFriendsGetOnlineBuilder(t *testing.T) {
+	b := params.NewFriendsGetOnlineBuilder()
 
 	b.UserID(1)
 	b.ListID(1)
@@ -159,16 +159,16 @@ func TestFriendsGetOnlineBulder(t *testing.T) {
 	assert.Equal(t, b.Params["offset"], 1)
 }
 
-func TestFriendsGetRecentBulder(t *testing.T) {
-	b := params.NewFriendsGetRecentBulder()
+func TestFriendsGetRecentBuilder(t *testing.T) {
+	b := params.NewFriendsGetRecentBuilder()
 
 	b.Count(1)
 
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestFriendsGetRequestsBulder(t *testing.T) {
-	b := params.NewFriendsGetRequestsBulder()
+func TestFriendsGetRequestsBuilder(t *testing.T) {
+	b := params.NewFriendsGetRequestsBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -193,8 +193,8 @@ func TestFriendsGetRequestsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestFriendsGetSuggestionsBulder(t *testing.T) {
-	b := params.NewFriendsGetSuggestionsBulder()
+func TestFriendsGetSuggestionsBuilder(t *testing.T) {
+	b := params.NewFriendsGetSuggestionsBuilder()
 
 	b.Filter([]string{"text"})
 	b.Count(1)
@@ -209,8 +209,8 @@ func TestFriendsGetSuggestionsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["name_case"], "text")
 }
 
-func TestFriendsSearchBulder(t *testing.T) {
-	b := params.NewFriendsSearchBulder()
+func TestFriendsSearchBuilder(t *testing.T) {
+	b := params.NewFriendsSearchBuilder()
 
 	b.UserID(1)
 	b.Q("text")

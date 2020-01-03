@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPrettyCardsCreateBulder(t *testing.T) {
-	b := params.NewPrettyCardsCreateBulder()
+func TestPrettyCardsCreateBuilder(t *testing.T) {
+	b := params.NewPrettyCardsCreateBuilder()
 
 	b.OwnerID(1)
 	b.Photo("text")
@@ -27,8 +27,8 @@ func TestPrettyCardsCreateBulder(t *testing.T) {
 	assert.Equal(t, b.Params["button"], "text")
 }
 
-func TestPrettyCardsDeleteBulder(t *testing.T) {
-	b := params.NewPrettyCardsDeleteBulder()
+func TestPrettyCardsDeleteBuilder(t *testing.T) {
+	b := params.NewPrettyCardsDeleteBuilder()
 
 	b.OwnerID(1)
 	b.CardID(1)
@@ -37,8 +37,8 @@ func TestPrettyCardsDeleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["card_id"], 1)
 }
 
-func TestPrettyCardsEditBulder(t *testing.T) {
-	b := params.NewPrettyCardsEditBulder()
+func TestPrettyCardsEditBuilder(t *testing.T) {
+	b := params.NewPrettyCardsEditBuilder()
 
 	b.OwnerID(1)
 	b.CardID(1)
@@ -59,8 +59,8 @@ func TestPrettyCardsEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["button"], "text")
 }
 
-func TestPrettyCardsGetBulder(t *testing.T) {
-	b := params.NewPrettyCardsGetBulder()
+func TestPrettyCardsGetBuilder(t *testing.T) {
+	b := params.NewPrettyCardsGetBuilder()
 
 	b.OwnerID(1)
 	b.Offset(1)
@@ -71,8 +71,8 @@ func TestPrettyCardsGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestPrettyCardsGetByIDBulder(t *testing.T) {
-	b := params.NewPrettyCardsGetByIDBulder()
+func TestPrettyCardsGetByIDBuilder(t *testing.T) {
+	b := params.NewPrettyCardsGetByIDBuilder()
 
 	b.OwnerID(1)
 	b.CardIDs([]int{1})

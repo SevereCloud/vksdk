@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestStreamingSetSettingsBulder(t *testing.T) {
-	b := params.NewStreamingSetSettingsBulder()
+func TestStreamingSetSettingsBuilder(t *testing.T) {
+	b := params.NewStreamingSetSettingsBuilder()
 
 	b.MonthlyTier("text")
 

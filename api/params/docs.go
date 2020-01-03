@@ -4,286 +4,286 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// DocsAddBulder builder
+// DocsAddBuilder builder
 //
 // Copies a document to a user's or community's document list.
 //
 // https://vk.com/dev/docs.add
-type DocsAddBulder struct {
+type DocsAddBuilder struct {
 	api.Params
 }
 
-// NewDocsAddBulder func
-func NewDocsAddBulder() *DocsAddBulder {
-	return &DocsAddBulder{api.Params{}}
+// NewDocsAddBuilder func
+func NewDocsAddBuilder() *DocsAddBuilder {
+	return &DocsAddBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the document. Use a negative value to designate a community ID.
-func (b *DocsAddBulder) OwnerID(v int) {
+func (b *DocsAddBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // DocID Document ID.
-func (b *DocsAddBulder) DocID(v int) {
+func (b *DocsAddBuilder) DocID(v int) {
 	b.Params["doc_id"] = v
 }
 
 // AccessKey Access key. This parameter is required if 'access_key' was returned with the document's data.
-func (b *DocsAddBulder) AccessKey(v string) {
+func (b *DocsAddBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
-// DocsDeleteBulder builder
+// DocsDeleteBuilder builder
 //
 // Deletes a user or community document.
 //
 // https://vk.com/dev/docs.delete
-type DocsDeleteBulder struct {
+type DocsDeleteBuilder struct {
 	api.Params
 }
 
-// NewDocsDeleteBulder func
-func NewDocsDeleteBulder() *DocsDeleteBulder {
-	return &DocsDeleteBulder{api.Params{}}
+// NewDocsDeleteBuilder func
+func NewDocsDeleteBuilder() *DocsDeleteBuilder {
+	return &DocsDeleteBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the document. Use a negative value to designate a community ID.
-func (b *DocsDeleteBulder) OwnerID(v int) {
+func (b *DocsDeleteBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // DocID Document ID.
-func (b *DocsDeleteBulder) DocID(v int) {
+func (b *DocsDeleteBuilder) DocID(v int) {
 	b.Params["doc_id"] = v
 }
 
-// DocsEditBulder builder
+// DocsEditBuilder builder
 //
 // Edits a document.
 //
 // https://vk.com/dev/docs.edit
-type DocsEditBulder struct {
+type DocsEditBuilder struct {
 	api.Params
 }
 
-// NewDocsEditBulder func
-func NewDocsEditBulder() *DocsEditBulder {
-	return &DocsEditBulder{api.Params{}}
+// NewDocsEditBuilder func
+func NewDocsEditBuilder() *DocsEditBuilder {
+	return &DocsEditBuilder{api.Params{}}
 }
 
 // OwnerID User ID or community ID. Use a negative value to designate a community ID.
-func (b *DocsEditBulder) OwnerID(v int) {
+func (b *DocsEditBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // DocID Document ID.
-func (b *DocsEditBulder) DocID(v int) {
+func (b *DocsEditBuilder) DocID(v int) {
 	b.Params["doc_id"] = v
 }
 
 // Title Document title.
-func (b *DocsEditBulder) Title(v string) {
+func (b *DocsEditBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
 // Tags Document tags.
-func (b *DocsEditBulder) Tags(v []string) {
+func (b *DocsEditBuilder) Tags(v []string) {
 	b.Params["tags"] = v
 }
 
-// DocsGetBulder builder
+// DocsGetBuilder builder
 //
 // Returns detailed information about user or community documents.
 //
 // https://vk.com/dev/docs.get
-type DocsGetBulder struct {
+type DocsGetBuilder struct {
 	api.Params
 }
 
-// NewDocsGetBulder func
-func NewDocsGetBulder() *DocsGetBulder {
-	return &DocsGetBulder{api.Params{}}
+// NewDocsGetBuilder func
+func NewDocsGetBuilder() *DocsGetBuilder {
+	return &DocsGetBuilder{api.Params{}}
 }
 
 // Count Number of documents to return. By default, all documents.
-func (b *DocsGetBulder) Count(v int) {
+func (b *DocsGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Offset Offset needed to return a specific subset of documents.
-func (b *DocsGetBulder) Offset(v int) {
+func (b *DocsGetBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Type parameter
-func (b *DocsGetBulder) Type(v int) {
+func (b *DocsGetBuilder) Type(v int) {
 	b.Params["type"] = v
 }
 
 // OwnerID ID of the user or community that owns the documents. Use a negative value to designate a community ID.
-func (b *DocsGetBulder) OwnerID(v int) {
+func (b *DocsGetBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
-// DocsGetByIDBulder builder
+// DocsGetByIDBuilder builder
 //
 // Returns information about documents by their IDs.
 //
 // https://vk.com/dev/docs.getById
-type DocsGetByIDBulder struct {
+type DocsGetByIDBuilder struct {
 	api.Params
 }
 
-// NewDocsGetByIDBulder func
-func NewDocsGetByIDBulder() *DocsGetByIDBulder {
-	return &DocsGetByIDBulder{api.Params{}}
+// NewDocsGetByIDBuilder func
+func NewDocsGetByIDBuilder() *DocsGetByIDBuilder {
+	return &DocsGetByIDBuilder{api.Params{}}
 }
 
 // Docs Document IDs. Example: , "66748_91488,66748_91455",
-func (b *DocsGetByIDBulder) Docs(v []string) {
+func (b *DocsGetByIDBuilder) Docs(v []string) {
 	b.Params["docs"] = v
 }
 
-// DocsGetMessagesUploadServerBulder builder
+// DocsGetMessagesUploadServerBuilder builder
 //
 // Returns the server address for document upload.
 //
 // https://vk.com/dev/docs.getMessagesUploadServer
-type DocsGetMessagesUploadServerBulder struct {
+type DocsGetMessagesUploadServerBuilder struct {
 	api.Params
 }
 
-// NewDocsGetMessagesUploadServerBulder func
-func NewDocsGetMessagesUploadServerBulder() *DocsGetMessagesUploadServerBulder {
-	return &DocsGetMessagesUploadServerBulder{api.Params{}}
+// NewDocsGetMessagesUploadServerBuilder func
+func NewDocsGetMessagesUploadServerBuilder() *DocsGetMessagesUploadServerBuilder {
+	return &DocsGetMessagesUploadServerBuilder{api.Params{}}
 }
 
 // Type Document type.
-func (b *DocsGetMessagesUploadServerBulder) Type(v string) {
+func (b *DocsGetMessagesUploadServerBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
 // PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'Chat ID', e.g. '2000000001'. For community: '- Community ID', e.g. '-12345'. "
-func (b *DocsGetMessagesUploadServerBulder) PeerID(v int) {
+func (b *DocsGetMessagesUploadServerBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
 
-// DocsGetTypesBulder builder
+// DocsGetTypesBuilder builder
 //
 // Returns documents types available for current user.
 //
 // https://vk.com/dev/docs.getTypes
-type DocsGetTypesBulder struct {
+type DocsGetTypesBuilder struct {
 	api.Params
 }
 
-// NewDocsGetTypesBulder func
-func NewDocsGetTypesBulder() *DocsGetTypesBulder {
-	return &DocsGetTypesBulder{api.Params{}}
+// NewDocsGetTypesBuilder func
+func NewDocsGetTypesBuilder() *DocsGetTypesBuilder {
+	return &DocsGetTypesBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user or community that owns the documents. Use a negative value to designate a community ID.
-func (b *DocsGetTypesBulder) OwnerID(v int) {
+func (b *DocsGetTypesBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
-// DocsGetUploadServerBulder builder
+// DocsGetUploadServerBuilder builder
 //
 // Returns the server address for document upload.
 //
 // https://vk.com/dev/docs.getUploadServer
-type DocsGetUploadServerBulder struct {
+type DocsGetUploadServerBuilder struct {
 	api.Params
 }
 
-// NewDocsGetUploadServerBulder func
-func NewDocsGetUploadServerBulder() *DocsGetUploadServerBulder {
-	return &DocsGetUploadServerBulder{api.Params{}}
+// NewDocsGetUploadServerBuilder func
+func NewDocsGetUploadServerBuilder() *DocsGetUploadServerBuilder {
+	return &DocsGetUploadServerBuilder{api.Params{}}
 }
 
 // GroupID Community ID (if the document will be uploaded to the community).
-func (b *DocsGetUploadServerBulder) GroupID(v int) {
+func (b *DocsGetUploadServerBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// DocsGetWallUploadServerBulder builder
+// DocsGetWallUploadServerBuilder builder
 //
 // Returns the server address for document upload onto a user's or community's wall.
 //
 // https://vk.com/dev/docs.getWallUploadServer
-type DocsGetWallUploadServerBulder struct {
+type DocsGetWallUploadServerBuilder struct {
 	api.Params
 }
 
-// NewDocsGetWallUploadServerBulder func
-func NewDocsGetWallUploadServerBulder() *DocsGetWallUploadServerBulder {
-	return &DocsGetWallUploadServerBulder{api.Params{}}
+// NewDocsGetWallUploadServerBuilder func
+func NewDocsGetWallUploadServerBuilder() *DocsGetWallUploadServerBuilder {
+	return &DocsGetWallUploadServerBuilder{api.Params{}}
 }
 
 // GroupID Community ID (if the document will be uploaded to the community).
-func (b *DocsGetWallUploadServerBulder) GroupID(v int) {
+func (b *DocsGetWallUploadServerBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// DocsSaveBulder builder
+// DocsSaveBuilder builder
 //
 // Saves a document after [vk.com/dev/upload_files_2|uploading it to a server].
 //
 // https://vk.com/dev/docs.save
-type DocsSaveBulder struct {
+type DocsSaveBuilder struct {
 	api.Params
 }
 
-// NewDocsSaveBulder func
-func NewDocsSaveBulder() *DocsSaveBulder {
-	return &DocsSaveBulder{api.Params{}}
+// NewDocsSaveBuilder func
+func NewDocsSaveBuilder() *DocsSaveBuilder {
+	return &DocsSaveBuilder{api.Params{}}
 }
 
 // File This parameter is returned when the file is [vk.com/dev/upload_files_2|uploaded to the server].
-func (b *DocsSaveBulder) File(v string) {
+func (b *DocsSaveBuilder) File(v string) {
 	b.Params["file"] = v
 }
 
 // Title Document title.
-func (b *DocsSaveBulder) Title(v string) {
+func (b *DocsSaveBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
 // Tags Document tags.
-func (b *DocsSaveBulder) Tags(v string) {
+func (b *DocsSaveBuilder) Tags(v string) {
 	b.Params["tags"] = v
 }
 
-// DocsSearchBulder builder
+// DocsSearchBuilder builder
 //
 // Returns a list of documents matching the search criteria.
 //
 // https://vk.com/dev/docs.search
-type DocsSearchBulder struct {
+type DocsSearchBuilder struct {
 	api.Params
 }
 
-// NewDocsSearchBulder func
-func NewDocsSearchBulder() *DocsSearchBulder {
-	return &DocsSearchBulder{api.Params{}}
+// NewDocsSearchBuilder func
+func NewDocsSearchBuilder() *DocsSearchBuilder {
+	return &DocsSearchBuilder{api.Params{}}
 }
 
 // Q Search query string.
-func (b *DocsSearchBulder) Q(v string) {
+func (b *DocsSearchBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
 // SearchOwn parameter
-func (b *DocsSearchBulder) SearchOwn(v bool) {
+func (b *DocsSearchBuilder) SearchOwn(v bool) {
 	b.Params["search_own"] = v
 }
 
 // Count Number of results to return.
-func (b *DocsSearchBulder) Count(v int) {
+func (b *DocsSearchBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *DocsSearchBulder) Offset(v int) {
+func (b *DocsSearchBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestDocsAddBulder(t *testing.T) {
-	b := params.NewDocsAddBulder()
+func TestDocsAddBuilder(t *testing.T) {
+	b := params.NewDocsAddBuilder()
 
 	b.OwnerID(1)
 	b.DocID(1)
@@ -19,8 +19,8 @@ func TestDocsAddBulder(t *testing.T) {
 	assert.Equal(t, b.Params["access_key"], "text")
 }
 
-func TestDocsDeleteBulder(t *testing.T) {
-	b := params.NewDocsDeleteBulder()
+func TestDocsDeleteBuilder(t *testing.T) {
+	b := params.NewDocsDeleteBuilder()
 
 	b.OwnerID(1)
 	b.DocID(1)
@@ -29,8 +29,8 @@ func TestDocsDeleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["doc_id"], 1)
 }
 
-func TestDocsEditBulder(t *testing.T) {
-	b := params.NewDocsEditBulder()
+func TestDocsEditBuilder(t *testing.T) {
+	b := params.NewDocsEditBuilder()
 
 	b.OwnerID(1)
 	b.DocID(1)
@@ -43,8 +43,8 @@ func TestDocsEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["tags"], []string{"text"})
 }
 
-func TestDocsGetBulder(t *testing.T) {
-	b := params.NewDocsGetBulder()
+func TestDocsGetBuilder(t *testing.T) {
+	b := params.NewDocsGetBuilder()
 
 	b.Count(1)
 	b.Offset(1)
@@ -57,16 +57,16 @@ func TestDocsGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["owner_id"], 1)
 }
 
-func TestDocsGetByIDBulder(t *testing.T) {
-	b := params.NewDocsGetByIDBulder()
+func TestDocsGetByIDBuilder(t *testing.T) {
+	b := params.NewDocsGetByIDBuilder()
 
 	b.Docs([]string{"text"})
 
 	assert.Equal(t, b.Params["docs"], []string{"text"})
 }
 
-func TestDocsGetMessagesUploadServerBulder(t *testing.T) {
-	b := params.NewDocsGetMessagesUploadServerBulder()
+func TestDocsGetMessagesUploadServerBuilder(t *testing.T) {
+	b := params.NewDocsGetMessagesUploadServerBuilder()
 
 	b.Type("text")
 	b.PeerID(1)
@@ -75,32 +75,32 @@ func TestDocsGetMessagesUploadServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["peer_id"], 1)
 }
 
-func TestDocsGetTypesBulder(t *testing.T) {
-	b := params.NewDocsGetTypesBulder()
+func TestDocsGetTypesBuilder(t *testing.T) {
+	b := params.NewDocsGetTypesBuilder()
 
 	b.OwnerID(1)
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 }
 
-func TestDocsGetUploadServerBulder(t *testing.T) {
-	b := params.NewDocsGetUploadServerBulder()
+func TestDocsGetUploadServerBuilder(t *testing.T) {
+	b := params.NewDocsGetUploadServerBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestDocsGetWallUploadServerBulder(t *testing.T) {
-	b := params.NewDocsGetWallUploadServerBulder()
+func TestDocsGetWallUploadServerBuilder(t *testing.T) {
+	b := params.NewDocsGetWallUploadServerBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestDocsSaveBulder(t *testing.T) {
-	b := params.NewDocsSaveBulder()
+func TestDocsSaveBuilder(t *testing.T) {
+	b := params.NewDocsSaveBuilder()
 
 	b.File("text")
 	b.Title("text")
@@ -111,8 +111,8 @@ func TestDocsSaveBulder(t *testing.T) {
 	assert.Equal(t, b.Params["tags"], "text")
 }
 
-func TestDocsSearchBulder(t *testing.T) {
-	b := params.NewDocsSearchBulder()
+func TestDocsSearchBuilder(t *testing.T) {
+	b := params.NewDocsSearchBuilder()
 
 	b.Q("text")
 	b.SearchOwn(true)

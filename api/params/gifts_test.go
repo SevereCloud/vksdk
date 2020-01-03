@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestGiftsGetBulder(t *testing.T) {
-	b := params.NewGiftsGetBulder()
+func TestGiftsGetBuilder(t *testing.T) {
+	b := params.NewGiftsGetBuilder()
 
 	b.UserID(1)
 	b.Count(1)

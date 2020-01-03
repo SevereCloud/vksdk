@@ -4,379 +4,379 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// StoriesBanOwnerBulder builder
+// StoriesBanOwnerBuilder builder
 //
 // Allows to hide stories from chosen sources from current user's feed.
 //
 // https://vk.com/dev/stories.banOwner
-type StoriesBanOwnerBulder struct {
+type StoriesBanOwnerBuilder struct {
 	api.Params
 }
 
-// NewStoriesBanOwnerBulder func
-func NewStoriesBanOwnerBulder() *StoriesBanOwnerBulder {
-	return &StoriesBanOwnerBulder{api.Params{}}
+// NewStoriesBanOwnerBuilder func
+func NewStoriesBanOwnerBuilder() *StoriesBanOwnerBuilder {
+	return &StoriesBanOwnerBuilder{api.Params{}}
 }
 
 // OwnersIDs List of sources IDs
-func (b *StoriesBanOwnerBulder) OwnersIDs(v []int) {
+func (b *StoriesBanOwnerBuilder) OwnersIDs(v []int) {
 	b.Params["owners_ids"] = v
 }
 
-// StoriesDeleteBulder builder
+// StoriesDeleteBuilder builder
 //
 // Allows to delete story.
 //
 // https://vk.com/dev/stories.delete
-type StoriesDeleteBulder struct {
+type StoriesDeleteBuilder struct {
 	api.Params
 }
 
-// NewStoriesDeleteBulder func
-func NewStoriesDeleteBulder() *StoriesDeleteBulder {
-	return &StoriesDeleteBulder{api.Params{}}
+// NewStoriesDeleteBuilder func
+func NewStoriesDeleteBuilder() *StoriesDeleteBuilder {
+	return &StoriesDeleteBuilder{api.Params{}}
 }
 
 // OwnerID Story owner's ID. Current user id is used by default.
-func (b *StoriesDeleteBulder) OwnerID(v int) {
+func (b *StoriesDeleteBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // StoryID Story ID.
-func (b *StoriesDeleteBulder) StoryID(v int) {
+func (b *StoriesDeleteBuilder) StoryID(v int) {
 	b.Params["story_id"] = v
 }
 
-// StoriesGetBulder builder
+// StoriesGetBuilder builder
 //
 // Returns stories available for current user.
 //
 // https://vk.com/dev/stories.get
-type StoriesGetBulder struct {
+type StoriesGetBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetBulder func
-func NewStoriesGetBulder() *StoriesGetBulder {
-	return &StoriesGetBulder{api.Params{}}
+// NewStoriesGetBuilder func
+func NewStoriesGetBuilder() *StoriesGetBuilder {
+	return &StoriesGetBuilder{api.Params{}}
 }
 
 // OwnerID Owner ID.
-func (b *StoriesGetBulder) OwnerID(v int) {
+func (b *StoriesGetBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // Extended '1' — to return additional fields for users and communities. Default value is 0.
-func (b *StoriesGetBulder) Extended(v bool) {
+func (b *StoriesGetBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// StoriesGetBannedBulder builder
+// StoriesGetBannedBuilder builder
 //
 // Returns list of sources hidden from current user's feed.
 //
 // https://vk.com/dev/stories.getBanned
-type StoriesGetBannedBulder struct {
+type StoriesGetBannedBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetBannedBulder func
-func NewStoriesGetBannedBulder() *StoriesGetBannedBulder {
-	return &StoriesGetBannedBulder{api.Params{}}
+// NewStoriesGetBannedBuilder func
+func NewStoriesGetBannedBuilder() *StoriesGetBannedBuilder {
+	return &StoriesGetBannedBuilder{api.Params{}}
 }
 
 // Extended '1' — to return additional fields for users and communities. Default value is 0.
-func (b *StoriesGetBannedBulder) Extended(v bool) {
+func (b *StoriesGetBannedBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Fields Additional fields to return
-func (b *StoriesGetBannedBulder) Fields(v []string) {
+func (b *StoriesGetBannedBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// StoriesGetByIDBulder builder
+// StoriesGetByIDBuilder builder
 //
 // Returns story by its ID.
 //
 // https://vk.com/dev/stories.getById
-type StoriesGetByIDBulder struct {
+type StoriesGetByIDBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetByIDBulder func
-func NewStoriesGetByIDBulder() *StoriesGetByIDBulder {
-	return &StoriesGetByIDBulder{api.Params{}}
+// NewStoriesGetByIDBuilder func
+func NewStoriesGetByIDBuilder() *StoriesGetByIDBuilder {
+	return &StoriesGetByIDBuilder{api.Params{}}
 }
 
 // Stories Stories IDs separated by commas. Use format {owner_id}+'_'+{story_id}, for example, 12345_54331.
-func (b *StoriesGetByIDBulder) Stories(v []string) {
+func (b *StoriesGetByIDBuilder) Stories(v []string) {
 	b.Params["stories"] = v
 }
 
 // Extended '1' — to return additional fields for users and communities. Default value is 0.
-func (b *StoriesGetByIDBulder) Extended(v bool) {
+func (b *StoriesGetByIDBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Fields Additional fields to return
-func (b *StoriesGetByIDBulder) Fields(v []string) {
+func (b *StoriesGetByIDBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// StoriesGetPhotoUploadServerBulder builder
+// StoriesGetPhotoUploadServerBuilder builder
 //
 // Returns URL for uploading a story with photo.
 //
 // https://vk.com/dev/stories.getPhotoUploadServer
-type StoriesGetPhotoUploadServerBulder struct {
+type StoriesGetPhotoUploadServerBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetPhotoUploadServerBulder func
-func NewStoriesGetPhotoUploadServerBulder() *StoriesGetPhotoUploadServerBulder {
-	return &StoriesGetPhotoUploadServerBulder{api.Params{}}
+// NewStoriesGetPhotoUploadServerBuilder func
+func NewStoriesGetPhotoUploadServerBuilder() *StoriesGetPhotoUploadServerBuilder {
+	return &StoriesGetPhotoUploadServerBuilder{api.Params{}}
 }
 
 // AddToNews 1 — to add the story to friend's feed.
-func (b *StoriesGetPhotoUploadServerBulder) AddToNews(v bool) {
+func (b *StoriesGetPhotoUploadServerBuilder) AddToNews(v bool) {
 	b.Params["add_to_news"] = v
 }
 
 // UserIDs List of users IDs who can see the story.
-func (b *StoriesGetPhotoUploadServerBulder) UserIDs(v []int) {
+func (b *StoriesGetPhotoUploadServerBuilder) UserIDs(v []int) {
 	b.Params["user_ids"] = v
 }
 
 // ReplyToStory ID of the story to reply with the current.
-func (b *StoriesGetPhotoUploadServerBulder) ReplyToStory(v string) {
+func (b *StoriesGetPhotoUploadServerBuilder) ReplyToStory(v string) {
 	b.Params["reply_to_story"] = v
 }
 
 // LinkText Link text (for community's stories only).
-func (b *StoriesGetPhotoUploadServerBulder) LinkText(v string) {
+func (b *StoriesGetPhotoUploadServerBuilder) LinkText(v string) {
 	b.Params["link_text"] = v
 }
 
 // LinkURL Link URL. Internal links on https://vk.com only.
-func (b *StoriesGetPhotoUploadServerBulder) LinkURL(v string) {
+func (b *StoriesGetPhotoUploadServerBuilder) LinkURL(v string) {
 	b.Params["link_url"] = v
 }
 
 // GroupID ID of the community to upload the story (should be verified or with the "fire" icon).
-func (b *StoriesGetPhotoUploadServerBulder) GroupID(v int) {
+func (b *StoriesGetPhotoUploadServerBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// StoriesGetRepliesBulder builder
+// StoriesGetRepliesBuilder builder
 //
 // Returns replies to the story.
 //
 // https://vk.com/dev/stories.getReplies
-type StoriesGetRepliesBulder struct {
+type StoriesGetRepliesBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetRepliesBulder func
-func NewStoriesGetRepliesBulder() *StoriesGetRepliesBulder {
-	return &StoriesGetRepliesBulder{api.Params{}}
+// NewStoriesGetRepliesBuilder func
+func NewStoriesGetRepliesBuilder() *StoriesGetRepliesBuilder {
+	return &StoriesGetRepliesBuilder{api.Params{}}
 }
 
 // OwnerID Story owner ID.
-func (b *StoriesGetRepliesBulder) OwnerID(v int) {
+func (b *StoriesGetRepliesBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // StoryID Story ID.
-func (b *StoriesGetRepliesBulder) StoryID(v int) {
+func (b *StoriesGetRepliesBuilder) StoryID(v int) {
 	b.Params["story_id"] = v
 }
 
 // AccessKey Access key for the private object.
-func (b *StoriesGetRepliesBulder) AccessKey(v string) {
+func (b *StoriesGetRepliesBuilder) AccessKey(v string) {
 	b.Params["access_key"] = v
 }
 
 // Extended '1' — to return additional fields for users and communities. Default value is 0.
-func (b *StoriesGetRepliesBulder) Extended(v bool) {
+func (b *StoriesGetRepliesBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
 // Fields Additional fields to return
-func (b *StoriesGetRepliesBulder) Fields(v []string) {
+func (b *StoriesGetRepliesBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// StoriesGetStatsBulder builder
+// StoriesGetStatsBuilder builder
 //
 // Returns stories available for current user.
 //
 // https://vk.com/dev/stories.getStats
-type StoriesGetStatsBulder struct {
+type StoriesGetStatsBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetStatsBulder func
-func NewStoriesGetStatsBulder() *StoriesGetStatsBulder {
-	return &StoriesGetStatsBulder{api.Params{}}
+// NewStoriesGetStatsBuilder func
+func NewStoriesGetStatsBuilder() *StoriesGetStatsBuilder {
+	return &StoriesGetStatsBuilder{api.Params{}}
 }
 
 // OwnerID Story owner ID.
-func (b *StoriesGetStatsBulder) OwnerID(v int) {
+func (b *StoriesGetStatsBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // StoryID Story ID.
-func (b *StoriesGetStatsBulder) StoryID(v int) {
+func (b *StoriesGetStatsBuilder) StoryID(v int) {
 	b.Params["story_id"] = v
 }
 
-// StoriesGetVideoUploadServerBulder builder
+// StoriesGetVideoUploadServerBuilder builder
 //
 // Allows to receive URL for uploading story with video.
 //
 // https://vk.com/dev/stories.getVideoUploadServer
-type StoriesGetVideoUploadServerBulder struct {
+type StoriesGetVideoUploadServerBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetVideoUploadServerBulder func
-func NewStoriesGetVideoUploadServerBulder() *StoriesGetVideoUploadServerBulder {
-	return &StoriesGetVideoUploadServerBulder{api.Params{}}
+// NewStoriesGetVideoUploadServerBuilder func
+func NewStoriesGetVideoUploadServerBuilder() *StoriesGetVideoUploadServerBuilder {
+	return &StoriesGetVideoUploadServerBuilder{api.Params{}}
 }
 
 // AddToNews 1 — to add the story to friend's feed.
-func (b *StoriesGetVideoUploadServerBulder) AddToNews(v bool) {
+func (b *StoriesGetVideoUploadServerBuilder) AddToNews(v bool) {
 	b.Params["add_to_news"] = v
 }
 
 // UserIDs List of users IDs who can see the story.
-func (b *StoriesGetVideoUploadServerBulder) UserIDs(v []int) {
+func (b *StoriesGetVideoUploadServerBuilder) UserIDs(v []int) {
 	b.Params["user_ids"] = v
 }
 
 // ReplyToStory ID of the story to reply with the current.
-func (b *StoriesGetVideoUploadServerBulder) ReplyToStory(v string) {
+func (b *StoriesGetVideoUploadServerBuilder) ReplyToStory(v string) {
 	b.Params["reply_to_story"] = v
 }
 
 // LinkText Link text (for community's stories only).
-func (b *StoriesGetVideoUploadServerBulder) LinkText(v string) {
+func (b *StoriesGetVideoUploadServerBuilder) LinkText(v string) {
 	b.Params["link_text"] = v
 }
 
 // LinkURL Link URL. Internal links on https://vk.com only.
-func (b *StoriesGetVideoUploadServerBulder) LinkURL(v string) {
+func (b *StoriesGetVideoUploadServerBuilder) LinkURL(v string) {
 	b.Params["link_url"] = v
 }
 
 // GroupID ID of the community to upload the story (should be verified or with the "fire" icon).
-func (b *StoriesGetVideoUploadServerBulder) GroupID(v int) {
+func (b *StoriesGetVideoUploadServerBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// StoriesGetViewersBulder builder
+// StoriesGetViewersBuilder builder
 //
 // Returns a list of story viewers.
 //
 // https://vk.com/dev/stories.getViewers
-type StoriesGetViewersBulder struct {
+type StoriesGetViewersBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetViewersBulder func
-func NewStoriesGetViewersBulder() *StoriesGetViewersBulder {
-	return &StoriesGetViewersBulder{api.Params{}}
+// NewStoriesGetViewersBuilder func
+func NewStoriesGetViewersBuilder() *StoriesGetViewersBuilder {
+	return &StoriesGetViewersBuilder{api.Params{}}
 }
 
 // OwnerID Story owner ID.
-func (b *StoriesGetViewersBulder) OwnerID(v int) {
+func (b *StoriesGetViewersBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // StoryID Story ID.
-func (b *StoriesGetViewersBulder) StoryID(v int) {
+func (b *StoriesGetViewersBuilder) StoryID(v int) {
 	b.Params["story_id"] = v
 }
 
 // Count Maximum number of results.
-func (b *StoriesGetViewersBulder) Count(v int) {
+func (b *StoriesGetViewersBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *StoriesGetViewersBulder) Offset(v int) {
+func (b *StoriesGetViewersBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
 // Extended '1' — to return detailed information about photos
-func (b *StoriesGetViewersBulder) Extended(v bool) {
+func (b *StoriesGetViewersBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// StoriesHideAllRepliesBulder builder
+// StoriesHideAllRepliesBuilder builder
 //
 // Hides all replies in the last 24 hours from the user to current user's stories.
 //
 // https://vk.com/dev/stories.hideAllReplies
-type StoriesHideAllRepliesBulder struct {
+type StoriesHideAllRepliesBuilder struct {
 	api.Params
 }
 
-// NewStoriesHideAllRepliesBulder func
-func NewStoriesHideAllRepliesBulder() *StoriesHideAllRepliesBulder {
-	return &StoriesHideAllRepliesBulder{api.Params{}}
+// NewStoriesHideAllRepliesBuilder func
+func NewStoriesHideAllRepliesBuilder() *StoriesHideAllRepliesBuilder {
+	return &StoriesHideAllRepliesBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user whose replies should be hidden.
-func (b *StoriesHideAllRepliesBulder) OwnerID(v int) {
+func (b *StoriesHideAllRepliesBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // GroupID parameter
-func (b *StoriesHideAllRepliesBulder) GroupID(v int) {
+func (b *StoriesHideAllRepliesBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// StoriesHideReplyBulder builder
+// StoriesHideReplyBuilder builder
 //
 // Hides the reply to the current user's story.
 //
 // https://vk.com/dev/stories.hideReply
-type StoriesHideReplyBulder struct {
+type StoriesHideReplyBuilder struct {
 	api.Params
 }
 
-// NewStoriesHideReplyBulder func
-func NewStoriesHideReplyBulder() *StoriesHideReplyBulder {
-	return &StoriesHideReplyBulder{api.Params{}}
+// NewStoriesHideReplyBuilder func
+func NewStoriesHideReplyBuilder() *StoriesHideReplyBuilder {
+	return &StoriesHideReplyBuilder{api.Params{}}
 }
 
 // OwnerID ID of the user whose replies should be hidden.
-func (b *StoriesHideReplyBulder) OwnerID(v int) {
+func (b *StoriesHideReplyBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
 // StoryID Story ID.
-func (b *StoriesHideReplyBulder) StoryID(v int) {
+func (b *StoriesHideReplyBuilder) StoryID(v int) {
 	b.Params["story_id"] = v
 }
 
-// StoriesUnbanOwnerBulder builder
+// StoriesUnbanOwnerBuilder builder
 //
 // Allows to show stories from hidden sources in current user's feed.
 //
 // https://vk.com/dev/stories.unbanOwner
-type StoriesUnbanOwnerBulder struct {
+type StoriesUnbanOwnerBuilder struct {
 	api.Params
 }
 
-// NewStoriesUnbanOwnerBulder func
-func NewStoriesUnbanOwnerBulder() *StoriesUnbanOwnerBulder {
-	return &StoriesUnbanOwnerBulder{api.Params{}}
+// NewStoriesUnbanOwnerBuilder func
+func NewStoriesUnbanOwnerBuilder() *StoriesUnbanOwnerBuilder {
+	return &StoriesUnbanOwnerBuilder{api.Params{}}
 }
 
 // OwnersIDs List of hidden sources to show stories from.
-func (b *StoriesUnbanOwnerBulder) OwnersIDs(v []int) {
+func (b *StoriesUnbanOwnerBuilder) OwnersIDs(v []int) {
 	b.Params["owners_ids"] = v
 }

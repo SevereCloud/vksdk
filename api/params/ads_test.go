@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAdsAddOfficeUsersBulder(t *testing.T) {
-	b := params.NewAdsAddOfficeUsersBulder()
+func TestAdsAddOfficeUsersBuilder(t *testing.T) {
+	b := params.NewAdsAddOfficeUsersBuilder()
 
 	b.AccountID(1)
 	b.Data("text")
@@ -17,8 +17,8 @@ func TestAdsAddOfficeUsersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["data"], "text")
 }
 
-func TestAdsCheckLinkBulder(t *testing.T) {
-	b := params.NewAdsCheckLinkBulder()
+func TestAdsCheckLinkBuilder(t *testing.T) {
+	b := params.NewAdsCheckLinkBuilder()
 
 	b.AccountID(1)
 	b.LinkType("text")
@@ -31,8 +31,8 @@ func TestAdsCheckLinkBulder(t *testing.T) {
 	assert.Equal(t, b.Params["campaign_id"], 1)
 }
 
-func TestAdsCreateAdsBulder(t *testing.T) {
-	b := params.NewAdsCreateAdsBulder()
+func TestAdsCreateAdsBuilder(t *testing.T) {
+	b := params.NewAdsCreateAdsBuilder()
 
 	b.AccountID(1)
 	b.Data("text")
@@ -41,8 +41,8 @@ func TestAdsCreateAdsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["data"], "text")
 }
 
-func TestAdsCreateCampaignsBulder(t *testing.T) {
-	b := params.NewAdsCreateCampaignsBulder()
+func TestAdsCreateCampaignsBuilder(t *testing.T) {
+	b := params.NewAdsCreateCampaignsBuilder()
 
 	b.AccountID(1)
 	b.Data("text")
@@ -51,8 +51,8 @@ func TestAdsCreateCampaignsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["data"], "text")
 }
 
-func TestAdsCreateClientsBulder(t *testing.T) {
-	b := params.NewAdsCreateClientsBulder()
+func TestAdsCreateClientsBuilder(t *testing.T) {
+	b := params.NewAdsCreateClientsBuilder()
 
 	b.AccountID(1)
 	b.Data("text")
@@ -61,8 +61,8 @@ func TestAdsCreateClientsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["data"], "text")
 }
 
-func TestAdsCreateTargetGroupBulder(t *testing.T) {
-	b := params.NewAdsCreateTargetGroupBulder()
+func TestAdsCreateTargetGroupBuilder(t *testing.T) {
+	b := params.NewAdsCreateTargetGroupBuilder()
 
 	b.AccountID(1)
 	b.ClientID(1)
@@ -79,8 +79,8 @@ func TestAdsCreateTargetGroupBulder(t *testing.T) {
 	assert.Equal(t, b.Params["target_pixel_rules"], "text")
 }
 
-func TestAdsDeleteAdsBulder(t *testing.T) {
-	b := params.NewAdsDeleteAdsBulder()
+func TestAdsDeleteAdsBuilder(t *testing.T) {
+	b := params.NewAdsDeleteAdsBuilder()
 
 	b.AccountID(1)
 	b.IDs("text")
@@ -89,8 +89,8 @@ func TestAdsDeleteAdsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["ids"], "text")
 }
 
-func TestAdsDeleteCampaignsBulder(t *testing.T) {
-	b := params.NewAdsDeleteCampaignsBulder()
+func TestAdsDeleteCampaignsBuilder(t *testing.T) {
+	b := params.NewAdsDeleteCampaignsBuilder()
 
 	b.AccountID(1)
 	b.IDs("text")
@@ -99,8 +99,8 @@ func TestAdsDeleteCampaignsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["ids"], "text")
 }
 
-func TestAdsDeleteClientsBulder(t *testing.T) {
-	b := params.NewAdsDeleteClientsBulder()
+func TestAdsDeleteClientsBuilder(t *testing.T) {
+	b := params.NewAdsDeleteClientsBuilder()
 
 	b.AccountID(1)
 	b.IDs("text")
@@ -109,8 +109,8 @@ func TestAdsDeleteClientsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["ids"], "text")
 }
 
-func TestAdsDeleteTargetGroupBulder(t *testing.T) {
-	b := params.NewAdsDeleteTargetGroupBulder()
+func TestAdsDeleteTargetGroupBuilder(t *testing.T) {
+	b := params.NewAdsDeleteTargetGroupBuilder()
 
 	b.AccountID(1)
 	b.ClientID(1)
@@ -121,8 +121,8 @@ func TestAdsDeleteTargetGroupBulder(t *testing.T) {
 	assert.Equal(t, b.Params["target_group_id"], 1)
 }
 
-func TestAdsGetAdsBulder(t *testing.T) {
-	b := params.NewAdsGetAdsBulder()
+func TestAdsGetAdsBuilder(t *testing.T) {
+	b := params.NewAdsGetAdsBuilder()
 
 	b.AccountID(1)
 	b.AdIDs("text")
@@ -141,8 +141,8 @@ func TestAdsGetAdsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["offset"], 1)
 }
 
-func TestAdsGetAdsLayoutBulder(t *testing.T) {
-	b := params.NewAdsGetAdsLayoutBulder()
+func TestAdsGetAdsLayoutBuilder(t *testing.T) {
+	b := params.NewAdsGetAdsLayoutBuilder()
 
 	b.AccountID(1)
 	b.AdIDs("text")
@@ -161,8 +161,8 @@ func TestAdsGetAdsLayoutBulder(t *testing.T) {
 	assert.Equal(t, b.Params["offset"], 1)
 }
 
-func TestAdsGetAdsTargetingBulder(t *testing.T) {
-	b := params.NewAdsGetAdsTargetingBulder()
+func TestAdsGetAdsTargetingBuilder(t *testing.T) {
+	b := params.NewAdsGetAdsTargetingBuilder()
 
 	b.AccountID(1)
 	b.AdIDs("text")
@@ -181,16 +181,16 @@ func TestAdsGetAdsTargetingBulder(t *testing.T) {
 	assert.Equal(t, b.Params["offset"], 1)
 }
 
-func TestAdsGetBudgetBulder(t *testing.T) {
-	b := params.NewAdsGetBudgetBulder()
+func TestAdsGetBudgetBuilder(t *testing.T) {
+	b := params.NewAdsGetBudgetBuilder()
 
 	b.AccountID(1)
 
 	assert.Equal(t, b.Params["account_id"], 1)
 }
 
-func TestAdsGetCampaignsBulder(t *testing.T) {
-	b := params.NewAdsGetCampaignsBulder()
+func TestAdsGetCampaignsBuilder(t *testing.T) {
+	b := params.NewAdsGetCampaignsBuilder()
 
 	b.AccountID(1)
 	b.ClientID(1)
@@ -203,24 +203,24 @@ func TestAdsGetCampaignsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["campaign_ids"], "text")
 }
 
-func TestAdsGetCategoriesBulder(t *testing.T) {
-	b := params.NewAdsGetCategoriesBulder()
+func TestAdsGetCategoriesBuilder(t *testing.T) {
+	b := params.NewAdsGetCategoriesBuilder()
 
 	b.Lang("text")
 
 	assert.Equal(t, b.Params["lang"], "text")
 }
 
-func TestAdsGetClientsBulder(t *testing.T) {
-	b := params.NewAdsGetClientsBulder()
+func TestAdsGetClientsBuilder(t *testing.T) {
+	b := params.NewAdsGetClientsBuilder()
 
 	b.AccountID(1)
 
 	assert.Equal(t, b.Params["account_id"], 1)
 }
 
-func TestAdsGetDemographicsBulder(t *testing.T) {
-	b := params.NewAdsGetDemographicsBulder()
+func TestAdsGetDemographicsBuilder(t *testing.T) {
+	b := params.NewAdsGetDemographicsBuilder()
 
 	b.AccountID(1)
 	b.IDsType("text")
@@ -237,24 +237,24 @@ func TestAdsGetDemographicsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["date_to"], "text")
 }
 
-func TestAdsGetFloodStatsBulder(t *testing.T) {
-	b := params.NewAdsGetFloodStatsBulder()
+func TestAdsGetFloodStatsBuilder(t *testing.T) {
+	b := params.NewAdsGetFloodStatsBuilder()
 
 	b.AccountID(1)
 
 	assert.Equal(t, b.Params["account_id"], 1)
 }
 
-func TestAdsGetOfficeUsersBulder(t *testing.T) {
-	b := params.NewAdsGetOfficeUsersBulder()
+func TestAdsGetOfficeUsersBuilder(t *testing.T) {
+	b := params.NewAdsGetOfficeUsersBuilder()
 
 	b.AccountID(1)
 
 	assert.Equal(t, b.Params["account_id"], 1)
 }
 
-func TestAdsGetPostsReachBulder(t *testing.T) {
-	b := params.NewAdsGetPostsReachBulder()
+func TestAdsGetPostsReachBuilder(t *testing.T) {
+	b := params.NewAdsGetPostsReachBuilder()
 
 	b.AccountID(1)
 	b.IDsType("text")
@@ -265,8 +265,8 @@ func TestAdsGetPostsReachBulder(t *testing.T) {
 	assert.Equal(t, b.Params["ids"], "text")
 }
 
-func TestAdsGetRejectionReasonBulder(t *testing.T) {
-	b := params.NewAdsGetRejectionReasonBulder()
+func TestAdsGetRejectionReasonBuilder(t *testing.T) {
+	b := params.NewAdsGetRejectionReasonBuilder()
 
 	b.AccountID(1)
 	b.AdID(1)
@@ -275,8 +275,8 @@ func TestAdsGetRejectionReasonBulder(t *testing.T) {
 	assert.Equal(t, b.Params["ad_id"], 1)
 }
 
-func TestAdsGetStatisticsBulder(t *testing.T) {
-	b := params.NewAdsGetStatisticsBulder()
+func TestAdsGetStatisticsBuilder(t *testing.T) {
+	b := params.NewAdsGetStatisticsBuilder()
 
 	b.AccountID(1)
 	b.IDsType("text")
@@ -293,8 +293,8 @@ func TestAdsGetStatisticsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["date_to"], "text")
 }
 
-func TestAdsGetSuggestionsBulder(t *testing.T) {
-	b := params.NewAdsGetSuggestionsBulder()
+func TestAdsGetSuggestionsBuilder(t *testing.T) {
+	b := params.NewAdsGetSuggestionsBuilder()
 
 	b.Section("text")
 	b.IDs("text")
@@ -311,8 +311,8 @@ func TestAdsGetSuggestionsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["lang"], "text")
 }
 
-func TestAdsGetTargetGroupsBulder(t *testing.T) {
-	b := params.NewAdsGetTargetGroupsBulder()
+func TestAdsGetTargetGroupsBuilder(t *testing.T) {
+	b := params.NewAdsGetTargetGroupsBuilder()
 
 	b.AccountID(1)
 	b.ClientID(1)
@@ -323,8 +323,8 @@ func TestAdsGetTargetGroupsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestAdsGetTargetingStatsBulder(t *testing.T) {
-	b := params.NewAdsGetTargetingStatsBulder()
+func TestAdsGetTargetingStatsBuilder(t *testing.T) {
+	b := params.NewAdsGetTargetingStatsBuilder()
 
 	b.AccountID(1)
 	b.ClientID(1)
@@ -349,8 +349,8 @@ func TestAdsGetTargetingStatsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["link_domain"], "text")
 }
 
-func TestAdsGetUploadURLBulder(t *testing.T) {
-	b := params.NewAdsGetUploadURLBulder()
+func TestAdsGetUploadURLBuilder(t *testing.T) {
+	b := params.NewAdsGetUploadURLBuilder()
 
 	b.AdFormat(1)
 	b.Icon(1)
@@ -359,8 +359,8 @@ func TestAdsGetUploadURLBulder(t *testing.T) {
 	assert.Equal(t, b.Params["icon"], 1)
 }
 
-func TestAdsImportTargetContactsBulder(t *testing.T) {
-	b := params.NewAdsImportTargetContactsBulder()
+func TestAdsImportTargetContactsBuilder(t *testing.T) {
+	b := params.NewAdsImportTargetContactsBuilder()
 
 	b.AccountID(1)
 	b.ClientID(1)
@@ -373,8 +373,8 @@ func TestAdsImportTargetContactsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["contacts"], "text")
 }
 
-func TestAdsRemoveOfficeUsersBulder(t *testing.T) {
-	b := params.NewAdsRemoveOfficeUsersBulder()
+func TestAdsRemoveOfficeUsersBuilder(t *testing.T) {
+	b := params.NewAdsRemoveOfficeUsersBuilder()
 
 	b.AccountID(1)
 	b.IDs("text")
@@ -383,8 +383,8 @@ func TestAdsRemoveOfficeUsersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["ids"], "text")
 }
 
-func TestAdsUpdateAdsBulder(t *testing.T) {
-	b := params.NewAdsUpdateAdsBulder()
+func TestAdsUpdateAdsBuilder(t *testing.T) {
+	b := params.NewAdsUpdateAdsBuilder()
 
 	b.AccountID(1)
 	b.Data("text")
@@ -393,8 +393,8 @@ func TestAdsUpdateAdsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["data"], "text")
 }
 
-func TestAdsUpdateCampaignsBulder(t *testing.T) {
-	b := params.NewAdsUpdateCampaignsBulder()
+func TestAdsUpdateCampaignsBuilder(t *testing.T) {
+	b := params.NewAdsUpdateCampaignsBuilder()
 
 	b.AccountID(1)
 	b.Data("text")
@@ -403,8 +403,8 @@ func TestAdsUpdateCampaignsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["data"], "text")
 }
 
-func TestAdsUpdateClientsBulder(t *testing.T) {
-	b := params.NewAdsUpdateClientsBulder()
+func TestAdsUpdateClientsBuilder(t *testing.T) {
+	b := params.NewAdsUpdateClientsBuilder()
 
 	b.AccountID(1)
 	b.Data("text")
@@ -413,8 +413,8 @@ func TestAdsUpdateClientsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["data"], "text")
 }
 
-func TestAdsUpdateTargetGroupBulder(t *testing.T) {
-	b := params.NewAdsUpdateTargetGroupBulder()
+func TestAdsUpdateTargetGroupBuilder(t *testing.T) {
+	b := params.NewAdsUpdateTargetGroupBuilder()
 
 	b.AccountID(1)
 	b.ClientID(1)

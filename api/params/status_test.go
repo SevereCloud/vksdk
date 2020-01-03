@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestStatusGetBulder(t *testing.T) {
-	b := params.NewStatusGetBulder()
+func TestStatusGetBuilder(t *testing.T) {
+	b := params.NewStatusGetBuilder()
 
 	b.UserID(1)
 	b.GroupID(1)
@@ -17,8 +17,8 @@ func TestStatusGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestStatusSetBulder(t *testing.T) {
-	b := params.NewStatusSetBulder()
+func TestStatusSetBuilder(t *testing.T) {
+	b := params.NewStatusSetBuilder()
 
 	b.Text("text")
 	b.GroupID(1)

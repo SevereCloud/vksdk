@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestMessagesAddChatUserBulder(t *testing.T) {
-	b := params.NewMessagesAddChatUserBulder()
+func TestMessagesAddChatUserBuilder(t *testing.T) {
+	b := params.NewMessagesAddChatUserBuilder()
 
 	b.ChatID(1)
 	b.UserID(1)
@@ -17,8 +17,8 @@ func TestMessagesAddChatUserBulder(t *testing.T) {
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestMessagesAllowMessagesFromGroupBulder(t *testing.T) {
-	b := params.NewMessagesAllowMessagesFromGroupBulder()
+func TestMessagesAllowMessagesFromGroupBuilder(t *testing.T) {
+	b := params.NewMessagesAllowMessagesFromGroupBuilder()
 
 	b.GroupID(1)
 	b.Key("text")
@@ -27,8 +27,8 @@ func TestMessagesAllowMessagesFromGroupBulder(t *testing.T) {
 	assert.Equal(t, b.Params["key"], "text")
 }
 
-func TestMessagesCreateChatBulder(t *testing.T) {
-	b := params.NewMessagesCreateChatBulder()
+func TestMessagesCreateChatBuilder(t *testing.T) {
+	b := params.NewMessagesCreateChatBuilder()
 
 	b.UserIDs([]int{1})
 	b.Title("text")
@@ -37,8 +37,8 @@ func TestMessagesCreateChatBulder(t *testing.T) {
 	assert.Equal(t, b.Params["title"], "text")
 }
 
-func TestMessagesDeleteBulder(t *testing.T) {
-	b := params.NewMessagesDeleteBulder()
+func TestMessagesDeleteBuilder(t *testing.T) {
+	b := params.NewMessagesDeleteBuilder()
 
 	b.MessageIDs([]int{1})
 	b.Spam(true)
@@ -51,8 +51,8 @@ func TestMessagesDeleteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["delete_for_all"], true)
 }
 
-func TestMessagesDeleteChatPhotoBulder(t *testing.T) {
-	b := params.NewMessagesDeleteChatPhotoBulder()
+func TestMessagesDeleteChatPhotoBuilder(t *testing.T) {
+	b := params.NewMessagesDeleteChatPhotoBuilder()
 
 	b.ChatID(1)
 	b.GroupID(1)
@@ -61,8 +61,8 @@ func TestMessagesDeleteChatPhotoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesDeleteConversationBulder(t *testing.T) {
-	b := params.NewMessagesDeleteConversationBulder()
+func TestMessagesDeleteConversationBuilder(t *testing.T) {
+	b := params.NewMessagesDeleteConversationBuilder()
 
 	b.UserID(1)
 	b.PeerID(1)
@@ -73,16 +73,16 @@ func TestMessagesDeleteConversationBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesDenyMessagesFromGroupBulder(t *testing.T) {
-	b := params.NewMessagesDenyMessagesFromGroupBulder()
+func TestMessagesDenyMessagesFromGroupBuilder(t *testing.T) {
+	b := params.NewMessagesDenyMessagesFromGroupBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesEditBulder(t *testing.T) {
-	b := params.NewMessagesEditBulder()
+func TestMessagesEditBuilder(t *testing.T) {
+	b := params.NewMessagesEditBuilder()
 
 	b.PeerID(1)
 	b.Message("text")
@@ -107,8 +107,8 @@ func TestMessagesEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["dont_parse_links"], true)
 }
 
-func TestMessagesEditChatBulder(t *testing.T) {
-	b := params.NewMessagesEditChatBulder()
+func TestMessagesEditChatBuilder(t *testing.T) {
+	b := params.NewMessagesEditChatBuilder()
 
 	b.ChatID(1)
 	b.Title("text")
@@ -117,8 +117,8 @@ func TestMessagesEditChatBulder(t *testing.T) {
 	assert.Equal(t, b.Params["title"], "text")
 }
 
-func TestMessagesGetByConversationMessageIDBulder(t *testing.T) {
-	b := params.NewMessagesGetByConversationMessageIDBulder()
+func TestMessagesGetByConversationMessageIDBuilder(t *testing.T) {
+	b := params.NewMessagesGetByConversationMessageIDBuilder()
 
 	b.PeerID(1)
 	b.ConversationMessageIDs([]int{1})
@@ -133,8 +133,8 @@ func TestMessagesGetByConversationMessageIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesGetByIDBulder(t *testing.T) {
-	b := params.NewMessagesGetByIDBulder()
+func TestMessagesGetByIDBuilder(t *testing.T) {
+	b := params.NewMessagesGetByIDBuilder()
 
 	b.MessageIDs([]int{1})
 	b.PreviewLength(1)
@@ -149,8 +149,8 @@ func TestMessagesGetByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesGetChatPreviewBulder(t *testing.T) {
-	b := params.NewMessagesGetChatPreviewBulder()
+func TestMessagesGetChatPreviewBuilder(t *testing.T) {
+	b := params.NewMessagesGetChatPreviewBuilder()
 
 	b.PeerID(1)
 	b.Link("text")
@@ -161,8 +161,8 @@ func TestMessagesGetChatPreviewBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestMessagesGetConversationMembersBulder(t *testing.T) {
-	b := params.NewMessagesGetConversationMembersBulder()
+func TestMessagesGetConversationMembersBuilder(t *testing.T) {
+	b := params.NewMessagesGetConversationMembersBuilder()
 
 	b.PeerID(1)
 	b.Fields([]string{"test"})
@@ -173,8 +173,8 @@ func TestMessagesGetConversationMembersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesGetConversationsBulder(t *testing.T) {
-	b := params.NewMessagesGetConversationsBulder()
+func TestMessagesGetConversationsBuilder(t *testing.T) {
+	b := params.NewMessagesGetConversationsBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -193,8 +193,8 @@ func TestMessagesGetConversationsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesGetConversationsByIDBulder(t *testing.T) {
-	b := params.NewMessagesGetConversationsByIDBulder()
+func TestMessagesGetConversationsByIDBuilder(t *testing.T) {
+	b := params.NewMessagesGetConversationsByIDBuilder()
 
 	b.PeerIDs([]int{1})
 	b.Extended(true)
@@ -207,8 +207,8 @@ func TestMessagesGetConversationsByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesGetHistoryBulder(t *testing.T) {
-	b := params.NewMessagesGetHistoryBulder()
+func TestMessagesGetHistoryBuilder(t *testing.T) {
+	b := params.NewMessagesGetHistoryBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -231,8 +231,8 @@ func TestMessagesGetHistoryBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesGetHistoryAttachmentsBulder(t *testing.T) {
-	b := params.NewMessagesGetHistoryAttachmentsBulder()
+func TestMessagesGetHistoryAttachmentsBuilder(t *testing.T) {
+	b := params.NewMessagesGetHistoryAttachmentsBuilder()
 
 	b.PeerID(1)
 	b.MediaType("text")
@@ -255,8 +255,8 @@ func TestMessagesGetHistoryAttachmentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["max_forwards_level"], 1)
 }
 
-func TestMessagesGetInviteLinkBulder(t *testing.T) {
-	b := params.NewMessagesGetInviteLinkBulder()
+func TestMessagesGetInviteLinkBuilder(t *testing.T) {
+	b := params.NewMessagesGetInviteLinkBuilder()
 
 	b.PeerID(1)
 	b.Reset(true)
@@ -267,16 +267,16 @@ func TestMessagesGetInviteLinkBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesGetLastActivityBulder(t *testing.T) {
-	b := params.NewMessagesGetLastActivityBulder()
+func TestMessagesGetLastActivityBuilder(t *testing.T) {
+	b := params.NewMessagesGetLastActivityBuilder()
 
 	b.UserID(1)
 
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestMessagesGetLongPollHistoryBulder(t *testing.T) {
-	b := params.NewMessagesGetLongPollHistoryBulder()
+func TestMessagesGetLongPollHistoryBuilder(t *testing.T) {
+	b := params.NewMessagesGetLongPollHistoryBuilder()
 
 	b.Ts(1)
 	b.Pts(1)
@@ -305,8 +305,8 @@ func TestMessagesGetLongPollHistoryBulder(t *testing.T) {
 	assert.Equal(t, b.Params["credentials"], true)
 }
 
-func TestMessagesGetLongPollServerBulder(t *testing.T) {
-	b := params.NewMessagesGetLongPollServerBulder()
+func TestMessagesGetLongPollServerBuilder(t *testing.T) {
+	b := params.NewMessagesGetLongPollServerBuilder()
 
 	b.NeedPts(true)
 	b.GroupID(1)
@@ -317,8 +317,8 @@ func TestMessagesGetLongPollServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["lp_version"], 1)
 }
 
-func TestMessagesIsMessagesFromGroupAllowedBulder(t *testing.T) {
-	b := params.NewMessagesIsMessagesFromGroupAllowedBulder()
+func TestMessagesIsMessagesFromGroupAllowedBuilder(t *testing.T) {
+	b := params.NewMessagesIsMessagesFromGroupAllowedBuilder()
 
 	b.GroupID(1)
 	b.UserID(1)
@@ -327,16 +327,16 @@ func TestMessagesIsMessagesFromGroupAllowedBulder(t *testing.T) {
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestMessagesJoinChatByInviteLinkBulder(t *testing.T) {
-	b := params.NewMessagesJoinChatByInviteLinkBulder()
+func TestMessagesJoinChatByInviteLinkBuilder(t *testing.T) {
+	b := params.NewMessagesJoinChatByInviteLinkBuilder()
 
 	b.Link("text")
 
 	assert.Equal(t, b.Params["link"], "text")
 }
 
-func TestMessagesMarkAsAnsweredConversationBulder(t *testing.T) {
-	b := params.NewMessagesMarkAsAnsweredConversationBulder()
+func TestMessagesMarkAsAnsweredConversationBuilder(t *testing.T) {
+	b := params.NewMessagesMarkAsAnsweredConversationBuilder()
 
 	b.PeerID(1)
 	b.Answered(true)
@@ -347,8 +347,8 @@ func TestMessagesMarkAsAnsweredConversationBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesMarkAsImportantBulder(t *testing.T) {
-	b := params.NewMessagesMarkAsImportantBulder()
+func TestMessagesMarkAsImportantBuilder(t *testing.T) {
+	b := params.NewMessagesMarkAsImportantBuilder()
 
 	b.MessageIDs([]int{1})
 	b.Important(1)
@@ -357,8 +357,8 @@ func TestMessagesMarkAsImportantBulder(t *testing.T) {
 	assert.Equal(t, b.Params["important"], 1)
 }
 
-func TestMessagesMarkAsImportantConversationBulder(t *testing.T) {
-	b := params.NewMessagesMarkAsImportantConversationBulder()
+func TestMessagesMarkAsImportantConversationBuilder(t *testing.T) {
+	b := params.NewMessagesMarkAsImportantConversationBuilder()
 
 	b.PeerID(1)
 	b.Important(true)
@@ -369,8 +369,8 @@ func TestMessagesMarkAsImportantConversationBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesMarkAsReadBulder(t *testing.T) {
-	b := params.NewMessagesMarkAsReadBulder()
+func TestMessagesMarkAsReadBuilder(t *testing.T) {
+	b := params.NewMessagesMarkAsReadBuilder()
 
 	b.MessageIDs([]int{1})
 	b.PeerID(1)
@@ -383,8 +383,8 @@ func TestMessagesMarkAsReadBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesPinBulder(t *testing.T) {
-	b := params.NewMessagesPinBulder()
+func TestMessagesPinBuilder(t *testing.T) {
+	b := params.NewMessagesPinBuilder()
 
 	b.PeerID(1)
 	b.MessageID(1)
@@ -393,8 +393,8 @@ func TestMessagesPinBulder(t *testing.T) {
 	assert.Equal(t, b.Params["message_id"], 1)
 }
 
-func TestMessagesRemoveChatUserBulder(t *testing.T) {
-	b := params.NewMessagesRemoveChatUserBulder()
+func TestMessagesRemoveChatUserBuilder(t *testing.T) {
+	b := params.NewMessagesRemoveChatUserBuilder()
 
 	b.ChatID(1)
 	b.UserID(1)
@@ -405,8 +405,8 @@ func TestMessagesRemoveChatUserBulder(t *testing.T) {
 	assert.Equal(t, b.Params["member_id"], 1)
 }
 
-func TestMessagesRestoreBulder(t *testing.T) {
-	b := params.NewMessagesRestoreBulder()
+func TestMessagesRestoreBuilder(t *testing.T) {
+	b := params.NewMessagesRestoreBuilder()
 
 	b.MessageID(1)
 	b.GroupID(1)
@@ -415,8 +415,8 @@ func TestMessagesRestoreBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesSearchBulder(t *testing.T) {
-	b := params.NewMessagesSearchBulder()
+func TestMessagesSearchBuilder(t *testing.T) {
+	b := params.NewMessagesSearchBuilder()
 
 	b.Q("text")
 	b.PeerID(1)
@@ -439,8 +439,8 @@ func TestMessagesSearchBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesSearchConversationsBulder(t *testing.T) {
-	b := params.NewMessagesSearchConversationsBulder()
+func TestMessagesSearchConversationsBuilder(t *testing.T) {
+	b := params.NewMessagesSearchConversationsBuilder()
 
 	b.Q("text")
 	b.Count(1)
@@ -455,8 +455,8 @@ func TestMessagesSearchConversationsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesSendBulder(t *testing.T) {
-	b := params.NewMessagesSendBulder()
+func TestMessagesSendBuilder(t *testing.T) {
+	b := params.NewMessagesSendBuilder()
 
 	b.UserID(1)
 	b.RandomID(1)
@@ -499,8 +499,8 @@ func TestMessagesSendBulder(t *testing.T) {
 	assert.Equal(t, b.Params["disable_mentions"], true)
 }
 
-func TestMessagesSetActivityBulder(t *testing.T) {
-	b := params.NewMessagesSetActivityBulder()
+func TestMessagesSetActivityBuilder(t *testing.T) {
+	b := params.NewMessagesSetActivityBuilder()
 
 	b.UserID(1)
 	b.Type("text")
@@ -513,16 +513,16 @@ func TestMessagesSetActivityBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestMessagesSetChatPhotoBulder(t *testing.T) {
-	b := params.NewMessagesSetChatPhotoBulder()
+func TestMessagesSetChatPhotoBuilder(t *testing.T) {
+	b := params.NewMessagesSetChatPhotoBuilder()
 
 	b.File("text")
 
 	assert.Equal(t, b.Params["file"], "text")
 }
 
-func TestMessagesUnpinBulder(t *testing.T) {
-	b := params.NewMessagesUnpinBulder()
+func TestMessagesUnpinBuilder(t *testing.T) {
+	b := params.NewMessagesUnpinBuilder()
 
 	b.PeerID(1)
 	b.GroupID(1)

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestGroupsAddAddressBulder(t *testing.T) {
-	b := params.NewGroupsAddAddressBulder()
+func TestGroupsAddAddressBuilder(t *testing.T) {
+	b := params.NewGroupsAddAddressBuilder()
 
 	b.GroupID(1)
 	b.Title("text")
@@ -39,8 +39,8 @@ func TestGroupsAddAddressBulder(t *testing.T) {
 	assert.Equal(t, b.Params["is_main_address"], true)
 }
 
-func TestGroupsAddCallbackServerBulder(t *testing.T) {
-	b := params.NewGroupsAddCallbackServerBulder()
+func TestGroupsAddCallbackServerBuilder(t *testing.T) {
+	b := params.NewGroupsAddCallbackServerBuilder()
 
 	b.GroupID(1)
 	b.URL("text")
@@ -53,8 +53,8 @@ func TestGroupsAddCallbackServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["secret_key"], "text")
 }
 
-func TestGroupsAddLinkBulder(t *testing.T) {
-	b := params.NewGroupsAddLinkBulder()
+func TestGroupsAddLinkBuilder(t *testing.T) {
+	b := params.NewGroupsAddLinkBuilder()
 
 	b.GroupID(1)
 	b.Link("text")
@@ -65,8 +65,8 @@ func TestGroupsAddLinkBulder(t *testing.T) {
 	assert.Equal(t, b.Params["text"], "text")
 }
 
-func TestGroupsApproveRequestBulder(t *testing.T) {
-	b := params.NewGroupsApproveRequestBulder()
+func TestGroupsApproveRequestBuilder(t *testing.T) {
+	b := params.NewGroupsApproveRequestBuilder()
 
 	b.GroupID(1)
 	b.UserID(1)
@@ -75,8 +75,8 @@ func TestGroupsApproveRequestBulder(t *testing.T) {
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestGroupsBanBulder(t *testing.T) {
-	b := params.NewGroupsBanBulder()
+func TestGroupsBanBuilder(t *testing.T) {
+	b := params.NewGroupsBanBuilder()
 
 	b.GroupID(1)
 	b.OwnerID(1)
@@ -93,8 +93,8 @@ func TestGroupsBanBulder(t *testing.T) {
 	assert.Equal(t, b.Params["comment_visible"], true)
 }
 
-func TestGroupsCreateBulder(t *testing.T) {
-	b := params.NewGroupsCreateBulder()
+func TestGroupsCreateBuilder(t *testing.T) {
+	b := params.NewGroupsCreateBuilder()
 
 	b.Title("text")
 	b.Description("text")
@@ -109,8 +109,8 @@ func TestGroupsCreateBulder(t *testing.T) {
 	assert.Equal(t, b.Params["subtype"], 1)
 }
 
-func TestGroupsDeleteCallbackServerBulder(t *testing.T) {
-	b := params.NewGroupsDeleteCallbackServerBulder()
+func TestGroupsDeleteCallbackServerBuilder(t *testing.T) {
+	b := params.NewGroupsDeleteCallbackServerBuilder()
 
 	b.GroupID(1)
 	b.ServerID(1)
@@ -119,8 +119,8 @@ func TestGroupsDeleteCallbackServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["server_id"], 1)
 }
 
-func TestGroupsDeleteLinkBulder(t *testing.T) {
-	b := params.NewGroupsDeleteLinkBulder()
+func TestGroupsDeleteLinkBuilder(t *testing.T) {
+	b := params.NewGroupsDeleteLinkBuilder()
 
 	b.GroupID(1)
 	b.LinkID(1)
@@ -129,16 +129,16 @@ func TestGroupsDeleteLinkBulder(t *testing.T) {
 	assert.Equal(t, b.Params["link_id"], 1)
 }
 
-func TestGroupsDisableOnlineBulder(t *testing.T) {
-	b := params.NewGroupsDisableOnlineBulder()
+func TestGroupsDisableOnlineBuilder(t *testing.T) {
+	b := params.NewGroupsDisableOnlineBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestGroupsEditBulder(t *testing.T) {
-	b := params.NewGroupsEditBulder()
+func TestGroupsEditBuilder(t *testing.T) {
+	b := params.NewGroupsEditBuilder()
 
 	b.GroupID(1)
 	b.Title("text")
@@ -233,8 +233,8 @@ func TestGroupsEditBulder(t *testing.T) {
 	assert.Equal(t, b.Params["city"], 1)
 }
 
-func TestGroupsEditAddressBulder(t *testing.T) {
-	b := params.NewGroupsEditAddressBulder()
+func TestGroupsEditAddressBuilder(t *testing.T) {
+	b := params.NewGroupsEditAddressBuilder()
 
 	b.GroupID(1)
 	b.AddressID(1)
@@ -267,8 +267,8 @@ func TestGroupsEditAddressBulder(t *testing.T) {
 	assert.Equal(t, b.Params["is_main_address"], true)
 }
 
-func TestGroupsEditCallbackServerBulder(t *testing.T) {
-	b := params.NewGroupsEditCallbackServerBulder()
+func TestGroupsEditCallbackServerBuilder(t *testing.T) {
+	b := params.NewGroupsEditCallbackServerBuilder()
 
 	b.GroupID(1)
 	b.ServerID(1)
@@ -283,8 +283,8 @@ func TestGroupsEditCallbackServerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["secret_key"], "text")
 }
 
-func TestGroupsEditLinkBulder(t *testing.T) {
-	b := params.NewGroupsEditLinkBulder()
+func TestGroupsEditLinkBuilder(t *testing.T) {
+	b := params.NewGroupsEditLinkBuilder()
 
 	b.GroupID(1)
 	b.LinkID(1)
@@ -295,8 +295,8 @@ func TestGroupsEditLinkBulder(t *testing.T) {
 	assert.Equal(t, b.Params["text"], "text")
 }
 
-func TestGroupsEditManagerBulder(t *testing.T) {
-	b := params.NewGroupsEditManagerBulder()
+func TestGroupsEditManagerBuilder(t *testing.T) {
+	b := params.NewGroupsEditManagerBuilder()
 
 	b.GroupID(1)
 	b.UserID(1)
@@ -315,16 +315,16 @@ func TestGroupsEditManagerBulder(t *testing.T) {
 	assert.Equal(t, b.Params["contact_email"], "text")
 }
 
-func TestGroupsEnableOnlineBulder(t *testing.T) {
-	b := params.NewGroupsEnableOnlineBulder()
+func TestGroupsEnableOnlineBuilder(t *testing.T) {
+	b := params.NewGroupsEnableOnlineBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestGroupsGetBulder(t *testing.T) {
-	b := params.NewGroupsGetBulder()
+func TestGroupsGetBuilder(t *testing.T) {
+	b := params.NewGroupsGetBuilder()
 
 	b.UserID(1)
 	b.Extended(true)
@@ -341,8 +341,8 @@ func TestGroupsGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestGroupsGetAddressesBulder(t *testing.T) {
-	b := params.NewGroupsGetAddressesBulder()
+func TestGroupsGetAddressesBuilder(t *testing.T) {
+	b := params.NewGroupsGetAddressesBuilder()
 
 	b.GroupID(1)
 	b.AddressIDs([]int{1})
@@ -361,8 +361,8 @@ func TestGroupsGetAddressesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestGroupsGetBannedBulder(t *testing.T) {
-	b := params.NewGroupsGetBannedBulder()
+func TestGroupsGetBannedBuilder(t *testing.T) {
+	b := params.NewGroupsGetBannedBuilder()
 
 	b.GroupID(1)
 	b.Offset(1)
@@ -377,8 +377,8 @@ func TestGroupsGetBannedBulder(t *testing.T) {
 	assert.Equal(t, b.Params["owner_id"], 1)
 }
 
-func TestGroupsGetByIDBulder(t *testing.T) {
-	b := params.NewGroupsGetByIDBulder()
+func TestGroupsGetByIDBuilder(t *testing.T) {
+	b := params.NewGroupsGetByIDBuilder()
 
 	b.GroupIDs([]string{"text"})
 	b.GroupID("text")
@@ -389,16 +389,16 @@ func TestGroupsGetByIDBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestGroupsGetCallbackConfirmationCodeBulder(t *testing.T) {
-	b := params.NewGroupsGetCallbackConfirmationCodeBulder()
+func TestGroupsGetCallbackConfirmationCodeBuilder(t *testing.T) {
+	b := params.NewGroupsGetCallbackConfirmationCodeBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestGroupsGetCallbackServersBulder(t *testing.T) {
-	b := params.NewGroupsGetCallbackServersBulder()
+func TestGroupsGetCallbackServersBuilder(t *testing.T) {
+	b := params.NewGroupsGetCallbackServersBuilder()
 
 	b.GroupID(1)
 	b.ServerIDs([]int{1})
@@ -407,8 +407,8 @@ func TestGroupsGetCallbackServersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["server_ids"], []int{1})
 }
 
-func TestGroupsGetCallbackSettingsBulder(t *testing.T) {
-	b := params.NewGroupsGetCallbackSettingsBulder()
+func TestGroupsGetCallbackSettingsBuilder(t *testing.T) {
+	b := params.NewGroupsGetCallbackSettingsBuilder()
 
 	b.GroupID(1)
 	b.ServerID(1)
@@ -417,8 +417,8 @@ func TestGroupsGetCallbackSettingsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["server_id"], 1)
 }
 
-func TestGroupsGetCatalogBulder(t *testing.T) {
-	b := params.NewGroupsGetCatalogBulder()
+func TestGroupsGetCatalogBuilder(t *testing.T) {
+	b := params.NewGroupsGetCatalogBuilder()
 
 	b.CategoryID(1)
 	b.SubcategoryID(1)
@@ -427,8 +427,8 @@ func TestGroupsGetCatalogBulder(t *testing.T) {
 	assert.Equal(t, b.Params["subcategory_id"], 1)
 }
 
-func TestGroupsGetCatalogInfoBulder(t *testing.T) {
-	b := params.NewGroupsGetCatalogInfoBulder()
+func TestGroupsGetCatalogInfoBuilder(t *testing.T) {
+	b := params.NewGroupsGetCatalogInfoBuilder()
 
 	b.Extended(true)
 	b.Subcategories(true)
@@ -437,8 +437,8 @@ func TestGroupsGetCatalogInfoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["subcategories"], true)
 }
 
-func TestGroupsGetInvitedUsersBulder(t *testing.T) {
-	b := params.NewGroupsGetInvitedUsersBulder()
+func TestGroupsGetInvitedUsersBuilder(t *testing.T) {
+	b := params.NewGroupsGetInvitedUsersBuilder()
 
 	b.GroupID(1)
 	b.Offset(1)
@@ -453,8 +453,8 @@ func TestGroupsGetInvitedUsersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["name_case"], "text")
 }
 
-func TestGroupsGetInvitesBulder(t *testing.T) {
-	b := params.NewGroupsGetInvitesBulder()
+func TestGroupsGetInvitesBuilder(t *testing.T) {
+	b := params.NewGroupsGetInvitesBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -465,24 +465,24 @@ func TestGroupsGetInvitesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestGroupsGetLongPollServerBulder(t *testing.T) {
-	b := params.NewGroupsGetLongPollServerBulder()
+func TestGroupsGetLongPollServerBuilder(t *testing.T) {
+	b := params.NewGroupsGetLongPollServerBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestGroupsGetLongPollSettingsBulder(t *testing.T) {
-	b := params.NewGroupsGetLongPollSettingsBulder()
+func TestGroupsGetLongPollSettingsBuilder(t *testing.T) {
+	b := params.NewGroupsGetLongPollSettingsBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestGroupsGetMembersBulder(t *testing.T) {
-	b := params.NewGroupsGetMembersBulder()
+func TestGroupsGetMembersBuilder(t *testing.T) {
+	b := params.NewGroupsGetMembersBuilder()
 
 	b.GroupID("text")
 	b.Sort("text")
@@ -499,8 +499,8 @@ func TestGroupsGetMembersBulder(t *testing.T) {
 	assert.Equal(t, b.Params["filter"], "text")
 }
 
-func TestGroupsGetRequestsBulder(t *testing.T) {
-	b := params.NewGroupsGetRequestsBulder()
+func TestGroupsGetRequestsBuilder(t *testing.T) {
+	b := params.NewGroupsGetRequestsBuilder()
 
 	b.GroupID(1)
 	b.Offset(1)
@@ -513,16 +513,16 @@ func TestGroupsGetRequestsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestGroupsGetSettingsBulder(t *testing.T) {
-	b := params.NewGroupsGetSettingsBulder()
+func TestGroupsGetSettingsBuilder(t *testing.T) {
+	b := params.NewGroupsGetSettingsBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestGroupsInviteBulder(t *testing.T) {
-	b := params.NewGroupsInviteBulder()
+func TestGroupsInviteBuilder(t *testing.T) {
+	b := params.NewGroupsInviteBuilder()
 
 	b.GroupID(1)
 	b.UserID(1)
@@ -531,8 +531,8 @@ func TestGroupsInviteBulder(t *testing.T) {
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestGroupsIsMemberBulder(t *testing.T) {
-	b := params.NewGroupsIsMemberBulder()
+func TestGroupsIsMemberBuilder(t *testing.T) {
+	b := params.NewGroupsIsMemberBuilder()
 
 	b.GroupID("text")
 	b.UserID(1)
@@ -545,8 +545,8 @@ func TestGroupsIsMemberBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestGroupsJoinBulder(t *testing.T) {
-	b := params.NewGroupsJoinBulder()
+func TestGroupsJoinBuilder(t *testing.T) {
+	b := params.NewGroupsJoinBuilder()
 
 	b.GroupID(1)
 	b.NotSure("text")
@@ -555,16 +555,16 @@ func TestGroupsJoinBulder(t *testing.T) {
 	assert.Equal(t, b.Params["not_sure"], "text")
 }
 
-func TestGroupsLeaveBulder(t *testing.T) {
-	b := params.NewGroupsLeaveBulder()
+func TestGroupsLeaveBuilder(t *testing.T) {
+	b := params.NewGroupsLeaveBuilder()
 
 	b.GroupID(1)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestGroupsRemoveUserBulder(t *testing.T) {
-	b := params.NewGroupsRemoveUserBulder()
+func TestGroupsRemoveUserBuilder(t *testing.T) {
+	b := params.NewGroupsRemoveUserBuilder()
 
 	b.GroupID(1)
 	b.UserID(1)
@@ -573,8 +573,8 @@ func TestGroupsRemoveUserBulder(t *testing.T) {
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
-func TestGroupsReorderLinkBulder(t *testing.T) {
-	b := params.NewGroupsReorderLinkBulder()
+func TestGroupsReorderLinkBuilder(t *testing.T) {
+	b := params.NewGroupsReorderLinkBuilder()
 
 	b.GroupID(1)
 	b.LinkID(1)
@@ -585,8 +585,8 @@ func TestGroupsReorderLinkBulder(t *testing.T) {
 	assert.Equal(t, b.Params["after"], 1)
 }
 
-func TestGroupsSearchBulder(t *testing.T) {
-	b := params.NewGroupsSearchBulder()
+func TestGroupsSearchBuilder(t *testing.T) {
+	b := params.NewGroupsSearchBuilder()
 
 	b.Q("text")
 	b.Type("text")
@@ -609,8 +609,8 @@ func TestGroupsSearchBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestGroupsSetCallbackSettingsBulder(t *testing.T) {
-	b := params.NewGroupsSetCallbackSettingsBulder()
+func TestGroupsSetCallbackSettingsBuilder(t *testing.T) {
+	b := params.NewGroupsSetCallbackSettingsBuilder()
 
 	b.GroupID(1)
 	b.ServerID(1)
@@ -701,8 +701,8 @@ func TestGroupsSetCallbackSettingsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["lead_forms_new"], true)
 }
 
-func TestGroupsSetLongPollSettingsBulder(t *testing.T) {
-	b := params.NewGroupsSetLongPollSettingsBulder()
+func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
+	b := params.NewGroupsSetLongPollSettingsBuilder()
 
 	b.GroupID(1)
 	b.Enabled(true)
@@ -791,8 +791,8 @@ func TestGroupsSetLongPollSettingsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["user_unblock"], true)
 }
 
-func TestGroupsUnbanBulder(t *testing.T) {
-	b := params.NewGroupsUnbanBulder()
+func TestGroupsUnbanBuilder(t *testing.T) {
+	b := params.NewGroupsUnbanBuilder()
 
 	b.GroupID(1)
 	b.OwnerID(1)

@@ -7,24 +7,24 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFaveAddArticleBulder(t *testing.T) {
-	b := params.NewFaveAddArticleBulder()
+func TestFaveAddArticleBuilder(t *testing.T) {
+	b := params.NewFaveAddArticleBuilder()
 
 	b.URL("text")
 
 	assert.Equal(t, b.Params["url"], "text")
 }
 
-func TestFaveAddLinkBulder(t *testing.T) {
-	b := params.NewFaveAddLinkBulder()
+func TestFaveAddLinkBuilder(t *testing.T) {
+	b := params.NewFaveAddLinkBuilder()
 
 	b.Link("text")
 
 	assert.Equal(t, b.Params["link"], "text")
 }
 
-func TestFaveAddPageBulder(t *testing.T) {
-	b := params.NewFaveAddPageBulder()
+func TestFaveAddPageBuilder(t *testing.T) {
+	b := params.NewFaveAddPageBuilder()
 
 	b.UserID(1)
 	b.GroupID(1)
@@ -33,8 +33,8 @@ func TestFaveAddPageBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestFaveAddPostBulder(t *testing.T) {
-	b := params.NewFaveAddPostBulder()
+func TestFaveAddPostBuilder(t *testing.T) {
+	b := params.NewFaveAddPostBuilder()
 
 	b.OwnerID(1)
 	b.ID(1)
@@ -45,8 +45,8 @@ func TestFaveAddPostBulder(t *testing.T) {
 	assert.Equal(t, b.Params["access_key"], "text")
 }
 
-func TestFaveAddProductBulder(t *testing.T) {
-	b := params.NewFaveAddProductBulder()
+func TestFaveAddProductBuilder(t *testing.T) {
+	b := params.NewFaveAddProductBuilder()
 
 	b.OwnerID(1)
 	b.ID(1)
@@ -57,16 +57,16 @@ func TestFaveAddProductBulder(t *testing.T) {
 	assert.Equal(t, b.Params["access_key"], "text")
 }
 
-func TestFaveAddTagBulder(t *testing.T) {
-	b := params.NewFaveAddTagBulder()
+func TestFaveAddTagBuilder(t *testing.T) {
+	b := params.NewFaveAddTagBuilder()
 
 	b.Name("text")
 
 	assert.Equal(t, b.Params["name"], "text")
 }
 
-func TestFaveAddVideoBulder(t *testing.T) {
-	b := params.NewFaveAddVideoBulder()
+func TestFaveAddVideoBuilder(t *testing.T) {
+	b := params.NewFaveAddVideoBuilder()
 
 	b.OwnerID(1)
 	b.ID(1)
@@ -77,8 +77,8 @@ func TestFaveAddVideoBulder(t *testing.T) {
 	assert.Equal(t, b.Params["access_key"], "text")
 }
 
-func TestFaveEditTagBulder(t *testing.T) {
-	b := params.NewFaveEditTagBulder()
+func TestFaveEditTagBuilder(t *testing.T) {
+	b := params.NewFaveEditTagBuilder()
 
 	b.ID(1)
 	b.Name("text")
@@ -87,8 +87,8 @@ func TestFaveEditTagBulder(t *testing.T) {
 	assert.Equal(t, b.Params["name"], "text")
 }
 
-func TestFaveGetBulder(t *testing.T) {
-	b := params.NewFaveGetBulder()
+func TestFaveGetBuilder(t *testing.T) {
+	b := params.NewFaveGetBuilder()
 
 	b.Extended(true)
 	b.ItemType("text")
@@ -107,8 +107,8 @@ func TestFaveGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["is_from_snackbar"], true)
 }
 
-func TestFaveGetPagesBulder(t *testing.T) {
-	b := params.NewFaveGetPagesBulder()
+func TestFaveGetPagesBuilder(t *testing.T) {
+	b := params.NewFaveGetPagesBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -123,8 +123,8 @@ func TestFaveGetPagesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["tag_id"], 1)
 }
 
-func TestFaveRemoveArticleBulder(t *testing.T) {
-	b := params.NewFaveRemoveArticleBulder()
+func TestFaveRemoveArticleBuilder(t *testing.T) {
+	b := params.NewFaveRemoveArticleBuilder()
 
 	b.OwnerID(1)
 	b.ArticleID(1)
@@ -133,8 +133,8 @@ func TestFaveRemoveArticleBulder(t *testing.T) {
 	assert.Equal(t, b.Params["article_id"], 1)
 }
 
-func TestFaveRemoveLinkBulder(t *testing.T) {
-	b := params.NewFaveRemoveLinkBulder()
+func TestFaveRemoveLinkBuilder(t *testing.T) {
+	b := params.NewFaveRemoveLinkBuilder()
 
 	b.LinkID("text")
 	b.Link("text")
@@ -143,8 +143,8 @@ func TestFaveRemoveLinkBulder(t *testing.T) {
 	assert.Equal(t, b.Params["link"], "text")
 }
 
-func TestFaveRemovePageBulder(t *testing.T) {
-	b := params.NewFaveRemovePageBulder()
+func TestFaveRemovePageBuilder(t *testing.T) {
+	b := params.NewFaveRemovePageBuilder()
 
 	b.UserID(1)
 	b.GroupID(1)
@@ -153,8 +153,8 @@ func TestFaveRemovePageBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
-func TestFaveRemovePostBulder(t *testing.T) {
-	b := params.NewFaveRemovePostBulder()
+func TestFaveRemovePostBuilder(t *testing.T) {
+	b := params.NewFaveRemovePostBuilder()
 
 	b.OwnerID(1)
 	b.ID(1)
@@ -163,8 +163,8 @@ func TestFaveRemovePostBulder(t *testing.T) {
 	assert.Equal(t, b.Params["id"], 1)
 }
 
-func TestFaveRemoveProductBulder(t *testing.T) {
-	b := params.NewFaveRemoveProductBulder()
+func TestFaveRemoveProductBuilder(t *testing.T) {
+	b := params.NewFaveRemoveProductBuilder()
 
 	b.OwnerID(1)
 	b.ID(1)
@@ -173,24 +173,24 @@ func TestFaveRemoveProductBulder(t *testing.T) {
 	assert.Equal(t, b.Params["id"], 1)
 }
 
-func TestFaveRemoveTagBulder(t *testing.T) {
-	b := params.NewFaveRemoveTagBulder()
+func TestFaveRemoveTagBuilder(t *testing.T) {
+	b := params.NewFaveRemoveTagBuilder()
 
 	b.ID(1)
 
 	assert.Equal(t, b.Params["id"], 1)
 }
 
-func TestFaveReorderTagsBulder(t *testing.T) {
-	b := params.NewFaveReorderTagsBulder()
+func TestFaveReorderTagsBuilder(t *testing.T) {
+	b := params.NewFaveReorderTagsBuilder()
 
 	b.IDs([]int{1})
 
 	assert.Equal(t, b.Params["ids"], []int{1})
 }
 
-func TestFaveSetPageTagsBulder(t *testing.T) {
-	b := params.NewFaveSetPageTagsBulder()
+func TestFaveSetPageTagsBuilder(t *testing.T) {
+	b := params.NewFaveSetPageTagsBuilder()
 
 	b.UserID(1)
 	b.GroupID(1)
@@ -201,8 +201,8 @@ func TestFaveSetPageTagsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["tag_ids"], []int{1})
 }
 
-func TestFaveSetTagsBulder(t *testing.T) {
-	b := params.NewFaveSetTagsBulder()
+func TestFaveSetTagsBuilder(t *testing.T) {
+	b := params.NewFaveSetTagsBuilder()
 
 	b.ItemType("text")
 	b.ItemOwnerID(1)
@@ -219,8 +219,8 @@ func TestFaveSetTagsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["link_url"], "text")
 }
 
-func TestFaveTrackPageInteractionBulder(t *testing.T) {
-	b := params.NewFaveTrackPageInteractionBulder()
+func TestFaveTrackPageInteractionBuilder(t *testing.T) {
+	b := params.NewFaveTrackPageInteractionBuilder()
 
 	b.UserID(1)
 	b.GroupID(1)

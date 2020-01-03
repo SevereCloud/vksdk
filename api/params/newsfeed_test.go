@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewsfeedAddBanBulder(t *testing.T) {
-	b := params.NewNewsfeedAddBanBulder()
+func TestNewsfeedAddBanBuilder(t *testing.T) {
+	b := params.NewNewsfeedAddBanBuilder()
 
 	b.UserIDs([]int{1})
 	b.GroupIDs([]int{1})
@@ -17,8 +17,8 @@ func TestNewsfeedAddBanBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_ids"], []int{1})
 }
 
-func TestNewsfeedDeleteBanBulder(t *testing.T) {
-	b := params.NewNewsfeedDeleteBanBulder()
+func TestNewsfeedDeleteBanBuilder(t *testing.T) {
+	b := params.NewNewsfeedDeleteBanBuilder()
 
 	b.UserIDs([]int{1})
 	b.GroupIDs([]int{1})
@@ -27,16 +27,16 @@ func TestNewsfeedDeleteBanBulder(t *testing.T) {
 	assert.Equal(t, b.Params["group_ids"], []int{1})
 }
 
-func TestNewsfeedDeleteListBulder(t *testing.T) {
-	b := params.NewNewsfeedDeleteListBulder()
+func TestNewsfeedDeleteListBuilder(t *testing.T) {
+	b := params.NewNewsfeedDeleteListBuilder()
 
 	b.ListID(1)
 
 	assert.Equal(t, b.Params["list_id"], 1)
 }
 
-func TestNewsfeedGetBulder(t *testing.T) {
-	b := params.NewNewsfeedGetBulder()
+func TestNewsfeedGetBuilder(t *testing.T) {
+	b := params.NewNewsfeedGetBuilder()
 
 	b.Filters([]string{"test"})
 	b.ReturnBanned(true)
@@ -61,8 +61,8 @@ func TestNewsfeedGetBulder(t *testing.T) {
 	assert.Equal(t, b.Params["section"], "text")
 }
 
-func TestNewsfeedGetBannedBulder(t *testing.T) {
-	b := params.NewNewsfeedGetBannedBulder()
+func TestNewsfeedGetBannedBuilder(t *testing.T) {
+	b := params.NewNewsfeedGetBannedBuilder()
 
 	b.Extended(true)
 	b.Fields([]string{"test"})
@@ -73,8 +73,8 @@ func TestNewsfeedGetBannedBulder(t *testing.T) {
 	assert.Equal(t, b.Params["name_case"], "text")
 }
 
-func TestNewsfeedGetCommentsBulder(t *testing.T) {
-	b := params.NewNewsfeedGetCommentsBulder()
+func TestNewsfeedGetCommentsBuilder(t *testing.T) {
+	b := params.NewNewsfeedGetCommentsBuilder()
 
 	b.Count(1)
 	b.Filters([]string{"test"})
@@ -95,8 +95,8 @@ func TestNewsfeedGetCommentsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestNewsfeedGetListsBulder(t *testing.T) {
-	b := params.NewNewsfeedGetListsBulder()
+func TestNewsfeedGetListsBuilder(t *testing.T) {
+	b := params.NewNewsfeedGetListsBuilder()
 
 	b.ListIDs([]int{1})
 	b.Extended(true)
@@ -105,8 +105,8 @@ func TestNewsfeedGetListsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["extended"], true)
 }
 
-func TestNewsfeedGetMentionsBulder(t *testing.T) {
-	b := params.NewNewsfeedGetMentionsBulder()
+func TestNewsfeedGetMentionsBuilder(t *testing.T) {
+	b := params.NewNewsfeedGetMentionsBuilder()
 
 	b.OwnerID(1)
 	b.StartTime(1)
@@ -121,8 +121,8 @@ func TestNewsfeedGetMentionsBulder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
-func TestNewsfeedGetRecommendedBulder(t *testing.T) {
-	b := params.NewNewsfeedGetRecommendedBulder()
+func TestNewsfeedGetRecommendedBuilder(t *testing.T) {
+	b := params.NewNewsfeedGetRecommendedBuilder()
 
 	b.StartTime(1)
 	b.EndTime(1)
@@ -139,8 +139,8 @@ func TestNewsfeedGetRecommendedBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestNewsfeedGetSuggestedSourcesBulder(t *testing.T) {
-	b := params.NewNewsfeedGetSuggestedSourcesBulder()
+func TestNewsfeedGetSuggestedSourcesBuilder(t *testing.T) {
+	b := params.NewNewsfeedGetSuggestedSourcesBuilder()
 
 	b.Offset(1)
 	b.Count(1)
@@ -153,8 +153,8 @@ func TestNewsfeedGetSuggestedSourcesBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestNewsfeedIgnoreItemBulder(t *testing.T) {
-	b := params.NewNewsfeedIgnoreItemBulder()
+func TestNewsfeedIgnoreItemBuilder(t *testing.T) {
+	b := params.NewNewsfeedIgnoreItemBuilder()
 
 	b.Type("text")
 	b.OwnerID(1)
@@ -165,8 +165,8 @@ func TestNewsfeedIgnoreItemBulder(t *testing.T) {
 	assert.Equal(t, b.Params["item_id"], 1)
 }
 
-func TestNewsfeedSaveListBulder(t *testing.T) {
-	b := params.NewNewsfeedSaveListBulder()
+func TestNewsfeedSaveListBuilder(t *testing.T) {
+	b := params.NewNewsfeedSaveListBuilder()
 
 	b.ListID(1)
 	b.Title("text")
@@ -179,8 +179,8 @@ func TestNewsfeedSaveListBulder(t *testing.T) {
 	assert.Equal(t, b.Params["no_reposts"], true)
 }
 
-func TestNewsfeedSearchBulder(t *testing.T) {
-	b := params.NewNewsfeedSearchBulder()
+func TestNewsfeedSearchBuilder(t *testing.T) {
+	b := params.NewNewsfeedSearchBuilder()
 
 	b.Q("text")
 	b.Extended(true)
@@ -203,8 +203,8 @@ func TestNewsfeedSearchBulder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
-func TestNewsfeedUnignoreItemBulder(t *testing.T) {
-	b := params.NewNewsfeedUnignoreItemBulder()
+func TestNewsfeedUnignoreItemBuilder(t *testing.T) {
+	b := params.NewNewsfeedUnignoreItemBuilder()
 
 	b.Type("text")
 	b.OwnerID(1)
@@ -215,8 +215,8 @@ func TestNewsfeedUnignoreItemBulder(t *testing.T) {
 	assert.Equal(t, b.Params["item_id"], 1)
 }
 
-func TestNewsfeedUnsubscribeBulder(t *testing.T) {
-	b := params.NewNewsfeedUnsubscribeBulder()
+func TestNewsfeedUnsubscribeBuilder(t *testing.T) {
+	b := params.NewNewsfeedUnsubscribeBuilder()
 
 	b.Type("text")
 	b.OwnerID(1)
