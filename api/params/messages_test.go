@@ -474,9 +474,11 @@ func TestMessagesSendBuilder(t *testing.T) {
 	b.StickerID(1)
 	b.GroupID(1)
 	b.Keyboard("text")
+	b.Template("text")
 	b.Payload("text")
 	b.DontParseLinks(true)
 	b.DisableMentions(true)
+	b.Intent("text")
 
 	assert.Equal(t, b.Params["user_id"], 1)
 	assert.Equal(t, b.Params["random_id"], 1)
@@ -494,9 +496,11 @@ func TestMessagesSendBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["sticker_id"], 1)
 	assert.Equal(t, b.Params["group_id"], 1)
 	assert.Equal(t, b.Params["keyboard"], "text")
+	assert.Equal(t, b.Params["template"], "text")
 	assert.Equal(t, b.Params["payload"], "text")
 	assert.Equal(t, b.Params["dont_parse_links"], true)
 	assert.Equal(t, b.Params["disable_mentions"], true)
+	assert.Equal(t, b.Params["intent"], "text")
 }
 
 func TestMessagesSetActivityBuilder(t *testing.T) {

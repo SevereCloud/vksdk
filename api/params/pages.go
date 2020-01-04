@@ -246,12 +246,24 @@ func (b *PagesSaveAccessBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// View Who can view the wiki page: '1' — only community members, '2' — all users can view the page, '0' — only community managers
+// View Who can view the wiki page:
+//
+// * 1 — only community members;
+//
+// * 2 — all users can view the page;
+//
+// * 0 — only community managers
 func (b *PagesSaveAccessBuilder) View(v int) {
 	b.Params["view"] = v
 }
 
-// Edit Who can edit the wiki page: '1' — only community members, '2' — all users can edit the page, '0' — only community managers
+// Edit Who can edit the wiki page:
+//
+// * 1 — only community members;
+//
+// * 2 — all users can edit the page;
+//
+// * 0 — only community managers
 func (b *PagesSaveAccessBuilder) Edit(v int) {
 	b.Params["edit"] = v
 }

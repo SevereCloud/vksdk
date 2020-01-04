@@ -57,7 +57,8 @@ func (b *PollsCreateBuilder) Question(v string) {
 	b.Params["question"] = v
 }
 
-// IsAnonymous '1' – anonymous poll, participants list is hidden,, '0' – public poll, participants list is available,, Default value is '0'.
+// IsAnonymous '1' – anonymous poll, participants list is hidden,, '0' – public poll, participants list is available,,
+// Default value is '0'.
 func (b *PollsCreateBuilder) IsAnonymous(v bool) {
 	b.Params["is_anonymous"] = v
 }
@@ -72,7 +73,8 @@ func (b *PollsCreateBuilder) EndDate(v int) {
 	b.Params["end_date"] = v
 }
 
-// OwnerID If a poll will be added to a communty it is required to send a negative group identifier. Current user by default.
+// OwnerID If a poll will be added to a communty it is required to send a negative group identifier.
+// Current user by default.
 func (b *PollsCreateBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -160,7 +162,8 @@ func (b *PollsEditBuilder) AddAnswers(v string) {
 	b.Params["add_answers"] = v
 }
 
-// EditAnswers object containing answers that need to be edited,, key – answer id, value – new answer text. Example: {"382967099":"option1", "382967103":"option2"}"
+// EditAnswers object containing answers that need to be edited,, key – answer id, value – new answer text.
+// Example: {"382967099":"option1", "382967103":"option2"}"
 func (b *PollsEditBuilder) EditAnswers(v string) {
 	b.Params["edit_answers"] = v
 }
@@ -278,17 +281,21 @@ func (b *PollsGetVotersBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
-// Count Number of user IDs to return (if the 'friends_only' parameter is not set, maximum '1000', otherwise '10'). '100' — (default)
+// Count Number of user IDs to return (if the 'friends_only' parameter is not set, maximum '1000', otherwise '10').
+// '100' — (default)
 func (b *PollsGetVotersBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate (birthdate)', 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters'.
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate (birthdate)', 'city',
+// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education',
+// 'online', 'counters'.
 func (b *PollsGetVotersBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive , 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+// NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive ,
+// 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
 func (b *PollsGetVotersBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }

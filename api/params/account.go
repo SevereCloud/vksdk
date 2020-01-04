@@ -35,12 +35,14 @@ func NewAccountChangePasswordBuilder() *AccountChangePasswordBuilder {
 	return &AccountChangePasswordBuilder{api.Params{}}
 }
 
-// RestoreSID Session id received after the [vk.com/dev/auth.restore|auth.restore] method is executed. (If the password is changed right after the access was restored)
+// RestoreSID Session id received after the [vk.com/dev/auth.restore|auth.restore] method is executed.
+// (If the password is changed right after the access was restored)
 func (b *AccountChangePasswordBuilder) RestoreSID(v string) {
 	b.Params["restore_sid"] = v
 }
 
-// ChangePasswordHash Hash received after a successful OAuth authorization with a code got by SMS. (If the password is changed right after the access was restored)
+// ChangePasswordHash Hash received after a successful OAuth authorization with a code got by SMS. (If the password is
+// changed right after the access was restored)
 func (b *AccountChangePasswordBuilder) ChangePasswordHash(v string) {
 	b.Params["change_password_hash"] = v
 }
@@ -57,7 +59,8 @@ func (b *AccountChangePasswordBuilder) NewPassword(v string) {
 
 // AccountGetActiveOffersBuilder builder
 //
-// Returns a list of active ads (offers) which executed by the user will bring him/her respective number of votes to his balance in the application.
+// Returns a list of active ads (offers) which executed by the user will bring him/her respective number of votes to
+// his balance in the application.
 //
 // https://vk.com/dev/account.getActiveOffers
 type AccountGetActiveOffersBuilder struct {
@@ -155,7 +158,9 @@ func NewAccountGetInfoBuilder() *AccountGetInfoBuilder {
 	return &AccountGetInfoBuilder{api.Params{}}
 }
 
-// Fields Fields to return. Possible values: *'country' — user country,, *'https_required' — is "HTTPS only" option enabled,, *'own_posts_default' — is "Show my posts only" option is enabled,, *'no_wall_replies' — are wall replies disabled or not,, *'intro' — is intro passed by user or not,, *'lang' — user language. By default: all.
+// Fields Fields to return. Possible values: *'country' — user country; *'https_required' — is "HTTPS only" option
+// enabled; *'own_posts_default' — is "Show my posts only" option is enabled; *'no_wall_replies' — are wall replies
+// disabled or not; *'intro' — is intro passed by user or not; *'lang' — user language. By default: all.
 func (b *AccountGetInfoBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
@@ -267,12 +272,32 @@ func (b *AccountSaveProfileInfoBuilder) CancelRequestID(v int) {
 	b.Params["cancel_request_id"] = v
 }
 
-// Sex User sex. Possible values: , * '1' – female,, * '2' – male.
+// Sex User sex. Possible values:
+//
+// * 1 – female;
+//
+// * 2 – male.
 func (b *AccountSaveProfileInfoBuilder) Sex(v int) {
 	b.Params["sex"] = v
 }
 
-// Relation User relationship status. Possible values: , * '1' – single,, * '2' – in a relationship,, * '3' – engaged,, * '4' – married,, * '5' – it's complicated,, * '6' – actively searching,, * '7' – in love,, * '0' – not specified.
+// Relation User relationship status. Possible values:
+//
+// * 1 – single;
+//
+// * 2 – in a relationship;
+//
+// * 3 – engaged;
+//
+// * 4 – married;
+//
+// * 5 – it's complicated;
+//
+// * 6 – actively searching;
+//
+// * 7 – in love;
+//
+// * 0 – not specified.
 func (b *AccountSaveProfileInfoBuilder) Relation(v int) {
 	b.Params["relation"] = v
 }
@@ -287,7 +312,13 @@ func (b *AccountSaveProfileInfoBuilder) Bdate(v string) {
 	b.Params["bdate"] = v
 }
 
-// BdateVisibility Birth date visibility. Returned values: , * '1' – show birth date,, * '2' – show only month and day,, * '0' – hide birth date.
+// BdateVisibility Birth date visibility. Returned values:
+//
+// * 1 – show birth date;
+//
+// * 2 – show only month and day;
+//
+// * 0 – hide birth date.
 func (b *AccountSaveProfileInfoBuilder) BdateVisibility(v int) {
 	b.Params["bdate_visibility"] = v
 }
@@ -374,7 +405,7 @@ func NewAccountSetOnlineBuilder() *AccountSetOnlineBuilder {
 	return &AccountSetOnlineBuilder{api.Params{}}
 }
 
-// Voip '1' if videocalls are available for current device.
+// Voip 1 if videocalls are available for current device.
 func (b *AccountSetOnlineBuilder) Voip(v bool) {
 	b.Params["voip"] = v
 }
@@ -437,12 +468,17 @@ func (b *AccountSetSilenceModeBuilder) Time(v int) {
 	b.Params["time"] = v
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'Chat ID', e.g. '2000000001'. For community: '- Community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'Chat ID', e.g. '2000000001'.
+// For community: '- Community ID', e.g. '-12345'.
 func (b *AccountSetSilenceModeBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
 
-// Sound '1' — to enable sound in this dialog, '0' — to disable sound. Only if 'peer_id' contains user or community ID.
+// Sound
+//
+// * 1 — to enable sound in this dialog,
+// * 0 — to disable sound. Only if 'peer_id' contains user or community ID.
 func (b *AccountSetSilenceModeBuilder) Sound(v int) {
 	b.Params["sound"] = v
 }

@@ -163,7 +163,9 @@ func (b *DocsGetMessagesUploadServerBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'Chat ID', e.g. '2000000001'. For community: '- Community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'Chat ID', e.g. '2000000001'.
+// For community: '- Community ID', e.g. '-12345'.
 func (b *DocsGetMessagesUploadServerBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }

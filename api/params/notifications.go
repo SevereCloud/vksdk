@@ -28,7 +28,19 @@ func (b *NotificationsGetBuilder) StartFrom(v string) {
 	b.Params["start_from"] = v
 }
 
-// Filters Type of notifications to return: 'wall' — wall posts, 'mentions' — mentions in wall posts, comments, or topics, 'comments' — comments to wall posts, photos, and videos, 'likes' — likes, 'reposted' — wall posts that are copied from the current user's wall, 'followers' — new followers, 'friends' — accepted friend requests
+// Filters Type of notifications to return:
+//
+// * wall — wall posts,
+//
+// * mentions — mentions in wall posts, comments, or topics,
+//
+// * comments — comments to wall posts, photos, and videos,
+//
+// * likes — likes,
+//
+// * reposted — wall posts that are copied from the current user's wall,
+//
+// * followers — new followers, 'friends' — accepted friend requests
 func (b *NotificationsGetBuilder) Filters(v []string) {
 	b.Params["filters"] = v
 }

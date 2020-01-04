@@ -35,9 +35,27 @@ if err != nil {
 }
 ```
 
+### Параметры
+
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/api/params?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api/params)
+
+Модуль params предназначен для генерации запросов.
+
+```go
+// import "github.com/SevereCloud/vksdk/api/params"
+
+b := params.NewMessageSendBuilder()
+b.PeerID(123)
+b.Random(0)
+b.DontParseLinks(false)
+b.Message("Test message")
+
+res, err = api.MessageSend(b.Params)
+```
+
 #### Обработка ошибок
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api/errors)
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/api/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api/errors)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/errors)
 
 Пример обработки ошибки

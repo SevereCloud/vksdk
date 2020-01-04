@@ -23,12 +23,24 @@ func (b *SecureAddAppEventBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// ActivityID there are 2 default activities: , * 1 – level. Works similar to ,, * 2 – points, saves points amount, Any other value is for saving completed missions
+// ActivityID there are 2 default activities:
+//
+// * 1 – level. Works similar to;
+//
+// * 2 – points, saves points amount/
+//
+// Any other value is for saving completed missions
 func (b *SecureAddAppEventBuilder) ActivityID(v int) {
 	b.Params["activity_id"] = v
 }
 
-// Value depends on activity_id: * 1 – number, current level number,, * 2 – number, current user's points amount, , Any other value is ignored
+// Value depends on activity_id:
+//
+// * 1 – number, current level number.
+//
+// * 2 – number, current user's points amount.
+//
+// Any other value is ignored
 func (b *SecureAddAppEventBuilder) Value(v int) {
 	b.Params["value"] = v
 }
@@ -52,14 +64,18 @@ func (b *SecureCheckTokenBuilder) Token(v string) {
 	b.Params["token"] = v
 }
 
-// IP user 'ip address'. Note that user may access using the 'ipv6' address, in this case it is required to transmit the 'ipv6' address. If not transmitted, the address will not be checked.
+// IP user 'ip address'.
+//
+// Note that user may access using the 'ipv6' address, in this case it is required to transmit the 'ipv6' address.
+// If not transmitted, the address will not be checked.
 func (b *SecureCheckTokenBuilder) IP(v string) {
 	b.Params["ip"] = v
 }
 
 // SecureGetSMSHistoryBuilder builder
 //
-// Shows a list of SMS notifications sent by the application using [vk.com/dev/secure.sendSMSNotification|secure.sendSMSNotification] method.
+// Shows a list of SMS notifications sent by the application using
+// [vk.com/dev/secure.sendSMSNotification|secure.sendSMSNotification] method.
 //
 // https://vk.com/dev/secure.getSMSHistory
 type SecureGetSMSHistoryBuilder struct {
@@ -221,12 +237,14 @@ func NewSecureSendSMSNotificationBuilder() *SecureSendSMSNotificationBuilder {
 	return &SecureSendSMSNotificationBuilder{api.Params{}}
 }
 
-// UserID ID of the user to whom SMS notification is sent. The user shall allow the application to send him/her notifications (, +1).
+// UserID ID of the user to whom SMS notification is sent. The user shall allow the application to send him/her
+// notifications (, +1).
 func (b *SecureSendSMSNotificationBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// Message 'SMS' text to be sent in 'UTF-8' encoding. Only Latin letters and numbers are allowed. Maximum size is '160' characters.
+// Message 'SMS' text to be sent in 'UTF-8' encoding. Only Latin letters and numbers are allowed.
+// Maximum size is '160' characters.
 func (b *SecureSendSMSNotificationBuilder) Message(v string) {
 	b.Params["message"] = v
 }

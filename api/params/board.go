@@ -33,13 +33,20 @@ func (b *BoardAddTopicBuilder) Text(v string) {
 	b.Params["text"] = v
 }
 
-// FromGroup For a community: '1' — to post the topic as by the community, '0' — to post the topic as by the user (default)
+// FromGroup For a community:
+//
+// * 1 — to post the topic as by the community, '0' — to post the topic as by the user (default)
 func (b *BoardAddTopicBuilder) FromGroup(v bool) {
 	b.Params["from_group"] = v
 }
 
-// Attachments List of media objects attached to the topic, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media owner. '<media_id>' — Media ID. Example: "photo100172_166443618,photo66748_265827614", , "NOTE: If you try to attach more than one reference, an error will be thrown.",
-func (b *BoardAddTopicBuilder) Attachments(v []string) {
+// Attachments List of media objects attached to the topic, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media object:
+// 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media owner.
+// '<media_id>' — Media ID. Example: "photo100172_166443618,photo66748_265827614"
+//
+// NOTE: If you try to attach more than one reference, an error will be thrown.
+func (b *BoardAddTopicBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -96,8 +103,12 @@ func (b *BoardCreateCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments (Required if 'text' is not set.) List of media objects attached to the comment, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
-func (b *BoardCreateCommentBuilder) Attachments(v []string) {
+// Attachments (Required if 'text' is not set.)
+// List of media objects attached to the comment, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media object:
+// 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
+func (b *BoardCreateCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -203,8 +214,12 @@ func (b *BoardEditCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments (Required if 'message' is not set.) List of media objects attached to the comment, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media owner. '<media_id>' — Media ID. Example: "photo100172_166443618,photo66748_265827614"
-func (b *BoardEditCommentBuilder) Attachments(v []string) {
+// Attachments (Required if 'message' is not set.) List of media objects attached to the comment,
+// in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' —
+// Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
+// Example: "photo100172_166443618,photo66748_265827614"
+func (b *BoardEditCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -310,7 +325,9 @@ func (b *BoardGetCommentsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// Sort Sort order: 'asc' — by creation date in chronological order, 'desc' — by creation date in reverse chronological order,
+// Sort Sort order:
+//
+// * asc — by creation date in chronological order, 'desc' — by creation date in reverse chronological order,
 func (b *BoardGetCommentsBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
@@ -334,12 +351,24 @@ func (b *BoardGetTopicsBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// TopicIDs IDs of topics to be returned (100 maximum). By default, all topics are returned. If this parameter is set, the 'order', 'offset', and 'count' parameters are ignored.
+// TopicIDs IDs of topics to be returned (100 maximum). By default, all topics are returned.
+// If this parameter is set, the 'order', 'offset', and 'count' parameters are ignored.
 func (b *BoardGetTopicsBuilder) TopicIDs(v []int) {
 	b.Params["topic_ids"] = v
 }
 
-// Order Sort order: '1' — by date updated in reverse chronological order. '2' — by date created in reverse chronological order. '-1' — by date updated in chronological order. '-2' — by date created in chronological order. If no sort order is specified, topics are returned in the order specified by the group administrator. Pinned topics are returned first, regardless of the sorting.
+// Order Sort order:
+//
+// * 1 — by date updated in reverse chronological order.
+//
+// * 2 — by date created in reverse chronological order.
+//
+// * -1 — by date updated in chronological order.
+//
+// * -2 — by date created in chronological order.
+//
+// If no sort order is specified, topics are returned in the order specified by the group administrator.
+// Pinned topics are returned first, regardless of the sorting.
 func (b *BoardGetTopicsBuilder) Order(v int) {
 	b.Params["order"] = v
 }
@@ -354,17 +383,30 @@ func (b *BoardGetTopicsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Extended '1' — to return information about users who created topics or who posted there last, '0' — to return no additional fields (default)
+// Extended
+//
+// * 1 — to return information about users who created topics or who posted there last,
+//
+// * 0 — to return no additional fields (default)
 func (b *BoardGetTopicsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// Preview '1' — to return the first comment in each topic,, '2' — to return the last comment in each topic,, '0' — to return no comments. By default: '0'.
+// Preview
+//
+// * 1 — to return the first comment in each topic;
+//
+// * 2 — to return the last comment in each topic;
+//
+// * 0 — to return no comments.
+//
+// By default: 0.
 func (b *BoardGetTopicsBuilder) Preview(v int) {
 	b.Params["preview"] = v
 }
 
-// PreviewLength Number of characters after which to truncate the previewed comment. To preview the full comment, specify '0'.
+// PreviewLength Number of characters after which to truncate the previewed comment.
+// To preview the full comment, specify '0'.
 func (b *BoardGetTopicsBuilder) PreviewLength(v int) {
 	b.Params["preview_length"] = v
 }

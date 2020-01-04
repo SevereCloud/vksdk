@@ -232,7 +232,13 @@ func (b *GroupsCreateBuilder) Description(v string) {
 	b.Params["description"] = v
 }
 
-// Type Community type. Possible values: *'group' – group,, *'event' – event,, *'public' – public page
+// Type Community type. Possible values:
+//
+// * group – group;
+//
+// * eent' – event;
+//
+// * pblic' – public page
 func (b *GroupsCreateBuilder) Type(v string) {
 	b.Params["type"] = v
 }
@@ -242,7 +248,15 @@ func (b *GroupsCreateBuilder) PublicCategory(v int) {
 	b.Params["public_category"] = v
 }
 
-// Subtype Public page subtype. Possible values: *'1' – place or small business,, *'2' – company, organization or website,, *'3' – famous person or group of people,, *'4' – product or work of art.
+// Subtype Public page subtype. Possible values:
+//
+// * 1 – place or small business;
+//
+// * 2 – company, organization or website;
+//
+// * 3 – famous person or group of people;
+//
+// * 4 – product or work of art.
 func (b *GroupsCreateBuilder) Subtype(v int) {
 	b.Params["subtype"] = v
 }
@@ -344,7 +358,13 @@ func (b *GroupsEditBuilder) ScreenName(v string) {
 	b.Params["screen_name"] = v
 }
 
-// Access Community type. Possible values: *'0' – open,, *'1' – closed,, *'2' – private.
+// Access Community type. Possible values:
+//
+// * 0 – open;
+//
+// * 1 – closed;
+//
+// * 2 – private.
 func (b *GroupsEditBuilder) Access(v int) {
 	b.Params["access"] = v
 }
@@ -354,7 +374,91 @@ func (b *GroupsEditBuilder) Website(v string) {
 	b.Params["website"] = v
 }
 
-// Subject Community subject. Possible values: , *'1' – auto/moto,, *'2' – activity holidays,, *'3' – business,, *'4' – pets,, *'5' – health,, *'6' – dating and communication, , *'7' – games,, *'8' – IT (computers and software),, *'9' – cinema,, *'10' – beauty and fashion,, *'11' – cooking,, *'12' – art and culture,, *'13' – literature,, *'14' – mobile services and internet,, *'15' – music,, *'16' – science and technology,, *'17' – real estate,, *'18' – news and media,, *'19' – security,, *'20' – education,, *'21' – home and renovations,, *'22' – politics,, *'23' – food,, *'24' – industry,, *'25' – travel,, *'26' – work,, *'27' – entertainment,, *'28' – religion,, *'29' – family,, *'30' – sports,, *'31' – insurance,, *'32' – television,, *'33' – goods and services,, *'34' – hobbies,, *'35' – finance,, *'36' – photo,, *'37' – esoterics,, *'38' – electronics and appliances,, *'39' – erotic,, *'40' – humor,, *'41' – society, humanities,, *'42' – design and graphics.
+// Subject Community subject. Possible values:
+//
+// * 1 – auto/moto,
+//
+// * 2 – activity holidays,
+//
+// * 3 – business,
+//
+// * 4 – pets,
+//
+// * 5 – health,
+//
+// * 6 – dating and communication,
+//
+// * 7 – games,
+//
+// * 8 – IT (computers and software),
+//
+// * 9 – cinema,
+//
+// * 10 – beauty and fashion,
+//
+// * 11 – cooking,
+//
+// * 12 – art and culture,
+//
+// * 13 – literature,
+//
+// * 14 – mobile services and internet,
+//
+// * 15 – music,
+//
+// * 16 – science and technology,
+//
+// * 17 – real estate,
+//
+// * 18 – news and media,
+//
+// * 19 – security,
+//
+// * 20 – education,
+//
+// * 21 – home and renovations,
+//
+// * 22 – politics,
+//
+// * 23 – food,
+//
+// * 24 – industry,
+//
+// * 25 – travel,
+//
+// * 26 – work,
+//
+// * 27 – entertainment,
+//
+// * 28 – religion,
+//
+// * 29 – family,
+//
+// * 30 – sports,
+//
+// * 31 – insurance,
+//
+// * 32 – television,
+//
+// * 33 – goods and services,
+//
+// * 34 – hobbies,
+//
+// * 35 – finance,
+//
+// * 36 – photo,
+//
+// * 37 – esoterics,
+//
+// * 38 – electronics and appliances,
+//
+// * 39 – erotic,
+//
+// * 40 – humor,
+//
+// * 41 – society, humanities,
+//
+// * 42 – design and graphics.
 func (b *GroupsEditBuilder) Subject(v string) {
 	b.Params["subject"] = v
 }
@@ -369,7 +473,8 @@ func (b *GroupsEditBuilder) Phone(v string) {
 	b.Params["phone"] = v
 }
 
-// Rss RSS feed address for import (available only to communities with special permission. Contact vk.com/support to get it.
+// Rss RSS feed address for import (available only to communities with special permission.
+// Contact vk.com/support to get it.
 func (b *GroupsEditBuilder) Rss(v string) {
 	b.Params["rss"] = v
 }
@@ -404,62 +509,126 @@ func (b *GroupsEditBuilder) PublicDate(v string) {
 	b.Params["public_date"] = v
 }
 
-// Wall Wall settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (groups and events only),, *'3' – closed (groups and events only).
+// Wall Wall settings. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – open;
+//
+// * 2 – limited (groups and events only);
+//
+// * 3 – closed (groups and events only).
 func (b *GroupsEditBuilder) Wall(v int) {
 	b.Params["wall"] = v
 }
 
-// Topics Board topics settings. Possbile values: , *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+// Topics Board topics settings. Possbile values:
+//
+// * 0 – disabled;
+//
+// * 1 – open;
+//
+// * 2 – limited (for groups and events only).
 func (b *GroupsEditBuilder) Topics(v int) {
 	b.Params["topics"] = v
 }
 
-// Photos Photos settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+// Photos Photos settings. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – open;
+//
+// * 2 – limited (for groups and events only).
 func (b *GroupsEditBuilder) Photos(v int) {
 	b.Params["photos"] = v
 }
 
-// Video Video settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+// Video Video settings. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – open;
+//
+// * 2 – limited (for groups and events only).
 func (b *GroupsEditBuilder) Video(v int) {
 	b.Params["video"] = v
 }
 
-// Audio Audio settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+// Audio Audio settings. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – open;
+//
+// * 2 – limited (for groups and events only).
 func (b *GroupsEditBuilder) Audio(v int) {
 	b.Params["audio"] = v
 }
 
-// Links Links settings (for public pages only). Possible values: *'0' – disabled,, *'1' – enabled.
+// Links Links settings (for public pages only). Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – enabled.
 func (b *GroupsEditBuilder) Links(v bool) {
 	b.Params["links"] = v
 }
 
-// Events Events settings (for public pages only). Possible values: *'0' – disabled,, *'1' – enabled.
+// Events Events settings (for public pages only). Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – enabled.
 func (b *GroupsEditBuilder) Events(v bool) {
 	b.Params["events"] = v
 }
 
-// Places Places settings (for public pages only). Possible values: *'0' – disabled,, *'1' – enabled.
+// Places Places settings (for public pages only). Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – enabled.
 func (b *GroupsEditBuilder) Places(v bool) {
 	b.Params["places"] = v
 }
 
-// Contacts Contacts settings (for public pages only). Possible values: *'0' – disabled,, *'1' – enabled.
+// Contacts Contacts settings (for public pages only). Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – enabled.
 func (b *GroupsEditBuilder) Contacts(v bool) {
 	b.Params["contacts"] = v
 }
 
-// Docs Documents settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+// Docs Documents settings. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – open;
+//
+// * 2 – limited (for groups and events only).
 func (b *GroupsEditBuilder) Docs(v int) {
 	b.Params["docs"] = v
 }
 
-// Wiki Wiki pages settings. Possible values: *'0' – disabled,, *'1' – open,, *'2' – limited (for groups and events only).
+// Wiki Wiki pages settings. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – open;
+//
+// * 2 – limited (for groups and events only).
 func (b *GroupsEditBuilder) Wiki(v int) {
 	b.Params["wiki"] = v
 }
 
-// Messages Community messages. Possible values: *'0' — disabled,, *'1' — enabled.
+// Messages Community messages. Possible values:
+//
+// * 0 — disabled;
+//
+// * 1 — enabled.
 func (b *GroupsEditBuilder) Messages(v bool) {
 	b.Params["messages"] = v
 }
@@ -474,17 +643,31 @@ func (b *GroupsEditBuilder) Addresses(v bool) {
 	b.Params["addresses"] = v
 }
 
-// AgeLimits Community age limits. Possible values: *'1' — no limits,, *'2' — 16+,, *'3' — 18+.
+// AgeLimits Community age limits. Possible values:
+//
+// * 1 — no limits;
+//
+// * 2 — 16+;
+//
+// * 3 — 18+.
 func (b *GroupsEditBuilder) AgeLimits(v int) {
 	b.Params["age_limits"] = v
 }
 
-// Market Market settings. Possible values: *'0' – disabled,, *'1' – enabled.
+// Market Market settings. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – enabled.
 func (b *GroupsEditBuilder) Market(v bool) {
 	b.Params["market"] = v
 }
 
-// MarketComments market comments settings. Possible values: *'0' – disabled,, *'1' – enabled.
+// MarketComments market comments settings. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – enabled.
 func (b *GroupsEditBuilder) MarketComments(v bool) {
 	b.Params["market_comments"] = v
 }
@@ -499,7 +682,17 @@ func (b *GroupsEditBuilder) MarketCity(v []int) {
 	b.Params["market_city"] = v
 }
 
-// MarketCurrency Market currency settings. Possbile values: , *'643' – Russian rubles,, *'980' – Ukrainian hryvnia,, *'398' – Kazakh tenge,, *'978' – Euro,, *'840' – US dollars
+// MarketCurrency Market currency settings. Possbile values:
+//
+// * 643 – Russian rubles,
+//
+// * 980 – Ukrainian hryvnia,
+//
+// * 398 – Kazakh tenge,
+//
+// * 978 – Euro,
+//
+// * 840 – US dollars
 func (b *GroupsEditBuilder) MarketCurrency(v int) {
 	b.Params["market_currency"] = v
 }
@@ -514,12 +707,20 @@ func (b *GroupsEditBuilder) MarketWiki(v int) {
 	b.Params["market_wiki"] = v
 }
 
-// ObsceneFilter Obscene expressions filter in comments. Possible values: , *'0' – disabled,, *'1' – enabled.
+// ObsceneFilter Obscene expressions filter in comments. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – enabled.
 func (b *GroupsEditBuilder) ObsceneFilter(v bool) {
 	b.Params["obscene_filter"] = v
 }
 
-// ObsceneStopwords Stopwords filter in comments. Possible values: , *'0' – disabled,, *'1' – enabled.
+// ObsceneStopwords Stopwords filter in comments. Possible values:
+//
+// * 0 – disabled;
+//
+// * 1 – enabled.
 func (b *GroupsEditBuilder) ObsceneStopwords(v bool) {
 	b.Params["obscene_stopwords"] = v
 }
@@ -721,7 +922,13 @@ func (b *GroupsEditManagerBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// Role Manager role. Possible values: *'moderator',, *'editor',, *'administrator'.
+// Role Manager role. Possible values:
+//
+// * moderator;
+//
+// * eitor';
+//
+// * aministrator'.
 func (b *GroupsEditManagerBuilder) Role(v string) {
 	b.Params["role"] = v
 }
@@ -782,12 +989,28 @@ func (b *GroupsGetBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// Extended '1' — to return complete information about a user's communities, '0' — to return a list of community IDs without any additional fields (default),
+// Extended
+//
+// * 1 — to return complete information about a user's communities,
+//
+// * 0 — to return a list of community IDs without any additional fields (default),
 func (b *GroupsGetBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// Filter Types of communities to return: 'admin' — to return communities administered by the user , 'editor' — to return communities where the user is an administrator or editor, 'moder' — to return communities where the user is an administrator, editor, or moderator, 'groups' — to return only groups, 'publics' — to return only public pages, 'events' — to return only events
+// Filter Types of communities to return:
+//
+// 'admin' — to return communities administered by the user
+//
+// 'editor' — to return communities where the user is an administrator or editor,
+//
+// 'moder' — to return communities where the user is an administrator, editor, or moderator,
+//
+// 'groups' — to return only groups,
+//
+// 'publics' — to return only public pages,
+//
+// 'events' — to return only events
 func (b *GroupsGetBuilder) Filter(v []string) {
 	b.Params["filter"] = v
 }
@@ -1066,12 +1289,28 @@ func (b *GroupsGetInvitedUsersBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Fields List of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
+// Fields List of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50,
+// photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile,
+// lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post,
+// can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count,
+// relation, relatives, counters'.
 func (b *GroupsGetInvitedUsersBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NameCase Case for declension of user name and surname. Possible values: *'nom' — nominative (default),, *'gen' — genitive,, *'dat' — dative,, *'acc' — accusative, , *'ins' — instrumental,, *'abl' — prepositional.
+// NameCase Case for declension of user name and surname. Possible values:
+//
+// * nom — nominative (default);
+//
+// * gn' — genitive;
+//
+// * dt' — dative;
+//
+// * ac' — accusative,
+//
+// * ins — instrumental;
+//
+// * al' — prepositional.
 func (b *GroupsGetInvitedUsersBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }
@@ -1162,7 +1401,8 @@ func (b *GroupsGetMembersBuilder) GroupID(v string) {
 	b.Params["group_id"] = v
 }
 
-// Sort Sort order. Available values: 'id_asc', 'id_desc', 'time_asc', 'time_desc'. 'time_asc' and 'time_desc' are availavle only if the method is called by the group's 'moderator'.
+// Sort Sort order. Available values: 'id_asc', 'id_desc', 'time_asc', 'time_desc'. 'time_asc' and 'time_desc'
+// are availavle only if the method is called by the group's 'moderator'.
 func (b *GroupsGetMembersBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
@@ -1177,12 +1417,17 @@ func (b *GroupsGetMembersBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Fields List of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
+// Fields List of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50, photo_100,
+// photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain,
+// has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts,
+// can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
 func (b *GroupsGetMembersBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// Filter *'friends' – only friends in this community will be returned,, *'unsure' – only those who pressed 'I may attend' will be returned (if it's an event).
+// Filter *'friends' – only friends in this community will be returned;
+//
+// * usure' – only those who pressed 'I may attend' will be returned (if it's an event).
 func (b *GroupsGetMembersBuilder) Filter(v string) {
 	b.Params["filter"] = v
 }
@@ -1317,7 +1562,11 @@ func (b *GroupsJoinBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// NotSure Optional parameter which is taken into account when 'gid' belongs to the event: '1' — Perhaps I will attend, '0' — I will be there for sure (default), ,
+// NotSure Optional parameter which is taken into account when 'gid' belongs to the event:
+//
+// * 1 — Perhaps I will attend;
+//
+// * 0 — I will be there for sure (default).
 func (b *GroupsJoinBuilder) NotSure(v string) {
 	b.Params["not_sure"] = v
 }
@@ -1438,7 +1687,19 @@ func (b *GroupsSearchBuilder) Market(v bool) {
 	b.Params["market"] = v
 }
 
-// Sort Sort order. Possible values: *'0' — default sorting (similar the full version of the site),, *'1' — by growth speed,, *'2'— by the "day attendance/members number" ratio,, *'3' — by the "Likes number/members number" ratio,, *'4' — by the "comments number/members number" ratio,, *'5' — by the "boards entries number/members number" ratio.
+// Sort Sort order. Possible values:
+//
+// * 0 — default sorting (similar the full version of the site);
+//
+// * 1 — by growth speed;
+//
+// * 2— by the "day attendance/members number" ratio;
+//
+// * 3 — by the "Likes number/members number" ratio;
+//
+// * 4 — by the "comments number/members number" ratio;
+//
+// * 5 — by the "boards entries number/members number" ratio.
 func (b *GroupsSearchBuilder) Sort(v int) {
 	b.Params["sort"] = v
 }
@@ -1448,7 +1709,8 @@ func (b *GroupsSearchBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
-// Count Number of communities to return. "Note that you can not receive more than first thousand of results, regardless of 'count' and 'offset' values."
+// Count Number of communities to return.
+// Note that you can not receive more than first thousand of results, regardless of 'count' and 'offset' values.
 func (b *GroupsSearchBuilder) Count(v int) {
 	b.Params["count"] = v
 }

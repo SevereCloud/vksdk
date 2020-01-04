@@ -153,7 +153,9 @@ func (b *MessagesDeleteConversationBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesDeleteConversationBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
@@ -196,7 +198,9 @@ func NewMessagesEditBuilder() *MessagesEditBuilder {
 	return &MessagesEditBuilder{api.Params{}}
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesEditBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
@@ -221,7 +225,12 @@ func (b *MessagesEditBuilder) Long(v float64) {
 	b.Params["long"] = v
 }
 
-// Attachment (Required if 'message' is not set.) List of objects attached to the message, separated by commas, in the following format: "<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, 'wall' — wall post, '<owner_id>' — ID of the media attachment owner. '<media_id>' — media attachment ID. Example: "photo100172_166443618"
+// Attachment (Required if 'message' is not set.) List of objects attached to
+// the message, separated by commas, in the following format:
+// "<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo,
+// 'video' — video, 'audio' — audio, 'doc' — document, 'wall' — wall post,
+// '<owner_id>' — ID of the media attachment owner. '<media_id>' — media
+// attachment ID. Example: "photo100172_166443618"
 func (b *MessagesEditBuilder) Attachment(v string) {
 	b.Params["attachment"] = v
 }
@@ -284,7 +293,9 @@ func NewMessagesGetByConversationMessageIDBuilder() *MessagesGetByConversationMe
 	return &MessagesGetByConversationMessageIDBuilder{api.Params{}}
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesGetByConversationMessageIDBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
@@ -328,7 +339,10 @@ func (b *MessagesGetByIDBuilder) MessageIDs(v []int) {
 	b.Params["message_ids"] = v
 }
 
-// PreviewLength Number of characters after which to truncate a previewed message. To preview the full message, specify '0'. "NOTE: Messages are not truncated by default. Messages are truncated by words."
+// PreviewLength Number of characters after which to truncate a previewed
+// message. To preview the full message, specify '0'.
+// NOTE: Messages are not truncated by default.
+// Messages are truncated by words.
 func (b *MessagesGetByIDBuilder) PreviewLength(v int) {
 	b.Params["preview_length"] = v
 }
@@ -428,7 +442,10 @@ func (b *MessagesGetConversationsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Filter Filter to apply: 'all' — all conversations, 'unread' — conversations with unread messages, 'important' — conversations, marked as important (only for community messages), 'unanswered' — conversations, marked as unanswered (only for community messages)
+// Filter Filter to apply: 'all' — all conversations, 'unread' — conversations
+// with unread messages, 'important' — conversations, marked as important (only
+// for community messages), 'unanswered' — conversations, marked as unanswered
+// (only for community messages)
 func (b *MessagesGetConversationsBuilder) Filter(v string) {
 	b.Params["filter"] = v
 }
@@ -467,7 +484,9 @@ func NewMessagesGetConversationsByIDBuilder() *MessagesGetConversationsByIDBuild
 	return &MessagesGetConversationsByIDBuilder{api.Params{}}
 }
 
-// PeerIDs Destination IDs. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
+// PeerIDs Destination IDs. For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesGetConversationsByIDBuilder) PeerIDs(v []int) {
 	b.Params["peer_ids"] = v
 }
@@ -526,7 +545,8 @@ func (b *MessagesGetHistoryBuilder) StartMessageID(v int) {
 	b.Params["start_message_id"] = v
 }
 
-// Rev Sort order: '1' — return messages in chronological order. '0' — return messages in reverse chronological order.
+// Rev Sort order: '1' — return messages in chronological order.
+// '0' — return messages in reverse chronological order.
 func (b *MessagesGetHistoryBuilder) Rev(v int) {
 	b.Params["rev"] = v
 }
@@ -560,12 +580,14 @@ func NewMessagesGetHistoryAttachmentsBuilder() *MessagesGetHistoryAttachmentsBui
 	return &MessagesGetHistoryAttachmentsBuilder{api.Params{}}
 }
 
-// PeerID Peer ID. ", For group chat: '2000000000 + chat ID' , , For community: '-community ID'"
+// PeerID Peer ID. ", For group chat: '2000000000 + chat ID' , ,
+// For community: '-community ID'"
 func (b *MessagesGetHistoryAttachmentsBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
 
-// MediaType Type of media files to return: *'photo',, *'video',, *'audio',, *'doc',, *'link'.,*'market'.,*'wall'.,*'share'
+// MediaType Type of media files to return: *'photo',, *'video',, *'audio',,
+// *'doc',, *'link'.,*'market'.,*'wall'.,*'share'
 func (b *MessagesGetHistoryAttachmentsBuilder) MediaType(v string) {
 	b.Params["media_type"] = v
 }
@@ -622,7 +644,8 @@ func (b *MessagesGetInviteLinkBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
 
-// Reset 1 — to generate new link (revoke previous), 0 — to return previous link.
+// Reset 1 — to generate new link (revoke previous), 0 — to return previous
+// link.
 func (b *MessagesGetInviteLinkBuilder) Reset(v bool) {
 	b.Params["reset"] = v
 }
@@ -665,17 +688,25 @@ func NewMessagesGetLongPollHistoryBuilder() *MessagesGetLongPollHistoryBuilder {
 	return &MessagesGetLongPollHistoryBuilder{api.Params{}}
 }
 
-// Ts Last value of the 'ts' parameter returned from the Long Poll server or by using [vk.com/dev/messages.getLongPollHistory|messages.getLongPollHistory] method.
+// Ts Last value of the 'ts' parameter returned from the Long Poll server or
+// by using [vk.com/dev/messages.getLongPollHistory|
+// messages.getLongPollHistory] method.
 func (b *MessagesGetLongPollHistoryBuilder) Ts(v int) {
 	b.Params["ts"] = v
 }
 
-// Pts Lsat value of 'pts' parameter returned from the Long Poll server or by using [vk.com/dev/messages.getLongPollHistory|messages.getLongPollHistory] method.
+// Pts Lsat value of 'pts' parameter returned from the Long Poll server or by
+// using [vk.com/dev/messages.getLongPollHistory|messages.getLongPollHistory]
+// method.
 func (b *MessagesGetLongPollHistoryBuilder) Pts(v int) {
 	b.Params["pts"] = v
 }
 
-// PreviewLength Number of characters after which to truncate a previewed message. To preview the full message, specify '0'. "NOTE: Messages are not truncated by default. Messages are truncated by words."
+// PreviewLength Number of characters after which to truncate a previewed
+// message. To preview the full message, specify '0'.
+//
+// NOTE: Messages are not truncated by default. Messages are truncated by
+// words.
 func (b *MessagesGetLongPollHistoryBuilder) PreviewLength(v int) {
 	b.Params["preview_length"] = v
 }
@@ -700,7 +731,10 @@ func (b *MessagesGetLongPollHistoryBuilder) MsgsLimit(v int) {
 	b.Params["msgs_limit"] = v
 }
 
-// MaxMsgID Maximum ID of the message among existing ones in the local copy. Both messages received with API methods (for example, , ), and data received from a Long Poll server (events with code 4) are taken into account.
+// MaxMsgID Maximum ID of the message among existing ones in the local copy.
+// Both messages received with API methods (for example, , ), and data
+// received from a Long Poll server (events with code 4) are taken into
+// account.
 func (b *MessagesGetLongPollHistoryBuilder) MaxMsgID(v int) {
 	b.Params["max_msg_id"] = v
 }
@@ -739,7 +773,8 @@ func NewMessagesGetLongPollServerBuilder() *MessagesGetLongPollServerBuilder {
 	return &MessagesGetLongPollServerBuilder{api.Params{}}
 }
 
-// NeedPts '1' — to return the 'pts' field, needed for the [vk.com/dev/messages.getLongPollHistory|messages.getLongPollHistory] method.
+// NeedPts '1' — to return the 'pts' field, needed for the
+// [vk.com/dev/messages.getLongPollHistory|messages.getLongPollHistory] method.
 func (b *MessagesGetLongPollServerBuilder) NeedPts(v bool) {
 	b.Params["need_pts"] = v
 }
@@ -756,7 +791,8 @@ func (b *MessagesGetLongPollServerBuilder) LpVersion(v int) {
 
 // MessagesIsMessagesFromGroupAllowedBuilder builder
 //
-// Returns information whether sending messages from the community to current user is allowed.
+// Returns information whether sending messages from the community to
+// current user is allowed.
 //
 // https://vk.com/dev/messages.isMessagesFromGroupAllowed
 type MessagesIsMessagesFromGroupAllowedBuilder struct {
@@ -896,7 +932,9 @@ func (b *MessagesMarkAsReadBuilder) MessageIDs(v []int) {
 	b.Params["message_ids"] = v
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesMarkAsReadBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
@@ -925,7 +963,9 @@ func NewMessagesPinBuilder() *MessagesPinBuilder {
 	return &MessagesPinBuilder{api.Params{}}
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'Chat ID', e.g. '2000000001'. For community: '- Community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'. For chat:
+// '2000000000' + 'Chat ID', e.g. '2000000001'. For community:
+// '- Community ID', e.g. '-12345'.
 func (b *MessagesPinBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
@@ -937,7 +977,8 @@ func (b *MessagesPinBuilder) MessageID(v int) {
 
 // MessagesRemoveChatUserBuilder builder
 //
-// Allows the current user to leave a chat or, if the current user started the chat, allows the user to remove another user from the chat.
+// Allows the current user to leave a chat or, if the current user started the
+// chat, allows the user to remove another user from the chat.
 //
 // https://vk.com/dev/messages.removeChatUser
 type MessagesRemoveChatUserBuilder struct {
@@ -990,7 +1031,8 @@ func (b *MessagesRestoreBuilder) GroupID(v int) {
 
 // MessagesSearchBuilder builder
 //
-// Returns a list of the current user's private messages that match search criteria.
+// Returns a list of the current user's private messages that match search
+// criteria.
 //
 // https://vk.com/dev/messages.search
 type MessagesSearchBuilder struct {
@@ -1007,7 +1049,9 @@ func (b *MessagesSearchBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'. For chat:
+// '2000000000' + 'chat_id', e.g. '2000000001'. For community:
+// '- community ID', e.g. '-12345'.
 func (b *MessagesSearchBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
@@ -1017,7 +1061,11 @@ func (b *MessagesSearchBuilder) Date(v int) {
 	b.Params["date"] = v
 }
 
-// PreviewLength Number of characters after which to truncate a previewed message. To preview the full message, specify '0'. "NOTE: Messages are not truncated by default. Messages are truncated by words."
+// PreviewLength Number of characters after which to truncate a previewed
+// message. To preview the full message, specify '0'.
+//
+// NOTE: Messages are not truncated by default. Messages are truncated by
+// words.
 func (b *MessagesSearchBuilder) PreviewLength(v int) {
 	b.Params["preview_length"] = v
 }
@@ -1049,7 +1097,8 @@ func (b *MessagesSearchBuilder) GroupID(v int) {
 
 // MessagesSearchConversationsBuilder builder
 //
-// Returns a list of the current user's conversations that match search criteria.
+// Returns a list of the current user's conversations that match search
+// criteria.
 //
 // https://vk.com/dev/messages.searchConversations
 type MessagesSearchConversationsBuilder struct {
@@ -1110,7 +1159,9 @@ func (b *MessagesSendBuilder) RandomID(v int) {
 	b.Params["random_id"] = v
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'. For chat:
+// '2000000000' + 'chat_id', e.g. '2000000001'. For community:
+// '- community ID', e.g. '-12345'.
 func (b *MessagesSendBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
@@ -1145,8 +1196,13 @@ func (b *MessagesSendBuilder) Long(v float64) {
 	b.Params["long"] = v
 }
 
-// Attachment (Required if 'message' is not set.) List of objects attached to the message, separated by commas, in the following format: "<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, 'wall' — wall post, '<owner_id>' — ID of the media attachment owner. '<media_id>' — media attachment ID. Example: "photo100172_166443618"
-func (b *MessagesSendBuilder) Attachment(v string) {
+// Attachment (Required if 'message' is not set.) List of objects attached to
+// the message, separated by commas, in the following format:
+// "<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo,
+// 'video' — video, 'audio' — audio, 'doc' — document, 'wall' — wall post,
+// '<owner_id>' — ID of the media attachment owner. '<media_id>' — media
+// attachment ID. Example: "photo100172_166443618"
+func (b *MessagesSendBuilder) Attachment(v interface{}) {
 	b.Params["attachment"] = v
 }
 
@@ -1155,7 +1211,9 @@ func (b *MessagesSendBuilder) ReplyTo(v int) {
 	b.Params["reply_to"] = v
 }
 
-// ForwardMessages ID of forwarded messages, separated with a comma. Listed messages of the sender will be shown in the message body at the recipient's. Example: "123,431,544"
+// ForwardMessages ID of forwarded messages, separated with a comma. Listed
+// messages of the sender will be shown in the message body at the
+// recipient's. Example: "123,431,544"
 func (b *MessagesSendBuilder) ForwardMessages(v []int) {
 	b.Params["forward_messages"] = v
 }
@@ -1175,9 +1233,16 @@ func (b *MessagesSendBuilder) GroupID(v int) {
 	b.Params["group_id"] = v
 }
 
-// Keyboard parameter
-func (b *MessagesSendBuilder) Keyboard(v string) {
+// Keyboard parameter.
+// https://vk.com/dev/bots_docs_3
+func (b *MessagesSendBuilder) Keyboard(v interface{}) {
 	b.Params["keyboard"] = v
+}
+
+// Template parameter.
+// https://vk.com/dev/bot_docs_templates
+func (b *MessagesSendBuilder) Template(v interface{}) {
+	b.Params["template"] = v
 }
 
 // Payload parameter
@@ -1193,6 +1258,11 @@ func (b *MessagesSendBuilder) DontParseLinks(v bool) {
 // DisableMentions parameter
 func (b *MessagesSendBuilder) DisableMentions(v bool) {
 	b.Params["disable_mentions"] = v
+}
+
+// Intent parameter
+func (b *MessagesSendBuilder) Intent(v string) {
+	b.Params["intent"] = v
 }
 
 // MessagesSetActivityBuilder builder
@@ -1219,7 +1289,9 @@ func (b *MessagesSetActivityBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'chat_id', e.g. '2000000001'. For community: '- community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesSetActivityBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
@@ -1243,7 +1315,9 @@ func NewMessagesSetChatPhotoBuilder() *MessagesSetChatPhotoBuilder {
 	return &MessagesSetChatPhotoBuilder{api.Params{}}
 }
 
-// File Upload URL from the 'response' field returned by the [vk.com/dev/photos.getChatUploadServer|photos.getChatUploadServer] method upon successfully uploading an image.
+// File Upload URL from the 'response' field returned by the
+// [vk.com/dev/photos.getChatUploadServer|photos.getChatUploadServer]
+// method upon successfully uploading an image.
 func (b *MessagesSetChatPhotoBuilder) File(v string) {
 	b.Params["file"] = v
 }

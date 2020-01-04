@@ -40,7 +40,8 @@ func (b *AuthCheckPhoneBuilder) AuthByPhone(v bool) {
 
 // AuthRestoreBuilder builder
 //
-// Allows to restore account access using a code received via SMS. " This method is only available for apps with [vk.com/dev/auth_direct|Direct authorization] access. "
+// Allows to restore account access using a code received via SMS.
+// This method is only available for apps with [vk.com/dev/auth_direct|Direct authorization] access.
 //
 // https://vk.com/dev/auth.restore
 type AuthRestoreBuilder struct {

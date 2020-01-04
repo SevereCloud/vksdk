@@ -83,7 +83,19 @@ func NewNewsfeedGetBuilder() *NewsfeedGetBuilder {
 	return &NewsfeedGetBuilder{api.Params{}}
 }
 
-// Filters Filters to apply: 'post' — new wall posts, 'photo' — new photos, 'photo_tag' — new photo tags, 'wall_photo' — new wall photos, 'friend' — new friends, 'note' — new notes
+// Filters Filters to apply:
+//
+// * post — new wall posts;
+//
+// * photo — new photos;
+//
+// * photo_tag — new photo tags;
+//
+// * wall_photo — new wall photos;
+//
+// * friend — new friends;
+//
+// * note — new notes.
 func (b *NewsfeedGetBuilder) Filters(v []string) {
 	b.Params["filters"] = v
 }
@@ -108,17 +120,24 @@ func (b *NewsfeedGetBuilder) MaxPhotos(v int) {
 	b.Params["max_photos"] = v
 }
 
-// SourceIDs Sources to obtain news from, separated by commas. User IDs can be specified in formats '' or 'u' , where '' is the user's friend ID. Community IDs can be specified in formats '-' or 'g' , where '' is the community ID. If the parameter is not set, all of the user's friends and communities are returned, except for banned sources, which can be obtained with the [vk.com/dev/newsfeed.getBanned|newsfeed.getBanned] method.
+// SourceIDs Sources to obtain news from, separated by commas. User IDs can be specified in formats '' or 'u' ,
+// where '' is the user's friend ID.
+// Community IDs can be specified in formats '-' or 'g' , where '' is the community ID.
+//
+// If the parameter is not set, all of the user's friends and communities are returned, except for banned sources,
+// which can be obtained with the [vk.com/dev/newsfeed.getBanned|newsfeed.getBanned] method.
 func (b *NewsfeedGetBuilder) SourceIDs(v string) {
 	b.Params["source_ids"] = v
 }
 
-// StartFrom identifier required to get the next page of results. Value for this parameter is returned in 'next_from' field in a reply.
+// StartFrom identifier required to get the next page of results. Value for this parameter is returned in 'next_from'
+// field in a reply.
 func (b *NewsfeedGetBuilder) StartFrom(v string) {
 	b.Params["start_from"] = v
 }
 
-// Count Number of news items to return (default 50, maximum 100). For auto feed, you can use the 'new_offset' parameter returned by this method.
+// Count Number of news items to return (default 50, maximum 100). For auto feed, you can use the 'new_offset'
+// parameter returned by this method.
 func (b *NewsfeedGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
@@ -157,7 +176,19 @@ func (b *NewsfeedGetBannedBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NameCase Case for declension of user name and surname: 'nom' — nominative (default), 'gen' — genitive , 'dat' — dative, 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+// NameCase Case for declension of user name and surname:
+//
+// * nom — nominative (default);
+//
+// * gen — genitive;
+//
+// * dat — dative;
+//
+// * acc — accusative;
+//
+// * ins — instrumental;
+//
+// * abl — prepositional.
 func (b *NewsfeedGetBannedBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }
@@ -181,12 +212,23 @@ func (b *NewsfeedGetCommentsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Filters Filters to apply: 'post' — new comments on wall posts, 'photo' — new comments on photos, 'video' — new comments on videos, 'topic' — new comments on discussions, 'note' — new comments on notes,
+// Filters Filters to apply:
+//
+// * post — new comments on wall posts;
+//
+// * photo — new comments on photos;
+//
+// * video — new comments on videos;
+//
+// * topic — new comments on discussions;
+//
+// * note — new comments on notes.
 func (b *NewsfeedGetCommentsBuilder) Filters(v []string) {
 	b.Params["filters"] = v
 }
 
-// Reposts Object ID, comments on repost of which shall be returned, e.g. 'wall1_45486'. (If the parameter is set, the 'filters' parameter is optional.),
+// Reposts Object ID, comments on repost of which shall be returned, e.g. 'wall1_45486'.
+// (If the parameter is set, the 'filters' parameter is optional.),
 func (b *NewsfeedGetCommentsBuilder) Reposts(v string) {
 	b.Params["reposts"] = v
 }
@@ -206,7 +248,8 @@ func (b *NewsfeedGetCommentsBuilder) LastCommentsCount(v int) {
 	b.Params["last_comments_count"] = v
 }
 
-// StartFrom Identificator needed to return the next page with results. Value for this parameter returns in 'next_from' field.
+// StartFrom Identificator needed to return the next page with results.
+// Value for this parameter returns in 'next_from' field.
 func (b *NewsfeedGetCommentsBuilder) StartFrom(v string) {
 	b.Params["start_from"] = v
 }
@@ -352,7 +395,8 @@ func (b *NewsfeedGetSuggestedSourcesBuilder) Shuffle(v bool) {
 	b.Params["shuffle"] = v
 }
 
-// Fields list of extra fields to be returned. See available fields for [vk.com/dev/fields|users] and [vk.com/dev/fields_groups|communities].
+// Fields list of extra fields to be returned. See available fields for [vk.com/dev/fields|users]
+// and [vk.com/dev/fields_groups|communities].
 func (b *NewsfeedGetSuggestedSourcesBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
@@ -371,12 +415,23 @@ func NewNewsfeedIgnoreItemBuilder() *NewsfeedIgnoreItemBuilder {
 	return &NewsfeedIgnoreItemBuilder{api.Params{}}
 }
 
-// Type Item type. Possible values: *'wall' – post on the wall,, *'tag' – tag on a photo,, *'profilephoto' – profile photo,, *'video' – video,, *'audio' – audio.
+// Type Item type. Possible values:
+//
+// * wall – post on the wall;
+//
+// * tag – tag on a photo;
+//
+// * profilephoto – profile photo;
+//
+// * video – video;
+//
+// * audio – audio.
 func (b *NewsfeedIgnoreItemBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
-// OwnerID Item owner's identifier (user or community), "Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community "
+// OwnerID Item owner's identifier (user or community),
+// Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community
 func (b *NewsfeedIgnoreItemBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -493,12 +548,23 @@ func NewNewsfeedUnignoreItemBuilder() *NewsfeedUnignoreItemBuilder {
 	return &NewsfeedUnignoreItemBuilder{api.Params{}}
 }
 
-// Type Item type. Possible values: *'wall' – post on the wall,, *'tag' – tag on a photo,, *'profilephoto' – profile photo,, *'video' – video,, *'audio' – audio.
+// Type Item type. Possible values:
+//
+// * wall – post on the wall;
+//
+// * tag – tag on a photo;
+//
+// * profilephoto – profile photo;
+//
+// * video – video;
+//
+// * audio – audio.
 func (b *NewsfeedUnignoreItemBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
-// OwnerID Item owner's identifier (user or community), "Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community "
+// OwnerID Item owner's identifier (user or community),
+// Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community
 func (b *NewsfeedUnignoreItemBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -522,7 +588,17 @@ func NewNewsfeedUnsubscribeBuilder() *NewsfeedUnsubscribeBuilder {
 	return &NewsfeedUnsubscribeBuilder{api.Params{}}
 }
 
-// Type Type of object from which to unsubscribe: 'note' — note, 'photo' — photo, 'post' — post on user wall or community wall, 'topic' — topic, 'video' — video
+// Type Type of object from which to unsubscribe:
+//
+// * note — note;
+//
+// * photo — photo;
+//
+// * post — post on user wall or community wall;
+//
+// * topic — topic;
+//
+// * video — video
 func (b *NewsfeedUnsubscribeBuilder) Type(v string) {
 	b.Params["type"] = v
 }

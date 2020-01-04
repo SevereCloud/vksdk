@@ -57,7 +57,15 @@ func (b *VideoAddAlbumBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
-// Privacy new access permissions for the album. Possible values: , *'0' – all users,, *'1' – friends only,, *'2' – friends and friends of friends,, *'3' – "only me".
+// Privacy new access permissions for the album. Possible values:
+//
+// * 0 – all users,
+//
+// * 1 – friends only,
+//
+// * 2 – friends and friends of friends,
+//
+// * 3 – "only me".
 func (b *VideoAddAlbumBuilder) Privacy(v []string) {
 	b.Params["privacy"] = v
 }
@@ -128,8 +136,12 @@ func (b *VideoCreateCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments List of objects attached to the comment, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media attachment owner. '<media_id>' — Media attachment ID. Example: "photo100172_166443618,photo66748_265827614"
-func (b *VideoCreateCommentBuilder) Attachments(v []string) {
+// Attachments List of objects attached to the comment, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// '<owner_id>' — ID of the media attachment owner. '<media_id>' — Media attachment ID.
+// Example: "photo100172_166443618,photo66748_265827614"
+func (b *VideoCreateCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -264,7 +276,8 @@ func (b *VideoEditBuilder) Desc(v string) {
 	b.Params["desc"] = v
 }
 
-// PrivacyView Privacy settings in a [vk.com/dev/privacy_setting|special format]. Privacy setting is available for videos uploaded to own profile by user.
+// PrivacyView Privacy settings in a [vk.com/dev/privacy_setting|special format].
+// Privacy setting is available for videos uploaded to own profile by user.
 func (b *VideoEditBuilder) PrivacyView(v []string) {
 	b.Params["privacy_view"] = v
 }
@@ -313,7 +326,15 @@ func (b *VideoEditAlbumBuilder) Title(v string) {
 	b.Params["title"] = v
 }
 
-// Privacy new access permissions for the album. Possible values: , *'0' – all users,, *'1' – friends only,, *'2' – friends and friends of friends,, *'3' – "only me".
+// Privacy new access permissions for the album. Possible values:
+//
+// * 0 – all users,
+//
+// * 1 – friends only,
+//
+// * 2 – friends and friends of friends,
+//
+// * 3 – "only me".
 func (b *VideoEditAlbumBuilder) Privacy(v []string) {
 	b.Params["privacy"] = v
 }
@@ -347,8 +368,12 @@ func (b *VideoEditCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments List of objects attached to the comment, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media attachment owner. '<media_id>' — Media attachment ID. Example: "photo100172_166443618,photo66748_265827614"
-func (b *VideoEditCommentBuilder) Attachments(v []string) {
+// Attachments List of objects attached to the comment, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// '<owner_id>' — ID of the media attachment owner. '<media_id>' — Media attachment ID.
+// Example: "photo100172_166443618,photo66748_265827614"
+func (b *VideoEditCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -371,7 +396,9 @@ func (b *VideoGetBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
-// Videos Video IDs, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", Use a negative value to designate a community ID. Example: "-4363_136089719,13245770_137352259"
+// Videos Video IDs, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// Use a negative value to designate a community ID.
+// Example: "-4363_136089719,13245770_137352259"
 func (b *VideoGetBuilder) Videos(v []string) {
 	b.Params["videos"] = v
 }
@@ -699,7 +726,21 @@ func (b *VideoReportBuilder) VideoID(v int) {
 	b.Params["video_id"] = v
 }
 
-// Reason Reason for the complaint: '0' – spam, '1' – child pornography, '2' – extremism, '3' – violence, '4' – drug propaganda, '5' – adult material, '6' – insult, abuse
+// Reason Reason for the complaint:
+//
+// * 0 – spam;
+//
+// * 1 – child pornography;
+//
+// * 2 – extremism;
+//
+// * 3 – violence;
+//
+// * 4 – drug propaganda;
+//
+// * 5 – adult material;
+//
+// * 6 – insult, abuse.
 func (b *VideoReportBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
@@ -738,7 +779,21 @@ func (b *VideoReportCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
-// Reason Reason for the complaint: , 0 – spam , 1 – child pornography , 2 – extremism , 3 – violence , 4 – drug propaganda , 5 – adult material , 6 – insult, abuse
+// Reason Reason for the complaint:
+//
+// * 0 – spam;
+//
+// * 1 – child pornography;
+//
+// * 2 – extremism;
+//
+// * 3 – violence;
+//
+// * 4 – drug propaganda;
+//
+// * 5 – adult material;
+//
+// * 6 – insult, abuse.
 func (b *VideoReportCommentBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
@@ -815,12 +870,20 @@ func (b *VideoSaveBuilder) Description(v string) {
 	b.Params["description"] = v
 }
 
-// IsPrivate '1' — to designate the video as private (send it via a private message), the video will not appear on the user's video list and will not be available by ID for other users, '0' — not to designate the video as private
+// IsPrivate
+//
+// * 1 — to designate the video as private (send it via a private message), the video will not appear
+// on the user's video list and will not be available by ID for other users,
+//
+// * 0 — not to designate the video as private
 func (b *VideoSaveBuilder) IsPrivate(v bool) {
 	b.Params["is_private"] = v
 }
 
-// Wallpost '1' — to post the saved video on a user's wall, '0' — not to post the saved video on a user's wall
+// Wallpost
+//
+// * 1 — to post the saved video on a user's wall
+// * 0 — not to post the saved video on a user's wall
 func (b *VideoSaveBuilder) Wallpost(v bool) {
 	b.Params["wallpost"] = v
 }
@@ -899,7 +962,15 @@ func (b *VideoSearchBuilder) Adult(v bool) {
 	b.Params["adult"] = v
 }
 
-// Filters Filters to apply: 'youtube' — return YouTube videos only, 'vimeo' — return Vimeo videos only, 'short' — return short videos only, 'long' — return long videos only
+// Filters Filters to apply:
+//
+// * youtube — return YouTube videos only;
+//
+// * vimeo — return Vimeo videos only;
+//
+// * short — return short videos only;
+//
+// * long — return long videos only.
 func (b *VideoSearchBuilder) Filters(v []string) {
 	b.Params["filters"] = v
 }

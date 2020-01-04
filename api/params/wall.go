@@ -65,8 +65,13 @@ func (b *WallCreateCommentBuilder) ReplyToComment(v int) {
 	b.Params["reply_to_comment"] = v
 }
 
-// Attachments (Required if 'message' is not set.) List of media objects attached to the comment, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media ojbect: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media owner. '<media_id>' — Media ID. For example: "photo100172_166443618,photo66748_265827614"
-func (b *WallCreateCommentBuilder) Attachments(v []string) {
+// Attachments (Required if 'message' is not set.) List of media objects attached to the comment,
+// in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media ojbect: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
+// For example: "photo100172_166443618,photo66748_265827614"
+func (b *WallCreateCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -162,8 +167,15 @@ func (b *WallEditBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID. Example: "photo100172_166443618,photo66748_265827614", May contain a link to an external page to include in the post. Example: "photo66748_265827614,http://habrahabr.ru", "NOTE: If more than one link is being attached, an error is thrown."
-func (b *WallEditBuilder) Attachments(v []string) {
+// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media ojbect: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
+// May contain a link to an external page to include in the post.
+// Example: "photo66748_265827614,http://habrahabr.ru",
+//
+// NOTE: If more than one link is being attached, an error is thrown.
+func (b *WallEditBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -251,12 +263,22 @@ func (b *WallEditAdsStealthBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album, '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID. Example: "photo100172_166443618,photo66748_265827614", May contain a link to an external page to include in the post. Example: "photo66748_265827614,http://habrahabr.ru", "NOTE: If more than one link is being attached, an error will be thrown."
-func (b *WallEditAdsStealthBuilder) Attachments(v []string) {
+// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media ojbect: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
+// May contain a link to an external page to include in the post.
+// Example: "photo66748_265827614,http://habrahabr.ru",
+//
+// NOTE: If more than one link is being attached, an error is thrown.
+func (b *WallEditAdsStealthBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
-// Signed Only for posts in communities with 'from_group' set to '1': '1' — post will be signed with the name of the posting user, '0' — post will not be signed (default)
+// Signed Only for posts in communities with 'from_group' set to '1':
+//
+// * 1 — post will be signed with the name of the posting user,
+// * 0 — post will not be signed (default)
 func (b *WallEditAdsStealthBuilder) Signed(v bool) {
 	b.Params["signed"] = v
 }
@@ -325,8 +347,14 @@ func (b *WallEditCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments List of objects attached to the comment, in the following format: , "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media attachment owner. '<media_id>' — Media attachment ID. For example: "photo100172_166443618,photo66748_265827614"
-func (b *WallEditCommentBuilder) Attachments(v []string) {
+// Attachments List of objects attached to the comment, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album,
+// '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
+//
+// Example: "photo100172_166443618,photo66748_265827614"
+func (b *WallEditCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -344,7 +372,8 @@ func NewWallGetBuilder() *WallGetBuilder {
 	return &WallGetBuilder{api.Params{}}
 }
 
-// OwnerID ID of the user or community that owns the wall. By default, current user ID. Use a negative value to designate a community ID.
+// OwnerID ID of the user or community that owns the wall. By default, current user ID.
+// Use a negative value to designate a community ID.
 func (b *WallGetBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -364,7 +393,17 @@ func (b *WallGetBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Filter Filter to apply: 'owner' — posts by the wall owner, 'others' — posts by someone else, 'all' — posts by the wall owner and others (default), 'postponed' — timed posts (only available for calls with an 'access_token'), 'suggests' — suggested posts on a community wall
+// Filter Filter to apply:
+//
+// * owner — posts by the wall owner;
+//
+// * others — posts by someone else;
+//
+// * all — posts by the wall owner and others (default);
+//
+// * postponed — timed posts (only available for calls with an 'access_token');
+//
+// * suggests — suggested posts on a community wall.
 func (b *WallGetBuilder) Filter(v string) {
 	b.Params["filter"] = v
 }
@@ -393,17 +432,22 @@ func NewWallGetByIDBuilder() *WallGetByIDBuilder {
 	return &WallGetByIDBuilder{api.Params{}}
 }
 
-// Posts User or community IDs and post IDs, separated by underscores. Use a negative value to designate a community ID. Example: "93388_21539,93388_20904,2943_4276,-1_1"
+// Posts User or community IDs and post IDs, separated by underscores.
+// Use a negative value to designate a community ID.
+//
+// Example: "93388_21539,93388_20904,2943_4276,-1_1"
 func (b *WallGetByIDBuilder) Posts(v []string) {
 	b.Params["posts"] = v
 }
 
-// Extended '1' — to return user and community objects needed to display posts, '0' — no additional fields are returned (default)
+// Extended '1' — to return user and community objects needed to display posts, '0' — no additional fields
+// are returned (default)
 func (b *WallGetByIDBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// CopyHistoryDepth Sets the number of parent elements to include in the array 'copy_history' that is returned if the post is a repost from another wall.
+// CopyHistoryDepth Sets the number of parent elements to include in the array 'copy_history' that is returned
+// if the post is a repost from another wall.
 func (b *WallGetByIDBuilder) CopyHistoryDepth(v int) {
 	b.Params["copy_history_depth"] = v
 }
@@ -462,7 +506,8 @@ func (b *WallGetCommentsBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
 
-// PreviewLength Number of characters at which to truncate comments when previewed. By default, '90'. Specify '0' if you do not want to truncate comments.
+// PreviewLength Number of characters at which to truncate comments when previewed. By default, '90'.
+// Specify '0' if you do not want to truncate comments.
 func (b *WallGetCommentsBuilder) PreviewLength(v int) {
 	b.Params["preview_length"] = v
 }
@@ -557,7 +602,8 @@ func NewWallPinBuilder() *WallPinBuilder {
 	return &WallPinBuilder{api.Params{}}
 }
 
-// OwnerID ID of the user or community that owns the wall. By default, current user ID. Use a negative value to designate a community ID.
+// OwnerID ID of the user or community that owns the wall. By default, current user ID.
+// Use a negative value to designate a community ID.
 func (b *WallPinBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -591,7 +637,11 @@ func (b *WallPostBuilder) FriendsOnly(v bool) {
 	b.Params["friends_only"] = v
 }
 
-// FromGroup For a community: '1' — post will be published by the community, '0' — post will be published by the user (default)
+// FromGroup For a community:
+//
+// * 1 — post will be published by the community,
+//
+// * 0 — post will be published by the user (default)
 func (b *WallPostBuilder) FromGroup(v bool) {
 	b.Params["from_group"] = v
 }
@@ -601,17 +651,34 @@ func (b *WallPostBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album, '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID. Example: "photo100172_166443618,photo66748_265827614", May contain a link to an external page to include in the post. Example: "photo66748_265827614,http://habrahabr.ru", "NOTE: If more than one link is being attached, an error will be thrown."
-func (b *WallPostBuilder) Attachments(v []string) {
+// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album,
+// '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
+//
+// Example: "photo100172_166443618,photo66748_265827614",
+//
+// May contain a link to an external page to include in the post.
+//
+// Example: "photo66748_265827614,http://habrahabr.ru",
+//
+// NOTE: If more than one link is being attached, an error will be thrown.
+func (b *WallPostBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
-// Services List of services or websites the update will be exported to, if the user has so requested. Sample values: 'twitter', 'facebook'.
+// Services List of services or websites the update will be exported to, if the user has so requested.
+// Sample values: 'twitter', 'facebook'.
 func (b *WallPostBuilder) Services(v string) {
 	b.Params["services"] = v
 }
 
-// Signed Only for posts in communities with 'from_group' set to '1': '1' — post will be signed with the name of the posting user, '0' — post will not be signed (default)
+// Signed Only for posts in communities with 'from_group' set to '1':
+//
+// * 1 — post will be signed with the name of the posting user;
+//
+// * 0 — post will not be signed (default)
 func (b *WallPostBuilder) Signed(v bool) {
 	b.Params["signed"] = v
 }
@@ -663,7 +730,8 @@ func (b *WallPostBuilder) MuteNotifications(v bool) {
 
 // WallPostAdsStealthBuilder builder
 //
-// Allows to create hidden post which will not be shown on the community's wall and can be used for creating an ad with type "Community post".
+// Allows to create hidden post which will not be shown on the community's wall and can be used for creating an ad
+// with type "Community post".
 //
 // https://vk.com/dev/wall.postAdsStealth
 type WallPostAdsStealthBuilder struct {
@@ -685,12 +753,28 @@ func (b *WallPostAdsStealthBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album, '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID. Example: "photo100172_166443618,photo66748_265827614", May contain a link to an external page to include in the post. Example: "photo66748_265827614,http://habrahabr.ru", "NOTE: If more than one link is being attached, an error will be thrown."
-func (b *WallPostAdsStealthBuilder) Attachments(v []string) {
+// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album,
+// '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
+//
+// Example: "photo100172_166443618,photo66748_265827614",
+//
+// May contain a link to an external page to include in the post.
+//
+// Example: "photo66748_265827614,http://habrahabr.ru",
+//
+// NOTE: If more than one link is being attached, an error will be thrown.
+func (b *WallPostAdsStealthBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
-// Signed Only for posts in communities with 'from_group' set to '1': '1' — post will be signed with the name of the posting user, '0' — post will not be signed (default)
+// Signed Only for posts in communities with 'from_group' set to '1':
+//
+// * 1 — post will be signed with the name of the posting user;
+//
+// * 0 — post will not be signed (default)
 func (b *WallPostAdsStealthBuilder) Signed(v bool) {
 	b.Params["signed"] = v
 }
@@ -759,7 +843,21 @@ func (b *WallReportCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
-// Reason Reason for the complaint: '0' – spam, '1' – child pornography, '2' – extremism, '3' – violence, '4' – drug propaganda, '5' – adult material, '6' – insult, abuse
+// Reason Reason for the complaint:
+//
+// * 0 – spam;
+//
+// * 1 – child pornography;
+//
+// * 2 – extremism;
+//
+// * 3 – violence;
+//
+// * 4 – drug propaganda;
+//
+// * 5 – adult material;
+//
+// * 6 – insult, abuse.
 func (b *WallReportCommentBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
@@ -788,7 +886,21 @@ func (b *WallReportPostBuilder) PostID(v int) {
 	b.Params["post_id"] = v
 }
 
-// Reason Reason for the complaint: '0' – spam, '1' – child pornography, '2' – extremism, '3' – violence, '4' – drug propaganda, '5' – adult material, '6' – insult, abuse
+// Reason Reason for the complaint:
+//
+// * 0 – spam;
+//
+// * 1 – child pornography;
+//
+// * 2 – extremism;
+//
+// * 3 – violence;
+//
+// * 4 – drug propaganda;
+//
+// * 5 – adult material;
+//
+// * 6 – insult, abuse.
 func (b *WallReportPostBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
@@ -846,7 +958,8 @@ func NewWallRestoreBuilder() *WallRestoreBuilder {
 	return &WallRestoreBuilder{api.Params{}}
 }
 
-// OwnerID User ID or community ID from whose wall the post was deleted. Use a negative value to designate a community ID.
+// OwnerID User ID or community ID from whose wall the post was deleted.
+// Use a negative value to designate a community ID.
 func (b *WallRestoreBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -948,7 +1061,8 @@ func NewWallUnpinBuilder() *WallUnpinBuilder {
 	return &WallUnpinBuilder{api.Params{}}
 }
 
-// OwnerID ID of the user or community that owns the wall. By default, current user ID. Use a negative value to designate a community ID.
+// OwnerID ID of the user or community that owns the wall. By default, current user ID.
+// Use a negative value to designate a community ID.
 func (b *WallUnpinBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }

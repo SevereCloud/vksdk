@@ -23,7 +23,8 @@ func (b *AdsAddOfficeUsersBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// Data Serialized JSON array of objects that describe added managers. Description of 'user_specification' objects see below.
+// Data Serialized JSON array of objects that describe added managers.
+// Description of 'user_specification' objects see below.
 func (b *AdsAddOfficeUsersBuilder) Data(v string) {
 	b.Params["data"] = v
 }
@@ -47,7 +48,17 @@ func (b *AdsCheckLinkBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// LinkType Object type: *'community' — community,, *'post' — community post,, *'application' — VK application,, *'video' — video,, *'site' — external site.
+// LinkType Object type:
+//
+// * community — community,
+//
+// * post — community post,
+//
+// * application — VK application,
+//
+// * video — video,
+//
+// * site — external site.
 func (b *AdsCheckLinkBuilder) LinkType(v string) {
 	b.Params["link_type"] = v
 }
@@ -81,7 +92,8 @@ func (b *AdsCreateAdsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// Data Serialized JSON array of objects that describe created ads. Description of 'ad_specification' objects see below.
+// Data Serialized JSON array of objects that describe created ads.
+// Description of 'ad_specification' objects see below.
 func (b *AdsCreateAdsBuilder) Data(v string) {
 	b.Params["data"] = v
 }
@@ -105,7 +117,8 @@ func (b *AdsCreateCampaignsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// Data Serialized JSON array of objects that describe created campaigns. Description of 'campaign_specification' objects see below.
+// Data Serialized JSON array of objects that describe created campaigns.
+// Description of 'campaign_specification' objects see below.
 func (b *AdsCreateCampaignsBuilder) Data(v string) {
 	b.Params["data"] = v
 }
@@ -129,14 +142,16 @@ func (b *AdsCreateClientsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// Data Serialized JSON array of objects that describe created campaigns. Description of 'client_specification' objects see below.
+// Data Serialized JSON array of objects that describe created campaigns.
+// Description of 'client_specification' objects see below.
 func (b *AdsCreateClientsBuilder) Data(v string) {
 	b.Params["data"] = v
 }
 
 // AdsCreateTargetGroupBuilder builder
 //
-// Creates a group to re-target ads for users who visited advertiser's site (viewed information about the product, registered, etc.).
+// Creates a group to re-target ads for users who visited advertiser's site
+// (viewed information about the product, registered, etc.).
 //
 // https://vk.com/dev/ads.createTargetGroup
 type AdsCreateTargetGroupBuilder struct {
@@ -153,7 +168,8 @@ func (b *AdsCreateTargetGroupBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// ClientID 'Only for advertising agencies.', ID of the client with the advertising account where the group will be created.
+// ClientID Only for advertising agencies.
+// ID of the client with the advertising account where the group will be created.
 func (b *AdsCreateTargetGroupBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
@@ -163,7 +179,8 @@ func (b *AdsCreateTargetGroupBuilder) Name(v string) {
 	b.Params["name"] = v
 }
 
-// Lifetime 'For groups with auditory created with pixel code only.', , Number of days after that users will be automatically removed from the group.
+// Lifetime For groups with auditory created with pixel code only.
+// Number of days after that users will be automatically removed from the group.
 func (b *AdsCreateTargetGroupBuilder) Lifetime(v int) {
 	b.Params["lifetime"] = v
 }
@@ -269,7 +286,8 @@ func (b *AdsDeleteTargetGroupBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// ClientID 'Only for advertising agencies.' , ID of the client with the advertising account where the group will be created.
+// ClientID Only for advertising agencies.
+// ID of the client with the advertising account where the group will be created.
 func (b *AdsDeleteTargetGroupBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
@@ -303,7 +321,8 @@ func (b *AdsGetAdsBuilder) AdIDs(v string) {
 	b.Params["ad_ids"] = v
 }
 
-// CampaignIDs Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
+// CampaignIDs Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null,
+// ads of all campaigns will be shown.
 func (b *AdsGetAdsBuilder) CampaignIDs(v string) {
 	b.Params["campaign_ids"] = v
 }
@@ -313,12 +332,17 @@ func (b *AdsGetAdsBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
 
-// IncludeDeleted Flag that specifies whether archived ads shall be shown: *0 — show only active ads,, *1 — show all ads.
+// IncludeDeleted Flag that specifies whether archived ads shall be shown:
+//
+// * 0 — show only active ads,
+//
+// * 1 — show all ads.
 func (b *AdsGetAdsBuilder) IncludeDeleted(v bool) {
 	b.Params["include_deleted"] = v
 }
 
-// Limit Limit of number of returned ads. Used only if ad_ids parameter is null, and 'campaign_ids' parameter contains ID of only one campaign.
+// Limit Limit of number of returned ads. Used only if ad_ids parameter is null, and 'campaign_ids' parameter
+// contains ID of only one campaign.
 func (b *AdsGetAdsBuilder) Limit(v int) {
 	b.Params["limit"] = v
 }
@@ -352,7 +376,8 @@ func (b *AdsGetAdsLayoutBuilder) AdIDs(v string) {
 	b.Params["ad_ids"] = v
 }
 
-// CampaignIDs Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
+// CampaignIDs Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null,
+// ads of all campaigns will be shown.
 func (b *AdsGetAdsLayoutBuilder) CampaignIDs(v string) {
 	b.Params["campaign_ids"] = v
 }
@@ -362,12 +387,17 @@ func (b *AdsGetAdsLayoutBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
 
-// IncludeDeleted Flag that specifies whether archived ads shall be shown. *0 — show only active ads,, *1 — show all ads.
+// IncludeDeleted Flag that specifies whether archived ads shall be shown.
+//
+// * 0 — show only active ads,
+//
+// * 1 — show all ads.
 func (b *AdsGetAdsLayoutBuilder) IncludeDeleted(v bool) {
 	b.Params["include_deleted"] = v
 }
 
-// Limit Limit of number of returned ads. Used only if 'ad_ids' parameter is null, and 'campaign_ids' parameter contains ID of only one campaign.
+// Limit Limit of number of returned ads. Used only if 'ad_ids' parameter is null, and 'campaign_ids' parameter
+// contains ID of only one campaign.
 func (b *AdsGetAdsLayoutBuilder) Limit(v int) {
 	b.Params["limit"] = v
 }
@@ -401,7 +431,8 @@ func (b *AdsGetAdsTargetingBuilder) AdIDs(v string) {
 	b.Params["ad_ids"] = v
 }
 
-// CampaignIDs Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
+// CampaignIDs Filter by advertising campaigns. Serialized JSON array with campaign IDs. If the parameter is null,
+// ads of all campaigns will be shown.
 func (b *AdsGetAdsTargetingBuilder) CampaignIDs(v string) {
 	b.Params["campaign_ids"] = v
 }
@@ -411,12 +442,17 @@ func (b *AdsGetAdsTargetingBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
 
-// IncludeDeleted flag that specifies whether archived ads shall be shown: *0 — show only active ads,, *1 — show all ads.
+// IncludeDeleted flag that specifies whether archived ads shall be shown:
+//
+// * 0 — show only active ads,
+//
+// * 1 — show all ads.
 func (b *AdsGetAdsTargetingBuilder) IncludeDeleted(v bool) {
 	b.Params["include_deleted"] = v
 }
 
-// Limit Limit of number of returned ads. Used only if 'ad_ids' parameter is null, and 'campaign_ids' parameter contains ID of only one campaign.
+// Limit Limit of number of returned ads. Used only if 'ad_ids' parameter is null, and 'campaign_ids' parameter
+// contains ID of only one campaign.
 func (b *AdsGetAdsTargetingBuilder) Limit(v int) {
 	b.Params["limit"] = v
 }
@@ -469,12 +505,18 @@ func (b *AdsGetCampaignsBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
 
-// IncludeDeleted Flag that specifies whether archived ads shall be shown. *0 — show only active campaigns,, *1 — show all campaigns.
+// IncludeDeleted Flag that specifies whether archived ads shall be shown.
+//
+// * 0 — show only active campaigns,
+//
+// * 1 — show all campaigns.
 func (b *AdsGetCampaignsBuilder) IncludeDeleted(v bool) {
 	b.Params["include_deleted"] = v
 }
 
-// CampaignIDs Filter of advertising campaigns to show. Serialized JSON array with campaign IDs. Only campaigns that exist in 'campaign_ids' and belong to the specified advertising account will be shown. If the parameter is null, all campaigns will be shown.
+// CampaignIDs Filter of advertising campaigns to show. Serialized JSON array with campaign IDs. Only campaigns that
+// exist in 'campaign_ids' and belong to the specified advertising account will be shown. If the parameter is null,
+// all campaigns will be shown.
 func (b *AdsGetCampaignsBuilder) CampaignIDs(v string) {
 	b.Params["campaign_ids"] = v
 }
@@ -536,34 +578,66 @@ func (b *AdsGetDemographicsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// IDsType Type of requested objects listed in 'ids' parameter: *ad — ads,, *campaign — campaigns.
+// IDsType Type of requested objects listed in 'ids' parameter:
+//
+// * ad — ads,
+//
+// * campaign — campaigns.
 func (b *AdsGetDemographicsBuilder) IDsType(v string) {
 	b.Params["ids_type"] = v
 }
 
-// IDs IDs requested ads or campaigns, separated with a comma, depending on the value set in 'ids_type'. Maximum 2000 objects.
+// IDs IDs requested ads or campaigns, separated with a comma, depending on the value set in 'ids_type'.
+// Maximum 2000 objects.
 func (b *AdsGetDemographicsBuilder) IDs(v string) {
 	b.Params["ids"] = v
 }
 
-// Period Data grouping by dates: *day — statistics by days,, *month — statistics by months,, *overall — overall statistics. 'date_from' and 'date_to' parameters set temporary limits.
+// Period Data grouping by dates:
+//
+// * day — statistics by days,
+//
+// * month — statistics by months,
+//
+// * overall — overall statistics. 'date_from' and 'date_to' parameters set temporary limits.
 func (b *AdsGetDemographicsBuilder) Period(v string) {
 	b.Params["period"] = v
 }
 
-// DateFrom Date to show statistics from. For different value of 'period' different date format is used: *day: YYYY-MM-DD, example: 2011-09-27 — September 27, 2011, **0 — day it was created on,, *month: YYYY-MM, example: 2011-09 — September 2011, **0 — month it was created in,, *overall: 0.
+// DateFrom Date to show statistics from. For different value of 'period' different date format is used:
+//
+// * day: YYYY-MM-DD, example: 2011-09-27 — September 27, 2011
+//
+// * *0 — day it was created on,
+//
+// * month: YYYY-MM, example: 2011-09 — September 2011
+//
+// * *0 — month it was created in,
+//
+// * overall: 0.
 func (b *AdsGetDemographicsBuilder) DateFrom(v string) {
 	b.Params["date_from"] = v
 }
 
-// DateTo Date to show statistics to. For different value of 'period' different date format is used: *day: YYYY-MM-DD, example: 2011-09-27 — September 27, 2011, **0 — current day,, *month: YYYY-MM, example: 2011-09 — September 2011, **0 — current month,, *overall: 0.
+// DateTo Date to show statistics to. For different value of 'period' different date format is used:
+//
+// * day: YYYY-MM-DD, example: 2011-09-27 — September 27, 2011
+//
+// * *0 — current day,
+//
+// * month: YYYY-MM, example: 2011-09 — September 2011
+//
+// * *0 — current month,
+//
+// * overall: 0.
 func (b *AdsGetDemographicsBuilder) DateTo(v string) {
 	b.Params["date_to"] = v
 }
 
 // AdsGetFloodStatsBuilder builder
 //
-// Returns information about current state of a counter — number of remaining runs of methods and time to the next counter nulling in seconds.
+// Returns information about current state of a counter — number of remaining runs of methods and time to the next
+// counter nulling in seconds.
 //
 // https://vk.com/dev/ads.getFloodStats
 type AdsGetFloodStatsBuilder struct {
@@ -618,12 +692,17 @@ func (b *AdsGetPostsReachBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// IDsType Type of requested objects listed in 'ids' parameter: *ad — ads,, *campaign — campaigns.
+// IDsType Type of requested objects listed in 'ids' parameter:
+//
+// * ad — ads,
+//
+// * campaign — campaigns.
 func (b *AdsGetPostsReachBuilder) IDsType(v string) {
 	b.Params["ids_type"] = v
 }
 
-// IDs IDs requested ads or campaigns, separated with a comma, depending on the value set in 'ids_type'. Maximum 100 objects.
+// IDs IDs requested ads or campaigns, separated with a comma, depending on the value set in 'ids_type'.
+// Maximum 100 objects.
 func (b *AdsGetPostsReachBuilder) IDs(v string) {
 	b.Params["ids"] = v
 }
@@ -671,27 +750,62 @@ func (b *AdsGetStatisticsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// IDsType Type of requested objects listed in 'ids' parameter: *ad — ads,, *campaign — campaigns,, *client — clients,, *office — account.
+// IDsType Type of requested objects listed in 'ids' parameter:
+//
+// * ad — ads,
+//
+// * campaign — campaigns,
+//
+// * client — clients,
+//
+// * office — account.
 func (b *AdsGetStatisticsBuilder) IDsType(v string) {
 	b.Params["ids_type"] = v
 }
 
-// IDs IDs requested ads, campaigns, clients or account, separated with a comma, depending on the value set in 'ids_type'. Maximum 2000 objects.
+// IDs IDs requested ads, campaigns, clients or account, separated with a comma, depending on the value set in
+// 'ids_type'. Maximum 2000 objects.
 func (b *AdsGetStatisticsBuilder) IDs(v string) {
 	b.Params["ids"] = v
 }
 
-// Period Data grouping by dates: *day — statistics by days,, *month — statistics by months,, *overall — overall statistics. 'date_from' and 'date_to' parameters set temporary limits.
+// Period Data grouping by dates:
+//
+// * day — statistics by days,
+//
+// * month — statistics by months,
+//
+// * overall — overall statistics. 'date_from' and 'date_to' parameters set temporary limits.
 func (b *AdsGetStatisticsBuilder) Period(v string) {
 	b.Params["period"] = v
 }
 
-// DateFrom Date to show statistics from. For different value of 'period' different date format is used: *day: YYYY-MM-DD, example: 2011-09-27 — September 27, 2011, **0 — day it was created on,, *month: YYYY-MM, example: 2011-09 — September 2011, **0 — month it was created in,, *overall: 0.
+// DateFrom Date to show statistics from. For different value of 'period' different date format is used:
+//
+// * day: YYYY-MM-DD, example: 2011-09-27 — September 27, 2011
+//
+// * *0 — day it was created on,
+//
+// * month: YYYY-MM, example: 2011-09 — September 2011
+//
+// * *0 — month it was created in,
+//
+// * overall: 0.
 func (b *AdsGetStatisticsBuilder) DateFrom(v string) {
 	b.Params["date_from"] = v
 }
 
-// DateTo Date to show statistics to. For different value of 'period' different date format is used: *day: YYYY-MM-DD, example: 2011-09-27 — September 27, 2011, **0 — current day,, *month: YYYY-MM, example: 2011-09 — September 2011, **0 — current month,, *overall: 0.
+// DateTo Date to show statistics to. For different value of 'period' different date format is used:
+//
+// * day: YYYY-MM-DD, example: 2011-09-27 — September 27, 2011
+//
+// * *0 — current day,
+//
+// * month: YYYY-MM, example: 2011-09 — September 2011
+//
+// * *0 — current month,
+//
+// * overall: 0.
 func (b *AdsGetStatisticsBuilder) DateTo(v string) {
 	b.Params["date_to"] = v
 }
@@ -710,7 +824,32 @@ func NewAdsGetSuggestionsBuilder() *AdsGetSuggestionsBuilder {
 	return &AdsGetSuggestionsBuilder{api.Params{}}
 }
 
-// Section Section, suggestions are retrieved in. Available values: *countries — request of a list of countries. If q is not set or blank, a short list of countries is shown. Otherwise, a full list of countries is shown. *regions — requested list of regions. 'country' parameter is required. *cities — requested list of cities. 'country' parameter is required. *districts — requested list of districts. 'cities' parameter is required. *stations — requested list of subway stations. 'cities' parameter is required. *streets — requested list of streets. 'cities' parameter is required. *schools — requested list of educational organizations. 'cities' parameter is required. *interests — requested list of interests. *positions — requested list of positions (professions). *group_types — requested list of group types. *religions — requested list of religious commitments. *browsers — requested list of browsers and mobile devices.
+// Section Section, suggestions are retrieved in. Available values:
+//
+// * countries — request of a list of countries. If q is not set or blank, a short list of countries is shown.
+// Otherwise, a full list of countries is shown.
+//
+// * regions — requested list of regions. 'country' parameter is required.
+//
+// * cities — requested list of cities. 'country' parameter is required.
+//
+// * districts — requested list of districts. 'cities' parameter is required.
+//
+// * stations — requested list of subway stations. 'cities' parameter is required.
+//
+// * streets — requested list of streets. 'cities' parameter is required.
+//
+// * schools — requested list of educational organizations. 'cities' parameter is required.
+//
+// * interests — requested list of interests.
+//
+// * positions — requested list of positions (professions).
+//
+// * group_types — requested list of group types.
+//
+// * religions — requested list of religious commitments.
+//
+// * browsers — requested list of browsers and mobile devices.
 func (b *AdsGetSuggestionsBuilder) Section(v string) {
 	b.Params["section"] = v
 }
@@ -735,7 +874,13 @@ func (b *AdsGetSuggestionsBuilder) Cities(v string) {
 	b.Params["cities"] = v
 }
 
-// Lang Language of the returned string values. Supported languages: *ru — Russian,, *ua — Ukrainian,, *en — English.
+// Lang Language of the returned string values. Supported languages:
+//
+// * ru — Russian,
+//
+// * ua — Ukrainian,
+//
+// * en — English.
 func (b *AdsGetSuggestionsBuilder) Lang(v string) {
 	b.Params["lang"] = v
 }
@@ -759,12 +904,15 @@ func (b *AdsGetTargetGroupsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// ClientID 'Only for advertising agencies.', ID of the client with the advertising account where the group will be created.
+// ClientID Only for advertising agencies.
+// ID of the client with the advertising account where the group will be created.
 func (b *AdsGetTargetGroupsBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
 
-// Extended '1' — to return pixel code.
+// Extended
+//
+// * 1 — to return pixel code.
 func (b *AdsGetTargetGroupsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
@@ -793,7 +941,8 @@ func (b *AdsGetTargetingStatsBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
 
-// Criteria Serialized JSON object that describes targeting parameters. Description of 'criteria' object see below.
+// Criteria Serialized JSON object that describes targeting parameters.
+// Description of 'criteria' object see below.
 func (b *AdsGetTargetingStatsBuilder) Criteria(v string) {
 	b.Params["criteria"] = v
 }
@@ -803,12 +952,38 @@ func (b *AdsGetTargetingStatsBuilder) AdID(v int) {
 	b.Params["ad_id"] = v
 }
 
-// AdFormat Ad format. Possible values: *'1' — image and text,, *'2' — big image,, *'3' — exclusive format,, *'4' — community, square image,, *'7' — special app format,, *'8' — special community format,, *'9' — post in community,, *'10' — app board.
+// AdFormat Ad format. Possible values:
+//
+// * 1 — image and text,
+//
+// * 2 — big image,
+//
+// * 3 — exclusive format,
+//
+// * 4 — community, square image,
+//
+// * 7 — special app format,
+//
+// * 8 — special community format,
+//
+// * 9 — post in community,
+//
+// * 10 — app board.
 func (b *AdsGetTargetingStatsBuilder) AdFormat(v int) {
 	b.Params["ad_format"] = v
 }
 
-// AdPlatform Platforms to use for ad showing. Possible values: (for 'ad_format' = '1'), *'0' — VK and partner sites,, *'1' — VK only. (for 'ad_format' = '9'), *'all' — all platforms,, *'desktop' — desktop version,, *'mobile' — mobile version and apps.
+// AdPlatform Platforms to use for ad showing. Possible values: (for 'ad_format' = '1')
+//
+// * 0 — VK and partner sites,
+//
+// * 1 — VK only. (for 'ad_format' = '9')
+//
+// * all — all platforms,
+//
+// * desktop — desktop version,
+//
+// * mobile — mobile version and apps.
 func (b *AdsGetTargetingStatsBuilder) AdPlatform(v string) {
 	b.Params["ad_platform"] = v
 }
@@ -847,7 +1022,17 @@ func NewAdsGetUploadURLBuilder() *AdsGetUploadURLBuilder {
 	return &AdsGetUploadURLBuilder{api.Params{}}
 }
 
-// AdFormat Ad format: *1 — image and text,, *2 — big image,, *3 — exclusive format,, *4 — community, square image,, *7 — special app format.
+// AdFormat Ad format:
+//
+// * 1 — image and text,
+//
+// * 2 — big image,
+//
+// * 3 — exclusive format,
+//
+// * 4 — community, square image,
+//
+// * 7 — special app format.
 func (b *AdsGetUploadURLBuilder) AdFormat(v int) {
 	b.Params["ad_format"] = v
 }
@@ -876,7 +1061,8 @@ func (b *AdsImportTargetContactsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// ClientID 'Only for advertising agencies.' , ID of the client with the advertising account where the group will be created.
+// ClientID Only for advertising agencies.
+// ID of the client with the advertising account where the group will be created.
 func (b *AdsImportTargetContactsBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
@@ -934,7 +1120,8 @@ func (b *AdsUpdateAdsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// Data Serialized JSON array of objects that describe changes in ads. Description of 'ad_edit_specification' objects see below.
+// Data Serialized JSON array of objects that describe changes in ads.
+// Description of 'ad_edit_specification' objects see below.
 func (b *AdsUpdateAdsBuilder) Data(v string) {
 	b.Params["data"] = v
 }
@@ -958,7 +1145,8 @@ func (b *AdsUpdateCampaignsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// Data Serialized JSON array of objects that describe changes in campaigns. Description of 'campaign_mod' objects see below.
+// Data Serialized JSON array of objects that describe changes in campaigns.
+// Description of 'campaign_mod' objects see below.
 func (b *AdsUpdateCampaignsBuilder) Data(v string) {
 	b.Params["data"] = v
 }
@@ -982,7 +1170,8 @@ func (b *AdsUpdateClientsBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// Data Serialized JSON array of objects that describe changes in clients. Description of 'client_mod' objects see below.
+// Data Serialized JSON array of objects that describe changes in clients.
+// Description of 'client_mod' objects see below.
 func (b *AdsUpdateClientsBuilder) Data(v string) {
 	b.Params["data"] = v
 }
@@ -1006,7 +1195,9 @@ func (b *AdsUpdateTargetGroupBuilder) AccountID(v int) {
 	b.Params["account_id"] = v
 }
 
-// ClientID 'Only for advertising agencies.' , ID of the client with the advertising account where the group will be created.
+// ClientID Only for advertising agencies.
+// ID of the client with the advertising account where the group will
+// be created.
 func (b *AdsUpdateTargetGroupBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
@@ -1026,7 +1217,10 @@ func (b *AdsUpdateTargetGroupBuilder) Domain(v string) {
 	b.Params["domain"] = v
 }
 
-// Lifetime 'Only for the groups that get audience from sites with user accounting code.', Time in days when users added to a retarget group will be automatically excluded from it. '0' – automatic exclusion is off.
+// Lifetime Only for the groups that get audience from sites with user accounting code.
+// Time in days when users added to a retarget group will be automatically excluded from it.
+//
+// * 0 – automatic exclusion is off.
 func (b *AdsUpdateTargetGroupBuilder) Lifetime(v int) {
 	b.Params["lifetime"] = v
 }

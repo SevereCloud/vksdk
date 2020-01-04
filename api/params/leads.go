@@ -145,12 +145,26 @@ func (b *LeadsGetUsersBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Status Action type. Possible values: *'0' — start,, *'1' — finish,, *'2' — blocking users,, *'3' — start in a test mode,, *'4' — finish in a test mode.
+// Status Action type. Possible values:
+//
+// * 0 — start;
+//
+// * 1 — finish;
+//
+// * 2 — blocking users;
+//
+// * 3 — start in a test mode;
+//
+// * 4 — finish in a test mode.
 func (b *LeadsGetUsersBuilder) Status(v int) {
 	b.Params["status"] = v
 }
 
-// Reverse Sort order. Possible values: *'1' — chronological,, *'0' — reverse chronological.
+// Reverse Sort order. Possible values:
+//
+// * 1 — chronological;
+//
+// * 0 — reverse chronological.
 func (b *LeadsGetUsersBuilder) Reverse(v bool) {
 	b.Params["reverse"] = v
 }

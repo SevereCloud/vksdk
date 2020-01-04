@@ -160,8 +160,12 @@ func (b *MarketCreateCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments Comma-separated list of objects attached to a comment. The field is submitted the following way: , "'<owner_id>_<media_id>,<owner_id>_<media_id>'", , '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document", , '<owner_id>' - media owner id, '<media_id>' - media attachment id, , For example: "photo100172_166443618,photo66748_265827614",
-func (b *MarketCreateCommentBuilder) Attachments(v []string) {
+// Attachments Comma-separated list of objects attached to a comment.
+// The field is submitted the following way: , "'<owner_id>_<media_id>,<owner_id>_<media_id>'",
+// '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
+// '<owner_id>' - media owner id, '<media_id>' - media attachment id,
+// For example: "photo100172_166443618,photo66748_265827614",
+func (b *MarketCreateCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -247,7 +251,9 @@ func NewMarketDeleteCommentBuilder() *MarketDeleteCommentBuilder {
 	return &MarketDeleteCommentBuilder{api.Params{}}
 }
 
-// OwnerID identifier of an item owner community, "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
+// OwnerID identifier of an item owner community.
+// Note that community id in the 'owner_id' parameter should be negative number.
+// For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community.
 func (b *MarketDeleteCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -384,13 +390,17 @@ func (b *MarketEditCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
-// Message New comment text (required if 'attachments' are not specified), , 2048 symbols maximum.
+// Message New comment text (required if 'attachments' are not specified), 2048 symbols maximum.
 func (b *MarketEditCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments Comma-separated list of objects attached to a comment. The field is submitted the following way: , "'<owner_id>_<media_id>,<owner_id>_<media_id>'", , '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document", , '<owner_id>' - media owner id, '<media_id>' - media attachment id, , For example: "photo100172_166443618,photo66748_265827614",
-func (b *MarketEditCommentBuilder) Attachments(v []string) {
+// Attachments Comma-separated list of objects attached to a comment. The field is submitted the following way:
+// , "'<owner_id>_<media_id>,<owner_id>_<media_id>'",
+// '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
+// '<owner_id>' - media owner id, '<media_id>' - media attachment id,
+// For example: "photo100172_166443618,photo66748_265827614",
+func (b *MarketEditCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -408,7 +418,10 @@ func NewMarketGetBuilder() *MarketGetBuilder {
 	return &MarketGetBuilder{api.Params{}}
 }
 
-// OwnerID ID of an item owner community, "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
+// OwnerID ID of an item owner community, "Note that community id in the 'owner_id' parameter should be negative
+// number.
+//
+// For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
 func (b *MarketGetBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -428,7 +441,10 @@ func (b *MarketGetBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
-// Extended '1' – method will return additional fields: 'likes, can_comment, car_repost, photos'. These parameters are not returned by default.
+// Extended
+//
+// * 1 – method will return additional fields: 'likes, can_comment, car_repost, photos'.
+// These parameters are not returned by default.
 func (b *MarketGetBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
@@ -447,7 +463,8 @@ func NewMarketGetAlbumByIDBuilder() *MarketGetAlbumByIDBuilder {
 	return &MarketGetAlbumByIDBuilder{api.Params{}}
 }
 
-// OwnerID identifier of an album owner community, "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
+// OwnerID identifier of an album owner community, "Note that community id in the 'owner_id' parameter should be
+// negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
 func (b *MarketGetAlbumByIDBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -500,7 +517,8 @@ func NewMarketGetByIDBuilder() *MarketGetByIDBuilder {
 	return &MarketGetByIDBuilder{api.Params{}}
 }
 
-// ItemIDs Comma-separated ids list: {user id}_{item id}. If an item belongs to a community -{community id} is used. " 'Videos' value example: , '-4363_136089719,13245770_137352259'"
+// ItemIDs Comma-separated ids list: {user id}_{item id}. If an item belongs to a community -{community id} is used.
+// 'Videos' value example: , '-4363_136089719,13245770_137352259'
 func (b *MarketGetByIDBuilder) ItemIDs(v []string) {
 	b.Params["item_ids"] = v
 }
@@ -583,7 +601,10 @@ func (b *MarketGetCommentsBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
 
-// Extended '1' — comments will be returned as numbered objects, in addition lists of 'profiles' and 'groups' objects will be returned.
+// Extended
+//
+// * 1 — comments will be returned as numbered objects, in addition lists of
+// 'profiles' and 'groups' objects will be returned.
 func (b *MarketGetCommentsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
@@ -719,7 +740,21 @@ func (b *MarketReportBuilder) ItemID(v int) {
 	b.Params["item_id"] = v
 }
 
-// Reason Complaint reason. Possible values: *'0' — spam,, *'1' — child porn,, *'2' — extremism,, *'3' — violence,, *'4' — drugs propaganda,, *'5' — adult materials,, *'6' — insult.
+// Reason Complaint reason. Possible values:
+//
+// * 0 – spam;
+//
+// * 1 – child pornography;
+//
+// * 2 – extremism;
+//
+// * 3 – violence;
+//
+// * 4 – drug propaganda;
+//
+// * 5 – adult material;
+//
+// * 6 – insult, abuse.
 func (b *MarketReportBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
@@ -748,7 +783,21 @@ func (b *MarketReportCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
-// Reason Complaint reason. Possible values: *'0' — spam,, *'1' — child porn,, *'2' — extremism,, *'3' — violence,, *'4' — drugs propaganda,, *'5' — adult materials,, *'6' — insult.
+// Reason Complaint reason. Possible values:
+//
+// * 0 – spam;
+//
+// * 1 – child pornography;
+//
+// * 2 – extremism;
+//
+// * 3 – violence;
+//
+// * 4 – drug propaganda;
+//
+// * 5 – adult material;
+//
+// * 6 – insult, abuse.
 func (b *MarketReportCommentBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
@@ -791,7 +840,8 @@ func NewMarketRestoreCommentBuilder() *MarketRestoreCommentBuilder {
 	return &MarketRestoreCommentBuilder{api.Params{}}
 }
 
-// OwnerID identifier of an item owner community, "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
+// OwnerID identifier of an item owner community, "Note that community id in the 'owner_id' parameter should be
+// negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
 func (b *MarketRestoreCommentBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }

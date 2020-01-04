@@ -28,7 +28,17 @@ func (b *AppsGetBuilder) AppIDs(v []string) {
 	b.Params["app_ids"] = v
 }
 
-// Platform platform. Possible values: *'ios' — iOS,, *'android' — Android,, *'winphone' — Windows Phone,, *'web' — приложения на vk.com. By default: 'web'.
+// Platform platform. Possible values:
+//
+// * ios — iOS;
+//
+// * android — Android;
+//
+// * winphone — Windows Phone;
+//
+// * web — приложения на vk.com.
+//
+// By default: web.
 func (b *AppsGetBuilder) Platform(v string) {
 	b.Params["platform"] = v
 }
@@ -43,12 +53,68 @@ func (b *AppsGetBuilder) ReturnFriends(v bool) {
 	b.Params["return_friends"] = v
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities', (only if return_friends - 1)
+// Fields Profile fields to return. Sample values:
+//
+// * nickname
+//
+// * screen_name
+//
+// * sex
+//
+// * bdate (birthdate)
+//
+// * city
+//
+// * country
+//
+// * timezone
+//
+// * photo
+//
+// * photo_medium
+//
+// * photo_big
+//
+// * has_mobile
+//
+// * contacts
+//
+// * education
+//
+// * online
+//
+// * counters
+//
+// * relation
+//
+// * last_seen
+//
+// * activity
+//
+// * can_write_private_message
+//
+// * can_see_all_posts
+//
+// * can_post
+//
+// * universities, (only if return_friends - 1)
 func (b *AppsGetBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NameCase Case for declension of user name and surname: 'nom' — nominative (default),, 'gen' — genitive,, 'dat' — dative,, 'acc' — accusative,, 'ins' — instrumental,, 'abl' — prepositional. (only if 'return_friends' = '1')
+// NameCase Case for declension of user name and surname:
+//
+// * nom — nominative (default);
+//
+// * gen — genitive;
+//
+// * dat — dative;
+//
+// * acc — accusative;
+//
+// * ins — instrumental;
+//
+// * abl — prepositional. (only if 'return_friends' = '1')
 func (b *AppsGetBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }
@@ -67,7 +133,17 @@ func NewAppsGetCatalogBuilder() *AppsGetCatalogBuilder {
 	return &AppsGetCatalogBuilder{api.Params{}}
 }
 
-// Sort Sort order: 'popular_today' — popular for one day (default), 'visitors' — by visitors number , 'create_date' — by creation date, 'growth_rate' — by growth rate, 'popular_week' — popular for one week
+// Sort Sort order:
+//
+// * popular_today — popular for one day (default)
+//
+// * visitors — by visitors number
+//
+// * create_date — by creation date
+//
+// * growth_rate — by growth rate
+//
+// * popular_week — popular for one week
 func (b *AppsGetCatalogBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
@@ -87,7 +163,11 @@ func (b *AppsGetCatalogBuilder) Platform(v string) {
 	b.Params["platform"] = v
 }
 
-// Extended '1' — to return additional fields 'screenshots', 'MAU', 'catalog_position', and 'international'. If set, 'count' must be less than or equal to '100'. '0' — not to return additional fields (default).
+// Extended
+// * 1 — to return additional fields 'screenshots', 'MAU', 'catalog_position', and 'international'.
+// If set, 'count' must be less than or equal to '100'.
+//
+// * 0 — not to return additional fields (default).
 func (b *AppsGetCatalogBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
@@ -151,7 +231,13 @@ func (b *AppsGetFriendsListBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
-// Type List type. Possible values: * 'invite' — available for invites (don't play the game),, * 'request' — available for request (play the game). By default: 'invite'.
+// Type List type. Possible values:
+//
+// * invite — available for invites (don't play the game);
+//
+// * request — available for request (play the game).
+//
+// By default: invite.
 func (b *AppsGetFriendsListBuilder) Type(v string) {
 	b.Params["type"] = v
 }
@@ -175,12 +261,22 @@ func NewAppsGetLeaderboardBuilder() *AppsGetLeaderboardBuilder {
 	return &AppsGetLeaderboardBuilder{api.Params{}}
 }
 
-// Type Leaderboard type. Possible values: *'level' — by level,, *'points' — by mission points,, *'score' — by score ().
+// Type Leaderboard type. Possible values:
+//
+// * level — by level;
+//
+// * points — by mission points;
+//
+// * score — by score ().
 func (b *AppsGetLeaderboardBuilder) Type(v string) {
 	b.Params["type"] = v
 }
 
-// Global Rating type. Possible values: *'1' — global rating among all players,, *'0' — rating among user friends.
+// Global Rating type. Possible values:
+//
+// * 1 — global rating among all players;
+//
+// * 0 — rating among user friends.
 func (b *AppsGetLeaderboardBuilder) Global(v bool) {
 	b.Params["global"] = v
 }
@@ -252,7 +348,11 @@ func (b *AppsSendRequestBuilder) Text(v string) {
 	b.Params["text"] = v
 }
 
-// Type request type. Values: 'invite' – if the request is sent to a user who does not have the app installed,, 'request' – if a user has already installed the app
+// Type request type. Values:
+//
+// * invite – if the request is sent to a user who does not have the app installed
+//
+// * request – if a user has already installed the app
 func (b *AppsSendRequestBuilder) Type(v string) {
 	b.Params["type"] = v
 }

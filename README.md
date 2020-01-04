@@ -10,6 +10,8 @@
 
 **VK SDK for Golang** готовая реализация основных функций VK API для языка Go.
 
+[English documentation](http://godoc.org/github.com/SevereCloud/vksdk)
+
 ### Возможности
 
 - [API](https://github.com/SevereCloud/vksdk/tree/master/api#api)

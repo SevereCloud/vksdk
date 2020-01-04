@@ -23,12 +23,27 @@ func (b *UsersGetBuilder) UserIDs(v []string) {
 	b.Params["user_ids"] = v
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities',
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online',
+// 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post',
+// 'universities',
 func (b *UsersGetBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NameCase Case for declension of user name and surname: 'nom' — nominative (default), 'gen' — genitive , 'dat' — dative, 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+// NameCase Case for declension of user name and surname:
+//
+// * nom — nominative (default);
+//
+// * gen — genitive;
+//
+// * dat — dative;
+//
+// * acc — accusative;
+//
+// * ins — instrumental;
+//
+// * abl — prepositional.
 func (b *UsersGetBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }
@@ -62,12 +77,26 @@ func (b *UsersGetFollowersBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online'.
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate),
+// 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts',
+// 'education', 'online'.
 func (b *UsersGetFollowersBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NameCase Case for declension of user name and surname: 'nom' — nominative (default), 'gen' — genitive , 'dat' — dative, 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+// NameCase Case for declension of user name and surname:
+//
+// * nom — nominative (default);
+//
+// * gen — genitive;
+//
+// * dat — dative;
+//
+// * acc — accusative;
+//
+// * ins — instrumental;
+//
+// * abl — prepositional.
 func (b *UsersGetFollowersBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }
@@ -91,7 +120,8 @@ func (b *UsersGetSubscriptionsBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// Extended '1' — to return a combined list of users and communities, '0' — to return separate lists of users and communities (default)
+// Extended '1' — to return a combined list of users and communities, '0' — to return separate lists of users
+// and communities (default)
 func (b *UsersGetSubscriptionsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
@@ -149,7 +179,8 @@ func (b *UsersReportBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// Type Type of complaint: 'porn' – pornography, 'spam' – spamming, 'insult' – abusive behavior, 'advertisement' – disruptive advertisements
+// Type Type of complaint:
+// 'porn' – pornography, 'spam' – spamming, 'insult' – abusive behavior, 'advertisement' – disruptive advertisements
 func (b *UsersReportBuilder) Type(v string) {
 	b.Params["type"] = v
 }
@@ -193,7 +224,9 @@ func (b *UsersSearchBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online',
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education',
+// 'online',
 func (b *UsersSearchBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
@@ -243,7 +276,9 @@ func (b *UsersSearchBuilder) Sex(v int) {
 	b.Params["sex"] = v
 }
 
-// Status Relationship status: '1' — Not married, '2' — In a relationship, '3' — Engaged, '4' — Married, '5' — It's complicated, '6' — Actively searching, '7' — In love
+// Status Relationship status:
+// '1' — Not married, '2' — In a relationship, '3' — Engaged, '4' — Married,
+// '5' — It's complicated, '6' — Actively searching, '7' — In love
 func (b *UsersSearchBuilder) Status(v int) {
 	b.Params["status"] = v
 }

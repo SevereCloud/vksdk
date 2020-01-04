@@ -62,7 +62,11 @@ func (b *DatabaseGetCitiesBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
-// NeedAll '1' — to return all cities in the country, '0' — to return major cities in the country (default),
+// NeedAll
+//
+// * 1 — to return all cities in the country,
+//
+// * 0 — to return major cities in the country (default),
 func (b *DatabaseGetCitiesBuilder) NeedAll(v bool) {
 	b.Params["need_all"] = v
 }
@@ -110,7 +114,11 @@ func NewDatabaseGetCountriesBuilder() *DatabaseGetCountriesBuilder {
 	return &DatabaseGetCountriesBuilder{api.Params{}}
 }
 
-// NeedAll '1' — to return a full list of all countries, '0' — to return a list of countries near the current user's country (default).
+// NeedAll
+//
+// * 1 — to return a full list of all countries,
+//
+// * 0 — to return a list of countries near the current user's country (default).
 func (b *DatabaseGetCountriesBuilder) NeedAll(v bool) {
 	b.Params["need_all"] = v
 }
@@ -347,7 +355,7 @@ func (b *DatabaseGetUniversitiesBuilder) CityID(v int) {
 	b.Params["city_id"] = v
 }
 
-// Offset Offset needed to return a specific subset of universities.
+// Offset needed to return a specific subset of universities.
 func (b *DatabaseGetUniversitiesBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }

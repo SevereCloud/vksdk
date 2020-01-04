@@ -50,7 +50,14 @@ func (b *OrdersChangeStateBuilder) OrderID(v int) {
 	b.Params["order_id"] = v
 }
 
-// Action action to be done with the order. Available actions: *cancel — to cancel unconfirmed order. *charge — to confirm unconfirmed order. Applies only if processing of [vk.com/dev/payments_status|order_change_state] notification failed. *refund — to cancel confirmed order.
+// Action action to be done with the order. Available actions:
+//
+// * cancel — to cancel unconfirmed order.
+//
+// * charge — to confirm unconfirmed order.
+// Applies only if processing of [vk.com/dev/payments_status|order_change_state] notification failed.
+//
+// * refund — to cancel confirmed order.
 func (b *OrdersChangeStateBuilder) Action(v string) {
 	b.Params["action"] = v
 }

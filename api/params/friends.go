@@ -76,7 +76,12 @@ func (b *FriendsAreFriendsBuilder) UserIDs(v []int) {
 	b.Params["user_ids"] = v
 }
 
-// NeedSign '1' — to return 'sign' field. 'sign' is md5("{id}_{user_id}_{friends_status}_{application_secret}"), where id is current user ID. This field allows to check that data has not been modified by the client. By default: '0'.
+// NeedSign
+//
+// * 1 — to return 'sign' field. 'sign' is md5("{id}_{user_id}_{friends_status}_{application_secret}"),
+// where id is current user ID. This field allows to check that data has not been modified by the client.
+//
+// By default: '0'.
 func (b *FriendsAreFriendsBuilder) NeedSign(v bool) {
 	b.Params["need_sign"] = v
 }
@@ -95,7 +100,8 @@ func NewFriendsDeleteBuilder() *FriendsDeleteBuilder {
 	return &FriendsDeleteBuilder{api.Params{}}
 }
 
-// UserID ID of the user whose friend request is to be declined or who is to be deleted from the current user's friend list.
+// UserID ID of the user whose friend request is to be declined or who is to be deleted from the current user's
+// friend list.
 func (b *FriendsDeleteBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
@@ -201,12 +207,19 @@ func (b *FriendsGetBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// Order Sort order: , 'name' — by name (enabled only if the 'fields' parameter is used), 'hints' — by rating, similar to how friends are sorted in My friends section, , This parameter is available only for [vk.com/dev/standalone|desktop applications].
+// Order Sort order:
+//
+// * name — by name (enabled only if the 'fields' parameter is used);
+//
+// * hints — by rating, similar to how friends are sorted in My friends section.
+// This parameter is available only for [vk.com/dev/standalone|desktop applications].
 func (b *FriendsGetBuilder) Order(v string) {
 	b.Params["order"] = v
 }
 
-// ListID ID of the friend list returned by the [vk.com/dev/friends.getLists|friends.getLists] method to be used as the source. This parameter is taken into account only when the uid parameter is set to the current user ID. This parameter is available only for [vk.com/dev/standalone|desktop applications].
+// ListID ID of the friend list returned by the [vk.com/dev/friends.getLists|friends.getLists] method to be used
+// as the source. This parameter is taken into account only when the uid parameter is set to the current user ID.
+// This parameter is available only for [vk.com/dev/standalone|desktop applications].
 func (b *FriendsGetBuilder) ListID(v int) {
 	b.Params["list_id"] = v
 }
@@ -221,12 +234,26 @@ func (b *FriendsGetBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
-// Fields Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education'.
+// Fields Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex',
+// 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain',
+// 'has_mobile', 'rate', 'contacts', 'education'.
 func (b *FriendsGetBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive , 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+// NameCase Case for declension of user name and surname:
+//
+// * nom — nominative (default);
+//
+// * gen — genitive;
+//
+// * dat — dative;
+//
+// * acc — accusative;
+//
+// * ins — instrumental;
+//
+// * abl — prepositional.
 func (b *FriendsGetBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }
@@ -238,7 +265,8 @@ func (b *FriendsGetBuilder) Ref(v string) {
 
 // FriendsGetByPhonesBuilder builder
 //
-// Returns a list of the current user's friends whose phone numbers, validated or specified in a profile, are in a given list.
+// Returns a list of the current user's friends whose phone numbers, validated or specified in a profile, are in a
+// given list.
 //
 // https://vk.com/dev/friends.getByPhones
 type FriendsGetByPhonesBuilder struct {
@@ -255,7 +283,9 @@ func (b *FriendsGetByPhonesBuilder) Phones(v []string) {
 	b.Params["phones"] = v
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online, counters'.
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
+// 'rate', 'contacts', 'education', 'online, counters'.
 func (b *FriendsGetByPhonesBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
@@ -279,7 +309,9 @@ func (b *FriendsGetListsBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// ReturnSystem '1' — to return system friend lists. By default: '0'.
+// ReturnSystem
+//
+// * 1 — to return system friend lists. By default: '0'.
 func (b *FriendsGetListsBuilder) ReturnSystem(v bool) {
 	b.Params["return_system"] = v
 }
@@ -352,7 +384,9 @@ func (b *FriendsGetOnlineBuilder) ListID(v int) {
 	b.Params["list_id"] = v
 }
 
-// OnlineMobile '1' — to return an additional 'online_mobile' field, '0' — (default),
+// OnlineMobile
+//
+// * 1 — to return an additional 'online_mobile' field, '0' — (default),
 func (b *FriendsGetOnlineBuilder) OnlineMobile(v bool) {
 	b.Params["online_mobile"] = v
 }
@@ -415,22 +449,31 @@ func (b *FriendsGetRequestsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Extended '1' — to return response messages from users who have sent a friend request or, if 'suggested' is set to '1', to return a list of suggested friends
+// Extended
+//
+// * 1 — to return response messages from users who have sent a friend request or,
+// if 'suggested' is set to '1', to return a list of suggested friends
 func (b *FriendsGetRequestsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// NeedMutual '1' — to return a list of mutual friends (up to 20), if any
+// NeedMutual
+//
+// * 1 — to return a list of mutual friends (up to 20), if any
 func (b *FriendsGetRequestsBuilder) NeedMutual(v bool) {
 	b.Params["need_mutual"] = v
 }
 
-// Out '1' — to return outgoing requests, '0' — to return incoming requests (default)
+// Out
+//
+// * 1 — to return outgoing requests, '0' — to return incoming requests (default)
 func (b *FriendsGetRequestsBuilder) Out(v bool) {
 	b.Params["out"] = v
 }
 
-// Sort Sort order: '1' — by number of mutual friends, '0' — by date
+// Sort Sort order:
+//
+// * 1 — by number of mutual friends, '0' — by date
 func (b *FriendsGetRequestsBuilder) Sort(v int) {
 	b.Params["sort"] = v
 }
@@ -440,7 +483,9 @@ func (b *FriendsGetRequestsBuilder) NeedViewed(v bool) {
 	b.Params["need_viewed"] = v
 }
 
-// Suggested '1' — to return a list of suggested friends, '0' — to return friend requests (default)
+// Suggested
+//
+// * 1 — to return a list of suggested friends, '0' — to return friend requests (default)
 func (b *FriendsGetRequestsBuilder) Suggested(v bool) {
 	b.Params["suggested"] = v
 }
@@ -469,7 +514,12 @@ func NewFriendsGetSuggestionsBuilder() *FriendsGetSuggestionsBuilder {
 	return &FriendsGetSuggestionsBuilder{api.Params{}}
 }
 
-// Filter Types of potential friends to return: 'mutual' — users with many mutual friends , 'contacts' — users found with the [vk.com/dev/account.importContacts|account.importContacts] method , 'mutual_contacts' — users who imported the same contacts as the current user with the [vk.com/dev/account.importContacts|account.importContacts] method
+// Filter Types of potential friends to return:
+// * mutual — users with many mutual friends;
+//
+// * contacts — users found with the [vk.com/dev/account.importContacts|account.importContacts] method;
+// * mutual_contacts — users who imported the same contacts as the current user with the
+// [vk.com/dev/account.importContacts|account.importContacts] method
 func (b *FriendsGetSuggestionsBuilder) Filter(v []string) {
 	b.Params["filter"] = v
 }
@@ -484,12 +534,26 @@ func (b *FriendsGetSuggestionsBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters'.
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
+// 'rate', 'contacts', 'education', 'online', 'counters'.
 func (b *FriendsGetSuggestionsBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive , 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+// NameCase Case for declension of user name and surname:
+//
+// * nom — nominative (default);
+//
+// * gen — genitive;
+//
+// * dat — dative;
+//
+// * acc — accusative;
+//
+// * ins — instrumental;
+//
+// * abl — prepositional.
 func (b *FriendsGetSuggestionsBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }
@@ -518,12 +582,26 @@ func (b *FriendsSearchBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online',
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
+// 'rate', 'contacts', 'education', 'online',
 func (b *FriendsSearchBuilder) Fields(v []string) {
 	b.Params["fields"] = v
 }
 
-// NameCase Case for declension of user name and surname: 'nom' — nominative (default), 'gen' — genitive , 'dat' — dative, 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+// NameCase Case for declension of user name and surname:
+//
+// * nom — nominative (default),
+//
+// * gen — genitive;
+//
+// * dat — dative;
+//
+// * acc — accusative;
+//
+// * ins — instrumental;
+//
+// * abl — prepositional.
 func (b *FriendsSearchBuilder) NameCase(v string) {
 	b.Params["name_case"] = v
 }

@@ -42,3 +42,12 @@ linters:
   # - funlen
   # - gomnd
   # - dogsled
+
+# issues:
+#   exclude-rules:
+#     - linters:
+#         - lll
+#       source: "^(func|type|struct)"
+
+service:
+  golangci-lint-version: 1.22.x

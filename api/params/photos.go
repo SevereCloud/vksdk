@@ -140,8 +140,12 @@ func (b *PhotosCreateCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID. Example: "photo100172_166443618,photo66748_265827614"
-func (b *PhotosCreateCommentBuilder) Attachments(v []string) {
+// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID.
+// Example: "photo100172_166443618,photo66748_265827614"
+func (b *PhotosCreateCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -379,8 +383,13 @@ func (b *PhotosEditCommentBuilder) Message(v string) {
 	b.Params["message"] = v
 }
 
-// Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID. Example: "photo100172_166443618,photo66748_265827614"
-func (b *PhotosEditCommentBuilder) Attachments(v []string) {
+// Attachments (Required if 'message' is not set.)
+// List of objects attached to the post, in the following format:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID.
+// Example: "photo100172_166443618,photo66748_265827614"
+func (b *PhotosEditCommentBuilder) Attachments(v interface{}) {
 	b.Params["attachments"] = v
 }
 
@@ -403,7 +412,8 @@ func (b *PhotosGetBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
 
-// AlbumID Photo album ID. To return information about photos from service albums, use the following string values: 'profile, wall, saved'.
+// AlbumID Photo album ID. To return information about photos from service albums, use the following string values:
+// 'profile, wall, saved'.
 func (b *PhotosGetBuilder) AlbumID(v string) {
 	b.Params["album_id"] = v
 }
@@ -428,7 +438,9 @@ func (b *PhotosGetBuilder) FeedType(v string) {
 	b.Params["feed_type"] = v
 }
 
-// Feed unixtime, that can be obtained with [vk.com/dev/newsfeed.get|newsfeed.get] method in date field to get all photos uploaded by the user on a specific day, or photos the user has been tagged on. Also, 'uid' parameter of the user the event happened with shall be specified.
+// Feed unixtime, that can be obtained with [vk.com/dev/newsfeed.get|newsfeed.get] method in date field to get all
+// photos uploaded by the user on a specific day, or photos the user has been tagged on. Also, 'uid' parameter of
+// the user the event happened with shall be specified.
 func (b *PhotosGetBuilder) Feed(v int) {
 	b.Params["feed"] = v
 }
@@ -560,7 +572,8 @@ func (b *PhotosGetAllBuilder) PhotoSizes(v bool) {
 	b.Params["photo_sizes"] = v
 }
 
-// NoServiceAlbums '1' – to return photos only from standard albums, '0' – to return all photos including those in service albums, e.g., 'My wall photos' (default)
+// NoServiceAlbums '1' – to return photos only from standard albums, '0' – to return all photos including those in
+// service albums, e.g., 'My wall photos' (default)
 func (b *PhotosGetAllBuilder) NoServiceAlbums(v bool) {
 	b.Params["no_service_albums"] = v
 }
@@ -570,7 +583,8 @@ func (b *PhotosGetAllBuilder) NeedHidden(v bool) {
 	b.Params["need_hidden"] = v
 }
 
-// SkipHidden '1' – not to return photos being hidden from the block above the wall. Works only with owner_id>0, no_service_albums is ignored.
+// SkipHidden '1' – not to return photos being hidden from the block above the wall. Works only with owner_id>0,
+// no_service_albums is ignored.
 func (b *PhotosGetAllBuilder) SkipHidden(v bool) {
 	b.Params["skip_hidden"] = v
 }
@@ -628,7 +642,9 @@ func NewPhotosGetByIDBuilder() *PhotosGetByIDBuilder {
 	return &PhotosGetByIDBuilder{api.Params{}}
 }
 
-// Photos IDs separated with a comma, that are IDs of users who posted photos and IDs of photos themselves with an underscore character between such IDs. To get information about a photo in the group album, you shall specify group ID instead of user ID. Example: "1_129207899,6492_135055734, , -20629724_271945303"
+// Photos IDs separated with a comma, that are IDs of users who posted photos and IDs of photos themselves with an
+// underscore character between such IDs. To get information about a photo in the group album, you shall specify
+// group ID instead of user ID. Example: "1_129207899,6492_135055734, , -20629724_271945303"
 func (b *PhotosGetByIDBuilder) Photos(v []string) {
 	b.Params["photos"] = v
 }
@@ -813,7 +829,8 @@ func NewPhotosGetMessagesUploadServerBuilder() *PhotosGetMessagesUploadServerBui
 	return &PhotosGetMessagesUploadServerBuilder{api.Params{}}
 }
 
-// PeerID Destination ID. "For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'Chat ID', e.g. '2000000001'. For community: '- Community ID', e.g. '-12345'. "
+// PeerID Destination ID. For user: 'User ID', e.g. '12345'. For chat: '2000000000' + 'Chat ID', e.g. '2000000001'.
+// For community: '- Community ID', e.g. '-12345'.
 func (b *PhotosGetMessagesUploadServerBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
@@ -895,7 +912,8 @@ func NewPhotosGetOwnerPhotoUploadServerBuilder() *PhotosGetOwnerPhotoUploadServe
 	return &PhotosGetOwnerPhotoUploadServerBuilder{api.Params{}}
 }
 
-// OwnerID identifier of a community or current user. "Note that community id must be negative. 'owner_id=1' – user, 'owner_id=-1' – community, "
+// OwnerID identifier of a community or current user. "Note that community id must be negative. 'owner_id=1' – user,
+// 'owner_id=-1' – community, "
 func (b *PhotosGetOwnerPhotoUploadServerBuilder) OwnerID(v int) {
 	b.Params["owner_id"] = v
 }
@@ -987,7 +1005,8 @@ func (b *PhotosGetUserPhotosBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// Sort Sort order: '1' — by date the tag was added in ascending order, '0' — by date the tag was added in descending order
+// Sort Sort order: '1' — by date the tag was added in ascending order, '0' — by date the tag was added in descending
+// order
 func (b *PhotosGetUserPhotosBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
@@ -1239,7 +1258,21 @@ func (b *PhotosReportBuilder) PhotoID(v int) {
 	b.Params["photo_id"] = v
 }
 
-// Reason Reason for the complaint: '0' – spam, '1' – child pornography, '2' – extremism, '3' – violence, '4' – drug propaganda, '5' – adult material, '6' – insult, abuse
+// Reason Reason for the complaint:
+//
+// * 0 – spam;
+//
+// * 1 – child pornography;
+//
+// * 2 – extremism;
+//
+// * 3 – violence;
+//
+// * 4 – drug propaganda;
+//
+// * 5 – adult material;
+//
+// * 6 – insult, abuse.
 func (b *PhotosReportBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
@@ -1268,7 +1301,21 @@ func (b *PhotosReportCommentBuilder) CommentID(v int) {
 	b.Params["comment_id"] = v
 }
 
-// Reason Reason for the complaint: '0' – spam, '1' – child pornography, '2' – extremism, '3' – violence, '4' – drug propaganda, '5' – adult material, '6' – insult, abuse
+// Reason Reason for the complaint:
+//
+// * 0 – spam;
+//
+// * 1 – child pornography;
+//
+// * 2 – extremism;
+//
+// * 3 – violence;
+//
+// * 4 – drug propaganda;
+//
+// * 5 – adult material;
+//
+// * 6 – insult, abuse.
 func (b *PhotosReportCommentBuilder) Reason(v int) {
 	b.Params["reason"] = v
 }
@@ -1455,7 +1502,8 @@ func (b *PhotosSaveMarketPhotoBuilder) CropHash(v string) {
 
 // PhotosSaveMessagesPhotoBuilder builder
 //
-// Saves a photo after being successfully uploaded. URL obtained with [vk.com/dev/photos.getMessagesUploadServer|photos.getMessagesUploadServer] method.
+// Saves a photo after being successfully uploaded. URL obtained with
+// [vk.com/dev/photos.getMessagesUploadServer|photos.getMessagesUploadServer] method.
 //
 // https://vk.com/dev/photos.saveMessagesPhoto
 type PhotosSaveMessagesPhotoBuilder struct {
@@ -1508,7 +1556,8 @@ func (b *PhotosSaveOwnerCoverPhotoBuilder) Photo(v string) {
 
 // PhotosSaveOwnerPhotoBuilder builder
 //
-// Saves a profile or community photo. Upload URL can be got with the [vk.com/dev/photos.getOwnerPhotoUploadServer|photos.getOwnerPhotoUploadServer] method.
+// Saves a profile or community photo. Upload URL can be got with the
+// [vk.com/dev/photos.getOwnerPhotoUploadServer|photos.getOwnerPhotoUploadServer] method.
 //
 // https://vk.com/dev/photos.saveOwnerPhoto
 type PhotosSaveOwnerPhotoBuilder struct {

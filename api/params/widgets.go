@@ -55,7 +55,8 @@ func (b *WidgetsGetCommentsBuilder) Count(v int) {
 
 // WidgetsGetPagesBuilder builder
 //
-// Gets a list of application/site pages where the [vk.com/dev/Comments|Comments widget] or [vk.com/dev/Like|Like widget] is installed.
+// Gets a list of application/site pages where the [vk.com/dev/Comments|Comments widget]
+// or [vk.com/dev/Like|Like widget] is installed.
 //
 // https://vk.com/dev/widgets.getPages
 type WidgetsGetPagesBuilder struct {
