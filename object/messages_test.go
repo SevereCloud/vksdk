@@ -142,3 +142,17 @@ func TestMessagesKeyboard_ToJSON(t *testing.T) {
 		`{"buttons":[],"inline":true}`,
 	)
 }
+
+func TestMessagesTemplate_ToJSON(t *testing.T) {
+	f := func(template object.MessagesTemplate, want string) {
+		t.Helper()
+
+		got := template.ToJSON()
+		assert.Equal(t, got, want)
+	}
+
+	f(
+		object.MessagesTemplate{Type: "carousel", Elements: []object.MessagesTemplateElement{}},
+		`{"type":"carousel","elements":[]}`,
+	)
+}

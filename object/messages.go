@@ -53,6 +53,7 @@ type MessagesMessage struct {
 	IsHidden              bool                        `json:"is_hidden"`
 	IsCropped             bool                        `json:"is_cropped"`
 	Keyboard              MessagesKeyboard            `json:"keyboard"`
+	Template              MessagesTemplate            `json:"template"`
 	Out                   int                         `json:"out"` // Information whether the message is outcoming
 	Payload               string                      `json:"payload"`
 	PeerID                int                         `json:"peer_id"`   // Peer ID
@@ -193,6 +194,39 @@ type MessagesKeyboardButtonAction struct {
 	Payload string `json:"payload,omitempty"`  // Additional data sent along with message for developer convenience
 	Type    string `json:"type"`               // Button type
 	Link    string `json:"link"`               // Link URL
+}
+
+// MessagesTemplate struct
+// https://vk.com/dev/bot_docs_templates
+type MessagesTemplate struct {
+	Type     string                    `json:"type"`
+	Elements []MessagesTemplateElement `json:"elements"`
+}
+
+// ToJSON returns the JSON encoding of MessagesKeyboard
+func (template MessagesTemplate) ToJSON() string {
+	b, _ := json.Marshal(template)
+	return string(b)
+}
+
+// MessagesTemplateElement struct
+type MessagesTemplateElement struct {
+	MessagesTemplateElementCarousel
+}
+
+// MessagesTemplateElementCarousel struct
+type MessagesTemplateElementCarousel struct {
+	Title       string                                `json:"title"`
+	Action      MessagesTemplateElementCarouselAction `json:"action"`
+	Description string                                `json:"description"`
+	Photo       PhotosPhoto                           `json:"photo"`
+	Buttons     []MessagesKeyboardButton              `json:"buttons"`
+}
+
+// MessagesTemplateElementCarouselAction struct
+type MessagesTemplateElementCarouselAction struct {
+	Type string `json:"type"`
+	Link string `json:"link"`
 }
 
 // MessagesChat struct
