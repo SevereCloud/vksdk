@@ -1,0 +1,22 @@
+package params // import "github.com/SevereCloud/vksdk/api/params"
+
+import (
+	"github.com/SevereCloud/vksdk/api"
+)
+
+// StreamingSetSettingsBuilder builder
+//
+// https://vk.com/dev/streaming.setSettings
+type StreamingSetSettingsBuilder struct {
+	api.Params
+}
+
+// NewStreamingSetSettingsBuilder func
+func NewStreamingSetSettingsBuilder() *StreamingSetSettingsBuilder {
+	return &StreamingSetSettingsBuilder{api.Params{}}
+}
+
+// MonthlyTier parameter
+func (b *StreamingSetSettingsBuilder) MonthlyTier(v string) {
+	b.Params["monthly_tier"] = v
+}
