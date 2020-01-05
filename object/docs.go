@@ -54,7 +54,7 @@ type DocsDocPreviewGraffiti struct {
 	Height int    `json:"height"`
 }
 
-//  DocsDocPreviewVideo struct
+// DocsDocPreviewVideo struct
 type DocsDocPreviewVideo struct {
 	FileSize int    `json:"file_size"` // Video file size in bites
 	Height   int    `json:"height"`    // Video's height in pixels

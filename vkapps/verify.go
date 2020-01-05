@@ -74,7 +74,7 @@ func (pv *ParamsVerification) Verify(u *url.URL) (bool, error) {
 	return base64Sign == values["sign"][0], nil
 }
 
-// VerifyMiddleware
+// VerifyMiddleware func
 func (pv *ParamsVerification) VerifyMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ok, err := pv.Verify(r.URL)

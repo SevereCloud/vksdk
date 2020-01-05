@@ -441,7 +441,7 @@ func (b *MarketGetBuilder) Offset(v int) {
 	b.Params["offset"] = v
 }
 
-// Extended
+// Extended parameter
 //
 // * 1 – method will return additional fields: 'likes, can_comment, car_repost, photos'.
 // These parameters are not returned by default.
@@ -601,7 +601,7 @@ func (b *MarketGetCommentsBuilder) Sort(v string) {
 	b.Params["sort"] = v
 }
 
-// Extended
+// Extended parameter
 //
 // * 1 — comments will be returned as numbered objects, in addition lists of
 // 'profiles' and 'groups' objects will be returned.

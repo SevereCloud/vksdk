@@ -14,6 +14,7 @@ type MessageNewObject struct {
 	ClientInfo ClientInfo      `json:"client_info"`
 }
 
+// UnmarshalJSON func
 func (a *MessageNewObject) UnmarshalJSON(b []byte) (err error) {
 	type r MessageNewObject
 

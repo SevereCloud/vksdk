@@ -287,7 +287,7 @@ func (errorType ErrorType) New(msg string) error {
 	return customError{errorType: errorType, originalError: errors.New(msg)}
 }
 
-// New creates a new customError with formatted message
+// Newf creates a new customError with formatted message
 func (errorType ErrorType) Newf(msg string, args ...interface{}) error {
 	return customError{errorType: errorType, originalError: fmt.Errorf(msg, args...)}
 }
@@ -297,7 +297,7 @@ func (errorType ErrorType) Wrap(err error, msg string) error {
 	return errorType.Wrapf(err, msg)
 }
 
-// Wrap creates a new wrapped error with formatted message
+// Wrapf creates a new wrapped error with formatted message
 func (errorType ErrorType) Wrapf(err error, msg string, args ...interface{}) error {
 	return customError{errorType: errorType, originalError: errors.Wrapf(err, msg, args...)}
 }

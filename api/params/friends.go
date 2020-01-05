@@ -76,7 +76,7 @@ func (b *FriendsAreFriendsBuilder) UserIDs(v []int) {
 	b.Params["user_ids"] = v
 }
 
-// NeedSign
+// NeedSign parameter
 //
 // * 1 — to return 'sign' field. 'sign' is md5("{id}_{user_id}_{friends_status}_{application_secret}"),
 // where id is current user ID. This field allows to check that data has not been modified by the client.
@@ -309,7 +309,7 @@ func (b *FriendsGetListsBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// ReturnSystem
+// ReturnSystem parameter
 //
 // * 1 — to return system friend lists. By default: '0'.
 func (b *FriendsGetListsBuilder) ReturnSystem(v bool) {
@@ -384,7 +384,7 @@ func (b *FriendsGetOnlineBuilder) ListID(v int) {
 	b.Params["list_id"] = v
 }
 
-// OnlineMobile
+// OnlineMobile parameter
 //
 // * 1 — to return an additional 'online_mobile' field, '0' — (default),
 func (b *FriendsGetOnlineBuilder) OnlineMobile(v bool) {
@@ -449,7 +449,7 @@ func (b *FriendsGetRequestsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Extended
+// Extended parameter
 //
 // * 1 — to return response messages from users who have sent a friend request or,
 // if 'suggested' is set to '1', to return a list of suggested friends
@@ -457,14 +457,14 @@ func (b *FriendsGetRequestsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// NeedMutual
+// NeedMutual parameter
 //
 // * 1 — to return a list of mutual friends (up to 20), if any
 func (b *FriendsGetRequestsBuilder) NeedMutual(v bool) {
 	b.Params["need_mutual"] = v
 }
 
-// Out
+// Out parameter
 //
 // * 1 — to return outgoing requests, '0' — to return incoming requests (default)
 func (b *FriendsGetRequestsBuilder) Out(v bool) {
@@ -483,7 +483,7 @@ func (b *FriendsGetRequestsBuilder) NeedViewed(v bool) {
 	b.Params["need_viewed"] = v
 }
 
-// Suggested
+// Suggested parameter
 //
 // * 1 — to return a list of suggested friends, '0' — to return friend requests (default)
 func (b *FriendsGetRequestsBuilder) Suggested(v bool) {

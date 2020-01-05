@@ -910,7 +910,7 @@ func (b *AdsGetTargetGroupsBuilder) ClientID(v int) {
 	b.Params["client_id"] = v
 }
 
-// Extended
+// Extended parameter
 //
 // * 1 — to return pixel code.
 func (b *AdsGetTargetGroupsBuilder) Extended(v bool) {

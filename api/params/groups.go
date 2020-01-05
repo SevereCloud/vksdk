@@ -989,7 +989,7 @@ func (b *GroupsGetBuilder) UserID(v int) {
 	b.Params["user_id"] = v
 }
 
-// Extended
+// Extended parameter
 //
 // * 1 — to return complete information about a user's communities,
 //

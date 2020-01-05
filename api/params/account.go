@@ -475,9 +475,10 @@ func (b *AccountSetSilenceModeBuilder) PeerID(v int) {
 	b.Params["peer_id"] = v
 }
 
-// Sound
+// Sound parameter
 //
 // * 1 — to enable sound in this dialog,
+//
 // * 0 — to disable sound. Only if 'peer_id' contains user or community ID.
 func (b *AccountSetSilenceModeBuilder) Sound(v int) {
 	b.Params["sound"] = v

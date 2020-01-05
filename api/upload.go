@@ -634,7 +634,7 @@ func (vk *VK) UploadMessagesDoc(peerID int, typeDoc, title, tags string, file io
 	return
 }
 
-// UploadOwneCoverrPhoto uploading a Main Photo to a Group Chat
+// UploadOwnerCoverPhoto uploading a Main Photo to a Group Chat
 //
 // Supported formats: JPG, PNG, GIF.
 //

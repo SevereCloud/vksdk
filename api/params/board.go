@@ -383,7 +383,7 @@ func (b *BoardGetTopicsBuilder) Count(v int) {
 	b.Params["count"] = v
 }
 
-// Extended
+// Extended parameter
 //
 // * 1 — to return information about users who created topics or who posted there last,
 //
@@ -392,7 +392,7 @@ func (b *BoardGetTopicsBuilder) Extended(v bool) {
 	b.Params["extended"] = v
 }
 
-// Preview
+// Preview parameter
 //
 // * 1 — to return the first comment in each topic;
 //

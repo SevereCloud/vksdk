@@ -12,7 +12,7 @@ type AppWidgetsGroupImageUploadResponse struct {
 	Hash  string `json:"hash"`
 }
 
-// AppWidgetsImagestruct
+// AppWidgetsImage struct
 type AppWidgetsImage struct {
 	ID     string    `json:"id"`
 	Type   string    `json:"type"`

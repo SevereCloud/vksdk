@@ -870,7 +870,7 @@ func (b *VideoSaveBuilder) Description(v string) {
 	b.Params["description"] = v
 }
 
-// IsPrivate
+// IsPrivate parameter
 //
 // * 1 — to designate the video as private (send it via a private message), the video will not appear
 // on the user's video list and will not be available by ID for other users,
@@ -880,7 +880,7 @@ func (b *VideoSaveBuilder) IsPrivate(v bool) {
 	b.Params["is_private"] = v
 }
 
-// Wallpost
+// Wallpost parameter
 //
 // * 1 — to post the saved video on a user's wall
 // * 0 — not to post the saved video on a user's wall

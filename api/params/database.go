@@ -62,7 +62,7 @@ func (b *DatabaseGetCitiesBuilder) Q(v string) {
 	b.Params["q"] = v
 }
 
-// NeedAll
+// NeedAll parameter
 //
 // * 1 — to return all cities in the country,
 //
@@ -114,7 +114,7 @@ func NewDatabaseGetCountriesBuilder() *DatabaseGetCountriesBuilder {
 	return &DatabaseGetCountriesBuilder{api.Params{}}
 }
 
-// NeedAll
+// NeedAll parameter
 //
 // * 1 — to return a full list of all countries,
 //

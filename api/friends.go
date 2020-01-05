@@ -178,7 +178,7 @@ func (vk *VK) FriendsGetOnline(params Params) (response []int, err error) {
 	return
 }
 
-// FriendsGetOnlineResponse struct
+// FriendsGetOnlineOnlineMobileResponse struct
 type FriendsGetOnlineOnlineMobileResponse struct {
 	Online       []int `json:"online"`
 	OnlineMobile []int `json:"online_mobile"`

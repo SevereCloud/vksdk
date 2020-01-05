@@ -161,7 +161,7 @@ func (vk *VK) NewsfeedGetSuggestedSources(params Params) (response NewsfeedGetSu
 	return
 }
 
-// NewsfeedIgnoreItemHides an item from the newsfeed.
+// NewsfeedIgnoreItem Hides an item from the newsfeed.
 //
 // https://vk.com/dev/newsfeed.ignoreItem
 func (vk *VK) NewsfeedIgnoreItem(params Params) (response int, err error) {

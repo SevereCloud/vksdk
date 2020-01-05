@@ -14,6 +14,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
+// Api constants
 const (
 	Version      = "5.103"
 	APIMethodURL = "https://api.vk.com/method/"
