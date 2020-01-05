@@ -27,7 +27,7 @@ func testFave(t *testing.T, f object.FaveItem) {
 			assert.NotEmpty(t, f.Link.Title, "f.Link.Title")
 			assert.NotEmpty(t, f.Link.Caption, "f.Link.Caption")
 			// assert.NotEmpty(t, f.Link.Description, "f.Link.Description")
-			assert.NotEmpty(t, f.Link.Photo, "f.Link.Photo")
+			// assert.NotEmpty(t, f.Link.Photo, "f.Link.Photo")
 			assert.NotEmpty(t, f.Link.ID, "f.Link.ID")
 		}
 	case "post":
