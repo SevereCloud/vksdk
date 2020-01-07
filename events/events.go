@@ -1,3 +1,8 @@
+/*
+Package events for community events handling.
+
+See more https://vk.com/dev/groups_events
+*/
 package events // import "github.com/SevereCloud/vksdk/events"
 
 import (

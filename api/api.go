@@ -1,3 +1,8 @@
+/*
+Package api.
+
+See more https://vk.com/dev/api_requests
+*/
 package api // import "github.com/SevereCloud/vksdk/api"
 
 import (

@@ -1,3 +1,8 @@
+/*
+Package longpoll implements User Long Poll API.
+
+See more https://vk.com/dev/using_longpoll
+*/
 package longpoll // import "github.com/SevereCloud/vksdk/longpoll-user"
 
 import (

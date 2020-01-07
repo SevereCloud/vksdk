@@ -1,3 +1,8 @@
+/*
+Package object contains objects for VK.
+
+See more https://vk.com/dev/objects
+*/
 package object // import "github.com/SevereCloud/vksdk/object"
 
 import "encoding/json"

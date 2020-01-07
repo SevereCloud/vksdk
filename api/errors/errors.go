@@ -1,3 +1,8 @@
+/*
+Package errors for api.
+
+See more https://vk.com/dev/errors
+*/
 package errors // import "github.com/SevereCloud/vksdk/api/errors"
 
 import (
