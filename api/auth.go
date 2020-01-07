@@ -8,16 +8,16 @@ func (vk *VK) AuthCheckPhone(params Params) (response int, err error) {
 	return
 }
 
-// AuthRetoreResponse struct
-type AuthRetoreResponse struct {
+// AuthRestoreResponse struct
+type AuthRestoreResponse struct {
 	Success int    `json:"success"`
 	SID     string `json:"sid"`
 }
 
-// AuthRetore allows to restore account access using a code received via SMS.
+// AuthRestore allows to restore account access using a code received via SMS.
 //
 // https://vk.com/dev/auth.restore
-func (vk *VK) AuthRetore(params Params) (response AuthRetoreResponse, err error) {
+func (vk *VK) AuthRestore(params Params) (response AuthRestoreResponse, err error) {
 	err = vk.RequestUnmarshal("auth.restore", params, &response)
 	return
 }

@@ -38,6 +38,7 @@
 ### Установка
 
 ```shell
+# go mod init mymodulename
 go get github.com/SevereCloud/vksdk@latest
 ```
 
