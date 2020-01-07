@@ -95,7 +95,12 @@ func TestVK_AccountGetProfileInfo(t *testing.T) {
 }
 
 func TestVK_AccountGetPushSettings(t *testing.T) {
-	// TODO: Add test cases
+	needUserToken(t)
+
+	_, err := vkUser.AccountGetPushSettings(api.Params{
+		"device_id": "aoa",
+	})
+	noError(t, err)
 }
 
 func TestVK_AccountRegisterDevice(t *testing.T) {
