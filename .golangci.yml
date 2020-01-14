@@ -49,5 +49,5 @@ linters:
 #         - lll
 #       source: "^(func|type|struct)"
 
-service:
-  golangci-lint-version: 1.22.x
+# service:
+#   golangci-lint-version: 1.22.x
