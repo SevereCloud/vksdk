@@ -14,21 +14,27 @@ type MessageNewObject struct {
 	ClientInfo ClientInfo      `json:"client_info"`
 }
 
-// UnmarshalJSON func
-func (a *MessageNewObject) UnmarshalJSON(b []byte) (err error) {
-	type r MessageNewObject
+// UnmarshalJSON need for support api version < 5.103.
+//
+// To unmarshal JSON into a value implementing the Unmarshaler interface,
+// Unmarshal calls that value's UnmarshalJSON method.
+// See more https://golang.org/pkg/encoding/json/#Unmarshal
+func (obj *MessageNewObject) UnmarshalJSON(data []byte) (err error) {
+	// The renamed type is necessary to avoid loops
+	type renamedMessageNewObject MessageNewObject
 
-	var v r
+	var renamedObj renamedMessageNewObject
 
-	if bytes.Contains(b, []byte(`"message":`)) {
-		err = json.Unmarshal(b, &v)
+	if bytes.Contains(data, []byte(`"message":`)) {
+		// v >= 5.103
+		err = json.Unmarshal(data, &renamedObj)
 	} else {
 		// Support v < 5.103
-		err = json.Unmarshal(b, &v.Message)
+		err = json.Unmarshal(data, &renamedObj.Message)
 	}
 
-	a.Message = v.Message
-	a.ClientInfo = v.ClientInfo
+	obj.Message = renamedObj.Message
+	obj.ClientInfo = renamedObj.ClientInfo
 
 	return
 }
