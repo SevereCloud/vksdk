@@ -101,6 +101,7 @@ func (user UsersUser) ToMention() string {
 // UsersOnlineInfo struct
 type UsersOnlineInfo struct {
 	AppID    int         `json:"app_id"`
+	LastSeen int         `json:"last_seen"`
 	Visible  BaseBoolInt `json:"visible"`
 	IsOnline BaseBoolInt `json:"is_online"`
 	IsMobile BaseBoolInt `json:"is_mobile"`
