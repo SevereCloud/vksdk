@@ -40,6 +40,36 @@ func (photo PhotosPhoto) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
+// MaxSize return the largest PhotosPhotoSizes
+func (photo PhotosPhoto) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
+	var max float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size > max {
+			max = size
+			maxPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
+// MinSize return the smallest PhotosPhotoSizes
+func (photo PhotosPhoto) MinSize() (minPhotoSize PhotosPhotoSizes) {
+	var min float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size < min || min == 0 {
+			min = size
+			minPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
 // PhotosCommentXtrPid struct
 type PhotosCommentXtrPid struct {
 	Attachments    []WallCommentAttachment `json:"attachments"`
@@ -140,6 +170,36 @@ func (album PhotosPhotoAlbumFull) ToAttachment() string {
 	return fmt.Sprintf("album%d_%d", album.OwnerID, album.ID)
 }
 
+// MaxSize return the largest PhotosPhotoSizes
+func (album PhotosPhotoAlbumFull) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
+	var max float64
+
+	for _, photoSize := range album.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size > max {
+			max = size
+			maxPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
+// MinSize return the smallest PhotosPhotoSizes
+func (album PhotosPhotoAlbumFull) MinSize() (minPhotoSize PhotosPhotoSizes) {
+	var min float64
+
+	for _, photoSize := range album.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size < min || min == 0 {
+			min = size
+			minPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
 // PhotosPhotoFull struct
 type PhotosPhotoFull struct {
 	AccessKey  string          `json:"access_key"`  // Access key for the photo
@@ -200,6 +260,36 @@ type PhotosPhotoFullXtrRealOffset struct {
 // ToAttachment return attachment format
 func (photo PhotosPhotoFullXtrRealOffset) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
+}
+
+// MaxSize return the largest PhotosPhotoSizes
+func (photo PhotosPhotoFullXtrRealOffset) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
+	var max float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size > max {
+			max = size
+			maxPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
+// MinSize return the smallest PhotosPhotoSizes
+func (photo PhotosPhotoFullXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSizes) {
+	var min float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size < min || min == 0 {
+			min = size
+			minPhotoSize = photoSize
+		}
+	}
+
+	return
 }
 
 // PhotosPhotoSizes struct
@@ -268,6 +358,36 @@ func (photo PhotosPhotoXtrRealOffset) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
+// MaxSize return the largest PhotosPhotoSizes
+func (photo PhotosPhotoXtrRealOffset) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
+	var max float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size > max {
+			max = size
+			maxPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
+// MinSize return the smallest PhotosPhotoSizes
+func (photo PhotosPhotoXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSizes) {
+	var min float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size < min || min == 0 {
+			min = size
+			minPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
 // PhotosPhotoXtrTagInfo struct
 type PhotosPhotoXtrTagInfo struct {
 	AccessKey  string             `json:"access_key"` // Access key for the photo
@@ -297,6 +417,36 @@ type PhotosPhotoXtrTagInfo struct {
 // ToAttachment return attachment format
 func (photo PhotosPhotoXtrTagInfo) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
+}
+
+// MaxSize return the largest PhotosPhotoSizes
+func (photo PhotosPhotoXtrTagInfo) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
+	var max float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size > max {
+			max = size
+			maxPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
+// MinSize return the smallest PhotosPhotoSizes
+func (photo PhotosPhotoXtrTagInfo) MinSize() (minPhotoSize PhotosPhotoSizes) {
+	var min float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size < min || min == 0 {
+			min = size
+			minPhotoSize = photoSize
+		}
+	}
+
+	return
 }
 
 // PhotosWallUploadResponse struct
