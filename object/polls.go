@@ -23,14 +23,14 @@ type PollsPoll struct {
 	Votes      int             `json:"votes"`    // Votes number
 	AnswerIDs  []int           `json:"answer_ids"`
 	EndDate    int             `json:"end_date"`
-	Anonymous  bool            `json:"anonymous"` // Information whether the pole is anonymous
-	Closed     bool            `json:"closed"`
-	IsBoard    bool            `json:"is_board"`
-	CanEdit    bool            `json:"can_edit"`
-	CanVote    bool            `json:"can_vote"`
-	CanReport  bool            `json:"can_report"`
-	CanShare   bool            `json:"can_share"`
-	Multiple   bool            `json:"multiple"`
+	Anonymous  BaseBoolInt     `json:"anonymous"` // Information whether the pole is anonymous
+	Closed     BaseBoolInt     `json:"closed"`
+	IsBoard    BaseBoolInt     `json:"is_board"`
+	CanEdit    BaseBoolInt     `json:"can_edit"`
+	CanVote    BaseBoolInt     `json:"can_vote"`
+	CanReport  BaseBoolInt     `json:"can_report"`
+	CanShare   BaseBoolInt     `json:"can_share"`
+	Multiple   BaseBoolInt     `json:"multiple"`
 	Photo      PhotosPhoto     `json:"photo"`
 	AuthorID   int             `json:"author_id"`
 	Background PollsBackground `json:"background"`

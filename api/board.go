@@ -115,7 +115,7 @@ type BoardGetTopicsResponse struct {
 	Count        int                 `json:"count"`
 	Items        []object.BoardTopic `json:"items"`
 	DefaultOrder float64             `json:"default_order"` // BUG(VK): default_order int https://vk.com/bug136682
-	CanAddTopics int                 `json:"can_add_topics"`
+	CanAddTopics object.BaseBoolInt  `json:"can_add_topics"`
 }
 
 // BoardGetTopics returns a list of topics on a community's discussion board.
@@ -135,7 +135,7 @@ type BoardGetTopicsExtendedResponse struct {
 	Count        int                  `json:"count"`
 	Items        []object.BoardTopic  `json:"items"`
 	DefaultOrder float64              `json:"default_order"` // BUG(VK): default_order int https://vk.com/bug136682
-	CanAddTopics int                  `json:"can_add_topics"`
+	CanAddTopics object.BaseBoolInt   `json:"can_add_topics"`
 	Profiles     []object.UsersUser   `json:"profiles"`
 	Groups       []object.GroupsGroup `json:"groups"`
 }

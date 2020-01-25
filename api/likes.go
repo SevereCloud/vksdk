@@ -68,8 +68,8 @@ func (vk *VK) LikesGetListExtended(params Params) (response LikesGetListExtended
 
 // LikesIsLikedResponse struct
 type LikesIsLikedResponse struct {
-	Liked  int `json:"liked"`
-	Copied int `json:"copied"`
+	Liked  object.BaseBoolInt `json:"liked"`
+	Copied object.BaseBoolInt `json:"copied"`
 }
 
 // LikesIsLiked checks for the object in the Likes list of the specified user.

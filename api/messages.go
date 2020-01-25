@@ -181,19 +181,19 @@ func (vk *VK) MessagesGetChatPreview(params Params) (response MessagesGetChatPre
 // MessagesGetConversationMembersResponse struct
 type MessagesGetConversationMembersResponse struct {
 	Items []struct {
-		MemberID  int  `json:"member_id"`
-		JoinDate  int  `json:"join_date"`
-		InvitedBy int  `json:"invited_by"`
-		IsOwner   bool `json:"is_owner,omitempty"`
-		IsAdmin   bool `json:"is_admin,omitempty"`
-		CanKick   bool `json:"can_kick,omitempty"`
+		MemberID  int                `json:"member_id"`
+		JoinDate  int                `json:"join_date"`
+		InvitedBy int                `json:"invited_by"`
+		IsOwner   object.BaseBoolInt `json:"is_owner,omitempty"`
+		IsAdmin   object.BaseBoolInt `json:"is_admin,omitempty"`
+		CanKick   object.BaseBoolInt `json:"can_kick,omitempty"`
 	} `json:"items"`
 	Count            int `json:"count"`
 	ChatRestrictions struct {
-		OnlyAdminsInvite   bool `json:"only_admins_invite"`
-		OnlyAdminsEditPin  bool `json:"only_admins_edit_pin"`
-		OnlyAdminsEditInfo bool `json:"only_admins_edit_info"`
-		AdminsPromoteUsers bool `json:"admins_promote_users"`
+		OnlyAdminsInvite   object.BaseBoolInt `json:"only_admins_invite"`
+		OnlyAdminsEditPin  object.BaseBoolInt `json:"only_admins_edit_pin"`
+		OnlyAdminsEditInfo object.BaseBoolInt `json:"only_admins_edit_info"`
+		AdminsPromoteUsers object.BaseBoolInt `json:"admins_promote_users"`
 	} `json:"chat_restrictions"`
 	object.ExtendedResponse
 }
@@ -345,7 +345,7 @@ type MessagesGetLongPollHistoryResponse struct {
 	Profiles []object.UsersUser `json:"profiles"`
 	// Chats struct {} `json:"chats"`
 	NewPTS        int                           `json:"new_pts"`
-	More          bool                          `json:"chats"`
+	More          object.BaseBoolInt            `json:"chats"`
 	Conversations []object.MessagesConversation `json:"conversations"`
 }
 
@@ -370,7 +370,7 @@ func (vk *VK) MessagesGetLongPollServer(params Params) (response MessagesGetLong
 
 // MessagesIsMessagesFromGroupAllowedResponse struct
 type MessagesIsMessagesFromGroupAllowedResponse struct {
-	IsAllowed int `json:"is_allowed"`
+	IsAllowed object.BaseBoolInt `json:"is_allowed"`
 }
 
 // MessagesIsMessagesFromGroupAllowed returns information whether

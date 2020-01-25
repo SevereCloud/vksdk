@@ -38,11 +38,11 @@ func (vk *VK) FriendsAreFriends(params Params) (response FriendsAreFriendsRespon
 
 // FriendsDeleteResponse struct
 type FriendsDeleteResponse struct {
-	Success           int `json:"success"`
-	FriendDeleted     int `json:"friend_deleted"`
-	OutRequestDeleted int `json:"out_request_deleted"`
-	InRequestDeleted  int `json:"in_request_deleted"`
-	SuggestionDeleted int `json:"suggestion_deleted"`
+	Success           object.BaseBoolInt `json:"success"`
+	FriendDeleted     object.BaseBoolInt `json:"friend_deleted"`
+	OutRequestDeleted object.BaseBoolInt `json:"out_request_deleted"`
+	InRequestDeleted  object.BaseBoolInt `json:"in_request_deleted"`
+	SuggestionDeleted object.BaseBoolInt `json:"suggestion_deleted"`
 }
 
 // FriendsDelete declines a friend request or deletes a user from the current user's friend list.

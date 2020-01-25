@@ -8,22 +8,23 @@ import (
 type VideoVideo struct {
 	AccessKey      string            `json:"access_key"`       // Video access key
 	AddingDate     int               `json:"adding_date"`      // Date when the video has been added in Unixtime
-	CanAdd         int               `json:"can_add"`          // Information whether current user can add the video
-	CanAddToFaves  int               `json:"can_add_to_faves"` // Information whether current user can add the video to faves
-	CanComment     int               `json:"can_comment"`      // Information whether current user can comment the video
-	CanEdit        int               `json:"can_edit"`         // Information whether current user can edit the video
-	CanLike        int               `json:"can_like"`         // Information whether current user can like the video
-	CanRepost      int               `json:"can_repost"`       // Information whether current user can repost this video
-	Comments       int               `json:"comments"`         // Number of comments
-	Date           int               `json:"date"`             // Date when video has been uploaded in Unixtime
-	Description    string            `json:"description"`      // Video description
-	Duration       int               `json:"duration"`         // Video duration in seconds
+	CanAdd         BaseBoolInt       `json:"can_add"`          // Information whether current user can add the video
+	CanAddToFaves  BaseBoolInt       `json:"can_add_to_faves"` // Information whether current user can add the video to faves
+	CanComment     BaseBoolInt       `json:"can_comment"`      // Information whether current user can comment the video
+	CanEdit        BaseBoolInt       `json:"can_edit"`         // Information whether current user can edit the video
+	CanLike        BaseBoolInt       `json:"can_like"`         // Information whether current user can like the video
+	CanRepost      BaseBoolInt       `json:"can_repost"`       // Information whether current user can repost this video
+	IsFavorite     BaseBoolInt       `json:"is_favorite"`
+	IsPrivate      BaseBoolInt       `json:"is_private"`
+	Comments       int               `json:"comments"`    // Number of comments
+	Date           int               `json:"date"`        // Date when video has been uploaded in Unixtime
+	Description    string            `json:"description"` // Video description
+	Duration       int               `json:"duration"`    // Video duration in seconds
 	Files          VideoVideoFiles   `json:"files"`
 	FirstFrame     []VideoVideoImage `json:"first_frame"`
 	Image          []VideoVideoImage `json:"image"`
-	Height         int               `json:"height"` // Video height
-	ID             int               `json:"id"`     // Video ID
-	IsFavorite     bool              `json:"is_favorite"`
+	Height         int               `json:"height"`     // Video height
+	ID             int               `json:"id"`         // Video ID
 	Live           int               `json:"live"`       // Returns if the video is a live stream
 	OwnerID        int               `json:"owner_id"`   // Video owner ID
 	Photo130       string            `json:"photo_130"`  // URL of the preview image with 130 px in width
@@ -39,7 +40,6 @@ type VideoVideo struct {
 	Width          int               `json:"width"` // Video width
 	Platform       string            `json:"platform"`
 	LocalViews     int               `json:"local_views"`
-	IsPrivate      int               `json:"is_private"`
 	Likes          BaseLikesInfo     `json:"likes"`   // Count of likes
 	Reposts        BaseRepostsInfo   `json:"reposts"` // Count of views
 	PrivacyView    []interface{}     `json:"privacy_view"`
@@ -63,7 +63,7 @@ type VideoVideoFiles struct {
 
 // VideoCatBlock struct
 type VideoCatBlock struct {
-	CanHide int               `json:"can_hide"`
+	CanHide BaseBoolInt       `json:"can_hide"`
 	ID      int               `json:"id"`
 	Items   []VideoCatElement `json:"items"`
 	Name    string            `json:"name"`
@@ -74,25 +74,25 @@ type VideoCatBlock struct {
 
 // VideoCatElement struct
 type VideoCatElement struct {
-	CanAdd      int    `json:"can_add"`
-	CanEdit     int    `json:"can_edit"`
-	Comments    int    `json:"comments"`
-	Count       int    `json:"count"`
-	Date        int    `json:"date"`
-	Description string `json:"description"`
-	Duration    int    `json:"duration"`
-	ID          int    `json:"id"`
-	IsPrivate   int    `json:"is_private"`
-	OwnerID     int    `json:"owner_id"`
-	Photo130    string `json:"photo_130"`
-	Photo160    string `json:"photo_160"`
-	Photo320    string `json:"photo_320"`
-	Photo640    string `json:"photo_640"`
-	Photo800    string `json:"photo_800"`
-	Title       string `json:"title"`
-	Type        string `json:"type"`
-	UpdatedTime int    `json:"updated_time"`
-	Views       int    `json:"views"`
+	CanAdd      BaseBoolInt `json:"can_add"`
+	CanEdit     BaseBoolInt `json:"can_edit"`
+	IsPrivate   BaseBoolInt `json:"is_private"`
+	Comments    int         `json:"comments"`
+	Count       int         `json:"count"`
+	Date        int         `json:"date"`
+	Description string      `json:"description"`
+	Duration    int         `json:"duration"`
+	ID          int         `json:"id"`
+	OwnerID     int         `json:"owner_id"`
+	Photo130    string      `json:"photo_130"`
+	Photo160    string      `json:"photo_160"`
+	Photo320    string      `json:"photo_320"`
+	Photo640    string      `json:"photo_640"`
+	Photo800    string      `json:"photo_800"`
+	Title       string      `json:"title"`
+	Type        string      `json:"type"`
+	UpdatedTime int         `json:"updated_time"`
+	Views       int         `json:"views"`
 }
 
 // VideoSaveResult struct
@@ -123,7 +123,7 @@ type VideoVideoAlbumFull struct {
 	Count       int               `json:"count"`        // Total number of videos in album
 	ID          int               `json:"id"`           // Album ID
 	Image       []VideoVideoImage `json:"image"`        // Album cover image in different sizes
-	IsSystem    int               `json:"is_system"`    // Information whether album is system
+	IsSystem    BaseBoolInt       `json:"is_system"`    // Information whether album is system
 	OwnerID     int               `json:"owner_id"`     // Album owner's ID
 	Photo160    string            `json:"photo_160"`    // URL of the preview image with 160px in width
 	Photo320    string            `json:"photo_320"`    // URL of the preview image with 320px in width
@@ -136,10 +136,14 @@ type VideoVideoAlbumFull struct {
 type VideoVideoFull struct {
 	AccessKey     string            `json:"access_key"`  // Video access key
 	AddingDate    int               `json:"adding_date"` // Date when the video has been added in Unixtime
-	CanAdd        int               `json:"can_add"`     // Information whether current user can add the video
-	CanComment    int               `json:"can_comment"` // Information whether current user can comment the video
-	CanEdit       int               `json:"can_edit"`    // Information whether current user can edit the video
-	CanRepost     int               `json:"can_repost"`  // Information whether current user can comment the video
+	IsFavorite    BaseBoolInt       `json:"is_favorite"`
+	CanAdd        BaseBoolInt       `json:"can_add"`     // Information whether current user can add the video
+	CanComment    BaseBoolInt       `json:"can_comment"` // Information whether current user can comment the video
+	CanEdit       BaseBoolInt       `json:"can_edit"`    // Information whether current user can edit the video
+	CanRepost     BaseBoolInt       `json:"can_repost"`  // Information whether current user can comment the video
+	CanLike       BaseBoolInt       `json:"can_like"`
+	CanAddToFaves BaseBoolInt       `json:"can_add_to_faves"`
+	Repeat        BaseBoolInt       `json:"repeat"`      // Information whether the video is repeated
 	Comments      int               `json:"comments"`    // Number of comments
 	Date          int               `json:"date"`        // Date when video has been uploaded in Unixtime
 	Description   string            `json:"description"` // Video description
@@ -151,17 +155,13 @@ type VideoVideoFull struct {
 	OwnerID       int               `json:"owner_id"`   // Video owner ID
 	Player        string            `json:"player"`     // URL of the page with a player that can be used to play the video in the browser.
 	Processing    int               `json:"processing"` // Returns if the video is processing
-	Repeat        int               `json:"repeat"`     // Information whether the video is repeated
 	Title         string            `json:"title"`      // Video title
 	Views         int               `json:"views"`      // Number of views
 	Width         int               `json:"width"`
 	Height        int               `json:"height"`
 	Image         []VideoVideoImage `json:"image"`
-	IsFavorite    bool              `json:"is_favorite"`
 	FirstFrame    []VideoVideoImage `json:"first_frame"`
 	Added         int               `json:"added"`
-	CanLike       int               `json:"can_like"`
-	CanAddToFaves int               `json:"can_add_to_faves"`
 	Type          string            `json:"type"`
 	Reposts       BaseRepostsInfo   `json:"reposts"`
 }
@@ -173,20 +173,20 @@ func (video VideoVideoFull) ToAttachment() string {
 
 // VideoVideoTag struct
 type VideoVideoTag struct {
-	Date       int    `json:"date"`
-	ID         int    `json:"id"`
-	PlacerID   int    `json:"placer_id"`
-	TaggedName string `json:"tagged_name"`
-	UserID     int    `json:"user_id"`
-	Viewed     int    `json:"viewed"`
+	Date       int         `json:"date"`
+	ID         int         `json:"id"`
+	PlacerID   int         `json:"placer_id"`
+	TaggedName string      `json:"tagged_name"`
+	UserID     int         `json:"user_id"`
+	Viewed     BaseBoolInt `json:"viewed"`
 }
 
 // VideoVideoTagInfo struct
 type VideoVideoTagInfo struct {
 	AccessKey   string          `json:"access_key"`
 	AddingDate  int             `json:"adding_date"`
-	CanAdd      int             `json:"can_add"`
-	CanEdit     int             `json:"can_edit"`
+	CanAdd      BaseBoolInt     `json:"can_add"`
+	CanEdit     BaseBoolInt     `json:"can_edit"`
 	Comments    int             `json:"comments"`
 	Date        int             `json:"date"`
 	Description string          `json:"description"`
@@ -210,5 +210,5 @@ type VideoVideoTagInfo struct {
 // VideoVideoImage struct
 type VideoVideoImage struct {
 	BaseImage
-	WithPadding int `json:"with_padding"`
+	WithPadding BaseBoolInt `json:"with_padding"`
 }

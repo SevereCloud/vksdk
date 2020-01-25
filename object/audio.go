@@ -13,8 +13,8 @@ type AudioAudioFull struct {
 	Duration    int                `json:"duration"`
 	Date        int                `json:"date"`
 	URL         string             `json:"url"`
-	IsHq        bool               `json:"is_hq"`
-	IsExplicit  bool               `json:"is_explicit"`
+	IsHq        BaseBoolInt        `json:"is_hq"`
+	IsExplicit  BaseBoolInt        `json:"is_explicit"`
 	LyricsID    int                `json:"lyrics_id"`
 	AlbumID     int                `json:"album_id"`
 	GenreID     int                `json:"genre_id"`
@@ -37,15 +37,15 @@ type AudioAudioArtist struct {
 
 // AudioAudio struct
 type AudioAudio struct {
-	AccessKey    string `json:"access_key"` // Access key for the audio
-	Artist       string `json:"artist"`     // Artist name
-	ID           int    `json:"id"`         // Audio ID
-	IsExplicit   bool   `json:"is_explicit"`
-	IsFocusTrack bool   `json:"is_focus_track"`
-	IsLicensed   bool   `json:"is_licensed"`
-	OwnerID      int    `json:"owner_id"` // Audio owner's ID
-	Title        string `json:"title"`    // Title
-	URL          string `json:"url"`      // URL of mp3 file
+	AccessKey    string      `json:"access_key"` // Access key for the audio
+	Artist       string      `json:"artist"`     // Artist name
+	ID           int         `json:"id"`         // Audio ID
+	IsExplicit   BaseBoolInt `json:"is_explicit"`
+	IsFocusTrack BaseBoolInt `json:"is_focus_track"`
+	IsLicensed   BaseBoolInt `json:"is_licensed"`
+	OwnerID      int         `json:"owner_id"` // Audio owner's ID
+	Title        string      `json:"title"`    // Title
+	URL          string      `json:"url"`      // URL of mp3 file
 }
 
 // ToAttachment return attachment format

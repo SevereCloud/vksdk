@@ -279,7 +279,7 @@ func (vk *VK) GroupsGetCatalog(params Params) (response GroupsGetCatalogResponse
 
 // GroupsGetCatalogInfoResponse struct
 type GroupsGetCatalogInfoResponse struct {
-	Enabled    int                          `json:"enabled"`
+	Enabled    object.BaseBoolInt           `json:"enabled"`
 	Categories []object.GroupsGroupCategory `json:"categories"`
 }
 
@@ -297,7 +297,7 @@ func (vk *VK) GroupsGetCatalogInfo(params Params) (response GroupsGetCatalogInfo
 
 // GroupsGetCatalogInfoExtendedResponse struct
 type GroupsGetCatalogInfoExtendedResponse struct {
-	Enabled    int                              `json:"enabled"`
+	Enabled    object.BaseBoolInt               `json:"enabled"`
 	Categories []object.GroupsGroupCategoryFull `json:"categories"`
 }
 
@@ -520,11 +520,11 @@ func (vk *VK) GroupsIsMember(params Params) (response int, err error) {
 
 // GroupsIsMemberExtendedResponse struct
 type GroupsIsMemberExtendedResponse struct {
-	Invitation int `json:"invitation"` // Information whether user has been invited to the group
-	Member     int `json:"member"`     // Information whether user is a member of the group
-	Request    int `json:"request"`    // Information whether user has send request to the group
-	CanInvite  int `json:"can_invite"` // Information whether user can be invite
-	CanRecall  int `json:"can_recall"` // Information whether user's invite to the group can be recalled
+	Invitation object.BaseBoolInt `json:"invitation"` // Information whether user has been invited to the group
+	Member     object.BaseBoolInt `json:"member"`     // Information whether user is a member of the group
+	Request    object.BaseBoolInt `json:"request"`    // Information whether user has send request to the group
+	CanInvite  object.BaseBoolInt `json:"can_invite"` // Information whether user can be invite
+	CanRecall  object.BaseBoolInt `json:"can_recall"` // Information whether user's invite to the group can be recalled
 }
 
 // GroupsIsMemberExtended returns information specifying whether a user is a member of a community.

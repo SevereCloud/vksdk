@@ -8,26 +8,26 @@ type AdsAccesses struct {
 
 // AdsAccount struct
 type AdsAccount struct {
-	AccessRole    string `json:"access_role"`
-	AccountID     int    `json:"account_id"`     // Account ID
-	AccountStatus int    `json:"account_status"` // Information whether account is active
-	AccountType   string `json:"account_type"`
+	AccessRole    string      `json:"access_role"`
+	AccountID     int         `json:"account_id"`     // Account ID
+	AccountStatus BaseBoolInt `json:"account_status"` // Information whether account is active
+	AccountType   string      `json:"account_type"`
 }
 
 // AdsAdLayout struct
 type AdsAdLayout struct {
-	AdFormat    int    `json:"ad_format"`   // Ad format
-	CampaignID  int    `json:"campaign_id"` // Campaign ID
-	CostType    int    `json:"cost_type"`
-	Description string `json:"description"`  // Ad description
-	ID          int    `json:"id"`           // Ad ID
-	ImageSrc    string `json:"image_src"`    // Image URL
-	ImageSrc2x  string `json:"image_src_2x"` // URL of the preview image in double size
-	LinkDomain  string `json:"link_domain"`  // Domain of advertised object
-	LinkURL     string `json:"link_url"`     // URL of advertised object
-	PreviewLink string `json:"preview_link"` // TODO: check it link to preview an ad as it is shown on the website
-	Title       string `json:"title"`        // Ad title
-	Video       int    `json:"video"`        // Information whether the ad is a video
+	AdFormat    int         `json:"ad_format"`   // Ad format
+	CampaignID  int         `json:"campaign_id"` // Campaign ID
+	CostType    int         `json:"cost_type"`
+	Description string      `json:"description"`  // Ad description
+	ID          int         `json:"id"`           // Ad ID
+	ImageSrc    string      `json:"image_src"`    // Image URL
+	ImageSrc2x  string      `json:"image_src_2x"` // URL of the preview image in double size
+	LinkDomain  string      `json:"link_domain"`  // Domain of advertised object
+	LinkURL     string      `json:"link_url"`     // URL of advertised object
+	PreviewLink string      `json:"preview_link"` // TODO: check it link to preview an ad as it is shown on the website
+	Title       string      `json:"title"`        // Ad title
+	Video       BaseBoolInt `json:"video"`        // Information whether the ad is a video
 }
 
 // AdsCampaign struct
@@ -59,36 +59,36 @@ type AdsClient struct {
 
 // AdsCriteria struct
 type AdsCriteria struct {
-	AgeFrom              int    `json:"age_from"`               // Age from
-	AgeTo                int    `json:"age_to"`                 // Age to
-	Apps                 string `json:"apps"`                   // Apps IDs
-	AppsNot              string `json:"apps_not"`               // Apps IDs to except
-	Birthday             int    `json:"birthday"`               // Days to birthday
-	Cities               string `json:"cities"`                 // Cities IDs
-	CitiesNot            string `json:"cities_not"`             // Cities IDs to except
-	Country              int    `json:"country"`                // Country ID
-	Districts            string `json:"districts"`              // Districts IDs
-	Groups               string `json:"groups"`                 // Communities IDs
-	InterestCategories   string `json:"interest_categories"`    // Interests categories IDs
-	Interests            string `json:"interests"`              // Interests
-	Paying               int    `json:"paying"`                 // Information whether the user has proceeded VK payments before
-	Positions            string `json:"positions"`              // Positions IDs
-	Religions            string `json:"religions"`              // Religions IDs
-	RetargetingGroups    string `json:"retargeting_groups"`     // Retargeting groups IDs
-	RetargetingGroupsNot string `json:"retargeting_groups_not"` // Retargeting groups IDs to except
-	SchoolFrom           int    `json:"school_from"`            // School graduation year from
-	SchoolTo             int    `json:"school_to"`              // School graduation year to
-	Schools              string `json:"schools"`                // Schools IDs
-	Sex                  int    `json:"sex"`
-	Stations             string `json:"stations"`      // Stations IDs
-	Statuses             string `json:"statuses"`      // Relationship statuses
-	Streets              string `json:"streets"`       // Streets IDs
-	Travellers           int    `json:"travellers"`    // Travellers only
-	UniFrom              int    `json:"uni_from"`      // University graduation year from
-	UniTo                int    `json:"uni_to"`        // University graduation year to
-	UserBrowsers         string `json:"user_browsers"` // Browsers
-	UserDevices          string `json:"user_devices"`  // Devices
-	UserOs               string `json:"user_os"`       // Operating systems
+	AgeFrom              int         `json:"age_from"`               // Age from
+	AgeTo                int         `json:"age_to"`                 // Age to
+	Apps                 string      `json:"apps"`                   // Apps IDs
+	AppsNot              string      `json:"apps_not"`               // Apps IDs to except
+	Birthday             int         `json:"birthday"`               // Days to birthday
+	Cities               string      `json:"cities"`                 // Cities IDs
+	CitiesNot            string      `json:"cities_not"`             // Cities IDs to except
+	Country              int         `json:"country"`                // Country ID
+	Districts            string      `json:"districts"`              // Districts IDs
+	Groups               string      `json:"groups"`                 // Communities IDs
+	InterestCategories   string      `json:"interest_categories"`    // Interests categories IDs
+	Interests            string      `json:"interests"`              // Interests
+	Paying               BaseBoolInt `json:"paying"`                 // Information whether the user has proceeded VK payments before
+	Positions            string      `json:"positions"`              // Positions IDs
+	Religions            string      `json:"religions"`              // Religions IDs
+	RetargetingGroups    string      `json:"retargeting_groups"`     // Retargeting groups IDs
+	RetargetingGroupsNot string      `json:"retargeting_groups_not"` // Retargeting groups IDs to except
+	SchoolFrom           int         `json:"school_from"`            // School graduation year from
+	SchoolTo             int         `json:"school_to"`              // School graduation year to
+	Schools              string      `json:"schools"`                // Schools IDs
+	Sex                  int         `json:"sex"`
+	Stations             string      `json:"stations"`      // Stations IDs
+	Statuses             string      `json:"statuses"`      // Relationship statuses
+	Streets              string      `json:"streets"`       // Streets IDs
+	Travellers           int         `json:"travellers"`    // Travellers only
+	UniFrom              int         `json:"uni_from"`      // University graduation year from
+	UniTo                int         `json:"uni_to"`        // University graduation year to
+	UserBrowsers         string      `json:"user_browsers"` // Browsers
+	UserDevices          string      `json:"user_devices"`  // Devices
+	UserOs               string      `json:"user_os"`       // Operating systems
 }
 
 // AdsDemoStats struct
@@ -259,15 +259,15 @@ type AdsAd struct {
 	CostType              int         `json:"cost_type"`
 	Cpc                   int         `json:"cpc"`                    // Cost of a click, kopecks
 	Cpm                   int         `json:"cpm"`                    // Cost of 1000 impressions, kopecks
-	DisclaimerMedical     int         `json:"disclaimer_medical"`     // Information whether disclaimer is enabled
-	DisclaimerSpecialist  int         `json:"disclaimer_specialist"`  // Information whether disclaimer is enabled
-	DisclaimerSupplements int         `json:"disclaimer_supplements"` // Information whether disclaimer is enabled
-	ID                    int         `json:"id"`                     // Ad ID
+	DisclaimerMedical     BaseBoolInt `json:"disclaimer_medical"`     // Information whether disclaimer is enabled
+	DisclaimerSpecialist  BaseBoolInt `json:"disclaimer_specialist"`  // Information whether disclaimer is enabled
+	DisclaimerSupplements BaseBoolInt `json:"disclaimer_supplements"` // Information whether disclaimer is enabled
+	Video                 BaseBoolInt `json:"video"`                  // Information whether the ad is a video
+	ImpressionsLimited    BaseBoolInt `json:"impressions_limited"`    // Information whether impressions are limited
 	ImpressionsLimit      int         `json:"impressions_limit"`      // Impressions limit
-	ImpressionsLimited    int         `json:"impressions_limited"`    // Information whether impressions are limited
+	ID                    int         `json:"id"`                     // Ad ID
 	Name                  string      `json:"name"`                   // Ad title
 	Status                int         `json:"status"`
-	Video                 int         `json:"video"` // Information whether the ad is a video
 }
 
 // AdsPromotedPostReach struct

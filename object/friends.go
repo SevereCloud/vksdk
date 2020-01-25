@@ -2,11 +2,11 @@ package object // import "github.com/SevereCloud/vksdk/object"
 
 // FriendsFriendStatus struct
 type FriendsFriendStatus struct {
-	FriendStatus   int    `json:"friend_status"`
-	ReadState      int    `json:"read_state"`      // Information whether request is unviewed
-	RequestMessage string `json:"request_message"` // Message sent with request
-	Sign           string `json:"sign"`            // MD5 hash for the result validation
-	UserID         int    `json:"user_id"`         // User ID
+	FriendStatus   int         `json:"friend_status"`
+	ReadState      BaseBoolInt `json:"read_state"`      // Information whether request is unviewed
+	RequestMessage string      `json:"request_message"` // Message sent with request
+	Sign           string      `json:"sign"`            // MD5 hash for the result validation
+	UserID         int         `json:"user_id"`         // User ID
 }
 
 // FriendsFriendsList struct

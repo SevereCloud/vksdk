@@ -153,8 +153,6 @@ type NewsfeedGetSuggestedSourcesResponse struct {
 
 // NewsfeedGetSuggestedSources returns communities and users that current user is suggested to follow.
 //
-// BUG: group.is_closed int | user.is_closed bool
-//
 // https://vk.com/dev/newsfeed.getSuggestedSources
 func (vk *VK) NewsfeedGetSuggestedSources(params Params) (response NewsfeedGetSuggestedSourcesResponse, err error) {
 	err = vk.RequestUnmarshal("newsfeed.getSuggestedSources", params, &response)

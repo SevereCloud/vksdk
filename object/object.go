@@ -5,7 +5,11 @@ See more https://vk.com/dev/objects
 */
 package object // import "github.com/SevereCloud/vksdk/object"
 
-import "encoding/json"
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+)
 
 // Attachment interface
 type Attachment interface {
@@ -15,6 +19,23 @@ type Attachment interface {
 // JSONObject interface
 type JSONObject interface {
 	ToJSON() string
+}
+
+type BaseBoolInt bool
+
+// UnmarshalJSON func
+func (b *BaseBoolInt) UnmarshalJSON(data []byte) (err error) {
+	switch {
+	case bytes.Equal(data, []byte("1")), bytes.Equal(data, []byte("true")):
+		*b = true
+	case bytes.Equal(data, []byte("0")), bytes.Equal(data, []byte("false")):
+		*b = false
+	default:
+		// return json error
+		err = fmt.Errorf("json: cannot unmarshal ? into Go value of type BaseBoolInt")
+	}
+
+	return
 }
 
 // BaseCountry struct
@@ -71,11 +92,11 @@ type LongpollBotResponse struct {
 
 // BaseCommentsInfo struct
 type BaseCommentsInfo struct {
-	CanPost       int  `json:"can_post"`
-	Count         int  `json:"count"`
-	GroupsCanPost bool `json:"groups_can_post"`
-	CanClose      bool `json:"can_close"`
-	CanOpen       bool `json:"can_open"`
+	Count         int         `json:"count"`
+	CanPost       BaseBoolInt `json:"can_post"`
+	GroupsCanPost BaseBoolInt `json:"groups_can_post"`
+	CanClose      BaseBoolInt `json:"can_close"`
+	CanOpen       BaseBoolInt `json:"can_open"`
 }
 
 // BaseGeo struct
@@ -96,17 +117,16 @@ type BaseImage struct {
 
 // BaseLikes struct
 type BaseLikes struct {
-	Count     int `json:"count"`
-	UserLikes int `json:"user_likes"`
+	UserLikes BaseBoolInt `json:"user_likes"` // Information whether current user likes
+	Count     int         `json:"count"`      // Likes number
 }
 
 // BaseLikesInfo struct
 type BaseLikesInfo struct {
-	CanLike int `json:"can_like"`
-	// BUG(VK): https://github.com/SevereCloud/vksdk/issues/55
-	// CanPublish int `json:"can_publish"`
-	Count     int `json:"count"`
-	UserLikes int `json:"user_likes"`
+	CanLike    BaseBoolInt `json:"can_like"`    // Information whether current user can like the post
+	CanPublish BaseBoolInt `json:"can_publish"` // Information whether current user can repost
+	UserLikes  BaseBoolInt `json:"user_likes"`  // Information whether current uer has liked the post
+	Count      int         `json:"count"`       // Likes number
 }
 
 // BaseLink struct
@@ -174,7 +194,7 @@ type BasePlace struct {
 	Longitude      float64            `json:"longitude"`
 	Title          string             `json:"title"`
 	Type           string             `json:"type"`
-	IsDeleted      bool               `json:"is_deleted"`
+	IsDeleted      BaseBoolInt        `json:"is_deleted"`
 	TotalCheckins  int                `json:"total_checkins"`
 	Updated        int                `json:"updated"`
 	CategoryObject BaseCategoryObject `json:"category_object"`
@@ -208,14 +228,14 @@ type BaseUserID struct {
 
 // EventsEventAttach struct
 type EventsEventAttach struct {
-	Address      string `json:"address,omitempty"`       // address of event
-	ButtonText   string `json:"button_text"`             // text of attach
-	Friends      []int  `json:"friends"`                 // array of friends ids
-	ID           int    `json:"id"`                      // event ID
-	IsFavorite   bool   `json:"is_favorite"`             // is favorite
-	MemberStatus int    `json:"member_status,omitempty"` // Current user's member status
-	Text         string `json:"text"`                    // text of attach
-	Time         int    `json:"time,omitempty"`          // event start time
+	Address      string      `json:"address,omitempty"`       // address of event
+	ButtonText   string      `json:"button_text"`             // text of attach
+	Friends      []int       `json:"friends"`                 // array of friends ids
+	ID           int         `json:"id"`                      // event ID
+	IsFavorite   BaseBoolInt `json:"is_favorite"`             // is favorite
+	MemberStatus int         `json:"member_status,omitempty"` // Current user's member status
+	Text         string      `json:"text"`                    // text of attach
+	Time         int         `json:"time,omitempty"`          // event start time
 }
 
 // OauthError struct
@@ -232,8 +252,8 @@ type Article struct {
 	OwnerName     string      `json:"owner_name"`
 	OwnerPhoto    string      `json:"owner_photo"`
 	State         string      `json:"state"`
-	CanReport     bool        `json:"can_report"`
-	IsFavorite    bool        `json:"is_favorite"`
+	CanReport     BaseBoolInt `json:"can_report"`
+	IsFavorite    BaseBoolInt `json:"is_favorite"`
 	Title         string      `json:"title"`
 	Subtitle      string      `json:"subtitle"`
 	Views         int         `json:"views"`
@@ -263,11 +283,11 @@ type ExtendedResponse struct {
 
 // ClientInfo struct
 type ClientInfo struct {
-	ButtonActions  []string `json:"button_actions"`
-	Keyboard       bool     `json:"keyboard"`
-	InlineKeyboard bool     `json:"inline_keyboard"`
-	Carousel       bool     `json:"carousel"`
-	LangID         int      `json:"lang_id"`
+	ButtonActions  []string    `json:"button_actions"`
+	Keyboard       BaseBoolInt `json:"keyboard"`
+	InlineKeyboard BaseBoolInt `json:"inline_keyboard"`
+	Carousel       BaseBoolInt `json:"carousel"`
+	LangID         int         `json:"lang_id"`
 }
 
 // Language code

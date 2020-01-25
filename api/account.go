@@ -118,7 +118,7 @@ func (vk *VK) AccountRegisterDevice(params Params) (response int, err error) {
 
 // AccountSaveProfileInfoResponse struct
 type AccountSaveProfileInfoResponse struct {
-	Changed     int                       `json:"changed"`
+	Changed     object.BaseBoolInt        `json:"changed"`
 	NameRequest object.AccountNameRequest `json:"name_request"`
 }
 

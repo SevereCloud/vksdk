@@ -10,23 +10,23 @@ type LeadsChecked struct {
 
 // LeadsComplete struct
 type LeadsComplete struct {
-	Cost     int `json:"cost"`  // Offer cost
-	Limit    int `json:"limit"` // Offer limit
-	Spent    int `json:"spent"` // Amount of spent votes
-	Success  int `json:"success"`
-	TestMode int `json:"test_mode"` // Information whether test mode is enabled
+	Cost     int         `json:"cost"`  // Offer cost
+	Limit    int         `json:"limit"` // Offer limit
+	Spent    int         `json:"spent"` // Amount of spent votes
+	Success  BaseBoolInt `json:"success"`
+	TestMode BaseBoolInt `json:"test_mode"` // Information whether test mode is enabled
 }
 
 // LeadsEntry struct
 type LeadsEntry struct {
-	Aid       int    `json:"aid"`        // Application ID
-	Comment   string `json:"comment"`    // Comment text
-	Date      int    `json:"date"`       // Date when the action has been started in Unixtime
-	Sid       string `json:"sid"`        // Session string ID
-	StartDate int    `json:"start_date"` // Start date in Unixtime (for status=2)
-	Status    int    `json:"status"`     // Action type
-	TestMode  int    `json:"test_mode"`  // Information whether test mode is enabled
-	UID       int    `json:"uid"`        // User ID
+	Aid       int         `json:"aid"`        // Application ID
+	Comment   string      `json:"comment"`    // Comment text
+	Date      int         `json:"date"`       // Date when the action has been started in Unixtime
+	Sid       string      `json:"sid"`        // Session string ID
+	StartDate int         `json:"start_date"` // Start date in Unixtime (for status=2)
+	Status    int         `json:"status"`     // Action type
+	TestMode  BaseBoolInt `json:"test_mode"`  // Information whether test mode is enabled
+	UID       int         `json:"uid"`        // User ID
 }
 
 // LeadsLead struct
@@ -50,6 +50,6 @@ type LeadsLeadDays struct {
 
 // LeadsStart struct
 type LeadsStart struct {
-	TestMode int    `json:"test_mode"` // Information whether test mode is enabled
-	VkSid    string `json:"vk_sid"`    // Session data
+	TestMode BaseBoolInt `json:"test_mode"` // Information whether test mode is enabled
+	VkSid    string      `json:"vk_sid"`    // Session data
 }

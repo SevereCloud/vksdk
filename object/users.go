@@ -9,9 +9,6 @@ type UsersUser struct {
 	ID                     int               `json:"id"`
 	FirstName              string            `json:"first_name"`
 	LastName               string            `json:"last_name"`
-	IsClosed               bool              `json:"is_closed"`
-	CanAccessClosed        bool              `json:"can_access_closed"`
-	CanBeInvitedGroup      bool              `json:"can_be_invited_group"`
 	Sex                    int               `json:"sex"`
 	Nickname               string            `json:"nickname"`
 	Domain                 string            `json:"domain"`
@@ -27,18 +24,27 @@ type UsersUser struct {
 	Photo400Orig           string            `json:"photo_400_orig"`
 	PhotoMaxOrig           string            `json:"photo_max_orig"`
 	PhotoID                string            `json:"photo_id"`
-	HasPhoto               int               `json:"has_photo"`
-	HasMobile              int               `json:"has_mobile"`
-	IsFriend               int               `json:"is_friend"`
 	FriendStatus           int               `json:"friend_status"`
-	Online                 int               `json:"online"`
 	OnlineApp              int               `json:"online_app"`
-	OnlineMobile           int               `json:"online_mobile"`
-	CanPost                int               `json:"can_post"`
-	CanSeeAllPosts         int               `json:"can_see_all_posts"`
-	CanSeeAudio            int               `json:"can_see_audio"`
-	CanWritePrivateMessage int               `json:"can_write_private_message"`
-	CanSendFriendRequest   int               `json:"can_send_friend_request"`
+	Online                 BaseBoolInt       `json:"online"`
+	OnlineMobile           BaseBoolInt       `json:"online_mobile"`
+	HasPhoto               BaseBoolInt       `json:"has_photo"`
+	HasMobile              BaseBoolInt       `json:"has_mobile"`
+	IsClosed               BaseBoolInt       `json:"is_closed"`
+	IsFriend               BaseBoolInt       `json:"is_friend"`
+	IsFavorite             BaseBoolInt       `json:"is_favorite"`
+	IsHiddenFromFeed       BaseBoolInt       `json:"is_hidden_from_feed"`
+	CanAccessClosed        BaseBoolInt       `json:"can_access_closed"`
+	CanBeInvitedGroup      BaseBoolInt       `json:"can_be_invited_group"`
+	CanPost                BaseBoolInt       `json:"can_post"`
+	CanSeeAllPosts         BaseBoolInt       `json:"can_see_all_posts"`
+	CanSeeAudio            BaseBoolInt       `json:"can_see_audio"`
+	CanWritePrivateMessage BaseBoolInt       `json:"can_write_private_message"`
+	CanSendFriendRequest   BaseBoolInt       `json:"can_send_friend_request"`
+	Verified               BaseBoolInt       `json:"verified"`
+	Trending               BaseBoolInt       `json:"trending"`
+	Blacklisted            BaseBoolInt       `json:"blacklisted"`
+	BlacklistedByMe        BaseBoolInt       `json:"blacklisted_by_me"`
 	Facebook               string            `json:"facebook"`
 	FacebookName           string            `json:"facebook_name"`
 	Twitter                string            `json:"twitter"`
@@ -48,12 +54,7 @@ type UsersUser struct {
 	StatusAudio            AudioAudioFull    `json:"status_audio"`
 	LastSeen               UsersLastSeen     `json:"last_seen"`
 	CropPhoto              UsersCropPhoto    `json:"crop_photo"`
-	Verified               int               `json:"verified"`
 	FollowersCount         int               `json:"followers_count"`
-	Blacklisted            int               `json:"blacklisted"`
-	BlacklistedByMe        int               `json:"blacklisted_by_me"`
-	IsFavorite             int               `json:"is_favorite"`
-	IsHiddenFromFeed       int               `json:"is_hidden_from_feed"`
 	CommonCount            int               `json:"common_count"`
 	Occupation             UsersOccupation   `json:"occupation"`
 	Career                 []UsersCareer     `json:"career"`
@@ -81,7 +82,6 @@ type UsersUser struct {
 	Lists                  []int             `json:"lists"`
 	Deactivated            string            `json:"deactivated"`
 	WallDefault            string            `json:"wall_default"`
-	Trending               int               `json:"trending"`
 	Timezone               int               `json:"timezone"`
 	MaidenName             string            `json:"maiden_name"`
 	Exports                UsersExports      `json:"exports"`
@@ -100,10 +100,10 @@ func (user UsersUser) ToMention() string {
 
 // UsersOnlineInfo struct
 type UsersOnlineInfo struct {
-	AppID    int  `json:"app_id"`
-	Visible  bool `json:"visible"`
-	IsOnline bool `json:"is_online"`
-	IsMobile bool `json:"is_mobile"`
+	AppID    int         `json:"app_id"`
+	Visible  BaseBoolInt `json:"visible"`
+	IsOnline BaseBoolInt `json:"is_online"`
+	IsMobile BaseBoolInt `json:"is_mobile"`
 }
 
 // UsersUserMin struct
