@@ -62,11 +62,11 @@ type GroupsGroup struct {
 	Type                 string               `json:"type"`
 	Market               GroupsMarketInfo     `json:"market"`
 	MemberStatus         int                  `json:"member_status"` // Current user's member status
+	IsClosed             int                  `json:"is_closed"`
 	City                 BaseObject           `json:"city"`
 	Country              BaseCountry          `json:"country"`
-	IsAdmin              BaseBoolInt          `json:"is_admin"`      // Information whether current user is administrator
-	IsAdvertiser         BaseBoolInt          `json:"is_advertiser"` // Information whether current user is advertiser
-	IsClosed             BaseBoolInt          `json:"is_closed"`
+	IsAdmin              BaseBoolInt          `json:"is_admin"`               // Information whether current user is administrator
+	IsAdvertiser         BaseBoolInt          `json:"is_advertiser"`          // Information whether current user is advertiser
 	IsMember             BaseBoolInt          `json:"is_member"`              // Information whether current user is member
 	IsFavorite           BaseBoolInt          `json:"is_favorite"`            // Information whether community is in faves
 	IsAdult              BaseBoolInt          `json:"adult"`                  // Information whether community is adult
@@ -281,8 +281,8 @@ type GroupsGroupXtrInvitedBy struct {
 	Photo50      string      `json:"photo_50"`    // URL of square photo of the community with 50 pixels in width
 	ScreenName   string      `json:"screen_name"` // Domain of the community page
 	Type         string      `json:"type"`
+	IsClosed     int         `json:"is_closed"`     // Information whether community is closed
 	IsAdmin      BaseBoolInt `json:"is_admin"`      // Information whether current user is manager
-	IsClosed     BaseBoolInt `json:"is_closed"`     // Information whether community is closed
 	IsMember     BaseBoolInt `json:"is_member"`     // Information whether current user is member
 	IsAdvertiser BaseBoolInt `json:"is_advertiser"` // Information whether current user is advertiser
 }

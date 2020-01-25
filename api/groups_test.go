@@ -425,6 +425,29 @@ func TestVK_GroupsGetByID(t *testing.T) {
 	}
 }
 
+func TestVK_GroupsGetByID_private(t *testing.T) {
+	needGroupToken(t)
+
+	res, err := vkGroup.GroupsGetByID(api.Params{
+		"group_ids": "184580855",
+		"fields":    "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_datef,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
+	})
+
+	noError(t, err)
+
+	if assert.NotEmpty(t, res[0]) {
+		group := res[0]
+		assert.NotEmpty(t, group.ID)
+		assert.NotEmpty(t, group.Name)
+		assert.NotEmpty(t, group.ScreenName)
+		assert.NotEmpty(t, group.IsClosed)
+		assert.NotEmpty(t, group.Type)
+		assert.NotEmpty(t, group.Photo50)
+		assert.NotEmpty(t, group.Photo100)
+		assert.NotEmpty(t, group.Photo200)
+	}
+}
+
 func TestVK_GroupsGetCatalog(t *testing.T) {
 	needUserToken(t)
 
