@@ -6,7 +6,7 @@ import (
 
 // NotesNote struct
 type NotesNote struct {
-	CanComment     int           `json:"can_comment"` // Information whether current user can comment the note
+	CanComment     BaseBoolInt   `json:"can_comment"` // Information whether current user can comment the note
 	Comments       int           `json:"comments"`    // Comments number
 	Date           int           `json:"date"`        // Date when the note has been created in Unixtime
 	ID             int           `json:"id"`          // Note ID

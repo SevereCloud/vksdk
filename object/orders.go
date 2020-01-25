@@ -29,17 +29,17 @@ type OrdersOrder struct {
 
 // OrdersSubscription struct
 type OrdersSubscription struct {
-	CancelReason    string `json:"cancel_reason"`     // Cancel reason
-	CreateTime      int    `json:"create_time"`       // Date of creation in Unixtime
-	ID              int    `json:"id"`                // Subscription ID
-	ItemID          string `json:"item_id"`           // Subscription order item
-	NextBillTime    int    `json:"next_bill_time"`    // Date of next bill in Unixtime
-	Period          int    `json:"period"`            // Subscription period
-	PeriodStartTime int    `json:"period_start_time"` // Date of last period start in Unixtime
-	Price           int    `json:"price"`             // Subscription price
-	Status          string `json:"status"`            // Subscription status
-	PendingCancel   bool   `json:"pending_cancel"`    // Pending cancel state
-	TestMode        bool   `json:"test_mode"`         // Is test subscription
-	TrialExpireTime int    `json:"trial_expire_time"` // Date of trial expire in Unixtime
-	UpdateTime      int    `json:"update_time"`       // Date of last change in Unixtime
+	CancelReason    string      `json:"cancel_reason"`     // Cancel reason
+	CreateTime      int         `json:"create_time"`       // Date of creation in Unixtime
+	ID              int         `json:"id"`                // Subscription ID
+	ItemID          string      `json:"item_id"`           // Subscription order item
+	NextBillTime    int         `json:"next_bill_time"`    // Date of next bill in Unixtime
+	Period          int         `json:"period"`            // Subscription period
+	PeriodStartTime int         `json:"period_start_time"` // Date of last period start in Unixtime
+	Price           int         `json:"price"`             // Subscription price
+	Status          string      `json:"status"`            // Subscription status
+	PendingCancel   BaseBoolInt `json:"pending_cancel"`    // Pending cancel state
+	TestMode        BaseBoolInt `json:"test_mode"`         // Is test subscription
+	TrialExpireTime int         `json:"trial_expire_time"` // Date of trial expire in Unixtime
+	UpdateTime      int         `json:"update_time"`       // Date of last change in Unixtime
 }

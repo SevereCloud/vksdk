@@ -37,8 +37,8 @@ func (vk *VK) NotificationsMarkAsViewed(params Params) (response int, err error)
 
 // NotificationsSendMessageResponse struct
 type NotificationsSendMessageResponse []struct {
-	UserID int  `json:"user_id"`
-	Status bool `json:"status"`
+	UserID int                `json:"user_id"`
+	Status object.BaseBoolInt `json:"status"`
 	Error  struct {
 		Code        int    `json:"code"`
 		Description string `json:"description"`

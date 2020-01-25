@@ -117,7 +117,7 @@ type NewsfeedItemWallpost struct {
 	Reposts     BaseRepostsInfo          `json:"reposts"`
 	MarkedAsAds int                      `json:"marked_as_ads,omitempty"`
 	Views       interface{}              `json:"views,omitempty"` // BUG: Views int or wallViews
-	IsFavorite  bool                     `json:"is_favorite,omitempty"`
+	IsFavorite  BaseBoolInt              `json:"is_favorite,omitempty"`
 	SignerID    int                      `json:"signer_id,omitempty"`
 	Text        string                   `json:"text"` // Post text
 }
@@ -150,9 +150,9 @@ type NewsfeedNewsfeedItem struct {
 	NewsfeedItemDigest
 	NewsfeedItemStoriesBlock
 
-	CanEdit   int `json:"can_edit,omitempty"`
-	CreatedBy int `json:"created_by,omitempty"`
-	CanDelete int `json:"can_delete,omitempty"`
+	CreatedBy int         `json:"created_by,omitempty"`
+	CanEdit   BaseBoolInt `json:"can_edit,omitempty"`
+	CanDelete BaseBoolInt `json:"can_delete,omitempty"`
 	// TODO: Need more fields
 }
 

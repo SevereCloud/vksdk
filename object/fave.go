@@ -23,14 +23,14 @@ type FaveFavesLink struct {
 	Caption     string      `json:"caption"`
 	Description string      `json:"description"`
 	Photo       PhotosPhoto `json:"photo"`
-	IsFavorite  bool        `json:"is_favorite"`
+	IsFavorite  BaseBoolInt `json:"is_favorite"`
 	ID          string      `json:"id"`
 }
 
 //FaveItem struct
 type FaveItem struct {
 	Type      string           `json:"type"`
-	Seen      bool             `json:"seen"`
+	Seen      BaseBoolInt      `json:"seen"`
 	AddedDate int              `json:"added_date"`
 	Tags      []FaveTag        `json:"tags"`
 	Link      FaveFavesLink    `json:"link,omitempty"`

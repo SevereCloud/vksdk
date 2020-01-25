@@ -149,7 +149,7 @@ func (vk *VK) PhotosGetAlbumsCount(params Params) (response int, err error) {
 type PhotosGetAllResponse struct {
 	Count int                               `json:"count"` // Total number
 	Items []object.PhotosPhotoXtrRealOffset `json:"items"`
-	More  int                               `json:"more"` // Information whether next page is presented
+	More  object.BaseBoolInt                `json:"more"` // Information whether next page is presented
 }
 
 // PhotosGetAll returns a list of photos belonging to a user or community, in reverse chronological order.
@@ -168,7 +168,7 @@ func (vk *VK) PhotosGetAll(params Params) (response PhotosGetAllResponse, err er
 type PhotosGetAllExtendedResponse struct {
 	Count int                                   `json:"count"` // Total number
 	Items []object.PhotosPhotoFullXtrRealOffset `json:"items"`
-	More  int                                   `json:"more"` // Information whether next page is presented
+	More  object.BaseBoolInt                    `json:"more"` // Information whether next page is presented
 }
 
 // PhotosGetAllExtended returns a list of photos belonging to a user or community, in reverse chronological order.

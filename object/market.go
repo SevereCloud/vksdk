@@ -44,11 +44,11 @@ type MarketMarketItem struct {
 	Price        MarketPrice          `json:"price"`
 	ThumbPhoto   string               `json:"thumb_photo"` // URL of the preview image
 	Title        string               `json:"title"`       // Item title
-	IsFavorite   bool                 `json:"is_favorite"`
+	CanComment   BaseBoolInt          `json:"can_comment"`
+	CanRepost    BaseBoolInt          `json:"can_repost"`
+	IsFavorite   BaseBoolInt          `json:"is_favorite"`
 	AlbumsIDs    []int                `json:"albums_ids"`
 	Photos       []PhotosPhoto        `json:"photos"`
-	CanComment   int                  `json:"can_comment"`
-	CanRepost    int                  `json:"can_repost"`
 	Likes        BaseLikesInfo        `json:"likes"`
 	Reposts      BaseRepostsInfo      `json:"reposts"`
 	ViewsCount   int                  `json:"views_count"`

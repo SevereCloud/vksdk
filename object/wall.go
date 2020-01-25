@@ -67,16 +67,16 @@ type WallViews struct {
 type WallWallCommentThread struct {
 	Count           int               `json:"count"` // Comments number
 	Items           []WallWallComment `json:"items"`
-	CanPost         bool              `json:"can_post"`        // Information whether current user can comment the post
-	GroupsCanPost   bool              `json:"groups_can_post"` // Information whether groups can comment the post
-	ShowReplyButton bool              `json:"show_reply_button"`
+	CanPost         BaseBoolInt       `json:"can_post"`        // Information whether current user can comment the post
+	GroupsCanPost   BaseBoolInt       `json:"groups_can_post"` // Information whether groups can comment the post
+	ShowReplyButton BaseBoolInt       `json:"show_reply_button"`
 }
 
 // WallWallComment struct
 type WallWallComment struct {
 	Attachments    []WallCommentAttachment `json:"attachments"`
 	Date           int                     `json:"date"` // Date when the comment has been added in Unixtime
-	Deleted        bool                    `json:"deleted"`
+	Deleted        BaseBoolInt             `json:"deleted"`
 	FromID         int                     `json:"from_id"` // Author ID
 	ID             int                     `json:"id"`      // Comment ID
 	Likes          BaseLikesInfo           `json:"likes"`
@@ -119,20 +119,20 @@ type WallWallpost struct {
 	Geo          BaseGeo                  `json:"geo"`
 	SignerID     int                      `json:"signer_id"` // Post signer ID
 	CopyHistory  []WallWallpost           `json:"copy_history"`
-	CanPin       int                      `json:"can_pin"`
-	CanDelete    int                      `json:"can_delete"`
-	CanEdit      int                      `json:"can_edit"`
-	IsPinned     int                      `json:"is_pinned"`
-	MarkedAsAds  int                      `json:"marked_as_ads"`
-	Edited       int                      `json:"edited"`      // Date of editing in Unixtime
-	IsFavorite   bool                     `json:"is_favorite"` // Information whether the post in favorites list
-	IsArchived   bool                     `json:"is_archived"` // Is post archived, only for post owners
+	CanPin       BaseBoolInt              `json:"can_pin"`
+	CanDelete    BaseBoolInt              `json:"can_delete"`
+	CanEdit      BaseBoolInt              `json:"can_edit"`
+	IsPinned     BaseBoolInt              `json:"is_pinned"`
+	IsFavorite   BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
+	IsArchived   BaseBoolInt              `json:"is_archived"` // Is post archived, only for post owners
+	MarkedAsAds  BaseBoolInt              `json:"marked_as_ads"`
+	Edited       int                      `json:"edited"` // Date of editing in Unixtime
 }
 
 // WallWallpostAttached struct
 type WallWallpostAttached struct {
 	Attachments []WallWallpostAttachment `json:"attachments"`
-	CanDelete   int                      `json:"can_delete"`
+	CanDelete   BaseBoolInt              `json:"can_delete"`
 	Comments    BaseCommentsInfo         `json:"comments"`
 	CopyOwnerID int                      `json:"copy_owner_id"`
 	CopyPostID  int                      `json:"copy_post_id"`
@@ -190,5 +190,5 @@ type WallWallpostToID struct {
 	SignerID    int                      `json:"signer_id"`   // Post signer ID
 	Text        string                   `json:"text"`        // Post text
 	ToID        int                      `json:"to_id"`       // Wall owner's ID
-	IsFavorite  bool                     `json:"is_favorite"` // Information whether the post in favorites list
+	IsFavorite  BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
 }

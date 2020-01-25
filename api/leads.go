@@ -50,8 +50,8 @@ func (vk *VK) LeadsGetUsers(params Params) (response LeadsGetUsersResponse, err 
 
 // LeadsMetricHitResponse struct
 type LeadsMetricHitResponse struct {
-	Result       bool   `json:"result"`        // Information whether request has been processed successfully
-	RedirectLink string `json:"redirect_link"` // Redirect link
+	Result       object.BaseBoolInt `json:"result"`        // Information whether request has been processed successfully
+	RedirectLink string             `json:"redirect_link"` // Redirect link
 }
 
 // LeadsMetricHit Counts the metric event.

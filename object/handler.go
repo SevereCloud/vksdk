@@ -260,8 +260,8 @@ type GroupLeaveFunc func(GroupLeaveObject, int)
 
 // GroupLeaveObject struct
 type GroupLeaveObject struct {
-	UserID int `json:"user_id"`
-	Self   int `json:"self"`
+	UserID int         `json:"user_id"`
+	Self   BaseBoolInt `json:"self"`
 }
 
 // GroupJoinFunc func

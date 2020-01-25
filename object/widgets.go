@@ -10,10 +10,10 @@ type WidgetsCommentMedia struct {
 
 // WidgetsCommentReplies struct
 type WidgetsCommentReplies struct {
-	CanPost       int                         `json:"can_post"` // Information whether current user can comment the post
-	Count         int                         `json:"count"`    // Comments number
+	CanPost       BaseBoolInt                 `json:"can_post"` // Information whether current user can comment the post
+	GroupsCanPost BaseBoolInt                 `json:"groups_can_post"`
+	Count         int                         `json:"count"` // Comments number
 	Replies       []WidgetsCommentRepliesItem `json:"replies"`
-	GroupsCanPost bool                        `json:"groups_can_post"`
 }
 
 // WidgetsCommentRepliesItem struct
@@ -29,7 +29,8 @@ type WidgetsCommentRepliesItem struct {
 // WidgetsWidgetComment struct
 type WidgetsWidgetComment struct {
 	Attachments []WallCommentAttachment `json:"attachments"`
-	CanDelete   int                     `json:"can_delete"` // Information whether current user can delete the comment
+	CanDelete   BaseBoolInt             `json:"can_delete"` // Information whether current user can delete the comment
+	IsFavorite  BaseBoolInt             `json:"is_favorite"`
 	Comments    WidgetsCommentReplies   `json:"comments"`
 	Date        int                     `json:"date"`    // Date when the comment has been added in Unixtime
 	FromID      int                     `json:"from_id"` // Comment author ID
@@ -44,7 +45,6 @@ type WidgetsWidgetComment struct {
 	Views       struct {
 		Count int `json:"count"`
 	} `json:"views"`
-	IsFavorite bool `json:"is_favorite"`
 }
 
 // WidgetsWidgetLikes struct

@@ -24,9 +24,9 @@ type PodcastsEpisode struct {
 	LyricsID     int                 `json:"lyrics_id"`
 	NoSearch     int                 `json:"no_search"`
 	TrackCode    string              `json:"track_code"`
-	IsHq         bool                `json:"is_hq"`
-	IsFocusTrack bool                `json:"is_focus_track"`
-	IsExplicit   bool                `json:"is_explicit"`
+	IsHq         BaseBoolInt         `json:"is_hq"`
+	IsFocusTrack BaseBoolInt         `json:"is_focus_track"`
+	IsExplicit   BaseBoolInt         `json:"is_explicit"`
 	PodcastInfo  PodcastsPodcastInfo `json:"podcast_info"`
 }
 
@@ -35,8 +35,8 @@ type PodcastsPodcastInfo struct {
 	Cover struct {
 		Sizes []BaseImage `json:"cover"`
 	}
-	Plays       int    `json:"plays"`
-	IsFavorite  bool   `json:"is_favorite"`
-	Description string `json:"description"`
-	Position    int    `json:"position"`
+	Plays       int         `json:"plays"`
+	IsFavorite  BaseBoolInt `json:"is_favorite"`
+	Description string      `json:"description"`
+	Position    int         `json:"position"`
 }

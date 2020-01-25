@@ -77,19 +77,19 @@ type AccountAccountCounters struct {
 
 // AccountInfo struct
 type AccountInfo struct {
-	Country           string `json:"country"`           // Country code
-	HTTPSRequired     int    `json:"https_required"`    // Information whether HTTPS-only is enabled
-	Intro             int    `json:"intro"`             // Information whether user has been processed intro
-	Lang              int    `json:"lang"`              // Language ID
-	NoWallReplies     int    `json:"no_wall_replies"`   // Information whether wall comments should be hidden
-	OwnPostsDefault   int    `json:"own_posts_default"` // Information whether only owners posts should be shown
-	TwoFactorRequired int    `json:"2fa_required"`      // Two factor authentication is enabled
+	Country           string      `json:"country"`           // Country code
+	Lang              int         `json:"lang"`              // Language ID
+	HTTPSRequired     BaseBoolInt `json:"https_required"`    // Information whether HTTPS-only is enabled
+	Intro             BaseBoolInt `json:"intro"`             // Information whether user has been processed intro
+	NoWallReplies     BaseBoolInt `json:"no_wall_replies"`   // Information whether wall comments should be hidden
+	OwnPostsDefault   BaseBoolInt `json:"own_posts_default"` // Information whether only owners posts should be shown
+	TwoFactorRequired BaseBoolInt `json:"2fa_required"`      // Two factor authentication is enabled
 }
 
 // AccountPushSettings struct
 type AccountPushSettings struct {
 	Conversations AccountPushConversations `json:"conversations"`
-	Disabled      int                      `json:"disabled"`       // Information whether notifications are disabled
+	Disabled      BaseBoolInt              `json:"disabled"`       // Information whether notifications are disabled
 	DisabledUntil int                      `json:"disabled_until"` // Time until that notifications are disabled in Unixtime
 	Settings      AccountPushParams        `json:"settings"`
 }
@@ -108,7 +108,7 @@ type AccountUserSettings struct {
 	Phone            string             `json:"phone"`    // User phone number with some hidden digits
 	Relation         int                `json:"relation"` // User relationship status
 	RelationPartner  UsersUserMin       `json:"relation_partner"`
-	RelationPending  int                `json:"relation_pending"` // Information whether relation status is pending
+	RelationPending  BaseBoolInt        `json:"relation_pending"` // Information whether relation status is pending
 	RelationRequests []UsersUserMin     `json:"relation_requests"`
 	ScreenName       string             `json:"screen_name"` // Domain name of the user's page
 	Sex              int                `json:"sex"`         // User sex

@@ -144,9 +144,9 @@ func (vk *VK) WallGetByIDExtended(params Params) (response WallGetByIDExtendedRe
 // WallGetCommentResponse struct
 type WallGetCommentResponse struct {
 	Items             []object.WallWallComment `json:"items"`
-	CanPost           bool                     `json:"can_post"`
-	ShowReplyButton   bool                     `json:"show_reply_button"`
-	GroupsCanPost     bool                     `json:"groups_can_post"`
+	CanPost           object.BaseBoolInt       `json:"can_post"`
+	ShowReplyButton   object.BaseBoolInt       `json:"show_reply_button"`
+	GroupsCanPost     object.BaseBoolInt       `json:"groups_can_post"`
 	CurrentLevelCount int                      `json:"current_level_count"`
 }
 
@@ -166,9 +166,9 @@ func (vk *VK) WallGetComment(params Params) (response WallGetCommentResponse, er
 type WallGetCommentExtendedResponse struct {
 	Count             int                      `json:"count"`
 	Items             []object.WallWallComment `json:"items"`
-	CanPost           bool                     `json:"can_post"`
-	ShowReplyButton   bool                     `json:"show_reply_button"`
-	GroupsCanPost     bool                     `json:"groups_can_post"`
+	CanPost           object.BaseBoolInt       `json:"can_post"`
+	ShowReplyButton   object.BaseBoolInt       `json:"show_reply_button"`
+	GroupsCanPost     object.BaseBoolInt       `json:"groups_can_post"`
 	CurrentLevelCount int                      `json:"current_level_count"`
 	Profiles          []object.UsersUser       `json:"profiles"`
 	Groups            []object.GroupsGroup     `json:"groups"`
@@ -188,9 +188,9 @@ func (vk *VK) WallGetCommentExtended(params Params) (response WallGetCommentExte
 
 // WallGetCommentsResponse struct
 type WallGetCommentsResponse struct {
-	CanPost           bool                     `json:"can_post"`
-	ShowReplyButton   bool                     `json:"show_reply_button"`
-	GroupsCanPost     bool                     `json:"groups_can_post"`
+	CanPost           object.BaseBoolInt       `json:"can_post"`
+	ShowReplyButton   object.BaseBoolInt       `json:"show_reply_button"`
+	GroupsCanPost     object.BaseBoolInt       `json:"groups_can_post"`
 	CurrentLevelCount int                      `json:"current_level_count"`
 	Count             int                      `json:"count"`
 	Items             []object.WallWallComment `json:"items"`
@@ -210,9 +210,9 @@ func (vk *VK) WallGetComments(params Params) (response WallGetCommentsResponse, 
 
 // WallGetCommentsExtendedResponse struct
 type WallGetCommentsExtendedResponse struct {
-	CanPost           bool                     `json:"can_post"`
-	ShowReplyButton   bool                     `json:"show_reply_button"`
-	GroupsCanPost     bool                     `json:"groups_can_post"`
+	CanPost           object.BaseBoolInt       `json:"can_post"`
+	ShowReplyButton   object.BaseBoolInt       `json:"show_reply_button"`
+	GroupsCanPost     object.BaseBoolInt       `json:"groups_can_post"`
 	CurrentLevelCount int                      `json:"current_level_count"`
 	Count             int                      `json:"count"`
 	Items             []object.WallWallComment `json:"items"`

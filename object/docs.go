@@ -10,7 +10,7 @@ type DocsDoc struct {
 	Date       int            `json:"date"`       // Date when file has been uploaded in Unixtime
 	Ext        string         `json:"ext"`        // File extension
 	ID         int            `json:"id"`         // Document ID
-	IsLicensed int            `json:"is_licensed"`
+	IsLicensed BaseBoolInt    `json:"is_licensed"`
 	OwnerID    int            `json:"owner_id"` // Document owner ID
 	Preview    DocsDocPreview `json:"preview"`
 	Size       int            `json:"size"`  // File size in bites
