@@ -31,6 +31,9 @@
   - ~~Возвращает готовые структуры~~ [#44](https://github.com/SevereCloud/vksdk/issues/44)
   - Возможность изменять HTTP клиент
 - ~~Streaming api~~ [#3](https://github.com/SevereCloud/vksdk/issues/3)
+- [FOAF](https://github.com/SevereCloud/vksdk/tree/master/foaf#foaf)
+  - Работает с пользователями и группами
+  - Возвращает готовые структуры
 - [VK Mini Apps](https://github.com/SevereCloud/vksdk/tree/master/vkapps#vk-mini-apps)
   - Проверка параметров запуска
   - Промежуточный http обработчик
