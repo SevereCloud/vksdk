@@ -107,6 +107,20 @@ type BaseGeo struct {
 	Type        string    `json:"type"`
 }
 
+// BaseMessageGeo struct
+type BaseMessageGeo struct {
+	Coordinates BaseGeoCoordinates `json:"coordinates"`
+	Place       BasePlace          `json:"place"`
+	Showmap     int                `json:"showmap"`
+	Type        string             `json:"type"`
+}
+
+// BaseGeoCoordinates struct
+type BaseGeoCoordinates struct {
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
+}
+
 // BaseImage struct
 type BaseImage struct {
 	Height float64 `json:"height"`

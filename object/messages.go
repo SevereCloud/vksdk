@@ -46,7 +46,7 @@ type MessagesMessage struct {
 	FromID                int                         `json:"from_id"`                 // Message author's ID
 	FwdMessages           []MessagesMessage           `json:"fwd_Messages"`            // Forwarded messages
 	ReplyMessage          *MessagesMessage            `json:"reply_message"`
-	Geo                   BaseGeo                     `json:"geo"`
+	Geo                   BaseMessageGeo              `json:"geo"`
 	ID                    int                         `json:"id"`        // Message ID
 	Deleted               BaseBoolInt                 `json:"deleted"`   // Is it an deleted message
 	Important             BaseBoolInt                 `json:"important"` // Is it an important message
@@ -440,7 +440,7 @@ type MessagesPinnedMessage struct {
 	Date                  int                         `json:"date"`                    // Date when the message has been sent in Unixtime
 	FromID                int                         `json:"from_id"`                 // Message author's ID
 	FwdMessages           []*MessagesMessage          `json:"fwd_Messages"`
-	Geo                   BaseGeo                     `json:"geo"`
+	Geo                   BaseMessageGeo              `json:"geo"`
 	ID                    int                         `json:"id"`      // Message ID
 	PeerID                int                         `json:"peer_id"` // Peer ID
 	ReplyMessage          *MessagesMessage            `json:"reply_message"`
