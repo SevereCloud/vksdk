@@ -1,6 +1,6 @@
 # VK Mini Apps
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/tools/vkapps)
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/vkapps)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/vk_apps_docs)
 
 
