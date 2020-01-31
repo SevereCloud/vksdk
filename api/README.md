@@ -1,6 +1,6 @@
 # API
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api)
+[![Documentation](https://godoc.org/github.com/SevereCloud/vksdk/api?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/api)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/first_guide)
 
 
@@ -37,7 +37,7 @@ if err != nil {
 
 ### Параметры
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/api/params?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api/params)
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/api/params?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/api/params)
 
 Модуль params предназначен для генерации запросов.
 
@@ -55,7 +55,7 @@ res, err = api.MessageSend(b.Params)
 
 #### Обработка ошибок
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/api/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api/errors)
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/api/errors?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/api/errors)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/errors)
 
 Пример обработки ошибки
@@ -75,7 +75,7 @@ default:
 }
 ```
 
-Получение ошибки, [отправленной ВК](http://godoc.org/github.com/SevereCloud/vksdk/object#Error)
+Получение ошибки, [отправленной ВК](https://pkg.go.dev/github.com/SevereCloud/vksdk/object#Error)
 
 ```go
 // import "github.com/SevereCloud/vksdk/api/errors"
@@ -105,7 +105,7 @@ if err != nil {
 
 #### Execute
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/api#VK.Execute)
+[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/api#VK.Execute)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/execute)
 
 Универсальный метод, который позволяет запускать последовательность других 

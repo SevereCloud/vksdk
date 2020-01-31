@@ -1,6 +1,6 @@
 # Callback API
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/callback)
+[![Documentation](https://godoc.org/github.com/SevereCloud/vksdk/callback?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/callback)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/callback_api)
 
 ## Подключение Callback API

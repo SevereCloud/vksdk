@@ -1,6 +1,6 @@
 # Bots Long Poll API
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/longpoll-bot)
+[![Documentation](https://godoc.org/github.com/SevereCloud/vksdk/longpoll-bot?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-bot)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/bots_longpoll)
 
 ## Подключение Bots Long Poll API

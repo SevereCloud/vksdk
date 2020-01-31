@@ -1,8 +1,7 @@
 # VK Mini Apps
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/errors?status.svg)](http://godoc.org/github.com/SevereCloud/vksdk/vkapps)
+[![Documentation](https://godoc.org/github.com/SevereCloud/vksdk/vkapps?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/vkapps)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/vk_apps_docs)
-
 
 [VK Mini Apps](https://vk.com/dev/vk_apps_docs) — это платформа встраиваемых кроссплатформенных приложений ВКонтакте. В данном модуле собраны инструменты для Backend части приложения.
 
