@@ -233,7 +233,8 @@ func TestVK_GroupsCreate(t *testing.T) {
 	})
 	noError(t, err)
 	assert.NotEmpty(t, group.ID)
-	assert.NotEmpty(t, group.Name)
+	// assert.NotEmpty(t, group.Name)
+	// BUG (VK): https://vk.com/bug201823
 	assert.NotEmpty(t, group.AdminLevel)
 	assert.NotEmpty(t, group.IsAdmin)
 	assert.NotEmpty(t, group.IsMember)
