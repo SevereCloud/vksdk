@@ -193,7 +193,7 @@ type MessagesKeyboardButtonAction struct {
 	OwnerID int    `json:"owner_id,omitempty"` // Fragment value in app link like vk.com/app123456_{owner_id}#hash
 	Payload string `json:"payload,omitempty"`  // Additional data sent along with message for developer convenience
 	Type    string `json:"type"`               // Button type
-	Link    string `json:"link"`               // Link URL
+	Link    string `json:"link,omitempty"`     // Link URL
 }
 
 // MessagesTemplate struct
