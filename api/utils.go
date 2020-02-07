@@ -46,6 +46,8 @@ type UtilsGetLinkStatsResponse object.UtilsLinkStats
 //
 // extended=0
 //
+// BUG(VK): https://vk.com/bug202983
+//
 // https://vk.com/dev/utils.getLinkStats
 func (vk *VK) UtilsGetLinkStats(params Params) (response UtilsGetLinkStatsResponse, err error) {
 	params["extended"] = false

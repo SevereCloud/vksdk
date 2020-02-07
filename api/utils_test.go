@@ -42,6 +42,7 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 }
 
 func TestVK_UtilsGetLinkStats(t *testing.T) {
+	// BUG(VK): https://vk.com/bug202983
 	needGroupToken(t)
 
 	params := api.Params{
@@ -53,12 +54,12 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 	res, err := vkGroup.UtilsGetLinkStats(params)
 	noError(t, err)
 	assert.NotEmpty(t, res.Key)
-	assert.NotEmpty(t, res.Stats)
+	// assert.NotEmpty(t, res.Stats)
 
 	resEx, err := vkGroup.UtilsGetLinkStatsExtended(params)
 	noError(t, err)
 	assert.NotEmpty(t, resEx.Key)
-	assert.NotEmpty(t, resEx.Stats)
+	// assert.NotEmpty(t, resEx.Stats)
 }
 
 func TestVK_UtilsGetServerTime(t *testing.T) {
