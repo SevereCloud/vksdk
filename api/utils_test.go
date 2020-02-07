@@ -58,8 +58,8 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 
 	resEx, err := vkGroup.UtilsGetLinkStatsExtended(params)
 	noError(t, err)
-	assert.NotEmpty(t, resEx.Key)
 	// assert.NotEmpty(t, resEx.Stats)
+	assert.NotEmpty(t, resEx.Key)
 }
 
 func TestVK_UtilsGetServerTime(t *testing.T) {

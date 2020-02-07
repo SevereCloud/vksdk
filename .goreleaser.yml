@@ -1,0 +1,17 @@
+---
+project_name: vksdk
+
+release:
+  github:
+    owner: SevereCloud
+    name: vksdk
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+    - '^style:'
+    - Merge pull request
+    - Merge branch
