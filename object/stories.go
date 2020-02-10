@@ -119,6 +119,9 @@ type StoriesClickableSticker struct {
 
 	// type=owner
 	// OwnerID int `json:"owner_id"`
+
+	// type=poll
+	Poll PollsPoll `json:"poll"`
 }
 
 // StoriesClickablePoint struct
