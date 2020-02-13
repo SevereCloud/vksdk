@@ -21,6 +21,7 @@ type StoriesStoryStats struct {
 	Shares      StoriesStoryStatsStat `json:"shares"`
 	Subscribers StoriesStoryStatsStat `json:"subscribers"`
 	Views       StoriesStoryStatsStat `json:"views"`
+	Likes       StoriesStoryStatsStat `json:"likes"`
 }
 
 // StoriesStoryStatsStat struct
@@ -61,6 +62,8 @@ type StoriesStory struct {
 	Video                VideoVideo               `json:"video"`
 	Views                int                      `json:"views"` // Views number.
 	ClickableStickers    StoriesClickableStickers `json:"clickable_stickers"`
+	TrackCode            string                   `json:"track_code"`
+	LikesCount           int                      `json:"likes_count"`
 }
 
 // StoriesClickableStickers struct
