@@ -35,7 +35,7 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 	assert.NotEmpty(t, res.Latitude)
 	assert.NotEmpty(t, res.Longitude)
 	assert.NotEmpty(t, res.WorkInfoStatus)
-	assert.NotEmpty(t, res.TimeOffset)
+	// assert.NotEmpty(t, res.TimeOffset)
 	assert.NotEmpty(t, res.Phone)
 	// if assert.NotEmpty(t, res.Timetable) {
 	// 	assert.NotEmpty(t, res.Timetable.Sat.OpenTime)
@@ -69,7 +69,7 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 	assert.NotEmpty(t, res2.Latitude)
 	assert.NotEmpty(t, res2.Longitude)
 	assert.NotEmpty(t, res2.WorkInfoStatus)
-	assert.NotEmpty(t, res2.TimeOffset)
+	// assert.NotEmpty(t, res2.TimeOffset)
 	assert.NotEmpty(t, res2.Phone)
 	// if assert.NotEmpty(t, res2.Timetable) {
 	// 	assert.NotEmpty(t, res2.Timetable.Sat.OpenTime)
@@ -333,7 +333,7 @@ func TestVK_GroupsGetAddresses(t *testing.T) {
 		assert.NotEmpty(t, address.Latitude)
 		assert.NotEmpty(t, address.Longitude)
 		assert.NotEmpty(t, address.WorkInfoStatus)
-		assert.NotEmpty(t, address.TimeOffset)
+		// assert.NotEmpty(t, address.TimeOffset)
 		assert.NotEmpty(t, address.Phone)
 
 		if assert.NotEmpty(t, address.Timetable) {
