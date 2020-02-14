@@ -148,16 +148,23 @@ func TestVK_RequestLimit(t *testing.T) {
 func TestVK_Execute(t *testing.T) {
 	needGroupToken(t)
 
-	t.Run("Execute test", func(t *testing.T) {
-		var response int
-		err := vkGroup.Execute(`return 1;`, &response)
-		if err != nil {
-			t.Errorf("VK.Execute() err = %v, want 0", err)
-		}
-		if response != 1 {
-			t.Error("Execute response error")
-		}
-	})
+	var response int
+
+	err := vkGroup.Execute(`return 1;`, &response)
+	assert.NoError(t, err)
+	assert.Equal(t, 1, response)
+}
+
+func TestVK_Execute_object(t *testing.T) {
+	needGroupToken(t)
+
+	var response struct {
+		Text string `json:"text"`
+	}
+
+	err := vkGroup.Execute(`return {text: "hello"};`, &response)
+	assert.NoError(t, err)
+	assert.Equal(t, "hello", response.Text)
 }
 
 func TestVK_RequestUnmarshal(t *testing.T) {
