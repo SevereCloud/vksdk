@@ -281,12 +281,19 @@ type Article struct {
 
 // Error struct
 type Error struct {
-	Code          int                `json:"error_code"`
-	Message       string             `json:"error_msg"`
-	Text          string             `json:"error_text"`
-	CaptchaSID    string             `json:"captcha_sid"`
-	CaptchaImg    string             `json:"captcha_img"`
-	RequestParams []BaseRequestParam `json:"request_params"`
+	Code             int                `json:"error_code"`
+	Message          string             `json:"error_msg"`
+	Text             string             `json:"error_text"`
+	CaptchaSID       string             `json:"captcha_sid"`
+	CaptchaImg       string             `json:"captcha_img"`
+	ConfirmationText string             `json:"confirmation_text"`
+	RequestParams    []BaseRequestParam `json:"request_params"`
+}
+
+type ExecuteError struct {
+	Method    string `json:"method"`
+	ErrorCode int    `json:"error_code"`
+	ErrorMsg  string `json:"error_msg"`
 }
 
 // ExtendedResponse struct

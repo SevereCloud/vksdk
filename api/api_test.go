@@ -145,13 +145,13 @@ func TestVK_RequestLimit(t *testing.T) {
 	})
 }
 
-func TestVK_Execute(t *testing.T) {
+func TestVK_Execute_error(t *testing.T) {
 	needGroupToken(t)
 
 	var response int
 
-	err := vkGroup.Execute(`return 1;`, &response)
-	assert.NoError(t, err)
+	err := vkGroup.Execute(`API.users.get({user_id:-1});return 1;`, &response)
+	assert.Error(t, err)
 	assert.Equal(t, 1, response)
 }
 

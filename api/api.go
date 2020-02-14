@@ -83,6 +83,7 @@ type VK struct {
 	Version     string
 	Client      *http.Client
 	Limit       int
+	Handler     func(method string, params Params) (Response, error)
 
 	mux      sync.Mutex
 	lastTime time.Time
@@ -90,6 +91,8 @@ type VK struct {
 }
 
 // Error struct VK
+//
+// Deprecated: use object.Error
 type Error struct {
 	Code             int                       `json:"error_code"`
 	Message          string                    `json:"error_msg"`
@@ -98,6 +101,13 @@ type Error struct {
 	CaptchaImg       string                    `json:"captcha_img"`
 	ConfirmationText string                    `json:"confirmation_text"` //  text of the message to be shown in the default confirmation window.
 	RequestParams    []object.BaseRequestParam `json:"request_params"`
+}
+
+// Response struct
+type Response struct {
+	Response      json.RawMessage       `json:"response"`
+	Error         object.Error          `json:"error"`
+	ExecuteErrors []object.ExecuteError `json:"execute_errors"`
 }
 
 // Init VK API
@@ -114,9 +124,12 @@ type Error struct {
 // This set limit 20 requests per second.
 func Init(token string) *VK {
 	var vk VK
-	vk.MethodURL = APIMethodURL
 	vk.AccessToken = token
 	vk.Version = Version
+
+	vk.Handler = vk.defaultHandler
+
+	vk.MethodURL = APIMethodURL
 	vk.Client = http.DefaultClient
 	vk.Limit = LimitGroupToken
 
@@ -126,23 +139,17 @@ func Init(token string) *VK {
 // Params type
 type Params map[string]interface{}
 
-// Request provides access to VK API methods
-func (vk *VK) Request(method string, params Params) ([]byte, error) {
-	var handler struct {
-		Response json.RawMessage
-		Error    object.Error `json:"error"`
-	}
-
+// defaultHandler provides access to VK API methods
+func (vk *VK) defaultHandler(method string, params Params) (response Response, err error) {
 	u := vk.MethodURL + method
-
 	query := url.Values{}
 
 	for key, value := range params {
 		query.Set(key, FmtValue(value, 0))
 	}
 
-	query.Set("access_token", vk.AccessToken)
-	query.Set("v", vk.Version)
+	// query.Set("access_token", vk.AccessToken)
+	// query.Set("v", vk.Version)
 
 	rawBody := bytes.NewBufferString(query.Encode())
 
@@ -168,7 +175,7 @@ func (vk *VK) Request(method string, params Params) ([]byte, error) {
 
 	resp, err := vk.Client.Post(u, "application/x-www-form-urlencoded", rawBody)
 	if err != nil {
-		return nil, err
+		return
 	}
 	defer resp.Body.Close()
 
@@ -188,14 +195,26 @@ func (vk *VK) Request(method string, params Params) ([]byte, error) {
 		vk.mux.Unlock()
 	}
 
-	err = json.NewDecoder(resp.Body).Decode(&handler)
+	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
-		return nil, err
+		return
 	}
 
-	err = errors.New(handler.Error)
+	err = errors.New(response.Error)
 
-	return handler.Response, err
+	return response, err
+}
+
+// Request provides access to VK API methods
+//
+// TODO: remove in v2
+func (vk *VK) Request(method string, params Params) ([]byte, error) {
+	params["access_token"] = vk.AccessToken
+	params["v"] = vk.Version
+
+	resp, err := vk.Handler(method, params)
+
+	return resp.Response, err
 }
 
 // RequestUnmarshal provides access to VK API methods
@@ -212,8 +231,36 @@ func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) er
 //
 // https://vk.com/dev/Execute
 func (vk *VK) Execute(code string, obj interface{}) error {
-	params := Params{"code": code}
-	return vk.RequestUnmarshal("execute", params, &obj)
+	params := Params{
+		"code":         code,
+		"access_token": vk.AccessToken,
+		"v":            vk.Version,
+	}
+
+	resp, err := vk.Handler("execute", params)
+
+	// Add execute errors
+	for _, executeError := range resp.ExecuteErrors {
+		context := object.Error{
+			Code:    executeError.ErrorCode,
+			Message: executeError.ErrorMsg,
+			RequestParams: []object.BaseRequestParam{
+				{
+					Key:   "method",
+					Value: executeError.Method,
+				},
+			},
+		}
+
+		err = errors.AddErrorContext(err, context)
+	}
+
+	jsonErr := json.Unmarshal(resp.Response, &obj)
+	if jsonErr != nil {
+		return jsonErr
+	}
+
+	return err
 }
 
 func fmtBool(value bool) string {
