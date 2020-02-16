@@ -1,6 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
@@ -261,11 +262,48 @@ type GroupsGroupSettings struct {
 			Name string `json:"name"`
 		} `json:"currency"`
 	} `json:"market"`
-	// TODO: UnmarshalJSON for SectionsList
-	SectionsList     [][]interface{}    `json:"sections_list"`
-	MainSection      int                `json:"main_section"`
-	SecondarySection int                `json:"secondary_section"`
-	ActionButton     GroupsActionButton `json:"action_button"`
+	SectionsList     []GroupsSectionsList `json:"sections_list"`
+	MainSection      int                  `json:"main_section"`
+	SecondarySection int                  `json:"secondary_section"`
+	ActionButton     GroupsActionButton   `json:"action_button"`
+}
+
+// GroupsSectionsList struct
+type GroupsSectionsList struct {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+}
+
+// UnmarshalJSON need for unmarshal dynamic array (Example: [1, "Фотографии"]) to struct
+//
+// To unmarshal JSON into a value implementing the Unmarshaler interface,
+// Unmarshal calls that value's UnmarshalJSON method.
+// See more https://golang.org/pkg/encoding/json/#Unmarshal
+func (g *GroupsSectionsList) UnmarshalJSON(data []byte) error {
+	var alias []interface{}
+	if err := json.Unmarshal(data, &alias); err != nil {
+		return err
+	}
+
+	if len(alias) != 2 {
+		return fmt.Errorf("json: cannot unmarshal %s into Go value of type GroupsSectionsList", data)
+	}
+
+	// default concrete Go type float64 for JSON numbers
+	id, ok := alias[0].(float64)
+	if !ok {
+		return fmt.Errorf("json: cannot unmarshal %s into Go value of type GroupsSectionsList.ID", data)
+	}
+
+	name, ok := alias[1].(string)
+	if !ok {
+		return fmt.Errorf("json: cannot unmarshal %s into Go value of type GroupsSectionsList.Name", data)
+	}
+
+	g.ID = int(id)
+	g.Name = name
+
+	return nil
 }
 
 // GroupsActionType for action_button in groups
