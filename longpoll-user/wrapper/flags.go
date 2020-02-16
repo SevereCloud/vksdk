@@ -29,10 +29,10 @@ const (
 	UnansweredDialog DialogFlag = 2
 )
 
-type TypeId int
+type TypeID int
 
 const (
-	ChatNameChange TypeId = iota + 1
+	ChatNameChange TypeID = iota + 1
 	ChatCoverChange
 	ChatAdminAssigned
 	ChatPinMessage

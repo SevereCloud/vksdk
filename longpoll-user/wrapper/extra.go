@@ -14,9 +14,11 @@ func (result *AdditionalData) parse(v map[string]interface{}) {
 	if title, ok := v["title"].(string); ok {
 		result.Title = title
 	}
+
 	if refSource, ok := v["ref_source"].(string); ok {
 		result.RefSource = refSource
 	}
+
 	if from, ok := v["from"].(float64); ok {
 		result.From = int64(from)
 	}
@@ -26,7 +28,7 @@ type LongPollAttachments map[string]interface{}
 
 // https://vk.com/dev/using_longpoll_3, point 3.1
 type ExtraFields struct {
-	PeerId         int
+	PeerID         int
 	Timestamp      time.Time
 	Text           string
 	AdditionalData AdditionalData
@@ -38,7 +40,7 @@ func (result *ExtraFields) parseExtraFields(i []interface{}) error {
 
 	if length > 3 {
 		if v, ok := i[3].(float64); ok {
-			result.PeerId = int(v)
+			result.PeerID = int(v)
 		}
 	}
 
@@ -71,8 +73,10 @@ func (result *ExtraFields) parseExtraFields(i []interface{}) error {
 
 func convertSlice(v []float64) []int {
 	r := make([]int, len(v))
+
 	for i, v := range v {
 		r[i] = int(v)
 	}
+
 	return r
 }
