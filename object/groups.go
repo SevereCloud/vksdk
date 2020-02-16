@@ -107,6 +107,7 @@ type GroupsGroup struct {
 	LiveCovers           GroupsLiveCovers     `json:"live_covers"`
 	CropPhoto            UsersCropPhoto       `json:"crop_photo"`
 	Wall                 int                  `json:"wall"`
+	ActionButton         GroupsActionButton   `json:"action_button"`
 }
 
 // ToMention return mention
@@ -260,14 +261,57 @@ type GroupsGroupSettings struct {
 			Name string `json:"name"`
 		} `json:"currency"`
 	} `json:"market"`
-	SectionsList     [][]interface{} `json:"sections_list"`
-	MainSection      int             `json:"main_section"`
-	SecondarySection int             `json:"secondary_section"`
-	ActionButton     struct {
-		ActionType string        `json:"action_type"`
-		Target     []interface{} `json:"target"`
-		Title      string        `json:"title"`
-	} `json:"action_button"`
+	// TODO: UnmarshalJSON for SectionsList
+	SectionsList     [][]interface{}    `json:"sections_list"`
+	MainSection      int                `json:"main_section"`
+	SecondarySection int                `json:"secondary_section"`
+	ActionButton     GroupsActionButton `json:"action_button"`
+}
+
+// GroupsActionType for action_button in groups
+type GroupsActionType string
+
+// GroupsActionType enums
+const (
+	GroupsActionTypeOpenURL      GroupsActionType = "open_url"
+	GroupsActionTypeSendEmail    GroupsActionType = "send_email"
+	GroupsActionTypeCallPhone    GroupsActionType = "call_phone"
+	GroupsActionTypeCallVK       GroupsActionType = "call_vk"
+	GroupsActionTypeOpenGroupApp GroupsActionType = "open_group_app"
+	GroupsActionTypeOpenApp      GroupsActionType = "open_app"
+)
+
+// GroupsActionButton struct
+type GroupsActionButton struct {
+	ActionType GroupsActionType         `json:"action_type"`
+	Target     GroupsActionButtonTarget `json:"target"`
+	Title      string                   `json:"title"`
+
+	// IsEnabled for GroupsGroupSettings
+	IsEnabled BaseBoolInt `json:"is_enabled,omitempty"`
+}
+
+// GroupsActionButtonTarget struct
+type GroupsActionButtonTarget struct {
+	// ActionType == ActionTypeSendEmail
+	Email string `json:"email"`
+
+	// ActionType == ActionTypeCallPhone
+	Phone string `json:"phone"`
+
+	// ActionType == ActionTypeCallVK
+	UserID int `json:"user_id"`
+
+	// ActionType == ActionTypeOpenURL
+	URL string `json:"url"`
+
+	// ActionType == ActionTypeOpenApp
+	GoogleStoreURL string `json:"google_store_url"`
+	ItunesURL      string `json:"itunes_url"`
+	// URL string `json:"url"`
+
+	// ActionType == ActionTypeOpenGroupApp
+	AppID int `json:"app_id"`
 }
 
 // GroupsGroupXtrInvitedBy struct
