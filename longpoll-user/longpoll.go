@@ -27,7 +27,7 @@ const (
 	// extra fields in event type 8(friend become online)
 	Code8ExtraFields Mode = 64
 	// return random_id field
-	ReturnRandomId Mode = 128
+	ReturnRandomID Mode = 128
 )
 
 // Longpoll struct
