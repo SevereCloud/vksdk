@@ -138,7 +138,9 @@ func (lp *Longpoll) Run() error {
 		}
 
 		for _, event := range resp.Updates {
-			lp.funcList.Handler(event)
+			if err := lp.funcList.Handler(event); err != nil {
+				return err
+			}
 		}
 
 		for _, f := range lp.funcFullResponseList {

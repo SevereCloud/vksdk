@@ -1,15 +1,20 @@
 package longpoll
 
 // EventNewFunc struct
-type EventNewFunc func([]interface{})
+type EventNewFunc func([]interface{}) error
 
 // FuncList struct
 type FuncList map[int][]EventNewFunc
 
 // Handler func
-func (funcList FuncList) Handler(event []interface{}) {
+func (funcList FuncList) Handler(event []interface{}) error {
 	key := int(event[0].(float64))
+
 	for _, f := range funcList[key] {
-		f(event)
+		if err := f(event); err != nil {
+			return err
+		}
 	}
+
+	return nil
 }
