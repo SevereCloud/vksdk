@@ -1,9 +1,14 @@
-package wrapper
+package v3
 
 import "github.com/SevereCloud/vksdk/longpoll-user"
 
 type Wrapper struct {
 	longpoll *longpoll.Longpoll
+}
+
+func NewWrapper(lp *longpoll.Longpoll) *Wrapper {
+	lp.Version = 3
+	return &Wrapper{longpoll: lp}
 }
 
 type MessageFlagsChangeHandler func(m MessageFlagsChange)

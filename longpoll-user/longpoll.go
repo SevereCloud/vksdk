@@ -17,17 +17,18 @@ import (
 
 type Mode = int
 
+// A list of necessary option codes
 const (
 	// receive attachments
-	ReceiveAttachments Mode = 2
+	ReceiveAttachments Mode = 1 << 1
 	// receive more events
-	ExtendedEvents Mode = 8
+	ExtendedEvents Mode = 1 << 3
 	// receive pts (used in messages.getLongPollHistory)
-	ReturnPts Mode = 32
+	ReturnPts Mode = 1 << 5
 	// extra fields in event type 8(friend become online)
-	Code8ExtraFields Mode = 64
+	Code8ExtraFields Mode = 1 << 6
 	// return random_id field
-	ReturnRandomID Mode = 128
+	ReturnRandomID Mode = 1 << 7
 )
 
 // Longpoll struct
