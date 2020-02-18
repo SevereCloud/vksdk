@@ -7,7 +7,7 @@ import (
 type AdditionalData struct {
 	Title     string
 	RefSource string
-	From      int64
+	From      string
 }
 
 func (result *AdditionalData) parse(v map[string]interface{}) {
@@ -19,8 +19,8 @@ func (result *AdditionalData) parse(v map[string]interface{}) {
 		result.RefSource = refSource
 	}
 
-	if from, ok := v["from"].(float64); ok {
-		result.From = int64(from)
+	if from, ok := v["from"].(string); ok {
+		result.From = from
 	}
 }
 
