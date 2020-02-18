@@ -64,25 +64,25 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	return nil
 }
 
-func (lp *Longpoll) check() ([]object.GroupEvent, error) {
+func (lp *Longpoll) check() (object.LongpollBotResponse, error) {
 	var response object.LongpollBotResponse
 
 	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, lp.Wait)
 
 	resp, err := lp.Client.Get(u)
 	if err != nil {
-		return nil, err
+		return response, err
 	}
 	defer resp.Body.Close()
 
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
-		return nil, err
+		return response, err
 	}
 
 	err = lp.checkResponse(response)
 
-	return response.Updates, err
+	return response, err
 }
 
 func (lp *Longpoll) checkResponse(response object.LongpollBotResponse) (err error) {
@@ -107,16 +107,20 @@ func (lp *Longpoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
 
 	for atomic.LoadInt32(&lp.inShutdown) == 0 {
-		events, err := lp.check()
+		resp, err := lp.check()
 		if err != nil {
 			return err
 		}
 
-		for _, event := range events {
+		for _, event := range resp.Updates {
 			err = lp.Handler(event)
 			if err != nil {
 				return err
 			}
+		}
+
+		for _, f := range lp.funcFullResponseList {
+			f(resp)
 		}
 	}
 
