@@ -1,4 +1,4 @@
-package v3
+package wrapper
 
 import "github.com/SevereCloud/vksdk/longpoll-user"
 
