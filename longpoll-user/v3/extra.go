@@ -1,6 +1,8 @@
 package wrapper
 
 import (
+	"fmt"
+	"reflect"
 	"time"
 )
 
@@ -13,7 +15,7 @@ type Action struct {
 	SourceChatLocalID string
 }
 
-func (result *Action) parseAction(v map[string]interface{}) {
+func (result *Action) parse(v map[string]interface{}) {
 	if sourceAct, ok := v["source_act"].(string); ok {
 		result.SourceAct = sourceAct
 
@@ -83,7 +85,7 @@ func (result *AdditionalData) parse(v map[string]interface{}) {
 		result.Emoji = emoji
 	}
 
-	result.Action.parseAction(v)
+	result.Action.parse(v)
 }
 
 type LongPollAttachments map[string]interface{}
@@ -141,4 +143,33 @@ func convertSlice(v []float64) []int {
 	}
 
 	return r
+}
+
+func interfaceToIDSlice(slice interface{}) ([]int, error) {
+	v, err := interfaceToFloat64Slice(slice)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return convertSlice(v), nil
+}
+
+func interfaceToFloat64Slice(slice interface{}) ([]float64, error) {
+	reflectedSlice := reflect.ValueOf(slice)
+	if reflectedSlice.Kind() != reflect.Slice {
+		return nil, fmt.Errorf("expected a slice, got %T", slice)
+	}
+
+	result := make([]float64, reflectedSlice.Len())
+	ok := false
+
+	for i := 0; i < reflectedSlice.Len(); i++ {
+		result[i], ok = reflectedSlice.Index(i).Interface().(float64)
+		if !ok {
+			return nil, fmt.Errorf("cast failed, value type: %T", reflectedSlice.Index(i).Interface())
+		}
+	}
+
+	return result, nil
 }

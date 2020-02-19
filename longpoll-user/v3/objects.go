@@ -464,9 +464,12 @@ func (result *UsersTyping) Parse(i []interface{}) error {
 		return fmt.Errorf(errFmtTooShortArray, "UsersTyping", 5, len(i))
 	}
 
-	if v, ok := i[1].([]float64); ok {
-		result.UserIDs = convertSlice(v)
+	v, err := interfaceToIDSlice(i[1])
+	if err != nil {
+		return err
 	}
+
+	result.UserIDs = v
 
 	if v, ok := i[2].(float64); ok {
 		result.PeerID = int(v)
@@ -500,9 +503,12 @@ func (result *UsersRecordingAudioMessage) Parse(i []interface{}) error {
 		result.PeerID = int(v)
 	}
 
-	if v, ok := i[2].([]float64); ok {
-		result.UserIDs = convertSlice(v)
+	v, err := interfaceToIDSlice(i[2])
+	if err != nil {
+		return err
 	}
+
+	result.UserIDs = v
 
 	if v, ok := i[3].(float64); ok {
 		result.TotalCount = int(v)
