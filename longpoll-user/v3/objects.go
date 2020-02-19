@@ -1,6 +1,7 @@
 package wrapper
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -13,7 +14,7 @@ type MessageFlagsChange struct {
 
 func (result *MessageFlagsChange) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "MessageFlagsChange", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -36,7 +37,7 @@ type MessageFlagsSet struct {
 
 func (result *MessageFlagsSet) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "MessageFlagsSet", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -59,7 +60,7 @@ type MessageFlagsReset struct {
 
 func (result *MessageFlagsReset) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "MessageFlagsReset", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -82,7 +83,7 @@ type NewMessage struct {
 
 func (result *NewMessage) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "NewMessage", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -109,7 +110,7 @@ type EditMessage struct {
 
 func (result *EditMessage) Parse(i []interface{}) error {
 	if len(i) < 6 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "EditMessage", 6, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -155,7 +156,7 @@ type ReadInMessages struct {
 
 func (result *ReadInMessages) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "ReadInMessages", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -177,7 +178,7 @@ type ReadOutMessages struct {
 
 func (result *ReadOutMessages) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "ReadOutMessages", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -200,7 +201,7 @@ type FriendBecameOnline struct {
 
 func (result *FriendBecameOnline) Parse(i []interface{}) error {
 	if len(i) < 4 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "FriendBecameOnline", 4, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -227,7 +228,7 @@ type FriendBecameOffline struct {
 
 func (result *FriendBecameOffline) Parse(i []interface{}) error {
 	if len(i) < 4 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "FriendBecameOffline", 4, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -253,7 +254,7 @@ type DialogFlagsReset struct {
 
 func (result *DialogFlagsReset) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "DialogFlagsReset", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -275,7 +276,7 @@ type DialogFlagsReplace struct {
 
 func (result *DialogFlagsReplace) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "DialogFlagsReplace", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -297,7 +298,7 @@ type DialogsFlagsSet struct {
 
 func (result *DialogsFlagsSet) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "DialogsFlagsSet", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -319,7 +320,7 @@ type DeleteMessages struct {
 
 func (result *DeleteMessages) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "DeleteMessages", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -341,7 +342,7 @@ type RestoreDeletedMessages struct {
 
 func (result *RestoreDeletedMessages) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "RestoreDeletedMessages", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -362,16 +363,18 @@ type ChatParamsChange struct {
 }
 
 func (result *ChatParamsChange) Parse(i []interface{}) error {
-	if len(i) < 3 {
-		return ErrInvalidEvent
+	if len(i) < 2 {
+		return fmt.Errorf(errFmtTooShortArray, "ChatParamsChange", 2, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
 		result.ChatID = int(v)
 	}
 
-	if v, ok := i[2].(float64); ok {
-		result.Self = int(v)
+	if len(i) > 2 {
+		if v, ok := i[2].(float64); ok {
+			result.Self = int(v)
+		}
 	}
 
 	return nil
@@ -386,7 +389,7 @@ type ChatInfoChange struct {
 
 func (result *ChatInfoChange) Parse(i []interface{}) error {
 	if len(i) < 4 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "ChatInfoChange", 4, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -412,7 +415,7 @@ type UserTyping struct {
 
 func (result *UserTyping) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "UserTyping", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -434,7 +437,7 @@ type UserTypingChat struct {
 
 func (result *UserTypingChat) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "UserTypingChat", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -458,7 +461,7 @@ type UsersTyping struct {
 
 func (result *UsersTyping) Parse(i []interface{}) error {
 	if len(i) < 5 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "UsersTyping", 5, len(i))
 	}
 
 	if v, ok := i[1].([]float64); ok {
@@ -482,23 +485,23 @@ func (result *UsersTyping) Parse(i []interface{}) error {
 
 // event with code 64
 type UsersRecordingAudioMessage struct {
-	UserIDs    []int
 	PeerID     int
+	UserIDs    []int
 	TotalCount int
 	Ts         time.Time
 }
 
 func (result *UsersRecordingAudioMessage) Parse(i []interface{}) error {
 	if len(i) < 5 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "UsersRecordingAudioMessage", 5, len(i))
 	}
 
-	if v, ok := i[1].([]float64); ok {
-		result.UserIDs = convertSlice(v)
-	}
-
-	if v, ok := i[2].(float64); ok {
+	if v, ok := i[1].(float64); ok {
 		result.PeerID = int(v)
+	}
+
+	if v, ok := i[2].([]float64); ok {
+		result.UserIDs = convertSlice(v)
 	}
 
 	if v, ok := i[3].(float64); ok {
@@ -520,7 +523,7 @@ type UserCall struct {
 
 func (result *UserCall) Parse(i []interface{}) error {
 	if len(i) < 3 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "UserCall", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -541,7 +544,7 @@ type CounterChange struct {
 
 func (result *CounterChange) Parse(i []interface{}) error {
 	if len(i) < 2 {
-		return ErrInvalidEvent
+		return fmt.Errorf(errFmtTooShortArray, "CounterChange", 2, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -558,20 +561,30 @@ type NotificationSettingsChange struct {
 	DisabledUntil int
 }
 
+// should be called if ExtendedEvents flag set
+func (result *NotificationSettingsChange) ParseMode8(i []interface{}) error {
+	if len(i) < 2 {
+		return fmt.Errorf(errFmtTooShortArray, "NotificationSettingsChange", 2, len(i))
+	}
+
+	if v, ok := i[1].(map[string]float64); ok {
+		result.PeerID = int(v["peer_id"])
+		result.Sound = int(v["sound"]) > 0
+		result.DisabledUntil = int(v["disabled_until"])
+	}
+	return nil
+}
+
 func (result *NotificationSettingsChange) Parse(i []interface{}) error {
-	if len(i) < 4 {
-		return ErrInvalidEvent
+	if len(i) < 3 {
+		return fmt.Errorf(errFmtTooShortArray, "NotificationSettingsChange", 3, len(i))
 	}
 
 	if v, ok := i[1].(float64); ok {
-		result.PeerID = int(v)
-	}
-
-	if v, ok := i[2].(float64); ok {
 		result.Sound = int(v) > 0
 	}
 
-	if v, ok := i[3].(float64); ok {
+	if v, ok := i[2].(float64); ok {
 		result.DisabledUntil = int(v)
 	}
 

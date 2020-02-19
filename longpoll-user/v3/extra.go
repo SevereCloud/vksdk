@@ -5,9 +5,17 @@ import (
 )
 
 type AdditionalData struct {
-	Title     string
-	RefSource string
-	From      string
+	Title             string
+	RefSource         string
+	From              string
+	SourceAct         string
+	SourceMid         string
+	SourceText        string
+	SourceOldText     string
+	SourceMessage     string
+	SourceChatLocalId string
+	FromAdmin         string
+	Emoji             string
 }
 
 func (result *AdditionalData) parse(v map[string]interface{}) {
@@ -21,6 +29,52 @@ func (result *AdditionalData) parse(v map[string]interface{}) {
 
 	if from, ok := v["from"].(string); ok {
 		result.From = from
+	}
+
+	if sourceAct, ok := v["source_act"].(string); ok {
+		result.SourceAct = sourceAct
+	}
+
+	switch result.SourceAct {
+	case "chat_create":
+		if sourceText, ok := v["source_text"].(string); ok {
+			result.SourceText = sourceText
+		}
+
+	case "chat_title_update":
+		if sourceText, ok := v["source_text"].(string); ok {
+			result.SourceText = sourceText
+		}
+
+		if sourceOldText, ok := v["source_old_text"].(string); ok {
+			result.SourceOldText = sourceOldText
+		}
+
+	case "chat_kick_user", "chat_invite_user":
+		if sourceMid, ok := v["source_mid"].(string); ok {
+			result.SourceMid = sourceMid
+		}
+
+	case "chat_pin_message", "chat_unpin_message":
+		if sourceMid, ok := v["source_mid"].(string); ok {
+			result.SourceMid = sourceMid
+		}
+
+		if sourceMessage, ok := v["source_message"].(string); ok {
+			result.SourceMessage = sourceMessage
+		}
+
+		if sourceChatLocalId, ok := v["source_chat_local_id"].(string); ok {
+			result.SourceChatLocalId = sourceChatLocalId
+		}
+	}
+
+	if fromAdmin, ok := v["from_admin"].(string); ok {
+		result.FromAdmin = fromAdmin
+	}
+
+	if emoji, ok := v["emoji"].(string); ok {
+		result.Emoji = emoji
 	}
 }
 
