@@ -572,6 +572,7 @@ func (result *NotificationSettingsChange) ParseMode8(i []interface{}) error {
 		result.Sound = int(v["sound"]) > 0
 		result.DisabledUntil = int(v["disabled_until"])
 	}
+
 	return nil
 }
 
