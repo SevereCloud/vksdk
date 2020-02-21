@@ -135,40 +135,41 @@ func (result *ExtraFields) parseExtraFields(i []interface{}) error {
 	return nil
 }
 
-func convertSlice(v []float64) []int {
-	r := make([]int, len(v))
-
-	for i, v := range v {
-		r[i] = int(v)
+func interfaceToStringIntMap(m interface{}) (map[string]int, error) {
+	reflectedMap := reflect.ValueOf(m)
+	if reflectedMap.Kind() != reflect.Map {
+		return nil, fmt.Errorf("expected a slice, got %T", m)
 	}
 
-	return r
+	result := make(map[string]int, reflectedMap.Len())
+
+	for _, key := range reflectedMap.MapKeys() {
+		v, ok := reflectedMap.MapIndex(key).Interface().(float64)
+		if !ok {
+			return nil, fmt.Errorf("cast failed, value type: %T", reflectedMap.MapIndex(key).Interface())
+		}
+
+		result[key.String()] = int(v)
+	}
+
+	return result, nil
 }
 
 func interfaceToIDSlice(slice interface{}) ([]int, error) {
-	v, err := interfaceToFloat64Slice(slice)
-
-	if err != nil {
-		return nil, err
-	}
-
-	return convertSlice(v), nil
-}
-
-func interfaceToFloat64Slice(slice interface{}) ([]float64, error) {
 	reflectedSlice := reflect.ValueOf(slice)
 	if reflectedSlice.Kind() != reflect.Slice {
 		return nil, fmt.Errorf("expected a slice, got %T", slice)
 	}
 
-	result := make([]float64, reflectedSlice.Len())
-	ok := false
+	result := make([]int, reflectedSlice.Len())
 
 	for i := 0; i < reflectedSlice.Len(); i++ {
-		result[i], ok = reflectedSlice.Index(i).Interface().(float64)
+		v, ok := reflectedSlice.Index(i).Interface().(float64)
 		if !ok {
 			return nil, fmt.Errorf("cast failed, value type: %T", reflectedSlice.Index(i).Interface())
 		}
+
+		result[i] = int(v)
 	}
 
 	return result, nil

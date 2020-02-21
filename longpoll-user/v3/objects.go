@@ -573,11 +573,14 @@ func (result *NotificationSettingsChange) ParseMode8(i []interface{}) error {
 		return fmt.Errorf(errFmtTooShortArray, "NotificationSettingsChange", 2, len(i))
 	}
 
-	if v, ok := i[1].(map[string]float64); ok {
-		result.PeerID = int(v["peer_id"])
-		result.Sound = int(v["sound"]) > 0
-		result.DisabledUntil = int(v["disabled_until"])
+	v, err := interfaceToStringIntMap(i[1])
+	if err != nil {
+		return err
 	}
+
+	result.PeerID = v["peer_id"]
+	result.Sound = v["sound"] > 0
+	result.DisabledUntil = v["disabled_until"]
 
 	return nil
 }
