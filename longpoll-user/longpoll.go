@@ -15,12 +15,28 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
+type Mode = int
+
+// A list of necessary option codes
+const (
+	// receive attachments
+	ReceiveAttachments Mode = 1 << 1
+	// receive more events
+	ExtendedEvents Mode = 1 << 3
+	// receive pts (used in messages.getLongPollHistory)
+	ReturnPts Mode = 1 << 5
+	// extra fields in event type 8(friend become online)
+	Code8ExtraFields Mode = 1 << 6
+	// return random_id field
+	ReturnRandomID Mode = 1 << 7
+)
+
 // Longpoll struct
 type Longpoll struct {
 	Key     string
 	Server  string
 	Ts      int
-	Mode    int
+	Mode    Mode
 	Version int
 	Wait    int
 	VK      *api.VK
@@ -32,7 +48,7 @@ type Longpoll struct {
 }
 
 // Init Longpoll
-func Init(vk *api.VK, mode int) (lp Longpoll, err error) {
+func Init(vk *api.VK, mode Mode) (lp Longpoll, err error) {
 	// NOTE: what about group_id?
 	lp.VK = vk
 	lp.Mode = mode
@@ -122,7 +138,9 @@ func (lp *Longpoll) Run() error {
 		}
 
 		for _, event := range resp.Updates {
-			lp.funcList.Handler(event)
+			if err := lp.funcList.Handler(event); err != nil {
+				return err
+			}
 		}
 
 		for _, f := range lp.funcFullResponseList {
