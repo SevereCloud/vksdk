@@ -1,17 +1,20 @@
-package wrapper
+package wrapper // import "github.com/SevereCloud/vksdk/longpoll-user/v3"
 
 import (
 	"fmt"
 	"time"
 )
 
-// event with code 1
+// MessageFlagsChange struct for event with code 1
+//
+// Replace message flags
 type MessageFlagsChange struct {
 	MessageID int
 	Flags     MessageFlag
 	ExtraFields
 }
 
+// Parse func for MessageFlagsChange
 func (result *MessageFlagsChange) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "MessageFlagsChange", 3, len(i))
@@ -28,13 +31,16 @@ func (result *MessageFlagsChange) Parse(i []interface{}) error {
 	return result.ExtraFields.parseExtraFields(i)
 }
 
-// event with code 2
+// MessageFlagsSet struct for event with code 2
+//
+// Install message flags
 type MessageFlagsSet struct {
 	MessageID int
 	Mask      MessageFlag
 	ExtraFields
 }
 
+// Parse func for MessageFlagsSet
 func (result *MessageFlagsSet) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "MessageFlagsSet", 3, len(i))
@@ -51,13 +57,16 @@ func (result *MessageFlagsSet) Parse(i []interface{}) error {
 	return result.ExtraFields.parseExtraFields(i)
 }
 
-// event with code 3
+// MessageFlagsReset struct for event with code 3
+//
+// Reset message flags
 type MessageFlagsReset struct {
 	MessageID int
 	Mask      MessageFlag
 	ExtraFields
 }
 
+// Parse func for MessageFlagsReset
 func (result *MessageFlagsReset) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "MessageFlagsReset", 3, len(i))
@@ -74,13 +83,16 @@ func (result *MessageFlagsReset) Parse(i []interface{}) error {
 	return result.ExtraFields.parseExtraFields(i)
 }
 
-// event with code 4
+// NewMessage struct for event with code 4
+//
+// Add a new message
 type NewMessage struct {
 	MessageID int
 	Flags     MessageFlag
 	ExtraFields
 }
 
+// Parse func for NewMessage
 func (result *NewMessage) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "NewMessage", 3, len(i))
@@ -97,7 +109,9 @@ func (result *NewMessage) Parse(i []interface{}) error {
 	return result.ExtraFields.parseExtraFields(i)
 }
 
-// event with code 5
+// EditMessage struct for event with code 5
+//
+// Edit message.
 type EditMessage struct {
 	MessageID      int
 	Flags          MessageFlag
@@ -108,6 +122,7 @@ type EditMessage struct {
 	Attachments    LongPollAttachments
 }
 
+// Parse func for EditMessage
 func (result *EditMessage) Parse(i []interface{}) error {
 	if len(i) < 6 {
 		return fmt.Errorf(errFmtTooShortArray, "EditMessage", 6, len(i))
@@ -148,12 +163,15 @@ func (result *EditMessage) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 6
+// ReadInMessages struct for event with code 6
+//
+// Read all incoming messages received before message with LocalID
 type ReadInMessages struct {
 	PeerID  int
 	LocalID int
 }
 
+// Parse func for ReadInMessages
 func (result *ReadInMessages) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "ReadInMessages", 3, len(i))
@@ -170,12 +188,15 @@ func (result *ReadInMessages) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 7
+// ReadOutMessages struct for event with code 7
+//
+// Read all outgoing messages sent before message with LocalID
 type ReadOutMessages struct {
 	PeerID  int
 	LocalID int
 }
 
+// Parse func for ReadOutMessages
 func (result *ReadOutMessages) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "ReadOutMessages", 3, len(i))
@@ -192,13 +213,16 @@ func (result *ReadOutMessages) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 8
+// FriendBecameOnline struct for event with code 8
+//
+// A friend UserID is online
 type FriendBecameOnline struct {
 	UserID    int
 	Extra     int
 	Timestamp time.Time
 }
 
+// Parse func for FriendBecameOnline
 func (result *FriendBecameOnline) Parse(i []interface{}) error {
 	if len(i) < 4 {
 		return fmt.Errorf(errFmtTooShortArray, "FriendBecameOnline", 4, len(i))
@@ -219,13 +243,16 @@ func (result *FriendBecameOnline) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 9
+// FriendBecameOffline struct for event with code 9
+//
+// A friend UserID is offline
 type FriendBecameOffline struct {
 	UserID    int
 	Flags     int
 	Timestamp time.Time
 }
 
+// Parse func for FriendBecameOffline
 func (result *FriendBecameOffline) Parse(i []interface{}) error {
 	if len(i) < 4 {
 		return fmt.Errorf(errFmtTooShortArray, "FriendBecameOffline", 4, len(i))
@@ -246,12 +273,15 @@ func (result *FriendBecameOffline) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 10
+// DialogFlagsReset struct for event with code 10
+//
+// Reset dialog flags
 type DialogFlagsReset struct {
 	PeerID int
 	Mask   DialogFlag
 }
 
+// Parse func for DialogFlagsReset
 func (result *DialogFlagsReset) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "DialogFlagsReset", 3, len(i))
@@ -268,12 +298,15 @@ func (result *DialogFlagsReset) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 11
+// DialogFlagsReplace struct for event with code 11
+//
+// Replace dialog flags
 type DialogFlagsReplace struct {
 	PeerID int
 	Flags  DialogFlag
 }
 
+// Parse func for DialogFlagsReplace
 func (result *DialogFlagsReplace) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "DialogFlagsReplace", 3, len(i))
@@ -290,12 +323,15 @@ func (result *DialogFlagsReplace) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 12
+// DialogsFlagsSet struct for event with code 12
+//
+// Install dialog flags
 type DialogsFlagsSet struct {
 	PeerID int
 	Mask   DialogFlag
 }
 
+// Parse func for DialogsFlagsSet
 func (result *DialogsFlagsSet) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "DialogsFlagsSet", 3, len(i))
@@ -312,12 +348,15 @@ func (result *DialogsFlagsSet) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 13
+// DeleteMessages struct for event with code 13
+//
+// Deletings all messages in PeerID dialogs with IDs up to LocalID
 type DeleteMessages struct {
 	PeerID  int
 	LocalID int
 }
 
+// Parse func for DeleteMessages
 func (result *DeleteMessages) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "DeleteMessages", 3, len(i))
@@ -334,12 +373,15 @@ func (result *DeleteMessages) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 14
+// RestoreDeletedMessages struct for event with code 14
+//
+// Restore message
 type RestoreDeletedMessages struct {
 	PeerID  int
 	LocalID int
 }
 
+// Parse func for RestoreDeletedMessages
 func (result *RestoreDeletedMessages) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "RestoreDeletedMessages", 3, len(i))
@@ -356,12 +398,16 @@ func (result *RestoreDeletedMessages) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 51
+// ChatParamsChange struct for event with code 51
+//
+// One of the parameters (content, topic) of the conversation ChatID was
+// changed. Self — 1 or 0 (whether the change was caused by the user).
 type ChatParamsChange struct {
 	ChatID int
 	Self   int
 }
 
+// Parse func for ChatParamsChange
 func (result *ChatParamsChange) Parse(i []interface{}) error {
 	if len(i) < 2 {
 		return fmt.Errorf(errFmtTooShortArray, "ChatParamsChange", 2, len(i))
@@ -380,13 +426,16 @@ func (result *ChatParamsChange) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 52
+// ChatInfoChange struct for event with code 52
+//
+// Chat info change
 type ChatInfoChange struct {
 	TypeID TypeID
 	PeerID int
 	Info   int
 }
 
+// Parse func for ChatInfoChange
 func (result *ChatInfoChange) Parse(i []interface{}) error {
 	if len(i) < 4 {
 		return fmt.Errorf(errFmtTooShortArray, "ChatInfoChange", 4, len(i))
@@ -407,12 +456,15 @@ func (result *ChatInfoChange) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 61
+// UserTyping struct for event with code 61
+//
+// User UserID began typing in the conversation ChatID
 type UserTyping struct {
 	UserID int
 	Flags  int
 }
 
+// Parse func for UserTyping
 func (result *UserTyping) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "UserTyping", 3, len(i))
@@ -429,12 +481,15 @@ func (result *UserTyping) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 62
+// UserTypingChat struct for event with code 62
+//
+// User UserID began typing in the conversation ChatID
 type UserTypingChat struct {
 	UserID int
 	ChatID int
 }
 
+// Parse func for UserTypingChat
 func (result *UserTypingChat) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "UserTypingChat", 3, len(i))
@@ -451,7 +506,7 @@ func (result *UserTypingChat) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 63
+// UsersTyping struct for event with code 63
 type UsersTyping struct {
 	UserIDs    []int
 	PeerID     int
@@ -459,6 +514,7 @@ type UsersTyping struct {
 	Ts         time.Time
 }
 
+// Parse func for UsersTyping
 func (result *UsersTyping) Parse(i []interface{}) error {
 	if len(i) < 5 {
 		return fmt.Errorf(errFmtTooShortArray, "UsersTyping", 5, len(i))
@@ -486,7 +542,7 @@ func (result *UsersTyping) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 64
+// UsersRecordingAudioMessage struct for event with code 64
 type UsersRecordingAudioMessage struct {
 	PeerID     int
 	UserIDs    []int
@@ -494,6 +550,7 @@ type UsersRecordingAudioMessage struct {
 	Ts         time.Time
 }
 
+// Parse func for UsersRecordingAudioMessage
 func (result *UsersRecordingAudioMessage) Parse(i []interface{}) error {
 	if len(i) < 5 {
 		return fmt.Errorf(errFmtTooShortArray, "UsersRecordingAudioMessage", 5, len(i))
@@ -521,12 +578,13 @@ func (result *UsersRecordingAudioMessage) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 70
+// UserCall struct for event with code 70
 type UserCall struct {
 	UserID int
 	CallID int
 }
 
+// Parse func for UserCall
 func (result *UserCall) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "UserCall", 3, len(i))
@@ -543,11 +601,12 @@ func (result *UserCall) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 80
+// CounterChange struct for event with code 80
 type CounterChange struct {
 	Count int
 }
 
+// Parse func for CounterChange
 func (result *CounterChange) Parse(i []interface{}) error {
 	if len(i) < 2 {
 		return fmt.Errorf(errFmtTooShortArray, "CounterChange", 2, len(i))
@@ -560,7 +619,7 @@ func (result *CounterChange) Parse(i []interface{}) error {
 	return nil
 }
 
-// event with code 114
+// NotificationSettingsChange struct for event with code 114
 type NotificationSettingsChange struct {
 	PeerID        int
 	Sound         bool
@@ -585,6 +644,7 @@ func (result *NotificationSettingsChange) ParseMode8(i []interface{}) error {
 	return nil
 }
 
+// Parse func for NotificationSettingsChange
 func (result *NotificationSettingsChange) Parse(i []interface{}) error {
 	if len(i) < 3 {
 		return fmt.Errorf(errFmtTooShortArray, "NotificationSettingsChange", 3, len(i))

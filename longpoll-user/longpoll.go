@@ -1,6 +1,8 @@
 /*
 Package longpoll implements User Long Poll API.
 
+Wrapper for v3 https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-user/v3
+
 See more https://vk.com/dev/using_longpoll
 */
 package longpoll // import "github.com/SevereCloud/vksdk/longpoll-user"
@@ -48,6 +50,8 @@ type Longpoll struct {
 }
 
 // Init Longpoll
+//
+// FIXME: v2 return *Longpoll
 func Init(vk *api.VK, mode Mode) (lp Longpoll, err error) {
 	// NOTE: what about group_id?
 	lp.VK = vk

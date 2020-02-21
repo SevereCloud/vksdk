@@ -1,4 +1,4 @@
-package wrapper
+package wrapper // import "github.com/SevereCloud/vksdk/longpoll-user/v3"
 
 import (
 	"fmt"
@@ -6,14 +6,24 @@ import (
 	"time"
 )
 
+// Action struct for AdditionalData
 type Action struct {
-	SourceAct         string
-	SourceMid         string
+	SourceAct         string // Service action name with multiple dialogs
+	SourceMid         string // User ID to whom the service action concerns
 	SourceText        string
 	SourceOldText     string
 	SourceMessage     string
 	SourceChatLocalID string
 }
+
+// Possible values for Action.SourceAct
+const (
+	ChatCreate      = "chat_create"       // create chat
+	ChatTitleUpdate = "chat_title_update" // change chat name
+	ChatPhotoUpdate = "chat_photo_update" // change chat photo
+	ChatInviteUser  = "chat_invite_user"  // invite user to chat
+	ChatKickUser    = "chat_kick_user"    // kick out user from chat
+)
 
 func (result *Action) parse(v map[string]interface{}) {
 	if sourceAct, ok := v["source_act"].(string); ok {
@@ -55,12 +65,18 @@ func (result *Action) parse(v map[string]interface{}) {
 	}
 }
 
+// AdditionalData struct. If mode contains the flag 2 along with text and the
+// message topic, a JSON-object may be passed. This object contains media
+// attachments or other additional information. Descriptions of the object
+// fields are listed below.
 type AdditionalData struct {
-	Title     string
+	Title     string // Message's subject.
 	RefSource string
-	From      string
+	From      string // User ID of who sent the message if the message is from a chat
+	// FromAdmin ID of the administrator who sent the message. It is returned for
+	// messages sent from a community (only for community administrators).
 	FromAdmin string
-	Emoji     string
+	Emoji     string // Message contains emoji.
 	Action
 }
 
@@ -88,15 +104,18 @@ func (result *AdditionalData) parse(v map[string]interface{}) {
 	result.Action.parse(v)
 }
 
+// LongPollAttachments type
 type LongPollAttachments map[string]interface{}
 
+// ExtraFields for a message object
+//
 // https://vk.com/dev/using_longpoll_3, point 3.1
 type ExtraFields struct {
-	PeerID         int
-	Timestamp      time.Time
-	Text           string
+	PeerID         int       // destination ID
+	Timestamp      time.Time // message sent time
+	Text           string    // message text
 	AdditionalData AdditionalData
-	Attachments    LongPollAttachments
+	Attachments    LongPollAttachments // attachments, if mode = 2 was chosen
 }
 
 func (result *ExtraFields) parseExtraFields(i []interface{}) error {

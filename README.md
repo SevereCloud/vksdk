@@ -29,7 +29,7 @@
   - Возвращает готовые структуры
   - Возможность изменять HTTP клиент
 - [User Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/longpoll-user#user-long-poll-api)
-  - ~~Возвращает готовые структуры~~ [#44](https://github.com/SevereCloud/vksdk/issues/44)
+  - Возвращает готовые структуры
   - Возможность изменять HTTP клиент
 - ~~Streaming api~~ [#3](https://github.com/SevereCloud/vksdk/issues/3)
 - [FOAF](https://github.com/SevereCloud/vksdk/tree/master/foaf#foaf)
