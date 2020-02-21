@@ -21,6 +21,7 @@ type JSONObject interface {
 	ToJSON() string
 }
 
+// BaseBoolInt type
 type BaseBoolInt bool
 
 // UnmarshalJSON func
@@ -290,6 +291,7 @@ type Error struct {
 	RequestParams    []BaseRequestParam `json:"request_params"`
 }
 
+// ExecuteError struct
 type ExecuteError struct {
 	Method    string `json:"method"`
 	ErrorCode int    `json:"error_code"`

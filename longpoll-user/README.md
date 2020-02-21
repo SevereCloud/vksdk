@@ -5,7 +5,7 @@
 
 ## Подключение User Long Poll API
 
-Данная модуль по умолчанию поддерживает **3** версию
+Данный модуль по умолчанию поддерживает **3** версию
 
 ### Инициализация
 
@@ -20,7 +20,8 @@ vk := api.Init("<TOKEN>")
 А потом сам longpoll
 
 ```go
-lp, err := longpoll.Init(vk api.VK, groupID int)
+mode := longpoll.ReceiveAttachments + longpoll.ExtendedEvents
+lp, err := longpoll.Init(vk, mode)
 // По умолчанию Wait = 25
 // lp.Wait = 90 
 // lp.Ts = 123

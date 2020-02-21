@@ -1,5 +1,5 @@
 /*
-Package api.
+Package api implements VK API
 
 See more https://vk.com/dev/api_requests
 */

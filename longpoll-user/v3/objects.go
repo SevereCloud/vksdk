@@ -626,7 +626,7 @@ type NotificationSettingsChange struct {
 	DisabledUntil int
 }
 
-// should be called if ExtendedEvents flag set
+// ParseMode8 should be called if ExtendedEvents flag set
 func (result *NotificationSettingsChange) ParseMode8(i []interface{}) error {
 	if len(i) < 2 {
 		return fmt.Errorf(errFmtTooShortArray, "NotificationSettingsChange", 2, len(i))

@@ -14,6 +14,7 @@ var HTTPClient ContextKey // nolint:gochecknoglobals
 // because nobody else can create a ContextKey, being unexported.
 type ContextKey struct{}
 
+// ContextClient return *http.Client
 func ContextClient(ctx context.Context) *http.Client {
 	if ctx != nil {
 		if hc, ok := ctx.Value(HTTPClient).(*http.Client); ok {

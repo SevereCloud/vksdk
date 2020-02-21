@@ -26,6 +26,7 @@ const (
 // DialogFlag type
 type DialogFlag int
 
+// Has func
 func (b DialogFlag) Has(flag DialogFlag) bool { return b&flag != 0 }
 
 // Each dialog has flags, which are values received by summing up any of the
@@ -38,6 +39,7 @@ const (
 // TypeID chat change type identifier
 type TypeID int
 
+// TypeID const
 const (
 	ChatNameChange     TypeID = iota + 1 // The name of the conversation has changed
 	ChatCoverChange                      // The cover of the conversation has changed

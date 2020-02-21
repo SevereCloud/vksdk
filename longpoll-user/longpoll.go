@@ -1,9 +1,56 @@
 /*
 Package longpoll implements User Long Poll API.
 
+Long polling – this is a technology that allows the receiving of information
+about new events with the help of "long requests". The server receives the
+request but it doesn't immediately send the answer but rather when some event
+will happen (for example, receiving a new incoming message), or waiting
+period is over.
+
+
+By using this approach, you can instantly display in your app the most
+important events. Be aware that with the help of Long Poll, you won't be able
+to send messages. For this, you’ll need to use the messages.send method.
+
+Initialization
+
+The module can be used with the user access key obtained in the Standalone
+application via Implicit Flow(access rights required: messages) or with
+the community access key(access rights required: messages).
+
+	vk := api.Init("<TOKEN>")
+
+And then longpoll
+
+	mode := longpoll.ReceiveAttachments + longpoll.ExtendedEvents
+	lp, err := longpoll.Init(vk, mode)
+
+Setting
+
+TODO: write about lp.Ts lp.Wait
+
+The module has the ability to modify the HTTP client
+
+	dialer, _ := proxy.SOCKS5("tcp", "127.0.0.1:9050", nil, proxy.Direct)
+	httpTransport := &http.Transport{
+		Dial:              dialer.Dial,
+		// DisableKeepAlives: true,
+	}
+	httpTransport.Dial = dialer.Dial
+	lp.Client.Transport = httpTransport
+
+Wrapper
+
+Wrapper allows you to get ready-made structures
+
 Wrapper for v3 https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-user/v3
 
-See more https://vk.com/dev/using_longpoll
+Run and shutdown
+
+TODO: write about lp.Run() and lp.Shutdown()
+
+
+VK documentation https://vk.com/dev/using_longpoll
 */
 package longpoll // import "github.com/SevereCloud/vksdk/longpoll-user"
 
@@ -17,6 +64,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
+// Mode additional answer options
 type Mode = int
 
 // A list of necessary option codes
