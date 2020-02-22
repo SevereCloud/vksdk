@@ -154,6 +154,8 @@ func TestStreaming_Run(t *testing.T) {
 	case <-time.After(5 * time.Second):
 	}
 
+	_ = stream.UpdateRules([]streaming.Rule{})
+
 	if skip {
 		t.Error("Timeout")
 	}
