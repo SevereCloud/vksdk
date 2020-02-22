@@ -31,7 +31,9 @@
 - [User Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/longpoll-user#user-long-poll-api)
   - Возвращает готовые структуры
   - Возможность изменять HTTP клиент
-- ~~Streaming api~~ [#3](https://github.com/SevereCloud/vksdk/issues/3)
+- [Streaming api](https://pkg.go.dev/github.com/SevereCloud/vksdk/streaming)
+  - Возвращает готовые структуры
+	- Возможность изменять HTTP клиент
 - [FOAF](https://github.com/SevereCloud/vksdk/tree/master/foaf#foaf)
   - Работает с пользователями и группами
   - Возвращает готовые структуры

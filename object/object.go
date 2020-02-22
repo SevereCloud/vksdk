@@ -414,3 +414,19 @@ const (
 	ButtonLocation = "location"
 	ButtonOpenLink = "open_link"
 )
+
+// Platform content creation platform
+type Platform int
+
+// Possible values
+const (
+	_                    Platform = iota
+	PlatformMobile                // mobile web version
+	PlatformIPhone                // iPhone
+	PlatformIPad                  // iPad
+	PlatformAndroid               // Android
+	PlatformWindowsPhone          // Windows Phone
+	PlatformWindows               // Windows 8
+	PlatformFull                  // full web version
+	PlatformOther                 // other apps
+)
