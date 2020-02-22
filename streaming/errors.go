@@ -67,7 +67,7 @@ func (error customError) Error() string {
 	return error.originalError.Error()
 }
 
-// New creates a no type error
+// NewError creates a no type error
 func NewError(vkErr Error) error {
 	if vkErr.ErrorCode == 0 {
 		return nil

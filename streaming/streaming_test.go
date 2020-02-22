@@ -19,7 +19,7 @@ var stream *streaming.Streaming // nolint:gochecknoglobals
 func needServiceToken(t *testing.T) {
 	t.Helper()
 
-	if stream.Endpoint == "" {
+	if stream == nil {
 		t.Skip("SERVICE_TOKEN empty or bad")
 	}
 }
@@ -120,6 +120,8 @@ func TestStreaming_OnEvent(t *testing.T) {
 func TestStreaming_Run(t *testing.T) {
 	needServiceToken(t)
 
+	var skip bool
+
 	good := make(chan bool, 1)
 	exit := make(chan bool, 1)
 
@@ -142,17 +144,24 @@ func TestStreaming_Run(t *testing.T) {
 	select {
 	case <-good:
 	case <-time.After(30 * time.Second):
-		t.Skip("Timeout") // FIXME: need 100%
+		skip = true
 	}
+
 	stream.Shutdown()
 
 	select {
 	case <-exit:
 	case <-time.After(5 * time.Second):
 	}
+
+	if skip {
+		t.Error("Timeout")
+	}
 }
 
 func TestStreaming_Run_BadStreamID(t *testing.T) {
+	needServiceToken(t)
+
 	stream.StreamID = -1
 
 	err := stream.Run()

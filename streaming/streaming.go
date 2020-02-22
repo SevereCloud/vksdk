@@ -1,5 +1,5 @@
 /*
-Package longpoll implements Streaming API.
+Package streaming implements Streaming API.
 
 Note that Streaming API is available in beta testing mode. This could be
 changes and amended.

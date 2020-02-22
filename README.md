@@ -33,7 +33,7 @@
   - Возможность изменять HTTP клиент
 - [Streaming api](https://pkg.go.dev/github.com/SevereCloud/vksdk/streaming)
   - Возвращает готовые структуры
-	- Возможность изменять HTTP клиент
+  - Возможность изменять HTTP клиент
 - [FOAF](https://github.com/SevereCloud/vksdk/tree/master/foaf#foaf)
   - Работает с пользователями и группами
   - Возвращает готовые структуры
