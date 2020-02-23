@@ -2,6 +2,7 @@ package api_test
 
 import (
 	"testing"
+	"time"
 
 	"github.com/SevereCloud/vksdk/api"
 	"github.com/stretchr/testify/assert"
@@ -19,6 +20,8 @@ func TestVK_AccountBan(t *testing.T) {
 		"owner_id": -1,
 	})
 	noError(t, err)
+
+	time.Sleep(2 * time.Second)
 
 	res, err := vkUser.AccountGetBanned(api.Params{})
 	noError(t, err)
