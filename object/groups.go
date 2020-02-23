@@ -464,8 +464,16 @@ type GroupsMarketInfo struct {
 
 // GroupsMemberRole struct
 type GroupsMemberRole struct {
-	ID   int    `json:"id"` // User ID
-	Role string `json:"role"`
+	ID          int      `json:"id"` // User ID
+	Role        string   `json:"role"`
+	Permissions []string `json:"permissions"`
+}
+
+// GroupsMemberRoleXtrUsersUser struct
+type GroupsMemberRoleXtrUsersUser struct {
+	UsersUser
+	Role        string   `json:"role"`
+	Permissions []string `json:"permissions"`
 }
 
 // GroupsMemberStatus struct

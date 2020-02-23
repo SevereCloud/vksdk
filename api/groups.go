@@ -389,6 +389,7 @@ type GroupsGetMembersResponse struct {
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembers(params Params) (response GroupsGetMembersResponse, err error) {
 	params["fields"] = ""
+	params["filter"] = ""
 	err = vk.RequestUnmarshal("groups.getMembers", params, &response)
 
 	return
@@ -415,8 +416,8 @@ func (vk *VK) GroupsGetMembersFields(params Params) (response GroupsGetMembersFi
 
 // GroupsGetMembersFilterManagersResponse struct
 type GroupsGetMembersFilterManagersResponse struct {
-	Count int                         `json:"count"`
-	Items []object.GroupsMemberStatus `json:"items"`
+	Count int                                   `json:"count"`
+	Items []object.GroupsMemberRoleXtrUsersUser `json:"items"`
 }
 
 // GroupsGetMembersFilterManagers returns a list of community members
