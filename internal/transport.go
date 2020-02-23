@@ -1,3 +1,6 @@
+/*
+Package internal unimportable
+*/
 package internal // import "github.com/SevereCloud/vksdk/internal"
 
 import (

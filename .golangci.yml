@@ -30,6 +30,7 @@ linters:
     - gochecknoglobals
     - maligned
     - prealloc
+    - goprintffuncname
 
   # don't enable:
   # - godox
@@ -43,11 +44,26 @@ linters:
   # - gomnd
   # - dogsled
 
-# issues:
-#   exclude-rules:
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+
+    - linters:
+        - errcheck
+      source: ".((os\\.)?std(out|err)\\..*|.*Close|.*Flush|os\\.Remove(All)?|.*printf?|os\\.(Un)?Setenv)."
+
 #     - linters:
 #         - lll
 #       source: "^(func|type|struct)"
 
-# service:
-#   golangci-lint-version: 1.22.x
+  exclude-use-default: false
+
+
+service:
+  golangci-lint-version: 1.23.x
