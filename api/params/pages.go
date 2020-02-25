@@ -19,8 +19,9 @@ func NewPagesClearCacheBuilder() *PagesClearCacheBuilder {
 }
 
 // URL Address of the page where you need to refesh the cached version
-func (b *PagesClearCacheBuilder) URL(v string) {
+func (b *PagesClearCacheBuilder) URL(v string) *PagesClearCacheBuilder{
 	b.Params["url"] = v
+	return b
 }
 
 // PagesGetBuilder builder
@@ -38,38 +39,45 @@ func NewPagesGetBuilder() *PagesGetBuilder {
 }
 
 // OwnerID Page owner ID.
-func (b *PagesGetBuilder) OwnerID(v int) {
+func (b *PagesGetBuilder) OwnerID(v int) *PagesGetBuilder{
 	b.Params["owner_id"] = v
+	return b
 }
 
 // PageID Wiki page ID.
-func (b *PagesGetBuilder) PageID(v int) {
+func (b *PagesGetBuilder) PageID(v int) *PagesGetBuilder{
 	b.Params["page_id"] = v
+	return b
 }
 
 // Global '1' — to return information about a global wiki page
-func (b *PagesGetBuilder) Global(v bool) {
+func (b *PagesGetBuilder) Global(v bool) *PagesGetBuilder{
 	b.Params["global"] = v
+	return b
 }
 
 // SitePreview '1' — resulting wiki page is a preview for the attached link
-func (b *PagesGetBuilder) SitePreview(v bool) {
+func (b *PagesGetBuilder) SitePreview(v bool) *PagesGetBuilder{
 	b.Params["site_preview"] = v
+	return b
 }
 
 // Title Wiki page title.
-func (b *PagesGetBuilder) Title(v string) {
+func (b *PagesGetBuilder) Title(v string) *PagesGetBuilder{
 	b.Params["title"] = v
+	return b
 }
 
 // NeedSource parameter
-func (b *PagesGetBuilder) NeedSource(v bool) {
+func (b *PagesGetBuilder) NeedSource(v bool) *PagesGetBuilder{
 	b.Params["need_source"] = v
+	return b
 }
 
 // NeedHTML '1' — to return the page as HTML,
-func (b *PagesGetBuilder) NeedHTML(v bool) {
+func (b *PagesGetBuilder) NeedHTML(v bool) *PagesGetBuilder{
 	b.Params["need_html"] = v
+	return b
 }
 
 // PagesGetHistoryBuilder builder
@@ -87,18 +95,21 @@ func NewPagesGetHistoryBuilder() *PagesGetHistoryBuilder {
 }
 
 // PageID Wiki page ID.
-func (b *PagesGetHistoryBuilder) PageID(v int) {
+func (b *PagesGetHistoryBuilder) PageID(v int) *PagesGetHistoryBuilder{
 	b.Params["page_id"] = v
+	return b
 }
 
 // GroupID ID of the community that owns the wiki page.
-func (b *PagesGetHistoryBuilder) GroupID(v int) {
+func (b *PagesGetHistoryBuilder) GroupID(v int) *PagesGetHistoryBuilder{
 	b.Params["group_id"] = v
+	return b
 }
 
 // UserID parameter
-func (b *PagesGetHistoryBuilder) UserID(v int) {
+func (b *PagesGetHistoryBuilder) UserID(v int) *PagesGetHistoryBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // PagesGetTitlesBuilder builder
@@ -116,8 +127,9 @@ func NewPagesGetTitlesBuilder() *PagesGetTitlesBuilder {
 }
 
 // GroupID ID of the community that owns the wiki page.
-func (b *PagesGetTitlesBuilder) GroupID(v int) {
+func (b *PagesGetTitlesBuilder) GroupID(v int) *PagesGetTitlesBuilder{
 	b.Params["group_id"] = v
+	return b
 }
 
 // PagesGetVersionBuilder builder
@@ -135,23 +147,27 @@ func NewPagesGetVersionBuilder() *PagesGetVersionBuilder {
 }
 
 // VersionID parameter
-func (b *PagesGetVersionBuilder) VersionID(v int) {
+func (b *PagesGetVersionBuilder) VersionID(v int) *PagesGetVersionBuilder{
 	b.Params["version_id"] = v
+	return b
 }
 
 // GroupID ID of the community that owns the wiki page.
-func (b *PagesGetVersionBuilder) GroupID(v int) {
+func (b *PagesGetVersionBuilder) GroupID(v int) *PagesGetVersionBuilder{
 	b.Params["group_id"] = v
+	return b
 }
 
 // UserID parameter
-func (b *PagesGetVersionBuilder) UserID(v int) {
+func (b *PagesGetVersionBuilder) UserID(v int) *PagesGetVersionBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // NeedHTML '1' — to return the page as HTML
-func (b *PagesGetVersionBuilder) NeedHTML(v bool) {
+func (b *PagesGetVersionBuilder) NeedHTML(v bool) *PagesGetVersionBuilder{
 	b.Params["need_html"] = v
+	return b
 }
 
 // PagesParseWikiBuilder builder
@@ -169,13 +185,15 @@ func NewPagesParseWikiBuilder() *PagesParseWikiBuilder {
 }
 
 // Text Text of the wiki page.
-func (b *PagesParseWikiBuilder) Text(v string) {
+func (b *PagesParseWikiBuilder) Text(v string) *PagesParseWikiBuilder{
 	b.Params["text"] = v
+	return b
 }
 
 // GroupID ID of the group in the context of which this markup is interpreted.
-func (b *PagesParseWikiBuilder) GroupID(v int) {
+func (b *PagesParseWikiBuilder) GroupID(v int) *PagesParseWikiBuilder{
 	b.Params["group_id"] = v
+	return b
 }
 
 // PagesSaveBuilder builder
@@ -193,28 +211,33 @@ func NewPagesSaveBuilder() *PagesSaveBuilder {
 }
 
 // Text Text of the wiki page in wiki-format.
-func (b *PagesSaveBuilder) Text(v string) {
+func (b *PagesSaveBuilder) Text(v string) *PagesSaveBuilder{
 	b.Params["text"] = v
+	return b
 }
 
 // PageID Wiki page ID. The 'title' parameter can be passed instead of 'pid'.
-func (b *PagesSaveBuilder) PageID(v int) {
+func (b *PagesSaveBuilder) PageID(v int) *PagesSaveBuilder{
 	b.Params["page_id"] = v
+	return b
 }
 
 // GroupID ID of the community that owns the wiki page.
-func (b *PagesSaveBuilder) GroupID(v int) {
+func (b *PagesSaveBuilder) GroupID(v int) *PagesSaveBuilder{
 	b.Params["group_id"] = v
+	return b
 }
 
 // UserID User ID
-func (b *PagesSaveBuilder) UserID(v int) {
+func (b *PagesSaveBuilder) UserID(v int) *PagesSaveBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // Title Wiki page title.
-func (b *PagesSaveBuilder) Title(v string) {
+func (b *PagesSaveBuilder) Title(v string) *PagesSaveBuilder{
 	b.Params["title"] = v
+	return b
 }
 
 // PagesSaveAccessBuilder builder
@@ -232,38 +255,31 @@ func NewPagesSaveAccessBuilder() *PagesSaveAccessBuilder {
 }
 
 // PageID Wiki page ID.
-func (b *PagesSaveAccessBuilder) PageID(v int) {
+func (b *PagesSaveAccessBuilder) PageID(v int) *PagesSaveAccessBuilder{
 	b.Params["page_id"] = v
+	return b
 }
 
 // GroupID ID of the community that owns the wiki page.
-func (b *PagesSaveAccessBuilder) GroupID(v int) {
+func (b *PagesSaveAccessBuilder) GroupID(v int) *PagesSaveAccessBuilder{
 	b.Params["group_id"] = v
+	return b
 }
 
 // UserID parameter
-func (b *PagesSaveAccessBuilder) UserID(v int) {
+func (b *PagesSaveAccessBuilder) UserID(v int) *PagesSaveAccessBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
-// View Who can view the wiki page:
-//
-// * 1 — only community members;
-//
-// * 2 — all users can view the page;
-//
-// * 0 — only community managers
-func (b *PagesSaveAccessBuilder) View(v int) {
+// View Who can view the wiki page: '1' — only community members, '2' — all users can view the page, '0' — only community managers
+func (b *PagesSaveAccessBuilder) View(v int) *PagesSaveAccessBuilder{
 	b.Params["view"] = v
+	return b
 }
 
-// Edit Who can edit the wiki page:
-//
-// * 1 — only community members;
-//
-// * 2 — all users can edit the page;
-//
-// * 0 — only community managers
-func (b *PagesSaveAccessBuilder) Edit(v int) {
+// Edit Who can edit the wiki page: '1' — only community members, '2' — all users can edit the page, '0' — only community managers
+func (b *PagesSaveAccessBuilder) Edit(v int) *PagesSaveAccessBuilder{
 	b.Params["edit"] = v
+	return b
 }

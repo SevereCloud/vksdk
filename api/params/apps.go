@@ -19,104 +19,45 @@ func NewAppsGetBuilder() *AppsGetBuilder {
 }
 
 // AppID Application ID
-func (b *AppsGetBuilder) AppID(v int) {
+func (b *AppsGetBuilder) AppID(v int) *AppsGetBuilder{
 	b.Params["app_id"] = v
+	return b
 }
 
 // AppIDs List of application ID
-func (b *AppsGetBuilder) AppIDs(v []string) {
+func (b *AppsGetBuilder) AppIDs(v []string) *AppsGetBuilder{
 	b.Params["app_ids"] = v
+	return b
 }
 
-// Platform platform. Possible values:
-//
-// * ios — iOS;
-//
-// * android — Android;
-//
-// * winphone — Windows Phone;
-//
-// * web — приложения на vk.com.
-//
-// By default: web.
-func (b *AppsGetBuilder) Platform(v string) {
+// Platform platform. Possible values: *'ios' — iOS,, *'android' — Android,, *'winphone' — Windows Phone,, *'web' — приложения на vk.com. By default: 'web'.
+func (b *AppsGetBuilder) Platform(v string) *AppsGetBuilder{
 	b.Params["platform"] = v
+	return b
 }
 
 // Extended parameter
-func (b *AppsGetBuilder) Extended(v bool) {
+func (b *AppsGetBuilder) Extended(v bool) *AppsGetBuilder{
 	b.Params["extended"] = v
+	return b
 }
 
 // ReturnFriends parameter
-func (b *AppsGetBuilder) ReturnFriends(v bool) {
+func (b *AppsGetBuilder) ReturnFriends(v bool) *AppsGetBuilder{
 	b.Params["return_friends"] = v
+	return b
 }
 
-// Fields Profile fields to return. Sample values:
-//
-// * nickname
-//
-// * screen_name
-//
-// * sex
-//
-// * bdate (birthdate)
-//
-// * city
-//
-// * country
-//
-// * timezone
-//
-// * photo
-//
-// * photo_medium
-//
-// * photo_big
-//
-// * has_mobile
-//
-// * contacts
-//
-// * education
-//
-// * online
-//
-// * counters
-//
-// * relation
-//
-// * last_seen
-//
-// * activity
-//
-// * can_write_private_message
-//
-// * can_see_all_posts
-//
-// * can_post
-//
-// * universities, (only if return_friends - 1)
-func (b *AppsGetBuilder) Fields(v []string) {
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities', (only if return_friends - 1)
+func (b *AppsGetBuilder) Fields(v []string) *AppsGetBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
-// NameCase Case for declension of user name and surname:
-//
-// * nom — nominative (default);
-//
-// * gen — genitive;
-//
-// * dat — dative;
-//
-// * acc — accusative;
-//
-// * ins — instrumental;
-//
-// * abl — prepositional. (only if 'return_friends' = '1')
-func (b *AppsGetBuilder) NameCase(v string) {
+// NameCase Case for declension of user name and surname: 'nom' — nominative (default),, 'gen' — genitive,, 'dat' — dative,, 'acc' — accusative,, 'ins' — instrumental,, 'abl' — prepositional. (only if 'return_friends' = '1')
+func (b *AppsGetBuilder) NameCase(v string) *AppsGetBuilder{
 	b.Params["name_case"] = v
+	return b
 }
 
 // AppsGetCatalogBuilder builder
@@ -133,74 +74,70 @@ func NewAppsGetCatalogBuilder() *AppsGetCatalogBuilder {
 	return &AppsGetCatalogBuilder{api.Params{}}
 }
 
-// Sort Sort order:
-//
-// * popular_today — popular for one day (default)
-//
-// * visitors — by visitors number
-//
-// * create_date — by creation date
-//
-// * growth_rate — by growth rate
-//
-// * popular_week — popular for one week
-func (b *AppsGetCatalogBuilder) Sort(v string) {
+// Sort Sort order: 'popular_today' — popular for one day (default), 'visitors' — by visitors number , 'create_date' — by creation date, 'growth_rate' — by growth rate, 'popular_week' — popular for one week
+func (b *AppsGetCatalogBuilder) Sort(v string) *AppsGetCatalogBuilder{
 	b.Params["sort"] = v
+	return b
 }
 
 // Offset Offset required to return a specific subset of apps.
-func (b *AppsGetCatalogBuilder) Offset(v int) {
+func (b *AppsGetCatalogBuilder) Offset(v int) *AppsGetCatalogBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of apps to return.
-func (b *AppsGetCatalogBuilder) Count(v int) {
+func (b *AppsGetCatalogBuilder) Count(v int) *AppsGetCatalogBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // Platform parameter
-func (b *AppsGetCatalogBuilder) Platform(v string) {
+func (b *AppsGetCatalogBuilder) Platform(v string) *AppsGetCatalogBuilder{
 	b.Params["platform"] = v
+	return b
 }
 
-// Extended parameter
-//
-// * 1 — to return additional fields 'screenshots', 'MAU', 'catalog_position', and 'international'.
-// If set, 'count' must be less than or equal to '100'.
-//
-// * 0 — not to return additional fields (default).
-func (b *AppsGetCatalogBuilder) Extended(v bool) {
+// Extended '1' — to return additional fields 'screenshots', 'MAU', 'catalog_position', and 'international'. If set, 'count' must be less than or equal to '100'. '0' — not to return additional fields (default).
+func (b *AppsGetCatalogBuilder) Extended(v bool) *AppsGetCatalogBuilder{
 	b.Params["extended"] = v
+	return b
 }
 
 // ReturnFriends parameter
-func (b *AppsGetCatalogBuilder) ReturnFriends(v bool) {
+func (b *AppsGetCatalogBuilder) ReturnFriends(v bool) *AppsGetCatalogBuilder{
 	b.Params["return_friends"] = v
+	return b
 }
 
 // Fields parameter
-func (b *AppsGetCatalogBuilder) Fields(v []string) {
+func (b *AppsGetCatalogBuilder) Fields(v []string) *AppsGetCatalogBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
 // NameCase parameter
-func (b *AppsGetCatalogBuilder) NameCase(v string) {
+func (b *AppsGetCatalogBuilder) NameCase(v string) *AppsGetCatalogBuilder{
 	b.Params["name_case"] = v
+	return b
 }
 
 // Q Search query string.
-func (b *AppsGetCatalogBuilder) Q(v string) {
+func (b *AppsGetCatalogBuilder) Q(v string) *AppsGetCatalogBuilder{
 	b.Params["q"] = v
+	return b
 }
 
 // GenreID parameter
-func (b *AppsGetCatalogBuilder) GenreID(v int) {
+func (b *AppsGetCatalogBuilder) GenreID(v int) *AppsGetCatalogBuilder{
 	b.Params["genre_id"] = v
+	return b
 }
 
 // Filter 'installed' — to return list of installed apps (only for mobile platform).
-func (b *AppsGetCatalogBuilder) Filter(v string) {
+func (b *AppsGetCatalogBuilder) Filter(v string) *AppsGetCatalogBuilder{
 	b.Params["filter"] = v
+	return b
 }
 
 // AppsGetFriendsListBuilder builder
@@ -218,34 +155,33 @@ func NewAppsGetFriendsListBuilder() *AppsGetFriendsListBuilder {
 }
 
 // Extended parameter
-func (b *AppsGetFriendsListBuilder) Extended(v bool) {
+func (b *AppsGetFriendsListBuilder) Extended(v bool) *AppsGetFriendsListBuilder{
 	b.Params["extended"] = v
+	return b
 }
 
 // Count List size.
-func (b *AppsGetFriendsListBuilder) Count(v int) {
+func (b *AppsGetFriendsListBuilder) Count(v int) *AppsGetFriendsListBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // Offset parameter
-func (b *AppsGetFriendsListBuilder) Offset(v int) {
+func (b *AppsGetFriendsListBuilder) Offset(v int) *AppsGetFriendsListBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
-// Type List type. Possible values:
-//
-// * invite — available for invites (don't play the game);
-//
-// * request — available for request (play the game).
-//
-// By default: invite.
-func (b *AppsGetFriendsListBuilder) Type(v string) {
+// Type List type. Possible values: * 'invite' — available for invites (don't play the game),, * 'request' — available for request (play the game). By default: 'invite'.
+func (b *AppsGetFriendsListBuilder) Type(v string) *AppsGetFriendsListBuilder{
 	b.Params["type"] = v
+	return b
 }
 
 // Fields Additional profile fields, see [vk.com/dev/fields|description].
-func (b *AppsGetFriendsListBuilder) Fields(v []string) {
+func (b *AppsGetFriendsListBuilder) Fields(v []string) *AppsGetFriendsListBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
 // AppsGetLeaderboardBuilder builder
@@ -262,29 +198,22 @@ func NewAppsGetLeaderboardBuilder() *AppsGetLeaderboardBuilder {
 	return &AppsGetLeaderboardBuilder{api.Params{}}
 }
 
-// Type Leaderboard type. Possible values:
-//
-// * level — by level;
-//
-// * points — by mission points;
-//
-// * score — by score ().
-func (b *AppsGetLeaderboardBuilder) Type(v string) {
+// Type Leaderboard type. Possible values: *'level' — by level,, *'points' — by mission points,, *'score' — by score ().
+func (b *AppsGetLeaderboardBuilder) Type(v string) *AppsGetLeaderboardBuilder{
 	b.Params["type"] = v
+	return b
 }
 
-// Global Rating type. Possible values:
-//
-// * 1 — global rating among all players;
-//
-// * 0 — rating among user friends.
-func (b *AppsGetLeaderboardBuilder) Global(v bool) {
+// Global Rating type. Possible values: *'1' — global rating among all players,, *'0' — rating among user friends.
+func (b *AppsGetLeaderboardBuilder) Global(v bool) *AppsGetLeaderboardBuilder{
 	b.Params["global"] = v
+	return b
 }
 
 // Extended 1 — to return additional info about users
-func (b *AppsGetLeaderboardBuilder) Extended(v bool) {
+func (b *AppsGetLeaderboardBuilder) Extended(v bool) *AppsGetLeaderboardBuilder{
 	b.Params["extended"] = v
+	return b
 }
 
 // AppsGetScopesBuilder builder
@@ -302,8 +231,9 @@ func NewAppsGetScopesBuilder() *AppsGetScopesBuilder {
 }
 
 // Type parameter
-func (b *AppsGetScopesBuilder) Type(v string) {
+func (b *AppsGetScopesBuilder) Type(v string) *AppsGetScopesBuilder{
 	b.Params["type"] = v
+	return b
 }
 
 // AppsGetScoreBuilder builder
@@ -321,8 +251,9 @@ func NewAppsGetScoreBuilder() *AppsGetScoreBuilder {
 }
 
 // UserID parameter
-func (b *AppsGetScoreBuilder) UserID(v int) {
+func (b *AppsGetScoreBuilder) UserID(v int) *AppsGetScoreBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // AppsSendRequestBuilder builder
@@ -340,35 +271,37 @@ func NewAppsSendRequestBuilder() *AppsSendRequestBuilder {
 }
 
 // UserID id of the user to send a request
-func (b *AppsSendRequestBuilder) UserID(v int) {
+func (b *AppsSendRequestBuilder) UserID(v int) *AppsSendRequestBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // Text request text
-func (b *AppsSendRequestBuilder) Text(v string) {
+func (b *AppsSendRequestBuilder) Text(v string) *AppsSendRequestBuilder{
 	b.Params["text"] = v
+	return b
 }
 
-// Type request type. Values:
-//
-// * invite – if the request is sent to a user who does not have the app installed
-//
-// * request – if a user has already installed the app
-func (b *AppsSendRequestBuilder) Type(v string) {
+// Type request type. Values: 'invite' – if the request is sent to a user who does not have the app installed,, 'request' – if a user has already installed the app
+func (b *AppsSendRequestBuilder) Type(v string) *AppsSendRequestBuilder{
 	b.Params["type"] = v
+	return b
 }
 
 // Name parameter
-func (b *AppsSendRequestBuilder) Name(v string) {
+func (b *AppsSendRequestBuilder) Name(v string) *AppsSendRequestBuilder{
 	b.Params["name"] = v
+	return b
 }
 
 // Key special string key to be sent with the request
-func (b *AppsSendRequestBuilder) Key(v string) {
+func (b *AppsSendRequestBuilder) Key(v string) *AppsSendRequestBuilder{
 	b.Params["key"] = v
+	return b
 }
 
 // Separate parameter
-func (b *AppsSendRequestBuilder) Separate(v bool) {
+func (b *AppsSendRequestBuilder) Separate(v bool) *AppsSendRequestBuilder{
 	b.Params["separate"] = v
+	return b
 }

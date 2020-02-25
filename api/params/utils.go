@@ -19,8 +19,9 @@ func NewUtilsCheckLinkBuilder() *UtilsCheckLinkBuilder {
 }
 
 // URL Link to check (e.g., 'http://google.com').
-func (b *UtilsCheckLinkBuilder) URL(v string) {
+func (b *UtilsCheckLinkBuilder) URL(v string) *UtilsCheckLinkBuilder{
 	b.Params["url"] = v
+	return b
 }
 
 // UtilsDeleteFromLastShortenedBuilder builder
@@ -38,8 +39,9 @@ func NewUtilsDeleteFromLastShortenedBuilder() *UtilsDeleteFromLastShortenedBuild
 }
 
 // Key Link key (characters after vk.cc/).
-func (b *UtilsDeleteFromLastShortenedBuilder) Key(v string) {
+func (b *UtilsDeleteFromLastShortenedBuilder) Key(v string) *UtilsDeleteFromLastShortenedBuilder{
 	b.Params["key"] = v
+	return b
 }
 
 // UtilsGetLastShortenedLinksBuilder builder
@@ -57,13 +59,15 @@ func NewUtilsGetLastShortenedLinksBuilder() *UtilsGetLastShortenedLinksBuilder {
 }
 
 // Count Number of links to return.
-func (b *UtilsGetLastShortenedLinksBuilder) Count(v int) {
+func (b *UtilsGetLastShortenedLinksBuilder) Count(v int) *UtilsGetLastShortenedLinksBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of links.
-func (b *UtilsGetLastShortenedLinksBuilder) Offset(v int) {
+func (b *UtilsGetLastShortenedLinksBuilder) Offset(v int) *UtilsGetLastShortenedLinksBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
 // UtilsGetLinkStatsBuilder builder
@@ -81,33 +85,39 @@ func NewUtilsGetLinkStatsBuilder() *UtilsGetLinkStatsBuilder {
 }
 
 // Key Link key (characters after vk.cc/).
-func (b *UtilsGetLinkStatsBuilder) Key(v string) {
+func (b *UtilsGetLinkStatsBuilder) Key(v string) *UtilsGetLinkStatsBuilder{
 	b.Params["key"] = v
+	return b
 }
 
 // Source Source of scope
-func (b *UtilsGetLinkStatsBuilder) Source(v string) {
+func (b *UtilsGetLinkStatsBuilder) Source(v string) *UtilsGetLinkStatsBuilder{
 	b.Params["source"] = v
+	return b
 }
 
 // AccessKey Access key for private link stats.
-func (b *UtilsGetLinkStatsBuilder) AccessKey(v string) {
+func (b *UtilsGetLinkStatsBuilder) AccessKey(v string) *UtilsGetLinkStatsBuilder{
 	b.Params["access_key"] = v
+	return b
 }
 
 // Interval Interval.
-func (b *UtilsGetLinkStatsBuilder) Interval(v string) {
+func (b *UtilsGetLinkStatsBuilder) Interval(v string) *UtilsGetLinkStatsBuilder{
 	b.Params["interval"] = v
+	return b
 }
 
 // IntervalsCount Number of intervals to return.
-func (b *UtilsGetLinkStatsBuilder) IntervalsCount(v int) {
+func (b *UtilsGetLinkStatsBuilder) IntervalsCount(v int) *UtilsGetLinkStatsBuilder{
 	b.Params["intervals_count"] = v
+	return b
 }
 
 // Extended 1 — to return extended stats data (sex, age, geo). 0 — to return views number only.
-func (b *UtilsGetLinkStatsBuilder) Extended(v bool) {
+func (b *UtilsGetLinkStatsBuilder) Extended(v bool) *UtilsGetLinkStatsBuilder{
 	b.Params["extended"] = v
+	return b
 }
 
 // UtilsGetShortLinkBuilder builder
@@ -125,13 +135,15 @@ func NewUtilsGetShortLinkBuilder() *UtilsGetShortLinkBuilder {
 }
 
 // URL URL to be shortened.
-func (b *UtilsGetShortLinkBuilder) URL(v string) {
+func (b *UtilsGetShortLinkBuilder) URL(v string) *UtilsGetShortLinkBuilder{
 	b.Params["url"] = v
+	return b
 }
 
 // Private 1 — private stats, 0 — public stats.
-func (b *UtilsGetShortLinkBuilder) Private(v bool) {
+func (b *UtilsGetShortLinkBuilder) Private(v bool) *UtilsGetShortLinkBuilder{
 	b.Params["private"] = v
+	return b
 }
 
 // UtilsResolveScreenNameBuilder builder
@@ -149,6 +161,7 @@ func NewUtilsResolveScreenNameBuilder() *UtilsResolveScreenNameBuilder {
 }
 
 // ScreenName Screen name of the user, community (e.g., 'apiclub,' 'andrew', or 'rules_of_war'), or application.
-func (b *UtilsResolveScreenNameBuilder) ScreenName(v string) {
+func (b *UtilsResolveScreenNameBuilder) ScreenName(v string) *UtilsResolveScreenNameBuilder{
 	b.Params["screen_name"] = v
+	return b
 }

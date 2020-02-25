@@ -19,40 +19,33 @@ func NewNotificationsGetBuilder() *NotificationsGetBuilder {
 }
 
 // Count Number of notifications to return.
-func (b *NotificationsGetBuilder) Count(v int) {
+func (b *NotificationsGetBuilder) Count(v int) *NotificationsGetBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // StartFrom parameter
-func (b *NotificationsGetBuilder) StartFrom(v string) {
+func (b *NotificationsGetBuilder) StartFrom(v string) *NotificationsGetBuilder{
 	b.Params["start_from"] = v
+	return b
 }
 
-// Filters Type of notifications to return:
-//
-// * wall — wall posts,
-//
-// * mentions — mentions in wall posts, comments, or topics,
-//
-// * comments — comments to wall posts, photos, and videos,
-//
-// * likes — likes,
-//
-// * reposted — wall posts that are copied from the current user's wall,
-//
-// * followers — new followers, 'friends' — accepted friend requests
-func (b *NotificationsGetBuilder) Filters(v []string) {
+// Filters Type of notifications to return: 'wall' — wall posts, 'mentions' — mentions in wall posts, comments, or topics, 'comments' — comments to wall posts, photos, and videos, 'likes' — likes, 'reposted' — wall posts that are copied from the current user's wall, 'followers' — new followers, 'friends' — accepted friend requests
+func (b *NotificationsGetBuilder) Filters(v []string) *NotificationsGetBuilder{
 	b.Params["filters"] = v
+	return b
 }
 
 // StartTime Earliest timestamp (in Unix time) of a notification to return. By default, 24 hours ago.
-func (b *NotificationsGetBuilder) StartTime(v int) {
+func (b *NotificationsGetBuilder) StartTime(v int) *NotificationsGetBuilder{
 	b.Params["start_time"] = v
+	return b
 }
 
 // EndTime Latest timestamp (in Unix time) of a notification to return. By default, the current time.
-func (b *NotificationsGetBuilder) EndTime(v int) {
+func (b *NotificationsGetBuilder) EndTime(v int) *NotificationsGetBuilder{
 	b.Params["end_time"] = v
+	return b
 }
 
 // NotificationsSendMessageBuilder builder
@@ -68,21 +61,25 @@ func NewNotificationsSendMessageBuilder() *NotificationsSendMessageBuilder {
 }
 
 // UserIDs parameter
-func (b *NotificationsSendMessageBuilder) UserIDs(v []int) {
+func (b *NotificationsSendMessageBuilder) UserIDs(v []int) *NotificationsSendMessageBuilder{
 	b.Params["user_ids"] = v
+	return b
 }
 
 // Message parameter
-func (b *NotificationsSendMessageBuilder) Message(v string) {
+func (b *NotificationsSendMessageBuilder) Message(v string) *NotificationsSendMessageBuilder{
 	b.Params["message"] = v
+	return b
 }
 
 // Fragment parameter
-func (b *NotificationsSendMessageBuilder) Fragment(v string) {
+func (b *NotificationsSendMessageBuilder) Fragment(v string) *NotificationsSendMessageBuilder{
 	b.Params["fragment"] = v
+	return b
 }
 
 // GroupID parameter
-func (b *NotificationsSendMessageBuilder) GroupID(v int) {
+func (b *NotificationsSendMessageBuilder) GroupID(v int) *NotificationsSendMessageBuilder{
 	b.Params["group_id"] = v
+	return b
 }

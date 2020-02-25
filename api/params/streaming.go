@@ -17,6 +17,7 @@ func NewStreamingSetSettingsBuilder() *StreamingSetSettingsBuilder {
 }
 
 // MonthlyTier parameter
-func (b *StreamingSetSettingsBuilder) MonthlyTier(v string) {
+func (b *StreamingSetSettingsBuilder) MonthlyTier(v string) *StreamingSetSettingsBuilder{
 	b.Params["monthly_tier"] = v
+	return b
 }

@@ -19,18 +19,21 @@ func NewFriendsAddBuilder() *FriendsAddBuilder {
 }
 
 // UserID ID of the user whose friend request will be approved or to whom a friend request will be sent.
-func (b *FriendsAddBuilder) UserID(v int) {
+func (b *FriendsAddBuilder) UserID(v int) *FriendsAddBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // Text Text of the message (up to 500 characters) for the friend request, if any.
-func (b *FriendsAddBuilder) Text(v string) {
+func (b *FriendsAddBuilder) Text(v string) *FriendsAddBuilder{
 	b.Params["text"] = v
+	return b
 }
 
 // Follow '1' to pass an incoming request to followers list.
-func (b *FriendsAddBuilder) Follow(v bool) {
+func (b *FriendsAddBuilder) Follow(v bool) *FriendsAddBuilder{
 	b.Params["follow"] = v
+	return b
 }
 
 // FriendsAddListBuilder builder
@@ -48,13 +51,15 @@ func NewFriendsAddListBuilder() *FriendsAddListBuilder {
 }
 
 // Name Name of the friend list.
-func (b *FriendsAddListBuilder) Name(v string) {
+func (b *FriendsAddListBuilder) Name(v string) *FriendsAddListBuilder{
 	b.Params["name"] = v
+	return b
 }
 
 // UserIDs IDs of users to be added to the friend list.
-func (b *FriendsAddListBuilder) UserIDs(v []int) {
+func (b *FriendsAddListBuilder) UserIDs(v []int) *FriendsAddListBuilder{
 	b.Params["user_ids"] = v
+	return b
 }
 
 // FriendsAreFriendsBuilder builder
@@ -72,18 +77,15 @@ func NewFriendsAreFriendsBuilder() *FriendsAreFriendsBuilder {
 }
 
 // UserIDs IDs of the users whose friendship status to check.
-func (b *FriendsAreFriendsBuilder) UserIDs(v []int) {
+func (b *FriendsAreFriendsBuilder) UserIDs(v []int) *FriendsAreFriendsBuilder{
 	b.Params["user_ids"] = v
+	return b
 }
 
-// NeedSign parameter
-//
-// * 1 — to return 'sign' field. 'sign' is md5("{id}_{user_id}_{friends_status}_{application_secret}"),
-// where id is current user ID. This field allows to check that data has not been modified by the client.
-//
-// By default: '0'.
-func (b *FriendsAreFriendsBuilder) NeedSign(v bool) {
+// NeedSign '1' — to return 'sign' field. 'sign' is md5("{id}_{user_id}_{friends_status}_{application_secret}"), where id is current user ID. This field allows to check that data has not been modified by the client. By default: '0'.
+func (b *FriendsAreFriendsBuilder) NeedSign(v bool) *FriendsAreFriendsBuilder{
 	b.Params["need_sign"] = v
+	return b
 }
 
 // FriendsDeleteBuilder builder
@@ -100,10 +102,10 @@ func NewFriendsDeleteBuilder() *FriendsDeleteBuilder {
 	return &FriendsDeleteBuilder{api.Params{}}
 }
 
-// UserID ID of the user whose friend request is to be declined or who is to be deleted from the current user's
-// friend list.
-func (b *FriendsDeleteBuilder) UserID(v int) {
+// UserID ID of the user whose friend request is to be declined or who is to be deleted from the current user's friend list.
+func (b *FriendsDeleteBuilder) UserID(v int) *FriendsDeleteBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // FriendsDeleteListBuilder builder
@@ -121,8 +123,9 @@ func NewFriendsDeleteListBuilder() *FriendsDeleteListBuilder {
 }
 
 // ListID ID of the friend list to delete.
-func (b *FriendsDeleteListBuilder) ListID(v int) {
+func (b *FriendsDeleteListBuilder) ListID(v int) *FriendsDeleteListBuilder{
 	b.Params["list_id"] = v
+	return b
 }
 
 // FriendsEditBuilder builder
@@ -140,13 +143,15 @@ func NewFriendsEditBuilder() *FriendsEditBuilder {
 }
 
 // UserID ID of the user whose friend list is to be edited.
-func (b *FriendsEditBuilder) UserID(v int) {
+func (b *FriendsEditBuilder) UserID(v int) *FriendsEditBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // ListIDs IDs of the friend lists to which to add the user.
-func (b *FriendsEditBuilder) ListIDs(v []int) {
+func (b *FriendsEditBuilder) ListIDs(v []int) *FriendsEditBuilder{
 	b.Params["list_ids"] = v
+	return b
 }
 
 // FriendsEditListBuilder builder
@@ -164,28 +169,33 @@ func NewFriendsEditListBuilder() *FriendsEditListBuilder {
 }
 
 // Name Name of the friend list.
-func (b *FriendsEditListBuilder) Name(v string) {
+func (b *FriendsEditListBuilder) Name(v string) *FriendsEditListBuilder{
 	b.Params["name"] = v
+	return b
 }
 
 // ListID Friend list ID.
-func (b *FriendsEditListBuilder) ListID(v int) {
+func (b *FriendsEditListBuilder) ListID(v int) *FriendsEditListBuilder{
 	b.Params["list_id"] = v
+	return b
 }
 
 // UserIDs IDs of users in the friend list.
-func (b *FriendsEditListBuilder) UserIDs(v []int) {
+func (b *FriendsEditListBuilder) UserIDs(v []int) *FriendsEditListBuilder{
 	b.Params["user_ids"] = v
+	return b
 }
 
 // AddUserIDs (Applies if 'user_ids' parameter is not set.), User IDs to add to the friend list.
-func (b *FriendsEditListBuilder) AddUserIDs(v []int) {
+func (b *FriendsEditListBuilder) AddUserIDs(v []int) *FriendsEditListBuilder{
 	b.Params["add_user_ids"] = v
+	return b
 }
 
 // DeleteUserIDs (Applies if 'user_ids' parameter is not set.), User IDs to delete from the friend list.
-func (b *FriendsEditListBuilder) DeleteUserIDs(v []int) {
+func (b *FriendsEditListBuilder) DeleteUserIDs(v []int) *FriendsEditListBuilder{
 	b.Params["delete_user_ids"] = v
+	return b
 }
 
 // FriendsGetBuilder builder
@@ -203,70 +213,56 @@ func NewFriendsGetBuilder() *FriendsGetBuilder {
 }
 
 // UserID User ID. By default, the current user ID.
-func (b *FriendsGetBuilder) UserID(v int) {
+func (b *FriendsGetBuilder) UserID(v int) *FriendsGetBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
-// Order Sort order:
-//
-// * name — by name (enabled only if the 'fields' parameter is used);
-//
-// * hints — by rating, similar to how friends are sorted in My friends section.
-// This parameter is available only for [vk.com/dev/standalone|desktop applications].
-func (b *FriendsGetBuilder) Order(v string) {
+// Order Sort order: , 'name' — by name (enabled only if the 'fields' parameter is used), 'hints' — by rating, similar to how friends are sorted in My friends section, , This parameter is available only for [vk.com/dev/standalone|desktop applications].
+func (b *FriendsGetBuilder) Order(v string) *FriendsGetBuilder{
 	b.Params["order"] = v
+	return b
 }
 
-// ListID ID of the friend list returned by the [vk.com/dev/friends.getLists|friends.getLists] method to be used
-// as the source. This parameter is taken into account only when the uid parameter is set to the current user ID.
-// This parameter is available only for [vk.com/dev/standalone|desktop applications].
-func (b *FriendsGetBuilder) ListID(v int) {
+// ListID ID of the friend list returned by the [vk.com/dev/friends.getLists|friends.getLists] method to be used as the source. This parameter is taken into account only when the uid parameter is set to the current user ID. This parameter is available only for [vk.com/dev/standalone|desktop applications].
+func (b *FriendsGetBuilder) ListID(v int) *FriendsGetBuilder{
 	b.Params["list_id"] = v
+	return b
 }
 
 // Count Number of friends to return.
-func (b *FriendsGetBuilder) Count(v int) {
+func (b *FriendsGetBuilder) Count(v int) *FriendsGetBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of friends.
-func (b *FriendsGetBuilder) Offset(v int) {
+func (b *FriendsGetBuilder) Offset(v int) *FriendsGetBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
-// Fields Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex',
-// 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain',
-// 'has_mobile', 'rate', 'contacts', 'education'.
-func (b *FriendsGetBuilder) Fields(v []string) {
+// Fields Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education'.
+func (b *FriendsGetBuilder) Fields(v []string) *FriendsGetBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
-// NameCase Case for declension of user name and surname:
-//
-// * nom — nominative (default);
-//
-// * gen — genitive;
-//
-// * dat — dative;
-//
-// * acc — accusative;
-//
-// * ins — instrumental;
-//
-// * abl — prepositional.
-func (b *FriendsGetBuilder) NameCase(v string) {
+// NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive , 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+func (b *FriendsGetBuilder) NameCase(v string) *FriendsGetBuilder{
 	b.Params["name_case"] = v
+	return b
 }
 
 // Ref parameter
-func (b *FriendsGetBuilder) Ref(v string) {
+func (b *FriendsGetBuilder) Ref(v string) *FriendsGetBuilder{
 	b.Params["ref"] = v
+	return b
 }
 
 // FriendsGetByPhonesBuilder builder
 //
-// Returns a list of the current user's friends whose phone numbers, validated or specified in a profile, are in a
-// given list.
+// Returns a list of the current user's friends whose phone numbers, validated or specified in a profile, are in a given list.
 //
 // https://vk.com/dev/friends.getByPhones
 type FriendsGetByPhonesBuilder struct {
@@ -279,15 +275,15 @@ func NewFriendsGetByPhonesBuilder() *FriendsGetByPhonesBuilder {
 }
 
 // Phones List of phone numbers in MSISDN format (maximum 1000). Example: "+79219876543,+79111234567"
-func (b *FriendsGetByPhonesBuilder) Phones(v []string) {
+func (b *FriendsGetByPhonesBuilder) Phones(v []string) *FriendsGetByPhonesBuilder{
 	b.Params["phones"] = v
+	return b
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
-// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
-// 'rate', 'contacts', 'education', 'online, counters'.
-func (b *FriendsGetByPhonesBuilder) Fields(v []string) {
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online, counters'.
+func (b *FriendsGetByPhonesBuilder) Fields(v []string) *FriendsGetByPhonesBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
 // FriendsGetListsBuilder builder
@@ -305,15 +301,15 @@ func NewFriendsGetListsBuilder() *FriendsGetListsBuilder {
 }
 
 // UserID User ID.
-func (b *FriendsGetListsBuilder) UserID(v int) {
+func (b *FriendsGetListsBuilder) UserID(v int) *FriendsGetListsBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
-// ReturnSystem parameter
-//
-// * 1 — to return system friend lists. By default: '0'.
-func (b *FriendsGetListsBuilder) ReturnSystem(v bool) {
+// ReturnSystem '1' — to return system friend lists. By default: '0'.
+func (b *FriendsGetListsBuilder) ReturnSystem(v bool) *FriendsGetListsBuilder{
 	b.Params["return_system"] = v
+	return b
 }
 
 // FriendsGetMutualBuilder builder
@@ -331,33 +327,39 @@ func NewFriendsGetMutualBuilder() *FriendsGetMutualBuilder {
 }
 
 // SourceUID ID of the user whose friends will be checked against the friends of the user specified in 'target_uid'.
-func (b *FriendsGetMutualBuilder) SourceUID(v int) {
+func (b *FriendsGetMutualBuilder) SourceUID(v int) *FriendsGetMutualBuilder{
 	b.Params["source_uid"] = v
+	return b
 }
 
 // TargetUID ID of the user whose friends will be checked against the friends of the user specified in 'source_uid'.
-func (b *FriendsGetMutualBuilder) TargetUID(v int) {
+func (b *FriendsGetMutualBuilder) TargetUID(v int) *FriendsGetMutualBuilder{
 	b.Params["target_uid"] = v
+	return b
 }
 
 // TargetUids IDs of the users whose friends will be checked against the friends of the user specified in 'source_uid'.
-func (b *FriendsGetMutualBuilder) TargetUids(v []int) {
+func (b *FriendsGetMutualBuilder) TargetUids(v []int) *FriendsGetMutualBuilder{
 	b.Params["target_uids"] = v
+	return b
 }
 
 // Order Sort order: 'random' — random order
-func (b *FriendsGetMutualBuilder) Order(v string) {
+func (b *FriendsGetMutualBuilder) Order(v string) *FriendsGetMutualBuilder{
 	b.Params["order"] = v
+	return b
 }
 
 // Count Number of mutual friends to return.
-func (b *FriendsGetMutualBuilder) Count(v int) {
+func (b *FriendsGetMutualBuilder) Count(v int) *FriendsGetMutualBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of mutual friends.
-func (b *FriendsGetMutualBuilder) Offset(v int) {
+func (b *FriendsGetMutualBuilder) Offset(v int) *FriendsGetMutualBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
 // FriendsGetOnlineBuilder builder
@@ -375,35 +377,39 @@ func NewFriendsGetOnlineBuilder() *FriendsGetOnlineBuilder {
 }
 
 // UserID User ID.
-func (b *FriendsGetOnlineBuilder) UserID(v int) {
+func (b *FriendsGetOnlineBuilder) UserID(v int) *FriendsGetOnlineBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // ListID Friend list ID. If this parameter is not set, information about all online friends is returned.
-func (b *FriendsGetOnlineBuilder) ListID(v int) {
+func (b *FriendsGetOnlineBuilder) ListID(v int) *FriendsGetOnlineBuilder{
 	b.Params["list_id"] = v
+	return b
 }
 
-// OnlineMobile parameter
-//
-// * 1 — to return an additional 'online_mobile' field, '0' — (default),
-func (b *FriendsGetOnlineBuilder) OnlineMobile(v bool) {
+// OnlineMobile '1' — to return an additional 'online_mobile' field, '0' — (default),
+func (b *FriendsGetOnlineBuilder) OnlineMobile(v bool) *FriendsGetOnlineBuilder{
 	b.Params["online_mobile"] = v
+	return b
 }
 
 // Order Sort order: 'random' — random order
-func (b *FriendsGetOnlineBuilder) Order(v string) {
+func (b *FriendsGetOnlineBuilder) Order(v string) *FriendsGetOnlineBuilder{
 	b.Params["order"] = v
+	return b
 }
 
 // Count Number of friends to return.
-func (b *FriendsGetOnlineBuilder) Count(v int) {
+func (b *FriendsGetOnlineBuilder) Count(v int) *FriendsGetOnlineBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of friends.
-func (b *FriendsGetOnlineBuilder) Offset(v int) {
+func (b *FriendsGetOnlineBuilder) Offset(v int) *FriendsGetOnlineBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
 // FriendsGetRecentBuilder builder
@@ -421,8 +427,9 @@ func NewFriendsGetRecentBuilder() *FriendsGetRecentBuilder {
 }
 
 // Count Number of recently added friends to return.
-func (b *FriendsGetRecentBuilder) Count(v int) {
+func (b *FriendsGetRecentBuilder) Count(v int) *FriendsGetRecentBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // FriendsGetRequestsBuilder builder
@@ -440,64 +447,63 @@ func NewFriendsGetRequestsBuilder() *FriendsGetRequestsBuilder {
 }
 
 // Offset Offset needed to return a specific subset of friend requests.
-func (b *FriendsGetRequestsBuilder) Offset(v int) {
+func (b *FriendsGetRequestsBuilder) Offset(v int) *FriendsGetRequestsBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of friend requests to return (default 100, maximum 1000).
-func (b *FriendsGetRequestsBuilder) Count(v int) {
+func (b *FriendsGetRequestsBuilder) Count(v int) *FriendsGetRequestsBuilder{
 	b.Params["count"] = v
+	return b
 }
 
-// Extended parameter
-//
-// * 1 — to return response messages from users who have sent a friend request or,
-// if 'suggested' is set to '1', to return a list of suggested friends
-func (b *FriendsGetRequestsBuilder) Extended(v bool) {
+// Extended '1' — to return response messages from users who have sent a friend request or, if 'suggested' is set to '1', to return a list of suggested friends
+func (b *FriendsGetRequestsBuilder) Extended(v bool) *FriendsGetRequestsBuilder{
 	b.Params["extended"] = v
+	return b
 }
 
-// NeedMutual parameter
-//
-// * 1 — to return a list of mutual friends (up to 20), if any
-func (b *FriendsGetRequestsBuilder) NeedMutual(v bool) {
+// NeedMutual '1' — to return a list of mutual friends (up to 20), if any
+func (b *FriendsGetRequestsBuilder) NeedMutual(v bool) *FriendsGetRequestsBuilder{
 	b.Params["need_mutual"] = v
+	return b
 }
 
-// Out parameter
-//
-// * 1 — to return outgoing requests, '0' — to return incoming requests (default)
-func (b *FriendsGetRequestsBuilder) Out(v bool) {
+// Out '1' — to return outgoing requests, '0' — to return incoming requests (default)
+func (b *FriendsGetRequestsBuilder) Out(v bool) *FriendsGetRequestsBuilder{
 	b.Params["out"] = v
+	return b
 }
 
-// Sort Sort order:
-//
-// * 1 — by number of mutual friends, '0' — by date
-func (b *FriendsGetRequestsBuilder) Sort(v int) {
+// Sort Sort order: '1' — by number of mutual friends, '0' — by date
+func (b *FriendsGetRequestsBuilder) Sort(v int) *FriendsGetRequestsBuilder{
 	b.Params["sort"] = v
+	return b
 }
 
 // NeedViewed parameter
-func (b *FriendsGetRequestsBuilder) NeedViewed(v bool) {
+func (b *FriendsGetRequestsBuilder) NeedViewed(v bool) *FriendsGetRequestsBuilder{
 	b.Params["need_viewed"] = v
+	return b
 }
 
-// Suggested parameter
-//
-// * 1 — to return a list of suggested friends, '0' — to return friend requests (default)
-func (b *FriendsGetRequestsBuilder) Suggested(v bool) {
+// Suggested '1' — to return a list of suggested friends, '0' — to return friend requests (default)
+func (b *FriendsGetRequestsBuilder) Suggested(v bool) *FriendsGetRequestsBuilder{
 	b.Params["suggested"] = v
+	return b
 }
 
 // Ref parameter
-func (b *FriendsGetRequestsBuilder) Ref(v string) {
+func (b *FriendsGetRequestsBuilder) Ref(v string) *FriendsGetRequestsBuilder{
 	b.Params["ref"] = v
+	return b
 }
 
 // Fields parameter
-func (b *FriendsGetRequestsBuilder) Fields(v []string) {
+func (b *FriendsGetRequestsBuilder) Fields(v []string) *FriendsGetRequestsBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
 // FriendsGetSuggestionsBuilder builder
@@ -514,48 +520,34 @@ func NewFriendsGetSuggestionsBuilder() *FriendsGetSuggestionsBuilder {
 	return &FriendsGetSuggestionsBuilder{api.Params{}}
 }
 
-// Filter Types of potential friends to return:
-// * mutual — users with many mutual friends;
-//
-// * contacts — users found with the [vk.com/dev/account.importContacts|account.importContacts] method;
-// * mutual_contacts — users who imported the same contacts as the current user with the
-// [vk.com/dev/account.importContacts|account.importContacts] method
-func (b *FriendsGetSuggestionsBuilder) Filter(v []string) {
+// Filter Types of potential friends to return: 'mutual' — users with many mutual friends , 'contacts' — users found with the [vk.com/dev/account.importContacts|account.importContacts] method , 'mutual_contacts' — users who imported the same contacts as the current user with the [vk.com/dev/account.importContacts|account.importContacts] method
+func (b *FriendsGetSuggestionsBuilder) Filter(v []string) *FriendsGetSuggestionsBuilder{
 	b.Params["filter"] = v
+	return b
 }
 
 // Count Number of suggestions to return.
-func (b *FriendsGetSuggestionsBuilder) Count(v int) {
+func (b *FriendsGetSuggestionsBuilder) Count(v int) *FriendsGetSuggestionsBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of suggestions.
-func (b *FriendsGetSuggestionsBuilder) Offset(v int) {
+func (b *FriendsGetSuggestionsBuilder) Offset(v int) *FriendsGetSuggestionsBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
-// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
-// 'rate', 'contacts', 'education', 'online', 'counters'.
-func (b *FriendsGetSuggestionsBuilder) Fields(v []string) {
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters'.
+func (b *FriendsGetSuggestionsBuilder) Fields(v []string) *FriendsGetSuggestionsBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
-// NameCase Case for declension of user name and surname:
-//
-// * nom — nominative (default);
-//
-// * gen — genitive;
-//
-// * dat — dative;
-//
-// * acc — accusative;
-//
-// * ins — instrumental;
-//
-// * abl — prepositional.
-func (b *FriendsGetSuggestionsBuilder) NameCase(v string) {
+// NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive , 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+func (b *FriendsGetSuggestionsBuilder) NameCase(v string) *FriendsGetSuggestionsBuilder{
 	b.Params["name_case"] = v
+	return b
 }
 
 // FriendsSearchBuilder builder
@@ -573,45 +565,37 @@ func NewFriendsSearchBuilder() *FriendsSearchBuilder {
 }
 
 // UserID User ID.
-func (b *FriendsSearchBuilder) UserID(v int) {
+func (b *FriendsSearchBuilder) UserID(v int) *FriendsSearchBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // Q Search query string (e.g., 'Vasya Babich').
-func (b *FriendsSearchBuilder) Q(v string) {
+func (b *FriendsSearchBuilder) Q(v string) *FriendsSearchBuilder{
 	b.Params["q"] = v
+	return b
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
-// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
-// 'rate', 'contacts', 'education', 'online',
-func (b *FriendsSearchBuilder) Fields(v []string) {
+// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online',
+func (b *FriendsSearchBuilder) Fields(v []string) *FriendsSearchBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
-// NameCase Case for declension of user name and surname:
-//
-// * nom — nominative (default),
-//
-// * gen — genitive;
-//
-// * dat — dative;
-//
-// * acc — accusative;
-//
-// * ins — instrumental;
-//
-// * abl — prepositional.
-func (b *FriendsSearchBuilder) NameCase(v string) {
+// NameCase Case for declension of user name and surname: 'nom' — nominative (default), 'gen' — genitive , 'dat' — dative, 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+func (b *FriendsSearchBuilder) NameCase(v string) *FriendsSearchBuilder{
 	b.Params["name_case"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of friends.
-func (b *FriendsSearchBuilder) Offset(v int) {
+func (b *FriendsSearchBuilder) Offset(v int) *FriendsSearchBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of friends to return.
-func (b *FriendsSearchBuilder) Count(v int) {
+func (b *FriendsSearchBuilder) Count(v int) *FriendsSearchBuilder{
 	b.Params["count"] = v
+	return b
 }
