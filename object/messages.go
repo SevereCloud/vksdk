@@ -62,7 +62,7 @@ type MessagesMessage struct {
 	RefSource             string                      `json:"ref_source"`
 	Text                  string                      `json:"text"`          // Message text
 	UpdateTime            int                         `json:"update_time"`   // Date when the message has been updated in Unixtime
-	MembersСount          int                         `json:"members_count"` // Members number
+	MembersCount          int                         `json:"members_count"` // Members number
 }
 
 // MessagesKeyboard struct
