@@ -209,8 +209,13 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 //
 // TODO: remove in v2
 func (vk *VK) Request(method string, params Params) ([]byte, error) {
-	params["access_token"] = vk.AccessToken
-	params["v"] = vk.Version
+	if _, ok := params["access_token"]; !ok {
+		params["access_token"] = vk.AccessToken
+	}
+
+	if _, ok := params["v"]; !ok {
+		params["v"] = vk.Version
+	}
 
 	resp, err := vk.Handler(method, params)
 
