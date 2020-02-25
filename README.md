@@ -48,6 +48,10 @@
 go get github.com/SevereCloud/vksdk@latest
 ```
 
+### Примеры использования
+
+- [Joe](https://github.com/go-joe/joe) адаптер: https://github.com/tdakkota/joe-vk-adapter 
+
 ### Пример
 
 ```go
