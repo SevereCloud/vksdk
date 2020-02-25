@@ -86,8 +86,7 @@ type VK struct {
 	Handler     func(method string, params Params) (Response, error)
 
 	mux      sync.Mutex
-	lastTime time.Time
-	rps      int
+	prevTime time.Time
 }
 
 // Error struct VK
@@ -129,6 +128,7 @@ func Init(token string) *VK {
 
 	vk.Handler = vk.defaultHandler
 
+	// TODO: remove in v2
 	vk.MethodURL = APIMethodURL
 	vk.Client = http.DefaultClient
 	vk.Limit = LimitGroupToken
@@ -153,23 +153,14 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 
 	rawBody := bytes.NewBufferString(query.Encode())
 
-	// Rate limiting
-	var beforeRps int
-
 	if vk.Limit > 0 {
 		vk.mux.Lock()
 
-		sleepTime := time.Second - time.Since(vk.lastTime)
-		if sleepTime < 0 {
-			vk.lastTime = time.Now()
-			vk.rps = 0
-		} else if vk.rps == vk.Limit {
-			time.Sleep(sleepTime)
-			vk.lastTime = time.Now()
-			vk.rps = 0
-		}
-		vk.rps++
-		beforeRps = vk.rps
+		rate := time.Second / time.Duration(vk.Limit)
+		sleepTime := rate - (time.Since(vk.prevTime) % rate)
+		time.Sleep(sleepTime)
+		vk.prevTime = time.Now()
+
 		vk.mux.Unlock()
 	}
 
@@ -178,22 +169,6 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 		return
 	}
 	defer resp.Body.Close()
-
-	if vk.Limit > 0 {
-		vk.mux.Lock()
-
-		if beforeRps != vk.rps {
-			vk.rps++
-		}
-
-		sleepTime := time.Second - time.Since(vk.lastTime)
-		if sleepTime < 0 {
-			vk.lastTime = time.Now()
-			vk.rps = 1
-		}
-
-		vk.mux.Unlock()
-	}
 
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
