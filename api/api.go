@@ -15,6 +15,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/SevereCloud/vksdk/internal"
+
 	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/SevereCloud/vksdk/object"
 )
@@ -78,16 +80,16 @@ const (
 
 // VK struct
 type VK struct {
-	MethodURL   string
-	AccessToken string
-	Version     string
-	Client      *http.Client
-	Limit       int
-	Handler     func(method string, params Params) (Response, error)
+	MethodURL string
+	Version   string
+	Client    *http.Client
+	Limit     int
+	Handler   func(method string, params Params) (Response, error)
 
-	mux      sync.Mutex
-	lastTime time.Time
-	rps      int
+	tokenPool internal.TokenPool
+	mux       sync.Mutex
+	lastTime  time.Time
+	rps       int
 }
 
 // Error struct VK
@@ -122,16 +124,16 @@ type Response struct {
 // HTTP Client by setting the VK.Client value.
 //
 // This set limit 20 requests per second.
-func Init(token string) *VK {
+func Init(tokens ...string) *VK {
 	var vk VK
-	vk.AccessToken = token
+	vk.tokenPool = internal.NewTokenPool(tokens...)
+	
 	vk.Version = Version
-
 	vk.Handler = vk.defaultHandler
 
 	vk.MethodURL = APIMethodURL
 	vk.Client = http.DefaultClient
-	vk.Limit = LimitGroupToken
+	vk.Limit = LimitGroupToken * len(tokens)
 
 	return &vk
 }
@@ -209,7 +211,7 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 //
 // TODO: remove in v2
 func (vk *VK) Request(method string, params Params) ([]byte, error) {
-	params["access_token"] = vk.AccessToken
+	params["access_token"] = vk.tokenPool.Get()
 	params["v"] = vk.Version
 
 	resp, err := vk.Handler(method, params)
@@ -233,7 +235,7 @@ func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) er
 func (vk *VK) Execute(code string, obj interface{}) error {
 	params := Params{
 		"code":         code,
-		"access_token": vk.AccessToken,
+		"access_token": vk.tokenPool.Get(),
 		"v":            vk.Version,
 	}
 
