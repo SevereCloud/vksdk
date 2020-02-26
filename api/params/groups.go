@@ -1722,7 +1722,7 @@ func (b *GroupsGetMembersBuilder) Fields(v []string) *GroupsGetMembersBuilder{
 	return b
 }
 
-// Filter 
+// Filter parameter
 //
 // * friends – only friends in this community will be returned
 //

@@ -73,7 +73,7 @@ func (b *OrdersChangeStateBuilder) AppOrderID(v int) *OrdersChangeStateBuilder{
 	return b
 }
 
-// TestMode 
+// TestMode parameter
 // if this parameter is set to 1, this method returns a list of test mode orders.
 // By default — 0.
 func (b *OrdersChangeStateBuilder) TestMode(v bool) *OrdersChangeStateBuilder{
@@ -107,7 +107,7 @@ func (b *OrdersGetBuilder) Count(v int) *OrdersGetBuilder{
 	return b
 }
 
-// TestMode 
+// TestMode parameter
 // if this parameter is set to 1, this method returns a list of test mode orders.
 // By default — 0.
 func (b *OrdersGetBuilder) TestMode(v bool) *OrdersGetBuilder{
@@ -165,7 +165,7 @@ func (b *OrdersGetByIDBuilder) OrderIDs(v []int) *OrdersGetByIDBuilder{
 	return b
 }
 
-// TestMode 
+// TestMode parameter
 // if this parameter is set to 1, this method returns a list of test mode orders.
 // By default — 0.
 func (b *OrdersGetByIDBuilder) TestMode(v bool) *OrdersGetByIDBuilder{
