@@ -7,6 +7,6 @@ Package wrapper implement User Long Poll API wrapper v3.
 		fmt.Printf("4 wrapper.NewMessage: %v\n", m)
 	})
 
-Documentation https://vk.com/dev/using_longpoll
+VK documentation https://vk.com/dev/using_longpoll
 */
 package wrapper // import "github.com/SevereCloud/vksdk/longpoll-user/v3"
