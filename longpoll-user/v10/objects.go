@@ -286,7 +286,14 @@ func (result *DeleteAllMessage) Parse(i []interface{}) error {
 // LinkSnippetLoaded struct for event with code 18
 //
 // Link snippet loaded.
-type LinkSnippetLoaded Message
+type LinkSnippetLoaded struct {
+	Message
+}
+
+// Parse func for LinkSnippetLoaded
+func (result *LinkSnippetLoaded) Parse(i []interface{}) error {
+	return result.parseMessage("LinkSnippetLoaded", i)
+}
 
 // MessageCacheReset struct for event with code 19
 //
