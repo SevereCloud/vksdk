@@ -19,33 +19,40 @@ func NewLeadsCheckUserBuilder() *LeadsCheckUserBuilder {
 }
 
 // LeadID Lead ID.
-func (b *LeadsCheckUserBuilder) LeadID(v int) {
+func (b *LeadsCheckUserBuilder) LeadID(v int) *LeadsCheckUserBuilder{
 	b.Params["lead_id"] = v
+	return b
 }
 
-// TestResult Value to be return in 'result' field when test mode is used.
-func (b *LeadsCheckUserBuilder) TestResult(v int) {
+// TestResult 
+// Value to be return in 'result' field when test mode is used.
+func (b *LeadsCheckUserBuilder) TestResult(v int) *LeadsCheckUserBuilder{
 	b.Params["test_result"] = v
+	return b
 }
 
 // TestMode parameter
-func (b *LeadsCheckUserBuilder) TestMode(v bool) {
+func (b *LeadsCheckUserBuilder) TestMode(v bool) *LeadsCheckUserBuilder{
 	b.Params["test_mode"] = v
+	return b
 }
 
 // AutoStart parameter
-func (b *LeadsCheckUserBuilder) AutoStart(v bool) {
+func (b *LeadsCheckUserBuilder) AutoStart(v bool) *LeadsCheckUserBuilder{
 	b.Params["auto_start"] = v
+	return b
 }
 
 // Age User age.
-func (b *LeadsCheckUserBuilder) Age(v int) {
+func (b *LeadsCheckUserBuilder) Age(v int) *LeadsCheckUserBuilder{
 	b.Params["age"] = v
+	return b
 }
 
 // Country User country code.
-func (b *LeadsCheckUserBuilder) Country(v string) {
+func (b *LeadsCheckUserBuilder) Country(v string) *LeadsCheckUserBuilder{
 	b.Params["country"] = v
+	return b
 }
 
 // LeadsCompleteBuilder builder
@@ -63,18 +70,21 @@ func NewLeadsCompleteBuilder() *LeadsCompleteBuilder {
 }
 
 // VkSID Session obtained as GET parameter when session started.
-func (b *LeadsCompleteBuilder) VkSID(v string) {
+func (b *LeadsCompleteBuilder) VkSID(v string) *LeadsCompleteBuilder{
 	b.Params["vk_sid"] = v
+	return b
 }
 
 // Secret Secret key from the lead testing interface.
-func (b *LeadsCompleteBuilder) Secret(v string) {
+func (b *LeadsCompleteBuilder) Secret(v string) *LeadsCompleteBuilder{
 	b.Params["secret"] = v
+	return b
 }
 
 // Comment Comment text.
-func (b *LeadsCompleteBuilder) Comment(v string) {
+func (b *LeadsCompleteBuilder) Comment(v string) *LeadsCompleteBuilder{
 	b.Params["comment"] = v
+	return b
 }
 
 // LeadsGetStatsBuilder builder
@@ -92,23 +102,27 @@ func NewLeadsGetStatsBuilder() *LeadsGetStatsBuilder {
 }
 
 // LeadID Lead ID.
-func (b *LeadsGetStatsBuilder) LeadID(v int) {
+func (b *LeadsGetStatsBuilder) LeadID(v int) *LeadsGetStatsBuilder{
 	b.Params["lead_id"] = v
+	return b
 }
 
 // Secret Secret key obtained from the lead testing interface.
-func (b *LeadsGetStatsBuilder) Secret(v string) {
+func (b *LeadsGetStatsBuilder) Secret(v string) *LeadsGetStatsBuilder{
 	b.Params["secret"] = v
+	return b
 }
 
 // DateStart Day to start stats from (YYYY_MM_DD, e.g.2011-09-17).
-func (b *LeadsGetStatsBuilder) DateStart(v string) {
+func (b *LeadsGetStatsBuilder) DateStart(v string) *LeadsGetStatsBuilder{
 	b.Params["date_start"] = v
+	return b
 }
 
 // DateEnd Day to finish stats (YYYY_MM_DD, e.g.2011-09-17).
-func (b *LeadsGetStatsBuilder) DateEnd(v string) {
+func (b *LeadsGetStatsBuilder) DateEnd(v string) *LeadsGetStatsBuilder{
 	b.Params["date_end"] = v
+	return b
 }
 
 // LeadsGetUsersBuilder builder
@@ -126,47 +140,53 @@ func NewLeadsGetUsersBuilder() *LeadsGetUsersBuilder {
 }
 
 // OfferID Offer ID.
-func (b *LeadsGetUsersBuilder) OfferID(v int) {
+func (b *LeadsGetUsersBuilder) OfferID(v int) *LeadsGetUsersBuilder{
 	b.Params["offer_id"] = v
+	return b
 }
 
 // Secret Secret key obtained in the lead testing interface.
-func (b *LeadsGetUsersBuilder) Secret(v string) {
+func (b *LeadsGetUsersBuilder) Secret(v string) *LeadsGetUsersBuilder{
 	b.Params["secret"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *LeadsGetUsersBuilder) Offset(v int) {
+func (b *LeadsGetUsersBuilder) Offset(v int) *LeadsGetUsersBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of results to return.
-func (b *LeadsGetUsersBuilder) Count(v int) {
+func (b *LeadsGetUsersBuilder) Count(v int) *LeadsGetUsersBuilder{
 	b.Params["count"] = v
+	return b
 }
 
 // Status Action type. Possible values:
 //
-// * 0 — start;
+// * 0 — start
 //
-// * 1 — finish;
+// * 1 — finish
 //
-// * 2 — blocking users;
+// * 2 — blocking users
 //
-// * 3 — start in a test mode;
+// * 3 — start in a test mode
 //
 // * 4 — finish in a test mode.
-func (b *LeadsGetUsersBuilder) Status(v int) {
+func (b *LeadsGetUsersBuilder) Status(v int) *LeadsGetUsersBuilder{
 	b.Params["status"] = v
+	return b
 }
 
 // Reverse Sort order. Possible values:
 //
-// * 1 — chronological;
+// * 1 — chronological
 //
 // * 0 — reverse chronological.
-func (b *LeadsGetUsersBuilder) Reverse(v bool) {
+func (b *LeadsGetUsersBuilder) Reverse(v bool) *LeadsGetUsersBuilder{
 	b.Params["reverse"] = v
+	return b
 }
 
 // LeadsMetricHitBuilder builder
@@ -184,8 +204,9 @@ func NewLeadsMetricHitBuilder() *LeadsMetricHitBuilder {
 }
 
 // Data Metric data obtained in the lead interface.
-func (b *LeadsMetricHitBuilder) Data(v string) {
+func (b *LeadsMetricHitBuilder) Data(v string) *LeadsMetricHitBuilder{
 	b.Params["data"] = v
+	return b
 }
 
 // LeadsStartBuilder builder
@@ -203,31 +224,37 @@ func NewLeadsStartBuilder() *LeadsStartBuilder {
 }
 
 // LeadID Lead ID.
-func (b *LeadsStartBuilder) LeadID(v int) {
+func (b *LeadsStartBuilder) LeadID(v int) *LeadsStartBuilder{
 	b.Params["lead_id"] = v
+	return b
 }
 
 // Secret Secret key from the lead testing interface.
-func (b *LeadsStartBuilder) Secret(v string) {
+func (b *LeadsStartBuilder) Secret(v string) *LeadsStartBuilder{
 	b.Params["secret"] = v
+	return b
 }
 
 // UID parameter
-func (b *LeadsStartBuilder) UID(v int) {
+func (b *LeadsStartBuilder) UID(v int) *LeadsStartBuilder{
 	b.Params["uid"] = v
+	return b
 }
 
 // AID parameter
-func (b *LeadsStartBuilder) AID(v int) {
+func (b *LeadsStartBuilder) AID(v int) *LeadsStartBuilder{
 	b.Params["aid"] = v
+	return b
 }
 
 // TestMode parameter
-func (b *LeadsStartBuilder) TestMode(v bool) {
+func (b *LeadsStartBuilder) TestMode(v bool) *LeadsStartBuilder{
 	b.Params["test_mode"] = v
+	return b
 }
 
 // Force parameter
-func (b *LeadsStartBuilder) Force(v bool) {
+func (b *LeadsStartBuilder) Force(v bool) *LeadsStartBuilder{
 	b.Params["force"] = v
+	return b
 }

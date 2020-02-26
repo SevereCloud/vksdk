@@ -18,24 +18,29 @@ func NewPollsAddVoteBuilder() *PollsAddVoteBuilder {
 	return &PollsAddVoteBuilder{api.Params{}}
 }
 
-// OwnerID ID of the user or community that owns the poll. Use a negative value to designate a community ID.
-func (b *PollsAddVoteBuilder) OwnerID(v int) {
+// OwnerID ID of the user or community that owns the poll.
+// Use a negative value to designate a community ID.
+func (b *PollsAddVoteBuilder) OwnerID(v int) *PollsAddVoteBuilder{
 	b.Params["owner_id"] = v
+	return b
 }
 
 // PollID Poll ID.
-func (b *PollsAddVoteBuilder) PollID(v int) {
+func (b *PollsAddVoteBuilder) PollID(v int) *PollsAddVoteBuilder{
 	b.Params["poll_id"] = v
+	return b
 }
 
 // AnswerIDs parameter
-func (b *PollsAddVoteBuilder) AnswerIDs(v []int) {
+func (b *PollsAddVoteBuilder) AnswerIDs(v []int) *PollsAddVoteBuilder{
 	b.Params["answer_ids"] = v
+	return b
 }
 
 // IsBoard parameter
-func (b *PollsAddVoteBuilder) IsBoard(v bool) {
+func (b *PollsAddVoteBuilder) IsBoard(v bool) *PollsAddVoteBuilder{
 	b.Params["is_board"] = v
+	return b
 }
 
 // PollsCreateBuilder builder
@@ -53,45 +58,57 @@ func NewPollsCreateBuilder() *PollsCreateBuilder {
 }
 
 // Question question text
-func (b *PollsCreateBuilder) Question(v string) {
+func (b *PollsCreateBuilder) Question(v string) *PollsCreateBuilder{
 	b.Params["question"] = v
+	return b
 }
 
-// IsAnonymous '1' – anonymous poll, participants list is hidden,, '0' – public poll, participants list is available,,
+// IsAnonymous parameter 
+//
+// * '1' – anonymous poll, participants list is hidden
+//
+// * '0' – public poll, participants list is available
 // Default value is '0'.
-func (b *PollsCreateBuilder) IsAnonymous(v bool) {
+func (b *PollsCreateBuilder) IsAnonymous(v bool) *PollsCreateBuilder{
 	b.Params["is_anonymous"] = v
+	return b
 }
 
 // IsMultiple parameter
-func (b *PollsCreateBuilder) IsMultiple(v bool) {
+func (b *PollsCreateBuilder) IsMultiple(v bool) *PollsCreateBuilder{
 	b.Params["is_multiple"] = v
+	return b
 }
 
 // EndDate parameter
-func (b *PollsCreateBuilder) EndDate(v int) {
+func (b *PollsCreateBuilder) EndDate(v int) *PollsCreateBuilder{
 	b.Params["end_date"] = v
+	return b
 }
 
 // OwnerID If a poll will be added to a communty it is required to send a negative group identifier.
 // Current user by default.
-func (b *PollsCreateBuilder) OwnerID(v int) {
+func (b *PollsCreateBuilder) OwnerID(v int) *PollsCreateBuilder{
 	b.Params["owner_id"] = v
+	return b
 }
 
-// AddAnswers available answers list, for example: " ["yes","no","maybe"]", There can be from 1 to 10 answers.
-func (b *PollsCreateBuilder) AddAnswers(v string) {
+// AddAnswers available answers list, for example:  [yes,no,maybe], There can be from 1 to 10 answers.
+func (b *PollsCreateBuilder) AddAnswers(v string) *PollsCreateBuilder{
 	b.Params["add_answers"] = v
+	return b
 }
 
 // PhotoID parameter
-func (b *PollsCreateBuilder) PhotoID(v int) {
+func (b *PollsCreateBuilder) PhotoID(v int) *PollsCreateBuilder{
 	b.Params["photo_id"] = v
+	return b
 }
 
 // BackgroundID parameter
-func (b *PollsCreateBuilder) BackgroundID(v string) {
+func (b *PollsCreateBuilder) BackgroundID(v string) *PollsCreateBuilder{
 	b.Params["background_id"] = v
+	return b
 }
 
 // PollsDeleteVoteBuilder builder
@@ -108,24 +125,29 @@ func NewPollsDeleteVoteBuilder() *PollsDeleteVoteBuilder {
 	return &PollsDeleteVoteBuilder{api.Params{}}
 }
 
-// OwnerID ID of the user or community that owns the poll. Use a negative value to designate a community ID.
-func (b *PollsDeleteVoteBuilder) OwnerID(v int) {
+// OwnerID ID of the user or community that owns the poll.
+// Use a negative value to designate a community ID.
+func (b *PollsDeleteVoteBuilder) OwnerID(v int) *PollsDeleteVoteBuilder{
 	b.Params["owner_id"] = v
+	return b
 }
 
 // PollID Poll ID.
-func (b *PollsDeleteVoteBuilder) PollID(v int) {
+func (b *PollsDeleteVoteBuilder) PollID(v int) *PollsDeleteVoteBuilder{
 	b.Params["poll_id"] = v
+	return b
 }
 
 // AnswerID Answer ID.
-func (b *PollsDeleteVoteBuilder) AnswerID(v int) {
+func (b *PollsDeleteVoteBuilder) AnswerID(v int) *PollsDeleteVoteBuilder{
 	b.Params["answer_id"] = v
+	return b
 }
 
 // IsBoard parameter
-func (b *PollsDeleteVoteBuilder) IsBoard(v bool) {
+func (b *PollsDeleteVoteBuilder) IsBoard(v bool) *PollsDeleteVoteBuilder{
 	b.Params["is_board"] = v
+	return b
 }
 
 // PollsEditBuilder builder
@@ -143,49 +165,61 @@ func NewPollsEditBuilder() *PollsEditBuilder {
 }
 
 // OwnerID poll owner id
-func (b *PollsEditBuilder) OwnerID(v int) {
+func (b *PollsEditBuilder) OwnerID(v int) *PollsEditBuilder{
 	b.Params["owner_id"] = v
+	return b
 }
 
 // PollID edited poll's id
-func (b *PollsEditBuilder) PollID(v int) {
+func (b *PollsEditBuilder) PollID(v int) *PollsEditBuilder{
 	b.Params["poll_id"] = v
+	return b
 }
 
 // Question new question text
-func (b *PollsEditBuilder) Question(v string) {
+func (b *PollsEditBuilder) Question(v string) *PollsEditBuilder{
 	b.Params["question"] = v
+	return b
 }
 
-// AddAnswers answers list, for example: , "["yes","no","maybe"]"
-func (b *PollsEditBuilder) AddAnswers(v string) {
+// AddAnswers answers list, for example:
+// [yes,no,maybe]
+func (b *PollsEditBuilder) AddAnswers(v string) *PollsEditBuilder{
 	b.Params["add_answers"] = v
+	return b
 }
 
-// EditAnswers object containing answers that need to be edited,, key – answer id, value – new answer text.
-// Example: {"382967099":"option1", "382967103":"option2"}"
-func (b *PollsEditBuilder) EditAnswers(v string) {
+// EditAnswers object containing answers that need to be edited key – answer id, value – new answer text.
+// Example: {382967099:option1, 382967103:option2}
+func (b *PollsEditBuilder) EditAnswers(v string) *PollsEditBuilder{
 	b.Params["edit_answers"] = v
+	return b
 }
 
-// DeleteAnswers list of answer ids to be deleted. For example: "[382967099, 382967103]"
-func (b *PollsEditBuilder) DeleteAnswers(v string) {
+// DeleteAnswers list of answer ids to be deleted.
+//
+// For example: [382967099, 382967103]
+func (b *PollsEditBuilder) DeleteAnswers(v string) *PollsEditBuilder{
 	b.Params["delete_answers"] = v
+	return b
 }
 
 // EndDate parameter
-func (b *PollsEditBuilder) EndDate(v int) {
+func (b *PollsEditBuilder) EndDate(v int) *PollsEditBuilder{
 	b.Params["end_date"] = v
+	return b
 }
 
 // PhotoID parameter
-func (b *PollsEditBuilder) PhotoID(v int) {
+func (b *PollsEditBuilder) PhotoID(v int) *PollsEditBuilder{
 	b.Params["photo_id"] = v
+	return b
 }
 
 // BackgroundID parameter
-func (b *PollsEditBuilder) BackgroundID(v string) {
+func (b *PollsEditBuilder) BackgroundID(v string) *PollsEditBuilder{
 	b.Params["background_id"] = v
+	return b
 }
 
 // PollsGetByIDBuilder builder
@@ -202,39 +236,52 @@ func NewPollsGetByIDBuilder() *PollsGetByIDBuilder {
 	return &PollsGetByIDBuilder{api.Params{}}
 }
 
-// OwnerID ID of the user or community that owns the poll. Use a negative value to designate a community ID.
-func (b *PollsGetByIDBuilder) OwnerID(v int) {
+// OwnerID ID of the user or community that owns the poll.
+// Use a negative value to designate a community ID.
+func (b *PollsGetByIDBuilder) OwnerID(v int) *PollsGetByIDBuilder{
 	b.Params["owner_id"] = v
+	return b
 }
 
-// IsBoard '1' – poll is in a board, '0' – poll is on a wall. '0' by default.
-func (b *PollsGetByIDBuilder) IsBoard(v bool) {
+// IsBoard parameter 
+//
+// * '1' – poll is in a board
+//
+// * '0' – poll is on a wall.
+// '0' by default.
+func (b *PollsGetByIDBuilder) IsBoard(v bool) *PollsGetByIDBuilder{
 	b.Params["is_board"] = v
+	return b
 }
 
 // PollID Poll ID.
-func (b *PollsGetByIDBuilder) PollID(v int) {
+func (b *PollsGetByIDBuilder) PollID(v int) *PollsGetByIDBuilder{
 	b.Params["poll_id"] = v
+	return b
 }
 
 // Extended parameter
-func (b *PollsGetByIDBuilder) Extended(v bool) {
+func (b *PollsGetByIDBuilder) Extended(v bool) *PollsGetByIDBuilder{
 	b.Params["extended"] = v
+	return b
 }
 
 // FriendsCount parameter
-func (b *PollsGetByIDBuilder) FriendsCount(v int) {
+func (b *PollsGetByIDBuilder) FriendsCount(v int) *PollsGetByIDBuilder{
 	b.Params["friends_count"] = v
+	return b
 }
 
 // Fields parameter
-func (b *PollsGetByIDBuilder) Fields(v []string) {
+func (b *PollsGetByIDBuilder) Fields(v []string) *PollsGetByIDBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
 // NameCase parameter
-func (b *PollsGetByIDBuilder) NameCase(v string) {
+func (b *PollsGetByIDBuilder) NameCase(v string) *PollsGetByIDBuilder{
 	b.Params["name_case"] = v
+	return b
 }
 
 // PollsGetVotersBuilder builder
@@ -251,51 +298,110 @@ func NewPollsGetVotersBuilder() *PollsGetVotersBuilder {
 	return &PollsGetVotersBuilder{api.Params{}}
 }
 
-// OwnerID ID of the user or community that owns the poll. Use a negative value to designate a community ID.
-func (b *PollsGetVotersBuilder) OwnerID(v int) {
+// OwnerID ID of the user or community that owns the poll.
+// Use a negative value to designate a community ID.
+func (b *PollsGetVotersBuilder) OwnerID(v int) *PollsGetVotersBuilder{
 	b.Params["owner_id"] = v
+	return b
 }
 
 // PollID Poll ID.
-func (b *PollsGetVotersBuilder) PollID(v int) {
+func (b *PollsGetVotersBuilder) PollID(v int) *PollsGetVotersBuilder{
 	b.Params["poll_id"] = v
+	return b
 }
 
 // AnswerIDs Answer IDs.
-func (b *PollsGetVotersBuilder) AnswerIDs(v []int) {
+func (b *PollsGetVotersBuilder) AnswerIDs(v []int) *PollsGetVotersBuilder{
 	b.Params["answer_ids"] = v
+	return b
 }
 
 // IsBoard parameter
-func (b *PollsGetVotersBuilder) IsBoard(v bool) {
+func (b *PollsGetVotersBuilder) IsBoard(v bool) *PollsGetVotersBuilder{
 	b.Params["is_board"] = v
+	return b
 }
 
-// FriendsOnly '1' — to return only current user's friends, '0' — to return all users (default),
-func (b *PollsGetVotersBuilder) FriendsOnly(v bool) {
+// FriendsOnly parameter 
+//
+// * '1' — to return only current user's friends
+//
+// * '0' — to return all users (default),
+func (b *PollsGetVotersBuilder) FriendsOnly(v bool) *PollsGetVotersBuilder{
 	b.Params["friends_only"] = v
+	return b
 }
 
-// Offset Offset needed to return a specific subset of voters. '0' — (default)
-func (b *PollsGetVotersBuilder) Offset(v int) {
+// Offset Offset needed to return a specific subset of voters.
+//
+// * '0' — (default)
+func (b *PollsGetVotersBuilder) Offset(v int) *PollsGetVotersBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of user IDs to return (if the 'friends_only' parameter is not set, maximum '1000', otherwise '10').
-// '100' — (default)
-func (b *PollsGetVotersBuilder) Count(v int) {
+//
+// * '100' — (default)
+func (b *PollsGetVotersBuilder) Count(v int) *PollsGetVotersBuilder{
 	b.Params["count"] = v
+	return b
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate (birthdate)', 'city',
-// 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education',
-// 'online', 'counters'.
-func (b *PollsGetVotersBuilder) Fields(v []string) {
+// Fields 
+// Profile fields to return.Sample values
+//
+// *  'nickname'
+//
+// *  'screen_name'
+//
+// *  'sex'
+//
+// *  'bdate (birthdate)'
+//
+// *  'city'
+//
+// *  'country'
+//
+// *  'timezone'
+//
+// *  'photo'
+//
+// *  'photo_medium'
+//
+// *  'photo_big'
+//
+// *  'has_mobile'
+//
+// *  'rate'
+//
+// *  'contacts'
+//
+// *  'education'
+//
+// *  'online'
+//
+// *  'counters'.
+func (b *PollsGetVotersBuilder) Fields(v []string) *PollsGetVotersBuilder{
 	b.Params["fields"] = v
+	return b
 }
 
-// NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive ,
-// 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
-func (b *PollsGetVotersBuilder) NameCase(v string) {
+// NameCase Case for declension of user name and surname: 
+//
+// * 'nom' — nominative (default) 
+//
+// * 'gen' — genitive 
+//
+// * 'dat' — dative 
+//
+// * 'acc' — accusative 
+//
+// * 'ins' — instrumental 
+//
+// * 'abl' — prepositional
+func (b *PollsGetVotersBuilder) NameCase(v string) *PollsGetVotersBuilder{
 	b.Params["name_case"] = v
+	return b
 }

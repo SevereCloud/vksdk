@@ -17,18 +17,21 @@ func NewOrdersCancelSubscriptionBuilder() *OrdersCancelSubscriptionBuilder {
 }
 
 // UserID parameter
-func (b *OrdersCancelSubscriptionBuilder) UserID(v int) {
+func (b *OrdersCancelSubscriptionBuilder) UserID(v int) *OrdersCancelSubscriptionBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // SubscriptionID parameter
-func (b *OrdersCancelSubscriptionBuilder) SubscriptionID(v int) {
+func (b *OrdersCancelSubscriptionBuilder) SubscriptionID(v int) *OrdersCancelSubscriptionBuilder{
 	b.Params["subscription_id"] = v
+	return b
 }
 
 // PendingCancel parameter
-func (b *OrdersCancelSubscriptionBuilder) PendingCancel(v bool) {
+func (b *OrdersCancelSubscriptionBuilder) PendingCancel(v bool) *OrdersCancelSubscriptionBuilder{
 	b.Params["pending_cancel"] = v
+	return b
 }
 
 // OrdersChangeStateBuilder builder
@@ -46,8 +49,9 @@ func NewOrdersChangeStateBuilder() *OrdersChangeStateBuilder {
 }
 
 // OrderID order ID.
-func (b *OrdersChangeStateBuilder) OrderID(v int) {
+func (b *OrdersChangeStateBuilder) OrderID(v int) *OrdersChangeStateBuilder{
 	b.Params["order_id"] = v
+	return b
 }
 
 // Action action to be done with the order. Available actions:
@@ -58,18 +62,23 @@ func (b *OrdersChangeStateBuilder) OrderID(v int) {
 // Applies only if processing of [vk.com/dev/payments_status|order_change_state] notification failed.
 //
 // * refund — to cancel confirmed order.
-func (b *OrdersChangeStateBuilder) Action(v string) {
+func (b *OrdersChangeStateBuilder) Action(v string) *OrdersChangeStateBuilder{
 	b.Params["action"] = v
+	return b
 }
 
 // AppOrderID internal ID of the order in the application.
-func (b *OrdersChangeStateBuilder) AppOrderID(v int) {
+func (b *OrdersChangeStateBuilder) AppOrderID(v int) *OrdersChangeStateBuilder{
 	b.Params["app_order_id"] = v
+	return b
 }
 
-// TestMode if this parameter is set to 1, this method returns a list of test mode orders. By default — 0.
-func (b *OrdersChangeStateBuilder) TestMode(v bool) {
+// TestMode 
+// if this parameter is set to 1, this method returns a list of test mode orders.
+// By default — 0.
+func (b *OrdersChangeStateBuilder) TestMode(v bool) *OrdersChangeStateBuilder{
 	b.Params["test_mode"] = v
+	return b
 }
 
 // OrdersGetBuilder builder
@@ -87,18 +96,23 @@ func NewOrdersGetBuilder() *OrdersGetBuilder {
 }
 
 // Offset parameter
-func (b *OrdersGetBuilder) Offset(v int) {
+func (b *OrdersGetBuilder) Offset(v int) *OrdersGetBuilder{
 	b.Params["offset"] = v
+	return b
 }
 
 // Count number of returned orders.
-func (b *OrdersGetBuilder) Count(v int) {
+func (b *OrdersGetBuilder) Count(v int) *OrdersGetBuilder{
 	b.Params["count"] = v
+	return b
 }
 
-// TestMode if this parameter is set to 1, this method returns a list of test mode orders. By default — 0.
-func (b *OrdersGetBuilder) TestMode(v bool) {
+// TestMode 
+// if this parameter is set to 1, this method returns a list of test mode orders.
+// By default — 0.
+func (b *OrdersGetBuilder) TestMode(v bool) *OrdersGetBuilder{
 	b.Params["test_mode"] = v
+	return b
 }
 
 // OrdersGetAmountBuilder builder
@@ -114,13 +128,15 @@ func NewOrdersGetAmountBuilder() *OrdersGetAmountBuilder {
 }
 
 // UserID parameter
-func (b *OrdersGetAmountBuilder) UserID(v int) {
+func (b *OrdersGetAmountBuilder) UserID(v int) *OrdersGetAmountBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // Votes parameter
-func (b *OrdersGetAmountBuilder) Votes(v []string) {
+func (b *OrdersGetAmountBuilder) Votes(v []string) *OrdersGetAmountBuilder{
 	b.Params["votes"] = v
+	return b
 }
 
 // OrdersGetByIDBuilder builder
@@ -138,18 +154,23 @@ func NewOrdersGetByIDBuilder() *OrdersGetByIDBuilder {
 }
 
 // OrderID order ID.
-func (b *OrdersGetByIDBuilder) OrderID(v int) {
+func (b *OrdersGetByIDBuilder) OrderID(v int) *OrdersGetByIDBuilder{
 	b.Params["order_id"] = v
+	return b
 }
 
 // OrderIDs order IDs (when information about several orders is requested).
-func (b *OrdersGetByIDBuilder) OrderIDs(v []int) {
+func (b *OrdersGetByIDBuilder) OrderIDs(v []int) *OrdersGetByIDBuilder{
 	b.Params["order_ids"] = v
+	return b
 }
 
-// TestMode if this parameter is set to 1, this method returns a list of test mode orders. By default — 0.
-func (b *OrdersGetByIDBuilder) TestMode(v bool) {
+// TestMode 
+// if this parameter is set to 1, this method returns a list of test mode orders.
+// By default — 0.
+func (b *OrdersGetByIDBuilder) TestMode(v bool) *OrdersGetByIDBuilder{
 	b.Params["test_mode"] = v
+	return b
 }
 
 // OrdersGetUserSubscriptionByIDBuilder builder
@@ -165,13 +186,15 @@ func NewOrdersGetUserSubscriptionByIDBuilder() *OrdersGetUserSubscriptionByIDBui
 }
 
 // UserID parameter
-func (b *OrdersGetUserSubscriptionByIDBuilder) UserID(v int) {
+func (b *OrdersGetUserSubscriptionByIDBuilder) UserID(v int) *OrdersGetUserSubscriptionByIDBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // SubscriptionID parameter
-func (b *OrdersGetUserSubscriptionByIDBuilder) SubscriptionID(v int) {
+func (b *OrdersGetUserSubscriptionByIDBuilder) SubscriptionID(v int) *OrdersGetUserSubscriptionByIDBuilder{
 	b.Params["subscription_id"] = v
+	return b
 }
 
 // OrdersGetUserSubscriptionsBuilder builder
@@ -187,8 +210,9 @@ func NewOrdersGetUserSubscriptionsBuilder() *OrdersGetUserSubscriptionsBuilder {
 }
 
 // UserID parameter
-func (b *OrdersGetUserSubscriptionsBuilder) UserID(v int) {
+func (b *OrdersGetUserSubscriptionsBuilder) UserID(v int) *OrdersGetUserSubscriptionsBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // OrdersUpdateSubscriptionBuilder builder
@@ -204,16 +228,19 @@ func NewOrdersUpdateSubscriptionBuilder() *OrdersUpdateSubscriptionBuilder {
 }
 
 // UserID parameter
-func (b *OrdersUpdateSubscriptionBuilder) UserID(v int) {
+func (b *OrdersUpdateSubscriptionBuilder) UserID(v int) *OrdersUpdateSubscriptionBuilder{
 	b.Params["user_id"] = v
+	return b
 }
 
 // SubscriptionID parameter
-func (b *OrdersUpdateSubscriptionBuilder) SubscriptionID(v int) {
+func (b *OrdersUpdateSubscriptionBuilder) SubscriptionID(v int) *OrdersUpdateSubscriptionBuilder{
 	b.Params["subscription_id"] = v
+	return b
 }
 
 // Price parameter
-func (b *OrdersUpdateSubscriptionBuilder) Price(v int) {
+func (b *OrdersUpdateSubscriptionBuilder) Price(v int) *OrdersUpdateSubscriptionBuilder{
 	b.Params["price"] = v
+	return b
 }
