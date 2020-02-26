@@ -23,31 +23,49 @@ const (
 	NotDelivered             = 1 << 18   // Incoming message not delivered
 )
 
-// Maps constant to string representation for debug.
-var mapMessageFlagToName = map[MessageFlag]string{
-	Unread:       "Unread",
-	Outbox:       "Outbox",
-	Replied:      "Replied",
-	Important:    "Important",
-	Chat:         "Chat",
-	Friends:      "Friends",
-	Spam:         "Spam",
-	Deleted:      "Deleted",
-	Fixed:        "Fixed",
-	Media:        "Media",
-	Hidden:       "Hidden",
-	DeleteForAll: "DeleteForAll",
-	NotDelivered: "NotDelivered",
-}
-
 // String returns string representation of flag
 func (b MessageFlag) String() string {
 	result := ""
 
-	for k, v := range mapMessageFlagToName {
-		if b.Has(k) {
-			result = result + v + ";"
-		}
+	switch {
+	case b.Has(Unread):
+		result += "Unread;"
+		fallthrough
+	case b.Has(Outbox):
+		result += "Outbox;"
+		fallthrough
+	case b.Has(Replied):
+		result += "Replied;"
+		fallthrough
+	case b.Has(Important):
+		result += "Important;"
+		fallthrough
+	case b.Has(Chat):
+		result += "Chat;"
+		fallthrough
+	case b.Has(Friends):
+		result += "Friends;"
+		fallthrough
+	case b.Has(Spam):
+		result += "Spam;"
+		fallthrough
+	case b.Has(Deleted):
+		result += "Deleted;"
+		fallthrough
+	case b.Has(Fixed):
+		result += "Fixed;"
+		fallthrough
+	case b.Has(Media):
+		result += "Media;"
+		fallthrough
+	case b.Has(Hidden):
+		result += "Hidden;"
+		fallthrough
+	case b.Has(DeleteForAll):
+		result += "DeleteForAll;"
+		fallthrough
+	case b.Has(NotDelivered):
+		result += "NotDelivered;"
 	}
 
 	return result
@@ -66,20 +84,16 @@ const (
 	UnansweredDialog                        // Dialog without a community reply
 )
 
-// Maps constant to string representation for debug.
-var mapDialogFlagToName = map[DialogFlag]string{
-	ImportantDialog:  "ImportantDialog",
-	UnansweredDialog: "UnansweredDialog",
-}
-
 // String returns string representation of flag
 func (b DialogFlag) String() string {
 	result := ""
 
-	for k, v := range mapDialogFlagToName {
-		if b.Has(k) {
-			result = result + v + ";"
-		}
+	switch {
+	case b.Has(ImportantDialog):
+		result += "ImportantDialog;"
+		fallthrough
+	case b.Has(UnansweredDialog):
+		result += "UnansweredDialog;"
 	}
 
 	return result
@@ -100,19 +114,26 @@ const (
 	ChatAdminDismissed                   // Administrator rights have been removed from the user
 )
 
-// Maps constant to string representation for debug.
-var mapTypeIDToName = [...]string{
-	ChatNameChange:     "ChatNameChange",
-	ChatCoverChange:    "ChatCoverChange",
-	ChatAdminAssigned:  "ChatAdminAssigned",
-	ChatPinnedMessage:  "ChatPinnedMessage",
-	ChatUserCome:       "ChatUserCome",
-	ChatUserLeave:      "ChatUserLeave",
-	ChatUserKicked:     "ChatUserKicked",
-	ChatAdminDismissed: "ChatAdminDismissed",
-}
-
 // String returns string representation of flag
 func (b TypeID) String() string {
-	return mapTypeIDToName[b]
+	switch b {
+	case ChatNameChange:
+		return "ChatNameChange"
+	case ChatCoverChange:
+		return "ChatCoverChange"
+	case ChatAdminAssigned:
+		return "ChatAdminAssigned"
+	case ChatPinnedMessage:
+		return "ChatPinnedMessage"
+	case ChatUserCome:
+		return "ChatUserCome"
+	case ChatUserLeave:
+		return "ChatUserLeave"
+	case ChatUserKicked:
+		return "ChatUserKicked"
+	case ChatAdminDismissed:
+		return "ChatAdminDismissed"
+	}
+
+	return ""
 }

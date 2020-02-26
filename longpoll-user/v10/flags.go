@@ -25,33 +25,55 @@ const (
 	ReplyMsg      MessageFlag = 1 << 21 // Reply message
 )
 
-// Maps constant to string representation for debug.
-var mapMessageFlagToName = map[MessageFlag]string{
-	Unread:        "Unread",
-	Outbox:        "Outbox",
-	Important:     "Important",
-	Chat:          "Chat",
-	Friends:       "Friends",
-	Spam:          "Spam",
-	Deleted:       "Deleted",
-	AudioListened: "AudioListened",
-	Chat2:         "Chat2",
-	CancelSpam:    "CancelSpam",
-	Hidden:        "Hidden",
-	DeletedAll:    "DeletedAll",
-	ChatIn:        "ChatIn",
-	NonameFlag:    "NonameFlag",
-	ReplyMsg:      "ReplyMsg",
-}
-
 // String returns string representation of flag
 func (b MessageFlag) String() string {
 	result := ""
 
-	for k, v := range mapMessageFlagToName {
-		if b.Has(k) {
-			result = result + v + ";"
-		}
+	switch {
+	case b.Has(Unread):
+		result += "Unread;"
+		fallthrough
+	case b.Has(Outbox):
+		result += "Outbox;"
+		fallthrough
+	case b.Has(Important):
+		result += "Important;"
+		fallthrough
+	case b.Has(Chat):
+		result += "Chat;"
+		fallthrough
+	case b.Has(Friends):
+		result += "Friends;"
+		fallthrough
+	case b.Has(Spam):
+		result += "Spam;"
+		fallthrough
+	case b.Has(Deleted):
+		result += "Deleted;"
+		fallthrough
+	case b.Has(AudioListened):
+		result += "AudioListened;"
+		fallthrough
+	case b.Has(Chat2):
+		result += "Chat2;"
+		fallthrough
+	case b.Has(CancelSpam):
+		result += "CancelSpam;"
+		fallthrough
+	case b.Has(Hidden):
+		result += "Hidden;"
+		fallthrough
+	case b.Has(DeletedAll):
+		result += "DeletedAll;"
+		fallthrough
+	case b.Has(ChatIn):
+		result += "ChatIn;"
+		fallthrough
+	case b.Has(NonameFlag):
+		result += "NonameFlag;"
+		fallthrough
+	case b.Has(ReplyMsg):
+		result += "ReplyMsg;"
 	}
 
 	return result
@@ -74,23 +96,32 @@ const (
 	ChatKeyboardStateChange                   // Keyboard shown/hidden
 )
 
-// Maps constant to string representation for debug.
-var mapTypeIDToName = [...]string{
-	ChatNameChange:          "ChatNameChange",
-	ChatCoverChange:         "ChatCoverChange",
-	ChatAdminAssigned:       "ChatAdminAssigned",
-	ChatPermissionChange:    "ChatPermissionChange",
-	ChatPinnedMessage:       "ChatPinnedMessage",
-	ChatUserCome:            "ChatUserCome",
-	ChatUserLeave:           "ChatUserLeave",
-	ChatUserKicked:          "ChatUserKicked",
-	ChatAdminDismissed:      "ChatAdminDismissed",
-	ChatKeyboardStateChange: "ChatKeyboardStateChange",
-}
-
 // String returns string representation of flag
 func (b TypeID) String() string {
-	return mapTypeIDToName[b]
+	switch b {
+	case ChatNameChange:
+		return "ChatNameChange"
+	case ChatCoverChange:
+		return "ChatCoverChange"
+	case ChatAdminAssigned:
+		return "ChatAdminAssigned"
+	case ChatPermissionChange:
+		return "ChatPermissionChange"
+	case ChatPinnedMessage:
+		return "ChatPinnedMessage"
+	case ChatUserCome:
+		return "ChatUserCome"
+	case ChatUserLeave:
+		return "ChatUserLeave"
+	case ChatUserKicked:
+		return "ChatUserKicked"
+	case ChatAdminDismissed:
+		return "ChatAdminDismissed"
+	case ChatKeyboardStateChange:
+		return "ChatKeyboardStateChange"
+	}
+
+	return ""
 }
 
 // MentionFlags type
