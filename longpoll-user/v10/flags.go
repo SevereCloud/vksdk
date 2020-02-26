@@ -93,4 +93,8 @@ func (b TypeID) String() string {
 	return mapTypeIDToName[b]
 }
 
+// MentionFlags type
 type MentionFlags int
+
+// Has function
+func (b MentionFlags) Has(flag MentionFlags) bool { return b&flag != 0 }

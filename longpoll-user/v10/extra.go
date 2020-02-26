@@ -70,6 +70,8 @@ func (result *Action) parse(v map[string]interface{}) {
 	}
 }
 
+// Keyboard struct.
+// Describes bot keyboard.
 type Keyboard struct {
 	OneTime bool
 	Inline  bool

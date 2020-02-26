@@ -64,13 +64,6 @@ func (result *Action) parse(v map[string]interface{}) {
 			if sourceChatLocalID, ok := v["source_chat_local_id"].(string); ok {
 				result.SourceChatLocalID = sourceChatLocalID
 			}
-
-		case ChatPhotoUpdate:
-			// nothing
-		case ChatInviteUserByLink:
-			// nothing
-		default:
-			// nothing
 		}
 	}
 }

@@ -24,7 +24,6 @@ func (w Wrapper) OnMessageFlagsSet(f MessageFlagsSetHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -45,7 +44,6 @@ func (w Wrapper) OnMessageFlagsReset(f MessageFlagsResetHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -66,7 +64,6 @@ func (w Wrapper) OnNewMessage(f NewMessageHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -87,7 +84,6 @@ func (w Wrapper) OnEditMessage(f EditMessageHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -108,7 +104,6 @@ func (w Wrapper) OnReadInMessages(f ReadInMessagesHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -129,7 +124,6 @@ func (w Wrapper) OnReadOutMessages(f ReadOutMessagesHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -150,7 +144,6 @@ func (w Wrapper) OnFriendBecameOnline(f FriendBecameOnlineHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -171,7 +164,6 @@ func (w Wrapper) OnFriendBecameOffline(f FriendBecameOfflineHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -192,7 +184,6 @@ func (w Wrapper) OnMentionViewed(f MentionViewedHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -213,7 +204,6 @@ func (w Wrapper) OnUserMentioned(f UserMentionedHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -234,7 +224,6 @@ func (w Wrapper) OnDeleteAllMessage(f DeleteAllMessageHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -255,7 +244,6 @@ func (w Wrapper) OnLinkSnippetLoaded(f LinkSnippetLoadedHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -276,7 +264,6 @@ func (w Wrapper) OnMessageCacheReset(f MessageCacheResetHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -297,7 +284,6 @@ func (w Wrapper) OnChatParamsChange(f ChatParamsChangeHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -318,7 +304,6 @@ func (w Wrapper) OnChatInfoChange(f ChatInfoChangeHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -339,7 +324,6 @@ func (w Wrapper) OnUsersTyping(f UsersTypingHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -360,7 +344,6 @@ func (w Wrapper) OnUsersRecordingAudioMessage(f UsersRecordingAudioMessageHandle
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -381,7 +364,6 @@ func (w Wrapper) OnCounterChange(f CounterChangeHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -402,7 +384,6 @@ func (w Wrapper) OnFriendInvisibilityChange(f FriendInvisibilityChangeHandler) {
 		f(event)
 
 		return nil
-
 	})
 }
 
@@ -423,6 +404,5 @@ func (w Wrapper) OnNotificationSettingsChange(f NotificationSettingsChangeHandle
 		f(event)
 
 		return nil
-
 	})
 }
