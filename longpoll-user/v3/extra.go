@@ -18,11 +18,14 @@ type Action struct {
 
 // Possible values for Action.SourceAct
 const (
-	ChatCreate      = "chat_create"       // create chat
-	ChatTitleUpdate = "chat_title_update" // change chat name
-	ChatPhotoUpdate = "chat_photo_update" // change chat photo
-	ChatInviteUser  = "chat_invite_user"  // invite user to chat
-	ChatKickUser    = "chat_kick_user"    // kick out user from chat
+	ChatCreate           = "chat_create"              // create chat
+	ChatTitleUpdate      = "chat_title_update"        // change chat name
+	ChatPhotoUpdate      = "chat_photo_update"        // change chat photo
+	ChatInviteUser       = "chat_invite_user"         // invite user to chat
+	ChatInviteUserByLink = "chat_invite_user_by_link" // invite user to chat by link
+	ChatPinMessage       = "chat_pin_message"         // pin message
+	ChatUnpinMessage     = "chat_unpin_message"       // unpin message
+	ChatKickUser         = "chat_kick_user"           // kick out user from chat
 )
 
 func (result *Action) parse(v map[string]interface{}) {
@@ -30,12 +33,12 @@ func (result *Action) parse(v map[string]interface{}) {
 		result.SourceAct = sourceAct
 
 		switch sourceAct {
-		case "chat_create":
+		case ChatCreate:
 			if sourceText, ok := v["source_text"].(string); ok {
 				result.SourceText = sourceText
 			}
 
-		case "chat_title_update":
+		case ChatTitleUpdate:
 			if sourceText, ok := v["source_text"].(string); ok {
 				result.SourceText = sourceText
 			}
@@ -44,12 +47,12 @@ func (result *Action) parse(v map[string]interface{}) {
 				result.SourceOldText = sourceOldText
 			}
 
-		case "chat_kick_user", "chat_invite_user":
+		case ChatInviteUser, ChatKickUser:
 			if sourceMid, ok := v["source_mid"].(string); ok {
 				result.SourceMid = sourceMid
 			}
 
-		case "chat_pin_message", "chat_unpin_message":
+		case ChatPinMessage, ChatUnpinMessage:
 			if sourceMid, ok := v["source_mid"].(string); ok {
 				result.SourceMid = sourceMid
 			}
@@ -61,6 +64,13 @@ func (result *Action) parse(v map[string]interface{}) {
 			if sourceChatLocalID, ok := v["source_chat_local_id"].(string); ok {
 				result.SourceChatLocalID = sourceChatLocalID
 			}
+
+		case ChatPhotoUpdate:
+			// nothing
+		case ChatInviteUserByLink:
+			// nothing
+		default:
+			// nothing
 		}
 	}
 }
