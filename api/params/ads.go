@@ -19,14 +19,14 @@ func NewAdsAddOfficeUsersBuilder() *AdsAddOfficeUsersBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsAddOfficeUsersBuilder) AccountID(v int) *AdsAddOfficeUsersBuilder{
+func (b *AdsAddOfficeUsersBuilder) AccountID(v int) *AdsAddOfficeUsersBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // Data Serialized JSON array of objects that describe added managers.
 // Description of 'user_specification' objects see below.
-func (b *AdsAddOfficeUsersBuilder) Data(v string) *AdsAddOfficeUsersBuilder{
+func (b *AdsAddOfficeUsersBuilder) Data(v string) *AdsAddOfficeUsersBuilder {
 	b.Params["data"] = v
 	return b
 }
@@ -46,7 +46,7 @@ func NewAdsCheckLinkBuilder() *AdsCheckLinkBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsCheckLinkBuilder) AccountID(v int) *AdsCheckLinkBuilder{
+func (b *AdsCheckLinkBuilder) AccountID(v int) *AdsCheckLinkBuilder {
 	b.Params["account_id"] = v
 	return b
 }
@@ -62,19 +62,19 @@ func (b *AdsCheckLinkBuilder) AccountID(v int) *AdsCheckLinkBuilder{
 // * video — video
 //
 // * site — external site.
-func (b *AdsCheckLinkBuilder) LinkType(v string) *AdsCheckLinkBuilder{
+func (b *AdsCheckLinkBuilder) LinkType(v string) *AdsCheckLinkBuilder {
 	b.Params["link_type"] = v
 	return b
 }
 
 // LinkURL Object URL.
-func (b *AdsCheckLinkBuilder) LinkURL(v string) *AdsCheckLinkBuilder{
+func (b *AdsCheckLinkBuilder) LinkURL(v string) *AdsCheckLinkBuilder {
 	b.Params["link_url"] = v
 	return b
 }
 
 // CampaignID Campaign ID
-func (b *AdsCheckLinkBuilder) CampaignID(v int) *AdsCheckLinkBuilder{
+func (b *AdsCheckLinkBuilder) CampaignID(v int) *AdsCheckLinkBuilder {
 	b.Params["campaign_id"] = v
 	return b
 }
@@ -94,14 +94,14 @@ func NewAdsCreateAdsBuilder() *AdsCreateAdsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsCreateAdsBuilder) AccountID(v int) *AdsCreateAdsBuilder{
+func (b *AdsCreateAdsBuilder) AccountID(v int) *AdsCreateAdsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // Data Serialized JSON array of objects that describe created ads.
 // Description of 'ad_specification' objects see below.
-func (b *AdsCreateAdsBuilder) Data(v string) *AdsCreateAdsBuilder{
+func (b *AdsCreateAdsBuilder) Data(v string) *AdsCreateAdsBuilder {
 	b.Params["data"] = v
 	return b
 }
@@ -121,14 +121,14 @@ func NewAdsCreateCampaignsBuilder() *AdsCreateCampaignsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsCreateCampaignsBuilder) AccountID(v int) *AdsCreateCampaignsBuilder{
+func (b *AdsCreateCampaignsBuilder) AccountID(v int) *AdsCreateCampaignsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // Data Serialized JSON array of objects that describe created campaigns.
 // Description of 'campaign_specification' objects see below.
-func (b *AdsCreateCampaignsBuilder) Data(v string) *AdsCreateCampaignsBuilder{
+func (b *AdsCreateCampaignsBuilder) Data(v string) *AdsCreateCampaignsBuilder {
 	b.Params["data"] = v
 	return b
 }
@@ -148,14 +148,14 @@ func NewAdsCreateClientsBuilder() *AdsCreateClientsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsCreateClientsBuilder) AccountID(v int) *AdsCreateClientsBuilder{
+func (b *AdsCreateClientsBuilder) AccountID(v int) *AdsCreateClientsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // Data Serialized JSON array of objects that describe created campaigns.
 // Description of 'client_specification' objects see below.
-func (b *AdsCreateClientsBuilder) Data(v string) *AdsCreateClientsBuilder{
+func (b *AdsCreateClientsBuilder) Data(v string) *AdsCreateClientsBuilder {
 	b.Params["data"] = v
 	return b
 }
@@ -175,39 +175,39 @@ func NewAdsCreateTargetGroupBuilder() *AdsCreateTargetGroupBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsCreateTargetGroupBuilder) AccountID(v int) *AdsCreateTargetGroupBuilder{
+func (b *AdsCreateTargetGroupBuilder) AccountID(v int) *AdsCreateTargetGroupBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // ClientID parameter 'Only for advertising agencies.'
 // ID of the client with the advertising account where the group will be created.
-func (b *AdsCreateTargetGroupBuilder) ClientID(v int) *AdsCreateTargetGroupBuilder{
+func (b *AdsCreateTargetGroupBuilder) ClientID(v int) *AdsCreateTargetGroupBuilder {
 	b.Params["client_id"] = v
 	return b
 }
 
 // Name Name of the target group — a string up to 64 characters long.
-func (b *AdsCreateTargetGroupBuilder) Name(v string) *AdsCreateTargetGroupBuilder{
+func (b *AdsCreateTargetGroupBuilder) Name(v string) *AdsCreateTargetGroupBuilder {
 	b.Params["name"] = v
 	return b
 }
 
 // Lifetime parameter 'For groups with auditory created with pixel code only.'
 // Number of days after that users will be automatically removed from the group.
-func (b *AdsCreateTargetGroupBuilder) Lifetime(v int) *AdsCreateTargetGroupBuilder{
+func (b *AdsCreateTargetGroupBuilder) Lifetime(v int) *AdsCreateTargetGroupBuilder {
 	b.Params["lifetime"] = v
 	return b
 }
 
 // TargetPixelID parameter
-func (b *AdsCreateTargetGroupBuilder) TargetPixelID(v int) *AdsCreateTargetGroupBuilder{
+func (b *AdsCreateTargetGroupBuilder) TargetPixelID(v int) *AdsCreateTargetGroupBuilder {
 	b.Params["target_pixel_id"] = v
 	return b
 }
 
 // TargetPixelRules parameter
-func (b *AdsCreateTargetGroupBuilder) TargetPixelRules(v string) *AdsCreateTargetGroupBuilder{
+func (b *AdsCreateTargetGroupBuilder) TargetPixelRules(v string) *AdsCreateTargetGroupBuilder {
 	b.Params["target_pixel_rules"] = v
 	return b
 }
@@ -227,13 +227,13 @@ func NewAdsDeleteAdsBuilder() *AdsDeleteAdsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsDeleteAdsBuilder) AccountID(v int) *AdsDeleteAdsBuilder{
+func (b *AdsDeleteAdsBuilder) AccountID(v int) *AdsDeleteAdsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // IDs Serialized JSON array with ad IDs.
-func (b *AdsDeleteAdsBuilder) IDs(v string) *AdsDeleteAdsBuilder{
+func (b *AdsDeleteAdsBuilder) IDs(v string) *AdsDeleteAdsBuilder {
 	b.Params["ids"] = v
 	return b
 }
@@ -253,13 +253,13 @@ func NewAdsDeleteCampaignsBuilder() *AdsDeleteCampaignsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsDeleteCampaignsBuilder) AccountID(v int) *AdsDeleteCampaignsBuilder{
+func (b *AdsDeleteCampaignsBuilder) AccountID(v int) *AdsDeleteCampaignsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // IDs Serialized JSON array with IDs of deleted campaigns.
-func (b *AdsDeleteCampaignsBuilder) IDs(v string) *AdsDeleteCampaignsBuilder{
+func (b *AdsDeleteCampaignsBuilder) IDs(v string) *AdsDeleteCampaignsBuilder {
 	b.Params["ids"] = v
 	return b
 }
@@ -279,13 +279,13 @@ func NewAdsDeleteClientsBuilder() *AdsDeleteClientsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsDeleteClientsBuilder) AccountID(v int) *AdsDeleteClientsBuilder{
+func (b *AdsDeleteClientsBuilder) AccountID(v int) *AdsDeleteClientsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // IDs Serialized JSON array with IDs of deleted clients.
-func (b *AdsDeleteClientsBuilder) IDs(v string) *AdsDeleteClientsBuilder{
+func (b *AdsDeleteClientsBuilder) IDs(v string) *AdsDeleteClientsBuilder {
 	b.Params["ids"] = v
 	return b
 }
@@ -305,20 +305,20 @@ func NewAdsDeleteTargetGroupBuilder() *AdsDeleteTargetGroupBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsDeleteTargetGroupBuilder) AccountID(v int) *AdsDeleteTargetGroupBuilder{
+func (b *AdsDeleteTargetGroupBuilder) AccountID(v int) *AdsDeleteTargetGroupBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // ClientID parameter 'Only for advertising agencies.'
 // ID of the client with the advertising account where the group will be created.
-func (b *AdsDeleteTargetGroupBuilder) ClientID(v int) *AdsDeleteTargetGroupBuilder{
+func (b *AdsDeleteTargetGroupBuilder) ClientID(v int) *AdsDeleteTargetGroupBuilder {
 	b.Params["client_id"] = v
 	return b
 }
 
 // TargetGroupID Group ID.
-func (b *AdsDeleteTargetGroupBuilder) TargetGroupID(v int) *AdsDeleteTargetGroupBuilder{
+func (b *AdsDeleteTargetGroupBuilder) TargetGroupID(v int) *AdsDeleteTargetGroupBuilder {
 	b.Params["target_group_id"] = v
 	return b
 }
@@ -338,28 +338,28 @@ func NewAdsGetAdsBuilder() *AdsGetAdsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetAdsBuilder) AccountID(v int) *AdsGetAdsBuilder{
+func (b *AdsGetAdsBuilder) AccountID(v int) *AdsGetAdsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // AdIDs Filter by ads.
 // Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
-func (b *AdsGetAdsBuilder) AdIDs(v string) *AdsGetAdsBuilder{
+func (b *AdsGetAdsBuilder) AdIDs(v string) *AdsGetAdsBuilder {
 	b.Params["ad_ids"] = v
 	return b
 }
 
 // CampaignIDs Filter by advertising campaigns.
 // Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
-func (b *AdsGetAdsBuilder) CampaignIDs(v string) *AdsGetAdsBuilder{
+func (b *AdsGetAdsBuilder) CampaignIDs(v string) *AdsGetAdsBuilder {
 	b.Params["campaign_ids"] = v
 	return b
 }
 
 // ClientID parameter 'Available and required for advertising agencies.'
 // ID of the client ads are retrieved from.
-func (b *AdsGetAdsBuilder) ClientID(v int) *AdsGetAdsBuilder{
+func (b *AdsGetAdsBuilder) ClientID(v int) *AdsGetAdsBuilder {
 	b.Params["client_id"] = v
 	return b
 }
@@ -369,21 +369,21 @@ func (b *AdsGetAdsBuilder) ClientID(v int) *AdsGetAdsBuilder{
 // * 0 — show only active ads
 //
 // * 1 — show all ads.
-func (b *AdsGetAdsBuilder) IncludeDeleted(v bool) *AdsGetAdsBuilder{
+func (b *AdsGetAdsBuilder) IncludeDeleted(v bool) *AdsGetAdsBuilder {
 	b.Params["include_deleted"] = v
 	return b
 }
 
 // Limit Limit of number of returned ads.
 // Used only if ad_ids parameter is null, and 'campaign_ids' parameter contains ID of only one campaign.
-func (b *AdsGetAdsBuilder) Limit(v int) *AdsGetAdsBuilder{
+func (b *AdsGetAdsBuilder) Limit(v int) *AdsGetAdsBuilder {
 	b.Params["limit"] = v
 	return b
 }
 
 // Offset Offset.
 // Used in the same cases as 'limit' parameter.
-func (b *AdsGetAdsBuilder) Offset(v int) *AdsGetAdsBuilder{
+func (b *AdsGetAdsBuilder) Offset(v int) *AdsGetAdsBuilder {
 	b.Params["offset"] = v
 	return b
 }
@@ -403,28 +403,28 @@ func NewAdsGetAdsLayoutBuilder() *AdsGetAdsLayoutBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetAdsLayoutBuilder) AccountID(v int) *AdsGetAdsLayoutBuilder{
+func (b *AdsGetAdsLayoutBuilder) AccountID(v int) *AdsGetAdsLayoutBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // AdIDs Filter by ads.
 // Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
-func (b *AdsGetAdsLayoutBuilder) AdIDs(v string) *AdsGetAdsLayoutBuilder{
+func (b *AdsGetAdsLayoutBuilder) AdIDs(v string) *AdsGetAdsLayoutBuilder {
 	b.Params["ad_ids"] = v
 	return b
 }
 
 // CampaignIDs Filter by advertising campaigns.
 // Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
-func (b *AdsGetAdsLayoutBuilder) CampaignIDs(v string) *AdsGetAdsLayoutBuilder{
+func (b *AdsGetAdsLayoutBuilder) CampaignIDs(v string) *AdsGetAdsLayoutBuilder {
 	b.Params["campaign_ids"] = v
 	return b
 }
 
 // ClientID parameter 'For advertising agencies.'
 // ID of the client ads are retrieved from.
-func (b *AdsGetAdsLayoutBuilder) ClientID(v int) *AdsGetAdsLayoutBuilder{
+func (b *AdsGetAdsLayoutBuilder) ClientID(v int) *AdsGetAdsLayoutBuilder {
 	b.Params["client_id"] = v
 	return b
 }
@@ -434,21 +434,21 @@ func (b *AdsGetAdsLayoutBuilder) ClientID(v int) *AdsGetAdsLayoutBuilder{
 // * 0 — show only active ads
 //
 // * 1 — show all ads.
-func (b *AdsGetAdsLayoutBuilder) IncludeDeleted(v bool) *AdsGetAdsLayoutBuilder{
+func (b *AdsGetAdsLayoutBuilder) IncludeDeleted(v bool) *AdsGetAdsLayoutBuilder {
 	b.Params["include_deleted"] = v
 	return b
 }
 
 // Limit Limit of number of returned ads.
 // Used only if 'ad_ids' parameter is null, and 'campaign_ids' parameter contains ID of only one campaign.
-func (b *AdsGetAdsLayoutBuilder) Limit(v int) *AdsGetAdsLayoutBuilder{
+func (b *AdsGetAdsLayoutBuilder) Limit(v int) *AdsGetAdsLayoutBuilder {
 	b.Params["limit"] = v
 	return b
 }
 
 // Offset Offset.
 // Used in the same cases as 'limit' parameter.
-func (b *AdsGetAdsLayoutBuilder) Offset(v int) *AdsGetAdsLayoutBuilder{
+func (b *AdsGetAdsLayoutBuilder) Offset(v int) *AdsGetAdsLayoutBuilder {
 	b.Params["offset"] = v
 	return b
 }
@@ -468,28 +468,28 @@ func NewAdsGetAdsTargetingBuilder() *AdsGetAdsTargetingBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetAdsTargetingBuilder) AccountID(v int) *AdsGetAdsTargetingBuilder{
+func (b *AdsGetAdsTargetingBuilder) AccountID(v int) *AdsGetAdsTargetingBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // AdIDs Filter by ads.
 // Serialized JSON array with ad IDs. If the parameter is null, all ads will be shown.
-func (b *AdsGetAdsTargetingBuilder) AdIDs(v string) *AdsGetAdsTargetingBuilder{
+func (b *AdsGetAdsTargetingBuilder) AdIDs(v string) *AdsGetAdsTargetingBuilder {
 	b.Params["ad_ids"] = v
 	return b
 }
 
 // CampaignIDs Filter by advertising campaigns.
 // Serialized JSON array with campaign IDs. If the parameter is null, ads of all campaigns will be shown.
-func (b *AdsGetAdsTargetingBuilder) CampaignIDs(v string) *AdsGetAdsTargetingBuilder{
+func (b *AdsGetAdsTargetingBuilder) CampaignIDs(v string) *AdsGetAdsTargetingBuilder {
 	b.Params["campaign_ids"] = v
 	return b
 }
 
 // ClientID parameter 'For advertising agencies.'
 // ID of the client ads are retrieved from.
-func (b *AdsGetAdsTargetingBuilder) ClientID(v int) *AdsGetAdsTargetingBuilder{
+func (b *AdsGetAdsTargetingBuilder) ClientID(v int) *AdsGetAdsTargetingBuilder {
 	b.Params["client_id"] = v
 	return b
 }
@@ -499,20 +499,20 @@ func (b *AdsGetAdsTargetingBuilder) ClientID(v int) *AdsGetAdsTargetingBuilder{
 // * 0 — show only active ads
 //
 // * 1 — show all ads.
-func (b *AdsGetAdsTargetingBuilder) IncludeDeleted(v bool) *AdsGetAdsTargetingBuilder{
+func (b *AdsGetAdsTargetingBuilder) IncludeDeleted(v bool) *AdsGetAdsTargetingBuilder {
 	b.Params["include_deleted"] = v
 	return b
 }
 
 // Limit Limit of number of returned ads.
 // Used only if 'ad_ids' parameter is null, and 'campaign_ids' parameter contains ID of only one campaign.
-func (b *AdsGetAdsTargetingBuilder) Limit(v int) *AdsGetAdsTargetingBuilder{
+func (b *AdsGetAdsTargetingBuilder) Limit(v int) *AdsGetAdsTargetingBuilder {
 	b.Params["limit"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *AdsGetAdsTargetingBuilder) Offset(v int) *AdsGetAdsTargetingBuilder{
+func (b *AdsGetAdsTargetingBuilder) Offset(v int) *AdsGetAdsTargetingBuilder {
 	b.Params["offset"] = v
 	return b
 }
@@ -532,7 +532,7 @@ func NewAdsGetBudgetBuilder() *AdsGetBudgetBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetBudgetBuilder) AccountID(v int) *AdsGetBudgetBuilder{
+func (b *AdsGetBudgetBuilder) AccountID(v int) *AdsGetBudgetBuilder {
 	b.Params["account_id"] = v
 	return b
 }
@@ -552,14 +552,14 @@ func NewAdsGetCampaignsBuilder() *AdsGetCampaignsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetCampaignsBuilder) AccountID(v int) *AdsGetCampaignsBuilder{
+func (b *AdsGetCampaignsBuilder) AccountID(v int) *AdsGetCampaignsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // ClientID parameter 'For advertising agencies'.
 // ID of the client advertising campaigns are retrieved from.
-func (b *AdsGetCampaignsBuilder) ClientID(v int) *AdsGetCampaignsBuilder{
+func (b *AdsGetCampaignsBuilder) ClientID(v int) *AdsGetCampaignsBuilder {
 	b.Params["client_id"] = v
 	return b
 }
@@ -569,7 +569,7 @@ func (b *AdsGetCampaignsBuilder) ClientID(v int) *AdsGetCampaignsBuilder{
 // * 0 — show only active campaigns
 //
 // * 1 — show all campaigns.
-func (b *AdsGetCampaignsBuilder) IncludeDeleted(v bool) *AdsGetCampaignsBuilder{
+func (b *AdsGetCampaignsBuilder) IncludeDeleted(v bool) *AdsGetCampaignsBuilder {
 	b.Params["include_deleted"] = v
 	return b
 }
@@ -577,7 +577,7 @@ func (b *AdsGetCampaignsBuilder) IncludeDeleted(v bool) *AdsGetCampaignsBuilder{
 // CampaignIDs Filter of advertising campaigns to show.
 // Serialized JSON array with campaign IDs. Only campaigns that exist in 'campaign_ids' and belong to the specified advertising account will be shown.
 // If the parameter is null, all campaigns will be shown.
-func (b *AdsGetCampaignsBuilder) CampaignIDs(v string) *AdsGetCampaignsBuilder{
+func (b *AdsGetCampaignsBuilder) CampaignIDs(v string) *AdsGetCampaignsBuilder {
 	b.Params["campaign_ids"] = v
 	return b
 }
@@ -598,7 +598,7 @@ func NewAdsGetCategoriesBuilder() *AdsGetCategoriesBuilder {
 
 // Lang Language.
 // The full list of supported languages is [vk.com/dev/api_requests|here].
-func (b *AdsGetCategoriesBuilder) Lang(v string) *AdsGetCategoriesBuilder{
+func (b *AdsGetCategoriesBuilder) Lang(v string) *AdsGetCategoriesBuilder {
 	b.Params["lang"] = v
 	return b
 }
@@ -618,7 +618,7 @@ func NewAdsGetClientsBuilder() *AdsGetClientsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetClientsBuilder) AccountID(v int) *AdsGetClientsBuilder{
+func (b *AdsGetClientsBuilder) AccountID(v int) *AdsGetClientsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
@@ -638,7 +638,7 @@ func NewAdsGetDemographicsBuilder() *AdsGetDemographicsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetDemographicsBuilder) AccountID(v int) *AdsGetDemographicsBuilder{
+func (b *AdsGetDemographicsBuilder) AccountID(v int) *AdsGetDemographicsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
@@ -648,14 +648,14 @@ func (b *AdsGetDemographicsBuilder) AccountID(v int) *AdsGetDemographicsBuilder{
 // * ad — ads
 //
 // * campaign — campaigns.
-func (b *AdsGetDemographicsBuilder) IDsType(v string) *AdsGetDemographicsBuilder{
+func (b *AdsGetDemographicsBuilder) IDsType(v string) *AdsGetDemographicsBuilder {
 	b.Params["ids_type"] = v
 	return b
 }
 
 // IDs IDs requested ads or campaigns, separated with a comma, depending on the value set in 'ids_type'.
 // Maximum 2000 objects.
-func (b *AdsGetDemographicsBuilder) IDs(v string) *AdsGetDemographicsBuilder{
+func (b *AdsGetDemographicsBuilder) IDs(v string) *AdsGetDemographicsBuilder {
 	b.Params["ids"] = v
 	return b
 }
@@ -667,7 +667,7 @@ func (b *AdsGetDemographicsBuilder) IDs(v string) *AdsGetDemographicsBuilder{
 // * month — statistics by months
 //
 // * overall — overall statistics.'date_from' and 'date_to' parameters set temporary limits.
-func (b *AdsGetDemographicsBuilder) Period(v string) *AdsGetDemographicsBuilder{
+func (b *AdsGetDemographicsBuilder) Period(v string) *AdsGetDemographicsBuilder {
 	b.Params["period"] = v
 	return b
 }
@@ -683,7 +683,7 @@ func (b *AdsGetDemographicsBuilder) Period(v string) *AdsGetDemographicsBuilder{
 // * 0 — month it was created in
 //
 // * overall: 0.
-func (b *AdsGetDemographicsBuilder) DateFrom(v string) *AdsGetDemographicsBuilder{
+func (b *AdsGetDemographicsBuilder) DateFrom(v string) *AdsGetDemographicsBuilder {
 	b.Params["date_from"] = v
 	return b
 }
@@ -699,7 +699,7 @@ func (b *AdsGetDemographicsBuilder) DateFrom(v string) *AdsGetDemographicsBuilde
 // * 0 — current month
 //
 // * overall: 0.
-func (b *AdsGetDemographicsBuilder) DateTo(v string) *AdsGetDemographicsBuilder{
+func (b *AdsGetDemographicsBuilder) DateTo(v string) *AdsGetDemographicsBuilder {
 	b.Params["date_to"] = v
 	return b
 }
@@ -719,7 +719,7 @@ func NewAdsGetFloodStatsBuilder() *AdsGetFloodStatsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetFloodStatsBuilder) AccountID(v int) *AdsGetFloodStatsBuilder{
+func (b *AdsGetFloodStatsBuilder) AccountID(v int) *AdsGetFloodStatsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
@@ -739,7 +739,7 @@ func NewAdsGetOfficeUsersBuilder() *AdsGetOfficeUsersBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetOfficeUsersBuilder) AccountID(v int) *AdsGetOfficeUsersBuilder{
+func (b *AdsGetOfficeUsersBuilder) AccountID(v int) *AdsGetOfficeUsersBuilder {
 	b.Params["account_id"] = v
 	return b
 }
@@ -759,7 +759,7 @@ func NewAdsGetPostsReachBuilder() *AdsGetPostsReachBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetPostsReachBuilder) AccountID(v int) *AdsGetPostsReachBuilder{
+func (b *AdsGetPostsReachBuilder) AccountID(v int) *AdsGetPostsReachBuilder {
 	b.Params["account_id"] = v
 	return b
 }
@@ -769,14 +769,14 @@ func (b *AdsGetPostsReachBuilder) AccountID(v int) *AdsGetPostsReachBuilder{
 // * ad — ads
 //
 // * campaign — campaigns.
-func (b *AdsGetPostsReachBuilder) IDsType(v string) *AdsGetPostsReachBuilder{
+func (b *AdsGetPostsReachBuilder) IDsType(v string) *AdsGetPostsReachBuilder {
 	b.Params["ids_type"] = v
 	return b
 }
 
 // IDs IDs requested ads or campaigns, separated with a comma, depending on the value set in 'ids_type'.
 // Maximum 100 objects.
-func (b *AdsGetPostsReachBuilder) IDs(v string) *AdsGetPostsReachBuilder{
+func (b *AdsGetPostsReachBuilder) IDs(v string) *AdsGetPostsReachBuilder {
 	b.Params["ids"] = v
 	return b
 }
@@ -796,13 +796,13 @@ func NewAdsGetRejectionReasonBuilder() *AdsGetRejectionReasonBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetRejectionReasonBuilder) AccountID(v int) *AdsGetRejectionReasonBuilder{
+func (b *AdsGetRejectionReasonBuilder) AccountID(v int) *AdsGetRejectionReasonBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // AdID Ad ID.
-func (b *AdsGetRejectionReasonBuilder) AdID(v int) *AdsGetRejectionReasonBuilder{
+func (b *AdsGetRejectionReasonBuilder) AdID(v int) *AdsGetRejectionReasonBuilder {
 	b.Params["ad_id"] = v
 	return b
 }
@@ -822,7 +822,7 @@ func NewAdsGetStatisticsBuilder() *AdsGetStatisticsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetStatisticsBuilder) AccountID(v int) *AdsGetStatisticsBuilder{
+func (b *AdsGetStatisticsBuilder) AccountID(v int) *AdsGetStatisticsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
@@ -836,14 +836,14 @@ func (b *AdsGetStatisticsBuilder) AccountID(v int) *AdsGetStatisticsBuilder{
 // * client — clients
 //
 // * office — account.
-func (b *AdsGetStatisticsBuilder) IDsType(v string) *AdsGetStatisticsBuilder{
+func (b *AdsGetStatisticsBuilder) IDsType(v string) *AdsGetStatisticsBuilder {
 	b.Params["ids_type"] = v
 	return b
 }
 
 // IDs IDs requested ads, campaigns, clients or account, separated with a comma, depending on the value set in 'ids_type'.
 // Maximum 2000 objects.
-func (b *AdsGetStatisticsBuilder) IDs(v string) *AdsGetStatisticsBuilder{
+func (b *AdsGetStatisticsBuilder) IDs(v string) *AdsGetStatisticsBuilder {
 	b.Params["ids"] = v
 	return b
 }
@@ -855,7 +855,7 @@ func (b *AdsGetStatisticsBuilder) IDs(v string) *AdsGetStatisticsBuilder{
 // * month — statistics by months
 //
 // * overall — overall statistics.'date_from' and 'date_to' parameters set temporary limits.
-func (b *AdsGetStatisticsBuilder) Period(v string) *AdsGetStatisticsBuilder{
+func (b *AdsGetStatisticsBuilder) Period(v string) *AdsGetStatisticsBuilder {
 	b.Params["period"] = v
 	return b
 }
@@ -871,7 +871,7 @@ func (b *AdsGetStatisticsBuilder) Period(v string) *AdsGetStatisticsBuilder{
 // * 0 — month it was created in
 //
 // * overall: 0.
-func (b *AdsGetStatisticsBuilder) DateFrom(v string) *AdsGetStatisticsBuilder{
+func (b *AdsGetStatisticsBuilder) DateFrom(v string) *AdsGetStatisticsBuilder {
 	b.Params["date_from"] = v
 	return b
 }
@@ -887,7 +887,7 @@ func (b *AdsGetStatisticsBuilder) DateFrom(v string) *AdsGetStatisticsBuilder{
 // * 0 — current month
 //
 // * overall: 0.
-func (b *AdsGetStatisticsBuilder) DateTo(v string) *AdsGetStatisticsBuilder{
+func (b *AdsGetStatisticsBuilder) DateTo(v string) *AdsGetStatisticsBuilder {
 	b.Params["date_to"] = v
 	return b
 }
@@ -939,32 +939,32 @@ func NewAdsGetSuggestionsBuilder() *AdsGetSuggestionsBuilder {
 // * religions — requested list of religious commitments.
 //
 // * browsers — requested list of browsers and mobile devices.
-func (b *AdsGetSuggestionsBuilder) Section(v string) *AdsGetSuggestionsBuilder{
+func (b *AdsGetSuggestionsBuilder) Section(v string) *AdsGetSuggestionsBuilder {
 	b.Params["section"] = v
 	return b
 }
 
 // IDs Objects IDs separated by commas.
 // If the parameter is passed, 'q, country, cities' should not be passed.
-func (b *AdsGetSuggestionsBuilder) IDs(v string) *AdsGetSuggestionsBuilder{
+func (b *AdsGetSuggestionsBuilder) IDs(v string) *AdsGetSuggestionsBuilder {
 	b.Params["ids"] = v
 	return b
 }
 
 // Q Filter-line of the request (for countries, regions, cities, streets, schools, interests, positions).
-func (b *AdsGetSuggestionsBuilder) Q(v string) *AdsGetSuggestionsBuilder{
+func (b *AdsGetSuggestionsBuilder) Q(v string) *AdsGetSuggestionsBuilder {
 	b.Params["q"] = v
 	return b
 }
 
 // Country ID of the country objects are searched in.
-func (b *AdsGetSuggestionsBuilder) Country(v int) *AdsGetSuggestionsBuilder{
+func (b *AdsGetSuggestionsBuilder) Country(v int) *AdsGetSuggestionsBuilder {
 	b.Params["country"] = v
 	return b
 }
 
 // Cities IDs of cities where objects are searched in, separated with a comma.
-func (b *AdsGetSuggestionsBuilder) Cities(v string) *AdsGetSuggestionsBuilder{
+func (b *AdsGetSuggestionsBuilder) Cities(v string) *AdsGetSuggestionsBuilder {
 	b.Params["cities"] = v
 	return b
 }
@@ -976,7 +976,7 @@ func (b *AdsGetSuggestionsBuilder) Cities(v string) *AdsGetSuggestionsBuilder{
 // * ua — Ukrainian
 //
 // * en — English.
-func (b *AdsGetSuggestionsBuilder) Lang(v string) *AdsGetSuggestionsBuilder{
+func (b *AdsGetSuggestionsBuilder) Lang(v string) *AdsGetSuggestionsBuilder {
 	b.Params["lang"] = v
 	return b
 }
@@ -996,22 +996,22 @@ func NewAdsGetTargetGroupsBuilder() *AdsGetTargetGroupsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetTargetGroupsBuilder) AccountID(v int) *AdsGetTargetGroupsBuilder{
+func (b *AdsGetTargetGroupsBuilder) AccountID(v int) *AdsGetTargetGroupsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // ClientID parameter 'Only for advertising agencies.'
 // ID of the client with the advertising account where the group will be created.
-func (b *AdsGetTargetGroupsBuilder) ClientID(v int) *AdsGetTargetGroupsBuilder{
+func (b *AdsGetTargetGroupsBuilder) ClientID(v int) *AdsGetTargetGroupsBuilder {
 	b.Params["client_id"] = v
 	return b
 }
 
-// Extended parameter 
+// Extended parameter
 //
 // * '1' — to return pixel code.
-func (b *AdsGetTargetGroupsBuilder) Extended(v bool) *AdsGetTargetGroupsBuilder{
+func (b *AdsGetTargetGroupsBuilder) Extended(v bool) *AdsGetTargetGroupsBuilder {
 	b.Params["extended"] = v
 	return b
 }
@@ -1031,26 +1031,26 @@ func NewAdsGetTargetingStatsBuilder() *AdsGetTargetingStatsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsGetTargetingStatsBuilder) AccountID(v int) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) AccountID(v int) *AdsGetTargetingStatsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // ClientID parameter
-func (b *AdsGetTargetingStatsBuilder) ClientID(v int) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) ClientID(v int) *AdsGetTargetingStatsBuilder {
 	b.Params["client_id"] = v
 	return b
 }
 
 // Criteria Serialized JSON object that describes targeting parameters.
 // Description of 'criteria' object see below.
-func (b *AdsGetTargetingStatsBuilder) Criteria(v string) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) Criteria(v string) *AdsGetTargetingStatsBuilder {
 	b.Params["criteria"] = v
 	return b
 }
 
 // AdID ID of an ad which targeting parameters shall be analyzed.
-func (b *AdsGetTargetingStatsBuilder) AdID(v int) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) AdID(v int) *AdsGetTargetingStatsBuilder {
 	b.Params["ad_id"] = v
 	return b
 }
@@ -1072,7 +1072,7 @@ func (b *AdsGetTargetingStatsBuilder) AdID(v int) *AdsGetTargetingStatsBuilder{
 // * 9 — post in community
 //
 // * 10 — app board.
-func (b *AdsGetTargetingStatsBuilder) AdFormat(v int) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) AdFormat(v int) *AdsGetTargetingStatsBuilder {
 	b.Params["ad_format"] = v
 	return b
 }
@@ -1088,31 +1088,31 @@ func (b *AdsGetTargetingStatsBuilder) AdFormat(v int) *AdsGetTargetingStatsBuild
 // * desktop — desktop version
 //
 // * mobile — mobile version and apps.
-func (b *AdsGetTargetingStatsBuilder) AdPlatform(v string) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) AdPlatform(v string) *AdsGetTargetingStatsBuilder {
 	b.Params["ad_platform"] = v
 	return b
 }
 
 // AdPlatformNoWall parameter
-func (b *AdsGetTargetingStatsBuilder) AdPlatformNoWall(v string) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) AdPlatformNoWall(v string) *AdsGetTargetingStatsBuilder {
 	b.Params["ad_platform_no_wall"] = v
 	return b
 }
 
 // AdPlatformNoAdNetwork parameter
-func (b *AdsGetTargetingStatsBuilder) AdPlatformNoAdNetwork(v string) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) AdPlatformNoAdNetwork(v string) *AdsGetTargetingStatsBuilder {
 	b.Params["ad_platform_no_ad_network"] = v
 	return b
 }
 
 // LinkURL URL for the advertised object.
-func (b *AdsGetTargetingStatsBuilder) LinkURL(v string) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) LinkURL(v string) *AdsGetTargetingStatsBuilder {
 	b.Params["link_url"] = v
 	return b
 }
 
 // LinkDomain Domain of the advertised object.
-func (b *AdsGetTargetingStatsBuilder) LinkDomain(v string) *AdsGetTargetingStatsBuilder{
+func (b *AdsGetTargetingStatsBuilder) LinkDomain(v string) *AdsGetTargetingStatsBuilder {
 	b.Params["link_domain"] = v
 	return b
 }
@@ -1142,13 +1142,13 @@ func NewAdsGetUploadURLBuilder() *AdsGetUploadURLBuilder {
 // * 4 — community, square image
 //
 // * 7 — special app format.
-func (b *AdsGetUploadURLBuilder) AdFormat(v int) *AdsGetUploadURLBuilder{
+func (b *AdsGetUploadURLBuilder) AdFormat(v int) *AdsGetUploadURLBuilder {
 	b.Params["ad_format"] = v
 	return b
 }
 
 // Icon parameter
-func (b *AdsGetUploadURLBuilder) Icon(v int) *AdsGetUploadURLBuilder{
+func (b *AdsGetUploadURLBuilder) Icon(v int) *AdsGetUploadURLBuilder {
 	b.Params["icon"] = v
 	return b
 }
@@ -1168,26 +1168,26 @@ func NewAdsImportTargetContactsBuilder() *AdsImportTargetContactsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsImportTargetContactsBuilder) AccountID(v int) *AdsImportTargetContactsBuilder{
+func (b *AdsImportTargetContactsBuilder) AccountID(v int) *AdsImportTargetContactsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // ClientID parameter 'Only for advertising agencies.'
 // ID of the client with the advertising account where the group will be created.
-func (b *AdsImportTargetContactsBuilder) ClientID(v int) *AdsImportTargetContactsBuilder{
+func (b *AdsImportTargetContactsBuilder) ClientID(v int) *AdsImportTargetContactsBuilder {
 	b.Params["client_id"] = v
 	return b
 }
 
 // TargetGroupID Target group ID.
-func (b *AdsImportTargetContactsBuilder) TargetGroupID(v int) *AdsImportTargetContactsBuilder{
+func (b *AdsImportTargetContactsBuilder) TargetGroupID(v int) *AdsImportTargetContactsBuilder {
 	b.Params["target_group_id"] = v
 	return b
 }
 
 // Contacts List of phone numbers, emails or user IDs separated with a comma.
-func (b *AdsImportTargetContactsBuilder) Contacts(v string) *AdsImportTargetContactsBuilder{
+func (b *AdsImportTargetContactsBuilder) Contacts(v string) *AdsImportTargetContactsBuilder {
 	b.Params["contacts"] = v
 	return b
 }
@@ -1207,13 +1207,13 @@ func NewAdsRemoveOfficeUsersBuilder() *AdsRemoveOfficeUsersBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsRemoveOfficeUsersBuilder) AccountID(v int) *AdsRemoveOfficeUsersBuilder{
+func (b *AdsRemoveOfficeUsersBuilder) AccountID(v int) *AdsRemoveOfficeUsersBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // IDs Serialized JSON array with IDs of deleted managers.
-func (b *AdsRemoveOfficeUsersBuilder) IDs(v string) *AdsRemoveOfficeUsersBuilder{
+func (b *AdsRemoveOfficeUsersBuilder) IDs(v string) *AdsRemoveOfficeUsersBuilder {
 	b.Params["ids"] = v
 	return b
 }
@@ -1233,14 +1233,14 @@ func NewAdsUpdateAdsBuilder() *AdsUpdateAdsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsUpdateAdsBuilder) AccountID(v int) *AdsUpdateAdsBuilder{
+func (b *AdsUpdateAdsBuilder) AccountID(v int) *AdsUpdateAdsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // Data Serialized JSON array of objects that describe changes in ads.
 // Description of 'ad_edit_specification' objects see below.
-func (b *AdsUpdateAdsBuilder) Data(v string) *AdsUpdateAdsBuilder{
+func (b *AdsUpdateAdsBuilder) Data(v string) *AdsUpdateAdsBuilder {
 	b.Params["data"] = v
 	return b
 }
@@ -1260,14 +1260,14 @@ func NewAdsUpdateCampaignsBuilder() *AdsUpdateCampaignsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsUpdateCampaignsBuilder) AccountID(v int) *AdsUpdateCampaignsBuilder{
+func (b *AdsUpdateCampaignsBuilder) AccountID(v int) *AdsUpdateCampaignsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // Data Serialized JSON array of objects that describe changes in campaigns.
 // Description of 'campaign_mod' objects see below.
-func (b *AdsUpdateCampaignsBuilder) Data(v string) *AdsUpdateCampaignsBuilder{
+func (b *AdsUpdateCampaignsBuilder) Data(v string) *AdsUpdateCampaignsBuilder {
 	b.Params["data"] = v
 	return b
 }
@@ -1287,14 +1287,14 @@ func NewAdsUpdateClientsBuilder() *AdsUpdateClientsBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsUpdateClientsBuilder) AccountID(v int) *AdsUpdateClientsBuilder{
+func (b *AdsUpdateClientsBuilder) AccountID(v int) *AdsUpdateClientsBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // Data Serialized JSON array of objects that describe changes in clients.
 // Description of 'client_mod' objects see below.
-func (b *AdsUpdateClientsBuilder) Data(v string) *AdsUpdateClientsBuilder{
+func (b *AdsUpdateClientsBuilder) Data(v string) *AdsUpdateClientsBuilder {
 	b.Params["data"] = v
 	return b
 }
@@ -1314,32 +1314,32 @@ func NewAdsUpdateTargetGroupBuilder() *AdsUpdateTargetGroupBuilder {
 }
 
 // AccountID Advertising account ID.
-func (b *AdsUpdateTargetGroupBuilder) AccountID(v int) *AdsUpdateTargetGroupBuilder{
+func (b *AdsUpdateTargetGroupBuilder) AccountID(v int) *AdsUpdateTargetGroupBuilder {
 	b.Params["account_id"] = v
 	return b
 }
 
 // ClientID parameter 'Only for advertising agencies.'
 // ID of the client with the advertising account where the group will be created.
-func (b *AdsUpdateTargetGroupBuilder) ClientID(v int) *AdsUpdateTargetGroupBuilder{
+func (b *AdsUpdateTargetGroupBuilder) ClientID(v int) *AdsUpdateTargetGroupBuilder {
 	b.Params["client_id"] = v
 	return b
 }
 
 // TargetGroupID Group ID.
-func (b *AdsUpdateTargetGroupBuilder) TargetGroupID(v int) *AdsUpdateTargetGroupBuilder{
+func (b *AdsUpdateTargetGroupBuilder) TargetGroupID(v int) *AdsUpdateTargetGroupBuilder {
 	b.Params["target_group_id"] = v
 	return b
 }
 
 // Name New name of the target group — a string up to 64 characters long.
-func (b *AdsUpdateTargetGroupBuilder) Name(v string) *AdsUpdateTargetGroupBuilder{
+func (b *AdsUpdateTargetGroupBuilder) Name(v string) *AdsUpdateTargetGroupBuilder {
 	b.Params["name"] = v
 	return b
 }
 
 // Domain Domain of the site where user accounting code will be placed.
-func (b *AdsUpdateTargetGroupBuilder) Domain(v string) *AdsUpdateTargetGroupBuilder{
+func (b *AdsUpdateTargetGroupBuilder) Domain(v string) *AdsUpdateTargetGroupBuilder {
 	b.Params["domain"] = v
 	return b
 }
@@ -1348,19 +1348,19 @@ func (b *AdsUpdateTargetGroupBuilder) Domain(v string) *AdsUpdateTargetGroupBuil
 // Time in days when users added to a retarget group will be automatically excluded from it.
 //
 // * '0' – automatic exclusion is off.
-func (b *AdsUpdateTargetGroupBuilder) Lifetime(v int) *AdsUpdateTargetGroupBuilder{
+func (b *AdsUpdateTargetGroupBuilder) Lifetime(v int) *AdsUpdateTargetGroupBuilder {
 	b.Params["lifetime"] = v
 	return b
 }
 
 // TargetPixelID parameter
-func (b *AdsUpdateTargetGroupBuilder) TargetPixelID(v int) *AdsUpdateTargetGroupBuilder{
+func (b *AdsUpdateTargetGroupBuilder) TargetPixelID(v int) *AdsUpdateTargetGroupBuilder {
 	b.Params["target_pixel_id"] = v
 	return b
 }
 
 // TargetPixelRules parameter
-func (b *AdsUpdateTargetGroupBuilder) TargetPixelRules(v string) *AdsUpdateTargetGroupBuilder{
+func (b *AdsUpdateTargetGroupBuilder) TargetPixelRules(v string) *AdsUpdateTargetGroupBuilder {
 	b.Params["target_pixel_rules"] = v
 	return b
 }

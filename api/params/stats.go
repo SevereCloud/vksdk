@@ -19,55 +19,55 @@ func NewStatsGetBuilder() *StatsGetBuilder {
 }
 
 // GroupID Community ID.
-func (b *StatsGetBuilder) GroupID(v int) *StatsGetBuilder{
+func (b *StatsGetBuilder) GroupID(v int) *StatsGetBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // AppID Application ID.
-func (b *StatsGetBuilder) AppID(v int) *StatsGetBuilder{
+func (b *StatsGetBuilder) AppID(v int) *StatsGetBuilder {
 	b.Params["app_id"] = v
 	return b
 }
 
 // TimestampFrom parameter
-func (b *StatsGetBuilder) TimestampFrom(v int) *StatsGetBuilder{
+func (b *StatsGetBuilder) TimestampFrom(v int) *StatsGetBuilder {
 	b.Params["timestamp_from"] = v
 	return b
 }
 
 // TimestampTo parameter
-func (b *StatsGetBuilder) TimestampTo(v int) *StatsGetBuilder{
+func (b *StatsGetBuilder) TimestampTo(v int) *StatsGetBuilder {
 	b.Params["timestamp_to"] = v
 	return b
 }
 
 // Interval parameter
-func (b *StatsGetBuilder) Interval(v string) *StatsGetBuilder{
+func (b *StatsGetBuilder) Interval(v string) *StatsGetBuilder {
 	b.Params["interval"] = v
 	return b
 }
 
 // IntervalsCount parameter
-func (b *StatsGetBuilder) IntervalsCount(v int) *StatsGetBuilder{
+func (b *StatsGetBuilder) IntervalsCount(v int) *StatsGetBuilder {
 	b.Params["intervals_count"] = v
 	return b
 }
 
 // Filters parameter
-func (b *StatsGetBuilder) Filters(v []string) *StatsGetBuilder{
+func (b *StatsGetBuilder) Filters(v []string) *StatsGetBuilder {
 	b.Params["filters"] = v
 	return b
 }
 
 // StatsGroups parameter
-func (b *StatsGetBuilder) StatsGroups(v []string) *StatsGetBuilder{
+func (b *StatsGetBuilder) StatsGroups(v []string) *StatsGetBuilder {
 	b.Params["stats_groups"] = v
 	return b
 }
 
 // Extended parameter
-func (b *StatsGetBuilder) Extended(v bool) *StatsGetBuilder{
+func (b *StatsGetBuilder) Extended(v bool) *StatsGetBuilder {
 	b.Params["extended"] = v
 	return b
 }
@@ -88,7 +88,7 @@ func NewStatsGetPostReachBuilder() *StatsGetPostReachBuilder {
 
 // OwnerID post owner community id.
 // Specify with - sign.
-func (b *StatsGetPostReachBuilder) OwnerID(v string) *StatsGetPostReachBuilder{
+func (b *StatsGetPostReachBuilder) OwnerID(v string) *StatsGetPostReachBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
@@ -96,7 +96,7 @@ func (b *StatsGetPostReachBuilder) OwnerID(v string) *StatsGetPostReachBuilder{
 // PostID wall post id.
 //
 // Note that stats are available only for '300' last (newest) posts on a community wall.
-func (b *StatsGetPostReachBuilder) PostID(v int) *StatsGetPostReachBuilder{
+func (b *StatsGetPostReachBuilder) PostID(v int) *StatsGetPostReachBuilder {
 	b.Params["post_id"] = v
 	return b
 }
@@ -114,7 +114,7 @@ func NewStatsTrackVisitorBuilder() *StatsTrackVisitorBuilder {
 }
 
 // ID parameter
-func (b *StatsTrackVisitorBuilder) ID(v string) *StatsTrackVisitorBuilder{
+func (b *StatsTrackVisitorBuilder) ID(v string) *StatsTrackVisitorBuilder {
 	b.Params["id"] = v
 	return b
 }

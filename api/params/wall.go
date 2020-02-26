@@ -17,13 +17,13 @@ func NewWallCloseCommentsBuilder() *WallCloseCommentsBuilder {
 }
 
 // OwnerID parameter
-func (b *WallCloseCommentsBuilder) OwnerID(v int) *WallCloseCommentsBuilder{
+func (b *WallCloseCommentsBuilder) OwnerID(v int) *WallCloseCommentsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID parameter
-func (b *WallCloseCommentsBuilder) PostID(v int) *WallCloseCommentsBuilder{
+func (b *WallCloseCommentsBuilder) PostID(v int) *WallCloseCommentsBuilder {
 	b.Params["post_id"] = v
 	return b
 }
@@ -44,32 +44,32 @@ func NewWallCreateCommentBuilder() *WallCreateCommentBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallCreateCommentBuilder) OwnerID(v int) *WallCreateCommentBuilder{
+func (b *WallCreateCommentBuilder) OwnerID(v int) *WallCreateCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID Post ID.
-func (b *WallCreateCommentBuilder) PostID(v int) *WallCreateCommentBuilder{
+func (b *WallCreateCommentBuilder) PostID(v int) *WallCreateCommentBuilder {
 	b.Params["post_id"] = v
 	return b
 }
 
 // FromGroup Group ID.
-func (b *WallCreateCommentBuilder) FromGroup(v int) *WallCreateCommentBuilder{
+func (b *WallCreateCommentBuilder) FromGroup(v int) *WallCreateCommentBuilder {
 	b.Params["from_group"] = v
 	return b
 }
 
 // Message (Required if 'attachments' is not set.)
 // Text of the comment.
-func (b *WallCreateCommentBuilder) Message(v string) *WallCreateCommentBuilder{
+func (b *WallCreateCommentBuilder) Message(v string) *WallCreateCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
 
 // ReplyToComment ID of comment to reply.
-func (b *WallCreateCommentBuilder) ReplyToComment(v int) *WallCreateCommentBuilder{
+func (b *WallCreateCommentBuilder) ReplyToComment(v int) *WallCreateCommentBuilder {
 	b.Params["reply_to_comment"] = v
 	return b
 }
@@ -92,19 +92,19 @@ func (b *WallCreateCommentBuilder) ReplyToComment(v int) *WallCreateCommentBuild
 // * '<media_id>' — Media ID.
 //
 // For example: photo100172_166443618,photo66748_265827614
-func (b *WallCreateCommentBuilder) Attachments(v []string) *WallCreateCommentBuilder{
+func (b *WallCreateCommentBuilder) Attachments(v []string) *WallCreateCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
 
 // StickerID Sticker ID.
-func (b *WallCreateCommentBuilder) StickerID(v int) *WallCreateCommentBuilder{
+func (b *WallCreateCommentBuilder) StickerID(v int) *WallCreateCommentBuilder {
 	b.Params["sticker_id"] = v
 	return b
 }
 
 // GUID Unique identifier to avoid repeated comments.
-func (b *WallCreateCommentBuilder) GUID(v string) *WallCreateCommentBuilder{
+func (b *WallCreateCommentBuilder) GUID(v string) *WallCreateCommentBuilder {
 	b.Params["guid"] = v
 	return b
 }
@@ -125,13 +125,13 @@ func NewWallDeleteBuilder() *WallDeleteBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallDeleteBuilder) OwnerID(v int) *WallDeleteBuilder{
+func (b *WallDeleteBuilder) OwnerID(v int) *WallDeleteBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID ID of the post to be deleted.
-func (b *WallDeleteBuilder) PostID(v int) *WallDeleteBuilder{
+func (b *WallDeleteBuilder) PostID(v int) *WallDeleteBuilder {
 	b.Params["post_id"] = v
 	return b
 }
@@ -152,13 +152,13 @@ func NewWallDeleteCommentBuilder() *WallDeleteCommentBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallDeleteCommentBuilder) OwnerID(v int) *WallDeleteCommentBuilder{
+func (b *WallDeleteCommentBuilder) OwnerID(v int) *WallDeleteCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // CommentID Comment ID.
-func (b *WallDeleteCommentBuilder) CommentID(v int) *WallDeleteCommentBuilder{
+func (b *WallDeleteCommentBuilder) CommentID(v int) *WallDeleteCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
@@ -179,26 +179,26 @@ func NewWallEditBuilder() *WallEditBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallEditBuilder) OwnerID(v int) *WallEditBuilder{
+func (b *WallEditBuilder) OwnerID(v int) *WallEditBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID parameter
-func (b *WallEditBuilder) PostID(v int) *WallEditBuilder{
+func (b *WallEditBuilder) PostID(v int) *WallEditBuilder {
 	b.Params["post_id"] = v
 	return b
 }
 
 // FriendsOnly parameter
-func (b *WallEditBuilder) FriendsOnly(v bool) *WallEditBuilder{
+func (b *WallEditBuilder) FriendsOnly(v bool) *WallEditBuilder {
 	b.Params["friends_only"] = v
 	return b
 }
 
 // Message (Required if 'attachments' is not set.)
 // Text of the post.
-func (b *WallEditBuilder) Message(v string) *WallEditBuilder{
+func (b *WallEditBuilder) Message(v string) *WallEditBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -223,73 +223,73 @@ func (b *WallEditBuilder) Message(v string) *WallEditBuilder{
 // Example: photo66748_265827614,http://habrahabr.ru
 //
 // NOTE: If more than one link is being attached, an error is thrown.
-func (b *WallEditBuilder) Attachments(v []string) *WallEditBuilder{
+func (b *WallEditBuilder) Attachments(v []string) *WallEditBuilder {
 	b.Params["attachments"] = v
 	return b
 }
 
 // Services parameter
-func (b *WallEditBuilder) Services(v string) *WallEditBuilder{
+func (b *WallEditBuilder) Services(v string) *WallEditBuilder {
 	b.Params["services"] = v
 	return b
 }
 
 // Signed parameter
-func (b *WallEditBuilder) Signed(v bool) *WallEditBuilder{
+func (b *WallEditBuilder) Signed(v bool) *WallEditBuilder {
 	b.Params["signed"] = v
 	return b
 }
 
 // PublishDate parameter
-func (b *WallEditBuilder) PublishDate(v int) *WallEditBuilder{
+func (b *WallEditBuilder) PublishDate(v int) *WallEditBuilder {
 	b.Params["publish_date"] = v
 	return b
 }
 
 // Lat parameter
-func (b *WallEditBuilder) Lat(v float64) *WallEditBuilder{
+func (b *WallEditBuilder) Lat(v float64) *WallEditBuilder {
 	b.Params["lat"] = v
 	return b
 }
 
 // Long parameter
-func (b *WallEditBuilder) Long(v float64) *WallEditBuilder{
+func (b *WallEditBuilder) Long(v float64) *WallEditBuilder {
 	b.Params["long"] = v
 	return b
 }
 
 // PlaceID parameter
-func (b *WallEditBuilder) PlaceID(v int) *WallEditBuilder{
+func (b *WallEditBuilder) PlaceID(v int) *WallEditBuilder {
 	b.Params["place_id"] = v
 	return b
 }
 
 // MarkAsAds parameter
-func (b *WallEditBuilder) MarkAsAds(v bool) *WallEditBuilder{
+func (b *WallEditBuilder) MarkAsAds(v bool) *WallEditBuilder {
 	b.Params["mark_as_ads"] = v
 	return b
 }
 
 // CloseComments parameter
-func (b *WallEditBuilder) CloseComments(v bool) *WallEditBuilder{
+func (b *WallEditBuilder) CloseComments(v bool) *WallEditBuilder {
 	b.Params["close_comments"] = v
 	return b
 }
 
 // PosterBkgID parameter
-func (b *WallEditBuilder) PosterBkgID(v int) *WallEditBuilder{
+func (b *WallEditBuilder) PosterBkgID(v int) *WallEditBuilder {
 	b.Params["poster_bkg_id"] = v
 	return b
 }
 
 // PosterBkgOwnerID parameter
-func (b *WallEditBuilder) PosterBkgOwnerID(v int) *WallEditBuilder{
+func (b *WallEditBuilder) PosterBkgOwnerID(v int) *WallEditBuilder {
 	b.Params["poster_bkg_owner_id"] = v
 	return b
 }
 
 // PosterBkgAccessHash parameter
-func (b *WallEditBuilder) PosterBkgAccessHash(v string) *WallEditBuilder{
+func (b *WallEditBuilder) PosterBkgAccessHash(v string) *WallEditBuilder {
 	b.Params["poster_bkg_access_hash"] = v
 	return b
 }
@@ -310,21 +310,21 @@ func NewWallEditAdsStealthBuilder() *WallEditAdsStealthBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallEditAdsStealthBuilder) OwnerID(v int) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) OwnerID(v int) *WallEditAdsStealthBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID Post ID.
 // Used for publishing of scheduled and suggested posts.
-func (b *WallEditAdsStealthBuilder) PostID(v int) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) PostID(v int) *WallEditAdsStealthBuilder {
 	b.Params["post_id"] = v
 	return b
 }
 
 // Message (Required if 'attachments' is not set.)
 // Text of the post.
-func (b *WallEditAdsStealthBuilder) Message(v string) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) Message(v string) *WallEditAdsStealthBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -357,7 +357,7 @@ func (b *WallEditAdsStealthBuilder) Message(v string) *WallEditAdsStealthBuilder
 // Example: photo66748_265827614,http://habrahabr.ru
 //
 // NOTE: If more than one link is being attached, an error will be thrown.
-func (b *WallEditAdsStealthBuilder) Attachments(v []string) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) Attachments(v []string) *WallEditAdsStealthBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -367,49 +367,49 @@ func (b *WallEditAdsStealthBuilder) Attachments(v []string) *WallEditAdsStealthB
 // * '1' — post will be signed with the name of the posting user
 //
 // * '0' — post will not be signed (default)
-func (b *WallEditAdsStealthBuilder) Signed(v bool) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) Signed(v bool) *WallEditAdsStealthBuilder {
 	b.Params["signed"] = v
 	return b
 }
 
 // Lat Geographical latitude of a check-in, in degrees (from -90 to 90).
-func (b *WallEditAdsStealthBuilder) Lat(v float64) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) Lat(v float64) *WallEditAdsStealthBuilder {
 	b.Params["lat"] = v
 	return b
 }
 
 // Long Geographical longitude of a check-in, in degrees (from -180 to 180).
-func (b *WallEditAdsStealthBuilder) Long(v float64) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) Long(v float64) *WallEditAdsStealthBuilder {
 	b.Params["long"] = v
 	return b
 }
 
 // PlaceID ID of the location where the user was tagged.
-func (b *WallEditAdsStealthBuilder) PlaceID(v int) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) PlaceID(v int) *WallEditAdsStealthBuilder {
 	b.Params["place_id"] = v
 	return b
 }
 
 // LinkButton Link button ID
-func (b *WallEditAdsStealthBuilder) LinkButton(v string) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) LinkButton(v string) *WallEditAdsStealthBuilder {
 	b.Params["link_button"] = v
 	return b
 }
 
 // LinkTitle Link title
-func (b *WallEditAdsStealthBuilder) LinkTitle(v string) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) LinkTitle(v string) *WallEditAdsStealthBuilder {
 	b.Params["link_title"] = v
 	return b
 }
 
 // LinkImage Link image url
-func (b *WallEditAdsStealthBuilder) LinkImage(v string) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) LinkImage(v string) *WallEditAdsStealthBuilder {
 	b.Params["link_image"] = v
 	return b
 }
 
 // LinkVideo Link video ID in format <owner_id>_<media_id>
-func (b *WallEditAdsStealthBuilder) LinkVideo(v string) *WallEditAdsStealthBuilder{
+func (b *WallEditAdsStealthBuilder) LinkVideo(v string) *WallEditAdsStealthBuilder {
 	b.Params["link_video"] = v
 	return b
 }
@@ -430,19 +430,19 @@ func NewWallEditCommentBuilder() *WallEditCommentBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallEditCommentBuilder) OwnerID(v int) *WallEditCommentBuilder{
+func (b *WallEditCommentBuilder) OwnerID(v int) *WallEditCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // CommentID Comment ID.
-func (b *WallEditCommentBuilder) CommentID(v int) *WallEditCommentBuilder{
+func (b *WallEditCommentBuilder) CommentID(v int) *WallEditCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
 // Message New comment text.
-func (b *WallEditCommentBuilder) Message(v string) *WallEditCommentBuilder{
+func (b *WallEditCommentBuilder) Message(v string) *WallEditCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -465,7 +465,7 @@ func (b *WallEditCommentBuilder) Message(v string) *WallEditCommentBuilder{
 // * '<media_id>' — Media attachment ID.
 //
 // For example: photo100172_166443618,photo66748_265827614
-func (b *WallEditCommentBuilder) Attachments(v []string) *WallEditCommentBuilder{
+func (b *WallEditCommentBuilder) Attachments(v []string) *WallEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -488,25 +488,25 @@ func NewWallGetBuilder() *WallGetBuilder {
 //
 // By default: current user ID.
 // Use a negative value to designate a community ID.
-func (b *WallGetBuilder) OwnerID(v int) *WallGetBuilder{
+func (b *WallGetBuilder) OwnerID(v int) *WallGetBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // Domain User or community short address.
-func (b *WallGetBuilder) Domain(v string) *WallGetBuilder{
+func (b *WallGetBuilder) Domain(v string) *WallGetBuilder {
 	b.Params["domain"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of posts.
-func (b *WallGetBuilder) Offset(v int) *WallGetBuilder{
+func (b *WallGetBuilder) Offset(v int) *WallGetBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of posts to return (maximum 100).
-func (b *WallGetBuilder) Count(v int) *WallGetBuilder{
+func (b *WallGetBuilder) Count(v int) *WallGetBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -522,25 +522,25 @@ func (b *WallGetBuilder) Count(v int) *WallGetBuilder{
 // * 'postponed' — timed posts (only available for calls with an 'access_token')
 //
 // * 'suggests' — suggested posts on a community wall
-func (b *WallGetBuilder) Filter(v string) *WallGetBuilder{
+func (b *WallGetBuilder) Filter(v string) *WallGetBuilder {
 	b.Params["filter"] = v
 	return b
 }
 
-// Extended parameter 
+// Extended parameter
 //
 // * '1' — to return 'wall'
 //
 // *  'profiles', and 'groups' fields
 //
 // * '0' — to return no additional fields (default)
-func (b *WallGetBuilder) Extended(v bool) *WallGetBuilder{
+func (b *WallGetBuilder) Extended(v bool) *WallGetBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
 // Fields parameter
-func (b *WallGetBuilder) Fields(v []string) *WallGetBuilder{
+func (b *WallGetBuilder) Fields(v []string) *WallGetBuilder {
 	b.Params["fields"] = v
 	return b
 }
@@ -562,29 +562,29 @@ func NewWallGetByIDBuilder() *WallGetByIDBuilder {
 // Posts User or community IDs and post IDs, separated by underscores.
 // Use a negative value to designate a community ID.
 // Example: 93388_21539,93388_20904,2943_4276,-1_1
-func (b *WallGetByIDBuilder) Posts(v []string) *WallGetByIDBuilder{
+func (b *WallGetByIDBuilder) Posts(v []string) *WallGetByIDBuilder {
 	b.Params["posts"] = v
 	return b
 }
 
-// Extended parameter 
+// Extended parameter
 //
 // * '1' — to return user and community objects needed to display posts
 //
 // * '0' — no additional fields are returned (default)
-func (b *WallGetByIDBuilder) Extended(v bool) *WallGetByIDBuilder{
+func (b *WallGetByIDBuilder) Extended(v bool) *WallGetByIDBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
 // CopyHistoryDepth Sets the number of parent elements to include in the array 'copy_history' that is returned if the post is a repost from another wall.
-func (b *WallGetByIDBuilder) CopyHistoryDepth(v int) *WallGetByIDBuilder{
+func (b *WallGetByIDBuilder) CopyHistoryDepth(v int) *WallGetByIDBuilder {
 	b.Params["copy_history_depth"] = v
 	return b
 }
 
 // Fields parameter
-func (b *WallGetByIDBuilder) Fields(v []string) *WallGetByIDBuilder{
+func (b *WallGetByIDBuilder) Fields(v []string) *WallGetByIDBuilder {
 	b.Params["fields"] = v
 	return b
 }
@@ -605,41 +605,41 @@ func NewWallGetCommentsBuilder() *WallGetCommentsBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallGetCommentsBuilder) OwnerID(v int) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) OwnerID(v int) *WallGetCommentsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID Post ID.
-func (b *WallGetCommentsBuilder) PostID(v int) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) PostID(v int) *WallGetCommentsBuilder {
 	b.Params["post_id"] = v
 	return b
 }
 
-// NeedLikes parameter 
+// NeedLikes parameter
 //
 // * '1' — to return the 'likes' field
 //
 // * '0' — not to return the 'likes' field (default)
-func (b *WallGetCommentsBuilder) NeedLikes(v bool) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) NeedLikes(v bool) *WallGetCommentsBuilder {
 	b.Params["need_likes"] = v
 	return b
 }
 
 // StartCommentID parameter
-func (b *WallGetCommentsBuilder) StartCommentID(v int) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) StartCommentID(v int) *WallGetCommentsBuilder {
 	b.Params["start_comment_id"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of comments.
-func (b *WallGetCommentsBuilder) Offset(v int) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) Offset(v int) *WallGetCommentsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of comments to return (maximum 100).
-func (b *WallGetCommentsBuilder) Count(v int) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) Count(v int) *WallGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -649,7 +649,7 @@ func (b *WallGetCommentsBuilder) Count(v int) *WallGetCommentsBuilder{
 // * 'asc' — chronological
 //
 // * 'desc' — reverse chronological
-func (b *WallGetCommentsBuilder) Sort(v string) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) Sort(v string) *WallGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
 }
@@ -658,31 +658,31 @@ func (b *WallGetCommentsBuilder) Sort(v string) *WallGetCommentsBuilder{
 //
 // By default: '90'.
 // Specify '0' if you do not want to truncate comments.
-func (b *WallGetCommentsBuilder) PreviewLength(v int) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) PreviewLength(v int) *WallGetCommentsBuilder {
 	b.Params["preview_length"] = v
 	return b
 }
 
 // Extended parameter
-func (b *WallGetCommentsBuilder) Extended(v bool) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) Extended(v bool) *WallGetCommentsBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
 // Fields parameter
-func (b *WallGetCommentsBuilder) Fields(v []string) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) Fields(v []string) *WallGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
 // CommentID Comment ID.
-func (b *WallGetCommentsBuilder) CommentID(v int) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) CommentID(v int) *WallGetCommentsBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
 // ThreadItemsCount Count items in threads.
-func (b *WallGetCommentsBuilder) ThreadItemsCount(v int) *WallGetCommentsBuilder{
+func (b *WallGetCommentsBuilder) ThreadItemsCount(v int) *WallGetCommentsBuilder {
 	b.Params["thread_items_count"] = v
 	return b
 }
@@ -705,25 +705,25 @@ func NewWallGetRepostsBuilder() *WallGetRepostsBuilder {
 //
 // By default: current user ID.
 // Use a negative value to designate a community ID.
-func (b *WallGetRepostsBuilder) OwnerID(v int) *WallGetRepostsBuilder{
+func (b *WallGetRepostsBuilder) OwnerID(v int) *WallGetRepostsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID Post ID.
-func (b *WallGetRepostsBuilder) PostID(v int) *WallGetRepostsBuilder{
+func (b *WallGetRepostsBuilder) PostID(v int) *WallGetRepostsBuilder {
 	b.Params["post_id"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of reposts.
-func (b *WallGetRepostsBuilder) Offset(v int) *WallGetRepostsBuilder{
+func (b *WallGetRepostsBuilder) Offset(v int) *WallGetRepostsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of reposts to return.
-func (b *WallGetRepostsBuilder) Count(v int) *WallGetRepostsBuilder{
+func (b *WallGetRepostsBuilder) Count(v int) *WallGetRepostsBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -741,13 +741,13 @@ func NewWallOpenCommentsBuilder() *WallOpenCommentsBuilder {
 }
 
 // OwnerID parameter
-func (b *WallOpenCommentsBuilder) OwnerID(v int) *WallOpenCommentsBuilder{
+func (b *WallOpenCommentsBuilder) OwnerID(v int) *WallOpenCommentsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID parameter
-func (b *WallOpenCommentsBuilder) PostID(v int) *WallOpenCommentsBuilder{
+func (b *WallOpenCommentsBuilder) PostID(v int) *WallOpenCommentsBuilder {
 	b.Params["post_id"] = v
 	return b
 }
@@ -770,13 +770,13 @@ func NewWallPinBuilder() *WallPinBuilder {
 //
 // By default: current user ID.
 // Use a negative value to designate a community ID.
-func (b *WallPinBuilder) OwnerID(v int) *WallPinBuilder{
+func (b *WallPinBuilder) OwnerID(v int) *WallPinBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID Post ID.
-func (b *WallPinBuilder) PostID(v int) *WallPinBuilder{
+func (b *WallPinBuilder) PostID(v int) *WallPinBuilder {
 	b.Params["post_id"] = v
 	return b
 }
@@ -798,17 +798,17 @@ func NewWallPostBuilder() *WallPostBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallPostBuilder) OwnerID(v int) *WallPostBuilder{
+func (b *WallPostBuilder) OwnerID(v int) *WallPostBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// FriendsOnly parameter 
+// FriendsOnly parameter
 //
 // * '1' — post will be available to friends only
 //
 // * '0' — post will be available to all users (default)
-func (b *WallPostBuilder) FriendsOnly(v bool) *WallPostBuilder{
+func (b *WallPostBuilder) FriendsOnly(v bool) *WallPostBuilder {
 	b.Params["friends_only"] = v
 	return b
 }
@@ -818,14 +818,14 @@ func (b *WallPostBuilder) FriendsOnly(v bool) *WallPostBuilder{
 // * '1' — post will be published by the community
 //
 // * '0' — post will be published by the user (default)
-func (b *WallPostBuilder) FromGroup(v bool) *WallPostBuilder{
+func (b *WallPostBuilder) FromGroup(v bool) *WallPostBuilder {
 	b.Params["from_group"] = v
 	return b
 }
 
 // Message (Required if 'attachments' is not set.)
 // Text of the post.
-func (b *WallPostBuilder) Message(v string) *WallPostBuilder{
+func (b *WallPostBuilder) Message(v string) *WallPostBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -858,7 +858,7 @@ func (b *WallPostBuilder) Message(v string) *WallPostBuilder{
 // Example: photo66748_265827614,http://habrahabr.ru
 //
 // NOTE: If more than one link is being attached, an error will be thrown.
-func (b *WallPostBuilder) Attachments(v []string) *WallPostBuilder{
+func (b *WallPostBuilder) Attachments(v []string) *WallPostBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -869,7 +869,7 @@ func (b *WallPostBuilder) Attachments(v []string) *WallPostBuilder{
 // *  'twitter'
 //
 // *  'facebook'.
-func (b *WallPostBuilder) Services(v string) *WallPostBuilder{
+func (b *WallPostBuilder) Services(v string) *WallPostBuilder {
 	b.Params["services"] = v
 	return b
 }
@@ -879,63 +879,63 @@ func (b *WallPostBuilder) Services(v string) *WallPostBuilder{
 // * '1' — post will be signed with the name of the posting user
 //
 // * '0' — post will not be signed (default)
-func (b *WallPostBuilder) Signed(v bool) *WallPostBuilder{
+func (b *WallPostBuilder) Signed(v bool) *WallPostBuilder {
 	b.Params["signed"] = v
 	return b
 }
 
 // PublishDate Publication date (in Unix time).
 // If used, posting will be delayed until the set time.
-func (b *WallPostBuilder) PublishDate(v int) *WallPostBuilder{
+func (b *WallPostBuilder) PublishDate(v int) *WallPostBuilder {
 	b.Params["publish_date"] = v
 	return b
 }
 
 // Lat Geographical latitude of a check-in, in degrees (from -90 to 90).
-func (b *WallPostBuilder) Lat(v float64) *WallPostBuilder{
+func (b *WallPostBuilder) Lat(v float64) *WallPostBuilder {
 	b.Params["lat"] = v
 	return b
 }
 
 // Long Geographical longitude of a check-in, in degrees (from -180 to 180).
-func (b *WallPostBuilder) Long(v float64) *WallPostBuilder{
+func (b *WallPostBuilder) Long(v float64) *WallPostBuilder {
 	b.Params["long"] = v
 	return b
 }
 
 // PlaceID ID of the location where the user was tagged.
-func (b *WallPostBuilder) PlaceID(v int) *WallPostBuilder{
+func (b *WallPostBuilder) PlaceID(v int) *WallPostBuilder {
 	b.Params["place_id"] = v
 	return b
 }
 
 // PostID Post ID.
 // Used for publishing of scheduled and suggested posts.
-func (b *WallPostBuilder) PostID(v int) *WallPostBuilder{
+func (b *WallPostBuilder) PostID(v int) *WallPostBuilder {
 	b.Params["post_id"] = v
 	return b
 }
 
 // GUID parameter
-func (b *WallPostBuilder) GUID(v string) *WallPostBuilder{
+func (b *WallPostBuilder) GUID(v string) *WallPostBuilder {
 	b.Params["guid"] = v
 	return b
 }
 
 // MarkAsAds parameter
-func (b *WallPostBuilder) MarkAsAds(v bool) *WallPostBuilder{
+func (b *WallPostBuilder) MarkAsAds(v bool) *WallPostBuilder {
 	b.Params["mark_as_ads"] = v
 	return b
 }
 
 // CloseComments parameter
-func (b *WallPostBuilder) CloseComments(v bool) *WallPostBuilder{
+func (b *WallPostBuilder) CloseComments(v bool) *WallPostBuilder {
 	b.Params["close_comments"] = v
 	return b
 }
 
 // MuteNotifications parameter
-func (b *WallPostBuilder) MuteNotifications(v bool) *WallPostBuilder{
+func (b *WallPostBuilder) MuteNotifications(v bool) *WallPostBuilder {
 	b.Params["mute_notifications"] = v
 	return b
 }
@@ -956,14 +956,14 @@ func NewWallPostAdsStealthBuilder() *WallPostAdsStealthBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallPostAdsStealthBuilder) OwnerID(v int) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) OwnerID(v int) *WallPostAdsStealthBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // Message (Required if 'attachments' is not set.)
 // Text of the post.
-func (b *WallPostAdsStealthBuilder) Message(v string) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) Message(v string) *WallPostAdsStealthBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -996,7 +996,7 @@ func (b *WallPostAdsStealthBuilder) Message(v string) *WallPostAdsStealthBuilder
 // Example: photo66748_265827614,http://habrahabr.ru
 //
 // NOTE: If more than one link is being attached, an error will be thrown.
-func (b *WallPostAdsStealthBuilder) Attachments(v []string) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) Attachments(v []string) *WallPostAdsStealthBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -1006,55 +1006,55 @@ func (b *WallPostAdsStealthBuilder) Attachments(v []string) *WallPostAdsStealthB
 // * '1' — post will be signed with the name of the posting user
 //
 // * '0' — post will not be signed (default)
-func (b *WallPostAdsStealthBuilder) Signed(v bool) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) Signed(v bool) *WallPostAdsStealthBuilder {
 	b.Params["signed"] = v
 	return b
 }
 
 // Lat Geographical latitude of a check-in, in degrees (from -90 to 90).
-func (b *WallPostAdsStealthBuilder) Lat(v float64) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) Lat(v float64) *WallPostAdsStealthBuilder {
 	b.Params["lat"] = v
 	return b
 }
 
 // Long Geographical longitude of a check-in, in degrees (from -180 to 180).
-func (b *WallPostAdsStealthBuilder) Long(v float64) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) Long(v float64) *WallPostAdsStealthBuilder {
 	b.Params["long"] = v
 	return b
 }
 
 // PlaceID ID of the location where the user was tagged.
-func (b *WallPostAdsStealthBuilder) PlaceID(v int) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) PlaceID(v int) *WallPostAdsStealthBuilder {
 	b.Params["place_id"] = v
 	return b
 }
 
 // GUID Unique identifier to avoid duplication the same post.
-func (b *WallPostAdsStealthBuilder) GUID(v string) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) GUID(v string) *WallPostAdsStealthBuilder {
 	b.Params["guid"] = v
 	return b
 }
 
 // LinkButton Link button ID
-func (b *WallPostAdsStealthBuilder) LinkButton(v string) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) LinkButton(v string) *WallPostAdsStealthBuilder {
 	b.Params["link_button"] = v
 	return b
 }
 
 // LinkTitle Link title
-func (b *WallPostAdsStealthBuilder) LinkTitle(v string) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) LinkTitle(v string) *WallPostAdsStealthBuilder {
 	b.Params["link_title"] = v
 	return b
 }
 
 // LinkImage Link image url
-func (b *WallPostAdsStealthBuilder) LinkImage(v string) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) LinkImage(v string) *WallPostAdsStealthBuilder {
 	b.Params["link_image"] = v
 	return b
 }
 
 // LinkVideo Link video ID in format <owner_id>_<media_id>
-func (b *WallPostAdsStealthBuilder) LinkVideo(v string) *WallPostAdsStealthBuilder{
+func (b *WallPostAdsStealthBuilder) LinkVideo(v string) *WallPostAdsStealthBuilder {
 	b.Params["link_video"] = v
 	return b
 }
@@ -1074,13 +1074,13 @@ func NewWallReportCommentBuilder() *WallReportCommentBuilder {
 }
 
 // OwnerID ID of the user or community that owns the wall.
-func (b *WallReportCommentBuilder) OwnerID(v int) *WallReportCommentBuilder{
+func (b *WallReportCommentBuilder) OwnerID(v int) *WallReportCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // CommentID Comment ID.
-func (b *WallReportCommentBuilder) CommentID(v int) *WallReportCommentBuilder{
+func (b *WallReportCommentBuilder) CommentID(v int) *WallReportCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
@@ -1100,7 +1100,7 @@ func (b *WallReportCommentBuilder) CommentID(v int) *WallReportCommentBuilder{
 // * '5' – adult material
 //
 // * '6' – insult, abuse
-func (b *WallReportCommentBuilder) Reason(v int) *WallReportCommentBuilder{
+func (b *WallReportCommentBuilder) Reason(v int) *WallReportCommentBuilder {
 	b.Params["reason"] = v
 	return b
 }
@@ -1120,13 +1120,13 @@ func NewWallReportPostBuilder() *WallReportPostBuilder {
 }
 
 // OwnerID ID of the user or community that owns the wall.
-func (b *WallReportPostBuilder) OwnerID(v int) *WallReportPostBuilder{
+func (b *WallReportPostBuilder) OwnerID(v int) *WallReportPostBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID Post ID.
-func (b *WallReportPostBuilder) PostID(v int) *WallReportPostBuilder{
+func (b *WallReportPostBuilder) PostID(v int) *WallReportPostBuilder {
 	b.Params["post_id"] = v
 	return b
 }
@@ -1146,7 +1146,7 @@ func (b *WallReportPostBuilder) PostID(v int) *WallReportPostBuilder{
 // * '5' – adult material
 //
 // * '6' – insult, abuse
-func (b *WallReportPostBuilder) Reason(v int) *WallReportPostBuilder{
+func (b *WallReportPostBuilder) Reason(v int) *WallReportPostBuilder {
 	b.Params["reason"] = v
 	return b
 }
@@ -1167,31 +1167,31 @@ func NewWallRepostBuilder() *WallRepostBuilder {
 
 // Object ID of the object to be reposted on the wall.
 // Example: wall66748_3675
-func (b *WallRepostBuilder) Object(v string) *WallRepostBuilder{
+func (b *WallRepostBuilder) Object(v string) *WallRepostBuilder {
 	b.Params["object"] = v
 	return b
 }
 
 // Message Comment to be added along with the reposted object.
-func (b *WallRepostBuilder) Message(v string) *WallRepostBuilder{
+func (b *WallRepostBuilder) Message(v string) *WallRepostBuilder {
 	b.Params["message"] = v
 	return b
 }
 
 // GroupID Target community ID when reposting to a community.
-func (b *WallRepostBuilder) GroupID(v int) *WallRepostBuilder{
+func (b *WallRepostBuilder) GroupID(v int) *WallRepostBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // MarkAsAds parameter
-func (b *WallRepostBuilder) MarkAsAds(v bool) *WallRepostBuilder{
+func (b *WallRepostBuilder) MarkAsAds(v bool) *WallRepostBuilder {
 	b.Params["mark_as_ads"] = v
 	return b
 }
 
 // MuteNotifications parameter
-func (b *WallRepostBuilder) MuteNotifications(v bool) *WallRepostBuilder{
+func (b *WallRepostBuilder) MuteNotifications(v bool) *WallRepostBuilder {
 	b.Params["mute_notifications"] = v
 	return b
 }
@@ -1212,13 +1212,13 @@ func NewWallRestoreBuilder() *WallRestoreBuilder {
 
 // OwnerID User ID or community ID from whose wall the post was deleted.
 // Use a negative value to designate a community ID.
-func (b *WallRestoreBuilder) OwnerID(v int) *WallRestoreBuilder{
+func (b *WallRestoreBuilder) OwnerID(v int) *WallRestoreBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID ID of the post to be restored.
-func (b *WallRestoreBuilder) PostID(v int) *WallRestoreBuilder{
+func (b *WallRestoreBuilder) PostID(v int) *WallRestoreBuilder {
 	b.Params["post_id"] = v
 	return b
 }
@@ -1239,13 +1239,13 @@ func NewWallRestoreCommentBuilder() *WallRestoreCommentBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *WallRestoreCommentBuilder) OwnerID(v int) *WallRestoreCommentBuilder{
+func (b *WallRestoreCommentBuilder) OwnerID(v int) *WallRestoreCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // CommentID Comment ID.
-func (b *WallRestoreCommentBuilder) CommentID(v int) *WallRestoreCommentBuilder{
+func (b *WallRestoreCommentBuilder) CommentID(v int) *WallRestoreCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
@@ -1266,51 +1266,51 @@ func NewWallSearchBuilder() *WallSearchBuilder {
 
 // OwnerID user or community id.
 // Remember that for a community 'owner_id' must be negative.
-func (b *WallSearchBuilder) OwnerID(v int) *WallSearchBuilder{
+func (b *WallSearchBuilder) OwnerID(v int) *WallSearchBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // Domain user or community screen name.
-func (b *WallSearchBuilder) Domain(v string) *WallSearchBuilder{
+func (b *WallSearchBuilder) Domain(v string) *WallSearchBuilder {
 	b.Params["domain"] = v
 	return b
 }
 
 // Query search query string.
-func (b *WallSearchBuilder) Query(v string) *WallSearchBuilder{
+func (b *WallSearchBuilder) Query(v string) *WallSearchBuilder {
 	b.Params["query"] = v
 	return b
 }
 
-// OwnersOnly parameter 
+// OwnersOnly parameter
 //
 // * '1' – returns only page owner's posts.
-func (b *WallSearchBuilder) OwnersOnly(v bool) *WallSearchBuilder{
+func (b *WallSearchBuilder) OwnersOnly(v bool) *WallSearchBuilder {
 	b.Params["owners_only"] = v
 	return b
 }
 
 // Count count of posts to return.
-func (b *WallSearchBuilder) Count(v int) *WallSearchBuilder{
+func (b *WallSearchBuilder) Count(v int) *WallSearchBuilder {
 	b.Params["count"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of posts.
-func (b *WallSearchBuilder) Offset(v int) *WallSearchBuilder{
+func (b *WallSearchBuilder) Offset(v int) *WallSearchBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Extended show extended post info.
-func (b *WallSearchBuilder) Extended(v bool) *WallSearchBuilder{
+func (b *WallSearchBuilder) Extended(v bool) *WallSearchBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
 // Fields parameter
-func (b *WallSearchBuilder) Fields(v []string) *WallSearchBuilder{
+func (b *WallSearchBuilder) Fields(v []string) *WallSearchBuilder {
 	b.Params["fields"] = v
 	return b
 }
@@ -1333,13 +1333,13 @@ func NewWallUnpinBuilder() *WallUnpinBuilder {
 //
 // By default: current user ID.
 // Use a negative value to designate a community ID.
-func (b *WallUnpinBuilder) OwnerID(v int) *WallUnpinBuilder{
+func (b *WallUnpinBuilder) OwnerID(v int) *WallUnpinBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PostID Post ID.
-func (b *WallUnpinBuilder) PostID(v int) *WallUnpinBuilder{
+func (b *WallUnpinBuilder) PostID(v int) *WallUnpinBuilder {
 	b.Params["post_id"] = v
 	return b
 }

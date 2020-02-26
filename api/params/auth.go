@@ -19,25 +19,25 @@ func NewAuthCheckPhoneBuilder() *AuthCheckPhoneBuilder {
 }
 
 // Phone Phone number.
-func (b *AuthCheckPhoneBuilder) Phone(v string) *AuthCheckPhoneBuilder{
+func (b *AuthCheckPhoneBuilder) Phone(v string) *AuthCheckPhoneBuilder {
 	b.Params["phone"] = v
 	return b
 }
 
 // ClientID User ID.
-func (b *AuthCheckPhoneBuilder) ClientID(v int) *AuthCheckPhoneBuilder{
+func (b *AuthCheckPhoneBuilder) ClientID(v int) *AuthCheckPhoneBuilder {
 	b.Params["client_id"] = v
 	return b
 }
 
 // ClientSecret parameter
-func (b *AuthCheckPhoneBuilder) ClientSecret(v string) *AuthCheckPhoneBuilder{
+func (b *AuthCheckPhoneBuilder) ClientSecret(v string) *AuthCheckPhoneBuilder {
 	b.Params["client_secret"] = v
 	return b
 }
 
 // AuthByPhone parameter
-func (b *AuthCheckPhoneBuilder) AuthByPhone(v bool) *AuthCheckPhoneBuilder{
+func (b *AuthCheckPhoneBuilder) AuthByPhone(v bool) *AuthCheckPhoneBuilder {
 	b.Params["auth_by_phone"] = v
 	return b
 }
@@ -58,13 +58,13 @@ func NewAuthRestoreBuilder() *AuthRestoreBuilder {
 }
 
 // Phone User phone number.
-func (b *AuthRestoreBuilder) Phone(v string) *AuthRestoreBuilder{
+func (b *AuthRestoreBuilder) Phone(v string) *AuthRestoreBuilder {
 	b.Params["phone"] = v
 	return b
 }
 
 // LastName User last name.
-func (b *AuthRestoreBuilder) LastName(v string) *AuthRestoreBuilder{
+func (b *AuthRestoreBuilder) LastName(v string) *AuthRestoreBuilder {
 	b.Params["last_name"] = v
 	return b
 }

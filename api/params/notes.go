@@ -20,26 +20,26 @@ func NewNotesAddBuilder() *NotesAddBuilder {
 
 // Title parameter
 // Note title.
-func (b *NotesAddBuilder) Title(v string) *NotesAddBuilder{
+func (b *NotesAddBuilder) Title(v string) *NotesAddBuilder {
 	b.Params["title"] = v
 	return b
 }
 
 // Text parameter
 // Note text.
-func (b *NotesAddBuilder) Text(v string) *NotesAddBuilder{
+func (b *NotesAddBuilder) Text(v string) *NotesAddBuilder {
 	b.Params["text"] = v
 	return b
 }
 
 // PrivacyView parameter
-func (b *NotesAddBuilder) PrivacyView(v []string) *NotesAddBuilder{
+func (b *NotesAddBuilder) PrivacyView(v []string) *NotesAddBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
 // PrivacyComment parameter
-func (b *NotesAddBuilder) PrivacyComment(v []string) *NotesAddBuilder{
+func (b *NotesAddBuilder) PrivacyComment(v []string) *NotesAddBuilder {
 	b.Params["privacy_comment"] = v
 	return b
 }
@@ -60,32 +60,32 @@ func NewNotesCreateCommentBuilder() *NotesCreateCommentBuilder {
 
 // NoteID parameter
 // Note ID.
-func (b *NotesCreateCommentBuilder) NoteID(v int) *NotesCreateCommentBuilder{
+func (b *NotesCreateCommentBuilder) NoteID(v int) *NotesCreateCommentBuilder {
 	b.Params["note_id"] = v
 	return b
 }
 
 // OwnerID parameter
 // Note owner ID.
-func (b *NotesCreateCommentBuilder) OwnerID(v int) *NotesCreateCommentBuilder{
+func (b *NotesCreateCommentBuilder) OwnerID(v int) *NotesCreateCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // ReplyTo ID of the user to whom the reply is addressed (if the comment is a reply to another comment).
-func (b *NotesCreateCommentBuilder) ReplyTo(v int) *NotesCreateCommentBuilder{
+func (b *NotesCreateCommentBuilder) ReplyTo(v int) *NotesCreateCommentBuilder {
 	b.Params["reply_to"] = v
 	return b
 }
 
 // Message Comment text.
-func (b *NotesCreateCommentBuilder) Message(v string) *NotesCreateCommentBuilder{
+func (b *NotesCreateCommentBuilder) Message(v string) *NotesCreateCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
 
 // GUID parameter
-func (b *NotesCreateCommentBuilder) GUID(v string) *NotesCreateCommentBuilder{
+func (b *NotesCreateCommentBuilder) GUID(v string) *NotesCreateCommentBuilder {
 	b.Params["guid"] = v
 	return b
 }
@@ -106,7 +106,7 @@ func NewNotesDeleteBuilder() *NotesDeleteBuilder {
 
 // NoteID parameter
 // Note ID.
-func (b *NotesDeleteBuilder) NoteID(v int) *NotesDeleteBuilder{
+func (b *NotesDeleteBuilder) NoteID(v int) *NotesDeleteBuilder {
 	b.Params["note_id"] = v
 	return b
 }
@@ -126,14 +126,14 @@ func NewNotesDeleteCommentBuilder() *NotesDeleteCommentBuilder {
 }
 
 // CommentID Comment ID.
-func (b *NotesDeleteCommentBuilder) CommentID(v int) *NotesDeleteCommentBuilder{
+func (b *NotesDeleteCommentBuilder) CommentID(v int) *NotesDeleteCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
 // OwnerID parameter
 // Note owner ID.
-func (b *NotesDeleteCommentBuilder) OwnerID(v int) *NotesDeleteCommentBuilder{
+func (b *NotesDeleteCommentBuilder) OwnerID(v int) *NotesDeleteCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
@@ -154,33 +154,33 @@ func NewNotesEditBuilder() *NotesEditBuilder {
 
 // NoteID parameter
 // Note ID.
-func (b *NotesEditBuilder) NoteID(v int) *NotesEditBuilder{
+func (b *NotesEditBuilder) NoteID(v int) *NotesEditBuilder {
 	b.Params["note_id"] = v
 	return b
 }
 
 // Title parameter
 // Note title.
-func (b *NotesEditBuilder) Title(v string) *NotesEditBuilder{
+func (b *NotesEditBuilder) Title(v string) *NotesEditBuilder {
 	b.Params["title"] = v
 	return b
 }
 
 // Text parameter
 // Note text.
-func (b *NotesEditBuilder) Text(v string) *NotesEditBuilder{
+func (b *NotesEditBuilder) Text(v string) *NotesEditBuilder {
 	b.Params["text"] = v
 	return b
 }
 
 // PrivacyView parameter
-func (b *NotesEditBuilder) PrivacyView(v []string) *NotesEditBuilder{
+func (b *NotesEditBuilder) PrivacyView(v []string) *NotesEditBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
 // PrivacyComment parameter
-func (b *NotesEditBuilder) PrivacyComment(v []string) *NotesEditBuilder{
+func (b *NotesEditBuilder) PrivacyComment(v []string) *NotesEditBuilder {
 	b.Params["privacy_comment"] = v
 	return b
 }
@@ -200,20 +200,20 @@ func NewNotesEditCommentBuilder() *NotesEditCommentBuilder {
 }
 
 // CommentID Comment ID.
-func (b *NotesEditCommentBuilder) CommentID(v int) *NotesEditCommentBuilder{
+func (b *NotesEditCommentBuilder) CommentID(v int) *NotesEditCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
 // OwnerID parameter
 // Note owner ID.
-func (b *NotesEditCommentBuilder) OwnerID(v int) *NotesEditCommentBuilder{
+func (b *NotesEditCommentBuilder) OwnerID(v int) *NotesEditCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // Message New comment text.
-func (b *NotesEditCommentBuilder) Message(v string) *NotesEditCommentBuilder{
+func (b *NotesEditCommentBuilder) Message(v string) *NotesEditCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -234,32 +234,32 @@ func NewNotesGetBuilder() *NotesGetBuilder {
 
 // NoteIDs parameter
 // Note IDs.
-func (b *NotesGetBuilder) NoteIDs(v []int) *NotesGetBuilder{
+func (b *NotesGetBuilder) NoteIDs(v []int) *NotesGetBuilder {
 	b.Params["note_ids"] = v
 	return b
 }
 
 // UserID parameter
 // Note owner ID.
-func (b *NotesGetBuilder) UserID(v int) *NotesGetBuilder{
+func (b *NotesGetBuilder) UserID(v int) *NotesGetBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
 // Offset parameter
-func (b *NotesGetBuilder) Offset(v int) *NotesGetBuilder{
+func (b *NotesGetBuilder) Offset(v int) *NotesGetBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of notes to return.
-func (b *NotesGetBuilder) Count(v int) *NotesGetBuilder{
+func (b *NotesGetBuilder) Count(v int) *NotesGetBuilder {
 	b.Params["count"] = v
 	return b
 }
 
 // Sort parameter
-func (b *NotesGetBuilder) Sort(v int) *NotesGetBuilder{
+func (b *NotesGetBuilder) Sort(v int) *NotesGetBuilder {
 	b.Params["sort"] = v
 	return b
 }
@@ -280,20 +280,20 @@ func NewNotesGetByIDBuilder() *NotesGetByIDBuilder {
 
 // NoteID parameter
 // Note ID.
-func (b *NotesGetByIDBuilder) NoteID(v int) *NotesGetByIDBuilder{
+func (b *NotesGetByIDBuilder) NoteID(v int) *NotesGetByIDBuilder {
 	b.Params["note_id"] = v
 	return b
 }
 
 // OwnerID parameter
 // Note owner ID.
-func (b *NotesGetByIDBuilder) OwnerID(v int) *NotesGetByIDBuilder{
+func (b *NotesGetByIDBuilder) OwnerID(v int) *NotesGetByIDBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // NeedWiki parameter
-func (b *NotesGetByIDBuilder) NeedWiki(v bool) *NotesGetByIDBuilder{
+func (b *NotesGetByIDBuilder) NeedWiki(v bool) *NotesGetByIDBuilder {
 	b.Params["need_wiki"] = v
 	return b
 }
@@ -314,32 +314,32 @@ func NewNotesGetCommentsBuilder() *NotesGetCommentsBuilder {
 
 // NoteID parameter
 // Note ID.
-func (b *NotesGetCommentsBuilder) NoteID(v int) *NotesGetCommentsBuilder{
+func (b *NotesGetCommentsBuilder) NoteID(v int) *NotesGetCommentsBuilder {
 	b.Params["note_id"] = v
 	return b
 }
 
 // OwnerID parameter
 // Note owner ID.
-func (b *NotesGetCommentsBuilder) OwnerID(v int) *NotesGetCommentsBuilder{
+func (b *NotesGetCommentsBuilder) OwnerID(v int) *NotesGetCommentsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // Sort parameter
-func (b *NotesGetCommentsBuilder) Sort(v int) *NotesGetCommentsBuilder{
+func (b *NotesGetCommentsBuilder) Sort(v int) *NotesGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
 // Offset parameter
-func (b *NotesGetCommentsBuilder) Offset(v int) *NotesGetCommentsBuilder{
+func (b *NotesGetCommentsBuilder) Offset(v int) *NotesGetCommentsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of comments to return.
-func (b *NotesGetCommentsBuilder) Count(v int) *NotesGetCommentsBuilder{
+func (b *NotesGetCommentsBuilder) Count(v int) *NotesGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -359,14 +359,14 @@ func NewNotesRestoreCommentBuilder() *NotesRestoreCommentBuilder {
 }
 
 // CommentID Comment ID.
-func (b *NotesRestoreCommentBuilder) CommentID(v int) *NotesRestoreCommentBuilder{
+func (b *NotesRestoreCommentBuilder) CommentID(v int) *NotesRestoreCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
 // OwnerID parameter
 // Note owner ID.
-func (b *NotesRestoreCommentBuilder) OwnerID(v int) *NotesRestoreCommentBuilder{
+func (b *NotesRestoreCommentBuilder) OwnerID(v int) *NotesRestoreCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }

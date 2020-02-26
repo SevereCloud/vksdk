@@ -19,17 +19,17 @@ func NewSecureAddAppEventBuilder() *SecureAddAppEventBuilder {
 }
 
 // UserID ID of a user to save the data
-func (b *SecureAddAppEventBuilder) UserID(v int) *SecureAddAppEventBuilder{
+func (b *SecureAddAppEventBuilder) UserID(v int) *SecureAddAppEventBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
 // ActivityID  there are 2 default activities:
 //
-// * 1 – level. Works similar to 
+// * 1 – level. Works similar to
 //
 // * 2 – points, saves points amount, Any other value is for saving completed missions
-func (b *SecureAddAppEventBuilder) ActivityID(v int) *SecureAddAppEventBuilder{
+func (b *SecureAddAppEventBuilder) ActivityID(v int) *SecureAddAppEventBuilder {
 	b.Params["activity_id"] = v
 	return b
 }
@@ -39,7 +39,7 @@ func (b *SecureAddAppEventBuilder) ActivityID(v int) *SecureAddAppEventBuilder{
 // * 1 – number, current level number
 //
 // * 2 – number, current users points amount Any other value is ignored
-func (b *SecureAddAppEventBuilder) Value(v int) *SecureAddAppEventBuilder{
+func (b *SecureAddAppEventBuilder) Value(v int) *SecureAddAppEventBuilder {
 	b.Params["value"] = v
 	return b
 }
@@ -59,7 +59,7 @@ func NewSecureCheckTokenBuilder() *SecureCheckTokenBuilder {
 }
 
 // Token client 'access_token'
-func (b *SecureCheckTokenBuilder) Token(v string) *SecureCheckTokenBuilder{
+func (b *SecureCheckTokenBuilder) Token(v string) *SecureCheckTokenBuilder {
 	b.Params["token"] = v
 	return b
 }
@@ -68,7 +68,7 @@ func (b *SecureCheckTokenBuilder) Token(v string) *SecureCheckTokenBuilder{
 //
 // Note that user may access using the 'ipv6' address, in this case it is required to transmit the 'ipv6' address.
 // If not transmitted, the address will not be checked.
-func (b *SecureCheckTokenBuilder) IP(v string) *SecureCheckTokenBuilder{
+func (b *SecureCheckTokenBuilder) IP(v string) *SecureCheckTokenBuilder {
 	b.Params["ip"] = v
 	return b
 }
@@ -88,21 +88,21 @@ func NewSecureGetSMSHistoryBuilder() *SecureGetSMSHistoryBuilder {
 }
 
 // UserID parameter
-func (b *SecureGetSMSHistoryBuilder) UserID(v int) *SecureGetSMSHistoryBuilder{
+func (b *SecureGetSMSHistoryBuilder) UserID(v int) *SecureGetSMSHistoryBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
 // DateFrom filter by start date.
 // It is set as UNIX-time.
-func (b *SecureGetSMSHistoryBuilder) DateFrom(v int) *SecureGetSMSHistoryBuilder{
+func (b *SecureGetSMSHistoryBuilder) DateFrom(v int) *SecureGetSMSHistoryBuilder {
 	b.Params["date_from"] = v
 	return b
 }
 
 // DateTo filter by end date.
 // It is set as UNIX-time.
-func (b *SecureGetSMSHistoryBuilder) DateTo(v int) *SecureGetSMSHistoryBuilder{
+func (b *SecureGetSMSHistoryBuilder) DateTo(v int) *SecureGetSMSHistoryBuilder {
 	b.Params["date_to"] = v
 	return b
 }
@@ -110,7 +110,7 @@ func (b *SecureGetSMSHistoryBuilder) DateTo(v int) *SecureGetSMSHistoryBuilder{
 // Limit number of returned posts.
 //
 // By default — 1000.
-func (b *SecureGetSMSHistoryBuilder) Limit(v int) *SecureGetSMSHistoryBuilder{
+func (b *SecureGetSMSHistoryBuilder) Limit(v int) *SecureGetSMSHistoryBuilder {
 	b.Params["limit"] = v
 	return b
 }
@@ -130,37 +130,37 @@ func NewSecureGetTransactionsHistoryBuilder() *SecureGetTransactionsHistoryBuild
 }
 
 // Type parameter
-func (b *SecureGetTransactionsHistoryBuilder) Type(v int) *SecureGetTransactionsHistoryBuilder{
+func (b *SecureGetTransactionsHistoryBuilder) Type(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["type"] = v
 	return b
 }
 
 // UIDFrom parameter
-func (b *SecureGetTransactionsHistoryBuilder) UIDFrom(v int) *SecureGetTransactionsHistoryBuilder{
+func (b *SecureGetTransactionsHistoryBuilder) UIDFrom(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["uid_from"] = v
 	return b
 }
 
 // UIDTo parameter
-func (b *SecureGetTransactionsHistoryBuilder) UIDTo(v int) *SecureGetTransactionsHistoryBuilder{
+func (b *SecureGetTransactionsHistoryBuilder) UIDTo(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["uid_to"] = v
 	return b
 }
 
 // DateFrom parameter
-func (b *SecureGetTransactionsHistoryBuilder) DateFrom(v int) *SecureGetTransactionsHistoryBuilder{
+func (b *SecureGetTransactionsHistoryBuilder) DateFrom(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["date_from"] = v
 	return b
 }
 
 // DateTo parameter
-func (b *SecureGetTransactionsHistoryBuilder) DateTo(v int) *SecureGetTransactionsHistoryBuilder{
+func (b *SecureGetTransactionsHistoryBuilder) DateTo(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["date_to"] = v
 	return b
 }
 
 // Limit parameter
-func (b *SecureGetTransactionsHistoryBuilder) Limit(v int) *SecureGetTransactionsHistoryBuilder{
+func (b *SecureGetTransactionsHistoryBuilder) Limit(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["limit"] = v
 	return b
 }
@@ -180,7 +180,7 @@ func NewSecureGetUserLevelBuilder() *SecureGetUserLevelBuilder {
 }
 
 // UserIDs parameter
-func (b *SecureGetUserLevelBuilder) UserIDs(v []int) *SecureGetUserLevelBuilder{
+func (b *SecureGetUserLevelBuilder) UserIDs(v []int) *SecureGetUserLevelBuilder {
 	b.Params["user_ids"] = v
 	return b
 }
@@ -200,13 +200,13 @@ func NewSecureGiveEventStickerBuilder() *SecureGiveEventStickerBuilder {
 }
 
 // UserIDs parameter
-func (b *SecureGiveEventStickerBuilder) UserIDs(v []int) *SecureGiveEventStickerBuilder{
+func (b *SecureGiveEventStickerBuilder) UserIDs(v []int) *SecureGiveEventStickerBuilder {
 	b.Params["user_ids"] = v
 	return b
 }
 
 // AchievementID parameter
-func (b *SecureGiveEventStickerBuilder) AchievementID(v int) *SecureGiveEventStickerBuilder{
+func (b *SecureGiveEventStickerBuilder) AchievementID(v int) *SecureGiveEventStickerBuilder {
 	b.Params["achievement_id"] = v
 	return b
 }
@@ -226,19 +226,19 @@ func NewSecureSendNotificationBuilder() *SecureSendNotificationBuilder {
 }
 
 // UserIDs parameter
-func (b *SecureSendNotificationBuilder) UserIDs(v []int) *SecureSendNotificationBuilder{
+func (b *SecureSendNotificationBuilder) UserIDs(v []int) *SecureSendNotificationBuilder {
 	b.Params["user_ids"] = v
 	return b
 }
 
 // UserID parameter
-func (b *SecureSendNotificationBuilder) UserID(v int) *SecureSendNotificationBuilder{
+func (b *SecureSendNotificationBuilder) UserID(v int) *SecureSendNotificationBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
 // Message notification text which should be sent in 'UTF-8' encoding ('254' characters maximum).
-func (b *SecureSendNotificationBuilder) Message(v string) *SecureSendNotificationBuilder{
+func (b *SecureSendNotificationBuilder) Message(v string) *SecureSendNotificationBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -259,7 +259,7 @@ func NewSecureSendSMSNotificationBuilder() *SecureSendSMSNotificationBuilder {
 
 // UserID ID of the user to whom SMS notification is sent.
 // The user shall allow the application to send him/her notifications (, +1).
-func (b *SecureSendSMSNotificationBuilder) UserID(v int) *SecureSendSMSNotificationBuilder{
+func (b *SecureSendSMSNotificationBuilder) UserID(v int) *SecureSendSMSNotificationBuilder {
 	b.Params["user_id"] = v
 	return b
 }
@@ -267,7 +267,7 @@ func (b *SecureSendSMSNotificationBuilder) UserID(v int) *SecureSendSMSNotificat
 // Message parameter 'SMS' text to be sent in 'UTF-8' encoding.
 // Only Latin letters and numbers are allowed.
 // Maximum size is '160' characters.
-func (b *SecureSendSMSNotificationBuilder) Message(v string) *SecureSendSMSNotificationBuilder{
+func (b *SecureSendSMSNotificationBuilder) Message(v string) *SecureSendSMSNotificationBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -287,25 +287,25 @@ func NewSecureSetCounterBuilder() *SecureSetCounterBuilder {
 }
 
 // Counters parameter
-func (b *SecureSetCounterBuilder) Counters(v []string) *SecureSetCounterBuilder{
+func (b *SecureSetCounterBuilder) Counters(v []string) *SecureSetCounterBuilder {
 	b.Params["counters"] = v
 	return b
 }
 
 // UserID parameter
-func (b *SecureSetCounterBuilder) UserID(v int) *SecureSetCounterBuilder{
+func (b *SecureSetCounterBuilder) UserID(v int) *SecureSetCounterBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
 // Counter counter value.
-func (b *SecureSetCounterBuilder) Counter(v int) *SecureSetCounterBuilder{
+func (b *SecureSetCounterBuilder) Counter(v int) *SecureSetCounterBuilder {
 	b.Params["counter"] = v
 	return b
 }
 
 // Increment parameter
-func (b *SecureSetCounterBuilder) Increment(v bool) *SecureSetCounterBuilder{
+func (b *SecureSetCounterBuilder) Increment(v bool) *SecureSetCounterBuilder {
 	b.Params["increment"] = v
 	return b
 }

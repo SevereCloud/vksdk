@@ -19,13 +19,13 @@ func NewAppWidgetsUpdateBuilder() *AppWidgetsUpdateBuilder {
 }
 
 // Code parameter
-func (b *AppWidgetsUpdateBuilder) Code(v string) *AppWidgetsUpdateBuilder{
+func (b *AppWidgetsUpdateBuilder) Code(v string) *AppWidgetsUpdateBuilder {
 	b.Params["code"] = v
 	return b
 }
 
 // Type parameter
-func (b *AppWidgetsUpdateBuilder) Type(v string) *AppWidgetsUpdateBuilder{
+func (b *AppWidgetsUpdateBuilder) Type(v string) *AppWidgetsUpdateBuilder {
 	b.Params["type"] = v
 	return b
 }

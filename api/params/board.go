@@ -19,19 +19,19 @@ func NewBoardAddTopicBuilder() *BoardAddTopicBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardAddTopicBuilder) GroupID(v int) *BoardAddTopicBuilder{
+func (b *BoardAddTopicBuilder) GroupID(v int) *BoardAddTopicBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // Title Topic title.
-func (b *BoardAddTopicBuilder) Title(v string) *BoardAddTopicBuilder{
+func (b *BoardAddTopicBuilder) Title(v string) *BoardAddTopicBuilder {
 	b.Params["title"] = v
 	return b
 }
 
 // Text Text of the topic.
-func (b *BoardAddTopicBuilder) Text(v string) *BoardAddTopicBuilder{
+func (b *BoardAddTopicBuilder) Text(v string) *BoardAddTopicBuilder {
 	b.Params["text"] = v
 	return b
 }
@@ -41,7 +41,7 @@ func (b *BoardAddTopicBuilder) Text(v string) *BoardAddTopicBuilder{
 // * '1' — to post the topic as by the community
 //
 // * '0' — to post the topic as by the user (default)
-func (b *BoardAddTopicBuilder) FromGroup(v bool) *BoardAddTopicBuilder{
+func (b *BoardAddTopicBuilder) FromGroup(v bool) *BoardAddTopicBuilder {
 	b.Params["from_group"] = v
 	return b
 }
@@ -64,7 +64,7 @@ func (b *BoardAddTopicBuilder) FromGroup(v bool) *BoardAddTopicBuilder{
 // Example: photo100172_166443618,photo66748_265827614
 //
 // NOTE: If you try to attach more than one reference, an error will be thrown.,
-func (b *BoardAddTopicBuilder) Attachments(v []string) *BoardAddTopicBuilder{
+func (b *BoardAddTopicBuilder) Attachments(v []string) *BoardAddTopicBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -84,13 +84,13 @@ func NewBoardCloseTopicBuilder() *BoardCloseTopicBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardCloseTopicBuilder) GroupID(v int) *BoardCloseTopicBuilder{
+func (b *BoardCloseTopicBuilder) GroupID(v int) *BoardCloseTopicBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardCloseTopicBuilder) TopicID(v int) *BoardCloseTopicBuilder{
+func (b *BoardCloseTopicBuilder) TopicID(v int) *BoardCloseTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
@@ -110,20 +110,20 @@ func NewBoardCreateCommentBuilder() *BoardCreateCommentBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardCreateCommentBuilder) GroupID(v int) *BoardCreateCommentBuilder{
+func (b *BoardCreateCommentBuilder) GroupID(v int) *BoardCreateCommentBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID ID of the topic to be commented on.
-func (b *BoardCreateCommentBuilder) TopicID(v int) *BoardCreateCommentBuilder{
+func (b *BoardCreateCommentBuilder) TopicID(v int) *BoardCreateCommentBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
 
 // Message (Required if 'attachments' is not set.)
 // Text of the comment.
-func (b *BoardCreateCommentBuilder) Message(v string) *BoardCreateCommentBuilder{
+func (b *BoardCreateCommentBuilder) Message(v string) *BoardCreateCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -144,29 +144,29 @@ func (b *BoardCreateCommentBuilder) Message(v string) *BoardCreateCommentBuilder
 // * '<owner_id>' — ID of the media owner.
 //
 // * '<media_id>' — Media ID.
-func (b *BoardCreateCommentBuilder) Attachments(v []string) *BoardCreateCommentBuilder{
+func (b *BoardCreateCommentBuilder) Attachments(v []string) *BoardCreateCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
 
-// FromGroup parameter 
+// FromGroup parameter
 //
 // * '1' — to post the comment as by the community
 //
 // * '0' — to post the comment as by the user (default)
-func (b *BoardCreateCommentBuilder) FromGroup(v bool) *BoardCreateCommentBuilder{
+func (b *BoardCreateCommentBuilder) FromGroup(v bool) *BoardCreateCommentBuilder {
 	b.Params["from_group"] = v
 	return b
 }
 
 // StickerID Sticker ID.
-func (b *BoardCreateCommentBuilder) StickerID(v int) *BoardCreateCommentBuilder{
+func (b *BoardCreateCommentBuilder) StickerID(v int) *BoardCreateCommentBuilder {
 	b.Params["sticker_id"] = v
 	return b
 }
 
 // GUID Unique identifier to avoid repeated comments.
-func (b *BoardCreateCommentBuilder) GUID(v string) *BoardCreateCommentBuilder{
+func (b *BoardCreateCommentBuilder) GUID(v string) *BoardCreateCommentBuilder {
 	b.Params["guid"] = v
 	return b
 }
@@ -186,19 +186,19 @@ func NewBoardDeleteCommentBuilder() *BoardDeleteCommentBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardDeleteCommentBuilder) GroupID(v int) *BoardDeleteCommentBuilder{
+func (b *BoardDeleteCommentBuilder) GroupID(v int) *BoardDeleteCommentBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardDeleteCommentBuilder) TopicID(v int) *BoardDeleteCommentBuilder{
+func (b *BoardDeleteCommentBuilder) TopicID(v int) *BoardDeleteCommentBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
 
 // CommentID Comment ID.
-func (b *BoardDeleteCommentBuilder) CommentID(v int) *BoardDeleteCommentBuilder{
+func (b *BoardDeleteCommentBuilder) CommentID(v int) *BoardDeleteCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
@@ -218,13 +218,13 @@ func NewBoardDeleteTopicBuilder() *BoardDeleteTopicBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardDeleteTopicBuilder) GroupID(v int) *BoardDeleteTopicBuilder{
+func (b *BoardDeleteTopicBuilder) GroupID(v int) *BoardDeleteTopicBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardDeleteTopicBuilder) TopicID(v int) *BoardDeleteTopicBuilder{
+func (b *BoardDeleteTopicBuilder) TopicID(v int) *BoardDeleteTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
@@ -244,26 +244,26 @@ func NewBoardEditCommentBuilder() *BoardEditCommentBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardEditCommentBuilder) GroupID(v int) *BoardEditCommentBuilder{
+func (b *BoardEditCommentBuilder) GroupID(v int) *BoardEditCommentBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardEditCommentBuilder) TopicID(v int) *BoardEditCommentBuilder{
+func (b *BoardEditCommentBuilder) TopicID(v int) *BoardEditCommentBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
 
 // CommentID ID of the comment on the topic.
-func (b *BoardEditCommentBuilder) CommentID(v int) *BoardEditCommentBuilder{
+func (b *BoardEditCommentBuilder) CommentID(v int) *BoardEditCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
 // Message (Required if 'attachments' is not set).
 // New comment text.
-func (b *BoardEditCommentBuilder) Message(v string) *BoardEditCommentBuilder{
+func (b *BoardEditCommentBuilder) Message(v string) *BoardEditCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -285,7 +285,7 @@ func (b *BoardEditCommentBuilder) Message(v string) *BoardEditCommentBuilder{
 //
 // * '<media_id>' — Media ID.
 // Example: photo100172_166443618,photo66748_265827614
-func (b *BoardEditCommentBuilder) Attachments(v []string) *BoardEditCommentBuilder{
+func (b *BoardEditCommentBuilder) Attachments(v []string) *BoardEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -305,19 +305,19 @@ func NewBoardEditTopicBuilder() *BoardEditTopicBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardEditTopicBuilder) GroupID(v int) *BoardEditTopicBuilder{
+func (b *BoardEditTopicBuilder) GroupID(v int) *BoardEditTopicBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardEditTopicBuilder) TopicID(v int) *BoardEditTopicBuilder{
+func (b *BoardEditTopicBuilder) TopicID(v int) *BoardEditTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
 
 // Title New title of the topic.
-func (b *BoardEditTopicBuilder) Title(v string) *BoardEditTopicBuilder{
+func (b *BoardEditTopicBuilder) Title(v string) *BoardEditTopicBuilder {
 	b.Params["title"] = v
 	return b
 }
@@ -337,13 +337,13 @@ func NewBoardFixTopicBuilder() *BoardFixTopicBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardFixTopicBuilder) GroupID(v int) *BoardFixTopicBuilder{
+func (b *BoardFixTopicBuilder) GroupID(v int) *BoardFixTopicBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardFixTopicBuilder) TopicID(v int) *BoardFixTopicBuilder{
+func (b *BoardFixTopicBuilder) TopicID(v int) *BoardFixTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
@@ -363,51 +363,51 @@ func NewBoardGetCommentsBuilder() *BoardGetCommentsBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardGetCommentsBuilder) GroupID(v int) *BoardGetCommentsBuilder{
+func (b *BoardGetCommentsBuilder) GroupID(v int) *BoardGetCommentsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardGetCommentsBuilder) TopicID(v int) *BoardGetCommentsBuilder{
+func (b *BoardGetCommentsBuilder) TopicID(v int) *BoardGetCommentsBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
 
-// NeedLikes parameter 
+// NeedLikes parameter
 //
 // * '1' — to return the 'likes' field
 //
 // * '0' — not to return the 'likes' field (default)
-func (b *BoardGetCommentsBuilder) NeedLikes(v bool) *BoardGetCommentsBuilder{
+func (b *BoardGetCommentsBuilder) NeedLikes(v bool) *BoardGetCommentsBuilder {
 	b.Params["need_likes"] = v
 	return b
 }
 
 // StartCommentID parameter
-func (b *BoardGetCommentsBuilder) StartCommentID(v int) *BoardGetCommentsBuilder{
+func (b *BoardGetCommentsBuilder) StartCommentID(v int) *BoardGetCommentsBuilder {
 	b.Params["start_comment_id"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of comments.
-func (b *BoardGetCommentsBuilder) Offset(v int) *BoardGetCommentsBuilder{
+func (b *BoardGetCommentsBuilder) Offset(v int) *BoardGetCommentsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of comments to return.
-func (b *BoardGetCommentsBuilder) Count(v int) *BoardGetCommentsBuilder{
+func (b *BoardGetCommentsBuilder) Count(v int) *BoardGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Extended parameter 
+// Extended parameter
 //
 // * '1' — to return information about users who posted comments
 //
 // * '0' — to return no additional fields (default)
-func (b *BoardGetCommentsBuilder) Extended(v bool) *BoardGetCommentsBuilder{
+func (b *BoardGetCommentsBuilder) Extended(v bool) *BoardGetCommentsBuilder {
 	b.Params["extended"] = v
 	return b
 }
@@ -417,7 +417,7 @@ func (b *BoardGetCommentsBuilder) Extended(v bool) *BoardGetCommentsBuilder{
 // * 'asc' — by creation date in chronological order
 //
 // * 'desc' — by creation date in reverse chronological order,
-func (b *BoardGetCommentsBuilder) Sort(v string) *BoardGetCommentsBuilder{
+func (b *BoardGetCommentsBuilder) Sort(v string) *BoardGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
 }
@@ -437,7 +437,7 @@ func NewBoardGetTopicsBuilder() *BoardGetTopicsBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardGetTopicsBuilder) GroupID(v int) *BoardGetTopicsBuilder{
+func (b *BoardGetTopicsBuilder) GroupID(v int) *BoardGetTopicsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
@@ -448,7 +448,7 @@ func (b *BoardGetTopicsBuilder) GroupID(v int) *BoardGetTopicsBuilder{
 // If this parameter is set, the 'order'
 //
 // *  'offset' and 'count' parameters are ignored.
-func (b *BoardGetTopicsBuilder) TopicIDs(v []int) *BoardGetTopicsBuilder{
+func (b *BoardGetTopicsBuilder) TopicIDs(v []int) *BoardGetTopicsBuilder {
 	b.Params["topic_ids"] = v
 	return b
 }
@@ -464,34 +464,34 @@ func (b *BoardGetTopicsBuilder) TopicIDs(v []int) *BoardGetTopicsBuilder{
 // * '-2' — by date created in chronological order.
 // If no sort order is specified, topics are returned in the order specified by the group administrator.
 // Pinned topics are returned first, regardless of the sorting.
-func (b *BoardGetTopicsBuilder) Order(v int) *BoardGetTopicsBuilder{
+func (b *BoardGetTopicsBuilder) Order(v int) *BoardGetTopicsBuilder {
 	b.Params["order"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of topics.
-func (b *BoardGetTopicsBuilder) Offset(v int) *BoardGetTopicsBuilder{
+func (b *BoardGetTopicsBuilder) Offset(v int) *BoardGetTopicsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of topics to return.
-func (b *BoardGetTopicsBuilder) Count(v int) *BoardGetTopicsBuilder{
+func (b *BoardGetTopicsBuilder) Count(v int) *BoardGetTopicsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Extended parameter 
+// Extended parameter
 //
 // * '1' — to return information about users who created topics or who posted there last
 //
 // * '0' — to return no additional fields (default)
-func (b *BoardGetTopicsBuilder) Extended(v bool) *BoardGetTopicsBuilder{
+func (b *BoardGetTopicsBuilder) Extended(v bool) *BoardGetTopicsBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// Preview parameter 
+// Preview parameter
 //
 // * '1' — to return the first comment in each topic
 //
@@ -500,14 +500,14 @@ func (b *BoardGetTopicsBuilder) Extended(v bool) *BoardGetTopicsBuilder{
 // * '0' — to return no comments.
 //
 // By default: '0'.
-func (b *BoardGetTopicsBuilder) Preview(v int) *BoardGetTopicsBuilder{
+func (b *BoardGetTopicsBuilder) Preview(v int) *BoardGetTopicsBuilder {
 	b.Params["preview"] = v
 	return b
 }
 
 // PreviewLength Number of characters after which to truncate the previewed comment.
 // To preview the full comment, specify '0'.
-func (b *BoardGetTopicsBuilder) PreviewLength(v int) *BoardGetTopicsBuilder{
+func (b *BoardGetTopicsBuilder) PreviewLength(v int) *BoardGetTopicsBuilder {
 	b.Params["preview_length"] = v
 	return b
 }
@@ -527,13 +527,13 @@ func NewBoardOpenTopicBuilder() *BoardOpenTopicBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardOpenTopicBuilder) GroupID(v int) *BoardOpenTopicBuilder{
+func (b *BoardOpenTopicBuilder) GroupID(v int) *BoardOpenTopicBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardOpenTopicBuilder) TopicID(v int) *BoardOpenTopicBuilder{
+func (b *BoardOpenTopicBuilder) TopicID(v int) *BoardOpenTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
@@ -553,19 +553,19 @@ func NewBoardRestoreCommentBuilder() *BoardRestoreCommentBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardRestoreCommentBuilder) GroupID(v int) *BoardRestoreCommentBuilder{
+func (b *BoardRestoreCommentBuilder) GroupID(v int) *BoardRestoreCommentBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardRestoreCommentBuilder) TopicID(v int) *BoardRestoreCommentBuilder{
+func (b *BoardRestoreCommentBuilder) TopicID(v int) *BoardRestoreCommentBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
 
 // CommentID Comment ID.
-func (b *BoardRestoreCommentBuilder) CommentID(v int) *BoardRestoreCommentBuilder{
+func (b *BoardRestoreCommentBuilder) CommentID(v int) *BoardRestoreCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
@@ -585,13 +585,13 @@ func NewBoardUnfixTopicBuilder() *BoardUnfixTopicBuilder {
 }
 
 // GroupID ID of the community that owns the discussion board.
-func (b *BoardUnfixTopicBuilder) GroupID(v int) *BoardUnfixTopicBuilder{
+func (b *BoardUnfixTopicBuilder) GroupID(v int) *BoardUnfixTopicBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // TopicID Topic ID.
-func (b *BoardUnfixTopicBuilder) TopicID(v int) *BoardUnfixTopicBuilder{
+func (b *BoardUnfixTopicBuilder) TopicID(v int) *BoardUnfixTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
 }

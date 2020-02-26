@@ -19,43 +19,43 @@ func NewWidgetsGetCommentsBuilder() *WidgetsGetCommentsBuilder {
 }
 
 // WidgetAPIID parameter
-func (b *WidgetsGetCommentsBuilder) WidgetAPIID(v int) *WidgetsGetCommentsBuilder{
+func (b *WidgetsGetCommentsBuilder) WidgetAPIID(v int) *WidgetsGetCommentsBuilder {
 	b.Params["widget_api_id"] = v
 	return b
 }
 
 // URL parameter
-func (b *WidgetsGetCommentsBuilder) URL(v string) *WidgetsGetCommentsBuilder{
+func (b *WidgetsGetCommentsBuilder) URL(v string) *WidgetsGetCommentsBuilder {
 	b.Params["url"] = v
 	return b
 }
 
 // PageID parameter
-func (b *WidgetsGetCommentsBuilder) PageID(v string) *WidgetsGetCommentsBuilder{
+func (b *WidgetsGetCommentsBuilder) PageID(v string) *WidgetsGetCommentsBuilder {
 	b.Params["page_id"] = v
 	return b
 }
 
 // Order parameter
-func (b *WidgetsGetCommentsBuilder) Order(v string) *WidgetsGetCommentsBuilder{
+func (b *WidgetsGetCommentsBuilder) Order(v string) *WidgetsGetCommentsBuilder {
 	b.Params["order"] = v
 	return b
 }
 
 // Fields parameter
-func (b *WidgetsGetCommentsBuilder) Fields(v []string) *WidgetsGetCommentsBuilder{
+func (b *WidgetsGetCommentsBuilder) Fields(v []string) *WidgetsGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
 // Offset parameter
-func (b *WidgetsGetCommentsBuilder) Offset(v int) *WidgetsGetCommentsBuilder{
+func (b *WidgetsGetCommentsBuilder) Offset(v int) *WidgetsGetCommentsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count parameter
-func (b *WidgetsGetCommentsBuilder) Count(v int) *WidgetsGetCommentsBuilder{
+func (b *WidgetsGetCommentsBuilder) Count(v int) *WidgetsGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -75,31 +75,31 @@ func NewWidgetsGetPagesBuilder() *WidgetsGetPagesBuilder {
 }
 
 // WidgetAPIID parameter
-func (b *WidgetsGetPagesBuilder) WidgetAPIID(v int) *WidgetsGetPagesBuilder{
+func (b *WidgetsGetPagesBuilder) WidgetAPIID(v int) *WidgetsGetPagesBuilder {
 	b.Params["widget_api_id"] = v
 	return b
 }
 
 // Order parameter
-func (b *WidgetsGetPagesBuilder) Order(v string) *WidgetsGetPagesBuilder{
+func (b *WidgetsGetPagesBuilder) Order(v string) *WidgetsGetPagesBuilder {
 	b.Params["order"] = v
 	return b
 }
 
 // Period parameter
-func (b *WidgetsGetPagesBuilder) Period(v string) *WidgetsGetPagesBuilder{
+func (b *WidgetsGetPagesBuilder) Period(v string) *WidgetsGetPagesBuilder {
 	b.Params["period"] = v
 	return b
 }
 
 // Offset parameter
-func (b *WidgetsGetPagesBuilder) Offset(v int) *WidgetsGetPagesBuilder{
+func (b *WidgetsGetPagesBuilder) Offset(v int) *WidgetsGetPagesBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count parameter
-func (b *WidgetsGetPagesBuilder) Count(v int) *WidgetsGetPagesBuilder{
+func (b *WidgetsGetPagesBuilder) Count(v int) *WidgetsGetPagesBuilder {
 	b.Params["count"] = v
 	return b
 }

@@ -19,19 +19,19 @@ func NewPhotosConfirmTagBuilder() *PhotosConfirmTagBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosConfirmTagBuilder) OwnerID(v int) *PhotosConfirmTagBuilder{
+func (b *PhotosConfirmTagBuilder) OwnerID(v int) *PhotosConfirmTagBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosConfirmTagBuilder) PhotoID(v string) *PhotosConfirmTagBuilder{
+func (b *PhotosConfirmTagBuilder) PhotoID(v string) *PhotosConfirmTagBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
 // TagID Tag ID.
-func (b *PhotosConfirmTagBuilder) TagID(v int) *PhotosConfirmTagBuilder{
+func (b *PhotosConfirmTagBuilder) TagID(v int) *PhotosConfirmTagBuilder {
 	b.Params["tag_id"] = v
 	return b
 }
@@ -51,19 +51,19 @@ func NewPhotosCopyBuilder() *PhotosCopyBuilder {
 }
 
 // OwnerID photo's owner ID
-func (b *PhotosCopyBuilder) OwnerID(v int) *PhotosCopyBuilder{
+func (b *PhotosCopyBuilder) OwnerID(v int) *PhotosCopyBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID photo ID
-func (b *PhotosCopyBuilder) PhotoID(v int) *PhotosCopyBuilder{
+func (b *PhotosCopyBuilder) PhotoID(v int) *PhotosCopyBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
 // AccessKey for private photos
-func (b *PhotosCopyBuilder) AccessKey(v string) *PhotosCopyBuilder{
+func (b *PhotosCopyBuilder) AccessKey(v string) *PhotosCopyBuilder {
 	b.Params["access_key"] = v
 	return b
 }
@@ -83,43 +83,43 @@ func NewPhotosCreateAlbumBuilder() *PhotosCreateAlbumBuilder {
 }
 
 // Title Album title.
-func (b *PhotosCreateAlbumBuilder) Title(v string) *PhotosCreateAlbumBuilder{
+func (b *PhotosCreateAlbumBuilder) Title(v string) *PhotosCreateAlbumBuilder {
 	b.Params["title"] = v
 	return b
 }
 
 // GroupID ID of the community in which the album will be created.
-func (b *PhotosCreateAlbumBuilder) GroupID(v int) *PhotosCreateAlbumBuilder{
+func (b *PhotosCreateAlbumBuilder) GroupID(v int) *PhotosCreateAlbumBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // Description Album description.
-func (b *PhotosCreateAlbumBuilder) Description(v string) *PhotosCreateAlbumBuilder{
+func (b *PhotosCreateAlbumBuilder) Description(v string) *PhotosCreateAlbumBuilder {
 	b.Params["description"] = v
 	return b
 }
 
 // PrivacyView parameter
-func (b *PhotosCreateAlbumBuilder) PrivacyView(v []string) *PhotosCreateAlbumBuilder{
+func (b *PhotosCreateAlbumBuilder) PrivacyView(v []string) *PhotosCreateAlbumBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
 // PrivacyComment parameter
-func (b *PhotosCreateAlbumBuilder) PrivacyComment(v []string) *PhotosCreateAlbumBuilder{
+func (b *PhotosCreateAlbumBuilder) PrivacyComment(v []string) *PhotosCreateAlbumBuilder {
 	b.Params["privacy_comment"] = v
 	return b
 }
 
 // UploadByAdminsOnly parameter
-func (b *PhotosCreateAlbumBuilder) UploadByAdminsOnly(v bool) *PhotosCreateAlbumBuilder{
+func (b *PhotosCreateAlbumBuilder) UploadByAdminsOnly(v bool) *PhotosCreateAlbumBuilder {
 	b.Params["upload_by_admins_only"] = v
 	return b
 }
 
 // CommentsDisabled parameter
-func (b *PhotosCreateAlbumBuilder) CommentsDisabled(v bool) *PhotosCreateAlbumBuilder{
+func (b *PhotosCreateAlbumBuilder) CommentsDisabled(v bool) *PhotosCreateAlbumBuilder {
 	b.Params["comments_disabled"] = v
 	return b
 }
@@ -139,19 +139,19 @@ func NewPhotosCreateCommentBuilder() *PhotosCreateCommentBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosCreateCommentBuilder) OwnerID(v int) *PhotosCreateCommentBuilder{
+func (b *PhotosCreateCommentBuilder) OwnerID(v int) *PhotosCreateCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosCreateCommentBuilder) PhotoID(v int) *PhotosCreateCommentBuilder{
+func (b *PhotosCreateCommentBuilder) PhotoID(v int) *PhotosCreateCommentBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
 // Message Comment text.
-func (b *PhotosCreateCommentBuilder) Message(v string) *PhotosCreateCommentBuilder{
+func (b *PhotosCreateCommentBuilder) Message(v string) *PhotosCreateCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -173,39 +173,39 @@ func (b *PhotosCreateCommentBuilder) Message(v string) *PhotosCreateCommentBuild
 //
 // * '<media_id>' — Media attachment ID.
 // Example: photo100172_166443618,photo66748_265827614
-func (b *PhotosCreateCommentBuilder) Attachments(v []string) *PhotosCreateCommentBuilder{
+func (b *PhotosCreateCommentBuilder) Attachments(v []string) *PhotosCreateCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
 
-// FromGroup parameter 
+// FromGroup parameter
 //
 // * '1' — to post a comment from the community
-func (b *PhotosCreateCommentBuilder) FromGroup(v bool) *PhotosCreateCommentBuilder{
+func (b *PhotosCreateCommentBuilder) FromGroup(v bool) *PhotosCreateCommentBuilder {
 	b.Params["from_group"] = v
 	return b
 }
 
 // ReplyToComment parameter
-func (b *PhotosCreateCommentBuilder) ReplyToComment(v int) *PhotosCreateCommentBuilder{
+func (b *PhotosCreateCommentBuilder) ReplyToComment(v int) *PhotosCreateCommentBuilder {
 	b.Params["reply_to_comment"] = v
 	return b
 }
 
 // StickerID parameter
-func (b *PhotosCreateCommentBuilder) StickerID(v int) *PhotosCreateCommentBuilder{
+func (b *PhotosCreateCommentBuilder) StickerID(v int) *PhotosCreateCommentBuilder {
 	b.Params["sticker_id"] = v
 	return b
 }
 
 // AccessKey parameter
-func (b *PhotosCreateCommentBuilder) AccessKey(v string) *PhotosCreateCommentBuilder{
+func (b *PhotosCreateCommentBuilder) AccessKey(v string) *PhotosCreateCommentBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
 // GUID parameter
-func (b *PhotosCreateCommentBuilder) GUID(v string) *PhotosCreateCommentBuilder{
+func (b *PhotosCreateCommentBuilder) GUID(v string) *PhotosCreateCommentBuilder {
 	b.Params["guid"] = v
 	return b
 }
@@ -225,13 +225,13 @@ func NewPhotosDeleteBuilder() *PhotosDeleteBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosDeleteBuilder) OwnerID(v int) *PhotosDeleteBuilder{
+func (b *PhotosDeleteBuilder) OwnerID(v int) *PhotosDeleteBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosDeleteBuilder) PhotoID(v int) *PhotosDeleteBuilder{
+func (b *PhotosDeleteBuilder) PhotoID(v int) *PhotosDeleteBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
@@ -251,13 +251,13 @@ func NewPhotosDeleteAlbumBuilder() *PhotosDeleteAlbumBuilder {
 }
 
 // AlbumID Album ID.
-func (b *PhotosDeleteAlbumBuilder) AlbumID(v int) *PhotosDeleteAlbumBuilder{
+func (b *PhotosDeleteAlbumBuilder) AlbumID(v int) *PhotosDeleteAlbumBuilder {
 	b.Params["album_id"] = v
 	return b
 }
 
 // GroupID ID of the community that owns the album.
-func (b *PhotosDeleteAlbumBuilder) GroupID(v int) *PhotosDeleteAlbumBuilder{
+func (b *PhotosDeleteAlbumBuilder) GroupID(v int) *PhotosDeleteAlbumBuilder {
 	b.Params["group_id"] = v
 	return b
 }
@@ -277,13 +277,13 @@ func NewPhotosDeleteCommentBuilder() *PhotosDeleteCommentBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosDeleteCommentBuilder) OwnerID(v int) *PhotosDeleteCommentBuilder{
+func (b *PhotosDeleteCommentBuilder) OwnerID(v int) *PhotosDeleteCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // CommentID Comment ID.
-func (b *PhotosDeleteCommentBuilder) CommentID(v int) *PhotosDeleteCommentBuilder{
+func (b *PhotosDeleteCommentBuilder) CommentID(v int) *PhotosDeleteCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
@@ -303,50 +303,50 @@ func NewPhotosEditBuilder() *PhotosEditBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosEditBuilder) OwnerID(v int) *PhotosEditBuilder{
+func (b *PhotosEditBuilder) OwnerID(v int) *PhotosEditBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosEditBuilder) PhotoID(v int) *PhotosEditBuilder{
+func (b *PhotosEditBuilder) PhotoID(v int) *PhotosEditBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
 // Caption New caption for the photo.
 // If this parameter is not set, it is considered to be equal to an empty string.
-func (b *PhotosEditBuilder) Caption(v string) *PhotosEditBuilder{
+func (b *PhotosEditBuilder) Caption(v string) *PhotosEditBuilder {
 	b.Params["caption"] = v
 	return b
 }
 
 // Latitude parameter
-func (b *PhotosEditBuilder) Latitude(v float64) *PhotosEditBuilder{
+func (b *PhotosEditBuilder) Latitude(v float64) *PhotosEditBuilder {
 	b.Params["latitude"] = v
 	return b
 }
 
 // Longitude parameter
-func (b *PhotosEditBuilder) Longitude(v float64) *PhotosEditBuilder{
+func (b *PhotosEditBuilder) Longitude(v float64) *PhotosEditBuilder {
 	b.Params["longitude"] = v
 	return b
 }
 
 // PlaceStr parameter
-func (b *PhotosEditBuilder) PlaceStr(v string) *PhotosEditBuilder{
+func (b *PhotosEditBuilder) PlaceStr(v string) *PhotosEditBuilder {
 	b.Params["place_str"] = v
 	return b
 }
 
 // FoursquareID parameter
-func (b *PhotosEditBuilder) FoursquareID(v string) *PhotosEditBuilder{
+func (b *PhotosEditBuilder) FoursquareID(v string) *PhotosEditBuilder {
 	b.Params["foursquare_id"] = v
 	return b
 }
 
 // DeletePlace parameter
-func (b *PhotosEditBuilder) DeletePlace(v bool) *PhotosEditBuilder{
+func (b *PhotosEditBuilder) DeletePlace(v bool) *PhotosEditBuilder {
 	b.Params["delete_place"] = v
 	return b
 }
@@ -366,49 +366,49 @@ func NewPhotosEditAlbumBuilder() *PhotosEditAlbumBuilder {
 }
 
 // AlbumID ID of the photo album to be edited.
-func (b *PhotosEditAlbumBuilder) AlbumID(v int) *PhotosEditAlbumBuilder{
+func (b *PhotosEditAlbumBuilder) AlbumID(v int) *PhotosEditAlbumBuilder {
 	b.Params["album_id"] = v
 	return b
 }
 
 // Title New album title.
-func (b *PhotosEditAlbumBuilder) Title(v string) *PhotosEditAlbumBuilder{
+func (b *PhotosEditAlbumBuilder) Title(v string) *PhotosEditAlbumBuilder {
 	b.Params["title"] = v
 	return b
 }
 
 // Description New album description.
-func (b *PhotosEditAlbumBuilder) Description(v string) *PhotosEditAlbumBuilder{
+func (b *PhotosEditAlbumBuilder) Description(v string) *PhotosEditAlbumBuilder {
 	b.Params["description"] = v
 	return b
 }
 
 // OwnerID ID of the user or community that owns the album.
-func (b *PhotosEditAlbumBuilder) OwnerID(v int) *PhotosEditAlbumBuilder{
+func (b *PhotosEditAlbumBuilder) OwnerID(v int) *PhotosEditAlbumBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PrivacyView parameter
-func (b *PhotosEditAlbumBuilder) PrivacyView(v []string) *PhotosEditAlbumBuilder{
+func (b *PhotosEditAlbumBuilder) PrivacyView(v []string) *PhotosEditAlbumBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
 // PrivacyComment parameter
-func (b *PhotosEditAlbumBuilder) PrivacyComment(v []string) *PhotosEditAlbumBuilder{
+func (b *PhotosEditAlbumBuilder) PrivacyComment(v []string) *PhotosEditAlbumBuilder {
 	b.Params["privacy_comment"] = v
 	return b
 }
 
 // UploadByAdminsOnly parameter
-func (b *PhotosEditAlbumBuilder) UploadByAdminsOnly(v bool) *PhotosEditAlbumBuilder{
+func (b *PhotosEditAlbumBuilder) UploadByAdminsOnly(v bool) *PhotosEditAlbumBuilder {
 	b.Params["upload_by_admins_only"] = v
 	return b
 }
 
 // CommentsDisabled parameter
-func (b *PhotosEditAlbumBuilder) CommentsDisabled(v bool) *PhotosEditAlbumBuilder{
+func (b *PhotosEditAlbumBuilder) CommentsDisabled(v bool) *PhotosEditAlbumBuilder {
 	b.Params["comments_disabled"] = v
 	return b
 }
@@ -428,19 +428,19 @@ func NewPhotosEditCommentBuilder() *PhotosEditCommentBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosEditCommentBuilder) OwnerID(v int) *PhotosEditCommentBuilder{
+func (b *PhotosEditCommentBuilder) OwnerID(v int) *PhotosEditCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // CommentID Comment ID.
-func (b *PhotosEditCommentBuilder) CommentID(v int) *PhotosEditCommentBuilder{
+func (b *PhotosEditCommentBuilder) CommentID(v int) *PhotosEditCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
 // Message New text of the comment.
-func (b *PhotosEditCommentBuilder) Message(v string) *PhotosEditCommentBuilder{
+func (b *PhotosEditCommentBuilder) Message(v string) *PhotosEditCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
@@ -462,7 +462,7 @@ func (b *PhotosEditCommentBuilder) Message(v string) *PhotosEditCommentBuilder{
 //
 // * '<media_id>' — Media attachment ID.
 // Example: photo100172_166443618,photo66748_265827614
-func (b *PhotosEditCommentBuilder) Attachments(v []string) *PhotosEditCommentBuilder{
+func (b *PhotosEditCommentBuilder) Attachments(v []string) *PhotosEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -483,20 +483,20 @@ func NewPhotosGetBuilder() *PhotosGetBuilder {
 
 // OwnerID ID of the user or community that owns the photos.
 // Use a negative value to designate a community ID.
-func (b *PhotosGetBuilder) OwnerID(v int) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) OwnerID(v int) *PhotosGetBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // AlbumID Photo album ID.
 // To return information about photos from service albums, use the following string values: 'profile, wall, saved'.
-func (b *PhotosGetBuilder) AlbumID(v string) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) AlbumID(v string) *PhotosGetBuilder {
 	b.Params["album_id"] = v
 	return b
 }
 
 // PhotoIDs Photo IDs.
-func (b *PhotosGetBuilder) PhotoIDs(v []string) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) PhotoIDs(v []string) *PhotosGetBuilder {
 	b.Params["photo_ids"] = v
 	return b
 }
@@ -506,25 +506,25 @@ func (b *PhotosGetBuilder) PhotoIDs(v []string) *PhotosGetBuilder{
 // * '1' — reverse chronological
 //
 // * '0' — chronological
-func (b *PhotosGetBuilder) Rev(v bool) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) Rev(v bool) *PhotosGetBuilder {
 	b.Params["rev"] = v
 	return b
 }
 
-// Extended parameter 
+// Extended parameter
 //
 // * '1' — to return additional 'likes'
 //
 // *  'comments', and 'tags' fields
 //
 // * '0' — (default)
-func (b *PhotosGetBuilder) Extended(v bool) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) Extended(v bool) *PhotosGetBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
 // FeedType Type of feed obtained in 'feed' field of the method.
-func (b *PhotosGetBuilder) FeedType(v string) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) FeedType(v string) *PhotosGetBuilder {
 	b.Params["feed_type"] = v
 	return b
 }
@@ -533,27 +533,27 @@ func (b *PhotosGetBuilder) FeedType(v string) *PhotosGetBuilder{
 // Also
 //
 // *  'uid' parameter of the user the event happened with shall be specified.
-func (b *PhotosGetBuilder) Feed(v int) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) Feed(v int) *PhotosGetBuilder {
 	b.Params["feed"] = v
 	return b
 }
 
-// PhotoSizes parameter 
+// PhotoSizes parameter
 //
 // * '1' — to return photo sizes in a [vk.com/dev/photo_sizes|special format]
-func (b *PhotosGetBuilder) PhotoSizes(v bool) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) PhotoSizes(v bool) *PhotosGetBuilder {
 	b.Params["photo_sizes"] = v
 	return b
 }
 
 // Offset parameter
-func (b *PhotosGetBuilder) Offset(v int) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) Offset(v int) *PhotosGetBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count parameter
-func (b *PhotosGetBuilder) Count(v int) *PhotosGetBuilder{
+func (b *PhotosGetBuilder) Count(v int) *PhotosGetBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -573,51 +573,51 @@ func NewPhotosGetAlbumsBuilder() *PhotosGetAlbumsBuilder {
 }
 
 // OwnerID ID of the user or community that owns the albums.
-func (b *PhotosGetAlbumsBuilder) OwnerID(v int) *PhotosGetAlbumsBuilder{
+func (b *PhotosGetAlbumsBuilder) OwnerID(v int) *PhotosGetAlbumsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // AlbumIDs Album IDs.
-func (b *PhotosGetAlbumsBuilder) AlbumIDs(v []int) *PhotosGetAlbumsBuilder{
+func (b *PhotosGetAlbumsBuilder) AlbumIDs(v []int) *PhotosGetAlbumsBuilder {
 	b.Params["album_ids"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of albums.
-func (b *PhotosGetAlbumsBuilder) Offset(v int) *PhotosGetAlbumsBuilder{
+func (b *PhotosGetAlbumsBuilder) Offset(v int) *PhotosGetAlbumsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of albums to return.
-func (b *PhotosGetAlbumsBuilder) Count(v int) *PhotosGetAlbumsBuilder{
+func (b *PhotosGetAlbumsBuilder) Count(v int) *PhotosGetAlbumsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// NeedSystem parameter 
+// NeedSystem parameter
 //
 // * '1' — to return system albums with negative IDs
-func (b *PhotosGetAlbumsBuilder) NeedSystem(v bool) *PhotosGetAlbumsBuilder{
+func (b *PhotosGetAlbumsBuilder) NeedSystem(v bool) *PhotosGetAlbumsBuilder {
 	b.Params["need_system"] = v
 	return b
 }
 
-// NeedCovers parameter 
+// NeedCovers parameter
 //
 // * '1' — to return an additional 'thumb_src' field
 //
 // * '0' — (default)
-func (b *PhotosGetAlbumsBuilder) NeedCovers(v bool) *PhotosGetAlbumsBuilder{
+func (b *PhotosGetAlbumsBuilder) NeedCovers(v bool) *PhotosGetAlbumsBuilder {
 	b.Params["need_covers"] = v
 	return b
 }
 
-// PhotoSizes parameter 
+// PhotoSizes parameter
 //
 // * '1' — to return photo sizes in a
-func (b *PhotosGetAlbumsBuilder) PhotoSizes(v bool) *PhotosGetAlbumsBuilder{
+func (b *PhotosGetAlbumsBuilder) PhotoSizes(v bool) *PhotosGetAlbumsBuilder {
 	b.Params["photo_sizes"] = v
 	return b
 }
@@ -637,13 +637,13 @@ func NewPhotosGetAlbumsCountBuilder() *PhotosGetAlbumsCountBuilder {
 }
 
 // UserID User ID.
-func (b *PhotosGetAlbumsCountBuilder) UserID(v int) *PhotosGetAlbumsCountBuilder{
+func (b *PhotosGetAlbumsCountBuilder) UserID(v int) *PhotosGetAlbumsCountBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
 // GroupID Community ID.
-func (b *PhotosGetAlbumsCountBuilder) GroupID(v int) *PhotosGetAlbumsCountBuilder{
+func (b *PhotosGetAlbumsCountBuilder) GroupID(v int) *PhotosGetAlbumsCountBuilder {
 	b.Params["group_id"] = v
 	return b
 }
@@ -664,15 +664,15 @@ func NewPhotosGetAllBuilder() *PhotosGetAllBuilder {
 
 // OwnerID ID of a user or community that owns the photos.
 // Use a negative value to designate a community ID.
-func (b *PhotosGetAllBuilder) OwnerID(v int) *PhotosGetAllBuilder{
+func (b *PhotosGetAllBuilder) OwnerID(v int) *PhotosGetAllBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// Extended parameter 
+// Extended parameter
 //
 // * '1' — to return detailed information about photos
-func (b *PhotosGetAllBuilder) Extended(v bool) *PhotosGetAllBuilder{
+func (b *PhotosGetAllBuilder) Extended(v bool) *PhotosGetAllBuilder {
 	b.Params["extended"] = v
 	return b
 }
@@ -680,50 +680,50 @@ func (b *PhotosGetAllBuilder) Extended(v bool) *PhotosGetAllBuilder{
 // Offset Offset needed to return a specific subset of photos.
 //
 // By default: '0'.
-func (b *PhotosGetAllBuilder) Offset(v int) *PhotosGetAllBuilder{
+func (b *PhotosGetAllBuilder) Offset(v int) *PhotosGetAllBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of photos to return.
-func (b *PhotosGetAllBuilder) Count(v int) *PhotosGetAllBuilder{
+func (b *PhotosGetAllBuilder) Count(v int) *PhotosGetAllBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// PhotoSizes parameter 
+// PhotoSizes parameter
 //
 // * '1' – to return image sizes in [vk.com/dev/photo_sizes|special format].
-func (b *PhotosGetAllBuilder) PhotoSizes(v bool) *PhotosGetAllBuilder{
+func (b *PhotosGetAllBuilder) PhotoSizes(v bool) *PhotosGetAllBuilder {
 	b.Params["photo_sizes"] = v
 	return b
 }
 
-// NoServiceAlbums parameter 
+// NoServiceAlbums parameter
 //
 // * '1' – to return photos only from standard albums
 //
 // * '0' – to return all photos including those in service albums, e.g.
 //
 // *  'My wall photos' (default)
-func (b *PhotosGetAllBuilder) NoServiceAlbums(v bool) *PhotosGetAllBuilder{
+func (b *PhotosGetAllBuilder) NoServiceAlbums(v bool) *PhotosGetAllBuilder {
 	b.Params["no_service_albums"] = v
 	return b
 }
 
-// NeedHidden parameter 
+// NeedHidden parameter
 //
 // * '1' – to show information about photos being hidden from the block above the wall.
-func (b *PhotosGetAllBuilder) NeedHidden(v bool) *PhotosGetAllBuilder{
+func (b *PhotosGetAllBuilder) NeedHidden(v bool) *PhotosGetAllBuilder {
 	b.Params["need_hidden"] = v
 	return b
 }
 
-// SkipHidden parameter 
+// SkipHidden parameter
 //
 // * '1' – not to return photos being hidden from the block above the wall.
 // Works only with owner_id>0, no_service_albums is ignored.
-func (b *PhotosGetAllBuilder) SkipHidden(v bool) *PhotosGetAllBuilder{
+func (b *PhotosGetAllBuilder) SkipHidden(v bool) *PhotosGetAllBuilder {
 	b.Params["skip_hidden"] = v
 	return b
 }
@@ -743,24 +743,24 @@ func NewPhotosGetAllCommentsBuilder() *PhotosGetAllCommentsBuilder {
 }
 
 // OwnerID ID of the user or community that owns the album(s).
-func (b *PhotosGetAllCommentsBuilder) OwnerID(v int) *PhotosGetAllCommentsBuilder{
+func (b *PhotosGetAllCommentsBuilder) OwnerID(v int) *PhotosGetAllCommentsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // AlbumID Album ID.
 // If the parameter is not set, comments on all of the user's albums will be returned.
-func (b *PhotosGetAllCommentsBuilder) AlbumID(v int) *PhotosGetAllCommentsBuilder{
+func (b *PhotosGetAllCommentsBuilder) AlbumID(v int) *PhotosGetAllCommentsBuilder {
 	b.Params["album_id"] = v
 	return b
 }
 
-// NeedLikes parameter 
+// NeedLikes parameter
 //
 // * '1' — to return an additional 'likes' field
 //
 // * '0' — (default)
-func (b *PhotosGetAllCommentsBuilder) NeedLikes(v bool) *PhotosGetAllCommentsBuilder{
+func (b *PhotosGetAllCommentsBuilder) NeedLikes(v bool) *PhotosGetAllCommentsBuilder {
 	b.Params["need_likes"] = v
 	return b
 }
@@ -768,7 +768,7 @@ func (b *PhotosGetAllCommentsBuilder) NeedLikes(v bool) *PhotosGetAllCommentsBui
 // Offset Offset needed to return a specific subset of comments.
 //
 // By default: '0'.
-func (b *PhotosGetAllCommentsBuilder) Offset(v int) *PhotosGetAllCommentsBuilder{
+func (b *PhotosGetAllCommentsBuilder) Offset(v int) *PhotosGetAllCommentsBuilder {
 	b.Params["offset"] = v
 	return b
 }
@@ -778,7 +778,7 @@ func (b *PhotosGetAllCommentsBuilder) Offset(v int) *PhotosGetAllCommentsBuilder
 // By default: '20'.
 //
 // Maximum value: '100'.
-func (b *PhotosGetAllCommentsBuilder) Count(v int) *PhotosGetAllCommentsBuilder{
+func (b *PhotosGetAllCommentsBuilder) Count(v int) *PhotosGetAllCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -799,25 +799,25 @@ func NewPhotosGetByIDBuilder() *PhotosGetByIDBuilder {
 
 // Photos IDs separated with a comma, that are IDs of users who posted photos and IDs of photos themselves with an underscore character between such IDs. To get information about a photo in the group album, you shall specify group ID instead of user ID.
 // Example: 1_129207899,6492_135055734 -20629724_271945303
-func (b *PhotosGetByIDBuilder) Photos(v []string) *PhotosGetByIDBuilder{
+func (b *PhotosGetByIDBuilder) Photos(v []string) *PhotosGetByIDBuilder {
 	b.Params["photos"] = v
 	return b
 }
 
-// Extended parameter 
+// Extended parameter
 //
 // * '1' — to return additional fields
 //
 // * '0' — (default)
-func (b *PhotosGetByIDBuilder) Extended(v bool) *PhotosGetByIDBuilder{
+func (b *PhotosGetByIDBuilder) Extended(v bool) *PhotosGetByIDBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// PhotoSizes parameter 
+// PhotoSizes parameter
 //
 // * '1' — to return photo sizes in a
-func (b *PhotosGetByIDBuilder) PhotoSizes(v bool) *PhotosGetByIDBuilder{
+func (b *PhotosGetByIDBuilder) PhotoSizes(v bool) *PhotosGetByIDBuilder {
 	b.Params["photo_sizes"] = v
 	return b
 }
@@ -837,25 +837,25 @@ func NewPhotosGetChatUploadServerBuilder() *PhotosGetChatUploadServerBuilder {
 }
 
 // ChatID ID of the chat for which you want to upload a cover photo.
-func (b *PhotosGetChatUploadServerBuilder) ChatID(v int) *PhotosGetChatUploadServerBuilder{
+func (b *PhotosGetChatUploadServerBuilder) ChatID(v int) *PhotosGetChatUploadServerBuilder {
 	b.Params["chat_id"] = v
 	return b
 }
 
 // CropX parameter
-func (b *PhotosGetChatUploadServerBuilder) CropX(v int) *PhotosGetChatUploadServerBuilder{
+func (b *PhotosGetChatUploadServerBuilder) CropX(v int) *PhotosGetChatUploadServerBuilder {
 	b.Params["crop_x"] = v
 	return b
 }
 
 // CropY parameter
-func (b *PhotosGetChatUploadServerBuilder) CropY(v int) *PhotosGetChatUploadServerBuilder{
+func (b *PhotosGetChatUploadServerBuilder) CropY(v int) *PhotosGetChatUploadServerBuilder {
 	b.Params["crop_y"] = v
 	return b
 }
 
 // CropWidth Width (in pixels) of the photo after cropping.
-func (b *PhotosGetChatUploadServerBuilder) CropWidth(v int) *PhotosGetChatUploadServerBuilder{
+func (b *PhotosGetChatUploadServerBuilder) CropWidth(v int) *PhotosGetChatUploadServerBuilder {
 	b.Params["crop_width"] = v
 	return b
 }
@@ -875,29 +875,29 @@ func NewPhotosGetCommentsBuilder() *PhotosGetCommentsBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosGetCommentsBuilder) OwnerID(v int) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) OwnerID(v int) *PhotosGetCommentsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosGetCommentsBuilder) PhotoID(v int) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) PhotoID(v int) *PhotosGetCommentsBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
-// NeedLikes parameter 
+// NeedLikes parameter
 //
 // * '1' — to return an additional 'likes' field
 //
 // * '0' — (default)
-func (b *PhotosGetCommentsBuilder) NeedLikes(v bool) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) NeedLikes(v bool) *PhotosGetCommentsBuilder {
 	b.Params["need_likes"] = v
 	return b
 }
 
 // StartCommentID parameter
-func (b *PhotosGetCommentsBuilder) StartCommentID(v int) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) StartCommentID(v int) *PhotosGetCommentsBuilder {
 	b.Params["start_comment_id"] = v
 	return b
 }
@@ -905,13 +905,13 @@ func (b *PhotosGetCommentsBuilder) StartCommentID(v int) *PhotosGetCommentsBuild
 // Offset Offset needed to return a specific subset of comments.
 //
 // By default: '0'.
-func (b *PhotosGetCommentsBuilder) Offset(v int) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) Offset(v int) *PhotosGetCommentsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of comments to return.
-func (b *PhotosGetCommentsBuilder) Count(v int) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) Count(v int) *PhotosGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -921,25 +921,25 @@ func (b *PhotosGetCommentsBuilder) Count(v int) *PhotosGetCommentsBuilder{
 // * 'asc' — old first
 //
 // * 'desc' — new first
-func (b *PhotosGetCommentsBuilder) Sort(v string) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) Sort(v string) *PhotosGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
 // AccessKey parameter
-func (b *PhotosGetCommentsBuilder) AccessKey(v string) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) AccessKey(v string) *PhotosGetCommentsBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
 // Extended parameter
-func (b *PhotosGetCommentsBuilder) Extended(v bool) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) Extended(v bool) *PhotosGetCommentsBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
 // Fields parameter
-func (b *PhotosGetCommentsBuilder) Fields(v []string) *PhotosGetCommentsBuilder{
+func (b *PhotosGetCommentsBuilder) Fields(v []string) *PhotosGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
 }
@@ -959,7 +959,7 @@ func NewPhotosGetMarketAlbumUploadServerBuilder() *PhotosGetMarketAlbumUploadSer
 }
 
 // GroupID Community ID.
-func (b *PhotosGetMarketAlbumUploadServerBuilder) GroupID(v int) *PhotosGetMarketAlbumUploadServerBuilder{
+func (b *PhotosGetMarketAlbumUploadServerBuilder) GroupID(v int) *PhotosGetMarketAlbumUploadServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
@@ -979,31 +979,31 @@ func NewPhotosGetMarketUploadServerBuilder() *PhotosGetMarketUploadServerBuilder
 }
 
 // GroupID Community ID.
-func (b *PhotosGetMarketUploadServerBuilder) GroupID(v int) *PhotosGetMarketUploadServerBuilder{
+func (b *PhotosGetMarketUploadServerBuilder) GroupID(v int) *PhotosGetMarketUploadServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // MainPhoto parameter '1' if you want to upload the main item photo.
-func (b *PhotosGetMarketUploadServerBuilder) MainPhoto(v bool) *PhotosGetMarketUploadServerBuilder{
+func (b *PhotosGetMarketUploadServerBuilder) MainPhoto(v bool) *PhotosGetMarketUploadServerBuilder {
 	b.Params["main_photo"] = v
 	return b
 }
 
 // CropX X coordinate of the crop left upper corner.
-func (b *PhotosGetMarketUploadServerBuilder) CropX(v int) *PhotosGetMarketUploadServerBuilder{
+func (b *PhotosGetMarketUploadServerBuilder) CropX(v int) *PhotosGetMarketUploadServerBuilder {
 	b.Params["crop_x"] = v
 	return b
 }
 
 // CropY Y coordinate of the crop left upper corner.
-func (b *PhotosGetMarketUploadServerBuilder) CropY(v int) *PhotosGetMarketUploadServerBuilder{
+func (b *PhotosGetMarketUploadServerBuilder) CropY(v int) *PhotosGetMarketUploadServerBuilder {
 	b.Params["crop_y"] = v
 	return b
 }
 
 // CropWidth Width of the cropped photo in px.
-func (b *PhotosGetMarketUploadServerBuilder) CropWidth(v int) *PhotosGetMarketUploadServerBuilder{
+func (b *PhotosGetMarketUploadServerBuilder) CropWidth(v int) *PhotosGetMarketUploadServerBuilder {
 	b.Params["crop_width"] = v
 	return b
 }
@@ -1032,7 +1032,7 @@ func NewPhotosGetMessagesUploadServerBuilder() *PhotosGetMessagesUploadServerBui
 // For community
 //
 // *  '- Community ID', e.g. '-12345'.
-func (b *PhotosGetMessagesUploadServerBuilder) PeerID(v int) *PhotosGetMessagesUploadServerBuilder{
+func (b *PhotosGetMessagesUploadServerBuilder) PeerID(v int) *PhotosGetMessagesUploadServerBuilder {
 	b.Params["peer_id"] = v
 	return b
 }
@@ -1052,13 +1052,13 @@ func NewPhotosGetNewTagsBuilder() *PhotosGetNewTagsBuilder {
 }
 
 // Offset Offset needed to return a specific subset of photos.
-func (b *PhotosGetNewTagsBuilder) Offset(v int) *PhotosGetNewTagsBuilder{
+func (b *PhotosGetNewTagsBuilder) Offset(v int) *PhotosGetNewTagsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of photos to return.
-func (b *PhotosGetNewTagsBuilder) Count(v int) *PhotosGetNewTagsBuilder{
+func (b *PhotosGetNewTagsBuilder) Count(v int) *PhotosGetNewTagsBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -1078,31 +1078,31 @@ func NewPhotosGetOwnerCoverPhotoUploadServerBuilder() *PhotosGetOwnerCoverPhotoU
 }
 
 // GroupID ID of community that owns the album (if the photo will be uploaded to a community album).
-func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) GroupID(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder{
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) GroupID(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // CropX X coordinate of the left-upper corner
-func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropX(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder{
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropX(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	b.Params["crop_x"] = v
 	return b
 }
 
 // CropY Y coordinate of the left-upper corner
-func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropY(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder{
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropY(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	b.Params["crop_y"] = v
 	return b
 }
 
 // CropX2 X coordinate of the right-bottom corner
-func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropX2(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder{
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropX2(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	b.Params["crop_x2"] = v
 	return b
 }
 
 // CropY2 Y coordinate of the right-bottom corner
-func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropY2(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder{
+func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropY2(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	b.Params["crop_y2"] = v
 	return b
 }
@@ -1127,8 +1127,8 @@ func NewPhotosGetOwnerPhotoUploadServerBuilder() *PhotosGetOwnerPhotoUploadServe
 //
 // * 'owner_id=1' – user
 //
-// * 'owner_id=-1' – community, 
-func (b *PhotosGetOwnerPhotoUploadServerBuilder) OwnerID(v int) *PhotosGetOwnerPhotoUploadServerBuilder{
+// * 'owner_id=-1' – community,
+func (b *PhotosGetOwnerPhotoUploadServerBuilder) OwnerID(v int) *PhotosGetOwnerPhotoUploadServerBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
@@ -1148,19 +1148,19 @@ func NewPhotosGetTagsBuilder() *PhotosGetTagsBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosGetTagsBuilder) OwnerID(v int) *PhotosGetTagsBuilder{
+func (b *PhotosGetTagsBuilder) OwnerID(v int) *PhotosGetTagsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosGetTagsBuilder) PhotoID(v int) *PhotosGetTagsBuilder{
+func (b *PhotosGetTagsBuilder) PhotoID(v int) *PhotosGetTagsBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
 // AccessKey parameter
-func (b *PhotosGetTagsBuilder) AccessKey(v string) *PhotosGetTagsBuilder{
+func (b *PhotosGetTagsBuilder) AccessKey(v string) *PhotosGetTagsBuilder {
 	b.Params["access_key"] = v
 	return b
 }
@@ -1180,13 +1180,13 @@ func NewPhotosGetUploadServerBuilder() *PhotosGetUploadServerBuilder {
 }
 
 // GroupID ID of community that owns the album (if the photo will be uploaded to a community album).
-func (b *PhotosGetUploadServerBuilder) GroupID(v int) *PhotosGetUploadServerBuilder{
+func (b *PhotosGetUploadServerBuilder) GroupID(v int) *PhotosGetUploadServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // AlbumID parameter
-func (b *PhotosGetUploadServerBuilder) AlbumID(v int) *PhotosGetUploadServerBuilder{
+func (b *PhotosGetUploadServerBuilder) AlbumID(v int) *PhotosGetUploadServerBuilder {
 	b.Params["album_id"] = v
 	return b
 }
@@ -1206,7 +1206,7 @@ func NewPhotosGetUserPhotosBuilder() *PhotosGetUserPhotosBuilder {
 }
 
 // UserID User ID.
-func (b *PhotosGetUserPhotosBuilder) UserID(v int) *PhotosGetUserPhotosBuilder{
+func (b *PhotosGetUserPhotosBuilder) UserID(v int) *PhotosGetUserPhotosBuilder {
 	b.Params["user_id"] = v
 	return b
 }
@@ -1214,7 +1214,7 @@ func (b *PhotosGetUserPhotosBuilder) UserID(v int) *PhotosGetUserPhotosBuilder{
 // Offset Offset needed to return a specific subset of photos.
 //
 // By default: '0'.
-func (b *PhotosGetUserPhotosBuilder) Offset(v int) *PhotosGetUserPhotosBuilder{
+func (b *PhotosGetUserPhotosBuilder) Offset(v int) *PhotosGetUserPhotosBuilder {
 	b.Params["offset"] = v
 	return b
 }
@@ -1222,17 +1222,17 @@ func (b *PhotosGetUserPhotosBuilder) Offset(v int) *PhotosGetUserPhotosBuilder{
 // Count Number of photos to return.
 //
 // Maximum value is 1000.
-func (b *PhotosGetUserPhotosBuilder) Count(v int) *PhotosGetUserPhotosBuilder{
+func (b *PhotosGetUserPhotosBuilder) Count(v int) *PhotosGetUserPhotosBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Extended parameter 
+// Extended parameter
 //
 // * '1' — to return an additional 'likes' field
 //
 // * '0' — (default)
-func (b *PhotosGetUserPhotosBuilder) Extended(v bool) *PhotosGetUserPhotosBuilder{
+func (b *PhotosGetUserPhotosBuilder) Extended(v bool) *PhotosGetUserPhotosBuilder {
 	b.Params["extended"] = v
 	return b
 }
@@ -1242,7 +1242,7 @@ func (b *PhotosGetUserPhotosBuilder) Extended(v bool) *PhotosGetUserPhotosBuilde
 // * '1' — by date the tag was added in ascending order
 //
 // * '0' — by date the tag was added in descending order
-func (b *PhotosGetUserPhotosBuilder) Sort(v string) *PhotosGetUserPhotosBuilder{
+func (b *PhotosGetUserPhotosBuilder) Sort(v string) *PhotosGetUserPhotosBuilder {
 	b.Params["sort"] = v
 	return b
 }
@@ -1262,7 +1262,7 @@ func NewPhotosGetWallUploadServerBuilder() *PhotosGetWallUploadServerBuilder {
 }
 
 // GroupID ID of community to whose wall the photo will be uploaded.
-func (b *PhotosGetWallUploadServerBuilder) GroupID(v int) *PhotosGetWallUploadServerBuilder{
+func (b *PhotosGetWallUploadServerBuilder) GroupID(v int) *PhotosGetWallUploadServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
@@ -1282,19 +1282,19 @@ func NewPhotosMakeCoverBuilder() *PhotosMakeCoverBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosMakeCoverBuilder) OwnerID(v int) *PhotosMakeCoverBuilder{
+func (b *PhotosMakeCoverBuilder) OwnerID(v int) *PhotosMakeCoverBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosMakeCoverBuilder) PhotoID(v int) *PhotosMakeCoverBuilder{
+func (b *PhotosMakeCoverBuilder) PhotoID(v int) *PhotosMakeCoverBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
 // AlbumID Album ID.
-func (b *PhotosMakeCoverBuilder) AlbumID(v int) *PhotosMakeCoverBuilder{
+func (b *PhotosMakeCoverBuilder) AlbumID(v int) *PhotosMakeCoverBuilder {
 	b.Params["album_id"] = v
 	return b
 }
@@ -1314,19 +1314,19 @@ func NewPhotosMoveBuilder() *PhotosMoveBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosMoveBuilder) OwnerID(v int) *PhotosMoveBuilder{
+func (b *PhotosMoveBuilder) OwnerID(v int) *PhotosMoveBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // TargetAlbumID ID of the album to which the photo will be moved.
-func (b *PhotosMoveBuilder) TargetAlbumID(v int) *PhotosMoveBuilder{
+func (b *PhotosMoveBuilder) TargetAlbumID(v int) *PhotosMoveBuilder {
 	b.Params["target_album_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosMoveBuilder) PhotoID(v int) *PhotosMoveBuilder{
+func (b *PhotosMoveBuilder) PhotoID(v int) *PhotosMoveBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
@@ -1346,43 +1346,43 @@ func NewPhotosPutTagBuilder() *PhotosPutTagBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosPutTagBuilder) OwnerID(v int) *PhotosPutTagBuilder{
+func (b *PhotosPutTagBuilder) OwnerID(v int) *PhotosPutTagBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosPutTagBuilder) PhotoID(v int) *PhotosPutTagBuilder{
+func (b *PhotosPutTagBuilder) PhotoID(v int) *PhotosPutTagBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
 // UserID ID of the user to be tagged.
-func (b *PhotosPutTagBuilder) UserID(v int) *PhotosPutTagBuilder{
+func (b *PhotosPutTagBuilder) UserID(v int) *PhotosPutTagBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
 // X Upper left-corner coordinate of the tagged area (as a percentage of the photo's width).
-func (b *PhotosPutTagBuilder) X(v float64) *PhotosPutTagBuilder{
+func (b *PhotosPutTagBuilder) X(v float64) *PhotosPutTagBuilder {
 	b.Params["x"] = v
 	return b
 }
 
 // Y Upper left-corner coordinate of the tagged area (as a percentage of the photo's height).
-func (b *PhotosPutTagBuilder) Y(v float64) *PhotosPutTagBuilder{
+func (b *PhotosPutTagBuilder) Y(v float64) *PhotosPutTagBuilder {
 	b.Params["y"] = v
 	return b
 }
 
 // X2 Lower right-corner coordinate of the tagged area (as a percentage of the photo's width).
-func (b *PhotosPutTagBuilder) X2(v float64) *PhotosPutTagBuilder{
+func (b *PhotosPutTagBuilder) X2(v float64) *PhotosPutTagBuilder {
 	b.Params["x2"] = v
 	return b
 }
 
 // Y2 Lower right-corner coordinate of the tagged area (as a percentage of the photo's height).
-func (b *PhotosPutTagBuilder) Y2(v float64) *PhotosPutTagBuilder{
+func (b *PhotosPutTagBuilder) Y2(v float64) *PhotosPutTagBuilder {
 	b.Params["y2"] = v
 	return b
 }
@@ -1402,19 +1402,19 @@ func NewPhotosRemoveTagBuilder() *PhotosRemoveTagBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosRemoveTagBuilder) OwnerID(v int) *PhotosRemoveTagBuilder{
+func (b *PhotosRemoveTagBuilder) OwnerID(v int) *PhotosRemoveTagBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosRemoveTagBuilder) PhotoID(v int) *PhotosRemoveTagBuilder{
+func (b *PhotosRemoveTagBuilder) PhotoID(v int) *PhotosRemoveTagBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
 // TagID Tag ID.
-func (b *PhotosRemoveTagBuilder) TagID(v int) *PhotosRemoveTagBuilder{
+func (b *PhotosRemoveTagBuilder) TagID(v int) *PhotosRemoveTagBuilder {
 	b.Params["tag_id"] = v
 	return b
 }
@@ -1434,25 +1434,25 @@ func NewPhotosReorderAlbumsBuilder() *PhotosReorderAlbumsBuilder {
 }
 
 // OwnerID ID of the user or community that owns the album.
-func (b *PhotosReorderAlbumsBuilder) OwnerID(v int) *PhotosReorderAlbumsBuilder{
+func (b *PhotosReorderAlbumsBuilder) OwnerID(v int) *PhotosReorderAlbumsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // AlbumID Album ID.
-func (b *PhotosReorderAlbumsBuilder) AlbumID(v int) *PhotosReorderAlbumsBuilder{
+func (b *PhotosReorderAlbumsBuilder) AlbumID(v int) *PhotosReorderAlbumsBuilder {
 	b.Params["album_id"] = v
 	return b
 }
 
 // Before ID of the album before which the album in question shall be placed.
-func (b *PhotosReorderAlbumsBuilder) Before(v int) *PhotosReorderAlbumsBuilder{
+func (b *PhotosReorderAlbumsBuilder) Before(v int) *PhotosReorderAlbumsBuilder {
 	b.Params["before"] = v
 	return b
 }
 
 // After ID of the album after which the album in question shall be placed.
-func (b *PhotosReorderAlbumsBuilder) After(v int) *PhotosReorderAlbumsBuilder{
+func (b *PhotosReorderAlbumsBuilder) After(v int) *PhotosReorderAlbumsBuilder {
 	b.Params["after"] = v
 	return b
 }
@@ -1472,25 +1472,25 @@ func NewPhotosReorderPhotosBuilder() *PhotosReorderPhotosBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosReorderPhotosBuilder) OwnerID(v int) *PhotosReorderPhotosBuilder{
+func (b *PhotosReorderPhotosBuilder) OwnerID(v int) *PhotosReorderPhotosBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosReorderPhotosBuilder) PhotoID(v int) *PhotosReorderPhotosBuilder{
+func (b *PhotosReorderPhotosBuilder) PhotoID(v int) *PhotosReorderPhotosBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
 // Before ID of the photo before which the photo in question shall be placed.
-func (b *PhotosReorderPhotosBuilder) Before(v int) *PhotosReorderPhotosBuilder{
+func (b *PhotosReorderPhotosBuilder) Before(v int) *PhotosReorderPhotosBuilder {
 	b.Params["before"] = v
 	return b
 }
 
 // After ID of the photo after which the photo in question shall be placed.
-func (b *PhotosReorderPhotosBuilder) After(v int) *PhotosReorderPhotosBuilder{
+func (b *PhotosReorderPhotosBuilder) After(v int) *PhotosReorderPhotosBuilder {
 	b.Params["after"] = v
 	return b
 }
@@ -1510,13 +1510,13 @@ func NewPhotosReportBuilder() *PhotosReportBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosReportBuilder) OwnerID(v int) *PhotosReportBuilder{
+func (b *PhotosReportBuilder) OwnerID(v int) *PhotosReportBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosReportBuilder) PhotoID(v int) *PhotosReportBuilder{
+func (b *PhotosReportBuilder) PhotoID(v int) *PhotosReportBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
@@ -1536,7 +1536,7 @@ func (b *PhotosReportBuilder) PhotoID(v int) *PhotosReportBuilder{
 // * '5' – adult material
 //
 // * '6' – insult, abuse
-func (b *PhotosReportBuilder) Reason(v int) *PhotosReportBuilder{
+func (b *PhotosReportBuilder) Reason(v int) *PhotosReportBuilder {
 	b.Params["reason"] = v
 	return b
 }
@@ -1556,13 +1556,13 @@ func NewPhotosReportCommentBuilder() *PhotosReportCommentBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosReportCommentBuilder) OwnerID(v int) *PhotosReportCommentBuilder{
+func (b *PhotosReportCommentBuilder) OwnerID(v int) *PhotosReportCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // CommentID ID of the comment being reported.
-func (b *PhotosReportCommentBuilder) CommentID(v int) *PhotosReportCommentBuilder{
+func (b *PhotosReportCommentBuilder) CommentID(v int) *PhotosReportCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
@@ -1582,7 +1582,7 @@ func (b *PhotosReportCommentBuilder) CommentID(v int) *PhotosReportCommentBuilde
 // * '5' – adult material
 //
 // * '6' – insult, abuse
-func (b *PhotosReportCommentBuilder) Reason(v int) *PhotosReportCommentBuilder{
+func (b *PhotosReportCommentBuilder) Reason(v int) *PhotosReportCommentBuilder {
 	b.Params["reason"] = v
 	return b
 }
@@ -1602,13 +1602,13 @@ func NewPhotosRestoreBuilder() *PhotosRestoreBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosRestoreBuilder) OwnerID(v int) *PhotosRestoreBuilder{
+func (b *PhotosRestoreBuilder) OwnerID(v int) *PhotosRestoreBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // PhotoID Photo ID.
-func (b *PhotosRestoreBuilder) PhotoID(v int) *PhotosRestoreBuilder{
+func (b *PhotosRestoreBuilder) PhotoID(v int) *PhotosRestoreBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
@@ -1628,13 +1628,13 @@ func NewPhotosRestoreCommentBuilder() *PhotosRestoreCommentBuilder {
 }
 
 // OwnerID ID of the user or community that owns the photo.
-func (b *PhotosRestoreCommentBuilder) OwnerID(v int) *PhotosRestoreCommentBuilder{
+func (b *PhotosRestoreCommentBuilder) OwnerID(v int) *PhotosRestoreCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // CommentID ID of the deleted comment.
-func (b *PhotosRestoreCommentBuilder) CommentID(v int) *PhotosRestoreCommentBuilder{
+func (b *PhotosRestoreCommentBuilder) CommentID(v int) *PhotosRestoreCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
@@ -1654,50 +1654,50 @@ func NewPhotosSaveBuilder() *PhotosSaveBuilder {
 }
 
 // AlbumID ID of the album to save photos to.
-func (b *PhotosSaveBuilder) AlbumID(v int) *PhotosSaveBuilder{
+func (b *PhotosSaveBuilder) AlbumID(v int) *PhotosSaveBuilder {
 	b.Params["album_id"] = v
 	return b
 }
 
 // GroupID ID of the community to save photos to.
-func (b *PhotosSaveBuilder) GroupID(v int) *PhotosSaveBuilder{
+func (b *PhotosSaveBuilder) GroupID(v int) *PhotosSaveBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // Server Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveBuilder) Server(v int) *PhotosSaveBuilder{
+func (b *PhotosSaveBuilder) Server(v int) *PhotosSaveBuilder {
 	b.Params["server"] = v
 	return b
 }
 
 // PhotosList Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveBuilder) PhotosList(v string) *PhotosSaveBuilder{
+func (b *PhotosSaveBuilder) PhotosList(v string) *PhotosSaveBuilder {
 	b.Params["photos_list"] = v
 	return b
 }
 
 // Hash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveBuilder) Hash(v string) *PhotosSaveBuilder{
+func (b *PhotosSaveBuilder) Hash(v string) *PhotosSaveBuilder {
 	b.Params["hash"] = v
 	return b
 }
 
 // Latitude Geographical latitude, in degrees (from '-90' to '90').
-func (b *PhotosSaveBuilder) Latitude(v float64) *PhotosSaveBuilder{
+func (b *PhotosSaveBuilder) Latitude(v float64) *PhotosSaveBuilder {
 	b.Params["latitude"] = v
 	return b
 }
 
 // Longitude Geographical longitude, in degrees (from '-180' to '180').
-func (b *PhotosSaveBuilder) Longitude(v float64) *PhotosSaveBuilder{
+func (b *PhotosSaveBuilder) Longitude(v float64) *PhotosSaveBuilder {
 	b.Params["longitude"] = v
 	return b
 }
 
 // Caption Text describing the photo.
 // 2048 digits max.
-func (b *PhotosSaveBuilder) Caption(v string) *PhotosSaveBuilder{
+func (b *PhotosSaveBuilder) Caption(v string) *PhotosSaveBuilder {
 	b.Params["caption"] = v
 	return b
 }
@@ -1717,25 +1717,25 @@ func NewPhotosSaveMarketAlbumPhotoBuilder() *PhotosSaveMarketAlbumPhotoBuilder {
 }
 
 // GroupID Community ID.
-func (b *PhotosSaveMarketAlbumPhotoBuilder) GroupID(v int) *PhotosSaveMarketAlbumPhotoBuilder{
+func (b *PhotosSaveMarketAlbumPhotoBuilder) GroupID(v int) *PhotosSaveMarketAlbumPhotoBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // Photo Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketAlbumPhotoBuilder) Photo(v string) *PhotosSaveMarketAlbumPhotoBuilder{
+func (b *PhotosSaveMarketAlbumPhotoBuilder) Photo(v string) *PhotosSaveMarketAlbumPhotoBuilder {
 	b.Params["photo"] = v
 	return b
 }
 
 // Server Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketAlbumPhotoBuilder) Server(v int) *PhotosSaveMarketAlbumPhotoBuilder{
+func (b *PhotosSaveMarketAlbumPhotoBuilder) Server(v int) *PhotosSaveMarketAlbumPhotoBuilder {
 	b.Params["server"] = v
 	return b
 }
 
 // Hash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketAlbumPhotoBuilder) Hash(v string) *PhotosSaveMarketAlbumPhotoBuilder{
+func (b *PhotosSaveMarketAlbumPhotoBuilder) Hash(v string) *PhotosSaveMarketAlbumPhotoBuilder {
 	b.Params["hash"] = v
 	return b
 }
@@ -1755,37 +1755,37 @@ func NewPhotosSaveMarketPhotoBuilder() *PhotosSaveMarketPhotoBuilder {
 }
 
 // GroupID Community ID.
-func (b *PhotosSaveMarketPhotoBuilder) GroupID(v int) *PhotosSaveMarketPhotoBuilder{
+func (b *PhotosSaveMarketPhotoBuilder) GroupID(v int) *PhotosSaveMarketPhotoBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // Photo Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBuilder) Photo(v string) *PhotosSaveMarketPhotoBuilder{
+func (b *PhotosSaveMarketPhotoBuilder) Photo(v string) *PhotosSaveMarketPhotoBuilder {
 	b.Params["photo"] = v
 	return b
 }
 
 // Server Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBuilder) Server(v int) *PhotosSaveMarketPhotoBuilder{
+func (b *PhotosSaveMarketPhotoBuilder) Server(v int) *PhotosSaveMarketPhotoBuilder {
 	b.Params["server"] = v
 	return b
 }
 
 // Hash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBuilder) Hash(v string) *PhotosSaveMarketPhotoBuilder{
+func (b *PhotosSaveMarketPhotoBuilder) Hash(v string) *PhotosSaveMarketPhotoBuilder {
 	b.Params["hash"] = v
 	return b
 }
 
 // CropData Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBuilder) CropData(v string) *PhotosSaveMarketPhotoBuilder{
+func (b *PhotosSaveMarketPhotoBuilder) CropData(v string) *PhotosSaveMarketPhotoBuilder {
 	b.Params["crop_data"] = v
 	return b
 }
 
 // CropHash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveMarketPhotoBuilder) CropHash(v string) *PhotosSaveMarketPhotoBuilder{
+func (b *PhotosSaveMarketPhotoBuilder) CropHash(v string) *PhotosSaveMarketPhotoBuilder {
 	b.Params["crop_hash"] = v
 	return b
 }
@@ -1806,19 +1806,19 @@ func NewPhotosSaveMessagesPhotoBuilder() *PhotosSaveMessagesPhotoBuilder {
 }
 
 // Photo Parameter returned when the photo is [vk.com/dev/upload_files|uploaded to the server].
-func (b *PhotosSaveMessagesPhotoBuilder) Photo(v string) *PhotosSaveMessagesPhotoBuilder{
+func (b *PhotosSaveMessagesPhotoBuilder) Photo(v string) *PhotosSaveMessagesPhotoBuilder {
 	b.Params["photo"] = v
 	return b
 }
 
 // Server parameter
-func (b *PhotosSaveMessagesPhotoBuilder) Server(v int) *PhotosSaveMessagesPhotoBuilder{
+func (b *PhotosSaveMessagesPhotoBuilder) Server(v int) *PhotosSaveMessagesPhotoBuilder {
 	b.Params["server"] = v
 	return b
 }
 
 // Hash parameter
-func (b *PhotosSaveMessagesPhotoBuilder) Hash(v string) *PhotosSaveMessagesPhotoBuilder{
+func (b *PhotosSaveMessagesPhotoBuilder) Hash(v string) *PhotosSaveMessagesPhotoBuilder {
 	b.Params["hash"] = v
 	return b
 }
@@ -1838,13 +1838,13 @@ func NewPhotosSaveOwnerCoverPhotoBuilder() *PhotosSaveOwnerCoverPhotoBuilder {
 }
 
 // Hash Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveOwnerCoverPhotoBuilder) Hash(v string) *PhotosSaveOwnerCoverPhotoBuilder{
+func (b *PhotosSaveOwnerCoverPhotoBuilder) Hash(v string) *PhotosSaveOwnerCoverPhotoBuilder {
 	b.Params["hash"] = v
 	return b
 }
 
 // Photo Parameter returned when photos are [vk.com/dev/upload_files|uploaded to server].
-func (b *PhotosSaveOwnerCoverPhotoBuilder) Photo(v string) *PhotosSaveOwnerCoverPhotoBuilder{
+func (b *PhotosSaveOwnerCoverPhotoBuilder) Photo(v string) *PhotosSaveOwnerCoverPhotoBuilder {
 	b.Params["photo"] = v
 	return b
 }
@@ -1865,19 +1865,19 @@ func NewPhotosSaveOwnerPhotoBuilder() *PhotosSaveOwnerPhotoBuilder {
 }
 
 // Server parameter returned after [vk.com/dev/upload_files|photo upload].
-func (b *PhotosSaveOwnerPhotoBuilder) Server(v string) *PhotosSaveOwnerPhotoBuilder{
+func (b *PhotosSaveOwnerPhotoBuilder) Server(v string) *PhotosSaveOwnerPhotoBuilder {
 	b.Params["server"] = v
 	return b
 }
 
 // Hash parameter returned after [vk.com/dev/upload_files|photo upload].
-func (b *PhotosSaveOwnerPhotoBuilder) Hash(v string) *PhotosSaveOwnerPhotoBuilder{
+func (b *PhotosSaveOwnerPhotoBuilder) Hash(v string) *PhotosSaveOwnerPhotoBuilder {
 	b.Params["hash"] = v
 	return b
 }
 
 // Photo parameter returned after [vk.com/dev/upload_files|photo upload].
-func (b *PhotosSaveOwnerPhotoBuilder) Photo(v string) *PhotosSaveOwnerPhotoBuilder{
+func (b *PhotosSaveOwnerPhotoBuilder) Photo(v string) *PhotosSaveOwnerPhotoBuilder {
 	b.Params["photo"] = v
 	return b
 }
@@ -1897,50 +1897,50 @@ func NewPhotosSaveWallPhotoBuilder() *PhotosSaveWallPhotoBuilder {
 }
 
 // UserID ID of the user on whose wall the photo will be saved.
-func (b *PhotosSaveWallPhotoBuilder) UserID(v int) *PhotosSaveWallPhotoBuilder{
+func (b *PhotosSaveWallPhotoBuilder) UserID(v int) *PhotosSaveWallPhotoBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
 // GroupID ID of community on whose wall the photo will be saved.
-func (b *PhotosSaveWallPhotoBuilder) GroupID(v int) *PhotosSaveWallPhotoBuilder{
+func (b *PhotosSaveWallPhotoBuilder) GroupID(v int) *PhotosSaveWallPhotoBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
 // Photo Parameter returned when the the photo is [vk.com/dev/upload_files|uploaded to the server].
-func (b *PhotosSaveWallPhotoBuilder) Photo(v string) *PhotosSaveWallPhotoBuilder{
+func (b *PhotosSaveWallPhotoBuilder) Photo(v string) *PhotosSaveWallPhotoBuilder {
 	b.Params["photo"] = v
 	return b
 }
 
 // Server parameter
-func (b *PhotosSaveWallPhotoBuilder) Server(v int) *PhotosSaveWallPhotoBuilder{
+func (b *PhotosSaveWallPhotoBuilder) Server(v int) *PhotosSaveWallPhotoBuilder {
 	b.Params["server"] = v
 	return b
 }
 
 // Hash parameter
-func (b *PhotosSaveWallPhotoBuilder) Hash(v string) *PhotosSaveWallPhotoBuilder{
+func (b *PhotosSaveWallPhotoBuilder) Hash(v string) *PhotosSaveWallPhotoBuilder {
 	b.Params["hash"] = v
 	return b
 }
 
 // Latitude Geographical latitude, in degrees (from '-90' to '90').
-func (b *PhotosSaveWallPhotoBuilder) Latitude(v float64) *PhotosSaveWallPhotoBuilder{
+func (b *PhotosSaveWallPhotoBuilder) Latitude(v float64) *PhotosSaveWallPhotoBuilder {
 	b.Params["latitude"] = v
 	return b
 }
 
 // Longitude Geographical longitude, in degrees (from '-180' to '180').
-func (b *PhotosSaveWallPhotoBuilder) Longitude(v float64) *PhotosSaveWallPhotoBuilder{
+func (b *PhotosSaveWallPhotoBuilder) Longitude(v float64) *PhotosSaveWallPhotoBuilder {
 	b.Params["longitude"] = v
 	return b
 }
 
 // Caption Text describing the photo.
 // 2048 digits max.
-func (b *PhotosSaveWallPhotoBuilder) Caption(v string) *PhotosSaveWallPhotoBuilder{
+func (b *PhotosSaveWallPhotoBuilder) Caption(v string) *PhotosSaveWallPhotoBuilder {
 	b.Params["caption"] = v
 	return b
 }
@@ -1960,49 +1960,49 @@ func NewPhotosSearchBuilder() *PhotosSearchBuilder {
 }
 
 // Q Search query string.
-func (b *PhotosSearchBuilder) Q(v string) *PhotosSearchBuilder{
+func (b *PhotosSearchBuilder) Q(v string) *PhotosSearchBuilder {
 	b.Params["q"] = v
 	return b
 }
 
 // Lat Geographical latitude, in degrees (from '-90' to '90').
-func (b *PhotosSearchBuilder) Lat(v float64) *PhotosSearchBuilder{
+func (b *PhotosSearchBuilder) Lat(v float64) *PhotosSearchBuilder {
 	b.Params["lat"] = v
 	return b
 }
 
 // Long Geographical longitude, in degrees (from '-180' to '180').
-func (b *PhotosSearchBuilder) Long(v float64) *PhotosSearchBuilder{
+func (b *PhotosSearchBuilder) Long(v float64) *PhotosSearchBuilder {
 	b.Params["long"] = v
 	return b
 }
 
 // StartTime parameter
-func (b *PhotosSearchBuilder) StartTime(v int) *PhotosSearchBuilder{
+func (b *PhotosSearchBuilder) StartTime(v int) *PhotosSearchBuilder {
 	b.Params["start_time"] = v
 	return b
 }
 
 // EndTime parameter
-func (b *PhotosSearchBuilder) EndTime(v int) *PhotosSearchBuilder{
+func (b *PhotosSearchBuilder) EndTime(v int) *PhotosSearchBuilder {
 	b.Params["end_time"] = v
 	return b
 }
 
 // Sort Sort order:
-func (b *PhotosSearchBuilder) Sort(v int) *PhotosSearchBuilder{
+func (b *PhotosSearchBuilder) Sort(v int) *PhotosSearchBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of photos.
-func (b *PhotosSearchBuilder) Offset(v int) *PhotosSearchBuilder{
+func (b *PhotosSearchBuilder) Offset(v int) *PhotosSearchBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of photos to return.
-func (b *PhotosSearchBuilder) Count(v int) *PhotosSearchBuilder{
+func (b *PhotosSearchBuilder) Count(v int) *PhotosSearchBuilder {
 	b.Params["count"] = v
 	return b
 }
@@ -2019,7 +2019,7 @@ func (b *PhotosSearchBuilder) Count(v int) *PhotosSearchBuilder{
 // *  '6000'
 //
 // *  '50000'.
-func (b *PhotosSearchBuilder) Radius(v int) *PhotosSearchBuilder{
+func (b *PhotosSearchBuilder) Radius(v int) *PhotosSearchBuilder {
 	b.Params["radius"] = v
 	return b
 }

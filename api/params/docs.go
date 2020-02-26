@@ -20,20 +20,20 @@ func NewDocsAddBuilder() *DocsAddBuilder {
 
 // OwnerID ID of the user or community that owns the document.
 // Use a negative value to designate a community ID.
-func (b *DocsAddBuilder) OwnerID(v int) *DocsAddBuilder{
+func (b *DocsAddBuilder) OwnerID(v int) *DocsAddBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // DocID Document ID.
-func (b *DocsAddBuilder) DocID(v int) *DocsAddBuilder{
+func (b *DocsAddBuilder) DocID(v int) *DocsAddBuilder {
 	b.Params["doc_id"] = v
 	return b
 }
 
 // AccessKey Access key.
 // This parameter is required if 'access_key' was returned with the document's data.
-func (b *DocsAddBuilder) AccessKey(v string) *DocsAddBuilder{
+func (b *DocsAddBuilder) AccessKey(v string) *DocsAddBuilder {
 	b.Params["access_key"] = v
 	return b
 }
@@ -54,13 +54,13 @@ func NewDocsDeleteBuilder() *DocsDeleteBuilder {
 
 // OwnerID ID of the user or community that owns the document.
 // Use a negative value to designate a community ID.
-func (b *DocsDeleteBuilder) OwnerID(v int) *DocsDeleteBuilder{
+func (b *DocsDeleteBuilder) OwnerID(v int) *DocsDeleteBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // DocID Document ID.
-func (b *DocsDeleteBuilder) DocID(v int) *DocsDeleteBuilder{
+func (b *DocsDeleteBuilder) DocID(v int) *DocsDeleteBuilder {
 	b.Params["doc_id"] = v
 	return b
 }
@@ -81,25 +81,25 @@ func NewDocsEditBuilder() *DocsEditBuilder {
 
 // OwnerID User ID or community ID.
 // Use a negative value to designate a community ID.
-func (b *DocsEditBuilder) OwnerID(v int) *DocsEditBuilder{
+func (b *DocsEditBuilder) OwnerID(v int) *DocsEditBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
 // DocID Document ID.
-func (b *DocsEditBuilder) DocID(v int) *DocsEditBuilder{
+func (b *DocsEditBuilder) DocID(v int) *DocsEditBuilder {
 	b.Params["doc_id"] = v
 	return b
 }
 
 // Title Document title.
-func (b *DocsEditBuilder) Title(v string) *DocsEditBuilder{
+func (b *DocsEditBuilder) Title(v string) *DocsEditBuilder {
 	b.Params["title"] = v
 	return b
 }
 
 // Tags Document tags.
-func (b *DocsEditBuilder) Tags(v []string) *DocsEditBuilder{
+func (b *DocsEditBuilder) Tags(v []string) *DocsEditBuilder {
 	b.Params["tags"] = v
 	return b
 }
@@ -121,26 +121,26 @@ func NewDocsGetBuilder() *DocsGetBuilder {
 // Count Number of documents to return.
 //
 // By default: all documents.
-func (b *DocsGetBuilder) Count(v int) *DocsGetBuilder{
+func (b *DocsGetBuilder) Count(v int) *DocsGetBuilder {
 	b.Params["count"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of documents.
-func (b *DocsGetBuilder) Offset(v int) *DocsGetBuilder{
+func (b *DocsGetBuilder) Offset(v int) *DocsGetBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Type parameter
-func (b *DocsGetBuilder) Type(v int) *DocsGetBuilder{
+func (b *DocsGetBuilder) Type(v int) *DocsGetBuilder {
 	b.Params["type"] = v
 	return b
 }
 
 // OwnerID ID of the user or community that owns the documents.
 // Use a negative value to designate a community ID.
-func (b *DocsGetBuilder) OwnerID(v int) *DocsGetBuilder{
+func (b *DocsGetBuilder) OwnerID(v int) *DocsGetBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
@@ -161,7 +161,7 @@ func NewDocsGetByIDBuilder() *DocsGetByIDBuilder {
 
 // Docs Document IDs. Example:
 // 66748_91488,66748_91455,
-func (b *DocsGetByIDBuilder) Docs(v []string) *DocsGetByIDBuilder{
+func (b *DocsGetByIDBuilder) Docs(v []string) *DocsGetByIDBuilder {
 	b.Params["docs"] = v
 	return b
 }
@@ -181,7 +181,7 @@ func NewDocsGetMessagesUploadServerBuilder() *DocsGetMessagesUploadServerBuilder
 }
 
 // Type Document type.
-func (b *DocsGetMessagesUploadServerBuilder) Type(v string) *DocsGetMessagesUploadServerBuilder{
+func (b *DocsGetMessagesUploadServerBuilder) Type(v string) *DocsGetMessagesUploadServerBuilder {
 	b.Params["type"] = v
 	return b
 }
@@ -196,7 +196,7 @@ func (b *DocsGetMessagesUploadServerBuilder) Type(v string) *DocsGetMessagesUplo
 // For community
 //
 // *  '- Community ID', e.g. '-12345'.
-func (b *DocsGetMessagesUploadServerBuilder) PeerID(v int) *DocsGetMessagesUploadServerBuilder{
+func (b *DocsGetMessagesUploadServerBuilder) PeerID(v int) *DocsGetMessagesUploadServerBuilder {
 	b.Params["peer_id"] = v
 	return b
 }
@@ -217,7 +217,7 @@ func NewDocsGetTypesBuilder() *DocsGetTypesBuilder {
 
 // OwnerID ID of the user or community that owns the documents.
 // Use a negative value to designate a community ID.
-func (b *DocsGetTypesBuilder) OwnerID(v int) *DocsGetTypesBuilder{
+func (b *DocsGetTypesBuilder) OwnerID(v int) *DocsGetTypesBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
@@ -237,7 +237,7 @@ func NewDocsGetUploadServerBuilder() *DocsGetUploadServerBuilder {
 }
 
 // GroupID Community ID (if the document will be uploaded to the community).
-func (b *DocsGetUploadServerBuilder) GroupID(v int) *DocsGetUploadServerBuilder{
+func (b *DocsGetUploadServerBuilder) GroupID(v int) *DocsGetUploadServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
@@ -257,7 +257,7 @@ func NewDocsGetWallUploadServerBuilder() *DocsGetWallUploadServerBuilder {
 }
 
 // GroupID Community ID (if the document will be uploaded to the community).
-func (b *DocsGetWallUploadServerBuilder) GroupID(v int) *DocsGetWallUploadServerBuilder{
+func (b *DocsGetWallUploadServerBuilder) GroupID(v int) *DocsGetWallUploadServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
@@ -277,19 +277,19 @@ func NewDocsSaveBuilder() *DocsSaveBuilder {
 }
 
 // File This parameter is returned when the file is [vk.com/dev/upload_files_2|uploaded to the server].
-func (b *DocsSaveBuilder) File(v string) *DocsSaveBuilder{
+func (b *DocsSaveBuilder) File(v string) *DocsSaveBuilder {
 	b.Params["file"] = v
 	return b
 }
 
 // Title Document title.
-func (b *DocsSaveBuilder) Title(v string) *DocsSaveBuilder{
+func (b *DocsSaveBuilder) Title(v string) *DocsSaveBuilder {
 	b.Params["title"] = v
 	return b
 }
 
 // Tags Document tags.
-func (b *DocsSaveBuilder) Tags(v string) *DocsSaveBuilder{
+func (b *DocsSaveBuilder) Tags(v string) *DocsSaveBuilder {
 	b.Params["tags"] = v
 	return b
 }
@@ -309,25 +309,25 @@ func NewDocsSearchBuilder() *DocsSearchBuilder {
 }
 
 // Q Search query string.
-func (b *DocsSearchBuilder) Q(v string) *DocsSearchBuilder{
+func (b *DocsSearchBuilder) Q(v string) *DocsSearchBuilder {
 	b.Params["q"] = v
 	return b
 }
 
 // SearchOwn parameter
-func (b *DocsSearchBuilder) SearchOwn(v bool) *DocsSearchBuilder{
+func (b *DocsSearchBuilder) SearchOwn(v bool) *DocsSearchBuilder {
 	b.Params["search_own"] = v
 	return b
 }
 
 // Count Number of results to return.
-func (b *DocsSearchBuilder) Count(v int) *DocsSearchBuilder{
+func (b *DocsSearchBuilder) Count(v int) *DocsSearchBuilder {
 	b.Params["count"] = v
 	return b
 }
 
 // Offset Offset needed to return a specific subset of results.
-func (b *DocsSearchBuilder) Offset(v int) *DocsSearchBuilder{
+func (b *DocsSearchBuilder) Offset(v int) *DocsSearchBuilder {
 	b.Params["offset"] = v
 	return b
 }
