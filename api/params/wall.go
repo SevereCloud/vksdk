@@ -531,7 +531,7 @@ func (b *WallGetBuilder) Filter(v string) *WallGetBuilder{
 //
 // * '1' — to return 'wall'
 //
-// *  'profiles' and 'groups' fields
+// *  'profiles', and 'groups' fields
 //
 // * '0' — to return no additional fields (default)
 func (b *WallGetBuilder) Extended(v bool) *WallGetBuilder{

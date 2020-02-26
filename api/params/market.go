@@ -546,7 +546,8 @@ func (b *MarketGetBuilder) Offset(v int) *MarketGetBuilder{
 
 // Extended parameter 
 //
-// * '1' – method will return additional fields: 'likes, can_comment, car_repost, photos'.These parameters are not returned by default.
+// * '1' – method will return additional fields: 'likes, can_comment, car_repost, photos'.
+// These parameters are not returned by default.
 func (b *MarketGetBuilder) Extended(v bool) *MarketGetBuilder{
 	b.Params["extended"] = v
 	return b
@@ -639,6 +640,7 @@ func (b *MarketGetByIDBuilder) ItemIDs(v []string) *MarketGetByIDBuilder{
 // Extended parameter 
 //
 // * '1' – to return additional fields: 'likes, can_comment, car_repost, photos'.
+//
 // By default: '0'.
 func (b *MarketGetByIDBuilder) Extended(v bool) *MarketGetByIDBuilder{
 	b.Params["extended"] = v
@@ -741,8 +743,7 @@ func (b *MarketGetCommentsBuilder) Extended(v bool) *MarketGetCommentsBuilder{
 	return b
 }
 
-// Fields 
-// List of additional profile fields to return.
+// Fields List of additional profile fields to return.
 // See the [vk.com/dev/fields|details]
 func (b *MarketGetCommentsBuilder) Fields(v []string) *MarketGetCommentsBuilder{
 	b.Params["fields"] = v
@@ -1092,6 +1093,7 @@ func (b *MarketSearchBuilder) Count(v int) *MarketSearchBuilder{
 // Extended parameter 
 //
 // * '1' – to return additional fields: 'likes, can_comment, car_repost, photos'.
+//
 // By default: '0'.
 func (b *MarketSearchBuilder) Extended(v bool) *MarketSearchBuilder{
 	b.Params["extended"] = v

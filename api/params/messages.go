@@ -385,8 +385,7 @@ func (b *MessagesGetByConversationMessageIDBuilder) Extended(v bool) *MessagesGe
 	return b
 }
 
-// Fields 
-// Profile fields to return.
+// Fields Profile fields to return.
 func (b *MessagesGetByConversationMessageIDBuilder) Fields(v []string) *MessagesGetByConversationMessageIDBuilder{
 	b.Params["fields"] = v
 	return b
@@ -434,8 +433,7 @@ func (b *MessagesGetByIDBuilder) Extended(v bool) *MessagesGetByIDBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.
+// Fields Profile fields to return.
 func (b *MessagesGetByIDBuilder) Fields(v []string) *MessagesGetByIDBuilder{
 	b.Params["fields"] = v
 	return b
@@ -471,8 +469,7 @@ func (b *MessagesGetChatPreviewBuilder) Link(v string) *MessagesGetChatPreviewBu
 	return b
 }
 
-// Fields 
-// Profile fields to return.
+// Fields Profile fields to return.
 func (b *MessagesGetChatPreviewBuilder) Fields(v []string) *MessagesGetChatPreviewBuilder{
 	b.Params["fields"] = v
 	return b
@@ -498,8 +495,7 @@ func (b *MessagesGetConversationMembersBuilder) PeerID(v int) *MessagesGetConver
 	return b
 }
 
-// Fields 
-// Profile fields to return.
+// Fields Profile fields to return.
 func (b *MessagesGetConversationMembersBuilder) Fields(v []string) *MessagesGetConversationMembersBuilder{
 	b.Params["fields"] = v
 	return b
@@ -565,8 +561,7 @@ func (b *MessagesGetConversationsBuilder) StartMessageID(v int) *MessagesGetConv
 	return b
 }
 
-// Fields 
-// Profile and communities fields to return.
+// Fields Profile and communities fields to return.
 func (b *MessagesGetConversationsBuilder) Fields(v []string) *MessagesGetConversationsBuilder{
 	b.Params["fields"] = v
 	return b
@@ -612,8 +607,7 @@ func (b *MessagesGetConversationsByIDBuilder) Extended(v bool) *MessagesGetConve
 	return b
 }
 
-// Fields 
-// Profile and communities fields to return.
+// Fields Profile and communities fields to return.
 func (b *MessagesGetConversationsByIDBuilder) Fields(v []string) *MessagesGetConversationsByIDBuilder{
 	b.Params["fields"] = v
 	return b
@@ -685,8 +679,7 @@ func (b *MessagesGetHistoryBuilder) Extended(v bool) *MessagesGetHistoryBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.
+// Fields Profile fields to return.
 func (b *MessagesGetHistoryBuilder) Fields(v []string) *MessagesGetHistoryBuilder{
 	b.Params["fields"] = v
 	return b
@@ -765,8 +758,7 @@ func (b *MessagesGetHistoryAttachmentsBuilder) PhotoSizes(v bool) *MessagesGetHi
 	return b
 }
 
-// Fields 
-// Additional profile [vk.com/dev/fields|fields] to return.
+// Fields Additional profile [vk.com/dev/fields|fields] to return.
 func (b *MessagesGetHistoryAttachmentsBuilder) Fields(v []string) *MessagesGetHistoryAttachmentsBuilder{
 	b.Params["fields"] = v
 	return b
@@ -884,8 +876,7 @@ func (b *MessagesGetLongPollHistoryBuilder) Onlines(v bool) *MessagesGetLongPoll
 	return b
 }
 
-// Fields 
-// Additional profile [vk.com/dev/fields|fields] to return.
+// Fields Additional profile [vk.com/dev/fields|fields] to return.
 func (b *MessagesGetLongPollHistoryBuilder) Fields(v []string) *MessagesGetLongPollHistoryBuilder{
 	b.Params["fields"] = v
 	return b
@@ -1369,8 +1360,7 @@ func (b *MessagesSearchConversationsBuilder) Extended(v bool) *MessagesSearchCon
 	return b
 }
 
-// Fields 
-// Profile fields to return.
+// Fields Profile fields to return.
 func (b *MessagesSearchConversationsBuilder) Fields(v []string) *MessagesSearchConversationsBuilder{
 	b.Params["fields"] = v
 	return b
@@ -1605,8 +1595,7 @@ func NewMessagesSetChatPhotoBuilder() *MessagesSetChatPhotoBuilder {
 	return &MessagesSetChatPhotoBuilder{api.Params{}}
 }
 
-// File 
-// Upload URL from the 'response' field returned by the [vk.com/dev/photos.getChatUploadServer|photos.getChatUploadServer] method upon successfully uploading an image.
+// File Upload URL from the 'response' field returned by the [vk.com/dev/photos.getChatUploadServer|photos.getChatUploadServer] method upon successfully uploading an image.
 func (b *MessagesSetChatPhotoBuilder) File(v string) *MessagesSetChatPhotoBuilder{
 	b.Params["file"] = v
 	return b

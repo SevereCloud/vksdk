@@ -84,7 +84,8 @@ func (b *FriendsAreFriendsBuilder) UserIDs(v []int) *FriendsAreFriendsBuilder{
 
 // NeedSign parameter 
 //
-// * '1' — to return 'sign' field.'sign' is md5({id}_{user_id}_{friends_status}_{application_secret}), where id is current user ID.
+// * '1' — to return 'sign' field.
+// 'sign' is md5({id}_{user_id}_{friends_status}_{application_secret}), where id is current user ID.
 // This field allows to check that data has not been modified by the client.
 //
 // By default: '0'.
@@ -225,8 +226,7 @@ func (b *FriendsGetBuilder) UserID(v int) *FriendsGetBuilder{
 	return b
 }
 
-// Order 
-// Sort order: 
+// Order Sort order: 
 //
 // * 'name' — by name (enabled only if the 'fields' parameter is used)
 //
@@ -256,8 +256,8 @@ func (b *FriendsGetBuilder) Offset(v int) *FriendsGetBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.Sample values
+// Fields Profile fields to return.
+// Sample values
 //
 // *  'uid'
 //
@@ -342,8 +342,8 @@ func (b *FriendsGetByPhonesBuilder) Phones(v []string) *FriendsGetByPhonesBuilde
 	return b
 }
 
-// Fields 
-// Profile fields to return.Sample values
+// Fields Profile fields to return.
+// Sample values
 //
 // *  'nickname'
 //
@@ -664,8 +664,8 @@ func (b *FriendsGetSuggestionsBuilder) Offset(v int) *FriendsGetSuggestionsBuild
 	return b
 }
 
-// Fields 
-// Profile fields to return.Sample values
+// Fields Profile fields to return.
+// Sample values
 //
 // *  'nickname'
 //
@@ -749,8 +749,8 @@ func (b *FriendsSearchBuilder) Q(v string) *FriendsSearchBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.Sample values
+// Fields Profile fields to return.
+// Sample values
 //
 // *  'nickname'
 //

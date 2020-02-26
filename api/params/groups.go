@@ -412,8 +412,7 @@ func (b *GroupsEditBuilder) Access(v int) *GroupsEditBuilder{
 	return b
 }
 
-// Website 
-// Website that will be displayed in the community information field.
+// Website Website that will be displayed in the community information field.
 func (b *GroupsEditBuilder) Website(v string) *GroupsEditBuilder{
 	b.Params["website"] = v
 	return b
@@ -1135,8 +1134,7 @@ func (b *GroupsGetBuilder) Filter(v []string) *GroupsGetBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.
+// Fields Profile fields to return.
 func (b *GroupsGetBuilder) Fields(v []string) *GroupsGetBuilder{
 	b.Params["fields"] = v
 	return b
@@ -1204,8 +1202,7 @@ func (b *GroupsGetAddressesBuilder) Count(v int) *GroupsGetAddressesBuilder{
 	return b
 }
 
-// Fields 
-// Address fields
+// Fields Address fields
 func (b *GroupsGetAddressesBuilder) Fields(v []string) *GroupsGetAddressesBuilder{
 	b.Params["fields"] = v
 	return b
@@ -1281,8 +1278,7 @@ func (b *GroupsGetByIDBuilder) GroupID(v string) *GroupsGetByIDBuilder{
 	return b
 }
 
-// Fields 
-// Group fields to return.
+// Fields Group fields to return.
 func (b *GroupsGetByIDBuilder) Fields(v []string) *GroupsGetByIDBuilder{
 	b.Params["fields"] = v
 	return b
@@ -1768,8 +1764,7 @@ func (b *GroupsGetRequestsBuilder) Count(v int) *GroupsGetRequestsBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.
+// Fields Profile fields to return.
 func (b *GroupsGetRequestsBuilder) Fields(v []string) *GroupsGetRequestsBuilder{
 	b.Params["fields"] = v
 	return b
@@ -1856,6 +1851,7 @@ func (b *GroupsIsMemberBuilder) UserIDs(v []int) *GroupsIsMemberBuilder{
 // Extended parameter 
 //
 // * '1' — to return an extended response with additional fields.
+//
 // By default: '0'.
 func (b *GroupsIsMemberBuilder) Extended(v bool) *GroupsIsMemberBuilder{
 	b.Params["extended"] = v

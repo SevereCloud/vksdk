@@ -58,8 +58,8 @@ func (b *AppsGetBuilder) ReturnFriends(v bool) *AppsGetBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.Sample values
+// Fields Profile fields to return.
+// Sample values
 //
 // *  'nickname'
 //
@@ -180,7 +180,10 @@ func (b *AppsGetCatalogBuilder) Platform(v string) *AppsGetCatalogBuilder{
 //
 // * '1' — to return additional fields 'screenshots'
 //
-// *  'MAU' 'catalog_position', and 'international'.If set
+// *  'MAU'
+//
+// *  'catalog_position', and 'international'.
+// If set
 //
 // *  'count' must be less than or equal to '100'.
 //
@@ -272,8 +275,7 @@ func (b *AppsGetFriendsListBuilder) Type(v string) *AppsGetFriendsListBuilder{
 	return b
 }
 
-// Fields 
-// Additional profile fields, see [vk.com/dev/fields|description].
+// Fields Additional profile fields, see [vk.com/dev/fields|description].
 func (b *AppsGetFriendsListBuilder) Fields(v []string) *AppsGetFriendsListBuilder{
 	b.Params["fields"] = v
 	return b

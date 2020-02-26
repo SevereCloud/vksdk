@@ -74,6 +74,7 @@ func (b *StoriesGetBuilder) OwnerID(v int) *StoriesGetBuilder{
 // Extended parameter 
 //
 // * '1' — to return additional fields for users and communities.
+//
 // Default value is 0.
 func (b *StoriesGetBuilder) Extended(v bool) *StoriesGetBuilder{
 	b.Params["extended"] = v
@@ -97,14 +98,14 @@ func NewStoriesGetBannedBuilder() *StoriesGetBannedBuilder {
 // Extended parameter 
 //
 // * '1' — to return additional fields for users and communities.
+//
 // Default value is 0.
 func (b *StoriesGetBannedBuilder) Extended(v bool) *StoriesGetBannedBuilder{
 	b.Params["extended"] = v
 	return b
 }
 
-// Fields 
-// Additional fields to return
+// Fields Additional fields to return
 func (b *StoriesGetBannedBuilder) Fields(v []string) *StoriesGetBannedBuilder{
 	b.Params["fields"] = v
 	return b
@@ -134,14 +135,14 @@ func (b *StoriesGetByIDBuilder) Stories(v []string) *StoriesGetByIDBuilder{
 // Extended parameter 
 //
 // * '1' — to return additional fields for users and communities.
+//
 // Default value is 0.
 func (b *StoriesGetByIDBuilder) Extended(v bool) *StoriesGetByIDBuilder{
 	b.Params["extended"] = v
 	return b
 }
 
-// Fields 
-// Additional fields to return
+// Fields Additional fields to return
 func (b *StoriesGetByIDBuilder) Fields(v []string) *StoriesGetByIDBuilder{
 	b.Params["fields"] = v
 	return b
@@ -233,14 +234,14 @@ func (b *StoriesGetRepliesBuilder) AccessKey(v string) *StoriesGetRepliesBuilder
 // Extended parameter 
 //
 // * '1' — to return additional fields for users and communities.
+//
 // Default value is 0.
 func (b *StoriesGetRepliesBuilder) Extended(v bool) *StoriesGetRepliesBuilder{
 	b.Params["extended"] = v
 	return b
 }
 
-// Fields 
-// Additional fields to return
+// Fields Additional fields to return
 func (b *StoriesGetRepliesBuilder) Fields(v []string) *StoriesGetRepliesBuilder{
 	b.Params["fields"] = v
 	return b

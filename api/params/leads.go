@@ -24,8 +24,7 @@ func (b *LeadsCheckUserBuilder) LeadID(v int) *LeadsCheckUserBuilder{
 	return b
 }
 
-// TestResult 
-// Value to be return in 'result' field when test mode is used.
+// TestResult Value to be return in 'result' field when test mode is used.
 func (b *LeadsCheckUserBuilder) TestResult(v int) *LeadsCheckUserBuilder{
 	b.Params["test_result"] = v
 	return b

@@ -214,7 +214,8 @@ func NewFaveGetBuilder() *FaveGetBuilder {
 //
 // * '1' — to return additional 'wall'
 //
-// *  'profiles' and 'groups' fields.
+// *  'profiles', and 'groups' fields.
+//
 // By default: '0'.
 func (b *FaveGetBuilder) Extended(v bool) *FaveGetBuilder{
 	b.Params["extended"] = v

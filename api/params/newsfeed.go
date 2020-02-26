@@ -166,8 +166,7 @@ func (b *NewsfeedGetBuilder) Count(v int) *NewsfeedGetBuilder{
 	return b
 }
 
-// Fields 
-// Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
 func (b *NewsfeedGetBuilder) Fields(v []string) *NewsfeedGetBuilder{
 	b.Params["fields"] = v
 	return b
@@ -201,8 +200,7 @@ func (b *NewsfeedGetBannedBuilder) Extended(v bool) *NewsfeedGetBannedBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.
+// Fields Profile fields to return.
 func (b *NewsfeedGetBannedBuilder) Fields(v []string) *NewsfeedGetBannedBuilder{
 	b.Params["fields"] = v
 	return b
@@ -299,8 +297,7 @@ func (b *NewsfeedGetCommentsBuilder) StartFrom(v string) *NewsfeedGetCommentsBui
 	return b
 }
 
-// Fields 
-// Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
 func (b *NewsfeedGetCommentsBuilder) Fields(v []string) *NewsfeedGetCommentsBuilder{
 	b.Params["fields"] = v
 	return b
@@ -430,8 +427,7 @@ func (b *NewsfeedGetRecommendedBuilder) Count(v int) *NewsfeedGetRecommendedBuil
 	return b
 }
 
-// Fields 
-// Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
 func (b *NewsfeedGetRecommendedBuilder) Fields(v []string) *NewsfeedGetRecommendedBuilder{
 	b.Params["fields"] = v
 	return b
@@ -469,8 +465,7 @@ func (b *NewsfeedGetSuggestedSourcesBuilder) Shuffle(v bool) *NewsfeedGetSuggest
 	return b
 }
 
-// Fields 
-// list of extra fields to be returned.
+// Fields list of extra fields to be returned.
 // See available fields for [vk.com/dev/fields|users] and [vk.com/dev/fields_groups|communities].
 func (b *NewsfeedGetSuggestedSourcesBuilder) Fields(v []string) *NewsfeedGetSuggestedSourcesBuilder{
 	b.Params["fields"] = v
@@ -633,8 +628,7 @@ func (b *NewsfeedSearchBuilder) StartFrom(v string) *NewsfeedSearchBuilder{
 	return b
 }
 
-// Fields 
-// Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
 func (b *NewsfeedSearchBuilder) Fields(v []string) *NewsfeedSearchBuilder{
 	b.Params["fields"] = v
 	return b

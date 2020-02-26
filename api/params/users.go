@@ -26,8 +26,8 @@ func (b *UsersGetBuilder) UserIDs(v []string) *UsersGetBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.Sample values
+// Fields Profile fields to return.
+// Sample values
 //
 // *  'nickname'
 //
@@ -127,8 +127,8 @@ func (b *UsersGetFollowersBuilder) Count(v int) *UsersGetFollowersBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.Sample values
+// Fields Profile fields to return.
+// Sample values
 //
 // *  'nickname'
 //
@@ -334,8 +334,8 @@ func (b *UsersSearchBuilder) Count(v int) *UsersSearchBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.Sample values
+// Fields Profile fields to return.
+// Sample values
 //
 // *  'nickname'
 //

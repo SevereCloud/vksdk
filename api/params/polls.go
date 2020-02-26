@@ -349,8 +349,8 @@ func (b *PollsGetVotersBuilder) Count(v int) *PollsGetVotersBuilder{
 	return b
 }
 
-// Fields 
-// Profile fields to return.Sample values
+// Fields Profile fields to return.
+// Sample values
 //
 // *  'nickname'
 //

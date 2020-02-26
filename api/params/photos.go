@@ -515,7 +515,7 @@ func (b *PhotosGetBuilder) Rev(v bool) *PhotosGetBuilder{
 //
 // * '1' — to return additional 'likes'
 //
-// *  'comments' and 'tags' fields
+// *  'comments', and 'tags' fields
 //
 // * '0' — (default)
 func (b *PhotosGetBuilder) Extended(v bool) *PhotosGetBuilder{
@@ -523,15 +523,14 @@ func (b *PhotosGetBuilder) Extended(v bool) *PhotosGetBuilder{
 	return b
 }
 
-// FeedType 
-// Type of feed obtained in 'feed' field of the method.
+// FeedType Type of feed obtained in 'feed' field of the method.
 func (b *PhotosGetBuilder) FeedType(v string) *PhotosGetBuilder{
 	b.Params["feed_type"] = v
 	return b
 }
 
-// Feed 
-// unixtime, that can be obtained with [vk.com/dev/newsfeed.get|newsfeed.get] method in date field to get all photos uploaded by the user on a specific day, or photos the user has been tagged on.Also
+// Feed unixtime, that can be obtained with [vk.com/dev/newsfeed.get|newsfeed.get] method in date field to get all photos uploaded by the user on a specific day, or photos the user has been tagged on.
+// Also
 //
 // *  'uid' parameter of the user the event happened with shall be specified.
 func (b *PhotosGetBuilder) Feed(v int) *PhotosGetBuilder{
