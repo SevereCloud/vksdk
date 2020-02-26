@@ -138,7 +138,7 @@ func TestVK_RequestLimit(t *testing.T) {
 		wg.Add(1)
 
 		go func() {
-			_, err := vkUser.UsersGet(api.Params{}) // nolint: errcheck
+			_, err := vkUser.UsersGet(api.Params{})
 			assert.NoError(t, err)
 
 			wg.Done()

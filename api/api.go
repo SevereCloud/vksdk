@@ -86,7 +86,8 @@ type VK struct {
 	Handler     func(method string, params Params) (Response, error)
 
 	mux      sync.Mutex
-	prevTime time.Time
+	lastTime time.Time
+	rps      int
 }
 
 // Error struct VK
@@ -153,13 +154,23 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 
 	rawBody := bytes.NewBufferString(query.Encode())
 
+	// Rate limiting
+	var beforeRps int
+
 	if vk.Limit > 0 {
 		vk.mux.Lock()
 
-		rate := time.Second / time.Duration(vk.Limit)
-		sleepTime := rate - (time.Since(vk.prevTime) % rate)
-		time.Sleep(sleepTime)
-		vk.prevTime = time.Now()
+		sleepTime := time.Second - time.Since(vk.lastTime)
+		if sleepTime < 0 {
+			vk.lastTime = time.Now()
+			vk.rps = 0
+		} else if vk.rps == vk.Limit {
+			time.Sleep(sleepTime)
+			vk.lastTime = time.Now()
+			vk.rps = 0
+		}
+		vk.rps++
+		beforeRps = vk.rps
 
 		vk.mux.Unlock()
 	}
@@ -173,6 +184,22 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
 		return
+	}
+
+	if vk.Limit > 0 {
+		vk.mux.Lock()
+
+		if beforeRps != vk.rps {
+			vk.rps++
+		}
+
+		sleepTime := time.Second - time.Since(vk.lastTime)
+		if sleepTime < 0 {
+			vk.lastTime = time.Now()
+			vk.rps = 1
+		}
+
+		vk.mux.Unlock()
 	}
 
 	err = errors.New(response.Error)
