@@ -10,7 +10,7 @@ type Wrapper struct {
 // MessageFlagsSetHandler handler func for MessageFlagsSet
 type MessageFlagsSetHandler func(m MessageFlagsSet)
 
-// OnMessageFlagsSet
+// OnMessageFlagsSet func
 //
 // event with code 2
 //
@@ -30,7 +30,7 @@ func (w Wrapper) OnMessageFlagsSet(f MessageFlagsSetHandler) {
 // MessageFlagsResetHandler handler func for MessageFlagsReset
 type MessageFlagsResetHandler func(m MessageFlagsReset)
 
-// OnMessageFlagsReset
+// OnMessageFlagsReset func
 //
 // event with code 3
 //
@@ -50,7 +50,7 @@ func (w Wrapper) OnMessageFlagsReset(f MessageFlagsResetHandler) {
 // NewMessageHandler handler func for NewMessage
 type NewMessageHandler func(m NewMessage)
 
-// OnNewMessage
+// OnNewMessage func
 //
 // event with code 4
 //
@@ -70,7 +70,7 @@ func (w Wrapper) OnNewMessage(f NewMessageHandler) {
 // EditMessageHandler handler func for EditMessage
 type EditMessageHandler func(m EditMessage)
 
-// OnEditMessage
+// OnEditMessage func
 //
 // event with code 5
 //
@@ -90,7 +90,7 @@ func (w Wrapper) OnEditMessage(f EditMessageHandler) {
 // ReadInMessagesHandler handler func for ReadInMessages
 type ReadInMessagesHandler func(m ReadInMessages)
 
-// OnReadInMessages
+// OnReadInMessages func
 //
 // event with code 6
 //
@@ -110,7 +110,7 @@ func (w Wrapper) OnReadInMessages(f ReadInMessagesHandler) {
 // ReadOutMessagesHandler handler func for ReadOutMessages
 type ReadOutMessagesHandler func(m ReadOutMessages)
 
-// OnReadOutMessages
+// OnReadOutMessages func
 //
 // event with code 7
 //
@@ -130,7 +130,7 @@ func (w Wrapper) OnReadOutMessages(f ReadOutMessagesHandler) {
 // FriendBecameOnlineHandler handler func for FriendBecameOnline
 type FriendBecameOnlineHandler func(m FriendBecameOnline)
 
-// OnFriendBecameOnline
+// OnFriendBecameOnline func
 //
 // event with code 8
 //
@@ -150,7 +150,7 @@ func (w Wrapper) OnFriendBecameOnline(f FriendBecameOnlineHandler) {
 // FriendBecameOfflineHandler handler func for FriendBecameOffline
 type FriendBecameOfflineHandler func(m FriendBecameOffline)
 
-// OnFriendBecameOffline
+// OnFriendBecameOffline func
 //
 // event with code 9
 //
@@ -170,7 +170,7 @@ func (w Wrapper) OnFriendBecameOffline(f FriendBecameOfflineHandler) {
 // MentionViewedHandler handler func for MentionViewed
 type MentionViewedHandler func(m MentionViewed)
 
-// OnMentionViewed
+// OnMentionViewed func
 //
 // event with code 10
 //
@@ -190,7 +190,7 @@ func (w Wrapper) OnMentionViewed(f MentionViewedHandler) {
 // UserMentionedHandler handler func for UserMentioned
 type UserMentionedHandler func(m UserMentioned)
 
-// OnUserMentioned
+// OnUserMentioned func
 //
 // event with code 12
 //
@@ -210,7 +210,7 @@ func (w Wrapper) OnUserMentioned(f UserMentionedHandler) {
 // DeleteAllMessageHandler handler func for DeleteAllMessage
 type DeleteAllMessageHandler func(m DeleteAllMessage)
 
-// OnDeleteAllMessage
+// OnDeleteAllMessage func
 //
 // event with code 13
 //
@@ -230,7 +230,7 @@ func (w Wrapper) OnDeleteAllMessage(f DeleteAllMessageHandler) {
 // LinkSnippetLoadedHandler handler func for LinkSnippetLoaded
 type LinkSnippetLoadedHandler func(m LinkSnippetLoaded)
 
-// OnLinkSnippetLoaded
+// OnLinkSnippetLoaded func
 //
 // event with code 18
 //
@@ -250,7 +250,7 @@ func (w Wrapper) OnLinkSnippetLoaded(f LinkSnippetLoadedHandler) {
 // MessageCacheResetHandler handler func for MessageCacheReset
 type MessageCacheResetHandler func(m MessageCacheReset)
 
-// OnMessageCacheReset
+// OnMessageCacheReset func
 //
 // event with code 19
 //
@@ -270,7 +270,7 @@ func (w Wrapper) OnMessageCacheReset(f MessageCacheResetHandler) {
 // ChatParamsChangeHandler handler func for ChatParamsChange
 type ChatParamsChangeHandler func(m ChatParamsChange)
 
-// OnChatParamsChange
+// OnChatParamsChange func
 //
 // event with code 51
 //
@@ -290,7 +290,7 @@ func (w Wrapper) OnChatParamsChange(f ChatParamsChangeHandler) {
 // ChatInfoChangeHandler handler func for ChatInfoChange
 type ChatInfoChangeHandler func(m ChatInfoChange)
 
-// OnChatInfoChange
+// OnChatInfoChange func
 //
 // event with code 52
 //
@@ -310,7 +310,7 @@ func (w Wrapper) OnChatInfoChange(f ChatInfoChangeHandler) {
 // UsersTypingHandler handler func for UsersTyping
 type UsersTypingHandler func(m UsersTyping)
 
-// OnUsersTyping
+// OnUsersTyping func
 //
 // event with code 63
 //
@@ -330,7 +330,7 @@ func (w Wrapper) OnUsersTyping(f UsersTypingHandler) {
 // UsersRecordingAudioMessageHandler handler func for UsersRecordingAudioMessage
 type UsersRecordingAudioMessageHandler func(m UsersRecordingAudioMessage)
 
-// OnUsersRecordingAudioMessage
+// OnUsersRecordingAudioMessage func
 //
 // event with code 64
 //
@@ -350,7 +350,7 @@ func (w Wrapper) OnUsersRecordingAudioMessage(f UsersRecordingAudioMessageHandle
 // CounterChangeHandler handler func for CounterChange
 type CounterChangeHandler func(m CounterChange)
 
-// OnCounterChange
+// OnCounterChange func
 //
 // event with code 80
 //
@@ -370,7 +370,7 @@ func (w Wrapper) OnCounterChange(f CounterChangeHandler) {
 // FriendInvisibilityChangeHandler handler func for FriendInvisibilityChange
 type FriendInvisibilityChangeHandler func(m FriendInvisibilityChange)
 
-// OnFriendInvisibilityChange
+// OnFriendInvisibilityChange func
 //
 // event with code 81
 //
@@ -390,7 +390,7 @@ func (w Wrapper) OnFriendInvisibilityChange(f FriendInvisibilityChangeHandler) {
 // NotificationSettingsChangeHandler handler func for NotificationSettingsChange
 type NotificationSettingsChangeHandler func(m NotificationSettingsChange)
 
-// OnNotificationSettingsChange
+// OnNotificationSettingsChange func
 //
 // event with code 114
 //
