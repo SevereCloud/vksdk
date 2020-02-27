@@ -3,16 +3,21 @@ package api
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/SevereCloud/vksdk/api/errors"
 	"net/http"
+
+	"github.com/SevereCloud/vksdk/api/errors"
 )
 
+// Authenticator interface
 type Authenticator interface {
 	Authenticate(params Params) error
 }
 
+// AuthenticatorFunc func
 type AuthenticatorFunc func(params Params) error
 
+// Authenticate method
+// Implements Authenticator for AuthenticatorFunc
 func (f AuthenticatorFunc) Authenticate(params Params) error {
 	return f(params)
 }
@@ -31,7 +36,7 @@ func TokenAuthenticator(token string) Authenticator {
 
 // AuthCodeFlowRequest struct
 type AuthCodeFlowRequest struct {
-	ClientId     int    `json:"client_id"`
+	ClientID     int    `json:"client_id"`
 	ClientSecret string `json:"client_secret"`
 	RedirectURL  string `json:"redirect_url"`
 	Code         string `json:"code"`
@@ -45,6 +50,7 @@ type TokenResponse struct {
 	UserID      int    `json:"user_id"`
 }
 
+// gets token from given AuthCodeFlowRequest
 func authCodeFlow(auth AuthCodeFlowRequest) (token TokenResponse, err error) {
 	encoded, err := json.Marshal(auth)
 	if err != nil {
@@ -60,7 +66,12 @@ func authCodeFlow(auth AuthCodeFlowRequest) (token TokenResponse, err error) {
 		return
 	}
 
+	if resp.Body != nil {
+		defer resp.Body.Close()
+	}
+
 	var response Response
+
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
 		return
@@ -72,13 +83,15 @@ func authCodeFlow(auth AuthCodeFlowRequest) (token TokenResponse, err error) {
 	}
 
 	err = json.Unmarshal(response.Response, &token)
-	return
+
+	return token, err
 }
 
 // CodeAuthenticator func
 // Authorization code flow implementation
 func CodeAuthenticator(auth AuthCodeFlowRequest) (Authenticator, error) {
 	r, err := authCodeFlow(auth)
+
 	return AuthenticatorFunc(func(params Params) error {
 		if _, ok := params["access_token"]; !ok {
 			params["access_token"] = r.AccessToken
