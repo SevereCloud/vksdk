@@ -83,6 +83,7 @@ type VK struct {
 	Version     string
 	Client      *http.Client
 	Limit       int
+	Auth        Authenticator
 	Handler     func(method string, params Params) (Response, error)
 
 	mux      sync.Mutex
@@ -125,6 +126,7 @@ type Response struct {
 func Init(token string) *VK {
 	var vk VK
 	vk.AccessToken = token
+	vk.Auth = TokenAuthenticator(token)
 	vk.Version = Version
 
 	vk.Handler = vk.defaultHandler
@@ -211,8 +213,9 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 //
 // TODO: remove in v2
 func (vk *VK) Request(method string, params Params) ([]byte, error) {
-	if _, ok := params["access_token"]; !ok {
-		params["access_token"] = vk.AccessToken
+	err := vk.Auth.Authenticate(params)
+	if err != nil {
+		return nil, err
 	}
 
 	if _, ok := params["v"]; !ok {
@@ -238,11 +241,15 @@ func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) er
 //
 // https://vk.com/dev/Execute
 func (vk *VK) Execute(code string, obj interface{}) error {
-	params := Params{
-		"code":         code,
-		"access_token": vk.AccessToken,
-		"v":            vk.Version,
+	params := Params{}
+
+	err := vk.Auth.Authenticate(params)
+	if err != nil {
+		return err
 	}
+
+	params["v"] = vk.Version
+	params["code"] = code
 
 	resp, err := vk.Handler("execute", params)
 
