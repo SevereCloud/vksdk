@@ -2,10 +2,10 @@ package wrapper // import "github.com/SevereCloud/vksdk/longpoll-user/v10"
 
 import (
 	"fmt"
-
-	"github.com/SevereCloud/vksdk/object"
 	"reflect"
 	"time"
+
+	"github.com/SevereCloud/vksdk/object"
 )
 
 // Action struct for AdditionalData

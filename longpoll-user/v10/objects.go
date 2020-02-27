@@ -2,8 +2,9 @@ package wrapper
 
 import (
 	"fmt"
-	"github.com/SevereCloud/vksdk/object"
 	"time"
+
+	"github.com/SevereCloud/vksdk/object"
 )
 
 // MessageFlagsSet struct for event with code 2
