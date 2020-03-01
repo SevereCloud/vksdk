@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/SevereCloud/vksdk/api"
 	wrapper "github.com/SevereCloud/vksdk/longpoll-user/v3"
@@ -42,8 +43,10 @@ var vkUser *api.VK         // nolint:gochecknoglobals
 var vkUserID, vkChatID int // nolint:gochecknoglobals
 
 func TestMain(m *testing.M) {
+	time.Sleep(1 * time.Second)
+
 	vkUser = api.Init(os.Getenv("USER_TOKEN"))
-	vkUser.Limit = 3
+	vkUser.Limit = 1
 
 	if vkUser.AccessToken != "" {
 		user, err := vkUser.UsersGet(api.Params{})
