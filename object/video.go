@@ -14,6 +14,7 @@ type VideoVideo struct {
 	CanEdit        BaseBoolInt       `json:"can_edit"`         // Information whether current user can edit the video
 	CanLike        BaseBoolInt       `json:"can_like"`         // Information whether current user can like the video
 	CanRepost      BaseBoolInt       `json:"can_repost"`       // Information whether current user can repost this video
+	CanSubscribe   BaseBoolInt       `json:"can_subscribe"`
 	IsFavorite     BaseBoolInt       `json:"is_favorite"`
 	IsPrivate      BaseBoolInt       `json:"is_private"`
 	Comments       int               `json:"comments"`    // Number of comments
@@ -44,11 +45,30 @@ type VideoVideo struct {
 	Reposts        BaseRepostsInfo   `json:"reposts"` // Count of views
 	PrivacyView    []interface{}     `json:"privacy_view"`
 	PrivacyComment []interface{}     `json:"privacy_comment"`
+	ActionButton   VideoActionButton `json:"action_button"`
 }
 
 // ToAttachment return attachment format
 func (video VideoVideo) ToAttachment() string {
 	return fmt.Sprintf("video%d_%d", video.OwnerID, video.ID)
+}
+
+// VideoActionButton struct
+type VideoActionButton struct {
+	ID      string       `json:"id"`
+	Type    string       `json:"type"`
+	URL     string       `json:"url"`
+	Snippet VideoSnippet `json:"snippet"`
+}
+
+// VideoSnippet struct
+type VideoSnippet struct {
+	Description string      `json:"description"`
+	OpenTitle   string      `json:"open_title"`
+	Title       string      `json:"title"`
+	TypeName    string      `json:"type_name"`
+	Date        int         `json:"date"`
+	Image       []BaseImage `json:"image"`
 }
 
 // VideoVideoFiles struct
