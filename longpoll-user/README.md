@@ -100,7 +100,7 @@ import (
 
 func main() {
 	vk := api.Init("<TOKEN>")
-	lp, err := longpoll.Init(&vk, 2)
+	lp, err := longpoll.Init(vk, 2)
 	if err != nil {
 		log.Fatal(err)
 	}
