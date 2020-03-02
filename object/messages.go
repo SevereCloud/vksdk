@@ -182,7 +182,7 @@ func (keyboard MessagesKeyboard) ToJSON() string {
 // MessagesKeyboardButton struct
 type MessagesKeyboardButton struct {
 	Action MessagesKeyboardButtonAction `json:"action"`
-	Color  string                       `json:"color"` // Button color
+	Color  string                       `json:"color,omitempty"` // Button color
 }
 
 // MessagesKeyboardButtonAction struct
