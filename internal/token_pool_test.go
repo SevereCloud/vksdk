@@ -10,7 +10,7 @@ func TestTokenPool(t *testing.T) {
 	}
 
 	p := NewTokenPool(tokens...)
-	
+
 	for i := 0; i < len(tokens)*2; i++ {
 		tokenIdx := i % len(tokens)
 

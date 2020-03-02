@@ -15,8 +15,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/SevereCloud/vksdk/internal"
-
 	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/SevereCloud/vksdk/object"
 )
@@ -80,16 +78,16 @@ const (
 
 // VK struct
 type VK struct {
-	MethodURL string
-	Version   string
-	Client    *http.Client
-	Limit     int
-	Handler   func(method string, params Params) (Response, error)
+	MethodURL   string
+	AccessToken string
+	Version     string
+	Client      *http.Client
+	Limit       int
+	Handler     func(method string, params Params) (Response, error)
 
-	tokenPool internal.TokenPool
-	mux       sync.Mutex
-	lastTime  time.Time
-	rps       int
+	mux         sync.Mutex
+	lastTime    time.Time
+	rps         int
 }
 
 // Error struct VK
@@ -124,16 +122,17 @@ type Response struct {
 // HTTP Client by setting the VK.Client value.
 //
 // This set limit 20 requests per second.
-func Init(tokens ...string) *VK {
+func Init(token string) *VK {
 	var vk VK
-	vk.tokenPool = internal.NewTokenPool(tokens...)
-	
+	vk.AccessToken = token
 	vk.Version = Version
+	
 	vk.Handler = vk.defaultHandler
 
+	// TODO: remove in v2
 	vk.MethodURL = APIMethodURL
 	vk.Client = http.DefaultClient
-	vk.Limit = LimitGroupToken * len(tokens)
+	vk.Limit = LimitGroupToken
 
 	return &vk
 }
@@ -172,6 +171,7 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 		}
 		vk.rps++
 		beforeRps = vk.rps
+
 		vk.mux.Unlock()
 	}
 
@@ -180,6 +180,11 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 		return
 	}
 	defer resp.Body.Close()
+
+	err = json.NewDecoder(resp.Body).Decode(&response)
+	if err != nil {
+		return
+	}
 
 	if vk.Limit > 0 {
 		vk.mux.Lock()
@@ -197,11 +202,6 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 		vk.mux.Unlock()
 	}
 
-	err = json.NewDecoder(resp.Body).Decode(&response)
-	if err != nil {
-		return
-	}
-
 	err = errors.New(response.Error)
 
 	return response, err
@@ -211,8 +211,13 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 //
 // TODO: remove in v2
 func (vk *VK) Request(method string, params Params) ([]byte, error) {
-	params["access_token"] = vk.tokenPool.Get()
-	params["v"] = vk.Version
+	if _, ok := params["access_token"]; !ok {
+		params["access_token"] = vk.AccessToken
+	}
+
+	if _, ok := params["v"]; !ok {
+		params["v"] = vk.Version
+	}
 
 	resp, err := vk.Handler(method, params)
 
@@ -235,7 +240,7 @@ func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) er
 func (vk *VK) Execute(code string, obj interface{}) error {
 	params := Params{
 		"code":         code,
-		"access_token": vk.tokenPool.Get(),
+		"access_token": vk.AccessToken,
 		"v":            vk.Version,
 	}
 

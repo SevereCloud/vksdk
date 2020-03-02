@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 	"reflect"
+	"sync"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
@@ -129,20 +130,23 @@ func TestVK_Request(t *testing.T) {
 }
 
 func TestVK_RequestLimit(t *testing.T) {
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
-		t.Skip("GROUP_TOKEN empty")
+	needUserToken(t)
+	t.Skip("Bad work :(")
+
+	var wg sync.WaitGroup
+
+	for i := 0; i < 20; i++ {
+		wg.Add(1)
+
+		go func() {
+			_, err := vkUser.UsersGet(api.Params{})
+			assert.NoError(t, err)
+
+			wg.Done()
+		}()
 	}
 
-	vk := api.Init(groupToken)
-	vk.Limit = 2
-
-	t.Run("vk.Limit", func(t *testing.T) {
-		go vk.UsersGet(api.Params{}) // nolint: errcheck
-		for i := 0; i < 2; i++ {
-			vk.UsersGet(api.Params{}) // nolint: errcheck
-		}
-	})
+	wg.Wait()
 }
 
 func TestVK_Execute_error(t *testing.T) {

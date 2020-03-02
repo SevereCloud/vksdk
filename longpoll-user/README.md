@@ -105,8 +105,10 @@ func main() {
 		log.Fatal(err)
 	}
 
-	lp.EventNew(4, func(event []interface{}) {
+	lp.EventNew(4, func(event []interface{}) error {
 		log.Print(event[5].(string))
+
+		return nil
 	})
 
 	if err := lp.Run(); err != nil {

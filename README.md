@@ -4,7 +4,7 @@
 [![Documentation](https://godoc.org/github.com/SevereCloud/vksdk?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk)
 [![VK Developers](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/)
 [![codecov](https://codecov.io/gh/SevereCloud/vksdk/branch/master/graph/badge.svg)](https://codecov.io/gh/SevereCloud/vksdk)
-[![VK chat](https://img.shields.io/badge/chat-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.me/join/AJQ1d6Or8Q00Y_CSOESfbqGt)
+[![VK chat](https://img.shields.io/badge/VK%20chat-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.me/join/AJQ1d6Or8Q00Y_CSOESfbqGt)
 [![release](https://img.shields.io/github/v/tag/SevereCloud/vksdk?label=release)](https://github.com/SevereCloud/vksdk/releases)
 [![license](https://img.shields.io/github/license/SevereCloud/vksdk.svg?maxAge=2592000)](https://github.com/SevereCloud/vksdk/blob/master/LICENSE)
 
@@ -47,6 +47,12 @@
 # go mod init mymodulename
 go get github.com/SevereCloud/vksdk@latest
 ```
+
+### Примеры использования
+
+- [Joe](https://github.com/go-joe/joe) адаптер: https://github.com/tdakkota/joe-vk-adapter 
+- [Logrus](https://github.com/sirupsen/logrus) hook: https://github.com/SevereCloud/vkrus
+
 
 ### Пример
 
