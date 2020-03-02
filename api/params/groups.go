@@ -1625,16 +1625,8 @@ func (b *GroupsGetMembersBuilder) GroupID(v string) *GroupsGetMembersBuilder {
 }
 
 // Sort Sort order.
-// Available values
-//
-// *  'id_asc'
-//
-// *  'id_desc'
-//
-// *  'time_asc'
-//
-// *  'time_desc'.
-// 'time_asc' and 'time_desc' are availavle only if the method is called by the group's 'moderator'.
+// Available values: 'id_asc', 'id_desc', 'time_asc', 'time_desc'. 'time_asc' and 'time_desc'
+// are availavle only if the method is called by the group's 'moderator'.
 func (b *GroupsGetMembersBuilder) Sort(v string) *GroupsGetMembersBuilder {
 	b.Params["sort"] = v
 	return b

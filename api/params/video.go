@@ -167,6 +167,7 @@ func (b *VideoCreateCommentBuilder) Message(v string) *VideoCreateCommentBuilder
 // * '<owner_id>' — ID of the media attachment owner.
 //
 // * '<media_id>' — Media attachment ID.
+//
 // Example: photo100172_166443618,photo66748_265827614
 func (b *VideoCreateCommentBuilder) Attachments(v []string) *VideoCreateCommentBuilder {
 	b.Params["attachments"] = v
@@ -443,6 +444,7 @@ func (b *VideoEditCommentBuilder) Message(v string) *VideoEditCommentBuilder {
 // * '<owner_id>' — ID of the media attachment owner.
 //
 // * '<media_id>' — Media attachment ID.
+//
 // Example: photo100172_166443618,photo66748_265827614
 func (b *VideoEditCommentBuilder) Attachments(v []string) *VideoEditCommentBuilder {
 	b.Params["attachments"] = v
@@ -913,13 +915,20 @@ func (b *VideoReportCommentBuilder) CommentID(v int) *VideoReportCommentBuilder 
 }
 
 // Reason Reason for the complaint:
-// 0 – spam
-// 1 – child pornography
-// 2 – extremism
-// 3 – violence
-// 4 – drug propaganda
-// 5 – adult material
-// 6 – insult, abuse
+//
+// * 0 – spam;
+//
+// * 1 – child pornography;
+//
+// * 2 – extremism;
+//
+// * 3 – violence;
+//
+// * 4 – drug propaganda;
+//
+// * 5 – adult material;
+//
+// * 6 – insult, abuse.
 func (b *VideoReportCommentBuilder) Reason(v int) *VideoReportCommentBuilder {
 	b.Params["reason"] = v
 	return b

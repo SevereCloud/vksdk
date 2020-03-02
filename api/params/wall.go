@@ -219,7 +219,9 @@ func (b *WallEditBuilder) Message(v string) *WallEditBuilder {
 // * '<owner_id>' — ID of the media application owner.
 //
 // * '<media_id>' — Media application ID.
+//
 // Example: photo100172_166443618,photo66748_265827614, May contain a link to an external page to include in the post.
+//
 // Example: photo66748_265827614,http://habrahabr.ru
 //
 // NOTE: If more than one link is being attached, an error is thrown.
@@ -353,7 +355,9 @@ func (b *WallEditAdsStealthBuilder) Message(v string) *WallEditAdsStealthBuilder
 // * '<owner_id>' — ID of the media application owner.
 //
 // * '<media_id>' — Media application ID.
+//
 // Example: photo100172_166443618,photo66748_265827614, May contain a link to an external page to include in the post.
+//
 // Example: photo66748_265827614,http://habrahabr.ru
 //
 // NOTE: If more than one link is being attached, an error will be thrown.
@@ -529,9 +533,7 @@ func (b *WallGetBuilder) Filter(v string) *WallGetBuilder {
 
 // Extended parameter
 //
-// * '1' — to return 'wall'
-//
-// *  'profiles', and 'groups' fields
+// *  '1' — to return 'wall', 'profiles', and 'groups' fields
 //
 // * '0' — to return no additional fields (default)
 func (b *WallGetBuilder) Extended(v bool) *WallGetBuilder {
@@ -854,7 +856,9 @@ func (b *WallPostBuilder) Message(v string) *WallPostBuilder {
 // * '<owner_id>' — ID of the media application owner.
 //
 // * '<media_id>' — Media application ID.
+//
 // Example: photo100172_166443618,photo66748_265827614, May contain a link to an external page to include in the post.
+//
 // Example: photo66748_265827614,http://habrahabr.ru
 //
 // NOTE: If more than one link is being attached, an error will be thrown.
@@ -864,11 +868,7 @@ func (b *WallPostBuilder) Attachments(v []string) *WallPostBuilder {
 }
 
 // Services List of services or websites the update will be exported to, if the user has so requested.
-// Sample values
-//
-// *  'twitter'
-//
-// *  'facebook'.
+// Sample values: 'twitter', 'facebook'.
 func (b *WallPostBuilder) Services(v string) *WallPostBuilder {
 	b.Params["services"] = v
 	return b
@@ -992,7 +992,9 @@ func (b *WallPostAdsStealthBuilder) Message(v string) *WallPostAdsStealthBuilder
 // * '<owner_id>' — ID of the media application owner.
 //
 // * '<media_id>' — Media application ID.
+//
 // Example: photo100172_166443618,photo66748_265827614, May contain a link to an external page to include in the post.
+//
 // Example: photo66748_265827614,http://habrahabr.ru
 //
 // NOTE: If more than one link is being attached, an error will be thrown.

@@ -51,7 +51,7 @@ func (b *AdsCheckLinkBuilder) AccountID(v int) *AdsCheckLinkBuilder {
 	return b
 }
 
-// LinkType  Object type:
+// LinkType Object type:
 //
 // * community — community
 //
@@ -494,7 +494,7 @@ func (b *AdsGetAdsTargetingBuilder) ClientID(v int) *AdsGetAdsTargetingBuilder {
 	return b
 }
 
-// IncludeDeleted  flag that specifies whether archived ads shall be shown:
+// IncludeDeleted flag that specifies whether archived ads shall be shown:
 //
 // * 0 — show only active ads
 //
@@ -643,7 +643,7 @@ func (b *AdsGetDemographicsBuilder) AccountID(v int) *AdsGetDemographicsBuilder 
 	return b
 }
 
-// IDsType  Type of requested objects listed in 'ids' parameter:
+// IDsType Type of requested objects listed in 'ids' parameter:
 //
 // * ad — ads
 //

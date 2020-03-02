@@ -172,6 +172,7 @@ func (b *PhotosCreateCommentBuilder) Message(v string) *PhotosCreateCommentBuild
 // * '<owner_id>' — Media attachment owner ID.
 //
 // * '<media_id>' — Media attachment ID.
+//
 // Example: photo100172_166443618,photo66748_265827614
 func (b *PhotosCreateCommentBuilder) Attachments(v []string) *PhotosCreateCommentBuilder {
 	b.Params["attachments"] = v
@@ -461,6 +462,7 @@ func (b *PhotosEditCommentBuilder) Message(v string) *PhotosEditCommentBuilder {
 // * '<owner_id>' — Media attachment owner ID.
 //
 // * '<media_id>' — Media attachment ID.
+//
 // Example: photo100172_166443618,photo66748_265827614
 func (b *PhotosEditCommentBuilder) Attachments(v []string) *PhotosEditCommentBuilder {
 	b.Params["attachments"] = v
@@ -513,9 +515,7 @@ func (b *PhotosGetBuilder) Rev(v bool) *PhotosGetBuilder {
 
 // Extended parameter
 //
-// * '1' — to return additional 'likes'
-//
-// *  'comments', and 'tags' fields
+// * '1' — to return additional 'likes', 'comments', and 'tags' fields
 //
 // * '0' — (default)
 func (b *PhotosGetBuilder) Extended(v bool) *PhotosGetBuilder {
@@ -530,9 +530,7 @@ func (b *PhotosGetBuilder) FeedType(v string) *PhotosGetBuilder {
 }
 
 // Feed unixtime, that can be obtained with [vk.com/dev/newsfeed.get|newsfeed.get] method in date field to get all photos uploaded by the user on a specific day, or photos the user has been tagged on.
-// Also
-//
-// *  'uid' parameter of the user the event happened with shall be specified.
+// Also, 'uid' parameter of the user the event happened with shall be specified.
 func (b *PhotosGetBuilder) Feed(v int) *PhotosGetBuilder {
 	b.Params["feed"] = v
 	return b
@@ -703,9 +701,7 @@ func (b *PhotosGetAllBuilder) PhotoSizes(v bool) *PhotosGetAllBuilder {
 //
 // * '1' – to return photos only from standard albums
 //
-// * '0' – to return all photos including those in service albums, e.g.
-//
-// *  'My wall photos' (default)
+// * '0' – to return all photos including those in service albums, e.g., 'My wall photos' (default)
 func (b *PhotosGetAllBuilder) NoServiceAlbums(v bool) *PhotosGetAllBuilder {
 	b.Params["no_service_albums"] = v
 	return b
@@ -1023,15 +1019,9 @@ func NewPhotosGetMessagesUploadServerBuilder() *PhotosGetMessagesUploadServerBui
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'Chat ID', e.g. '2000000001'.
-// For community
-//
-// *  '- Community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'. 
+// For chat: '2000000000' + 'Chat ID', e.g. '2000000001'.
+// For community: '- Community ID', e.g. '-12345'.
 func (b *PhotosGetMessagesUploadServerBuilder) PeerID(v int) *PhotosGetMessagesUploadServerBuilder {
 	b.Params["peer_id"] = v
 	return b

@@ -93,7 +93,7 @@ func (b *PollsCreateBuilder) OwnerID(v int) *PollsCreateBuilder {
 	return b
 }
 
-// AddAnswers available answers list, for example:  [yes,no,maybe], There can be from 1 to 10 answers.
+// AddAnswers available answers list, for example: `["yes","no","maybe"]`, There can be from 1 to 10 answers.
 func (b *PollsCreateBuilder) AddAnswers(v string) *PollsCreateBuilder {
 	b.Params["add_answers"] = v
 	return b
@@ -183,14 +183,14 @@ func (b *PollsEditBuilder) Question(v string) *PollsEditBuilder {
 }
 
 // AddAnswers answers list, for example:
-// [yes,no,maybe]
+// `["yes","no","maybe"]`
 func (b *PollsEditBuilder) AddAnswers(v string) *PollsEditBuilder {
 	b.Params["add_answers"] = v
 	return b
 }
 
 // EditAnswers object containing answers that need to be edited key – answer id, value – new answer text.
-// Example: {382967099:option1, 382967103:option2}
+// Example: `{"382967099":"option1", "382967103":"option2"}`
 func (b *PollsEditBuilder) EditAnswers(v string) *PollsEditBuilder {
 	b.Params["edit_answers"] = v
 	return b

@@ -172,15 +172,9 @@ func (b *MessagesDeleteConversationBuilder) UserID(v int) *MessagesDeleteConvers
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'chat_id', e.g. '2000000001'.
-// For community
-//
-// *  '- community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesDeleteConversationBuilder) PeerID(v int) *MessagesDeleteConversationBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -227,15 +221,9 @@ func NewMessagesEditBuilder() *MessagesEditBuilder {
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'chat_id', e.g. '2000000001'.
-// For community
-//
-// *  '- community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesEditBuilder) PeerID(v int) *MessagesEditBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -284,6 +272,7 @@ func (b *MessagesEditBuilder) Long(v float64) *MessagesEditBuilder {
 // * '<owner_id>' — ID of the media attachment owner.
 //
 // * '<media_id>' — media attachment ID.
+//
 // Example: photo100172_166443618
 func (b *MessagesEditBuilder) Attachment(v string) *MessagesEditBuilder {
 	b.Params["attachment"] = v
@@ -359,15 +348,9 @@ func NewMessagesGetByConversationMessageIDBuilder() *MessagesGetByConversationMe
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'chat_id', e.g. '2000000001'.
-// For community
-//
-// *  '- community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesGetByConversationMessageIDBuilder) PeerID(v int) *MessagesGetByConversationMessageIDBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -588,14 +571,9 @@ func NewMessagesGetConversationsByIDBuilder() *MessagesGetConversationsByIDBuild
 }
 
 // PeerIDs Destination IDs. For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'chat_id', e.g. '2000000001'.
-// For community
-//
-// *  '- community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesGetConversationsByIDBuilder) PeerIDs(v []int) *MessagesGetConversationsByIDBuilder {
 	b.Params["peer_ids"] = v
 	return b
@@ -706,11 +684,9 @@ func NewMessagesGetHistoryAttachmentsBuilder() *MessagesGetHistoryAttachmentsBui
 }
 
 // PeerID Peer ID.
-// For group chat
-//
-// *  '2000000000 + chat ID'  For community
-//
-// *  '-community ID'
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesGetHistoryAttachmentsBuilder) PeerID(v int) *MessagesGetHistoryAttachmentsBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -1126,15 +1102,9 @@ func (b *MessagesMarkAsReadBuilder) MessageIDs(v []int) *MessagesMarkAsReadBuild
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'chat_id', e.g. '2000000001'.
-// For community
-//
-// *  '- community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesMarkAsReadBuilder) PeerID(v int) *MessagesMarkAsReadBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -1167,15 +1137,9 @@ func NewMessagesPinBuilder() *MessagesPinBuilder {
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'Chat ID', e.g. '2000000001'.
-// For community
-//
-// *  '- Community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesPinBuilder) PeerID(v int) *MessagesPinBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -1266,15 +1230,9 @@ func (b *MessagesSearchBuilder) Q(v string) *MessagesSearchBuilder {
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'chat_id', e.g. '2000000001'.
-// For community
-//
-// *  '- community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesSearchBuilder) PeerID(v int) *MessagesSearchBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -1399,15 +1357,9 @@ func (b *MessagesSendBuilder) RandomID(v int) *MessagesSendBuilder {
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'chat_id', e.g. '2000000001'.
-// For community
-//
-// *  '- community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesSendBuilder) PeerID(v int) *MessagesSendBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -1470,6 +1422,7 @@ func (b *MessagesSendBuilder) Long(v float64) *MessagesSendBuilder {
 // * '<owner_id>' — ID of the media attachment owner.
 //
 // * '<media_id>' — media attachment ID.
+//
 // Example: photo100172_166443618
 func (b *MessagesSendBuilder) Attachment(v string) *MessagesSendBuilder {
 	b.Params["attachment"] = v
@@ -1561,15 +1514,9 @@ func (b *MessagesSetActivityBuilder) Type(v string) *MessagesSetActivityBuilder 
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'chat_id', e.g. '2000000001'.
-// For community
-//
-// *  '- community ID', e.g. '-12345'.
+// For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *MessagesSetActivityBuilder) PeerID(v int) *MessagesSetActivityBuilder {
 	b.Params["peer_id"] = v
 	return b

@@ -18,9 +18,7 @@ func NewUtilsCheckLinkBuilder() *UtilsCheckLinkBuilder {
 	return &UtilsCheckLinkBuilder{api.Params{}}
 }
 
-// URL Link to check e.g.
-//
-// *  'http://google.com'.
+// URL Link to check (e.g., 'http://google.com').
 func (b *UtilsCheckLinkBuilder) URL(v string) *UtilsCheckLinkBuilder {
 	b.Params["url"] = v
 	return b

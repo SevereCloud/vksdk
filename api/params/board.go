@@ -61,6 +61,7 @@ func (b *BoardAddTopicBuilder) FromGroup(v bool) *BoardAddTopicBuilder {
 // * '<owner_id>' — ID of the media owner.
 //
 // * '<media_id>' — Media ID.
+//
 // Example: photo100172_166443618,photo66748_265827614
 //
 // NOTE: If you try to attach more than one reference, an error will be thrown.,
@@ -284,6 +285,7 @@ func (b *BoardEditCommentBuilder) Message(v string) *BoardEditCommentBuilder {
 // * '<owner_id>' — ID of the media owner.
 //
 // * '<media_id>' — Media ID.
+//
 // Example: photo100172_166443618,photo66748_265827614
 func (b *BoardEditCommentBuilder) Attachments(v []string) *BoardEditCommentBuilder {
 	b.Params["attachments"] = v
