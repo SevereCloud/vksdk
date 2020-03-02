@@ -530,15 +530,9 @@ func (b *AccountSetSilenceModeBuilder) Time(v int) *AccountSetSilenceModeBuilder
 }
 
 // PeerID Destination ID.
-// For user
-//
-// *  'User ID', e.g. '12345'.
-// For chat
-//
-// *  '2000000000' + 'Chat ID', e.g. '2000000001'.
-// For community
-//
-// *  '- Community ID', e.g. '-12345'.
+// For user 'User ID', e.g. '12345'.
+// For chat '2000000000' + 'Chat ID', e.g. '2000000001'.
+// For community '- Community ID', e.g. '-12345'.
 func (b *AccountSetSilenceModeBuilder) PeerID(v int) *AccountSetSilenceModeBuilder {
 	b.Params["peer_id"] = v
 	return b

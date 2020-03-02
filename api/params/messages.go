@@ -1462,9 +1462,16 @@ func (b *MessagesSendBuilder) GroupID(v int) *MessagesSendBuilder {
 }
 
 // Keyboard parameter
+// https://vk.com/dev/bots_docs_3
 func (b *MessagesSendBuilder) Keyboard(v string) *MessagesSendBuilder {
 	b.Params["keyboard"] = v
 	return b
+}
+
+// Template parameter.
+// https://vk.com/dev/bot_docs_templates
+func (b *MessagesSendBuilder) Template(v interface{}) {
+	b.Params["template"] = v
 }
 
 // Payload parameter
@@ -1483,6 +1490,11 @@ func (b *MessagesSendBuilder) DontParseLinks(v bool) *MessagesSendBuilder {
 func (b *MessagesSendBuilder) DisableMentions(v bool) *MessagesSendBuilder {
 	b.Params["disable_mentions"] = v
 	return b
+}
+
+// Intent parameter
+func (b *MessagesSendBuilder) Intent(v string) {
+	b.Params["intent"] = v
 }
 
 // MessagesSetActivityBuilder builder

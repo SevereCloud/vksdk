@@ -178,16 +178,8 @@ func (b *AppsGetCatalogBuilder) Platform(v string) *AppsGetCatalogBuilder {
 
 // Extended parameter
 //
-// * '1' — to return additional fields 'screenshots'
-//
-// *  'MAU'
-//
-// *  'catalog_position', and 'international'.
-// If set
-//
-// *  'count' must be less than or equal to '100'.
-//
-// * '0' — not to return additional fields (default).
+// '1' — to return additional fields 'screenshots', 'MAU', 'catalog_position', and 'international'.
+// If set 'count' must be less than or equal to '100'. '0' — not to return additional fields (default).
 func (b *AppsGetCatalogBuilder) Extended(v bool) *AppsGetCatalogBuilder {
 	b.Params["extended"] = v
 	return b
