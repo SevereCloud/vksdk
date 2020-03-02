@@ -85,9 +85,9 @@ type VK struct {
 	Limit       int
 	Handler     func(method string, params Params) (Response, error)
 
-	mux         sync.Mutex
-	lastTime    time.Time
-	rps         int
+	mux      sync.Mutex
+	lastTime time.Time
+	rps      int
 }
 
 // Error struct VK
@@ -126,7 +126,7 @@ func Init(token string) *VK {
 	var vk VK
 	vk.AccessToken = token
 	vk.Version = Version
-	
+
 	vk.Handler = vk.defaultHandler
 
 	// TODO: remove in v2
