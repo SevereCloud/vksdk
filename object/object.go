@@ -151,12 +151,14 @@ type BaseLink struct {
 	Caption     string              `json:"caption"`
 	Description string              `json:"description"`
 	Photo       PhotosPhoto         `json:"photo"`
+	Video       VideoVideo          `json:"video"`
 	PreviewPage string              `json:"preview_page"`
 	PreviewURL  string              `json:"preview_url"`
 	Product     BaseLinkProduct     `json:"product"`
 	Rating      BaseLinkRating      `json:"rating"`
 	Title       string              `json:"title"`
 	URL         string              `json:"url"`
+	IsFavorite  BaseBoolInt         `json:"is_favorite"`
 }
 
 // BaseLinkApplication struct
