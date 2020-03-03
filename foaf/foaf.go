@@ -11,8 +11,6 @@ import (
 	"net/http"
 
 	"github.com/SevereCloud/vksdk/internal"
-	"golang.org/x/net/context/ctxhttp"
-	"golang.org/x/net/html/charset"
 )
 
 // FOAFURL url foaf
@@ -59,14 +57,14 @@ type Date struct {
 
 // getFoaf return RDF
 func getFoaf(ctx context.Context, req *http.Request) (r rdf, err error) {
-	resp, err := ctxhttp.Do(ctx, internal.ContextClient(ctx), req)
+	resp, err := internal.DoRequest(ctx, req)
 	if err != nil {
 		return
 	}
 	defer resp.Body.Close()
 
 	decoder := xml.NewDecoder(resp.Body)
-	decoder.CharsetReader = charset.NewReaderLabel // For support WINDOWS-1251
+	decoder.CharsetReader = internal.CharsetReader // For support WINDOWS-1251
 	err = decoder.Decode(&r)
 
 	return

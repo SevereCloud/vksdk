@@ -2,7 +2,10 @@ package internal_test
 
 import (
 	"context"
+	"io"
+	"io/ioutil"
 	"net/http"
+	"net/http/httptest"
 	"testing"
 	"time"
 
@@ -22,4 +25,93 @@ func TestContextClient(t *testing.T) {
 	httpClient := &http.Client{Timeout: 2 * time.Second}
 	ctx = context.WithValue(ctx, internal.HTTPClient, httpClient)
 	f(ctx, httpClient)
+}
+
+func TestGo17Context(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		io.WriteString(w, "ok")
+	}))
+	defer ts.Close()
+
+	req, err := http.NewRequest("GET", ts.URL, nil)
+	if err != nil {
+		t.Fatalf("unexpected error in http.NewRequests: %v", err)
+	}
+
+	ctx := context.Background()
+
+	resp, err := internal.DoRequest(ctx, req)
+	if resp == nil || err != nil {
+		t.Fatalf("error received from client: %v %v", err, resp)
+	}
+
+	resp.Body.Close()
+}
+
+const (
+	requestDuration = 100 * time.Millisecond
+	requestBody     = "ok"
+)
+
+func okHandler(w http.ResponseWriter, r *http.Request) {
+	time.Sleep(requestDuration)
+	io.WriteString(w, requestBody)
+}
+
+func TestNoTimeout(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(okHandler))
+	defer ts.Close()
+
+	req, err := http.NewRequest("GET", ts.URL, nil)
+	if err != nil {
+		t.Fatalf("unexpected error in http.NewRequests: %v", err)
+	}
+
+	ctx := context.Background()
+
+	resp, err := internal.DoRequest(ctx, req)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+
+	slurp, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if string(slurp) != requestBody {
+		t.Errorf("body = %q; want %q", slurp, requestBody)
+	}
+}
+
+func TestCancelBeforeHeaders(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+
+	blockServer := make(chan struct{})
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		cancel()
+		<-blockServer
+
+		io.WriteString(w, requestBody)
+	}))
+
+	defer ts.Close()
+	defer close(blockServer)
+
+	req, err := http.NewRequest("GET", ts.URL, nil)
+	if err != nil {
+		t.Fatalf("unexpected error in http.NewRequests: %v", err)
+	}
+
+	resp, err := internal.DoRequest(ctx, req)
+	if err == nil {
+		resp.Body.Close()
+
+		t.Fatal("Get returned unexpected nil error")
+	}
+
+	if err != context.Canceled {
+		t.Errorf("err = %v; want %v", err, context.Canceled)
+	}
 }

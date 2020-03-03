@@ -27,3 +27,23 @@ func ContextClient(ctx context.Context) *http.Client {
 
 	return http.DefaultClient
 }
+
+// DoRequest sends an HTTP request and returns an HTTP response.
+//
+// The provided ctx must be non-nil. If it is canceled or times out,
+// ctx.Err() will be returned.
+func DoRequest(ctx context.Context, req *http.Request) (*http.Response, error) {
+	client := ContextClient(ctx)
+	resp, err := client.Do(req.WithContext(ctx))
+	// If we got an error, and the context has been canceled,
+	// the context's error is probably more useful.
+	if err != nil {
+		select {
+		case <-ctx.Done():
+			err = ctx.Err()
+		default:
+		}
+	}
+
+	return resp, err
+}
