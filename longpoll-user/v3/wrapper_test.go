@@ -128,6 +128,8 @@ func TestWrapper_2(t *testing.T) {
 		exit <- true
 	}()
 
+	time.Sleep(1 * time.Second)
+
 	msgID, err := vkUser.MessagesSend(api.Params{
 		"chat_id":   chatID,
 		"random_id": 0,
