@@ -54,3 +54,14 @@ func TestGetPerson_Active(t *testing.T) {
 	assert.Equal(t, foaf.ProfileStateActive, person.ProfileState)
 	assert.Equal(t, foaf.AccessDisallowed, person.PublicAccess)
 }
+
+func TestGetPerson(t *testing.T) {
+	f := func(userID int) {
+		t.Helper()
+
+		_, err := foaf.GetPerson(context.Background(), userID)
+		assert.NoError(t, err)
+	}
+
+	f(177512888) // check invalid character entity &#5555555;
+}

@@ -64,6 +64,15 @@ func getFoaf(ctx context.Context, req *http.Request) (r rdf, err error) {
 	defer resp.Body.Close()
 
 	decoder := xml.NewDecoder(resp.Body)
+
+	// decoder.Strict set to false, the parser allows input containing
+	// common mistakes:
+	//	* If an element is missing an end tag, the parser invents
+	//	  end tags as necessary to keep the return values from Token
+	//	  properly balanced.
+	//	* In attribute values and character data, unknown or malformed
+	//	  character entities (sequences beginning with &) are left alone.
+	decoder.Strict = false
 	decoder.CharsetReader = internal.CharsetReader // For support WINDOWS-1251
 	err = decoder.Decode(&r)
 
