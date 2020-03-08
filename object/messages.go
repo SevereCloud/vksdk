@@ -307,7 +307,7 @@ type MessagesConversationChatSettings struct {
 	PinnedMessage MessagesPinnedMessage     `json:"pinned_message"`
 	State         string                    `json:"state"`
 	Title         string                    `json:"title"`
-	ActiveIDS     []int                     `json:"active_ids"`
+	ActiveIDS     []int                     `json:"active_ids"` // FIXME: v2 ActiveIDs
 	ACL           struct {
 		CanInvite           BaseBoolInt `json:"can_invite"`
 		CanChangeInfo       BaseBoolInt `json:"can_change_info"`
@@ -320,6 +320,7 @@ type MessagesConversationChatSettings struct {
 	} `json:"acl"`
 	IsGroupChannel BaseBoolInt `json:"is_group_channel"`
 	OwnerID        int         `json:"owner_id"`
+	AdminIDs       []int       `json:"admin_ids"`
 }
 
 // MessagesConversationPeer struct

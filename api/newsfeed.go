@@ -102,7 +102,7 @@ type NewsfeedGetListsResponse struct {
 		ID        int    `json:"id"`
 		Title     string `json:"title"`
 		NoReposts int    `json:"no_reposts"`
-		SourceIDS []int  `json:"source_ids"`
+		SourceIDS []int  `json:"source_ids"` // FIXME: v2 SourceIDs
 	} `json:"items"`
 }
 
