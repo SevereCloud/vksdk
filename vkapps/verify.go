@@ -50,8 +50,8 @@ func (pv *ParamsVerification) Sign(p []byte) string {
 
 	// Generate base64
 	base64Sign := base64.StdEncoding.EncodeToString(expectedMAC)
-	base64Sign = strings.ReplaceAll(base64Sign, "+", "-")
-	base64Sign = strings.ReplaceAll(base64Sign, "/", "_")
+	base64Sign = strings.Replace(base64Sign, "+", "-", -1)
+	base64Sign = strings.Replace(base64Sign, "/", "_", -1)
 	base64Sign = strings.TrimRight(base64Sign, "=")
 
 	return base64Sign
