@@ -142,8 +142,8 @@ type Message struct {
 func (result *Message) parseMessage(structName string, i []interface{}) error {
 	length := len(i)
 
-	if length < 11 {
-		return fmt.Errorf(errFmtTooShortArray, structName, 11, length)
+	if length < 10 {
+		return fmt.Errorf(errFmtTooShortArray, structName, 10, length)
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -158,32 +158,44 @@ func (result *Message) parseMessage(structName string, i []interface{}) error {
 		result.PeerID = int(v)
 	}
 
-	if v, ok := i[4].(float64); ok {
-		result.Timestamp = time.Unix(int64(v), 0)
-	}
+	if length > 4 {
+		if v, ok := i[4].(float64); ok {
+			result.Timestamp = time.Unix(int64(v), 0)
+		}
 
-	if v, ok := i[5].(string); ok {
-		result.Text = v
-	}
+		if v, ok := i[5].(string); ok {
+			result.Text = v
+		}
 
-	if v, ok := i[6].(map[string]interface{}); ok {
-		result.AdditionalData.parse(v)
-	}
+		if v, ok := i[6].(map[string]interface{}); ok {
+			result.AdditionalData.parse(v)
+		}
 
-	if v, ok := i[7].(map[string]interface{}); ok {
-		result.Attachments = v
-	}
+		if v, ok := i[7].(map[string]interface{}); ok {
+			result.Attachments = v
+		}
 
-	if v, ok := i[8].(float64); ok {
-		result.RandomID = int(v)
-	}
+		if length > 8 && length < 11 {
+			if v, ok := i[8].(float64); ok {
+				result.ConversationMessageID = int(v)
+			}
 
-	if v, ok := i[9].(float64); ok {
-		result.ConversationMessageID = int(v)
-	}
+			if v, ok := i[9].(float64); ok {
+				result.EditTimestamp = time.Unix(int64(v), 0)
+			}
+		} else { // if mode = 128
+			if v, ok := i[8].(float64); ok {
+				result.RandomID = int(v)
+			}
 
-	if v, ok := i[10].(float64); ok {
-		result.EditTimestamp = time.Unix(int64(v), 0)
+			if v, ok := i[9].(float64); ok {
+				result.ConversationMessageID = int(v)
+			}
+
+			if v, ok := i[10].(float64); ok {
+				result.EditTimestamp = time.Unix(int64(v), 0)
+			}
+		}
 	}
 
 	return nil

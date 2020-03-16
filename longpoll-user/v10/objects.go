@@ -31,7 +31,7 @@ func (result *MessageFlagsSet) Parse(i []interface{}) error {
 	}
 
 	if v, ok := i[3].(float64); ok {
-		result.MessageID = int(v)
+		result.PeerID = int(v)
 	}
 
 	return nil
@@ -46,6 +46,9 @@ type MessageFlagsReset struct {
 
 // Parse func for MessageFlagsReset
 func (result *MessageFlagsReset) Parse(i []interface{}) error {
+	if len(i) < 4 {
+		return fmt.Errorf(errFmtTooShortArray, "MessageFlagsReset", 4, len(i))
+	}
 	return result.parseMessage("MessageFlagsReset", i)
 }
 

@@ -7,6 +7,12 @@ type Wrapper struct {
 	longpoll *longpoll.Longpoll
 }
 
+// NewWrapper return *Wrapper for longpoll v10
+func NewWrapper(lp *longpoll.Longpoll) *Wrapper {
+	lp.Version = 10
+	return &Wrapper{longpoll: lp}
+}
+
 // MessageFlagsSetHandler handler func for MessageFlagsSet
 type MessageFlagsSetHandler func(m MessageFlagsSet)
 
@@ -398,8 +404,14 @@ type NotificationSettingsChangeHandler func(m NotificationSettingsChange)
 func (w Wrapper) OnNotificationSettingsChange(f NotificationSettingsChangeHandler) {
 	w.longpoll.EventNew(114, func(i []interface{}) error {
 		event := NotificationSettingsChange{}
-		if err := event.Parse(i); err != nil {
-			return err
+		if w.longpoll.Mode&longpoll.ExtendedEvents != 0 {
+			if err := event.ParseMode8(i); err != nil {
+				return err
+			}
+		} else {
+			if err := event.Parse(i); err != nil {
+				return err
+			}
 		}
 		f(event)
 
