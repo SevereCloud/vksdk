@@ -1,5 +1,13 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
+// StoriesPromoData struct
+type StoriesPromoData struct {
+	Name        string      `json:"name"`
+	Photo50     string      `json:"photo_50"`
+	Photo100    string      `json:"photo_100"`
+	NotAnimated BaseBoolInt `json:"not_animated"`
+}
+
 // StoriesStoryLink struct
 type StoriesStoryLink struct {
 	Text string `json:"text"` // Link text
