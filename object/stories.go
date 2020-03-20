@@ -1,5 +1,12 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
+// StoriesNarrativeInfo type
+type StoriesNarrativeInfo struct {
+	Author string `json:"author"`
+	Title  string `json:"title"`
+	Views  int    `json:"views"`
+}
+
 // StoriesPromoData struct
 type StoriesPromoData struct {
 	Name        string      `json:"name"`
@@ -58,6 +65,7 @@ type StoriesStory struct {
 	NoSound              BaseBoolInt              `json:"no_sound"`      // Is video without sound
 	IsRestricted         BaseBoolInt              `json:"is_restricted"` // Does author have stories privacy restrictions
 	Seen                 BaseBoolInt              `json:"seen"`          // Information whether current user has seen the story or not (0 - no, 1 - yes).
+	IsOwnerPinned        BaseBoolInt              `json:"is_owner_pinned"`
 	Link                 StoriesStoryLink         `json:"link"`
 	OwnerID              int                      `json:"owner_id"` // Story owner's ID.
 	ParentStory          *StoriesStory            `json:"parent_story"`
@@ -72,6 +80,9 @@ type StoriesStory struct {
 	ClickableStickers    StoriesClickableStickers `json:"clickable_stickers"`
 	TrackCode            string                   `json:"track_code"`
 	LikesCount           int                      `json:"likes_count"`
+	NarrativeID          int                      `json:"narrative_id"`
+	NarrativeOwnerID     int                      `json:"narrative_owner_id"`
+	NarrativeInfo        StoriesNarrativeInfo     `json:"narrative_info"`
 }
 
 // StoriesClickableStickers struct
