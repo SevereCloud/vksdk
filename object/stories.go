@@ -125,7 +125,31 @@ type StoriesClickableSticker struct {
 
 	// type=poll
 	Poll PollsPoll `json:"poll"`
+
+	// type=music
+	Audio          AudioAudioFull `json:"audio"`
+	AudioStartTime int            `json:"audio_start_time"`
 }
+
+// StoriesClickableStickerType type of clickable sticker
+type StoriesClickableStickerType string
+
+// ClickableSticker type
+// FIXME: v2 StoriesClickableStickerType
+const (
+	StoriesClickableStickerPost       = "post"
+	StoriesClickableStickerSticker    = "sticker"
+	StoriesClickableStickerPlace      = "place"
+	StoriesClickableStickerQuestion   = "question"
+	StoriesClickableStickerMention    = "mention"
+	StoriesClickableStickerHashtag    = "hashtag"
+	StoriesClickableStickerMarketItem = "market_item"
+	StoriesClickableStickerLink       = "link"
+	StoriesClickableStickerStoryReply = "story_reply"
+	StoriesClickableStickerOwner      = "owner"
+	StoriesClickableStickerPoll       = "poll"
+	StoriesClickableStickerMusic      = "music"
+)
 
 // StoriesClickablePoint struct
 type StoriesClickablePoint struct {
