@@ -87,7 +87,7 @@ func TestVK_WallGet(t *testing.T) {
 			assert.NotEmpty(t, item.Date)
 			// assert.NotEmpty(t, item.MarkedAsAds)
 			assert.NotEmpty(t, item.PostType)
-			assert.NotEmpty(t, item.Text)
+			// assert.NotEmpty(t, item.Text)
 			assert.NotEmpty(t, item.PostSource)
 			assert.NotEmpty(t, item.Comments)
 			assert.NotEmpty(t, item.Likes)
