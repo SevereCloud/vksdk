@@ -9,7 +9,31 @@ import (
 	"strings"
 
 	"golang.org/x/text/encoding/charmap"
+	"golang.org/x/text/runes"
+	"golang.org/x/text/transform"
 )
+
+// illegal is a collection of runes
+type illegal struct{}
+
+func (i illegal) Contains(r rune) bool {
+	return !(r == 0x09 ||
+		r == 0x0A ||
+		r == 0x0D ||
+		r >= 0x20 && r <= 0xDF77 ||
+		r >= 0xE000 && r <= 0xFFFD ||
+		r >= 0x10000 && r <= 0x10FFFF)
+}
+
+// XMLSanitizerReader creates an io.Reader that
+// wraps another io.Reader and removes illegal xml
+// characters from the io stream.
+func XMLSanitizerReader(xml io.Reader) io.Reader {
+	var i illegal
+	t := transform.Chain(runes.Remove(i))
+
+	return transform.NewReader(xml, t)
+}
 
 // CharsetReader if non-nil, defines a function to generate
 // charset-conversion readers, converting from the provided

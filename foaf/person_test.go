@@ -63,5 +63,7 @@ func TestGetPerson(t *testing.T) {
 		assert.NoError(t, err)
 	}
 
+	// FIXME: f(319698546) // check illegal character code U+000C
 	f(177512888) // check invalid character entity &#5555555;
+	f(135122185) // check invalid character entity &a (no semicolon)
 }

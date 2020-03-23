@@ -56,6 +56,8 @@ type Date struct {
 }
 
 // getFoaf return RDF
+//
+// BUG: VK return invalid XML char (example &#12;)
 func getFoaf(ctx context.Context, req *http.Request) (r rdf, err error) {
 	resp, err := internal.DoRequest(ctx, req)
 	if err != nil {
