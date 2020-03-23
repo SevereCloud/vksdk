@@ -34,6 +34,8 @@ type Longpoll struct {
 }
 
 // Init Longpoll
+//
+// TODO: v2 NewLongpoll
 func Init(vk *api.VK, groupID int) (lp Longpoll, err error) {
 	lp.VK = vk
 	lp.GroupID = groupID

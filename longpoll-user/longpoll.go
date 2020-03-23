@@ -99,6 +99,7 @@ type Longpoll struct {
 
 // Init Longpoll
 //
+// TODO: v2 NewLongpoll
 // FIXME: v2 return *Longpoll
 func Init(vk *api.VK, mode Mode) (lp Longpoll, err error) {
 	// NOTE: what about group_id?

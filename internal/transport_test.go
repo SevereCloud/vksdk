@@ -13,6 +13,20 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestContextUserAgent(t *testing.T) {
+	f := func(ctx context.Context, wantUserAgent string) {
+		userAgent := internal.ContextUserAgent(ctx)
+		assert.Equal(t, wantUserAgent, userAgent)
+	}
+
+	f(context.Background(), internal.UserAgent)
+
+	ctx := context.Background()
+	userAgent := "AOAOA"
+	ctx = context.WithValue(ctx, internal.UserAgentKey, userAgent)
+	f(ctx, userAgent)
+}
+
 func TestContextClient(t *testing.T) {
 	f := func(ctx context.Context, wantClient *http.Client) {
 		client := internal.ContextClient(ctx)
@@ -23,7 +37,7 @@ func TestContextClient(t *testing.T) {
 
 	ctx := context.Background()
 	httpClient := &http.Client{Timeout: 2 * time.Second}
-	ctx = context.WithValue(ctx, internal.HTTPClient, httpClient)
+	ctx = context.WithValue(ctx, internal.HTTPClientKey, httpClient)
 	f(ctx, httpClient)
 }
 

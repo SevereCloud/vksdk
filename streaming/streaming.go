@@ -92,6 +92,7 @@ import (
 	"github.com/gorilla/websocket"
 
 	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/internal"
 )
 
 type response struct {
@@ -131,14 +132,17 @@ type Streaming struct {
 	Key      string // access key for streaming api
 	StreamID int
 
-	Client *http.Client      // A Client is an HTTP client
-	Dialer *websocket.Dialer // A Dialer contains options for connecting to WebSocket server
+	Client    *http.Client      // A Client is an HTTP client
+	Dialer    *websocket.Dialer // A Dialer contains options for connecting to WebSocket server
+	UserAgent string
 
 	inShutdown int32
 	eventFunc  []func(Event)
 }
 
 func (s *Streaming) doRequest(req *http.Request) (*response, error) {
+	req.Header.Set("User-Agent", s.UserAgent)
+
 	resp, err := s.Client.Do(req)
 	if err != nil {
 		return nil, err
@@ -346,6 +350,8 @@ func (s *Streaming) Shutdown() {
 // Init Streaming
 //
 // This can be called with a service token.
+//
+// TODO: v2 NewStreaming
 func Init(vk *api.VK) (*Streaming, error) {
 	resp, err := vk.StreamingGetServerURL(api.Params{})
 	if err != nil {
@@ -353,11 +359,12 @@ func Init(vk *api.VK) (*Streaming, error) {
 	}
 
 	s := &Streaming{
-		Endpoint: resp.Endpoint,
-		Key:      resp.Key,
-		StreamID: 0,
-		Client:   http.DefaultClient,
-		Dialer:   websocket.DefaultDialer,
+		Endpoint:  resp.Endpoint,
+		Key:       resp.Key,
+		StreamID:  0,
+		Client:    http.DefaultClient,
+		Dialer:    websocket.DefaultDialer,
+		UserAgent: internal.UserAgent,
 	}
 
 	return s, nil

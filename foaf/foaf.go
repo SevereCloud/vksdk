@@ -16,9 +16,12 @@ import (
 // FOAFURL url foaf
 const FOAFURL = "https://vk.com/foaf.php"
 
-// HTTPClient is the context key to use with golang.org/x/net/context's
-// WithValue function to associate an *http.Client value with a context.
-var HTTPClient internal.ContextKey // nolint:gochecknoglobals
+// Context keys to use with https://golang.org/pkg/context
+// WithValue function to associate
+const (
+	HTTPClient = internal.HTTPClientKey
+	UserAgent  = internal.UserAgentKey
+)
 
 // rdf is a standard model for data interchange on the Web.
 //

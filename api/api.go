@@ -16,6 +16,7 @@ import (
 	"time"
 
 	"github.com/SevereCloud/vksdk/api/errors"
+	"github.com/SevereCloud/vksdk/internal"
 	"github.com/SevereCloud/vksdk/object"
 )
 
@@ -83,6 +84,7 @@ type VK struct {
 	Version     string
 	Client      *http.Client
 	Limit       int
+	UserAgent   string
 	Handler     func(method string, params Params) (Response, error)
 
 	mux      sync.Mutex
@@ -133,6 +135,7 @@ func Init(token string) *VK {
 	vk.MethodURL = APIMethodURL
 	vk.Client = http.DefaultClient
 	vk.Limit = LimitGroupToken
+	vk.UserAgent = internal.UserAgent
 
 	return &vk
 }
@@ -148,9 +151,6 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 	for key, value := range params {
 		query.Set(key, FmtValue(value, 0))
 	}
-
-	// query.Set("access_token", vk.AccessToken)
-	// query.Set("v", vk.Version)
 
 	rawBody := bytes.NewBufferString(query.Encode())
 
@@ -175,7 +175,15 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 		vk.mux.Unlock()
 	}
 
-	resp, err := vk.Client.Post(u, "application/x-www-form-urlencoded", rawBody)
+	req, err := http.NewRequest("POST", u, rawBody)
+	if err != nil {
+		return
+	}
+
+	req.Header.Set("User-Agent", vk.UserAgent)
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+	resp, err := vk.Client.Do(req)
 	if err != nil {
 		return
 	}
@@ -211,15 +219,20 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 //
 // TODO: remove in v2
 func (vk *VK) Request(method string, params Params) ([]byte, error) {
-	if _, ok := params["access_token"]; !ok {
-		params["access_token"] = vk.AccessToken
+	copyParams := make(Params)
+	for key, value := range params {
+		copyParams[key] = FmtValue(value, 0)
 	}
 
-	if _, ok := params["v"]; !ok {
-		params["v"] = vk.Version
+	if _, ok := copyParams["access_token"]; !ok {
+		copyParams["access_token"] = vk.AccessToken
 	}
 
-	resp, err := vk.Handler(method, params)
+	if _, ok := copyParams["v"]; !ok {
+		copyParams["v"] = vk.Version
+	}
+
+	resp, err := vk.Handler(method, copyParams)
 
 	return resp.Response, err
 }
