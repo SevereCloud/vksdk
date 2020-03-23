@@ -68,6 +68,18 @@ type BaseRequestParam struct {
 	Value string `json:"value"`
 }
 
+// BaseSex type
+type BaseSex int
+
+// BaseSex const
+// FIXME: v2 BaseSex for const
+// FIXME: v2 BaseSex for fields
+const (
+	SexUnknown = iota
+	SexFemale
+	SexMale
+)
+
 // GroupEvent struct
 type GroupEvent struct {
 	Type    string          `json:"type"`

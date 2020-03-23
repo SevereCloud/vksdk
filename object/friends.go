@@ -1,5 +1,18 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
+// FriendsStatus type
+type FriendsStatus int
+
+// FriendStatus const
+// FIXME: v2 FriendStatus for const
+// FIXME: v2 FriendStatus for FriendsFriendStatus.FriendStatus
+const (
+	FriendsStatusNotFriend        = iota // not a friend
+	FriendsStatusOutComingRequest        // outcoming request
+	FriendsStatusInComingRequest         // incoming request
+	FriendsStatusIsFriend                // is friend
+)
+
 // FriendsFriendStatus struct
 type FriendsFriendStatus struct {
 	FriendStatus   int         `json:"friend_status"`

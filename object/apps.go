@@ -1,5 +1,32 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
+// AppsAppType application type
+type AppsAppType string
+
+// AppsAppType const
+// FIXME: v2 AppsAppType
+const (
+	AppTypeApp          = "app"
+	AppTypeGame         = "game"
+	AppTypeSite         = "site"
+	AppTypeStandalone   = "standalone"
+	AppTypeVkApp        = "vk_app"
+	AppTypeCommunityApp = "community_app"
+	AppTypeHTML5Game    = "html5_game"
+)
+
+// AppsLeaderboardType type
+type AppsLeaderboardType int
+
+// AppsLeaderboardType const
+// FIXME: v2 AppsLeaderboardType const
+// FIXME: v2 AppsLeaderboardType LeaderboardType
+const (
+	AppsLeaderboardTypeNotSupported = iota
+	AppsLeaderboardTypeLevels
+	AppsLeaderboardTypePoints
+)
+
 // AppsApp struct
 type AppsApp struct {
 	AuthorGroup     int           `json:"author_group"`     // Official community's ID

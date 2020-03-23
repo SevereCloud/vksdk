@@ -400,6 +400,23 @@ type MessagesLongpollParams struct {
 	Ts     int    `json:"ts"`     // Timestamp
 }
 
+// MessagesMessageActionStatus action status
+type MessagesMessageActionStatus string
+
+// MessagesMessageActionStatus const
+// FIXME: v2 MessagesMessageActionStatus
+const (
+	ChatPhotoUpdate      = "chat_photo_update"
+	ChatPhotoRemove      = "chat_photo_remove"
+	ChatCreate           = "chat_create"
+	ChatTitleUpdate      = "chat_title_update"
+	ChatInviteUser       = "chat_invite_user"
+	ChatKickUser         = "chat_kick_user"
+	ChatPinMessage       = "chat_pin_message"
+	ChatUnpinMessage     = "chat_unpin_message"
+	ChatInviteUserByLink = "chat_invite_user_by_link"
+)
+
 // MessagesMessageAction struct
 type MessagesMessageAction struct {
 	ConversationMessageID int                        `json:"conversation_message_id"` // Message ID

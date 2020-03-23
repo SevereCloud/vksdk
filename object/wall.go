@@ -42,6 +42,19 @@ type WallGraffiti struct {
 	Photo586 string `json:"photo_586"` // URL of the preview image with 586 px in width
 }
 
+// WallPostSourceType type of post source
+type WallPostSourceType string
+
+// WallPostSourceType const
+// FIXME: v2 WallPostSourceType
+const (
+	WallPostSourceTypeVk     = "vk"
+	WallPostSourceTypeWidget = "widget"
+	WallPostSourceTypeAPI    = "api"
+	WallPostSourceTypeRss    = "rss"
+	WallPostSourceTypeSms    = "sms"
+)
+
 // WallPostSource struct
 type WallPostSource struct {
 	Data     string `json:"data"`     // Additional data
@@ -97,6 +110,19 @@ type WallWallComment struct {
 	Thread         WallWallCommentThread   `json:"thread"`
 }
 
+// WallPostType post type
+type WallPostType string
+
+// WallPostType const
+// FIXME: v2 WallPostType
+const (
+	WallPostTypePost     = "post"
+	WallPostTypeCopy     = "copy"
+	WallPostTypeReply    = "reply"
+	WallPostTypePostpone = "postpone"
+	WallPostTypeSuggest  = "suggest"
+)
+
 // WallWallpost  struct
 type WallWallpost struct {
 	AccessKey    string                   `json:"access_key"` // Access key to private object
@@ -149,6 +175,31 @@ type WallWallpostAttached struct {
 	Text        string                   `json:"text"`
 	ToID        int                      `json:"to_id"`
 }
+
+// AttachmentType attachment type
+type AttachmentType string
+
+// AttachmentType const
+// FIXME: v2 AttachmentType
+// TODO: check this
+const (
+	AttachmentTypePhoto       = "photo"
+	AttachmentTypePostedPhoto = "posted_photo"
+	AttachmentTypeAudio       = "audio"
+	AttachmentTypeVideo       = "video"
+	AttachmentTypeDoc         = "doc"
+	AttachmentTypeLink        = "link"
+	AttachmentTypeGraffiti    = "graffiti"
+	AttachmentTypeNote        = "note"
+	AttachmentTypeApp         = "app"
+	AttachmentTypePoll        = "poll"
+	AttachmentTypePage        = "page"
+	AttachmentTypeAlbum       = "album"
+	AttachmentTypePhotosList  = "photos_list"
+	AttachmentTypeMarketAlbum = "market_album"
+	AttachmentTypeMarket      = "market"
+	AttachmentTypeEvent       = "event"
+)
 
 // WallWallpostAttachment struct
 type WallWallpostAttachment struct {
