@@ -21,7 +21,13 @@ type Callback struct {
 	ConfirmationKey  string
 	SecretKeys       map[int]string
 	SecretKey        string
+
 	events.FuncList
+}
+
+// NewCallback return *Callback
+func NewCallback() *Callback {
+	return &Callback{}
 }
 
 // HandleFunc handler
@@ -43,7 +49,7 @@ func (cb Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	if e.Type == "confirmation" {
+	if e.Type == object.EventConfirmation {
 		if cb.ConfirmationKeys[e.GroupID] != "" {
 			fmt.Fprintf(w, cb.ConfirmationKeys[e.GroupID])
 		} else {

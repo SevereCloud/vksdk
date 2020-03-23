@@ -200,3 +200,8 @@ func TestCallback_HandleFunc(t *testing.T) {
 		})
 	}
 }
+
+func TestNewCallback(t *testing.T) {
+	cb := NewCallback()
+	assert.NotNil(t, cb)
+}
