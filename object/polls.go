@@ -82,7 +82,8 @@ type PollsBackground struct {
 		Position float64 `json:"position"`
 		Color    string  `json:"color"`
 	} `json:"points"`
-	ID int `json:"id"`
+	ID   int    `json:"id"`
+	Name string `json:"string"`
 }
 
 // PollsPhoto struct
