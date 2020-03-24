@@ -36,9 +36,11 @@ type FriendsFriendsList struct {
 
 // FriendsRequests struct
 type FriendsRequests struct {
-	From   string                `json:"from"` // ID of the user by whom friend has been suggested
-	Mutual FriendsRequestsMutual `json:"mutual"`
-	UserID int                   `json:"user_id"` // User ID
+	UsersUser
+	From      string                `json:"from"` // ID of the user by whom friend has been suggested
+	Mutual    FriendsRequestsMutual `json:"mutual"`
+	UserID    int                   `json:"user_id"` // User ID
+	TrackCode string                `json:"track_code"`
 }
 
 // FriendsRequestsMutual struct
@@ -49,10 +51,8 @@ type FriendsRequestsMutual struct {
 
 // FriendsRequestsXtrMessage struct
 type FriendsRequestsXtrMessage struct {
-	From    string                `json:"from"`    // ID of the user by whom friend has been suggested
-	Message string                `json:"message"` // Message sent with a request
-	Mutual  FriendsRequestsMutual `json:"mutual"`
-	UserID  int                   `json:"user_id"` // User ID
+	FriendsRequests
+	Message string `json:"message"` // Message sent with a request
 }
 
 // FriendsUserXtrLists struct
