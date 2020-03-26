@@ -13,7 +13,7 @@
 В начале необходимо инициализировать api с помощью [ключа доступа](https://vk.com/dev/access_token):
 
 ```go
-vk := api.Init("<TOKEN>")
+vk := api.NewVK("<TOKEN>")
 ```
 
 ### Запросы к API

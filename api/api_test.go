@@ -76,7 +76,7 @@ var vkGroup, vkService, vkUser *api.VK // nolint:gochecknoglobals
 var vkUserID, vkGroupID, vkChatID int  // nolint:gochecknoglobals
 
 func TestMain(m *testing.M) {
-	vkGroup = api.Init(os.Getenv("GROUP_TOKEN"))
+	vkGroup = api.NewVK(os.Getenv("GROUP_TOKEN"))
 	if vkGroup.AccessToken != "" {
 		group, err := vkGroup.GroupsGetByID(api.Params{})
 		if err != nil {
@@ -86,9 +86,9 @@ func TestMain(m *testing.M) {
 		vkGroupID = group[0].ID
 	}
 
-	vkService = api.Init(os.Getenv("SERVICE_TOKEN"))
+	vkService = api.NewVK(os.Getenv("SERVICE_TOKEN"))
 	vkService.Limit = 3
-	vkUser = api.Init(os.Getenv("USER_TOKEN"))
+	vkUser = api.NewVK(os.Getenv("USER_TOKEN"))
 	vkUser.Limit = 3
 
 	if vkUser.AccessToken != "" {
@@ -110,7 +110,7 @@ func TestVK_Request(t *testing.T) {
 		t.Skip("GROUP_TOKEN empty")
 	}
 
-	vk := api.Init(groupToken)
+	vk := api.NewVK(groupToken)
 
 	t.Run("Request 403 error", func(t *testing.T) {
 		_, err := vk.Request("", api.Params{})
@@ -232,4 +232,10 @@ func TestVK_CaptchaForce(t *testing.T) {
 	if errors.GetType(err) != errors.Captcha {
 		t.Errorf("VK.CaptchaForce() err=%v, want 14", err)
 	}
+}
+
+// FIXME: v2 remove TestInit
+func TestInit(t *testing.T) {
+	vk := api.Init("")
+	assert.NotNil(t, vk)
 }

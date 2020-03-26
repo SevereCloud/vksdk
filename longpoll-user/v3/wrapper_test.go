@@ -45,7 +45,7 @@ var vkUserID, vkChatID int // nolint:gochecknoglobals
 func TestMain(m *testing.M) {
 	time.Sleep(1 * time.Second)
 
-	vkUser = api.Init(os.Getenv("USER_TOKEN"))
+	vkUser = api.NewVK(os.Getenv("USER_TOKEN"))
 	vkUser.Limit = 1
 
 	if vkUser.AccessToken != "" {
@@ -68,12 +68,12 @@ func TestWrapper_2(t *testing.T) {
 
 	exit := make(chan bool, 1)
 
-	lp, err := longpoll.Init(vkUser, 2)
+	lp, err := longpoll.NewLongpoll(vkUser, 2)
 	if err != nil {
 		t.Fatalf("lp.Init err: %v", err)
 	}
 
-	w := wrapper.NewWrapper(&lp)
+	w := wrapper.NewWrapper(lp)
 
 	w.OnMessageFlagsChange(func(e wrapper.MessageFlagsChange) {})
 	w.OnMessageFlagsSet(func(e wrapper.MessageFlagsSet) {

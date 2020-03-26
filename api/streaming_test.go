@@ -98,7 +98,7 @@ func TestVK_StreamingSetSettings(t *testing.T) {
 }
 
 func TestVK_StreamingError(t *testing.T) {
-	vk := api.Init("")
+	vk := api.NewVK("")
 
 	t.Run("StreamingGetServerURL error", func(t *testing.T) {
 		_, err := vk.StreamingGetServerURL(api.Params{})

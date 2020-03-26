@@ -30,14 +30,14 @@ func TestLongpoll_Handler(t *testing.T) { // nolint:gocyclo
 	})
 }
 
-func TestInit(t *testing.T) {
+func TestNewLongpoll(t *testing.T) {
 	groupToken := os.Getenv("GROUP_TOKEN")
 	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
 	}
 
-	vk := api.Init(groupToken)
-	badVk := api.Init("")
+	vk := api.NewVK(groupToken)
+	badVk := api.NewVK("")
 	groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
 
 	type args struct {
@@ -71,13 +71,13 @@ func TestInit(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, err := Init(tt.args.vk, tt.args.groupID)
+			_, err := NewLongpoll(tt.args.vk, tt.args.groupID)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("Init() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("NewLongpoll() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			// if !reflect.DeepEqual(gotLp, tt.wantLp) {
-			// 	t.Errorf("Init() = %v, want %v", gotLp, tt.wantLp)
+			// 	t.Errorf("NewLongpoll() = %v, want %v", gotLp, tt.wantLp)
 			// }
 		})
 	}
@@ -89,9 +89,9 @@ func TestLongpoll_checkResponse(t *testing.T) {
 		t.Skip("GROUP_TOKEN empty")
 	}
 
-	vk := api.Init(groupToken)
+	vk := api.NewVK(groupToken)
 	groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
-	lp, _ := Init(vk, groupID)
+	lp, _ := NewLongpoll(vk, groupID)
 
 	tests := []struct {
 		name        string
@@ -134,9 +134,9 @@ func TestLongpoll_checkResponse(t *testing.T) {
 // 	if groupToken == "" {
 // 		t.Skip("GROUP_TOKEN empty")
 // 	}
-// 	vk := api.Init(groupToken)
+// 	vk := api.NewVK(groupToken)
 // 	groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
-// 	lp, _ := Init(&vk, groupID)
+// 	lp, _ := NewLongpoll(&vk, groupID)
 // 	lp.Wait = 1
 
 // 	t.Run("Run", func(t *testing.T) {
@@ -145,7 +145,7 @@ func TestLongpoll_checkResponse(t *testing.T) {
 // }
 
 func TestLongpoll_RunError(t *testing.T) {
-	vk := api.Init("")
+	vk := api.NewVK("")
 	lp, _ := Init(vk, 0)
 	lp.Wait = 1
 

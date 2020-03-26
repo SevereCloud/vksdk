@@ -18,8 +18,8 @@ Initialization
 
 This can be used with a service token.
 
-	vk := api.Init(serviceToken)
-	s, err := streaming.Init(vk)
+	vk := api.NewVK(serviceToken)
+	s, err := streaming.NewStreaming(vk)
 
 You can change client for http and websocket:
 
@@ -350,12 +350,14 @@ func (s *Streaming) Shutdown() {
 	atomic.StoreInt32(&s.inShutdown, 1)
 }
 
-// Init Streaming
+// NewStreaming returns a new Streaming
 //
-// This can be called with a service token.
+// This can be called with a service token
 //
-// TODO: v2 NewStreaming
-func Init(vk *api.VK) (*Streaming, error) {
+// The Streaming will use the http.DefaultClient.
+// This means that if the http.DefaultClient is modified by other components
+// of your application the modifications will be picked up by the SDK as well.
+func NewStreaming(vk *api.VK) (*Streaming, error) {
 	resp, err := vk.StreamingGetServerURL(api.Params{})
 	if err != nil {
 		return nil, err
@@ -371,4 +373,13 @@ func Init(vk *api.VK) (*Streaming, error) {
 	}
 
 	return s, nil
+}
+
+// Init Streaming
+//
+// This can be called with a service token.
+//
+// Deprecated: use NewStreaming
+func Init(vk *api.VK) (*Streaming, error) {
+	return NewStreaming(vk)
 }
