@@ -134,7 +134,7 @@ type Streaming struct {
 
 	Client    *http.Client      // A Client is an HTTP client
 	Dialer    *websocket.Dialer // A Dialer contains options for connecting to WebSocket server
-	UserAgent string
+	UserAgent string            // UserAgent sent in the request.
 
 	inShutdown int32
 	eventFunc  []func(Event)
@@ -295,7 +295,10 @@ func (s *Streaming) Run() error {
 	q.Set("stream_id", strconv.Itoa(s.StreamID))
 	u.RawQuery = q.Encode()
 
-	c, wsResp, err := s.Dialer.Dial(u.String(), nil)
+	requestHeader := make(http.Header)
+	requestHeader.Add("User-Agent", s.UserAgent)
+
+	c, wsResp, err := s.Dialer.Dial(u.String(), requestHeader)
 	if err != nil {
 		if err == websocket.ErrBadHandshake {
 			var r response
