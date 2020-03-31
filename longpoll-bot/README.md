@@ -18,13 +18,13 @@
 В начале необходимо инициализировать api:
 
 ```go
-vk := api.Init("<TOKEN>")
+vk := api.NewVK("<TOKEN>")
 ```
 
 А потом сам longpoll
 
 ```go
-lp, err := longpoll.Init(vk api.VK, groupID int)
+lp, err := longpoll.NewLongpoll(vk api.VK, groupID int)
 // По умолчанию Wait = 25
 // lp.Wait = 90 
 // lp.Ts = "123"
@@ -100,8 +100,8 @@ import (
 )
 
 func main() {
-	vk := api.Init("<TOKEN>")
-	lp, err := longpoll.Init(vk, 12345678)
+	vk := api.NewVK("<TOKEN>")
+	lp, err := longpoll.NewLongpoll(vk, 12345678)
 	if err != nil {
 		panic(err)
 	}

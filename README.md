@@ -70,7 +70,7 @@ import (
 
 func main() {
 	token := "<TOKEN>" // рекомендуется использовать os.Getenv("TOKEN")
-	vk := api.Init(token)
+	vk := api.NewVK(token)
 
 	// Получаем информацию о группе
 	group, err := vk.GroupsGetByID(api.Params{})
@@ -79,7 +79,7 @@ func main() {
 	}
 
 	// Иницилизируем longpoll
-	lp, err := longpoll.Init(vk, group[0].ID)
+	lp, err := longpoll.NewLongpoll(vk, group[0].ID)
 	if err != nil {
 		log.Fatal(err)
 	}

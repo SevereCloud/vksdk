@@ -112,7 +112,7 @@ type Response struct {
 	ExecuteErrors []object.ExecuteError `json:"execute_errors"`
 }
 
-// Init VK API
+// NewVK returns a new VK
 //
 // The VKSDK will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
@@ -124,7 +124,7 @@ type Response struct {
 // HTTP Client by setting the VK.Client value.
 //
 // This set limit 20 requests per second.
-func Init(token string) *VK {
+func NewVK(token string) *VK {
 	var vk VK
 	vk.AccessToken = token
 	vk.Version = Version
@@ -138,6 +138,13 @@ func Init(token string) *VK {
 	vk.UserAgent = internal.UserAgent
 
 	return &vk
+}
+
+// Init VK API
+//
+// Deprecated: use NewVK
+func Init(token string) *VK {
+	return NewVK(token)
 }
 
 // Params type

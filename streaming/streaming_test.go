@@ -25,10 +25,10 @@ func needServiceToken(t *testing.T) {
 }
 
 func TestMain(m *testing.M) {
-	vkService := api.Init(os.Getenv("SERVICE_TOKEN"))
+	vkService := api.NewVK(os.Getenv("SERVICE_TOKEN"))
 	vkService.Limit = 3
 
-	stream, _ = streaming.Init(vkService)
+	stream, _ = streaming.NewStreaming(vkService)
 
 	runTests := m.Run()
 	os.Exit(runTests)
@@ -183,7 +183,13 @@ func TestStreaming_Run_Bad(t *testing.T) {
 	assert.Error(t, err)
 }
 
+func TestNewStreaming(t *testing.T) {
+	_, err := streaming.NewStreaming(api.NewVK(""))
+	assert.Error(t, err)
+}
+
+// FIXME: v2 remove
 func TestInit(t *testing.T) {
-	_, err := streaming.Init(api.Init(""))
+	_, err := streaming.Init(api.NewVK(""))
 	assert.Error(t, err)
 }
