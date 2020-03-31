@@ -422,3 +422,21 @@ func (b *UsersSearchBuilder) FromList(v []string) *UsersSearchBuilder {
 	b.Params["from_list"] = v
 	return b
 }
+
+// UsersSetCovidStatusBuilder builder
+//
+// https://vk.com/dev/users.setCovidStatus
+type UsersSetCovidStatusBuilder struct {
+	api.Params
+}
+
+// NewUsersSetCovidStatusBuilder func
+func NewUsersSetCovidStatusBuilder() *UsersSetCovidStatusBuilder {
+	return &UsersSetCovidStatusBuilder{api.Params{}}
+}
+
+// StatusID ID of covid status.
+func (b *UsersSetCovidStatusBuilder) StatusID(v int) *UsersSetCovidStatusBuilder {
+	b.Params["status_id"] = v
+	return b
+}

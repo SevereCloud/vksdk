@@ -280,3 +280,10 @@ type UsersUserLim struct {
 	NameGen string `json:"name_gen"`
 	Photo   string `json:"photo"`
 }
+
+// UsersCovidStatus struct
+type UsersCovidStatus struct {
+	ID     int           `json:"id"`
+	Text   string        `json:"text"`
+	Images []PhotosImage `json:"images"`
+}

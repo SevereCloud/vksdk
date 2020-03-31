@@ -142,3 +142,11 @@ func TestUsersSearchBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 	assert.Equal(t, b.Params["from_list"], []string{"text"})
 }
+
+func TestUsersSetCovidStatusBuilder(t *testing.T) {
+	b := params.NewUsersSetCovidStatusBuilder()
+
+	b.StatusID(1)
+
+	assert.Equal(t, b.Params["status_id"], 1)
+}

@@ -145,3 +145,24 @@ func TestVK_UsersSearch(t *testing.T) {
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 }
+
+func TestVK_UsersCovid(t *testing.T) {
+	needUserToken(t)
+
+	res, err := vkUser.UsersSetCovidStatus(api.Params{
+		"status_id": 1,
+	})
+	noError(t, err)
+	assert.Equal(t, res, 1)
+
+	resGet, err := vkUser.UsersGetCovidStatus(api.Params{})
+	noError(t, err)
+
+	assert.NotEmpty(t, resGet.Count)
+
+	if assert.NotEmpty(t, resGet.Items) {
+		assert.NotEmpty(t, resGet.Items[0].ID)
+		assert.NotEmpty(t, resGet.Items[0].Text)
+		assert.NotEmpty(t, resGet.Items[0].Images)
+	}
+}

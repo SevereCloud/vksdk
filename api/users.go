@@ -100,3 +100,27 @@ func (vk *VK) UsersSearch(params Params) (response UsersSearchResponse, err erro
 	err = vk.RequestUnmarshal("users.search", params, &response)
 	return
 }
+
+// UsersSetCovidStatus set a covid status.
+//
+// Params: status_id
+//
+// https://vk.com/dev/users.setCovidStatus
+func (vk *VK) UsersSetCovidStatus(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("users.setCovidStatus", params, &response)
+	return
+}
+
+// UsersGetCovidStatusResponse struct
+type UsersGetCovidStatusResponse struct {
+	Count int                       `json:"count"`
+	Items []object.UsersCovidStatus `json:"items"`
+}
+
+// UsersGetCovidStatus set a covid status.
+//
+// https://vk.com/dev/users.getCovidStatus
+func (vk *VK) UsersGetCovidStatus(params Params) (response UsersGetCovidStatusResponse, err error) {
+	err = vk.RequestUnmarshal("users.getCovidStatus", params, &response)
+	return
+}
