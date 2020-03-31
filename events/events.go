@@ -56,11 +56,24 @@ type FuncList struct {
 	leadFormsNew         []object.LeadFormsNewFunc
 	appPayload           []object.AppPayloadFunc
 	messageRead          []object.MessageReadFunc
+	special              map[string][]func(object.GroupEvent)
+}
+
+// NewFuncList returns a new FuncList
+func NewFuncList() *FuncList {
+	return &FuncList{
+		special: make(map[string][]func(object.GroupEvent)),
+	}
 }
 
 // Handler group event handler
-// NOTE: cyclomatic complexity 123 of function (FuncList).Handler() is high (> 15) (gocyclo)
 func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
+	if sliceFunc, ok := fl.special[e.Type]; ok {
+		for _, f := range sliceFunc {
+			f(e)
+		}
+	}
+
 	switch e.Type {
 	case object.EventMessageNew:
 		var obj object.MessageNewObject
@@ -452,6 +465,15 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 	}
 	// NOTE: like_add like_remove
 	return nil
+}
+
+// OnEvent handler
+func (fl *FuncList) OnEvent(eventType string, f func(object.GroupEvent)) {
+	if fl.special == nil {
+		fl.special = make(map[string][]func(object.GroupEvent))
+	}
+
+	fl.special[eventType] = append(fl.special[eventType], f)
 }
 
 // MessageNew handler

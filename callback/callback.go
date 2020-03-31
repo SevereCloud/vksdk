@@ -27,7 +27,10 @@ type Callback struct {
 
 // NewCallback return *Callback
 func NewCallback() *Callback {
-	return &Callback{}
+	cb := &Callback{}
+	cb.FuncList = *events.NewFuncList()
+
+	return cb
 }
 
 // HandleFunc handler

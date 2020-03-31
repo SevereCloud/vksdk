@@ -45,6 +45,7 @@ func NewLongpoll(vk *api.VK, groupID int) (*Longpoll, error) {
 		Wait:    25,
 		Client:  http.DefaultClient,
 	}
+	lp.FuncList = *events.NewFuncList()
 
 	err := lp.updateServer(true)
 
@@ -59,6 +60,7 @@ func Init(vk *api.VK, groupID int) (lp Longpoll, err error) {
 	lp.GroupID = groupID
 	lp.Wait = 25
 	lp.Client = &http.Client{}
+	lp.FuncList = *events.NewFuncList()
 	err = lp.updateServer(true)
 
 	return
