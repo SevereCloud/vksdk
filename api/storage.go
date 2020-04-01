@@ -7,13 +7,22 @@ import (
 // StorageGetResponse struct
 type StorageGetResponse []object.BaseRequestParam
 
+// ToMap return map from StorageGetResponse
+func (s StorageGetResponse) ToMap() map[string]string {
+	m := make(map[string]string)
+	for _, item := range s {
+		m[item.Key] = item.Value
+	}
+
+	return m
+}
+
 // StorageGet returns a value of variable with the name set by key parameter.
 //
 // StorageGet always return array!
 // https://vk.com/dev/storage.get
 func (vk *VK) StorageGet(params Params) (response StorageGetResponse, err error) {
-	_, prs := params["keys"]
-	if !prs {
+	if _, prs := params["keys"]; !prs {
 		params["keys"] = params["key"]
 		params["key"] = ""
 	}
