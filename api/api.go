@@ -79,17 +79,19 @@ const (
 
 // VK struct
 type VK struct {
-	MethodURL   string
-	AccessToken string
-	Version     string
-	Client      *http.Client
-	Limit       int
-	UserAgent   string
-	Handler     func(method string, params Params) (Response, error)
+	MethodURL    string
+	AccessToken  string
+	Version      string
+	Client       *http.Client
+	IsPoolClient bool
+	Limit        int
+	UserAgent    string
+	Handler      func(method string, params Params) (Response, error)
 
-	mux      sync.Mutex
-	lastTime time.Time
-	rps      int
+	tokenPool internal.TokenPool
+	mux       sync.Mutex
+	lastTime  time.Time
+	rps       int
 }
 
 // Error struct VK
@@ -136,8 +138,20 @@ func NewVK(token string) *VK {
 	vk.Client = http.DefaultClient
 	vk.Limit = LimitGroupToken
 	vk.UserAgent = internal.UserAgent
+	vk.IsPoolClient = false
 
 	return &vk
+}
+
+// NewVKWithPool is similar to NewVK but uses token pool for api calls.
+// Use this if you need to increase RPS limit.
+func NewVKWithPool(tokens ...string) *VK {
+	vk := NewVK("pool")
+	vk.tokenPool = internal.NewTokenPool(tokens...)
+	vk.Limit = LimitGroupToken * len(tokens)
+	vk.IsPoolClient = true
+
+	return vk
 }
 
 // Init VK API
@@ -232,7 +246,12 @@ func (vk *VK) Request(method string, params Params) ([]byte, error) {
 	}
 
 	if _, ok := copyParams["access_token"]; !ok {
-		copyParams["access_token"] = vk.AccessToken
+		token := vk.AccessToken
+		if vk.IsPoolClient {
+			token = vk.tokenPool.Get()
+		}
+
+		copyParams["access_token"] = token
 	}
 
 	if _, ok := copyParams["v"]; !ok {
@@ -258,9 +277,14 @@ func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) er
 //
 // https://vk.com/dev/Execute
 func (vk *VK) Execute(code string, obj interface{}) error {
+	token := vk.AccessToken
+	if vk.IsPoolClient {
+		token = vk.tokenPool.Get()
+	}
+
 	params := Params{
 		"code":         code,
-		"access_token": vk.AccessToken,
+		"access_token": token,
 		"v":            vk.Version,
 	}
 
