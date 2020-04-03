@@ -19,31 +19,37 @@ func NewSearchGetHintsBuilder() *SearchGetHintsBuilder {
 }
 
 // Q Search query string.
-func (b *SearchGetHintsBuilder) Q(v string) {
+func (b *SearchGetHintsBuilder) Q(v string) *SearchGetHintsBuilder {
 	b.Params["q"] = v
+	return b
 }
 
 // Offset Offset for querying specific result subset
-func (b *SearchGetHintsBuilder) Offset(v int) {
+func (b *SearchGetHintsBuilder) Offset(v int) *SearchGetHintsBuilder {
 	b.Params["offset"] = v
+	return b
 }
 
 // Limit Maximum number of results to return.
-func (b *SearchGetHintsBuilder) Limit(v int) {
+func (b *SearchGetHintsBuilder) Limit(v int) *SearchGetHintsBuilder {
 	b.Params["limit"] = v
+	return b
 }
 
 // Filters parameter
-func (b *SearchGetHintsBuilder) Filters(v []string) {
+func (b *SearchGetHintsBuilder) Filters(v []string) *SearchGetHintsBuilder {
 	b.Params["filters"] = v
+	return b
 }
 
 // Fields parameter
-func (b *SearchGetHintsBuilder) Fields(v []string) {
+func (b *SearchGetHintsBuilder) Fields(v []string) *SearchGetHintsBuilder {
 	b.Params["fields"] = v
+	return b
 }
 
 // SearchGlobal parameter
-func (b *SearchGetHintsBuilder) SearchGlobal(v bool) {
+func (b *SearchGetHintsBuilder) SearchGlobal(v bool) *SearchGetHintsBuilder {
 	b.Params["search_global"] = v
+	return b
 }

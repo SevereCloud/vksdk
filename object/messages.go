@@ -74,6 +74,7 @@ type MessagesKeyboard struct {
 }
 
 // NewMessagesKeyboard return MessagesKeyboard
+// FIXME: v2 return *MessagesKeyboard
 func NewMessagesKeyboard(oneTime BaseBoolInt) MessagesKeyboard {
 	return MessagesKeyboard{
 		Buttons: [][]MessagesKeyboardButton{},
@@ -82,6 +83,7 @@ func NewMessagesKeyboard(oneTime BaseBoolInt) MessagesKeyboard {
 }
 
 // NewMessagesKeyboardInline return inline MessagesKeyboard
+// FIXME: v2 return *MessagesKeyboard
 func NewMessagesKeyboardInline() MessagesKeyboard {
 	return MessagesKeyboard{
 		Buttons: [][]MessagesKeyboardButton{},
@@ -90,17 +92,19 @@ func NewMessagesKeyboardInline() MessagesKeyboard {
 }
 
 // AddRow add row in MessagesKeyboard
-func (keyboard *MessagesKeyboard) AddRow() {
+func (keyboard *MessagesKeyboard) AddRow() *MessagesKeyboard {
 	if len(keyboard.Buttons) == 0 {
 		keyboard.Buttons = make([][]MessagesKeyboardButton, 1)
 	} else {
 		row := make([]MessagesKeyboardButton, 0)
 		keyboard.Buttons = append(keyboard.Buttons, row)
 	}
+
+	return keyboard
 }
 
 // AddTextButton add Text button in last row
-func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, color string) {
+func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, color string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonText,
@@ -112,10 +116,12 @@ func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, co
 
 	lastRow := len(keyboard.Buttons) - 1
 	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+
+	return keyboard
 }
 
 // AddOpenLinkButton add Open Link button in last row
-func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label, payload string) {
+func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label, payload string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonOpenLink,
@@ -127,10 +133,12 @@ func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label, payload string)
 
 	lastRow := len(keyboard.Buttons) - 1
 	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+
+	return keyboard
 }
 
 // AddLocationButton add Location button in last row
-func (keyboard *MessagesKeyboard) AddLocationButton(payload string) {
+func (keyboard *MessagesKeyboard) AddLocationButton(payload string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonLocation,
@@ -140,10 +148,12 @@ func (keyboard *MessagesKeyboard) AddLocationButton(payload string) {
 
 	lastRow := len(keyboard.Buttons) - 1
 	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+
+	return keyboard
 }
 
 // AddVKPayButton add VK Pay button in last row
-func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) {
+func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonVKPay,
@@ -154,10 +164,12 @@ func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) {
 
 	lastRow := len(keyboard.Buttons) - 1
 	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+
+	return keyboard
 }
 
 // AddVKAppsButton add VK Apps button in last row
-func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload, label, hash string) {
+func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload, label, hash string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonVKApp,
@@ -171,6 +183,8 @@ func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload, l
 
 	lastRow := len(keyboard.Buttons) - 1
 	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+
+	return keyboard
 }
 
 // ToJSON returns the JSON encoding of MessagesKeyboard
@@ -182,7 +196,7 @@ func (keyboard MessagesKeyboard) ToJSON() string {
 // MessagesKeyboardButton struct
 type MessagesKeyboardButton struct {
 	Action MessagesKeyboardButtonAction `json:"action"`
-	Color  string                       `json:"color"` // Button color
+	Color  string                       `json:"color,omitempty"` // Button color
 }
 
 // MessagesKeyboardButtonAction struct
@@ -307,7 +321,7 @@ type MessagesConversationChatSettings struct {
 	PinnedMessage MessagesPinnedMessage     `json:"pinned_message"`
 	State         string                    `json:"state"`
 	Title         string                    `json:"title"`
-	ActiveIDS     []int                     `json:"active_ids"`
+	ActiveIDS     []int                     `json:"active_ids"` // FIXME: v2 ActiveIDs
 	ACL           struct {
 		CanInvite           BaseBoolInt `json:"can_invite"`
 		CanChangeInfo       BaseBoolInt `json:"can_change_info"`
@@ -320,6 +334,7 @@ type MessagesConversationChatSettings struct {
 	} `json:"acl"`
 	IsGroupChannel BaseBoolInt `json:"is_group_channel"`
 	OwnerID        int         `json:"owner_id"`
+	AdminIDs       []int       `json:"admin_ids"`
 }
 
 // MessagesConversationPeer struct
@@ -384,6 +399,23 @@ type MessagesLongpollParams struct {
 	Server string `json:"server"` // Server URL
 	Ts     int    `json:"ts"`     // Timestamp
 }
+
+// MessagesMessageActionStatus action status
+type MessagesMessageActionStatus string
+
+// MessagesMessageActionStatus const
+// FIXME: v2 MessagesMessageActionStatus
+const (
+	ChatPhotoUpdate      = "chat_photo_update"
+	ChatPhotoRemove      = "chat_photo_remove"
+	ChatCreate           = "chat_create"
+	ChatTitleUpdate      = "chat_title_update"
+	ChatInviteUser       = "chat_invite_user"
+	ChatKickUser         = "chat_kick_user"
+	ChatPinMessage       = "chat_pin_message"
+	ChatUnpinMessage     = "chat_unpin_message"
+	ChatInviteUserByLink = "chat_invite_user_by_link"
+)
 
 // MessagesMessageAction struct
 type MessagesMessageAction struct {

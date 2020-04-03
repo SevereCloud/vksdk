@@ -4,6 +4,23 @@ import (
 	"fmt"
 )
 
+// UsersUserRelation user relationship status
+type UsersUserRelation int
+
+// UsersUserRelation const
+// FIXME: v2 UsersUserRelation
+const (
+	UserRelationNotSpecified      = iota // not specified
+	UserRelationSingle                   // single
+	UserRelationInRelationship           // in a relationship
+	UserRelationEngaged                  // engaged
+	UserRelationMarried                  // married
+	UserRelationComplicated              // complicated
+	UserRelationActivelySearching        // actively searching
+	UserRelationInLove                   // in love
+	UserRelationCivilUnion               // in a civil union
+)
+
 // UsersUser struct
 type UsersUser struct {
 	ID                     int               `json:"id"`

@@ -1,5 +1,18 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
+// PagesPrivacySettings type
+type PagesPrivacySettings int
+
+// PagesPrivacySettings const
+//
+// FIXME: v2 PagesPrivacySettings for const
+// FIXME: v2 PagesPrivacySettings for WhoCanEdit and WhoCanView
+const (
+	PagesPrivacyCommunityManagers = iota // community managers only
+	PagesPrivacyCommunityMembers         // ommunity members only
+	PagesPrivacyEveryone                 // everyone
+)
+
 // PagesWikipage struct
 type PagesWikipage struct {
 	CreatorID   int    `json:"creator_id"`   // Page creator ID

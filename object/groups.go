@@ -5,6 +5,27 @@ import (
 	"fmt"
 )
 
+// GroupsAddressWorkInfoStatus status of information about timetable
+type GroupsAddressWorkInfoStatus string
+
+// GroupsAddressWorkInfoStatus const
+// FIXME: v2 GroupsAddressWorkInfoStatus
+const (
+	WorkStatusNoInformation     = "no_information"
+	WorkStatusTemporarilyClosed = "temporarily_closed"
+	WorkStatusAlwaysOpened      = "always_opened"
+	WorkStatusTimetable         = "timetable"
+	WorkStatusForeverClosed     = "forever_closed"
+)
+
+// GroupsGroupType const
+// FIXME: v2 GroupsGroupType
+const (
+	GroupsTypeGroup = "group"
+	GroupsTypePage  = "page"
+	GroupsTypeEvent = "event"
+)
+
 // GroupsAddress struct
 type GroupsAddress struct {
 	AdditionalAddress string                 `json:"additional_address"` // Additional address to the place (6 floor, left door)
@@ -47,6 +68,75 @@ type GroupsAddressesInfo struct {
 	IsEnabled     BaseBoolInt `json:"is_enabled"`      // Information whether addresses is enabled
 	MainAddressID int         `json:"main_address_id"` // Main address id for group
 }
+
+// GroupsGroupAdminLevel type
+type GroupsGroupAdminLevel int
+
+// GroupsGroupAdminLevel const
+// FIXME: v2 GroupsGroupAdminLevel for const
+// FIXME: v2 GroupsGroupAdminLevel for AdminLevel
+const (
+	GroupsAdminLevelModerator = iota
+	GroupsAdminLevelEditor
+	GroupsAdminLevelAdministrator
+)
+
+// GroupsGroupMainSection type
+type GroupsGroupMainSection int
+
+// GroupsGroupMainSection const
+// FIXME: v2 GroupsGroupMainSection for const
+// FIXME: v2 GroupsGroupMainSection for MainSection
+const (
+	GroupsMainSectionAbsent = iota
+	GroupsMainSectionPhotos
+	GroupsMainSectionTopics
+	GroupsMainSectionAudio
+	GroupsMainSectionVideo
+	GroupsMainSectionMarket
+)
+
+// GroupsGroupMemberStatus type
+type GroupsGroupMemberStatus int
+
+// GroupsGroupMemberStatus const
+// FIXME: v2 GroupsGroupMemberStatus for const
+// FIXME: v2 GroupsGroupMemberStatus for MemberStatus
+// FIXME: v2 GroupsGroupMemberStatus for events_event_attach
+// FIXME: v2 GroupsGroupMemberStatus for newsfeed_event_activity
+const (
+	GroupsMemberStatusNotMember = iota
+	GroupsMemberStatusMember
+	GroupsMemberStatusNotSure
+	GroupsMemberStatusDeclined
+	GroupsMemberStatusHasSentRequest
+	GroupsMemberStatusInvited
+)
+
+// GroupsGroupAccess type
+type GroupsGroupAccess int
+
+// GroupsGroupAccess const
+// FIXME: v2 GroupsGroupAccess for const
+// FIXME: v2 GroupsGroupAccess for IsClosed
+// FIXME: v2 GroupsGroupAccess for Access
+const (
+	GroupsGroupOpen = iota
+	GroupsGroupClosed
+	GroupsGroupPrivate
+)
+
+// GroupsGroupAgeLimits type
+type GroupsGroupAgeLimits int
+
+// GroupsGroupAgeLimits const
+// FIXME: v2 GroupsGroupAgeLimits for const
+// FIXME: v2 GroupsGroupAgeLimits for AgeLimits
+const (
+	GroupsAgeLimitsNo = iota
+	GroupsAgeLimitsOver16
+	GroupsAgeLimitsOver18
+)
 
 // GroupsGroup struct
 type GroupsGroup struct {
@@ -122,6 +212,20 @@ type GroupsLiveCovers struct {
 	IsScalable BaseBoolInt `json:"is_scalable"`
 	StoryIds   []string    `json:"story_ids"`
 }
+
+// GroupsBanInfoReason type
+type GroupsBanInfoReason int
+
+// GroupsBanInfoReason const
+// FIXME: v2 GroupsBanInfoReason for const
+// FIXME: v2 GroupsBanInfoReason for Reason
+const (
+	GroupsBanReasonOther = iota
+	GroupsBanReasonSpam
+	GroupsBanReasonVerbalAbuse
+	GroupsBanReasonStrongLanguage
+	GroupsBanReasonFlood
+)
 
 // GroupsBanInfo struct
 type GroupsBanInfo struct {
@@ -219,6 +323,143 @@ type GroupsGroupPublicCategoryList struct {
 	Name         string                    `json:"name"`
 	SubtypesList []GroupsGroupCategoryType `json:"subtypes_list"`
 }
+
+// GroupsGroupPhotos type
+type GroupsGroupPhotos int
+
+// GroupsGroupPhotos const
+// FIXME: v2 GroupsGroupPhotos for const
+// FIXME: v2 GroupsGroupPhotos for Photos
+const (
+	GroupsGroupPhotosDisabled = iota
+	GroupsGroupPhotosOpen
+	GroupsGroupPhotosLimited
+)
+
+// GroupsGroupSubject type
+type GroupsGroupSubject int
+
+// GroupsGroupSubject const
+// FIXME: v2 GroupsGroupSubject for const
+// FIXME: v2 GroupsGroupSubject for Subject
+const (
+	_ = iota
+	GroupsGroupSubjectAuto
+	GroupsGroupSubjectActivityHolidays
+	GroupsGroupSubjectBusiness
+	GroupsGroupSubjectPets
+	GroupsGroupSubjectHealth
+	GroupsGroupSubjectDatingAndCommunication
+	GroupsGroupSubjectGames
+	GroupsGroupSubjectIt
+	GroupsGroupSubjectCinema
+	GroupsGroupSubjectBeautyAndFashion
+	GroupsGroupSubjectCooking
+	GroupsGroupSubjectArtAndCulture
+	GroupsGroupSubjectLiterature
+	GroupsGroupSubjectMobileServicesAndInternet
+	GroupsGroupSubjectMusic
+	GroupsGroupSubjectScienceAndTechnology
+	GroupsGroupSubjectRealEstate
+	GroupsGroupSubjectNewsAndMedia
+	GroupsGroupSubjectSecurity
+	GroupsGroupSubjectEducation
+	GroupsGroupSubjectHomeAndRenovations
+	GroupsGroupSubjectPolitics
+	GroupsGroupSubjectFood
+	GroupsGroupSubjectIndustry
+	GroupsGroupSubjectTravel
+	GroupsGroupSubjectWork
+	GroupsGroupSubjectEntertainment
+	GroupsGroupSubjectReligion
+	GroupsGroupSubjectFamily
+	GroupsGroupSubjectSports
+	GroupsGroupSubjectInsurance
+	GroupsGroupSubjectTelevision
+	GroupsGroupSubjectGoodsAndServices
+	GroupsGroupSubjectHobbies
+	GroupsGroupSubjectFinance
+	GroupsGroupSubjectPhoto
+	GroupsGroupSubjectEsoterics
+	GroupsGroupSubjectElectronicsAndAppliances
+	GroupsGroupSubjectErotic
+	GroupsGroupSubjectHumor
+	GroupsGroupSubjectSocietyHumanities
+	GroupsGroupSubjectDesignAndGraphics
+)
+
+// GroupsGroupTopics type
+type GroupsGroupTopics int
+
+// GroupsGroupTopics const
+// FIXME: v2 GroupsGroupTopics for const
+// FIXME: v2 GroupsGroupTopics for Topics
+const (
+	GroupsGroupTopicsDisabled = iota
+	GroupsGroupTopicsOpen
+	GroupsGroupTopicsLimited
+)
+
+// GroupsGroupDocs type
+type GroupsGroupDocs int
+
+// GroupsGroupDocs const
+// FIXME: v2 GroupsGroupDocs for const
+// FIXME: v2 GroupsGroupDocs for Docs
+const (
+	GroupsGroupDocsDisabled = iota
+	GroupsGroupDocsOpen
+	GroupsGroupDocsLimited
+)
+
+// GroupsGroupAudio type
+type GroupsGroupAudio int
+
+// GroupsGroupAudio const
+// FIXME: v2 GroupsGroupAudio for const
+// FIXME: v2 GroupsGroupAudio for Audio
+const (
+	GroupsGroupAudioDisabled = iota
+	GroupsGroupAudioOpen
+	GroupsGroupAudioLimited
+)
+
+// GroupsGroupVideo type
+type GroupsGroupVideo int
+
+// GroupsGroupVideo const
+// FIXME: v2 GroupsGroupVideo for const
+// FIXME: v2 GroupsGroupVideo for Video
+const (
+	GroupsGroupVideoDisabled = iota
+	GroupsGroupVideoOpen
+	GroupsGroupVideoLimited
+)
+
+// GroupsGroupWall type
+type GroupsGroupWall int
+
+// GroupsGroupWall const
+// FIXME: v2 GroupsGroupWall for const
+// FIXME: v2 GroupsGroupWall for Wall
+const (
+	GroupsGroupWallDisabled = iota
+	GroupsGroupWallOpen
+	GroupsGroupWallLimited
+	GroupsGroupWallClosed
+)
+
+// GroupsGroupWiki type
+type GroupsGroupWiki int
+
+// GroupsGroupWiki const
+// FIXME: v2 GroupsGroupWiki for const
+// FIXME: v2 GroupsGroupWiki for Wiki
+const (
+	GroupsGroupWikiDisabled = iota
+	GroupsGroupWikiOpen
+	GroupsGroupWikiLimited
+)
 
 // GroupsGroupSettings struct
 type GroupsGroupSettings struct {
@@ -462,6 +703,18 @@ type GroupsMarketInfo struct {
 	PriceMin     string         `json:"price_min"`     // Minimum price
 }
 
+// GroupsGroupRole type
+type GroupsGroupRole string
+
+// GroupsGroupRole const
+// FIXME: v2 GroupsGroupRole
+const (
+	GroupsGroupRoleModerator     = "moderator"
+	GroupsGroupRoleEditor        = "editor"
+	GroupsGroupRoleAdministrator = "administrator"
+	GroupsGroupRoleCreator       = "creator"
+)
+
 // GroupsMemberRole struct
 type GroupsMemberRole struct {
 	ID          int      `json:"id"` // User ID
@@ -492,6 +745,17 @@ type GroupsMemberStatusFull struct {
 	CanRecall  BaseBoolInt `json:"can_recall"` // Information whether user's invite to the group can be recalled
 	UserID     int         `json:"user_id"`    // User ID
 }
+
+// GroupsOnlineStatusType type of online status of group
+type GroupsOnlineStatusType string
+
+// GroupsOnlineStatusType const
+// FIXME: v2 GroupsOnlineStatusType
+const (
+	GroupsOnlineStatusTypeNone       = "none"
+	GroupsOnlineStatusTypeOnline     = "online"
+	GroupsOnlineStatusTypeAnswerMark = "answer_mark"
+)
 
 // GroupsOnlineStatus struct
 type GroupsOnlineStatus struct {

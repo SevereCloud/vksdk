@@ -33,12 +33,34 @@ type Longpoll struct {
 	events.FuncList
 }
 
+// NewLongpoll returns a new Lonpoll
+//
+// The Lonpoll will use the http.DefaultClient.
+// This means that if the http.DefaultClient is modified by other components
+// of your application the modifications will be picked up by the SDK as well.
+func NewLongpoll(vk *api.VK, groupID int) (*Longpoll, error) {
+	lp := &Longpoll{
+		VK:      vk,
+		GroupID: groupID,
+		Wait:    25,
+		Client:  http.DefaultClient,
+	}
+	lp.FuncList = *events.NewFuncList()
+
+	err := lp.updateServer(true)
+
+	return lp, err
+}
+
 // Init Longpoll
+//
+// Deprecated: use NewLongpoll
 func Init(vk *api.VK, groupID int) (lp Longpoll, err error) {
 	lp.VK = vk
 	lp.GroupID = groupID
 	lp.Wait = 25
 	lp.Client = &http.Client{}
+	lp.FuncList = *events.NewFuncList()
 	err = lp.updateServer(true)
 
 	return

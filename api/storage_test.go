@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_StorageSet(t *testing.T) {
@@ -26,8 +27,32 @@ func TestVK_StorageGetKeys(t *testing.T) {
 func TestVK_StorageGet(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.StorageGet(api.Params{
+	r, err := vkUser.StorageGet(api.Params{
 		"key": "test",
 	})
 	noError(t, err)
+
+	if assert.NotEmpty(t, r) {
+		assert.NotEmpty(t, r[0].Key)
+	}
+}
+
+func TestStorageGetResponse_ToMap(t *testing.T) {
+	f := func(s api.StorageGetResponse, wantMap map[string]string) {
+		t.Helper()
+		assert.Equal(t, s.ToMap(), wantMap)
+	}
+
+	f(
+		api.StorageGetResponse{
+			{
+				Key:   "key",
+				Value: "value",
+			},
+		},
+		map[string]string{
+			"key": "value",
+		},
+	)
+	f(nil, map[string]string{})
 }

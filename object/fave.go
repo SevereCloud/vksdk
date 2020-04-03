@@ -35,7 +35,7 @@ type FaveItem struct {
 	Tags      []FaveTag        `json:"tags"`
 	Link      FaveFavesLink    `json:"link,omitempty"`
 	Post      WallWallpost     `json:"post,omitempty"`
-	Video     VideoVideoFull   `json:"video,omitempty"`
+	Video     VideoVideo       `json:"video,omitempty"`
 	Product   MarketMarketItem `json:"product,omitempty"`
 	Article   Article          `json:"article,omitempty"`
 }

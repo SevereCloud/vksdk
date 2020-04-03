@@ -17,6 +17,8 @@ type VideoVideo struct {
 	CanSubscribe   BaseBoolInt       `json:"can_subscribe"`
 	IsFavorite     BaseBoolInt       `json:"is_favorite"`
 	IsPrivate      BaseBoolInt       `json:"is_private"`
+	Added          BaseBoolInt       `json:"added"`
+	Repeat         BaseBoolInt       `json:"repeat"`      // Information whether the video is repeated
 	Comments       int               `json:"comments"`    // Number of comments
 	Date           int               `json:"date"`        // Date when video has been uploaded in Unixtime
 	Description    string            `json:"description"` // Video description
@@ -43,6 +45,7 @@ type VideoVideo struct {
 	LocalViews     int               `json:"local_views"`
 	Likes          BaseLikesInfo     `json:"likes"`   // Count of likes
 	Reposts        BaseRepostsInfo   `json:"reposts"` // Count of views
+	TrackCode      string            `json:"track_code"`
 	PrivacyView    []interface{}     `json:"privacy_view"`
 	PrivacyComment []interface{}     `json:"privacy_comment"`
 	ActionButton   VideoActionButton `json:"action_button"`

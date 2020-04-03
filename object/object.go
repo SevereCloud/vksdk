@@ -68,6 +68,71 @@ type BaseRequestParam struct {
 	Value string `json:"value"`
 }
 
+// BaseSex type
+type BaseSex int
+
+// BaseSex const
+// FIXME: v2 BaseSex for const
+// FIXME: v2 BaseSex for fields
+const (
+	SexUnknown = iota
+	SexFemale
+	SexMale
+)
+
+// EventType type event
+type EventType string
+
+// EventType list
+//
+// FIXME: v2 EventType
+const (
+	EventConfirmation         = "confirmation"
+	EventMessageNew           = "message_new"
+	EventMessageReply         = "message_reply"
+	EventMessageEdit          = "message_edit"
+	EventMessageAllow         = "message_allow"
+	EventMessageDeny          = "message_deny"
+	EventMessageTypingState   = "message_typing_state"
+	EventPhotoNew             = "photo_new"
+	EventPhotoCommentNew      = "photo_comment_new"
+	EventPhotoCommentEdit     = "photo_comment_edit"
+	EventPhotoCommentRestore  = "photo_comment_restore"
+	EventPhotoCommentDelete   = "photo_comment_delete"
+	EventAudioNew             = "audio_new"
+	EventVideoNew             = "video_new"
+	EventVideoCommentNew      = "video_comment_new"
+	EventVideoCommentEdit     = "video_comment_edit"
+	EventVideoCommentRestore  = "video_comment_restore"
+	EventVideoCommentDelete   = "video_comment_delete"
+	EventWallPostNew          = "wall_post_new"
+	EventWallRepost           = "wall_repost"
+	EventWallReplyNew         = "wall_reply_new"
+	EventWallReplyEdit        = "wall_reply_edit"
+	EventWallReplyRestore     = "wall_reply_restore"
+	EventWallReplyDelete      = "wall_reply_delete"
+	EventBoardPostNew         = "board_post_new"
+	EventBoardPostEdit        = "board_post_edit"
+	EventBoardPostRestore     = "board_post_restore"
+	EventBoardPostDelete      = "board_post_delete"
+	EventMarketCommentNew     = "market_comment_new"
+	EventMarketCommentEdit    = "market_comment_edit"
+	EventMarketCommentRestore = "market_comment_restore"
+	EventMarketCommentDelete  = "market_comment_delete"
+	EventGroupLeave           = "group_leave"
+	EventGroupJoin            = "group_join"
+	EventUserBlock            = "user_block"
+	EventUserUnblock          = "user_unblock"
+	EventPollVoteNew          = "poll_vote_new"
+	EventGroupOfficersEdit    = "group_officers_edit"
+	EventGroupChangeSettings  = "group_change_settings"
+	EventGroupChangePhoto     = "group_change_photo"
+	EventVkpayTransaction     = "vkpay_transaction"
+	EventLeadFormsNew         = "lead_forms_new"
+	EventAppPayload           = "app_payload"
+	EventMessageRead          = "message_read"
+)
+
 // GroupEvent struct
 type GroupEvent struct {
 	Type    string          `json:"type"`
@@ -151,12 +216,14 @@ type BaseLink struct {
 	Caption     string              `json:"caption"`
 	Description string              `json:"description"`
 	Photo       PhotosPhoto         `json:"photo"`
+	Video       VideoVideo          `json:"video"`
 	PreviewPage string              `json:"preview_page"`
 	PreviewURL  string              `json:"preview_url"`
 	Product     BaseLinkProduct     `json:"product"`
 	Rating      BaseLinkRating      `json:"rating"`
 	Title       string              `json:"title"`
 	URL         string              `json:"url"`
+	IsFavorite  BaseBoolInt         `json:"is_favorite"`
 }
 
 // BaseLinkApplication struct

@@ -4,6 +4,18 @@ import (
 	"fmt"
 )
 
+// MarketMarketItemAvailability information whether the item is available
+type MarketMarketItemAvailability int
+
+// MarketMarketItemAvailability const
+// FIXME: v2 MarketMarketItemAvailability for const
+// FIXME: v2 MarketMarketItemAvailability for Availability
+const (
+	MarketItemAvailable = iota
+	MarketItemRemoved
+	MarketItemUnavailable
+)
+
 // MarketCurrency struct
 type MarketCurrency struct {
 	ID   int    `json:"id"`   // Currency ID
@@ -34,8 +46,8 @@ type MarketMarketCategory struct {
 
 // MarketMarketItem struct
 type MarketMarketItem struct {
-	AccessKey    string               `json:"access_key"` // Access key for the market item
-	Availability int                  `json:"availability"`
+	AccessKey    string               `json:"access_key"`   // Access key for the market item
+	Availability int                  `json:"availability"` // Information whether the item is available
 	Category     MarketMarketCategory `json:"category"`
 	Date         int                  `json:"date"`        // Date when the item has been created in Unixtime
 	Description  string               `json:"description"` // Item description

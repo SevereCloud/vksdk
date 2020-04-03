@@ -18,8 +18,8 @@ Initialization
 
 This can be used with a service token.
 
-	vk := api.Init(serviceToken)
-	s, err := streaming.Init(vk)
+	vk := api.NewVK(serviceToken)
+	s, err := streaming.NewStreaming(vk)
 
 You can change client for http and websocket:
 
@@ -92,6 +92,7 @@ import (
 	"github.com/gorilla/websocket"
 
 	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/internal"
 )
 
 type response struct {
@@ -131,14 +132,17 @@ type Streaming struct {
 	Key      string // access key for streaming api
 	StreamID int
 
-	Client *http.Client      // A Client is an HTTP client
-	Dialer *websocket.Dialer // A Dialer contains options for connecting to WebSocket server
+	Client    *http.Client      // A Client is an HTTP client
+	Dialer    *websocket.Dialer // A Dialer contains options for connecting to WebSocket server
+	UserAgent string            // UserAgent sent in the request.
 
 	inShutdown int32
 	eventFunc  []func(Event)
 }
 
 func (s *Streaming) doRequest(req *http.Request) (*response, error) {
+	req.Header.Set("User-Agent", s.UserAgent)
+
 	resp, err := s.Client.Do(req)
 	if err != nil {
 		return nil, err
@@ -291,7 +295,10 @@ func (s *Streaming) Run() error {
 	q.Set("stream_id", strconv.Itoa(s.StreamID))
 	u.RawQuery = q.Encode()
 
-	c, wsResp, err := s.Dialer.Dial(u.String(), nil)
+	requestHeader := make(http.Header)
+	requestHeader.Add("User-Agent", s.UserAgent)
+
+	c, wsResp, err := s.Dialer.Dial(u.String(), requestHeader)
 	if err != nil {
 		if err == websocket.ErrBadHandshake {
 			var r response
@@ -343,22 +350,36 @@ func (s *Streaming) Shutdown() {
 	atomic.StoreInt32(&s.inShutdown, 1)
 }
 
-// Init Streaming
+// NewStreaming returns a new Streaming
 //
-// This can be called with a service token.
-func Init(vk *api.VK) (*Streaming, error) {
+// This can be called with a service token
+//
+// The Streaming will use the http.DefaultClient.
+// This means that if the http.DefaultClient is modified by other components
+// of your application the modifications will be picked up by the SDK as well.
+func NewStreaming(vk *api.VK) (*Streaming, error) {
 	resp, err := vk.StreamingGetServerURL(api.Params{})
 	if err != nil {
 		return nil, err
 	}
 
 	s := &Streaming{
-		Endpoint: resp.Endpoint,
-		Key:      resp.Key,
-		StreamID: 0,
-		Client:   http.DefaultClient,
-		Dialer:   websocket.DefaultDialer,
+		Endpoint:  resp.Endpoint,
+		Key:       resp.Key,
+		StreamID:  0,
+		Client:    http.DefaultClient,
+		Dialer:    websocket.DefaultDialer,
+		UserAgent: internal.UserAgent,
 	}
 
 	return s, nil
+}
+
+// Init Streaming
+//
+// This can be called with a service token.
+//
+// Deprecated: use NewStreaming
+func Init(vk *api.VK) (*Streaming, error) {
+	return NewStreaming(vk)
 }

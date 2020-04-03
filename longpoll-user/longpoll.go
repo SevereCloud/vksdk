@@ -18,12 +18,12 @@ The module can be used with the user access key obtained in the Standalone
 application via Implicit Flow(access rights required: messages) or with
 the community access key(access rights required: messages).
 
-	vk := api.Init("<TOKEN>")
+	vk := api.NewVK("<TOKEN>")
 
 And then longpoll
 
 	mode := longpoll.ReceiveAttachments + longpoll.ExtendedEvents
-	lp, err := longpoll.Init(vk, mode)
+	lp, err := longpoll.NewLongpoll(vk, mode)
 
 Setting
 
@@ -97,9 +97,29 @@ type Longpoll struct {
 	inShutdown           int32
 }
 
+// NewLongpoll returns a new Longpoll
+//
+// The Longpoll will use the http.DefaultClient.
+// This means that if the http.DefaultClient is modified by other components
+// of your application the modifications will be picked up by the SDK as well.
+func NewLongpoll(vk *api.VK, mode Mode) (*Longpoll, error) {
+	lp := &Longpoll{
+		VK:       vk,
+		Mode:     mode,
+		Version:  3,
+		Wait:     25,
+		funcList: make(FuncList),
+		Client:   http.DefaultClient,
+	}
+
+	err := lp.updateServer(true)
+
+	return lp, err
+}
+
 // Init Longpoll
 //
-// FIXME: v2 return *Longpoll
+// Deprecated: use NewLongpoll
 func Init(vk *api.VK, mode Mode) (lp Longpoll, err error) {
 	// NOTE: what about group_id?
 	lp.VK = vk

@@ -1,5 +1,24 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
+import (
+	"encoding/json"
+)
+
+// StoriesNarrativeInfo type
+type StoriesNarrativeInfo struct {
+	Author string `json:"author"`
+	Title  string `json:"title"`
+	Views  int    `json:"views"`
+}
+
+// StoriesPromoData struct
+type StoriesPromoData struct {
+	Name        string      `json:"name"`
+	Photo50     string      `json:"photo_50"`
+	Photo100    string      `json:"photo_100"`
+	NotAnimated BaseBoolInt `json:"not_animated"`
+}
+
 // StoriesStoryLink struct
 type StoriesStoryLink struct {
 	Text string `json:"text"` // Link text
@@ -50,6 +69,7 @@ type StoriesStory struct {
 	NoSound              BaseBoolInt              `json:"no_sound"`      // Is video without sound
 	IsRestricted         BaseBoolInt              `json:"is_restricted"` // Does author have stories privacy restrictions
 	Seen                 BaseBoolInt              `json:"seen"`          // Information whether current user has seen the story or not (0 - no, 1 - yes).
+	IsOwnerPinned        BaseBoolInt              `json:"is_owner_pinned"`
 	Link                 StoriesStoryLink         `json:"link"`
 	OwnerID              int                      `json:"owner_id"` // Story owner's ID.
 	ParentStory          *StoriesStory            `json:"parent_story"`
@@ -64,15 +84,67 @@ type StoriesStory struct {
 	ClickableStickers    StoriesClickableStickers `json:"clickable_stickers"`
 	TrackCode            string                   `json:"track_code"`
 	LikesCount           int                      `json:"likes_count"`
+	NarrativeID          int                      `json:"narrative_id"`
+	NarrativeOwnerID     int                      `json:"narrative_owner_id"`
+	NarrativeInfo        StoriesNarrativeInfo     `json:"narrative_info"`
 }
 
 // StoriesClickableStickers struct
 //
+// The field clickable_stickers is available in the history object.
+// The sticker object is pasted by the developer on the client himself, only
+// coordinates are transmitted to the server.
+//
 // https://vk.com/dev/objects/clickable_stickers
 type StoriesClickableStickers struct {
-	OriginalHeight    int                       `json:"original_height"`
 	OriginalWidth     int                       `json:"original_width"`
+	OriginalHeight    int                       `json:"original_height"`
 	ClickableStickers []StoriesClickableSticker `json:"clickable_stickers"`
+}
+
+// NewClickableStickers return new StoriesClickableStickers
+//
+// Requires the width and height of the original photo or video
+func NewClickableStickers(width, height int) *StoriesClickableStickers {
+	return &StoriesClickableStickers{
+		OriginalWidth:     width,
+		OriginalHeight:    height,
+		ClickableStickers: []StoriesClickableSticker{},
+	}
+}
+
+// AddMention add mention sticker
+//
+// Mention should be in the format of a VK mentioning, for example: [id1|name] or [club1|name].
+func (cs *StoriesClickableStickers) AddMention(mention string, area []StoriesClickablePoint) *StoriesClickableStickers {
+	cs.ClickableStickers = append(cs.ClickableStickers, StoriesClickableSticker{
+		Type:          ClickableStickerMention,
+		ClickableArea: area,
+		Mention:       mention,
+	})
+
+	return cs
+}
+
+// AddHashtag add hashtag sticker
+//
+// Hashtag must necessarily begin with the symbol #.
+func (cs *StoriesClickableStickers) AddHashtag(hashtag string, area []StoriesClickablePoint) *StoriesClickableStickers {
+	cs.ClickableStickers = append(cs.ClickableStickers, StoriesClickableSticker{
+		Type:          ClickableStickerHashtag,
+		ClickableArea: area,
+		Hashtag:       hashtag,
+	})
+
+	return cs
+}
+
+// TODO: Add more clickable stickers func
+
+// ToJSON returns the JSON encoding of StoriesClickableStickers
+func (cs StoriesClickableStickers) ToJSON() string {
+	b, _ := json.Marshal(cs)
+	return string(b)
 }
 
 // StoriesClickableSticker struct
@@ -80,24 +152,24 @@ type StoriesClickableSticker struct {
 	ID            int                     `json:"id"`
 	Type          string                  `json:"type"`
 	ClickableArea []StoriesClickablePoint `json:"clickable_area"`
-	Style         string                  `json:"style"`
+	Style         string                  `json:"style,omitempty"`
 
 	// type=post
-	PostOwnerID int `json:"post_owner_id"`
-	PostID      int `json:"post_id"`
+	PostOwnerID int `json:"post_owner_id,omitempty"`
+	PostID      int `json:"post_id,omitempty"`
 
 	// type=sticker
-	StickerID     int `json:"sticker_id"`
-	StickerPackID int `json:"sticker_pack_id"`
+	StickerID     int `json:"sticker_id,omitempty"`
+	StickerPackID int `json:"sticker_pack_id,omitempty"`
 
 	// type=place
-	PlaceID int `json:"place_id"`
+	PlaceID int `json:"place_id,omitempty"`
 
 	// type=question
-	Question               string      `json:"question"`
-	QuestionButton         string      `json:"question_button"`
-	QuestionDefaultPrivate BaseBoolInt `json:"question_default_private"`
-	Color                  string      `json:"color"`
+	Question               string      `json:"question,omitempty"`
+	QuestionButton         string      `json:"question_button,omitempty"`
+	QuestionDefaultPrivate BaseBoolInt `json:"question_default_private,omitempty"`
+	Color                  string      `json:"color,omitempty"`
 
 	// type=mention
 	Mention string `json:"mention,omitempty"`
@@ -105,27 +177,74 @@ type StoriesClickableSticker struct {
 	// type=hashtag
 	Hashtag string `json:"hashtag,omitempty"`
 
-	// type=market_item
-	MarketItem MarketMarketItem       `json:"market_item"`
-	Product    BaseLinkProduct        `json:"product"`
-	Button     MessagesKeyboardButton `json:"button"`
-	Rating     BaseLinkRating         `json:"rating"`
-	Subtype    string                 `json:"subtype"`
-
 	// type=link
-	LinkObject  BaseLink `json:"link_object"`
-	TooltipText string   `json:"tooltip_text"`
+	LinkObject  BaseLink `json:"link_object,omitempty"`
+	TooltipText string   `json:"tooltip_text,omitempty"`
+
+	// type=market_item
+	Subtype string `json:"subtype,omitempty"`
+	// LinkObject BaseLink         `json:"link_object,omitempty"` // subtype=aliexpress_product
+	MarketItem MarketMarketItem `json:"market_item,omitempty"` // subtype=market_item
 
 	// type=story_reply
-	OwnerID int `json:"owner_id"`
-	StoryID int `json:"story_id"`
+	OwnerID int `json:"owner_id,omitempty"`
+	StoryID int `json:"story_id,omitempty"`
 
 	// type=owner
-	// OwnerID int `json:"owner_id"`
+	// OwnerID int `json:"owner_id,omitempty"`
 
 	// type=poll
-	Poll PollsPoll `json:"poll"`
+	Poll PollsPoll `json:"poll,omitempty"`
+
+	// type=music
+	Audio          AudioAudioFull `json:"audio,omitempty"`
+	AudioStartTime int            `json:"audio_start_time,omitempty"`
 }
+
+// StoriesClickableStickerType type of clickable sticker
+type StoriesClickableStickerType string
+
+// Clickable sticker type
+// FIXME: v2 StoriesClickableStickerType
+const (
+	ClickableStickerPost       = "post"
+	ClickableStickerSticker    = "sticker"
+	ClickableStickerPlace      = "place"
+	ClickableStickerQuestion   = "question"
+	ClickableStickerMention    = "mention"
+	ClickableStickerHashtag    = "hashtag"
+	ClickableStickerMarketItem = "market_item"
+	ClickableStickerLink       = "link"
+	ClickableStickerStoryReply = "story_reply"
+	ClickableStickerOwner      = "owner"
+	ClickableStickerPoll       = "poll"
+	ClickableStickerMusic      = "music"
+)
+
+// StoriesClickableStickerSubtype subtype of clickable sticker
+type StoriesClickableStickerSubtype string
+
+// Clickable sticker subtype
+// FIXME: v2 StoriesClickableStickerSubtype
+const (
+	ClickableStickerSubtypeMarketItem        = "market_item"
+	ClickableStickerSubtypeAliexpressProduct = "aliexpress_product"
+)
+
+// StoriesClickableStickerStyle string
+type StoriesClickableStickerStyle string
+
+// Clickable sticker style
+// FIXME: v2 StoriesClickableStickerStyle
+const (
+	ClickableStickerTransparent  = "transparent"
+	ClickableStickerUnderline    = "underline"
+	ClickableStickerRedGradient  = "red_gradient"
+	ClickableStickerBlueGradient = "blue_gradient"
+	ClickableStickerBlue         = "blue"
+	ClickableStickerLight        = "light"
+	ClickableStickerGreen        = "green"
+)
 
 // StoriesClickablePoint struct
 type StoriesClickablePoint struct {

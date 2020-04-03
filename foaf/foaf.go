@@ -11,16 +11,17 @@ import (
 	"net/http"
 
 	"github.com/SevereCloud/vksdk/internal"
-	"golang.org/x/net/context/ctxhttp"
-	"golang.org/x/net/html/charset"
 )
 
 // FOAFURL url foaf
 const FOAFURL = "https://vk.com/foaf.php"
 
-// HTTPClient is the context key to use with golang.org/x/net/context's
-// WithValue function to associate an *http.Client value with a context.
-var HTTPClient internal.ContextKey // nolint:gochecknoglobals
+// Context keys to use with https://golang.org/pkg/context
+// WithValue function to associate
+const (
+	HTTPClient = internal.HTTPClientKey
+	UserAgent  = internal.UserAgentKey
+)
 
 // rdf is a standard model for data interchange on the Web.
 //
@@ -58,15 +59,26 @@ type Date struct {
 }
 
 // getFoaf return RDF
+//
+// BUG: VK return invalid XML char (example &#12;)
 func getFoaf(ctx context.Context, req *http.Request) (r rdf, err error) {
-	resp, err := ctxhttp.Do(ctx, internal.ContextClient(ctx), req)
+	resp, err := internal.DoRequest(ctx, req)
 	if err != nil {
 		return
 	}
 	defer resp.Body.Close()
 
 	decoder := xml.NewDecoder(resp.Body)
-	decoder.CharsetReader = charset.NewReaderLabel // For support WINDOWS-1251
+
+	// decoder.Strict set to false, the parser allows input containing
+	// common mistakes:
+	//	* If an element is missing an end tag, the parser invents
+	//	  end tags as necessary to keep the return values from Token
+	//	  properly balanced.
+	//	* In attribute values and character data, unknown or malformed
+	//	  character entities (sequences beginning with &) are left alone.
+	decoder.Strict = false
+	decoder.CharsetReader = internal.CharsetReader // For support WINDOWS-1251
 	err = decoder.Decode(&r)
 
 	return

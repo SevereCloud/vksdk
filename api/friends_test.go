@@ -145,13 +145,25 @@ func TestVK_FriendsGetRecent(t *testing.T) {
 func TestVK_FriendsGetRequests(t *testing.T) {
 	needUserToken(t)
 
-	_, err := vkUser.FriendsGetRequests(api.Params{})
+	_, err := vkUser.FriendsGetRequests(api.Params{
+		"need_mutual": true,
+		"extended":    true,
+		"fields":      "sex",
+	})
 	noError(t, err)
 
-	_, err = vkUser.FriendsGetRequestsNeedMutual(api.Params{})
+	_, err = vkUser.FriendsGetRequestsNeedMutual(api.Params{
+		"need_mutual": false,
+		"extended":    true,
+		"fields":      "sex",
+	})
 	noError(t, err)
 
-	_, err = vkUser.FriendsGetRequestsExtended(api.Params{})
+	_, err = vkUser.FriendsGetRequestsExtended(api.Params{
+		"need_mutual": true,
+		"extended":    false,
+		"fields":      "sex",
+	})
 	noError(t, err)
 }
 

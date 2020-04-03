@@ -20,10 +20,11 @@ type ProfileState string
 
 // Types of ProfileState
 const (
-	ProfileStateDeleted  ProfileState = "deleted"
-	ProfileStateVerified ProfileState = "verified"
-	ProfileStateActive   ProfileState = "active"
-	ProfileStateBanned   ProfileState = "banned"
+	ProfileStateDeleted     ProfileState = "deleted"
+	ProfileStateVerified    ProfileState = "verified"
+	ProfileStateActive      ProfileState = "active"
+	ProfileStateBanned      ProfileState = "banned"
+	ProfileStateDeactivated ProfileState = "deactivated"
 )
 
 // Gender - the gender of this Agent (typically but not necessarily 'male' or 'female').

@@ -59,8 +59,8 @@ import (
 )
 
 func main() {
-	var cb callback.Callback
-	
+	cb := callback.NewCallback()
+
 	cb.ConfirmationKey = "693d0ba9"
 	// cb.ConfirmationKeys[170561776] = "693d0ba9"
 

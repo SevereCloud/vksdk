@@ -15,7 +15,7 @@ import (
 const photoURL = "https://sun9-17.userapi.com/c853620/v853620933/dedb8/_5CIRVR-UA8.jpg"
 
 func TestVK_UploadFile(t *testing.T) {
-	vk := api.Init("")
+	vk := api.NewVK("")
 
 	f := func(url string, file io.Reader, fieldname, filename string, needErr bool) {
 		t.Helper()
@@ -431,7 +431,7 @@ func TestVK_UploadGroupImage(t *testing.T) {
 }
 
 func TestVK_Upload_Error(t *testing.T) {
-	vk := api.Init("")
+	vk := api.NewVK("")
 
 	_, err := vk.UploadPhoto(0, new(bytes.Buffer))
 	assert.Equal(t, errors.GetType(err), errors.Auth)

@@ -56,13 +56,26 @@ type FuncList struct {
 	leadFormsNew         []object.LeadFormsNewFunc
 	appPayload           []object.AppPayloadFunc
 	messageRead          []object.MessageReadFunc
+	special              map[string][]func(object.GroupEvent)
+}
+
+// NewFuncList returns a new FuncList
+func NewFuncList() *FuncList {
+	return &FuncList{
+		special: make(map[string][]func(object.GroupEvent)),
+	}
 }
 
 // Handler group event handler
-// NOTE: cyclomatic complexity 123 of function (FuncList).Handler() is high (> 15) (gocyclo)
 func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
+	if sliceFunc, ok := fl.special[e.Type]; ok {
+		for _, f := range sliceFunc {
+			f(e)
+		}
+	}
+
 	switch e.Type {
-	case "message_new":
+	case object.EventMessageNew:
 		var obj object.MessageNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -71,7 +84,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.messageNew {
 			f(obj, e.GroupID)
 		}
-	case "message_reply":
+	case object.EventMessageReply:
 		var obj object.MessageReplyObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -80,7 +93,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.messageReply {
 			f(obj, e.GroupID)
 		}
-	case "message_edit":
+	case object.EventMessageEdit:
 		var obj object.MessageEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -89,7 +102,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.messageEdit {
 			f(obj, e.GroupID)
 		}
-	case "message_allow":
+	case object.EventMessageAllow:
 		var obj object.MessageAllowObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -98,7 +111,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.messageAllow {
 			f(obj, e.GroupID)
 		}
-	case "message_deny":
+	case object.EventMessageDeny:
 		var obj object.MessageDenyObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -107,7 +120,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.messageDeny {
 			f(obj, e.GroupID)
 		}
-	case "message_typing_state": // На основе ответа
+	case object.EventMessageTypingState: // На основе ответа
 		var obj object.MessageTypingStateObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -116,7 +129,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.messageTypingState {
 			f(obj, e.GroupID)
 		}
-	case "photo_new":
+	case object.EventPhotoNew:
 		var obj object.PhotoNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -125,7 +138,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.photoNew {
 			f(obj, e.GroupID)
 		}
-	case "photo_comment_new":
+	case object.EventPhotoCommentNew:
 		var obj object.PhotoCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -134,7 +147,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.photoCommentNew {
 			f(obj, e.GroupID)
 		}
-	case "photo_comment_edit":
+	case object.EventPhotoCommentEdit:
 		var obj object.PhotoCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -143,7 +156,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.photoCommentEdit {
 			f(obj, e.GroupID)
 		}
-	case "photo_comment_restore":
+	case object.EventPhotoCommentRestore:
 		var obj object.PhotoCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -152,7 +165,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.photoCommentRestore {
 			f(obj, e.GroupID)
 		}
-	case "photo_comment_delete":
+	case object.EventPhotoCommentDelete:
 		var obj object.PhotoCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -161,7 +174,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.photoCommentDelete {
 			f(obj, e.GroupID)
 		}
-	case "audio_new":
+	case object.EventAudioNew:
 		var obj object.AudioNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -170,7 +183,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.audioNew {
 			f(obj, e.GroupID)
 		}
-	case "video_new":
+	case object.EventVideoNew:
 		var obj object.VideoNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -179,7 +192,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.videoNew {
 			f(obj, e.GroupID)
 		}
-	case "video_comment_new":
+	case object.EventVideoCommentNew:
 		var obj object.VideoCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -188,7 +201,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.videoCommentNew {
 			f(obj, e.GroupID)
 		}
-	case "video_comment_edit":
+	case object.EventVideoCommentEdit:
 		var obj object.VideoCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -197,7 +210,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.videoCommentEdit {
 			f(obj, e.GroupID)
 		}
-	case "video_comment_restore":
+	case object.EventVideoCommentRestore:
 		var obj object.VideoCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -206,7 +219,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.videoCommentRestore {
 			f(obj, e.GroupID)
 		}
-	case "video_comment_delete":
+	case object.EventVideoCommentDelete:
 		var obj object.VideoCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -215,7 +228,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.videoCommentDelete {
 			f(obj, e.GroupID)
 		}
-	case "wall_post_new":
+	case object.EventWallPostNew:
 		var obj object.WallPostNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -224,7 +237,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.wallPostNew {
 			f(obj, e.GroupID)
 		}
-	case "wall_repost":
+	case object.EventWallRepost:
 		var obj object.WallRepostObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -233,7 +246,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.wallRepost {
 			f(obj, e.GroupID)
 		}
-	case "wall_reply_new":
+	case object.EventWallReplyNew:
 		var obj object.WallReplyNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -242,7 +255,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.wallReplyNew {
 			f(obj, e.GroupID)
 		}
-	case "wall_reply_edit":
+	case object.EventWallReplyEdit:
 		var obj object.WallReplyEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -251,7 +264,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.wallReplyEdit {
 			f(obj, e.GroupID)
 		}
-	case "wall_reply_restore":
+	case object.EventWallReplyRestore:
 		var obj object.WallReplyRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -260,7 +273,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.wallReplyRestore {
 			f(obj, e.GroupID)
 		}
-	case "wall_reply_delete":
+	case object.EventWallReplyDelete:
 		var obj object.WallReplyDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -269,7 +282,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.wallReplyDelete {
 			f(obj, e.GroupID)
 		}
-	case "board_post_new":
+	case object.EventBoardPostNew:
 		var obj object.BoardPostNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -278,7 +291,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.boardPostNew {
 			f(obj, e.GroupID)
 		}
-	case "board_post_edit":
+	case object.EventBoardPostEdit:
 		var obj object.BoardPostEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -287,7 +300,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.boardPostEdit {
 			f(obj, e.GroupID)
 		}
-	case "board_post_restore":
+	case object.EventBoardPostRestore:
 		var obj object.BoardPostRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -296,7 +309,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.boardPostRestore {
 			f(obj, e.GroupID)
 		}
-	case "board_post_delete":
+	case object.EventBoardPostDelete:
 		var obj object.BoardPostDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -305,7 +318,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.boardPostDelete {
 			f(obj, e.GroupID)
 		}
-	case "market_comment_new":
+	case object.EventMarketCommentNew:
 		var obj object.MarketCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -314,7 +327,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.marketCommentNew {
 			f(obj, e.GroupID)
 		}
-	case "market_comment_edit":
+	case object.EventMarketCommentEdit:
 		var obj object.MarketCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -323,7 +336,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.marketCommentEdit {
 			f(obj, e.GroupID)
 		}
-	case "market_comment_restore":
+	case object.EventMarketCommentRestore:
 		var obj object.MarketCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -332,7 +345,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.marketCommentRestore {
 			f(obj, e.GroupID)
 		}
-	case "market_comment_delete":
+	case object.EventMarketCommentDelete:
 		var obj object.MarketCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -341,7 +354,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.marketCommentDelete {
 			f(obj, e.GroupID)
 		}
-	case "group_leave":
+	case object.EventGroupLeave:
 		var obj object.GroupLeaveObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -350,7 +363,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.groupLeave {
 			f(obj, e.GroupID)
 		}
-	case "group_join":
+	case object.EventGroupJoin:
 		var obj object.GroupJoinObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -359,7 +372,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.groupJoin {
 			f(obj, e.GroupID)
 		}
-	case "user_block":
+	case object.EventUserBlock:
 		var obj object.UserBlockObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -368,7 +381,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.userBlock {
 			f(obj, e.GroupID)
 		}
-	case "user_unblock":
+	case object.EventUserUnblock:
 		var obj object.UserUnblockObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -377,7 +390,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.userUnblock {
 			f(obj, e.GroupID)
 		}
-	case "poll_vote_new":
+	case object.EventPollVoteNew:
 		var obj object.PollVoteNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -386,7 +399,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.pollVoteNew {
 			f(obj, e.GroupID)
 		}
-	case "group_officers_edit":
+	case object.EventGroupOfficersEdit:
 		var obj object.GroupOfficersEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -395,7 +408,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.groupOfficersEdit {
 			f(obj, e.GroupID)
 		}
-	case "group_change_settings":
+	case object.EventGroupChangeSettings:
 		var obj object.GroupChangeSettingsObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -404,7 +417,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.groupChangeSettings {
 			f(obj, e.GroupID)
 		}
-	case "group_change_photo":
+	case object.EventGroupChangePhoto:
 		var obj object.GroupChangePhotoObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -413,7 +426,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.groupChangePhoto {
 			f(obj, e.GroupID)
 		}
-	case "vkpay_transaction":
+	case object.EventVkpayTransaction:
 		var obj object.VkpayTransactionObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -422,7 +435,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.vkpayTransaction {
 			f(obj, e.GroupID)
 		}
-	case "lead_forms_new":
+	case object.EventLeadFormsNew:
 		var obj object.LeadFormsNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -431,7 +444,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.leadFormsNew {
 			f(obj, e.GroupID)
 		}
-	case "app_payload":
+	case object.EventAppPayload:
 		var obj object.AppPayloadObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -440,7 +453,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.appPayload {
 			f(obj, e.GroupID)
 		}
-	case "message_read":
+	case object.EventMessageRead:
 		var obj object.MessageReadObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
@@ -452,6 +465,15 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 	}
 	// NOTE: like_add like_remove
 	return nil
+}
+
+// OnEvent handler
+func (fl *FuncList) OnEvent(eventType string, f func(object.GroupEvent)) {
+	if fl.special == nil {
+		fl.special = make(map[string][]func(object.GroupEvent))
+	}
+
+	fl.special[eventType] = append(fl.special[eventType], f)
 }
 
 // MessageNew handler

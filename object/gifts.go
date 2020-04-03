@@ -1,5 +1,17 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
+// GiftsGiftPrivacy type
+type GiftsGiftPrivacy int
+
+// GiftsGiftPrivacy const
+// FIXME: v2 GiftsGiftPrivacy for const
+// FIXME: v2 GiftsGiftPrivacy for const
+const (
+	GiftsGiftPrivacyForAll        = iota // name and message for all
+	GiftsGiftPrivacyNameForAll           // name for all
+	GiftsGiftPrivacyRecipientOnly        // name and message for recipient only
+)
+
 // GiftsGift struct
 type GiftsGift struct {
 	Date     int         `json:"date"`    // Date when gist has been sent in Unixtime

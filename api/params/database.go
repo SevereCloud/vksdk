@@ -19,18 +19,21 @@ func NewDatabaseGetChairsBuilder() *DatabaseGetChairsBuilder {
 }
 
 // FacultyID id of the faculty to get chairs from
-func (b *DatabaseGetChairsBuilder) FacultyID(v int) {
+func (b *DatabaseGetChairsBuilder) FacultyID(v int) *DatabaseGetChairsBuilder {
 	b.Params["faculty_id"] = v
+	return b
 }
 
 // Offset offset required to get a certain subset of chairs
-func (b *DatabaseGetChairsBuilder) Offset(v int) {
+func (b *DatabaseGetChairsBuilder) Offset(v int) *DatabaseGetChairsBuilder {
 	b.Params["offset"] = v
+	return b
 }
 
 // Count amount of chairs to get
-func (b *DatabaseGetChairsBuilder) Count(v int) {
+func (b *DatabaseGetChairsBuilder) Count(v int) *DatabaseGetChairsBuilder {
 	b.Params["count"] = v
+	return b
 }
 
 // DatabaseGetCitiesBuilder builder
@@ -48,18 +51,21 @@ func NewDatabaseGetCitiesBuilder() *DatabaseGetCitiesBuilder {
 }
 
 // CountryID Country ID.
-func (b *DatabaseGetCitiesBuilder) CountryID(v int) {
+func (b *DatabaseGetCitiesBuilder) CountryID(v int) *DatabaseGetCitiesBuilder {
 	b.Params["country_id"] = v
+	return b
 }
 
 // RegionID Region ID.
-func (b *DatabaseGetCitiesBuilder) RegionID(v int) {
+func (b *DatabaseGetCitiesBuilder) RegionID(v int) *DatabaseGetCitiesBuilder {
 	b.Params["region_id"] = v
+	return b
 }
 
 // Q Search query.
-func (b *DatabaseGetCitiesBuilder) Q(v string) {
+func (b *DatabaseGetCitiesBuilder) Q(v string) *DatabaseGetCitiesBuilder {
 	b.Params["q"] = v
+	return b
 }
 
 // NeedAll parameter
@@ -67,18 +73,21 @@ func (b *DatabaseGetCitiesBuilder) Q(v string) {
 // * 1 — to return all cities in the country,
 //
 // * 0 — to return major cities in the country (default),
-func (b *DatabaseGetCitiesBuilder) NeedAll(v bool) {
+func (b *DatabaseGetCitiesBuilder) NeedAll(v bool) *DatabaseGetCitiesBuilder {
 	b.Params["need_all"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of cities.
-func (b *DatabaseGetCitiesBuilder) Offset(v int) {
+func (b *DatabaseGetCitiesBuilder) Offset(v int) *DatabaseGetCitiesBuilder {
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of cities to return.
-func (b *DatabaseGetCitiesBuilder) Count(v int) {
+func (b *DatabaseGetCitiesBuilder) Count(v int) *DatabaseGetCitiesBuilder {
 	b.Params["count"] = v
+	return b
 }
 
 // DatabaseGetCitiesByIDBuilder builder
@@ -96,8 +105,9 @@ func NewDatabaseGetCitiesByIDBuilder() *DatabaseGetCitiesByIDBuilder {
 }
 
 // CityIDs City IDs.
-func (b *DatabaseGetCitiesByIDBuilder) CityIDs(v []int) {
+func (b *DatabaseGetCitiesByIDBuilder) CityIDs(v []int) *DatabaseGetCitiesByIDBuilder {
 	b.Params["city_ids"] = v
+	return b
 }
 
 // DatabaseGetCountriesBuilder builder
@@ -119,23 +129,27 @@ func NewDatabaseGetCountriesBuilder() *DatabaseGetCountriesBuilder {
 // * 1 — to return a full list of all countries,
 //
 // * 0 — to return a list of countries near the current user's country (default).
-func (b *DatabaseGetCountriesBuilder) NeedAll(v bool) {
+func (b *DatabaseGetCountriesBuilder) NeedAll(v bool) *DatabaseGetCountriesBuilder {
 	b.Params["need_all"] = v
+	return b
 }
 
 // Code Country codes in [vk.com/dev/country_codes|ISO 3166-1 alpha-2] standard.
-func (b *DatabaseGetCountriesBuilder) Code(v string) {
+func (b *DatabaseGetCountriesBuilder) Code(v string) *DatabaseGetCountriesBuilder {
 	b.Params["code"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of countries.
-func (b *DatabaseGetCountriesBuilder) Offset(v int) {
+func (b *DatabaseGetCountriesBuilder) Offset(v int) *DatabaseGetCountriesBuilder {
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of countries to return.
-func (b *DatabaseGetCountriesBuilder) Count(v int) {
+func (b *DatabaseGetCountriesBuilder) Count(v int) *DatabaseGetCountriesBuilder {
 	b.Params["count"] = v
+	return b
 }
 
 // DatabaseGetCountriesByIDBuilder builder
@@ -153,8 +167,9 @@ func NewDatabaseGetCountriesByIDBuilder() *DatabaseGetCountriesByIDBuilder {
 }
 
 // CountryIDs Country IDs.
-func (b *DatabaseGetCountriesByIDBuilder) CountryIDs(v []int) {
+func (b *DatabaseGetCountriesByIDBuilder) CountryIDs(v []int) *DatabaseGetCountriesByIDBuilder {
 	b.Params["country_ids"] = v
+	return b
 }
 
 // DatabaseGetFacultiesBuilder builder
@@ -172,18 +187,21 @@ func NewDatabaseGetFacultiesBuilder() *DatabaseGetFacultiesBuilder {
 }
 
 // UniversityID University ID.
-func (b *DatabaseGetFacultiesBuilder) UniversityID(v int) {
+func (b *DatabaseGetFacultiesBuilder) UniversityID(v int) *DatabaseGetFacultiesBuilder {
 	b.Params["university_id"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of faculties.
-func (b *DatabaseGetFacultiesBuilder) Offset(v int) {
+func (b *DatabaseGetFacultiesBuilder) Offset(v int) *DatabaseGetFacultiesBuilder {
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of faculties to return.
-func (b *DatabaseGetFacultiesBuilder) Count(v int) {
+func (b *DatabaseGetFacultiesBuilder) Count(v int) *DatabaseGetFacultiesBuilder {
 	b.Params["count"] = v
+	return b
 }
 
 // DatabaseGetMetroStationsBuilder builder
@@ -201,23 +219,27 @@ func NewDatabaseGetMetroStationsBuilder() *DatabaseGetMetroStationsBuilder {
 }
 
 // CityID parameter
-func (b *DatabaseGetMetroStationsBuilder) CityID(v int) {
+func (b *DatabaseGetMetroStationsBuilder) CityID(v int) *DatabaseGetMetroStationsBuilder {
 	b.Params["city_id"] = v
+	return b
 }
 
 // Offset parameter
-func (b *DatabaseGetMetroStationsBuilder) Offset(v int) {
+func (b *DatabaseGetMetroStationsBuilder) Offset(v int) *DatabaseGetMetroStationsBuilder {
 	b.Params["offset"] = v
+	return b
 }
 
 // Count parameter
-func (b *DatabaseGetMetroStationsBuilder) Count(v int) {
+func (b *DatabaseGetMetroStationsBuilder) Count(v int) *DatabaseGetMetroStationsBuilder {
 	b.Params["count"] = v
+	return b
 }
 
 // Extended parameter
-func (b *DatabaseGetMetroStationsBuilder) Extended(v bool) {
+func (b *DatabaseGetMetroStationsBuilder) Extended(v bool) *DatabaseGetMetroStationsBuilder {
 	b.Params["extended"] = v
+	return b
 }
 
 // DatabaseGetMetroStationsByIDBuilder builder
@@ -235,8 +257,9 @@ func NewDatabaseGetMetroStationsByIDBuilder() *DatabaseGetMetroStationsByIDBuild
 }
 
 // StationIDs parameter
-func (b *DatabaseGetMetroStationsByIDBuilder) StationIDs(v []int) {
+func (b *DatabaseGetMetroStationsByIDBuilder) StationIDs(v []int) *DatabaseGetMetroStationsByIDBuilder {
 	b.Params["station_ids"] = v
+	return b
 }
 
 // DatabaseGetRegionsBuilder builder
@@ -254,23 +277,27 @@ func NewDatabaseGetRegionsBuilder() *DatabaseGetRegionsBuilder {
 }
 
 // CountryID Country ID, received in [vk.com/dev/database.getCountries|database.getCountries] method.
-func (b *DatabaseGetRegionsBuilder) CountryID(v int) {
+func (b *DatabaseGetRegionsBuilder) CountryID(v int) *DatabaseGetRegionsBuilder {
 	b.Params["country_id"] = v
+	return b
 }
 
 // Q Search query.
-func (b *DatabaseGetRegionsBuilder) Q(v string) {
+func (b *DatabaseGetRegionsBuilder) Q(v string) *DatabaseGetRegionsBuilder {
 	b.Params["q"] = v
+	return b
 }
 
 // Offset Offset needed to return specific subset of regions.
-func (b *DatabaseGetRegionsBuilder) Offset(v int) {
+func (b *DatabaseGetRegionsBuilder) Offset(v int) *DatabaseGetRegionsBuilder {
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of regions to return.
-func (b *DatabaseGetRegionsBuilder) Count(v int) {
+func (b *DatabaseGetRegionsBuilder) Count(v int) *DatabaseGetRegionsBuilder {
 	b.Params["count"] = v
+	return b
 }
 
 // DatabaseGetSchoolClassesBuilder builder
@@ -288,8 +315,9 @@ func NewDatabaseGetSchoolClassesBuilder() *DatabaseGetSchoolClassesBuilder {
 }
 
 // CountryID Country ID.
-func (b *DatabaseGetSchoolClassesBuilder) CountryID(v int) {
+func (b *DatabaseGetSchoolClassesBuilder) CountryID(v int) *DatabaseGetSchoolClassesBuilder {
 	b.Params["country_id"] = v
+	return b
 }
 
 // DatabaseGetSchoolsBuilder builder
@@ -307,23 +335,27 @@ func NewDatabaseGetSchoolsBuilder() *DatabaseGetSchoolsBuilder {
 }
 
 // Q Search query.
-func (b *DatabaseGetSchoolsBuilder) Q(v string) {
+func (b *DatabaseGetSchoolsBuilder) Q(v string) *DatabaseGetSchoolsBuilder {
 	b.Params["q"] = v
+	return b
 }
 
 // CityID City ID.
-func (b *DatabaseGetSchoolsBuilder) CityID(v int) {
+func (b *DatabaseGetSchoolsBuilder) CityID(v int) *DatabaseGetSchoolsBuilder {
 	b.Params["city_id"] = v
+	return b
 }
 
 // Offset Offset needed to return a specific subset of schools.
-func (b *DatabaseGetSchoolsBuilder) Offset(v int) {
+func (b *DatabaseGetSchoolsBuilder) Offset(v int) *DatabaseGetSchoolsBuilder {
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of schools to return.
-func (b *DatabaseGetSchoolsBuilder) Count(v int) {
+func (b *DatabaseGetSchoolsBuilder) Count(v int) *DatabaseGetSchoolsBuilder {
 	b.Params["count"] = v
+	return b
 }
 
 // DatabaseGetUniversitiesBuilder builder
@@ -341,26 +373,31 @@ func NewDatabaseGetUniversitiesBuilder() *DatabaseGetUniversitiesBuilder {
 }
 
 // Q Search query.
-func (b *DatabaseGetUniversitiesBuilder) Q(v string) {
+func (b *DatabaseGetUniversitiesBuilder) Q(v string) *DatabaseGetUniversitiesBuilder {
 	b.Params["q"] = v
+	return b
 }
 
 // CountryID Country ID.
-func (b *DatabaseGetUniversitiesBuilder) CountryID(v int) {
+func (b *DatabaseGetUniversitiesBuilder) CountryID(v int) *DatabaseGetUniversitiesBuilder {
 	b.Params["country_id"] = v
+	return b
 }
 
 // CityID City ID.
-func (b *DatabaseGetUniversitiesBuilder) CityID(v int) {
+func (b *DatabaseGetUniversitiesBuilder) CityID(v int) *DatabaseGetUniversitiesBuilder {
 	b.Params["city_id"] = v
+	return b
 }
 
 // Offset needed to return a specific subset of universities.
-func (b *DatabaseGetUniversitiesBuilder) Offset(v int) {
+func (b *DatabaseGetUniversitiesBuilder) Offset(v int) *DatabaseGetUniversitiesBuilder {
 	b.Params["offset"] = v
+	return b
 }
 
 // Count Number of universities to return.
-func (b *DatabaseGetUniversitiesBuilder) Count(v int) {
+func (b *DatabaseGetUniversitiesBuilder) Count(v int) *DatabaseGetUniversitiesBuilder {
 	b.Params["count"] = v
+	return b
 }

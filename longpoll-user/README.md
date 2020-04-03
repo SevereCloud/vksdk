@@ -14,14 +14,14 @@
 В начале необходимо инициализировать api:
 
 ```go
-vk := api.Init("<TOKEN>")
+vk := api.NewVK("<TOKEN>")
 ```
 
 А потом сам longpoll
 
 ```go
 mode := longpoll.ReceiveAttachments + longpoll.ExtendedEvents
-lp, err := longpoll.Init(vk, mode)
+lp, err := longpoll.NewLongpoll(vk, mode)
 // По умолчанию Wait = 25
 // lp.Wait = 90 
 // lp.Ts = 123
@@ -39,8 +39,12 @@ httpTransport := &http.Transport{
 	Dial:              dialer.Dial,
 	// DisableKeepAlives: true,
 }
-httpTransport.Dial = dialer.Dial
-lp.Client.Transport = httpTransport
+
+client := &http.Client{
+	Transport: httpTransport,
+}
+
+lp.Client = client
 ```
 
 ### Обработчик событий
@@ -99,8 +103,8 @@ import (
 )
 
 func main() {
-	vk := api.Init("<TOKEN>")
-	lp, err := longpoll.Init(&vk, 2)
+	vk := api.NewVK("<TOKEN>")
+	lp, err := longpoll.NewLongpoll(vk, 2)
 	if err != nil {
 		log.Fatal(err)
 	}
