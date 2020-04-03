@@ -625,8 +625,8 @@ func TestVK_GroupsIsMember(t *testing.T) {
 	needGroupToken(t)
 
 	res, err := vkGroup.GroupsIsMember(api.Params{
-		"group_id": 134304772,
-		"user_id":  216916273,
+		"group_id": 1,
+		"user_id":  117253521,
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res)
@@ -636,8 +636,8 @@ func TestVK_GroupsIsMemberExtended(t *testing.T) {
 	needGroupToken(t)
 
 	res, err := vkGroup.GroupsIsMemberExtended(api.Params{
-		"group_id": 134304772,
-		"user_id":  216916273,
+		"group_id": 1,
+		"user_id":  117253521,
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res.Member)
@@ -647,24 +647,28 @@ func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 	needGroupToken(t)
 
 	res, err := vkGroup.GroupsIsMemberUserIDsExtended(api.Params{
-		"group_id": 134304772,
-		"user_ids": 216916273,
+		"group_id": 1,
+		"user_ids": 117253521,
 	})
 	noError(t, err)
-	assert.NotEmpty(t, res[0].Member)
-	assert.NotEmpty(t, res[0].UserID)
+	if assert.NotEmpty(t, res) {
+		assert.NotEmpty(t, res[0].Member)
+		assert.NotEmpty(t, res[0].UserID)
+	}
 }
 
 func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
 	needGroupToken(t)
 
 	res, err := vkGroup.GroupsIsMemberUserIDs(api.Params{
-		"group_id": 134304772,
-		"user_ids": 216916273,
+		"group_id": 1,
+		"user_ids": 117253521,
 	})
 	noError(t, err)
-	assert.NotEmpty(t, res[0].Member)
-	assert.NotEmpty(t, res[0].UserID)
+	if assert.NotEmpty(t, res) {
+		assert.NotEmpty(t, res[0].Member)
+		assert.NotEmpty(t, res[0].UserID)
+	}
 }
 
 func TestVK_GroupsJoin(t *testing.T) {
