@@ -250,7 +250,7 @@ func (vk *VK) Request(method string, params Params) ([]byte, error) {
 		if vk.IsPoolClient {
 			token = vk.tokenPool.Get()
 		}
-		
+
 		copyParams["access_token"] = token
 	}
 
