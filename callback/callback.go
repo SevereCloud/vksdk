@@ -27,8 +27,11 @@ type Callback struct {
 
 // NewCallback return *Callback
 func NewCallback() *Callback {
-	cb := &Callback{}
-	cb.FuncList = *events.NewFuncList()
+	cb := &Callback{
+		ConfirmationKeys: make(map[int]string),
+		SecretKeys:       make(map[int]string),
+		FuncList:         *events.NewFuncList(),
+	}
 
 	return cb
 }
