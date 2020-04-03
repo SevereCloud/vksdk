@@ -651,6 +651,7 @@ func TestVK_GroupsIsMemberUserIDsExtended(t *testing.T) {
 		"user_ids": 117253521,
 	})
 	noError(t, err)
+
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].Member)
 		assert.NotEmpty(t, res[0].UserID)
@@ -665,6 +666,7 @@ func TestVK_GroupsIsMemberUserIDs(t *testing.T) {
 		"user_ids": 117253521,
 	})
 	noError(t, err)
+
 	if assert.NotEmpty(t, res) {
 		assert.NotEmpty(t, res[0].Member)
 		assert.NotEmpty(t, res[0].UserID)
