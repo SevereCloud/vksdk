@@ -17,8 +17,8 @@ func noError(t *testing.T, err error) bool {
 	t.Helper()
 
 	switch errors.GetType(err) {
-	case errors.TooMany:
-		t.Skip("Too many requests per second")
+	// case errors.TooMany:
+	// 	t.Skip("Too many requests per second")
 	case errors.Server:
 		t.Skip("Internal server error")
 	case errors.Permission:
@@ -131,7 +131,8 @@ func TestVK_Request(t *testing.T) {
 
 func TestVK_RequestLimit(t *testing.T) {
 	needUserToken(t)
-	t.Skip("Bad work :(")
+
+	vkUser.Limit = 4
 
 	var wg sync.WaitGroup
 
@@ -147,6 +148,8 @@ func TestVK_RequestLimit(t *testing.T) {
 	}
 
 	wg.Wait()
+
+	vkUser.Limit = 3
 }
 
 func TestVK_Execute_error(t *testing.T) {

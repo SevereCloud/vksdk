@@ -165,7 +165,7 @@ func Init(token string) *VK {
 type Params map[string]interface{}
 
 // defaultHandler provides access to VK API methods
-func (vk *VK) defaultHandler(method string, params Params) (response Response, err error) {
+func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 	u := vk.MethodURL + method
 	query := url.Values{}
 
@@ -173,67 +173,63 @@ func (vk *VK) defaultHandler(method string, params Params) (response Response, e
 		query.Set(key, FmtValue(value, 0))
 	}
 
-	rawBody := bytes.NewBufferString(query.Encode())
+	attempt := 0
 
-	// Rate limiting
-	var beforeRps int
+	for {
+		var response Response
 
-	if vk.Limit > 0 {
-		vk.mux.Lock()
+		attempt++
 
-		sleepTime := time.Second - time.Since(vk.lastTime)
-		if sleepTime < 0 {
-			vk.lastTime = time.Now()
-			vk.rps = 0
-		} else if vk.rps == vk.Limit {
-			time.Sleep(sleepTime)
-			vk.lastTime = time.Now()
-			vk.rps = 0
-		}
-		vk.rps++
-		beforeRps = vk.rps
+		// Rate limiting
+		if vk.Limit > 0 {
+			vk.mux.Lock()
 
-		vk.mux.Unlock()
-	}
-
-	req, err := http.NewRequest("POST", u, rawBody)
-	if err != nil {
-		return
-	}
-
-	req.Header.Set("User-Agent", vk.UserAgent)
-	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-
-	resp, err := vk.Client.Do(req)
-	if err != nil {
-		return
-	}
-	defer resp.Body.Close()
-
-	err = json.NewDecoder(resp.Body).Decode(&response)
-	if err != nil {
-		return
-	}
-
-	if vk.Limit > 0 {
-		vk.mux.Lock()
-
-		if beforeRps != vk.rps {
+			sleepTime := time.Second - time.Since(vk.lastTime)
+			if sleepTime < 0 {
+				vk.lastTime = time.Now()
+				vk.rps = 0
+			} else if vk.rps == vk.Limit {
+				time.Sleep(sleepTime)
+				vk.lastTime = time.Now()
+				vk.rps = 0
+			}
 			vk.rps++
+
+			vk.mux.Unlock()
 		}
 
-		sleepTime := time.Second - time.Since(vk.lastTime)
-		if sleepTime < 0 {
-			vk.lastTime = time.Now()
-			vk.rps = 1
+		rawBody := bytes.NewBufferString(query.Encode())
+
+		req, err := http.NewRequest("POST", u, rawBody)
+		if err != nil {
+			return response, err
 		}
 
-		vk.mux.Unlock()
+		req.Header.Set("User-Agent", vk.UserAgent)
+		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+		resp, err := vk.Client.Do(req)
+		if err != nil {
+			return response, err
+		}
+		defer resp.Body.Close()
+
+		err = json.NewDecoder(resp.Body).Decode(&response)
+		if err != nil {
+			return response, err
+		}
+
+		err = errors.New(response.Error)
+		if err != nil {
+			if errors.GetType(err) == errors.TooMany && attempt < vk.Limit {
+				continue
+			}
+
+			return response, err
+		}
+
+		return response, nil
 	}
-
-	err = errors.New(response.Error)
-
-	return response, err
 }
 
 // Request provides access to VK API methods
