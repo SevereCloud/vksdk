@@ -61,8 +61,7 @@ func TestMain(m *testing.M) {
 	os.Exit(runTests)
 }
 
-func TestWrapper_2(t *testing.T) {
-	t.Skip("Too many requests per second")
+func TestWrapper(t *testing.T) {
 	needUserToken(t)
 	chatID := needChatID(t)
 
