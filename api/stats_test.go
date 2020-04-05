@@ -7,6 +7,8 @@ import (
 )
 
 func TestVK_StatsGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -20,6 +22,8 @@ func TestVK_StatsGet(t *testing.T) {
 }
 
 func TestVK_StatsTrackVisitor(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StatsTrackVisitor(api.Params{})

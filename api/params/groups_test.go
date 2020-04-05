@@ -8,6 +8,8 @@ import (
 )
 
 func TestGroupsAddAddressBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsAddAddressBuilder()
 
 	b.GroupID(1)
@@ -40,6 +42,8 @@ func TestGroupsAddAddressBuilder(t *testing.T) {
 }
 
 func TestGroupsAddCallbackServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsAddCallbackServerBuilder()
 
 	b.GroupID(1)
@@ -54,6 +58,8 @@ func TestGroupsAddCallbackServerBuilder(t *testing.T) {
 }
 
 func TestGroupsAddLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsAddLinkBuilder()
 
 	b.GroupID(1)
@@ -66,6 +72,8 @@ func TestGroupsAddLinkBuilder(t *testing.T) {
 }
 
 func TestGroupsApproveRequestBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsApproveRequestBuilder()
 
 	b.GroupID(1)
@@ -76,6 +84,8 @@ func TestGroupsApproveRequestBuilder(t *testing.T) {
 }
 
 func TestGroupsBanBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsBanBuilder()
 
 	b.GroupID(1)
@@ -94,6 +104,8 @@ func TestGroupsBanBuilder(t *testing.T) {
 }
 
 func TestGroupsCreateBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsCreateBuilder()
 
 	b.Title("text")
@@ -110,6 +122,8 @@ func TestGroupsCreateBuilder(t *testing.T) {
 }
 
 func TestGroupsDeleteCallbackServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsDeleteCallbackServerBuilder()
 
 	b.GroupID(1)
@@ -120,6 +134,8 @@ func TestGroupsDeleteCallbackServerBuilder(t *testing.T) {
 }
 
 func TestGroupsDeleteLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsDeleteLinkBuilder()
 
 	b.GroupID(1)
@@ -130,6 +146,8 @@ func TestGroupsDeleteLinkBuilder(t *testing.T) {
 }
 
 func TestGroupsDisableOnlineBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsDisableOnlineBuilder()
 
 	b.GroupID(1)
@@ -138,6 +156,8 @@ func TestGroupsDisableOnlineBuilder(t *testing.T) {
 }
 
 func TestGroupsEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsEditBuilder()
 
 	b.GroupID(1)
@@ -234,6 +254,8 @@ func TestGroupsEditBuilder(t *testing.T) {
 }
 
 func TestGroupsEditAddressBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsEditAddressBuilder()
 
 	b.GroupID(1)
@@ -268,6 +290,8 @@ func TestGroupsEditAddressBuilder(t *testing.T) {
 }
 
 func TestGroupsEditCallbackServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsEditCallbackServerBuilder()
 
 	b.GroupID(1)
@@ -284,6 +308,8 @@ func TestGroupsEditCallbackServerBuilder(t *testing.T) {
 }
 
 func TestGroupsEditLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsEditLinkBuilder()
 
 	b.GroupID(1)
@@ -296,6 +322,8 @@ func TestGroupsEditLinkBuilder(t *testing.T) {
 }
 
 func TestGroupsEditManagerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsEditManagerBuilder()
 
 	b.GroupID(1)
@@ -316,6 +344,8 @@ func TestGroupsEditManagerBuilder(t *testing.T) {
 }
 
 func TestGroupsEnableOnlineBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsEnableOnlineBuilder()
 
 	b.GroupID(1)
@@ -324,6 +354,8 @@ func TestGroupsEnableOnlineBuilder(t *testing.T) {
 }
 
 func TestGroupsGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetBuilder()
 
 	b.UserID(1)
@@ -342,6 +374,8 @@ func TestGroupsGetBuilder(t *testing.T) {
 }
 
 func TestGroupsGetAddressesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetAddressesBuilder()
 
 	b.GroupID(1)
@@ -362,6 +396,8 @@ func TestGroupsGetAddressesBuilder(t *testing.T) {
 }
 
 func TestGroupsGetBannedBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetBannedBuilder()
 
 	b.GroupID(1)
@@ -378,6 +414,8 @@ func TestGroupsGetBannedBuilder(t *testing.T) {
 }
 
 func TestGroupsGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetByIDBuilder()
 
 	b.GroupIDs([]string{"text"})
@@ -390,6 +428,8 @@ func TestGroupsGetByIDBuilder(t *testing.T) {
 }
 
 func TestGroupsGetCallbackConfirmationCodeBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetCallbackConfirmationCodeBuilder()
 
 	b.GroupID(1)
@@ -398,6 +438,8 @@ func TestGroupsGetCallbackConfirmationCodeBuilder(t *testing.T) {
 }
 
 func TestGroupsGetCallbackServersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetCallbackServersBuilder()
 
 	b.GroupID(1)
@@ -408,6 +450,8 @@ func TestGroupsGetCallbackServersBuilder(t *testing.T) {
 }
 
 func TestGroupsGetCallbackSettingsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetCallbackSettingsBuilder()
 
 	b.GroupID(1)
@@ -418,6 +462,8 @@ func TestGroupsGetCallbackSettingsBuilder(t *testing.T) {
 }
 
 func TestGroupsGetCatalogBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetCatalogBuilder()
 
 	b.CategoryID(1)
@@ -428,6 +474,8 @@ func TestGroupsGetCatalogBuilder(t *testing.T) {
 }
 
 func TestGroupsGetCatalogInfoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetCatalogInfoBuilder()
 
 	b.Extended(true)
@@ -438,6 +486,8 @@ func TestGroupsGetCatalogInfoBuilder(t *testing.T) {
 }
 
 func TestGroupsGetInvitedUsersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetInvitedUsersBuilder()
 
 	b.GroupID(1)
@@ -454,6 +504,8 @@ func TestGroupsGetInvitedUsersBuilder(t *testing.T) {
 }
 
 func TestGroupsGetInvitesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetInvitesBuilder()
 
 	b.Offset(1)
@@ -466,6 +518,8 @@ func TestGroupsGetInvitesBuilder(t *testing.T) {
 }
 
 func TestGroupsGetLongPollServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetLongPollServerBuilder()
 
 	b.GroupID(1)
@@ -474,6 +528,8 @@ func TestGroupsGetLongPollServerBuilder(t *testing.T) {
 }
 
 func TestGroupsGetLongPollSettingsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetLongPollSettingsBuilder()
 
 	b.GroupID(1)
@@ -482,6 +538,8 @@ func TestGroupsGetLongPollSettingsBuilder(t *testing.T) {
 }
 
 func TestGroupsGetMembersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetMembersBuilder()
 
 	b.GroupID("text")
@@ -500,6 +558,8 @@ func TestGroupsGetMembersBuilder(t *testing.T) {
 }
 
 func TestGroupsGetRequestsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetRequestsBuilder()
 
 	b.GroupID(1)
@@ -514,6 +574,8 @@ func TestGroupsGetRequestsBuilder(t *testing.T) {
 }
 
 func TestGroupsGetSettingsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsGetSettingsBuilder()
 
 	b.GroupID(1)
@@ -522,6 +584,8 @@ func TestGroupsGetSettingsBuilder(t *testing.T) {
 }
 
 func TestGroupsInviteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsInviteBuilder()
 
 	b.GroupID(1)
@@ -532,6 +596,8 @@ func TestGroupsInviteBuilder(t *testing.T) {
 }
 
 func TestGroupsIsMemberBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsIsMemberBuilder()
 
 	b.GroupID("text")
@@ -546,6 +612,8 @@ func TestGroupsIsMemberBuilder(t *testing.T) {
 }
 
 func TestGroupsJoinBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsJoinBuilder()
 
 	b.GroupID(1)
@@ -556,6 +624,8 @@ func TestGroupsJoinBuilder(t *testing.T) {
 }
 
 func TestGroupsLeaveBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsLeaveBuilder()
 
 	b.GroupID(1)
@@ -564,6 +634,8 @@ func TestGroupsLeaveBuilder(t *testing.T) {
 }
 
 func TestGroupsRemoveUserBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsRemoveUserBuilder()
 
 	b.GroupID(1)
@@ -574,6 +646,8 @@ func TestGroupsRemoveUserBuilder(t *testing.T) {
 }
 
 func TestGroupsReorderLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsReorderLinkBuilder()
 
 	b.GroupID(1)
@@ -586,6 +660,8 @@ func TestGroupsReorderLinkBuilder(t *testing.T) {
 }
 
 func TestGroupsSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsSearchBuilder()
 
 	b.Q("text")
@@ -610,6 +686,8 @@ func TestGroupsSearchBuilder(t *testing.T) {
 }
 
 func TestGroupsSetCallbackSettingsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsSetCallbackSettingsBuilder()
 
 	b.GroupID(1)
@@ -702,6 +780,8 @@ func TestGroupsSetCallbackSettingsBuilder(t *testing.T) {
 }
 
 func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsSetLongPollSettingsBuilder()
 
 	b.GroupID(1)
@@ -792,6 +872,8 @@ func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
 }
 
 func TestGroupsUnbanBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGroupsUnbanBuilder()
 
 	b.GroupID(1)

@@ -8,6 +8,8 @@ import (
 )
 
 func TestStorageGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStorageGetBuilder()
 
 	b.Key("text")
@@ -22,6 +24,8 @@ func TestStorageGetBuilder(t *testing.T) {
 }
 
 func TestStorageGetKeysBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStorageGetKeysBuilder()
 
 	b.UserID(1)
@@ -36,6 +40,8 @@ func TestStorageGetKeysBuilder(t *testing.T) {
 }
 
 func TestStorageSetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStorageSetBuilder()
 
 	b.Key("text")

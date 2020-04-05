@@ -8,6 +8,8 @@ import (
 )
 
 func TestPrettyCardsCreateBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPrettyCardsCreateBuilder()
 
 	b.OwnerID(1)
@@ -28,6 +30,8 @@ func TestPrettyCardsCreateBuilder(t *testing.T) {
 }
 
 func TestPrettyCardsDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPrettyCardsDeleteBuilder()
 
 	b.OwnerID(1)
@@ -38,6 +42,8 @@ func TestPrettyCardsDeleteBuilder(t *testing.T) {
 }
 
 func TestPrettyCardsEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPrettyCardsEditBuilder()
 
 	b.OwnerID(1)
@@ -60,6 +66,8 @@ func TestPrettyCardsEditBuilder(t *testing.T) {
 }
 
 func TestPrettyCardsGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPrettyCardsGetBuilder()
 
 	b.OwnerID(1)
@@ -72,6 +80,8 @@ func TestPrettyCardsGetBuilder(t *testing.T) {
 }
 
 func TestPrettyCardsGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPrettyCardsGetByIDBuilder()
 
 	b.OwnerID(1)

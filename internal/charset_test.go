@@ -7,6 +7,8 @@ import (
 )
 
 func TestCharsetReader(t *testing.T) {
+	t.Parallel()
+
 	f := func(charset string, wantErr bool) {
 		_, err := internal.CharsetReader(charset, nil)
 		if (err != nil) != wantErr {

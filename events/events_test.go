@@ -12,6 +12,8 @@ import (
 const GID = 123456
 
 func TestFuncList_HandlerMessageNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MessageNew(func(obj object.MessageNewObject, groupID int) {
@@ -55,6 +57,8 @@ func TestFuncList_HandlerMessageNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageReply(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MessageReply(func(obj object.MessageReplyObject, groupID int) {
@@ -85,6 +89,8 @@ func TestFuncList_HandlerMessageReply(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageEdit(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MessageEdit(func(obj object.MessageEditObject, groupID int) {
@@ -115,6 +121,8 @@ func TestFuncList_HandlerMessageEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageAllow(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MessageAllow(func(obj object.MessageAllowObject, groupID int) {
@@ -145,6 +153,8 @@ func TestFuncList_HandlerMessageAllow(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageDeny(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MessageDeny(func(obj object.MessageDenyObject, groupID int) {
@@ -175,6 +185,8 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageTypingState(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MessageTypingState(func(obj object.MessageTypingStateObject, groupID int) {
@@ -205,6 +217,8 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.PhotoNew(func(obj object.PhotoNewObject, groupID int) {
@@ -235,6 +249,8 @@ func TestFuncList_HandlerPhotoNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.PhotoCommentNew(func(obj object.PhotoCommentNewObject, groupID int) {
@@ -265,6 +281,8 @@ func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.PhotoCommentEdit(func(obj object.PhotoCommentEditObject, groupID int) {
@@ -295,6 +313,8 @@ func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.PhotoCommentRestore(func(obj object.PhotoCommentRestoreObject, groupID int) {
@@ -325,6 +345,8 @@ func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.PhotoCommentDelete(func(obj object.PhotoCommentDeleteObject, groupID int) {
@@ -355,6 +377,8 @@ func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerAudioNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.AudioNew(func(obj object.AudioNewObject, groupID int) {
@@ -385,6 +409,8 @@ func TestFuncList_HandlerAudioNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.VideoNew(func(obj object.VideoNewObject, groupID int) {
@@ -415,6 +441,8 @@ func TestFuncList_HandlerVideoNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.VideoCommentNew(func(obj object.VideoCommentNewObject, groupID int) {
@@ -445,6 +473,8 @@ func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.VideoCommentEdit(func(obj object.VideoCommentEditObject, groupID int) {
@@ -475,6 +505,8 @@ func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.VideoCommentRestore(func(obj object.VideoCommentRestoreObject, groupID int) {
@@ -505,6 +537,8 @@ func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.VideoCommentDelete(func(obj object.VideoCommentDeleteObject, groupID int) {
@@ -535,6 +569,8 @@ func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallPostNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.WallPostNew(func(obj object.WallPostNewObject, groupID int) {
@@ -565,6 +601,8 @@ func TestFuncList_HandlerWallPostNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallRepost(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.WallRepost(func(obj object.WallRepostObject, groupID int) {
@@ -595,6 +633,8 @@ func TestFuncList_HandlerWallRepost(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.WallReplyNew(func(obj object.WallReplyNewObject, groupID int) {
@@ -625,6 +665,8 @@ func TestFuncList_HandlerWallReplyNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.WallReplyEdit(func(obj object.WallReplyEditObject, groupID int) {
@@ -655,6 +697,8 @@ func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.WallReplyRestore(func(obj object.WallReplyRestoreObject, groupID int) {
@@ -685,6 +729,8 @@ func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.WallReplyDelete(func(obj object.WallReplyDeleteObject, groupID int) {
@@ -715,6 +761,8 @@ func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.BoardPostNew(func(obj object.BoardPostNewObject, groupID int) {
@@ -745,6 +793,8 @@ func TestFuncList_HandlerBoardPostNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.BoardPostEdit(func(obj object.BoardPostEditObject, groupID int) {
@@ -775,6 +825,8 @@ func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.BoardPostRestore(func(obj object.BoardPostRestoreObject, groupID int) {
@@ -805,6 +857,8 @@ func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.BoardPostDelete(func(obj object.BoardPostDeleteObject, groupID int) {
@@ -835,6 +889,8 @@ func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MarketCommentNew(func(obj object.MarketCommentNewObject, groupID int) {
@@ -865,6 +921,8 @@ func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MarketCommentEdit(func(obj object.MarketCommentEditObject, groupID int) {
@@ -895,6 +953,8 @@ func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MarketCommentRestore(func(obj object.MarketCommentRestoreObject, groupID int) {
@@ -925,6 +985,8 @@ func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MarketCommentDelete(func(obj object.MarketCommentDeleteObject, groupID int) {
@@ -955,6 +1017,8 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupLeave(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.GroupLeave(func(obj object.GroupLeaveObject, groupID int) {
@@ -985,6 +1049,8 @@ func TestFuncList_HandlerGroupLeave(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupJoin(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.GroupJoin(func(obj object.GroupJoinObject, groupID int) {
@@ -1015,6 +1081,8 @@ func TestFuncList_HandlerGroupJoin(t *testing.T) {
 }
 
 func TestFuncList_HandlerUserBlock(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.UserBlock(func(obj object.UserBlockObject, groupID int) {
@@ -1045,6 +1113,8 @@ func TestFuncList_HandlerUserBlock(t *testing.T) {
 }
 
 func TestFuncList_HandlerUserUnblock(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.UserUnblock(func(obj object.UserUnblockObject, groupID int) {
@@ -1075,6 +1145,8 @@ func TestFuncList_HandlerUserUnblock(t *testing.T) {
 }
 
 func TestFuncList_HandlerPollVoteNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.PollVoteNew(func(obj object.PollVoteNewObject, groupID int) {
@@ -1105,6 +1177,8 @@ func TestFuncList_HandlerPollVoteNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.GroupOfficersEdit(func(obj object.GroupOfficersEditObject, groupID int) {
@@ -1135,6 +1209,8 @@ func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.GroupChangeSettings(func(obj object.GroupChangeSettingsObject, groupID int) {
@@ -1165,6 +1241,8 @@ func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.GroupChangePhoto(func(obj object.GroupChangePhotoObject, groupID int) {
@@ -1195,6 +1273,8 @@ func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
 }
 
 func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.VkpayTransaction(func(obj object.VkpayTransactionObject, groupID int) {
@@ -1225,6 +1305,8 @@ func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
 }
 
 func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.LeadFormsNew(func(obj object.LeadFormsNewObject, groupID int) {
@@ -1255,6 +1337,8 @@ func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerAppPayload(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.AppPayload(func(obj object.AppPayloadObject, groupID int) {
@@ -1285,6 +1369,8 @@ func TestFuncList_HandlerAppPayload(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageRead(t *testing.T) {
+	t.Parallel()
+
 	fl := events.NewFuncList()
 
 	fl.MessageRead(func(obj object.MessageReadObject, groupID int) {
@@ -1315,6 +1401,8 @@ func TestFuncList_HandlerMessageRead(t *testing.T) {
 }
 
 func TestFuncList_OnEvent(t *testing.T) {
+	t.Parallel()
+
 	var fl events.FuncList
 
 	fl.OnEvent("wtf_event", func(e object.GroupEvent) {

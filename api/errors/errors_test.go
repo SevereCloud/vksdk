@@ -10,6 +10,8 @@ import (
 )
 
 func TestContext(t *testing.T) {
+	t.Parallel()
+
 	err := errors.Unknown.New("an_error")
 	expectedContext := object.Error{Code: 1}
 	errWithContext := errors.AddErrorContext(err, expectedContext)
@@ -20,6 +22,8 @@ func TestContext(t *testing.T) {
 }
 
 func TestGetErrorContext(t *testing.T) {
+	t.Parallel()
+
 	f := func(err error, wantContext object.Error) {
 		t.Helper()
 
@@ -32,6 +36,8 @@ func TestGetErrorContext(t *testing.T) {
 }
 
 func TestGetType(t *testing.T) {
+	t.Parallel()
+
 	f := func(err error, wantType errors.ErrorType) {
 		t.Helper()
 

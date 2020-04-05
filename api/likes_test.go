@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_LikesAdd(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.LikesAdd(api.Params{
@@ -18,21 +20,19 @@ func TestVK_LikesAdd(t *testing.T) {
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res.Likes)
-}
 
-func TestVK_LikesDelete(t *testing.T) {
-	needUserToken(t)
-
-	res, err := vkUser.LikesDelete(api.Params{
+	resDel, err := vkUser.LikesDelete(api.Params{
 		"type":     "post",
 		"owner_id": 1,
 		"item_id":  45546,
 	})
 	noError(t, err)
-	assert.NotEmpty(t, res.Likes)
+	assert.NotEmpty(t, resDel.Likes)
 }
 
 func TestVK_LikesGetList(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{
@@ -53,6 +53,8 @@ func TestVK_LikesGetList(t *testing.T) {
 }
 
 func TestVK_LikesIsLiked(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.LikesIsLiked(api.Params{

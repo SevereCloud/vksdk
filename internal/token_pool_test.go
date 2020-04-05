@@ -5,6 +5,8 @@ import (
 )
 
 func TestTokenPool(t *testing.T) {
+	t.Parallel()
+
 	tokens := []string{
 		"1", "2", "3", "4", "5",
 	}

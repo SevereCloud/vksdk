@@ -7,6 +7,8 @@ import (
 )
 
 func TestMarketMarketItem_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(market object.MarketMarketItem, want string) {
 		if got := market.ToAttachment(); got != want {
 			t.Errorf("MarketMarketItem.ToAttachment() = %v, want %v", got, want)
@@ -18,6 +20,8 @@ func TestMarketMarketItem_ToAttachment(t *testing.T) {
 }
 
 func TestMarketMarketAlbum_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(marketAlbum object.MarketMarketAlbum, want string) {
 		if got := marketAlbum.ToAttachment(); got != want {
 			t.Errorf("MarketMarketAlbum.ToAttachment() = %v, want %v", got, want)

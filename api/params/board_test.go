@@ -8,6 +8,8 @@ import (
 )
 
 func TestBoardAddTopicBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardAddTopicBuilder()
 
 	b.GroupID(1)
@@ -24,6 +26,8 @@ func TestBoardAddTopicBuilder(t *testing.T) {
 }
 
 func TestBoardCloseTopicBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardCloseTopicBuilder()
 
 	b.GroupID(1)
@@ -34,6 +38,8 @@ func TestBoardCloseTopicBuilder(t *testing.T) {
 }
 
 func TestBoardCreateCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardCreateCommentBuilder()
 
 	b.GroupID(1)
@@ -54,6 +60,8 @@ func TestBoardCreateCommentBuilder(t *testing.T) {
 }
 
 func TestBoardDeleteCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardDeleteCommentBuilder()
 
 	b.GroupID(1)
@@ -66,6 +74,8 @@ func TestBoardDeleteCommentBuilder(t *testing.T) {
 }
 
 func TestBoardDeleteTopicBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardDeleteTopicBuilder()
 
 	b.GroupID(1)
@@ -76,6 +86,8 @@ func TestBoardDeleteTopicBuilder(t *testing.T) {
 }
 
 func TestBoardEditCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardEditCommentBuilder()
 
 	b.GroupID(1)
@@ -92,6 +104,8 @@ func TestBoardEditCommentBuilder(t *testing.T) {
 }
 
 func TestBoardEditTopicBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardEditTopicBuilder()
 
 	b.GroupID(1)
@@ -104,6 +118,8 @@ func TestBoardEditTopicBuilder(t *testing.T) {
 }
 
 func TestBoardFixTopicBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardFixTopicBuilder()
 
 	b.GroupID(1)
@@ -114,6 +130,8 @@ func TestBoardFixTopicBuilder(t *testing.T) {
 }
 
 func TestBoardGetCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardGetCommentsBuilder()
 
 	b.GroupID(1)
@@ -136,6 +154,8 @@ func TestBoardGetCommentsBuilder(t *testing.T) {
 }
 
 func TestBoardGetTopicsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardGetTopicsBuilder()
 
 	b.GroupID(1)
@@ -158,6 +178,8 @@ func TestBoardGetTopicsBuilder(t *testing.T) {
 }
 
 func TestBoardOpenTopicBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardOpenTopicBuilder()
 
 	b.GroupID(1)
@@ -168,6 +190,8 @@ func TestBoardOpenTopicBuilder(t *testing.T) {
 }
 
 func TestBoardRestoreCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardRestoreCommentBuilder()
 
 	b.GroupID(1)
@@ -180,6 +204,8 @@ func TestBoardRestoreCommentBuilder(t *testing.T) {
 }
 
 func TestBoardUnfixTopicBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewBoardUnfixTopicBuilder()
 
 	b.GroupID(1)

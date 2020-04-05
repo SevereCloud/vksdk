@@ -9,6 +9,8 @@ import (
 )
 
 func TestClickableStickers(t *testing.T) {
+	t.Parallel()
+
 	const (
 		height  = 1920
 		width   = 1080

@@ -8,6 +8,8 @@ import (
 )
 
 func TestStreamingSetSettingsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStreamingSetSettingsBuilder()
 
 	b.MonthlyTier("text")

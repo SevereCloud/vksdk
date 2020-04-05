@@ -12,6 +12,8 @@ import (
 )
 
 func TestBaseBoolInt_UnmarshalJSON(t *testing.T) {
+	t.Parallel()
+
 	f := func(data []byte, want BaseBoolInt, wantErr string) {
 		t.Helper()
 

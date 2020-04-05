@@ -10,6 +10,8 @@ import (
 )
 
 func TestParamsVerify(t *testing.T) {
+	t.Parallel()
+
 	f := func(URL, clientSecret string, want, wantErr bool) {
 		t.Helper()
 
@@ -45,6 +47,8 @@ func TestParamsVerify(t *testing.T) {
 }
 
 func TestParamsVerification_VerifyMiddleware(t *testing.T) {
+	t.Parallel()
+
 	pv := vkapps.NewParamsVerification("wvl68m4dR1UpLrVRli")
 
 	handlerOk := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

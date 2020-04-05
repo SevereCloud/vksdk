@@ -8,6 +8,8 @@ import (
 )
 
 func TestNotesAddBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesAddBuilder()
 
 	b.Title("text")
@@ -22,6 +24,8 @@ func TestNotesAddBuilder(t *testing.T) {
 }
 
 func TestNotesCreateCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesCreateCommentBuilder()
 
 	b.NoteID(1)
@@ -38,6 +42,8 @@ func TestNotesCreateCommentBuilder(t *testing.T) {
 }
 
 func TestNotesDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesDeleteBuilder()
 
 	b.NoteID(1)
@@ -46,6 +52,8 @@ func TestNotesDeleteBuilder(t *testing.T) {
 }
 
 func TestNotesDeleteCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesDeleteCommentBuilder()
 
 	b.CommentID(1)
@@ -56,6 +64,8 @@ func TestNotesDeleteCommentBuilder(t *testing.T) {
 }
 
 func TestNotesEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesEditBuilder()
 
 	b.NoteID(1)
@@ -72,6 +82,8 @@ func TestNotesEditBuilder(t *testing.T) {
 }
 
 func TestNotesEditCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesEditCommentBuilder()
 
 	b.CommentID(1)
@@ -84,6 +96,8 @@ func TestNotesEditCommentBuilder(t *testing.T) {
 }
 
 func TestNotesGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesGetBuilder()
 
 	b.NoteIDs([]int{1})
@@ -100,6 +114,8 @@ func TestNotesGetBuilder(t *testing.T) {
 }
 
 func TestNotesGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesGetByIDBuilder()
 
 	b.NoteID(1)
@@ -112,6 +128,8 @@ func TestNotesGetByIDBuilder(t *testing.T) {
 }
 
 func TestNotesGetCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesGetCommentsBuilder()
 
 	b.NoteID(1)
@@ -128,6 +146,8 @@ func TestNotesGetCommentsBuilder(t *testing.T) {
 }
 
 func TestNotesRestoreCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotesRestoreCommentBuilder()
 
 	b.CommentID(1)

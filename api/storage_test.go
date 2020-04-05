@@ -8,6 +8,8 @@ import (
 )
 
 func TestVK_StorageSet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StorageSet(api.Params{
@@ -18,6 +20,8 @@ func TestVK_StorageSet(t *testing.T) {
 }
 
 func TestVK_StorageGetKeys(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StorageGetKeys(api.Params{})
@@ -25,6 +29,8 @@ func TestVK_StorageGetKeys(t *testing.T) {
 }
 
 func TestVK_StorageGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	r, err := vkUser.StorageGet(api.Params{
@@ -38,6 +44,8 @@ func TestVK_StorageGet(t *testing.T) {
 }
 
 func TestStorageGetResponse_ToMap(t *testing.T) {
+	t.Parallel()
+
 	f := func(s api.StorageGetResponse, wantMap map[string]string) {
 		t.Helper()
 		assert.Equal(t, s.ToMap(), wantMap)

@@ -8,6 +8,8 @@ import (
 )
 
 func TestLeadsCheckUserBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLeadsCheckUserBuilder()
 
 	b.LeadID(1)
@@ -26,6 +28,8 @@ func TestLeadsCheckUserBuilder(t *testing.T) {
 }
 
 func TestLeadsCompleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLeadsCompleteBuilder()
 
 	b.VkSID("text")
@@ -38,6 +42,8 @@ func TestLeadsCompleteBuilder(t *testing.T) {
 }
 
 func TestLeadsGetStatsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLeadsGetStatsBuilder()
 
 	b.LeadID(1)
@@ -52,6 +58,8 @@ func TestLeadsGetStatsBuilder(t *testing.T) {
 }
 
 func TestLeadsGetUsersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLeadsGetUsersBuilder()
 
 	b.OfferID(1)
@@ -70,6 +78,8 @@ func TestLeadsGetUsersBuilder(t *testing.T) {
 }
 
 func TestLeadsMetricHitBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLeadsMetricHitBuilder()
 
 	b.Data("text")
@@ -78,6 +88,8 @@ func TestLeadsMetricHitBuilder(t *testing.T) {
 }
 
 func TestLeadsStartBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLeadsStartBuilder()
 
 	b.LeadID(1)

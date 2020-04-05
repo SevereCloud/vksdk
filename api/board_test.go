@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_BoardAddTopic(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -99,6 +101,8 @@ func TestVK_BoardAddTopic(t *testing.T) {
 }
 
 func TestVK_BoardGetComments(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{
@@ -147,6 +151,8 @@ func TestVK_BoardGetComments(t *testing.T) {
 }
 
 func TestVK_BoardGetTopics(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{

@@ -7,6 +7,8 @@ import (
 )
 
 func TestPollsPoll_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(poll object.PollsPoll, want string) {
 		if got := poll.ToAttachment(); got != want {
 			t.Errorf("PollsPoll.ToAttachment() = %v, want %v", got, want)

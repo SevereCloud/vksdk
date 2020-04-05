@@ -8,6 +8,8 @@ import (
 )
 
 func TestDocsAddBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsAddBuilder()
 
 	b.OwnerID(1)
@@ -20,6 +22,8 @@ func TestDocsAddBuilder(t *testing.T) {
 }
 
 func TestDocsDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsDeleteBuilder()
 
 	b.OwnerID(1)
@@ -30,6 +34,8 @@ func TestDocsDeleteBuilder(t *testing.T) {
 }
 
 func TestDocsEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsEditBuilder()
 
 	b.OwnerID(1)
@@ -44,6 +50,8 @@ func TestDocsEditBuilder(t *testing.T) {
 }
 
 func TestDocsGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsGetBuilder()
 
 	b.Count(1)
@@ -58,6 +66,8 @@ func TestDocsGetBuilder(t *testing.T) {
 }
 
 func TestDocsGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsGetByIDBuilder()
 
 	b.Docs([]string{"text"})
@@ -66,6 +76,8 @@ func TestDocsGetByIDBuilder(t *testing.T) {
 }
 
 func TestDocsGetMessagesUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsGetMessagesUploadServerBuilder()
 
 	b.Type("text")
@@ -76,6 +88,8 @@ func TestDocsGetMessagesUploadServerBuilder(t *testing.T) {
 }
 
 func TestDocsGetTypesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsGetTypesBuilder()
 
 	b.OwnerID(1)
@@ -84,6 +98,8 @@ func TestDocsGetTypesBuilder(t *testing.T) {
 }
 
 func TestDocsGetUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsGetUploadServerBuilder()
 
 	b.GroupID(1)
@@ -92,6 +108,8 @@ func TestDocsGetUploadServerBuilder(t *testing.T) {
 }
 
 func TestDocsGetWallUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsGetWallUploadServerBuilder()
 
 	b.GroupID(1)
@@ -100,6 +118,8 @@ func TestDocsGetWallUploadServerBuilder(t *testing.T) {
 }
 
 func TestDocsSaveBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsSaveBuilder()
 
 	b.File("text")
@@ -112,6 +132,8 @@ func TestDocsSaveBuilder(t *testing.T) {
 }
 
 func TestDocsSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDocsSearchBuilder()
 
 	b.Q("text")

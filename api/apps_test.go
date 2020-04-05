@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_AppsDeleteAppRequests(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.AppsDeleteAppRequests(api.Params{})
@@ -17,6 +19,8 @@ func TestVK_AppsDeleteAppRequests(t *testing.T) {
 }
 
 func TestVK_AppsGet(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.AppsGet(api.Params{
@@ -48,6 +52,8 @@ func TestVK_AppsGet(t *testing.T) {
 }
 
 func TestVK_AppsGetCatalog(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.AppsGetCatalog(api.Params{})
@@ -57,6 +63,8 @@ func TestVK_AppsGetCatalog(t *testing.T) {
 }
 
 func TestVK_AppsGetFriendsList(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.AppsGetFriendsList(api.Params{})
@@ -71,6 +79,8 @@ func TestVK_AppsGetFriendsList(t *testing.T) {
 // TODO: TestVK_AppsGetLeaderboard
 
 func TestVK_AppsGetScopes(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.AppsGetScopes(api.Params{})

@@ -8,6 +8,8 @@ import (
 )
 
 func TestVK_FriendsAddDelete(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	resAdd, err := vkUser.FriendsAdd(api.Params{
@@ -25,6 +27,8 @@ func TestVK_FriendsAddDelete(t *testing.T) {
 }
 
 func TestVK_FriendsList(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	list, err := vkUser.FriendsAddList(api.Params{
@@ -54,6 +58,8 @@ func TestVK_FriendsList(t *testing.T) {
 }
 
 func TestVK_FriendsAreFriends(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.FriendsAreFriends(api.Params{
@@ -64,6 +70,8 @@ func TestVK_FriendsAreFriends(t *testing.T) {
 }
 
 func TestVK_FriendsDeleteAllRequests(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.FriendsDeleteAllRequests(api.Params{})
@@ -72,6 +80,8 @@ func TestVK_FriendsDeleteAllRequests(t *testing.T) {
 }
 
 func TestVK_FriendsEdit(t *testing.T) {
+	t.Parallel()
+
 	// NOTE: need user friends
 	// NOTE: https://vk.com/bug191897
 	needUserToken(t)
@@ -80,6 +90,8 @@ func TestVK_FriendsEdit(t *testing.T) {
 }
 
 func TestVK_FriendsGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.FriendsGet(api.Params{
@@ -99,6 +111,8 @@ func TestVK_FriendsGet(t *testing.T) {
 }
 
 func TestVK_FriendsGetAppUsers(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.FriendsGetAppUsers(api.Params{})
@@ -106,6 +120,8 @@ func TestVK_FriendsGetAppUsers(t *testing.T) {
 }
 
 func TestVK_FriendsGetByPhones(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.FriendsGetByPhones(api.Params{
@@ -115,6 +131,8 @@ func TestVK_FriendsGetByPhones(t *testing.T) {
 }
 
 func TestVK_FriendsGetMutual(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.FriendsGetMutual(api.Params{
@@ -126,6 +144,8 @@ func TestVK_FriendsGetMutual(t *testing.T) {
 }
 
 func TestVK_FriendsGetOnline(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.FriendsGetOnline(api.Params{})
@@ -136,6 +156,8 @@ func TestVK_FriendsGetOnline(t *testing.T) {
 }
 
 func TestVK_FriendsGetRecent(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.FriendsGetRecent(api.Params{})
@@ -143,6 +165,8 @@ func TestVK_FriendsGetRecent(t *testing.T) {
 }
 
 func TestVK_FriendsGetRequests(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.FriendsGetRequests(api.Params{
@@ -168,6 +192,8 @@ func TestVK_FriendsGetRequests(t *testing.T) {
 }
 
 func TestVK_FriendsGetSuggestions(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.FriendsGetSuggestions(api.Params{})
@@ -177,6 +203,8 @@ func TestVK_FriendsGetSuggestions(t *testing.T) {
 }
 
 func TestVK_FriendsSearch(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.FriendsSearch(api.Params{

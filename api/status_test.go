@@ -7,6 +7,8 @@ import (
 )
 
 func TestVK_StatusGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StatusGet(api.Params{})
@@ -14,6 +16,8 @@ func TestVK_StatusGet(t *testing.T) {
 }
 
 func TestVK_StatusSet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StatusSet(api.Params{

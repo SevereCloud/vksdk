@@ -8,6 +8,8 @@ import (
 )
 
 func TestNewsfeedAddBanBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedAddBanBuilder()
 
 	b.UserIDs([]int{1})
@@ -18,6 +20,8 @@ func TestNewsfeedAddBanBuilder(t *testing.T) {
 }
 
 func TestNewsfeedDeleteBanBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedDeleteBanBuilder()
 
 	b.UserIDs([]int{1})
@@ -28,6 +32,8 @@ func TestNewsfeedDeleteBanBuilder(t *testing.T) {
 }
 
 func TestNewsfeedDeleteListBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedDeleteListBuilder()
 
 	b.ListID(1)
@@ -36,6 +42,8 @@ func TestNewsfeedDeleteListBuilder(t *testing.T) {
 }
 
 func TestNewsfeedGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedGetBuilder()
 
 	b.Filters([]string{"test"})
@@ -62,6 +70,8 @@ func TestNewsfeedGetBuilder(t *testing.T) {
 }
 
 func TestNewsfeedGetBannedBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedGetBannedBuilder()
 
 	b.Extended(true)
@@ -74,6 +84,8 @@ func TestNewsfeedGetBannedBuilder(t *testing.T) {
 }
 
 func TestNewsfeedGetCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedGetCommentsBuilder()
 
 	b.Count(1)
@@ -96,6 +108,8 @@ func TestNewsfeedGetCommentsBuilder(t *testing.T) {
 }
 
 func TestNewsfeedGetListsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedGetListsBuilder()
 
 	b.ListIDs([]int{1})
@@ -106,6 +120,8 @@ func TestNewsfeedGetListsBuilder(t *testing.T) {
 }
 
 func TestNewsfeedGetMentionsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedGetMentionsBuilder()
 
 	b.OwnerID(1)
@@ -122,6 +138,8 @@ func TestNewsfeedGetMentionsBuilder(t *testing.T) {
 }
 
 func TestNewsfeedGetRecommendedBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedGetRecommendedBuilder()
 
 	b.StartTime(1)
@@ -140,6 +158,8 @@ func TestNewsfeedGetRecommendedBuilder(t *testing.T) {
 }
 
 func TestNewsfeedGetSuggestedSourcesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedGetSuggestedSourcesBuilder()
 
 	b.Offset(1)
@@ -154,6 +174,8 @@ func TestNewsfeedGetSuggestedSourcesBuilder(t *testing.T) {
 }
 
 func TestNewsfeedIgnoreItemBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedIgnoreItemBuilder()
 
 	b.Type("text")
@@ -166,6 +188,8 @@ func TestNewsfeedIgnoreItemBuilder(t *testing.T) {
 }
 
 func TestNewsfeedSaveListBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedSaveListBuilder()
 
 	b.ListID(1)
@@ -180,6 +204,8 @@ func TestNewsfeedSaveListBuilder(t *testing.T) {
 }
 
 func TestNewsfeedSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedSearchBuilder()
 
 	b.Q("text")
@@ -204,6 +230,8 @@ func TestNewsfeedSearchBuilder(t *testing.T) {
 }
 
 func TestNewsfeedUnignoreItemBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedUnignoreItemBuilder()
 
 	b.Type("text")
@@ -216,6 +244,8 @@ func TestNewsfeedUnignoreItemBuilder(t *testing.T) {
 }
 
 func TestNewsfeedUnsubscribeBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNewsfeedUnsubscribeBuilder()
 
 	b.Type("text")

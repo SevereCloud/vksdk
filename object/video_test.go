@@ -7,6 +7,8 @@ import (
 )
 
 func TestVideoVideo_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(video object.VideoVideo, want string) {
 		if got := video.ToAttachment(); got != want {
 			t.Errorf("VideoVideo.ToAttachment() = %v, want %v", got, want)
@@ -18,6 +20,8 @@ func TestVideoVideo_ToAttachment(t *testing.T) {
 }
 
 func TestVideoVideoFull_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(video object.VideoVideoFull, want string) {
 		if got := video.ToAttachment(); got != want {
 			t.Errorf("VideoVideoFull.ToAttachment() = %v, want %v", got, want)

@@ -8,6 +8,8 @@ import (
 )
 
 func TestAppWidgetsUpdateBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAppWidgetsUpdateBuilder()
 
 	b.Code("text")

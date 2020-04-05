@@ -66,6 +66,8 @@ func TestStreaming_UpdateRules(t *testing.T) {
 }
 
 func TestStreaming_NoHost(t *testing.T) {
+	t.Parallel()
+
 	s := &streaming.Streaming{
 		Client: http.DefaultClient,
 	}
@@ -84,6 +86,8 @@ func TestStreaming_NoHost(t *testing.T) {
 }
 
 func TestStreaming_BadHost(t *testing.T) {
+	t.Parallel()
+
 	s := &streaming.Streaming{
 		Endpoint: "a b.com",
 		Client:   http.DefaultClient,
@@ -103,6 +107,8 @@ func TestStreaming_BadHost(t *testing.T) {
 }
 
 func TestStreaming_NotVKStreamingHost(t *testing.T) {
+	t.Parallel()
+
 	s := &streaming.Streaming{
 		Endpoint: "vk.com",
 		Client:   http.DefaultClient,
@@ -113,6 +119,8 @@ func TestStreaming_NotVKStreamingHost(t *testing.T) {
 }
 
 func TestStreaming_OnEvent(t *testing.T) {
+	t.Parallel()
+
 	s := &streaming.Streaming{}
 	s.OnEvent(func(e streaming.Event) {})
 }
@@ -173,6 +181,8 @@ func TestStreaming_Run_BadStreamID(t *testing.T) {
 }
 
 func TestStreaming_Run_Bad(t *testing.T) {
+	t.Parallel()
+
 	s := &streaming.Streaming{
 		Endpoint: "a b.com",
 		Client:   http.DefaultClient,
@@ -184,12 +194,16 @@ func TestStreaming_Run_Bad(t *testing.T) {
 }
 
 func TestNewStreaming(t *testing.T) {
+	t.Parallel()
+
 	_, err := streaming.NewStreaming(api.NewVK(""))
 	assert.Error(t, err)
 }
 
 // FIXME: v2 remove
 func TestInit(t *testing.T) {
+	t.Parallel()
+
 	_, err := streaming.Init(api.NewVK(""))
 	assert.Error(t, err)
 }

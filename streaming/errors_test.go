@@ -9,6 +9,8 @@ import (
 )
 
 func TestContext(t *testing.T) {
+	t.Parallel()
+
 	err := streaming.BadKey.New("an_error")
 	expectedContext := streaming.Error{ErrorCode: 1004}
 	errWithContext := streaming.AddErrorContext(err, expectedContext)
@@ -19,6 +21,8 @@ func TestContext(t *testing.T) {
 }
 
 func TestGetErrorContext(t *testing.T) {
+	t.Parallel()
+
 	f := func(err error, wantContext streaming.Error) {
 		t.Helper()
 
@@ -31,6 +35,8 @@ func TestGetErrorContext(t *testing.T) {
 }
 
 func TestGetType(t *testing.T) {
+	t.Parallel()
+
 	f := func(err error, wantType streaming.ErrorType) {
 		t.Helper()
 

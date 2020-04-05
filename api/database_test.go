@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_DatabaseGetChairs(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetChairs(api.Params{
@@ -24,6 +26,8 @@ func TestVK_DatabaseGetChairs(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCities(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetCities(api.Params{
@@ -43,6 +47,8 @@ func TestVK_DatabaseGetCities(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCitiesByID(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetCitiesByID(api.Params{
@@ -57,6 +63,8 @@ func TestVK_DatabaseGetCitiesByID(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCountries(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetCountries(api.Params{})
@@ -70,6 +78,8 @@ func TestVK_DatabaseGetCountries(t *testing.T) {
 }
 
 func TestVK_DatabaseGetCountriesByID(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetCountriesByID(api.Params{
@@ -84,6 +94,8 @@ func TestVK_DatabaseGetCountriesByID(t *testing.T) {
 }
 
 func TestVK_DatabaseGetFaculties(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetFaculties(api.Params{
@@ -99,6 +111,8 @@ func TestVK_DatabaseGetFaculties(t *testing.T) {
 }
 
 func TestVK_DatabaseGetMetroStations(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetMetroStations(api.Params{
@@ -116,6 +130,8 @@ func TestVK_DatabaseGetMetroStations(t *testing.T) {
 }
 
 func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetMetroStationsByID(api.Params{
@@ -131,6 +147,8 @@ func TestVK_DatabaseGetMetroStationsByID(t *testing.T) {
 }
 
 func TestVK_DatabaseGetRegions(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetRegions(api.Params{
@@ -146,6 +164,8 @@ func TestVK_DatabaseGetRegions(t *testing.T) {
 }
 
 func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetSchoolClasses(api.Params{
@@ -156,6 +176,8 @@ func TestVK_DatabaseGetSchoolClasses(t *testing.T) {
 }
 
 func TestVK_DatabaseGetSchools(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetSchools(api.Params{
@@ -172,6 +194,8 @@ func TestVK_DatabaseGetSchools(t *testing.T) {
 }
 
 func TestVK_DatabaseGetUniversities(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.DatabaseGetUniversities(api.Params{

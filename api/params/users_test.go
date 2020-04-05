@@ -8,6 +8,8 @@ import (
 )
 
 func TestUsersGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUsersGetBuilder()
 
 	b.UserIDs([]string{"text"})
@@ -20,6 +22,8 @@ func TestUsersGetBuilder(t *testing.T) {
 }
 
 func TestUsersGetFollowersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUsersGetFollowersBuilder()
 
 	b.UserID(1)
@@ -36,6 +40,8 @@ func TestUsersGetFollowersBuilder(t *testing.T) {
 }
 
 func TestUsersGetSubscriptionsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUsersGetSubscriptionsBuilder()
 
 	b.UserID(1)
@@ -52,6 +58,8 @@ func TestUsersGetSubscriptionsBuilder(t *testing.T) {
 }
 
 func TestUsersIsAppUserBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUsersIsAppUserBuilder()
 
 	b.UserID(1)
@@ -60,6 +68,8 @@ func TestUsersIsAppUserBuilder(t *testing.T) {
 }
 
 func TestUsersReportBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUsersReportBuilder()
 
 	b.UserID(1)
@@ -72,6 +82,8 @@ func TestUsersReportBuilder(t *testing.T) {
 }
 
 func TestUsersSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUsersSearchBuilder()
 
 	b.Q("text")

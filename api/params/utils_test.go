@@ -8,6 +8,8 @@ import (
 )
 
 func TestUtilsCheckLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUtilsCheckLinkBuilder()
 
 	b.URL("text")
@@ -16,6 +18,8 @@ func TestUtilsCheckLinkBuilder(t *testing.T) {
 }
 
 func TestUtilsDeleteFromLastShortenedBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUtilsDeleteFromLastShortenedBuilder()
 
 	b.Key("text")
@@ -24,6 +28,8 @@ func TestUtilsDeleteFromLastShortenedBuilder(t *testing.T) {
 }
 
 func TestUtilsGetLastShortenedLinksBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUtilsGetLastShortenedLinksBuilder()
 
 	b.Count(1)
@@ -34,6 +40,8 @@ func TestUtilsGetLastShortenedLinksBuilder(t *testing.T) {
 }
 
 func TestUtilsGetLinkStatsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUtilsGetLinkStatsBuilder()
 
 	b.Key("text")
@@ -52,6 +60,8 @@ func TestUtilsGetLinkStatsBuilder(t *testing.T) {
 }
 
 func TestUtilsGetShortLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUtilsGetShortLinkBuilder()
 
 	b.URL("text")
@@ -62,6 +72,8 @@ func TestUtilsGetShortLinkBuilder(t *testing.T) {
 }
 
 func TestUtilsResolveScreenNameBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewUtilsResolveScreenNameBuilder()
 
 	b.ScreenName("text")

@@ -8,6 +8,8 @@ import (
 )
 
 func TestMarketAddBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketAddBuilder()
 
 	b.OwnerID(1)
@@ -34,6 +36,8 @@ func TestMarketAddBuilder(t *testing.T) {
 }
 
 func TestMarketAddAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketAddAlbumBuilder()
 
 	b.OwnerID(1)
@@ -48,6 +52,8 @@ func TestMarketAddAlbumBuilder(t *testing.T) {
 }
 
 func TestMarketAddToAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketAddToAlbumBuilder()
 
 	b.OwnerID(1)
@@ -60,6 +66,8 @@ func TestMarketAddToAlbumBuilder(t *testing.T) {
 }
 
 func TestMarketCreateCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketCreateCommentBuilder()
 
 	b.OwnerID(1)
@@ -82,6 +90,8 @@ func TestMarketCreateCommentBuilder(t *testing.T) {
 }
 
 func TestMarketDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketDeleteBuilder()
 
 	b.OwnerID(1)
@@ -92,6 +102,8 @@ func TestMarketDeleteBuilder(t *testing.T) {
 }
 
 func TestMarketDeleteAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketDeleteAlbumBuilder()
 
 	b.OwnerID(1)
@@ -102,6 +114,8 @@ func TestMarketDeleteAlbumBuilder(t *testing.T) {
 }
 
 func TestMarketDeleteCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketDeleteCommentBuilder()
 
 	b.OwnerID(1)
@@ -112,6 +126,8 @@ func TestMarketDeleteCommentBuilder(t *testing.T) {
 }
 
 func TestMarketEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketEditBuilder()
 
 	b.OwnerID(1)
@@ -138,6 +154,8 @@ func TestMarketEditBuilder(t *testing.T) {
 }
 
 func TestMarketEditAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketEditAlbumBuilder()
 
 	b.OwnerID(1)
@@ -154,6 +172,8 @@ func TestMarketEditAlbumBuilder(t *testing.T) {
 }
 
 func TestMarketEditCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketEditCommentBuilder()
 
 	b.OwnerID(1)
@@ -168,6 +188,8 @@ func TestMarketEditCommentBuilder(t *testing.T) {
 }
 
 func TestMarketGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketGetBuilder()
 
 	b.OwnerID(1)
@@ -184,6 +206,8 @@ func TestMarketGetBuilder(t *testing.T) {
 }
 
 func TestMarketGetAlbumByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketGetAlbumByIDBuilder()
 
 	b.OwnerID(1)
@@ -194,6 +218,8 @@ func TestMarketGetAlbumByIDBuilder(t *testing.T) {
 }
 
 func TestMarketGetAlbumsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketGetAlbumsBuilder()
 
 	b.OwnerID(1)
@@ -206,6 +232,8 @@ func TestMarketGetAlbumsBuilder(t *testing.T) {
 }
 
 func TestMarketGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketGetByIDBuilder()
 
 	b.ItemIDs([]string{"text"})
@@ -216,6 +244,8 @@ func TestMarketGetByIDBuilder(t *testing.T) {
 }
 
 func TestMarketGetCategoriesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketGetCategoriesBuilder()
 
 	b.Count(1)
@@ -226,6 +256,8 @@ func TestMarketGetCategoriesBuilder(t *testing.T) {
 }
 
 func TestMarketGetCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketGetCommentsBuilder()
 
 	b.OwnerID(1)
@@ -250,6 +282,8 @@ func TestMarketGetCommentsBuilder(t *testing.T) {
 }
 
 func TestMarketRemoveFromAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketRemoveFromAlbumBuilder()
 
 	b.OwnerID(1)
@@ -262,6 +296,8 @@ func TestMarketRemoveFromAlbumBuilder(t *testing.T) {
 }
 
 func TestMarketReorderAlbumsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketReorderAlbumsBuilder()
 
 	b.OwnerID(1)
@@ -276,6 +312,8 @@ func TestMarketReorderAlbumsBuilder(t *testing.T) {
 }
 
 func TestMarketReorderItemsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketReorderItemsBuilder()
 
 	b.OwnerID(1)
@@ -292,6 +330,8 @@ func TestMarketReorderItemsBuilder(t *testing.T) {
 }
 
 func TestMarketReportBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketReportBuilder()
 
 	b.OwnerID(1)
@@ -304,6 +344,8 @@ func TestMarketReportBuilder(t *testing.T) {
 }
 
 func TestMarketReportCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketReportCommentBuilder()
 
 	b.OwnerID(1)
@@ -316,6 +358,8 @@ func TestMarketReportCommentBuilder(t *testing.T) {
 }
 
 func TestMarketRestoreBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketRestoreBuilder()
 
 	b.OwnerID(1)
@@ -326,6 +370,8 @@ func TestMarketRestoreBuilder(t *testing.T) {
 }
 
 func TestMarketRestoreCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketRestoreCommentBuilder()
 
 	b.OwnerID(1)
@@ -336,6 +382,8 @@ func TestMarketRestoreCommentBuilder(t *testing.T) {
 }
 
 func TestMarketSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMarketSearchBuilder()
 
 	b.OwnerID(1)

@@ -8,6 +8,8 @@ import (
 )
 
 func TestVK_NewsfeedAddBan(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.NewsfeedAddBan(api.Params{
@@ -34,6 +36,8 @@ func TestVK_NewsfeedAddBan(t *testing.T) {
 }
 
 func TestVK_NewsfeedGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.NewsfeedGet(api.Params{})
@@ -45,6 +49,8 @@ func TestVK_NewsfeedGet(t *testing.T) {
 }
 
 func TestVK_NewsfeedGetComments(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.NewsfeedGetComments(api.Params{
@@ -58,6 +64,8 @@ func TestVK_NewsfeedGetComments(t *testing.T) {
 }
 
 func TestVK_NewsfeedGetMentions(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.NewsfeedGetMentions(api.Params{
@@ -69,6 +77,8 @@ func TestVK_NewsfeedGetMentions(t *testing.T) {
 }
 
 func TestVK_NewsfeedGetRecommended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.NewsfeedGetRecommended(api.Params{})
@@ -90,6 +100,8 @@ func TestVK_NewsfeedGetSuggestedSources(t *testing.T) {
 }
 
 func TestVK_NewsfeedIgnoreItem(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{
@@ -105,6 +117,8 @@ func TestVK_NewsfeedIgnoreItem(t *testing.T) {
 }
 
 func TestVK_NewsfeedSaveList(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	listID, err := vkUser.NewsfeedSaveList(api.Params{
@@ -134,6 +148,8 @@ func TestVK_NewsfeedSaveList(t *testing.T) {
 }
 
 func TestVK_NewsfeedSearch(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.NewsfeedSearch(api.Params{
@@ -147,6 +163,8 @@ func TestVK_NewsfeedSearch(t *testing.T) {
 }
 
 func TestVK_NewsfeedSearchExtended(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.NewsfeedSearchExtended(api.Params{
@@ -162,6 +180,8 @@ func TestVK_NewsfeedSearchExtended(t *testing.T) {
 }
 
 func TestVK_NewsfeedUnsubscribe(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.NewsfeedIgnoreItem(api.Params{

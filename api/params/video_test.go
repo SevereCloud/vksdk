@@ -8,6 +8,8 @@ import (
 )
 
 func TestVideoAddBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoAddBuilder()
 
 	b.TargetID(1)
@@ -20,6 +22,8 @@ func TestVideoAddBuilder(t *testing.T) {
 }
 
 func TestVideoAddAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoAddAlbumBuilder()
 
 	b.GroupID(1)
@@ -32,6 +36,8 @@ func TestVideoAddAlbumBuilder(t *testing.T) {
 }
 
 func TestVideoAddToAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoAddToAlbumBuilder()
 
 	b.TargetID(1)
@@ -48,6 +54,8 @@ func TestVideoAddToAlbumBuilder(t *testing.T) {
 }
 
 func TestVideoCreateCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoCreateCommentBuilder()
 
 	b.OwnerID(1)
@@ -70,6 +78,8 @@ func TestVideoCreateCommentBuilder(t *testing.T) {
 }
 
 func TestVideoDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoDeleteBuilder()
 
 	b.VideoID(1)
@@ -82,6 +92,8 @@ func TestVideoDeleteBuilder(t *testing.T) {
 }
 
 func TestVideoDeleteAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoDeleteAlbumBuilder()
 
 	b.GroupID(1)
@@ -92,6 +104,8 @@ func TestVideoDeleteAlbumBuilder(t *testing.T) {
 }
 
 func TestVideoDeleteCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoDeleteCommentBuilder()
 
 	b.OwnerID(1)
@@ -102,6 +116,8 @@ func TestVideoDeleteCommentBuilder(t *testing.T) {
 }
 
 func TestVideoEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoEditBuilder()
 
 	b.OwnerID(1)
@@ -124,6 +140,8 @@ func TestVideoEditBuilder(t *testing.T) {
 }
 
 func TestVideoEditAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoEditAlbumBuilder()
 
 	b.GroupID(1)
@@ -138,6 +156,8 @@ func TestVideoEditAlbumBuilder(t *testing.T) {
 }
 
 func TestVideoEditCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoEditCommentBuilder()
 
 	b.OwnerID(1)
@@ -152,6 +172,8 @@ func TestVideoEditCommentBuilder(t *testing.T) {
 }
 
 func TestVideoGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoGetBuilder()
 
 	b.OwnerID(1)
@@ -170,6 +192,8 @@ func TestVideoGetBuilder(t *testing.T) {
 }
 
 func TestVideoGetAlbumByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoGetAlbumByIDBuilder()
 
 	b.OwnerID(1)
@@ -180,6 +204,8 @@ func TestVideoGetAlbumByIDBuilder(t *testing.T) {
 }
 
 func TestVideoGetAlbumsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoGetAlbumsBuilder()
 
 	b.OwnerID(1)
@@ -196,6 +222,8 @@ func TestVideoGetAlbumsBuilder(t *testing.T) {
 }
 
 func TestVideoGetAlbumsByVideoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoGetAlbumsByVideoBuilder()
 
 	b.TargetID(1)
@@ -210,6 +238,8 @@ func TestVideoGetAlbumsByVideoBuilder(t *testing.T) {
 }
 
 func TestVideoGetCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoGetCommentsBuilder()
 
 	b.OwnerID(1)
@@ -234,6 +264,8 @@ func TestVideoGetCommentsBuilder(t *testing.T) {
 }
 
 func TestVideoRemoveFromAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoRemoveFromAlbumBuilder()
 
 	b.TargetID(1)
@@ -250,6 +282,8 @@ func TestVideoRemoveFromAlbumBuilder(t *testing.T) {
 }
 
 func TestVideoReorderAlbumsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoReorderAlbumsBuilder()
 
 	b.OwnerID(1)
@@ -264,6 +298,8 @@ func TestVideoReorderAlbumsBuilder(t *testing.T) {
 }
 
 func TestVideoReorderVideosBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoReorderVideosBuilder()
 
 	b.TargetID(1)
@@ -286,6 +322,8 @@ func TestVideoReorderVideosBuilder(t *testing.T) {
 }
 
 func TestVideoReportBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoReportBuilder()
 
 	b.OwnerID(1)
@@ -302,6 +340,8 @@ func TestVideoReportBuilder(t *testing.T) {
 }
 
 func TestVideoReportCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoReportCommentBuilder()
 
 	b.OwnerID(1)
@@ -314,6 +354,8 @@ func TestVideoReportCommentBuilder(t *testing.T) {
 }
 
 func TestVideoRestoreBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoRestoreBuilder()
 
 	b.VideoID(1)
@@ -324,6 +366,8 @@ func TestVideoRestoreBuilder(t *testing.T) {
 }
 
 func TestVideoRestoreCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoRestoreCommentBuilder()
 
 	b.OwnerID(1)
@@ -334,6 +378,8 @@ func TestVideoRestoreCommentBuilder(t *testing.T) {
 }
 
 func TestVideoSaveBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoSaveBuilder()
 
 	b.Name("text")
@@ -364,6 +410,8 @@ func TestVideoSaveBuilder(t *testing.T) {
 }
 
 func TestVideoSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewVideoSearchBuilder()
 
 	b.Q("text")

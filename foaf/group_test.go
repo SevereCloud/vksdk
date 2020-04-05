@@ -26,6 +26,8 @@ func testGroup(t *testing.T, group foaf.Group) {
 }
 
 func TestGetGroup_Group(t *testing.T) {
+	t.Parallel()
+
 	group, err := foaf.GetGroup(context.Background(), 1)
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypeGroup, group.GroupType)
@@ -33,6 +35,8 @@ func TestGetGroup_Group(t *testing.T) {
 }
 
 func TestGetGroup_Public(t *testing.T) {
+	t.Parallel()
+
 	group, err := foaf.GetGroup(context.Background(), 29534144)
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypePublic, group.GroupType)
@@ -40,6 +44,8 @@ func TestGetGroup_Public(t *testing.T) {
 }
 
 func TestGetGroup_Event(t *testing.T) {
+	t.Parallel()
+
 	group, err := foaf.GetGroup(context.Background(), 86529522)
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypeEvent, group.GroupType)
@@ -50,6 +56,8 @@ func TestGetGroup_Event(t *testing.T) {
 }
 
 func TestGetGroup_Private(t *testing.T) {
+	t.Parallel()
+
 	group, err := foaf.GetGroup(context.Background(), 184580855)
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypeGroup, group.GroupType)

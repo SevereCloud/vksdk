@@ -133,6 +133,8 @@ func testFave(t *testing.T, f object.FaveItem) {
 }
 
 func TestVK_Fave(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	fave, err := vkUser.FaveGet(api.Params{})
@@ -150,6 +152,8 @@ func TestVK_Fave(t *testing.T) {
 }
 
 func TestVK_FaveArticle(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
@@ -184,6 +188,8 @@ func TestVK_FaveArticle(t *testing.T) {
 }
 
 func TestVK_FaveLink(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
@@ -217,6 +223,8 @@ func TestVK_FaveLink(t *testing.T) {
 }
 
 func TestVK_FavePage(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
@@ -245,6 +253,8 @@ func TestVK_FavePage(t *testing.T) {
 }
 
 func TestVK_FavePost(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
@@ -267,6 +277,8 @@ func TestVK_FavePost(t *testing.T) {
 }
 
 func TestVK_FaveProduct(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
@@ -289,6 +301,8 @@ func TestVK_FaveProduct(t *testing.T) {
 }
 
 func TestVK_FaveTag(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
@@ -385,6 +399,8 @@ func TestVK_FaveTag(t *testing.T) {
 	})
 }
 func TestVK_FaveVideo(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
@@ -407,6 +423,8 @@ func TestVK_FaveVideo(t *testing.T) {
 }
 
 func TestVK_FaveGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
@@ -423,6 +441,8 @@ func TestVK_FaveGet(t *testing.T) {
 }
 
 func TestVK_FaveGetPages(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)
@@ -462,6 +482,8 @@ func TestVK_FaveGetPages(t *testing.T) {
 }
 
 func TestVK_FaveMarkSeen(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	time.Sleep(sleepTime)

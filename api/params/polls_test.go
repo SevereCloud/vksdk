@@ -8,6 +8,8 @@ import (
 )
 
 func TestPollsAddVoteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPollsAddVoteBuilder()
 
 	b.OwnerID(1)
@@ -22,6 +24,8 @@ func TestPollsAddVoteBuilder(t *testing.T) {
 }
 
 func TestPollsCreateBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPollsCreateBuilder()
 
 	b.Question("text")
@@ -44,6 +48,8 @@ func TestPollsCreateBuilder(t *testing.T) {
 }
 
 func TestPollsDeleteVoteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPollsDeleteVoteBuilder()
 
 	b.OwnerID(1)
@@ -58,6 +64,8 @@ func TestPollsDeleteVoteBuilder(t *testing.T) {
 }
 
 func TestPollsEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPollsEditBuilder()
 
 	b.OwnerID(1)
@@ -82,6 +90,8 @@ func TestPollsEditBuilder(t *testing.T) {
 }
 
 func TestPollsGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPollsGetByIDBuilder()
 
 	b.OwnerID(1)
@@ -102,6 +112,8 @@ func TestPollsGetByIDBuilder(t *testing.T) {
 }
 
 func TestPollsGetVotersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPollsGetVotersBuilder()
 
 	b.OwnerID(1)

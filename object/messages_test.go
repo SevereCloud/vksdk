@@ -9,6 +9,8 @@ import (
 )
 
 func TestMessagesKeyboard_AddRow(t *testing.T) {
+	t.Parallel()
+
 	keyboard := object.NewMessagesKeyboard(false)
 
 	keyboard.AddRow()
@@ -19,6 +21,8 @@ func TestMessagesKeyboard_AddRow(t *testing.T) {
 }
 
 func TestMessagesKeyboard_AddTextButton(t *testing.T) {
+	t.Parallel()
+
 	const (
 		label   = "label"
 		payload = "payload"
@@ -36,6 +40,8 @@ func TestMessagesKeyboard_AddTextButton(t *testing.T) {
 }
 
 func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
+	t.Parallel()
+
 	const (
 		payload = "payload"
 		label   = "label"
@@ -53,6 +59,8 @@ func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
 }
 
 func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
+	t.Parallel()
+
 	const payload = "payload"
 
 	keyboard := object.NewMessagesKeyboard(false)
@@ -64,6 +72,8 @@ func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
 }
 
 func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
+	t.Parallel()
+
 	const (
 		payload = "payload"
 		hash    = "hash"
@@ -79,6 +89,8 @@ func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
 }
 
 func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
+	t.Parallel()
+
 	const (
 		appID   = 1
 		ownerID = 2
@@ -100,6 +112,8 @@ func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
 }
 
 func TestMessagesAudioMessage_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(doc object.MessagesAudioMessage, want string) {
 		if got := doc.ToAttachment(); got != want {
 			t.Errorf("MessagesAudioMessage.ToAttachment() = %v, want %v", got, want)
@@ -111,6 +125,8 @@ func TestMessagesAudioMessage_ToAttachment(t *testing.T) {
 }
 
 func TestMessagesGraffiti_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(doc object.MessagesGraffiti, want string) {
 		if got := doc.ToAttachment(); got != want {
 			t.Errorf("MessagesGraffiti.ToAttachment() = %v, want %v", got, want)
@@ -122,6 +138,8 @@ func TestMessagesGraffiti_ToAttachment(t *testing.T) {
 }
 
 func TestMessagesKeyboard_ToJSON(t *testing.T) {
+	t.Parallel()
+
 	f := func(keyboard object.MessagesKeyboard, want string) {
 		t.Helper()
 
@@ -144,6 +162,8 @@ func TestMessagesKeyboard_ToJSON(t *testing.T) {
 }
 
 func TestMessagesTemplate_ToJSON(t *testing.T) {
+	t.Parallel()
+
 	f := func(template object.MessagesTemplate, want string) {
 		t.Helper()
 

@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_UtilsCheckLink(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.UtilsCheckLink(api.Params{
@@ -20,6 +22,8 @@ func TestVK_UtilsCheckLink(t *testing.T) {
 }
 
 func TestVK_UtilsGetShortLink(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	shortLink, err := vkUser.UtilsGetShortLink(api.Params{
@@ -42,6 +46,8 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 }
 
 func TestVK_UtilsGetLinkStats(t *testing.T) {
+	t.Parallel()
+
 	// BUG(VK): https://vk.com/bug202983
 	needGroupToken(t)
 
@@ -63,6 +69,8 @@ func TestVK_UtilsGetLinkStats(t *testing.T) {
 }
 
 func TestVK_UtilsGetServerTime(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	res, err := vkGroup.UtilsGetServerTime(api.Params{})
@@ -71,6 +79,8 @@ func TestVK_UtilsGetServerTime(t *testing.T) {
 }
 
 func TestVK_UtilsResolveScreenName(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	f := func(name string) {

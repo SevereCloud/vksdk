@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_StoriesBanOwner(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StoriesBanOwner(api.Params{
@@ -35,6 +37,8 @@ func TestVK_StoriesBanOwner(t *testing.T) {
 }
 
 func TestVK_StoriesGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StoriesGet(api.Params{})
@@ -42,6 +46,8 @@ func TestVK_StoriesGet(t *testing.T) {
 }
 
 func TestVK_StoriesGetExtended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StoriesGetExtended(api.Params{})
@@ -49,6 +55,8 @@ func TestVK_StoriesGetExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetByID(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	_, err := vkGroup.StoriesGetByID(api.Params{
@@ -58,6 +66,8 @@ func TestVK_StoriesGetByID(t *testing.T) {
 }
 
 func TestVK_StoriesGetByIDExtended(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	_, err := vkGroup.StoriesGetByIDExtended(api.Params{
@@ -67,6 +77,8 @@ func TestVK_StoriesGetByIDExtended(t *testing.T) {
 }
 
 func TestVK_StoriesGetReplies(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
@@ -107,6 +119,8 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 }
 
 func TestVK_StoriesHideAllReplies(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StoriesHideAllReplies(api.Params{
@@ -120,6 +134,8 @@ func TestVK_StoriesHideReply(t *testing.T) {
 }
 
 func TestVK_StoriesSearch(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StoriesSearch(api.Params{
@@ -129,6 +145,8 @@ func TestVK_StoriesSearch(t *testing.T) {
 }
 
 func TestVK_StoriesSearchExtended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.StoriesSearchExtended(api.Params{

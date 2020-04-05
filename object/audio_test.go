@@ -7,6 +7,8 @@ import (
 )
 
 func TestAudioAudioFull_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(audio object.AudioAudioFull, want string) {
 		if got := audio.ToAttachment(); got != want {
 			t.Errorf("AudioAudioFull.ToAttachment() = %v, want %v", got, want)
@@ -18,6 +20,8 @@ func TestAudioAudioFull_ToAttachment(t *testing.T) {
 }
 
 func TestAudioAudio_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(audio object.AudioAudio, want string) {
 		if got := audio.ToAttachment(); got != want {
 			t.Errorf("AudioAudio.ToAttachment() = %v, want %v", got, want)

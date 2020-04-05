@@ -6,6 +6,8 @@ import (
 )
 
 func Test_interfaceToStringIntMap(t *testing.T) {
+	t.Parallel()
+
 	var i interface{}
 
 	err := json.Unmarshal([]byte(`{"v":0}`), &i)
@@ -26,6 +28,8 @@ func Test_interfaceToStringIntMap(t *testing.T) {
 }
 
 func Test_interfaceToIDSlice(t *testing.T) {
+	t.Parallel()
+
 	var i interface{}
 
 	err := json.Unmarshal([]byte(`[0, 9]`), &i)

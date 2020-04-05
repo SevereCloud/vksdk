@@ -8,6 +8,8 @@ import (
 )
 
 func TestGroupsGroup_ToMention(t *testing.T) {
+	t.Parallel()
+
 	f := func(group object.GroupsGroup, want string) {
 		t.Helper()
 
@@ -23,6 +25,8 @@ func TestGroupsGroup_ToMention(t *testing.T) {
 }
 
 func TestGroupsGroupXtrInvitedBy_ToMention(t *testing.T) {
+	t.Parallel()
+
 	f := func(group object.GroupsGroupXtrInvitedBy, want string) {
 		t.Helper()
 
@@ -38,6 +42,8 @@ func TestGroupsGroupXtrInvitedBy_ToMention(t *testing.T) {
 }
 
 func TestGroupsSectionsList_UnmarshalJSON(t *testing.T) {
+	t.Parallel()
+
 	f := func(data []byte, want object.GroupsSectionsList, wanErr bool) {
 		t.Helper()
 

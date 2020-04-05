@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_NotificationsGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.NotificationsGet(api.Params{
@@ -22,6 +24,8 @@ func TestVK_NotificationsGet(t *testing.T) {
 }
 
 func TestVK_NotificationsMarkAsViewed(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.NotificationsMarkAsViewed(api.Params{})

@@ -8,6 +8,8 @@ import (
 )
 
 func TestVK_WidgetsGetComments(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.WidgetsGetComments(api.Params{
@@ -35,6 +37,8 @@ func TestVK_WidgetsGetComments(t *testing.T) {
 }
 
 func TestVK_WidgetsGetPages(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.WidgetsGetPages(api.Params{})

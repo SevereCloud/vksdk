@@ -8,6 +8,8 @@ import (
 )
 
 func TestSecureAddAppEventBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSecureAddAppEventBuilder()
 
 	b.UserID(1)
@@ -20,6 +22,8 @@ func TestSecureAddAppEventBuilder(t *testing.T) {
 }
 
 func TestSecureCheckTokenBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSecureCheckTokenBuilder()
 
 	b.Token("text")
@@ -30,6 +34,8 @@ func TestSecureCheckTokenBuilder(t *testing.T) {
 }
 
 func TestSecureGetSMSHistoryBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSecureGetSMSHistoryBuilder()
 
 	b.UserID(1)
@@ -44,6 +50,8 @@ func TestSecureGetSMSHistoryBuilder(t *testing.T) {
 }
 
 func TestSecureGetTransactionsHistoryBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSecureGetTransactionsHistoryBuilder()
 
 	b.Type(1)
@@ -62,6 +70,8 @@ func TestSecureGetTransactionsHistoryBuilder(t *testing.T) {
 }
 
 func TestSecureGetUserLevelBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSecureGetUserLevelBuilder()
 
 	b.UserIDs([]int{1})
@@ -70,6 +80,8 @@ func TestSecureGetUserLevelBuilder(t *testing.T) {
 }
 
 func TestSecureGiveEventStickerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSecureGiveEventStickerBuilder()
 
 	b.UserIDs([]int{1})
@@ -80,6 +92,8 @@ func TestSecureGiveEventStickerBuilder(t *testing.T) {
 }
 
 func TestSecureSendNotificationBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSecureSendNotificationBuilder()
 
 	b.UserIDs([]int{1})
@@ -92,6 +106,8 @@ func TestSecureSendNotificationBuilder(t *testing.T) {
 }
 
 func TestSecureSendSMSNotificationBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSecureSendSMSNotificationBuilder()
 
 	b.UserID(1)
@@ -102,6 +118,8 @@ func TestSecureSendSMSNotificationBuilder(t *testing.T) {
 }
 
 func TestSecureSetCounterBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSecureSetCounterBuilder()
 
 	b.Counters([]string{"text"})

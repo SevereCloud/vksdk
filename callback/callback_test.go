@@ -176,7 +176,10 @@ func TestCallback_HandleFunc(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
 			cb := Callback{
 				ConfirmationKeys: tt.fields.ConfirmationKeys,
 				ConfirmationKey:  tt.fields.ConfirmationKey,
@@ -202,6 +205,8 @@ func TestCallback_HandleFunc(t *testing.T) {
 }
 
 func TestNewCallback(t *testing.T) {
+	t.Parallel()
+
 	cb := NewCallback()
 	assert.NotNil(t, cb)
 }

@@ -8,6 +8,8 @@ import (
 )
 
 func TestAdsAddOfficeUsersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsAddOfficeUsersBuilder()
 
 	b.AccountID(1)
@@ -18,6 +20,8 @@ func TestAdsAddOfficeUsersBuilder(t *testing.T) {
 }
 
 func TestAdsCheckLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsCheckLinkBuilder()
 
 	b.AccountID(1)
@@ -32,6 +36,8 @@ func TestAdsCheckLinkBuilder(t *testing.T) {
 }
 
 func TestAdsCreateAdsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsCreateAdsBuilder()
 
 	b.AccountID(1)
@@ -42,6 +48,8 @@ func TestAdsCreateAdsBuilder(t *testing.T) {
 }
 
 func TestAdsCreateCampaignsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsCreateCampaignsBuilder()
 
 	b.AccountID(1)
@@ -52,6 +60,8 @@ func TestAdsCreateCampaignsBuilder(t *testing.T) {
 }
 
 func TestAdsCreateClientsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsCreateClientsBuilder()
 
 	b.AccountID(1)
@@ -62,6 +72,8 @@ func TestAdsCreateClientsBuilder(t *testing.T) {
 }
 
 func TestAdsCreateTargetGroupBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsCreateTargetGroupBuilder()
 
 	b.AccountID(1)
@@ -80,6 +92,8 @@ func TestAdsCreateTargetGroupBuilder(t *testing.T) {
 }
 
 func TestAdsDeleteAdsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsDeleteAdsBuilder()
 
 	b.AccountID(1)
@@ -90,6 +104,8 @@ func TestAdsDeleteAdsBuilder(t *testing.T) {
 }
 
 func TestAdsDeleteCampaignsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsDeleteCampaignsBuilder()
 
 	b.AccountID(1)
@@ -100,6 +116,8 @@ func TestAdsDeleteCampaignsBuilder(t *testing.T) {
 }
 
 func TestAdsDeleteClientsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsDeleteClientsBuilder()
 
 	b.AccountID(1)
@@ -110,6 +128,8 @@ func TestAdsDeleteClientsBuilder(t *testing.T) {
 }
 
 func TestAdsDeleteTargetGroupBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsDeleteTargetGroupBuilder()
 
 	b.AccountID(1)
@@ -122,6 +142,8 @@ func TestAdsDeleteTargetGroupBuilder(t *testing.T) {
 }
 
 func TestAdsGetAdsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetAdsBuilder()
 
 	b.AccountID(1)
@@ -142,6 +164,8 @@ func TestAdsGetAdsBuilder(t *testing.T) {
 }
 
 func TestAdsGetAdsLayoutBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetAdsLayoutBuilder()
 
 	b.AccountID(1)
@@ -162,6 +186,8 @@ func TestAdsGetAdsLayoutBuilder(t *testing.T) {
 }
 
 func TestAdsGetAdsTargetingBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetAdsTargetingBuilder()
 
 	b.AccountID(1)
@@ -182,6 +208,8 @@ func TestAdsGetAdsTargetingBuilder(t *testing.T) {
 }
 
 func TestAdsGetBudgetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetBudgetBuilder()
 
 	b.AccountID(1)
@@ -190,6 +218,8 @@ func TestAdsGetBudgetBuilder(t *testing.T) {
 }
 
 func TestAdsGetCampaignsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetCampaignsBuilder()
 
 	b.AccountID(1)
@@ -204,6 +234,8 @@ func TestAdsGetCampaignsBuilder(t *testing.T) {
 }
 
 func TestAdsGetCategoriesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetCategoriesBuilder()
 
 	b.Lang("text")
@@ -212,6 +244,8 @@ func TestAdsGetCategoriesBuilder(t *testing.T) {
 }
 
 func TestAdsGetClientsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetClientsBuilder()
 
 	b.AccountID(1)
@@ -220,6 +254,8 @@ func TestAdsGetClientsBuilder(t *testing.T) {
 }
 
 func TestAdsGetDemographicsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetDemographicsBuilder()
 
 	b.AccountID(1)
@@ -238,6 +274,8 @@ func TestAdsGetDemographicsBuilder(t *testing.T) {
 }
 
 func TestAdsGetFloodStatsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetFloodStatsBuilder()
 
 	b.AccountID(1)
@@ -246,6 +284,8 @@ func TestAdsGetFloodStatsBuilder(t *testing.T) {
 }
 
 func TestAdsGetOfficeUsersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetOfficeUsersBuilder()
 
 	b.AccountID(1)
@@ -254,6 +294,8 @@ func TestAdsGetOfficeUsersBuilder(t *testing.T) {
 }
 
 func TestAdsGetPostsReachBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetPostsReachBuilder()
 
 	b.AccountID(1)
@@ -266,6 +308,8 @@ func TestAdsGetPostsReachBuilder(t *testing.T) {
 }
 
 func TestAdsGetRejectionReasonBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetRejectionReasonBuilder()
 
 	b.AccountID(1)
@@ -276,6 +320,8 @@ func TestAdsGetRejectionReasonBuilder(t *testing.T) {
 }
 
 func TestAdsGetStatisticsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetStatisticsBuilder()
 
 	b.AccountID(1)
@@ -294,6 +340,8 @@ func TestAdsGetStatisticsBuilder(t *testing.T) {
 }
 
 func TestAdsGetSuggestionsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetSuggestionsBuilder()
 
 	b.Section("text")
@@ -312,6 +360,8 @@ func TestAdsGetSuggestionsBuilder(t *testing.T) {
 }
 
 func TestAdsGetTargetGroupsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetTargetGroupsBuilder()
 
 	b.AccountID(1)
@@ -324,6 +374,8 @@ func TestAdsGetTargetGroupsBuilder(t *testing.T) {
 }
 
 func TestAdsGetTargetingStatsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetTargetingStatsBuilder()
 
 	b.AccountID(1)
@@ -350,6 +402,8 @@ func TestAdsGetTargetingStatsBuilder(t *testing.T) {
 }
 
 func TestAdsGetUploadURLBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsGetUploadURLBuilder()
 
 	b.AdFormat(1)
@@ -360,6 +414,8 @@ func TestAdsGetUploadURLBuilder(t *testing.T) {
 }
 
 func TestAdsImportTargetContactsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsImportTargetContactsBuilder()
 
 	b.AccountID(1)
@@ -374,6 +430,8 @@ func TestAdsImportTargetContactsBuilder(t *testing.T) {
 }
 
 func TestAdsRemoveOfficeUsersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsRemoveOfficeUsersBuilder()
 
 	b.AccountID(1)
@@ -384,6 +442,8 @@ func TestAdsRemoveOfficeUsersBuilder(t *testing.T) {
 }
 
 func TestAdsUpdateAdsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsUpdateAdsBuilder()
 
 	b.AccountID(1)
@@ -394,6 +454,8 @@ func TestAdsUpdateAdsBuilder(t *testing.T) {
 }
 
 func TestAdsUpdateCampaignsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsUpdateCampaignsBuilder()
 
 	b.AccountID(1)
@@ -404,6 +466,8 @@ func TestAdsUpdateCampaignsBuilder(t *testing.T) {
 }
 
 func TestAdsUpdateClientsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsUpdateClientsBuilder()
 
 	b.AccountID(1)
@@ -414,6 +478,8 @@ func TestAdsUpdateClientsBuilder(t *testing.T) {
 }
 
 func TestAdsUpdateTargetGroupBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAdsUpdateTargetGroupBuilder()
 
 	b.AccountID(1)

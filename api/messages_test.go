@@ -14,6 +14,8 @@ func TestVK_MessagesAddChatUser(t *testing.T) {
 }
 
 func TestVK_MessagesAllowMessagesFromGroup(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.MessagesAllowMessagesFromGroup(api.Params{
@@ -23,6 +25,8 @@ func TestVK_MessagesAllowMessagesFromGroup(t *testing.T) {
 }
 
 func TestVK_MessagesDelete(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -104,6 +108,8 @@ func TestVK_MessagesDeleteChatPhoto(t *testing.T) {
 }
 
 func TestVK_MessagesDeleteConversation(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -114,6 +120,8 @@ func TestVK_MessagesDeleteConversation(t *testing.T) {
 }
 
 func TestVK_MessagesDenyMessagesFromGroup(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.MessagesDenyMessagesFromGroup(api.Params{
@@ -123,6 +131,8 @@ func TestVK_MessagesDenyMessagesFromGroup(t *testing.T) {
 }
 
 func TestVK_MessagesEditChat(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -134,6 +144,8 @@ func TestVK_MessagesEditChat(t *testing.T) {
 }
 
 func TestVK_MessagesGetChat(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -150,6 +162,8 @@ func TestVK_MessagesGetChat(t *testing.T) {
 }
 
 func TestVK_MessagesGetChatChatIDs(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -169,6 +183,8 @@ func TestVK_MessagesGetChatChatIDs(t *testing.T) {
 }
 
 func TestVK_MessagesGetChatPreview(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -186,6 +202,8 @@ func TestVK_MessagesGetChatPreview(t *testing.T) {
 }
 
 func TestVK_MessagesGetConversationMembers(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -200,6 +218,8 @@ func TestVK_MessagesGetConversationMembers(t *testing.T) {
 }
 
 func TestVK_MessagesGetConversations(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MessagesGetConversations(api.Params{})
@@ -213,6 +233,8 @@ func TestVK_MessagesGetConversations(t *testing.T) {
 }
 
 func TestVK_MessagesGetConversationsByID(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -234,6 +256,8 @@ func TestVK_MessagesGetConversationsByID(t *testing.T) {
 }
 
 func TestVK_MessagesGetConversationsByIDExtended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -244,6 +268,8 @@ func TestVK_MessagesGetConversationsByIDExtended(t *testing.T) {
 }
 
 func TestVK_MessagesGetHistory(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -254,6 +280,8 @@ func TestVK_MessagesGetHistory(t *testing.T) {
 }
 
 func TestVK_MessagesGetHistoryAttachments(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -265,6 +293,8 @@ func TestVK_MessagesGetHistoryAttachments(t *testing.T) {
 }
 
 func TestVK_MessagesGetImportantMessages(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.MessagesGetImportantMessages(api.Params{})
@@ -272,6 +302,8 @@ func TestVK_MessagesGetImportantMessages(t *testing.T) {
 }
 
 func TestVK_MessagesGetInviteLink(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -283,6 +315,8 @@ func TestVK_MessagesGetInviteLink(t *testing.T) {
 }
 
 func TestVK_MessagesGetLastActivity(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.MessagesGetLastActivity(api.Params{
@@ -292,6 +326,8 @@ func TestVK_MessagesGetLastActivity(t *testing.T) {
 }
 
 func TestVK_MessagesGetLongPollServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MessagesGetLongPollServer(api.Params{
@@ -312,6 +348,8 @@ func TestVK_MessagesGetLongPollServer(t *testing.T) {
 }
 
 func TestVK_MessagesIsMessagesFromGroupAllowed(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	_, err := vkGroup.MessagesIsMessagesFromGroupAllowed(api.Params{
@@ -322,6 +360,8 @@ func TestVK_MessagesIsMessagesFromGroupAllowed(t *testing.T) {
 }
 
 func TestVK_MessagesJoinChatByInviteLink(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	chat, err := vkUser.MessagesJoinChatByInviteLink(api.Params{
@@ -343,6 +383,8 @@ func TestVK_MessagesMarkAsAnsweredConversation(t *testing.T) {
 }
 
 func TestVK_MessagesMarkAsImportant(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.MessagesMarkAsImportant(api.Params{
@@ -357,6 +399,8 @@ func TestVK_MessagesMarkAsImportantConversation(t *testing.T) {
 }
 
 func TestVK_MessagesMarkAsRead(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -367,6 +411,8 @@ func TestVK_MessagesMarkAsRead(t *testing.T) {
 }
 
 func TestVK_MessagesRemoveChatUser(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -384,6 +430,8 @@ func TestVK_MessagesRemoveChatUser(t *testing.T) {
 }
 
 func TestVK_MessagesSearch(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.MessagesSearch(api.Params{
@@ -393,6 +441,8 @@ func TestVK_MessagesSearch(t *testing.T) {
 }
 
 func TestVK_MessagesSearchConversations(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.MessagesSearchConversations(api.Params{})
@@ -404,6 +454,8 @@ func TestVK_MessagesSendUserIDs(t *testing.T) {
 }
 
 func TestVK_MessagesSendSticker(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -418,6 +470,8 @@ func TestVK_MessagesSendSticker(t *testing.T) {
 }
 
 func TestVK_MessagesSetActivity(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
@@ -429,6 +483,8 @@ func TestVK_MessagesSetActivity(t *testing.T) {
 }
 
 func TestVK_MessagesUnpin(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 

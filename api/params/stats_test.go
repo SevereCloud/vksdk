@@ -8,6 +8,8 @@ import (
 )
 
 func TestStatsGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStatsGetBuilder()
 
 	b.GroupID(1)
@@ -32,6 +34,8 @@ func TestStatsGetBuilder(t *testing.T) {
 }
 
 func TestStatsGetPostReachBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStatsGetPostReachBuilder()
 
 	b.OwnerID("text")
@@ -42,6 +46,8 @@ func TestStatsGetPostReachBuilder(t *testing.T) {
 }
 
 func TestStatsTrackVisitorBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStatsTrackVisitorBuilder()
 
 	b.ID("text")

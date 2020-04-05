@@ -8,6 +8,8 @@ import (
 )
 
 func TestFaveAddArticleBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveAddArticleBuilder()
 
 	b.URL("text")
@@ -16,6 +18,8 @@ func TestFaveAddArticleBuilder(t *testing.T) {
 }
 
 func TestFaveAddLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveAddLinkBuilder()
 
 	b.Link("text")
@@ -24,6 +28,8 @@ func TestFaveAddLinkBuilder(t *testing.T) {
 }
 
 func TestFaveAddPageBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveAddPageBuilder()
 
 	b.UserID(1)
@@ -34,6 +40,8 @@ func TestFaveAddPageBuilder(t *testing.T) {
 }
 
 func TestFaveAddPostBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveAddPostBuilder()
 
 	b.OwnerID(1)
@@ -46,6 +54,8 @@ func TestFaveAddPostBuilder(t *testing.T) {
 }
 
 func TestFaveAddProductBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveAddProductBuilder()
 
 	b.OwnerID(1)
@@ -58,6 +68,8 @@ func TestFaveAddProductBuilder(t *testing.T) {
 }
 
 func TestFaveAddTagBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveAddTagBuilder()
 
 	b.Name("text")
@@ -66,6 +78,8 @@ func TestFaveAddTagBuilder(t *testing.T) {
 }
 
 func TestFaveAddVideoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveAddVideoBuilder()
 
 	b.OwnerID(1)
@@ -78,6 +92,8 @@ func TestFaveAddVideoBuilder(t *testing.T) {
 }
 
 func TestFaveEditTagBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveEditTagBuilder()
 
 	b.ID(1)
@@ -88,6 +104,8 @@ func TestFaveEditTagBuilder(t *testing.T) {
 }
 
 func TestFaveGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveGetBuilder()
 
 	b.Extended(true)
@@ -108,6 +126,8 @@ func TestFaveGetBuilder(t *testing.T) {
 }
 
 func TestFaveGetPagesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveGetPagesBuilder()
 
 	b.Offset(1)
@@ -124,6 +144,8 @@ func TestFaveGetPagesBuilder(t *testing.T) {
 }
 
 func TestFaveRemoveArticleBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveRemoveArticleBuilder()
 
 	b.OwnerID(1)
@@ -134,6 +156,8 @@ func TestFaveRemoveArticleBuilder(t *testing.T) {
 }
 
 func TestFaveRemoveLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveRemoveLinkBuilder()
 
 	b.LinkID("text")
@@ -144,6 +168,8 @@ func TestFaveRemoveLinkBuilder(t *testing.T) {
 }
 
 func TestFaveRemovePageBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveRemovePageBuilder()
 
 	b.UserID(1)
@@ -154,6 +180,8 @@ func TestFaveRemovePageBuilder(t *testing.T) {
 }
 
 func TestFaveRemovePostBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveRemovePostBuilder()
 
 	b.OwnerID(1)
@@ -164,6 +192,8 @@ func TestFaveRemovePostBuilder(t *testing.T) {
 }
 
 func TestFaveRemoveProductBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveRemoveProductBuilder()
 
 	b.OwnerID(1)
@@ -174,6 +204,8 @@ func TestFaveRemoveProductBuilder(t *testing.T) {
 }
 
 func TestFaveRemoveTagBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveRemoveTagBuilder()
 
 	b.ID(1)
@@ -182,6 +214,8 @@ func TestFaveRemoveTagBuilder(t *testing.T) {
 }
 
 func TestFaveReorderTagsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveReorderTagsBuilder()
 
 	b.IDs([]int{1})
@@ -190,6 +224,8 @@ func TestFaveReorderTagsBuilder(t *testing.T) {
 }
 
 func TestFaveSetPageTagsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveSetPageTagsBuilder()
 
 	b.UserID(1)
@@ -202,6 +238,8 @@ func TestFaveSetPageTagsBuilder(t *testing.T) {
 }
 
 func TestFaveSetTagsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveSetTagsBuilder()
 
 	b.ItemType("text")
@@ -220,6 +258,8 @@ func TestFaveSetTagsBuilder(t *testing.T) {
 }
 
 func TestFaveTrackPageInteractionBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFaveTrackPageInteractionBuilder()
 
 	b.UserID(1)

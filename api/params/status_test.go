@@ -8,6 +8,8 @@ import (
 )
 
 func TestStatusGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStatusGetBuilder()
 
 	b.UserID(1)
@@ -18,6 +20,8 @@ func TestStatusGetBuilder(t *testing.T) {
 }
 
 func TestStatusSetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStatusSetBuilder()
 
 	b.Text("text")

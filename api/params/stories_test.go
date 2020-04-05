@@ -8,6 +8,8 @@ import (
 )
 
 func TestStoriesBanOwnerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesBanOwnerBuilder()
 
 	b.OwnersIDs([]int{1})
@@ -16,6 +18,8 @@ func TestStoriesBanOwnerBuilder(t *testing.T) {
 }
 
 func TestStoriesDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesDeleteBuilder()
 
 	b.OwnerID(1)
@@ -26,6 +30,8 @@ func TestStoriesDeleteBuilder(t *testing.T) {
 }
 
 func TestStoriesGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesGetBuilder()
 
 	b.OwnerID(1)
@@ -36,6 +42,8 @@ func TestStoriesGetBuilder(t *testing.T) {
 }
 
 func TestStoriesGetBannedBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesGetBannedBuilder()
 
 	b.Extended(true)
@@ -46,6 +54,8 @@ func TestStoriesGetBannedBuilder(t *testing.T) {
 }
 
 func TestStoriesGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesGetByIDBuilder()
 
 	b.Stories([]string{"text"})
@@ -58,6 +68,8 @@ func TestStoriesGetByIDBuilder(t *testing.T) {
 }
 
 func TestStoriesGetPhotoUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesGetPhotoUploadServerBuilder()
 
 	b.AddToNews(true)
@@ -76,6 +88,8 @@ func TestStoriesGetPhotoUploadServerBuilder(t *testing.T) {
 }
 
 func TestStoriesGetRepliesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesGetRepliesBuilder()
 
 	b.OwnerID(1)
@@ -92,6 +106,8 @@ func TestStoriesGetRepliesBuilder(t *testing.T) {
 }
 
 func TestStoriesGetStatsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesGetStatsBuilder()
 
 	b.OwnerID(1)
@@ -102,6 +118,8 @@ func TestStoriesGetStatsBuilder(t *testing.T) {
 }
 
 func TestStoriesGetVideoUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesGetVideoUploadServerBuilder()
 
 	b.AddToNews(true)
@@ -120,6 +138,8 @@ func TestStoriesGetVideoUploadServerBuilder(t *testing.T) {
 }
 
 func TestStoriesGetViewersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesGetViewersBuilder()
 
 	b.OwnerID(1)
@@ -136,6 +156,8 @@ func TestStoriesGetViewersBuilder(t *testing.T) {
 }
 
 func TestStoriesHideAllRepliesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesHideAllRepliesBuilder()
 
 	b.OwnerID(1)
@@ -146,6 +168,8 @@ func TestStoriesHideAllRepliesBuilder(t *testing.T) {
 }
 
 func TestStoriesHideReplyBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesHideReplyBuilder()
 
 	b.OwnerID(1)
@@ -156,6 +180,8 @@ func TestStoriesHideReplyBuilder(t *testing.T) {
 }
 
 func TestStoriesUnbanOwnerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewStoriesUnbanOwnerBuilder()
 
 	b.OwnersIDs([]int{1})

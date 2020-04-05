@@ -8,6 +8,8 @@ import (
 )
 
 func TestAppsGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAppsGetBuilder()
 
 	b.AppID(1)
@@ -28,6 +30,8 @@ func TestAppsGetBuilder(t *testing.T) {
 }
 
 func TestAppsGetCatalogBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAppsGetCatalogBuilder()
 
 	b.Sort("text")
@@ -56,6 +60,8 @@ func TestAppsGetCatalogBuilder(t *testing.T) {
 }
 
 func TestAppsGetFriendsListBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAppsGetFriendsListBuilder()
 
 	b.Extended(true)
@@ -72,6 +78,8 @@ func TestAppsGetFriendsListBuilder(t *testing.T) {
 }
 
 func TestAppsGetLeaderboardBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAppsGetLeaderboardBuilder()
 
 	b.Type("text")
@@ -84,6 +92,8 @@ func TestAppsGetLeaderboardBuilder(t *testing.T) {
 }
 
 func TestAppsGetScopesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAppsGetScopesBuilder()
 
 	b.Type("text")
@@ -92,6 +102,8 @@ func TestAppsGetScopesBuilder(t *testing.T) {
 }
 
 func TestAppsGetScoreBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAppsGetScoreBuilder()
 
 	b.UserID(1)
@@ -100,6 +112,8 @@ func TestAppsGetScoreBuilder(t *testing.T) {
 }
 
 func TestAppsSendRequestBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAppsSendRequestBuilder()
 
 	b.UserID(1)

@@ -8,6 +8,8 @@ import (
 )
 
 func TestWidgetsGetCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWidgetsGetCommentsBuilder()
 
 	b.WidgetAPIID(1)
@@ -28,6 +30,8 @@ func TestWidgetsGetCommentsBuilder(t *testing.T) {
 }
 
 func TestWidgetsGetPagesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWidgetsGetPagesBuilder()
 
 	b.WidgetAPIID(1)

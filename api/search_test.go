@@ -7,6 +7,8 @@ import (
 )
 
 func TestVK_SearchGetHints(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.SearchGetHints(api.Params{

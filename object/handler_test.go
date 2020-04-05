@@ -8,6 +8,8 @@ import (
 )
 
 func TestMessageNewObject_UnmarshalJSON(t *testing.T) {
+	t.Parallel()
+
 	f := func(b []byte, want object.MessageNewObject, wantErr bool) {
 		var obj object.MessageNewObject
 

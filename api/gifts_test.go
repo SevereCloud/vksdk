@@ -10,6 +10,8 @@ import (
 )
 
 func TestVK_GiftsGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.GiftsGet(api.Params{
@@ -38,6 +40,8 @@ func TestVK_GiftsGet(t *testing.T) {
 }
 
 func TestVK_GiftsGetCatalog(t *testing.T) {
+	t.Parallel()
+
 	t.Skip("Access denied: method allowed only for official app")
 	needUserToken(t)
 

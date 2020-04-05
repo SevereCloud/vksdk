@@ -19,6 +19,8 @@ func TestVK_PrettyCardsEdit(t *testing.T) {
 }
 
 func TestVK_PrettyCardsGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 

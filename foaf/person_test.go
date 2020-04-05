@@ -9,6 +9,8 @@ import (
 )
 
 func TestGetPerson_Verified(t *testing.T) {
+	t.Parallel()
+
 	f := func(userID int) {
 		t.Helper()
 
@@ -35,6 +37,8 @@ func TestGetPerson_Verified(t *testing.T) {
 }
 
 func TestGetPerson_Banned(t *testing.T) {
+	t.Parallel()
+
 	person, err := foaf.GetPerson(context.Background(), 540036751)
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.ProfileStateBanned, person.ProfileState)
@@ -42,6 +46,8 @@ func TestGetPerson_Banned(t *testing.T) {
 }
 
 func TestGetPerson_Deleted(t *testing.T) {
+	t.Parallel()
+
 	person, err := foaf.GetPerson(context.Background(), 3)
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.ProfileStateDeleted, person.ProfileState)
@@ -49,6 +55,8 @@ func TestGetPerson_Deleted(t *testing.T) {
 }
 
 func TestGetPerson_Active(t *testing.T) {
+	t.Parallel()
+
 	person, err := foaf.GetPerson(context.Background(), 5024999)
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.ProfileStateActive, person.ProfileState)
@@ -56,6 +64,8 @@ func TestGetPerson_Active(t *testing.T) {
 }
 
 func TestGetPerson(t *testing.T) {
+	t.Parallel()
+
 	f := func(userID int) {
 		t.Helper()
 

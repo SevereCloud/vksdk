@@ -8,6 +8,8 @@ import (
 )
 
 func TestFriendsAddBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsAddBuilder()
 
 	b.UserID(1)
@@ -20,6 +22,8 @@ func TestFriendsAddBuilder(t *testing.T) {
 }
 
 func TestFriendsAddListBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsAddListBuilder()
 
 	b.Name("text")
@@ -30,6 +34,8 @@ func TestFriendsAddListBuilder(t *testing.T) {
 }
 
 func TestFriendsAreFriendsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsAreFriendsBuilder()
 
 	b.UserIDs([]int{1})
@@ -40,6 +46,8 @@ func TestFriendsAreFriendsBuilder(t *testing.T) {
 }
 
 func TestFriendsDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsDeleteBuilder()
 
 	b.UserID(1)
@@ -48,6 +56,8 @@ func TestFriendsDeleteBuilder(t *testing.T) {
 }
 
 func TestFriendsDeleteListBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsDeleteListBuilder()
 
 	b.ListID(1)
@@ -56,6 +66,8 @@ func TestFriendsDeleteListBuilder(t *testing.T) {
 }
 
 func TestFriendsEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsEditBuilder()
 
 	b.UserID(1)
@@ -66,6 +78,8 @@ func TestFriendsEditBuilder(t *testing.T) {
 }
 
 func TestFriendsEditListBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsEditListBuilder()
 
 	b.Name("text")
@@ -82,6 +96,8 @@ func TestFriendsEditListBuilder(t *testing.T) {
 }
 
 func TestFriendsGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsGetBuilder()
 
 	b.UserID(1)
@@ -104,6 +120,8 @@ func TestFriendsGetBuilder(t *testing.T) {
 }
 
 func TestFriendsGetByPhonesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsGetByPhonesBuilder()
 
 	b.Phones([]string{"text"})
@@ -114,6 +132,8 @@ func TestFriendsGetByPhonesBuilder(t *testing.T) {
 }
 
 func TestFriendsGetListsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsGetListsBuilder()
 
 	b.UserID(1)
@@ -124,6 +144,8 @@ func TestFriendsGetListsBuilder(t *testing.T) {
 }
 
 func TestFriendsGetMutualBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsGetMutualBuilder()
 
 	b.SourceUID(1)
@@ -142,6 +164,8 @@ func TestFriendsGetMutualBuilder(t *testing.T) {
 }
 
 func TestFriendsGetOnlineBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsGetOnlineBuilder()
 
 	b.UserID(1)
@@ -160,6 +184,8 @@ func TestFriendsGetOnlineBuilder(t *testing.T) {
 }
 
 func TestFriendsGetRecentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsGetRecentBuilder()
 
 	b.Count(1)
@@ -168,6 +194,8 @@ func TestFriendsGetRecentBuilder(t *testing.T) {
 }
 
 func TestFriendsGetRequestsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsGetRequestsBuilder()
 
 	b.Offset(1)
@@ -194,6 +222,8 @@ func TestFriendsGetRequestsBuilder(t *testing.T) {
 }
 
 func TestFriendsGetSuggestionsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsGetSuggestionsBuilder()
 
 	b.Filter([]string{"text"})
@@ -210,6 +240,8 @@ func TestFriendsGetSuggestionsBuilder(t *testing.T) {
 }
 
 func TestFriendsSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewFriendsSearchBuilder()
 
 	b.UserID(1)

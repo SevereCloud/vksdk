@@ -10,6 +10,8 @@ import (
 )
 
 func TestLongpoll_Shutdown(t *testing.T) {
+	t.Parallel()
+
 	t.Run("Shutdown", func(t *testing.T) {
 		lp := &Longpoll{}
 		lp.Shutdown()
@@ -19,7 +21,9 @@ func TestLongpoll_Shutdown(t *testing.T) {
 	})
 }
 
-func TestLongpoll_Handler(t *testing.T) { // nolint:gocyclo
+func TestLongpoll_Handler(t *testing.T) {
+	t.Parallel()
+	// nolint:gocyclo
 	lp := &Longpoll{}
 
 	t.Run("FullResponse", func(t *testing.T) {
@@ -31,6 +35,8 @@ func TestLongpoll_Handler(t *testing.T) { // nolint:gocyclo
 }
 
 func TestNewLongpoll(t *testing.T) {
+	t.Parallel()
+
 	groupToken := os.Getenv("GROUP_TOKEN")
 	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
@@ -70,7 +76,10 @@ func TestNewLongpoll(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
 			_, err := NewLongpoll(tt.args.vk, tt.args.groupID)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("NewLongpoll() error = %v, wantErr %v", err, tt.wantErr)
@@ -120,7 +129,10 @@ func TestLongpoll_checkResponse(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
 			if err := lp.checkResponse(tt.argResponse); (err != nil) != tt.wantErr {
 				t.Errorf("Longpoll.checkResponse() error = %v, wantErr %v", err, tt.wantErr)
 			}
@@ -145,6 +157,8 @@ func TestLongpoll_checkResponse(t *testing.T) {
 // }
 
 func TestLongpoll_RunError(t *testing.T) {
+	t.Parallel()
+
 	vk := api.NewVK("")
 	lp, _ := Init(vk, 0)
 	lp.Wait = 1

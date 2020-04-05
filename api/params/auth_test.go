@@ -8,6 +8,8 @@ import (
 )
 
 func TestAuthCheckPhoneBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAuthCheckPhoneBuilder()
 
 	b.Phone("text")
@@ -22,6 +24,8 @@ func TestAuthCheckPhoneBuilder(t *testing.T) {
 }
 
 func TestAuthRestoreBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAuthRestoreBuilder()
 
 	b.Phone("text")

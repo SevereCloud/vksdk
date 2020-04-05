@@ -7,6 +7,8 @@ import (
 )
 
 func TestNotesNote_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(note object.NotesNote, want string) {
 		if got := note.ToAttachment(); got != want {
 			t.Errorf("NotesNote.ToAttachment() = %v, want %v", got, want)

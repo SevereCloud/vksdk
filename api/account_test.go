@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_AccountBan(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.AccountBan(api.Params{
@@ -21,7 +23,7 @@ func TestVK_AccountBan(t *testing.T) {
 	})
 	noError(t, err)
 
-	time.Sleep(2 * time.Second)
+	time.Sleep(3 * time.Second)
 
 	res, err := vkUser.AccountGetBanned(api.Params{})
 	noError(t, err)
@@ -46,6 +48,8 @@ func TestVK_AccountChangePassword(t *testing.T) {
 }
 
 func TestVK_AccountGetActiveOffers(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.AccountGetActiveOffers(api.Params{})
@@ -53,6 +57,8 @@ func TestVK_AccountGetActiveOffers(t *testing.T) {
 }
 
 func TestVK_AccountGetAppPermissions(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.AccountGetAppPermissions(api.Params{
@@ -63,6 +69,8 @@ func TestVK_AccountGetAppPermissions(t *testing.T) {
 }
 
 func TestVK_AccountGetCounters(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.AccountGetCounters(api.Params{
@@ -72,6 +80,8 @@ func TestVK_AccountGetCounters(t *testing.T) {
 }
 
 func TestVK_AccountGetInfo(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.AccountGetInfo(api.Params{})
@@ -79,6 +89,8 @@ func TestVK_AccountGetInfo(t *testing.T) {
 }
 
 func TestVK_AccountGetProfileInfo(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	info, err := vkUser.AccountGetProfileInfo(api.Params{})
@@ -98,6 +110,8 @@ func TestVK_AccountGetProfileInfo(t *testing.T) {
 }
 
 func TestVK_AccountGetPushSettings(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.AccountGetPushSettings(api.Params{
@@ -111,6 +125,8 @@ func TestVK_AccountRegisterDevice(t *testing.T) {
 }
 
 func TestVK_AccountSaveProfileInfo(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.AccountSaveProfileInfo(api.Params{})
@@ -126,6 +142,8 @@ func TestVK_AccountSetNameInMenu(t *testing.T) {
 }
 
 func TestVK_AccountSetOffline(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.AccountSetOffline(api.Params{})
@@ -133,6 +151,8 @@ func TestVK_AccountSetOffline(t *testing.T) {
 }
 
 func TestVK_AccountSetOnline(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.AccountSetOnline(api.Params{})

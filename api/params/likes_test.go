@@ -8,6 +8,8 @@ import (
 )
 
 func TestLikesAddBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLikesAddBuilder()
 
 	b.Type("text")
@@ -22,6 +24,8 @@ func TestLikesAddBuilder(t *testing.T) {
 }
 
 func TestLikesDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLikesDeleteBuilder()
 
 	b.Type("text")
@@ -34,6 +38,8 @@ func TestLikesDeleteBuilder(t *testing.T) {
 }
 
 func TestLikesGetListBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLikesGetListBuilder()
 
 	b.Type("text")
@@ -60,6 +66,8 @@ func TestLikesGetListBuilder(t *testing.T) {
 }
 
 func TestLikesIsLikedBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewLikesIsLikedBuilder()
 
 	b.UserID(1)

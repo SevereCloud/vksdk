@@ -46,7 +46,7 @@ func TestMain(m *testing.M) {
 	time.Sleep(1 * time.Second)
 
 	vkUser = api.NewVK(os.Getenv("USER_TOKEN"))
-	vkUser.Limit = 1
+	vkUser.Limit = 3
 
 	if vkUser.AccessToken != "" {
 		user, err := vkUser.UsersGet(api.Params{})

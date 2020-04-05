@@ -8,6 +8,8 @@ import (
 )
 
 func TestNotificationsGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotificationsGetBuilder()
 
 	b.Count(1)
@@ -24,6 +26,8 @@ func TestNotificationsGetBuilder(t *testing.T) {
 }
 
 func TestNotificationsSendMessageBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewNotificationsSendMessageBuilder()
 
 	b.UserIDs([]int{1})

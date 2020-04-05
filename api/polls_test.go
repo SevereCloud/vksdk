@@ -8,6 +8,8 @@ import (
 )
 
 func TestVK_PollsCreate(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	poll, err := vkUser.PollsCreate(api.Params{
@@ -40,6 +42,8 @@ func TestVK_PollsCreate(t *testing.T) {
 }
 
 func TestVK_PollsGetBackgrounds(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PollsGetBackgrounds(api.Params{})
@@ -47,6 +51,8 @@ func TestVK_PollsGetBackgrounds(t *testing.T) {
 }
 
 func TestVK_PollsGetByID(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	f := func(params api.Params) {
@@ -69,6 +75,8 @@ func TestVK_PollsGetByID(t *testing.T) {
 }
 
 func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PollsGetPhotoUploadServer(api.Params{})
@@ -76,6 +84,8 @@ func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
 }
 
 func TestVK_PollsGetVoters(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PollsGetVoters(api.Params{
@@ -87,6 +97,8 @@ func TestVK_PollsGetVoters(t *testing.T) {
 }
 
 func TestVK_PollsGetVotersFields(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PollsGetVotersFields(api.Params{

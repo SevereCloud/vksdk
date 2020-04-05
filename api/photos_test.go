@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_PhotosConfirmTag(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosConfirmTag(api.Params{
@@ -19,6 +21,8 @@ func TestVK_PhotosConfirmTag(t *testing.T) {
 }
 
 func TestVK_PhotosCopy(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosCopy(api.Params{
@@ -29,6 +33,8 @@ func TestVK_PhotosCopy(t *testing.T) {
 }
 
 func TestVK_PhotosCreateAlbum(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	album, err := vkUser.PhotosCreateAlbum(api.Params{
@@ -86,6 +92,8 @@ func TestVK_PhotosCreateAlbum(t *testing.T) {
 }
 
 func TestVK_PhotosCreateComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	commentID, err := vkUser.PhotosCreateComment(api.Params{
@@ -163,6 +171,8 @@ func LoadPhoto(t *testing.T, albumID int) object.PhotosPhoto {
 }
 
 func TestVK_PhotosGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{
@@ -178,6 +188,8 @@ func TestVK_PhotosGet(t *testing.T) {
 }
 
 func TestVK_PhotosGetAlbums(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetAlbums(api.Params{
@@ -190,6 +202,8 @@ func TestVK_PhotosGetAlbums(t *testing.T) {
 }
 
 func TestVK_PhotosGetAlbumsCount(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetAlbumsCount(api.Params{
@@ -199,6 +213,8 @@ func TestVK_PhotosGetAlbumsCount(t *testing.T) {
 }
 
 func TestVK_PhotosGetAll(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{
@@ -214,6 +230,8 @@ func TestVK_PhotosGetAll(t *testing.T) {
 }
 
 func TestVK_PhotosGetAllComments(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetAllComments(api.Params{
@@ -223,6 +241,8 @@ func TestVK_PhotosGetAllComments(t *testing.T) {
 }
 
 func TestVK_PhotosGetByID(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{
@@ -236,6 +256,8 @@ func TestVK_PhotosGetByID(t *testing.T) {
 }
 
 func TestVK_PhotosGetChatUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetChatUploadServer(api.Params{
@@ -245,6 +267,8 @@ func TestVK_PhotosGetChatUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetComments(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{
@@ -261,6 +285,8 @@ func TestVK_PhotosGetComments(t *testing.T) {
 }
 
 func TestVK_PhotosGetMarketAlbumUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -271,6 +297,8 @@ func TestVK_PhotosGetMarketAlbumUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetMarketUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -281,6 +309,8 @@ func TestVK_PhotosGetMarketUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetMessagesUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetMessagesUploadServer(api.Params{
@@ -290,6 +320,8 @@ func TestVK_PhotosGetMessagesUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetNewTags(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetNewTags(api.Params{})
@@ -297,6 +329,8 @@ func TestVK_PhotosGetNewTags(t *testing.T) {
 }
 
 func TestVK_PhotosGetOwnerCoverPhotoUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -307,6 +341,8 @@ func TestVK_PhotosGetOwnerCoverPhotoUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetOwnerPhotoUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetOwnerPhotoUploadServer(api.Params{})
@@ -314,6 +350,8 @@ func TestVK_PhotosGetOwnerPhotoUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetTags(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetTags(api.Params{
@@ -324,6 +362,8 @@ func TestVK_PhotosGetTags(t *testing.T) {
 }
 
 func TestVK_PhotosGetUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosGetUploadServer(api.Params{
@@ -334,6 +374,8 @@ func TestVK_PhotosGetUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosGetUserPhotos(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{
@@ -348,6 +390,8 @@ func TestVK_PhotosGetUserPhotos(t *testing.T) {
 }
 
 func TestVK_PhotosGetWallUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -358,6 +402,8 @@ func TestVK_PhotosGetWallUploadServer(t *testing.T) {
 }
 
 func TestVK_PhotosReport(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosReport(api.Params{
@@ -368,6 +414,8 @@ func TestVK_PhotosReport(t *testing.T) {
 }
 
 func TestVK_PhotosReportComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosReportComment(api.Params{
@@ -378,6 +426,8 @@ func TestVK_PhotosReportComment(t *testing.T) {
 }
 
 func TestVK_PhotosSearch(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PhotosSearch(api.Params{

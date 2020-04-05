@@ -14,6 +14,8 @@ import (
 )
 
 func TestContextUserAgent(t *testing.T) {
+	t.Parallel()
+
 	f := func(ctx context.Context, wantUserAgent string) {
 		userAgent := internal.ContextUserAgent(ctx)
 		assert.Equal(t, wantUserAgent, userAgent)
@@ -28,6 +30,8 @@ func TestContextUserAgent(t *testing.T) {
 }
 
 func TestContextClient(t *testing.T) {
+	t.Parallel()
+
 	f := func(ctx context.Context, wantClient *http.Client) {
 		client := internal.ContextClient(ctx)
 		assert.Equal(t, wantClient, client)
@@ -42,6 +46,8 @@ func TestContextClient(t *testing.T) {
 }
 
 func TestGo17Context(t *testing.T) {
+	t.Parallel()
+
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		io.WriteString(w, "ok")
 	}))
@@ -73,6 +79,8 @@ func okHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func TestNoTimeout(t *testing.T) {
+	t.Parallel()
+
 	ts := httptest.NewServer(http.HandlerFunc(okHandler))
 	defer ts.Close()
 
@@ -100,6 +108,8 @@ func TestNoTimeout(t *testing.T) {
 }
 
 func TestCancelBeforeHeaders(t *testing.T) {
+	t.Parallel()
+
 	ctx, cancel := context.WithCancel(context.Background())
 
 	blockServer := make(chan struct{})

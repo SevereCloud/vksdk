@@ -8,6 +8,8 @@ import (
 )
 
 func TestSearchGetHintsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewSearchGetHintsBuilder()
 
 	b.Q("text")

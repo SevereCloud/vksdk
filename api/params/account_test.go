@@ -8,6 +8,8 @@ import (
 )
 
 func TestAccountBanBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountBanBuilder()
 
 	b.OwnerID(1)
@@ -16,6 +18,8 @@ func TestAccountBanBuilder(t *testing.T) {
 }
 
 func TestAccountChangePasswordBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountChangePasswordBuilder()
 
 	b.RestoreSID("text")
@@ -30,6 +34,8 @@ func TestAccountChangePasswordBuilder(t *testing.T) {
 }
 
 func TestAccountGetActiveOffersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountGetActiveOffersBuilder()
 
 	b.Offset(1)
@@ -40,6 +46,8 @@ func TestAccountGetActiveOffersBuilder(t *testing.T) {
 }
 
 func TestAccountGetAppPermissionsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountGetAppPermissionsBuilder()
 
 	b.UserID(1)
@@ -48,6 +56,8 @@ func TestAccountGetAppPermissionsBuilder(t *testing.T) {
 }
 
 func TestAccountGetBannedBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountGetBannedBuilder()
 
 	b.Offset(1)
@@ -58,6 +68,8 @@ func TestAccountGetBannedBuilder(t *testing.T) {
 }
 
 func TestAccountGetCountersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountGetCountersBuilder()
 
 	b.Filter([]string{"text"})
@@ -66,6 +78,8 @@ func TestAccountGetCountersBuilder(t *testing.T) {
 }
 
 func TestAccountGetInfoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountGetInfoBuilder()
 
 	b.Fields([]string{"text"})
@@ -74,6 +88,8 @@ func TestAccountGetInfoBuilder(t *testing.T) {
 }
 
 func TestAccountGetPushSettingsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountGetPushSettingsBuilder()
 
 	b.DeviceID("text")
@@ -82,6 +98,8 @@ func TestAccountGetPushSettingsBuilder(t *testing.T) {
 }
 
 func TestAccountRegisterDeviceBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountRegisterDeviceBuilder()
 
 	b.Token("text")
@@ -102,6 +120,8 @@ func TestAccountRegisterDeviceBuilder(t *testing.T) {
 }
 
 func TestAccountSaveProfileInfoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountSaveProfileInfoBuilder()
 
 	b.FirstName("text")
@@ -136,6 +156,8 @@ func TestAccountSaveProfileInfoBuilder(t *testing.T) {
 }
 
 func TestAccountSetInfoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountSetInfoBuilder()
 
 	b.Name("text")
@@ -146,6 +168,8 @@ func TestAccountSetInfoBuilder(t *testing.T) {
 }
 
 func TestAccountSetNameInMenuBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountSetNameInMenuBuilder()
 
 	b.UserID(1)
@@ -156,6 +180,8 @@ func TestAccountSetNameInMenuBuilder(t *testing.T) {
 }
 
 func TestAccountSetOnlineBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountSetOnlineBuilder()
 
 	b.Voip(true)
@@ -164,6 +190,8 @@ func TestAccountSetOnlineBuilder(t *testing.T) {
 }
 
 func TestAccountSetPushSettingsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountSetPushSettingsBuilder()
 
 	b.DeviceID("text")
@@ -178,6 +206,8 @@ func TestAccountSetPushSettingsBuilder(t *testing.T) {
 }
 
 func TestAccountSetSilenceModeBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountSetSilenceModeBuilder()
 
 	b.DeviceID("text")
@@ -192,6 +222,8 @@ func TestAccountSetSilenceModeBuilder(t *testing.T) {
 }
 
 func TestAccountUnbanBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountUnbanBuilder()
 
 	b.OwnerID(1)
@@ -200,6 +232,8 @@ func TestAccountUnbanBuilder(t *testing.T) {
 }
 
 func TestAccountUnregisterDeviceBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewAccountUnregisterDeviceBuilder()
 
 	b.DeviceID("text")

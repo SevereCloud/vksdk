@@ -8,6 +8,8 @@ import (
 )
 
 func TestVK_AuthCheckPhone(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	clientSecret := os.Getenv("CLIENT_SECRET")

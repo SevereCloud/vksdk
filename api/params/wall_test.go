@@ -8,6 +8,8 @@ import (
 )
 
 func TestWallCloseCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallCloseCommentsBuilder()
 
 	b.OwnerID(1)
@@ -18,6 +20,8 @@ func TestWallCloseCommentsBuilder(t *testing.T) {
 }
 
 func TestWallCreateCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallCreateCommentBuilder()
 
 	b.OwnerID(1)
@@ -40,6 +44,8 @@ func TestWallCreateCommentBuilder(t *testing.T) {
 }
 
 func TestWallDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallDeleteBuilder()
 
 	b.OwnerID(1)
@@ -50,6 +56,8 @@ func TestWallDeleteBuilder(t *testing.T) {
 }
 
 func TestWallDeleteCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallDeleteCommentBuilder()
 
 	b.OwnerID(1)
@@ -60,6 +68,8 @@ func TestWallDeleteCommentBuilder(t *testing.T) {
 }
 
 func TestWallEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallEditBuilder()
 
 	b.OwnerID(1)
@@ -98,6 +108,8 @@ func TestWallEditBuilder(t *testing.T) {
 }
 
 func TestWallEditAdsStealthBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallEditAdsStealthBuilder()
 
 	b.OwnerID(1)
@@ -128,6 +140,8 @@ func TestWallEditAdsStealthBuilder(t *testing.T) {
 }
 
 func TestWallEditCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallEditCommentBuilder()
 
 	b.OwnerID(1)
@@ -142,6 +156,8 @@ func TestWallEditCommentBuilder(t *testing.T) {
 }
 
 func TestWallGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallGetBuilder()
 
 	b.OwnerID(1)
@@ -162,6 +178,8 @@ func TestWallGetBuilder(t *testing.T) {
 }
 
 func TestWallGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallGetByIDBuilder()
 
 	b.Posts([]string{"text"})
@@ -176,6 +194,8 @@ func TestWallGetByIDBuilder(t *testing.T) {
 }
 
 func TestWallGetCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallGetCommentsBuilder()
 
 	b.OwnerID(1)
@@ -206,6 +226,8 @@ func TestWallGetCommentsBuilder(t *testing.T) {
 }
 
 func TestWallGetRepostsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallGetRepostsBuilder()
 
 	b.OwnerID(1)
@@ -220,6 +242,8 @@ func TestWallGetRepostsBuilder(t *testing.T) {
 }
 
 func TestWallOpenCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallOpenCommentsBuilder()
 
 	b.OwnerID(1)
@@ -230,6 +254,8 @@ func TestWallOpenCommentsBuilder(t *testing.T) {
 }
 
 func TestWallPinBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallPinBuilder()
 
 	b.OwnerID(1)
@@ -240,6 +266,8 @@ func TestWallPinBuilder(t *testing.T) {
 }
 
 func TestWallPostBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallPostBuilder()
 
 	b.OwnerID(1)
@@ -278,6 +306,8 @@ func TestWallPostBuilder(t *testing.T) {
 }
 
 func TestWallPostAdsStealthBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallPostAdsStealthBuilder()
 
 	b.OwnerID(1)
@@ -308,6 +338,8 @@ func TestWallPostAdsStealthBuilder(t *testing.T) {
 }
 
 func TestWallReportCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallReportCommentBuilder()
 
 	b.OwnerID(1)
@@ -320,6 +352,8 @@ func TestWallReportCommentBuilder(t *testing.T) {
 }
 
 func TestWallReportPostBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallReportPostBuilder()
 
 	b.OwnerID(1)
@@ -332,6 +366,8 @@ func TestWallReportPostBuilder(t *testing.T) {
 }
 
 func TestWallRepostBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallRepostBuilder()
 
 	b.Object("text")
@@ -348,6 +384,8 @@ func TestWallRepostBuilder(t *testing.T) {
 }
 
 func TestWallRestoreBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallRestoreBuilder()
 
 	b.OwnerID(1)
@@ -358,6 +396,8 @@ func TestWallRestoreBuilder(t *testing.T) {
 }
 
 func TestWallRestoreCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallRestoreCommentBuilder()
 
 	b.OwnerID(1)
@@ -368,6 +408,8 @@ func TestWallRestoreCommentBuilder(t *testing.T) {
 }
 
 func TestWallSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallSearchBuilder()
 
 	b.OwnerID(1)
@@ -390,6 +432,8 @@ func TestWallSearchBuilder(t *testing.T) {
 }
 
 func TestWallUnpinBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewWallUnpinBuilder()
 
 	b.OwnerID(1)

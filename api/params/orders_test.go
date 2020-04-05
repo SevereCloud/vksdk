@@ -8,6 +8,8 @@ import (
 )
 
 func TestOrdersCancelSubscriptionBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewOrdersCancelSubscriptionBuilder()
 
 	b.UserID(1)
@@ -20,6 +22,8 @@ func TestOrdersCancelSubscriptionBuilder(t *testing.T) {
 }
 
 func TestOrdersChangeStateBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewOrdersChangeStateBuilder()
 
 	b.OrderID(1)
@@ -34,6 +38,8 @@ func TestOrdersChangeStateBuilder(t *testing.T) {
 }
 
 func TestOrdersGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewOrdersGetBuilder()
 
 	b.Offset(1)
@@ -46,6 +52,8 @@ func TestOrdersGetBuilder(t *testing.T) {
 }
 
 func TestOrdersGetAmountBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewOrdersGetAmountBuilder()
 
 	b.UserID(1)
@@ -56,6 +64,8 @@ func TestOrdersGetAmountBuilder(t *testing.T) {
 }
 
 func TestOrdersGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewOrdersGetByIDBuilder()
 
 	b.OrderID(1)
@@ -68,6 +78,8 @@ func TestOrdersGetByIDBuilder(t *testing.T) {
 }
 
 func TestOrdersGetUserSubscriptionByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewOrdersGetUserSubscriptionByIDBuilder()
 
 	b.UserID(1)
@@ -78,6 +90,8 @@ func TestOrdersGetUserSubscriptionByIDBuilder(t *testing.T) {
 }
 
 func TestOrdersGetUserSubscriptionsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewOrdersGetUserSubscriptionsBuilder()
 
 	b.UserID(1)
@@ -86,6 +100,8 @@ func TestOrdersGetUserSubscriptionsBuilder(t *testing.T) {
 }
 
 func TestOrdersUpdateSubscriptionBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewOrdersUpdateSubscriptionBuilder()
 
 	b.UserID(1)

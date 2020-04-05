@@ -8,6 +8,8 @@ import (
 )
 
 func TestVK_LeadForms(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 	needUserToken(t)
 

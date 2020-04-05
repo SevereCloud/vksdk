@@ -8,6 +8,8 @@ import (
 )
 
 func TestPhotosPhoto_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhoto, want string) {
 		t.Helper()
 
@@ -21,6 +23,8 @@ func TestPhotosPhoto_ToAttachment(t *testing.T) {
 }
 
 func TestPhotosPhotoFull_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoFull, want string) {
 		t.Helper()
 
@@ -34,6 +38,8 @@ func TestPhotosPhotoFull_ToAttachment(t *testing.T) {
 }
 
 func TestPhotosPhotoFullXtrRealOffset_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoFullXtrRealOffset, want string) {
 		t.Helper()
 
@@ -47,6 +53,8 @@ func TestPhotosPhotoFullXtrRealOffset_ToAttachment(t *testing.T) {
 }
 
 func TestPhotosPhotoXtrRealOffset_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoXtrRealOffset, want string) {
 		t.Helper()
 
@@ -60,6 +68,8 @@ func TestPhotosPhotoXtrRealOffset_ToAttachment(t *testing.T) {
 }
 
 func Test_PhotosPhotoAlbum_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(album object.PhotosPhotoAlbum, want string) {
 		t.Helper()
 
@@ -73,6 +83,8 @@ func Test_PhotosPhotoAlbum_ToAttachment(t *testing.T) {
 }
 
 func TestPhotosPhotoAlbumFull_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(album object.PhotosPhotoAlbumFull, want string) {
 		t.Helper()
 
@@ -86,6 +98,8 @@ func TestPhotosPhotoAlbumFull_ToAttachment(t *testing.T) {
 }
 
 func TestPhotosPhotoXtrTagInfo_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoXtrTagInfo, want string) {
 		t.Helper()
 
@@ -99,6 +113,8 @@ func TestPhotosPhotoXtrTagInfo_ToAttachment(t *testing.T) {
 }
 
 func TestPhotosPhoto_MaxSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhoto, want object.PhotosPhotoSizes) {
 		t.Helper()
 
@@ -126,6 +142,8 @@ func TestPhotosPhoto_MaxSize(t *testing.T) {
 }
 
 func TestPhotosPhoto_MinSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhoto, want object.PhotosPhotoSizes) {
 		t.Helper()
 
@@ -153,6 +171,8 @@ func TestPhotosPhoto_MinSize(t *testing.T) {
 }
 
 func TestPhotosPhotoAlbumFull_MaxSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoAlbumFull, want object.PhotosPhotoSizes) {
 		t.Helper()
 
@@ -180,6 +200,8 @@ func TestPhotosPhotoAlbumFull_MaxSize(t *testing.T) {
 }
 
 func TestPhotosPhotoAlbumFull_MinSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoAlbumFull, want object.PhotosPhotoSizes) {
 		t.Helper()
 
@@ -207,6 +229,8 @@ func TestPhotosPhotoAlbumFull_MinSize(t *testing.T) {
 }
 
 func TestPhotosPhotoFullXtrRealOffset_MaxSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoFullXtrRealOffset, want object.PhotosPhotoSizes) {
 		t.Helper()
 
@@ -234,6 +258,8 @@ func TestPhotosPhotoFullXtrRealOffset_MaxSize(t *testing.T) {
 }
 
 func TestPhotosPhotoFullXtrRealOffset_MinSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoFullXtrRealOffset, want object.PhotosPhotoSizes) {
 		t.Helper()
 
@@ -261,6 +287,8 @@ func TestPhotosPhotoFullXtrRealOffset_MinSize(t *testing.T) {
 }
 
 func TestPhotosPhotoXtrRealOffset_MaxSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoXtrRealOffset, want object.PhotosPhotoSizes) {
 		t.Helper()
 
@@ -288,6 +316,8 @@ func TestPhotosPhotoXtrRealOffset_MaxSize(t *testing.T) {
 }
 
 func TestPhotosPhotoXtrRealOffset_MinSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoXtrRealOffset, want object.PhotosPhotoSizes) {
 		t.Helper()
 
@@ -315,6 +345,8 @@ func TestPhotosPhotoXtrRealOffset_MinSize(t *testing.T) {
 }
 
 func TestPhotosPhotoXtrTagInfo_MaxSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoXtrTagInfo, want object.PhotosPhotoSizes) {
 		t.Helper()
 
@@ -342,6 +374,8 @@ func TestPhotosPhotoXtrTagInfo_MaxSize(t *testing.T) {
 }
 
 func TestPhotosPhotoXtrTagInfo_MinSize(t *testing.T) {
+	t.Parallel()
+
 	f := func(photo object.PhotosPhotoXtrTagInfo, want object.PhotosPhotoSizes) {
 		t.Helper()
 

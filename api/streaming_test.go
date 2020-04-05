@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_StreamingGetServerURL(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	t.Run("StreamingGetServerURL not empty", func(t *testing.T) {
@@ -27,6 +29,8 @@ func TestVK_StreamingGetServerURL(t *testing.T) {
 }
 
 func TestVK_StreamingGetSettings(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	t.Run("StreamingGetSettings not empty", func(t *testing.T) {
@@ -42,6 +46,8 @@ func TestVK_StreamingGetSettings(t *testing.T) {
 }
 
 func TestVK_StreamingGetStats(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	params := api.Params{
@@ -63,6 +69,8 @@ func TestVK_StreamingGetStats(t *testing.T) {
 }
 
 func TestVK_StreamingGetStem(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	params := api.Params{
@@ -82,6 +90,8 @@ func TestVK_StreamingGetStem(t *testing.T) {
 }
 
 func TestVK_StreamingSetSettings(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	params := api.Params{
@@ -98,6 +108,8 @@ func TestVK_StreamingSetSettings(t *testing.T) {
 }
 
 func TestVK_StreamingError(t *testing.T) {
+	t.Parallel()
+
 	vk := api.NewVK("")
 
 	t.Run("StreamingGetServerURL error", func(t *testing.T) {

@@ -8,6 +8,8 @@ import (
 )
 
 func TestPagesClearCacheBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPagesClearCacheBuilder()
 
 	b.URL("text")
@@ -16,6 +18,8 @@ func TestPagesClearCacheBuilder(t *testing.T) {
 }
 
 func TestPagesGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPagesGetBuilder()
 
 	b.OwnerID(1)
@@ -36,6 +40,8 @@ func TestPagesGetBuilder(t *testing.T) {
 }
 
 func TestPagesGetHistoryBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPagesGetHistoryBuilder()
 
 	b.PageID(1)
@@ -48,6 +54,8 @@ func TestPagesGetHistoryBuilder(t *testing.T) {
 }
 
 func TestPagesGetTitlesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPagesGetTitlesBuilder()
 
 	b.GroupID(1)
@@ -56,6 +64,8 @@ func TestPagesGetTitlesBuilder(t *testing.T) {
 }
 
 func TestPagesGetVersionBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPagesGetVersionBuilder()
 
 	b.VersionID(1)
@@ -70,6 +80,8 @@ func TestPagesGetVersionBuilder(t *testing.T) {
 }
 
 func TestPagesParseWikiBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPagesParseWikiBuilder()
 
 	b.Text("text")
@@ -80,6 +92,8 @@ func TestPagesParseWikiBuilder(t *testing.T) {
 }
 
 func TestPagesSaveBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPagesSaveBuilder()
 
 	b.Text("text")
@@ -96,6 +110,8 @@ func TestPagesSaveBuilder(t *testing.T) {
 }
 
 func TestPagesSaveAccessBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPagesSaveAccessBuilder()
 
 	b.PageID(1)

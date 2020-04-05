@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_VideoAddDeleteRestore(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoAdd(api.Params{
@@ -43,6 +45,8 @@ func TestVK_VideoAddDeleteRestore(t *testing.T) {
 }
 
 func TestVK_VideoAddAlbum(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	album, err := vkUser.VideoAddAlbum(api.Params{
@@ -105,6 +109,8 @@ func TestVK_VideoAddAlbum(t *testing.T) {
 }
 
 func TestVK_VideoCreateComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	commentID, err := vkUser.VideoCreateComment(api.Params{
@@ -140,6 +146,8 @@ func TestVK_VideoEdit(t *testing.T) {
 }
 
 func TestVK_VideoGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoGet(api.Params{
@@ -152,6 +160,8 @@ func TestVK_VideoGet(t *testing.T) {
 }
 
 func TestVK_VideoGetExtended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoGetExtended(api.Params{
@@ -164,6 +174,8 @@ func TestVK_VideoGetExtended(t *testing.T) {
 }
 
 func TestVK_VideoGetAlbumByID(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoGetAlbumByID(api.Params{
@@ -181,6 +193,8 @@ func TestVK_VideoGetAlbumByID(t *testing.T) {
 }
 
 func TestVK_VideoGetAlbums(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoGetAlbums(api.Params{
@@ -193,6 +207,8 @@ func TestVK_VideoGetAlbums(t *testing.T) {
 }
 
 func TestVK_VideoGetAlbumsExtended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoGetAlbumsExtended(api.Params{
@@ -205,6 +221,8 @@ func TestVK_VideoGetAlbumsExtended(t *testing.T) {
 }
 
 func TestVK_VideoGetAlbumsByVideo(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.VideoGetAlbumsByVideo(api.Params{
@@ -215,6 +233,8 @@ func TestVK_VideoGetAlbumsByVideo(t *testing.T) {
 }
 
 func TestVK_VideoGetAlbumsByVideoExtended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.VideoGetAlbumsByVideoExtended(api.Params{
@@ -225,6 +245,8 @@ func TestVK_VideoGetAlbumsByVideoExtended(t *testing.T) {
 }
 
 func TestVK_VideoGetComments(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoGetComments(api.Params{
@@ -238,6 +260,8 @@ func TestVK_VideoGetComments(t *testing.T) {
 }
 
 func TestVK_VideoGetCommentsExtended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoGetCommentsExtended(api.Params{
@@ -252,6 +276,8 @@ func TestVK_VideoGetCommentsExtended(t *testing.T) {
 }
 
 func TestVK_VideoReport(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.VideoReport(api.Params{
@@ -262,6 +288,8 @@ func TestVK_VideoReport(t *testing.T) {
 }
 
 func TestVK_VideoReportComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.VideoReportComment(api.Params{
@@ -272,6 +300,8 @@ func TestVK_VideoReportComment(t *testing.T) {
 }
 
 func TestVK_VideoSearch(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoSearch(api.Params{
@@ -284,6 +314,8 @@ func TestVK_VideoSearch(t *testing.T) {
 }
 
 func TestVK_VideoSearchExtended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.VideoSearchExtended(api.Params{

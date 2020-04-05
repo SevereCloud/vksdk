@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_WallPost(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	post, err := vkUser.WallPost(api.Params{
@@ -68,6 +70,8 @@ func TestVK_WallPost(t *testing.T) {
 }
 
 func TestVK_WallGet(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	params := api.Params{
@@ -101,6 +105,8 @@ func TestVK_WallGet(t *testing.T) {
 }
 
 func TestVK_WallGetByID(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	params := api.Params{
@@ -127,6 +133,8 @@ func TestVK_WallGetByID(t *testing.T) {
 }
 
 func TestVK_WallGetComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	params := api.Params{
@@ -157,6 +165,8 @@ func TestVK_WallGetComment(t *testing.T) {
 }
 
 func TestVK_WallGetComments(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	params := api.Params{
@@ -179,6 +189,8 @@ func TestVK_WallGetComments(t *testing.T) {
 }
 
 func TestVK_WallGetReposts(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	_, err := vkService.WallGetReposts(api.Params{
@@ -191,6 +203,8 @@ func TestVK_WallGetReposts(t *testing.T) {
 }
 
 func TestVK_WallCreateComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	comment, err := vkUser.WallCreateComment(api.Params{
@@ -228,6 +242,8 @@ func TestVK_WallCreateComment(t *testing.T) {
 }
 
 func TestVK_WallPostAdsStealth(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -248,6 +264,8 @@ func TestVK_WallPostAdsStealth(t *testing.T) {
 }
 
 func TestVK_WallReportComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.WallReportComment(api.Params{
@@ -260,6 +278,8 @@ func TestVK_WallReportComment(t *testing.T) {
 }
 
 func TestVK_WallReportPost(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.WallReportPost(api.Params{
@@ -272,6 +292,8 @@ func TestVK_WallReportPost(t *testing.T) {
 }
 
 func TestVK_WallRepost(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.WallRepost(api.Params{
@@ -285,6 +307,8 @@ func TestVK_WallRepost(t *testing.T) {
 }
 
 func TestVK_WallSearch(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	params := api.Params{

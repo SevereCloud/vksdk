@@ -8,6 +8,8 @@ import (
 )
 
 func TestMessagesAddChatUserBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesAddChatUserBuilder()
 
 	b.ChatID(1)
@@ -18,6 +20,8 @@ func TestMessagesAddChatUserBuilder(t *testing.T) {
 }
 
 func TestMessagesAllowMessagesFromGroupBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesAllowMessagesFromGroupBuilder()
 
 	b.GroupID(1)
@@ -28,6 +32,8 @@ func TestMessagesAllowMessagesFromGroupBuilder(t *testing.T) {
 }
 
 func TestMessagesCreateChatBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesCreateChatBuilder()
 
 	b.UserIDs([]int{1})
@@ -38,6 +44,8 @@ func TestMessagesCreateChatBuilder(t *testing.T) {
 }
 
 func TestMessagesDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesDeleteBuilder()
 
 	b.MessageIDs([]int{1})
@@ -52,6 +60,8 @@ func TestMessagesDeleteBuilder(t *testing.T) {
 }
 
 func TestMessagesDeleteChatPhotoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesDeleteChatPhotoBuilder()
 
 	b.ChatID(1)
@@ -62,6 +72,8 @@ func TestMessagesDeleteChatPhotoBuilder(t *testing.T) {
 }
 
 func TestMessagesDeleteConversationBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesDeleteConversationBuilder()
 
 	b.UserID(1)
@@ -74,6 +86,8 @@ func TestMessagesDeleteConversationBuilder(t *testing.T) {
 }
 
 func TestMessagesDenyMessagesFromGroupBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesDenyMessagesFromGroupBuilder()
 
 	b.GroupID(1)
@@ -82,6 +96,8 @@ func TestMessagesDenyMessagesFromGroupBuilder(t *testing.T) {
 }
 
 func TestMessagesEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesEditBuilder()
 
 	b.PeerID(1)
@@ -108,6 +124,8 @@ func TestMessagesEditBuilder(t *testing.T) {
 }
 
 func TestMessagesEditChatBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesEditChatBuilder()
 
 	b.ChatID(1)
@@ -118,6 +136,8 @@ func TestMessagesEditChatBuilder(t *testing.T) {
 }
 
 func TestMessagesGetByConversationMessageIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetByConversationMessageIDBuilder()
 
 	b.PeerID(1)
@@ -134,6 +154,8 @@ func TestMessagesGetByConversationMessageIDBuilder(t *testing.T) {
 }
 
 func TestMessagesGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetByIDBuilder()
 
 	b.MessageIDs([]int{1})
@@ -150,6 +172,8 @@ func TestMessagesGetByIDBuilder(t *testing.T) {
 }
 
 func TestMessagesGetChatPreviewBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetChatPreviewBuilder()
 
 	b.PeerID(1)
@@ -162,6 +186,8 @@ func TestMessagesGetChatPreviewBuilder(t *testing.T) {
 }
 
 func TestMessagesGetConversationMembersBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetConversationMembersBuilder()
 
 	b.PeerID(1)
@@ -174,6 +200,8 @@ func TestMessagesGetConversationMembersBuilder(t *testing.T) {
 }
 
 func TestMessagesGetConversationsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetConversationsBuilder()
 
 	b.Offset(1)
@@ -194,6 +222,8 @@ func TestMessagesGetConversationsBuilder(t *testing.T) {
 }
 
 func TestMessagesGetConversationsByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetConversationsByIDBuilder()
 
 	b.PeerIDs([]int{1})
@@ -208,6 +238,8 @@ func TestMessagesGetConversationsByIDBuilder(t *testing.T) {
 }
 
 func TestMessagesGetHistoryBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetHistoryBuilder()
 
 	b.Offset(1)
@@ -232,6 +264,8 @@ func TestMessagesGetHistoryBuilder(t *testing.T) {
 }
 
 func TestMessagesGetHistoryAttachmentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetHistoryAttachmentsBuilder()
 
 	b.PeerID(1)
@@ -256,6 +290,8 @@ func TestMessagesGetHistoryAttachmentsBuilder(t *testing.T) {
 }
 
 func TestMessagesGetInviteLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetInviteLinkBuilder()
 
 	b.PeerID(1)
@@ -268,6 +304,8 @@ func TestMessagesGetInviteLinkBuilder(t *testing.T) {
 }
 
 func TestMessagesGetLastActivityBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetLastActivityBuilder()
 
 	b.UserID(1)
@@ -276,6 +314,8 @@ func TestMessagesGetLastActivityBuilder(t *testing.T) {
 }
 
 func TestMessagesGetLongPollHistoryBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetLongPollHistoryBuilder()
 
 	b.Ts(1)
@@ -306,6 +346,8 @@ func TestMessagesGetLongPollHistoryBuilder(t *testing.T) {
 }
 
 func TestMessagesGetLongPollServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesGetLongPollServerBuilder()
 
 	b.NeedPts(true)
@@ -318,6 +360,8 @@ func TestMessagesGetLongPollServerBuilder(t *testing.T) {
 }
 
 func TestMessagesIsMessagesFromGroupAllowedBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesIsMessagesFromGroupAllowedBuilder()
 
 	b.GroupID(1)
@@ -328,6 +372,8 @@ func TestMessagesIsMessagesFromGroupAllowedBuilder(t *testing.T) {
 }
 
 func TestMessagesJoinChatByInviteLinkBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesJoinChatByInviteLinkBuilder()
 
 	b.Link("text")
@@ -336,6 +382,8 @@ func TestMessagesJoinChatByInviteLinkBuilder(t *testing.T) {
 }
 
 func TestMessagesMarkAsAnsweredConversationBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesMarkAsAnsweredConversationBuilder()
 
 	b.PeerID(1)
@@ -348,6 +396,8 @@ func TestMessagesMarkAsAnsweredConversationBuilder(t *testing.T) {
 }
 
 func TestMessagesMarkAsImportantBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesMarkAsImportantBuilder()
 
 	b.MessageIDs([]int{1})
@@ -358,6 +408,8 @@ func TestMessagesMarkAsImportantBuilder(t *testing.T) {
 }
 
 func TestMessagesMarkAsImportantConversationBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesMarkAsImportantConversationBuilder()
 
 	b.PeerID(1)
@@ -370,6 +422,8 @@ func TestMessagesMarkAsImportantConversationBuilder(t *testing.T) {
 }
 
 func TestMessagesMarkAsReadBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesMarkAsReadBuilder()
 
 	b.MessageIDs([]int{1})
@@ -384,6 +438,8 @@ func TestMessagesMarkAsReadBuilder(t *testing.T) {
 }
 
 func TestMessagesPinBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesPinBuilder()
 
 	b.PeerID(1)
@@ -394,6 +450,8 @@ func TestMessagesPinBuilder(t *testing.T) {
 }
 
 func TestMessagesRemoveChatUserBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesRemoveChatUserBuilder()
 
 	b.ChatID(1)
@@ -406,6 +464,8 @@ func TestMessagesRemoveChatUserBuilder(t *testing.T) {
 }
 
 func TestMessagesRestoreBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesRestoreBuilder()
 
 	b.MessageID(1)
@@ -416,6 +476,8 @@ func TestMessagesRestoreBuilder(t *testing.T) {
 }
 
 func TestMessagesSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesSearchBuilder()
 
 	b.Q("text")
@@ -440,6 +502,8 @@ func TestMessagesSearchBuilder(t *testing.T) {
 }
 
 func TestMessagesSearchConversationsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesSearchConversationsBuilder()
 
 	b.Q("text")
@@ -456,6 +520,8 @@ func TestMessagesSearchConversationsBuilder(t *testing.T) {
 }
 
 func TestMessagesSendBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesSendBuilder()
 
 	b.UserID(1)
@@ -504,6 +570,8 @@ func TestMessagesSendBuilder(t *testing.T) {
 }
 
 func TestMessagesSetActivityBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesSetActivityBuilder()
 
 	b.UserID(1)
@@ -518,6 +586,8 @@ func TestMessagesSetActivityBuilder(t *testing.T) {
 }
 
 func TestMessagesSetChatPhotoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesSetChatPhotoBuilder()
 
 	b.File("text")
@@ -526,6 +596,8 @@ func TestMessagesSetChatPhotoBuilder(t *testing.T) {
 }
 
 func TestMessagesUnpinBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewMessagesUnpinBuilder()
 
 	b.PeerID(1)

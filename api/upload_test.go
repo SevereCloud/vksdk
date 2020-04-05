@@ -15,6 +15,8 @@ import (
 const photoURL = "https://sun9-17.userapi.com/c853620/v853620933/dedb8/_5CIRVR-UA8.jpg"
 
 func TestVK_UploadFile(t *testing.T) {
+	t.Parallel()
+
 	vk := api.NewVK("")
 
 	f := func(url string, file io.Reader, fieldname, filename string, needErr bool) {
@@ -30,6 +32,8 @@ func TestVK_UploadFile(t *testing.T) {
 }
 
 func TestVK_UploadPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	album, err := vkUser.PhotosCreateAlbum(api.Params{
@@ -50,6 +54,8 @@ func TestVK_UploadPhoto(t *testing.T) {
 }
 
 func TestVK_UploadPhotoGroup(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -72,6 +78,8 @@ func TestVK_UploadPhotoGroup(t *testing.T) {
 }
 
 func TestVK_UploadWallPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -85,6 +93,8 @@ func TestVK_UploadWallPhoto(t *testing.T) {
 }
 
 func TestVK_UploadGroupWallPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -99,6 +109,8 @@ func TestVK_UploadGroupWallPhoto(t *testing.T) {
 }
 
 func TestVK_UploadUserPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -112,6 +124,8 @@ func TestVK_UploadUserPhoto(t *testing.T) {
 }
 
 func TestVK_UploadOwnerPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -126,6 +140,8 @@ func TestVK_UploadOwnerPhoto(t *testing.T) {
 }
 
 func TestVK_UploadMessagesPhoto(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	response, err := http.Get(photoURL)
@@ -139,6 +155,8 @@ func TestVK_UploadMessagesPhoto(t *testing.T) {
 }
 
 func TestVK_UploadChatPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -152,6 +170,8 @@ func TestVK_UploadChatPhoto(t *testing.T) {
 }
 
 func TestVK_UploadChatPhotoCrop(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -165,6 +185,8 @@ func TestVK_UploadChatPhotoCrop(t *testing.T) {
 }
 
 func TestVK_UploadMarketPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -179,6 +201,8 @@ func TestVK_UploadMarketPhoto(t *testing.T) {
 }
 
 func TestVK_UploadMarketPhotoMain(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -193,6 +217,8 @@ func TestVK_UploadMarketPhotoMain(t *testing.T) {
 }
 
 func TestVK_UploadMarketPhotoCrop(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -207,6 +233,8 @@ func TestVK_UploadMarketPhotoCrop(t *testing.T) {
 }
 
 func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -221,6 +249,8 @@ func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
 }
 
 func TestVK_UploadVideo_Error(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -236,6 +266,8 @@ func TestVK_UploadVideo_Error(t *testing.T) {
 }
 
 func TestVK_uploadDoc_Error(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.UploadDoc("", "", new(bytes.Buffer))
@@ -245,6 +277,8 @@ func TestVK_uploadDoc_Error(t *testing.T) {
 }
 
 func TestVK_UploadDoc(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -258,6 +292,8 @@ func TestVK_UploadDoc(t *testing.T) {
 }
 
 func TestVK_UploadGroupDoc(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -272,6 +308,8 @@ func TestVK_UploadGroupDoc(t *testing.T) {
 }
 
 func TestVK_UploadWallDoc(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -285,6 +323,8 @@ func TestVK_UploadWallDoc(t *testing.T) {
 }
 
 func TestVK_UploadGroupWallDoc(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -299,6 +339,8 @@ func TestVK_UploadGroupWallDoc(t *testing.T) {
 }
 
 func TestVK_UploadMessagesDoc(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -312,6 +354,8 @@ func TestVK_UploadMessagesDoc(t *testing.T) {
 }
 
 func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -326,6 +370,8 @@ func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
 }
 
 func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.UploadStoriesPhoto(api.Params{}, new(bytes.Buffer))
@@ -335,6 +381,8 @@ func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
 }
 
 func TestVK_UploadStoriesVideo_Error(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -350,6 +398,8 @@ func TestVK_UploadStoriesVideo_Error(t *testing.T) {
 }
 
 func TestVK_UploadPollsPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -363,6 +413,8 @@ func TestVK_UploadPollsPhoto(t *testing.T) {
 }
 
 func TestVK_UploadOwnerPollsPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -377,6 +429,8 @@ func TestVK_UploadOwnerPollsPhoto(t *testing.T) {
 }
 
 func TestVK_UploadPrettyCardsPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -390,6 +444,8 @@ func TestVK_UploadPrettyCardsPhoto(t *testing.T) {
 }
 
 func TestVK_UploadLeadFormsPhoto(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	response, err := http.Get(photoURL)
@@ -403,6 +459,8 @@ func TestVK_UploadLeadFormsPhoto(t *testing.T) {
 }
 
 func TestVK_UploadAppImage(t *testing.T) {
+	t.Parallel()
+
 	t.Skip("Access denied: method available only for community applications")
 	needServiceToken(t)
 
@@ -417,6 +475,8 @@ func TestVK_UploadAppImage(t *testing.T) {
 }
 
 func TestVK_UploadGroupImage(t *testing.T) {
+	t.Parallel()
+
 	t.Skip("Access rights required: app_widget.")
 	needGroupToken(t)
 
@@ -431,6 +491,8 @@ func TestVK_UploadGroupImage(t *testing.T) {
 }
 
 func TestVK_Upload_Error(t *testing.T) {
+	t.Parallel()
+
 	vk := api.NewVK("")
 
 	_, err := vk.UploadPhoto(0, new(bytes.Buffer))

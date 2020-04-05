@@ -8,6 +8,8 @@ import (
 )
 
 func TestDatabaseGetChairsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetChairsBuilder()
 
 	b.FacultyID(1)
@@ -20,6 +22,8 @@ func TestDatabaseGetChairsBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetCitiesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetCitiesBuilder()
 
 	b.CountryID(1)
@@ -38,6 +42,8 @@ func TestDatabaseGetCitiesBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetCitiesByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetCitiesByIDBuilder()
 
 	b.CityIDs([]int{1})
@@ -46,6 +52,8 @@ func TestDatabaseGetCitiesByIDBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetCountriesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetCountriesBuilder()
 
 	b.NeedAll(true)
@@ -60,6 +68,8 @@ func TestDatabaseGetCountriesBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetCountriesByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetCountriesByIDBuilder()
 
 	b.CountryIDs([]int{1})
@@ -68,6 +78,8 @@ func TestDatabaseGetCountriesByIDBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetFacultiesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetFacultiesBuilder()
 
 	b.UniversityID(1)
@@ -80,6 +92,8 @@ func TestDatabaseGetFacultiesBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetMetroStationsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetMetroStationsBuilder()
 
 	b.CityID(1)
@@ -94,6 +108,8 @@ func TestDatabaseGetMetroStationsBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetMetroStationsByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetMetroStationsByIDBuilder()
 
 	b.StationIDs([]int{1})
@@ -102,6 +118,8 @@ func TestDatabaseGetMetroStationsByIDBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetRegionsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetRegionsBuilder()
 
 	b.CountryID(1)
@@ -116,6 +134,8 @@ func TestDatabaseGetRegionsBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetSchoolClassesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetSchoolClassesBuilder()
 
 	b.CountryID(1)
@@ -124,6 +144,8 @@ func TestDatabaseGetSchoolClassesBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetSchoolsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetSchoolsBuilder()
 
 	b.Q("text")
@@ -138,6 +160,8 @@ func TestDatabaseGetSchoolsBuilder(t *testing.T) {
 }
 
 func TestDatabaseGetUniversitiesBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewDatabaseGetUniversitiesBuilder()
 
 	b.Q("text")

@@ -7,6 +7,8 @@ import (
 )
 
 func TestDocsDoc_ToAttachment(t *testing.T) {
+	t.Parallel()
+
 	f := func(doc object.DocsDoc, want string) {
 		if got := doc.ToAttachment(); got != want {
 			t.Errorf("DocsDoc.ToAttachment() = %v, want %v", got, want)

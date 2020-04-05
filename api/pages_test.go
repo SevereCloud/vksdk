@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_PagesClearCache(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	res, err := vkService.PagesClearCache(api.Params{
@@ -19,6 +21,8 @@ func TestVK_PagesClearCache(t *testing.T) {
 }
 
 func TestVK_PagesGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.PagesGet(api.Params{
@@ -40,6 +44,8 @@ func TestVK_PagesGet(t *testing.T) {
 }
 
 func TestVK_PagesSave(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -90,6 +96,8 @@ func TestVK_PagesSave(t *testing.T) {
 }
 
 func TestVK_PagesGetTitles(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.PagesGetTitles(api.Params{
@@ -100,6 +108,8 @@ func TestVK_PagesGetTitles(t *testing.T) {
 }
 
 func TestVK_PagesParseWiki(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.PagesParseWiki(api.Params{

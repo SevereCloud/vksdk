@@ -9,6 +9,8 @@ import (
 )
 
 func TestVK_DocsAdd(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	doc, err := vkUser.DocsAdd(api.Params{
@@ -35,6 +37,8 @@ func TestVK_DocsAdd(t *testing.T) {
 }
 
 func TestVK_DocsGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.DocsGet(api.Params{
@@ -56,6 +60,8 @@ func TestVK_DocsGet(t *testing.T) {
 }
 
 func TestVK_DocsGetByID(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.DocsGetByID(api.Params{
@@ -91,6 +97,8 @@ func TestVK_DocsGetByID(t *testing.T) {
 }
 
 func TestVK_DocsGetTypes(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.DocsGetTypes(api.Params{})
@@ -105,6 +113,8 @@ func TestVK_DocsGetTypes(t *testing.T) {
 }
 
 func TestVK_DocsGetUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.DocsGetUploadServer(api.Params{})
@@ -113,6 +123,8 @@ func TestVK_DocsGetUploadServer(t *testing.T) {
 }
 
 func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.DocsGetMessagesUploadServer(api.Params{})
@@ -121,6 +133,8 @@ func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 }
 
 func TestVK_DocsGetWallUploadServer(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.DocsGetWallUploadServer(api.Params{})
@@ -131,6 +145,8 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 // TODO: TestVK_DocsSave
 
 func TestVK_DocsSearch(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	res, err := vkGroup.DocsSearch(api.Params{

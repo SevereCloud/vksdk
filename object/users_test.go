@@ -7,6 +7,8 @@ import (
 )
 
 func TestUsersUser_ToMention(t *testing.T) {
+	t.Parallel()
+
 	f := func(user object.UsersUser, want string) {
 		if got := user.ToMention(); got != want {
 			t.Errorf("UsersUser.ToMention() = %v, want %v", got, want)
@@ -20,6 +22,8 @@ func TestUsersUser_ToMention(t *testing.T) {
 }
 
 func TestUsersUserMin_ToMention(t *testing.T) {
+	t.Parallel()
+
 	f := func(user object.UsersUserMin, want string) {
 		if got := user.ToMention(); got != want {
 			t.Errorf("UsersUserMin.ToMention() = %v, want %v", got, want)

@@ -8,6 +8,8 @@ import (
 )
 
 func TestPhotosConfirmTagBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosConfirmTagBuilder()
 
 	b.OwnerID(1)
@@ -20,6 +22,8 @@ func TestPhotosConfirmTagBuilder(t *testing.T) {
 }
 
 func TestPhotosCopyBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosCopyBuilder()
 
 	b.OwnerID(1)
@@ -32,6 +36,8 @@ func TestPhotosCopyBuilder(t *testing.T) {
 }
 
 func TestPhotosCreateAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosCreateAlbumBuilder()
 
 	b.Title("text")
@@ -52,6 +58,8 @@ func TestPhotosCreateAlbumBuilder(t *testing.T) {
 }
 
 func TestPhotosCreateCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosCreateCommentBuilder()
 
 	b.OwnerID(1)
@@ -76,6 +84,8 @@ func TestPhotosCreateCommentBuilder(t *testing.T) {
 }
 
 func TestPhotosDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosDeleteBuilder()
 
 	b.OwnerID(1)
@@ -86,6 +96,8 @@ func TestPhotosDeleteBuilder(t *testing.T) {
 }
 
 func TestPhotosDeleteAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosDeleteAlbumBuilder()
 
 	b.AlbumID(1)
@@ -96,6 +108,8 @@ func TestPhotosDeleteAlbumBuilder(t *testing.T) {
 }
 
 func TestPhotosDeleteCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosDeleteCommentBuilder()
 
 	b.OwnerID(1)
@@ -106,6 +120,8 @@ func TestPhotosDeleteCommentBuilder(t *testing.T) {
 }
 
 func TestPhotosEditBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosEditBuilder()
 
 	b.OwnerID(1)
@@ -128,6 +144,8 @@ func TestPhotosEditBuilder(t *testing.T) {
 }
 
 func TestPhotosEditAlbumBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosEditAlbumBuilder()
 
 	b.AlbumID(1)
@@ -150,6 +168,8 @@ func TestPhotosEditAlbumBuilder(t *testing.T) {
 }
 
 func TestPhotosEditCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosEditCommentBuilder()
 
 	b.OwnerID(1)
@@ -164,6 +184,8 @@ func TestPhotosEditCommentBuilder(t *testing.T) {
 }
 
 func TestPhotosGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetBuilder()
 
 	b.OwnerID(1)
@@ -190,6 +212,8 @@ func TestPhotosGetBuilder(t *testing.T) {
 }
 
 func TestPhotosGetAlbumsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetAlbumsBuilder()
 
 	b.OwnerID(1)
@@ -210,6 +234,8 @@ func TestPhotosGetAlbumsBuilder(t *testing.T) {
 }
 
 func TestPhotosGetAlbumsCountBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetAlbumsCountBuilder()
 
 	b.UserID(1)
@@ -220,6 +246,8 @@ func TestPhotosGetAlbumsCountBuilder(t *testing.T) {
 }
 
 func TestPhotosGetAllBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetAllBuilder()
 
 	b.OwnerID(1)
@@ -242,6 +270,8 @@ func TestPhotosGetAllBuilder(t *testing.T) {
 }
 
 func TestPhotosGetAllCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetAllCommentsBuilder()
 
 	b.OwnerID(1)
@@ -258,6 +288,8 @@ func TestPhotosGetAllCommentsBuilder(t *testing.T) {
 }
 
 func TestPhotosGetByIDBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetByIDBuilder()
 
 	b.Photos([]string{"text"})
@@ -270,6 +302,8 @@ func TestPhotosGetByIDBuilder(t *testing.T) {
 }
 
 func TestPhotosGetChatUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetChatUploadServerBuilder()
 
 	b.ChatID(1)
@@ -284,6 +318,8 @@ func TestPhotosGetChatUploadServerBuilder(t *testing.T) {
 }
 
 func TestPhotosGetCommentsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetCommentsBuilder()
 
 	b.OwnerID(1)
@@ -310,6 +346,8 @@ func TestPhotosGetCommentsBuilder(t *testing.T) {
 }
 
 func TestPhotosGetMarketAlbumUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetMarketAlbumUploadServerBuilder()
 
 	b.GroupID(1)
@@ -318,6 +356,8 @@ func TestPhotosGetMarketAlbumUploadServerBuilder(t *testing.T) {
 }
 
 func TestPhotosGetMarketUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetMarketUploadServerBuilder()
 
 	b.GroupID(1)
@@ -334,6 +374,8 @@ func TestPhotosGetMarketUploadServerBuilder(t *testing.T) {
 }
 
 func TestPhotosGetMessagesUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetMessagesUploadServerBuilder()
 
 	b.PeerID(1)
@@ -342,6 +384,8 @@ func TestPhotosGetMessagesUploadServerBuilder(t *testing.T) {
 }
 
 func TestPhotosGetNewTagsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetNewTagsBuilder()
 
 	b.Offset(1)
@@ -352,6 +396,8 @@ func TestPhotosGetNewTagsBuilder(t *testing.T) {
 }
 
 func TestPhotosGetOwnerCoverPhotoUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetOwnerCoverPhotoUploadServerBuilder()
 
 	b.GroupID(1)
@@ -368,6 +414,8 @@ func TestPhotosGetOwnerCoverPhotoUploadServerBuilder(t *testing.T) {
 }
 
 func TestPhotosGetOwnerPhotoUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetOwnerPhotoUploadServerBuilder()
 
 	b.OwnerID(1)
@@ -376,6 +424,8 @@ func TestPhotosGetOwnerPhotoUploadServerBuilder(t *testing.T) {
 }
 
 func TestPhotosGetTagsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetTagsBuilder()
 
 	b.OwnerID(1)
@@ -388,6 +438,8 @@ func TestPhotosGetTagsBuilder(t *testing.T) {
 }
 
 func TestPhotosGetUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetUploadServerBuilder()
 
 	b.GroupID(1)
@@ -398,6 +450,8 @@ func TestPhotosGetUploadServerBuilder(t *testing.T) {
 }
 
 func TestPhotosGetUserPhotosBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetUserPhotosBuilder()
 
 	b.UserID(1)
@@ -414,6 +468,8 @@ func TestPhotosGetUserPhotosBuilder(t *testing.T) {
 }
 
 func TestPhotosGetWallUploadServerBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosGetWallUploadServerBuilder()
 
 	b.GroupID(1)
@@ -422,6 +478,8 @@ func TestPhotosGetWallUploadServerBuilder(t *testing.T) {
 }
 
 func TestPhotosMakeCoverBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosMakeCoverBuilder()
 
 	b.OwnerID(1)
@@ -434,6 +492,8 @@ func TestPhotosMakeCoverBuilder(t *testing.T) {
 }
 
 func TestPhotosMoveBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosMoveBuilder()
 
 	b.OwnerID(1)
@@ -446,6 +506,8 @@ func TestPhotosMoveBuilder(t *testing.T) {
 }
 
 func TestPhotosPutTagBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosPutTagBuilder()
 
 	b.OwnerID(1)
@@ -466,6 +528,8 @@ func TestPhotosPutTagBuilder(t *testing.T) {
 }
 
 func TestPhotosRemoveTagBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosRemoveTagBuilder()
 
 	b.OwnerID(1)
@@ -478,6 +542,8 @@ func TestPhotosRemoveTagBuilder(t *testing.T) {
 }
 
 func TestPhotosReorderAlbumsBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosReorderAlbumsBuilder()
 
 	b.OwnerID(1)
@@ -492,6 +558,8 @@ func TestPhotosReorderAlbumsBuilder(t *testing.T) {
 }
 
 func TestPhotosReorderPhotosBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosReorderPhotosBuilder()
 
 	b.OwnerID(1)
@@ -506,6 +574,8 @@ func TestPhotosReorderPhotosBuilder(t *testing.T) {
 }
 
 func TestPhotosReportBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosReportBuilder()
 
 	b.OwnerID(1)
@@ -518,6 +588,8 @@ func TestPhotosReportBuilder(t *testing.T) {
 }
 
 func TestPhotosReportCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosReportCommentBuilder()
 
 	b.OwnerID(1)
@@ -530,6 +602,8 @@ func TestPhotosReportCommentBuilder(t *testing.T) {
 }
 
 func TestPhotosRestoreBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosRestoreBuilder()
 
 	b.OwnerID(1)
@@ -540,6 +614,8 @@ func TestPhotosRestoreBuilder(t *testing.T) {
 }
 
 func TestPhotosRestoreCommentBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosRestoreCommentBuilder()
 
 	b.OwnerID(1)
@@ -550,6 +626,8 @@ func TestPhotosRestoreCommentBuilder(t *testing.T) {
 }
 
 func TestPhotosSaveBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosSaveBuilder()
 
 	b.AlbumID(1)
@@ -572,6 +650,8 @@ func TestPhotosSaveBuilder(t *testing.T) {
 }
 
 func TestPhotosSaveMarketAlbumPhotoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosSaveMarketAlbumPhotoBuilder()
 
 	b.GroupID(1)
@@ -586,6 +666,8 @@ func TestPhotosSaveMarketAlbumPhotoBuilder(t *testing.T) {
 }
 
 func TestPhotosSaveMarketPhotoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosSaveMarketPhotoBuilder()
 
 	b.GroupID(1)
@@ -604,6 +686,8 @@ func TestPhotosSaveMarketPhotoBuilder(t *testing.T) {
 }
 
 func TestPhotosSaveMessagesPhotoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosSaveMessagesPhotoBuilder()
 
 	b.Photo("text")
@@ -616,6 +700,8 @@ func TestPhotosSaveMessagesPhotoBuilder(t *testing.T) {
 }
 
 func TestPhotosSaveOwnerCoverPhotoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosSaveOwnerCoverPhotoBuilder()
 
 	b.Hash("text")
@@ -626,6 +712,8 @@ func TestPhotosSaveOwnerCoverPhotoBuilder(t *testing.T) {
 }
 
 func TestPhotosSaveOwnerPhotoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosSaveOwnerPhotoBuilder()
 
 	b.Server("text")
@@ -638,6 +726,8 @@ func TestPhotosSaveOwnerPhotoBuilder(t *testing.T) {
 }
 
 func TestPhotosSaveWallPhotoBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosSaveWallPhotoBuilder()
 
 	b.UserID(1)
@@ -660,6 +750,8 @@ func TestPhotosSaveWallPhotoBuilder(t *testing.T) {
 }
 
 func TestPhotosSearchBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewPhotosSearchBuilder()
 
 	b.Q("text")

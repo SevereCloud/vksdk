@@ -55,6 +55,8 @@ func MarketAdd(t *testing.T) int {
 }
 
 func TestVK_MarketAddAlbum(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	needGroupToken(t)
 
@@ -130,6 +132,8 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 }
 
 func TestVK_MarketCreateComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	commentID, err := vkUser.MarketCreateComment(api.Params{
@@ -161,6 +165,8 @@ func TestVK_MarketCreateComment(t *testing.T) {
 }
 
 func TestVK_MarketGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MarketGet(api.Params{
@@ -173,6 +179,8 @@ func TestVK_MarketGet(t *testing.T) {
 }
 
 func TestVK_MarketGetAlbumByID(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MarketGetAlbumByID(api.Params{
@@ -192,6 +200,8 @@ func TestVK_MarketGetAlbumByID(t *testing.T) {
 }
 
 func TestVK_MarketGetAlbums(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MarketGetAlbums(api.Params{
@@ -210,6 +220,8 @@ func TestVK_MarketGetAlbums(t *testing.T) {
 }
 
 func TestVK_MarketGetByID(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MarketGetByID(api.Params{
@@ -247,6 +259,8 @@ func TestVK_MarketGetByID(t *testing.T) {
 }
 
 func TestVK_MarketGetCategories(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MarketGetCategories(api.Params{})
@@ -261,6 +275,8 @@ func TestVK_MarketGetCategories(t *testing.T) {
 }
 
 func TestVK_MarketGetComments(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MarketGetComments(api.Params{
@@ -273,6 +289,8 @@ func TestVK_MarketGetComments(t *testing.T) {
 }
 
 func TestVK_MarketGetCommentsExtended(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MarketGetCommentsExtended(api.Params{
@@ -285,6 +303,8 @@ func TestVK_MarketGetCommentsExtended(t *testing.T) {
 }
 
 func TestVK_MarketReport(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.MarketReport(api.Params{
@@ -296,6 +316,8 @@ func TestVK_MarketReport(t *testing.T) {
 }
 
 func TestVK_MarketReportComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.MarketReportComment(api.Params{
@@ -307,6 +329,8 @@ func TestVK_MarketReportComment(t *testing.T) {
 }
 
 func TestVK_MarketSearch(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.MarketSearch(api.Params{

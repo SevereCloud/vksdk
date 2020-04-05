@@ -7,6 +7,8 @@ import (
 )
 
 func TestVK_PodcastsGet(t *testing.T) {
+	t.Parallel()
+
 	// FIXME: 7 Permission to perform this action is denied
 	t.Skip("7 Permission to perform this action is denied")
 	needUserToken(t)
@@ -39,6 +41,8 @@ func TestVK_PodcastsGet(t *testing.T) {
 }
 
 func TestVK_PodcastsMarkAsListened(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PodcastsMarkAsListened(api.Params{
@@ -49,6 +53,8 @@ func TestVK_PodcastsMarkAsListened(t *testing.T) {
 }
 
 func TestVK_PodcastsSubscribe(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.PodcastsSubscribe(api.Params{

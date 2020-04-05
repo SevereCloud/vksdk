@@ -8,6 +8,8 @@ import (
 )
 
 func TestGiftsGetBuilder(t *testing.T) {
+	t.Parallel()
+
 	b := params.NewGiftsGetBuilder()
 
 	b.UserID(1)

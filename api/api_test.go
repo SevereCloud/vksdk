@@ -105,6 +105,8 @@ func TestMain(m *testing.M) {
 }
 
 func TestVK_Request(t *testing.T) {
+	t.Parallel()
+
 	groupToken := os.Getenv("GROUP_TOKEN")
 	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
@@ -153,6 +155,8 @@ func TestVK_RequestLimit(t *testing.T) {
 }
 
 func TestVK_Execute_error(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	var response int
@@ -163,6 +167,8 @@ func TestVK_Execute_error(t *testing.T) {
 }
 
 func TestVK_Execute_object(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	var response struct {
@@ -175,6 +181,8 @@ func TestVK_Execute_object(t *testing.T) {
 }
 
 func TestVK_RequestUnmarshal(t *testing.T) {
+	t.Parallel()
+
 	needGroupToken(t)
 
 	var testObj string
@@ -188,6 +196,8 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 type renamedBool bool
 
 func Test_FmtValue(t *testing.T) {
+	t.Parallel()
+
 	f := func(value interface{}, want string) {
 		t.Helper()
 
@@ -229,6 +239,8 @@ func Test_FmtValue(t *testing.T) {
 }
 
 func TestVK_CaptchaForce(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.CaptchaForce(api.Params{})
@@ -239,6 +251,8 @@ func TestVK_CaptchaForce(t *testing.T) {
 
 // FIXME: v2 remove TestInit
 func TestInit(t *testing.T) {
+	t.Parallel()
+
 	vk := api.Init("")
 	assert.NotNil(t, vk)
 }

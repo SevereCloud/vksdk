@@ -11,6 +11,8 @@ import (
 )
 
 func TestVK_NotesAdd(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	note, err := vkUser.NotesAdd(api.Params{
@@ -36,6 +38,8 @@ func TestVK_NotesAdd(t *testing.T) {
 }
 
 func TestVK_NotesCreateComment(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	comment, err := vkUser.NotesCreateComment(api.Params{
@@ -68,6 +72,8 @@ func TestVK_NotesCreateComment(t *testing.T) {
 }
 
 func TestVK_NotesGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.NotesGet(api.Params{
@@ -88,6 +94,8 @@ func TestVK_NotesGet(t *testing.T) {
 }
 
 func TestVK_NotesGetByID(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.NotesGetByID(api.Params{
@@ -107,6 +115,8 @@ func TestVK_NotesGetByID(t *testing.T) {
 }
 
 func TestVK_NotesGetComments(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	_, err := vkUser.NotesGetComments(api.Params{

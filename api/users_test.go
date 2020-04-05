@@ -10,6 +10,8 @@ import (
 )
 
 func TestVK_UsersGet(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.UsersGet(api.Params{
@@ -93,6 +95,8 @@ func TestVK_UsersGet(t *testing.T) {
 }
 
 func TestVK_UsersGetFollowers(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.UsersGetFollowers(api.Params{
@@ -109,6 +113,8 @@ func TestVK_UsersGetFollowers(t *testing.T) {
 }
 
 func TestVK_UsersGetSubscriptions(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.UsersGetSubscriptions(api.Params{
@@ -119,6 +125,8 @@ func TestVK_UsersGetSubscriptions(t *testing.T) {
 }
 
 func TestVK_UsersReport(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.UsersReport(api.Params{
@@ -135,6 +143,8 @@ func TestVK_UsersReport(t *testing.T) {
 }
 
 func TestVK_UsersSearch(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	res, err := vkUser.UsersSearch(api.Params{
