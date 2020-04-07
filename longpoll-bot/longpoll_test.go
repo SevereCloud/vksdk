@@ -129,10 +129,7 @@ func TestLongpoll_checkResponse(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
-			t.Parallel()
-
 			if err := lp.checkResponse(tt.argResponse); (err != nil) != tt.wantErr {
 				t.Errorf("Longpoll.checkResponse() error = %v, wantErr %v", err, tt.wantErr)
 			}
