@@ -55,6 +55,9 @@ func needServiceToken(t *testing.T) {
 }
 
 func needChatID(t *testing.T) int {
+	mux.Lock()
+	defer mux.Unlock()
+
 	t.Helper()
 	needUserToken(t)
 
@@ -74,6 +77,7 @@ func needChatID(t *testing.T) int {
 
 var vkGroup, vkService, vkUser *api.VK // nolint:gochecknoglobals
 var vkUserID, vkGroupID, vkChatID int  // nolint:gochecknoglobals
+var mux sync.Mutex                     // nolint:gochecknoglobals
 
 func TestMain(m *testing.M) {
 	vkGroup = api.NewVK(os.Getenv("GROUP_TOKEN"))
