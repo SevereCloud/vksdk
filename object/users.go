@@ -26,6 +26,19 @@ type UsersUser struct {
 	ID                     int               `json:"id"`
 	FirstName              string            `json:"first_name"`
 	LastName               string            `json:"last_name"`
+	FirstNameNom           string            `json:"first_name_nom"`
+	FirstNameGen           string            `json:"first_name_gen"`
+	FirstNameDat           string            `json:"first_name_dat"`
+	FirstNameAcc           string            `json:"first_name_acc"`
+	FirstNameIns           string            `json:"first_name_ins"`
+	FirstNameAbl           string            `json:"first_name_abl"`
+	LastNameNom            string            `json:"last_name_nom"`
+	LastNameGen            string            `json:"last_name_gen"`
+	LastNameDat            string            `json:"last_name_dat"`
+	LastNameAcc            string            `json:"last_name_acc"`
+	LastNameIns            string            `json:"last_name_ins"`
+	LastNameAbl            string            `json:"last_name_abl"`
+	MaidenName             string            `json:"maiden_name"`
 	Sex                    int               `json:"sex"`
 	Nickname               string            `json:"nickname"`
 	Domain                 string            `json:"domain"`
@@ -41,7 +54,7 @@ type UsersUser struct {
 	Photo400Orig           string            `json:"photo_400_orig"`
 	PhotoMaxOrig           string            `json:"photo_max_orig"`
 	PhotoID                string            `json:"photo_id"`
-	FriendStatus           int               `json:"friend_status"`
+	FriendStatus           int               `json:"friend_status"` // see FriendStatus const
 	OnlineApp              int               `json:"online_app"`
 	Online                 BaseBoolInt       `json:"online"`
 	OnlineMobile           BaseBoolInt       `json:"online_mobile"`
@@ -81,6 +94,8 @@ type UsersUser struct {
 	Faculty                int               `json:"faculty"`
 	FacultyName            string            `json:"faculty_name"`
 	Graduation             int               `json:"graduation"`
+	EducationForm          string            `json:"education_form"`
+	EducationStatus        string            `json:"education_status"`
 	HomeTown               string            `json:"home_town"`
 	Relation               int               `json:"relation"`
 	Personal               UsersPersonal     `json:"personal"`
@@ -100,14 +115,12 @@ type UsersUser struct {
 	Deactivated            string            `json:"deactivated"`
 	WallDefault            string            `json:"wall_default"`
 	Timezone               int               `json:"timezone"`
-	MaidenName             string            `json:"maiden_name"`
 	Exports                UsersExports      `json:"exports"`
 	Counters               UsersUserCounters `json:"counters"`
 	MobilePhone            string            `json:"mobile_phone"`
 	HomePhone              string            `json:"home_phone"`
 	FoundWith              int               `json:"found_with"` // TODO: check it
 	OnlineInfo             UsersOnlineInfo   `json:"online_info"`
-	// TODO: education
 }
 
 // ToMention return mention
@@ -142,6 +155,7 @@ func (user UsersUserMin) ToMention() string {
 // UsersCareer struct
 type UsersCareer struct {
 	CityID    int    `json:"city_id"`    // City ID
+	CityName  string `json:"city_name"`  // City name
 	Company   string `json:"company"`    // Company name
 	CountryID int    `json:"country_id"` // Country ID
 	From      int    `json:"from"`       // From year
@@ -271,6 +285,7 @@ type UsersUserCounters struct {
 	UserPhotos    int `json:"user_photos"`    // Number of photos with user
 	UserVideos    int `json:"user_videos"`    // Number of videos with user
 	Videos        int `json:"videos"`         // Videos number
+	MutualFriends int `json:"mutual_friends"`
 }
 
 // UsersUserLim struct
