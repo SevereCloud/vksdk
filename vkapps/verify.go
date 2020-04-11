@@ -6,7 +6,6 @@ import (
 	"encoding/base64"
 	"net/http"
 	"net/url"
-	"sort"
 	"strings"
 )
 
@@ -25,20 +24,18 @@ func NewParamsVerification(clientSecret string) *ParamsVerification {
 }
 
 // getVKParams return sort vk parameters with the prefix vk_ by key
-func getVKParams(values url.Values) (params []string) {
-	for key, value := range values {
-		if len(key) < 4 {
-			continue
-		}
+func getVKParams(rawValues url.Values) string {
+	vkPrefix := make(url.Values)
 
-		if key[0:3] == "vk_" {
-			params = append(params, key+"="+value[0])
+	for key, values := range rawValues {
+		if strings.HasPrefix(key, "vk_") {
+			for _, value := range values {
+				vkPrefix.Add(key, value)
+			}
 		}
 	}
 
-	sort.Strings(params)
-
-	return
+	return vkPrefix.Encode() // sorted by key.
 }
 
 // Sign return signature in base64
@@ -69,7 +66,7 @@ func (pv *ParamsVerification) Verify(u *url.URL) (bool, error) {
 	}
 
 	vkParams := getVKParams(values)
-	base64Sign := pv.Sign([]byte(strings.Join(vkParams, "&")))
+	base64Sign := pv.Sign([]byte(vkParams))
 
 	return base64Sign == values["sign"][0], nil
 }

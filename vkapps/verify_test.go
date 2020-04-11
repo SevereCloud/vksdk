@@ -32,6 +32,7 @@ func TestParamsVerify(t *testing.T) {
 	f("https://example.com?q=abc", "", false, false)
 	f("https://example.com?sign=abc&%gh&%ij", "", false, true)
 
+	// TODO: write test for params with special characters in query ("%26")
 	f(
 		"https://example.com/?vk_user_id=494075&vk_app_id=6736218&vk_is_app_user=1&vk_are_notifications_enabled=1&vk_language=ru&vk_access_token_settings=notify&vk_platform=android&sign=exTIBPYTrAKDTHLLm2AwJkmcVcvFCzQUNyoa6wAjvW6k",
 		"wvl68m4dR1UpLrVRli",
