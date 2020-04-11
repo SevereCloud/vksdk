@@ -1,11 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// GiftsGiftPrivacy type
-type GiftsGiftPrivacy int
-
-// GiftsGiftPrivacy const
-// FIXME: v2 GiftsGiftPrivacy for const
-// FIXME: v2 GiftsGiftPrivacy for const
+// GiftsGift Privacy type
 const (
 	GiftsGiftPrivacyForAll        = iota // name and message for all
 	GiftsGiftPrivacyNameForAll           // name for all

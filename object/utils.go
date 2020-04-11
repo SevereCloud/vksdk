@@ -1,10 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
 // UtilsDomainResolvedType object type
-type UtilsDomainResolvedType string
-
-// UtilsDomainResolvedType const
-// FIXME: v2 UtilsDomainResolvedType
 const (
 	UtilsDomainResolvedTypeUser        = "user"
 	UtilsDomainResolvedTypeGroup       = "group"
@@ -28,11 +24,7 @@ type UtilsLastShortenedLink struct {
 	Views     int    `json:"views"`      // Total views number
 }
 
-// UtilsLinkCheckedStatus link status
-type UtilsLinkCheckedStatus string
-
-// UtilsLinkCheckedStatus const
-// FIXME: v2 UtilsLinkCheckedStatus
+// Link status
 const (
 	UtilsLinkCheckedStatusNotBanned  = "not_banned"
 	UtilsLinkCheckedStatusBanned     = "banned"

@@ -4,11 +4,7 @@ import (
 	"fmt"
 )
 
-// UsersUserRelation user relationship status
-type UsersUserRelation int
-
-// UsersUserRelation const
-// FIXME: v2 UsersUserRelation
+// User relationship status
 const (
 	UserRelationNotSpecified      = iota // not specified
 	UserRelationSingle                   // single

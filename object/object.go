@@ -68,24 +68,14 @@ type BaseRequestParam struct {
 	Value string `json:"value"`
 }
 
-// BaseSex type
-type BaseSex int
-
 // BaseSex const
-// FIXME: v2 BaseSex for const
-// FIXME: v2 BaseSex for fields
 const (
 	SexUnknown = iota
 	SexFemale
 	SexMale
 )
 
-// EventType type event
-type EventType string
-
 // EventType list
-//
-// FIXME: v2 EventType
 const (
 	EventConfirmation         = "confirmation"
 	EventMessageNew           = "message_new"

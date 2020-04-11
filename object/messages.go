@@ -74,6 +74,7 @@ type MessagesKeyboard struct {
 }
 
 // NewMessagesKeyboard return MessagesKeyboard
+//
 // FIXME: v2 return *MessagesKeyboard
 func NewMessagesKeyboard(oneTime BaseBoolInt) MessagesKeyboard {
 	return MessagesKeyboard{
@@ -83,6 +84,7 @@ func NewMessagesKeyboard(oneTime BaseBoolInt) MessagesKeyboard {
 }
 
 // NewMessagesKeyboardInline return inline MessagesKeyboard
+//
 // FIXME: v2 return *MessagesKeyboard
 func NewMessagesKeyboardInline() MessagesKeyboard {
 	return MessagesKeyboard{
@@ -400,11 +402,7 @@ type MessagesLongpollParams struct {
 	Ts     int    `json:"ts"`     // Timestamp
 }
 
-// MessagesMessageActionStatus action status
-type MessagesMessageActionStatus string
-
-// MessagesMessageActionStatus const
-// FIXME: v2 MessagesMessageActionStatus
+// MessagesMessageAction status
 const (
 	ChatPhotoUpdate      = "chat_photo_update"
 	ChatPhotoRemove      = "chat_photo_remove"

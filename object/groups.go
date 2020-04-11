@@ -5,25 +5,13 @@ import (
 	"fmt"
 )
 
-// GroupsAddressWorkInfoStatus status of information about timetable
-type GroupsAddressWorkInfoStatus string
-
-// GroupsAddressWorkInfoStatus const
-// FIXME: v2 GroupsAddressWorkInfoStatus
+// GroupsAddress WorkInfoStatus of information about timetable
 const (
 	WorkStatusNoInformation     = "no_information"
 	WorkStatusTemporarilyClosed = "temporarily_closed"
 	WorkStatusAlwaysOpened      = "always_opened"
 	WorkStatusTimetable         = "timetable"
 	WorkStatusForeverClosed     = "forever_closed"
-)
-
-// GroupsGroupType const
-// FIXME: v2 GroupsGroupType
-const (
-	GroupsTypeGroup = "group"
-	GroupsTypePage  = "page"
-	GroupsTypeEvent = "event"
 )
 
 // GroupsAddress struct
@@ -69,24 +57,14 @@ type GroupsAddressesInfo struct {
 	MainAddressID int         `json:"main_address_id"` // Main address id for group
 }
 
-// GroupsGroupAdminLevel type
-type GroupsGroupAdminLevel int
-
-// GroupsGroupAdminLevel const
-// FIXME: v2 GroupsGroupAdminLevel for const
-// FIXME: v2 GroupsGroupAdminLevel for AdminLevel
+// GroupsGroup AdminLevel type
 const (
 	GroupsAdminLevelModerator = iota
 	GroupsAdminLevelEditor
 	GroupsAdminLevelAdministrator
 )
 
-// GroupsGroupMainSection type
-type GroupsGroupMainSection int
-
-// GroupsGroupMainSection const
-// FIXME: v2 GroupsGroupMainSection for const
-// FIXME: v2 GroupsGroupMainSection for MainSection
+// GroupsGroup MainSection type
 const (
 	GroupsMainSectionAbsent = iota
 	GroupsMainSectionPhotos
@@ -96,14 +74,7 @@ const (
 	GroupsMainSectionMarket
 )
 
-// GroupsGroupMemberStatus type
-type GroupsGroupMemberStatus int
-
-// GroupsGroupMemberStatus const
-// FIXME: v2 GroupsGroupMemberStatus for const
-// FIXME: v2 GroupsGroupMemberStatus for MemberStatus
-// FIXME: v2 GroupsGroupMemberStatus for events_event_attach
-// FIXME: v2 GroupsGroupMemberStatus for newsfeed_event_activity
+// GroupsGroup MemberStatus(events_event_attach, newsfeed_event_activity)
 const (
 	GroupsMemberStatusNotMember = iota
 	GroupsMemberStatusMember
@@ -113,29 +84,25 @@ const (
 	GroupsMemberStatusInvited
 )
 
-// GroupsGroupAccess type
-type GroupsGroupAccess int
-
-// GroupsGroupAccess const
-// FIXME: v2 GroupsGroupAccess for const
-// FIXME: v2 GroupsGroupAccess for IsClosed
-// FIXME: v2 GroupsGroupAccess for Access
+// GroupsGroup Access or IsClosed type
 const (
 	GroupsGroupOpen = iota
 	GroupsGroupClosed
 	GroupsGroupPrivate
 )
 
-// GroupsGroupAgeLimits type
-type GroupsGroupAgeLimits int
-
-// GroupsGroupAgeLimits const
-// FIXME: v2 GroupsGroupAgeLimits for const
-// FIXME: v2 GroupsGroupAgeLimits for AgeLimits
+// GroupsGroup AgeLimits
 const (
 	GroupsAgeLimitsNo = iota
 	GroupsAgeLimitsOver16
 	GroupsAgeLimitsOver18
+)
+
+// GroupsGroup type
+const (
+	GroupsTypeGroup = "group"
+	GroupsTypePage  = "page"
+	GroupsTypeEvent = "event"
 )
 
 // GroupsGroup struct
@@ -213,12 +180,7 @@ type GroupsLiveCovers struct {
 	StoryIds   []string    `json:"story_ids"`
 }
 
-// GroupsBanInfoReason type
-type GroupsBanInfoReason int
-
-// GroupsBanInfoReason const
-// FIXME: v2 GroupsBanInfoReason for const
-// FIXME: v2 GroupsBanInfoReason for Reason
+// GroupsBanInfo Reason type
 const (
 	GroupsBanReasonOther = iota
 	GroupsBanReasonSpam
@@ -324,24 +286,14 @@ type GroupsGroupPublicCategoryList struct {
 	SubtypesList []GroupsGroupCategoryType `json:"subtypes_list"`
 }
 
-// GroupsGroupPhotos type
-type GroupsGroupPhotos int
-
-// GroupsGroupPhotos const
-// FIXME: v2 GroupsGroupPhotos for const
-// FIXME: v2 GroupsGroupPhotos for Photos
+// GroupsGroupSettings Photos type
 const (
 	GroupsGroupPhotosDisabled = iota
 	GroupsGroupPhotosOpen
 	GroupsGroupPhotosLimited
 )
 
-// GroupsGroupSubject type
-type GroupsGroupSubject int
-
-// GroupsGroupSubject const
-// FIXME: v2 GroupsGroupSubject for const
-// FIXME: v2 GroupsGroupSubject for Subject
+// GroupsGroupSettings Subject type
 const (
 	_ = iota
 	GroupsGroupSubjectAuto
@@ -388,60 +340,35 @@ const (
 	GroupsGroupSubjectDesignAndGraphics
 )
 
-// GroupsGroupTopics type
-type GroupsGroupTopics int
-
-// GroupsGroupTopics const
-// FIXME: v2 GroupsGroupTopics for const
-// FIXME: v2 GroupsGroupTopics for Topics
+// GroupsGroupSettings Topics type
 const (
 	GroupsGroupTopicsDisabled = iota
 	GroupsGroupTopicsOpen
 	GroupsGroupTopicsLimited
 )
 
-// GroupsGroupDocs type
-type GroupsGroupDocs int
-
-// GroupsGroupDocs const
-// FIXME: v2 GroupsGroupDocs for const
-// FIXME: v2 GroupsGroupDocs for Docs
+// GroupsGroupSettings Docs type
 const (
 	GroupsGroupDocsDisabled = iota
 	GroupsGroupDocsOpen
 	GroupsGroupDocsLimited
 )
 
-// GroupsGroupAudio type
-type GroupsGroupAudio int
-
-// GroupsGroupAudio const
-// FIXME: v2 GroupsGroupAudio for const
-// FIXME: v2 GroupsGroupAudio for Audio
+// GroupsGroupSettings Audio type
 const (
 	GroupsGroupAudioDisabled = iota
 	GroupsGroupAudioOpen
 	GroupsGroupAudioLimited
 )
 
-// GroupsGroupVideo type
-type GroupsGroupVideo int
-
-// GroupsGroupVideo const
-// FIXME: v2 GroupsGroupVideo for const
-// FIXME: v2 GroupsGroupVideo for Video
+// GroupsGroupSettings Video type
 const (
 	GroupsGroupVideoDisabled = iota
 	GroupsGroupVideoOpen
 	GroupsGroupVideoLimited
 )
 
-// GroupsGroupWall type
-type GroupsGroupWall int
-
-// GroupsGroupWall const
-// FIXME: v2 GroupsGroupWall for const
-// FIXME: v2 GroupsGroupWall for Wall
+// GroupsGroupSettings Wall type
 const (
 	GroupsGroupWallDisabled = iota
 	GroupsGroupWallOpen
@@ -449,12 +376,7 @@ const (
 	GroupsGroupWallClosed
 )
 
-// GroupsGroupWiki type
-type GroupsGroupWiki int
-
-// GroupsGroupWiki const
-// FIXME: v2 GroupsGroupWiki for const
-// FIXME: v2 GroupsGroupWiki for Wiki
+// GroupsGroupSettings Wiki type
 const (
 	GroupsGroupWikiDisabled = iota
 	GroupsGroupWikiOpen
@@ -703,11 +625,7 @@ type GroupsMarketInfo struct {
 	PriceMin     string         `json:"price_min"`     // Minimum price
 }
 
-// GroupsGroupRole type
-type GroupsGroupRole string
-
-// GroupsGroupRole const
-// FIXME: v2 GroupsGroupRole
+// GroupsGroupRole Role type
 const (
 	GroupsGroupRoleModerator     = "moderator"
 	GroupsGroupRoleEditor        = "editor"
@@ -746,11 +664,7 @@ type GroupsMemberStatusFull struct {
 	UserID     int         `json:"user_id"`    // User ID
 }
 
-// GroupsOnlineStatusType type of online status of group
-type GroupsOnlineStatusType string
-
-// GroupsOnlineStatusType const
-// FIXME: v2 GroupsOnlineStatusType
+// GroupsOnlineStatus Status type
 const (
 	GroupsOnlineStatusTypeNone       = "none"
 	GroupsOnlineStatusTypeOnline     = "online"

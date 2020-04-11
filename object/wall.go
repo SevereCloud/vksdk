@@ -42,11 +42,7 @@ type WallGraffiti struct {
 	Photo586 string `json:"photo_586"` // URL of the preview image with 586 px in width
 }
 
-// WallPostSourceType type of post source
-type WallPostSourceType string
-
-// WallPostSourceType const
-// FIXME: v2 WallPostSourceType
+// Type of post source
 const (
 	WallPostSourceTypeVk     = "vk"
 	WallPostSourceTypeWidget = "widget"
@@ -110,11 +106,7 @@ type WallWallComment struct {
 	Thread         WallWallCommentThread   `json:"thread"`
 }
 
-// WallPostType post type
-type WallPostType string
-
-// WallPostType const
-// FIXME: v2 WallPostType
+// WallPost type
 const (
 	WallPostTypePost     = "post"
 	WallPostTypeCopy     = "copy"
@@ -176,11 +168,8 @@ type WallWallpostAttached struct {
 	ToID        int                      `json:"to_id"`
 }
 
-// AttachmentType attachment type
-type AttachmentType string
-
-// AttachmentType const
-// FIXME: v2 AttachmentType
+// Attachment type
+//
 // TODO: check this
 const (
 	AttachmentTypePhoto       = "photo"

@@ -1,15 +1,9 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// PagesPrivacySettings type
-type PagesPrivacySettings int
-
-// PagesPrivacySettings const
-//
-// FIXME: v2 PagesPrivacySettings for const
-// FIXME: v2 PagesPrivacySettings for WhoCanEdit and WhoCanView
+// Pages privacy settings
 const (
 	PagesPrivacyCommunityManagers = iota // community managers only
-	PagesPrivacyCommunityMembers         // ommunity members only
+	PagesPrivacyCommunityMembers         // community members only
 	PagesPrivacyEveryone                 // everyone
 )
 
@@ -47,6 +41,7 @@ type PagesWikipageFull struct {
 }
 
 // PagesWikipageHistory struct
+//
 // BUG(VK): https://vk.com/dev/pages.getHistory edited and date
 type PagesWikipageHistory struct {
 	Date       int    `json:"date"`        // Date when the page has been edited in Unixtime

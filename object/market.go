@@ -4,12 +4,7 @@ import (
 	"fmt"
 )
 
-// MarketMarketItemAvailability information whether the item is available
-type MarketMarketItemAvailability int
-
-// MarketMarketItemAvailability const
-// FIXME: v2 MarketMarketItemAvailability for const
-// FIXME: v2 MarketMarketItemAvailability for Availability
+// Information whether the MarketMarketItem is available
 const (
 	MarketItemAvailable = iota
 	MarketItemRemoved

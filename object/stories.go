@@ -201,11 +201,7 @@ type StoriesClickableSticker struct {
 	AudioStartTime int            `json:"audio_start_time,omitempty"`
 }
 
-// StoriesClickableStickerType type of clickable sticker
-type StoriesClickableStickerType string
-
-// Clickable sticker type
-// FIXME: v2 StoriesClickableStickerType
+// Type of clickable sticker
 const (
 	ClickableStickerPost       = "post"
 	ClickableStickerSticker    = "sticker"
@@ -221,21 +217,13 @@ const (
 	ClickableStickerMusic      = "music"
 )
 
-// StoriesClickableStickerSubtype subtype of clickable sticker
-type StoriesClickableStickerSubtype string
-
-// Clickable sticker subtype
-// FIXME: v2 StoriesClickableStickerSubtype
+// Subtype of clickable sticker
 const (
 	ClickableStickerSubtypeMarketItem        = "market_item"
 	ClickableStickerSubtypeAliexpressProduct = "aliexpress_product"
 )
 
-// StoriesClickableStickerStyle string
-type StoriesClickableStickerStyle string
-
 // Clickable sticker style
-// FIXME: v2 StoriesClickableStickerStyle
 const (
 	ClickableStickerTransparent  = "transparent"
 	ClickableStickerUnderline    = "underline"
