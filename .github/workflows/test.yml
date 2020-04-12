@@ -12,6 +12,8 @@ jobs:
       uses: actions/setup-go@v1
       with:
         go-version: ${{ matrix.go-version }}
+    - name: Install git
+      run: sudo apt update && sudo apt install git
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Test
