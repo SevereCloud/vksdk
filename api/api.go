@@ -9,6 +9,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"mime"
 	"net/http"
 	"net/url"
 	"reflect"
@@ -213,6 +214,11 @@ func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 			return response, err
 		}
 		defer resp.Body.Close()
+
+		mediatype, _, _ := mime.ParseMediaType(resp.Header.Get("Content-Type"))
+		if mediatype != "application/json" {
+			return response, fmt.Errorf("invalid content-type")
+		}
 
 		err = json.NewDecoder(resp.Body).Decode(&response)
 		if err != nil {

@@ -184,7 +184,7 @@ func TestVK_Execute_object(t *testing.T) {
 	assert.Equal(t, "hello", response.Text)
 }
 
-func TestVK_RequestUnmarshal(t *testing.T) {
+func TestVK_InvalidContentType(t *testing.T) {
 	t.Parallel()
 
 	needGroupToken(t)
@@ -192,7 +192,7 @@ func TestVK_RequestUnmarshal(t *testing.T) {
 	var testObj string
 
 	err := vkGroup.RequestUnmarshal("t/t", api.Params{}, testObj)
-	if err == nil {
+	if err.Error() != "invalid content-type" {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}
 }
