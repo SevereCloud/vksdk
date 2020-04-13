@@ -5,6 +5,7 @@ import (
 	"os/exec"
 	"regexp"
 	"strconv"
+	"strings"
 	"testing"
 
 	"github.com/SevereCloud/vksdk"
@@ -32,9 +33,18 @@ func newVersion(name string) (*version, error) {
 }
 
 func TestVersion(t *testing.T) {
-	out, err := exec.Command("git", "describe", "--abbrev=0", "--tags").Output()
+	shaOut, err := exec.Command("git", "rev-list", "--tags", "--max-count=1").Output()
 	if err != nil {
-		t.Fatal(err)
+		t.Error(string(shaOut))
+		t.Fatal("git rev-list: ", err)
+	}
+
+	sha := strings.TrimSuffix(string(shaOut), "\n")
+
+	out, err := exec.Command("git", "describe", "--tags", sha, "--always").Output()
+	if err != nil {
+		t.Error(string(out))
+		t.Fatal("git describe: ", err)
 	}
 
 	tag, err := newVersion(string(out))

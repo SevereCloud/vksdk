@@ -12,9 +12,11 @@ jobs:
       uses: actions/setup-go@v1
       with:
         go-version: ${{ matrix.go-version }}
-    - name: Install git
-      run: sudo apt update && sudo apt install git
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Fetch all tags
+      run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+    - name: Last tag
+      run: git describe --tags $(git rev-list --tags --max-count=1) --always
     - name: Test
-      run: go test ./...
+      run: go test -v -race -p=1 ./...
