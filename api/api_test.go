@@ -27,6 +27,7 @@ func noError(t *testing.T, err error) bool {
 	case errors.Captcha:
 		t.Skip("Captcha needed")
 	}
+
 	if err != nil {
 		ctx := errors.GetErrorContext(err)
 		if ctx.Code != 0 {
@@ -35,9 +36,11 @@ func noError(t *testing.T, err error) bool {
 			s += fmt.Sprintf("text: %s\n", ctx.Text)
 			s += fmt.Sprintf("message: %s\n", ctx.Message)
 			s += "params:\n"
+
 			for _, param := range ctx.RequestParams {
 				s += fmt.Sprintf("\t%s: %s\n", param.Key, param.Value)
 			}
+
 			t.Log(s)
 		}
 	}
