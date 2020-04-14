@@ -239,6 +239,11 @@ const (
 	MessagesChatUserNotInChat         ErrorType = 935  // User not found in chat
 	MessagesContactNotFound           ErrorType = 936  // Contact not found
 	MessagesMessageRequestAlreadySend ErrorType = 939  // Message request already send
+	MessagesTooManyPosts              ErrorType = 940  // Too many posts in messages
+	MessagesCantUseIntent             ErrorType = 943  // Cannot use this intent
+	MessagesLimitIntent               ErrorType = 944  // Limits overflow for this intent
+	MessagesChatDisabled              ErrorType = 945  // Chat was disabled
+	MessagesChatNotSupported          ErrorType = 946  // Chat not support
 	ParamPhone                        ErrorType = 1000 // Invalid phone number
 	PhoneAlreadyUsed                  ErrorType = 1004 // This phone number is used by another user
 	AuthFloodError                    ErrorType = 1105 // Too many auth attempts, try again later
