@@ -165,6 +165,38 @@ func Init(token string) *VK {
 // Params type
 type Params map[string]interface{}
 
+// Lang -  determines the language for the data to be displayed on. For
+// example country and city names. If you use a non-cyrillic language,
+// cyrillic symbols will be transtiterated automatically.
+// Numeric format from account.getInfo is supported as well.
+//
+// 	p.Lang(object.LangRU)
+//
+// See all language code in module object.
+func (p Params) Lang(v int) Params {
+	p["lang"] = v
+	return p
+}
+
+// TestMode allows to send requests from a native app without switching it on
+// for all users.
+func (p Params) TestMode(v bool) Params {
+	p["test_mode"] = v
+	return p
+}
+
+// CaptchaSID received ID
+func (p Params) CaptchaSID(v string) Params {
+	p["captcha_sid"] = v
+	return p
+}
+
+// CaptchaKey text input
+func (p Params) CaptchaKey(v string) Params {
+	p["captcha_key"] = v
+	return p
+}
+
 // defaultHandler provides access to VK API methods
 func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 	u := vk.MethodURL + method

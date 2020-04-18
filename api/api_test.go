@@ -278,3 +278,19 @@ func TestInit(t *testing.T) {
 	vk := api.Init("")
 	assert.NotNil(t, vk)
 }
+
+func TestAccountChangePasswordBuilder(t *testing.T) {
+	t.Parallel()
+
+	p := api.Params{}
+
+	p.Lang(1)
+	p.TestMode(true)
+	p.CaptchaSID("text")
+	p.CaptchaKey("text")
+
+	assert.Equal(t, p["lang"], 1)
+	assert.Equal(t, p["test_mode"], true)
+	assert.Equal(t, p["captcha_sid"], "text")
+	assert.Equal(t, p["captcha_key"], "text")
+}
