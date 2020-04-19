@@ -307,6 +307,7 @@ const (
 	OtpAppValidation                  ErrorType = 3303 // Otp app validation needed
 	EmailConfirmation                 ErrorType = 3304 // Email confirmation needed
 	AssertVotes                       ErrorType = 3305 // Assert votes
+	TokenExtension                    ErrorType = 3609 // Token extension required
 )
 
 // ErrorType is the type of an error
