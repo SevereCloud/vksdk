@@ -339,13 +339,45 @@ type Article struct {
 
 // Error struct
 type Error struct {
-	Code             int                `json:"error_code"`
-	Message          string             `json:"error_msg"`
-	Text             string             `json:"error_text"`
-	CaptchaSID       string             `json:"captcha_sid"`
-	CaptchaImg       string             `json:"captcha_img"`
-	ConfirmationText string             `json:"confirmation_text"`
-	RequestParams    []BaseRequestParam `json:"request_params"`
+	Code             int    `json:"error_code"`
+	Message          string `json:"error_msg"`
+	Text             string `json:"error_text"`
+	CaptchaSID       string `json:"captcha_sid"`
+	CaptchaImg       string `json:"captcha_img"`
+	ConfirmationText string `json:"confirmation_text"`
+
+	// In some cases VK requires a user validation procedure. . As a result
+	// starting from API version 5.0 (for the older versions captcha_error
+	// will be requested) following error will be returned as a reply to any
+	// API request:
+	//
+	// Error code: 17
+	// Error text: Validation Required
+	//
+	// Following parameter is transmitted with an error message:
+	// redirect_uri – a special address to open in a browser to pass the
+	// validation procedure.
+	//
+	// After passing the validation a user will be redirected to the service
+	// page:
+	//
+	// https://oauth.vk.com/blank.html#{Data required for validation}
+	//
+	// In case of successful validation following parameters will be
+	// transmitted after #:
+	//
+	// https://oauth.vk.com/blank.html#success=1&access_token={NEW USER TOKEN}&user_id={USER ID}
+	//
+	// If a token was not received by https a new secret will be transmitted
+	// as well.
+	//
+	// In case of unsuccessful validation following address is transmitted:
+	//
+	// https://oauth.vk.com/blank.html#fail=1
+	//
+	// See https://vk.com/dev/need_validation
+	RedirectURI   string             `json:"redirect_uri"`
+	RequestParams []BaseRequestParam `json:"request_params"`
 }
 
 // ExecuteError struct
