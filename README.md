@@ -31,7 +31,7 @@
 - [User Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/longpoll-user#user-long-poll-api)
   - Возвращает готовые структуры
   - Возможность изменять HTTP клиент
-- [Streaming api](https://pkg.go.dev/github.com/SevereCloud/vksdk/streaming)
+- [Streaming API](https://pkg.go.dev/github.com/SevereCloud/vksdk/streaming)
   - Возвращает готовые структуры
   - Возможность изменять HTTP клиент
 - [FOAF](https://github.com/SevereCloud/vksdk/tree/master/foaf#foaf)
@@ -40,6 +40,8 @@
 - [VK Mini Apps](https://github.com/SevereCloud/vksdk/tree/master/vkapps#vk-mini-apps)
   - Проверка параметров запуска
   - Промежуточный http обработчик
+- [Payments API](https://pkg.go.dev/github.com/SevereCloud/vksdk/payments)
+  - Обрабатывает уведомления о платежах
 
 ### Установка
 
