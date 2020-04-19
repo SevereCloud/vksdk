@@ -339,11 +339,28 @@ type Article struct {
 
 // Error struct
 type Error struct {
-	Code             int    `json:"error_code"`
-	Message          string `json:"error_msg"`
-	Text             string `json:"error_text"`
-	CaptchaSID       string `json:"captcha_sid"`
-	CaptchaImg       string `json:"captcha_img"`
+	Code       int    `json:"error_code"`
+	Message    string `json:"error_msg"`
+	Text       string `json:"error_text"`
+	CaptchaSID string `json:"captcha_sid"`
+	CaptchaImg string `json:"captcha_img"`
+
+	// In some cases VK requires to request action confirmation from the user
+	// (for Standalone apps only). Following error will be returned:
+	//
+	// Error code: 24
+	// Error text: Corfirmation required
+	//
+	// Following parameter is transmitted with the error message as well:
+	//
+	// confirmation_text – text of the message to be shown in the default
+	// confirmation window.
+	//
+	// The app should display the default confirmation windos with text from
+	// confirmation_text and two buttons: "Continue" and "Cancel". If user
+	// confirms the action repeat the request with an extra parameter: confirm = 1.
+	//
+	// See https://vk.com/dev/need_confirmation
 	ConfirmationText string `json:"confirmation_text"`
 
 	// In some cases VK requires a user validation procedure. . As a result

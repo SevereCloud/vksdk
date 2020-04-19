@@ -197,6 +197,14 @@ func (p Params) CaptchaKey(v string) Params {
 	return p
 }
 
+// Confirm parameter
+//
+// See https://vk.com/dev/need_confirmation
+func (p Params) Confirm(v bool) Params {
+	p["confirm"] = v
+	return p
+}
+
 // defaultHandler provides access to VK API methods
 func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 	u := vk.MethodURL + method
