@@ -6,54 +6,68 @@ import (
 
 // VideoVideo struct
 type VideoVideo struct {
-	AccessKey      string            `json:"access_key"`       // Video access key
-	AddingDate     int               `json:"adding_date"`      // Date when the video has been added in Unixtime
-	CanAdd         BaseBoolInt       `json:"can_add"`          // Information whether current user can add the video
-	CanAddToFaves  BaseBoolInt       `json:"can_add_to_faves"` // Information whether current user can add the video to faves
-	CanComment     BaseBoolInt       `json:"can_comment"`      // Information whether current user can comment the video
-	CanEdit        BaseBoolInt       `json:"can_edit"`         // Information whether current user can edit the video
-	CanLike        BaseBoolInt       `json:"can_like"`         // Information whether current user can like the video
-	CanRepost      BaseBoolInt       `json:"can_repost"`       // Information whether current user can repost this video
-	CanSubscribe   BaseBoolInt       `json:"can_subscribe"`
-	IsFavorite     BaseBoolInt       `json:"is_favorite"`
-	IsPrivate      BaseBoolInt       `json:"is_private"`
-	Added          BaseBoolInt       `json:"added"`
-	Repeat         BaseBoolInt       `json:"repeat"`      // Information whether the video is repeated
-	Comments       int               `json:"comments"`    // Number of comments
-	Date           int               `json:"date"`        // Date when video has been uploaded in Unixtime
-	Description    string            `json:"description"` // Video description
-	Duration       int               `json:"duration"`    // Video duration in seconds
-	Files          VideoVideoFiles   `json:"files"`
-	FirstFrame     []VideoVideoImage `json:"first_frame"`
-	Image          []VideoVideoImage `json:"image"`
-	Height         int               `json:"height"`     // Video height
-	ID             int               `json:"id"`         // Video ID
-	Live           int               `json:"live"`       // Returns if the video is a live stream
-	OwnerID        int               `json:"owner_id"`   // Video owner ID
-	Photo130       string            `json:"photo_130"`  // URL of the preview image with 130 px in width
-	Photo320       string            `json:"photo_320"`  // URL of the preview image with 320 px in width
-	Photo640       string            `json:"photo_640"`  // URL of the preview image with 640 px in width
-	Photo800       string            `json:"photo_800"`  // URL of the preview image with 800 px in width
-	Photo1280      string            `json:"photo_1280"` // URL of the preview image with 1280 px in width
-	Player         string            `json:"player"`     // URL of the page with a player that can be used to play the video in the browser.
-	Processing     int               `json:"processing"` // Returns if the video is processing
-	Title          string            `json:"title"`      // Video title
-	Type           string            `json:"type"`
-	Views          int               `json:"views"` // Number of views
-	Width          int               `json:"width"` // Video width
-	Platform       string            `json:"platform"`
-	LocalViews     int               `json:"local_views"`
-	Likes          BaseLikesInfo     `json:"likes"`   // Count of likes
-	Reposts        BaseRepostsInfo   `json:"reposts"` // Count of views
-	TrackCode      string            `json:"track_code"`
-	PrivacyView    []interface{}     `json:"privacy_view"`
-	PrivacyComment []interface{}     `json:"privacy_comment"`
-	ActionButton   VideoActionButton `json:"action_button"`
+	AccessKey         string            `json:"access_key"`       // Video access key
+	AddingDate        int               `json:"adding_date"`      // Date when the video has been added in Unixtime
+	CanAdd            BaseBoolInt       `json:"can_add"`          // Information whether current user can add the video
+	CanAddToFaves     BaseBoolInt       `json:"can_add_to_faves"` // Information whether current user can add the video to faves
+	CanComment        BaseBoolInt       `json:"can_comment"`      // Information whether current user can comment the video
+	CanEdit           BaseBoolInt       `json:"can_edit"`         // Information whether current user can edit the video
+	CanLike           BaseBoolInt       `json:"can_like"`         // Information whether current user can like the video
+	CanRepost         BaseBoolInt       `json:"can_repost"`       // Information whether current user can repost this video
+	CanSubscribe      BaseBoolInt       `json:"can_subscribe"`
+	IsFavorite        BaseBoolInt       `json:"is_favorite"`
+	IsPrivate         BaseBoolInt       `json:"is_private"`
+	Added             BaseBoolInt       `json:"added"`
+	Repeat            BaseBoolInt       `json:"repeat"` // Information whether the video is repeated
+	ContentRestricted BaseBoolInt       `json:"content_restricted"`
+	Comments          int               `json:"comments"`    // Number of comments
+	Date              int               `json:"date"`        // Date when video has been uploaded in Unixtime
+	Description       string            `json:"description"` // Video description
+	Duration          int               `json:"duration"`    // Video duration in seconds
+	Files             VideoVideoFiles   `json:"files"`
+	FirstFrame        []VideoVideoImage `json:"first_frame"`
+	Image             []VideoVideoImage `json:"image"`
+	Height            int               `json:"height"`     // Video height
+	ID                int               `json:"id"`         // Video ID
+	Live              int               `json:"live"`       // Returns if the video is a live stream
+	OwnerID           int               `json:"owner_id"`   // Video owner ID
+	Photo130          string            `json:"photo_130"`  // URL of the preview image with 130 px in width
+	Photo320          string            `json:"photo_320"`  // URL of the preview image with 320 px in width
+	Photo640          string            `json:"photo_640"`  // URL of the preview image with 640 px in width
+	Photo800          string            `json:"photo_800"`  // URL of the preview image with 800 px in width
+	Photo1280         string            `json:"photo_1280"` // URL of the preview image with 1280 px in width
+	Player            string            `json:"player"`     // URL of the page with a player that can be used to play the video in the browser.
+	Processing        int               `json:"processing"` // Returns if the video is processing
+	Title             string            `json:"title"`      // Video title
+	Type              string            `json:"type"`
+	Views             int               `json:"views"` // Number of views
+	Width             int               `json:"width"` // Video width
+	Platform          string            `json:"platform"`
+	LocalViews        int               `json:"local_views"`
+	Likes             BaseLikesInfo     `json:"likes"`   // Count of likes
+	Reposts           BaseRepostsInfo   `json:"reposts"` // Count of views
+	TrackCode         string            `json:"track_code"`
+	PrivacyView       []interface{}     `json:"privacy_view"`
+	PrivacyComment    []interface{}     `json:"privacy_comment"`
+	ActionButton      VideoActionButton `json:"action_button"`
+	Restriction       VideoRestriction  `json:"restriction"`
 }
 
 // ToAttachment return attachment format
 func (video VideoVideo) ToAttachment() string {
 	return fmt.Sprintf("video%d_%d", video.OwnerID, video.ID)
+}
+
+// VideoRestriction struct
+type VideoRestriction struct {
+	Title       string      `json:"title"`
+	Text        string      `json:"text"`
+	AlwaysShown BaseBoolInt `json:"always_shown"`
+	Blur        BaseBoolInt `json:"blur"`
+	CanPlay     BaseBoolInt `json:"can_play"`
+	CanPreview  BaseBoolInt `json:"can_preview"`
+	CardIcon    []BaseImage `json:"card_icon"`
+	ListIcon    []BaseImage `json:"list_icon"`
 }
 
 // VideoActionButton struct
