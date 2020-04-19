@@ -29,4 +29,4 @@ Package vkapps for VK Mini Apps https://pkg.go.dev/github.com/SevereCloud/vksdk/
 package vksdk
 
 // Version module
-const Version = "1.5.0"
+const Version = "1.6.0"
