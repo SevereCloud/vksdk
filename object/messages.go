@@ -65,6 +65,18 @@ type MessagesMessage struct {
 	MembersCount          int                         `json:"members_count"` // Members number
 }
 
+// MessagesBasePayload struct
+type MessagesBasePayload struct {
+	ButtonType string `json:"button_type,omitempty"`
+	Command    string `json:"command,omitempty"`
+	Payload    string `json:"payload,omitempty"`
+}
+
+// Command for MessagesBasePayload
+const (
+	CommandNotSupportedButton = "not_supported_button"
+)
+
 // MessagesKeyboard struct
 type MessagesKeyboard struct {
 	AuthorID int                        `json:"author_id,omitempty"` // Community or bot, which set this keyboard
