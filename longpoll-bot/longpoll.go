@@ -52,6 +52,30 @@ func NewLongpoll(vk *api.VK, groupID int) (*Longpoll, error) {
 	return lp, err
 }
 
+// NewLongpollCommunity returns a new Lonpoll for community token
+//
+// The Lonpoll will use the http.DefaultClient.
+// This means that if the http.DefaultClient is modified by other components
+// of your application the modifications will be picked up by the SDK as well.
+func NewLongpollCommunity(vk *api.VK) (*Longpoll, error) {
+	resp, err := vk.GroupsGetByID(api.Params{})
+	if err != nil {
+		return nil, err
+	}
+
+	lp := &Longpoll{
+		VK:      vk,
+		GroupID: resp[0].ID,
+		Wait:    25,
+		Client:  http.DefaultClient,
+	}
+	lp.FuncList = *events.NewFuncList()
+
+	err = lp.updateServer(true)
+
+	return lp, err
+}
+
 // Init Longpoll
 //
 // Deprecated: use NewLongpoll

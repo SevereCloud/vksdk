@@ -35,61 +35,50 @@ func TestLongpoll_Handler(t *testing.T) {
 }
 
 func TestNewLongpoll(t *testing.T) {
-	t.Parallel()
-
-	groupToken := os.Getenv("GROUP_TOKEN")
-	if groupToken == "" {
-		t.Skip("GROUP_TOKEN empty")
+	f := func(vk *api.VK, groupID int, wantErr bool) {
+		_, err := NewLongpoll(vk, groupID)
+		if (err != nil) != wantErr {
+			t.Errorf("NewLongpoll() error = %v, wantErr %v", err, wantErr)
+			return
+		}
 	}
 
-	vk := api.NewVK(groupToken)
-	badVk := api.NewVK("")
-	groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
+	f(api.NewVK(""), 0, true)
+	t.Run("groupToken", func(t *testing.T) {
+		groupToken := os.Getenv("GROUP_TOKEN")
+		if groupToken == "" {
+			t.Skip("GROUP_TOKEN empty")
+		}
 
-	type args struct {
-		vk      *api.VK
-		groupID int
+		groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
+		f(api.NewVK(groupToken), groupID, false)
+	})
+}
+
+func TestNewLongpollCommunity(t *testing.T) {
+	f := func(vk *api.VK, wantErr bool) {
+		_, err := NewLongpollCommunity(vk)
+		if (err != nil) != wantErr {
+			t.Errorf("NewLongpollCommunity() error = %v, wantErr %v", err, wantErr)
+			return
+		}
 	}
 
-	tests := []struct {
-		name string
-		args args
-		// wantLp  Longpoll
-		wantErr bool
-	}{
-		{
-			name: "Init error",
-			args: args{
-				vk:      badVk,
-				groupID: 0,
-			},
-			wantErr: true,
-		},
-		{
-			name: "Init good",
-			args: args{
-				vk:      vk,
-				groupID: groupID,
-			},
-			wantErr: false,
-		},
-	}
-
-	for _, tt := range tests {
-		tt := tt
-		t.Run(tt.name, func(t *testing.T) {
-			t.Parallel()
-
-			_, err := NewLongpoll(tt.args.vk, tt.args.groupID)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("NewLongpoll() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			// if !reflect.DeepEqual(gotLp, tt.wantLp) {
-			// 	t.Errorf("NewLongpoll() = %v, want %v", gotLp, tt.wantLp)
-			// }
-		})
-	}
+	f(api.NewVK(""), true)
+	t.Run("groupToken", func(t *testing.T) {
+		groupToken := os.Getenv("GROUP_TOKEN")
+		if groupToken == "" {
+			t.Skip("GROUP_TOKEN empty")
+		}
+		f(api.NewVK(groupToken), false)
+	})
+	t.Run("userToken", func(t *testing.T) {
+		userToken := os.Getenv("USER_TOKEN")
+		if userToken == "" {
+			t.Skip("USER_TOKEN empty")
+		}
+		f(api.NewVK(userToken), true)
+	})
 }
 
 func TestLongpoll_checkResponse(t *testing.T) {
