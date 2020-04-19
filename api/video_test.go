@@ -114,28 +114,28 @@ func TestVK_VideoCreateComment(t *testing.T) {
 	needUserToken(t)
 
 	commentID, err := vkUser.VideoCreateComment(api.Params{
-		"owner_id": 2314852,
-		"video_id": 165705596,
+		"owner_id": -169097025,
+		"video_id": 456239034,
 		"message":  "Test video.createComment",
 	})
 	noError(t, err)
 	assert.NotEmpty(t, commentID)
 
 	_, err = vkUser.VideoEditComment(api.Params{
-		"owner_id":   2314852,
+		"owner_id":   -169097025,
 		"comment_id": commentID,
 		"message":    "Test video.editComment",
 	})
 	noError(t, err)
 
 	_, err = vkUser.VideoDeleteComment(api.Params{
-		"owner_id":   2314852,
+		"owner_id":   -169097025,
 		"comment_id": commentID,
 	})
 	noError(t, err)
 
 	_, err = vkUser.VideoRestoreComment(api.Params{
-		"owner_id":   2314852,
+		"owner_id":   -169097025,
 		"comment_id": commentID,
 	})
 	noError(t, err)
@@ -250,8 +250,8 @@ func TestVK_VideoGetComments(t *testing.T) {
 	needUserToken(t)
 
 	res, err := vkUser.VideoGetComments(api.Params{
-		"owner_id": 2314852,
-		"video_id": 165705596,
+		"owner_id": -169097025,
+		"video_id": 456239034,
 	})
 	noError(t, err)
 
@@ -265,8 +265,8 @@ func TestVK_VideoGetCommentsExtended(t *testing.T) {
 	needUserToken(t)
 
 	res, err := vkUser.VideoGetCommentsExtended(api.Params{
-		"owner_id": 2314852,
-		"video_id": 165705596,
+		"owner_id": -169097025,
+		"video_id": 456239034,
 	})
 	noError(t, err)
 
