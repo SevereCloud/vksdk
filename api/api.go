@@ -186,12 +186,16 @@ func (p Params) TestMode(v bool) Params {
 }
 
 // CaptchaSID received ID
+//
+// See https://vk.com/dev/captcha_error
 func (p Params) CaptchaSID(v string) Params {
 	p["captcha_sid"] = v
 	return p
 }
 
 // CaptchaKey text input
+//
+// See https://vk.com/dev/captcha_error
 func (p Params) CaptchaKey(v string) Params {
 	p["captcha_key"] = v
 	return p

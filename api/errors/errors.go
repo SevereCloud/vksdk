@@ -15,30 +15,36 @@ import (
 // Error codes. See https://vk.com/dev/errors
 const (
 	NoType ErrorType = 0 // NoType error
+
 	// Unknown error occurred
 	//
 	// Try again later.
 	Unknown ErrorType = 1
+
 	// Application is disabled. Enable your application or use test mode
 	//
 	// You need to switch on the app in Settings (https://vk.com/editapp?id={Your API_ID}
 	// or use the test mode (test_mode=1).
 	Disabled ErrorType = 2
+
 	// Unknown method passed
 	//
 	// Check the method name: http://vk.com/dev/methods
 	Method    ErrorType = 3
 	Signature ErrorType = 4 // Incorrect signature
+
 	// User authorization failed
 	//
 	// Make sure that you use a correct authorization type
 	Auth ErrorType = 5
+
 	// Too many requests per second
 	//
 	// Decrease the request frequency or use the execute method.
 	// More details on frequency limits here:
 	// https://vk.com/dev/api_requests
 	TooMany ErrorType = 6
+
 	// Permission to perform this action is denied
 	//
 	// Make sure that your have received required permissions during the authorization.
@@ -50,30 +56,37 @@ const (
 	//
 	// Check the request syntax and used parameters list (it can be found on a method description page)
 	Request ErrorType = 8
+
 	// Flood control
 	//
 	// You need to decrease the count of identical requests. For more efficient work you may use execute.
 	Flood ErrorType = 9
+
 	// Internal server error
 	//
 	// Try again later.
 	Server ErrorType = 10
+
 	// In test mode application should be disabled or user should be authorized
 	//
 	// Switch the app off in Settings: https://vk.com/editapp?id={Your API_ID}
 	EnabledInTest ErrorType = 11
+
 	// Captcha needed
 	//
 	// See https://vk.com/dev/captcha_error
 	Captcha ErrorType = 14
+
 	// Access denied
 	//
 	// Make sure that you use correct identifiers and the content is available for the user in the full version of the site.
 	Access ErrorType = 15
+
 	// HTTP authorization failed
 	//
 	// To avoid this error check if a user has the 'Use secure connection' option enabled with the account.getInfo method.
 	AuthHTTPS ErrorType = 16
+
 	// Validation required
 	//
 	// Make sure that you don't use a token received with http://vk.com/dev/auth_mobile for a request from the server. It's restricted.
@@ -82,6 +95,7 @@ const (
 	AuthValidation ErrorType = 17
 	UserDeleted    ErrorType = 18 // User was deleted or banned
 	Blocked        ErrorType = 19 // Content blocked
+
 	// Permission to perform this action is denied for non-standalone applications
 	//
 	// If you see this error despite your app has the Standalone type, make sure that you use redirect_uri=https://oauth.vk.com/blank.html.
@@ -89,10 +103,12 @@ const (
 	MethodPermission ErrorType = 20
 	MethodAds        ErrorType = 21 // Permission to perform this action is allowed only for standalone and OpenAPI applications
 	Upload           ErrorType = 22 // Upload error
+
 	// This method was disabled
 	//
 	// All the methods available now are listed here: http://vk.com/dev/methods
 	MethodDisabled ErrorType = 23
+
 	// Confirmation required
 	//
 	// In some cases VK requires to request action confirmation from the user (for Standalone apps only).
@@ -110,15 +126,18 @@ const (
 	NeedTokenConfirmation ErrorType = 25 // Token confirmation required
 	GroupAuth             ErrorType = 27 // Group authorization failed
 	AppAuth               ErrorType = 28 // Application authorization failed
+
 	// Rate limit reached
 	//
 	// More details on rate limits here: https://vk.com/dev/data_limits
 	RateLimit      ErrorType = 29
 	PrivateProfile ErrorType = 30 // This profile is private
+
 	// One of the parameters specified was missing or invalid
 	//
 	// Check the reqired parameters list and their format on a method description page.
 	Param ErrorType = 100
+
 	// Invalid application API ID
 	//
 	// Find the app in the administrated list in settings: http://vk.com/apps?act=settings
@@ -128,6 +147,7 @@ const (
 	NotFound     ErrorType = 104 // Not found
 	SaveFile     ErrorType = 105 // Couldn't save file
 	ActionFailed ErrorType = 106 // Unable to process action
+
 	// Invalid user id
 	//
 	// Make sure that you use a correct id. You can get an id using a screen
@@ -145,6 +165,7 @@ const (
 	MobileNotActivated ErrorType = 146 // The mobile number of the user is unknown
 	InsufficientFunds  ErrorType = 147 // Application has insufficient funds
 	AccessMenu         ErrorType = 148 // Access to the menu of the user denied
+
 	// Invalid timestamp
 	//
 	// You may get a correct value with the utils.getServerTime method
@@ -159,18 +180,21 @@ const (
 	AccessNote         ErrorType = 181 // Access to note denied
 	AccessNoteComment  ErrorType = 182 // You can't comment this note
 	AccessComment      ErrorType = 183 // Access to comment denied
+
 	// Access to album denied
 	//
 	// Make sure you use correct ids (owner_id is always positive for users,
 	// negative for communities) and the current user has access to the
 	// requested content in the full version of the site.
 	AccessAlbum ErrorType = 200
+
 	// Access to audio denied
 	//
 	// Make sure you use correct ids (owner_id is always positive for users,
 	// negative for communities) and the current user has access to the
 	// requested content in the full version of the site.
 	AccessAudio ErrorType = 201
+
 	// Access to group denied
 	//
 	// Make sure that the current user is a member or admin of the community (for closed and private groups and events).
@@ -193,11 +217,13 @@ const (
 	PollsPollID             ErrorType = 251 // Invalid poll id
 	PollsAccessWithoutVote  ErrorType = 253 // Access denied, please vote first
 	AccessGroups            ErrorType = 260 // Access to the groups list is denied due to the user's privacy settings
+
 	// This album is full
 	//
 	// You need to delete the odd objects from the album or use another album.
 	AlbumFull   ErrorType = 300
 	AlbumsLimit ErrorType = 302 // Albums number limit is reached
+
 	// Permission denied. You must enable votes processing in application settings
 	//
 	// Check the app settings: http://vk.com/editapp?id={Your API_ID}&section=payments
