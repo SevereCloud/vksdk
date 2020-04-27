@@ -6,6 +6,7 @@ import (
 
 	"github.com/SevereCloud/vksdk/api"
 	"github.com/SevereCloud/vksdk/object"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_PhotosConfirmTag(t *testing.T) {
@@ -192,13 +193,29 @@ func TestVK_PhotosGetAlbums(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.PhotosGetAlbums(api.Params{
+	resp, err := vkUser.PhotosGetAlbums(api.Params{
 		"owner_id":    185014513,
 		"need_system": true,
 		"need_covers": true,
 		"photo_sizes": true,
 	})
 	noError(t, err)
+
+	assert.NotEmpty(t, resp.Count)
+
+	if assert.NotEmpty(t, resp.Items) {
+		assert.NotEmpty(t, resp.Items[0].ID)
+		assert.NotEmpty(t, resp.Items[0].ThumbID)
+		assert.NotEmpty(t, resp.Items[0].OwnerID)
+		assert.NotEmpty(t, resp.Items[0].Size)
+
+		if assert.NotEmpty(t, resp.Items[0].Sizes) {
+			assert.NotEmpty(t, resp.Items[0].Sizes[0].Width)
+			assert.NotEmpty(t, resp.Items[0].Sizes[0].Height)
+			assert.NotEmpty(t, resp.Items[0].Sizes[0].URL)
+			assert.NotEmpty(t, resp.Items[0].Sizes[0].Type)
+		}
+	}
 }
 
 func TestVK_PhotosGetAlbumsCount(t *testing.T) {

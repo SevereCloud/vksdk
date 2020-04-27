@@ -185,6 +185,33 @@ type BaseImage struct {
 	Type   string  `json:"type"`
 }
 
+// UnmarshalJSON is required to support images with `src` field
+func (obj *BaseImage) UnmarshalJSON(data []byte) (err error) {
+	type renamedBaseImage struct {
+		Height float64 `json:"height"`
+		URL    string  `json:"url"`
+		Src    string  `json:"src"`
+		Width  float64 `json:"width"`
+		Type   string  `json:"type"`
+	}
+
+	var renamedObj renamedBaseImage
+
+	err = json.Unmarshal(data, &renamedObj)
+
+	obj.Height = renamedObj.Height
+	obj.Width = renamedObj.Width
+	obj.Type = renamedObj.Type
+
+	if renamedObj.Src == "" {
+		obj.URL = renamedObj.URL
+	} else {
+		obj.URL = renamedObj.Src
+	}
+
+	return err
+}
+
 // BaseLikes struct
 type BaseLikes struct {
 	UserLikes BaseBoolInt `json:"user_likes"` // Information whether current user likes

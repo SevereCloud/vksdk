@@ -296,7 +296,6 @@ func (photo PhotosPhotoFullXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSiz
 type PhotosPhotoSizes struct {
 	// BUG(VK): json: cannot unmarshal number 180.000000 into Go struct field PhotosPhotoSizes.height of type int
 	BaseImage
-	Type string `json:"type"`
 }
 
 // PhotosPhotoTag struct
