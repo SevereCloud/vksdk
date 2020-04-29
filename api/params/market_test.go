@@ -295,6 +295,20 @@ func TestMarketGetGroupOrdersBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 }
 
+func TestMarketGetOrderByIDBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMarketGetOrderByIDBuilder()
+
+	b.UserID(1)
+	b.OrderID(1)
+	b.Extended(true)
+
+	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, b.Params["order_id"], 1)
+	assert.Equal(t, b.Params["extended"], true)
+}
+
 func TestMarketRemoveFromAlbumBuilder(t *testing.T) {
 	t.Parallel()
 

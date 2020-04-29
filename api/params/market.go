@@ -719,6 +719,38 @@ func (b *MarketGetGroupOrdersBuilder) Count(v int) *MarketGetGroupOrdersBuilder 
 	return b
 }
 
+// MarketGetOrderByIDBuilder builder
+//
+// Returns order by id.
+//
+// https://vk.com/dev/market.getOrderById
+type MarketGetOrderByIDBuilder struct {
+	api.Params
+}
+
+// NewMarketGetOrderByIDBuilder func
+func NewMarketGetOrderByIDBuilder() *MarketGetOrderByIDBuilder {
+	return &MarketGetOrderByIDBuilder{api.Params{}}
+}
+
+// UserID user id.
+func (b *MarketGetOrderByIDBuilder) UserID(v int) *MarketGetOrderByIDBuilder {
+	b.Params["user_id"] = v
+	return b
+}
+
+// OrderID order id.
+func (b *MarketGetOrderByIDBuilder) OrderID(v int) *MarketGetOrderByIDBuilder {
+	b.Params["order_id"] = v
+	return b
+}
+
+// Extended extended.
+func (b *MarketGetOrderByIDBuilder) Extended(v bool) *MarketGetOrderByIDBuilder {
+	b.Params["extended"] = v
+	return b
+}
+
 // MarketRemoveFromAlbumBuilder builder
 //
 // Removes an item from one or multiple collections.
