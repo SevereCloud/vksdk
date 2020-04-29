@@ -94,6 +94,14 @@ func (vk *VK) MarketEditComment(params Params) (response int, err error) {
 	return
 }
 
+// MarketEditOrder edits an order.
+//
+// https://vk.com/dev/market.editOrder
+func (vk *VK) MarketEditOrder(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("market.editOrder", params, &response)
+	return
+}
+
 // MarketGetResponse struct
 type MarketGetResponse struct {
 	Count int                       `json:"count"`

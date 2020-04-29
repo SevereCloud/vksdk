@@ -131,6 +131,12 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 	noError(t, err)
 }
 
+func TestVK_MarketEditOrder(t *testing.T) {
+	t.Parallel()
+	// TODO: TestVK_MarketEditOrder
+	t.Skip("TestVK_MarketEditOrder")
+}
+
 func TestVK_MarketCreateComment(t *testing.T) {
 	t.Parallel()
 

@@ -153,6 +153,22 @@ func TestMarketEditBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["url"], "text")
 }
 
+func TestMarketEditOrderBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMarketEditOrderBuilder()
+
+	b.UserID(1)
+	b.OrderID(1)
+	b.MerchantComment("text")
+	b.Status(1)
+
+	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, b.Params["order_id"], 1)
+	assert.Equal(t, b.Params["merchant_comment"], "text")
+	assert.Equal(t, b.Params["status"], 1)
+}
+
 func TestMarketEditAlbumBuilder(t *testing.T) {
 	t.Parallel()
 

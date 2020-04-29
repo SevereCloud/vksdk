@@ -412,6 +412,44 @@ func (b *MarketEditAlbumBuilder) MainAlbum(v bool) *MarketEditAlbumBuilder {
 	return b
 }
 
+// MarketEditOrderBuilder builder
+//
+// EditOrders an item.
+//
+// https://vk.com/dev/market.editOrder
+type MarketEditOrderBuilder struct {
+	api.Params
+}
+
+// NewMarketEditOrderBuilder func
+func NewMarketEditOrderBuilder() *MarketEditOrderBuilder {
+	return &MarketEditOrderBuilder{api.Params{}}
+}
+
+// UserID user id.
+func (b *MarketEditOrderBuilder) UserID(v int) *MarketEditOrderBuilder {
+	b.Params["user_id"] = v
+	return b
+}
+
+// OrderID order id.
+func (b *MarketEditOrderBuilder) OrderID(v int) *MarketEditOrderBuilder {
+	b.Params["order_id"] = v
+	return b
+}
+
+// MerchantComment merchant comment.
+func (b *MarketEditOrderBuilder) MerchantComment(v string) *MarketEditOrderBuilder {
+	b.Params["merchant_comment"] = v
+	return b
+}
+
+// Status status.
+func (b *MarketEditOrderBuilder) Status(v int) *MarketEditOrderBuilder {
+	b.Params["status"] = v
+	return b
+}
+
 // MarketEditCommentBuilder builder
 //
 // Chages item comment's text
