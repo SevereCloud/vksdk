@@ -201,6 +201,20 @@ func (vk *VK) MarketGetCommentsExtended(params Params) (response MarketGetCommen
 	return
 }
 
+// MarketGetGroupOrdersResponse struct
+type MarketGetGroupOrdersResponse struct {
+	Count int                  `json:"count"`
+	Items []object.MarketOrder `json:"items"`
+}
+
+// MarketGetGroupOrders returns community's orders list.
+//
+// https://vk.com/dev/market.getGroupOrders
+func (vk *VK) MarketGetGroupOrders(params Params) (response MarketGetGroupOrdersResponse, err error) {
+	err = vk.RequestUnmarshal("market.getGroupOrders", params, &response)
+	return
+}
+
 // MarketRemoveFromAlbum removes an item from one or multiple collections.
 //
 // https://vk.com/dev/market.removeFromAlbum

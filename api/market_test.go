@@ -302,6 +302,12 @@ func TestVK_MarketGetCommentsExtended(t *testing.T) {
 	assert.NotEmpty(t, res.Items)
 }
 
+func TestVK_MarketGetGroupOrders(t *testing.T) {
+	t.Parallel()
+	// TODO: TestVK_MarketGetGroupOrders
+	t.Skip("TestVK_MarketGetGroupOrders")
+}
+
 func TestVK_MarketReport(t *testing.T) {
 	t.Parallel()
 

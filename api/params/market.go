@@ -687,6 +687,38 @@ func (b *MarketGetCommentsBuilder) Fields(v []string) *MarketGetCommentsBuilder 
 	return b
 }
 
+// MarketGetGroupOrdersBuilder builder
+//
+// Returns community's orders list.
+//
+// https://vk.com/dev/market.getGroupOrders
+type MarketGetGroupOrdersBuilder struct {
+	api.Params
+}
+
+// NewMarketGetGroupOrdersBuilder func
+func NewMarketGetGroupOrdersBuilder() *MarketGetGroupOrdersBuilder {
+	return &MarketGetGroupOrdersBuilder{api.Params{}}
+}
+
+// GroupID ID of an items owner community.
+func (b *MarketGetGroupOrdersBuilder) GroupID(v int) *MarketGetGroupOrdersBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// Offset needed to return a specific subset of results.
+func (b *MarketGetGroupOrdersBuilder) Offset(v int) *MarketGetGroupOrdersBuilder {
+	b.Params["offset"] = v
+	return b
+}
+
+// Count Number of items to return.
+func (b *MarketGetGroupOrdersBuilder) Count(v int) *MarketGetGroupOrdersBuilder {
+	b.Params["count"] = v
+	return b
+}
+
 // MarketRemoveFromAlbumBuilder builder
 //
 // Removes an item from one or multiple collections.

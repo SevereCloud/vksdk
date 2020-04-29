@@ -83,3 +83,40 @@ type MarketSection struct {
 	ID   int    `json:"id"`   // Section ID
 	Name string `json:"name"` // Section name
 }
+
+// MarketOrder struct
+type MarketOrder struct {
+	ID                int                 `json:"id"`
+	GroupID           int                 `json:"group_id"`
+	UserID            int                 `json:"user_id"`
+	Date              int                 `json:"date"`
+	Status            int                 `json:"status"`
+	ItemsCount        int                 `json:"items_count"`
+	TotalPrice        MarketPrice         `json:"total_price"`
+	DisplayOrderID    string              `json:"display_order_id"`
+	TrackNumber       string              `json:"track_number"`
+	TrackLink         string              `json:"track_link"`
+	Comment           string              `json:"comment"`
+	Address           string              `json:"address"`
+	PreviewOrderItems []MarketOrderItem   `json:"preview_order_items"`
+	PriceDetails      []MarketPriceDetail `json:"price_details"`
+}
+
+// MarketOrderItem struct
+type MarketOrderItem struct {
+	OwnerID  int              `json:"owner_id"`
+	ItemID   int              `json:"item_id"`
+	Price    MarketPrice      `json:"price"`
+	Quantity int              `json:"quantity"`
+	Item     MarketMarketItem `json:"item"`
+	Title    string           `json:"title"`
+	Photo    PhotosPhoto      `json:"photo"`
+	Variants []string         `json:"variants"`
+}
+
+// MarketPriceDetail struct
+type MarketPriceDetail struct {
+	Title    string      `json:"title"`
+	Price    MarketPrice `json:"price"`
+	IsAccent bool        `json:"is_accent,omitempty"`
+}

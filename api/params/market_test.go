@@ -281,6 +281,20 @@ func TestMarketGetCommentsBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["fields"], []string{"test"})
 }
 
+func TestMarketGetGroupOrdersBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMarketGetGroupOrdersBuilder()
+
+	b.GroupID(1)
+	b.Offset(1)
+	b.Count(1)
+
+	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, b.Params["count"], 1)
+}
+
 func TestMarketRemoveFromAlbumBuilder(t *testing.T) {
 	t.Parallel()
 

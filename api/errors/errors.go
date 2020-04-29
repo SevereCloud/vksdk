@@ -296,6 +296,7 @@ const (
 	MarketTooManyItemsInAlbum         ErrorType = 1406 // Too many items in album
 	MarketTooManyAlbums               ErrorType = 1407 // Too many albums
 	MarketItemHasBadLinks             ErrorType = 1408 // Item has bad links in description
+	MarketShopNotEnabled              ErrorType = 1409 // Shop not enabled
 	StoryExpired                      ErrorType = 1600 // Story has already expired
 	StoryIncorrectReplyPrivacy        ErrorType = 1602 // Incorrect reply privacy
 	PrettyCardsCardNotFound           ErrorType = 1900 // Card not found
