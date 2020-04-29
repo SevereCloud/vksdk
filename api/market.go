@@ -228,6 +228,20 @@ func (vk *VK) MarketGetOrderByID(params Params) (response MarketGetOrderByIDResp
 	return
 }
 
+// MarketGetOrderItemsResponse struct
+type MarketGetOrderItemsResponse struct {
+	Count int                      `json:"count"`
+	Items []object.MarketOrderItem `json:"items"`
+}
+
+// MarketGetOrderItems returns items of an order.
+//
+// https://vk.com/dev/market.getOrderItems
+func (vk *VK) MarketGetOrderItems(params Params) (response MarketGetOrderItemsResponse, err error) {
+	err = vk.RequestUnmarshal("market.getOrderItems", params, &response)
+	return
+}
+
 // MarketRemoveFromAlbum removes an item from one or multiple collections.
 //
 // https://vk.com/dev/market.removeFromAlbum

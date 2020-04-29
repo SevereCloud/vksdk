@@ -314,6 +314,12 @@ func TestVK_MarketGetOrderByID(t *testing.T) {
 	t.Skip("TestVK_MarketGetOrderByID")
 }
 
+func TestVK_MarketGetOrderItems(t *testing.T) {
+	t.Parallel()
+	// TODO: TestVK_MarketGetOrderItems
+	t.Skip("TestVK_MarketGetOrderItems")
+}
+
 func TestVK_MarketReport(t *testing.T) {
 	t.Parallel()
 
