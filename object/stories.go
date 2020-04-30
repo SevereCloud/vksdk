@@ -31,6 +31,12 @@ type StoriesReplies struct {
 	New   int `json:"new"`   // New replies number.
 }
 
+// StoriesQuestions struct
+type StoriesQuestions struct {
+	Count int `json:"count"` // Replies number.
+	New   int `json:"new"`   // New replies number.
+}
+
 // StoriesStoryStats struct
 type StoriesStoryStats struct {
 	Answer      StoriesStoryStatsStat `json:"answer"`
@@ -87,6 +93,9 @@ type StoriesStory struct {
 	NarrativeID          int                      `json:"narrative_id"`
 	NarrativeOwnerID     int                      `json:"narrative_owner_id"`
 	NarrativeInfo        StoriesNarrativeInfo     `json:"narrative_info"`
+	NarrativesCount      int                      `json:"narratives_count"`
+	FirstNarrativeTitle  string                   `json:"first_narrative_title"`
+	Questions            StoriesQuestions         `json:"questions"`
 }
 
 // StoriesClickableStickers struct
@@ -148,7 +157,7 @@ func (cs StoriesClickableStickers) ToJSON() string {
 }
 
 // StoriesClickableSticker struct
-type StoriesClickableSticker struct {
+type StoriesClickableSticker struct { // nolint: maligned
 	ID            int                     `json:"id"`
 	Type          string                  `json:"type"`
 	ClickableArea []StoriesClickablePoint `json:"clickable_area"`
@@ -199,7 +208,15 @@ type StoriesClickableSticker struct {
 	// type=music
 	Audio          AudioAudioFull `json:"audio,omitempty"`
 	AudioStartTime int            `json:"audio_start_time,omitempty"`
+
+	// type=app
+	App                      AppsApp     `json:"app"`
+	AppContext               string      `json:"app_context"`
+	HasNewInteractions       BaseBoolInt `json:"has_new_interactions"`
+	IsBroadcastNotifyAllowed BaseBoolInt `json:"is_broadcast_notify_allowed"`
 }
+
+// TODO: сделать несколько структур для кликабельного стикера
 
 // Type of clickable sticker
 const (
@@ -215,6 +232,7 @@ const (
 	ClickableStickerOwner      = "owner"
 	ClickableStickerPoll       = "poll"
 	ClickableStickerMusic      = "music"
+	ClickableStickerApp        = "app"
 )
 
 // Subtype of clickable sticker
@@ -225,13 +243,16 @@ const (
 
 // Clickable sticker style
 const (
-	ClickableStickerTransparent  = "transparent"
-	ClickableStickerUnderline    = "underline"
-	ClickableStickerRedGradient  = "red_gradient"
-	ClickableStickerBlueGradient = "blue_gradient"
-	ClickableStickerBlue         = "blue"
-	ClickableStickerLight        = "light"
-	ClickableStickerGreen        = "green"
+	ClickableStickerTransparent   = "transparent"
+	ClickableStickerBlueGradient  = "blue_gradient"
+	ClickableStickerRedGradient   = "red_gradient"
+	ClickableStickerUnderline     = "underline"
+	ClickableStickerBlue          = "blue"
+	ClickableStickerGreen         = "green"
+	ClickableStickerWhite         = "white"
+	ClickableStickerQuestionReply = "question_reply"
+	ClickableStickerLight         = "light"
+	ClickableStickerImpressive    = "impressive"
 )
 
 // StoriesClickablePoint struct
