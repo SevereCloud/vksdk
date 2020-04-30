@@ -65,7 +65,7 @@ res, err = api.MessageSend(b.Params)
 
 switch errors.GetType(err) {
 case errors.NoType:
-	log.Print("Ошибка не связанная с работай самого апи")
+	log.Print("Ошибка не связанная с работой самого API")
 case errors.Captcha:
 	log.Print("Требуется ввод кода с картинки (Captcha)")
 case 1:
@@ -126,7 +126,7 @@ if err != nil {
 log.Print(response.Text)
 ```
 
-### Обротчик запросов
+### Обработчик запросов
 
 Обработчик `vk.Handler` должен возвращать структуру ответа от VK API и ошибку. В качестве параметров принимать название метода и параметры.
 
@@ -403,7 +403,7 @@ docsDoc, err = vk.UploadMessagesDoc(peerID, "audio_message", title, tags, file)
 Допустимые форматы:​ JPG, PNG, GIF.
 Ограничения:​ сумма высоты и ширины не более 14000px, файл объемом не более 10МБ. Формат видео: h264 video, aac audio, максимальное разрешение 720х1280, 30fps.
 
-Загрузить истроию с фотографией. [Параметры](https://vk.com/dev/stories.getPhotoUploadServer)
+Загрузить историю с фотографией. [Параметры](https://vk.com/dev/stories.getPhotoUploadServer)
 
 ```go
 uploadInfo, err = vk.UploadStoriesPhoto(params, file)
