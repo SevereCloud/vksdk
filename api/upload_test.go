@@ -248,6 +248,31 @@ func TestVK_UploadMarketAlbumPhoto(t *testing.T) {
 	noError(t, err)
 }
 
+func TestVK_UploadVideo(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	respVideoGet, err := vkUser.VideoGet(api.Params{
+		"videos": "-169097025_456239034",
+	})
+	if !noError(t, err) {
+		t.FailNow()
+	}
+
+	response, err := http.Get(respVideoGet.Items[0].Files.Mp4_1080)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	resp, err := vkUser.UploadVideo(api.Params{}, response.Body)
+	noError(t, err)
+
+	assert.NotEmpty(t, resp.OwnerID)
+	assert.NotEmpty(t, resp.VideoID)
+}
+
 func TestVK_UploadVideo_Error(t *testing.T) {
 	t.Parallel()
 
@@ -350,6 +375,28 @@ func TestVK_UploadMessagesDoc(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadMessagesDoc(117253521, "doc", "test.jpeg", "test", response.Body)
+	noError(t, err)
+}
+
+func TestVK_UploadMessagesDocGraffiti(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	doc, err := vkUser.UploadMessagesDoc(117253521, "graffiti", "test.png", "test", response.Body)
+	noError(t, err)
+
+	_, err = vkUser.MessagesSend(api.Params{
+		"peer_id":    117253521,
+		"random_id":  0,
+		"attachment": doc.Graffiti,
+	})
 	noError(t, err)
 }
 
