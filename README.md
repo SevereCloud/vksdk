@@ -1,7 +1,7 @@
 # VK SDK for Golang
 
 [![Build Status](https://travis-ci.com/SevereCloud/vksdk.svg?branch=master)](https://travis-ci.com/SevereCloud/vksdk)
-[![Documentation](https://godoc.org/github.com/SevereCloud/vksdk?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk)
+[![Documentation](https://godoc.org/github.com/SevereCloud/vksdk?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk?tab=subdirectories)
 [![VK Developers](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/)
 [![codecov](https://codecov.io/gh/SevereCloud/vksdk/branch/master/graph/badge.svg)](https://codecov.io/gh/SevereCloud/vksdk)
 [![VK chat](https://img.shields.io/badge/VK%20chat-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.me/join/AJQ1d6Or8Q00Y_CSOESfbqGt)
