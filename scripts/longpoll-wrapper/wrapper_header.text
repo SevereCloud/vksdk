@@ -1,0 +1,14 @@
+package wrapper // import "github.com/SevereCloud/vksdk/longpoll-user/v10"
+
+import "github.com/SevereCloud/vksdk/longpoll-user"
+
+// Wrapper struct
+type Wrapper struct {
+	longpoll *longpoll.Longpoll
+}
+
+// NewWrapper return *Wrapper for longpoll v10
+func NewWrapper(lp *longpoll.Longpoll) *Wrapper {
+	lp.Version = 10
+	return &Wrapper{longpoll: lp}
+}
