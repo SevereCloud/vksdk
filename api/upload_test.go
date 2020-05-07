@@ -271,6 +271,18 @@ func TestVK_UploadVideo(t *testing.T) {
 
 	assert.NotEmpty(t, resp.OwnerID)
 	assert.NotEmpty(t, resp.VideoID)
+
+	_, err = vkUser.VideoDelete(api.Params{
+		"owner_id": resp.OwnerID,
+		"video_id": resp.VideoID,
+	})
+	noError(t, err)
+
+	_, err = vkUser.VideoRestore(api.Params{
+		"owner_id": resp.OwnerID,
+		"video_id": resp.VideoID,
+	})
+	noError(t, err)
 }
 
 func TestVK_UploadVideo_Error(t *testing.T) {

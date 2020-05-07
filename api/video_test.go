@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestVK_VideoAddDeleteRestore(t *testing.T) {
+func TestVK_VideoAddDelete(t *testing.T) {
 	t.Parallel()
 
 	needUserToken(t)
@@ -28,20 +28,6 @@ func TestVK_VideoAddDeleteRestore(t *testing.T) {
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res)
-
-	res, err = vkUser.VideoRestore(api.Params{
-		"target_id": vkUserID,
-		"owner_id":  -139533130,
-		"video_id":  456239332,
-	})
-	noError(t, err)
-	assert.NotEmpty(t, res)
-
-	_, _ = vkUser.VideoDelete(api.Params{
-		"target_id": vkUserID,
-		"owner_id":  -139533130,
-		"video_id":  456239332,
-	})
 }
 
 func TestVK_VideoAddAlbum(t *testing.T) {
