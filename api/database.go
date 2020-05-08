@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// DatabaseGetChairsResponse struct
+// DatabaseGetChairsResponse struct.
 type DatabaseGetChairsResponse struct {
 	Count int                 `json:"count"`
 	Items []object.BaseObject `json:"items"`
@@ -18,13 +18,13 @@ func (vk *VK) DatabaseGetChairs(params Params) (response DatabaseGetChairsRespon
 	return
 }
 
-// DatabaseGetCitiesResponse struct
+// DatabaseGetCitiesResponse struct.
 type DatabaseGetCitiesResponse struct {
 	Count int                   `json:"count"`
 	Items []object.DatabaseCity `json:"items"`
 }
 
-// DatabaseGetCities returns a list of cities
+// DatabaseGetCities returns a list of cities.
 //
 // https://vk.com/dev/database.getCities
 func (vk *VK) DatabaseGetCities(params Params) (response DatabaseGetCitiesResponse, err error) {
@@ -32,7 +32,7 @@ func (vk *VK) DatabaseGetCities(params Params) (response DatabaseGetCitiesRespon
 	return
 }
 
-// DatabaseGetCitiesByIDResponse struct
+// DatabaseGetCitiesByIDResponse struct.
 type DatabaseGetCitiesByIDResponse []object.DatabaseCity
 
 // DatabaseGetCitiesByID returns information about cities by their IDs.
@@ -43,7 +43,7 @@ func (vk *VK) DatabaseGetCitiesByID(params Params) (response DatabaseGetCitiesBy
 	return
 }
 
-// DatabaseGetCountriesResponse struct
+// DatabaseGetCountriesResponse struct.
 type DatabaseGetCountriesResponse struct {
 	Count int                 `json:"count"`
 	Items []object.BaseObject `json:"items"`
@@ -57,7 +57,7 @@ func (vk *VK) DatabaseGetCountries(params Params) (response DatabaseGetCountries
 	return
 }
 
-// DatabaseGetCountriesByIDResponse struct
+// DatabaseGetCountriesByIDResponse struct.
 type DatabaseGetCountriesByIDResponse []object.BaseObject
 
 // DatabaseGetCountriesByID returns information about countries by their IDs.
@@ -68,7 +68,7 @@ func (vk *VK) DatabaseGetCountriesByID(params Params) (response DatabaseGetCount
 	return
 }
 
-// DatabaseGetFacultiesResponse struct
+// DatabaseGetFacultiesResponse struct.
 type DatabaseGetFacultiesResponse struct {
 	Count int                      `json:"count"`
 	Items []object.DatabaseFaculty `json:"items"`
@@ -82,7 +82,7 @@ func (vk *VK) DatabaseGetFaculties(params Params) (response DatabaseGetFaculties
 	return
 }
 
-// DatabaseGetMetroStationsResponse struct
+// DatabaseGetMetroStationsResponse struct.
 type DatabaseGetMetroStationsResponse struct {
 	Count int                           `json:"count"`
 	Items []object.DatabaseMetroStation `json:"items"`
@@ -96,7 +96,7 @@ func (vk *VK) DatabaseGetMetroStations(params Params) (response DatabaseGetMetro
 	return
 }
 
-// DatabaseGetMetroStationsByIDResponse struct
+// DatabaseGetMetroStationsByIDResponse struct.
 type DatabaseGetMetroStationsByIDResponse []object.DatabaseMetroStation
 
 // DatabaseGetMetroStationsByID returns information about one or several metro stations by their identifiers.
@@ -107,7 +107,7 @@ func (vk *VK) DatabaseGetMetroStationsByID(params Params) (response DatabaseGetM
 	return
 }
 
-// DatabaseGetRegionsResponse struct
+// DatabaseGetRegionsResponse struct.
 type DatabaseGetRegionsResponse struct {
 	Count int                     `json:"count"`
 	Items []object.DatabaseRegion `json:"items"`
@@ -121,11 +121,12 @@ func (vk *VK) DatabaseGetRegions(params Params) (response DatabaseGetRegionsResp
 	return
 }
 
-// DatabaseGetSchoolClassesResponse struct
+// DatabaseGetSchoolClassesResponse struct.
 type DatabaseGetSchoolClassesResponse [][]interface{}
 
 // DatabaseGetSchoolClasses returns a list of school classes specified for the country.
-// BUG(VK): database.getSchoolClasses  bad return
+//
+// BUG(VK): database.getSchoolClasses bad return.
 //
 // https://vk.com/dev/database.getSchoolClasses
 func (vk *VK) DatabaseGetSchoolClasses(params Params) (response DatabaseGetSchoolClassesResponse, err error) {
@@ -133,7 +134,7 @@ func (vk *VK) DatabaseGetSchoolClasses(params Params) (response DatabaseGetSchoo
 	return
 }
 
-// DatabaseGetSchoolsResponse struct
+// DatabaseGetSchoolsResponse struct.
 type DatabaseGetSchoolsResponse struct {
 	Count int                     `json:"count"`
 	Items []object.DatabaseSchool `json:"items"`
@@ -147,7 +148,7 @@ func (vk *VK) DatabaseGetSchools(params Params) (response DatabaseGetSchoolsResp
 	return
 }
 
-// DatabaseGetUniversitiesResponse struct
+// DatabaseGetUniversitiesResponse struct.
 type DatabaseGetUniversitiesResponse struct {
 	Count int                         `json:"count"`
 	Items []object.DatabaseUniversity `json:"items"`

@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// DatabaseCity struct
+// DatabaseCity struct.
 type DatabaseCity struct {
 	ID        int         `json:"id"`    // City ID
 	Title     string      `json:"title"` // City title
@@ -9,32 +9,32 @@ type DatabaseCity struct {
 	Important BaseBoolInt `json:"important"`
 }
 
-// DatabaseMetroStation  struct
+// DatabaseMetroStation  struct.
 type DatabaseMetroStation struct {
 	ID    int    `json:"id"`    // Metro station ID
 	Name  string `json:"name"`  // Metro station name
 	Color string `json:"color"` // Metro station color
 }
 
-// DatabaseFaculty struct
+// DatabaseFaculty struct.
 type DatabaseFaculty struct {
 	ID    int    `json:"id"`    // Faculty ID
 	Title string `json:"title"` // Faculty title
 }
 
-// DatabaseRegion struct
+// DatabaseRegion struct.
 type DatabaseRegion struct {
 	ID    int    `json:"id"`    // Region ID
 	Title string `json:"title"` // Region title
 }
 
-// DatabaseSchool struct
+// DatabaseSchool struct.
 type DatabaseSchool struct {
 	ID    int    `json:"id"`    // School ID
 	Title string `json:"title"` // School title
 }
 
-// DatabaseStation struct
+// DatabaseStation struct.
 type DatabaseStation struct {
 	CityID int    `json:"city_id"` // City ID
 	Color  string `json:"color"`   // Hex color code without #
@@ -42,7 +42,7 @@ type DatabaseStation struct {
 	Name   string `json:"name"`    // Station name
 }
 
-// DatabaseUniversity struct
+// DatabaseUniversity struct.
 type DatabaseUniversity struct {
 	ID    int    `json:"id"`    // University ID
 	Title string `json:"title"` // University title

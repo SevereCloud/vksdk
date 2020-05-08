@@ -4,13 +4,13 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// LeadFormsCreateResponse struct
+// LeadFormsCreateResponse struct.
 type LeadFormsCreateResponse struct {
 	FormID int    `json:"form_id"`
 	URL    string `json:"url"`
 }
 
-// LeadFormsCreate leadForms.create
+// LeadFormsCreate leadForms.create.
 //
 // https://vk.com/dev/leadForms.create
 func (vk *VK) LeadFormsCreate(params Params) (response LeadFormsCreateResponse, err error) {
@@ -18,12 +18,12 @@ func (vk *VK) LeadFormsCreate(params Params) (response LeadFormsCreateResponse, 
 	return
 }
 
-// LeadFormsDeleteResponse struct
+// LeadFormsDeleteResponse struct.
 type LeadFormsDeleteResponse struct {
 	FormID int `json:"form_id"`
 }
 
-// LeadFormsDelete leadForms.delete
+// LeadFormsDelete leadForms.delete.
 //
 // https://vk.com/dev/leadForms.delete
 func (vk *VK) LeadFormsDelete(params Params) (response LeadFormsDeleteResponse, err error) {
@@ -31,10 +31,10 @@ func (vk *VK) LeadFormsDelete(params Params) (response LeadFormsDeleteResponse, 
 	return
 }
 
-// LeadFormsGetResponse struct
+// LeadFormsGetResponse struct.
 type LeadFormsGetResponse object.LeadFormsForm
 
-// LeadFormsGet leadForms.get
+// LeadFormsGet leadForms.get.
 //
 // https://vk.com/dev/leadForms.get
 func (vk *VK) LeadFormsGet(params Params) (response LeadFormsGetResponse, err error) {
@@ -42,12 +42,12 @@ func (vk *VK) LeadFormsGet(params Params) (response LeadFormsGetResponse, err er
 	return
 }
 
-// LeadFormsGetLeadsResponse struct
+// LeadFormsGetLeadsResponse struct.
 type LeadFormsGetLeadsResponse struct {
 	Leads []object.LeadFormsLead `json:"leads"`
 }
 
-// LeadFormsGetLeads leadForms.getLeads
+// LeadFormsGetLeads leadForms.getLeads.
 //
 // https://vk.com/dev/leadForms.getLeads
 func (vk *VK) LeadFormsGetLeads(params Params) (response LeadFormsGetLeadsResponse, err error) {
@@ -55,7 +55,7 @@ func (vk *VK) LeadFormsGetLeads(params Params) (response LeadFormsGetLeadsRespon
 	return
 }
 
-// LeadFormsGetUploadURL leadForms.getUploadURL
+// LeadFormsGetUploadURL leadForms.getUploadURL.
 //
 // https://vk.com/dev/leadForms.getUploadURL
 func (vk *VK) LeadFormsGetUploadURL(params Params) (response string, err error) {
@@ -63,10 +63,10 @@ func (vk *VK) LeadFormsGetUploadURL(params Params) (response string, err error) 
 	return
 }
 
-// LeadFormsListResponse struct
+// LeadFormsListResponse struct.
 type LeadFormsListResponse []object.LeadFormsForm
 
-// LeadFormsList leadForms.list
+// LeadFormsList leadForms.list.
 //
 // https://vk.com/dev/leadForms.list
 func (vk *VK) LeadFormsList(params Params) (response LeadFormsListResponse, err error) {
@@ -74,13 +74,13 @@ func (vk *VK) LeadFormsList(params Params) (response LeadFormsListResponse, err 
 	return
 }
 
-// LeadFormsUpdateResponse struct
+// LeadFormsUpdateResponse struct.
 type LeadFormsUpdateResponse struct {
 	FormID int    `json:"form_id"`
 	URL    string `json:"url"`
 }
 
-// LeadFormsUpdate leadForms.update
+// LeadFormsUpdate leadForms.update.
 //
 // https://vk.com/dev/leadForms.update
 func (vk *VK) LeadFormsUpdate(params Params) (response LeadFormsUpdateResponse, err error) {

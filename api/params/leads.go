@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// LeadsCheckUserBuilder builder
+// LeadsCheckUserBuilder builder.
 //
 // Checks if the user can start the lead.
 //
@@ -13,7 +13,7 @@ type LeadsCheckUserBuilder struct {
 	api.Params
 }
 
-// NewLeadsCheckUserBuilder func
+// NewLeadsCheckUserBuilder func.
 func NewLeadsCheckUserBuilder() *LeadsCheckUserBuilder {
 	return &LeadsCheckUserBuilder{api.Params{}}
 }
@@ -30,13 +30,13 @@ func (b *LeadsCheckUserBuilder) TestResult(v int) *LeadsCheckUserBuilder {
 	return b
 }
 
-// TestMode parameter
+// TestMode parameter.
 func (b *LeadsCheckUserBuilder) TestMode(v bool) *LeadsCheckUserBuilder {
 	b.Params["test_mode"] = v
 	return b
 }
 
-// AutoStart parameter
+// AutoStart parameter.
 func (b *LeadsCheckUserBuilder) AutoStart(v bool) *LeadsCheckUserBuilder {
 	b.Params["auto_start"] = v
 	return b
@@ -54,7 +54,7 @@ func (b *LeadsCheckUserBuilder) Country(v string) *LeadsCheckUserBuilder {
 	return b
 }
 
-// LeadsCompleteBuilder builder
+// LeadsCompleteBuilder builder.
 //
 // Completes the lead started by user.
 //
@@ -63,7 +63,7 @@ type LeadsCompleteBuilder struct {
 	api.Params
 }
 
-// NewLeadsCompleteBuilder func
+// NewLeadsCompleteBuilder func.
 func NewLeadsCompleteBuilder() *LeadsCompleteBuilder {
 	return &LeadsCompleteBuilder{api.Params{}}
 }
@@ -86,7 +86,7 @@ func (b *LeadsCompleteBuilder) Comment(v string) *LeadsCompleteBuilder {
 	return b
 }
 
-// LeadsGetStatsBuilder builder
+// LeadsGetStatsBuilder builder.
 //
 // Returns lead stats data.
 //
@@ -95,7 +95,7 @@ type LeadsGetStatsBuilder struct {
 	api.Params
 }
 
-// NewLeadsGetStatsBuilder func
+// NewLeadsGetStatsBuilder func.
 func NewLeadsGetStatsBuilder() *LeadsGetStatsBuilder {
 	return &LeadsGetStatsBuilder{api.Params{}}
 }
@@ -124,7 +124,7 @@ func (b *LeadsGetStatsBuilder) DateEnd(v string) *LeadsGetStatsBuilder {
 	return b
 }
 
-// LeadsGetUsersBuilder builder
+// LeadsGetUsersBuilder builder.
 //
 // Returns a list of last user actions for the offer.
 //
@@ -133,7 +133,7 @@ type LeadsGetUsersBuilder struct {
 	api.Params
 }
 
-// NewLeadsGetUsersBuilder func
+// NewLeadsGetUsersBuilder func.
 func NewLeadsGetUsersBuilder() *LeadsGetUsersBuilder {
 	return &LeadsGetUsersBuilder{api.Params{}}
 }
@@ -188,7 +188,7 @@ func (b *LeadsGetUsersBuilder) Reverse(v bool) *LeadsGetUsersBuilder {
 	return b
 }
 
-// LeadsMetricHitBuilder builder
+// LeadsMetricHitBuilder builder.
 //
 // Counts the metric event.
 //
@@ -197,7 +197,7 @@ type LeadsMetricHitBuilder struct {
 	api.Params
 }
 
-// NewLeadsMetricHitBuilder func
+// NewLeadsMetricHitBuilder func.
 func NewLeadsMetricHitBuilder() *LeadsMetricHitBuilder {
 	return &LeadsMetricHitBuilder{api.Params{}}
 }
@@ -208,7 +208,7 @@ func (b *LeadsMetricHitBuilder) Data(v string) *LeadsMetricHitBuilder {
 	return b
 }
 
-// LeadsStartBuilder builder
+// LeadsStartBuilder builder.
 //
 // Creates new session for the user passing the offer.
 //
@@ -217,7 +217,7 @@ type LeadsStartBuilder struct {
 	api.Params
 }
 
-// NewLeadsStartBuilder func
+// NewLeadsStartBuilder func.
 func NewLeadsStartBuilder() *LeadsStartBuilder {
 	return &LeadsStartBuilder{api.Params{}}
 }
@@ -234,25 +234,25 @@ func (b *LeadsStartBuilder) Secret(v string) *LeadsStartBuilder {
 	return b
 }
 
-// UID parameter
+// UID parameter.
 func (b *LeadsStartBuilder) UID(v int) *LeadsStartBuilder {
 	b.Params["uid"] = v
 	return b
 }
 
-// AID parameter
+// AID parameter.
 func (b *LeadsStartBuilder) AID(v int) *LeadsStartBuilder {
 	b.Params["aid"] = v
 	return b
 }
 
-// TestMode parameter
+// TestMode parameter.
 func (b *LeadsStartBuilder) TestMode(v bool) *LeadsStartBuilder {
 	b.Params["test_mode"] = v
 	return b
 }
 
-// Force parameter
+// Force parameter.
 func (b *LeadsStartBuilder) Force(v bool) *LeadsStartBuilder {
 	b.Params["force"] = v
 	return b

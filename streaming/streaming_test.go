@@ -200,7 +200,7 @@ func TestNewStreaming(t *testing.T) {
 	assert.Error(t, err)
 }
 
-// FIXME: v2 remove
+// FIXME: v2 remove.
 func TestInit(t *testing.T) {
 	t.Parallel()
 

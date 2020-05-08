@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// UsersGetBuilder builder
+// UsersGetBuilder builder.
 //
 // Returns detailed information on users.
 //
@@ -13,7 +13,7 @@ type UsersGetBuilder struct {
 	api.Params
 }
 
-// NewUsersGetBuilder func
+// NewUsersGetBuilder func.
 func NewUsersGetBuilder() *UsersGetBuilder {
 	return &UsersGetBuilder{api.Params{}}
 }
@@ -27,7 +27,7 @@ func (b *UsersGetBuilder) UserIDs(v []string) *UsersGetBuilder {
 // Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
 // 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online',
 // 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post',
-// 'universities',
+// 'universities'.
 func (b *UsersGetBuilder) Fields(v []string) *UsersGetBuilder {
 	b.Params["fields"] = v
 	return b
@@ -51,7 +51,7 @@ func (b *UsersGetBuilder) NameCase(v string) *UsersGetBuilder {
 	return b
 }
 
-// UsersGetFollowersBuilder builder
+// UsersGetFollowersBuilder builder.
 //
 // Returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 //
@@ -60,7 +60,7 @@ type UsersGetFollowersBuilder struct {
 	api.Params
 }
 
-// NewUsersGetFollowersBuilder func
+// NewUsersGetFollowersBuilder func.
 func NewUsersGetFollowersBuilder() *UsersGetFollowersBuilder {
 	return &UsersGetFollowersBuilder{api.Params{}}
 }
@@ -109,7 +109,7 @@ func (b *UsersGetFollowersBuilder) NameCase(v string) *UsersGetFollowersBuilder 
 	return b
 }
 
-// UsersGetSubscriptionsBuilder builder
+// UsersGetSubscriptionsBuilder builder.
 //
 // Returns a list of IDs of users and communities followed by the user.
 //
@@ -118,7 +118,7 @@ type UsersGetSubscriptionsBuilder struct {
 	api.Params
 }
 
-// NewUsersGetSubscriptionsBuilder func
+// NewUsersGetSubscriptionsBuilder func.
 func NewUsersGetSubscriptionsBuilder() *UsersGetSubscriptionsBuilder {
 	return &UsersGetSubscriptionsBuilder{api.Params{}}
 }
@@ -130,7 +130,7 @@ func (b *UsersGetSubscriptionsBuilder) UserID(v int) *UsersGetSubscriptionsBuild
 }
 
 // Extended '1' — to return a combined list of users and communities, '0' — to return separate lists of users
-// and communities (default)
+// and communities (default).
 func (b *UsersGetSubscriptionsBuilder) Extended(v bool) *UsersGetSubscriptionsBuilder {
 	b.Params["extended"] = v
 	return b
@@ -148,13 +148,13 @@ func (b *UsersGetSubscriptionsBuilder) Count(v int) *UsersGetSubscriptionsBuilde
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *UsersGetSubscriptionsBuilder) Fields(v []string) *UsersGetSubscriptionsBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// UsersIsAppUserBuilder builder
+// UsersIsAppUserBuilder builder.
 //
 // Returns information whether a user installed the application.
 //
@@ -163,18 +163,18 @@ type UsersIsAppUserBuilder struct {
 	api.Params
 }
 
-// NewUsersIsAppUserBuilder func
+// NewUsersIsAppUserBuilder func.
 func NewUsersIsAppUserBuilder() *UsersIsAppUserBuilder {
 	return &UsersIsAppUserBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *UsersIsAppUserBuilder) UserID(v int) *UsersIsAppUserBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// UsersReportBuilder builder
+// UsersReportBuilder builder.
 //
 // Reports (submits a complain about) a user.
 //
@@ -183,7 +183,7 @@ type UsersReportBuilder struct {
 	api.Params
 }
 
-// NewUsersReportBuilder func
+// NewUsersReportBuilder func.
 func NewUsersReportBuilder() *UsersReportBuilder {
 	return &UsersReportBuilder{api.Params{}}
 }
@@ -195,7 +195,7 @@ func (b *UsersReportBuilder) UserID(v int) *UsersReportBuilder {
 }
 
 // Type Type of complaint:
-// 'porn' – pornography, 'spam' – spamming, 'insult' – abusive behavior, 'advertisement' – disruptive advertisements
+// 'porn' – pornography, 'spam' – spamming, 'insult' – abusive behavior, 'advertisement' – disruptive advertisements.
 func (b *UsersReportBuilder) Type(v string) *UsersReportBuilder {
 	b.Params["type"] = v
 	return b
@@ -207,7 +207,7 @@ func (b *UsersReportBuilder) Comment(v string) *UsersReportBuilder {
 	return b
 }
 
-// UsersSearchBuilder builder
+// UsersSearchBuilder builder.
 //
 // Returns a list of users matching the search criteria.
 //
@@ -216,7 +216,7 @@ type UsersSearchBuilder struct {
 	api.Params
 }
 
-// NewUsersSearchBuilder func
+// NewUsersSearchBuilder func.
 func NewUsersSearchBuilder() *UsersSearchBuilder {
 	return &UsersSearchBuilder{api.Params{}}
 }
@@ -227,7 +227,7 @@ func (b *UsersSearchBuilder) Q(v string) *UsersSearchBuilder {
 	return b
 }
 
-// Sort Sort order: '1' — by date registered, '0' — by rating
+// Sort Sort order: '1' — by date registered, '0' — by rating.
 func (b *UsersSearchBuilder) Sort(v int) *UsersSearchBuilder {
 	b.Params["sort"] = v
 	return b
@@ -247,7 +247,7 @@ func (b *UsersSearchBuilder) Count(v int) *UsersSearchBuilder {
 
 // Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
 // 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education',
-// 'online',
+// 'online'.
 func (b *UsersSearchBuilder) Fields(v []string) *UsersSearchBuilder {
 	b.Params["fields"] = v
 	return b
@@ -301,7 +301,7 @@ func (b *UsersSearchBuilder) UniversityChair(v int) *UsersSearchBuilder {
 	return b
 }
 
-// Sex '1' — female, '2' — male, '0' — any (default)
+// Sex '1' — female, '2' — male, '0' — any (default).
 func (b *UsersSearchBuilder) Sex(v int) *UsersSearchBuilder {
 	b.Params["sex"] = v
 	return b
@@ -309,7 +309,7 @@ func (b *UsersSearchBuilder) Sex(v int) *UsersSearchBuilder {
 
 // Status Relationship status:
 // '1' — Not married, '2' — In a relationship, '3' — Engaged, '4' — Married,
-// '5' — It's complicated, '6' — Actively searching, '7' — In love
+// '5' — It's complicated, '6' — Actively searching, '7' — In love.
 func (b *UsersSearchBuilder) Status(v int) *UsersSearchBuilder {
 	b.Params["status"] = v
 	return b
@@ -345,13 +345,13 @@ func (b *UsersSearchBuilder) BirthYear(v int) *UsersSearchBuilder {
 	return b
 }
 
-// Online '1' — online only, '0' — all users
+// Online '1' — online only, '0' — all users.
 func (b *UsersSearchBuilder) Online(v bool) *UsersSearchBuilder {
 	b.Params["online"] = v
 	return b
 }
 
-// HasPhoto '1' — with photo only, '0' — all users
+// HasPhoto '1' — with photo only, '0' — all users.
 func (b *UsersSearchBuilder) HasPhoto(v bool) *UsersSearchBuilder {
 	b.Params["has_photo"] = v
 	return b
@@ -369,7 +369,7 @@ func (b *UsersSearchBuilder) SchoolCity(v int) *UsersSearchBuilder {
 	return b
 }
 
-// SchoolClass parameter
+// SchoolClass parameter.
 func (b *UsersSearchBuilder) SchoolClass(v int) *UsersSearchBuilder {
 	b.Params["school_class"] = v
 	return b
@@ -417,7 +417,7 @@ func (b *UsersSearchBuilder) GroupID(v int) *UsersSearchBuilder {
 	return b
 }
 
-// FromList parameter
+// FromList parameter.
 func (b *UsersSearchBuilder) FromList(v []string) *UsersSearchBuilder {
 	b.Params["from_list"] = v
 	return b

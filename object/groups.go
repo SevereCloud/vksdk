@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// GroupsAddress WorkInfoStatus of information about timetable
+// GroupsAddress WorkInfoStatus of information about timetable.
 const (
 	WorkStatusNoInformation     = "no_information"
 	WorkStatusTemporarilyClosed = "temporarily_closed"
@@ -14,7 +14,7 @@ const (
 	WorkStatusForeverClosed     = "forever_closed"
 )
 
-// GroupsAddress struct
+// GroupsAddress struct.
 type GroupsAddress struct {
 	AdditionalAddress string                 `json:"additional_address"` // Additional address to the place (6 floor, left door)
 	Address           string                 `json:"address"`            // String address to the place (Nevsky, 28)
@@ -32,7 +32,7 @@ type GroupsAddress struct {
 	WorkInfoStatus    string                 `json:"work_info_status"`   // Status of information about timetable
 }
 
-// GroupsAddressTimetable Timetable for a week
+// GroupsAddressTimetable Timetable for a week.
 type GroupsAddressTimetable struct {
 	Fri GroupsAddressTimetableDay `json:"fri"` // Timetable for friday
 	Mon GroupsAddressTimetableDay `json:"mon"` // Timetable for monday
@@ -43,7 +43,7 @@ type GroupsAddressTimetable struct {
 	Wed GroupsAddressTimetableDay `json:"wed"` // Timetable for wednesday
 }
 
-// GroupsAddressTimetableDay Timetable for one day
+// GroupsAddressTimetableDay Timetable for one day.
 type GroupsAddressTimetableDay struct {
 	BreakCloseTime int `json:"break_close_time"` // Close time of the break in minutes
 	BreakOpenTime  int `json:"break_open_time"`  // Start time of the break in minutes
@@ -51,20 +51,20 @@ type GroupsAddressTimetableDay struct {
 	OpenTime       int `json:"open_time"`        // Open time in minutes
 }
 
-// GroupsAddressesInfo struct
+// GroupsAddressesInfo struct.
 type GroupsAddressesInfo struct {
 	IsEnabled     BaseBoolInt `json:"is_enabled"`      // Information whether addresses is enabled
 	MainAddressID int         `json:"main_address_id"` // Main address id for group
 }
 
-// GroupsGroup AdminLevel type
+// GroupsGroup AdminLevel type.
 const (
 	GroupsAdminLevelModerator = iota
 	GroupsAdminLevelEditor
 	GroupsAdminLevelAdministrator
 )
 
-// GroupsGroup MainSection type
+// GroupsGroup MainSection type.
 const (
 	GroupsMainSectionAbsent = iota
 	GroupsMainSectionPhotos
@@ -74,7 +74,7 @@ const (
 	GroupsMainSectionMarket
 )
 
-// GroupsGroup MemberStatus(events_event_attach, newsfeed_event_activity)
+// GroupsGroup MemberStatus(events_event_attach, newsfeed_event_activity).
 const (
 	GroupsMemberStatusNotMember = iota
 	GroupsMemberStatusMember
@@ -84,28 +84,28 @@ const (
 	GroupsMemberStatusInvited
 )
 
-// GroupsGroup Access or IsClosed type
+// GroupsGroup Access or IsClosed type.
 const (
 	GroupsGroupOpen = iota
 	GroupsGroupClosed
 	GroupsGroupPrivate
 )
 
-// GroupsGroup AgeLimits
+// GroupsGroup AgeLimits.
 const (
 	GroupsAgeLimitsNo = iota
 	GroupsAgeLimitsOver16
 	GroupsAgeLimitsOver18
 )
 
-// GroupsGroup type
+// GroupsGroup type.
 const (
 	GroupsTypeGroup = "group"
 	GroupsTypePage  = "page"
 	GroupsTypeEvent = "event"
 )
 
-// GroupsGroup struct
+// GroupsGroup struct.
 type GroupsGroup struct {
 	AdminLevel           int                  `json:"admin_level"`
 	Deactivated          string               `json:"deactivated"` // Information whether community is banned
@@ -168,19 +168,19 @@ type GroupsGroup struct {
 	ActionButton         GroupsActionButton   `json:"action_button"`
 }
 
-// ToMention return mention
+// ToMention return mention.
 func (group GroupsGroup) ToMention() string {
 	return fmt.Sprintf("[club%d|%s]", group.ID, group.Name)
 }
 
-// GroupsLiveCovers struct
+// GroupsLiveCovers struct.
 type GroupsLiveCovers struct {
 	IsEnabled  BaseBoolInt `json:"is_enabled"`
 	IsScalable BaseBoolInt `json:"is_scalable"`
 	StoryIds   []string    `json:"story_ids"`
 }
 
-// GroupsBanInfo Reason type
+// GroupsBanInfo Reason type.
 const (
 	GroupsBanReasonOther = iota
 	GroupsBanReasonSpam
@@ -189,7 +189,7 @@ const (
 	GroupsBanReasonFlood
 )
 
-// GroupsBanInfo struct
+// GroupsBanInfo struct.
 type GroupsBanInfo struct {
 	AdminID        int         `json:"admin_id"` // Administrator ID
 	Comment        string      `json:"comment"`  // Comment for a ban
@@ -199,7 +199,7 @@ type GroupsBanInfo struct {
 	CommentVisible BaseBoolInt `json:"comment_visible"`
 }
 
-// GroupsCallbackServer struct
+// GroupsCallbackServer struct.
 type GroupsCallbackServer struct {
 	CreatorID int    `json:"creator_id"`
 	ID        int    `json:"id"`
@@ -209,13 +209,13 @@ type GroupsCallbackServer struct {
 	URL       string `json:"url"`
 }
 
-// GroupsCallbackSettings struct
+// GroupsCallbackSettings struct.
 type GroupsCallbackSettings struct {
 	APIVersion string               `json:"api_version"` // API version used for the events
 	Events     GroupsLongPollEvents `json:"events"`
 }
 
-// GroupsContactsItem struct
+// GroupsContactsItem struct.
 type GroupsContactsItem struct {
 	Desc   string `json:"desc"`    // Contact description
 	Email  string `json:"email"`   // Contact email
@@ -223,7 +223,7 @@ type GroupsContactsItem struct {
 	UserID int    `json:"user_id"` // User ID
 }
 
-// GroupsCountersGroup struct
+// GroupsCountersGroup struct.
 type GroupsCountersGroup struct {
 	Addresses int `json:"addresses"` // Addresses number
 	Albums    int `json:"albums"`    // Photo albums number
@@ -235,26 +235,26 @@ type GroupsCountersGroup struct {
 	Videos    int `json:"videos"`    // Videos number
 }
 
-// GroupsCover struct
+// GroupsCover struct.
 type GroupsCover struct {
 	Enabled BaseBoolInt `json:"enabled"` // Information whether cover is enabled
 	Images  []BaseImage `json:"images"`
 }
 
-// GroupsGroupBanInfo struct
+// GroupsGroupBanInfo struct.
 type GroupsGroupBanInfo struct {
 	Comment string `json:"comment"`  // Ban comment
 	EndDate int    `json:"end_date"` // End date of ban in Unixtime
 }
 
-// GroupsGroupCategory struct
+// GroupsGroupCategory struct.
 type GroupsGroupCategory struct {
 	ID            int                  `json:"id"`   // Category ID
 	Name          string               `json:"name"` // Category name
 	Subcategories []BaseObjectWithName `json:"subcategories"`
 }
 
-// GroupsGroupCategoryFull struct
+// GroupsGroupCategoryFull struct.
 type GroupsGroupCategoryFull struct {
 	ID            int                       `json:"id"`         // Category ID
 	Name          string                    `json:"name"`       // Category name
@@ -263,13 +263,13 @@ type GroupsGroupCategoryFull struct {
 	Subcategories []GroupsGroupCategoryFull `json:"subcategories"`
 }
 
-// GroupsGroupCategoryType struct
+// GroupsGroupCategoryType struct.
 type GroupsGroupCategoryType struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
 
-// GroupsGroupLink struct
+// GroupsGroupLink struct.
 type GroupsGroupLink struct {
 	Desc            string      `json:"desc"`             // Link description
 	EditTitle       BaseBoolInt `json:"edit_title"`       // Information whether the title can be edited
@@ -279,21 +279,21 @@ type GroupsGroupLink struct {
 	URL             string      `json:"url"` // Link URL
 }
 
-// GroupsGroupPublicCategoryList struct
+// GroupsGroupPublicCategoryList struct.
 type GroupsGroupPublicCategoryList struct {
 	ID           int                       `json:"id"`
 	Name         string                    `json:"name"`
 	SubtypesList []GroupsGroupCategoryType `json:"subtypes_list"`
 }
 
-// GroupsGroupSettings Photos type
+// GroupsGroupSettings Photos type.
 const (
 	GroupsGroupPhotosDisabled = iota
 	GroupsGroupPhotosOpen
 	GroupsGroupPhotosLimited
 )
 
-// GroupsGroupSettings Subject type
+// GroupsGroupSettings Subject type.
 const (
 	_ = iota
 	GroupsGroupSubjectAuto
@@ -340,35 +340,35 @@ const (
 	GroupsGroupSubjectDesignAndGraphics
 )
 
-// GroupsGroupSettings Topics type
+// GroupsGroupSettings Topics type.
 const (
 	GroupsGroupTopicsDisabled = iota
 	GroupsGroupTopicsOpen
 	GroupsGroupTopicsLimited
 )
 
-// GroupsGroupSettings Docs type
+// GroupsGroupSettings Docs type.
 const (
 	GroupsGroupDocsDisabled = iota
 	GroupsGroupDocsOpen
 	GroupsGroupDocsLimited
 )
 
-// GroupsGroupSettings Audio type
+// GroupsGroupSettings Audio type.
 const (
 	GroupsGroupAudioDisabled = iota
 	GroupsGroupAudioOpen
 	GroupsGroupAudioLimited
 )
 
-// GroupsGroupSettings Video type
+// GroupsGroupSettings Video type.
 const (
 	GroupsGroupVideoDisabled = iota
 	GroupsGroupVideoOpen
 	GroupsGroupVideoLimited
 )
 
-// GroupsGroupSettings Wall type
+// GroupsGroupSettings Wall type.
 const (
 	GroupsGroupWallDisabled = iota
 	GroupsGroupWallOpen
@@ -376,14 +376,14 @@ const (
 	GroupsGroupWallClosed
 )
 
-// GroupsGroupSettings Wiki type
+// GroupsGroupSettings Wiki type.
 const (
 	GroupsGroupWikiDisabled = iota
 	GroupsGroupWikiOpen
 	GroupsGroupWikiLimited
 )
 
-// GroupsGroupSettings struct
+// GroupsGroupSettings struct.
 type GroupsGroupSettings struct {
 	Access             int                             `json:"access"`          // Community access settings
 	Address            string                          `json:"address"`         // Community's page domain
@@ -431,13 +431,13 @@ type GroupsGroupSettings struct {
 	ActionButton     GroupsActionButton   `json:"action_button"`
 }
 
-// GroupsSectionsList struct
+// GroupsSectionsList struct.
 type GroupsSectionsList struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
 
-// UnmarshalJSON need for unmarshal dynamic array (Example: [1, "Фотографии"]) to struct
+// UnmarshalJSON need for unmarshal dynamic array (Example: [1, "Фотографии"]) to struct.
 //
 // To unmarshal JSON into a value implementing the Unmarshaler interface,
 // Unmarshal calls that value's UnmarshalJSON method.
@@ -469,10 +469,10 @@ func (g *GroupsSectionsList) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-// GroupsActionType for action_button in groups
+// GroupsActionType for action_button in groups.
 type GroupsActionType string
 
-// GroupsActionType enums
+// GroupsActionType enums.
 const (
 	GroupsActionTypeOpenURL      GroupsActionType = "open_url"
 	GroupsActionTypeSendEmail    GroupsActionType = "send_email"
@@ -482,7 +482,7 @@ const (
 	GroupsActionTypeOpenApp      GroupsActionType = "open_app"
 )
 
-// GroupsActionButton struct
+// GroupsActionButton struct.
 type GroupsActionButton struct {
 	ActionType GroupsActionType         `json:"action_type"`
 	Target     GroupsActionButtonTarget `json:"target"`
@@ -492,7 +492,7 @@ type GroupsActionButton struct {
 	IsEnabled BaseBoolInt `json:"is_enabled,omitempty"`
 }
 
-// GroupsActionButtonTarget struct
+// GroupsActionButtonTarget struct.
 type GroupsActionButtonTarget struct {
 	// ActionType == ActionTypeSendEmail
 	Email string `json:"email"`
@@ -515,7 +515,7 @@ type GroupsActionButtonTarget struct {
 	AppID int `json:"app_id"`
 }
 
-// GroupsGroupXtrInvitedBy struct
+// GroupsGroupXtrInvitedBy struct.
 type GroupsGroupXtrInvitedBy struct {
 	AdminLevel   int         `json:"admin_level"`
 	ID           int         `json:"id"`          // Community ID
@@ -532,12 +532,12 @@ type GroupsGroupXtrInvitedBy struct {
 	IsAdvertiser BaseBoolInt `json:"is_advertiser"` // Information whether current user is advertiser
 }
 
-// ToMention return mention
+// ToMention return mention.
 func (group GroupsGroupXtrInvitedBy) ToMention() string {
 	return fmt.Sprintf("[club%d|%s]", group.ID, group.Name)
 }
 
-// GroupsLinksItem struct
+// GroupsLinksItem struct.
 type GroupsLinksItem struct {
 	Desc      string      `json:"desc"`       // Link description
 	EditTitle BaseBoolInt `json:"edit_title"` // Information whether the link title can be edited
@@ -548,7 +548,7 @@ type GroupsLinksItem struct {
 	URL       string      `json:"url"`        // Link URL
 }
 
-// GroupsLongPollEvents struct
+// GroupsLongPollEvents struct.
 type GroupsLongPollEvents struct {
 	MessageNew           BaseBoolInt `json:"message_new"`
 	MessageReply         BaseBoolInt `json:"message_reply"`
@@ -598,7 +598,7 @@ type GroupsLongPollEvents struct {
 	MessageRead          BaseBoolInt `json:"message_read"`
 }
 
-// GroupsLongPollServer struct
+// GroupsLongPollServer struct.
 type GroupsLongPollServer struct {
 	Key    string `json:"key"`    // Long Poll key
 	Server string `json:"server"` // Long Poll server address
@@ -607,14 +607,14 @@ type GroupsLongPollServer struct {
 
 // TODO: func (g GroupsLongPollServer) GetURL() string {
 
-// GroupsLongPollSettings struct
+// GroupsLongPollSettings struct.
 type GroupsLongPollSettings struct {
 	APIVersion string               `json:"api_version"` // API version used for the events
 	Events     GroupsLongPollEvents `json:"events"`
 	IsEnabled  BaseBoolInt          `json:"is_enabled"` // Shows whether Long Poll is enabled
 }
 
-// GroupsMarketInfo struct
+// GroupsMarketInfo struct.
 type GroupsMarketInfo struct {
 	ContactID    int            `json:"contact_id"` // Contact person ID
 	Currency     MarketCurrency `json:"currency"`
@@ -625,7 +625,7 @@ type GroupsMarketInfo struct {
 	PriceMin     string         `json:"price_min"`     // Minimum price
 }
 
-// GroupsGroupRole Role type
+// GroupsGroupRole Role type.
 const (
 	GroupsGroupRoleModerator     = "moderator"
 	GroupsGroupRoleEditor        = "editor"
@@ -633,28 +633,28 @@ const (
 	GroupsGroupRoleCreator       = "creator"
 )
 
-// GroupsMemberRole struct
+// GroupsMemberRole struct.
 type GroupsMemberRole struct {
 	ID          int      `json:"id"` // User ID
 	Role        string   `json:"role"`
 	Permissions []string `json:"permissions"`
 }
 
-// GroupsMemberRoleXtrUsersUser struct
+// GroupsMemberRoleXtrUsersUser struct.
 type GroupsMemberRoleXtrUsersUser struct {
 	UsersUser
 	Role        string   `json:"role"`
 	Permissions []string `json:"permissions"`
 }
 
-// GroupsMemberStatus struct
+// GroupsMemberStatus struct.
 type GroupsMemberStatus struct {
 	Member      BaseBoolInt `json:"member"`  // Information whether user is a member of the group
 	UserID      int         `json:"user_id"` // User ID
 	Permissions []string    `json:"permissions"`
 }
 
-// GroupsMemberStatusFull struct
+// GroupsMemberStatusFull struct.
 type GroupsMemberStatusFull struct {
 	Invitation BaseBoolInt `json:"invitation"` // Information whether user has been invited to the group
 	Member     BaseBoolInt `json:"member"`     // Information whether user is a member of the group
@@ -664,20 +664,20 @@ type GroupsMemberStatusFull struct {
 	UserID     int         `json:"user_id"`    // User ID
 }
 
-// GroupsOnlineStatus Status type
+// GroupsOnlineStatus Status type.
 const (
 	GroupsOnlineStatusTypeNone       = "none"
 	GroupsOnlineStatusTypeOnline     = "online"
 	GroupsOnlineStatusTypeAnswerMark = "answer_mark"
 )
 
-// GroupsOnlineStatus struct
+// GroupsOnlineStatus struct.
 type GroupsOnlineStatus struct {
 	Minutes int    `json:"minutes"` // Estimated time of answer (for status = answer_mark)
 	Status  string `json:"status"`
 }
 
-// GroupsOwnerXtrBanInfo struct
+// GroupsOwnerXtrBanInfo struct.
 type GroupsOwnerXtrBanInfo struct {
 	BanInfo GroupsBanInfo `json:"ban_info"`
 	Group   GroupsGroup   `json:"group"`
@@ -685,19 +685,19 @@ type GroupsOwnerXtrBanInfo struct {
 	Type    string        `json:"type"`
 }
 
-// GroupsSubjectItem struct
+// GroupsSubjectItem struct.
 type GroupsSubjectItem struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
 
-// GroupsTokenPermissionSetting struct
+// GroupsTokenPermissionSetting struct.
 type GroupsTokenPermissionSetting struct {
 	Name    string `json:"name"`
 	Setting int    `json:"setting"`
 }
 
-// GroupsTokenPermissions struct
+// GroupsTokenPermissions struct.
 type GroupsTokenPermissions struct {
 	Mask        int                            `json:"mask"`
 	Permissions []GroupsTokenPermissionSetting `json:"permissions"`

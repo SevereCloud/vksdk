@@ -4,25 +4,25 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// FaveAddArticleBuilder builder
+// FaveAddArticleBuilder builder.
 //
 // https://vk.com/dev/fave.addArticle
 type FaveAddArticleBuilder struct {
 	api.Params
 }
 
-// NewFaveAddArticleBuilder func
+// NewFaveAddArticleBuilder func.
 func NewFaveAddArticleBuilder() *FaveAddArticleBuilder {
 	return &FaveAddArticleBuilder{api.Params{}}
 }
 
-// URL parameter
+// URL parameter.
 func (b *FaveAddArticleBuilder) URL(v string) *FaveAddArticleBuilder {
 	b.Params["url"] = v
 	return b
 }
 
-// FaveAddLinkBuilder builder
+// FaveAddLinkBuilder builder.
 //
 // Adds a link to user faves.
 //
@@ -31,7 +31,7 @@ type FaveAddLinkBuilder struct {
 	api.Params
 }
 
-// NewFaveAddLinkBuilder func
+// NewFaveAddLinkBuilder func.
 func NewFaveAddLinkBuilder() *FaveAddLinkBuilder {
 	return &FaveAddLinkBuilder{api.Params{}}
 }
@@ -42,170 +42,170 @@ func (b *FaveAddLinkBuilder) Link(v string) *FaveAddLinkBuilder {
 	return b
 }
 
-// FaveAddPageBuilder builder
+// FaveAddPageBuilder builder.
 //
 // https://vk.com/dev/fave.addPage
 type FaveAddPageBuilder struct {
 	api.Params
 }
 
-// NewFaveAddPageBuilder func
+// NewFaveAddPageBuilder func.
 func NewFaveAddPageBuilder() *FaveAddPageBuilder {
 	return &FaveAddPageBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *FaveAddPageBuilder) UserID(v int) *FaveAddPageBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *FaveAddPageBuilder) GroupID(v int) *FaveAddPageBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// FaveAddPostBuilder builder
+// FaveAddPostBuilder builder.
 //
 // https://vk.com/dev/fave.addPost
 type FaveAddPostBuilder struct {
 	api.Params
 }
 
-// NewFaveAddPostBuilder func
+// NewFaveAddPostBuilder func.
 func NewFaveAddPostBuilder() *FaveAddPostBuilder {
 	return &FaveAddPostBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *FaveAddPostBuilder) OwnerID(v int) *FaveAddPostBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ID parameter
+// ID parameter.
 func (b *FaveAddPostBuilder) ID(v int) *FaveAddPostBuilder {
 	b.Params["id"] = v
 	return b
 }
 
-// AccessKey parameter
+// AccessKey parameter.
 func (b *FaveAddPostBuilder) AccessKey(v string) *FaveAddPostBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
-// FaveAddProductBuilder builder
+// FaveAddProductBuilder builder.
 //
 // https://vk.com/dev/fave.addProduct
 type FaveAddProductBuilder struct {
 	api.Params
 }
 
-// NewFaveAddProductBuilder func
+// NewFaveAddProductBuilder func.
 func NewFaveAddProductBuilder() *FaveAddProductBuilder {
 	return &FaveAddProductBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *FaveAddProductBuilder) OwnerID(v int) *FaveAddProductBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ID parameter
+// ID parameter.
 func (b *FaveAddProductBuilder) ID(v int) *FaveAddProductBuilder {
 	b.Params["id"] = v
 	return b
 }
 
-// AccessKey parameter
+// AccessKey parameter.
 func (b *FaveAddProductBuilder) AccessKey(v string) *FaveAddProductBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
-// FaveAddTagBuilder builder
+// FaveAddTagBuilder builder.
 //
 // https://vk.com/dev/fave.addTag
 type FaveAddTagBuilder struct {
 	api.Params
 }
 
-// NewFaveAddTagBuilder func
+// NewFaveAddTagBuilder func.
 func NewFaveAddTagBuilder() *FaveAddTagBuilder {
 	return &FaveAddTagBuilder{api.Params{}}
 }
 
-// Name parameter
+// Name parameter.
 func (b *FaveAddTagBuilder) Name(v string) *FaveAddTagBuilder {
 	b.Params["name"] = v
 	return b
 }
 
-// FaveAddVideoBuilder builder
+// FaveAddVideoBuilder builder.
 //
 // https://vk.com/dev/fave.addVideo
 type FaveAddVideoBuilder struct {
 	api.Params
 }
 
-// NewFaveAddVideoBuilder func
+// NewFaveAddVideoBuilder func.
 func NewFaveAddVideoBuilder() *FaveAddVideoBuilder {
 	return &FaveAddVideoBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *FaveAddVideoBuilder) OwnerID(v int) *FaveAddVideoBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ID parameter
+// ID parameter.
 func (b *FaveAddVideoBuilder) ID(v int) *FaveAddVideoBuilder {
 	b.Params["id"] = v
 	return b
 }
 
-// AccessKey parameter
+// AccessKey parameter.
 func (b *FaveAddVideoBuilder) AccessKey(v string) *FaveAddVideoBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
-// FaveEditTagBuilder builder
+// FaveEditTagBuilder builder.
 //
 // https://vk.com/dev/fave.editTag
 type FaveEditTagBuilder struct {
 	api.Params
 }
 
-// NewFaveEditTagBuilder func
+// NewFaveEditTagBuilder func.
 func NewFaveEditTagBuilder() *FaveEditTagBuilder {
 	return &FaveEditTagBuilder{api.Params{}}
 }
 
-// ID parameter
+// ID parameter.
 func (b *FaveEditTagBuilder) ID(v int) *FaveEditTagBuilder {
 	b.Params["id"] = v
 	return b
 }
 
-// Name parameter
+// Name parameter.
 func (b *FaveEditTagBuilder) Name(v string) *FaveEditTagBuilder {
 	b.Params["name"] = v
 	return b
 }
 
-// FaveGetBuilder builder
+// FaveGetBuilder builder.
 //
 // https://vk.com/dev/fave.get
 type FaveGetBuilder struct {
 	api.Params
 }
 
-// NewFaveGetBuilder func
+// NewFaveGetBuilder func.
 func NewFaveGetBuilder() *FaveGetBuilder {
 	return &FaveGetBuilder{api.Params{}}
 }
@@ -216,7 +216,7 @@ func (b *FaveGetBuilder) Extended(v bool) *FaveGetBuilder {
 	return b
 }
 
-// ItemType parameter
+// ItemType parameter.
 func (b *FaveGetBuilder) ItemType(v string) *FaveGetBuilder {
 	b.Params["item_type"] = v
 	return b
@@ -240,85 +240,85 @@ func (b *FaveGetBuilder) Count(v int) *FaveGetBuilder {
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *FaveGetBuilder) Fields(v string) *FaveGetBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// IsFromSnackbar parameter
+// IsFromSnackbar parameter.
 func (b *FaveGetBuilder) IsFromSnackbar(v bool) *FaveGetBuilder {
 	b.Params["is_from_snackbar"] = v
 	return b
 }
 
-// FaveGetPagesBuilder builder
+// FaveGetPagesBuilder builder.
 //
 // https://vk.com/dev/fave.getPages
 type FaveGetPagesBuilder struct {
 	api.Params
 }
 
-// NewFaveGetPagesBuilder func
+// NewFaveGetPagesBuilder func.
 func NewFaveGetPagesBuilder() *FaveGetPagesBuilder {
 	return &FaveGetPagesBuilder{api.Params{}}
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *FaveGetPagesBuilder) Offset(v int) *FaveGetPagesBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count parameter
+// Count parameter.
 func (b *FaveGetPagesBuilder) Count(v int) *FaveGetPagesBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Type parameter
+// Type parameter.
 func (b *FaveGetPagesBuilder) Type(v string) *FaveGetPagesBuilder {
 	b.Params["type"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *FaveGetPagesBuilder) Fields(v []string) *FaveGetPagesBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// TagID parameter
+// TagID parameter.
 func (b *FaveGetPagesBuilder) TagID(v int) *FaveGetPagesBuilder {
 	b.Params["tag_id"] = v
 	return b
 }
 
-// FaveRemoveArticleBuilder builder
+// FaveRemoveArticleBuilder builder.
 //
 // https://vk.com/dev/fave.removeArticle
 type FaveRemoveArticleBuilder struct {
 	api.Params
 }
 
-// NewFaveRemoveArticleBuilder func
+// NewFaveRemoveArticleBuilder func.
 func NewFaveRemoveArticleBuilder() *FaveRemoveArticleBuilder {
 	return &FaveRemoveArticleBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *FaveRemoveArticleBuilder) OwnerID(v int) *FaveRemoveArticleBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ArticleID parameter
+// ArticleID parameter.
 func (b *FaveRemoveArticleBuilder) ArticleID(v int) *FaveRemoveArticleBuilder {
 	b.Params["article_id"] = v
 	return b
 }
 
-// FaveRemoveLinkBuilder builder
+// FaveRemoveLinkBuilder builder.
 //
 // Removes link from the user's faves.
 //
@@ -327,7 +327,7 @@ type FaveRemoveLinkBuilder struct {
 	api.Params
 }
 
-// NewFaveRemoveLinkBuilder func
+// NewFaveRemoveLinkBuilder func.
 func NewFaveRemoveLinkBuilder() *FaveRemoveLinkBuilder {
 	return &FaveRemoveLinkBuilder{api.Params{}}
 }
@@ -338,217 +338,217 @@ func (b *FaveRemoveLinkBuilder) LinkID(v string) *FaveRemoveLinkBuilder {
 	return b
 }
 
-// Link Link URL
+// Link Link URL.
 func (b *FaveRemoveLinkBuilder) Link(v string) *FaveRemoveLinkBuilder {
 	b.Params["link"] = v
 	return b
 }
 
-// FaveRemovePageBuilder builder
+// FaveRemovePageBuilder builder.
 //
 // https://vk.com/dev/fave.removePage
 type FaveRemovePageBuilder struct {
 	api.Params
 }
 
-// NewFaveRemovePageBuilder func
+// NewFaveRemovePageBuilder func.
 func NewFaveRemovePageBuilder() *FaveRemovePageBuilder {
 	return &FaveRemovePageBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *FaveRemovePageBuilder) UserID(v int) *FaveRemovePageBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *FaveRemovePageBuilder) GroupID(v int) *FaveRemovePageBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// FaveRemovePostBuilder builder
+// FaveRemovePostBuilder builder.
 //
 // https://vk.com/dev/fave.removePost
 type FaveRemovePostBuilder struct {
 	api.Params
 }
 
-// NewFaveRemovePostBuilder func
+// NewFaveRemovePostBuilder func.
 func NewFaveRemovePostBuilder() *FaveRemovePostBuilder {
 	return &FaveRemovePostBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *FaveRemovePostBuilder) OwnerID(v int) *FaveRemovePostBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ID parameter
+// ID parameter.
 func (b *FaveRemovePostBuilder) ID(v int) *FaveRemovePostBuilder {
 	b.Params["id"] = v
 	return b
 }
 
-// FaveRemoveProductBuilder builder
+// FaveRemoveProductBuilder builder.
 //
 // https://vk.com/dev/fave.removeProduct
 type FaveRemoveProductBuilder struct {
 	api.Params
 }
 
-// NewFaveRemoveProductBuilder func
+// NewFaveRemoveProductBuilder func.
 func NewFaveRemoveProductBuilder() *FaveRemoveProductBuilder {
 	return &FaveRemoveProductBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *FaveRemoveProductBuilder) OwnerID(v int) *FaveRemoveProductBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ID parameter
+// ID parameter.
 func (b *FaveRemoveProductBuilder) ID(v int) *FaveRemoveProductBuilder {
 	b.Params["id"] = v
 	return b
 }
 
-// FaveRemoveTagBuilder builder
+// FaveRemoveTagBuilder builder.
 //
 // https://vk.com/dev/fave.removeTag
 type FaveRemoveTagBuilder struct {
 	api.Params
 }
 
-// NewFaveRemoveTagBuilder func
+// NewFaveRemoveTagBuilder func.
 func NewFaveRemoveTagBuilder() *FaveRemoveTagBuilder {
 	return &FaveRemoveTagBuilder{api.Params{}}
 }
 
-// ID parameter
+// ID parameter.
 func (b *FaveRemoveTagBuilder) ID(v int) *FaveRemoveTagBuilder {
 	b.Params["id"] = v
 	return b
 }
 
-// FaveReorderTagsBuilder builder
+// FaveReorderTagsBuilder builder.
 //
 // https://vk.com/dev/fave.reorderTags
 type FaveReorderTagsBuilder struct {
 	api.Params
 }
 
-// NewFaveReorderTagsBuilder func
+// NewFaveReorderTagsBuilder func.
 func NewFaveReorderTagsBuilder() *FaveReorderTagsBuilder {
 	return &FaveReorderTagsBuilder{api.Params{}}
 }
 
-// IDs parameter
+// IDs parameter.
 func (b *FaveReorderTagsBuilder) IDs(v []int) *FaveReorderTagsBuilder {
 	b.Params["ids"] = v
 	return b
 }
 
-// FaveSetPageTagsBuilder builder
+// FaveSetPageTagsBuilder builder.
 //
 // https://vk.com/dev/fave.setPageTags
 type FaveSetPageTagsBuilder struct {
 	api.Params
 }
 
-// NewFaveSetPageTagsBuilder func
+// NewFaveSetPageTagsBuilder func.
 func NewFaveSetPageTagsBuilder() *FaveSetPageTagsBuilder {
 	return &FaveSetPageTagsBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *FaveSetPageTagsBuilder) UserID(v int) *FaveSetPageTagsBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *FaveSetPageTagsBuilder) GroupID(v int) *FaveSetPageTagsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// TagIDs parameter
+// TagIDs parameter.
 func (b *FaveSetPageTagsBuilder) TagIDs(v []int) *FaveSetPageTagsBuilder {
 	b.Params["tag_ids"] = v
 	return b
 }
 
-// FaveSetTagsBuilder builder
+// FaveSetTagsBuilder builder.
 //
 // https://vk.com/dev/fave.setTags
 type FaveSetTagsBuilder struct {
 	api.Params
 }
 
-// NewFaveSetTagsBuilder func
+// NewFaveSetTagsBuilder func.
 func NewFaveSetTagsBuilder() *FaveSetTagsBuilder {
 	return &FaveSetTagsBuilder{api.Params{}}
 }
 
-// ItemType parameter
+// ItemType parameter.
 func (b *FaveSetTagsBuilder) ItemType(v string) *FaveSetTagsBuilder {
 	b.Params["item_type"] = v
 	return b
 }
 
-// ItemOwnerID parameter
+// ItemOwnerID parameter.
 func (b *FaveSetTagsBuilder) ItemOwnerID(v int) *FaveSetTagsBuilder {
 	b.Params["item_owner_id"] = v
 	return b
 }
 
-// ItemID parameter
+// ItemID parameter.
 func (b *FaveSetTagsBuilder) ItemID(v int) *FaveSetTagsBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// TagIDs parameter
+// TagIDs parameter.
 func (b *FaveSetTagsBuilder) TagIDs(v []int) *FaveSetTagsBuilder {
 	b.Params["tag_ids"] = v
 	return b
 }
 
-// LinkID parameter
+// LinkID parameter.
 func (b *FaveSetTagsBuilder) LinkID(v string) *FaveSetTagsBuilder {
 	b.Params["link_id"] = v
 	return b
 }
 
-// LinkURL parameter
+// LinkURL parameter.
 func (b *FaveSetTagsBuilder) LinkURL(v string) *FaveSetTagsBuilder {
 	b.Params["link_url"] = v
 	return b
 }
 
-// FaveTrackPageInteractionBuilder builder
+// FaveTrackPageInteractionBuilder builder.
 //
 // https://vk.com/dev/fave.trackPageInteraction
 type FaveTrackPageInteractionBuilder struct {
 	api.Params
 }
 
-// NewFaveTrackPageInteractionBuilder func
+// NewFaveTrackPageInteractionBuilder func.
 func NewFaveTrackPageInteractionBuilder() *FaveTrackPageInteractionBuilder {
 	return &FaveTrackPageInteractionBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *FaveTrackPageInteractionBuilder) UserID(v int) *FaveTrackPageInteractionBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *FaveTrackPageInteractionBuilder) GroupID(v int) *FaveTrackPageInteractionBuilder {
 	b.Params["group_id"] = v
 	return b

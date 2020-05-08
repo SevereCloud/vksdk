@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// PollsAnswer struct
+// PollsAnswer struct.
 type PollsAnswer struct {
 	ID    int     `json:"id"`
 	Rate  float64 `json:"rate"`
@@ -12,7 +12,7 @@ type PollsAnswer struct {
 	Votes int     `json:"votes"`
 }
 
-// PollsPoll struct
+// PollsPoll struct.
 type PollsPoll struct {
 	AnswerID   int             `json:"answer_id"` // Current user's answer ID
 	Answers    []PollsAnswer   `json:"answers"`
@@ -39,41 +39,41 @@ type PollsPoll struct {
 	Groups     []GroupsGroup   `json:"groups"`
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (poll PollsPoll) ToAttachment() string {
 	return fmt.Sprintf("poll%d_%d", poll.OwnerID, poll.ID)
 }
 
-// PollsFriend struct
+// PollsFriend struct.
 type PollsFriend struct {
 	ID int `json:"id"`
 }
 
-// PollsVoters struct
+// PollsVoters struct.
 type PollsVoters struct {
 	AnswerID int              `json:"answer_id"` // Answer ID
 	Users    PollsVotersUsers `json:"users"`
 }
 
-// PollsVotersUsers struct
+// PollsVotersUsers struct.
 type PollsVotersUsers struct {
 	Count int   `json:"count"` // Votes number
 	Items []int `json:"items"`
 }
 
-// PollsVotersFields struct
+// PollsVotersFields struct.
 type PollsVotersFields struct {
 	AnswerID int                    `json:"answer_id"` // Answer ID
 	Users    PollsVotersUsersFields `json:"users"`
 }
 
-// PollsVotersUsersFields struct
+// PollsVotersUsersFields struct.
 type PollsVotersUsersFields struct {
 	Count int         `json:"count"` // Votes number
 	Items []UsersUser `json:"items"`
 }
 
-// PollsBackground struct
+// PollsBackground struct.
 type PollsBackground struct {
 	Type   string `json:"type"`
 	Angle  int    `json:"angle"`
@@ -86,14 +86,14 @@ type PollsBackground struct {
 	Name string `json:"string"`
 }
 
-// PollsPhoto struct
+// PollsPhoto struct.
 type PollsPhoto struct {
 	ID     int           `json:"id"`
 	Color  string        `json:"color"`
 	Images []PhotosImage `json:"images"`
 }
 
-// PollsPhotoUploadResponse struct
+// PollsPhotoUploadResponse struct.
 type PollsPhotoUploadResponse struct {
 	Photo string `json:"photo"` // Uploaded photo data
 	Hash  string `json:"hash"`  // Uploaded hash

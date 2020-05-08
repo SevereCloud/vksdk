@@ -9,12 +9,12 @@ import (
 	"strings"
 )
 
-// ParamsVerification represents verification struct
+// ParamsVerification represents verification struct.
 type ParamsVerification struct {
 	ClientSecret string
 }
 
-// NewParamsVerification return *ParamsVerification
+// NewParamsVerification return *ParamsVerification.
 func NewParamsVerification(clientSecret string) *ParamsVerification {
 	pv := &ParamsVerification{
 		ClientSecret: clientSecret,
@@ -23,7 +23,7 @@ func NewParamsVerification(clientSecret string) *ParamsVerification {
 	return pv
 }
 
-// getVKParams return sort vk parameters with the prefix vk_ by key
+// getVKParams return sort vk parameters with the prefix vk_ by key.
 func getVKParams(rawValues url.Values) string {
 	vkPrefix := make(url.Values)
 
@@ -38,7 +38,7 @@ func getVKParams(rawValues url.Values) string {
 	return vkPrefix.Encode() // sorted by key.
 }
 
-// Sign return signature in base64
+// Sign return signature in base64.
 func (pv *ParamsVerification) Sign(p []byte) string {
 	// Generate hash code
 	mac := hmac.New(sha256.New, []byte(pv.ClientSecret))
@@ -54,7 +54,7 @@ func (pv *ParamsVerification) Sign(p []byte) string {
 	return base64Sign
 }
 
-// Verify verifies the signature in URL
+// Verify verifies the signature in URL.
 func (pv *ParamsVerification) Verify(u *url.URL) (bool, error) {
 	values, err := url.ParseQuery(u.RawQuery)
 	if err != nil {
@@ -71,7 +71,7 @@ func (pv *ParamsVerification) Verify(u *url.URL) (bool, error) {
 	return base64Sign == values["sign"][0], nil
 }
 
-// VerifyMiddleware func
+// VerifyMiddleware func.
 func (pv *ParamsVerification) VerifyMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ok, err := pv.Verify(r.URL)
@@ -88,7 +88,7 @@ func (pv *ParamsVerification) VerifyMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-// ParamsVerify verifies the signature in link using client secret
+// ParamsVerify verifies the signature in link using client secret.
 func ParamsVerify(link, clientSecret string) (bool, error) {
 	pv := NewParamsVerification(clientSecret)
 

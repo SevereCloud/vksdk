@@ -4,10 +4,10 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// StorageGetResponse struct
+// StorageGetResponse struct.
 type StorageGetResponse []object.BaseRequestParam
 
-// ToMap return map from StorageGetResponse
+// ToMap return map from StorageGetResponse.
 func (s StorageGetResponse) ToMap() map[string]string {
 	m := make(map[string]string)
 	for _, item := range s {
@@ -32,7 +32,7 @@ func (vk *VK) StorageGet(params Params) (response StorageGetResponse, err error)
 	return
 }
 
-// StorageGetKeysResponse struct
+// StorageGetKeysResponse struct.
 type StorageGetKeysResponse []string
 
 // StorageGetKeys returns the names of all variables.

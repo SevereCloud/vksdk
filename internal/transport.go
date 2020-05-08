@@ -10,7 +10,7 @@ import (
 	"github.com/SevereCloud/vksdk"
 )
 
-// UserAgent module
+// UserAgent module.
 const UserAgent = "vksdk/" + vksdk.Version + " (+https://github.com/SevereCloud/vksdk)"
 
 // ContextKey is just an empty struct. It exists so HTTPClient can be
@@ -18,13 +18,13 @@ const UserAgent = "vksdk/" + vksdk.Version + " (+https://github.com/SevereCloud/
 // because nobody else can create a ContextKey, being unexported.
 type ContextKey int
 
-// ContextKey list
+// ContextKey list.
 const (
 	HTTPClientKey ContextKey = iota
 	UserAgentKey
 )
 
-// ContextClient return *http.Client
+// ContextClient return *http.Client.
 func ContextClient(ctx context.Context) *http.Client {
 	if ctx != nil {
 		if hc, ok := ctx.Value(HTTPClientKey).(*http.Client); ok {
@@ -35,7 +35,7 @@ func ContextClient(ctx context.Context) *http.Client {
 	return http.DefaultClient
 }
 
-// ContextUserAgent return User-Agent from context
+// ContextUserAgent return User-Agent from context.
 func ContextUserAgent(ctx context.Context) string {
 	if ctx != nil {
 		if hc, ok := ctx.Value(UserAgentKey).(string); ok {

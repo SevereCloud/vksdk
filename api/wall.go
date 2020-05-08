@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// WallCloseComments turn off post commenting
+// WallCloseComments turn off post commenting.
 //
 // https://vk.com/dev/wall.closeComments
 func (vk *VK) WallCloseComments(params Params) (response int, err error) {
@@ -12,7 +12,7 @@ func (vk *VK) WallCloseComments(params Params) (response int, err error) {
 	return
 }
 
-// WallCreateCommentResponse struct
+// WallCreateCommentResponse struct.
 type WallCreateCommentResponse struct {
 	CommentID    int   `json:"comment_id"`
 	ParentsStack []int `json:"parents_stack"`
@@ -42,7 +42,7 @@ func (vk *VK) WallDeleteComment(params Params) (response int, err error) {
 	return
 }
 
-// WallEditResponse struct
+// WallEditResponse struct.
 type WallEditResponse struct {
 	PostID int `json:"post_id"`
 }
@@ -71,7 +71,7 @@ func (vk *VK) WallEditComment(params Params) (response int, err error) {
 	return
 }
 
-// WallGetResponse struct
+// WallGetResponse struct.
 type WallGetResponse struct {
 	Count int                   `json:"count"`
 	Items []object.WallWallpost `json:"items"`
@@ -89,7 +89,7 @@ func (vk *VK) WallGet(params Params) (response WallGetResponse, err error) {
 	return
 }
 
-// WallGetExtendedResponse struct
+// WallGetExtendedResponse struct.
 type WallGetExtendedResponse struct {
 	Count int                   `json:"count"`
 	Items []object.WallWallpost `json:"items"`
@@ -108,7 +108,7 @@ func (vk *VK) WallGetExtended(params Params) (response WallGetExtendedResponse, 
 	return
 }
 
-// WallGetByIDResponse struct
+// WallGetByIDResponse struct.
 type WallGetByIDResponse []object.WallWallpost
 
 // WallGetByID returns a list of posts from user or community walls by their IDs.
@@ -123,7 +123,7 @@ func (vk *VK) WallGetByID(params Params) (response WallGetByIDResponse, err erro
 	return
 }
 
-// WallGetByIDExtendedResponse struct
+// WallGetByIDExtendedResponse struct.
 type WallGetByIDExtendedResponse struct {
 	Items []object.WallWallpost `json:"items"`
 	object.ExtendedResponse
@@ -141,7 +141,7 @@ func (vk *VK) WallGetByIDExtended(params Params) (response WallGetByIDExtendedRe
 	return
 }
 
-// WallGetCommentResponse struct
+// WallGetCommentResponse struct.
 type WallGetCommentResponse struct {
 	Items             []object.WallWallComment `json:"items"`
 	CanPost           object.BaseBoolInt       `json:"can_post"`
@@ -162,7 +162,7 @@ func (vk *VK) WallGetComment(params Params) (response WallGetCommentResponse, er
 	return
 }
 
-// WallGetCommentExtendedResponse struct
+// WallGetCommentExtendedResponse struct.
 type WallGetCommentExtendedResponse struct {
 	Count             int                      `json:"count"`
 	Items             []object.WallWallComment `json:"items"`
@@ -186,7 +186,7 @@ func (vk *VK) WallGetCommentExtended(params Params) (response WallGetCommentExte
 	return
 }
 
-// WallGetCommentsResponse struct
+// WallGetCommentsResponse struct.
 type WallGetCommentsResponse struct {
 	CanPost           object.BaseBoolInt       `json:"can_post"`
 	ShowReplyButton   object.BaseBoolInt       `json:"show_reply_button"`
@@ -208,7 +208,7 @@ func (vk *VK) WallGetComments(params Params) (response WallGetCommentsResponse, 
 	return
 }
 
-// WallGetCommentsExtendedResponse struct
+// WallGetCommentsExtendedResponse struct.
 type WallGetCommentsExtendedResponse struct {
 	CanPost           object.BaseBoolInt       `json:"can_post"`
 	ShowReplyButton   object.BaseBoolInt       `json:"show_reply_button"`
@@ -231,7 +231,7 @@ func (vk *VK) WallGetCommentsExtended(params Params) (response WallGetCommentsEx
 	return
 }
 
-// WallGetRepostsResponse struct
+// WallGetRepostsResponse struct.
 type WallGetRepostsResponse struct {
 	Items []object.WallWallpost `json:"items"`
 	object.ExtendedResponse
@@ -261,7 +261,7 @@ func (vk *VK) WallPin(params Params) (response int, err error) {
 	return
 }
 
-// WallPostResponse struct
+// WallPostResponse struct.
 type WallPostResponse struct {
 	PostID int `json:"post_id"`
 }
@@ -274,7 +274,7 @@ func (vk *VK) WallPost(params Params) (response WallPostResponse, err error) {
 	return
 }
 
-// WallPostAdsStealthResponse struct
+// WallPostAdsStealthResponse struct.
 type WallPostAdsStealthResponse struct {
 	PostID int `json:"post_id"`
 }
@@ -305,7 +305,7 @@ func (vk *VK) WallReportPost(params Params) (response int, err error) {
 	return
 }
 
-// WallRepostResponse struct
+// WallRepostResponse struct.
 type WallRepostResponse struct {
 	Success      int `json:"success"`
 	PostID       int `json:"post_id"`
@@ -337,7 +337,7 @@ func (vk *VK) WallRestoreComment(params Params) (response int, err error) {
 	return
 }
 
-// WallSearchResponse struct
+// WallSearchResponse struct.
 type WallSearchResponse struct {
 	Count int                   `json:"count"`
 	Items []object.WallWallpost `json:"items"`
@@ -355,7 +355,7 @@ func (vk *VK) WallSearch(params Params) (response WallSearchResponse, err error)
 	return
 }
 
-// WallSearchExtendedResponse struct
+// WallSearchExtendedResponse struct.
 type WallSearchExtendedResponse struct {
 	Count int                   `json:"count"`
 	Items []object.WallWallpost `json:"items"`

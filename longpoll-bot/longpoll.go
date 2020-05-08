@@ -17,7 +17,7 @@ import (
 	"github.com/SevereCloud/vksdk/events"
 )
 
-// Longpoll struct
+// Longpoll struct.
 type Longpoll struct {
 	GroupID int
 	Server  string
@@ -33,7 +33,7 @@ type Longpoll struct {
 	events.FuncList
 }
 
-// NewLongpoll returns a new Lonpoll
+// NewLongpoll returns a new Lonpoll.
 //
 // The Lonpoll will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
@@ -52,7 +52,7 @@ func NewLongpoll(vk *api.VK, groupID int) (*Longpoll, error) {
 	return lp, err
 }
 
-// NewLongpollCommunity returns a new Lonpoll for community token
+// NewLongpollCommunity returns a new Lonpoll for community token.
 //
 // The Lonpoll will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
@@ -76,9 +76,9 @@ func NewLongpollCommunity(vk *api.VK) (*Longpoll, error) {
 	return lp, err
 }
 
-// Init Longpoll
+// Init Longpoll.
 //
-// Deprecated: use NewLongpoll
+// Deprecated: use NewLongpoll.
 func Init(vk *api.VK, groupID int) (lp Longpoll, err error) {
 	lp.VK = vk
 	lp.GroupID = groupID
@@ -148,7 +148,7 @@ func (lp *Longpoll) checkResponse(response object.LongpollBotResponse) (err erro
 	return
 }
 
-// Run handler
+// Run handler.
 func (lp *Longpoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
 
@@ -178,7 +178,7 @@ func (lp *Longpoll) Shutdown() {
 	atomic.StoreInt32(&lp.inShutdown, 1)
 }
 
-// FullResponse handler
+// FullResponse handler.
 func (lp *Longpoll) FullResponse(f func(object.LongpollBotResponse)) {
 	lp.funcFullResponseList = append(lp.funcFullResponseList, f)
 }

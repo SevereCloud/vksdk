@@ -6,19 +6,19 @@ import (
 	"strconv"
 )
 
-// Access type
+// Access type.
 type Access string
 
-// Types of Access
+// Types of Access.
 const (
 	AccessAllowed    Access = "allowed"
 	AccessDisallowed Access = "disallowed"
 )
 
-// ProfileState is profile state
+// ProfileState is profile state.
 type ProfileState string
 
-// Types of ProfileState
+// Types of ProfileState.
 const (
 	ProfileStateDeleted     ProfileState = "deleted"
 	ProfileStateVerified    ProfileState = "verified"
@@ -30,7 +30,7 @@ const (
 // Gender - the gender of this Agent (typically but not necessarily 'male' or 'female').
 type Gender string
 
-// Types of Gender
+// Types of Gender.
 const (
 	GenderMale   Gender = "male"
 	GenderFemale Gender = "female"
@@ -69,24 +69,24 @@ type Person struct {
 	Job               []Job        `xml:"job"`
 }
 
-// External struct
+// External struct.
 type External struct {
 	Status   string `xml:"status,attr"`
 	Resource string `xml:"resource,attr"`
 }
 
-// Phone struct
+// Phone struct.
 type Phone struct {
 	Primary string `xml:"primary,attr"`
 }
 
-// Edu struct
+// Edu struct.
 type Edu struct {
 	School     School     `xml:"school"`
 	University University `xml:"university"`
 }
 
-// School struct
+// School struct.
 type School struct {
 	Title      string   `xml:"title,attr"`
 	DateStart  string   `xml:"dateStart,attr"`
@@ -95,7 +95,7 @@ type School struct {
 	Location   Location `xml:"location"`
 }
 
-// University struct
+// University struct.
 type University struct {
 	Title        string   `xml:"title,attr"`
 	ShortCaption string   `xml:"shortCaption,attr"`
@@ -104,13 +104,13 @@ type University struct {
 	Location     Location `xml:"location"`
 }
 
-// Job struct
+// Job struct.
 type Job struct {
 	WorkPlace WorkPlace `xml:"workPlace"`
 	Military  Military  `xml:"military"`
 }
 
-// Military struct
+// Military struct.
 type Military struct {
 	Title     string   `xml:"title,attr"`
 	DateStart string   `xml:"dateStart,attr"`
@@ -118,7 +118,7 @@ type Military struct {
 	Location  Location `xml:"location"`
 }
 
-// WorkPlace struct
+// WorkPlace struct.
 type WorkPlace struct {
 	Title     string   `xml:"title,attr"`
 	About     string   `xml:"about,attr"`
@@ -127,13 +127,13 @@ type WorkPlace struct {
 	Location  Location `xml:"location"`
 }
 
-// Location struct
+// Location struct.
 type Location struct {
 	Country string `xml:"country,attr"`
 	City    string `xml:"city,attr"`
 }
 
-// GetPerson return Person
+// GetPerson return Person.
 func GetPerson(ctx context.Context, userID int) (Person, error) {
 	req, _ := http.NewRequest("GET", FOAFURL, nil)
 	q := req.URL.Query()

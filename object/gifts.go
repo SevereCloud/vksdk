@@ -1,13 +1,13 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// GiftsGift Privacy type
+// GiftsGift Privacy type.
 const (
 	GiftsGiftPrivacyForAll        = iota // name and message for all
 	GiftsGiftPrivacyNameForAll           // name for all
 	GiftsGiftPrivacyRecipientOnly        // name and message for recipient only
 )
 
-// GiftsGift struct
+// GiftsGift struct.
 type GiftsGift struct {
 	Date     int         `json:"date"`    // Date when gist has been sent in Unixtime
 	FromID   int         `json:"from_id"` // Gift sender ID
@@ -23,7 +23,7 @@ type GiftsGift struct {
 	PriceStr    string `json:"price_str"`
 }
 
-// GiftsLayout struct
+// GiftsLayout struct.
 type GiftsLayout struct {
 	ID                int    `json:"id"`
 	Thumb256          string `json:"thumb_256"` // URL of the preview image with 256 px in width

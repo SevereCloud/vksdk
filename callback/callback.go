@@ -15,7 +15,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// Callback struct SecretKeys [GroupID]SecretKey
+// Callback struct SecretKeys [GroupID]SecretKey.
 type Callback struct {
 	ConfirmationKeys map[int]string
 	ConfirmationKey  string
@@ -25,7 +25,7 @@ type Callback struct {
 	events.FuncList
 }
 
-// NewCallback return *Callback
+// NewCallback return *Callback.
 func NewCallback() *Callback {
 	cb := &Callback{
 		ConfirmationKeys: make(map[int]string),
@@ -36,7 +36,7 @@ func NewCallback() *Callback {
 	return cb
 }
 
-// HandleFunc handler
+// HandleFunc handler.
 func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 

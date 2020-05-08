@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// AccountNameRequest struct
+// AccountNameRequest struct.
 type AccountNameRequest struct {
 	FirstName string `json:"first_name"` // First name in request
 	ID        int    `json:"id"`         // Request ID needed to cancel the request
@@ -8,20 +8,20 @@ type AccountNameRequest struct {
 	Status    string `json:"status"`
 }
 
-// AccountPushConversations struct
+// AccountPushConversations struct.
 type AccountPushConversations struct {
 	Count int                             `json:"count"` // Items count
 	Items []*AccountPushConversationsItem `json:"items"`
 }
 
-// AccountPushConversationsItem struct
+// AccountPushConversationsItem struct.
 type AccountPushConversationsItem struct {
 	DisabledUntil int `json:"disabled_until"` // Time until that notifications are disabled in seconds
 	PeerID        int `json:"peer_id"`        // Peer ID
 	Sound         int `json:"sound"`          // Information whether the sound are enabled
 }
 
-// AccountPushParams struct
+// AccountPushParams struct.
 type AccountPushParams struct {
 	AppRequest     []string `json:"app_request"`
 	Birthday       []string `json:"birthday"`
@@ -45,7 +45,7 @@ type AccountPushParams struct {
 	WallPublish    []string `json:"wall_publish"`
 }
 
-// AccountOffer struct
+// AccountOffer struct.
 type AccountOffer struct {
 	Description      string `json:"description"`       // Offer description
 	ID               int    `json:"id"`                // Offer ID
@@ -58,7 +58,7 @@ type AccountOffer struct {
 	Title            string `json:"title"`             // Offer title
 }
 
-// AccountAccountCounters struct
+// AccountAccountCounters struct.
 type AccountAccountCounters struct {
 	AppRequests            int `json:"app_requests"`            // New app requests number
 	Events                 int `json:"events"`                  // New events number
@@ -75,7 +75,7 @@ type AccountAccountCounters struct {
 	Videos                 int `json:"videos"`                  // New video tags number
 }
 
-// AccountInfo struct
+// AccountInfo struct.
 type AccountInfo struct {
 	Country           string      `json:"country"`           // Country code
 	Lang              int         `json:"lang"`              // Language ID
@@ -86,7 +86,7 @@ type AccountInfo struct {
 	TwoFactorRequired BaseBoolInt `json:"2fa_required"`      // Two factor authentication is enabled
 }
 
-// AccountPushSettings struct
+// AccountPushSettings struct.
 type AccountPushSettings struct {
 	Conversations AccountPushConversations `json:"conversations"`
 	Disabled      BaseBoolInt              `json:"disabled"`       // Information whether notifications are disabled
@@ -94,7 +94,7 @@ type AccountPushSettings struct {
 	Settings      AccountPushParams        `json:"settings"`
 }
 
-// AccountUserSettings struct
+// AccountUserSettings struct.
 type AccountUserSettings struct {
 	Bdate            string             `json:"bdate"`            // User's date of birth
 	BdateVisibility  int                `json:"bdate_visibility"` // Information whether user's birthdate are hidden

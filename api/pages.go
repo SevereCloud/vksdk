@@ -12,7 +12,7 @@ func (vk *VK) PagesClearCache(params Params) (response int, err error) {
 	return
 }
 
-// PagesGetResponse struct
+// PagesGetResponse struct.
 type PagesGetResponse object.PagesWikipageFull
 
 // PagesGet returns information about a wiki page.
@@ -23,7 +23,7 @@ func (vk *VK) PagesGet(params Params) (response PagesGetResponse, err error) {
 	return
 }
 
-// PagesGetHistoryResponse struct
+// PagesGetHistoryResponse struct.
 type PagesGetHistoryResponse []object.PagesWikipageHistory
 
 // PagesGetHistory returns a list of all previous versions of a wiki page.
@@ -34,7 +34,7 @@ func (vk *VK) PagesGetHistory(params Params) (response PagesGetHistoryResponse, 
 	return
 }
 
-// PagesGetTitlesResponse struct
+// PagesGetTitlesResponse struct.
 type PagesGetTitlesResponse []object.PagesWikipageFull
 
 // PagesGetTitles returns a list of wiki pages in a group.
@@ -45,7 +45,7 @@ func (vk *VK) PagesGetTitles(params Params) (response PagesGetTitlesResponse, er
 	return
 }
 
-// PagesGetVersionResponse struct
+// PagesGetVersionResponse struct.
 type PagesGetVersionResponse object.PagesWikipageFull
 
 // PagesGetVersion returns the text of one of the previous versions of a wiki page.

@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// WallAppPost struct
+// WallAppPost struct.
 type WallAppPost struct {
 	ID       int    `json:"id"`        // Application ID
 	Name     string `json:"name"`      // Application name
@@ -8,7 +8,7 @@ type WallAppPost struct {
 	Photo604 string `json:"photo_604"` // URL of the preview image with 604 px in width
 }
 
-// WallAttachedNote struct
+// WallAttachedNote struct.
 type WallAttachedNote struct {
 	Comments     int    `json:"comments"`      // Comments number
 	Date         int    `json:"date"`          // Date when the note has been created in Unixtime
@@ -19,7 +19,7 @@ type WallAttachedNote struct {
 	ViewURL      string `json:"view_url"`      // URL of the page with note preview
 }
 
-// WallCommentAttachment struct
+// WallCommentAttachment struct.
 type WallCommentAttachment struct {
 	Audio             AudioAudioFull    `json:"audio"`
 	Doc               DocsDoc           `json:"doc"`
@@ -34,7 +34,7 @@ type WallCommentAttachment struct {
 	Video             VideoVideo        `json:"video"`
 }
 
-// WallGraffiti struct
+// WallGraffiti struct.
 type WallGraffiti struct {
 	ID       int    `json:"id"`        // Graffiti ID
 	OwnerID  int    `json:"owner_id"`  // Graffiti owner's ID
@@ -42,7 +42,7 @@ type WallGraffiti struct {
 	Photo586 string `json:"photo_586"` // URL of the preview image with 586 px in width
 }
 
-// Type of post source
+// Type of post source.
 const (
 	WallPostSourceTypeVk     = "vk"
 	WallPostSourceTypeWidget = "widget"
@@ -51,7 +51,7 @@ const (
 	WallPostSourceTypeSms    = "sms"
 )
 
-// WallPostSource struct
+// WallPostSource struct.
 type WallPostSource struct {
 	Data     string `json:"data"`     // Additional data
 	Platform string `json:"platform"` // Platform name
@@ -59,7 +59,7 @@ type WallPostSource struct {
 	URL      string `json:"url"` // URL to an external site used to publish the post
 }
 
-// WallPostedPhoto struct
+// WallPostedPhoto struct.
 type WallPostedPhoto struct {
 	ID       int    `json:"id"`        // Photo ID
 	OwnerID  int    `json:"owner_id"`  // Photo owner's ID
@@ -67,12 +67,12 @@ type WallPostedPhoto struct {
 	Photo604 string `json:"photo_604"` // URL of the preview image with 604 px in width
 }
 
-// WallViews struct
+// WallViews struct.
 type WallViews struct {
 	Count int `json:"count"` // Count
 }
 
-// WallWallCommentThread struct
+// WallWallCommentThread struct.
 type WallWallCommentThread struct {
 	Count           int               `json:"count"` // Comments number
 	Items           []WallWallComment `json:"items"`
@@ -81,7 +81,7 @@ type WallWallCommentThread struct {
 	ShowReplyButton BaseBoolInt       `json:"show_reply_button"`
 }
 
-// WallWallComment struct
+// WallWallComment struct.
 type WallWallComment struct {
 	Attachments    []WallCommentAttachment `json:"attachments"`
 	Date           int                     `json:"date"` // Date when the comment has been added in Unixtime
@@ -106,7 +106,7 @@ type WallWallComment struct {
 	Thread         WallWallCommentThread   `json:"thread"`
 }
 
-// WallPost type
+// WallPost type.
 const (
 	WallPostTypePost     = "post"
 	WallPostTypeCopy     = "copy"
@@ -115,7 +115,7 @@ const (
 	WallPostTypeSuggest  = "suggest"
 )
 
-// WallWallpost  struct
+// WallWallpost  struct.
 type WallWallpost struct {
 	AccessKey    string                   `json:"access_key"` // Access key to private object
 	ID           int                      `json:"id"`         // Post ID
@@ -147,7 +147,7 @@ type WallWallpost struct {
 	Edited       int                      `json:"edited"` // Date of editing in Unixtime
 }
 
-// WallWallpostAttached struct
+// WallWallpostAttached struct.
 type WallWallpostAttached struct {
 	Attachments []WallWallpostAttachment `json:"attachments"`
 	CanDelete   BaseBoolInt              `json:"can_delete"`
@@ -168,9 +168,9 @@ type WallWallpostAttached struct {
 	ToID        int                      `json:"to_id"`
 }
 
-// Attachment type
+// Attachment type.
 //
-// TODO: check this
+// TODO: check this.
 const (
 	AttachmentTypePhoto       = "photo"
 	AttachmentTypePostedPhoto = "posted_photo"
@@ -190,7 +190,7 @@ const (
 	AttachmentTypeEvent       = "event"
 )
 
-// WallWallpostAttachment struct
+// WallWallpostAttachment struct.
 type WallWallpostAttachment struct {
 	AccessKey         string            `json:"access_key"` // Access key for the audio
 	Album             PhotosPhotoAlbum  `json:"album"`
@@ -212,7 +212,7 @@ type WallWallpostAttachment struct {
 	Video             VideoVideo        `json:"video"`
 }
 
-// WallWallpostToID struct
+// WallWallpostToID struct.
 type WallWallpostToID struct {
 	Attachments []WallWallpostAttachment `json:"attachments"`
 	Comments    BaseCommentsInfo         `json:"comments"`

@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// GiftsGetBuilder builder
+// GiftsGetBuilder builder.
 //
 // Returns a list of user gifts.
 //
@@ -13,7 +13,7 @@ type GiftsGetBuilder struct {
 	api.Params
 }
 
-// NewGiftsGetBuilder func
+// NewGiftsGetBuilder func.
 func NewGiftsGetBuilder() *GiftsGetBuilder {
 	return &GiftsGetBuilder{api.Params{}}
 }

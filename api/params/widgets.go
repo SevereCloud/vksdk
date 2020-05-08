@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// WidgetsGetCommentsBuilder builder
+// WidgetsGetCommentsBuilder builder.
 //
 // Gets a list of comments for the page added through the [vk.com/dev/Comments|Comments widget].
 //
@@ -13,54 +13,54 @@ type WidgetsGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewWidgetsGetCommentsBuilder func
+// NewWidgetsGetCommentsBuilder func.
 func NewWidgetsGetCommentsBuilder() *WidgetsGetCommentsBuilder {
 	return &WidgetsGetCommentsBuilder{api.Params{}}
 }
 
-// WidgetAPIID parameter
+// WidgetAPIID parameter.
 func (b *WidgetsGetCommentsBuilder) WidgetAPIID(v int) *WidgetsGetCommentsBuilder {
 	b.Params["widget_api_id"] = v
 	return b
 }
 
-// URL parameter
+// URL parameter.
 func (b *WidgetsGetCommentsBuilder) URL(v string) *WidgetsGetCommentsBuilder {
 	b.Params["url"] = v
 	return b
 }
 
-// PageID parameter
+// PageID parameter.
 func (b *WidgetsGetCommentsBuilder) PageID(v string) *WidgetsGetCommentsBuilder {
 	b.Params["page_id"] = v
 	return b
 }
 
-// Order parameter
+// Order parameter.
 func (b *WidgetsGetCommentsBuilder) Order(v string) *WidgetsGetCommentsBuilder {
 	b.Params["order"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *WidgetsGetCommentsBuilder) Fields(v []string) *WidgetsGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *WidgetsGetCommentsBuilder) Offset(v int) *WidgetsGetCommentsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count parameter
+// Count parameter.
 func (b *WidgetsGetCommentsBuilder) Count(v int) *WidgetsGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// WidgetsGetPagesBuilder builder
+// WidgetsGetPagesBuilder builder.
 //
 // Gets a list of application/site pages where the [vk.com/dev/Comments|Comments widget]
 // or [vk.com/dev/Like|Like widget] is installed.
@@ -70,36 +70,36 @@ type WidgetsGetPagesBuilder struct {
 	api.Params
 }
 
-// NewWidgetsGetPagesBuilder func
+// NewWidgetsGetPagesBuilder func.
 func NewWidgetsGetPagesBuilder() *WidgetsGetPagesBuilder {
 	return &WidgetsGetPagesBuilder{api.Params{}}
 }
 
-// WidgetAPIID parameter
+// WidgetAPIID parameter.
 func (b *WidgetsGetPagesBuilder) WidgetAPIID(v int) *WidgetsGetPagesBuilder {
 	b.Params["widget_api_id"] = v
 	return b
 }
 
-// Order parameter
+// Order parameter.
 func (b *WidgetsGetPagesBuilder) Order(v string) *WidgetsGetPagesBuilder {
 	b.Params["order"] = v
 	return b
 }
 
-// Period parameter
+// Period parameter.
 func (b *WidgetsGetPagesBuilder) Period(v string) *WidgetsGetPagesBuilder {
 	b.Params["period"] = v
 	return b
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *WidgetsGetPagesBuilder) Offset(v int) *WidgetsGetPagesBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count parameter
+// Count parameter.
 func (b *WidgetsGetPagesBuilder) Count(v int) *WidgetsGetPagesBuilder {
 	b.Params["count"] = v
 	return b

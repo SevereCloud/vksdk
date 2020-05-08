@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// AppsGetBuilder builder
+// AppsGetBuilder builder.
 //
 // Returns applications data.
 //
@@ -13,18 +13,18 @@ type AppsGetBuilder struct {
 	api.Params
 }
 
-// NewAppsGetBuilder func
+// NewAppsGetBuilder func.
 func NewAppsGetBuilder() *AppsGetBuilder {
 	return &AppsGetBuilder{api.Params{}}
 }
 
-// AppID Application ID
+// AppID Application ID.
 func (b *AppsGetBuilder) AppID(v int) *AppsGetBuilder {
 	b.Params["app_id"] = v
 	return b
 }
 
-// AppIDs List of application ID
+// AppIDs List of application ID.
 func (b *AppsGetBuilder) AppIDs(v []string) *AppsGetBuilder {
 	b.Params["app_ids"] = v
 	return b
@@ -46,13 +46,13 @@ func (b *AppsGetBuilder) Platform(v string) *AppsGetBuilder {
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 func (b *AppsGetBuilder) Extended(v bool) *AppsGetBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// ReturnFriends parameter
+// ReturnFriends parameter.
 func (b *AppsGetBuilder) ReturnFriends(v bool) *AppsGetBuilder {
 	b.Params["return_friends"] = v
 	return b
@@ -60,49 +60,49 @@ func (b *AppsGetBuilder) ReturnFriends(v bool) *AppsGetBuilder {
 
 // Fields Profile fields to return. Sample values:
 //
-// * nickname
+// * nickname;
 //
-// * screen_name
+// * screen_name;
 //
-// * sex
+// * sex;
 //
-// * bdate (birthdate)
+// * bdate (birthdate);
 //
-// * city
+// * city;
 //
-// * country
+// * country;
 //
-// * timezone
+// * timezone;
 //
-// * photo
+// * photo;
 //
-// * photo_medium
+// * photo_medium;
 //
-// * photo_big
+// * photo_big;
 //
-// * has_mobile
+// * has_mobile;
 //
-// * contacts
+// * contacts;
 //
-// * education
+// * education;
 //
-// * online
+// * online;
 //
-// * counters
+// * counters;
 //
-// * relation
+// * relation;
 //
-// * last_seen
+// * last_seen;
 //
-// * activity
+// * activity;
 //
-// * can_write_private_message
+// * can_write_private_message;
 //
-// * can_see_all_posts
+// * can_see_all_posts;
 //
-// * can_post
+// * can_post;
 //
-// * universities, (only if return_friends - 1)
+// * universities, (only if return_friends - 1).
 func (b *AppsGetBuilder) Fields(v []string) *AppsGetBuilder {
 	b.Params["fields"] = v
 	return b
@@ -120,13 +120,13 @@ func (b *AppsGetBuilder) Fields(v []string) *AppsGetBuilder {
 //
 // * ins — instrumental;
 //
-// * abl — prepositional. (only if 'return_friends' = '1')
+// * abl — prepositional. (only if 'return_friends' = '1').
 func (b *AppsGetBuilder) NameCase(v string) *AppsGetBuilder {
 	b.Params["name_case"] = v
 	return b
 }
 
-// AppsGetCatalogBuilder builder
+// AppsGetCatalogBuilder builder.
 //
 // Returns a list of applications (apps) available to users in the App Catalog.
 //
@@ -135,7 +135,7 @@ type AppsGetCatalogBuilder struct {
 	api.Params
 }
 
-// NewAppsGetCatalogBuilder func
+// NewAppsGetCatalogBuilder func.
 func NewAppsGetCatalogBuilder() *AppsGetCatalogBuilder {
 	return &AppsGetCatalogBuilder{api.Params{}}
 }
@@ -150,7 +150,7 @@ func NewAppsGetCatalogBuilder() *AppsGetCatalogBuilder {
 //
 // * growth_rate — by growth rate
 //
-// * popular_week — popular for one week
+// * popular_week — popular for one week.
 func (b *AppsGetCatalogBuilder) Sort(v string) *AppsGetCatalogBuilder {
 	b.Params["sort"] = v
 	return b
@@ -168,13 +168,13 @@ func (b *AppsGetCatalogBuilder) Count(v int) *AppsGetCatalogBuilder {
 	return b
 }
 
-// Platform parameter
+// Platform parameter.
 func (b *AppsGetCatalogBuilder) Platform(v string) *AppsGetCatalogBuilder {
 	b.Params["platform"] = v
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 //
 // * 1 — to return additional fields 'screenshots', 'MAU', 'catalog_position', and 'international'.
 // If set, 'count' must be less than or equal to '100'.
@@ -185,19 +185,19 @@ func (b *AppsGetCatalogBuilder) Extended(v bool) *AppsGetCatalogBuilder {
 	return b
 }
 
-// ReturnFriends parameter
+// ReturnFriends parameter.
 func (b *AppsGetCatalogBuilder) ReturnFriends(v bool) *AppsGetCatalogBuilder {
 	b.Params["return_friends"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *AppsGetCatalogBuilder) Fields(v []string) *AppsGetCatalogBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// NameCase parameter
+// NameCase parameter.
 func (b *AppsGetCatalogBuilder) NameCase(v string) *AppsGetCatalogBuilder {
 	b.Params["name_case"] = v
 	return b
@@ -209,7 +209,7 @@ func (b *AppsGetCatalogBuilder) Q(v string) *AppsGetCatalogBuilder {
 	return b
 }
 
-// GenreID parameter
+// GenreID parameter.
 func (b *AppsGetCatalogBuilder) GenreID(v int) *AppsGetCatalogBuilder {
 	b.Params["genre_id"] = v
 	return b
@@ -221,7 +221,7 @@ func (b *AppsGetCatalogBuilder) Filter(v string) *AppsGetCatalogBuilder {
 	return b
 }
 
-// AppsGetFriendsListBuilder builder
+// AppsGetFriendsListBuilder builder.
 //
 // Creates friends list for requests and invites in current app.
 //
@@ -230,12 +230,12 @@ type AppsGetFriendsListBuilder struct {
 	api.Params
 }
 
-// NewAppsGetFriendsListBuilder func
+// NewAppsGetFriendsListBuilder func.
 func NewAppsGetFriendsListBuilder() *AppsGetFriendsListBuilder {
 	return &AppsGetFriendsListBuilder{api.Params{}}
 }
 
-// Extended parameter
+// Extended parameter.
 func (b *AppsGetFriendsListBuilder) Extended(v bool) *AppsGetFriendsListBuilder {
 	b.Params["extended"] = v
 	return b
@@ -247,7 +247,7 @@ func (b *AppsGetFriendsListBuilder) Count(v int) *AppsGetFriendsListBuilder {
 	return b
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *AppsGetFriendsListBuilder) Offset(v int) *AppsGetFriendsListBuilder {
 	b.Params["offset"] = v
 	return b
@@ -271,7 +271,7 @@ func (b *AppsGetFriendsListBuilder) Fields(v []string) *AppsGetFriendsListBuilde
 	return b
 }
 
-// AppsGetLeaderboardBuilder builder
+// AppsGetLeaderboardBuilder builder.
 //
 // Returns players rating in the game.
 //
@@ -280,7 +280,7 @@ type AppsGetLeaderboardBuilder struct {
 	api.Params
 }
 
-// NewAppsGetLeaderboardBuilder func
+// NewAppsGetLeaderboardBuilder func.
 func NewAppsGetLeaderboardBuilder() *AppsGetLeaderboardBuilder {
 	return &AppsGetLeaderboardBuilder{api.Params{}}
 }
@@ -307,53 +307,53 @@ func (b *AppsGetLeaderboardBuilder) Global(v bool) *AppsGetLeaderboardBuilder {
 	return b
 }
 
-// Extended 1 — to return additional info about users
+// Extended 1 — to return additional info about users.
 func (b *AppsGetLeaderboardBuilder) Extended(v bool) *AppsGetLeaderboardBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// AppsGetScopesBuilder builder
+// AppsGetScopesBuilder builder.
 //
-// Returns scopes for auth
+// Returns scopes for auth.
 //
 // https://vk.com/dev/apps.getScopes
 type AppsGetScopesBuilder struct {
 	api.Params
 }
 
-// NewAppsGetScopesBuilder func
+// NewAppsGetScopesBuilder func.
 func NewAppsGetScopesBuilder() *AppsGetScopesBuilder {
 	return &AppsGetScopesBuilder{api.Params{}}
 }
 
-// Type parameter
+// Type parameter.
 func (b *AppsGetScopesBuilder) Type(v string) *AppsGetScopesBuilder {
 	b.Params["type"] = v
 	return b
 }
 
-// AppsGetScoreBuilder builder
+// AppsGetScoreBuilder builder.
 //
-// Returns user score in app
+// Returns user score in app.
 //
 // https://vk.com/dev/apps.getScore
 type AppsGetScoreBuilder struct {
 	api.Params
 }
 
-// NewAppsGetScoreBuilder func
+// NewAppsGetScoreBuilder func.
 func NewAppsGetScoreBuilder() *AppsGetScoreBuilder {
 	return &AppsGetScoreBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *AppsGetScoreBuilder) UserID(v int) *AppsGetScoreBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// AppsSendRequestBuilder builder
+// AppsSendRequestBuilder builder.
 //
 // Sends a request to another user in an app that uses VK authorization.
 //
@@ -362,18 +362,18 @@ type AppsSendRequestBuilder struct {
 	api.Params
 }
 
-// NewAppsSendRequestBuilder func
+// NewAppsSendRequestBuilder func.
 func NewAppsSendRequestBuilder() *AppsSendRequestBuilder {
 	return &AppsSendRequestBuilder{api.Params{}}
 }
 
-// UserID id of the user to send a request
+// UserID id of the user to send a request.
 func (b *AppsSendRequestBuilder) UserID(v int) *AppsSendRequestBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Text request text
+// Text request text.
 func (b *AppsSendRequestBuilder) Text(v string) *AppsSendRequestBuilder {
 	b.Params["text"] = v
 	return b
@@ -383,25 +383,25 @@ func (b *AppsSendRequestBuilder) Text(v string) *AppsSendRequestBuilder {
 //
 // * invite – if the request is sent to a user who does not have the app installed
 //
-// * request – if a user has already installed the app
+// * request – if a user has already installed the app.
 func (b *AppsSendRequestBuilder) Type(v string) *AppsSendRequestBuilder {
 	b.Params["type"] = v
 	return b
 }
 
-// Name parameter
+// Name parameter.
 func (b *AppsSendRequestBuilder) Name(v string) *AppsSendRequestBuilder {
 	b.Params["name"] = v
 	return b
 }
 
-// Key special string key to be sent with the request
+// Key special string key to be sent with the request.
 func (b *AppsSendRequestBuilder) Key(v string) *AppsSendRequestBuilder {
 	b.Params["key"] = v
 	return b
 }
 
-// Separate parameter
+// Separate parameter.
 func (b *AppsSendRequestBuilder) Separate(v bool) *AppsSendRequestBuilder {
 	b.Params["separate"] = v
 	return b

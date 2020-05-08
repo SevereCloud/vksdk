@@ -1,12 +1,12 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// SecureLevel struct
+// SecureLevel struct.
 type SecureLevel struct {
 	Level int `json:"level"` // Level
 	UID   int `json:"uid"`   // User ID
 }
 
-// SecureSmsNotification struct
+// SecureSmsNotification struct.
 type SecureSmsNotification struct {
 	AppID   int    `json:"app_id"`  // Application ID
 	Date    int    `json:"date"`    // Date when message has been sent in Unixtime
@@ -15,7 +15,7 @@ type SecureSmsNotification struct {
 	UserID  int    `json:"user_id"` // User ID
 }
 
-// SecureTokenChecked struct
+// SecureTokenChecked struct.
 type SecureTokenChecked struct {
 	Date    int `json:"date"`    // Date when access_token has been generated in Unixtime
 	Expire  int `json:"expire"`  // Date when access_token will expire in Unixtime
@@ -23,7 +23,7 @@ type SecureTokenChecked struct {
 	UserID  int `json:"user_id"` // User ID
 }
 
-// SecureTransaction struct
+// SecureTransaction struct.
 type SecureTransaction struct {
 	Date    int `json:"date"`     // Transaction date in Unixtime
 	ID      int `json:"id"`       // Transaction ID

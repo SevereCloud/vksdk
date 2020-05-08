@@ -1,6 +1,6 @@
 package object
 
-// PrettyCardsPrettyCard struct
+// PrettyCardsPrettyCard struct.
 type PrettyCardsPrettyCard struct {
 	Button     string      `json:"button"`      // Button key
 	ButtonText string      `json:"button_text"` // Button text in current language

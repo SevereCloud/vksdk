@@ -2,7 +2,7 @@ package api // import "github.com/SevereCloud/vksdk/api"
 
 import "github.com/SevereCloud/vksdk/object"
 
-// SearchGetHintsResponse struct
+// SearchGetHintsResponse struct.
 type SearchGetHintsResponse struct {
 	Count int                 `json:"count"`
 	Items []object.SearchHint `json:"items"`

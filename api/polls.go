@@ -10,7 +10,7 @@ func (vk *VK) PollsAddVote(params Params) (response int, err error) {
 	return
 }
 
-// PollsCreateResponse struct
+// PollsCreateResponse struct.
 type PollsCreateResponse object.PollsPoll
 
 // PollsCreate creates polls that can be attached to the users' or communities' posts.
@@ -29,7 +29,7 @@ func (vk *VK) PollsDeleteVote(params Params) (response int, err error) {
 	return
 }
 
-// PollsEdit edits created polls
+// PollsEdit edits created polls.
 //
 // https://vk.com/dev/polls.edit
 func (vk *VK) PollsEdit(params Params) (response int, err error) {
@@ -37,7 +37,7 @@ func (vk *VK) PollsEdit(params Params) (response int, err error) {
 	return
 }
 
-// PollsGetBackgroundsResponse struct
+// PollsGetBackgroundsResponse struct.
 type PollsGetBackgroundsResponse []object.PollsBackground
 
 // PollsGetBackgrounds return default backgrounds for polls.
@@ -48,7 +48,7 @@ func (vk *VK) PollsGetBackgrounds(params Params) (response PollsGetBackgroundsRe
 	return
 }
 
-// PollsGetByIDResponse struct
+// PollsGetByIDResponse struct.
 type PollsGetByIDResponse object.PollsPoll
 
 // PollsGetByID returns detailed information about a poll by its ID.
@@ -59,7 +59,7 @@ func (vk *VK) PollsGetByID(params Params) (response PollsGetByIDResponse, err er
 	return
 }
 
-// PollsGetPhotoUploadServerResponse struct
+// PollsGetPhotoUploadServerResponse struct.
 type PollsGetPhotoUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -72,7 +72,7 @@ func (vk *VK) PollsGetPhotoUploadServer(params Params) (response PollsGetPhotoUp
 	return
 }
 
-// PollsGetVotersResponse struct
+// PollsGetVotersResponse struct.
 type PollsGetVotersResponse []object.PollsVoters
 
 // PollsGetVoters returns a list of IDs of users who selected specific answers in the poll.
@@ -83,7 +83,7 @@ func (vk *VK) PollsGetVoters(params Params) (response PollsGetVotersResponse, er
 	return
 }
 
-// PollsGetVotersFieldsResponse struct
+// PollsGetVotersFieldsResponse struct.
 type PollsGetVotersFieldsResponse []object.PollsVotersFields
 
 // PollsGetVotersFields returns a list of IDs of users who selected specific answers in the poll.
@@ -94,7 +94,7 @@ func (vk *VK) PollsGetVotersFields(params Params) (response PollsGetVotersFields
 	return
 }
 
-// PollsSavePhotoResponse struct
+// PollsSavePhotoResponse struct.
 type PollsSavePhotoResponse object.PollsPhoto
 
 // PollsSavePhoto allows to save poll's uploaded photo.

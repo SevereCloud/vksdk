@@ -52,7 +52,7 @@ func (vk *VK) NotesEditComment(params Params) (response int, err error) {
 	return
 }
 
-// NotesGetResponse struct
+// NotesGetResponse struct.
 type NotesGetResponse struct {
 	Count int                `json:"count"`
 	Items []object.NotesNote `json:"items"`
@@ -66,7 +66,7 @@ func (vk *VK) NotesGet(params Params) (response NotesGetResponse, err error) {
 	return
 }
 
-// NotesGetByIDResponse struct
+// NotesGetByIDResponse struct.
 type NotesGetByIDResponse object.NotesNote
 
 // NotesGetByID returns a note by its ID.
@@ -77,7 +77,7 @@ func (vk *VK) NotesGetByID(params Params) (response NotesGetByIDResponse, err er
 	return
 }
 
-// NotesGetCommentsResponse struct
+// NotesGetCommentsResponse struct.
 type NotesGetCommentsResponse struct {
 	Count int                       `json:"count"`
 	Items []object.NotesNoteComment `json:"items"`

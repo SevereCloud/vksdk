@@ -30,7 +30,7 @@ func (vk *VK) NewsfeedDeleteList(params Params) (response int, err error) {
 	return
 }
 
-// NewsfeedGetResponse struct
+// NewsfeedGetResponse struct.
 type NewsfeedGetResponse struct {
 	Items []object.NewsfeedNewsfeedItem `json:"items"`
 	object.ExtendedResponse
@@ -45,7 +45,7 @@ func (vk *VK) NewsfeedGet(params Params) (response NewsfeedGetResponse, err erro
 	return
 }
 
-// NewsfeedGetBannedResponse struct
+// NewsfeedGetBannedResponse struct.
 type NewsfeedGetBannedResponse struct {
 	Members []int `json:"members"`
 	Groups  []int `json:"groups"`
@@ -63,7 +63,7 @@ func (vk *VK) NewsfeedGetBanned(params Params) (response NewsfeedGetBannedRespon
 	return
 }
 
-// NewsfeedGetBannedExtendedResponse struct
+// NewsfeedGetBannedExtendedResponse struct.
 type NewsfeedGetBannedExtendedResponse struct {
 	object.ExtendedResponse
 }
@@ -80,7 +80,7 @@ func (vk *VK) NewsfeedGetBannedExtended(params Params) (response NewsfeedGetBann
 	return
 }
 
-// NewsfeedGetCommentsResponse struct
+// NewsfeedGetCommentsResponse struct.
 type NewsfeedGetCommentsResponse struct {
 	Items []object.NewsfeedNewsfeedItem `json:"items"`
 	object.ExtendedResponse
@@ -95,7 +95,7 @@ func (vk *VK) NewsfeedGetComments(params Params) (response NewsfeedGetCommentsRe
 	return
 }
 
-// NewsfeedGetListsResponse struct
+// NewsfeedGetListsResponse struct.
 type NewsfeedGetListsResponse struct {
 	Count int `json:"count"`
 	Items []struct {
@@ -114,7 +114,7 @@ func (vk *VK) NewsfeedGetLists(params Params) (response NewsfeedGetListsResponse
 	return
 }
 
-// NewsfeedGetMentionsResponse struct
+// NewsfeedGetMentionsResponse struct.
 type NewsfeedGetMentionsResponse struct {
 	Count int                       `json:"count"`
 	Items []object.WallWallpostToID `json:"items"`
@@ -128,7 +128,7 @@ func (vk *VK) NewsfeedGetMentions(params Params) (response NewsfeedGetMentionsRe
 	return
 }
 
-// NewsfeedGetRecommendedResponse struct
+// NewsfeedGetRecommendedResponse struct.
 type NewsfeedGetRecommendedResponse struct {
 	Items      []object.NewsfeedNewsfeedItem `json:"items"`
 	Profiles   []object.UsersUser            `json:"profiles"`
@@ -145,7 +145,7 @@ func (vk *VK) NewsfeedGetRecommended(params Params) (response NewsfeedGetRecomme
 	return
 }
 
-// NewsfeedGetSuggestedSourcesResponse struct
+// NewsfeedGetSuggestedSourcesResponse struct.
 type NewsfeedGetSuggestedSourcesResponse struct {
 	Count int                  `json:"count"`
 	Items []object.GroupsGroup `json:"items"` // FIXME: GroupsGroup + UsersUser
@@ -167,7 +167,7 @@ func (vk *VK) NewsfeedIgnoreItem(params Params) (response int, err error) {
 	return
 }
 
-// NewsfeedSaveList creates and edits user newsfeed lists
+// NewsfeedSaveList creates and edits user newsfeed lists.
 //
 // https://vk.com/dev/newsfeed.saveList
 func (vk *VK) NewsfeedSaveList(params Params) (response int, err error) {
@@ -175,7 +175,7 @@ func (vk *VK) NewsfeedSaveList(params Params) (response int, err error) {
 	return
 }
 
-// NewsfeedSearchResponse struct
+// NewsfeedSearchResponse struct.
 type NewsfeedSearchResponse struct {
 	Items      []object.WallWallpost `json:"items"`
 	Count      int                   `json:"count"`
@@ -195,7 +195,7 @@ func (vk *VK) NewsfeedSearch(params Params) (response NewsfeedSearchResponse, er
 	return
 }
 
-// NewsfeedSearchExtendedResponse struct
+// NewsfeedSearchExtendedResponse struct.
 type NewsfeedSearchExtendedResponse struct {
 	Items      []object.WallWallpost `json:"items"`
 	Count      int                   `json:"count"`

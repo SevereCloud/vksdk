@@ -64,10 +64,10 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// Mode additional answer options
+// Mode additional answer options.
 type Mode = int
 
-// A list of necessary option codes
+// A list of necessary option codes.
 const (
 	// receive attachments
 	ReceiveAttachments Mode = 1 << 1
@@ -81,7 +81,7 @@ const (
 	ReturnRandomID Mode = 1 << 7
 )
 
-// Longpoll struct
+// Longpoll struct.
 type Longpoll struct {
 	Key     string
 	Server  string
@@ -97,7 +97,7 @@ type Longpoll struct {
 	inShutdown           int32
 }
 
-// NewLongpoll returns a new Longpoll
+// NewLongpoll returns a new Longpoll.
 //
 // The Longpoll will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
@@ -117,9 +117,9 @@ func NewLongpoll(vk *api.VK, mode Mode) (*Longpoll, error) {
 	return lp, err
 }
 
-// Init Longpoll
+// Init Longpoll.
 //
-// Deprecated: use NewLongpoll
+// Deprecated: use NewLongpoll.
 func Init(vk *api.VK, mode Mode) (lp Longpoll, err error) {
 	// NOTE: what about group_id?
 	lp.VK = vk
@@ -199,7 +199,7 @@ func (lp *Longpoll) checkResponse(response object.LongpollResponse) (err error) 
 	return
 }
 
-// Run handler
+// Run handler.
 func (lp *Longpoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
 
@@ -228,12 +228,12 @@ func (lp *Longpoll) Shutdown() {
 	atomic.StoreInt32(&lp.inShutdown, 1)
 }
 
-// EventNew handler
+// EventNew handler.
 func (lp *Longpoll) EventNew(key int, f EventNewFunc) {
 	lp.funcList[key] = append(lp.funcList[key], f)
 }
 
-// FullResponse handler
+// FullResponse handler.
 func (lp *Longpoll) FullResponse(f func(object.LongpollResponse)) {
 	lp.funcFullResponseList = append(lp.funcFullResponseList, f)
 }

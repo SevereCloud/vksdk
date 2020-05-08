@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// MarketAddResponse struct
+// MarketAddResponse struct.
 type MarketAddResponse struct {
 	MarketItemID int `json:"market_item_id"` // Item ID
 }
@@ -17,12 +17,12 @@ func (vk *VK) MarketAdd(params Params) (response MarketAddResponse, err error) {
 	return
 }
 
-// MarketAddAlbumResponse struct
+// MarketAddAlbumResponse struct.
 type MarketAddAlbumResponse struct {
 	MarketAlbumID int `json:"market_album_id"` // Album ID
 }
 
-// MarketAddAlbum creates new collection of items
+// MarketAddAlbum creates new collection of items.
 //
 // https://vk.com/dev/market.addAlbum
 func (vk *VK) MarketAddAlbum(params Params) (response MarketAddAlbumResponse, err error) {
@@ -62,7 +62,7 @@ func (vk *VK) MarketDeleteAlbum(params Params) (response int, err error) {
 	return
 }
 
-// MarketDeleteComment deletes an item's comment
+// MarketDeleteComment deletes an item's comment.
 //
 // https://vk.com/dev/market.deleteComment
 func (vk *VK) MarketDeleteComment(params Params) (response int, err error) {
@@ -78,7 +78,7 @@ func (vk *VK) MarketEdit(params Params) (response int, err error) {
 	return
 }
 
-// MarketEditAlbum edits a collection of items
+// MarketEditAlbum edits a collection of items.
 //
 // https://vk.com/dev/market.editAlbum
 func (vk *VK) MarketEditAlbum(params Params) (response int, err error) {
@@ -86,7 +86,7 @@ func (vk *VK) MarketEditAlbum(params Params) (response int, err error) {
 	return
 }
 
-// MarketEditComment changes item comment's text
+// MarketEditComment changes item comment's text.
 //
 // https://vk.com/dev/market.editComment
 func (vk *VK) MarketEditComment(params Params) (response int, err error) {
@@ -102,7 +102,7 @@ func (vk *VK) MarketEditOrder(params Params) (response int, err error) {
 	return
 }
 
-// MarketGetResponse struct
+// MarketGetResponse struct.
 type MarketGetResponse struct {
 	Count int                       `json:"count"`
 	Items []object.MarketMarketItem `json:"items"`
@@ -116,13 +116,13 @@ func (vk *VK) MarketGet(params Params) (response MarketGetResponse, err error) {
 	return
 }
 
-// MarketGetAlbumByIDResponse struct
+// MarketGetAlbumByIDResponse struct.
 type MarketGetAlbumByIDResponse struct {
 	Count int                        `json:"count"`
 	Items []object.MarketMarketAlbum `json:"items"`
 }
 
-// MarketGetAlbumByID returns items album's data
+// MarketGetAlbumByID returns items album's data.
 //
 // https://vk.com/dev/market.getAlbumById
 func (vk *VK) MarketGetAlbumByID(params Params) (response MarketGetAlbumByIDResponse, err error) {
@@ -130,7 +130,7 @@ func (vk *VK) MarketGetAlbumByID(params Params) (response MarketGetAlbumByIDResp
 	return
 }
 
-// MarketGetAlbumsResponse struct
+// MarketGetAlbumsResponse struct.
 type MarketGetAlbumsResponse struct {
 	Count int                        `json:"count"`
 	Items []object.MarketMarketAlbum `json:"items"`
@@ -144,7 +144,7 @@ func (vk *VK) MarketGetAlbums(params Params) (response MarketGetAlbumsResponse, 
 	return
 }
 
-// MarketGetByIDResponse struct
+// MarketGetByIDResponse struct.
 type MarketGetByIDResponse struct {
 	Count int                       `json:"count"`
 	Items []object.MarketMarketItem `json:"items"`
@@ -158,7 +158,7 @@ func (vk *VK) MarketGetByID(params Params) (response MarketGetByIDResponse, err 
 	return
 }
 
-// MarketGetCategoriesResponse struct
+// MarketGetCategoriesResponse struct.
 type MarketGetCategoriesResponse struct {
 	Count int                           `json:"count"`
 	Items []object.MarketMarketCategory `json:"items"`
@@ -172,7 +172,7 @@ func (vk *VK) MarketGetCategories(params Params) (response MarketGetCategoriesRe
 	return
 }
 
-// MarketGetCommentsResponse struct
+// MarketGetCommentsResponse struct.
 type MarketGetCommentsResponse struct {
 	Count int                      `json:"count"`
 	Items []object.WallWallComment `json:"items"`
@@ -190,7 +190,7 @@ func (vk *VK) MarketGetComments(params Params) (response MarketGetCommentsRespon
 	return
 }
 
-// MarketGetCommentsExtendedResponse struct
+// MarketGetCommentsExtendedResponse struct.
 type MarketGetCommentsExtendedResponse struct {
 	Count int                      `json:"count"`
 	Items []object.WallWallComment `json:"items"`
@@ -209,7 +209,7 @@ func (vk *VK) MarketGetCommentsExtended(params Params) (response MarketGetCommen
 	return
 }
 
-// MarketGetGroupOrdersResponse struct
+// MarketGetGroupOrdersResponse struct.
 type MarketGetGroupOrdersResponse struct {
 	Count int                  `json:"count"`
 	Items []object.MarketOrder `json:"items"`
@@ -223,7 +223,7 @@ func (vk *VK) MarketGetGroupOrders(params Params) (response MarketGetGroupOrders
 	return
 }
 
-// MarketGetOrderByIDResponse struct
+// MarketGetOrderByIDResponse struct.
 type MarketGetOrderByIDResponse struct {
 	Order object.MarketOrder `json:"order"`
 }
@@ -236,7 +236,7 @@ func (vk *VK) MarketGetOrderByID(params Params) (response MarketGetOrderByIDResp
 	return
 }
 
-// MarketGetOrderItemsResponse struct
+// MarketGetOrderItemsResponse struct.
 type MarketGetOrderItemsResponse struct {
 	Count int                      `json:"count"`
 	Items []object.MarketOrderItem `json:"items"`
@@ -290,7 +290,7 @@ func (vk *VK) MarketReportComment(params Params) (response int, err error) {
 	return
 }
 
-// MarketRestore restores recently deleted item
+// MarketRestore restores recently deleted item.
 //
 // https://vk.com/dev/market.restore
 func (vk *VK) MarketRestore(params Params) (response int, err error) {
@@ -298,7 +298,7 @@ func (vk *VK) MarketRestore(params Params) (response int, err error) {
 	return
 }
 
-// MarketRestoreComment restores a recently deleted comment
+// MarketRestoreComment restores a recently deleted comment.
 //
 // https://vk.com/dev/market.restoreComment
 func (vk *VK) MarketRestoreComment(params Params) (response int, err error) {
@@ -306,13 +306,13 @@ func (vk *VK) MarketRestoreComment(params Params) (response int, err error) {
 	return
 }
 
-// MarketSearchResponse struct
+// MarketSearchResponse struct.
 type MarketSearchResponse struct {
 	Count int                       `json:"count"`
 	Items []object.MarketMarketItem `json:"items"`
 }
 
-// MarketSearch searches market items in a community's catalog
+// MarketSearch searches market items in a community's catalog.
 //
 // https://vk.com/dev/market.search
 func (vk *VK) MarketSearch(params Params) (response MarketSearchResponse, err error) {

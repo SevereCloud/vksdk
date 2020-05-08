@@ -6,7 +6,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// UtilsCheckLinkResponse struct
+// UtilsCheckLinkResponse struct.
 type UtilsCheckLinkResponse object.UtilsLinkChecked
 
 // UtilsCheckLink checks whether a link is blocked in VK.
@@ -25,7 +25,7 @@ func (vk *VK) UtilsDeleteFromLastShortened(params Params) (response int, err err
 	return
 }
 
-// UtilsGetLastShortenedLinksResponse struct
+// UtilsGetLastShortenedLinksResponse struct.
 type UtilsGetLastShortenedLinksResponse struct {
 	Count int                             `json:"count"`
 	Items []object.UtilsLastShortenedLink `json:"items"`
@@ -39,14 +39,12 @@ func (vk *VK) UtilsGetLastShortenedLinks(params Params) (response UtilsGetLastSh
 	return
 }
 
-// UtilsGetLinkStatsResponse struct
+// UtilsGetLinkStatsResponse struct.
 type UtilsGetLinkStatsResponse object.UtilsLinkStats
 
 // UtilsGetLinkStats returns stats data for shortened link.
 //
 // extended=0
-//
-// BUG(VK): https://vk.com/bug202983
 //
 // https://vk.com/dev/utils.getLinkStats
 func (vk *VK) UtilsGetLinkStats(params Params) (response UtilsGetLinkStatsResponse, err error) {
@@ -56,7 +54,7 @@ func (vk *VK) UtilsGetLinkStats(params Params) (response UtilsGetLinkStatsRespon
 	return
 }
 
-// UtilsGetLinkStatsExtendedResponse struct
+// UtilsGetLinkStatsExtendedResponse struct.
 type UtilsGetLinkStatsExtendedResponse object.UtilsLinkStatsExtended
 
 // UtilsGetLinkStatsExtended returns stats data for shortened link.
@@ -79,7 +77,7 @@ func (vk *VK) UtilsGetServerTime(params Params) (response int, err error) {
 	return
 }
 
-// UtilsGetShortLinkResponse struct
+// UtilsGetShortLinkResponse struct.
 type UtilsGetShortLinkResponse object.UtilsShortLink
 
 // UtilsGetShortLink allows to receive a link shortened via vk.cc.
@@ -90,7 +88,7 @@ func (vk *VK) UtilsGetShortLink(params Params) (response UtilsGetShortLinkRespon
 	return
 }
 
-// UtilsResolveScreenNameResponse struct
+// UtilsResolveScreenNameResponse struct.
 type UtilsResolveScreenNameResponse object.UtilsDomainResolved
 
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.

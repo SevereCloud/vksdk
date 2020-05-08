@@ -11,20 +11,20 @@ import (
 	"fmt"
 )
 
-// Attachment interface
+// Attachment interface.
 type Attachment interface {
 	ToAttachment() string
 }
 
-// JSONObject interface
+// JSONObject interface.
 type JSONObject interface {
 	ToJSON() string
 }
 
-// BaseBoolInt type
+// BaseBoolInt type.
 type BaseBoolInt bool
 
-// UnmarshalJSON func
+// UnmarshalJSON func.
 func (b *BaseBoolInt) UnmarshalJSON(data []byte) (err error) {
 	switch {
 	case bytes.Equal(data, []byte("1")), bytes.Equal(data, []byte("true")):
@@ -39,43 +39,43 @@ func (b *BaseBoolInt) UnmarshalJSON(data []byte) (err error) {
 	return
 }
 
-// BaseCountry struct
+// BaseCountry struct.
 type BaseCountry struct {
 	ID    int    `json:"id"`
 	Title string `json:"title"`
 }
 
-// BaseObject struct
+// BaseObject struct.
 type BaseObject struct {
 	ID    int    `json:"id"`
 	Title string `json:"title"`
 }
 
-// BaseObjectCount struct
+// BaseObjectCount struct.
 type BaseObjectCount struct {
 	Count int `json:"count"`
 }
 
-// BaseObjectWithName struct
+// BaseObjectWithName struct.
 type BaseObjectWithName struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
 
-// BaseRequestParam struct
+// BaseRequestParam struct.
 type BaseRequestParam struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`
 }
 
-// BaseSex const
+// BaseSex const.
 const (
 	SexUnknown = iota
 	SexFemale
 	SexMale
 )
 
-// EventType list
+// EventType list.
 const (
 	EventConfirmation         = "confirmation"
 	EventMessageNew           = "message_new"
@@ -123,7 +123,7 @@ const (
 	EventMessageRead          = "message_read"
 )
 
-// GroupEvent struct
+// GroupEvent struct.
 type GroupEvent struct {
 	Type    string          `json:"type"`
 	Object  json.RawMessage `json:"object"`
@@ -132,21 +132,21 @@ type GroupEvent struct {
 	Secret  string          `json:"secret"`
 }
 
-// LongpollResponse struct
+// LongpollResponse struct.
 type LongpollResponse struct {
 	Ts      int             `json:"ts"`
 	Updates [][]interface{} `json:"updates"`
 	Failed  int             `json:"failed"`
 }
 
-// LongpollBotResponse struct
+// LongpollBotResponse struct.
 type LongpollBotResponse struct {
 	Ts      string       `json:"ts"`
 	Updates []GroupEvent `json:"updates"`
 	Failed  int          `json:"failed"`
 }
 
-// BaseCommentsInfo struct
+// BaseCommentsInfo struct.
 type BaseCommentsInfo struct {
 	Count         int         `json:"count"`
 	CanPost       BaseBoolInt `json:"can_post"`
@@ -155,7 +155,7 @@ type BaseCommentsInfo struct {
 	CanOpen       BaseBoolInt `json:"can_open"`
 }
 
-// BaseGeo struct
+// BaseGeo struct.
 type BaseGeo struct {
 	Coordinates string    `json:"coordinates"`
 	Place       BasePlace `json:"place"`
@@ -163,7 +163,7 @@ type BaseGeo struct {
 	Type        string    `json:"type"`
 }
 
-// BaseMessageGeo struct
+// BaseMessageGeo struct.
 type BaseMessageGeo struct {
 	Coordinates BaseGeoCoordinates `json:"coordinates"`
 	Place       BasePlace          `json:"place"`
@@ -171,13 +171,13 @@ type BaseMessageGeo struct {
 	Type        string             `json:"type"`
 }
 
-// BaseGeoCoordinates struct
+// BaseGeoCoordinates struct.
 type BaseGeoCoordinates struct {
 	Latitude  float64 `json:"latitude"`
 	Longitude float64 `json:"longitude"`
 }
 
-// BaseImage struct
+// BaseImage struct.
 type BaseImage struct {
 	Height float64 `json:"height"`
 	URL    string  `json:"url"`
@@ -185,7 +185,7 @@ type BaseImage struct {
 	Type   string  `json:"type"`
 }
 
-// UnmarshalJSON is required to support images with `src` field
+// UnmarshalJSON is required to support images with `src` field.
 func (obj *BaseImage) UnmarshalJSON(data []byte) (err error) {
 	type renamedBaseImage struct {
 		Height float64 `json:"height"`
@@ -212,13 +212,13 @@ func (obj *BaseImage) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-// BaseLikes struct
+// BaseLikes struct.
 type BaseLikes struct {
 	UserLikes BaseBoolInt `json:"user_likes"` // Information whether current user likes
 	Count     int         `json:"count"`      // Likes number
 }
 
-// BaseLikesInfo struct
+// BaseLikesInfo struct.
 type BaseLikesInfo struct {
 	CanLike    BaseBoolInt `json:"can_like"`    // Information whether current user can like the post
 	CanPublish BaseBoolInt `json:"can_publish"` // Information whether current user can repost
@@ -226,7 +226,7 @@ type BaseLikesInfo struct {
 	Count      int         `json:"count"`       // Likes number
 }
 
-// BaseLink struct
+// BaseLink struct.
 type BaseLink struct {
 	Application BaseLinkApplication `json:"application"`
 	Button      BaseLinkButton      `json:"button"`
@@ -243,44 +243,44 @@ type BaseLink struct {
 	IsFavorite  BaseBoolInt         `json:"is_favorite"`
 }
 
-// BaseLinkApplication struct
+// BaseLinkApplication struct.
 type BaseLinkApplication struct {
 	AppID float64                  `json:"app_id"`
 	Store BaseLinkApplicationStore `json:"store"`
 }
 
-// BaseLinkApplicationStore struct
+// BaseLinkApplicationStore struct.
 type BaseLinkApplicationStore struct {
 	ID   float64 `json:"id"`
 	Name string  `json:"name"`
 }
 
-// BaseLinkButton struct
+// BaseLinkButton struct.
 type BaseLinkButton struct {
 	Action BaseLinkButtonAction `json:"action"`
 	Title  string               `json:"title"`
 }
 
-// BaseLinkButtonAction struct
+// BaseLinkButtonAction struct.
 type BaseLinkButtonAction struct {
 	Type string `json:"type"`
 	URL  string `json:"url"`
 }
 
-// BaseLinkProduct struct
+// BaseLinkProduct struct.
 type BaseLinkProduct struct {
 	Price       MarketPrice `json:"price"`
 	Merchant    string      `json:"merchant"`
 	OrdersCount int         `json:"orders_count"`
 }
 
-// BaseLinkRating struct
+// BaseLinkRating struct.
 type BaseLinkRating struct {
 	ReviewsCount int     `json:"reviews_count"`
 	Stars        float64 `json:"stars"`
 }
 
-// BasePlace struct
+// BasePlace struct.
 type BasePlace struct {
 	Address        string             `json:"address"`
 	Checkins       int                `json:"checkins"`
@@ -299,20 +299,20 @@ type BasePlace struct {
 	CategoryObject BaseCategoryObject `json:"category_object"`
 }
 
-// BaseCategoryObject struct
+// BaseCategoryObject struct.
 type BaseCategoryObject struct {
 	ID    int         `json:"id"`
 	Title string      `json:"title"`
 	Icons []BaseImage `json:"icons"`
 }
 
-// BaseRepostsInfo struct
+// BaseRepostsInfo struct.
 type BaseRepostsInfo struct {
 	Count        int `json:"count"`
 	UserReposted int `json:"user_reposted"`
 }
 
-// BaseSticker struct
+// BaseSticker struct.
 type BaseSticker struct {
 	Images               []BaseImage `json:"images"`
 	ImagesWithBackground []BaseImage `json:"images_with_background"`
@@ -320,12 +320,12 @@ type BaseSticker struct {
 	StickerID            int         `json:"sticker_id"`
 }
 
-// BaseUserID struct
+// BaseUserID struct.
 type BaseUserID struct {
 	UserID int `json:"user_id"`
 }
 
-// EventsEventAttach struct
+// EventsEventAttach struct.
 type EventsEventAttach struct {
 	Address      string      `json:"address,omitempty"`       // address of event
 	ButtonText   string      `json:"button_text"`             // text of attach
@@ -337,14 +337,14 @@ type EventsEventAttach struct {
 	Time         int         `json:"time,omitempty"`          // event start time
 }
 
-// OauthError struct
+// OauthError struct.
 type OauthError struct {
 	Error            string `json:"error"`
 	ErrorDescription string `json:"error_description"`
 	RedirectURI      string `json:"redirect_uri"`
 }
 
-// Article struct
+// Article struct.
 type Article struct {
 	ID            int         `json:"id"`
 	OwnerID       int         `json:"owner_id"`
@@ -364,7 +364,7 @@ type Article struct {
 	Photo         PhotosPhoto `json:"photo"`
 }
 
-// Error struct
+// Error struct.
 type Error struct {
 	Code       int    `json:"error_code"`
 	Message    string `json:"error_msg"`
@@ -424,20 +424,20 @@ type Error struct {
 	RequestParams []BaseRequestParam `json:"request_params"`
 }
 
-// ExecuteError struct
+// ExecuteError struct.
 type ExecuteError struct {
 	Method    string `json:"method"`
 	ErrorCode int    `json:"error_code"`
 	ErrorMsg  string `json:"error_msg"`
 }
 
-// ExtendedResponse struct
+// ExtendedResponse struct.
 type ExtendedResponse struct {
 	Profiles []UsersUser   `json:"profiles"`
 	Groups   []GroupsGroup `json:"groups"`
 }
 
-// ClientInfo struct
+// ClientInfo struct.
 type ClientInfo struct {
 	ButtonActions  []string    `json:"button_actions"`
 	Keyboard       BaseBoolInt `json:"keyboard"`
@@ -446,7 +446,7 @@ type ClientInfo struct {
 	LangID         int         `json:"lang_id"`
 }
 
-// Language code
+// Language code.
 const (
 	LangRU               = 0   // Русский
 	LangUK               = 1   // Українська
@@ -539,7 +539,7 @@ const (
 	LangSoviet           = 777 // Советский
 )
 
-// Button action type
+// Button action type.
 const (
 	ButtonText     = "text"
 	ButtonVKPay    = "vkpay"
@@ -548,10 +548,10 @@ const (
 	ButtonOpenLink = "open_link"
 )
 
-// Platform content creation platform
+// Platform content creation platform.
 type Platform int
 
-// Possible values
+// Possible values.
 const (
 	_                    Platform = iota
 	PlatformMobile                // mobile web version

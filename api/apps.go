@@ -12,7 +12,7 @@ func (vk *VK) AppsDeleteAppRequests(params Params) (response int, err error) {
 	return
 }
 
-// AppsGetResponse struct
+// AppsGetResponse struct.
 type AppsGetResponse struct {
 	Count int              `json:"count"`
 	Items []object.AppsApp `json:"items"`
@@ -27,7 +27,7 @@ func (vk *VK) AppsGet(params Params) (response AppsGetResponse, err error) {
 	return
 }
 
-// AppsGetCatalogResponse struct
+// AppsGetCatalogResponse struct.
 type AppsGetCatalogResponse struct {
 	Count int              `json:"count"`
 	Items []object.AppsApp `json:"items"`
@@ -42,7 +42,7 @@ func (vk *VK) AppsGetCatalog(params Params) (response AppsGetCatalogResponse, er
 	return
 }
 
-// AppsGetFriendsListResponse struct
+// AppsGetFriendsListResponse struct.
 type AppsGetFriendsListResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"profiles"`
@@ -60,7 +60,7 @@ func (vk *VK) AppsGetFriendsList(params Params) (response AppsGetFriendsListResp
 	return
 }
 
-// AppsGetFriendsListExtendedResponse struct
+// AppsGetFriendsListExtendedResponse struct.
 type AppsGetFriendsListExtendedResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"profiles"`
@@ -78,7 +78,7 @@ func (vk *VK) AppsGetFriendsListExtended(params Params) (response AppsGetFriends
 	return
 }
 
-// AppsGetLeaderboardResponse struct
+// AppsGetLeaderboardResponse struct.
 type AppsGetLeaderboardResponse struct {
 	Count int                      `json:"count"`
 	Items []object.AppsLeaderboard `json:"items"`
@@ -96,7 +96,7 @@ func (vk *VK) AppsGetLeaderboard(params Params) (response AppsGetLeaderboardResp
 	return
 }
 
-// AppsGetLeaderboardExtendedResponse struct
+// AppsGetLeaderboardExtendedResponse struct.
 type AppsGetLeaderboardExtendedResponse struct {
 	Count int `json:"count"`
 	Items []struct {
@@ -118,7 +118,7 @@ func (vk *VK) AppsGetLeaderboardExtended(params Params) (response AppsGetLeaderb
 	return
 }
 
-// AppsGetScopesResponse struct
+// AppsGetScopesResponse struct.
 type AppsGetScopesResponse struct {
 	Count int                `json:"count"`
 	Items []object.AppsScope `json:"items"`

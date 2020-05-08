@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// LeadsChecked struct
+// LeadsChecked struct.
 type LeadsChecked struct {
 	Reason    string `json:"reason"` // Reason why user can't start the lead
 	Result    string `json:"result"`
@@ -8,7 +8,7 @@ type LeadsChecked struct {
 	StartLink string `json:"start_link"` // URL user should open to start the lead
 }
 
-// LeadsComplete struct
+// LeadsComplete struct.
 type LeadsComplete struct {
 	Cost     int         `json:"cost"`  // Offer cost
 	Limit    int         `json:"limit"` // Offer limit
@@ -17,7 +17,7 @@ type LeadsComplete struct {
 	TestMode BaseBoolInt `json:"test_mode"` // Information whether test mode is enabled
 }
 
-// LeadsEntry struct
+// LeadsEntry struct.
 type LeadsEntry struct {
 	Aid       int         `json:"aid"`        // Application ID
 	Comment   string      `json:"comment"`    // Comment text
@@ -29,7 +29,7 @@ type LeadsEntry struct {
 	UID       int         `json:"uid"`        // User ID
 }
 
-// LeadsLead struct
+// LeadsLead struct.
 type LeadsLead struct {
 	Completed   int           `json:"completed"` // Completed offers number
 	Cost        int           `json:"cost"`      // Offer cost
@@ -40,7 +40,7 @@ type LeadsLead struct {
 	Started     int           `json:"started"`     // Started offers number
 }
 
-// LeadsLeadDays struct
+// LeadsLeadDays struct.
 type LeadsLeadDays struct {
 	Completed   int `json:"completed"`   // Completed offers number
 	Impressions int `json:"impressions"` // Impressions number
@@ -48,7 +48,7 @@ type LeadsLeadDays struct {
 	Started     int `json:"started"`     // Started offers number
 }
 
-// LeadsStart struct
+// LeadsStart struct.
 type LeadsStart struct {
 	TestMode BaseBoolInt `json:"test_mode"` // Information whether test mode is enabled
 	VkSid    string      `json:"vk_sid"`    // Session data

@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// StatsActivity struct
+// StatsActivity struct.
 type StatsActivity struct {
 	Comments     int `json:"comments"`     // Comments number
 	Copies       int `json:"copies"`       // Reposts number
@@ -10,14 +10,14 @@ type StatsActivity struct {
 	Unsubscribed int `json:"unsubscribed"` // Unsubscribed count
 }
 
-// StatsCity struct
+// StatsCity struct.
 type StatsCity struct {
 	Count int    `json:"count"` // Visitors number
 	Name  string `json:"name"`  // City name
 	Value int    `json:"value"` // City ID
 }
 
-// StatsCountry struct
+// StatsCountry struct.
 type StatsCountry struct {
 	Code  string `json:"code"`  // Country code
 	Count int    `json:"count"` // Visitors number
@@ -25,7 +25,7 @@ type StatsCountry struct {
 	Value int    `json:"value"` // Country ID
 }
 
-// StatsPeriod struct
+// StatsPeriod struct.
 type StatsPeriod struct {
 	Activity   StatsActivity `json:"activity"`
 	PeriodFrom int           `json:"period_from"` // Unix timestamp
@@ -34,7 +34,7 @@ type StatsPeriod struct {
 	Visitors   StatsViews    `json:"visitors"`
 }
 
-// StatsReach struct
+// StatsReach struct.
 type StatsReach struct {
 	Age              []StatsSexAge  `json:"age"`
 	Cities           []StatsCity    `json:"cities"`
@@ -46,13 +46,13 @@ type StatsReach struct {
 	SexAge           []StatsSexAge  `json:"sex_age"`
 }
 
-// StatsSexAge struct
+// StatsSexAge struct.
 type StatsSexAge struct {
 	Count int    `json:"count"` // Visitors number
 	Value string `json:"value"` // Sex/age value
 }
 
-// StatsViews struct
+// StatsViews struct.
 type StatsViews struct {
 	Age         []StatsSexAge  `json:"age"`
 	Cities      []StatsCity    `json:"cities"`
@@ -64,7 +64,7 @@ type StatsViews struct {
 	Visitors    int            `json:"visitors"` // Visitors number
 }
 
-// StatsWallpostStat struct
+// StatsWallpostStat struct.
 type StatsWallpostStat struct {
 	Hide             int `json:"hide"`              // Hidings number
 	JoinGroup        int `json:"join_group"`        // People have joined the group

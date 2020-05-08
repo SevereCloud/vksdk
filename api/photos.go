@@ -12,7 +12,7 @@ func (vk *VK) PhotosConfirmTag(params Params) (response int, err error) {
 	return
 }
 
-// PhotosCopy allows to copy a photo to the "Saved photos" album
+// PhotosCopy allows to copy a photo to the "Saved photos" album.
 //
 // https://vk.com/dev/photos.copy
 func (vk *VK) PhotosCopy(params Params) (response int, err error) {
@@ -20,7 +20,7 @@ func (vk *VK) PhotosCopy(params Params) (response int, err error) {
 	return
 }
 
-// PhotosCreateAlbumResponse struct
+// PhotosCreateAlbumResponse struct.
 type PhotosCreateAlbumResponse object.PhotosPhotoAlbumFull
 
 // PhotosCreateAlbum creates an empty photo album.
@@ -87,7 +87,7 @@ func (vk *VK) PhotosEditComment(params Params) (response int, err error) {
 	return
 }
 
-// PhotosGetResponse struct
+// PhotosGetResponse struct.
 type PhotosGetResponse struct {
 	Count int                  `json:"count"` // Total number
 	Items []object.PhotosPhoto `json:"items"`
@@ -105,7 +105,7 @@ func (vk *VK) PhotosGet(params Params) (response PhotosGetResponse, err error) {
 	return
 }
 
-// PhotosGetExtendedResponse struct
+// PhotosGetExtendedResponse struct.
 type PhotosGetExtendedResponse struct {
 	Count int                      `json:"count"` // Total number
 	Items []object.PhotosPhotoFull `json:"items"`
@@ -123,7 +123,7 @@ func (vk *VK) PhotosGetExtended(params Params) (response PhotosGetExtendedRespon
 	return
 }
 
-// PhotosGetAlbumsResponse struct
+// PhotosGetAlbumsResponse struct.
 type PhotosGetAlbumsResponse struct {
 	Count int                           `json:"count"` // Total number
 	Items []object.PhotosPhotoAlbumFull `json:"items"`
@@ -145,7 +145,7 @@ func (vk *VK) PhotosGetAlbumsCount(params Params) (response int, err error) {
 	return
 }
 
-// PhotosGetAllResponse struct
+// PhotosGetAllResponse struct.
 type PhotosGetAllResponse struct {
 	Count int                               `json:"count"` // Total number
 	Items []object.PhotosPhotoXtrRealOffset `json:"items"`
@@ -164,7 +164,7 @@ func (vk *VK) PhotosGetAll(params Params) (response PhotosGetAllResponse, err er
 	return
 }
 
-// PhotosGetAllExtendedResponse struct
+// PhotosGetAllExtendedResponse struct.
 type PhotosGetAllExtendedResponse struct {
 	Count int                                   `json:"count"` // Total number
 	Items []object.PhotosPhotoFullXtrRealOffset `json:"items"`
@@ -183,7 +183,7 @@ func (vk *VK) PhotosGetAllExtended(params Params) (response PhotosGetAllExtended
 	return
 }
 
-// PhotosGetAllCommentsResponse struct
+// PhotosGetAllCommentsResponse struct.
 type PhotosGetAllCommentsResponse struct {
 	Count int                          `json:"count"` // Total number
 	Items []object.PhotosCommentXtrPid `json:"items"`
@@ -198,7 +198,7 @@ func (vk *VK) PhotosGetAllComments(params Params) (response PhotosGetAllComments
 	return
 }
 
-// PhotosGetByIDResponse struct
+// PhotosGetByIDResponse struct.
 type PhotosGetByIDResponse []object.PhotosPhoto
 
 // PhotosGetByID returns information about photos by their IDs.
@@ -213,7 +213,7 @@ func (vk *VK) PhotosGetByID(params Params) (response PhotosGetByIDResponse, err 
 	return
 }
 
-// PhotosGetByIDExtendedResponse struct
+// PhotosGetByIDExtendedResponse struct.
 type PhotosGetByIDExtendedResponse []object.PhotosPhotoFull
 
 // PhotosGetByIDExtended returns information about photos by their IDs.
@@ -228,7 +228,7 @@ func (vk *VK) PhotosGetByIDExtended(params Params) (response PhotosGetByIDExtend
 	return
 }
 
-// PhotosGetChatUploadServerResponse struct
+// PhotosGetChatUploadServerResponse struct.
 type PhotosGetChatUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -241,7 +241,7 @@ func (vk *VK) PhotosGetChatUploadServer(params Params) (response PhotosGetChatUp
 	return
 }
 
-// PhotosGetCommentsResponse struct
+// PhotosGetCommentsResponse struct.
 type PhotosGetCommentsResponse struct {
 	Count      int                      `json:"count"`       // Total number
 	RealOffset int                      `json:"real_offset"` // Real offset of the comments
@@ -260,7 +260,7 @@ func (vk *VK) PhotosGetComments(params Params) (response PhotosGetCommentsRespon
 	return
 }
 
-// PhotosGetCommentsExtendedResponse struct
+// PhotosGetCommentsExtendedResponse struct.
 type PhotosGetCommentsExtendedResponse struct {
 	Count      int                      `json:"count"`       // Total number
 	RealOffset int                      `json:"real_offset"` // Real offset of the comments
@@ -281,7 +281,7 @@ func (vk *VK) PhotosGetCommentsExtended(params Params) (response PhotosGetCommen
 	return
 }
 
-// PhotosGetMarketAlbumUploadServerResponse struct
+// PhotosGetMarketAlbumUploadServerResponse struct.
 type PhotosGetMarketAlbumUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -294,7 +294,7 @@ func (vk *VK) PhotosGetMarketAlbumUploadServer(params Params) (response PhotosGe
 	return
 }
 
-// PhotosGetMarketUploadServerResponse struct
+// PhotosGetMarketUploadServerResponse struct.
 type PhotosGetMarketUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -307,7 +307,7 @@ func (vk *VK) PhotosGetMarketUploadServer(params Params) (response PhotosGetMark
 	return
 }
 
-// PhotosGetMessagesUploadServerResponse struct
+// PhotosGetMessagesUploadServerResponse struct.
 type PhotosGetMessagesUploadServerResponse struct {
 	AlbumID   int    `json:"album_id"`
 	UploadURL string `json:"upload_url"`
@@ -322,7 +322,7 @@ func (vk *VK) PhotosGetMessagesUploadServer(params Params) (response PhotosGetMe
 	return
 }
 
-// PhotosGetNewTagsResponse struct
+// PhotosGetNewTagsResponse struct.
 type PhotosGetNewTagsResponse struct {
 	Count int                            `json:"count"` // Total number
 	Items []object.PhotosPhotoXtrTagInfo `json:"items"`
@@ -336,7 +336,7 @@ func (vk *VK) PhotosGetNewTags(params Params) (response PhotosGetNewTagsResponse
 	return
 }
 
-// PhotosGetOwnerCoverPhotoUploadServerResponse struct
+// PhotosGetOwnerCoverPhotoUploadServerResponse struct.
 type PhotosGetOwnerCoverPhotoUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -349,7 +349,7 @@ func (vk *VK) PhotosGetOwnerCoverPhotoUploadServer(params Params) (response Phot
 	return
 }
 
-// PhotosGetOwnerPhotoUploadServerResponse struct
+// PhotosGetOwnerPhotoUploadServerResponse struct.
 type PhotosGetOwnerPhotoUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -362,7 +362,7 @@ func (vk *VK) PhotosGetOwnerPhotoUploadServer(params Params) (response PhotosGet
 	return
 }
 
-// PhotosGetTagsResponse struct
+// PhotosGetTagsResponse struct.
 type PhotosGetTagsResponse []object.PhotosPhotoTag
 
 // PhotosGetTags returns a list of tags on a photo.
@@ -373,7 +373,7 @@ func (vk *VK) PhotosGetTags(params Params) (response PhotosGetTagsResponse, err 
 	return
 }
 
-// PhotosGetUploadServerResponse struct
+// PhotosGetUploadServerResponse struct.
 type PhotosGetUploadServerResponse object.PhotosPhotoUpload
 
 // PhotosGetUploadServer returns the server address for photo upload.
@@ -384,7 +384,7 @@ func (vk *VK) PhotosGetUploadServer(params Params) (response PhotosGetUploadServ
 	return
 }
 
-// PhotosGetUserPhotosResponse struct
+// PhotosGetUserPhotosResponse struct.
 type PhotosGetUserPhotosResponse struct {
 	Count int                  `json:"count"` // Total number
 	Items []object.PhotosPhoto `json:"items"`
@@ -402,7 +402,7 @@ func (vk *VK) PhotosGetUserPhotos(params Params) (response PhotosGetUserPhotosRe
 	return
 }
 
-// PhotosGetUserPhotosExtendedResponse struct
+// PhotosGetUserPhotosExtendedResponse struct.
 type PhotosGetUserPhotosExtendedResponse struct {
 	Count int                      `json:"count"` // Total number
 	Items []object.PhotosPhotoFull `json:"items"`
@@ -420,7 +420,7 @@ func (vk *VK) PhotosGetUserPhotosExtended(params Params) (response PhotosGetUser
 	return
 }
 
-// PhotosGetWallUploadServerResponse struct
+// PhotosGetWallUploadServerResponse struct.
 type PhotosGetWallUploadServerResponse object.PhotosPhotoUpload
 
 // PhotosGetWallUploadServer returns the server address for photo upload onto a user's wall.
@@ -511,7 +511,7 @@ func (vk *VK) PhotosRestoreComment(params Params) (response int, err error) {
 	return
 }
 
-// PhotosSaveResponse struct
+// PhotosSaveResponse struct.
 type PhotosSaveResponse []object.PhotosPhoto
 
 // PhotosSave saves photos after successful uploading.
@@ -522,7 +522,7 @@ func (vk *VK) PhotosSave(params Params) (response PhotosSaveResponse, err error)
 	return
 }
 
-// PhotosSaveMarketAlbumPhotoResponse struct
+// PhotosSaveMarketAlbumPhotoResponse struct.
 type PhotosSaveMarketAlbumPhotoResponse []object.PhotosPhoto
 
 // PhotosSaveMarketAlbumPhoto photo Saves market album photos after successful uploading.
@@ -533,7 +533,7 @@ func (vk *VK) PhotosSaveMarketAlbumPhoto(params Params) (response PhotosSaveMark
 	return
 }
 
-// PhotosSaveMarketPhotoResponse struct
+// PhotosSaveMarketPhotoResponse struct.
 type PhotosSaveMarketPhotoResponse []object.PhotosPhoto
 
 // PhotosSaveMarketPhoto saves market photos after successful uploading.
@@ -544,10 +544,10 @@ func (vk *VK) PhotosSaveMarketPhoto(params Params) (response PhotosSaveMarketPho
 	return
 }
 
-// PhotosSaveMessagesPhotoResponse struct
+// PhotosSaveMessagesPhotoResponse struct.
 type PhotosSaveMessagesPhotoResponse []object.PhotosPhoto
 
-// PhotosSaveMessagesPhoto saves a photo after being successfully
+// PhotosSaveMessagesPhoto saves a photo after being successfully.
 //
 // https://vk.com/dev/photos.saveMessagesPhoto
 func (vk *VK) PhotosSaveMessagesPhoto(params Params) (response PhotosSaveMessagesPhotoResponse, err error) {
@@ -555,7 +555,7 @@ func (vk *VK) PhotosSaveMessagesPhoto(params Params) (response PhotosSaveMessage
 	return
 }
 
-// PhotosSaveOwnerCoverPhotoResponse struct
+// PhotosSaveOwnerCoverPhotoResponse struct.
 type PhotosSaveOwnerCoverPhotoResponse struct {
 	Images []object.PhotosImage `json:"images"`
 }
@@ -568,7 +568,7 @@ func (vk *VK) PhotosSaveOwnerCoverPhoto(params Params) (response PhotosSaveOwner
 	return
 }
 
-// PhotosSaveOwnerPhotoResponse struct
+// PhotosSaveOwnerPhotoResponse struct.
 type PhotosSaveOwnerPhotoResponse struct {
 	PhotoHash     string `json:"photo_hash"`
 	PhotoSrc      string `json:"photo_src"`
@@ -586,7 +586,7 @@ func (vk *VK) PhotosSaveOwnerPhoto(params Params) (response PhotosSaveOwnerPhoto
 	return
 }
 
-// PhotosSaveWallPhotoResponse struct
+// PhotosSaveWallPhotoResponse struct.
 type PhotosSaveWallPhotoResponse []object.PhotosPhoto
 
 // PhotosSaveWallPhoto saves a photo to a user's or community's wall after being uploaded.
@@ -597,7 +597,7 @@ func (vk *VK) PhotosSaveWallPhoto(params Params) (response PhotosSaveWallPhotoRe
 	return
 }
 
-// PhotosSearchResponse struct
+// PhotosSearchResponse struct.
 type PhotosSearchResponse struct {
 	Count int                      `json:"count"` // Total number
 	Items []object.PhotosPhotoFull `json:"items"`

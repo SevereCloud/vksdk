@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// StatusGetResponse struct
+// StatusGetResponse struct.
 type StatusGetResponse struct {
 	Audio object.AudioAudioFull `json:"audio"`
 	Text  string                `json:"text"`

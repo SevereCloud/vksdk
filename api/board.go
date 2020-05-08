@@ -68,7 +68,7 @@ func (vk *VK) BoardFixTopic(params Params) (response int, err error) {
 	return
 }
 
-// BoardGetCommentsResponse struct
+// BoardGetCommentsResponse struct.
 type BoardGetCommentsResponse struct {
 	Count      int                        `json:"count"`
 	Items      []object.BoardTopicComment `json:"items"`
@@ -88,7 +88,7 @@ func (vk *VK) BoardGetComments(params Params) (response BoardGetCommentsResponse
 	return
 }
 
-// BoardGetCommentsExtendedResponse struct
+// BoardGetCommentsExtendedResponse struct.
 type BoardGetCommentsExtendedResponse struct {
 	Count      int                        `json:"count"`
 	Items      []object.BoardTopicComment `json:"items"`
@@ -110,7 +110,7 @@ func (vk *VK) BoardGetCommentsExtended(params Params) (response BoardGetComments
 	return
 }
 
-// BoardGetTopicsResponse struct
+// BoardGetTopicsResponse struct.
 type BoardGetTopicsResponse struct {
 	Count        int                 `json:"count"`
 	Items        []object.BoardTopic `json:"items"`
@@ -130,7 +130,7 @@ func (vk *VK) BoardGetTopics(params Params) (response BoardGetTopicsResponse, er
 	return
 }
 
-// BoardGetTopicsExtendedResponse struct
+// BoardGetTopicsExtendedResponse struct.
 type BoardGetTopicsExtendedResponse struct {
 	Count        int                  `json:"count"`
 	Items        []object.BoardTopic  `json:"items"`

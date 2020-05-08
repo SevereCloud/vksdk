@@ -2,7 +2,7 @@ package api // import "github.com/SevereCloud/vksdk/api"
 
 import "github.com/SevereCloud/vksdk/object"
 
-// GiftsGetResponse struct
+// GiftsGetResponse struct.
 type GiftsGetResponse struct {
 	Count int                `json:"count"`
 	Items []object.GiftsGift `json:"items"`
@@ -16,7 +16,7 @@ func (vk *VK) GiftsGet(params Params) (response GiftsGetResponse, err error) {
 	return
 }
 
-// GiftsGetCatalogResponse struct
+// GiftsGetCatalogResponse struct.
 type GiftsGetCatalogResponse []struct {
 	Name  string             `json:"name"`
 	Title string             `json:"title"`

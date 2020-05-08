@@ -1,12 +1,12 @@
 package object
 
-//FaveTag struct
+//FaveTag struct.
 type FaveTag struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
 
-//FavePage struct
+//FavePage struct.
 type FavePage struct {
 	Type        string      `json:"type"`
 	Description string      `json:"description"`
@@ -16,7 +16,7 @@ type FavePage struct {
 	Group       GroupsGroup `json:"group"`
 }
 
-//FaveFavesLink struct
+//FaveFavesLink struct.
 type FaveFavesLink struct {
 	URL         string      `json:"url"`
 	Title       string      `json:"title"`
@@ -27,7 +27,7 @@ type FaveFavesLink struct {
 	ID          string      `json:"id"`
 }
 
-//FaveItem struct
+//FaveItem struct.
 type FaveItem struct {
 	Type      string           `json:"type"`
 	Seen      BaseBoolInt      `json:"seen"`

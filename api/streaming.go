@@ -1,6 +1,6 @@
 package api // import "github.com/SevereCloud/vksdk/api"
 
-// StreamingGetServerURLResponse struct
+// StreamingGetServerURLResponse struct.
 type StreamingGetServerURLResponse struct {
 	Endpoint string `json:"endpoint"`
 	Key      string `json:"key"`
@@ -14,7 +14,7 @@ func (vk *VK) StreamingGetServerURL(params Params) (response StreamingGetServerU
 	return
 }
 
-// StreamingGetSettingsResponse struct
+// StreamingGetSettingsResponse struct.
 type StreamingGetSettingsResponse struct {
 	MonthlyLimit string `json:"monthly_limit"`
 }
@@ -27,7 +27,7 @@ func (vk *VK) StreamingGetSettings(params Params) (response StreamingGetSettings
 	return
 }
 
-// StreamingGetStatsResponse struct
+// StreamingGetStatsResponse struct.
 type StreamingGetStatsResponse []struct {
 	EventType string `json:"event_type"`
 	Stats     []struct {
@@ -44,7 +44,7 @@ func (vk *VK) StreamingGetStats(params Params) (response StreamingGetStatsRespon
 	return
 }
 
-// StreamingGetStemResponse struct
+// StreamingGetStemResponse struct.
 type StreamingGetStemResponse struct {
 	Stem string `json:"stem"`
 }

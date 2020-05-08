@@ -5,5 +5,5 @@ Source https://github.com/SevereCloud/vksdk
 */
 package vksdk
 
-// Version module
+// Version module.
 const Version = "1.6.0"

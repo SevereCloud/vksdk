@@ -8,7 +8,7 @@ func (vk *VK) AuthCheckPhone(params Params) (response int, err error) {
 	return
 }
 
-// AuthRestoreResponse struct
+// AuthRestoreResponse struct.
 type AuthRestoreResponse struct {
 	Success int    `json:"success"`
 	SID     string `json:"sid"`

@@ -117,7 +117,7 @@ type serviceMessage struct {
 	ServiceCode int    `json:"service_code"` // Service message code
 }
 
-// Rule struct
+// Rule struct.
 //
 // Each rule has a "value", the rule’s content and a "tag". With each object
 // you receive a list of its tags to figure out what rules does it fit.
@@ -126,7 +126,7 @@ type Rule struct {
 	Value string `json:"value"` // string representation of the rule
 }
 
-// Streaming struct
+// Streaming struct.
 type Streaming struct {
 	Endpoint string // URL for further requests
 	Key      string // access key for streaming api
@@ -163,7 +163,7 @@ func (s *Streaming) doRequest(req *http.Request) (*response, error) {
 	return &r, nil
 }
 
-// GetRules gets current rules from a stream
+// GetRules gets current rules from a stream.
 func (s *Streaming) GetRules() ([]Rule, error) {
 	url := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
 
@@ -180,9 +180,9 @@ func (s *Streaming) GetRules() ([]Rule, error) {
 	return r.Rules, nil
 }
 
-// AddRule adds a new rule to a stream
+// AddRule adds a new rule to a stream.
 //
-// - the maximum length of a rule's tag (tag) in bytes — 256;
+// - the maximum length of a rule's tag (tag) in bytes — 256.
 func (s *Streaming) AddRule(tag, value string) error {
 	url := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
 
@@ -212,7 +212,7 @@ func (s *Streaming) AddRule(tag, value string) error {
 	return err
 }
 
-// DeleteRule removes a rule from a stream
+// DeleteRule removes a rule from a stream.
 func (s *Streaming) DeleteRule(tag string) error {
 	url := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
 
@@ -239,7 +239,7 @@ func (s *Streaming) DeleteRule(tag string) error {
 	return err
 }
 
-// UpdateRules removes all rules and adds a new rule to a stream
+// UpdateRules removes all rules and adds a new rule to a stream.
 func (s *Streaming) UpdateRules(rules []Rule) error {
 	oldRules, err := s.GetRules()
 	if err != nil {
@@ -276,12 +276,12 @@ func (s *Streaming) handlerWebsocket(r response) error {
 	return nil
 }
 
-// OnEvent event handler
+// OnEvent event handler.
 func (s *Streaming) OnEvent(f func(Event)) {
 	s.eventFunc = append(s.eventFunc, f)
 }
 
-// Run starting stream
+// Run starting stream.
 func (s *Streaming) Run() error {
 	atomic.StoreInt32(&s.inShutdown, 0)
 
@@ -345,14 +345,14 @@ func (s *Streaming) Run() error {
 	return err
 }
 
-// Shutdown gracefully shuts down the stream
+// Shutdown gracefully shuts down the stream.
 func (s *Streaming) Shutdown() {
 	atomic.StoreInt32(&s.inShutdown, 1)
 }
 
-// NewStreaming returns a new Streaming
+// NewStreaming returns a new Streaming.
 //
-// This can be called with a service token
+// This can be called with a service token.
 //
 // The Streaming will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
@@ -375,11 +375,11 @@ func NewStreaming(vk *api.VK) (*Streaming, error) {
 	return s, nil
 }
 
-// Init Streaming
+// Init Streaming.
 //
 // This can be called with a service token.
 //
-// Deprecated: use NewStreaming
+// Deprecated: use NewStreaming.
 func Init(vk *api.VK) (*Streaming, error) {
 	return NewStreaming(vk)
 }

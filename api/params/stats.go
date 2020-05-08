@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// StatsGetBuilder builder
+// StatsGetBuilder builder.
 //
 // Returns statistics of a community or an application.
 //
@@ -13,7 +13,7 @@ type StatsGetBuilder struct {
 	api.Params
 }
 
-// NewStatsGetBuilder func
+// NewStatsGetBuilder func.
 func NewStatsGetBuilder() *StatsGetBuilder {
 	return &StatsGetBuilder{api.Params{}}
 }
@@ -30,49 +30,49 @@ func (b *StatsGetBuilder) AppID(v int) *StatsGetBuilder {
 	return b
 }
 
-// TimestampFrom parameter
+// TimestampFrom parameter.
 func (b *StatsGetBuilder) TimestampFrom(v int) *StatsGetBuilder {
 	b.Params["timestamp_from"] = v
 	return b
 }
 
-// TimestampTo parameter
+// TimestampTo parameter.
 func (b *StatsGetBuilder) TimestampTo(v int) *StatsGetBuilder {
 	b.Params["timestamp_to"] = v
 	return b
 }
 
-// Interval parameter
+// Interval parameter.
 func (b *StatsGetBuilder) Interval(v string) *StatsGetBuilder {
 	b.Params["interval"] = v
 	return b
 }
 
-// IntervalsCount parameter
+// IntervalsCount parameter.
 func (b *StatsGetBuilder) IntervalsCount(v int) *StatsGetBuilder {
 	b.Params["intervals_count"] = v
 	return b
 }
 
-// Filters parameter
+// Filters parameter.
 func (b *StatsGetBuilder) Filters(v []string) *StatsGetBuilder {
 	b.Params["filters"] = v
 	return b
 }
 
-// StatsGroups parameter
+// StatsGroups parameter.
 func (b *StatsGetBuilder) StatsGroups(v []string) *StatsGetBuilder {
 	b.Params["stats_groups"] = v
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 func (b *StatsGetBuilder) Extended(v bool) *StatsGetBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// StatsGetPostReachBuilder builder
+// StatsGetPostReachBuilder builder.
 //
 // Returns stats for a wall post.
 //
@@ -81,7 +81,7 @@ type StatsGetPostReachBuilder struct {
 	api.Params
 }
 
-// NewStatsGetPostReachBuilder func
+// NewStatsGetPostReachBuilder func.
 func NewStatsGetPostReachBuilder() *StatsGetPostReachBuilder {
 	return &StatsGetPostReachBuilder{api.Params{}}
 }
@@ -98,19 +98,19 @@ func (b *StatsGetPostReachBuilder) PostID(v int) *StatsGetPostReachBuilder {
 	return b
 }
 
-// StatsTrackVisitorBuilder builder
+// StatsTrackVisitorBuilder builder.
 //
 // https://vk.com/dev/stats.trackVisitor
 type StatsTrackVisitorBuilder struct {
 	api.Params
 }
 
-// NewStatsTrackVisitorBuilder func
+// NewStatsTrackVisitorBuilder func.
 func NewStatsTrackVisitorBuilder() *StatsTrackVisitorBuilder {
 	return &StatsTrackVisitorBuilder{api.Params{}}
 }
 
-// ID parameter
+// ID parameter.
 func (b *StatsTrackVisitorBuilder) ID(v string) *StatsTrackVisitorBuilder {
 	b.Params["id"] = v
 	return b

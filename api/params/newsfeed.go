@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// NewsfeedAddBanBuilder builder
+// NewsfeedAddBanBuilder builder.
 //
 // Prevents news from specified users and communities from appearing in the current user's newsfeed.
 //
@@ -13,24 +13,24 @@ type NewsfeedAddBanBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedAddBanBuilder func
+// NewNewsfeedAddBanBuilder func.
 func NewNewsfeedAddBanBuilder() *NewsfeedAddBanBuilder {
 	return &NewsfeedAddBanBuilder{api.Params{}}
 }
 
-// UserIDs parameter
+// UserIDs parameter.
 func (b *NewsfeedAddBanBuilder) UserIDs(v []int) *NewsfeedAddBanBuilder {
 	b.Params["user_ids"] = v
 	return b
 }
 
-// GroupIDs parameter
+// GroupIDs parameter.
 func (b *NewsfeedAddBanBuilder) GroupIDs(v []int) *NewsfeedAddBanBuilder {
 	b.Params["group_ids"] = v
 	return b
 }
 
-// NewsfeedDeleteBanBuilder builder
+// NewsfeedDeleteBanBuilder builder.
 //
 // Allows news from previously banned users and communities to be shown in the current user's newsfeed.
 //
@@ -39,42 +39,42 @@ type NewsfeedDeleteBanBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedDeleteBanBuilder func
+// NewNewsfeedDeleteBanBuilder func.
 func NewNewsfeedDeleteBanBuilder() *NewsfeedDeleteBanBuilder {
 	return &NewsfeedDeleteBanBuilder{api.Params{}}
 }
 
-// UserIDs parameter
+// UserIDs parameter.
 func (b *NewsfeedDeleteBanBuilder) UserIDs(v []int) *NewsfeedDeleteBanBuilder {
 	b.Params["user_ids"] = v
 	return b
 }
 
-// GroupIDs parameter
+// GroupIDs parameter.
 func (b *NewsfeedDeleteBanBuilder) GroupIDs(v []int) *NewsfeedDeleteBanBuilder {
 	b.Params["group_ids"] = v
 	return b
 }
 
-// NewsfeedDeleteListBuilder builder
+// NewsfeedDeleteListBuilder builder.
 //
 // https://vk.com/dev/newsfeed.deleteList
 type NewsfeedDeleteListBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedDeleteListBuilder func
+// NewNewsfeedDeleteListBuilder func.
 func NewNewsfeedDeleteListBuilder() *NewsfeedDeleteListBuilder {
 	return &NewsfeedDeleteListBuilder{api.Params{}}
 }
 
-// ListID parameter
+// ListID parameter.
 func (b *NewsfeedDeleteListBuilder) ListID(v int) *NewsfeedDeleteListBuilder {
 	b.Params["list_id"] = v
 	return b
 }
 
-// NewsfeedGetBuilder builder
+// NewsfeedGetBuilder builder.
 //
 // Returns data required to show newsfeed for the current user.
 //
@@ -83,7 +83,7 @@ type NewsfeedGetBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetBuilder func
+// NewNewsfeedGetBuilder func.
 func NewNewsfeedGetBuilder() *NewsfeedGetBuilder {
 	return &NewsfeedGetBuilder{api.Params{}}
 }
@@ -106,7 +106,7 @@ func (b *NewsfeedGetBuilder) Filters(v []string) *NewsfeedGetBuilder {
 	return b
 }
 
-// ReturnBanned '1' — to return news items from banned sources
+// ReturnBanned '1' — to return news items from banned sources.
 func (b *NewsfeedGetBuilder) ReturnBanned(v bool) *NewsfeedGetBuilder {
 	b.Params["return_banned"] = v
 	return b
@@ -161,13 +161,13 @@ func (b *NewsfeedGetBuilder) Fields(v []string) *NewsfeedGetBuilder {
 	return b
 }
 
-// Section parameter
+// Section parameter.
 func (b *NewsfeedGetBuilder) Section(v string) *NewsfeedGetBuilder {
 	b.Params["section"] = v
 	return b
 }
 
-// NewsfeedGetBannedBuilder builder
+// NewsfeedGetBannedBuilder builder.
 //
 // Returns a list of users and communities banned from the current user's newsfeed.
 //
@@ -176,12 +176,12 @@ type NewsfeedGetBannedBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetBannedBuilder func
+// NewNewsfeedGetBannedBuilder func.
 func NewNewsfeedGetBannedBuilder() *NewsfeedGetBannedBuilder {
 	return &NewsfeedGetBannedBuilder{api.Params{}}
 }
 
-// Extended '1' — return extra information about users and communities
+// Extended '1' — return extra information about users and communities.
 func (b *NewsfeedGetBannedBuilder) Extended(v bool) *NewsfeedGetBannedBuilder {
 	b.Params["extended"] = v
 	return b
@@ -211,7 +211,7 @@ func (b *NewsfeedGetBannedBuilder) NameCase(v string) *NewsfeedGetBannedBuilder 
 	return b
 }
 
-// NewsfeedGetCommentsBuilder builder
+// NewsfeedGetCommentsBuilder builder.
 //
 // Returns a list of comments in the current user's newsfeed.
 //
@@ -220,7 +220,7 @@ type NewsfeedGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetCommentsBuilder func
+// NewNewsfeedGetCommentsBuilder func.
 func NewNewsfeedGetCommentsBuilder() *NewsfeedGetCommentsBuilder {
 	return &NewsfeedGetCommentsBuilder{api.Params{}}
 }
@@ -248,7 +248,7 @@ func (b *NewsfeedGetCommentsBuilder) Filters(v []string) *NewsfeedGetCommentsBui
 }
 
 // Reposts Object ID, comments on repost of which shall be returned, e.g. 'wall1_45486'.
-// (If the parameter is set, the 'filters' parameter is optional.),
+// (If the parameter is set, the 'filters' parameter is optional.).
 func (b *NewsfeedGetCommentsBuilder) Reposts(v string) *NewsfeedGetCommentsBuilder {
 	b.Params["reposts"] = v
 	return b
@@ -266,7 +266,7 @@ func (b *NewsfeedGetCommentsBuilder) EndTime(v int) *NewsfeedGetCommentsBuilder 
 	return b
 }
 
-// LastCommentsCount parameter
+// LastCommentsCount parameter.
 func (b *NewsfeedGetCommentsBuilder) LastCommentsCount(v int) *NewsfeedGetCommentsBuilder {
 	b.Params["last_comments_count"] = v
 	return b
@@ -285,7 +285,7 @@ func (b *NewsfeedGetCommentsBuilder) Fields(v []string) *NewsfeedGetCommentsBuil
 	return b
 }
 
-// NewsfeedGetListsBuilder builder
+// NewsfeedGetListsBuilder builder.
 //
 // Returns a list of newsfeeds followed by the current user.
 //
@@ -294,7 +294,7 @@ type NewsfeedGetListsBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetListsBuilder func
+// NewNewsfeedGetListsBuilder func.
 func NewNewsfeedGetListsBuilder() *NewsfeedGetListsBuilder {
 	return &NewsfeedGetListsBuilder{api.Params{}}
 }
@@ -305,13 +305,13 @@ func (b *NewsfeedGetListsBuilder) ListIDs(v []int) *NewsfeedGetListsBuilder {
 	return b
 }
 
-// Extended Return additional list info
+// Extended Return additional list info.
 func (b *NewsfeedGetListsBuilder) Extended(v bool) *NewsfeedGetListsBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// NewsfeedGetMentionsBuilder builder
+// NewsfeedGetMentionsBuilder builder.
 //
 // Returns a list of posts on user walls in which the current user is mentioned.
 //
@@ -320,7 +320,7 @@ type NewsfeedGetMentionsBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetMentionsBuilder func
+// NewNewsfeedGetMentionsBuilder func.
 func NewNewsfeedGetMentionsBuilder() *NewsfeedGetMentionsBuilder {
 	return &NewsfeedGetMentionsBuilder{api.Params{}}
 }
@@ -355,7 +355,7 @@ func (b *NewsfeedGetMentionsBuilder) Count(v int) *NewsfeedGetMentionsBuilder {
 	return b
 }
 
-// NewsfeedGetRecommendedBuilder builder
+// NewsfeedGetRecommendedBuilder builder.
 //
 // , Returns a list of newsfeeds recommended to the current user.
 //
@@ -364,7 +364,7 @@ type NewsfeedGetRecommendedBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetRecommendedBuilder func
+// NewNewsfeedGetRecommendedBuilder func.
 func NewNewsfeedGetRecommendedBuilder() *NewsfeedGetRecommendedBuilder {
 	return &NewsfeedGetRecommendedBuilder{api.Params{}}
 }
@@ -405,7 +405,7 @@ func (b *NewsfeedGetRecommendedBuilder) Fields(v []string) *NewsfeedGetRecommend
 	return b
 }
 
-// NewsfeedGetSuggestedSourcesBuilder builder
+// NewsfeedGetSuggestedSourcesBuilder builder.
 //
 // Returns communities and users that current user is suggested to follow.
 //
@@ -414,7 +414,7 @@ type NewsfeedGetSuggestedSourcesBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedGetSuggestedSourcesBuilder func
+// NewNewsfeedGetSuggestedSourcesBuilder func.
 func NewNewsfeedGetSuggestedSourcesBuilder() *NewsfeedGetSuggestedSourcesBuilder {
 	return &NewsfeedGetSuggestedSourcesBuilder{api.Params{}}
 }
@@ -444,7 +444,7 @@ func (b *NewsfeedGetSuggestedSourcesBuilder) Fields(v []string) *NewsfeedGetSugg
 	return b
 }
 
-// NewsfeedIgnoreItemBuilder builder
+// NewsfeedIgnoreItemBuilder builder.
 //
 // Hides an item from the newsfeed.
 //
@@ -453,7 +453,7 @@ type NewsfeedIgnoreItemBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedIgnoreItemBuilder func
+// NewNewsfeedIgnoreItemBuilder func.
 func NewNewsfeedIgnoreItemBuilder() *NewsfeedIgnoreItemBuilder {
 	return &NewsfeedIgnoreItemBuilder{api.Params{}}
 }
@@ -475,28 +475,28 @@ func (b *NewsfeedIgnoreItemBuilder) Type(v string) *NewsfeedIgnoreItemBuilder {
 }
 
 // OwnerID Item owner's identifier (user or community),
-// Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community
+// Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community.
 func (b *NewsfeedIgnoreItemBuilder) OwnerID(v int) *NewsfeedIgnoreItemBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ItemID Item identifier
+// ItemID Item identifier.
 func (b *NewsfeedIgnoreItemBuilder) ItemID(v int) *NewsfeedIgnoreItemBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// NewsfeedSaveListBuilder builder
+// NewsfeedSaveListBuilder builder.
 //
-// Creates and edits user newsfeed lists
+// Creates and edits user newsfeed lists.
 //
 // https://vk.com/dev/newsfeed.saveList
 type NewsfeedSaveListBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedSaveListBuilder func
+// NewNewsfeedSaveListBuilder func.
 func NewNewsfeedSaveListBuilder() *NewsfeedSaveListBuilder {
 	return &NewsfeedSaveListBuilder{api.Params{}}
 }
@@ -525,7 +525,7 @@ func (b *NewsfeedSaveListBuilder) NoReposts(v bool) *NewsfeedSaveListBuilder {
 	return b
 }
 
-// NewsfeedSearchBuilder builder
+// NewsfeedSearchBuilder builder.
 //
 // Returns search results by statuses.
 //
@@ -534,7 +534,7 @@ type NewsfeedSearchBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedSearchBuilder func
+// NewNewsfeedSearchBuilder func.
 func NewNewsfeedSearchBuilder() *NewsfeedSearchBuilder {
 	return &NewsfeedSearchBuilder{api.Params{}}
 }
@@ -581,7 +581,7 @@ func (b *NewsfeedSearchBuilder) EndTime(v int) *NewsfeedSearchBuilder {
 	return b
 }
 
-// StartFrom parameter
+// StartFrom parameter.
 func (b *NewsfeedSearchBuilder) StartFrom(v string) *NewsfeedSearchBuilder {
 	b.Params["start_from"] = v
 	return b
@@ -593,7 +593,7 @@ func (b *NewsfeedSearchBuilder) Fields(v []string) *NewsfeedSearchBuilder {
 	return b
 }
 
-// NewsfeedUnignoreItemBuilder builder
+// NewsfeedUnignoreItemBuilder builder.
 //
 // Returns a hidden item to the newsfeed.
 //
@@ -602,7 +602,7 @@ type NewsfeedUnignoreItemBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedUnignoreItemBuilder func
+// NewNewsfeedUnignoreItemBuilder func.
 func NewNewsfeedUnignoreItemBuilder() *NewsfeedUnignoreItemBuilder {
 	return &NewsfeedUnignoreItemBuilder{api.Params{}}
 }
@@ -624,19 +624,19 @@ func (b *NewsfeedUnignoreItemBuilder) Type(v string) *NewsfeedUnignoreItemBuilde
 }
 
 // OwnerID Item owner's identifier (user or community),
-// Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community
+// Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community.
 func (b *NewsfeedUnignoreItemBuilder) OwnerID(v int) *NewsfeedUnignoreItemBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ItemID Item identifier
+// ItemID Item identifier.
 func (b *NewsfeedUnignoreItemBuilder) ItemID(v int) *NewsfeedUnignoreItemBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// NewsfeedUnsubscribeBuilder builder
+// NewsfeedUnsubscribeBuilder builder.
 //
 // Unsubscribes the current user from specified newsfeeds.
 //
@@ -645,7 +645,7 @@ type NewsfeedUnsubscribeBuilder struct {
 	api.Params
 }
 
-// NewNewsfeedUnsubscribeBuilder func
+// NewNewsfeedUnsubscribeBuilder func.
 func NewNewsfeedUnsubscribeBuilder() *NewsfeedUnsubscribeBuilder {
 	return &NewsfeedUnsubscribeBuilder{api.Params{}}
 }
@@ -660,7 +660,7 @@ func NewNewsfeedUnsubscribeBuilder() *NewsfeedUnsubscribeBuilder {
 //
 // * topic — topic;
 //
-// * video — video
+// * video — video.
 func (b *NewsfeedUnsubscribeBuilder) Type(v string) *NewsfeedUnsubscribeBuilder {
 	b.Params["type"] = v
 	return b

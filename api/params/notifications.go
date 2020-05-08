@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// NotificationsGetBuilder builder
+// NotificationsGetBuilder builder.
 //
 // Returns a list of notifications about other users' feedback to the current user's wall posts.
 //
@@ -13,7 +13,7 @@ type NotificationsGetBuilder struct {
 	api.Params
 }
 
-// NewNotificationsGetBuilder func
+// NewNotificationsGetBuilder func.
 func NewNotificationsGetBuilder() *NotificationsGetBuilder {
 	return &NotificationsGetBuilder{api.Params{}}
 }
@@ -24,7 +24,7 @@ func (b *NotificationsGetBuilder) Count(v int) *NotificationsGetBuilder {
 	return b
 }
 
-// StartFrom parameter
+// StartFrom parameter.
 func (b *NotificationsGetBuilder) StartFrom(v string) *NotificationsGetBuilder {
 	b.Params["start_from"] = v
 	return b
@@ -42,7 +42,7 @@ func (b *NotificationsGetBuilder) StartFrom(v string) *NotificationsGetBuilder {
 //
 // * reposted — wall posts that are copied from the current user's wall,
 //
-// * followers — new followers, 'friends' — accepted friend requests
+// * followers — new followers, 'friends' — accepted friend requests.
 func (b *NotificationsGetBuilder) Filters(v []string) *NotificationsGetBuilder {
 	b.Params["filters"] = v
 	return b
@@ -60,37 +60,37 @@ func (b *NotificationsGetBuilder) EndTime(v int) *NotificationsGetBuilder {
 	return b
 }
 
-// NotificationsSendMessageBuilder builder
+// NotificationsSendMessageBuilder builder.
 //
 // https://vk.com/dev/notifications.sendMessage
 type NotificationsSendMessageBuilder struct {
 	api.Params
 }
 
-// NewNotificationsSendMessageBuilder func
+// NewNotificationsSendMessageBuilder func.
 func NewNotificationsSendMessageBuilder() *NotificationsSendMessageBuilder {
 	return &NotificationsSendMessageBuilder{api.Params{}}
 }
 
-// UserIDs parameter
+// UserIDs parameter.
 func (b *NotificationsSendMessageBuilder) UserIDs(v []int) *NotificationsSendMessageBuilder {
 	b.Params["user_ids"] = v
 	return b
 }
 
-// Message parameter
+// Message parameter.
 func (b *NotificationsSendMessageBuilder) Message(v string) *NotificationsSendMessageBuilder {
 	b.Params["message"] = v
 	return b
 }
 
-// Fragment parameter
+// Fragment parameter.
 func (b *NotificationsSendMessageBuilder) Fragment(v string) *NotificationsSendMessageBuilder {
 	b.Params["fragment"] = v
 	return b
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *NotificationsSendMessageBuilder) GroupID(v int) *NotificationsSendMessageBuilder {
 	b.Params["group_id"] = v
 	return b

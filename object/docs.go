@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// DocsDoc struct
+// DocsDoc struct.
 type DocsDoc struct {
 	AccessKey  string         `json:"access_key"` // Access key for the document
 	Date       int            `json:"date"`       // Date when file has been uploaded in Unixtime
@@ -20,12 +20,12 @@ type DocsDoc struct {
 	DocsDocPreviewAudioMessage
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (doc DocsDoc) ToAttachment() string {
 	return fmt.Sprintf("doc%d_%d", doc.OwnerID, doc.ID)
 }
 
-// DocsDocPreview struct
+// DocsDocPreview struct.
 type DocsDocPreview struct {
 	Photo        DocsDocPreviewPhoto        `json:"photo"`
 	Graffiti     DocsDocPreviewGraffiti     `json:"graffiti"`
@@ -33,12 +33,12 @@ type DocsDocPreview struct {
 	AudioMessage DocsDocPreviewAudioMessage `json:"audio_message"`
 }
 
-// DocsDocPreviewPhoto struct
+// DocsDocPreviewPhoto struct.
 type DocsDocPreviewPhoto struct {
 	Sizes []DocsDocPreviewPhotoSizes `json:"sizes"`
 }
 
-// DocsDocPreviewPhotoSizes struct
+// DocsDocPreviewPhotoSizes struct.
 type DocsDocPreviewPhotoSizes struct {
 	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field DocsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type Int
 	Height float64 `json:"height"` // Height in px
@@ -47,14 +47,14 @@ type DocsDocPreviewPhotoSizes struct {
 	Width  float64 `json:"width"` // Width in px
 }
 
-// DocsDocPreviewGraffiti struct
+// DocsDocPreviewGraffiti struct.
 type DocsDocPreviewGraffiti struct {
 	Src    string `json:"src"`
 	Width  int    `json:"width"`
 	Height int    `json:"height"`
 }
 
-// DocsDocPreviewVideo struct
+// DocsDocPreviewVideo struct.
 type DocsDocPreviewVideo struct {
 	FileSize int    `json:"file_size"` // Video file size in bites
 	Height   int    `json:"height"`    // Video's height in pixels
@@ -62,7 +62,7 @@ type DocsDocPreviewVideo struct {
 	Width    int    `json:"width"`     // Video's width in pixels
 }
 
-// DocsDocPreviewAudioMessage struct
+// DocsDocPreviewAudioMessage struct.
 type DocsDocPreviewAudioMessage struct {
 	Duration int    `json:"duration"`
 	Waveform []int  `json:"waveform"`
@@ -70,14 +70,14 @@ type DocsDocPreviewAudioMessage struct {
 	LinkMp3  string `json:"link_mp3"`
 }
 
-// DocsDocTypes struct
+// DocsDocTypes struct.
 type DocsDocTypes struct {
 	Count int    `json:"count"` // Number of docs
 	ID    int    `json:"id"`    // Doc type ID
 	Name  string `json:"name"`  // Doc type Title
 }
 
-// DocsDocUploadResponse struct
+// DocsDocUploadResponse struct.
 type DocsDocUploadResponse struct {
 	File string `json:"file"` // Uploaded file data
 }

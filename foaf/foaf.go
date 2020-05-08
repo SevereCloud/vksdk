@@ -13,11 +13,11 @@ import (
 	"github.com/SevereCloud/vksdk/internal"
 )
 
-// FOAFURL url foaf
+// FOAFURL url foaf.
 const FOAFURL = "https://vk.com/foaf.php"
 
 // Context keys to use with https://golang.org/pkg/context
-// WithValue function to associate
+// WithValue function to associate.
 const (
 	HTTPClient = internal.HTTPClientKey
 	UserAgent  = internal.UserAgentKey
@@ -39,13 +39,13 @@ type rdf struct {
 	Group   Group    `xml:"Group"`
 }
 
-// URI struct
+// URI struct.
 type URI struct {
 	Primary  string `xml:"primary,attr"`
 	Resource string `xml:"resource,attr"`
 }
 
-// Weblog struct
+// Weblog struct.
 type Weblog struct {
 	Title    string `xml:"title,attr"`
 	Resource string `xml:"resource,attr"`
@@ -53,14 +53,14 @@ type Weblog struct {
 
 // Date may be used to express temporal information at any level of granularity.
 //
-// Use time.Parse(time.RFC3339, v.Date)
+// Use time.Parse(time.RFC3339, v.Date).
 type Date struct {
 	Date string `xml:"date,attr"`
 }
 
-// getFoaf return RDF
+// getFoaf return RDF.
 //
-// BUG: VK return invalid XML char (example &#12;)
+// BUG: VK return invalid XML char (example &#12;).
 func getFoaf(ctx context.Context, req *http.Request) (r rdf, err error) {
 	resp, err := internal.DoRequest(ctx, req)
 	if err != nil {

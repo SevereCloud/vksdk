@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// FriendsFriendStatus FriendStatus type
+// FriendsFriendStatus FriendStatus type.
 const (
 	FriendsStatusNotFriend        = iota // not a friend
 	FriendsStatusOutComingRequest        // outcoming request
@@ -8,7 +8,7 @@ const (
 	FriendsStatusIsFriend                // is friend
 )
 
-// FriendsFriendStatus struct
+// FriendsFriendStatus struct.
 type FriendsFriendStatus struct {
 	FriendStatus   int         `json:"friend_status"`
 	ReadState      BaseBoolInt `json:"read_state"`      // Information whether request is unviewed
@@ -17,7 +17,7 @@ type FriendsFriendStatus struct {
 	UserID         int         `json:"user_id"`         // User ID
 }
 
-// FriendsFriendsList struct
+// FriendsFriendsList struct.
 type FriendsFriendsList struct {
 	ID   int    `json:"id"`   // List ID
 	Name string `json:"name"` // List title
@@ -29,7 +29,7 @@ type FriendsFriendsList struct {
 // 	ID            int   `json:"id"` // User ID
 // }
 
-// FriendsRequests struct
+// FriendsRequests struct.
 type FriendsRequests struct {
 	UsersUser
 	From      string                `json:"from"` // ID of the user by whom friend has been suggested
@@ -38,25 +38,25 @@ type FriendsRequests struct {
 	TrackCode string                `json:"track_code"`
 }
 
-// FriendsRequestsMutual struct
+// FriendsRequestsMutual struct.
 type FriendsRequestsMutual struct {
 	Count int   `json:"count"` // Total mutual friends number
 	Users []int `json:"users"`
 }
 
-// FriendsRequestsXtrMessage struct
+// FriendsRequestsXtrMessage struct.
 type FriendsRequestsXtrMessage struct {
 	FriendsRequests
 	Message string `json:"message"` // Message sent with a request
 }
 
-// FriendsUserXtrLists struct
+// FriendsUserXtrLists struct.
 type FriendsUserXtrLists struct {
 	UsersUser
 	Lists []int `json:"lists"` // IDs of friend lists with user
 }
 
-// FriendsUserXtrPhone struct
+// FriendsUserXtrPhone struct.
 type FriendsUserXtrPhone struct {
 	UsersUser
 	Phone string `json:"phone"` // User phone

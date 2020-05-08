@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// LikesAddBuilder builder
+// LikesAddBuilder builder.
 //
 // Adds the specified object to the 'Likes' list of the current user.
 //
@@ -13,7 +13,7 @@ type LikesAddBuilder struct {
 	api.Params
 }
 
-// NewLikesAddBuilder func
+// NewLikesAddBuilder func.
 func NewLikesAddBuilder() *LikesAddBuilder {
 	return &LikesAddBuilder{api.Params{}}
 }
@@ -62,7 +62,7 @@ func (b *LikesAddBuilder) AccessKey(v string) *LikesAddBuilder {
 	return b
 }
 
-// LikesDeleteBuilder builder
+// LikesDeleteBuilder builder.
 //
 // Deletes the specified object from the 'Likes' list of the current user.
 //
@@ -71,7 +71,7 @@ type LikesDeleteBuilder struct {
 	api.Params
 }
 
-// NewLikesDeleteBuilder func
+// NewLikesDeleteBuilder func.
 func NewLikesDeleteBuilder() *LikesDeleteBuilder {
 	return &LikesDeleteBuilder{api.Params{}}
 }
@@ -114,7 +114,7 @@ func (b *LikesDeleteBuilder) ItemID(v int) *LikesDeleteBuilder {
 	return b
 }
 
-// LikesGetListBuilder builder
+// LikesGetListBuilder builder.
 //
 // Returns a list of IDs of users who added the specified object to their 'Likes' list.
 //
@@ -123,7 +123,7 @@ type LikesGetListBuilder struct {
 	api.Params
 }
 
-// NewLikesGetListBuilder func
+// NewLikesGetListBuilder func.
 func NewLikesGetListBuilder() *LikesGetListBuilder {
 	return &LikesGetListBuilder{api.Params{}}
 }
@@ -181,7 +181,7 @@ func (b *LikesGetListBuilder) PageURL(v string) *LikesGetListBuilder {
 //
 // * likes — returns information about all users who liked the object (default);
 //
-// * copies — returns information only about users who told their friends about the object
+// * copies — returns information only about users who told their friends about the object.
 func (b *LikesGetListBuilder) Filter(v string) *LikesGetListBuilder {
 	b.Params["filter"] = v
 	return b
@@ -191,7 +191,7 @@ func (b *LikesGetListBuilder) Filter(v string) *LikesGetListBuilder {
 //
 // * 1 — to return only the current user's friends;
 //
-// * 0 — to return all users (default)
+// * 0 — to return all users (default).
 func (b *LikesGetListBuilder) FriendsOnly(v int) *LikesGetListBuilder {
 	b.Params["friends_only"] = v
 	return b
@@ -201,7 +201,7 @@ func (b *LikesGetListBuilder) FriendsOnly(v int) *LikesGetListBuilder {
 //
 // * 1 — to return extended information about users and communities from the 'Likes' list;
 //
-// * 0 — to return no additional information (default)
+// * 0 — to return no additional information (default).
 func (b *LikesGetListBuilder) Extended(v bool) *LikesGetListBuilder {
 	b.Params["extended"] = v
 	return b
@@ -220,13 +220,13 @@ func (b *LikesGetListBuilder) Count(v int) *LikesGetListBuilder {
 	return b
 }
 
-// SkipOwn parameter
+// SkipOwn parameter.
 func (b *LikesGetListBuilder) SkipOwn(v bool) *LikesGetListBuilder {
 	b.Params["skip_own"] = v
 	return b
 }
 
-// LikesIsLikedBuilder builder
+// LikesIsLikedBuilder builder.
 //
 // Checks for the object in the 'Likes' list of the specified user.
 //
@@ -235,7 +235,7 @@ type LikesIsLikedBuilder struct {
 	api.Params
 }
 
-// NewLikesIsLikedBuilder func
+// NewLikesIsLikedBuilder func.
 func NewLikesIsLikedBuilder() *LikesIsLikedBuilder {
 	return &LikesIsLikedBuilder{api.Params{}}
 }

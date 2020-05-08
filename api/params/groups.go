@@ -4,133 +4,133 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// GroupsAddAddressBuilder builder
+// GroupsAddAddressBuilder builder.
 //
 // https://vk.com/dev/groups.addAddress
 type GroupsAddAddressBuilder struct {
 	api.Params
 }
 
-// NewGroupsAddAddressBuilder func
+// NewGroupsAddAddressBuilder func.
 func NewGroupsAddAddressBuilder() *GroupsAddAddressBuilder {
 	return &GroupsAddAddressBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsAddAddressBuilder) GroupID(v int) *GroupsAddAddressBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// Title parameter
+// Title parameter.
 func (b *GroupsAddAddressBuilder) Title(v string) *GroupsAddAddressBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// Address parameter
+// Address parameter.
 func (b *GroupsAddAddressBuilder) Address(v string) *GroupsAddAddressBuilder {
 	b.Params["address"] = v
 	return b
 }
 
-// AdditionalAddress parameter
+// AdditionalAddress parameter.
 func (b *GroupsAddAddressBuilder) AdditionalAddress(v string) *GroupsAddAddressBuilder {
 	b.Params["additional_address"] = v
 	return b
 }
 
-// CountryID parameter
+// CountryID parameter.
 func (b *GroupsAddAddressBuilder) CountryID(v int) *GroupsAddAddressBuilder {
 	b.Params["country_id"] = v
 	return b
 }
 
-// CityID parameter
+// CityID parameter.
 func (b *GroupsAddAddressBuilder) CityID(v int) *GroupsAddAddressBuilder {
 	b.Params["city_id"] = v
 	return b
 }
 
-// MetroID parameter
+// MetroID parameter.
 func (b *GroupsAddAddressBuilder) MetroID(v int) *GroupsAddAddressBuilder {
 	b.Params["metro_id"] = v
 	return b
 }
 
-// Latitude parameter
+// Latitude parameter.
 func (b *GroupsAddAddressBuilder) Latitude(v float64) *GroupsAddAddressBuilder {
 	b.Params["latitude"] = v
 	return b
 }
 
-// Longitude parameter
+// Longitude parameter.
 func (b *GroupsAddAddressBuilder) Longitude(v float64) *GroupsAddAddressBuilder {
 	b.Params["longitude"] = v
 	return b
 }
 
-// Phone parameter
+// Phone parameter.
 func (b *GroupsAddAddressBuilder) Phone(v string) *GroupsAddAddressBuilder {
 	b.Params["phone"] = v
 	return b
 }
 
-// WorkInfoStatus parameter
+// WorkInfoStatus parameter.
 func (b *GroupsAddAddressBuilder) WorkInfoStatus(v string) *GroupsAddAddressBuilder {
 	b.Params["work_info_status"] = v
 	return b
 }
 
-// Timetable parameter
+// Timetable parameter.
 func (b *GroupsAddAddressBuilder) Timetable(v string) *GroupsAddAddressBuilder {
 	b.Params["timetable"] = v
 	return b
 }
 
-// IsMainAddress parameter
+// IsMainAddress parameter.
 func (b *GroupsAddAddressBuilder) IsMainAddress(v bool) *GroupsAddAddressBuilder {
 	b.Params["is_main_address"] = v
 	return b
 }
 
-// GroupsAddCallbackServerBuilder builder
+// GroupsAddCallbackServerBuilder builder.
 //
 // https://vk.com/dev/groups.addCallbackServer
 type GroupsAddCallbackServerBuilder struct {
 	api.Params
 }
 
-// NewGroupsAddCallbackServerBuilder func
+// NewGroupsAddCallbackServerBuilder func.
 func NewGroupsAddCallbackServerBuilder() *GroupsAddCallbackServerBuilder {
 	return &GroupsAddCallbackServerBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsAddCallbackServerBuilder) GroupID(v int) *GroupsAddCallbackServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// URL parameter
+// URL parameter.
 func (b *GroupsAddCallbackServerBuilder) URL(v string) *GroupsAddCallbackServerBuilder {
 	b.Params["url"] = v
 	return b
 }
 
-// Title parameter
+// Title parameter.
 func (b *GroupsAddCallbackServerBuilder) Title(v string) *GroupsAddCallbackServerBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// SecretKey parameter
+// SecretKey parameter.
 func (b *GroupsAddCallbackServerBuilder) SecretKey(v string) *GroupsAddCallbackServerBuilder {
 	b.Params["secret_key"] = v
 	return b
 }
 
-// GroupsAddLinkBuilder builder
+// GroupsAddLinkBuilder builder.
 //
 // Allows to add a link to the community.
 //
@@ -139,7 +139,7 @@ type GroupsAddLinkBuilder struct {
 	api.Params
 }
 
-// NewGroupsAddLinkBuilder func
+// NewGroupsAddLinkBuilder func.
 func NewGroupsAddLinkBuilder() *GroupsAddLinkBuilder {
 	return &GroupsAddLinkBuilder{api.Params{}}
 }
@@ -162,7 +162,7 @@ func (b *GroupsAddLinkBuilder) Text(v string) *GroupsAddLinkBuilder {
 	return b
 }
 
-// GroupsApproveRequestBuilder builder
+// GroupsApproveRequestBuilder builder.
 //
 // Allows to approve join request to the community.
 //
@@ -171,7 +171,7 @@ type GroupsApproveRequestBuilder struct {
 	api.Params
 }
 
-// NewGroupsApproveRequestBuilder func
+// NewGroupsApproveRequestBuilder func.
 func NewGroupsApproveRequestBuilder() *GroupsApproveRequestBuilder {
 	return &GroupsApproveRequestBuilder{api.Params{}}
 }
@@ -188,55 +188,55 @@ func (b *GroupsApproveRequestBuilder) UserID(v int) *GroupsApproveRequestBuilder
 	return b
 }
 
-// GroupsBanBuilder builder
+// GroupsBanBuilder builder.
 //
 // https://vk.com/dev/groups.ban
 type GroupsBanBuilder struct {
 	api.Params
 }
 
-// NewGroupsBanBuilder func
+// NewGroupsBanBuilder func.
 func NewGroupsBanBuilder() *GroupsBanBuilder {
 	return &GroupsBanBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsBanBuilder) GroupID(v int) *GroupsBanBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *GroupsBanBuilder) OwnerID(v int) *GroupsBanBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// EndDate parameter
+// EndDate parameter.
 func (b *GroupsBanBuilder) EndDate(v int) *GroupsBanBuilder {
 	b.Params["end_date"] = v
 	return b
 }
 
-// Reason parameter
+// Reason parameter.
 func (b *GroupsBanBuilder) Reason(v int) *GroupsBanBuilder {
 	b.Params["reason"] = v
 	return b
 }
 
-// Comment parameter
+// Comment parameter.
 func (b *GroupsBanBuilder) Comment(v string) *GroupsBanBuilder {
 	b.Params["comment"] = v
 	return b
 }
 
-// CommentVisible parameter
+// CommentVisible parameter.
 func (b *GroupsBanBuilder) CommentVisible(v bool) *GroupsBanBuilder {
 	b.Params["comment_visible"] = v
 	return b
 }
 
-// GroupsCreateBuilder builder
+// GroupsCreateBuilder builder.
 //
 // Creates a new community.
 //
@@ -245,7 +245,7 @@ type GroupsCreateBuilder struct {
 	api.Params
 }
 
-// NewGroupsCreateBuilder func
+// NewGroupsCreateBuilder func.
 func NewGroupsCreateBuilder() *GroupsCreateBuilder {
 	return &GroupsCreateBuilder{api.Params{}}
 }
@@ -268,7 +268,7 @@ func (b *GroupsCreateBuilder) Description(v string) *GroupsCreateBuilder {
 //
 // * eent' – event;
 //
-// * pblic' – public page
+// * pblic' – public page.
 func (b *GroupsCreateBuilder) Type(v string) *GroupsCreateBuilder {
 	b.Params["type"] = v
 	return b
@@ -294,31 +294,31 @@ func (b *GroupsCreateBuilder) Subtype(v int) *GroupsCreateBuilder {
 	return b
 }
 
-// GroupsDeleteCallbackServerBuilder builder
+// GroupsDeleteCallbackServerBuilder builder.
 //
 // https://vk.com/dev/groups.deleteCallbackServer
 type GroupsDeleteCallbackServerBuilder struct {
 	api.Params
 }
 
-// NewGroupsDeleteCallbackServerBuilder func
+// NewGroupsDeleteCallbackServerBuilder func.
 func NewGroupsDeleteCallbackServerBuilder() *GroupsDeleteCallbackServerBuilder {
 	return &GroupsDeleteCallbackServerBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsDeleteCallbackServerBuilder) GroupID(v int) *GroupsDeleteCallbackServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// ServerID parameter
+// ServerID parameter.
 func (b *GroupsDeleteCallbackServerBuilder) ServerID(v int) *GroupsDeleteCallbackServerBuilder {
 	b.Params["server_id"] = v
 	return b
 }
 
-// GroupsDeleteLinkBuilder builder
+// GroupsDeleteLinkBuilder builder.
 //
 // Allows to delete a link from the community.
 //
@@ -327,7 +327,7 @@ type GroupsDeleteLinkBuilder struct {
 	api.Params
 }
 
-// NewGroupsDeleteLinkBuilder func
+// NewGroupsDeleteLinkBuilder func.
 func NewGroupsDeleteLinkBuilder() *GroupsDeleteLinkBuilder {
 	return &GroupsDeleteLinkBuilder{api.Params{}}
 }
@@ -344,25 +344,25 @@ func (b *GroupsDeleteLinkBuilder) LinkID(v int) *GroupsDeleteLinkBuilder {
 	return b
 }
 
-// GroupsDisableOnlineBuilder builder
+// GroupsDisableOnlineBuilder builder.
 //
 // https://vk.com/dev/groups.disableOnline
 type GroupsDisableOnlineBuilder struct {
 	api.Params
 }
 
-// NewGroupsDisableOnlineBuilder func
+// NewGroupsDisableOnlineBuilder func.
 func NewGroupsDisableOnlineBuilder() *GroupsDisableOnlineBuilder {
 	return &GroupsDisableOnlineBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsDisableOnlineBuilder) GroupID(v int) *GroupsDisableOnlineBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// GroupsEditBuilder builder
+// GroupsEditBuilder builder.
 //
 // Edits a community.
 //
@@ -371,7 +371,7 @@ type GroupsEditBuilder struct {
 	api.Params
 }
 
-// NewGroupsEditBuilder func
+// NewGroupsEditBuilder func.
 func NewGroupsEditBuilder() *GroupsEditBuilder {
 	return &GroupsEditBuilder{api.Params{}}
 }
@@ -699,13 +699,13 @@ func (b *GroupsEditBuilder) Messages(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// Articles parameter
+// Articles parameter.
 func (b *GroupsEditBuilder) Articles(v bool) *GroupsEditBuilder {
 	b.Params["articles"] = v
 	return b
 }
 
-// Addresses parameter
+// Addresses parameter.
 func (b *GroupsEditBuilder) Addresses(v bool) *GroupsEditBuilder {
 	b.Params["addresses"] = v
 	return b
@@ -765,7 +765,7 @@ func (b *GroupsEditBuilder) MarketCity(v []int) *GroupsEditBuilder {
 //
 // * 978 – Euro,
 //
-// * 840 – US dollars
+// * 840 – US dollars.
 func (b *GroupsEditBuilder) MarketCurrency(v int) *GroupsEditBuilder {
 	b.Params["market_currency"] = v
 	return b
@@ -809,13 +809,13 @@ func (b *GroupsEditBuilder) ObsceneWords(v []string) *GroupsEditBuilder {
 	return b
 }
 
-// MainSection parameter
+// MainSection parameter.
 func (b *GroupsEditBuilder) MainSection(v int) *GroupsEditBuilder {
 	b.Params["main_section"] = v
 	return b
 }
 
-// SecondarySection parameter
+// SecondarySection parameter.
 func (b *GroupsEditBuilder) SecondarySection(v int) *GroupsEditBuilder {
 	b.Params["secondary_section"] = v
 	return b
@@ -833,145 +833,145 @@ func (b *GroupsEditBuilder) City(v int) *GroupsEditBuilder {
 	return b
 }
 
-// GroupsEditAddressBuilder builder
+// GroupsEditAddressBuilder builder.
 //
 // https://vk.com/dev/groups.editAddress
 type GroupsEditAddressBuilder struct {
 	api.Params
 }
 
-// NewGroupsEditAddressBuilder func
+// NewGroupsEditAddressBuilder func.
 func NewGroupsEditAddressBuilder() *GroupsEditAddressBuilder {
 	return &GroupsEditAddressBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsEditAddressBuilder) GroupID(v int) *GroupsEditAddressBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// AddressID parameter
+// AddressID parameter.
 func (b *GroupsEditAddressBuilder) AddressID(v int) *GroupsEditAddressBuilder {
 	b.Params["address_id"] = v
 	return b
 }
 
-// Title parameter
+// Title parameter.
 func (b *GroupsEditAddressBuilder) Title(v string) *GroupsEditAddressBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// Address parameter
+// Address parameter.
 func (b *GroupsEditAddressBuilder) Address(v string) *GroupsEditAddressBuilder {
 	b.Params["address"] = v
 	return b
 }
 
-// AdditionalAddress parameter
+// AdditionalAddress parameter.
 func (b *GroupsEditAddressBuilder) AdditionalAddress(v string) *GroupsEditAddressBuilder {
 	b.Params["additional_address"] = v
 	return b
 }
 
-// CountryID parameter
+// CountryID parameter.
 func (b *GroupsEditAddressBuilder) CountryID(v int) *GroupsEditAddressBuilder {
 	b.Params["country_id"] = v
 	return b
 }
 
-// CityID parameter
+// CityID parameter.
 func (b *GroupsEditAddressBuilder) CityID(v int) *GroupsEditAddressBuilder {
 	b.Params["city_id"] = v
 	return b
 }
 
-// MetroID parameter
+// MetroID parameter.
 func (b *GroupsEditAddressBuilder) MetroID(v int) *GroupsEditAddressBuilder {
 	b.Params["metro_id"] = v
 	return b
 }
 
-// Latitude parameter
+// Latitude parameter.
 func (b *GroupsEditAddressBuilder) Latitude(v float64) *GroupsEditAddressBuilder {
 	b.Params["latitude"] = v
 	return b
 }
 
-// Longitude parameter
+// Longitude parameter.
 func (b *GroupsEditAddressBuilder) Longitude(v float64) *GroupsEditAddressBuilder {
 	b.Params["longitude"] = v
 	return b
 }
 
-// Phone parameter
+// Phone parameter.
 func (b *GroupsEditAddressBuilder) Phone(v string) *GroupsEditAddressBuilder {
 	b.Params["phone"] = v
 	return b
 }
 
-// WorkInfoStatus parameter
+// WorkInfoStatus parameter.
 func (b *GroupsEditAddressBuilder) WorkInfoStatus(v string) *GroupsEditAddressBuilder {
 	b.Params["work_info_status"] = v
 	return b
 }
 
-// Timetable parameter
+// Timetable parameter.
 func (b *GroupsEditAddressBuilder) Timetable(v string) *GroupsEditAddressBuilder {
 	b.Params["timetable"] = v
 	return b
 }
 
-// IsMainAddress parameter
+// IsMainAddress parameter.
 func (b *GroupsEditAddressBuilder) IsMainAddress(v bool) *GroupsEditAddressBuilder {
 	b.Params["is_main_address"] = v
 	return b
 }
 
-// GroupsEditCallbackServerBuilder builder
+// GroupsEditCallbackServerBuilder builder.
 //
 // https://vk.com/dev/groups.editCallbackServer
 type GroupsEditCallbackServerBuilder struct {
 	api.Params
 }
 
-// NewGroupsEditCallbackServerBuilder func
+// NewGroupsEditCallbackServerBuilder func.
 func NewGroupsEditCallbackServerBuilder() *GroupsEditCallbackServerBuilder {
 	return &GroupsEditCallbackServerBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsEditCallbackServerBuilder) GroupID(v int) *GroupsEditCallbackServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// ServerID parameter
+// ServerID parameter.
 func (b *GroupsEditCallbackServerBuilder) ServerID(v int) *GroupsEditCallbackServerBuilder {
 	b.Params["server_id"] = v
 	return b
 }
 
-// URL parameter
+// URL parameter.
 func (b *GroupsEditCallbackServerBuilder) URL(v string) *GroupsEditCallbackServerBuilder {
 	b.Params["url"] = v
 	return b
 }
 
-// Title parameter
+// Title parameter.
 func (b *GroupsEditCallbackServerBuilder) Title(v string) *GroupsEditCallbackServerBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// SecretKey parameter
+// SecretKey parameter.
 func (b *GroupsEditCallbackServerBuilder) SecretKey(v string) *GroupsEditCallbackServerBuilder {
 	b.Params["secret_key"] = v
 	return b
 }
 
-// GroupsEditLinkBuilder builder
+// GroupsEditLinkBuilder builder.
 //
 // Allows to edit a link in the community.
 //
@@ -980,7 +980,7 @@ type GroupsEditLinkBuilder struct {
 	api.Params
 }
 
-// NewGroupsEditLinkBuilder func
+// NewGroupsEditLinkBuilder func.
 func NewGroupsEditLinkBuilder() *GroupsEditLinkBuilder {
 	return &GroupsEditLinkBuilder{api.Params{}}
 }
@@ -1003,7 +1003,7 @@ func (b *GroupsEditLinkBuilder) Text(v string) *GroupsEditLinkBuilder {
 	return b
 }
 
-// GroupsEditManagerBuilder builder
+// GroupsEditManagerBuilder builder.
 //
 // Allows to add, remove or edit the community manager.
 //
@@ -1012,7 +1012,7 @@ type GroupsEditManagerBuilder struct {
 	api.Params
 }
 
-// NewGroupsEditManagerBuilder func
+// NewGroupsEditManagerBuilder func.
 func NewGroupsEditManagerBuilder() *GroupsEditManagerBuilder {
 	return &GroupsEditManagerBuilder{api.Params{}}
 }
@@ -1065,25 +1065,25 @@ func (b *GroupsEditManagerBuilder) ContactEmail(v string) *GroupsEditManagerBuil
 	return b
 }
 
-// GroupsEnableOnlineBuilder builder
+// GroupsEnableOnlineBuilder builder.
 //
 // https://vk.com/dev/groups.enableOnline
 type GroupsEnableOnlineBuilder struct {
 	api.Params
 }
 
-// NewGroupsEnableOnlineBuilder func
+// NewGroupsEnableOnlineBuilder func.
 func NewGroupsEnableOnlineBuilder() *GroupsEnableOnlineBuilder {
 	return &GroupsEnableOnlineBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsEnableOnlineBuilder) GroupID(v int) *GroupsEnableOnlineBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// GroupsGetBuilder builder
+// GroupsGetBuilder builder.
 //
 // Returns a list of the communities to which a user belongs.
 //
@@ -1092,7 +1092,7 @@ type GroupsGetBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetBuilder func
+// NewGroupsGetBuilder func.
 func NewGroupsGetBuilder() *GroupsGetBuilder {
 	return &GroupsGetBuilder{api.Params{}}
 }
@@ -1103,11 +1103,11 @@ func (b *GroupsGetBuilder) UserID(v int) *GroupsGetBuilder {
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 //
 // * 1 — to return complete information about a user's communities,
 //
-// * 0 — to return a list of community IDs without any additional fields (default),
+// * 0 — to return a list of community IDs without any additional fields (default).
 func (b *GroupsGetBuilder) Extended(v bool) *GroupsGetBuilder {
 	b.Params["extended"] = v
 	return b
@@ -1115,7 +1115,7 @@ func (b *GroupsGetBuilder) Extended(v bool) *GroupsGetBuilder {
 
 // Filter Types of communities to return:
 //
-// 'admin' — to return communities administered by the user
+// 'admin' — to return communities administered by the user,
 //
 // 'editor' — to return communities where the user is an administrator or editor,
 //
@@ -1125,7 +1125,7 @@ func (b *GroupsGetBuilder) Extended(v bool) *GroupsGetBuilder {
 //
 // 'publics' — to return only public pages,
 //
-// 'events' — to return only events
+// 'events' — to return only events.
 func (b *GroupsGetBuilder) Filter(v []string) *GroupsGetBuilder {
 	b.Params["filter"] = v
 	return b
@@ -1149,7 +1149,7 @@ func (b *GroupsGetBuilder) Count(v int) *GroupsGetBuilder {
 	return b
 }
 
-// GroupsGetAddressesBuilder builder
+// GroupsGetAddressesBuilder builder.
 //
 // Returns a list of community addresses.
 //
@@ -1158,7 +1158,7 @@ type GroupsGetAddressesBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetAddressesBuilder func
+// NewGroupsGetAddressesBuilder func.
 func NewGroupsGetAddressesBuilder() *GroupsGetAddressesBuilder {
 	return &GroupsGetAddressesBuilder{api.Params{}}
 }
@@ -1169,7 +1169,7 @@ func (b *GroupsGetAddressesBuilder) GroupID(v int) *GroupsGetAddressesBuilder {
 	return b
 }
 
-// AddressIDs parameter
+// AddressIDs parameter.
 func (b *GroupsGetAddressesBuilder) AddressIDs(v []int) *GroupsGetAddressesBuilder {
 	b.Params["address_ids"] = v
 	return b
@@ -1199,13 +1199,13 @@ func (b *GroupsGetAddressesBuilder) Count(v int) *GroupsGetAddressesBuilder {
 	return b
 }
 
-// Fields Address fields
+// Fields Address fields.
 func (b *GroupsGetAddressesBuilder) Fields(v []string) *GroupsGetAddressesBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// GroupsGetBannedBuilder builder
+// GroupsGetBannedBuilder builder.
 //
 // Returns a list of users on a community blacklist.
 //
@@ -1214,7 +1214,7 @@ type GroupsGetBannedBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetBannedBuilder func
+// NewGroupsGetBannedBuilder func.
 func NewGroupsGetBannedBuilder() *GroupsGetBannedBuilder {
 	return &GroupsGetBannedBuilder{api.Params{}}
 }
@@ -1237,19 +1237,19 @@ func (b *GroupsGetBannedBuilder) Count(v int) *GroupsGetBannedBuilder {
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *GroupsGetBannedBuilder) Fields(v []string) *GroupsGetBannedBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *GroupsGetBannedBuilder) OwnerID(v int) *GroupsGetBannedBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// GroupsGetByIDBuilder builder
+// GroupsGetByIDBuilder builder.
 //
 // Returns information about communities by their IDs.
 //
@@ -1258,7 +1258,7 @@ type GroupsGetByIDBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetByIDBuilder func
+// NewGroupsGetByIDBuilder func.
 func NewGroupsGetByIDBuilder() *GroupsGetByIDBuilder {
 	return &GroupsGetByIDBuilder{api.Params{}}
 }
@@ -1281,7 +1281,7 @@ func (b *GroupsGetByIDBuilder) Fields(v []string) *GroupsGetByIDBuilder {
 	return b
 }
 
-// GroupsGetCallbackConfirmationCodeBuilder builder
+// GroupsGetCallbackConfirmationCodeBuilder builder.
 //
 // Returns Callback API confirmation code for the community.
 //
@@ -1290,7 +1290,7 @@ type GroupsGetCallbackConfirmationCodeBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetCallbackConfirmationCodeBuilder func
+// NewGroupsGetCallbackConfirmationCodeBuilder func.
 func NewGroupsGetCallbackConfirmationCodeBuilder() *GroupsGetCallbackConfirmationCodeBuilder {
 	return &GroupsGetCallbackConfirmationCodeBuilder{api.Params{}}
 }
@@ -1301,31 +1301,31 @@ func (b *GroupsGetCallbackConfirmationCodeBuilder) GroupID(v int) *GroupsGetCall
 	return b
 }
 
-// GroupsGetCallbackServersBuilder builder
+// GroupsGetCallbackServersBuilder builder.
 //
 // https://vk.com/dev/groups.getCallbackServers
 type GroupsGetCallbackServersBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetCallbackServersBuilder func
+// NewGroupsGetCallbackServersBuilder func.
 func NewGroupsGetCallbackServersBuilder() *GroupsGetCallbackServersBuilder {
 	return &GroupsGetCallbackServersBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsGetCallbackServersBuilder) GroupID(v int) *GroupsGetCallbackServersBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// ServerIDs parameter
+// ServerIDs parameter.
 func (b *GroupsGetCallbackServersBuilder) ServerIDs(v []int) *GroupsGetCallbackServersBuilder {
 	b.Params["server_ids"] = v
 	return b
 }
 
-// GroupsGetCallbackSettingsBuilder builder
+// GroupsGetCallbackSettingsBuilder builder.
 //
 // Returns [vk.com/dev/callback_api|Callback API] notifications settings.
 //
@@ -1334,7 +1334,7 @@ type GroupsGetCallbackSettingsBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetCallbackSettingsBuilder func
+// NewGroupsGetCallbackSettingsBuilder func.
 func NewGroupsGetCallbackSettingsBuilder() *GroupsGetCallbackSettingsBuilder {
 	return &GroupsGetCallbackSettingsBuilder{api.Params{}}
 }
@@ -1351,7 +1351,7 @@ func (b *GroupsGetCallbackSettingsBuilder) ServerID(v int) *GroupsGetCallbackSet
 	return b
 }
 
-// GroupsGetCatalogBuilder builder
+// GroupsGetCatalogBuilder builder.
 //
 // Returns communities list for a catalog category.
 //
@@ -1360,7 +1360,7 @@ type GroupsGetCatalogBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetCatalogBuilder func
+// NewGroupsGetCatalogBuilder func.
 func NewGroupsGetCatalogBuilder() *GroupsGetCatalogBuilder {
 	return &GroupsGetCatalogBuilder{api.Params{}}
 }
@@ -1377,16 +1377,16 @@ func (b *GroupsGetCatalogBuilder) SubcategoryID(v int) *GroupsGetCatalogBuilder 
 	return b
 }
 
-// GroupsGetCatalogInfoBuilder builder
+// GroupsGetCatalogInfoBuilder builder.
 //
-// Returns categories list for communities catalog
+// Returns categories list for communities catalog.
 //
 // https://vk.com/dev/groups.getCatalogInfo
 type GroupsGetCatalogInfoBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetCatalogInfoBuilder func
+// NewGroupsGetCatalogInfoBuilder func.
 func NewGroupsGetCatalogInfoBuilder() *GroupsGetCatalogInfoBuilder {
 	return &GroupsGetCatalogInfoBuilder{api.Params{}}
 }
@@ -1403,16 +1403,16 @@ func (b *GroupsGetCatalogInfoBuilder) Subcategories(v bool) *GroupsGetCatalogInf
 	return b
 }
 
-// GroupsGetInvitedUsersBuilder builder
+// GroupsGetInvitedUsersBuilder builder.
 //
-// Returns invited users list of a community
+// Returns invited users list of a community.
 //
 // https://vk.com/dev/groups.getInvitedUsers
 type GroupsGetInvitedUsersBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetInvitedUsersBuilder func
+// NewGroupsGetInvitedUsersBuilder func.
 func NewGroupsGetInvitedUsersBuilder() *GroupsGetInvitedUsersBuilder {
 	return &GroupsGetInvitedUsersBuilder{api.Params{}}
 }
@@ -1463,7 +1463,7 @@ func (b *GroupsGetInvitedUsersBuilder) NameCase(v string) *GroupsGetInvitedUsers
 	return b
 }
 
-// GroupsGetInvitesBuilder builder
+// GroupsGetInvitesBuilder builder.
 //
 // Returns a list of invitations to join communities and events.
 //
@@ -1472,7 +1472,7 @@ type GroupsGetInvitesBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetInvitesBuilder func
+// NewGroupsGetInvitesBuilder func.
 func NewGroupsGetInvitesBuilder() *GroupsGetInvitesBuilder {
 	return &GroupsGetInvitesBuilder{api.Params{}}
 }
@@ -1495,36 +1495,36 @@ func (b *GroupsGetInvitesBuilder) Extended(v bool) *GroupsGetInvitesBuilder {
 	return b
 }
 
-// GroupsGetLongPollServerBuilder builder
+// GroupsGetLongPollServerBuilder builder.
 //
-// Returns the data needed to query a Long Poll server for events
+// Returns the data needed to query a Long Poll server for events.
 //
 // https://vk.com/dev/groups.getLongPollServer
 type GroupsGetLongPollServerBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetLongPollServerBuilder func
+// NewGroupsGetLongPollServerBuilder func.
 func NewGroupsGetLongPollServerBuilder() *GroupsGetLongPollServerBuilder {
 	return &GroupsGetLongPollServerBuilder{api.Params{}}
 }
 
-// GroupID Community ID
+// GroupID Community ID.
 func (b *GroupsGetLongPollServerBuilder) GroupID(v int) *GroupsGetLongPollServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// GroupsGetLongPollSettingsBuilder builder
+// GroupsGetLongPollSettingsBuilder builder.
 //
-// Returns Long Poll notification settings
+// Returns Long Poll notification settings.
 //
 // https://vk.com/dev/groups.getLongPollSettings
 type GroupsGetLongPollSettingsBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetLongPollSettingsBuilder func
+// NewGroupsGetLongPollSettingsBuilder func.
 func NewGroupsGetLongPollSettingsBuilder() *GroupsGetLongPollSettingsBuilder {
 	return &GroupsGetLongPollSettingsBuilder{api.Params{}}
 }
@@ -1535,7 +1535,7 @@ func (b *GroupsGetLongPollSettingsBuilder) GroupID(v int) *GroupsGetLongPollSett
 	return b
 }
 
-// GroupsGetMembersBuilder builder
+// GroupsGetMembersBuilder builder.
 //
 // Returns a list of community members.
 //
@@ -1544,7 +1544,7 @@ type GroupsGetMembersBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetMembersBuilder func
+// NewGroupsGetMembersBuilder func.
 func NewGroupsGetMembersBuilder() *GroupsGetMembersBuilder {
 	return &GroupsGetMembersBuilder{api.Params{}}
 }
@@ -1591,7 +1591,7 @@ func (b *GroupsGetMembersBuilder) Filter(v string) *GroupsGetMembersBuilder {
 	return b
 }
 
-// GroupsGetRequestsBuilder builder
+// GroupsGetRequestsBuilder builder.
 //
 // Returns a list of requests to the community.
 //
@@ -1600,7 +1600,7 @@ type GroupsGetRequestsBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetRequestsBuilder func
+// NewGroupsGetRequestsBuilder func.
 func NewGroupsGetRequestsBuilder() *GroupsGetRequestsBuilder {
 	return &GroupsGetRequestsBuilder{api.Params{}}
 }
@@ -1629,7 +1629,7 @@ func (b *GroupsGetRequestsBuilder) Fields(v []string) *GroupsGetRequestsBuilder 
 	return b
 }
 
-// GroupsGetSettingsBuilder builder
+// GroupsGetSettingsBuilder builder.
 //
 // Returns community settings.
 //
@@ -1638,7 +1638,7 @@ type GroupsGetSettingsBuilder struct {
 	api.Params
 }
 
-// NewGroupsGetSettingsBuilder func
+// NewGroupsGetSettingsBuilder func.
 func NewGroupsGetSettingsBuilder() *GroupsGetSettingsBuilder {
 	return &GroupsGetSettingsBuilder{api.Params{}}
 }
@@ -1649,7 +1649,7 @@ func (b *GroupsGetSettingsBuilder) GroupID(v int) *GroupsGetSettingsBuilder {
 	return b
 }
 
-// GroupsInviteBuilder builder
+// GroupsInviteBuilder builder.
 //
 // Allows to invite friends to the community.
 //
@@ -1658,7 +1658,7 @@ type GroupsInviteBuilder struct {
 	api.Params
 }
 
-// NewGroupsInviteBuilder func
+// NewGroupsInviteBuilder func.
 func NewGroupsInviteBuilder() *GroupsInviteBuilder {
 	return &GroupsInviteBuilder{api.Params{}}
 }
@@ -1675,7 +1675,7 @@ func (b *GroupsInviteBuilder) UserID(v int) *GroupsInviteBuilder {
 	return b
 }
 
-// GroupsIsMemberBuilder builder
+// GroupsIsMemberBuilder builder.
 //
 // Returns information specifying whether a user is a member of a community.
 //
@@ -1684,7 +1684,7 @@ type GroupsIsMemberBuilder struct {
 	api.Params
 }
 
-// NewGroupsIsMemberBuilder func
+// NewGroupsIsMemberBuilder func.
 func NewGroupsIsMemberBuilder() *GroupsIsMemberBuilder {
 	return &GroupsIsMemberBuilder{api.Params{}}
 }
@@ -1713,7 +1713,7 @@ func (b *GroupsIsMemberBuilder) Extended(v bool) *GroupsIsMemberBuilder {
 	return b
 }
 
-// GroupsJoinBuilder builder
+// GroupsJoinBuilder builder.
 //
 // With this method you can join the group or public page, and also confirm your participation in an event.
 //
@@ -1722,7 +1722,7 @@ type GroupsJoinBuilder struct {
 	api.Params
 }
 
-// NewGroupsJoinBuilder func
+// NewGroupsJoinBuilder func.
 func NewGroupsJoinBuilder() *GroupsJoinBuilder {
 	return &GroupsJoinBuilder{api.Params{}}
 }
@@ -1743,7 +1743,7 @@ func (b *GroupsJoinBuilder) NotSure(v string) *GroupsJoinBuilder {
 	return b
 }
 
-// GroupsLeaveBuilder builder
+// GroupsLeaveBuilder builder.
 //
 // With this method you can leave a group, public page, or event.
 //
@@ -1752,7 +1752,7 @@ type GroupsLeaveBuilder struct {
 	api.Params
 }
 
-// NewGroupsLeaveBuilder func
+// NewGroupsLeaveBuilder func.
 func NewGroupsLeaveBuilder() *GroupsLeaveBuilder {
 	return &GroupsLeaveBuilder{api.Params{}}
 }
@@ -1763,7 +1763,7 @@ func (b *GroupsLeaveBuilder) GroupID(v int) *GroupsLeaveBuilder {
 	return b
 }
 
-// GroupsRemoveUserBuilder builder
+// GroupsRemoveUserBuilder builder.
 //
 // Removes a user from the community.
 //
@@ -1772,7 +1772,7 @@ type GroupsRemoveUserBuilder struct {
 	api.Params
 }
 
-// NewGroupsRemoveUserBuilder func
+// NewGroupsRemoveUserBuilder func.
 func NewGroupsRemoveUserBuilder() *GroupsRemoveUserBuilder {
 	return &GroupsRemoveUserBuilder{api.Params{}}
 }
@@ -1789,7 +1789,7 @@ func (b *GroupsRemoveUserBuilder) UserID(v int) *GroupsRemoveUserBuilder {
 	return b
 }
 
-// GroupsReorderLinkBuilder builder
+// GroupsReorderLinkBuilder builder.
 //
 // Allows to reorder links in the community.
 //
@@ -1798,7 +1798,7 @@ type GroupsReorderLinkBuilder struct {
 	api.Params
 }
 
-// NewGroupsReorderLinkBuilder func
+// NewGroupsReorderLinkBuilder func.
 func NewGroupsReorderLinkBuilder() *GroupsReorderLinkBuilder {
 	return &GroupsReorderLinkBuilder{api.Params{}}
 }
@@ -1821,7 +1821,7 @@ func (b *GroupsReorderLinkBuilder) After(v int) *GroupsReorderLinkBuilder {
 	return b
 }
 
-// GroupsSearchBuilder builder
+// GroupsSearchBuilder builder.
 //
 // Returns a list of communities matching the search criteria.
 //
@@ -1830,7 +1830,7 @@ type GroupsSearchBuilder struct {
 	api.Params
 }
 
-// NewGroupsSearchBuilder func
+// NewGroupsSearchBuilder func.
 func NewGroupsSearchBuilder() *GroupsSearchBuilder {
 	return &GroupsSearchBuilder{api.Params{}}
 }
@@ -1841,7 +1841,7 @@ func (b *GroupsSearchBuilder) Q(v string) *GroupsSearchBuilder {
 	return b
 }
 
-// Type Community type. Possible values: 'group, page, event.'
+// Type Community type. Possible values: 'group, page, event.'.
 func (b *GroupsSearchBuilder) Type(v string) *GroupsSearchBuilder {
 	b.Params["type"] = v
 	return b
@@ -1902,7 +1902,7 @@ func (b *GroupsSearchBuilder) Count(v int) *GroupsSearchBuilder {
 	return b
 }
 
-// GroupsSetCallbackSettingsBuilder builder
+// GroupsSetCallbackSettingsBuilder builder.
 //
 // Allow to set notifications settings for group.
 //
@@ -1911,7 +1911,7 @@ type GroupsSetCallbackSettingsBuilder struct {
 	api.Params
 }
 
-// NewGroupsSetCallbackSettingsBuilder func
+// NewGroupsSetCallbackSettingsBuilder func.
 func NewGroupsSetCallbackSettingsBuilder() *GroupsSetCallbackSettingsBuilder {
 	return &GroupsSetCallbackSettingsBuilder{api.Params{}}
 }
@@ -1928,7 +1928,7 @@ func (b *GroupsSetCallbackSettingsBuilder) ServerID(v int) *GroupsSetCallbackSet
 	return b
 }
 
-// APIVersion parameter
+// APIVersion parameter.
 func (b *GroupsSetCallbackSettingsBuilder) APIVersion(v string) *GroupsSetCallbackSettingsBuilder {
 	b.Params["api_version"] = v
 	return b
@@ -1952,7 +1952,7 @@ func (b *GroupsSetCallbackSettingsBuilder) MessageAllow(v bool) *GroupsSetCallba
 	return b
 }
 
-// MessageEdit parameter
+// MessageEdit parameter.
 func (b *GroupsSetCallbackSettingsBuilder) MessageEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_edit"] = v
 	return b
@@ -1964,7 +1964,7 @@ func (b *GroupsSetCallbackSettingsBuilder) MessageDeny(v bool) *GroupsSetCallbac
 	return b
 }
 
-// MessageTypingState parameter
+// MessageTypingState parameter.
 func (b *GroupsSetCallbackSettingsBuilder) MessageTypingState(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_typing_state"] = v
 	return b
@@ -2138,52 +2138,52 @@ func (b *GroupsSetCallbackSettingsBuilder) GroupLeave(v bool) *GroupsSetCallback
 	return b
 }
 
-// GroupChangeSettings parameter
+// GroupChangeSettings parameter.
 func (b *GroupsSetCallbackSettingsBuilder) GroupChangeSettings(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["group_change_settings"] = v
 	return b
 }
 
-// GroupChangePhoto parameter
+// GroupChangePhoto parameter.
 func (b *GroupsSetCallbackSettingsBuilder) GroupChangePhoto(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["group_change_photo"] = v
 	return b
 }
 
-// GroupOfficersEdit parameter
+// GroupOfficersEdit parameter.
 func (b *GroupsSetCallbackSettingsBuilder) GroupOfficersEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["group_officers_edit"] = v
 	return b
 }
 
-// UserBlock User added to community blacklist
+// UserBlock User added to community blacklist.
 func (b *GroupsSetCallbackSettingsBuilder) UserBlock(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["user_block"] = v
 	return b
 }
 
-// UserUnblock User removed from community blacklist
+// UserUnblock User removed from community blacklist.
 func (b *GroupsSetCallbackSettingsBuilder) UserUnblock(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["user_unblock"] = v
 	return b
 }
 
-// LeadFormsNew New form in lead forms
+// LeadFormsNew New form in lead forms.
 func (b *GroupsSetCallbackSettingsBuilder) LeadFormsNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["lead_forms_new"] = v
 	return b
 }
 
-// GroupsSetLongPollSettingsBuilder builder
+// GroupsSetLongPollSettingsBuilder builder.
 //
-// Sets Long Poll notification settings
+// Sets Long Poll notification settings.
 //
 // https://vk.com/dev/groups.setLongPollSettings
 type GroupsSetLongPollSettingsBuilder struct {
 	api.Params
 }
 
-// NewGroupsSetLongPollSettingsBuilder func
+// NewGroupsSetLongPollSettingsBuilder func.
 func NewGroupsSetLongPollSettingsBuilder() *GroupsSetLongPollSettingsBuilder {
 	return &GroupsSetLongPollSettingsBuilder{api.Params{}}
 }
@@ -2200,7 +2200,7 @@ func (b *GroupsSetLongPollSettingsBuilder) Enabled(v bool) *GroupsSetLongPollSet
 	return b
 }
 
-// APIVersion parameter
+// APIVersion parameter.
 func (b *GroupsSetLongPollSettingsBuilder) APIVersion(v string) *GroupsSetLongPollSettingsBuilder {
 	b.Params["api_version"] = v
 	return b
@@ -2236,7 +2236,7 @@ func (b *GroupsSetLongPollSettingsBuilder) MessageEdit(v bool) *GroupsSetLongPol
 	return b
 }
 
-// MessageTypingState parameter
+// MessageTypingState parameter.
 func (b *GroupsSetLongPollSettingsBuilder) MessageTypingState(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_typing_state"] = v
 	return b
@@ -2410,55 +2410,55 @@ func (b *GroupsSetLongPollSettingsBuilder) GroupLeave(v bool) *GroupsSetLongPoll
 	return b
 }
 
-// GroupChangeSettings parameter
+// GroupChangeSettings parameter.
 func (b *GroupsSetLongPollSettingsBuilder) GroupChangeSettings(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["group_change_settings"] = v
 	return b
 }
 
-// GroupChangePhoto parameter
+// GroupChangePhoto parameter.
 func (b *GroupsSetLongPollSettingsBuilder) GroupChangePhoto(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["group_change_photo"] = v
 	return b
 }
 
-// GroupOfficersEdit parameter
+// GroupOfficersEdit parameter.
 func (b *GroupsSetLongPollSettingsBuilder) GroupOfficersEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["group_officers_edit"] = v
 	return b
 }
 
-// UserBlock User added to community blacklist
+// UserBlock User added to community blacklist.
 func (b *GroupsSetLongPollSettingsBuilder) UserBlock(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["user_block"] = v
 	return b
 }
 
-// UserUnblock User removed from community blacklist
+// UserUnblock User removed from community blacklist.
 func (b *GroupsSetLongPollSettingsBuilder) UserUnblock(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["user_unblock"] = v
 	return b
 }
 
-// GroupsUnbanBuilder builder
+// GroupsUnbanBuilder builder.
 //
 // https://vk.com/dev/groups.unban
 type GroupsUnbanBuilder struct {
 	api.Params
 }
 
-// NewGroupsUnbanBuilder func
+// NewGroupsUnbanBuilder func.
 func NewGroupsUnbanBuilder() *GroupsUnbanBuilder {
 	return &GroupsUnbanBuilder{api.Params{}}
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *GroupsUnbanBuilder) GroupID(v int) *GroupsUnbanBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *GroupsUnbanBuilder) OwnerID(v int) *GroupsUnbanBuilder {
 	b.Params["owner_id"] = v
 	return b

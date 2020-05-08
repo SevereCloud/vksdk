@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// Event object, if status code is 100
+// Event object, if status code is 100.
 type Event struct {
 	EventType EventType `json:"event_type"`
 	EventID   struct {
@@ -30,10 +30,10 @@ type Event struct {
 	Author                 Author                          `json:"author"` // Information about author
 }
 
-// Action with the object
+// Action with the object.
 type Action string
 
-// Possible values
+// Possible values.
 const (
 	New     Action = "new"     // new object has been created
 	Update  Action = "update"  // object has been updated
@@ -41,10 +41,10 @@ const (
 	Restore Action = "restore" // object has been restored
 )
 
-// EventType event type
+// EventType event type.
 type EventType string
 
-// Possible values
+// Possible values.
 const (
 	Post      EventType = "post"
 	Comment   EventType = "comment"
@@ -52,7 +52,7 @@ const (
 	TopicPost EventType = "topic_post"
 )
 
-// Author struct
+// Author struct.
 type Author struct {
 	ID        int    `json:"id"`         // author ID
 	AuthorURL string `json:"author_url"` // URL of the author's page

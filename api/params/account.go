@@ -4,25 +4,25 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// AccountBanBuilder builder
+// AccountBanBuilder builder.
 //
 // https://vk.com/dev/account.ban
 type AccountBanBuilder struct {
 	api.Params
 }
 
-// NewAccountBanBuilder func
+// NewAccountBanBuilder func.
 func NewAccountBanBuilder() *AccountBanBuilder {
 	return &AccountBanBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *AccountBanBuilder) OwnerID(v int) *AccountBanBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// AccountChangePasswordBuilder builder
+// AccountChangePasswordBuilder builder.
 //
 // Changes a user password after access is successfully restored with the [vk.com/dev/auth.restore|auth.restore] method.
 //
@@ -31,20 +31,20 @@ type AccountChangePasswordBuilder struct {
 	api.Params
 }
 
-// NewAccountChangePasswordBuilder func
+// NewAccountChangePasswordBuilder func.
 func NewAccountChangePasswordBuilder() *AccountChangePasswordBuilder {
 	return &AccountChangePasswordBuilder{api.Params{}}
 }
 
 // RestoreSID Session id received after the [vk.com/dev/auth.restore|auth.restore] method is executed.
-// (If the password is changed right after the access was restored)
+// (If the password is changed right after the access was restored).
 func (b *AccountChangePasswordBuilder) RestoreSID(v string) *AccountChangePasswordBuilder {
 	b.Params["restore_sid"] = v
 	return b
 }
 
 // ChangePasswordHash Hash received after a successful OAuth authorization with a code got by SMS. (If the password is
-// changed right after the access was restored)
+// changed right after the access was restored).
 func (b *AccountChangePasswordBuilder) ChangePasswordHash(v string) *AccountChangePasswordBuilder {
 	b.Params["change_password_hash"] = v
 	return b
@@ -56,13 +56,13 @@ func (b *AccountChangePasswordBuilder) OldPassword(v string) *AccountChangePassw
 	return b
 }
 
-// NewPassword New password that will be set as a current
+// NewPassword New password that will be set as a current.
 func (b *AccountChangePasswordBuilder) NewPassword(v string) *AccountChangePasswordBuilder {
 	b.Params["new_password"] = v
 	return b
 }
 
-// AccountGetActiveOffersBuilder builder
+// AccountGetActiveOffersBuilder builder.
 //
 // Returns a list of active ads (offers) which executed by the user will bring him/her respective number of votes to
 // his balance in the application.
@@ -72,12 +72,12 @@ type AccountGetActiveOffersBuilder struct {
 	api.Params
 }
 
-// NewAccountGetActiveOffersBuilder func
+// NewAccountGetActiveOffersBuilder func.
 func NewAccountGetActiveOffersBuilder() *AccountGetActiveOffersBuilder {
 	return &AccountGetActiveOffersBuilder{api.Params{}}
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *AccountGetActiveOffersBuilder) Offset(v int) *AccountGetActiveOffersBuilder {
 	b.Params["offset"] = v
 	return b
@@ -89,7 +89,7 @@ func (b *AccountGetActiveOffersBuilder) Count(v int) *AccountGetActiveOffersBuil
 	return b
 }
 
-// AccountGetAppPermissionsBuilder builder
+// AccountGetAppPermissionsBuilder builder.
 //
 // Gets settings of the user in this application.
 //
@@ -98,7 +98,7 @@ type AccountGetAppPermissionsBuilder struct {
 	api.Params
 }
 
-// NewAccountGetAppPermissionsBuilder func
+// NewAccountGetAppPermissionsBuilder func.
 func NewAccountGetAppPermissionsBuilder() *AccountGetAppPermissionsBuilder {
 	return &AccountGetAppPermissionsBuilder{api.Params{}}
 }
@@ -109,7 +109,7 @@ func (b *AccountGetAppPermissionsBuilder) UserID(v int) *AccountGetAppPermission
 	return b
 }
 
-// AccountGetBannedBuilder builder
+// AccountGetBannedBuilder builder.
 //
 // Returns a user's blacklist.
 //
@@ -118,7 +118,7 @@ type AccountGetBannedBuilder struct {
 	api.Params
 }
 
-// NewAccountGetBannedBuilder func
+// NewAccountGetBannedBuilder func.
 func NewAccountGetBannedBuilder() *AccountGetBannedBuilder {
 	return &AccountGetBannedBuilder{api.Params{}}
 }
@@ -135,7 +135,7 @@ func (b *AccountGetBannedBuilder) Count(v int) *AccountGetBannedBuilder {
 	return b
 }
 
-// AccountGetCountersBuilder builder
+// AccountGetCountersBuilder builder.
 //
 // Returns non-null values of user counters.
 //
@@ -144,7 +144,7 @@ type AccountGetCountersBuilder struct {
 	api.Params
 }
 
-// NewAccountGetCountersBuilder func
+// NewAccountGetCountersBuilder func.
 func NewAccountGetCountersBuilder() *AccountGetCountersBuilder {
 	return &AccountGetCountersBuilder{api.Params{}}
 }
@@ -155,7 +155,7 @@ func (b *AccountGetCountersBuilder) Filter(v []string) *AccountGetCountersBuilde
 	return b
 }
 
-// AccountGetInfoBuilder builder
+// AccountGetInfoBuilder builder.
 //
 // Returns current account info.
 //
@@ -164,7 +164,7 @@ type AccountGetInfoBuilder struct {
 	api.Params
 }
 
-// NewAccountGetInfoBuilder func
+// NewAccountGetInfoBuilder func.
 func NewAccountGetInfoBuilder() *AccountGetInfoBuilder {
 	return &AccountGetInfoBuilder{api.Params{}}
 }
@@ -177,7 +177,7 @@ func (b *AccountGetInfoBuilder) Fields(v []string) *AccountGetInfoBuilder {
 	return b
 }
 
-// AccountGetPushSettingsBuilder builder
+// AccountGetPushSettingsBuilder builder.
 //
 // Gets settings of push notifications.
 //
@@ -186,7 +186,7 @@ type AccountGetPushSettingsBuilder struct {
 	api.Params
 }
 
-// NewAccountGetPushSettingsBuilder func
+// NewAccountGetPushSettingsBuilder func.
 func NewAccountGetPushSettingsBuilder() *AccountGetPushSettingsBuilder {
 	return &AccountGetPushSettingsBuilder{api.Params{}}
 }
@@ -197,21 +197,21 @@ func (b *AccountGetPushSettingsBuilder) DeviceID(v string) *AccountGetPushSettin
 	return b
 }
 
-// AccountRegisterDeviceBuilder builder
+// AccountRegisterDeviceBuilder builder.
 //
-// Subscribes an iOS/Android/Windows Phone-based device to receive push notifications
+// Subscribes an iOS/Android/Windows Phone-based device to receive push notifications.
 //
 // https://vk.com/dev/account.registerDevice
 type AccountRegisterDeviceBuilder struct {
 	api.Params
 }
 
-// NewAccountRegisterDeviceBuilder func
+// NewAccountRegisterDeviceBuilder func.
 func NewAccountRegisterDeviceBuilder() *AccountRegisterDeviceBuilder {
 	return &AccountRegisterDeviceBuilder{api.Params{}}
 }
 
-// Token Device token used to send notifications. (for mpns, the token shall be URL for sending of notifications)
+// Token Device token used to send notifications. (for mpns, the token shall be URL for sending of notifications).
 func (b *AccountRegisterDeviceBuilder) Token(v string) *AccountRegisterDeviceBuilder {
 	b.Params["token"] = v
 	return b
@@ -247,13 +247,13 @@ func (b *AccountRegisterDeviceBuilder) Settings(v string) *AccountRegisterDevice
 	return b
 }
 
-// Sandbox parameter
+// Sandbox parameter.
 func (b *AccountRegisterDeviceBuilder) Sandbox(v bool) *AccountRegisterDeviceBuilder {
 	b.Params["sandbox"] = v
 	return b
 }
 
-// AccountSaveProfileInfoBuilder builder
+// AccountSaveProfileInfoBuilder builder.
 //
 // Edits current profile info.
 //
@@ -262,7 +262,7 @@ type AccountSaveProfileInfoBuilder struct {
 	api.Params
 }
 
-// NewAccountSaveProfileInfoBuilder func
+// NewAccountSaveProfileInfoBuilder func.
 func NewAccountSaveProfileInfoBuilder() *AccountSaveProfileInfoBuilder {
 	return &AccountSaveProfileInfoBuilder{api.Params{}}
 }
@@ -279,7 +279,7 @@ func (b *AccountSaveProfileInfoBuilder) LastName(v string) *AccountSaveProfileIn
 	return b
 }
 
-// MaidenName User maiden name (female only)
+// MaidenName User maiden name (female only).
 func (b *AccountSaveProfileInfoBuilder) MaidenName(v string) *AccountSaveProfileInfoBuilder {
 	b.Params["maiden_name"] = v
 	return b
@@ -377,7 +377,7 @@ func (b *AccountSaveProfileInfoBuilder) Status(v string) *AccountSaveProfileInfo
 	return b
 }
 
-// AccountSetInfoBuilder builder
+// AccountSetInfoBuilder builder.
 //
 // Allows to edit the current account info.
 //
@@ -386,7 +386,7 @@ type AccountSetInfoBuilder struct {
 	api.Params
 }
 
-// NewAccountSetInfoBuilder func
+// NewAccountSetInfoBuilder func.
 func NewAccountSetInfoBuilder() *AccountSetInfoBuilder {
 	return &AccountSetInfoBuilder{api.Params{}}
 }
@@ -403,7 +403,7 @@ func (b *AccountSetInfoBuilder) Value(v string) *AccountSetInfoBuilder {
 	return b
 }
 
-// AccountSetNameInMenuBuilder builder
+// AccountSetNameInMenuBuilder builder.
 //
 // Sets an application screen name (up to 17 characters), that is shown to the user in the left menu.
 //
@@ -412,7 +412,7 @@ type AccountSetNameInMenuBuilder struct {
 	api.Params
 }
 
-// NewAccountSetNameInMenuBuilder func
+// NewAccountSetNameInMenuBuilder func.
 func NewAccountSetNameInMenuBuilder() *AccountSetNameInMenuBuilder {
 	return &AccountSetNameInMenuBuilder{api.Params{}}
 }
@@ -429,7 +429,7 @@ func (b *AccountSetNameInMenuBuilder) Name(v string) *AccountSetNameInMenuBuilde
 	return b
 }
 
-// AccountSetOnlineBuilder builder
+// AccountSetOnlineBuilder builder.
 //
 // Marks the current user as online for 15 minutes.
 //
@@ -438,7 +438,7 @@ type AccountSetOnlineBuilder struct {
 	api.Params
 }
 
-// NewAccountSetOnlineBuilder func
+// NewAccountSetOnlineBuilder func.
 func NewAccountSetOnlineBuilder() *AccountSetOnlineBuilder {
 	return &AccountSetOnlineBuilder{api.Params{}}
 }
@@ -449,7 +449,7 @@ func (b *AccountSetOnlineBuilder) Voip(v bool) *AccountSetOnlineBuilder {
 	return b
 }
 
-// AccountSetPushSettingsBuilder builder
+// AccountSetPushSettingsBuilder builder.
 //
 // Change push settings.
 //
@@ -458,7 +458,7 @@ type AccountSetPushSettingsBuilder struct {
 	api.Params
 }
 
-// NewAccountSetPushSettingsBuilder func
+// NewAccountSetPushSettingsBuilder func.
 func NewAccountSetPushSettingsBuilder() *AccountSetPushSettingsBuilder {
 	return &AccountSetPushSettingsBuilder{api.Params{}}
 }
@@ -487,7 +487,7 @@ func (b *AccountSetPushSettingsBuilder) Value(v []string) *AccountSetPushSetting
 	return b
 }
 
-// AccountSetSilenceModeBuilder builder
+// AccountSetSilenceModeBuilder builder.
 //
 // Mutes push notifications for the set period of time.
 //
@@ -496,7 +496,7 @@ type AccountSetSilenceModeBuilder struct {
 	api.Params
 }
 
-// NewAccountSetSilenceModeBuilder func
+// NewAccountSetSilenceModeBuilder func.
 func NewAccountSetSilenceModeBuilder() *AccountSetSilenceModeBuilder {
 	return &AccountSetSilenceModeBuilder{api.Params{}}
 }
@@ -521,7 +521,7 @@ func (b *AccountSetSilenceModeBuilder) PeerID(v int) *AccountSetSilenceModeBuild
 	return b
 }
 
-// Sound parameter
+// Sound parameter.
 //
 // * 1 — to enable sound in this dialog,
 //
@@ -531,25 +531,25 @@ func (b *AccountSetSilenceModeBuilder) Sound(v int) *AccountSetSilenceModeBuilde
 	return b
 }
 
-// AccountUnbanBuilder builder
+// AccountUnbanBuilder builder.
 //
 // https://vk.com/dev/account.unban
 type AccountUnbanBuilder struct {
 	api.Params
 }
 
-// NewAccountUnbanBuilder func
+// NewAccountUnbanBuilder func.
 func NewAccountUnbanBuilder() *AccountUnbanBuilder {
 	return &AccountUnbanBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *AccountUnbanBuilder) OwnerID(v int) *AccountUnbanBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// AccountUnregisterDeviceBuilder builder
+// AccountUnregisterDeviceBuilder builder.
 //
 // Unsubscribes a device from push notifications.
 //
@@ -558,7 +558,7 @@ type AccountUnregisterDeviceBuilder struct {
 	api.Params
 }
 
-// NewAccountUnregisterDeviceBuilder func
+// NewAccountUnregisterDeviceBuilder func.
 func NewAccountUnregisterDeviceBuilder() *AccountUnregisterDeviceBuilder {
 	return &AccountUnregisterDeviceBuilder{api.Params{}}
 }
@@ -569,7 +569,7 @@ func (b *AccountUnregisterDeviceBuilder) DeviceID(v string) *AccountUnregisterDe
 	return b
 }
 
-// Sandbox parameter
+// Sandbox parameter.
 func (b *AccountUnregisterDeviceBuilder) Sandbox(v bool) *AccountUnregisterDeviceBuilder {
 	b.Params["sandbox"] = v
 	return b

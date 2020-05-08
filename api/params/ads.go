@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// AdsAddOfficeUsersBuilder builder
+// AdsAddOfficeUsersBuilder builder.
 //
 // Adds managers and/or supervisors to advertising account.
 //
@@ -13,7 +13,7 @@ type AdsAddOfficeUsersBuilder struct {
 	api.Params
 }
 
-// NewAdsAddOfficeUsersBuilder func
+// NewAdsAddOfficeUsersBuilder func.
 func NewAdsAddOfficeUsersBuilder() *AdsAddOfficeUsersBuilder {
 	return &AdsAddOfficeUsersBuilder{api.Params{}}
 }
@@ -31,7 +31,7 @@ func (b *AdsAddOfficeUsersBuilder) Data(v string) *AdsAddOfficeUsersBuilder {
 	return b
 }
 
-// AdsCheckLinkBuilder builder
+// AdsCheckLinkBuilder builder.
 //
 // Allows to check the ad link.
 //
@@ -40,7 +40,7 @@ type AdsCheckLinkBuilder struct {
 	api.Params
 }
 
-// NewAdsCheckLinkBuilder func
+// NewAdsCheckLinkBuilder func.
 func NewAdsCheckLinkBuilder() *AdsCheckLinkBuilder {
 	return &AdsCheckLinkBuilder{api.Params{}}
 }
@@ -73,13 +73,13 @@ func (b *AdsCheckLinkBuilder) LinkURL(v string) *AdsCheckLinkBuilder {
 	return b
 }
 
-// CampaignID Campaign ID
+// CampaignID Campaign ID.
 func (b *AdsCheckLinkBuilder) CampaignID(v int) *AdsCheckLinkBuilder {
 	b.Params["campaign_id"] = v
 	return b
 }
 
-// AdsCreateAdsBuilder builder
+// AdsCreateAdsBuilder builder.
 //
 // Creates ads.
 //
@@ -88,7 +88,7 @@ type AdsCreateAdsBuilder struct {
 	api.Params
 }
 
-// NewAdsCreateAdsBuilder func
+// NewAdsCreateAdsBuilder func.
 func NewAdsCreateAdsBuilder() *AdsCreateAdsBuilder {
 	return &AdsCreateAdsBuilder{api.Params{}}
 }
@@ -106,7 +106,7 @@ func (b *AdsCreateAdsBuilder) Data(v string) *AdsCreateAdsBuilder {
 	return b
 }
 
-// AdsCreateCampaignsBuilder builder
+// AdsCreateCampaignsBuilder builder.
 //
 // Creates advertising campaigns.
 //
@@ -115,7 +115,7 @@ type AdsCreateCampaignsBuilder struct {
 	api.Params
 }
 
-// NewAdsCreateCampaignsBuilder func
+// NewAdsCreateCampaignsBuilder func.
 func NewAdsCreateCampaignsBuilder() *AdsCreateCampaignsBuilder {
 	return &AdsCreateCampaignsBuilder{api.Params{}}
 }
@@ -133,7 +133,7 @@ func (b *AdsCreateCampaignsBuilder) Data(v string) *AdsCreateCampaignsBuilder {
 	return b
 }
 
-// AdsCreateClientsBuilder builder
+// AdsCreateClientsBuilder builder.
 //
 // Creates clients of an advertising agency.
 //
@@ -142,7 +142,7 @@ type AdsCreateClientsBuilder struct {
 	api.Params
 }
 
-// NewAdsCreateClientsBuilder func
+// NewAdsCreateClientsBuilder func.
 func NewAdsCreateClientsBuilder() *AdsCreateClientsBuilder {
 	return &AdsCreateClientsBuilder{api.Params{}}
 }
@@ -160,7 +160,7 @@ func (b *AdsCreateClientsBuilder) Data(v string) *AdsCreateClientsBuilder {
 	return b
 }
 
-// AdsCreateTargetGroupBuilder builder
+// AdsCreateTargetGroupBuilder builder.
 //
 // Creates a group to re-target ads for users who visited advertiser's site
 // (viewed information about the product, registered, etc.).
@@ -170,7 +170,7 @@ type AdsCreateTargetGroupBuilder struct {
 	api.Params
 }
 
-// NewAdsCreateTargetGroupBuilder func
+// NewAdsCreateTargetGroupBuilder func.
 func NewAdsCreateTargetGroupBuilder() *AdsCreateTargetGroupBuilder {
 	return &AdsCreateTargetGroupBuilder{api.Params{}}
 }
@@ -201,19 +201,19 @@ func (b *AdsCreateTargetGroupBuilder) Lifetime(v int) *AdsCreateTargetGroupBuild
 	return b
 }
 
-// TargetPixelID parameter
+// TargetPixelID parameter.
 func (b *AdsCreateTargetGroupBuilder) TargetPixelID(v int) *AdsCreateTargetGroupBuilder {
 	b.Params["target_pixel_id"] = v
 	return b
 }
 
-// TargetPixelRules parameter
+// TargetPixelRules parameter.
 func (b *AdsCreateTargetGroupBuilder) TargetPixelRules(v string) *AdsCreateTargetGroupBuilder {
 	b.Params["target_pixel_rules"] = v
 	return b
 }
 
-// AdsDeleteAdsBuilder builder
+// AdsDeleteAdsBuilder builder.
 //
 // Archives ads.
 //
@@ -222,7 +222,7 @@ type AdsDeleteAdsBuilder struct {
 	api.Params
 }
 
-// NewAdsDeleteAdsBuilder func
+// NewAdsDeleteAdsBuilder func.
 func NewAdsDeleteAdsBuilder() *AdsDeleteAdsBuilder {
 	return &AdsDeleteAdsBuilder{api.Params{}}
 }
@@ -239,7 +239,7 @@ func (b *AdsDeleteAdsBuilder) IDs(v string) *AdsDeleteAdsBuilder {
 	return b
 }
 
-// AdsDeleteCampaignsBuilder builder
+// AdsDeleteCampaignsBuilder builder.
 //
 // Archives advertising campaigns.
 //
@@ -248,7 +248,7 @@ type AdsDeleteCampaignsBuilder struct {
 	api.Params
 }
 
-// NewAdsDeleteCampaignsBuilder func
+// NewAdsDeleteCampaignsBuilder func.
 func NewAdsDeleteCampaignsBuilder() *AdsDeleteCampaignsBuilder {
 	return &AdsDeleteCampaignsBuilder{api.Params{}}
 }
@@ -265,7 +265,7 @@ func (b *AdsDeleteCampaignsBuilder) IDs(v string) *AdsDeleteCampaignsBuilder {
 	return b
 }
 
-// AdsDeleteClientsBuilder builder
+// AdsDeleteClientsBuilder builder.
 //
 // Archives clients of an advertising agency.
 //
@@ -274,7 +274,7 @@ type AdsDeleteClientsBuilder struct {
 	api.Params
 }
 
-// NewAdsDeleteClientsBuilder func
+// NewAdsDeleteClientsBuilder func.
 func NewAdsDeleteClientsBuilder() *AdsDeleteClientsBuilder {
 	return &AdsDeleteClientsBuilder{api.Params{}}
 }
@@ -291,7 +291,7 @@ func (b *AdsDeleteClientsBuilder) IDs(v string) *AdsDeleteClientsBuilder {
 	return b
 }
 
-// AdsDeleteTargetGroupBuilder builder
+// AdsDeleteTargetGroupBuilder builder.
 //
 // Deletes a retarget group.
 //
@@ -300,7 +300,7 @@ type AdsDeleteTargetGroupBuilder struct {
 	api.Params
 }
 
-// NewAdsDeleteTargetGroupBuilder func
+// NewAdsDeleteTargetGroupBuilder func.
 func NewAdsDeleteTargetGroupBuilder() *AdsDeleteTargetGroupBuilder {
 	return &AdsDeleteTargetGroupBuilder{api.Params{}}
 }
@@ -324,7 +324,7 @@ func (b *AdsDeleteTargetGroupBuilder) TargetGroupID(v int) *AdsDeleteTargetGroup
 	return b
 }
 
-// AdsGetAdsBuilder builder
+// AdsGetAdsBuilder builder.
 //
 // Returns number of ads.
 //
@@ -333,7 +333,7 @@ type AdsGetAdsBuilder struct {
 	api.Params
 }
 
-// NewAdsGetAdsBuilder func
+// NewAdsGetAdsBuilder func.
 func NewAdsGetAdsBuilder() *AdsGetAdsBuilder {
 	return &AdsGetAdsBuilder{api.Params{}}
 }
@@ -386,7 +386,7 @@ func (b *AdsGetAdsBuilder) Offset(v int) *AdsGetAdsBuilder {
 	return b
 }
 
-// AdsGetAdsLayoutBuilder builder
+// AdsGetAdsLayoutBuilder builder.
 //
 // Returns descriptions of ad layouts.
 //
@@ -395,7 +395,7 @@ type AdsGetAdsLayoutBuilder struct {
 	api.Params
 }
 
-// NewAdsGetAdsLayoutBuilder func
+// NewAdsGetAdsLayoutBuilder func.
 func NewAdsGetAdsLayoutBuilder() *AdsGetAdsLayoutBuilder {
 	return &AdsGetAdsLayoutBuilder{api.Params{}}
 }
@@ -448,7 +448,7 @@ func (b *AdsGetAdsLayoutBuilder) Offset(v int) *AdsGetAdsLayoutBuilder {
 	return b
 }
 
-// AdsGetAdsTargetingBuilder builder
+// AdsGetAdsTargetingBuilder builder.
 //
 // Returns ad targeting parameters.
 //
@@ -457,7 +457,7 @@ type AdsGetAdsTargetingBuilder struct {
 	api.Params
 }
 
-// NewAdsGetAdsTargetingBuilder func
+// NewAdsGetAdsTargetingBuilder func.
 func NewAdsGetAdsTargetingBuilder() *AdsGetAdsTargetingBuilder {
 	return &AdsGetAdsTargetingBuilder{api.Params{}}
 }
@@ -510,7 +510,7 @@ func (b *AdsGetAdsTargetingBuilder) Offset(v int) *AdsGetAdsTargetingBuilder {
 	return b
 }
 
-// AdsGetBudgetBuilder builder
+// AdsGetBudgetBuilder builder.
 //
 // Returns current budget of the advertising account.
 //
@@ -519,7 +519,7 @@ type AdsGetBudgetBuilder struct {
 	api.Params
 }
 
-// NewAdsGetBudgetBuilder func
+// NewAdsGetBudgetBuilder func.
 func NewAdsGetBudgetBuilder() *AdsGetBudgetBuilder {
 	return &AdsGetBudgetBuilder{api.Params{}}
 }
@@ -530,7 +530,7 @@ func (b *AdsGetBudgetBuilder) AccountID(v int) *AdsGetBudgetBuilder {
 	return b
 }
 
-// AdsGetCampaignsBuilder builder
+// AdsGetCampaignsBuilder builder.
 //
 // Returns a list of campaigns in an advertising account.
 //
@@ -539,7 +539,7 @@ type AdsGetCampaignsBuilder struct {
 	api.Params
 }
 
-// NewAdsGetCampaignsBuilder func
+// NewAdsGetCampaignsBuilder func.
 func NewAdsGetCampaignsBuilder() *AdsGetCampaignsBuilder {
 	return &AdsGetCampaignsBuilder{api.Params{}}
 }
@@ -574,7 +574,7 @@ func (b *AdsGetCampaignsBuilder) CampaignIDs(v string) *AdsGetCampaignsBuilder {
 	return b
 }
 
-// AdsGetCategoriesBuilder builder
+// AdsGetCategoriesBuilder builder.
 //
 // Returns a list of possible ad categories.
 //
@@ -583,7 +583,7 @@ type AdsGetCategoriesBuilder struct {
 	api.Params
 }
 
-// NewAdsGetCategoriesBuilder func
+// NewAdsGetCategoriesBuilder func.
 func NewAdsGetCategoriesBuilder() *AdsGetCategoriesBuilder {
 	return &AdsGetCategoriesBuilder{api.Params{}}
 }
@@ -594,7 +594,7 @@ func (b *AdsGetCategoriesBuilder) Lang(v string) *AdsGetCategoriesBuilder {
 	return b
 }
 
-// AdsGetClientsBuilder builder
+// AdsGetClientsBuilder builder.
 //
 // Returns a list of advertising agency's clients.
 //
@@ -603,7 +603,7 @@ type AdsGetClientsBuilder struct {
 	api.Params
 }
 
-// NewAdsGetClientsBuilder func
+// NewAdsGetClientsBuilder func.
 func NewAdsGetClientsBuilder() *AdsGetClientsBuilder {
 	return &AdsGetClientsBuilder{api.Params{}}
 }
@@ -614,7 +614,7 @@ func (b *AdsGetClientsBuilder) AccountID(v int) *AdsGetClientsBuilder {
 	return b
 }
 
-// AdsGetDemographicsBuilder builder
+// AdsGetDemographicsBuilder builder.
 //
 // Returns demographics for ads or campaigns.
 //
@@ -623,7 +623,7 @@ type AdsGetDemographicsBuilder struct {
 	api.Params
 }
 
-// NewAdsGetDemographicsBuilder func
+// NewAdsGetDemographicsBuilder func.
 func NewAdsGetDemographicsBuilder() *AdsGetDemographicsBuilder {
 	return &AdsGetDemographicsBuilder{api.Params{}}
 }
@@ -695,7 +695,7 @@ func (b *AdsGetDemographicsBuilder) DateTo(v string) *AdsGetDemographicsBuilder 
 	return b
 }
 
-// AdsGetFloodStatsBuilder builder
+// AdsGetFloodStatsBuilder builder.
 //
 // Returns information about current state of a counter — number of remaining runs of methods and time to the next
 // counter nulling in seconds.
@@ -705,7 +705,7 @@ type AdsGetFloodStatsBuilder struct {
 	api.Params
 }
 
-// NewAdsGetFloodStatsBuilder func
+// NewAdsGetFloodStatsBuilder func.
 func NewAdsGetFloodStatsBuilder() *AdsGetFloodStatsBuilder {
 	return &AdsGetFloodStatsBuilder{api.Params{}}
 }
@@ -716,7 +716,7 @@ func (b *AdsGetFloodStatsBuilder) AccountID(v int) *AdsGetFloodStatsBuilder {
 	return b
 }
 
-// AdsGetOfficeUsersBuilder builder
+// AdsGetOfficeUsersBuilder builder.
 //
 // Returns a list of managers and supervisors of advertising account.
 //
@@ -725,7 +725,7 @@ type AdsGetOfficeUsersBuilder struct {
 	api.Params
 }
 
-// NewAdsGetOfficeUsersBuilder func
+// NewAdsGetOfficeUsersBuilder func.
 func NewAdsGetOfficeUsersBuilder() *AdsGetOfficeUsersBuilder {
 	return &AdsGetOfficeUsersBuilder{api.Params{}}
 }
@@ -736,7 +736,7 @@ func (b *AdsGetOfficeUsersBuilder) AccountID(v int) *AdsGetOfficeUsersBuilder {
 	return b
 }
 
-// AdsGetPostsReachBuilder builder
+// AdsGetPostsReachBuilder builder.
 //
 // Returns detailed statistics of promoted posts reach from campaigns and ads.
 //
@@ -745,7 +745,7 @@ type AdsGetPostsReachBuilder struct {
 	api.Params
 }
 
-// NewAdsGetPostsReachBuilder func
+// NewAdsGetPostsReachBuilder func.
 func NewAdsGetPostsReachBuilder() *AdsGetPostsReachBuilder {
 	return &AdsGetPostsReachBuilder{api.Params{}}
 }
@@ -773,7 +773,7 @@ func (b *AdsGetPostsReachBuilder) IDs(v string) *AdsGetPostsReachBuilder {
 	return b
 }
 
-// AdsGetRejectionReasonBuilder builder
+// AdsGetRejectionReasonBuilder builder.
 //
 // Returns a reason of ad rejection for pre-moderation.
 //
@@ -782,7 +782,7 @@ type AdsGetRejectionReasonBuilder struct {
 	api.Params
 }
 
-// NewAdsGetRejectionReasonBuilder func
+// NewAdsGetRejectionReasonBuilder func.
 func NewAdsGetRejectionReasonBuilder() *AdsGetRejectionReasonBuilder {
 	return &AdsGetRejectionReasonBuilder{api.Params{}}
 }
@@ -799,7 +799,7 @@ func (b *AdsGetRejectionReasonBuilder) AdID(v int) *AdsGetRejectionReasonBuilder
 	return b
 }
 
-// AdsGetStatisticsBuilder builder
+// AdsGetStatisticsBuilder builder.
 //
 // Returns statistics of performance indicators for ads, campaigns, clients or the whole account.
 //
@@ -808,7 +808,7 @@ type AdsGetStatisticsBuilder struct {
 	api.Params
 }
 
-// NewAdsGetStatisticsBuilder func
+// NewAdsGetStatisticsBuilder func.
 func NewAdsGetStatisticsBuilder() *AdsGetStatisticsBuilder {
 	return &AdsGetStatisticsBuilder{api.Params{}}
 }
@@ -884,7 +884,7 @@ func (b *AdsGetStatisticsBuilder) DateTo(v string) *AdsGetStatisticsBuilder {
 	return b
 }
 
-// AdsGetSuggestionsBuilder builder
+// AdsGetSuggestionsBuilder builder.
 //
 // Returns a set of auto-suggestions for various targeting parameters.
 //
@@ -893,7 +893,7 @@ type AdsGetSuggestionsBuilder struct {
 	api.Params
 }
 
-// NewAdsGetSuggestionsBuilder func
+// NewAdsGetSuggestionsBuilder func.
 func NewAdsGetSuggestionsBuilder() *AdsGetSuggestionsBuilder {
 	return &AdsGetSuggestionsBuilder{api.Params{}}
 }
@@ -965,7 +965,7 @@ func (b *AdsGetSuggestionsBuilder) Lang(v string) *AdsGetSuggestionsBuilder {
 	return b
 }
 
-// AdsGetTargetGroupsBuilder builder
+// AdsGetTargetGroupsBuilder builder.
 //
 // Returns a list of target groups.
 //
@@ -974,7 +974,7 @@ type AdsGetTargetGroupsBuilder struct {
 	api.Params
 }
 
-// NewAdsGetTargetGroupsBuilder func
+// NewAdsGetTargetGroupsBuilder func.
 func NewAdsGetTargetGroupsBuilder() *AdsGetTargetGroupsBuilder {
 	return &AdsGetTargetGroupsBuilder{api.Params{}}
 }
@@ -992,7 +992,7 @@ func (b *AdsGetTargetGroupsBuilder) ClientID(v int) *AdsGetTargetGroupsBuilder {
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 //
 // * 1 — to return pixel code.
 func (b *AdsGetTargetGroupsBuilder) Extended(v bool) *AdsGetTargetGroupsBuilder {
@@ -1000,7 +1000,7 @@ func (b *AdsGetTargetGroupsBuilder) Extended(v bool) *AdsGetTargetGroupsBuilder 
 	return b
 }
 
-// AdsGetTargetingStatsBuilder builder
+// AdsGetTargetingStatsBuilder builder.
 //
 // Returns the size of targeting audience, and also recommended values for CPC and CPM.
 //
@@ -1009,7 +1009,7 @@ type AdsGetTargetingStatsBuilder struct {
 	api.Params
 }
 
-// NewAdsGetTargetingStatsBuilder func
+// NewAdsGetTargetingStatsBuilder func.
 func NewAdsGetTargetingStatsBuilder() *AdsGetTargetingStatsBuilder {
 	return &AdsGetTargetingStatsBuilder{api.Params{}}
 }
@@ -1020,7 +1020,7 @@ func (b *AdsGetTargetingStatsBuilder) AccountID(v int) *AdsGetTargetingStatsBuil
 	return b
 }
 
-// ClientID parameter
+// ClientID parameter.
 func (b *AdsGetTargetingStatsBuilder) ClientID(v int) *AdsGetTargetingStatsBuilder {
 	b.Params["client_id"] = v
 	return b
@@ -1061,7 +1061,7 @@ func (b *AdsGetTargetingStatsBuilder) AdFormat(v int) *AdsGetTargetingStatsBuild
 	return b
 }
 
-// AdPlatform Platforms to use for ad showing. Possible values: (for 'ad_format' = '1')
+// AdPlatform Platforms to use for ad showing. Possible values: (for 'ad_format' = '1').
 //
 // * 0 — VK and partner sites,
 //
@@ -1077,13 +1077,13 @@ func (b *AdsGetTargetingStatsBuilder) AdPlatform(v string) *AdsGetTargetingStats
 	return b
 }
 
-// AdPlatformNoWall parameter
+// AdPlatformNoWall parameter.
 func (b *AdsGetTargetingStatsBuilder) AdPlatformNoWall(v string) *AdsGetTargetingStatsBuilder {
 	b.Params["ad_platform_no_wall"] = v
 	return b
 }
 
-// AdPlatformNoAdNetwork parameter
+// AdPlatformNoAdNetwork parameter.
 func (b *AdsGetTargetingStatsBuilder) AdPlatformNoAdNetwork(v string) *AdsGetTargetingStatsBuilder {
 	b.Params["ad_platform_no_ad_network"] = v
 	return b
@@ -1101,7 +1101,7 @@ func (b *AdsGetTargetingStatsBuilder) LinkDomain(v string) *AdsGetTargetingStats
 	return b
 }
 
-// AdsGetUploadURLBuilder builder
+// AdsGetUploadURLBuilder builder.
 //
 // Returns URL to upload an ad photo to.
 //
@@ -1110,7 +1110,7 @@ type AdsGetUploadURLBuilder struct {
 	api.Params
 }
 
-// NewAdsGetUploadURLBuilder func
+// NewAdsGetUploadURLBuilder func.
 func NewAdsGetUploadURLBuilder() *AdsGetUploadURLBuilder {
 	return &AdsGetUploadURLBuilder{api.Params{}}
 }
@@ -1131,13 +1131,13 @@ func (b *AdsGetUploadURLBuilder) AdFormat(v int) *AdsGetUploadURLBuilder {
 	return b
 }
 
-// Icon parameter
+// Icon parameter.
 func (b *AdsGetUploadURLBuilder) Icon(v int) *AdsGetUploadURLBuilder {
 	b.Params["icon"] = v
 	return b
 }
 
-// AdsImportTargetContactsBuilder builder
+// AdsImportTargetContactsBuilder builder.
 //
 // Imports a list of advertiser's contacts to count VK registered users against the target group.
 //
@@ -1146,7 +1146,7 @@ type AdsImportTargetContactsBuilder struct {
 	api.Params
 }
 
-// NewAdsImportTargetContactsBuilder func
+// NewAdsImportTargetContactsBuilder func.
 func NewAdsImportTargetContactsBuilder() *AdsImportTargetContactsBuilder {
 	return &AdsImportTargetContactsBuilder{api.Params{}}
 }
@@ -1176,7 +1176,7 @@ func (b *AdsImportTargetContactsBuilder) Contacts(v string) *AdsImportTargetCont
 	return b
 }
 
-// AdsRemoveOfficeUsersBuilder builder
+// AdsRemoveOfficeUsersBuilder builder.
 //
 // Removes managers and/or supervisors from advertising account.
 //
@@ -1185,7 +1185,7 @@ type AdsRemoveOfficeUsersBuilder struct {
 	api.Params
 }
 
-// NewAdsRemoveOfficeUsersBuilder func
+// NewAdsRemoveOfficeUsersBuilder func.
 func NewAdsRemoveOfficeUsersBuilder() *AdsRemoveOfficeUsersBuilder {
 	return &AdsRemoveOfficeUsersBuilder{api.Params{}}
 }
@@ -1202,7 +1202,7 @@ func (b *AdsRemoveOfficeUsersBuilder) IDs(v string) *AdsRemoveOfficeUsersBuilder
 	return b
 }
 
-// AdsUpdateAdsBuilder builder
+// AdsUpdateAdsBuilder builder.
 //
 // Edits ads.
 //
@@ -1211,7 +1211,7 @@ type AdsUpdateAdsBuilder struct {
 	api.Params
 }
 
-// NewAdsUpdateAdsBuilder func
+// NewAdsUpdateAdsBuilder func.
 func NewAdsUpdateAdsBuilder() *AdsUpdateAdsBuilder {
 	return &AdsUpdateAdsBuilder{api.Params{}}
 }
@@ -1229,7 +1229,7 @@ func (b *AdsUpdateAdsBuilder) Data(v string) *AdsUpdateAdsBuilder {
 	return b
 }
 
-// AdsUpdateCampaignsBuilder builder
+// AdsUpdateCampaignsBuilder builder.
 //
 // Edits advertising campaigns.
 //
@@ -1238,7 +1238,7 @@ type AdsUpdateCampaignsBuilder struct {
 	api.Params
 }
 
-// NewAdsUpdateCampaignsBuilder func
+// NewAdsUpdateCampaignsBuilder func.
 func NewAdsUpdateCampaignsBuilder() *AdsUpdateCampaignsBuilder {
 	return &AdsUpdateCampaignsBuilder{api.Params{}}
 }
@@ -1256,7 +1256,7 @@ func (b *AdsUpdateCampaignsBuilder) Data(v string) *AdsUpdateCampaignsBuilder {
 	return b
 }
 
-// AdsUpdateClientsBuilder builder
+// AdsUpdateClientsBuilder builder.
 //
 // Edits clients of an advertising agency.
 //
@@ -1265,7 +1265,7 @@ type AdsUpdateClientsBuilder struct {
 	api.Params
 }
 
-// NewAdsUpdateClientsBuilder func
+// NewAdsUpdateClientsBuilder func.
 func NewAdsUpdateClientsBuilder() *AdsUpdateClientsBuilder {
 	return &AdsUpdateClientsBuilder{api.Params{}}
 }
@@ -1283,7 +1283,7 @@ func (b *AdsUpdateClientsBuilder) Data(v string) *AdsUpdateClientsBuilder {
 	return b
 }
 
-// AdsUpdateTargetGroupBuilder builder
+// AdsUpdateTargetGroupBuilder builder.
 //
 // Edits a retarget group.
 //
@@ -1292,7 +1292,7 @@ type AdsUpdateTargetGroupBuilder struct {
 	api.Params
 }
 
-// NewAdsUpdateTargetGroupBuilder func
+// NewAdsUpdateTargetGroupBuilder func.
 func NewAdsUpdateTargetGroupBuilder() *AdsUpdateTargetGroupBuilder {
 	return &AdsUpdateTargetGroupBuilder{api.Params{}}
 }
@@ -1338,13 +1338,13 @@ func (b *AdsUpdateTargetGroupBuilder) Lifetime(v int) *AdsUpdateTargetGroupBuild
 	return b
 }
 
-// TargetPixelID parameter
+// TargetPixelID parameter.
 func (b *AdsUpdateTargetGroupBuilder) TargetPixelID(v int) *AdsUpdateTargetGroupBuilder {
 	b.Params["target_pixel_id"] = v
 	return b
 }
 
-// TargetPixelRules parameter
+// TargetPixelRules parameter.
 func (b *AdsUpdateTargetGroupBuilder) TargetPixelRules(v string) *AdsUpdateTargetGroupBuilder {
 	b.Params["target_pixel_rules"] = v
 	return b

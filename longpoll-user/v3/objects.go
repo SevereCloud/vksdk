@@ -5,9 +5,9 @@ import (
 	"time"
 )
 
-// MessageFlagsChange struct for event with code 1
+// MessageFlagsChange struct for event with code 1.
 //
-// Replace message flags
+// Replace message flags.
 type MessageFlagsChange struct {
 	MessageID int
 	Flags     MessageFlag
@@ -30,9 +30,9 @@ func (result *MessageFlagsChange) parse(i []interface{}) error {
 	return result.ExtraFields.parseExtraFields(i)
 }
 
-// MessageFlagsSet struct for event with code 2
+// MessageFlagsSet struct for event with code 2.
 //
-// Install message flags
+// Install message flags.
 type MessageFlagsSet struct {
 	MessageID int
 	Mask      MessageFlag
@@ -55,9 +55,9 @@ func (result *MessageFlagsSet) parse(i []interface{}) error {
 	return result.ExtraFields.parseExtraFields(i)
 }
 
-// MessageFlagsReset struct for event with code 3
+// MessageFlagsReset struct for event with code 3.
 //
-// Reset message flags
+// Reset message flags.
 type MessageFlagsReset struct {
 	MessageID int
 	Mask      MessageFlag
@@ -80,9 +80,9 @@ func (result *MessageFlagsReset) parse(i []interface{}) error {
 	return result.ExtraFields.parseExtraFields(i)
 }
 
-// NewMessage struct for event with code 4
+// NewMessage struct for event with code 4.
 //
-// Add a new message
+// Add a new message.
 type NewMessage struct {
 	MessageID int
 	Flags     MessageFlag
@@ -105,7 +105,7 @@ func (result *NewMessage) parse(i []interface{}) error {
 	return result.ExtraFields.parseExtraFields(i)
 }
 
-// EditMessage struct for event with code 5
+// EditMessage struct for event with code 5.
 //
 // Edit message.
 type EditMessage struct {
@@ -158,9 +158,9 @@ func (result *EditMessage) parse(i []interface{}) error {
 	return nil
 }
 
-// ReadInMessages struct for event with code 6
+// ReadInMessages struct for event with code 6.
 //
-// Read all incoming messages received before message with LocalID
+// Read all incoming messages received before message with LocalID.
 type ReadInMessages struct {
 	PeerID  int
 	LocalID int
@@ -182,9 +182,9 @@ func (result *ReadInMessages) parse(i []interface{}) error {
 	return nil
 }
 
-// ReadOutMessages struct for event with code 7
+// ReadOutMessages struct for event with code 7.
 //
-// Read all outgoing messages sent before message with LocalID
+// Read all outgoing messages sent before message with LocalID.
 type ReadOutMessages struct {
 	PeerID  int
 	LocalID int
@@ -206,9 +206,9 @@ func (result *ReadOutMessages) parse(i []interface{}) error {
 	return nil
 }
 
-// FriendBecameOnline struct for event with code 8
+// FriendBecameOnline struct for event with code 8.
 //
-// A friend UserID is online
+// A friend UserID is online.
 type FriendBecameOnline struct {
 	UserID    int
 	Extra     int
@@ -235,9 +235,9 @@ func (result *FriendBecameOnline) parse(i []interface{}) error {
 	return nil
 }
 
-// FriendBecameOffline struct for event with code 9
+// FriendBecameOffline struct for event with code 9.
 //
-// A friend UserID is offline
+// A friend UserID is offline.
 type FriendBecameOffline struct {
 	UserID    int
 	Flags     int
@@ -264,9 +264,9 @@ func (result *FriendBecameOffline) parse(i []interface{}) error {
 	return nil
 }
 
-// DialogFlagsReset struct for event with code 10
+// DialogFlagsReset struct for event with code 10.
 //
-// Reset dialog flags
+// Reset dialog flags.
 type DialogFlagsReset struct {
 	PeerID int
 	Mask   DialogFlag
@@ -288,9 +288,9 @@ func (result *DialogFlagsReset) parse(i []interface{}) error {
 	return nil
 }
 
-// DialogFlagsReplace struct for event with code 11
+// DialogFlagsReplace struct for event with code 11.
 //
-// Replace dialog flags
+// Replace dialog flags.
 type DialogFlagsReplace struct {
 	PeerID int
 	Flags  DialogFlag
@@ -312,9 +312,9 @@ func (result *DialogFlagsReplace) parse(i []interface{}) error {
 	return nil
 }
 
-// DialogsFlagsSet struct for event with code 12
+// DialogsFlagsSet struct for event with code 12.
 //
-// Install dialog flags
+// Install dialog flags.
 type DialogsFlagsSet struct {
 	PeerID int
 	Mask   DialogFlag
@@ -336,9 +336,9 @@ func (result *DialogsFlagsSet) parse(i []interface{}) error {
 	return nil
 }
 
-// DeleteMessages struct for event with code 13
+// DeleteMessages struct for event with code 13.
 //
-// Deletings all messages in PeerID dialogs with IDs up to LocalID
+// Deletings all messages in PeerID dialogs with IDs up to LocalID.
 type DeleteMessages struct {
 	PeerID  int
 	LocalID int
@@ -360,9 +360,9 @@ func (result *DeleteMessages) parse(i []interface{}) error {
 	return nil
 }
 
-// RestoreDeletedMessages struct for event with code 14
+// RestoreDeletedMessages struct for event with code 14.
 //
-// Restore message
+// Restore message.
 type RestoreDeletedMessages struct {
 	PeerID  int
 	LocalID int
@@ -384,7 +384,7 @@ func (result *RestoreDeletedMessages) parse(i []interface{}) error {
 	return nil
 }
 
-// ChatParamsChange struct for event with code 51
+// ChatParamsChange struct for event with code 51.
 //
 // One of the parameters (content, topic) of the conversation ChatID was
 // changed. Self — 1 or 0 (whether the change was caused by the user).
@@ -411,9 +411,9 @@ func (result *ChatParamsChange) parse(i []interface{}) error {
 	return nil
 }
 
-// ChatInfoChange struct for event with code 52
+// ChatInfoChange struct for event with code 52.
 //
-// Chat info change
+// Chat info change.
 type ChatInfoChange struct {
 	TypeID TypeID
 	PeerID int
@@ -440,9 +440,9 @@ func (result *ChatInfoChange) parse(i []interface{}) error {
 	return nil
 }
 
-// UserTyping struct for event with code 61
+// UserTyping struct for event with code 61.
 //
-// User UserID began typing in the conversation ChatID
+// User UserID began typing in the conversation ChatID.
 type UserTyping struct {
 	UserID int
 	Flags  int
@@ -464,9 +464,9 @@ func (result *UserTyping) parse(i []interface{}) error {
 	return nil
 }
 
-// UserTypingChat struct for event with code 62
+// UserTypingChat struct for event with code 62.
 //
-// User UserID began typing in the conversation ChatID
+// User UserID began typing in the conversation ChatID.
 type UserTypingChat struct {
 	UserID int
 	ChatID int
@@ -488,7 +488,7 @@ func (result *UserTypingChat) parse(i []interface{}) error {
 	return nil
 }
 
-// UsersTyping struct for event with code 63
+// UsersTyping struct for event with code 63.
 type UsersTyping struct {
 	UserIDs    []int
 	PeerID     int
@@ -523,7 +523,7 @@ func (result *UsersTyping) parse(i []interface{}) error {
 	return nil
 }
 
-// UsersRecordingAudioMessage struct for event with code 64
+// UsersRecordingAudioMessage struct for event with code 64.
 type UsersRecordingAudioMessage struct {
 	PeerID     int
 	UserIDs    []int
@@ -558,7 +558,7 @@ func (result *UsersRecordingAudioMessage) parse(i []interface{}) error {
 	return nil
 }
 
-// UserCall struct for event with code 70
+// UserCall struct for event with code 70.
 type UserCall struct {
 	UserID int
 	CallID int
@@ -580,7 +580,7 @@ func (result *UserCall) parse(i []interface{}) error {
 	return nil
 }
 
-// CounterChange struct for event with code 80
+// CounterChange struct for event with code 80.
 type CounterChange struct {
 	Count int
 }
@@ -597,14 +597,14 @@ func (result *CounterChange) parse(i []interface{}) error {
 	return nil
 }
 
-// NotificationSettingsChange struct for event with code 114
+// NotificationSettingsChange struct for event with code 114.
 type NotificationSettingsChange struct {
 	PeerID        int
 	Sound         bool
 	DisabledUntil int
 }
 
-// ParseMode8 should be called if ExtendedEvents flag set
+// ParseMode8 should be called if ExtendedEvents flag set.
 func (result *NotificationSettingsChange) parseMode8(i []interface{}) error {
 	if len(i) < 2 {
 		return fmt.Errorf(errFmtTooShortArray, "NotificationSettingsChange", 2, len(i))

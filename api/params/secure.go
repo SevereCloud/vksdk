@@ -4,21 +4,21 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// SecureAddAppEventBuilder builder
+// SecureAddAppEventBuilder builder.
 //
-// Adds user activity information to an application
+// Adds user activity information to an application.
 //
 // https://vk.com/dev/secure.addAppEvent
 type SecureAddAppEventBuilder struct {
 	api.Params
 }
 
-// NewSecureAddAppEventBuilder func
+// NewSecureAddAppEventBuilder func.
 func NewSecureAddAppEventBuilder() *SecureAddAppEventBuilder {
 	return &SecureAddAppEventBuilder{api.Params{}}
 }
 
-// UserID ID of a user to save the data
+// UserID ID of a user to save the data.
 func (b *SecureAddAppEventBuilder) UserID(v int) *SecureAddAppEventBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -28,9 +28,9 @@ func (b *SecureAddAppEventBuilder) UserID(v int) *SecureAddAppEventBuilder {
 //
 // * 1 – level. Works similar to;
 //
-// * 2 – points, saves points amount/
+// * 2 – points, saves points amount.
 //
-// Any other value is for saving completed missions
+// Any other value is for saving completed missions.
 func (b *SecureAddAppEventBuilder) ActivityID(v int) *SecureAddAppEventBuilder {
 	b.Params["activity_id"] = v
 	return b
@@ -42,13 +42,13 @@ func (b *SecureAddAppEventBuilder) ActivityID(v int) *SecureAddAppEventBuilder {
 //
 // * 2 – number, current user's points amount.
 //
-// Any other value is ignored
+// Any other value is ignored.
 func (b *SecureAddAppEventBuilder) Value(v int) *SecureAddAppEventBuilder {
 	b.Params["value"] = v
 	return b
 }
 
-// SecureCheckTokenBuilder builder
+// SecureCheckTokenBuilder builder.
 //
 // Checks the user authentication in 'IFrame' and 'Flash' apps using the 'access_token' parameter.
 //
@@ -57,12 +57,12 @@ type SecureCheckTokenBuilder struct {
 	api.Params
 }
 
-// NewSecureCheckTokenBuilder func
+// NewSecureCheckTokenBuilder func.
 func NewSecureCheckTokenBuilder() *SecureCheckTokenBuilder {
 	return &SecureCheckTokenBuilder{api.Params{}}
 }
 
-// Token client 'access_token'
+// Token client 'access_token'.
 func (b *SecureCheckTokenBuilder) Token(v string) *SecureCheckTokenBuilder {
 	b.Params["token"] = v
 	return b
@@ -77,7 +77,7 @@ func (b *SecureCheckTokenBuilder) IP(v string) *SecureCheckTokenBuilder {
 	return b
 }
 
-// SecureGetSMSHistoryBuilder builder
+// SecureGetSMSHistoryBuilder builder.
 //
 // Shows a list of SMS notifications sent by the application using
 // [vk.com/dev/secure.sendSMSNotification|secure.sendSMSNotification] method.
@@ -87,12 +87,12 @@ type SecureGetSMSHistoryBuilder struct {
 	api.Params
 }
 
-// NewSecureGetSMSHistoryBuilder func
+// NewSecureGetSMSHistoryBuilder func.
 func NewSecureGetSMSHistoryBuilder() *SecureGetSMSHistoryBuilder {
 	return &SecureGetSMSHistoryBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *SecureGetSMSHistoryBuilder) UserID(v int) *SecureGetSMSHistoryBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -116,7 +116,7 @@ func (b *SecureGetSMSHistoryBuilder) Limit(v int) *SecureGetSMSHistoryBuilder {
 	return b
 }
 
-// SecureGetTransactionsHistoryBuilder builder
+// SecureGetTransactionsHistoryBuilder builder.
 //
 // Shows history of votes transaction between users and the application.
 //
@@ -125,48 +125,48 @@ type SecureGetTransactionsHistoryBuilder struct {
 	api.Params
 }
 
-// NewSecureGetTransactionsHistoryBuilder func
+// NewSecureGetTransactionsHistoryBuilder func.
 func NewSecureGetTransactionsHistoryBuilder() *SecureGetTransactionsHistoryBuilder {
 	return &SecureGetTransactionsHistoryBuilder{api.Params{}}
 }
 
-// Type parameter
+// Type parameter.
 func (b *SecureGetTransactionsHistoryBuilder) Type(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["type"] = v
 	return b
 }
 
-// UIDFrom parameter
+// UIDFrom parameter.
 func (b *SecureGetTransactionsHistoryBuilder) UIDFrom(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["uid_from"] = v
 	return b
 }
 
-// UIDTo parameter
+// UIDTo parameter.
 func (b *SecureGetTransactionsHistoryBuilder) UIDTo(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["uid_to"] = v
 	return b
 }
 
-// DateFrom parameter
+// DateFrom parameter.
 func (b *SecureGetTransactionsHistoryBuilder) DateFrom(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["date_from"] = v
 	return b
 }
 
-// DateTo parameter
+// DateTo parameter.
 func (b *SecureGetTransactionsHistoryBuilder) DateTo(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["date_to"] = v
 	return b
 }
 
-// Limit parameter
+// Limit parameter.
 func (b *SecureGetTransactionsHistoryBuilder) Limit(v int) *SecureGetTransactionsHistoryBuilder {
 	b.Params["limit"] = v
 	return b
 }
 
-// SecureGetUserLevelBuilder builder
+// SecureGetUserLevelBuilder builder.
 //
 // Returns one of the previously set game levels of one or more users in the application.
 //
@@ -175,44 +175,44 @@ type SecureGetUserLevelBuilder struct {
 	api.Params
 }
 
-// NewSecureGetUserLevelBuilder func
+// NewSecureGetUserLevelBuilder func.
 func NewSecureGetUserLevelBuilder() *SecureGetUserLevelBuilder {
 	return &SecureGetUserLevelBuilder{api.Params{}}
 }
 
-// UserIDs parameter
+// UserIDs parameter.
 func (b *SecureGetUserLevelBuilder) UserIDs(v []int) *SecureGetUserLevelBuilder {
 	b.Params["user_ids"] = v
 	return b
 }
 
-// SecureGiveEventStickerBuilder builder
+// SecureGiveEventStickerBuilder builder.
 //
-// Opens the game achievement and gives the user a sticker
+// Opens the game achievement and gives the user a sticker.
 //
 // https://vk.com/dev/secure.giveEventSticker
 type SecureGiveEventStickerBuilder struct {
 	api.Params
 }
 
-// NewSecureGiveEventStickerBuilder func
+// NewSecureGiveEventStickerBuilder func.
 func NewSecureGiveEventStickerBuilder() *SecureGiveEventStickerBuilder {
 	return &SecureGiveEventStickerBuilder{api.Params{}}
 }
 
-// UserIDs parameter
+// UserIDs parameter.
 func (b *SecureGiveEventStickerBuilder) UserIDs(v []int) *SecureGiveEventStickerBuilder {
 	b.Params["user_ids"] = v
 	return b
 }
 
-// AchievementID parameter
+// AchievementID parameter.
 func (b *SecureGiveEventStickerBuilder) AchievementID(v int) *SecureGiveEventStickerBuilder {
 	b.Params["achievement_id"] = v
 	return b
 }
 
-// SecureSendNotificationBuilder builder
+// SecureSendNotificationBuilder builder.
 //
 // Sends notification to the user.
 //
@@ -221,18 +221,18 @@ type SecureSendNotificationBuilder struct {
 	api.Params
 }
 
-// NewSecureSendNotificationBuilder func
+// NewSecureSendNotificationBuilder func.
 func NewSecureSendNotificationBuilder() *SecureSendNotificationBuilder {
 	return &SecureSendNotificationBuilder{api.Params{}}
 }
 
-// UserIDs parameter
+// UserIDs parameter.
 func (b *SecureSendNotificationBuilder) UserIDs(v []int) *SecureSendNotificationBuilder {
 	b.Params["user_ids"] = v
 	return b
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *SecureSendNotificationBuilder) UserID(v int) *SecureSendNotificationBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -244,7 +244,7 @@ func (b *SecureSendNotificationBuilder) Message(v string) *SecureSendNotificatio
 	return b
 }
 
-// SecureSendSMSNotificationBuilder builder
+// SecureSendSMSNotificationBuilder builder.
 //
 // Sends 'SMS' notification to a user's mobile device.
 //
@@ -253,7 +253,7 @@ type SecureSendSMSNotificationBuilder struct {
 	api.Params
 }
 
-// NewSecureSendSMSNotificationBuilder func
+// NewSecureSendSMSNotificationBuilder func.
 func NewSecureSendSMSNotificationBuilder() *SecureSendSMSNotificationBuilder {
 	return &SecureSendSMSNotificationBuilder{api.Params{}}
 }
@@ -272,7 +272,7 @@ func (b *SecureSendSMSNotificationBuilder) Message(v string) *SecureSendSMSNotif
 	return b
 }
 
-// SecureSetCounterBuilder builder
+// SecureSetCounterBuilder builder.
 //
 // Sets a counter which is shown to the user in bold in the left menu.
 //
@@ -281,18 +281,18 @@ type SecureSetCounterBuilder struct {
 	api.Params
 }
 
-// NewSecureSetCounterBuilder func
+// NewSecureSetCounterBuilder func.
 func NewSecureSetCounterBuilder() *SecureSetCounterBuilder {
 	return &SecureSetCounterBuilder{api.Params{}}
 }
 
-// Counters parameter
+// Counters parameter.
 func (b *SecureSetCounterBuilder) Counters(v []string) *SecureSetCounterBuilder {
 	b.Params["counters"] = v
 	return b
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *SecureSetCounterBuilder) UserID(v int) *SecureSetCounterBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -304,7 +304,7 @@ func (b *SecureSetCounterBuilder) Counter(v int) *SecureSetCounterBuilder {
 	return b
 }
 
-// Increment parameter
+// Increment parameter.
 func (b *SecureSetCounterBuilder) Increment(v bool) *SecureSetCounterBuilder {
 	b.Params["increment"] = v
 	return b

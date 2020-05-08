@@ -4,37 +4,37 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// OrdersCancelSubscriptionBuilder builder
+// OrdersCancelSubscriptionBuilder builder.
 //
 // https://vk.com/dev/orders.cancelSubscription
 type OrdersCancelSubscriptionBuilder struct {
 	api.Params
 }
 
-// NewOrdersCancelSubscriptionBuilder func
+// NewOrdersCancelSubscriptionBuilder func.
 func NewOrdersCancelSubscriptionBuilder() *OrdersCancelSubscriptionBuilder {
 	return &OrdersCancelSubscriptionBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *OrdersCancelSubscriptionBuilder) UserID(v int) *OrdersCancelSubscriptionBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// SubscriptionID parameter
+// SubscriptionID parameter.
 func (b *OrdersCancelSubscriptionBuilder) SubscriptionID(v int) *OrdersCancelSubscriptionBuilder {
 	b.Params["subscription_id"] = v
 	return b
 }
 
-// PendingCancel parameter
+// PendingCancel parameter.
 func (b *OrdersCancelSubscriptionBuilder) PendingCancel(v bool) *OrdersCancelSubscriptionBuilder {
 	b.Params["pending_cancel"] = v
 	return b
 }
 
-// OrdersChangeStateBuilder builder
+// OrdersChangeStateBuilder builder.
 //
 // Changes order status.
 //
@@ -43,7 +43,7 @@ type OrdersChangeStateBuilder struct {
 	api.Params
 }
 
-// NewOrdersChangeStateBuilder func
+// NewOrdersChangeStateBuilder func.
 func NewOrdersChangeStateBuilder() *OrdersChangeStateBuilder {
 	return &OrdersChangeStateBuilder{api.Params{}}
 }
@@ -79,7 +79,7 @@ func (b *OrdersChangeStateBuilder) TestMode(v bool) *OrdersChangeStateBuilder {
 	return b
 }
 
-// OrdersGetBuilder builder
+// OrdersGetBuilder builder.
 //
 // Returns a list of orders.
 //
@@ -88,12 +88,12 @@ type OrdersGetBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetBuilder func
+// NewOrdersGetBuilder func.
 func NewOrdersGetBuilder() *OrdersGetBuilder {
 	return &OrdersGetBuilder{api.Params{}}
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *OrdersGetBuilder) Offset(v int) *OrdersGetBuilder {
 	b.Params["offset"] = v
 	return b
@@ -111,31 +111,31 @@ func (b *OrdersGetBuilder) TestMode(v bool) *OrdersGetBuilder {
 	return b
 }
 
-// OrdersGetAmountBuilder builder
+// OrdersGetAmountBuilder builder.
 //
 // https://vk.com/dev/orders.getAmount
 type OrdersGetAmountBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetAmountBuilder func
+// NewOrdersGetAmountBuilder func.
 func NewOrdersGetAmountBuilder() *OrdersGetAmountBuilder {
 	return &OrdersGetAmountBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *OrdersGetAmountBuilder) UserID(v int) *OrdersGetAmountBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Votes parameter
+// Votes parameter.
 func (b *OrdersGetAmountBuilder) Votes(v []string) *OrdersGetAmountBuilder {
 	b.Params["votes"] = v
 	return b
 }
 
-// OrdersGetByIDBuilder builder
+// OrdersGetByIDBuilder builder.
 //
 // Returns information about orders by their IDs.
 //
@@ -144,7 +144,7 @@ type OrdersGetByIDBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetByIDBuilder func
+// NewOrdersGetByIDBuilder func.
 func NewOrdersGetByIDBuilder() *OrdersGetByIDBuilder {
 	return &OrdersGetByIDBuilder{api.Params{}}
 }
@@ -167,73 +167,73 @@ func (b *OrdersGetByIDBuilder) TestMode(v bool) *OrdersGetByIDBuilder {
 	return b
 }
 
-// OrdersGetUserSubscriptionByIDBuilder builder
+// OrdersGetUserSubscriptionByIDBuilder builder.
 //
 // https://vk.com/dev/orders.getUserSubscriptionById
 type OrdersGetUserSubscriptionByIDBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetUserSubscriptionByIDBuilder func
+// NewOrdersGetUserSubscriptionByIDBuilder func.
 func NewOrdersGetUserSubscriptionByIDBuilder() *OrdersGetUserSubscriptionByIDBuilder {
 	return &OrdersGetUserSubscriptionByIDBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *OrdersGetUserSubscriptionByIDBuilder) UserID(v int) *OrdersGetUserSubscriptionByIDBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// SubscriptionID parameter
+// SubscriptionID parameter.
 func (b *OrdersGetUserSubscriptionByIDBuilder) SubscriptionID(v int) *OrdersGetUserSubscriptionByIDBuilder {
 	b.Params["subscription_id"] = v
 	return b
 }
 
-// OrdersGetUserSubscriptionsBuilder builder
+// OrdersGetUserSubscriptionsBuilder builder.
 //
 // https://vk.com/dev/orders.getUserSubscriptions
 type OrdersGetUserSubscriptionsBuilder struct {
 	api.Params
 }
 
-// NewOrdersGetUserSubscriptionsBuilder func
+// NewOrdersGetUserSubscriptionsBuilder func.
 func NewOrdersGetUserSubscriptionsBuilder() *OrdersGetUserSubscriptionsBuilder {
 	return &OrdersGetUserSubscriptionsBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *OrdersGetUserSubscriptionsBuilder) UserID(v int) *OrdersGetUserSubscriptionsBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// OrdersUpdateSubscriptionBuilder builder
+// OrdersUpdateSubscriptionBuilder builder.
 //
 // https://vk.com/dev/orders.updateSubscription
 type OrdersUpdateSubscriptionBuilder struct {
 	api.Params
 }
 
-// NewOrdersUpdateSubscriptionBuilder func
+// NewOrdersUpdateSubscriptionBuilder func.
 func NewOrdersUpdateSubscriptionBuilder() *OrdersUpdateSubscriptionBuilder {
 	return &OrdersUpdateSubscriptionBuilder{api.Params{}}
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *OrdersUpdateSubscriptionBuilder) UserID(v int) *OrdersUpdateSubscriptionBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// SubscriptionID parameter
+// SubscriptionID parameter.
 func (b *OrdersUpdateSubscriptionBuilder) SubscriptionID(v int) *OrdersUpdateSubscriptionBuilder {
 	b.Params["subscription_id"] = v
 	return b
 }
 
-// Price parameter
+// Price parameter.
 func (b *OrdersUpdateSubscriptionBuilder) Price(v int) *OrdersUpdateSubscriptionBuilder {
 	b.Params["price"] = v
 	return b

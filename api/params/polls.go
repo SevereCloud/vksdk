@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// PollsAddVoteBuilder builder
+// PollsAddVoteBuilder builder.
 //
 // Adds the current user's vote to the selected answer in the poll.
 //
@@ -13,7 +13,7 @@ type PollsAddVoteBuilder struct {
 	api.Params
 }
 
-// NewPollsAddVoteBuilder func
+// NewPollsAddVoteBuilder func.
 func NewPollsAddVoteBuilder() *PollsAddVoteBuilder {
 	return &PollsAddVoteBuilder{api.Params{}}
 }
@@ -30,19 +30,19 @@ func (b *PollsAddVoteBuilder) PollID(v int) *PollsAddVoteBuilder {
 	return b
 }
 
-// AnswerIDs parameter
+// AnswerIDs parameter.
 func (b *PollsAddVoteBuilder) AnswerIDs(v []int) *PollsAddVoteBuilder {
 	b.Params["answer_ids"] = v
 	return b
 }
 
-// IsBoard parameter
+// IsBoard parameter.
 func (b *PollsAddVoteBuilder) IsBoard(v bool) *PollsAddVoteBuilder {
 	b.Params["is_board"] = v
 	return b
 }
 
-// PollsCreateBuilder builder
+// PollsCreateBuilder builder.
 //
 // Creates polls that can be attached to the users' or communities' posts.
 //
@@ -51,12 +51,12 @@ type PollsCreateBuilder struct {
 	api.Params
 }
 
-// NewPollsCreateBuilder func
+// NewPollsCreateBuilder func.
 func NewPollsCreateBuilder() *PollsCreateBuilder {
 	return &PollsCreateBuilder{api.Params{}}
 }
 
-// Question question text
+// Question question text.
 func (b *PollsCreateBuilder) Question(v string) *PollsCreateBuilder {
 	b.Params["question"] = v
 	return b
@@ -69,13 +69,13 @@ func (b *PollsCreateBuilder) IsAnonymous(v bool) *PollsCreateBuilder {
 	return b
 }
 
-// IsMultiple parameter
+// IsMultiple parameter.
 func (b *PollsCreateBuilder) IsMultiple(v bool) *PollsCreateBuilder {
 	b.Params["is_multiple"] = v
 	return b
 }
 
-// EndDate parameter
+// EndDate parameter.
 func (b *PollsCreateBuilder) EndDate(v int) *PollsCreateBuilder {
 	b.Params["end_date"] = v
 	return b
@@ -94,19 +94,19 @@ func (b *PollsCreateBuilder) AddAnswers(v string) *PollsCreateBuilder {
 	return b
 }
 
-// PhotoID parameter
+// PhotoID parameter.
 func (b *PollsCreateBuilder) PhotoID(v int) *PollsCreateBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
-// BackgroundID parameter
+// BackgroundID parameter.
 func (b *PollsCreateBuilder) BackgroundID(v string) *PollsCreateBuilder {
 	b.Params["background_id"] = v
 	return b
 }
 
-// PollsDeleteVoteBuilder builder
+// PollsDeleteVoteBuilder builder.
 //
 // Deletes the current user's vote from the selected answer in the poll.
 //
@@ -115,7 +115,7 @@ type PollsDeleteVoteBuilder struct {
 	api.Params
 }
 
-// NewPollsDeleteVoteBuilder func
+// NewPollsDeleteVoteBuilder func.
 func NewPollsDeleteVoteBuilder() *PollsDeleteVoteBuilder {
 	return &PollsDeleteVoteBuilder{api.Params{}}
 }
@@ -138,82 +138,82 @@ func (b *PollsDeleteVoteBuilder) AnswerID(v int) *PollsDeleteVoteBuilder {
 	return b
 }
 
-// IsBoard parameter
+// IsBoard parameter.
 func (b *PollsDeleteVoteBuilder) IsBoard(v bool) *PollsDeleteVoteBuilder {
 	b.Params["is_board"] = v
 	return b
 }
 
-// PollsEditBuilder builder
+// PollsEditBuilder builder.
 //
-// Edits created polls
+// Edits created polls.
 //
 // https://vk.com/dev/polls.edit
 type PollsEditBuilder struct {
 	api.Params
 }
 
-// NewPollsEditBuilder func
+// NewPollsEditBuilder func.
 func NewPollsEditBuilder() *PollsEditBuilder {
 	return &PollsEditBuilder{api.Params{}}
 }
 
-// OwnerID poll owner id
+// OwnerID poll owner id.
 func (b *PollsEditBuilder) OwnerID(v int) *PollsEditBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// PollID edited poll's id
+// PollID edited poll's id.
 func (b *PollsEditBuilder) PollID(v int) *PollsEditBuilder {
 	b.Params["poll_id"] = v
 	return b
 }
 
-// Question new question text
+// Question new question text.
 func (b *PollsEditBuilder) Question(v string) *PollsEditBuilder {
 	b.Params["question"] = v
 	return b
 }
 
-// AddAnswers answers list, for example: , "["yes","no","maybe"]"
+// AddAnswers answers list, for example: , "["yes","no","maybe"]".
 func (b *PollsEditBuilder) AddAnswers(v string) *PollsEditBuilder {
 	b.Params["add_answers"] = v
 	return b
 }
 
 // EditAnswers object containing answers that need to be edited,, key – answer id, value – new answer text.
-// Example: {"382967099":"option1", "382967103":"option2"}"
+// Example: {"382967099":"option1", "382967103":"option2"}".
 func (b *PollsEditBuilder) EditAnswers(v string) *PollsEditBuilder {
 	b.Params["edit_answers"] = v
 	return b
 }
 
-// DeleteAnswers list of answer ids to be deleted. For example: "[382967099, 382967103]"
+// DeleteAnswers list of answer ids to be deleted. For example: "[382967099, 382967103]".
 func (b *PollsEditBuilder) DeleteAnswers(v string) *PollsEditBuilder {
 	b.Params["delete_answers"] = v
 	return b
 }
 
-// EndDate parameter
+// EndDate parameter.
 func (b *PollsEditBuilder) EndDate(v int) *PollsEditBuilder {
 	b.Params["end_date"] = v
 	return b
 }
 
-// PhotoID parameter
+// PhotoID parameter.
 func (b *PollsEditBuilder) PhotoID(v int) *PollsEditBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
-// BackgroundID parameter
+// BackgroundID parameter.
 func (b *PollsEditBuilder) BackgroundID(v string) *PollsEditBuilder {
 	b.Params["background_id"] = v
 	return b
 }
 
-// PollsGetByIDBuilder builder
+// PollsGetByIDBuilder builder.
 //
 // Returns detailed information about a poll by its ID.
 //
@@ -222,7 +222,7 @@ type PollsGetByIDBuilder struct {
 	api.Params
 }
 
-// NewPollsGetByIDBuilder func
+// NewPollsGetByIDBuilder func.
 func NewPollsGetByIDBuilder() *PollsGetByIDBuilder {
 	return &PollsGetByIDBuilder{api.Params{}}
 }
@@ -245,31 +245,31 @@ func (b *PollsGetByIDBuilder) PollID(v int) *PollsGetByIDBuilder {
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 func (b *PollsGetByIDBuilder) Extended(v bool) *PollsGetByIDBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// FriendsCount parameter
+// FriendsCount parameter.
 func (b *PollsGetByIDBuilder) FriendsCount(v int) *PollsGetByIDBuilder {
 	b.Params["friends_count"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *PollsGetByIDBuilder) Fields(v []string) *PollsGetByIDBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// NameCase parameter
+// NameCase parameter.
 func (b *PollsGetByIDBuilder) NameCase(v string) *PollsGetByIDBuilder {
 	b.Params["name_case"] = v
 	return b
 }
 
-// PollsGetVotersBuilder builder
+// PollsGetVotersBuilder builder.
 //
 // Returns a list of IDs of users who selected specific answers in the poll.
 //
@@ -278,7 +278,7 @@ type PollsGetVotersBuilder struct {
 	api.Params
 }
 
-// NewPollsGetVotersBuilder func
+// NewPollsGetVotersBuilder func.
 func NewPollsGetVotersBuilder() *PollsGetVotersBuilder {
 	return &PollsGetVotersBuilder{api.Params{}}
 }
@@ -301,26 +301,26 @@ func (b *PollsGetVotersBuilder) AnswerIDs(v []int) *PollsGetVotersBuilder {
 	return b
 }
 
-// IsBoard parameter
+// IsBoard parameter.
 func (b *PollsGetVotersBuilder) IsBoard(v bool) *PollsGetVotersBuilder {
 	b.Params["is_board"] = v
 	return b
 }
 
-// FriendsOnly '1' — to return only current user's friends, '0' — to return all users (default),
+// FriendsOnly '1' — to return only current user's friends, '0' — to return all users (default).
 func (b *PollsGetVotersBuilder) FriendsOnly(v bool) *PollsGetVotersBuilder {
 	b.Params["friends_only"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of voters. '0' — (default)
+// Offset Offset needed to return a specific subset of voters. '0' — (default).
 func (b *PollsGetVotersBuilder) Offset(v int) *PollsGetVotersBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
 // Count Number of user IDs to return (if the 'friends_only' parameter is not set, maximum '1000', otherwise '10').
-// '100' — (default)
+// '100' — (default).
 func (b *PollsGetVotersBuilder) Count(v int) *PollsGetVotersBuilder {
 	b.Params["count"] = v
 	return b
@@ -335,7 +335,7 @@ func (b *PollsGetVotersBuilder) Fields(v []string) *PollsGetVotersBuilder {
 }
 
 // NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive ,
-// 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional
+// 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional.
 func (b *PollsGetVotersBuilder) NameCase(v string) *PollsGetVotersBuilder {
 	b.Params["name_case"] = v
 	return b

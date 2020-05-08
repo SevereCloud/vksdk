@@ -6,7 +6,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-// ErrorType is the type of an error
+// ErrorType is the type of an error.
 type ErrorType int
 
 // Error codes. See https://vk.com/dev/streaming_api_docs_2
@@ -30,7 +30,7 @@ const (
 	MinusKeywordsOnly            ErrorType = 2008 // You can't use minus keywords only
 )
 
-// Error description
+// Error description.
 type Error struct {
 	Message   string `json:"message"`    // error message;
 	ErrorCode int    `json:"error_code"` // error code
@@ -42,32 +42,32 @@ type customError struct {
 	context       Error
 }
 
-// New creates a new customError
+// New creates a new customError.
 func (errorType ErrorType) New(msg string) error {
 	return customError{errorType: errorType, originalError: errors.New(msg)}
 }
 
-// Newf creates a new customError with formatted message
+// Newf creates a new customError with formatted message.
 func (errorType ErrorType) Newf(msg string, args ...interface{}) error {
 	return customError{errorType: errorType, originalError: fmt.Errorf(msg, args...)}
 }
 
-// Wrap creates a new wrapped error
+// Wrap creates a new wrapped error.
 func (errorType ErrorType) Wrap(err error, msg string) error {
 	return errorType.Wrapf(err, msg)
 }
 
-// Wrapf creates a new wrapped error with formatted message
+// Wrapf creates a new wrapped error with formatted message.
 func (errorType ErrorType) Wrapf(err error, msg string, args ...interface{}) error {
 	return customError{errorType: errorType, originalError: errors.Wrapf(err, msg, args...)}
 }
 
-// Error returns the mssage of a customError
+// Error returns the mssage of a customError.
 func (error customError) Error() string {
 	return error.originalError.Error()
 }
 
-// NewError creates a no type error
+// NewError creates a no type error.
 func NewError(vkErr Error) error {
 	if vkErr.ErrorCode == 0 {
 		return nil
@@ -80,12 +80,12 @@ func NewError(vkErr Error) error {
 	}
 }
 
-// Cause gives the original error
+// Cause gives the original error.
 func Cause(err error) error {
 	return errors.Cause(err)
 }
 
-// AddErrorContext adds a context to an error
+// AddErrorContext adds a context to an error.
 func AddErrorContext(err error, context Error) error {
 	if customErr, ok := err.(customError); ok {
 		return customError{
@@ -98,7 +98,7 @@ func AddErrorContext(err error, context Error) error {
 	return customError{errorType: NoType, originalError: err, context: context}
 }
 
-// GetErrorContext returns the error context
+// GetErrorContext returns the error context.
 func GetErrorContext(err error) Error {
 	if customErr, ok := err.(customError); ok {
 		return customErr.context
@@ -107,7 +107,7 @@ func GetErrorContext(err error) Error {
 	return Error{}
 }
 
-// GetType returns the error type
+// GetType returns the error type.
 func GetType(err error) ErrorType {
 	if customErr, ok := err.(customError); ok {
 		return customErr.errorType

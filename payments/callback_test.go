@@ -14,7 +14,7 @@ import (
 
 const secret = "secret"
 
-// response object
+// response object.
 type response struct {
 	Response interface{}    `json:"response,omitempty"`
 	Error    payments.Error `json:"error,omitempty"`

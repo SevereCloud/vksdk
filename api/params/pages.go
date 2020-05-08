@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// PagesClearCacheBuilder builder
+// PagesClearCacheBuilder builder.
 //
 // Allows to clear the cache of particular 'external' pages which may be attached to VK posts.
 //
@@ -13,18 +13,18 @@ type PagesClearCacheBuilder struct {
 	api.Params
 }
 
-// NewPagesClearCacheBuilder func
+// NewPagesClearCacheBuilder func.
 func NewPagesClearCacheBuilder() *PagesClearCacheBuilder {
 	return &PagesClearCacheBuilder{api.Params{}}
 }
 
-// URL Address of the page where you need to refesh the cached version
+// URL Address of the page where you need to refesh the cached version.
 func (b *PagesClearCacheBuilder) URL(v string) *PagesClearCacheBuilder {
 	b.Params["url"] = v
 	return b
 }
 
-// PagesGetBuilder builder
+// PagesGetBuilder builder.
 //
 // Returns information about a wiki page.
 //
@@ -33,7 +33,7 @@ type PagesGetBuilder struct {
 	api.Params
 }
 
-// NewPagesGetBuilder func
+// NewPagesGetBuilder func.
 func NewPagesGetBuilder() *PagesGetBuilder {
 	return &PagesGetBuilder{api.Params{}}
 }
@@ -50,13 +50,13 @@ func (b *PagesGetBuilder) PageID(v int) *PagesGetBuilder {
 	return b
 }
 
-// Global '1' — to return information about a global wiki page
+// Global '1' — to return information about a global wiki page.
 func (b *PagesGetBuilder) Global(v bool) *PagesGetBuilder {
 	b.Params["global"] = v
 	return b
 }
 
-// SitePreview '1' — resulting wiki page is a preview for the attached link
+// SitePreview '1' — resulting wiki page is a preview for the attached link.
 func (b *PagesGetBuilder) SitePreview(v bool) *PagesGetBuilder {
 	b.Params["site_preview"] = v
 	return b
@@ -68,19 +68,19 @@ func (b *PagesGetBuilder) Title(v string) *PagesGetBuilder {
 	return b
 }
 
-// NeedSource parameter
+// NeedSource parameter.
 func (b *PagesGetBuilder) NeedSource(v bool) *PagesGetBuilder {
 	b.Params["need_source"] = v
 	return b
 }
 
-// NeedHTML '1' — to return the page as HTML,
+// NeedHTML '1' — to return the page as HTML.
 func (b *PagesGetBuilder) NeedHTML(v bool) *PagesGetBuilder {
 	b.Params["need_html"] = v
 	return b
 }
 
-// PagesGetHistoryBuilder builder
+// PagesGetHistoryBuilder builder.
 //
 // Returns a list of all previous versions of a wiki page.
 //
@@ -89,7 +89,7 @@ type PagesGetHistoryBuilder struct {
 	api.Params
 }
 
-// NewPagesGetHistoryBuilder func
+// NewPagesGetHistoryBuilder func.
 func NewPagesGetHistoryBuilder() *PagesGetHistoryBuilder {
 	return &PagesGetHistoryBuilder{api.Params{}}
 }
@@ -106,13 +106,13 @@ func (b *PagesGetHistoryBuilder) GroupID(v int) *PagesGetHistoryBuilder {
 	return b
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *PagesGetHistoryBuilder) UserID(v int) *PagesGetHistoryBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// PagesGetTitlesBuilder builder
+// PagesGetTitlesBuilder builder.
 //
 // Returns a list of wiki pages in a group.
 //
@@ -121,7 +121,7 @@ type PagesGetTitlesBuilder struct {
 	api.Params
 }
 
-// NewPagesGetTitlesBuilder func
+// NewPagesGetTitlesBuilder func.
 func NewPagesGetTitlesBuilder() *PagesGetTitlesBuilder {
 	return &PagesGetTitlesBuilder{api.Params{}}
 }
@@ -132,7 +132,7 @@ func (b *PagesGetTitlesBuilder) GroupID(v int) *PagesGetTitlesBuilder {
 	return b
 }
 
-// PagesGetVersionBuilder builder
+// PagesGetVersionBuilder builder.
 //
 // Returns the text of one of the previous versions of a wiki page.
 //
@@ -141,12 +141,12 @@ type PagesGetVersionBuilder struct {
 	api.Params
 }
 
-// NewPagesGetVersionBuilder func
+// NewPagesGetVersionBuilder func.
 func NewPagesGetVersionBuilder() *PagesGetVersionBuilder {
 	return &PagesGetVersionBuilder{api.Params{}}
 }
 
-// VersionID parameter
+// VersionID parameter.
 func (b *PagesGetVersionBuilder) VersionID(v int) *PagesGetVersionBuilder {
 	b.Params["version_id"] = v
 	return b
@@ -158,19 +158,19 @@ func (b *PagesGetVersionBuilder) GroupID(v int) *PagesGetVersionBuilder {
 	return b
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *PagesGetVersionBuilder) UserID(v int) *PagesGetVersionBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// NeedHTML '1' — to return the page as HTML
+// NeedHTML '1' — to return the page as HTML.
 func (b *PagesGetVersionBuilder) NeedHTML(v bool) *PagesGetVersionBuilder {
 	b.Params["need_html"] = v
 	return b
 }
 
-// PagesParseWikiBuilder builder
+// PagesParseWikiBuilder builder.
 //
 // Returns HTML representation of the wiki markup.
 //
@@ -179,7 +179,7 @@ type PagesParseWikiBuilder struct {
 	api.Params
 }
 
-// NewPagesParseWikiBuilder func
+// NewPagesParseWikiBuilder func.
 func NewPagesParseWikiBuilder() *PagesParseWikiBuilder {
 	return &PagesParseWikiBuilder{api.Params{}}
 }
@@ -196,7 +196,7 @@ func (b *PagesParseWikiBuilder) GroupID(v int) *PagesParseWikiBuilder {
 	return b
 }
 
-// PagesSaveBuilder builder
+// PagesSaveBuilder builder.
 //
 // Saves the text of a wiki page.
 //
@@ -205,7 +205,7 @@ type PagesSaveBuilder struct {
 	api.Params
 }
 
-// NewPagesSaveBuilder func
+// NewPagesSaveBuilder func.
 func NewPagesSaveBuilder() *PagesSaveBuilder {
 	return &PagesSaveBuilder{api.Params{}}
 }
@@ -228,7 +228,7 @@ func (b *PagesSaveBuilder) GroupID(v int) *PagesSaveBuilder {
 	return b
 }
 
-// UserID User ID
+// UserID User ID.
 func (b *PagesSaveBuilder) UserID(v int) *PagesSaveBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -240,7 +240,7 @@ func (b *PagesSaveBuilder) Title(v string) *PagesSaveBuilder {
 	return b
 }
 
-// PagesSaveAccessBuilder builder
+// PagesSaveAccessBuilder builder.
 //
 // Saves modified read and edit access settings for a wiki page.
 //
@@ -249,7 +249,7 @@ type PagesSaveAccessBuilder struct {
 	api.Params
 }
 
-// NewPagesSaveAccessBuilder func
+// NewPagesSaveAccessBuilder func.
 func NewPagesSaveAccessBuilder() *PagesSaveAccessBuilder {
 	return &PagesSaveAccessBuilder{api.Params{}}
 }
@@ -266,7 +266,7 @@ func (b *PagesSaveAccessBuilder) GroupID(v int) *PagesSaveAccessBuilder {
 	return b
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *PagesSaveAccessBuilder) UserID(v int) *PagesSaveAccessBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -278,7 +278,7 @@ func (b *PagesSaveAccessBuilder) UserID(v int) *PagesSaveAccessBuilder {
 //
 // * 2 — all users can view the page;
 //
-// * 0 — only community managers
+// * 0 — only community managers.
 func (b *PagesSaveAccessBuilder) View(v int) *PagesSaveAccessBuilder {
 	b.Params["view"] = v
 	return b
@@ -290,7 +290,7 @@ func (b *PagesSaveAccessBuilder) View(v int) *PagesSaveAccessBuilder {
 //
 // * 2 — all users can edit the page;
 //
-// * 0 — only community managers
+// * 0 — only community managers.
 func (b *PagesSaveAccessBuilder) Edit(v int) *PagesSaveAccessBuilder {
 	b.Params["edit"] = v
 	return b

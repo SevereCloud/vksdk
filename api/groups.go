@@ -4,10 +4,10 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// GroupsAddAddressResponse struct
+// GroupsAddAddressResponse struct.
 type GroupsAddAddressResponse object.GroupsAddress
 
-// GroupsAddAddress groups.addAddress
+// GroupsAddAddress groups.addAddress.
 //
 // https://vk.com/dev/groups.addAddress
 func (vk *VK) GroupsAddAddress(params Params) (response GroupsAddAddressResponse, err error) {
@@ -15,7 +15,7 @@ func (vk *VK) GroupsAddAddress(params Params) (response GroupsAddAddressResponse
 	return
 }
 
-// GroupsAddCallbackServerResponse struct
+// GroupsAddCallbackServerResponse struct.
 type GroupsAddCallbackServerResponse struct {
 	ServerID int `json:"server_id"`
 }
@@ -28,7 +28,7 @@ func (vk *VK) GroupsAddCallbackServer(params Params) (response GroupsAddCallback
 	return
 }
 
-// GroupsAddLinkResponse struct
+// GroupsAddLinkResponse struct.
 type GroupsAddLinkResponse object.GroupsGroupLink
 
 // GroupsAddLink allows to add a link to the community.
@@ -55,7 +55,7 @@ func (vk *VK) GroupsBan(params Params) (response int, err error) {
 	return
 }
 
-// GroupsCreateResponse struct
+// GroupsCreateResponse struct.
 type GroupsCreateResponse object.GroupsGroup
 
 // GroupsCreate creates a new community.
@@ -66,7 +66,7 @@ func (vk *VK) GroupsCreate(params Params) (response GroupsCreateResponse, err er
 	return
 }
 
-// GroupsDeleteAddress groups.deleteAddress
+// GroupsDeleteAddress groups.deleteAddress.
 //
 // https://vk.com/dev/groups.deleteAddress
 func (vk *VK) GroupsDeleteAddress(params Params) (response int, err error) {
@@ -106,10 +106,10 @@ func (vk *VK) GroupsEdit(params Params) (response int, err error) {
 	return
 }
 
-// GroupsEditAddressResponse struct
+// GroupsEditAddressResponse struct.
 type GroupsEditAddressResponse object.GroupsAddress
 
-// GroupsEditAddress groups.editAddress
+// GroupsEditAddress groups.editAddress.
 //
 // https://vk.com/dev/groups.editAddress
 func (vk *VK) GroupsEditAddress(params Params) (response GroupsEditAddressResponse, err error) {
@@ -149,7 +149,7 @@ func (vk *VK) GroupsEnableOnline(params Params) (response int, err error) {
 	return
 }
 
-// GroupsGetResponse struct
+// GroupsGetResponse struct.
 type GroupsGetResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
@@ -167,7 +167,7 @@ func (vk *VK) GroupsGet(params Params) (response GroupsGetResponse, err error) {
 	return
 }
 
-// GroupsGetExtendedResponse struct
+// GroupsGetExtendedResponse struct.
 type GroupsGetExtendedResponse struct {
 	Count int                  `json:"count"`
 	Items []object.GroupsGroup `json:"items"`
@@ -185,13 +185,13 @@ func (vk *VK) GroupsGetExtended(params Params) (response GroupsGetExtendedRespon
 	return
 }
 
-// GroupsGetAddressesResponse struct
+// GroupsGetAddressesResponse struct.
 type GroupsGetAddressesResponse struct {
 	Count int                    `json:"count"`
 	Items []object.GroupsAddress `json:"items"`
 }
 
-// GroupsGetAddresses groups.getAddresses
+// GroupsGetAddresses groups.getAddresses.
 //
 // https://vk.com/dev/groups.getAddresses
 func (vk *VK) GroupsGetAddresses(params Params) (response GroupsGetAddressesResponse, err error) {
@@ -199,7 +199,7 @@ func (vk *VK) GroupsGetAddresses(params Params) (response GroupsGetAddressesResp
 	return
 }
 
-// GroupsGetBannedResponse struct
+// GroupsGetBannedResponse struct.
 type GroupsGetBannedResponse struct {
 	Count int                            `json:"count"`
 	Items []object.GroupsOwnerXtrBanInfo `json:"items"`
@@ -213,7 +213,7 @@ func (vk *VK) GroupsGetBanned(params Params) (response GroupsGetBannedResponse, 
 	return
 }
 
-// GroupsGetByIDResponse struct
+// GroupsGetByIDResponse struct.
 type GroupsGetByIDResponse []object.GroupsGroup
 
 // GroupsGetByID returns information about communities by their IDs.
@@ -224,7 +224,7 @@ func (vk *VK) GroupsGetByID(params Params) (response GroupsGetByIDResponse, err 
 	return
 }
 
-// GroupsGetCallbackConfirmationCodeResponse struct
+// GroupsGetCallbackConfirmationCodeResponse struct.
 type GroupsGetCallbackConfirmationCodeResponse struct {
 	Code string `json:"code"`
 }
@@ -237,7 +237,7 @@ func (vk *VK) GroupsGetCallbackConfirmationCode(params Params) (response GroupsG
 	return
 }
 
-// GroupsGetCallbackServersResponse struct
+// GroupsGetCallbackServersResponse struct.
 type GroupsGetCallbackServersResponse struct {
 	Count int                           `json:"count"`
 	Items []object.GroupsCallbackServer `json:"items"`
@@ -251,10 +251,11 @@ func (vk *VK) GroupsGetCallbackServers(params Params) (response GroupsGetCallbac
 	return
 }
 
-// GroupsGetCallbackSettingsResponse struct
+// GroupsGetCallbackSettingsResponse struct.
 type GroupsGetCallbackSettingsResponse object.GroupsCallbackSettings
 
 // GroupsGetCallbackSettings returns Callback API notifications settings.
+//
 // BUG(VK): MessageEdit always 0 https://vk.com/bugtracker?act=show&id=86762
 //
 // https://vk.com/dev/groups.getCallbackSettings
@@ -263,7 +264,7 @@ func (vk *VK) GroupsGetCallbackSettings(params Params) (response GroupsGetCallba
 	return
 }
 
-// GroupsGetCatalogResponse struct
+// GroupsGetCatalogResponse struct.
 type GroupsGetCatalogResponse struct {
 	Count int                  `json:"count"`
 	Items []object.GroupsGroup `json:"items"`
@@ -277,13 +278,13 @@ func (vk *VK) GroupsGetCatalog(params Params) (response GroupsGetCatalogResponse
 	return
 }
 
-// GroupsGetCatalogInfoResponse struct
+// GroupsGetCatalogInfoResponse struct.
 type GroupsGetCatalogInfoResponse struct {
 	Enabled    object.BaseBoolInt           `json:"enabled"`
 	Categories []object.GroupsGroupCategory `json:"categories"`
 }
 
-// GroupsGetCatalogInfo returns categories list for communities catalog
+// GroupsGetCatalogInfo returns categories list for communities catalog.
 //
 // extended=0
 //
@@ -295,13 +296,13 @@ func (vk *VK) GroupsGetCatalogInfo(params Params) (response GroupsGetCatalogInfo
 	return
 }
 
-// GroupsGetCatalogInfoExtendedResponse struct
+// GroupsGetCatalogInfoExtendedResponse struct.
 type GroupsGetCatalogInfoExtendedResponse struct {
 	Enabled    object.BaseBoolInt               `json:"enabled"`
 	Categories []object.GroupsGroupCategoryFull `json:"categories"`
 }
 
-// GroupsGetCatalogInfoExtended returns categories list for communities catalog
+// GroupsGetCatalogInfoExtended returns categories list for communities catalog.
 //
 // extended=1
 //
@@ -313,13 +314,13 @@ func (vk *VK) GroupsGetCatalogInfoExtended(params Params) (response GroupsGetCat
 	return
 }
 
-// GroupsGetInvitedUsersResponse struct
+// GroupsGetInvitedUsersResponse struct.
 type GroupsGetInvitedUsersResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`
 }
 
-// GroupsGetInvitedUsers returns invited users list of a community
+// GroupsGetInvitedUsers returns invited users list of a community.
 //
 // https://vk.com/dev/groups.getInvitedUsers
 func (vk *VK) GroupsGetInvitedUsers(params Params) (response GroupsGetInvitedUsersResponse, err error) {
@@ -327,7 +328,7 @@ func (vk *VK) GroupsGetInvitedUsers(params Params) (response GroupsGetInvitedUse
 	return
 }
 
-// GroupsGetInvitesResponse struct
+// GroupsGetInvitesResponse struct.
 type GroupsGetInvitesResponse struct {
 	Count int                              `json:"count"`
 	Items []object.GroupsGroupXtrInvitedBy `json:"items"`
@@ -341,7 +342,7 @@ func (vk *VK) GroupsGetInvites(params Params) (response GroupsGetInvitesResponse
 	return
 }
 
-// GroupsGetInvitesExtendedResponse struct
+// GroupsGetInvitesExtendedResponse struct.
 type GroupsGetInvitesExtendedResponse struct {
 	Count int                              `json:"count"`
 	Items []object.GroupsGroupXtrInvitedBy `json:"items"`
@@ -356,7 +357,7 @@ func (vk *VK) GroupsGetInvitesExtended(params Params) (response GroupsGetInvites
 	return
 }
 
-// GroupsGetLongPollServerResponse struct
+// GroupsGetLongPollServerResponse struct.
 type GroupsGetLongPollServerResponse object.GroupsLongPollServer
 
 // GroupsGetLongPollServer returns data for Bots Long Poll API connection.
@@ -367,7 +368,7 @@ func (vk *VK) GroupsGetLongPollServer(params Params) (response GroupsGetLongPoll
 	return
 }
 
-// GroupsGetLongPollSettingsResponse struct
+// GroupsGetLongPollSettingsResponse struct.
 type GroupsGetLongPollSettingsResponse object.GroupsLongPollSettings
 
 // GroupsGetLongPollSettings returns Bots Long Poll API settings.
@@ -378,13 +379,13 @@ func (vk *VK) GroupsGetLongPollSettings(params Params) (response GroupsGetLongPo
 	return
 }
 
-// GroupsGetMembersResponse struct
+// GroupsGetMembersResponse struct.
 type GroupsGetMembersResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
 }
 
-// GroupsGetMembers returns a list of community members
+// GroupsGetMembers returns a list of community members.
 //
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembers(params Params) (response GroupsGetMembersResponse, err error) {
@@ -395,13 +396,13 @@ func (vk *VK) GroupsGetMembers(params Params) (response GroupsGetMembersResponse
 	return
 }
 
-// GroupsGetMembersFieldsResponse struct
+// GroupsGetMembersFieldsResponse struct.
 type GroupsGetMembersFieldsResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`
 }
 
-// GroupsGetMembersFields returns a list of community members
+// GroupsGetMembersFields returns a list of community members.
 //
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembersFields(params Params) (response GroupsGetMembersFieldsResponse, err error) {
@@ -414,7 +415,7 @@ func (vk *VK) GroupsGetMembersFields(params Params) (response GroupsGetMembersFi
 	return
 }
 
-// GroupsGetMembersFilterManagersResponse struct
+// GroupsGetMembersFilterManagersResponse struct.
 type GroupsGetMembersFilterManagersResponse struct {
 	Count int                                   `json:"count"`
 	Items []object.GroupsMemberRoleXtrUsersUser `json:"items"`
@@ -431,7 +432,7 @@ func (vk *VK) GroupsGetMembersFilterManagers(params Params) (response GroupsGetM
 	return
 }
 
-// GroupsGetOnlineStatusResponse struct
+// GroupsGetOnlineStatusResponse struct.
 type GroupsGetOnlineStatusResponse object.GroupsOnlineStatus
 
 // GroupsGetOnlineStatus returns a community's online status.
@@ -442,7 +443,7 @@ func (vk *VK) GroupsGetOnlineStatus(params Params) (response GroupsGetOnlineStat
 	return
 }
 
-// GroupsGetRequestsResponse struct
+// GroupsGetRequestsResponse struct.
 type GroupsGetRequestsResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
@@ -458,7 +459,7 @@ func (vk *VK) GroupsGetRequests(params Params) (response GroupsGetRequestsRespon
 	return
 }
 
-// GroupsGetRequestsFieldsResponse struct
+// GroupsGetRequestsFieldsResponse struct.
 type GroupsGetRequestsFieldsResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`
@@ -477,7 +478,7 @@ func (vk *VK) GroupsGetRequestsFields(params Params) (response GroupsGetRequests
 	return
 }
 
-// GroupsGetSettingsResponse struct
+// GroupsGetSettingsResponse struct.
 type GroupsGetSettingsResponse object.GroupsGroupSettings
 
 // GroupsGetSettings returns community settings.
@@ -488,7 +489,7 @@ func (vk *VK) GroupsGetSettings(params Params) (response GroupsGetSettingsRespon
 	return
 }
 
-// GroupsGetTokenPermissionsResponse struct
+// GroupsGetTokenPermissionsResponse struct.
 type GroupsGetTokenPermissionsResponse object.GroupsTokenPermissions
 
 // GroupsGetTokenPermissions returns permissions scope for the community's access_token.
@@ -519,7 +520,7 @@ func (vk *VK) GroupsIsMember(params Params) (response int, err error) {
 	return
 }
 
-// GroupsIsMemberExtendedResponse struct
+// GroupsIsMemberExtendedResponse struct.
 type GroupsIsMemberExtendedResponse struct {
 	Invitation object.BaseBoolInt `json:"invitation"` // Information whether user has been invited to the group
 	Member     object.BaseBoolInt `json:"member"`     // Information whether user is a member of the group
@@ -540,7 +541,7 @@ func (vk *VK) GroupsIsMemberExtended(params Params) (response GroupsIsMemberExte
 	return
 }
 
-// GroupsIsMemberUserIDsExtendedResponse struct
+// GroupsIsMemberUserIDsExtendedResponse struct.
 type GroupsIsMemberUserIDsExtendedResponse []object.GroupsMemberStatusFull
 
 // GroupsIsMemberUserIDsExtended returns information specifying whether a user is a member of a community.
@@ -556,7 +557,7 @@ func (vk *VK) GroupsIsMemberUserIDsExtended(params Params) (response GroupsIsMem
 	return
 }
 
-// GroupsIsMemberUserIDsResponse struct
+// GroupsIsMemberUserIDsResponse struct.
 type GroupsIsMemberUserIDsResponse []object.GroupsMemberStatus
 
 // GroupsIsMemberUserIDs returns information specifying whether a user is a member of a community.
@@ -604,7 +605,7 @@ func (vk *VK) GroupsReorderLink(params Params) (response int, err error) {
 	return
 }
 
-// GroupsSearchResponse struct
+// GroupsSearchResponse struct.
 type GroupsSearchResponse struct {
 	Count int                  `json:"count"`
 	Items []object.GroupsGroup `json:"items"`
@@ -634,7 +635,7 @@ func (vk *VK) GroupsSetLongPollSettings(params Params) (response int, err error)
 	return
 }
 
-// GroupsSetSettings sets community settings
+// GroupsSetSettings sets community settings.
 //
 // https://vk.com/dev/groups.setSettings
 func (vk *VK) GroupsSetSettings(params Params) (response int, err error) {
@@ -642,7 +643,7 @@ func (vk *VK) GroupsSetSettings(params Params) (response int, err error) {
 	return
 }
 
-// GroupsUnban groups.unban
+// GroupsUnban groups.unban.
 //
 // https://vk.com/dev/groups.unban
 func (vk *VK) GroupsUnban(params Params) (response int, err error) {

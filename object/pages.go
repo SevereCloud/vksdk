@@ -1,13 +1,13 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// Pages privacy settings
+// Pages privacy settings.
 const (
 	PagesPrivacyCommunityManagers = iota // community managers only
 	PagesPrivacyCommunityMembers         // community members only
 	PagesPrivacyEveryone                 // everyone
 )
 
-// PagesWikipage struct
+// PagesWikipage struct.
 type PagesWikipage struct {
 	CreatorID   int    `json:"creator_id"`   // Page creator ID
 	CreatorName int    `json:"creator_name"` // Page creator name
@@ -21,7 +21,7 @@ type PagesWikipage struct {
 	WhoCanView  int    `json:"who_can_view"` // View settings of the page
 }
 
-// PagesWikipageFull struct
+// PagesWikipageFull struct.
 type PagesWikipageFull struct {
 	Created                  int         `json:"created"`                      // Date when the page has been created in Unixtime
 	CreatorID                int         `json:"creator_id"`                   // Page creator ID
@@ -40,9 +40,9 @@ type PagesWikipageFull struct {
 	WhoCanView               int         `json:"who_can_view"`                 // View settings of the page
 }
 
-// PagesWikipageHistory struct
+// PagesWikipageHistory struct.
 //
-// BUG(VK): https://vk.com/dev/pages.getHistory edited and date
+// BUG(VK): https://vk.com/dev/pages.getHistory edited and date.
 type PagesWikipageHistory struct {
 	Date       int    `json:"date"`        // Date when the page has been edited in Unixtime
 	EditorID   int    `json:"editor_id"`   // Last editor ID

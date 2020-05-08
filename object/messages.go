@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// MessagesAudioMessage struct
+// MessagesAudioMessage struct.
 type MessagesAudioMessage struct {
 	AccessKey string `json:"access_key"` // Access key for the document
 	ID        int    `json:"id"`         // Document ID
@@ -16,12 +16,12 @@ type MessagesAudioMessage struct {
 	Waveform  []int  `json:"waveform"`   // Sound visualisation
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (doc MessagesAudioMessage) ToAttachment() string {
 	return fmt.Sprintf("doc%d_%d", doc.OwnerID, doc.ID)
 }
 
-// MessagesGraffiti struct
+// MessagesGraffiti struct.
 type MessagesGraffiti struct {
 	AccessKey string `json:"access_key"` // Access key for the document
 	ID        int    `json:"id"`         // Document ID
@@ -31,12 +31,12 @@ type MessagesGraffiti struct {
 	Height    int    `json:"height"`     // Graffiti height
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (doc MessagesGraffiti) ToAttachment() string {
 	return fmt.Sprintf("doc%d_%d", doc.OwnerID, doc.ID)
 }
 
-// MessagesMessage struct
+// MessagesMessage struct.
 type MessagesMessage struct {
 	AdminAuthorID         int                         `json:"admin_author_id"` // Only for messages from community. Contains user ID of community admin, who sent this message.
 	Action                MessagesMessageAction       `json:"action"`
@@ -65,19 +65,19 @@ type MessagesMessage struct {
 	MembersCount          int                         `json:"members_count"` // Members number
 }
 
-// MessagesBasePayload struct
+// MessagesBasePayload struct.
 type MessagesBasePayload struct {
 	ButtonType string `json:"button_type,omitempty"`
 	Command    string `json:"command,omitempty"`
 	Payload    string `json:"payload,omitempty"`
 }
 
-// Command for MessagesBasePayload
+// Command for MessagesBasePayload.
 const (
 	CommandNotSupportedButton = "not_supported_button"
 )
 
-// MessagesKeyboard struct
+// MessagesKeyboard struct.
 type MessagesKeyboard struct {
 	AuthorID int                        `json:"author_id,omitempty"` // Community or bot, which set this keyboard
 	Buttons  [][]MessagesKeyboardButton `json:"buttons"`
@@ -85,9 +85,9 @@ type MessagesKeyboard struct {
 	Inline   BaseBoolInt                `json:"inline,omitempty"`
 }
 
-// NewMessagesKeyboard return MessagesKeyboard
+// NewMessagesKeyboard return MessagesKeyboard.
 //
-// FIXME: v2 return *MessagesKeyboard
+// FIXME: v2 return *MessagesKeyboard.
 func NewMessagesKeyboard(oneTime BaseBoolInt) MessagesKeyboard {
 	return MessagesKeyboard{
 		Buttons: [][]MessagesKeyboardButton{},
@@ -95,9 +95,9 @@ func NewMessagesKeyboard(oneTime BaseBoolInt) MessagesKeyboard {
 	}
 }
 
-// NewMessagesKeyboardInline return inline MessagesKeyboard
+// NewMessagesKeyboardInline return inline MessagesKeyboard.
 //
-// FIXME: v2 return *MessagesKeyboard
+// FIXME: v2 return *MessagesKeyboard.
 func NewMessagesKeyboardInline() MessagesKeyboard {
 	return MessagesKeyboard{
 		Buttons: [][]MessagesKeyboardButton{},
@@ -105,7 +105,7 @@ func NewMessagesKeyboardInline() MessagesKeyboard {
 	}
 }
 
-// AddRow add row in MessagesKeyboard
+// AddRow add row in MessagesKeyboard.
 func (keyboard *MessagesKeyboard) AddRow() *MessagesKeyboard {
 	if len(keyboard.Buttons) == 0 {
 		keyboard.Buttons = make([][]MessagesKeyboardButton, 1)
@@ -117,7 +117,7 @@ func (keyboard *MessagesKeyboard) AddRow() *MessagesKeyboard {
 	return keyboard
 }
 
-// AddTextButton add Text button in last row
+// AddTextButton add Text button in last row.
 func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, color string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
@@ -134,7 +134,7 @@ func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, co
 	return keyboard
 }
 
-// AddOpenLinkButton add Open Link button in last row
+// AddOpenLinkButton add Open Link button in last row.
 func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label, payload string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
@@ -151,7 +151,7 @@ func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label, payload string)
 	return keyboard
 }
 
-// AddLocationButton add Location button in last row
+// AddLocationButton add Location button in last row.
 func (keyboard *MessagesKeyboard) AddLocationButton(payload string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
@@ -166,7 +166,7 @@ func (keyboard *MessagesKeyboard) AddLocationButton(payload string) *MessagesKey
 	return keyboard
 }
 
-// AddVKPayButton add VK Pay button in last row
+// AddVKPayButton add VK Pay button in last row.
 func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
@@ -182,7 +182,7 @@ func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) *M
 	return keyboard
 }
 
-// AddVKAppsButton add VK Apps button in last row
+// AddVKAppsButton add VK Apps button in last row.
 func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload, label, hash string) *MessagesKeyboard {
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
@@ -201,19 +201,19 @@ func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload, l
 	return keyboard
 }
 
-// ToJSON returns the JSON encoding of MessagesKeyboard
+// ToJSON returns the JSON encoding of MessagesKeyboard.
 func (keyboard MessagesKeyboard) ToJSON() string {
 	b, _ := json.Marshal(keyboard)
 	return string(b)
 }
 
-// MessagesKeyboardButton struct
+// MessagesKeyboardButton struct.
 type MessagesKeyboardButton struct {
 	Action MessagesKeyboardButtonAction `json:"action"`
 	Color  string                       `json:"color,omitempty"` // Button color
 }
 
-// MessagesKeyboardButtonAction struct
+// MessagesKeyboardButtonAction struct.
 type MessagesKeyboardButtonAction struct {
 	AppID   int    `json:"app_id,omitempty"`   // Fragment value in app link like vk.com/app{app_id}_-654321#hash
 	Hash    string `json:"hash,omitempty"`     // Fragment value in app link like vk.com/app123456_-654321#{hash}
@@ -231,18 +231,18 @@ type MessagesTemplate struct {
 	Elements []MessagesTemplateElement `json:"elements"`
 }
 
-// ToJSON returns the JSON encoding of MessagesKeyboard
+// ToJSON returns the JSON encoding of MessagesKeyboard.
 func (template MessagesTemplate) ToJSON() string {
 	b, _ := json.Marshal(template)
 	return string(b)
 }
 
-// MessagesTemplateElement struct
+// MessagesTemplateElement struct.
 type MessagesTemplateElement struct {
 	MessagesTemplateElementCarousel
 }
 
-// MessagesTemplateElementCarousel struct
+// MessagesTemplateElementCarousel struct.
 type MessagesTemplateElementCarousel struct {
 	Title       string                                `json:"title"`
 	Action      MessagesTemplateElementCarouselAction `json:"action"`
@@ -251,13 +251,13 @@ type MessagesTemplateElementCarousel struct {
 	Buttons     []MessagesKeyboardButton              `json:"buttons"`
 }
 
-// MessagesTemplateElementCarouselAction struct
+// MessagesTemplateElementCarouselAction struct.
 type MessagesTemplateElementCarouselAction struct {
 	Type string `json:"type"`
 	Link string `json:"link"`
 }
 
-// MessagesChat struct
+// MessagesChat struct.
 type MessagesChat struct {
 	AdminID      int                       `json:"admin_id"` // Chat creator ID
 	ID           int                       `json:"id"`       // Chat ID
@@ -277,7 +277,7 @@ type MessagesChat struct {
 	LocalID      int                       `json:"local_id"`
 }
 
-// MessagesChatFull struct
+// MessagesChatFull struct.
 type MessagesChatFull struct {
 	AdminID      int                        `json:"admin_id"`  // Chat creator ID
 	ID           int                        `json:"id"`        // Chat ID
@@ -292,20 +292,20 @@ type MessagesChatFull struct {
 	Users        []MessagesUserXtrInvitedBy `json:"users"`
 }
 
-// MessagesChatPushSettings struct
+// MessagesChatPushSettings struct.
 type MessagesChatPushSettings struct {
 	DisabledUntil int         `json:"disabled_until"` // Time until that notifications are disabled
 	Sound         BaseBoolInt `json:"sound"`          // Information whether the sound is on
 }
 
-// MessagesChatSettingsPhoto struct
+// MessagesChatSettingsPhoto struct.
 type MessagesChatSettingsPhoto struct {
 	Photo100 string `json:"photo_100"`
 	Photo200 string `json:"photo_200"`
 	Photo50  string `json:"photo_50"`
 }
 
-// MessagesConversation struct
+// MessagesConversation struct.
 type MessagesConversation struct {
 	CanWrite        MessagesConversationCanWrite     `json:"can_write"`
 	ChatSettings    MessagesConversationChatSettings `json:"chat_settings"`
@@ -322,13 +322,13 @@ type MessagesConversation struct {
 	CurrentKeyboard MessagesKeyboard                 `json:"current_keyboard"`
 }
 
-// MessagesConversationCanWrite struct
+// MessagesConversationCanWrite struct.
 type MessagesConversationCanWrite struct {
 	Allowed BaseBoolInt `json:"allowed"`
 	Reason  int         `json:"reason"`
 }
 
-// MessagesConversationChatSettings struct
+// MessagesConversationChatSettings struct.
 type MessagesConversationChatSettings struct {
 	MembersCount  int                       `json:"members_count"`
 	Photo         MessagesChatSettingsPhoto `json:"photo"`
@@ -351,27 +351,27 @@ type MessagesConversationChatSettings struct {
 	AdminIDs       []int       `json:"admin_ids"`
 }
 
-// MessagesConversationPeer struct
+// MessagesConversationPeer struct.
 type MessagesConversationPeer struct {
 	ID      int    `json:"id"`
 	LocalID int    `json:"local_id"`
 	Type    string `json:"type"`
 }
 
-// MessagesConversationPushSettings struct
+// MessagesConversationPushSettings struct.
 type MessagesConversationPushSettings struct {
 	DisabledUntil   int         `json:"disabled_until"`
 	DisabledForever BaseBoolInt `json:"disabled_forever"`
 	NoSound         BaseBoolInt `json:"no_sound"`
 }
 
-// MessagesConversationWithMessage struct
+// MessagesConversationWithMessage struct.
 type MessagesConversationWithMessage struct {
 	Conversation MessagesConversation `json:"conversation"`
 	LastMessage  MessagesMessage      `json:"last_message"`
 }
 
-// MessagesDialog struct
+// MessagesDialog struct.
 type MessagesDialog struct {
 	Important  int             `json:"important"`
 	InRead     int             `json:"in_read"`
@@ -381,13 +381,13 @@ type MessagesDialog struct {
 	Unread     int             `json:"unread"`
 }
 
-// MessagesHistoryAttachment struct
+// MessagesHistoryAttachment struct.
 type MessagesHistoryAttachment struct {
 	Attachment MessagesHistoryMessageAttachment `json:"attachment"`
 	MessageID  int                              `json:"message_id"` // Message ID
 }
 
-// MessagesHistoryMessageAttachment struct
+// MessagesHistoryMessageAttachment struct.
 type MessagesHistoryMessageAttachment struct {
 	Audio  AudioAudioFull `json:"audio"`
 	Doc    DocsDoc        `json:"doc"`
@@ -400,13 +400,13 @@ type MessagesHistoryMessageAttachment struct {
 	Wall   BaseLink       `json:"wall"`
 }
 
-// MessagesLastActivity struct
+// MessagesLastActivity struct.
 type MessagesLastActivity struct {
 	Online BaseBoolInt `json:"online"` // Information whether user is online
 	Time   int         `json:"time"`   // Time when user was online in Unixtime
 }
 
-// MessagesLongpollParams struct
+// MessagesLongpollParams struct.
 type MessagesLongpollParams struct {
 	Key    string `json:"key"`    // Key
 	Pts    int    `json:"pts"`    // Persistent timestamp
@@ -414,7 +414,7 @@ type MessagesLongpollParams struct {
 	Ts     int    `json:"ts"`     // Timestamp
 }
 
-// MessagesMessageAction status
+// MessagesMessageAction status.
 const (
 	ChatPhotoUpdate      = "chat_photo_update"
 	ChatPhotoRemove      = "chat_photo_remove"
@@ -427,7 +427,7 @@ const (
 	ChatInviteUserByLink = "chat_invite_user_by_link"
 )
 
-// MessagesMessageAction struct
+// MessagesMessageAction struct.
 type MessagesMessageAction struct {
 	ConversationMessageID int                        `json:"conversation_message_id"` // Message ID
 	Email                 string                     `json:"email"`                   // Email address for chat_invite_user or chat_kick_user actions
@@ -438,14 +438,14 @@ type MessagesMessageAction struct {
 	Type                  string                     `json:"type"`
 }
 
-// MessagesMessageActionPhoto struct
+// MessagesMessageActionPhoto struct.
 type MessagesMessageActionPhoto struct {
 	Photo100 string `json:"photo_100"` // URL of the preview image with 100px in width
 	Photo200 string `json:"photo_200"` // URL of the preview image with 200px in width
 	Photo50  string `json:"photo_50"`  // URL of the preview image with 50px in width
 }
 
-// MessagesMessageAttachment struct
+// MessagesMessageAttachment struct.
 type MessagesMessageAttachment struct {
 	Audio             AudioAudioFull       `json:"audio"`
 	Doc               DocsDoc              `json:"doc"`
@@ -465,7 +465,7 @@ type MessagesMessageAttachment struct {
 	Call              MessageCall          `json:"call"`
 }
 
-// MessageCall struct
+// MessageCall struct.
 type MessageCall struct {
 	InitiatorID int         `json:"initiator_id"`
 	ReceiverID  int         `json:"receiver_id"`
@@ -475,7 +475,7 @@ type MessageCall struct {
 	Video       BaseBoolInt `json:"video"`
 }
 
-// MessagesPinnedMessage struct
+// MessagesPinnedMessage struct.
 type MessagesPinnedMessage struct {
 	Attachments           []MessagesMessageAttachment `json:"attachments"`
 	ConversationMessageID int                         `json:"conversation_message_id"` // Unique auto-incremented number for all Messages with this peer
@@ -489,6 +489,6 @@ type MessagesPinnedMessage struct {
 	Text                  string                      `json:"text"` // Message text
 }
 
-// MessagesUserXtrInvitedBy struct
+// MessagesUserXtrInvitedBy struct.
 type MessagesUserXtrInvitedBy struct {
 }

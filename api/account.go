@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// AccountBan account.ban
+// AccountBan account.ban.
 //
 // https://vk.com/dev/account.ban
 func (vk *VK) AccountBan(params Params) (response int, err error) {
@@ -12,7 +12,7 @@ func (vk *VK) AccountBan(params Params) (response int, err error) {
 	return
 }
 
-// AccountChangePasswordResponse struct
+// AccountChangePasswordResponse struct.
 type AccountChangePasswordResponse struct {
 	Token string `json:"token"`
 }
@@ -25,7 +25,7 @@ func (vk *VK) AccountChangePassword(params Params) (response AccountChangePasswo
 	return
 }
 
-// AccountGetActiveOffersResponse struct
+// AccountGetActiveOffersResponse struct.
 type AccountGetActiveOffersResponse struct {
 	Count int                   `json:"count"`
 	Items []object.AccountOffer `json:"items"`
@@ -49,7 +49,7 @@ func (vk *VK) AccountGetAppPermissions(params Params) (response int, err error) 
 	return
 }
 
-// AccountGetBannedResponse struct
+// AccountGetBannedResponse struct.
 type AccountGetBannedResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
@@ -64,7 +64,7 @@ func (vk *VK) AccountGetBanned(params Params) (response AccountGetBannedResponse
 	return
 }
 
-// AccountGetCountersResponse struct
+// AccountGetCountersResponse struct.
 type AccountGetCountersResponse object.AccountAccountCounters
 
 // AccountGetCounters returns non-null values of user counters.
@@ -75,7 +75,7 @@ func (vk *VK) AccountGetCounters(params Params) (response AccountGetCountersResp
 	return
 }
 
-// AccountGetInfoResponse struct
+// AccountGetInfoResponse struct.
 type AccountGetInfoResponse object.AccountInfo
 
 // AccountGetInfo returns current account info.
@@ -86,7 +86,7 @@ func (vk *VK) AccountGetInfo(params Params) (response AccountGetInfoResponse, er
 	return
 }
 
-// AccountGetProfileInfoResponse struct
+// AccountGetProfileInfoResponse struct.
 type AccountGetProfileInfoResponse object.AccountUserSettings
 
 // AccountGetProfileInfo returns the current account info.
@@ -97,7 +97,7 @@ func (vk *VK) AccountGetProfileInfo(params Params) (response AccountGetProfileIn
 	return
 }
 
-// AccountGetPushSettingsResponse struct
+// AccountGetPushSettingsResponse struct.
 type AccountGetPushSettingsResponse object.AccountPushSettings
 
 // AccountGetPushSettings account.getPushSettings Gets settings of push notifications.
@@ -108,7 +108,7 @@ func (vk *VK) AccountGetPushSettings(params Params) (response AccountGetPushSett
 	return
 }
 
-// AccountRegisterDevice subscribes an iOS/Android/Windows/Mac based device to receive push notifications
+// AccountRegisterDevice subscribes an iOS/Android/Windows/Mac based device to receive push notifications.
 //
 // https://vk.com/dev/account.registerDevice
 func (vk *VK) AccountRegisterDevice(params Params) (response int, err error) {
@@ -116,7 +116,7 @@ func (vk *VK) AccountRegisterDevice(params Params) (response int, err error) {
 	return
 }
 
-// AccountSaveProfileInfoResponse struct
+// AccountSaveProfileInfoResponse struct.
 type AccountSaveProfileInfoResponse struct {
 	Changed     object.BaseBoolInt        `json:"changed"`
 	NameRequest object.AccountNameRequest `json:"name_request"`
@@ -179,7 +179,7 @@ func (vk *VK) AccountSetSilenceMode(params Params) (response int, err error) {
 	return
 }
 
-// AccountUnban account.unban
+// AccountUnban account.unban.
 //
 // https://vk.com/dev/account.unban
 func (vk *VK) AccountUnban(params Params) (response int, err error) {

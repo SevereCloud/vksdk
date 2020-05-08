@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// FriendsAddBuilder builder
+// FriendsAddBuilder builder.
 //
 // Approves or creates a friend request.
 //
@@ -13,7 +13,7 @@ type FriendsAddBuilder struct {
 	api.Params
 }
 
-// NewFriendsAddBuilder func
+// NewFriendsAddBuilder func.
 func NewFriendsAddBuilder() *FriendsAddBuilder {
 	return &FriendsAddBuilder{api.Params{}}
 }
@@ -36,7 +36,7 @@ func (b *FriendsAddBuilder) Follow(v bool) *FriendsAddBuilder {
 	return b
 }
 
-// FriendsAddListBuilder builder
+// FriendsAddListBuilder builder.
 //
 // Creates a new friend list for the current user.
 //
@@ -45,7 +45,7 @@ type FriendsAddListBuilder struct {
 	api.Params
 }
 
-// NewFriendsAddListBuilder func
+// NewFriendsAddListBuilder func.
 func NewFriendsAddListBuilder() *FriendsAddListBuilder {
 	return &FriendsAddListBuilder{api.Params{}}
 }
@@ -62,7 +62,7 @@ func (b *FriendsAddListBuilder) UserIDs(v []int) *FriendsAddListBuilder {
 	return b
 }
 
-// FriendsAreFriendsBuilder builder
+// FriendsAreFriendsBuilder builder.
 //
 // Checks the current user's friendship status with other specified users.
 //
@@ -71,7 +71,7 @@ type FriendsAreFriendsBuilder struct {
 	api.Params
 }
 
-// NewFriendsAreFriendsBuilder func
+// NewFriendsAreFriendsBuilder func.
 func NewFriendsAreFriendsBuilder() *FriendsAreFriendsBuilder {
 	return &FriendsAreFriendsBuilder{api.Params{}}
 }
@@ -82,7 +82,7 @@ func (b *FriendsAreFriendsBuilder) UserIDs(v []int) *FriendsAreFriendsBuilder {
 	return b
 }
 
-// NeedSign parameter
+// NeedSign parameter.
 //
 // * 1 — to return 'sign' field. 'sign' is md5("{id}_{user_id}_{friends_status}_{application_secret}"),
 // where id is current user ID. This field allows to check that data has not been modified by the client.
@@ -93,7 +93,7 @@ func (b *FriendsAreFriendsBuilder) NeedSign(v bool) *FriendsAreFriendsBuilder {
 	return b
 }
 
-// FriendsDeleteBuilder builder
+// FriendsDeleteBuilder builder.
 //
 // Declines a friend request or deletes a user from the current user's friend list.
 //
@@ -102,7 +102,7 @@ type FriendsDeleteBuilder struct {
 	api.Params
 }
 
-// NewFriendsDeleteBuilder func
+// NewFriendsDeleteBuilder func.
 func NewFriendsDeleteBuilder() *FriendsDeleteBuilder {
 	return &FriendsDeleteBuilder{api.Params{}}
 }
@@ -114,7 +114,7 @@ func (b *FriendsDeleteBuilder) UserID(v int) *FriendsDeleteBuilder {
 	return b
 }
 
-// FriendsDeleteListBuilder builder
+// FriendsDeleteListBuilder builder.
 //
 // Deletes a friend list of the current user.
 //
@@ -123,7 +123,7 @@ type FriendsDeleteListBuilder struct {
 	api.Params
 }
 
-// NewFriendsDeleteListBuilder func
+// NewFriendsDeleteListBuilder func.
 func NewFriendsDeleteListBuilder() *FriendsDeleteListBuilder {
 	return &FriendsDeleteListBuilder{api.Params{}}
 }
@@ -134,7 +134,7 @@ func (b *FriendsDeleteListBuilder) ListID(v int) *FriendsDeleteListBuilder {
 	return b
 }
 
-// FriendsEditBuilder builder
+// FriendsEditBuilder builder.
 //
 // Edits the friend lists of the selected user.
 //
@@ -143,7 +143,7 @@ type FriendsEditBuilder struct {
 	api.Params
 }
 
-// NewFriendsEditBuilder func
+// NewFriendsEditBuilder func.
 func NewFriendsEditBuilder() *FriendsEditBuilder {
 	return &FriendsEditBuilder{api.Params{}}
 }
@@ -160,7 +160,7 @@ func (b *FriendsEditBuilder) ListIDs(v []int) *FriendsEditBuilder {
 	return b
 }
 
-// FriendsEditListBuilder builder
+// FriendsEditListBuilder builder.
 //
 // Edits a friend list of the current user.
 //
@@ -169,7 +169,7 @@ type FriendsEditListBuilder struct {
 	api.Params
 }
 
-// NewFriendsEditListBuilder func
+// NewFriendsEditListBuilder func.
 func NewFriendsEditListBuilder() *FriendsEditListBuilder {
 	return &FriendsEditListBuilder{api.Params{}}
 }
@@ -204,7 +204,7 @@ func (b *FriendsEditListBuilder) DeleteUserIDs(v []int) *FriendsEditListBuilder 
 	return b
 }
 
-// FriendsGetBuilder builder
+// FriendsGetBuilder builder.
 //
 // Returns a list of user IDs or detailed information about a user's friends.
 //
@@ -213,7 +213,7 @@ type FriendsGetBuilder struct {
 	api.Params
 }
 
-// NewFriendsGetBuilder func
+// NewFriendsGetBuilder func.
 func NewFriendsGetBuilder() *FriendsGetBuilder {
 	return &FriendsGetBuilder{api.Params{}}
 }
@@ -281,13 +281,13 @@ func (b *FriendsGetBuilder) NameCase(v string) *FriendsGetBuilder {
 	return b
 }
 
-// Ref parameter
+// Ref parameter.
 func (b *FriendsGetBuilder) Ref(v string) *FriendsGetBuilder {
 	b.Params["ref"] = v
 	return b
 }
 
-// FriendsGetByPhonesBuilder builder
+// FriendsGetByPhonesBuilder builder.
 //
 // Returns a list of the current user's friends whose phone numbers, validated or specified in a profile, are in a
 // given list.
@@ -297,12 +297,12 @@ type FriendsGetByPhonesBuilder struct {
 	api.Params
 }
 
-// NewFriendsGetByPhonesBuilder func
+// NewFriendsGetByPhonesBuilder func.
 func NewFriendsGetByPhonesBuilder() *FriendsGetByPhonesBuilder {
 	return &FriendsGetByPhonesBuilder{api.Params{}}
 }
 
-// Phones List of phone numbers in MSISDN format (maximum 1000). Example: "+79219876543,+79111234567"
+// Phones List of phone numbers in MSISDN format (maximum 1000). Example: "+79219876543,+79111234567".
 func (b *FriendsGetByPhonesBuilder) Phones(v []string) *FriendsGetByPhonesBuilder {
 	b.Params["phones"] = v
 	return b
@@ -316,7 +316,7 @@ func (b *FriendsGetByPhonesBuilder) Fields(v []string) *FriendsGetByPhonesBuilde
 	return b
 }
 
-// FriendsGetListsBuilder builder
+// FriendsGetListsBuilder builder.
 //
 // Returns a list of the user's friend lists.
 //
@@ -325,7 +325,7 @@ type FriendsGetListsBuilder struct {
 	api.Params
 }
 
-// NewFriendsGetListsBuilder func
+// NewFriendsGetListsBuilder func.
 func NewFriendsGetListsBuilder() *FriendsGetListsBuilder {
 	return &FriendsGetListsBuilder{api.Params{}}
 }
@@ -336,7 +336,7 @@ func (b *FriendsGetListsBuilder) UserID(v int) *FriendsGetListsBuilder {
 	return b
 }
 
-// ReturnSystem parameter
+// ReturnSystem parameter.
 //
 // * 1 — to return system friend lists. By default: '0'.
 func (b *FriendsGetListsBuilder) ReturnSystem(v bool) *FriendsGetListsBuilder {
@@ -344,7 +344,7 @@ func (b *FriendsGetListsBuilder) ReturnSystem(v bool) *FriendsGetListsBuilder {
 	return b
 }
 
-// FriendsGetMutualBuilder builder
+// FriendsGetMutualBuilder builder.
 //
 // Returns a list of user IDs of the mutual friends of two users.
 //
@@ -353,7 +353,7 @@ type FriendsGetMutualBuilder struct {
 	api.Params
 }
 
-// NewFriendsGetMutualBuilder func
+// NewFriendsGetMutualBuilder func.
 func NewFriendsGetMutualBuilder() *FriendsGetMutualBuilder {
 	return &FriendsGetMutualBuilder{api.Params{}}
 }
@@ -376,7 +376,7 @@ func (b *FriendsGetMutualBuilder) TargetUids(v []int) *FriendsGetMutualBuilder {
 	return b
 }
 
-// Order Sort order: 'random' — random order
+// Order Sort order: 'random' — random order.
 func (b *FriendsGetMutualBuilder) Order(v string) *FriendsGetMutualBuilder {
 	b.Params["order"] = v
 	return b
@@ -394,7 +394,7 @@ func (b *FriendsGetMutualBuilder) Offset(v int) *FriendsGetMutualBuilder {
 	return b
 }
 
-// FriendsGetOnlineBuilder builder
+// FriendsGetOnlineBuilder builder.
 //
 // Returns a list of user IDs of a user's friends who are online.
 //
@@ -403,7 +403,7 @@ type FriendsGetOnlineBuilder struct {
 	api.Params
 }
 
-// NewFriendsGetOnlineBuilder func
+// NewFriendsGetOnlineBuilder func.
 func NewFriendsGetOnlineBuilder() *FriendsGetOnlineBuilder {
 	return &FriendsGetOnlineBuilder{api.Params{}}
 }
@@ -420,15 +420,15 @@ func (b *FriendsGetOnlineBuilder) ListID(v int) *FriendsGetOnlineBuilder {
 	return b
 }
 
-// OnlineMobile parameter
+// OnlineMobile parameter.
 //
-// * 1 — to return an additional 'online_mobile' field, '0' — (default),
+// * 1 — to return an additional 'online_mobile' field, '0' — (default).
 func (b *FriendsGetOnlineBuilder) OnlineMobile(v bool) *FriendsGetOnlineBuilder {
 	b.Params["online_mobile"] = v
 	return b
 }
 
-// Order Sort order: 'random' — random order
+// Order Sort order: 'random' — random order.
 func (b *FriendsGetOnlineBuilder) Order(v string) *FriendsGetOnlineBuilder {
 	b.Params["order"] = v
 	return b
@@ -446,7 +446,7 @@ func (b *FriendsGetOnlineBuilder) Offset(v int) *FriendsGetOnlineBuilder {
 	return b
 }
 
-// FriendsGetRecentBuilder builder
+// FriendsGetRecentBuilder builder.
 //
 // Returns a list of user IDs of the current user's recently added friends.
 //
@@ -455,7 +455,7 @@ type FriendsGetRecentBuilder struct {
 	api.Params
 }
 
-// NewFriendsGetRecentBuilder func
+// NewFriendsGetRecentBuilder func.
 func NewFriendsGetRecentBuilder() *FriendsGetRecentBuilder {
 	return &FriendsGetRecentBuilder{api.Params{}}
 }
@@ -466,7 +466,7 @@ func (b *FriendsGetRecentBuilder) Count(v int) *FriendsGetRecentBuilder {
 	return b
 }
 
-// FriendsGetRequestsBuilder builder
+// FriendsGetRequestsBuilder builder.
 //
 // Returns information about the current user's incoming and outgoing friend requests.
 //
@@ -475,7 +475,7 @@ type FriendsGetRequestsBuilder struct {
 	api.Params
 }
 
-// NewFriendsGetRequestsBuilder func
+// NewFriendsGetRequestsBuilder func.
 func NewFriendsGetRequestsBuilder() *FriendsGetRequestsBuilder {
 	return &FriendsGetRequestsBuilder{api.Params{}}
 }
@@ -492,26 +492,26 @@ func (b *FriendsGetRequestsBuilder) Count(v int) *FriendsGetRequestsBuilder {
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 //
 // * 1 — to return response messages from users who have sent a friend request or,
-// if 'suggested' is set to '1', to return a list of suggested friends
+// if 'suggested' is set to '1', to return a list of suggested friends.
 func (b *FriendsGetRequestsBuilder) Extended(v bool) *FriendsGetRequestsBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// NeedMutual parameter
+// NeedMutual parameter.
 //
-// * 1 — to return a list of mutual friends (up to 20), if any
+// * 1 — to return a list of mutual friends (up to 20), if any.
 func (b *FriendsGetRequestsBuilder) NeedMutual(v bool) *FriendsGetRequestsBuilder {
 	b.Params["need_mutual"] = v
 	return b
 }
 
-// Out parameter
+// Out parameter.
 //
-// * 1 — to return outgoing requests, '0' — to return incoming requests (default)
+// * 1 — to return outgoing requests, '0' — to return incoming requests (default).
 func (b *FriendsGetRequestsBuilder) Out(v bool) *FriendsGetRequestsBuilder {
 	b.Params["out"] = v
 	return b
@@ -519,39 +519,39 @@ func (b *FriendsGetRequestsBuilder) Out(v bool) *FriendsGetRequestsBuilder {
 
 // Sort Sort order:
 //
-// * 1 — by number of mutual friends, '0' — by date
+// * 1 — by number of mutual friends, '0' — by date.
 func (b *FriendsGetRequestsBuilder) Sort(v int) *FriendsGetRequestsBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
-// NeedViewed parameter
+// NeedViewed parameter.
 func (b *FriendsGetRequestsBuilder) NeedViewed(v bool) *FriendsGetRequestsBuilder {
 	b.Params["need_viewed"] = v
 	return b
 }
 
-// Suggested parameter
+// Suggested parameter.
 //
-// * 1 — to return a list of suggested friends, '0' — to return friend requests (default)
+// * 1 — to return a list of suggested friends, '0' — to return friend requests (default).
 func (b *FriendsGetRequestsBuilder) Suggested(v bool) *FriendsGetRequestsBuilder {
 	b.Params["suggested"] = v
 	return b
 }
 
-// Ref parameter
+// Ref parameter.
 func (b *FriendsGetRequestsBuilder) Ref(v string) *FriendsGetRequestsBuilder {
 	b.Params["ref"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *FriendsGetRequestsBuilder) Fields(v []string) *FriendsGetRequestsBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// FriendsGetSuggestionsBuilder builder
+// FriendsGetSuggestionsBuilder builder.
 //
 // Returns a list of profiles of users whom the current user may know.
 //
@@ -560,17 +560,19 @@ type FriendsGetSuggestionsBuilder struct {
 	api.Params
 }
 
-// NewFriendsGetSuggestionsBuilder func
+// NewFriendsGetSuggestionsBuilder func.
 func NewFriendsGetSuggestionsBuilder() *FriendsGetSuggestionsBuilder {
 	return &FriendsGetSuggestionsBuilder{api.Params{}}
 }
 
 // Filter Types of potential friends to return:
+//
 // * mutual — users with many mutual friends;
 //
 // * contacts — users found with the [vk.com/dev/account.importContacts|account.importContacts] method;
+//
 // * mutual_contacts — users who imported the same contacts as the current user with the
-// [vk.com/dev/account.importContacts|account.importContacts] method
+// [vk.com/dev/account.importContacts|account.importContacts] method.
 func (b *FriendsGetSuggestionsBuilder) Filter(v []string) *FriendsGetSuggestionsBuilder {
 	b.Params["filter"] = v
 	return b
@@ -614,7 +616,7 @@ func (b *FriendsGetSuggestionsBuilder) NameCase(v string) *FriendsGetSuggestions
 	return b
 }
 
-// FriendsSearchBuilder builder
+// FriendsSearchBuilder builder.
 //
 // Returns a list of friends matching the search criteria.
 //
@@ -623,7 +625,7 @@ type FriendsSearchBuilder struct {
 	api.Params
 }
 
-// NewFriendsSearchBuilder func
+// NewFriendsSearchBuilder func.
 func NewFriendsSearchBuilder() *FriendsSearchBuilder {
 	return &FriendsSearchBuilder{api.Params{}}
 }
@@ -642,7 +644,7 @@ func (b *FriendsSearchBuilder) Q(v string) *FriendsSearchBuilder {
 
 // Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
 // 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
-// 'rate', 'contacts', 'education', 'online',
+// 'rate', 'contacts', 'education', 'online'.
 func (b *FriendsSearchBuilder) Fields(v []string) *FriendsSearchBuilder {
 	b.Params["fields"] = v
 	return b

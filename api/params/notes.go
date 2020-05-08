@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// NotesAddBuilder builder
+// NotesAddBuilder builder.
 //
 // Creates a new note for the current user.
 //
@@ -13,7 +13,7 @@ type NotesAddBuilder struct {
 	api.Params
 }
 
-// NewNotesAddBuilder func
+// NewNotesAddBuilder func.
 func NewNotesAddBuilder() *NotesAddBuilder {
 	return &NotesAddBuilder{api.Params{}}
 }
@@ -30,19 +30,19 @@ func (b *NotesAddBuilder) Text(v string) *NotesAddBuilder {
 	return b
 }
 
-// PrivacyView parameter
+// PrivacyView parameter.
 func (b *NotesAddBuilder) PrivacyView(v []string) *NotesAddBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
-// PrivacyComment parameter
+// PrivacyComment parameter.
 func (b *NotesAddBuilder) PrivacyComment(v []string) *NotesAddBuilder {
 	b.Params["privacy_comment"] = v
 	return b
 }
 
-// NotesCreateCommentBuilder builder
+// NotesCreateCommentBuilder builder.
 //
 // Adds a new comment on a note.
 //
@@ -51,7 +51,7 @@ type NotesCreateCommentBuilder struct {
 	api.Params
 }
 
-// NewNotesCreateCommentBuilder func
+// NewNotesCreateCommentBuilder func.
 func NewNotesCreateCommentBuilder() *NotesCreateCommentBuilder {
 	return &NotesCreateCommentBuilder{api.Params{}}
 }
@@ -80,13 +80,13 @@ func (b *NotesCreateCommentBuilder) Message(v string) *NotesCreateCommentBuilder
 	return b
 }
 
-// GUID parameter
+// GUID parameter.
 func (b *NotesCreateCommentBuilder) GUID(v string) *NotesCreateCommentBuilder {
 	b.Params["guid"] = v
 	return b
 }
 
-// NotesDeleteBuilder builder
+// NotesDeleteBuilder builder.
 //
 // Deletes a note of the current user.
 //
@@ -95,7 +95,7 @@ type NotesDeleteBuilder struct {
 	api.Params
 }
 
-// NewNotesDeleteBuilder func
+// NewNotesDeleteBuilder func.
 func NewNotesDeleteBuilder() *NotesDeleteBuilder {
 	return &NotesDeleteBuilder{api.Params{}}
 }
@@ -106,7 +106,7 @@ func (b *NotesDeleteBuilder) NoteID(v int) *NotesDeleteBuilder {
 	return b
 }
 
-// NotesDeleteCommentBuilder builder
+// NotesDeleteCommentBuilder builder.
 //
 // Deletes a comment on a note.
 //
@@ -115,7 +115,7 @@ type NotesDeleteCommentBuilder struct {
 	api.Params
 }
 
-// NewNotesDeleteCommentBuilder func
+// NewNotesDeleteCommentBuilder func.
 func NewNotesDeleteCommentBuilder() *NotesDeleteCommentBuilder {
 	return &NotesDeleteCommentBuilder{api.Params{}}
 }
@@ -132,7 +132,7 @@ func (b *NotesDeleteCommentBuilder) OwnerID(v int) *NotesDeleteCommentBuilder {
 	return b
 }
 
-// NotesEditBuilder builder
+// NotesEditBuilder builder.
 //
 // Edits a note of the current user.
 //
@@ -141,7 +141,7 @@ type NotesEditBuilder struct {
 	api.Params
 }
 
-// NewNotesEditBuilder func
+// NewNotesEditBuilder func.
 func NewNotesEditBuilder() *NotesEditBuilder {
 	return &NotesEditBuilder{api.Params{}}
 }
@@ -164,19 +164,19 @@ func (b *NotesEditBuilder) Text(v string) *NotesEditBuilder {
 	return b
 }
 
-// PrivacyView parameter
+// PrivacyView parameter.
 func (b *NotesEditBuilder) PrivacyView(v []string) *NotesEditBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
-// PrivacyComment parameter
+// PrivacyComment parameter.
 func (b *NotesEditBuilder) PrivacyComment(v []string) *NotesEditBuilder {
 	b.Params["privacy_comment"] = v
 	return b
 }
 
-// NotesEditCommentBuilder builder
+// NotesEditCommentBuilder builder.
 //
 // Edits a comment on a note.
 //
@@ -185,7 +185,7 @@ type NotesEditCommentBuilder struct {
 	api.Params
 }
 
-// NewNotesEditCommentBuilder func
+// NewNotesEditCommentBuilder func.
 func NewNotesEditCommentBuilder() *NotesEditCommentBuilder {
 	return &NotesEditCommentBuilder{api.Params{}}
 }
@@ -208,7 +208,7 @@ func (b *NotesEditCommentBuilder) Message(v string) *NotesEditCommentBuilder {
 	return b
 }
 
-// NotesGetBuilder builder
+// NotesGetBuilder builder.
 //
 // Returns a list of notes created by a user.
 //
@@ -217,7 +217,7 @@ type NotesGetBuilder struct {
 	api.Params
 }
 
-// NewNotesGetBuilder func
+// NewNotesGetBuilder func.
 func NewNotesGetBuilder() *NotesGetBuilder {
 	return &NotesGetBuilder{api.Params{}}
 }
@@ -234,7 +234,7 @@ func (b *NotesGetBuilder) UserID(v int) *NotesGetBuilder {
 	return b
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *NotesGetBuilder) Offset(v int) *NotesGetBuilder {
 	b.Params["offset"] = v
 	return b
@@ -246,13 +246,13 @@ func (b *NotesGetBuilder) Count(v int) *NotesGetBuilder {
 	return b
 }
 
-// Sort parameter
+// Sort parameter.
 func (b *NotesGetBuilder) Sort(v int) *NotesGetBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
-// NotesGetByIDBuilder builder
+// NotesGetByIDBuilder builder.
 //
 // Returns a note by its ID.
 //
@@ -261,7 +261,7 @@ type NotesGetByIDBuilder struct {
 	api.Params
 }
 
-// NewNotesGetByIDBuilder func
+// NewNotesGetByIDBuilder func.
 func NewNotesGetByIDBuilder() *NotesGetByIDBuilder {
 	return &NotesGetByIDBuilder{api.Params{}}
 }
@@ -278,13 +278,13 @@ func (b *NotesGetByIDBuilder) OwnerID(v int) *NotesGetByIDBuilder {
 	return b
 }
 
-// NeedWiki parameter
+// NeedWiki parameter.
 func (b *NotesGetByIDBuilder) NeedWiki(v bool) *NotesGetByIDBuilder {
 	b.Params["need_wiki"] = v
 	return b
 }
 
-// NotesGetCommentsBuilder builder
+// NotesGetCommentsBuilder builder.
 //
 // Returns a list of comments on a note.
 //
@@ -293,7 +293,7 @@ type NotesGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewNotesGetCommentsBuilder func
+// NewNotesGetCommentsBuilder func.
 func NewNotesGetCommentsBuilder() *NotesGetCommentsBuilder {
 	return &NotesGetCommentsBuilder{api.Params{}}
 }
@@ -310,13 +310,13 @@ func (b *NotesGetCommentsBuilder) OwnerID(v int) *NotesGetCommentsBuilder {
 	return b
 }
 
-// Sort parameter
+// Sort parameter.
 func (b *NotesGetCommentsBuilder) Sort(v int) *NotesGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *NotesGetCommentsBuilder) Offset(v int) *NotesGetCommentsBuilder {
 	b.Params["offset"] = v
 	return b
@@ -328,7 +328,7 @@ func (b *NotesGetCommentsBuilder) Count(v int) *NotesGetCommentsBuilder {
 	return b
 }
 
-// NotesRestoreCommentBuilder builder
+// NotesRestoreCommentBuilder builder.
 //
 // Restores a deleted comment on a note.
 //
@@ -337,7 +337,7 @@ type NotesRestoreCommentBuilder struct {
 	api.Params
 }
 
-// NewNotesRestoreCommentBuilder func
+// NewNotesRestoreCommentBuilder func.
 func NewNotesRestoreCommentBuilder() *NotesRestoreCommentBuilder {
 	return &NotesRestoreCommentBuilder{api.Params{}}
 }

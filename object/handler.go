@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 )
 
-// MessageNewFunc func
+// MessageNewFunc func.
 type MessageNewFunc func(MessageNewObject, int)
 
-// MessageNewObject struct
+// MessageNewObject struct.
 type MessageNewObject struct {
 	Message    MessagesMessage `json:"message"`
 	ClientInfo ClientInfo      `json:"client_info"`
@@ -39,73 +39,73 @@ func (obj *MessageNewObject) UnmarshalJSON(data []byte) (err error) {
 	return
 }
 
-// MessageReplyFunc func
+// MessageReplyFunc func.
 type MessageReplyFunc func(MessageReplyObject, int)
 
-// MessageReplyObject struct
+// MessageReplyObject struct.
 type MessageReplyObject MessagesMessage
 
-// MessageEditFunc func
+// MessageEditFunc func.
 type MessageEditFunc func(MessageEditObject, int)
 
-// MessageEditObject struct
+// MessageEditObject struct.
 type MessageEditObject MessagesMessage
 
-// MessageAllowFunc func
+// MessageAllowFunc func.
 type MessageAllowFunc func(MessageAllowObject, int)
 
-// MessageAllowObject struct
+// MessageAllowObject struct.
 type MessageAllowObject struct {
 	UserID int    `json:"user_id"`
 	Key    string `json:"key"`
 }
 
-// MessageDenyFunc func
+// MessageDenyFunc func.
 type MessageDenyFunc func(MessageDenyObject, int)
 
-// MessageDenyObject struct
+// MessageDenyObject struct.
 type MessageDenyObject struct {
 	UserID int `json:"user_id"`
 }
 
-// MessageTypingStateFunc func
+// MessageTypingStateFunc func.
 type MessageTypingStateFunc func(MessageTypingStateObject, int)
 
-// MessageTypingStateObject struct
+// MessageTypingStateObject struct.
 type MessageTypingStateObject struct {
 	State  string `json:"state"`
 	FromID int    `json:"from_id"`
 	ToID   int    `json:"to_id"`
 }
 
-// PhotoNewFunc func
+// PhotoNewFunc func.
 type PhotoNewFunc func(PhotoNewObject, int)
 
-// PhotoNewObject struct
+// PhotoNewObject struct.
 type PhotoNewObject PhotosPhoto
 
-// PhotoCommentNewFunc func
+// PhotoCommentNewFunc func.
 type PhotoCommentNewFunc func(PhotoCommentNewObject, int)
 
-// PhotoCommentNewObject struct
+// PhotoCommentNewObject struct.
 type PhotoCommentNewObject WallWallComment
 
-// PhotoCommentEditFunc func
+// PhotoCommentEditFunc func.
 type PhotoCommentEditFunc func(PhotoCommentEditObject, int)
 
-// PhotoCommentEditObject struct
+// PhotoCommentEditObject struct.
 type PhotoCommentEditObject WallWallComment
 
-// PhotoCommentRestoreFunc func
+// PhotoCommentRestoreFunc func.
 type PhotoCommentRestoreFunc func(PhotoCommentRestoreObject, int)
 
-// PhotoCommentRestoreObject struct
+// PhotoCommentRestoreObject struct.
 type PhotoCommentRestoreObject WallWallComment
 
-// PhotoCommentDeleteFunc func
+// PhotoCommentDeleteFunc func.
 type PhotoCommentDeleteFunc func(PhotoCommentDeleteObject, int)
 
-// PhotoCommentDeleteObject struct
+// PhotoCommentDeleteObject struct.
 type PhotoCommentDeleteObject struct {
 	OwnerID   int `json:"owner_id"`
 	ID        int `json:"id"`
@@ -114,40 +114,40 @@ type PhotoCommentDeleteObject struct {
 	PhotoID   int `json:"photo_id"`
 }
 
-// AudioNewFunc func
+// AudioNewFunc func.
 type AudioNewFunc func(AudioNewObject, int)
 
-// AudioNewObject struct
+// AudioNewObject struct.
 type AudioNewObject AudioAudioFull
 
-// VideoNewFunc func
+// VideoNewFunc func.
 type VideoNewFunc func(VideoNewObject, int)
 
-// VideoNewObject struct
+// VideoNewObject struct.
 type VideoNewObject VideoVideo
 
-// VideoCommentNewFunc func
+// VideoCommentNewFunc func.
 type VideoCommentNewFunc func(VideoCommentNewObject, int)
 
-// VideoCommentNewObject struct
+// VideoCommentNewObject struct.
 type VideoCommentNewObject WallWallComment
 
-// VideoCommentEditFunc func
+// VideoCommentEditFunc func.
 type VideoCommentEditFunc func(VideoCommentEditObject, int)
 
-// VideoCommentEditObject struct
+// VideoCommentEditObject struct.
 type VideoCommentEditObject WallWallComment
 
-// VideoCommentRestoreFunc func
+// VideoCommentRestoreFunc func.
 type VideoCommentRestoreFunc func(VideoCommentRestoreObject, int)
 
-// VideoCommentRestoreObject struct
+// VideoCommentRestoreObject struct.
 type VideoCommentRestoreObject WallWallComment
 
-// VideoCommentDeleteFunc func
+// VideoCommentDeleteFunc func.
 type VideoCommentDeleteFunc func(VideoCommentDeleteObject, int)
 
-// VideoCommentDeleteObject struct
+// VideoCommentDeleteObject struct.
 type VideoCommentDeleteObject struct {
 	OwnerID   int `json:"owner_id"`
 	ID        int `json:"id"`
@@ -156,40 +156,40 @@ type VideoCommentDeleteObject struct {
 	VideoID   int `json:"video_id"`
 }
 
-// WallPostNewFunc func
+// WallPostNewFunc func.
 type WallPostNewFunc func(WallPostNewObject, int)
 
-// WallPostNewObject struct
+// WallPostNewObject struct.
 type WallPostNewObject WallWallpost
 
-// WallRepostFunc func
+// WallRepostFunc func.
 type WallRepostFunc func(WallRepostObject, int)
 
-// WallRepostObject struct
+// WallRepostObject struct.
 type WallRepostObject WallWallpost
 
-// WallReplyNewFunc func
+// WallReplyNewFunc func.
 type WallReplyNewFunc func(WallReplyNewObject, int)
 
-// WallReplyNewObject struct
+// WallReplyNewObject struct.
 type WallReplyNewObject WallWallComment
 
-// WallReplyEditFunc func
+// WallReplyEditFunc func.
 type WallReplyEditFunc func(WallReplyEditObject, int)
 
-// WallReplyEditObject struct
+// WallReplyEditObject struct.
 type WallReplyEditObject WallWallComment
 
-// WallReplyRestoreFunc func
+// WallReplyRestoreFunc func.
 type WallReplyRestoreFunc func(WallReplyRestoreObject, int)
 
-// WallReplyRestoreObject struct
+// WallReplyRestoreObject struct.
 type WallReplyRestoreObject WallWallComment
 
-// WallReplyDeleteFunc func
+// WallReplyDeleteFunc func.
 type WallReplyDeleteFunc func(WallReplyDeleteObject, int)
 
-// WallReplyDeleteObject struct
+// WallReplyDeleteObject struct.
 type WallReplyDeleteObject struct {
 	OwnerID   int `json:"owner_id"`
 	ID        int `json:"id"`
@@ -197,56 +197,56 @@ type WallReplyDeleteObject struct {
 	PostID    int `json:"post_id"`
 }
 
-// BoardPostNewFunc func
+// BoardPostNewFunc func.
 type BoardPostNewFunc func(BoardPostNewObject, int)
 
-// BoardPostNewObject struct
+// BoardPostNewObject struct.
 type BoardPostNewObject BoardTopicComment
 
-// BoardPostEditFunc func
+// BoardPostEditFunc func.
 type BoardPostEditFunc func(BoardPostEditObject, int)
 
-// BoardPostEditObject struct
+// BoardPostEditObject struct.
 type BoardPostEditObject BoardTopicComment
 
-// BoardPostRestoreFunc func
+// BoardPostRestoreFunc func.
 type BoardPostRestoreFunc func(BoardPostRestoreObject, int)
 
-// BoardPostRestoreObject struct
+// BoardPostRestoreObject struct.
 type BoardPostRestoreObject BoardTopicComment
 
-// BoardPostDeleteFunc func
+// BoardPostDeleteFunc func.
 type BoardPostDeleteFunc func(BoardPostDeleteObject, int)
 
-// BoardPostDeleteObject struct
+// BoardPostDeleteObject struct.
 type BoardPostDeleteObject struct {
 	TopicOwnerID int `json:"topic_owner_id"`
 	TopicID      int `json:"topic_id"`
 	ID           int `json:"id"`
 }
 
-// MarketCommentNewFunc func
+// MarketCommentNewFunc func.
 type MarketCommentNewFunc func(MarketCommentNewObject, int)
 
-// MarketCommentNewObject struct
+// MarketCommentNewObject struct.
 type MarketCommentNewObject WallWallComment
 
-// MarketCommentEditFunc func
+// MarketCommentEditFunc func.
 type MarketCommentEditFunc func(MarketCommentEditObject, int)
 
-// MarketCommentEditObject struct
+// MarketCommentEditObject struct.
 type MarketCommentEditObject WallWallComment
 
-// MarketCommentRestoreFunc func
+// MarketCommentRestoreFunc func.
 type MarketCommentRestoreFunc func(MarketCommentRestoreObject, int)
 
-// MarketCommentRestoreObject struct
+// MarketCommentRestoreObject struct.
 type MarketCommentRestoreObject WallWallComment
 
-// MarketCommentDeleteFunc func
+// MarketCommentDeleteFunc func.
 type MarketCommentDeleteFunc func(MarketCommentDeleteObject, int)
 
-// MarketCommentDeleteObject struct
+// MarketCommentDeleteObject struct.
 type MarketCommentDeleteObject struct {
 	OwnerID   int `json:"owner_id"`
 	ID        int `json:"id"`
@@ -255,28 +255,28 @@ type MarketCommentDeleteObject struct {
 	ItemID    int `json:"item_id"`
 }
 
-// GroupLeaveFunc func
+// GroupLeaveFunc func.
 type GroupLeaveFunc func(GroupLeaveObject, int)
 
-// GroupLeaveObject struct
+// GroupLeaveObject struct.
 type GroupLeaveObject struct {
 	UserID int         `json:"user_id"`
 	Self   BaseBoolInt `json:"self"`
 }
 
-// GroupJoinFunc func
+// GroupJoinFunc func.
 type GroupJoinFunc func(GroupJoinObject, int)
 
-// GroupJoinObject struct
+// GroupJoinObject struct.
 type GroupJoinObject struct {
 	UserID   int    `json:"user_id"`
 	JoinType string `json:"join_type"`
 }
 
-// UserBlockFunc func
+// UserBlockFunc func.
 type UserBlockFunc func(UserBlockObject, int)
 
-// UserBlockObject struct
+// UserBlockObject struct.
 type UserBlockObject struct {
 	AdminID     int    `json:"admin_id"`
 	UserID      int    `json:"user_id"`
@@ -285,21 +285,22 @@ type UserBlockObject struct {
 	Comment     string `json:"comment"`
 }
 
-// UserUnblockFunc func
+// UserUnblockFunc func.
 type UserUnblockFunc func(UserUnblockObject, int)
 
-// UserUnblockObject struct
+// UserUnblockObject struct.
 type UserUnblockObject struct {
 	AdminID   int `json:"admin_id"`
 	UserID    int `json:"user_id"`
 	ByEndDate int `json:"by_end_date"`
 }
 
-// PollVoteNewFunc func
+// PollVoteNewFunc func.
 type PollVoteNewFunc func(PollVoteNewObject, int)
 
-// PollVoteNewObject struct
-// BUG(VK): при голосовании за несколько вариантов, возвращается только один
+// PollVoteNewObject struct.
+//
+// BUG(VK): при голосовании за несколько вариантов, возвращается только один.
 type PollVoteNewObject struct {
 	OwnerID  int `json:"owner_id"`
 	PollID   int `json:"poll_id"`
@@ -307,10 +308,10 @@ type PollVoteNewObject struct {
 	UserID   int `json:"user_id"`
 }
 
-// GroupOfficersEditFunc func
+// GroupOfficersEditFunc func.
 type GroupOfficersEditFunc func(GroupOfficersEditObject, int)
 
-// GroupOfficersEditObject struct
+// GroupOfficersEditObject struct.
 type GroupOfficersEditObject struct {
 	AdminID  int `json:"admin_id"`
 	UserID   int `json:"user_id"`
@@ -318,19 +319,19 @@ type GroupOfficersEditObject struct {
 	LevelNew int `json:"level_new"`
 }
 
-// Changes struct
+// Changes struct.
 type Changes struct {
 	OldValue string `json:"old_value"`
 	NewValue string `json:"new_value"`
 }
 
-// ChangesInt struct
+// ChangesInt struct.
 type ChangesInt struct {
 	OldValue int `json:"old_value"`
 	NewValue int `json:"new_value"`
 }
 
-// GroupChangeSettingsFunc func
+// GroupChangeSettingsFunc func.
 type GroupChangeSettingsFunc func(GroupChangeSettingsObject, int)
 
 // GroupChangeSettingsObject struct
@@ -372,19 +373,19 @@ type GroupChangeSettingsObject struct {
 	} `json:"Changes"`
 }
 
-// GroupChangePhotoFunc func
+// GroupChangePhotoFunc func.
 type GroupChangePhotoFunc func(GroupChangePhotoObject, int)
 
-// GroupChangePhotoObject struct
+// GroupChangePhotoObject struct.
 type GroupChangePhotoObject struct {
 	UserID int         `json:"user_id"`
 	Photo  PhotosPhoto `json:"photo"`
 }
 
-// VkpayTransactionFunc func
+// VkpayTransactionFunc func.
 type VkpayTransactionFunc func(VkpayTransactionObject, int)
 
-// VkpayTransactionObject struct
+// VkpayTransactionObject struct.
 type VkpayTransactionObject struct {
 	FromID      int    `json:"from_id"`
 	Amount      int    `json:"amount"`
@@ -392,10 +393,10 @@ type VkpayTransactionObject struct {
 	Date        int    `json:"date"`
 }
 
-// LeadFormsNewFunc func
+// LeadFormsNewFunc func.
 type LeadFormsNewFunc func(LeadFormsNewObject, int)
 
-// LeadFormsNewObject struct
+// LeadFormsNewObject struct.
 type LeadFormsNewObject struct {
 	LeadID   int    `json:"lead_id"`
 	GroupID  int    `json:"group_id"`
@@ -410,20 +411,20 @@ type LeadFormsNewObject struct {
 	} `json:"answers"`
 }
 
-// AppPayloadFunc func
+// AppPayloadFunc func.
 type AppPayloadFunc func(AppPayloadObject, int)
 
-// AppPayloadObject struct
+// AppPayloadObject struct.
 type AppPayloadObject struct {
 	UserID  int    `json:"user_id"`
 	AppID   int    `json:"app_id"`
 	Payload string `json:"payload"`
 }
 
-// MessageReadFunc func
+// MessageReadFunc func.
 type MessageReadFunc func(MessageReadObject, int)
 
-// MessageReadObject struct
+// MessageReadObject struct.
 type MessageReadObject struct {
 	FromID        int `json:"from_id"`
 	PeerID        int `json:"peer_id"`

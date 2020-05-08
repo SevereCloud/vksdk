@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// BoardTopic struct
+// BoardTopic struct.
 type BoardTopic struct {
 	Comments  int         `json:"comments"`   // Comments number
 	Created   int         `json:"created"`    // Date when the topic has been created in Unixtime
@@ -13,7 +13,7 @@ type BoardTopic struct {
 	UpdatedBy int         `json:"updated_by"` // ID of user who updated the topic
 }
 
-// BoardTopicComment struct
+// BoardTopicComment struct.
 type BoardTopicComment struct {
 	Attachments []WallCommentAttachment `json:"attachments"`
 	Date        int                     `json:"date"`    // Date when the comment has been added in Unixtime
@@ -27,7 +27,7 @@ type BoardTopicComment struct {
 	CanEdit BaseBoolInt   `json:"can_edit"` // Information whether current user can edit the comment
 }
 
-// BoardTopicPoll struct
+// BoardTopicPoll struct.
 type BoardTopicPoll struct {
 	AnswerID int           `json:"answer_id"` // Current user's answer ID
 	Answers  []PollsAnswer `json:"answers"`

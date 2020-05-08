@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// StorageGetBuilder builder
+// StorageGetBuilder builder.
 //
 // Returns a value of variable with the name set by key parameter.
 //
@@ -13,36 +13,36 @@ type StorageGetBuilder struct {
 	api.Params
 }
 
-// NewStorageGetBuilder func
+// NewStorageGetBuilder func.
 func NewStorageGetBuilder() *StorageGetBuilder {
 	return &StorageGetBuilder{api.Params{}}
 }
 
-// Key parameter
+// Key parameter.
 func (b *StorageGetBuilder) Key(v string) *StorageGetBuilder {
 	b.Params["key"] = v
 	return b
 }
 
-// Keys parameter
+// Keys parameter.
 func (b *StorageGetBuilder) Keys(v []string) *StorageGetBuilder {
 	b.Params["keys"] = v
 	return b
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *StorageGetBuilder) UserID(v int) *StorageGetBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Global parameter
+// Global parameter.
 func (b *StorageGetBuilder) Global(v bool) *StorageGetBuilder {
 	b.Params["global"] = v
 	return b
 }
 
-// StorageGetKeysBuilder builder
+// StorageGetKeysBuilder builder.
 //
 // Returns the names of all variables.
 //
@@ -51,7 +51,7 @@ type StorageGetKeysBuilder struct {
 	api.Params
 }
 
-// NewStorageGetKeysBuilder func
+// NewStorageGetKeysBuilder func.
 func NewStorageGetKeysBuilder() *StorageGetKeysBuilder {
 	return &StorageGetKeysBuilder{api.Params{}}
 }
@@ -62,13 +62,13 @@ func (b *StorageGetKeysBuilder) UserID(v int) *StorageGetKeysBuilder {
 	return b
 }
 
-// Global parameter
+// Global parameter.
 func (b *StorageGetKeysBuilder) Global(v bool) *StorageGetKeysBuilder {
 	b.Params["global"] = v
 	return b
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *StorageGetKeysBuilder) Offset(v int) *StorageGetKeysBuilder {
 	b.Params["offset"] = v
 	return b
@@ -80,7 +80,7 @@ func (b *StorageGetKeysBuilder) Count(v int) *StorageGetKeysBuilder {
 	return b
 }
 
-// StorageSetBuilder builder
+// StorageSetBuilder builder.
 //
 // Saves a value of variable with the name set by 'key' parameter.
 //
@@ -89,30 +89,30 @@ type StorageSetBuilder struct {
 	api.Params
 }
 
-// NewStorageSetBuilder func
+// NewStorageSetBuilder func.
 func NewStorageSetBuilder() *StorageSetBuilder {
 	return &StorageSetBuilder{api.Params{}}
 }
 
-// Key parameter
+// Key parameter.
 func (b *StorageSetBuilder) Key(v string) *StorageSetBuilder {
 	b.Params["key"] = v
 	return b
 }
 
-// Value parameter
+// Value parameter.
 func (b *StorageSetBuilder) Value(v string) *StorageSetBuilder {
 	b.Params["value"] = v
 	return b
 }
 
-// UserID parameter
+// UserID parameter.
 func (b *StorageSetBuilder) UserID(v int) *StorageSetBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Global parameter
+// Global parameter.
 func (b *StorageSetBuilder) Global(v bool) *StorageSetBuilder {
 	b.Params["global"] = v
 	return b

@@ -4,31 +4,31 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// WallCloseCommentsBuilder builder
+// WallCloseCommentsBuilder builder.
 //
 // https://vk.com/dev/wall.closeComments
 type WallCloseCommentsBuilder struct {
 	api.Params
 }
 
-// NewWallCloseCommentsBuilder func
+// NewWallCloseCommentsBuilder func.
 func NewWallCloseCommentsBuilder() *WallCloseCommentsBuilder {
 	return &WallCloseCommentsBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *WallCloseCommentsBuilder) OwnerID(v int) *WallCloseCommentsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// PostID parameter
+// PostID parameter.
 func (b *WallCloseCommentsBuilder) PostID(v int) *WallCloseCommentsBuilder {
 	b.Params["post_id"] = v
 	return b
 }
 
-// WallCreateCommentBuilder builder
+// WallCreateCommentBuilder builder.
 //
 // Adds a comment to a post on a user wall or community wall.
 //
@@ -37,7 +37,7 @@ type WallCreateCommentBuilder struct {
 	api.Params
 }
 
-// NewWallCreateCommentBuilder func
+// NewWallCreateCommentBuilder func.
 func NewWallCreateCommentBuilder() *WallCreateCommentBuilder {
 	return &WallCreateCommentBuilder{api.Params{}}
 }
@@ -77,7 +77,7 @@ func (b *WallCreateCommentBuilder) ReplyToComment(v int) *WallCreateCommentBuild
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
 // '' — Type of media ojbect: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
-// For example: "photo100172_166443618,photo66748_265827614"
+// For example: "photo100172_166443618,photo66748_265827614".
 func (b *WallCreateCommentBuilder) Attachments(v interface{}) *WallCreateCommentBuilder {
 	b.Params["attachments"] = v
 	return b
@@ -95,7 +95,7 @@ func (b *WallCreateCommentBuilder) GUID(v string) *WallCreateCommentBuilder {
 	return b
 }
 
-// WallDeleteBuilder builder
+// WallDeleteBuilder builder.
 //
 // Deletes a post from a user wall or community wall.
 //
@@ -104,7 +104,7 @@ type WallDeleteBuilder struct {
 	api.Params
 }
 
-// NewWallDeleteBuilder func
+// NewWallDeleteBuilder func.
 func NewWallDeleteBuilder() *WallDeleteBuilder {
 	return &WallDeleteBuilder{api.Params{}}
 }
@@ -121,7 +121,7 @@ func (b *WallDeleteBuilder) PostID(v int) *WallDeleteBuilder {
 	return b
 }
 
-// WallDeleteCommentBuilder builder
+// WallDeleteCommentBuilder builder.
 //
 // Deletes a comment on a post on a user wall or community wall.
 //
@@ -130,7 +130,7 @@ type WallDeleteCommentBuilder struct {
 	api.Params
 }
 
-// NewWallDeleteCommentBuilder func
+// NewWallDeleteCommentBuilder func.
 func NewWallDeleteCommentBuilder() *WallDeleteCommentBuilder {
 	return &WallDeleteCommentBuilder{api.Params{}}
 }
@@ -147,7 +147,7 @@ func (b *WallDeleteCommentBuilder) CommentID(v int) *WallDeleteCommentBuilder {
 	return b
 }
 
-// WallEditBuilder builder
+// WallEditBuilder builder.
 //
 // Edits a post on a user wall or community wall.
 //
@@ -156,7 +156,7 @@ type WallEditBuilder struct {
 	api.Params
 }
 
-// NewWallEditBuilder func
+// NewWallEditBuilder func.
 func NewWallEditBuilder() *WallEditBuilder {
 	return &WallEditBuilder{api.Params{}}
 }
@@ -167,13 +167,13 @@ func (b *WallEditBuilder) OwnerID(v int) *WallEditBuilder {
 	return b
 }
 
-// PostID parameter
+// PostID parameter.
 func (b *WallEditBuilder) PostID(v int) *WallEditBuilder {
 	b.Params["post_id"] = v
 	return b
 }
 
-// FriendsOnly parameter
+// FriendsOnly parameter.
 func (b *WallEditBuilder) FriendsOnly(v bool) *WallEditBuilder {
 	b.Params["friends_only"] = v
 	return b
@@ -198,73 +198,73 @@ func (b *WallEditBuilder) Attachments(v interface{}) *WallEditBuilder {
 	return b
 }
 
-// Services parameter
+// Services parameter.
 func (b *WallEditBuilder) Services(v string) *WallEditBuilder {
 	b.Params["services"] = v
 	return b
 }
 
-// Signed parameter
+// Signed parameter.
 func (b *WallEditBuilder) Signed(v bool) *WallEditBuilder {
 	b.Params["signed"] = v
 	return b
 }
 
-// PublishDate parameter
+// PublishDate parameter.
 func (b *WallEditBuilder) PublishDate(v int) *WallEditBuilder {
 	b.Params["publish_date"] = v
 	return b
 }
 
-// Lat parameter
+// Lat parameter.
 func (b *WallEditBuilder) Lat(v float64) *WallEditBuilder {
 	b.Params["lat"] = v
 	return b
 }
 
-// Long parameter
+// Long parameter.
 func (b *WallEditBuilder) Long(v float64) *WallEditBuilder {
 	b.Params["long"] = v
 	return b
 }
 
-// PlaceID parameter
+// PlaceID parameter.
 func (b *WallEditBuilder) PlaceID(v int) *WallEditBuilder {
 	b.Params["place_id"] = v
 	return b
 }
 
-// MarkAsAds parameter
+// MarkAsAds parameter.
 func (b *WallEditBuilder) MarkAsAds(v bool) *WallEditBuilder {
 	b.Params["mark_as_ads"] = v
 	return b
 }
 
-// CloseComments parameter
+// CloseComments parameter.
 func (b *WallEditBuilder) CloseComments(v bool) *WallEditBuilder {
 	b.Params["close_comments"] = v
 	return b
 }
 
-// PosterBkgID parameter
+// PosterBkgID parameter.
 func (b *WallEditBuilder) PosterBkgID(v int) *WallEditBuilder {
 	b.Params["poster_bkg_id"] = v
 	return b
 }
 
-// PosterBkgOwnerID parameter
+// PosterBkgOwnerID parameter.
 func (b *WallEditBuilder) PosterBkgOwnerID(v int) *WallEditBuilder {
 	b.Params["poster_bkg_owner_id"] = v
 	return b
 }
 
-// PosterBkgAccessHash parameter
+// PosterBkgAccessHash parameter.
 func (b *WallEditBuilder) PosterBkgAccessHash(v string) *WallEditBuilder {
 	b.Params["poster_bkg_access_hash"] = v
 	return b
 }
 
-// WallEditAdsStealthBuilder builder
+// WallEditAdsStealthBuilder builder.
 //
 // Allows to edit hidden post.
 //
@@ -273,7 +273,7 @@ type WallEditAdsStealthBuilder struct {
 	api.Params
 }
 
-// NewWallEditAdsStealthBuilder func
+// NewWallEditAdsStealthBuilder func.
 func NewWallEditAdsStealthBuilder() *WallEditAdsStealthBuilder {
 	return &WallEditAdsStealthBuilder{api.Params{}}
 }
@@ -311,8 +311,9 @@ func (b *WallEditAdsStealthBuilder) Attachments(v interface{}) *WallEditAdsSteal
 
 // Signed Only for posts in communities with 'from_group' set to '1':
 //
-// * 1 — post will be signed with the name of the posting user,
-// * 0 — post will not be signed (default)
+// * 1 — post will be signed with the name of the posting user.
+//
+// * 0 — post will not be signed (default).
 func (b *WallEditAdsStealthBuilder) Signed(v bool) *WallEditAdsStealthBuilder {
 	b.Params["signed"] = v
 	return b
@@ -336,31 +337,31 @@ func (b *WallEditAdsStealthBuilder) PlaceID(v int) *WallEditAdsStealthBuilder {
 	return b
 }
 
-// LinkButton Link button ID
+// LinkButton Link button ID.
 func (b *WallEditAdsStealthBuilder) LinkButton(v string) *WallEditAdsStealthBuilder {
 	b.Params["link_button"] = v
 	return b
 }
 
-// LinkTitle Link title
+// LinkTitle Link title.
 func (b *WallEditAdsStealthBuilder) LinkTitle(v string) *WallEditAdsStealthBuilder {
 	b.Params["link_title"] = v
 	return b
 }
 
-// LinkImage Link image url
+// LinkImage Link image url.
 func (b *WallEditAdsStealthBuilder) LinkImage(v string) *WallEditAdsStealthBuilder {
 	b.Params["link_image"] = v
 	return b
 }
 
-// LinkVideo Link video ID in format "<owner_id>_<media_id>"
+// LinkVideo Link video ID in format "<owner_id>_<media_id>".
 func (b *WallEditAdsStealthBuilder) LinkVideo(v string) *WallEditAdsStealthBuilder {
 	b.Params["link_video"] = v
 	return b
 }
 
-// WallEditCommentBuilder builder
+// WallEditCommentBuilder builder.
 //
 // Edits a comment on a user wall or community wall.
 //
@@ -369,7 +370,7 @@ type WallEditCommentBuilder struct {
 	api.Params
 }
 
-// NewWallEditCommentBuilder func
+// NewWallEditCommentBuilder func.
 func NewWallEditCommentBuilder() *WallEditCommentBuilder {
 	return &WallEditCommentBuilder{api.Params{}}
 }
@@ -398,13 +399,13 @@ func (b *WallEditCommentBuilder) Message(v string) *WallEditCommentBuilder {
 // 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album,
 // '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
 //
-// Example: "photo100172_166443618,photo66748_265827614"
+// Example: "photo100172_166443618,photo66748_265827614".
 func (b *WallEditCommentBuilder) Attachments(v interface{}) *WallEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
 
-// WallGetBuilder builder
+// WallGetBuilder builder.
 //
 // Returns a list of posts on a user wall or community wall.
 //
@@ -413,7 +414,7 @@ type WallGetBuilder struct {
 	api.Params
 }
 
-// NewWallGetBuilder func
+// NewWallGetBuilder func.
 func NewWallGetBuilder() *WallGetBuilder {
 	return &WallGetBuilder{api.Params{}}
 }
@@ -459,19 +460,19 @@ func (b *WallGetBuilder) Filter(v string) *WallGetBuilder {
 	return b
 }
 
-// Extended '1' — to return 'wall', 'profiles', and 'groups' fields, '0' — to return no additional fields (default)
+// Extended '1' — to return 'wall', 'profiles', and 'groups' fields, '0' — to return no additional fields (default).
 func (b *WallGetBuilder) Extended(v bool) *WallGetBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *WallGetBuilder) Fields(v []string) *WallGetBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// WallGetByIDBuilder builder
+// WallGetByIDBuilder builder.
 //
 // Returns a list of posts from user or community walls by their IDs.
 //
@@ -480,7 +481,7 @@ type WallGetByIDBuilder struct {
 	api.Params
 }
 
-// NewWallGetByIDBuilder func
+// NewWallGetByIDBuilder func.
 func NewWallGetByIDBuilder() *WallGetByIDBuilder {
 	return &WallGetByIDBuilder{api.Params{}}
 }
@@ -488,14 +489,14 @@ func NewWallGetByIDBuilder() *WallGetByIDBuilder {
 // Posts User or community IDs and post IDs, separated by underscores.
 // Use a negative value to designate a community ID.
 //
-// Example: "93388_21539,93388_20904,2943_4276,-1_1"
+// Example: "93388_21539,93388_20904,2943_4276,-1_1".
 func (b *WallGetByIDBuilder) Posts(v []string) *WallGetByIDBuilder {
 	b.Params["posts"] = v
 	return b
 }
 
 // Extended '1' — to return user and community objects needed to display posts, '0' — no additional fields
-// are returned (default)
+// are returned (default).
 func (b *WallGetByIDBuilder) Extended(v bool) *WallGetByIDBuilder {
 	b.Params["extended"] = v
 	return b
@@ -508,13 +509,13 @@ func (b *WallGetByIDBuilder) CopyHistoryDepth(v int) *WallGetByIDBuilder {
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *WallGetByIDBuilder) Fields(v []string) *WallGetByIDBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// WallGetCommentsBuilder builder
+// WallGetCommentsBuilder builder.
 //
 // Returns a list of comments on a post on a user wall or community wall.
 //
@@ -523,7 +524,7 @@ type WallGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewWallGetCommentsBuilder func
+// NewWallGetCommentsBuilder func.
 func NewWallGetCommentsBuilder() *WallGetCommentsBuilder {
 	return &WallGetCommentsBuilder{api.Params{}}
 }
@@ -540,13 +541,17 @@ func (b *WallGetCommentsBuilder) PostID(v int) *WallGetCommentsBuilder {
 	return b
 }
 
-// NeedLikes '1' — to return the 'likes' field, '0' — not to return the 'likes' field (default)
+// NeedLikes parameter.
+//
+// * '1' — to return the 'likes' field,
+//
+// * '0' — not to return the 'likes' field (default).
 func (b *WallGetCommentsBuilder) NeedLikes(v bool) *WallGetCommentsBuilder {
 	b.Params["need_likes"] = v
 	return b
 }
 
-// StartCommentID parameter
+// StartCommentID parameter.
 func (b *WallGetCommentsBuilder) StartCommentID(v int) *WallGetCommentsBuilder {
 	b.Params["start_comment_id"] = v
 	return b
@@ -564,7 +569,7 @@ func (b *WallGetCommentsBuilder) Count(v int) *WallGetCommentsBuilder {
 	return b
 }
 
-// Sort Sort order: 'asc' — chronological, 'desc' — reverse chronological
+// Sort Sort order: 'asc' — chronological, 'desc' — reverse chronological.
 func (b *WallGetCommentsBuilder) Sort(v string) *WallGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
@@ -577,13 +582,13 @@ func (b *WallGetCommentsBuilder) PreviewLength(v int) *WallGetCommentsBuilder {
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 func (b *WallGetCommentsBuilder) Extended(v bool) *WallGetCommentsBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *WallGetCommentsBuilder) Fields(v []string) *WallGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
@@ -601,7 +606,7 @@ func (b *WallGetCommentsBuilder) ThreadItemsCount(v int) *WallGetCommentsBuilder
 	return b
 }
 
-// WallGetRepostsBuilder builder
+// WallGetRepostsBuilder builder.
 //
 // Returns information about reposts of a post on user wall or community wall.
 //
@@ -610,7 +615,7 @@ type WallGetRepostsBuilder struct {
 	api.Params
 }
 
-// NewWallGetRepostsBuilder func
+// NewWallGetRepostsBuilder func.
 func NewWallGetRepostsBuilder() *WallGetRepostsBuilder {
 	return &WallGetRepostsBuilder{api.Params{}}
 }
@@ -639,31 +644,31 @@ func (b *WallGetRepostsBuilder) Count(v int) *WallGetRepostsBuilder {
 	return b
 }
 
-// WallOpenCommentsBuilder builder
+// WallOpenCommentsBuilder builder.
 //
 // https://vk.com/dev/wall.openComments
 type WallOpenCommentsBuilder struct {
 	api.Params
 }
 
-// NewWallOpenCommentsBuilder func
+// NewWallOpenCommentsBuilder func.
 func NewWallOpenCommentsBuilder() *WallOpenCommentsBuilder {
 	return &WallOpenCommentsBuilder{api.Params{}}
 }
 
-// OwnerID parameter
+// OwnerID parameter.
 func (b *WallOpenCommentsBuilder) OwnerID(v int) *WallOpenCommentsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// PostID parameter
+// PostID parameter.
 func (b *WallOpenCommentsBuilder) PostID(v int) *WallOpenCommentsBuilder {
 	b.Params["post_id"] = v
 	return b
 }
 
-// WallPinBuilder builder
+// WallPinBuilder builder.
 //
 // Pins the post on wall.
 //
@@ -672,7 +677,7 @@ type WallPinBuilder struct {
 	api.Params
 }
 
-// NewWallPinBuilder func
+// NewWallPinBuilder func.
 func NewWallPinBuilder() *WallPinBuilder {
 	return &WallPinBuilder{api.Params{}}
 }
@@ -690,7 +695,7 @@ func (b *WallPinBuilder) PostID(v int) *WallPinBuilder {
 	return b
 }
 
-// WallPostBuilder builder
+// WallPostBuilder builder.
 //
 // Adds a new post on a user wall or community wall. Can also be used to publish suggested or scheduled posts.
 //
@@ -699,7 +704,7 @@ type WallPostBuilder struct {
 	api.Params
 }
 
-// NewWallPostBuilder func
+// NewWallPostBuilder func.
 func NewWallPostBuilder() *WallPostBuilder {
 	return &WallPostBuilder{api.Params{}}
 }
@@ -710,7 +715,7 @@ func (b *WallPostBuilder) OwnerID(v int) *WallPostBuilder {
 	return b
 }
 
-// FriendsOnly '1' — post will be available to friends only, '0' — post will be available to all users (default)
+// FriendsOnly '1' — post will be available to friends only, '0' — post will be available to all users (default).
 func (b *WallPostBuilder) FriendsOnly(v bool) *WallPostBuilder {
 	b.Params["friends_only"] = v
 	return b
@@ -718,9 +723,9 @@ func (b *WallPostBuilder) FriendsOnly(v bool) *WallPostBuilder {
 
 // FromGroup For a community:
 //
-// * 1 — post will be published by the community,
+// * 1 — post will be published by the community.
 //
-// * 0 — post will be published by the user (default)
+// * 0 — post will be published by the user (default).
 func (b *WallPostBuilder) FromGroup(v bool) *WallPostBuilder {
 	b.Params["from_group"] = v
 	return b
@@ -738,11 +743,11 @@ func (b *WallPostBuilder) Message(v string) *WallPostBuilder {
 // 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album,
 // '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
 //
-// Example: "photo100172_166443618,photo66748_265827614",
+// Example: "photo100172_166443618,photo66748_265827614".
 //
 // May contain a link to an external page to include in the post.
 //
-// Example: "photo66748_265827614,http://habrahabr.ru",
+// Example: "photo66748_265827614,http://habrahabr.ru".
 //
 // NOTE: If more than one link is being attached, an error will be thrown.
 func (b *WallPostBuilder) Attachments(v interface{}) *WallPostBuilder {
@@ -761,7 +766,7 @@ func (b *WallPostBuilder) Services(v string) *WallPostBuilder {
 //
 // * 1 — post will be signed with the name of the posting user;
 //
-// * 0 — post will not be signed (default)
+// * 0 — post will not be signed (default).
 func (b *WallPostBuilder) Signed(v bool) *WallPostBuilder {
 	b.Params["signed"] = v
 	return b
@@ -797,31 +802,31 @@ func (b *WallPostBuilder) PostID(v int) *WallPostBuilder {
 	return b
 }
 
-// GUID parameter
+// GUID parameter.
 func (b *WallPostBuilder) GUID(v string) *WallPostBuilder {
 	b.Params["guid"] = v
 	return b
 }
 
-// MarkAsAds parameter
+// MarkAsAds parameter.
 func (b *WallPostBuilder) MarkAsAds(v bool) *WallPostBuilder {
 	b.Params["mark_as_ads"] = v
 	return b
 }
 
-// CloseComments parameter
+// CloseComments parameter.
 func (b *WallPostBuilder) CloseComments(v bool) *WallPostBuilder {
 	b.Params["close_comments"] = v
 	return b
 }
 
-// MuteNotifications parameter
+// MuteNotifications parameter.
 func (b *WallPostBuilder) MuteNotifications(v bool) *WallPostBuilder {
 	b.Params["mute_notifications"] = v
 	return b
 }
 
-// WallPostAdsStealthBuilder builder
+// WallPostAdsStealthBuilder builder.
 //
 // Allows to create hidden post which will not be shown on the community's wall and can be used for creating an ad
 // with type "Community post".
@@ -831,7 +836,7 @@ type WallPostAdsStealthBuilder struct {
 	api.Params
 }
 
-// NewWallPostAdsStealthBuilder func
+// NewWallPostAdsStealthBuilder func.
 func NewWallPostAdsStealthBuilder() *WallPostAdsStealthBuilder {
 	return &WallPostAdsStealthBuilder{api.Params{}}
 }
@@ -854,11 +859,11 @@ func (b *WallPostAdsStealthBuilder) Message(v string) *WallPostAdsStealthBuilder
 // 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album,
 // '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
 //
-// Example: "photo100172_166443618,photo66748_265827614",
+// Example: "photo100172_166443618,photo66748_265827614".
 //
 // May contain a link to an external page to include in the post.
 //
-// Example: "photo66748_265827614,http://habrahabr.ru",
+// Example: "photo66748_265827614,http://habrahabr.ru".
 //
 // NOTE: If more than one link is being attached, an error will be thrown.
 func (b *WallPostAdsStealthBuilder) Attachments(v interface{}) *WallPostAdsStealthBuilder {
@@ -870,7 +875,7 @@ func (b *WallPostAdsStealthBuilder) Attachments(v interface{}) *WallPostAdsSteal
 //
 // * 1 — post will be signed with the name of the posting user;
 //
-// * 0 — post will not be signed (default)
+// * 0 — post will not be signed (default).
 func (b *WallPostAdsStealthBuilder) Signed(v bool) *WallPostAdsStealthBuilder {
 	b.Params["signed"] = v
 	return b
@@ -900,31 +905,31 @@ func (b *WallPostAdsStealthBuilder) GUID(v string) *WallPostAdsStealthBuilder {
 	return b
 }
 
-// LinkButton Link button ID
+// LinkButton Link button ID.
 func (b *WallPostAdsStealthBuilder) LinkButton(v string) *WallPostAdsStealthBuilder {
 	b.Params["link_button"] = v
 	return b
 }
 
-// LinkTitle Link title
+// LinkTitle Link title.
 func (b *WallPostAdsStealthBuilder) LinkTitle(v string) *WallPostAdsStealthBuilder {
 	b.Params["link_title"] = v
 	return b
 }
 
-// LinkImage Link image url
+// LinkImage Link image url.
 func (b *WallPostAdsStealthBuilder) LinkImage(v string) *WallPostAdsStealthBuilder {
 	b.Params["link_image"] = v
 	return b
 }
 
-// LinkVideo Link video ID in format "<owner_id>_<media_id>"
+// LinkVideo Link video ID in format "<owner_id>_<media_id>".
 func (b *WallPostAdsStealthBuilder) LinkVideo(v string) *WallPostAdsStealthBuilder {
 	b.Params["link_video"] = v
 	return b
 }
 
-// WallReportCommentBuilder builder
+// WallReportCommentBuilder builder.
 //
 // Reports (submits a complaint about) a comment on a post on a user wall or community wall.
 //
@@ -933,7 +938,7 @@ type WallReportCommentBuilder struct {
 	api.Params
 }
 
-// NewWallReportCommentBuilder func
+// NewWallReportCommentBuilder func.
 func NewWallReportCommentBuilder() *WallReportCommentBuilder {
 	return &WallReportCommentBuilder{api.Params{}}
 }
@@ -970,7 +975,7 @@ func (b *WallReportCommentBuilder) Reason(v int) *WallReportCommentBuilder {
 	return b
 }
 
-// WallReportPostBuilder builder
+// WallReportPostBuilder builder.
 //
 // Reports (submits a complaint about) a post on a user wall or community wall.
 //
@@ -979,7 +984,7 @@ type WallReportPostBuilder struct {
 	api.Params
 }
 
-// NewWallReportPostBuilder func
+// NewWallReportPostBuilder func.
 func NewWallReportPostBuilder() *WallReportPostBuilder {
 	return &WallReportPostBuilder{api.Params{}}
 }
@@ -1016,7 +1021,7 @@ func (b *WallReportPostBuilder) Reason(v int) *WallReportPostBuilder {
 	return b
 }
 
-// WallRepostBuilder builder
+// WallRepostBuilder builder.
 //
 // Reposts (copies) an object to a user wall or community wall.
 //
@@ -1025,12 +1030,12 @@ type WallRepostBuilder struct {
 	api.Params
 }
 
-// NewWallRepostBuilder func
+// NewWallRepostBuilder func.
 func NewWallRepostBuilder() *WallRepostBuilder {
 	return &WallRepostBuilder{api.Params{}}
 }
 
-// Object ID of the object to be reposted on the wall. Example: "wall66748_3675"
+// Object ID of the object to be reposted on the wall. Example: "wall66748_3675".
 func (b *WallRepostBuilder) Object(v string) *WallRepostBuilder {
 	b.Params["object"] = v
 	return b
@@ -1048,19 +1053,19 @@ func (b *WallRepostBuilder) GroupID(v int) *WallRepostBuilder {
 	return b
 }
 
-// MarkAsAds parameter
+// MarkAsAds parameter.
 func (b *WallRepostBuilder) MarkAsAds(v bool) *WallRepostBuilder {
 	b.Params["mark_as_ads"] = v
 	return b
 }
 
-// MuteNotifications parameter
+// MuteNotifications parameter.
 func (b *WallRepostBuilder) MuteNotifications(v bool) *WallRepostBuilder {
 	b.Params["mute_notifications"] = v
 	return b
 }
 
-// WallRestoreBuilder builder
+// WallRestoreBuilder builder.
 //
 // Restores a post deleted from a user wall or community wall.
 //
@@ -1069,7 +1074,7 @@ type WallRestoreBuilder struct {
 	api.Params
 }
 
-// NewWallRestoreBuilder func
+// NewWallRestoreBuilder func.
 func NewWallRestoreBuilder() *WallRestoreBuilder {
 	return &WallRestoreBuilder{api.Params{}}
 }
@@ -1087,7 +1092,7 @@ func (b *WallRestoreBuilder) PostID(v int) *WallRestoreBuilder {
 	return b
 }
 
-// WallRestoreCommentBuilder builder
+// WallRestoreCommentBuilder builder.
 //
 // Restores a comment deleted from a user wall or community wall.
 //
@@ -1096,7 +1101,7 @@ type WallRestoreCommentBuilder struct {
 	api.Params
 }
 
-// NewWallRestoreCommentBuilder func
+// NewWallRestoreCommentBuilder func.
 func NewWallRestoreCommentBuilder() *WallRestoreCommentBuilder {
 	return &WallRestoreCommentBuilder{api.Params{}}
 }
@@ -1113,7 +1118,7 @@ func (b *WallRestoreCommentBuilder) CommentID(v int) *WallRestoreCommentBuilder 
 	return b
 }
 
-// WallSearchBuilder builder
+// WallSearchBuilder builder.
 //
 // Allows to search posts on user or community walls.
 //
@@ -1122,12 +1127,12 @@ type WallSearchBuilder struct {
 	api.Params
 }
 
-// NewWallSearchBuilder func
+// NewWallSearchBuilder func.
 func NewWallSearchBuilder() *WallSearchBuilder {
 	return &WallSearchBuilder{api.Params{}}
 }
 
-// OwnerID user or community id. "Remember that for a community 'owner_id' must be negative."
+// OwnerID user or community id. "Remember that for a community 'owner_id' must be negative.".
 func (b *WallSearchBuilder) OwnerID(v int) *WallSearchBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -1169,13 +1174,13 @@ func (b *WallSearchBuilder) Extended(v bool) *WallSearchBuilder {
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *WallSearchBuilder) Fields(v []string) *WallSearchBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// WallUnpinBuilder builder
+// WallUnpinBuilder builder.
 //
 // Unpins the post on wall.
 //
@@ -1184,7 +1189,7 @@ type WallUnpinBuilder struct {
 	api.Params
 }
 
-// NewWallUnpinBuilder func
+// NewWallUnpinBuilder func.
 func NewWallUnpinBuilder() *WallUnpinBuilder {
 	return &WallUnpinBuilder{api.Params{}}
 }

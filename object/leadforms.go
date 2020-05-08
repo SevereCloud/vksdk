@@ -1,6 +1,6 @@
 package object
 
-// LeadFormsForm struct
+// LeadFormsForm struct.
 type LeadFormsForm struct {
 	FormID        int         `json:"form_id"`
 	GroupID       int         `json:"group_id"`
@@ -29,7 +29,7 @@ type LeadFormsForm struct {
 	URL          string `json:"url"`
 }
 
-// LeadFormsLead struct
+// LeadFormsLead struct.
 type LeadFormsLead struct {
 	LeadID  string `json:"lead_id"`
 	UserID  string `json:"user_id"`

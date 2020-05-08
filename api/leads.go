@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// LeadsCheckUserResponse struct
+// LeadsCheckUserResponse struct.
 type LeadsCheckUserResponse object.LeadsChecked
 
 // LeadsCheckUser Checks if the user can start the lead.
@@ -15,7 +15,7 @@ func (vk *VK) LeadsCheckUser(params Params) (response LeadsCheckUserResponse, er
 	return
 }
 
-// LeadsCompleteResponse struct
+// LeadsCompleteResponse struct.
 type LeadsCompleteResponse object.LeadsComplete
 
 // LeadsComplete Completes the lead started by user.
@@ -26,7 +26,7 @@ func (vk *VK) LeadsComplete(params Params) (response LeadsCompleteResponse, err 
 	return
 }
 
-// LeadsGetStatsResponse struct
+// LeadsGetStatsResponse struct.
 type LeadsGetStatsResponse object.LeadsLead
 
 // LeadsGetStats Returns lead stats data.
@@ -37,7 +37,7 @@ func (vk *VK) LeadsGetStats(params Params) (response LeadsGetStatsResponse, err 
 	return
 }
 
-// LeadsGetUsersResponse struct
+// LeadsGetUsersResponse struct.
 type LeadsGetUsersResponse object.LeadsEntry
 
 // LeadsGetUsers Returns a list of last user actions for the offer.
@@ -48,7 +48,7 @@ func (vk *VK) LeadsGetUsers(params Params) (response LeadsGetUsersResponse, err 
 	return
 }
 
-// LeadsMetricHitResponse struct
+// LeadsMetricHitResponse struct.
 type LeadsMetricHitResponse struct {
 	Result       object.BaseBoolInt `json:"result"`        // Information whether request has been processed successfully
 	RedirectLink string             `json:"redirect_link"` // Redirect link
@@ -62,7 +62,7 @@ func (vk *VK) LeadsMetricHit(params Params) (response LeadsMetricHitResponse, er
 	return
 }
 
-// LeadsStartResponse struct
+// LeadsStartResponse struct.
 type LeadsStartResponse object.LeadsStart
 
 // LeadsStart Creates new session for the user passing the offer.

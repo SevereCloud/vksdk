@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// NotificationsGetResponse struct
+// NotificationsGetResponse struct.
 type NotificationsGetResponse struct {
 	Count      int                                `json:"count"`
 	Items      []object.NotificationsNotification `json:"items"`
@@ -35,7 +35,7 @@ func (vk *VK) NotificationsMarkAsViewed(params Params) (response int, err error)
 	return
 }
 
-// NotificationsSendMessageResponse struct
+// NotificationsSendMessageResponse struct.
 type NotificationsSendMessageResponse []struct {
 	UserID int                `json:"user_id"`
 	Status object.BaseBoolInt `json:"status"`

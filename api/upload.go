@@ -18,7 +18,7 @@ type uploadError struct {
 	ErrorIsLogged bool   `json:"error_is_logged"`
 }
 
-// UploadFile uploading file
+// UploadFile uploading file.
 func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string) (bodyContent []byte, err error) {
 	body := new(bytes.Buffer)
 	writer := multipart.NewWriter(body)
@@ -47,12 +47,12 @@ func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string)
 	return
 }
 
-// uploadPhoto uploading Photos into Album
+// uploadPhoto uploading Photos into Album.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) uploadPhoto(params Params, file io.Reader) (response PhotosSaveResponse, err error) {
 	uploadServer, err := vk.PhotosGetUploadServer(params)
 	if err != nil {
@@ -83,12 +83,12 @@ func (vk *VK) uploadPhoto(params Params, file io.Reader) (response PhotosSaveRes
 	return
 }
 
-// UploadPhoto uploading Photos into User Album
+// UploadPhoto uploading Photos into User Album.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadPhoto(albumID int, file io.Reader) (response PhotosSaveResponse, err error) {
 	response, err = vk.uploadPhoto(Params{
 		"album_id": albumID,
@@ -97,12 +97,12 @@ func (vk *VK) UploadPhoto(albumID int, file io.Reader) (response PhotosSaveRespo
 	return
 }
 
-// UploadPhotoGroup uploading Photos into Group Album
+// UploadPhotoGroup uploading Photos into Group Album.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadPhotoGroup(groupID, albumID int, file io.Reader) (response PhotosSaveResponse, err error) {
 	response, err = vk.uploadPhoto(Params{
 		"album_id": albumID,
@@ -112,12 +112,12 @@ func (vk *VK) UploadPhotoGroup(groupID, albumID int, file io.Reader) (response P
 	return
 }
 
-// uploadWallPhoto uploading Photos on Wall
+// uploadWallPhoto uploading Photos on Wall.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) uploadWallPhoto(params Params, file io.Reader) (response PhotosSaveWallPhotoResponse, err error) {
 	uploadServer, err := vk.PhotosGetWallUploadServer(params)
 	if err != nil {
@@ -146,23 +146,23 @@ func (vk *VK) uploadWallPhoto(params Params, file io.Reader) (response PhotosSav
 	return
 }
 
-// UploadWallPhoto uploading Photos on User Wall
+// UploadWallPhoto uploading Photos on User Wall.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadWallPhoto(file io.Reader) (response PhotosSaveWallPhotoResponse, err error) {
 	response, err = vk.uploadWallPhoto(Params{}, file)
 	return
 }
 
-// UploadGroupWallPhoto uploading Photos on Group Wall
+// UploadGroupWallPhoto uploading Photos on Group Wall.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadGroupWallPhoto(groupID int, file io.Reader) (response PhotosSaveWallPhotoResponse, err error) {
 	response, err = vk.uploadWallPhoto(Params{
 		"group_id": groupID,
@@ -240,7 +240,7 @@ func (vk *VK) uploadOwnerPhoto(params Params, squareCrop string, file io.Reader)
 	return response, err
 }
 
-// UploadUserPhoto uploading Photos into User Profile
+// UploadUserPhoto uploading Photos into User Profile.
 //
 // Supported formats: JPG, PNG, GIF.
 //
@@ -271,12 +271,12 @@ func (vk *VK) UploadOwnerPhoto(ownerID int, squareCrop string, file io.Reader) (
 	return
 }
 
-// UploadMessagesPhoto uploading Photos into a Private Message
+// UploadMessagesPhoto uploading Photos into a Private Message.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadMessagesPhoto(peerID int, file io.Reader) (response PhotosSaveMessagesPhotoResponse, err error) {
 	uploadServer, err := vk.PhotosGetMessagesUploadServer(Params{
 		"peer_id": peerID,
@@ -306,13 +306,13 @@ func (vk *VK) UploadMessagesPhoto(peerID int, file io.Reader) (response PhotosSa
 	return
 }
 
-// uploadChatPhoto uploading a Main Photo to a Group Chat
+// uploadChatPhoto uploading a Main Photo to a Group Chat.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: size not less than 200x200px,
 // width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) uploadChatPhoto(params Params, file io.Reader) (response MessagesSetChatPhotoResponse, err error) {
 	uploadServer, err := vk.PhotosGetChatUploadServer(params)
 	if err != nil {
@@ -338,13 +338,13 @@ func (vk *VK) uploadChatPhoto(params Params, file io.Reader) (response MessagesS
 	return
 }
 
-// UploadChatPhoto uploading a Main Photo to a Group Chat without crop
+// UploadChatPhoto uploading a Main Photo to a Group Chat without crop.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: size not less than 200x200px,
 // width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadChatPhoto(chatID int, file io.Reader) (response MessagesSetChatPhotoResponse, err error) {
 	response, err = vk.uploadChatPhoto(Params{
 		"chat_id": chatID,
@@ -353,13 +353,13 @@ func (vk *VK) UploadChatPhoto(chatID int, file io.Reader) (response MessagesSetC
 	return
 }
 
-// UploadChatPhotoCrop uploading a Main Photo to a Group Chat with crop
+// UploadChatPhotoCrop uploading a Main Photo to a Group Chat with crop.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: size not less than 200x200px,
 // width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.Reader) (response MessagesSetChatPhotoResponse, err error) {
 	response, err = vk.uploadChatPhoto(Params{
 		"chat_id":    chatID,
@@ -371,13 +371,13 @@ func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.R
 	return
 }
 
-// uploadMarketPhoto uploading a Market Item Photo
+// uploadMarketPhoto uploading a Market Item Photo.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: size not less than 400x400px,
 // width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) uploadMarketPhoto(params Params, file io.Reader) (response PhotosSaveMarketPhotoResponse, err error) {
 	uploadServer, err := vk.PhotosGetMarketUploadServer(params)
 	if err != nil {
@@ -408,13 +408,13 @@ func (vk *VK) uploadMarketPhoto(params Params, file io.Reader) (response PhotosS
 	return
 }
 
-// UploadMarketPhoto uploading a Market Item Photo without crop
+// UploadMarketPhoto uploading a Market Item Photo without crop.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: size not less than 400x400px,
 // width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (response PhotosSaveMarketPhotoResponse, err error) {
 	response, err = vk.uploadMarketPhoto(Params{
 		"group_id":   groupID,
@@ -424,13 +424,13 @@ func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (re
 	return
 }
 
-// UploadMarketPhotoCrop uploading a Market Item Photo with crop
+// UploadMarketPhotoCrop uploading a Market Item Photo with crop.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: size not less than 400x400px,
 // width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file io.Reader) (response PhotosSaveMarketPhotoResponse, err error) {
 	response, err = vk.uploadMarketPhoto(Params{
 		"group_id":   groupID,
@@ -443,13 +443,13 @@ func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file i
 	return
 }
 
-// UploadMarketAlbumPhoto uploading a Main Photo to a Group Chat
+// UploadMarketAlbumPhoto uploading a Main Photo to a Group Chat.
 //
 // Supported formats: JPG, PNG, GIF.
 //
 // Limits: size not less than 1280x720px,
 // width+height not more than 14000 px, file size up to 50 Mb,
-// aspect ratio of at least 1:20
+// aspect ratio of at least 1:20.
 func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (response PhotosSaveMarketAlbumPhotoResponse, err error) {
 	uploadServer, err := vk.PhotosGetMarketAlbumUploadServer(Params{
 		"group_id": groupID,
@@ -480,7 +480,7 @@ func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (response Phot
 	return
 }
 
-// UploadVideo uploading Video Files
+// UploadVideo uploading Video Files.
 //
 // Supported formats: AVI, MP4, 3GP, MPEG, MOV, FLV, WMV.
 func (vk *VK) UploadVideo(params Params, file io.Reader) (response VideoSaveResponse, err error) {
@@ -508,7 +508,7 @@ func (vk *VK) UploadVideo(params Params, file io.Reader) (response VideoSaveResp
 	return
 }
 
-// uploadDoc uploading Documents
+// uploadDoc uploading Documents.
 //
 // Supported formats: any formats excepting mp3 and executable files.
 //
@@ -547,7 +547,7 @@ func (vk *VK) uploadDoc(url, title, tags string, file io.Reader) (response DocsS
 	return response, err
 }
 
-// UploadDoc uploading Documents
+// UploadDoc uploading Documents.
 //
 // Supported formats: any formats excepting mp3 and executable files.
 //
@@ -563,7 +563,7 @@ func (vk *VK) UploadDoc(title, tags string, file io.Reader) (response DocsSaveRe
 	return
 }
 
-// UploadGroupDoc uploading Documents into Community
+// UploadGroupDoc uploading Documents into Community.
 //
 // Supported formats: any formats excepting mp3 and executable files.
 //
@@ -581,7 +581,7 @@ func (vk *VK) UploadGroupDoc(groupID int, title, tags string, file io.Reader) (r
 	return
 }
 
-// UploadWallDoc uploading Documents on Wall
+// UploadWallDoc uploading Documents on Wall.
 //
 // Supported formats: any formats excepting mp3 and executable files.
 //
@@ -597,7 +597,7 @@ func (vk *VK) UploadWallDoc(title, tags string, file io.Reader) (response DocsSa
 	return
 }
 
-// UploadGroupWallDoc uploading Documents on Group Wall
+// UploadGroupWallDoc uploading Documents on Group Wall.
 //
 // Supported formats: any formats excepting mp3 and executable files.
 //
@@ -615,7 +615,7 @@ func (vk *VK) UploadGroupWallDoc(groupID int, title, tags string, file io.Reader
 	return
 }
 
-// UploadMessagesDoc uploading Documents into a Private Message
+// UploadMessagesDoc uploading Documents into a Private Message.
 //
 // Supported formats: any formats excepting mp3 and executable files.
 //
@@ -634,7 +634,7 @@ func (vk *VK) UploadMessagesDoc(peerID int, typeDoc, title, tags string, file io
 	return
 }
 
-// UploadOwnerCoverPhoto uploading a Main Photo to a Group Chat
+// UploadOwnerCoverPhoto uploading a Main Photo to a Group Chat.
 //
 // Supported formats: JPG, PNG, GIF.
 //
@@ -672,7 +672,7 @@ func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, f
 	return
 }
 
-// UploadStories struct
+// UploadStories struct.
 type UploadStories struct {
 	Stories object.StoriesStory `json:"story"`
 	Sig     string              `json:"_sig"`
@@ -691,7 +691,7 @@ type rawUploadStoriesVideo struct {
 	uploadError
 }
 
-// UploadStoriesPhoto uploading Story
+// UploadStoriesPhoto uploading Story.
 //
 // Supported formats: JPG, PNG, GIF.
 // Limits: sum of with and height no more than 14000px, file size no
@@ -727,7 +727,7 @@ func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response Upload
 	return
 }
 
-// UploadStoriesVideo uploading Story
+// UploadStoriesVideo uploading Story.
 //
 // Video format: h264 video, aac audio, maximum 720х1280, 30fps.
 func (vk *VK) UploadStoriesVideo(params Params, file io.Reader) (response UploadStories, err error) {
@@ -759,7 +759,7 @@ func (vk *VK) UploadStoriesVideo(params Params, file io.Reader) (response Upload
 	return
 }
 
-// uploadPollsPhoto uploading a Poll Photo
+// uploadPollsPhoto uploading a Poll Photo.
 //
 // Supported formats: JPG, PNG, GIF.
 //
@@ -791,7 +791,7 @@ func (vk *VK) uploadPollsPhoto(params Params, file io.Reader) (response PollsSav
 	return
 }
 
-// UploadPollsPhoto uploading a Poll Photo
+// UploadPollsPhoto uploading a Poll Photo.
 //
 // Supported formats: JPG, PNG, GIF.
 //
@@ -801,7 +801,7 @@ func (vk *VK) UploadPollsPhoto(file io.Reader) (response PollsSavePhotoResponse,
 	return vk.uploadPollsPhoto(Params{}, file)
 }
 
-// UploadOwnerPollsPhoto uploading a Poll Photo
+// UploadOwnerPollsPhoto uploading a Poll Photo.
 //
 // Supported formats: JPG, PNG, GIF.
 //
@@ -816,7 +816,7 @@ type uploadPrettyCardsPhotoHandler struct {
 	ErrCode int    `json:"errcode"`
 }
 
-// UploadPrettyCardsPhoto uploading a Pretty Card Photo
+// UploadPrettyCardsPhoto uploading a Pretty Card Photo.
 //
 // Supported formats: JPG, PNG, GIF.
 func (vk *VK) UploadPrettyCardsPhoto(file io.Reader) (response string, err error) {
@@ -852,7 +852,7 @@ type uploadLeadFormsPhotoHandler struct {
 	ErrCode int    `json:"errcode"`
 }
 
-// UploadLeadFormsPhoto uploading a Pretty Card Photo
+// UploadLeadFormsPhoto uploading a Pretty Card Photo.
 //
 // Supported formats: JPG, PNG, GIF.
 func (vk *VK) UploadLeadFormsPhoto(file io.Reader) (response string, err error) {

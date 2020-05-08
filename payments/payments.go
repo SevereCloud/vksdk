@@ -142,7 +142,7 @@ const (
 	Unknown Reason = "unknown"
 )
 
-// NotificationType type of notification
+// NotificationType type of notification.
 type NotificationType string
 
 // List type of notification.
@@ -279,7 +279,7 @@ func (e Error) Error() string {
 	return "payments: error with code " + strconv.Itoa(e.Code)
 }
 
-// Callback struct
+// Callback struct.
 type Callback struct {
 	Secret string
 
@@ -293,14 +293,14 @@ type Callback struct {
 	subscriptionStatusChangeTest func(e SubscriptionStatusChangeRequest) (*SubscriptionStatusChangeResponse, *Error)
 }
 
-// NewCallback return new Callback
+// NewCallback return new Callback.
 func NewCallback(secret string) *Callback {
 	return &Callback{
 		Secret: secret,
 	}
 }
 
-// GetItemRequest notification parameters
+// GetItemRequest notification parameters.
 type GetItemRequest struct {
 	Notification
 
@@ -317,7 +317,7 @@ type GetItemRequest struct {
 	Item string `schema:"item,required"`
 }
 
-// GetItemResponse reply parameters
+// GetItemResponse reply parameters.
 type GetItemResponse struct {
 	// product name, max 48 characters
 	//
@@ -355,7 +355,7 @@ type GetItemResponse struct {
 //
 // With item specifying the product name received in the notification, the
 // developer shall return actual information about such product. When there
-// is no product available, reply with Error 20 "Product does not exist"
+// is no product available, reply with Error 20 "Product does not exist".
 //
 // 		&payments.Error{
 // 			Code:     payments.ProductNotExist,
@@ -379,12 +379,12 @@ func (cb *Callback) OnGetItem(f func(e GetItemRequest) (*GetItemResponse, *Error
 	cb.getItem = f
 }
 
-// OnGetItemTest OnGetItem for test
+// OnGetItemTest OnGetItem for test.
 func (cb *Callback) OnGetItemTest(f func(e GetItemRequest) (*GetItemResponse, *Error)) {
 	cb.getItemTest = f
 }
 
-// OrderStatusChangeRequest notification parameters
+// OrderStatusChangeRequest notification parameters.
 type OrderStatusChangeRequest struct {
 	Notification
 
@@ -439,7 +439,7 @@ func (r OrderStatusChangeRequest) OfferID() int {
 	return offerID
 }
 
-// OrderStatusChangeResponse reply parameters
+// OrderStatusChangeResponse reply parameters.
 type OrderStatusChangeResponse struct {
 	// order ID in VK payment system
 	OrderID int `json:"order_id"`
@@ -471,7 +471,7 @@ func (cb *Callback) OnOrderStatusChangeTest(f func(e OrderStatusChangeRequest) (
 	cb.orderStatusChangeTest = f
 }
 
-// GetSubscriptionRequest notification parameters
+// GetSubscriptionRequest notification parameters.
 type GetSubscriptionRequest struct {
 	Notification
 
@@ -550,7 +550,7 @@ func (cb *Callback) OnGetSubscriptionTest(f func(e GetSubscriptionRequest) (*Get
 	cb.getSubscriptionTest = f
 }
 
-// SubscriptionStatusChangeRequest notification parameters
+// SubscriptionStatusChangeRequest notification parameters.
 type SubscriptionStatusChangeRequest struct {
 	Notification
 
@@ -587,7 +587,7 @@ type SubscriptionStatusChangeRequest struct {
 	NextBillTime int `schema:"next_bill_time"`
 }
 
-// SubscriptionStatusChangeResponse reply parameters
+// SubscriptionStatusChangeResponse reply parameters.
 type SubscriptionStatusChangeResponse struct {
 	// Global subscription identifier.
 	SubscriptionID int `json:"subscription_id"`
@@ -765,7 +765,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	writeResponse(*resp)
 }
 
-// Sign return signature
+// Sign return signature.
 //
 // The parameter sig equals md5 from the concatenation of pairs parameter
 // name=parameter value, placed in ascending alphabetical order according
@@ -780,7 +780,7 @@ func (cb *Callback) Sign(values url.Values) string {
 
 // getConcatenationParams concatenation of pairs parameter name=parameter
 // value, placed in ascending alphabetical order according to the
-// parameter name
+// parameter name.
 func getConcatenationParams(values url.Values) string {
 	if values == nil {
 		return ""
@@ -812,7 +812,7 @@ func getConcatenationParams(values url.Values) string {
 	return buf.String()
 }
 
-// toHex return hex string
+// toHex return hex string.
 func toHex(src []byte) string {
 	dst := make([]byte, hex.EncodedLen(len(src)))
 	hex.Encode(dst, src)

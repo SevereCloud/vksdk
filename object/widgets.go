@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// WidgetsCommentMedia struct
+// WidgetsCommentMedia struct.
 type WidgetsCommentMedia struct {
 	ItemID   int    `json:"item_id"`   // Media item ID
 	OwnerID  int    `json:"owner_id"`  // Media owner's ID
@@ -8,7 +8,7 @@ type WidgetsCommentMedia struct {
 	Type     string `json:"type"`
 }
 
-// WidgetsCommentReplies struct
+// WidgetsCommentReplies struct.
 type WidgetsCommentReplies struct {
 	CanPost       BaseBoolInt                 `json:"can_post"` // Information whether current user can comment the post
 	GroupsCanPost BaseBoolInt                 `json:"groups_can_post"`
@@ -16,7 +16,7 @@ type WidgetsCommentReplies struct {
 	Replies       []WidgetsCommentRepliesItem `json:"replies"`
 }
 
-// WidgetsCommentRepliesItem struct
+// WidgetsCommentRepliesItem struct.
 type WidgetsCommentRepliesItem struct {
 	Cid   int                `json:"cid"`  // Comment ID
 	Date  int                `json:"date"` // Date when the comment has been added in Unixtime
@@ -26,7 +26,7 @@ type WidgetsCommentRepliesItem struct {
 	User  UsersUser          `json:"user"`
 }
 
-// WidgetsWidgetComment struct
+// WidgetsWidgetComment struct.
 type WidgetsWidgetComment struct {
 	Attachments []WallCommentAttachment `json:"attachments"`
 	CanDelete   BaseBoolInt             `json:"can_delete"` // Information whether current user can delete the comment
@@ -47,12 +47,12 @@ type WidgetsWidgetComment struct {
 	} `json:"views"`
 }
 
-// WidgetsWidgetLikes struct
+// WidgetsWidgetLikes struct.
 type WidgetsWidgetLikes struct {
 	Count int `json:"count"` // Likes number
 }
 
-// WidgetsWidgetPage struct
+// WidgetsWidgetPage struct.
 type WidgetsWidgetPage struct {
 	Comments    WidgetsWidgetLikes `json:"comments,omitempty"`
 	Date        int                `json:"date,omitempty"`        // Date when Widgets on the page has been initialized firstly in Unixtime

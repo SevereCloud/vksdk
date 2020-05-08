@@ -6,7 +6,7 @@ type Img struct {
 	Image Image `xml:"Image"`
 }
 
-// Image digital images (such as JPEG, PNG, GIF bitmaps, SVG diagrams etc.)
+// Image digital images (such as JPEG, PNG, GIF bitmaps, SVG diagrams etc.).
 type Image struct {
 	Primary   string      `xml:"primary,attr"`
 	Width     int         `xml:"width,attr"`

@@ -13,7 +13,7 @@ import (
 	"golang.org/x/text/transform"
 )
 
-// illegal is a collection of runes
+// illegal is a collection of runes.
 type illegal struct{}
 
 func (i illegal) Contains(r rune) bool {

@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// AppWidgetsGetAppImageUploadServerResponse struct
+// AppWidgetsGetAppImageUploadServerResponse struct.
 type AppWidgetsGetAppImageUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -18,7 +18,7 @@ func (vk *VK) AppWidgetsGetAppImageUploadServer(params Params) (response AppWidg
 	return
 }
 
-// AppWidgetsGetAppImagesResponse struct
+// AppWidgetsGetAppImagesResponse struct.
 type AppWidgetsGetAppImagesResponse struct {
 	Count int                      `json:"count"`
 	Items []object.AppWidgetsImage `json:"items"`
@@ -32,7 +32,7 @@ func (vk *VK) AppWidgetsGetAppImages(params Params) (response AppWidgetsGetAppIm
 	return
 }
 
-// AppWidgetsGetGroupImageUploadServerResponse struct
+// AppWidgetsGetGroupImageUploadServerResponse struct.
 type AppWidgetsGetGroupImageUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -46,7 +46,7 @@ func (vk *VK) AppWidgetsGetGroupImageUploadServer(params Params) (response AppWi
 	return
 }
 
-// AppWidgetsGetGroupImagesResponse struct
+// AppWidgetsGetGroupImagesResponse struct.
 type AppWidgetsGetGroupImagesResponse struct {
 	Count int                      `json:"count"`
 	Items []object.AppWidgetsImage `json:"items"`

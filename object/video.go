@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// VideoVideo struct
+// VideoVideo struct.
 type VideoVideo struct {
 	AccessKey         string            `json:"access_key"`       // Video access key
 	AddingDate        int               `json:"adding_date"`      // Date when the video has been added in Unixtime
@@ -53,12 +53,12 @@ type VideoVideo struct {
 	Restriction       VideoRestriction  `json:"restriction"`
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (video VideoVideo) ToAttachment() string {
 	return fmt.Sprintf("video%d_%d", video.OwnerID, video.ID)
 }
 
-// VideoRestriction struct
+// VideoRestriction struct.
 type VideoRestriction struct {
 	Title       string      `json:"title"`
 	Text        string      `json:"text"`
@@ -70,7 +70,7 @@ type VideoRestriction struct {
 	ListIcon    []BaseImage `json:"list_icon"`
 }
 
-// VideoActionButton struct
+// VideoActionButton struct.
 type VideoActionButton struct {
 	ID      string       `json:"id"`
 	Type    string       `json:"type"`
@@ -78,7 +78,7 @@ type VideoActionButton struct {
 	Snippet VideoSnippet `json:"snippet"`
 }
 
-// VideoSnippet struct
+// VideoSnippet struct.
 type VideoSnippet struct {
 	Description string      `json:"description"`
 	OpenTitle   string      `json:"open_title"`
@@ -88,7 +88,7 @@ type VideoSnippet struct {
 	Image       []BaseImage `json:"image"`
 }
 
-// VideoVideoFiles struct
+// VideoVideoFiles struct.
 type VideoVideoFiles struct {
 	External string `json:"external"` // URL of the external player
 	Mp4_1080 string `json:"mp4_1080"` // URL of the mpeg4 file with 1080p quality
@@ -98,7 +98,7 @@ type VideoVideoFiles struct {
 	Mp4_720  string `json:"mp4_720"`  // URL of the mpeg4 file with 720p quality
 }
 
-// VideoCatBlock struct
+// VideoCatBlock struct.
 type VideoCatBlock struct {
 	CanHide BaseBoolInt       `json:"can_hide"`
 	ID      int               `json:"id"`
@@ -109,7 +109,7 @@ type VideoCatBlock struct {
 	View    string            `json:"view"`
 }
 
-// VideoCatElement struct
+// VideoCatElement struct.
 type VideoCatElement struct {
 	CanAdd      BaseBoolInt `json:"can_add"`
 	CanEdit     BaseBoolInt `json:"can_edit"`
@@ -132,7 +132,7 @@ type VideoCatElement struct {
 	Views       int         `json:"views"`
 }
 
-// VideoSaveResult struct
+// VideoSaveResult struct.
 type VideoSaveResult struct {
 	Description string `json:"description"` // Video description
 	OwnerID     int    `json:"owner_id"`    // Video owner ID
@@ -142,20 +142,20 @@ type VideoSaveResult struct {
 	AccessKey   string `json:"access_key"`  // Video access key
 }
 
-// VideoUploadResponse struct
+// VideoUploadResponse struct.
 type VideoUploadResponse struct {
 	Size    int `json:"size"`
 	VideoID int `json:"video_id"`
 }
 
-// VideoVideoAlbum struct
+// VideoVideoAlbum struct.
 type VideoVideoAlbum struct {
 	ID      int    `json:"id"`
 	OwnerID int    `json:"owner_id"`
 	Title   string `json:"title"`
 }
 
-// VideoVideoAlbumFull struct
+// VideoVideoAlbumFull struct.
 type VideoVideoAlbumFull struct {
 	Count       int               `json:"count"`        // Total number of videos in album
 	ID          int               `json:"id"`           // Album ID
@@ -169,7 +169,7 @@ type VideoVideoAlbumFull struct {
 	ImageBlur   int               `json:"image_blur"`
 }
 
-// VideoVideoFull struct
+// VideoVideoFull struct.
 type VideoVideoFull struct {
 	AccessKey     string            `json:"access_key"`  // Video access key
 	AddingDate    int               `json:"adding_date"` // Date when the video has been added in Unixtime
@@ -203,12 +203,12 @@ type VideoVideoFull struct {
 	Reposts       BaseRepostsInfo   `json:"reposts"`
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (video VideoVideoFull) ToAttachment() string {
 	return fmt.Sprintf("video%d_%d", video.OwnerID, video.ID)
 }
 
-// VideoVideoTag struct
+// VideoVideoTag struct.
 type VideoVideoTag struct {
 	Date       int         `json:"date"`
 	ID         int         `json:"id"`
@@ -218,7 +218,7 @@ type VideoVideoTag struct {
 	Viewed     BaseBoolInt `json:"viewed"`
 }
 
-// VideoVideoTagInfo struct
+// VideoVideoTagInfo struct.
 type VideoVideoTagInfo struct {
 	AccessKey   string          `json:"access_key"`
 	AddingDate  int             `json:"adding_date"`
@@ -244,7 +244,7 @@ type VideoVideoTagInfo struct {
 	Views       int             `json:"views"`
 }
 
-// VideoVideoImage struct
+// VideoVideoImage struct.
 type VideoVideoImage struct {
 	BaseImage
 	WithPadding BaseBoolInt `json:"with_padding"`

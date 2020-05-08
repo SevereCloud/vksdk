@@ -2,7 +2,7 @@ package object // import "github.com/SevereCloud/vksdk/object"
 
 import "encoding/json"
 
-// NotificationsFeedback struct
+// NotificationsFeedback struct.
 type NotificationsFeedback struct {
 	Attachments []WallWallpostAttachment `json:"attachments"`
 	FromID      int                      `json:"from_id"` // Reply author's ID
@@ -13,7 +13,7 @@ type NotificationsFeedback struct {
 	ToID        int                      `json:"to_id"` // Wall owner's ID
 }
 
-// NotificationsNotification struct
+// NotificationsNotification struct.
 type NotificationsNotification struct {
 	Date     int                `json:"date"` // Date when the event has been occurred
 	Feedback json.RawMessage    `json:"feedback"`
@@ -22,7 +22,7 @@ type NotificationsNotification struct {
 	Type     string             `json:"type"` // Notification type
 }
 
-// NotificationsNotificationsComment struct
+// NotificationsNotificationsComment struct.
 type NotificationsNotificationsComment struct {
 	Date    int          `json:"date"`     // Date when the comment has been added in Unixtime
 	ID      int          `json:"id"`       // Comment ID
@@ -34,7 +34,7 @@ type NotificationsNotificationsComment struct {
 	Video   VideoVideo   `json:"video"`
 }
 
-// NotificationsReply struct
+// NotificationsReply struct.
 type NotificationsReply struct {
 	Date string `json:"date"` // Date when the reply has been created in Unixtime
 	ID   int    `json:"id"`   // Reply ID

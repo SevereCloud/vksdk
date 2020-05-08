@@ -11,7 +11,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// FuncList struct
+// FuncList struct.
 type FuncList struct {
 	messageNew           []object.MessageNewFunc
 	messageReply         []object.MessageReplyFunc
@@ -59,14 +59,14 @@ type FuncList struct {
 	special              map[string][]func(object.GroupEvent)
 }
 
-// NewFuncList returns a new FuncList
+// NewFuncList returns a new FuncList.
 func NewFuncList() *FuncList {
 	return &FuncList{
 		special: make(map[string][]func(object.GroupEvent)),
 	}
 }
 
-// Handler group event handler
+// Handler group event handler.
 func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 	if sliceFunc, ok := fl.special[e.Type]; ok {
 		for _, f := range sliceFunc {
@@ -467,7 +467,7 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 	return nil
 }
 
-// OnEvent handler
+// OnEvent handler.
 func (fl *FuncList) OnEvent(eventType string, f func(object.GroupEvent)) {
 	if fl.special == nil {
 		fl.special = make(map[string][]func(object.GroupEvent))
@@ -476,217 +476,217 @@ func (fl *FuncList) OnEvent(eventType string, f func(object.GroupEvent)) {
 	fl.special[eventType] = append(fl.special[eventType], f)
 }
 
-// MessageNew handler
+// MessageNew handler.
 func (fl *FuncList) MessageNew(f object.MessageNewFunc) {
 	fl.messageNew = append(fl.messageNew, f)
 }
 
-// MessageReply handler
+// MessageReply handler.
 func (fl *FuncList) MessageReply(f object.MessageReplyFunc) {
 	fl.messageReply = append(fl.messageReply, f)
 }
 
-// MessageEdit handler
+// MessageEdit handler.
 func (fl *FuncList) MessageEdit(f object.MessageEditFunc) {
 	fl.messageEdit = append(fl.messageEdit, f)
 }
 
-// MessageAllow handler
+// MessageAllow handler.
 func (fl *FuncList) MessageAllow(f object.MessageAllowFunc) {
 	fl.messageAllow = append(fl.messageAllow, f)
 }
 
-// MessageDeny handler
+// MessageDeny handler.
 func (fl *FuncList) MessageDeny(f object.MessageDenyFunc) {
 	fl.messageDeny = append(fl.messageDeny, f)
 }
 
-// MessageTypingState handler
+// MessageTypingState handler.
 func (fl *FuncList) MessageTypingState(f object.MessageTypingStateFunc) {
 	fl.messageTypingState = append(fl.messageTypingState, f)
 }
 
-// PhotoNew handler
+// PhotoNew handler.
 func (fl *FuncList) PhotoNew(f object.PhotoNewFunc) {
 	fl.photoNew = append(fl.photoNew, f)
 }
 
-// PhotoCommentNew handler
+// PhotoCommentNew handler.
 func (fl *FuncList) PhotoCommentNew(f object.PhotoCommentNewFunc) {
 	fl.photoCommentNew = append(fl.photoCommentNew, f)
 }
 
-// PhotoCommentEdit handler
+// PhotoCommentEdit handler.
 func (fl *FuncList) PhotoCommentEdit(f object.PhotoCommentEditFunc) {
 	fl.photoCommentEdit = append(fl.photoCommentEdit, f)
 }
 
-// PhotoCommentRestore handler
+// PhotoCommentRestore handler.
 func (fl *FuncList) PhotoCommentRestore(f object.PhotoCommentRestoreFunc) {
 	fl.photoCommentRestore = append(fl.photoCommentRestore, f)
 }
 
-// PhotoCommentDelete handler
+// PhotoCommentDelete handler.
 func (fl *FuncList) PhotoCommentDelete(f object.PhotoCommentDeleteFunc) {
 	fl.photoCommentDelete = append(fl.photoCommentDelete, f)
 }
 
-// AudioNew handler
+// AudioNew handler.
 func (fl *FuncList) AudioNew(f object.AudioNewFunc) {
 	fl.audioNew = append(fl.audioNew, f)
 }
 
-// VideoNew handler
+// VideoNew handler.
 func (fl *FuncList) VideoNew(f object.VideoNewFunc) {
 	fl.videoNew = append(fl.videoNew, f)
 }
 
-// VideoCommentNew handler
+// VideoCommentNew handler.
 func (fl *FuncList) VideoCommentNew(f object.VideoCommentNewFunc) {
 	fl.videoCommentNew = append(fl.videoCommentNew, f)
 }
 
-// VideoCommentEdit handler
+// VideoCommentEdit handler.
 func (fl *FuncList) VideoCommentEdit(f object.VideoCommentEditFunc) {
 	fl.videoCommentEdit = append(fl.videoCommentEdit, f)
 }
 
-// VideoCommentRestore handler
+// VideoCommentRestore handler.
 func (fl *FuncList) VideoCommentRestore(f object.VideoCommentRestoreFunc) {
 	fl.videoCommentRestore = append(fl.videoCommentRestore, f)
 }
 
-// VideoCommentDelete handler
+// VideoCommentDelete handler.
 func (fl *FuncList) VideoCommentDelete(f object.VideoCommentDeleteFunc) {
 	fl.videoCommentDelete = append(fl.videoCommentDelete, f)
 }
 
-// WallPostNew handler
+// WallPostNew handler.
 func (fl *FuncList) WallPostNew(f object.WallPostNewFunc) {
 	fl.wallPostNew = append(fl.wallPostNew, f)
 }
 
-// WallRepost handler
+// WallRepost handler.
 func (fl *FuncList) WallRepost(f object.WallRepostFunc) {
 	fl.wallRepost = append(fl.wallRepost, f)
 }
 
-// WallReplyNew handler
+// WallReplyNew handler.
 func (fl *FuncList) WallReplyNew(f object.WallReplyNewFunc) {
 	fl.wallReplyNew = append(fl.wallReplyNew, f)
 }
 
-// WallReplyEdit handler
+// WallReplyEdit handler.
 func (fl *FuncList) WallReplyEdit(f object.WallReplyEditFunc) {
 	fl.wallReplyEdit = append(fl.wallReplyEdit, f)
 }
 
-// WallReplyRestore handler
+// WallReplyRestore handler.
 func (fl *FuncList) WallReplyRestore(f object.WallReplyRestoreFunc) {
 	fl.wallReplyRestore = append(fl.wallReplyRestore, f)
 }
 
-// WallReplyDelete handler
+// WallReplyDelete handler.
 func (fl *FuncList) WallReplyDelete(f object.WallReplyDeleteFunc) {
 	fl.wallReplyDelete = append(fl.wallReplyDelete, f)
 }
 
-// BoardPostNew handler
+// BoardPostNew handler.
 func (fl *FuncList) BoardPostNew(f object.BoardPostNewFunc) {
 	fl.boardPostNew = append(fl.boardPostNew, f)
 }
 
-// BoardPostEdit handler
+// BoardPostEdit handler.
 func (fl *FuncList) BoardPostEdit(f object.BoardPostEditFunc) {
 	fl.boardPostEdit = append(fl.boardPostEdit, f)
 }
 
-// BoardPostRestore handler
+// BoardPostRestore handler.
 func (fl *FuncList) BoardPostRestore(f object.BoardPostRestoreFunc) {
 	fl.boardPostRestore = append(fl.boardPostRestore, f)
 }
 
-// BoardPostDelete handler
+// BoardPostDelete handler.
 func (fl *FuncList) BoardPostDelete(f object.BoardPostDeleteFunc) {
 	fl.boardPostDelete = append(fl.boardPostDelete, f)
 }
 
-// MarketCommentNew handler
+// MarketCommentNew handler.
 func (fl *FuncList) MarketCommentNew(f object.MarketCommentNewFunc) {
 	fl.marketCommentNew = append(fl.marketCommentNew, f)
 }
 
-// MarketCommentEdit handler
+// MarketCommentEdit handler.
 func (fl *FuncList) MarketCommentEdit(f object.MarketCommentEditFunc) {
 	fl.marketCommentEdit = append(fl.marketCommentEdit, f)
 }
 
-// MarketCommentRestore handler
+// MarketCommentRestore handler.
 func (fl *FuncList) MarketCommentRestore(f object.MarketCommentRestoreFunc) {
 	fl.marketCommentRestore = append(fl.marketCommentRestore, f)
 }
 
-// MarketCommentDelete handler
+// MarketCommentDelete handler.
 func (fl *FuncList) MarketCommentDelete(f object.MarketCommentDeleteFunc) {
 	fl.marketCommentDelete = append(fl.marketCommentDelete, f)
 }
 
-// GroupLeave handler
+// GroupLeave handler.
 func (fl *FuncList) GroupLeave(f object.GroupLeaveFunc) {
 	fl.groupLeave = append(fl.groupLeave, f)
 }
 
-// GroupJoin handler
+// GroupJoin handler.
 func (fl *FuncList) GroupJoin(f object.GroupJoinFunc) {
 	fl.groupJoin = append(fl.groupJoin, f)
 }
 
-// UserBlock handler
+// UserBlock handler.
 func (fl *FuncList) UserBlock(f object.UserBlockFunc) {
 	fl.userBlock = append(fl.userBlock, f)
 }
 
-// UserUnblock handler
+// UserUnblock handler.
 func (fl *FuncList) UserUnblock(f object.UserUnblockFunc) {
 	fl.userUnblock = append(fl.userUnblock, f)
 }
 
-// PollVoteNew handler
+// PollVoteNew handler.
 func (fl *FuncList) PollVoteNew(f object.PollVoteNewFunc) {
 	fl.pollVoteNew = append(fl.pollVoteNew, f)
 }
 
-// GroupOfficersEdit handler
+// GroupOfficersEdit handler.
 func (fl *FuncList) GroupOfficersEdit(f object.GroupOfficersEditFunc) {
 	fl.groupOfficersEdit = append(fl.groupOfficersEdit, f)
 }
 
-// GroupChangeSettings handler
+// GroupChangeSettings handler.
 func (fl *FuncList) GroupChangeSettings(f object.GroupChangeSettingsFunc) {
 	fl.groupChangeSettings = append(fl.groupChangeSettings, f)
 }
 
-// GroupChangePhoto handler
+// GroupChangePhoto handler.
 func (fl *FuncList) GroupChangePhoto(f object.GroupChangePhotoFunc) {
 	fl.groupChangePhoto = append(fl.groupChangePhoto, f)
 }
 
-// VkpayTransaction handler
+// VkpayTransaction handler.
 func (fl *FuncList) VkpayTransaction(f object.VkpayTransactionFunc) {
 	fl.vkpayTransaction = append(fl.vkpayTransaction, f)
 }
 
-// LeadFormsNew handler
+// LeadFormsNew handler.
 func (fl *FuncList) LeadFormsNew(f object.LeadFormsNewFunc) {
 	fl.leadFormsNew = append(fl.leadFormsNew, f)
 }
 
-// AppPayload handler
+// AppPayload handler.
 func (fl *FuncList) AppPayload(f object.AppPayloadFunc) {
 	fl.appPayload = append(fl.appPayload, f)
 }
 
-// MessageRead handler
+// MessageRead handler.
 func (fl *FuncList) MessageRead(f object.MessageReadFunc) {
 	fl.messageRead = append(fl.messageRead, f)
 }

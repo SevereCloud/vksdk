@@ -28,7 +28,7 @@ func (vk *VK) DocsEdit(params Params) (response int, err error) {
 	return
 }
 
-// DocsGetResponse struct
+// DocsGetResponse struct.
 type DocsGetResponse struct {
 	Count int              `json:"count"`
 	Items []object.DocsDoc `json:"items"`
@@ -42,7 +42,7 @@ func (vk *VK) DocsGet(params Params) (response DocsGetResponse, err error) {
 	return
 }
 
-// DocsGetByIDResponse struct
+// DocsGetByIDResponse struct.
 type DocsGetByIDResponse []object.DocsDoc
 
 // DocsGetByID returns information about documents by their IDs.
@@ -53,7 +53,7 @@ func (vk *VK) DocsGetByID(params Params) (response DocsGetByIDResponse, err erro
 	return
 }
 
-// DocsGetMessagesUploadServerResponse struct
+// DocsGetMessagesUploadServerResponse struct.
 type DocsGetMessagesUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -66,7 +66,7 @@ func (vk *VK) DocsGetMessagesUploadServer(params Params) (response DocsGetMessag
 	return
 }
 
-// DocsGetTypesResponse struct
+// DocsGetTypesResponse struct.
 type DocsGetTypesResponse struct {
 	Count int                   `json:"count"`
 	Items []object.DocsDocTypes `json:"items"`
@@ -80,7 +80,7 @@ func (vk *VK) DocsGetTypes(params Params) (response DocsGetTypesResponse, err er
 	return
 }
 
-// DocsGetUploadServerResponse struct
+// DocsGetUploadServerResponse struct.
 type DocsGetUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -93,7 +93,7 @@ func (vk *VK) DocsGetUploadServer(params Params) (response DocsGetUploadServerRe
 	return
 }
 
-// DocsGetWallUploadServerResponse struct
+// DocsGetWallUploadServerResponse struct.
 type DocsGetWallUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
@@ -106,7 +106,7 @@ func (vk *VK) DocsGetWallUploadServer(params Params) (response DocsGetWallUpload
 	return
 }
 
-// DocsSaveResponse struct
+// DocsSaveResponse struct.
 type DocsSaveResponse struct {
 	Type         string                      `json:"string"`
 	AudioMessage object.MessagesAudioMessage `json:"audio_message"`
@@ -122,7 +122,7 @@ func (vk *VK) DocsSave(params Params) (response DocsSaveResponse, err error) {
 	return
 }
 
-// DocsSearchResponse struct
+// DocsSearchResponse struct.
 type DocsSearchResponse struct {
 	Count int              `json:"count"`
 	Items []object.DocsDoc `json:"items"`

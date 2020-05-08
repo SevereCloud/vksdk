@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// AudioAudioFull struct
+// AudioAudioFull struct.
 type AudioAudioFull struct {
 	ID             int                `json:"id"`
 	OwnerID        int                `json:"owner_id"`
@@ -24,19 +24,19 @@ type AudioAudioFull struct {
 	MainArtists    []AudioAudioArtist `json:"main_artists"`
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (audio AudioAudioFull) ToAttachment() string {
 	return fmt.Sprintf("audio%d_%d", audio.OwnerID, audio.ID)
 }
 
-// AudioAudioArtist struct
+// AudioAudioArtist struct.
 type AudioAudioArtist struct {
 	Name   string `json:"name"`
 	ID     string `json:"id"`
 	Domain string `json:"domain"`
 }
 
-// AudioAudio struct
+// AudioAudio struct.
 type AudioAudio struct {
 	AccessKey    string      `json:"access_key"` // Access key for the audio
 	Artist       string      `json:"artist"`     // Artist name
@@ -49,12 +49,12 @@ type AudioAudio struct {
 	URL          string      `json:"url"`      // URL of mp3 file
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (audio AudioAudio) ToAttachment() string {
 	return fmt.Sprintf("audio%d_%d", audio.OwnerID, audio.ID)
 }
 
-// AudioAudioUploadResponse struct
+// AudioAudioUploadResponse struct.
 type AudioAudioUploadResponse struct {
 	Audio    string `json:"audio"`
 	Hash     string `json:"hash"`
@@ -62,7 +62,7 @@ type AudioAudioUploadResponse struct {
 	Server   int    `json:"server"`
 }
 
-// AudioLyrics struct
+// AudioLyrics struct.
 type AudioLyrics struct {
 	LyricsID int    `json:"lyrics_id"`
 	Text     string `json:"text"`

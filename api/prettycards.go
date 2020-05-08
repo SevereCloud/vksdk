@@ -2,13 +2,13 @@ package api // import "github.com/SevereCloud/vksdk/api"
 
 import "github.com/SevereCloud/vksdk/object"
 
-// PrettyCardsCreateResponse struct
+// PrettyCardsCreateResponse struct.
 type PrettyCardsCreateResponse struct {
 	OwnerID int    `json:"owner_id"` // Owner ID of created pretty card
 	CardID  string `json:"card_id"`  // Card ID of created pretty card
 }
 
-// PrettyCardsCreate   method
+// PrettyCardsCreate method.
 //
 // https://vk.com/dev/prettyCards.create
 func (vk *VK) PrettyCardsCreate(params Params) (response PrettyCardsCreateResponse, err error) {
@@ -16,14 +16,14 @@ func (vk *VK) PrettyCardsCreate(params Params) (response PrettyCardsCreateRespon
 	return
 }
 
-// PrettyCardsDeleteResponse struct
+// PrettyCardsDeleteResponse struct.
 type PrettyCardsDeleteResponse struct {
 	OwnerID int    `json:"owner_id"` // Owner ID of created pretty card
 	CardID  string `json:"card_id"`  // Card ID of created pretty card
 	Error   string `json:"error"`    // Error reason if error happened
 }
 
-// PrettyCardsDelete  method
+// PrettyCardsDelete method.
 //
 // https://vk.com/dev/prettyCards.delete
 func (vk *VK) PrettyCardsDelete(params Params) (response PrettyCardsDeleteResponse, err error) {
@@ -31,13 +31,13 @@ func (vk *VK) PrettyCardsDelete(params Params) (response PrettyCardsDeleteRespon
 	return
 }
 
-// PrettyCardsEditResponse struct
+// PrettyCardsEditResponse struct.
 type PrettyCardsEditResponse struct {
 	OwnerID int    `json:"owner_id"` // Owner ID of created pretty card
 	CardID  string `json:"card_id"`  // Card ID of created pretty card
 }
 
-// PrettyCardsEdit  method
+// PrettyCardsEdit method.
 //
 // https://vk.com/dev/prettyCards.edit
 func (vk *VK) PrettyCardsEdit(params Params) (response PrettyCardsEditResponse, err error) {
@@ -45,13 +45,13 @@ func (vk *VK) PrettyCardsEdit(params Params) (response PrettyCardsEditResponse, 
 	return
 }
 
-// PrettyCardsGetResponse struct
+// PrettyCardsGetResponse struct.
 type PrettyCardsGetResponse struct {
 	Count int                            `json:"count"` // Total number
 	Items []object.PrettyCardsPrettyCard `json:"items"`
 }
 
-// PrettyCardsGet  method
+// PrettyCardsGet method.
 //
 // https://vk.com/dev/prettyCards.get
 func (vk *VK) PrettyCardsGet(params Params) (response PrettyCardsGetResponse, err error) {
@@ -59,10 +59,10 @@ func (vk *VK) PrettyCardsGet(params Params) (response PrettyCardsGetResponse, er
 	return
 }
 
-// PrettyCardsGetByIDResponse struct
+// PrettyCardsGetByIDResponse struct.
 type PrettyCardsGetByIDResponse []object.PrettyCardsPrettyCard
 
-// PrettyCardsGetByID  method
+// PrettyCardsGetByID method.
 //
 // https://vk.com/dev/prettyCards.getById
 func (vk *VK) PrettyCardsGetByID(params Params) (response PrettyCardsGetByIDResponse, err error) {
@@ -70,7 +70,7 @@ func (vk *VK) PrettyCardsGetByID(params Params) (response PrettyCardsGetByIDResp
 	return
 }
 
-// PrettyCardsGetUploadURL  method
+// PrettyCardsGetUploadURL method.
 //
 // https://vk.com/dev/prettyCards.getUploadURL
 func (vk *VK) PrettyCardsGetUploadURL(params Params) (response string, err error) {

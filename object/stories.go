@@ -4,14 +4,14 @@ import (
 	"encoding/json"
 )
 
-// StoriesNarrativeInfo type
+// StoriesNarrativeInfo type.
 type StoriesNarrativeInfo struct {
 	Author string `json:"author"`
 	Title  string `json:"title"`
 	Views  int    `json:"views"`
 }
 
-// StoriesPromoData struct
+// StoriesPromoData struct.
 type StoriesPromoData struct {
 	Name        string      `json:"name"`
 	Photo50     string      `json:"photo_50"`
@@ -19,25 +19,25 @@ type StoriesPromoData struct {
 	NotAnimated BaseBoolInt `json:"not_animated"`
 }
 
-// StoriesStoryLink struct
+// StoriesStoryLink struct.
 type StoriesStoryLink struct {
 	Text string `json:"text"` // Link text
 	URL  string `json:"url"`  // Link URL
 }
 
-// StoriesReplies struct
+// StoriesReplies struct.
 type StoriesReplies struct {
 	Count int `json:"count"` // Replies number.
 	New   int `json:"new"`   // New replies number.
 }
 
-// StoriesQuestions struct
+// StoriesQuestions struct.
 type StoriesQuestions struct {
 	Count int `json:"count"` // Replies number.
 	New   int `json:"new"`   // New replies number.
 }
 
-// StoriesStoryStats struct
+// StoriesStoryStats struct.
 type StoriesStoryStats struct {
 	Answer      StoriesStoryStatsStat `json:"answer"`
 	Bans        StoriesStoryStatsStat `json:"bans"`
@@ -49,13 +49,13 @@ type StoriesStoryStats struct {
 	Likes       StoriesStoryStatsStat `json:"likes"`
 }
 
-// StoriesStoryStatsStat struct
+// StoriesStoryStatsStat struct.
 type StoriesStoryStatsStat struct {
 	Count int    `json:"count"` // Stat value
 	State string `json:"state"`
 }
 
-// StoriesStory struct
+// StoriesStory struct.
 type StoriesStory struct {
 	AccessKey string      `json:"access_key"` // Access key for private object.
 	ExpiresAt int         `json:"expires_at"` // Story expiration time. Unixtime.
@@ -98,7 +98,7 @@ type StoriesStory struct {
 	Questions            StoriesQuestions         `json:"questions"`
 }
 
-// StoriesClickableStickers struct
+// StoriesClickableStickers struct.
 //
 // The field clickable_stickers is available in the history object.
 // The sticker object is pasted by the developer on the client himself, only
@@ -111,9 +111,9 @@ type StoriesClickableStickers struct {
 	ClickableStickers []StoriesClickableSticker `json:"clickable_stickers"`
 }
 
-// NewClickableStickers return new StoriesClickableStickers
+// NewClickableStickers return new StoriesClickableStickers.
 //
-// Requires the width and height of the original photo or video
+// Requires the width and height of the original photo or video.
 func NewClickableStickers(width, height int) *StoriesClickableStickers {
 	return &StoriesClickableStickers{
 		OriginalWidth:     width,
@@ -122,7 +122,7 @@ func NewClickableStickers(width, height int) *StoriesClickableStickers {
 	}
 }
 
-// AddMention add mention sticker
+// AddMention add mention sticker.
 //
 // Mention should be in the format of a VK mentioning, for example: [id1|name] or [club1|name].
 func (cs *StoriesClickableStickers) AddMention(mention string, area []StoriesClickablePoint) *StoriesClickableStickers {
@@ -135,7 +135,7 @@ func (cs *StoriesClickableStickers) AddMention(mention string, area []StoriesCli
 	return cs
 }
 
-// AddHashtag add hashtag sticker
+// AddHashtag add hashtag sticker.
 //
 // Hashtag must necessarily begin with the symbol #.
 func (cs *StoriesClickableStickers) AddHashtag(hashtag string, area []StoriesClickablePoint) *StoriesClickableStickers {
@@ -150,13 +150,13 @@ func (cs *StoriesClickableStickers) AddHashtag(hashtag string, area []StoriesCli
 
 // TODO: Add more clickable stickers func
 
-// ToJSON returns the JSON encoding of StoriesClickableStickers
+// ToJSON returns the JSON encoding of StoriesClickableStickers.
 func (cs StoriesClickableStickers) ToJSON() string {
 	b, _ := json.Marshal(cs)
 	return string(b)
 }
 
-// StoriesClickableSticker struct
+// StoriesClickableSticker struct.
 type StoriesClickableSticker struct { // nolint: maligned
 	ID            int                     `json:"id"`
 	Type          string                  `json:"type"`
@@ -218,7 +218,7 @@ type StoriesClickableSticker struct { // nolint: maligned
 
 // TODO: сделать несколько структур для кликабельного стикера
 
-// Type of clickable sticker
+// Type of clickable sticker.
 const (
 	ClickableStickerPost       = "post"
 	ClickableStickerSticker    = "sticker"
@@ -235,13 +235,13 @@ const (
 	ClickableStickerApp        = "app"
 )
 
-// Subtype of clickable sticker
+// Subtype of clickable sticker.
 const (
 	ClickableStickerSubtypeMarketItem        = "market_item"
 	ClickableStickerSubtypeAliexpressProduct = "aliexpress_product"
 )
 
-// Clickable sticker style
+// Clickable sticker style.
 const (
 	ClickableStickerTransparent   = "transparent"
 	ClickableStickerBlueGradient  = "blue_gradient"
@@ -255,7 +255,7 @@ const (
 	ClickableStickerImpressive    = "impressive"
 )
 
-// StoriesClickablePoint struct
+// StoriesClickablePoint struct.
 type StoriesClickablePoint struct {
 	X int `json:"x"`
 	Y int `json:"y"`

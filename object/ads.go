@@ -1,12 +1,12 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// AdsAccesses struct
+// AdsAccesses struct.
 type AdsAccesses struct {
 	ClientID string `json:"client_id"`
 	Role     string `json:"role"`
 }
 
-// AdsAccount struct
+// AdsAccount struct.
 type AdsAccount struct {
 	AccessRole    string      `json:"access_role"`
 	AccountID     int         `json:"account_id"`     // Account ID
@@ -14,7 +14,7 @@ type AdsAccount struct {
 	AccountType   string      `json:"account_type"`
 }
 
-// AdsAdLayout struct
+// AdsAdLayout struct.
 type AdsAdLayout struct {
 	AdFormat    int         `json:"ad_format"`   // Ad format
 	CampaignID  int         `json:"campaign_id"` // Campaign ID
@@ -30,7 +30,7 @@ type AdsAdLayout struct {
 	Video       BaseBoolInt `json:"video"`        // Information whether the ad is a video
 }
 
-// AdsCampaign struct
+// AdsCampaign struct.
 type AdsCampaign struct {
 	AllLimit  string `json:"all_limit"`  // Campaign's total limit, rubles
 	DayLimit  string `json:"day_limit"`  // Campaign's day limit, rubles
@@ -42,14 +42,14 @@ type AdsCampaign struct {
 	Type      string `json:"type"`
 }
 
-// AdsCategory struct
+// AdsCategory struct.
 type AdsCategory struct {
 	ID            int                  `json:"id"`   // Category ID
 	Name          string               `json:"name"` // Category name
 	Subcategories []BaseObjectWithName `json:"subcategories"`
 }
 
-// AdsClient struct
+// AdsClient struct.
 type AdsClient struct {
 	AllLimit string `json:"all_limit"` // Client's total limit, rubles
 	DayLimit string `json:"day_limit"` // Client's day limit, rubles
@@ -57,7 +57,7 @@ type AdsClient struct {
 	Name     string `json:"name"`      // Client name
 }
 
-// AdsCriteria struct
+// AdsCriteria struct.
 type AdsCriteria struct {
 	AgeFrom              int         `json:"age_from"`               // Age from
 	AgeTo                int         `json:"age_to"`                 // Age to
@@ -91,14 +91,14 @@ type AdsCriteria struct {
 	UserOs               string      `json:"user_os"`       // Operating systems
 }
 
-// AdsDemoStats struct
+// AdsDemoStats struct.
 type AdsDemoStats struct {
 	ID    int                `json:"id"` // Object ID
 	Stats AdsDemostatsFormat `json:"stats"`
 	Type  string             `json:"type"`
 }
 
-// AdsDemostatsFormat struc
+// AdsDemostatsFormat struct.
 type AdsDemostatsFormat struct {
 	Age     []AdsStatsAge    `json:"age"`
 	Cities  []AdsStatsCities `json:"cities"`
@@ -109,51 +109,51 @@ type AdsDemostatsFormat struct {
 	SexAge  []AdsStatsSexAge `json:"sex_age"`
 }
 
-// AdsFloodStats struct
+// AdsFloodStats struct.
 type AdsFloodStats struct {
 	Left    int `json:"left"`    // Requests left
 	Refresh int `json:"refresh"` // Time to refresh in seconds
 }
 
-// AdsLinkStatus struct
+// AdsLinkStatus struct.
 type AdsLinkStatus struct {
 	Description string `json:"description"`  // Reject reason
 	RedirectURL string `json:"redirect_url"` // URL
 	Status      string `json:"status"`       // Link status
 }
 
-// AdsParagraphs struct
+// AdsParagraphs struct.
 type AdsParagraphs struct {
 	Paragraph string `json:"paragraph"` // Rules paragraph
 }
 
-// AdsRejectReason struct
+// AdsRejectReason struct.
 type AdsRejectReason struct {
 	Comment string     `json:"comment"` // Comment text
 	Rules   []AdsRules `json:"rules"`
 }
 
-// AdsRules struct
+// AdsRules struct.
 type AdsRules struct {
 	Paragraphs []AdsParagraphs `json:"paragraphs"`
 	Title      string          `json:"title"` // Comment
 }
 
-// AdsStats struct
+// AdsStats struct.
 type AdsStats struct {
 	ID    int            `json:"id"` // Object ID
 	Stats AdsStatsFormat `json:"stats"`
 	Type  string         `json:"type"`
 }
 
-// AdsStatsAge struct
+// AdsStatsAge struct.
 type AdsStatsAge struct {
 	ClicksRate      float64 `json:"clicks_rate"`      // Clicks rate
 	ImpressionsRate float64 `json:"impressions_rate"` // Impressions rate
 	Value           string  `json:"value"`            // Age interval
 }
 
-// AdsStatsCities struct
+// AdsStatsCities struct.
 type AdsStatsCities struct {
 	ClicksRate      float64 `json:"clicks_rate"`      // Clicks rate
 	ImpressionsRate float64 `json:"impressions_rate"` // Impressions rate
@@ -161,7 +161,7 @@ type AdsStatsCities struct {
 	Value           int     `json:"value"`            // City ID
 }
 
-// AdsStatsFormat struct
+// AdsStatsFormat struct.
 type AdsStatsFormat struct {
 	Clicks          int    `json:"clicks"`            // Clicks number
 	Day             string `json:"day"`               // Day as YYYY-MM-DD
@@ -177,52 +177,52 @@ type AdsStatsFormat struct {
 	VideoViewsHalf  int    `json:"video_views_half"`  // Video views (half of video)
 }
 
-// AdsStatsSex struct
+// AdsStatsSex struct.
 type AdsStatsSex struct {
 	ClicksRate      float64 `json:"clicks_rate"`      // Clicks rate
 	ImpressionsRate float64 `json:"impressions_rate"` // Impressions rate
 	Value           string  `json:"value"`
 }
 
-// AdsStatsSexAge struct
+// AdsStatsSexAge struct.
 type AdsStatsSexAge struct {
 	ClicksRate      float64 `json:"clicks_rate"`      // Clicks rate
 	ImpressionsRate float64 `json:"impressions_rate"` // Impressions rate
 	Value           string  `json:"value"`            // Sex and age interval
 }
 
-// AdsTargSettings struct
+// AdsTargSettings struct.
 type AdsTargSettings struct {
 }
 
-// AdsTargStats struct
+// AdsTargStats struct.
 type AdsTargStats struct {
 	AudienceCount  int     `json:"audience_count"`  // Audience
 	RecommendedCpc float64 `json:"recommended_cpc"` // Recommended CPC value
 	RecommendedCpm float64 `json:"recommended_cpm"` // Recommended CPM value
 }
 
-// AdsTargSuggestions struct
+// AdsTargSuggestions struct.
 type AdsTargSuggestions struct {
 	ID   int    `json:"id"`   // Object ID
 	Name string `json:"name"` // Object name
 }
 
-// AdsTargSuggestionsCities struct
+// AdsTargSuggestionsCities struct.
 type AdsTargSuggestionsCities struct {
 	ID     int    `json:"id"`     // Object ID
 	Name   string `json:"name"`   // Object name
 	Parent string `json:"parent"` // Parent object
 }
 
-// AdsTargSuggestionsRegions struct
+// AdsTargSuggestionsRegions struct.
 type AdsTargSuggestionsRegions struct {
 	ID   int    `json:"id"`   // Object ID
 	Name string `json:"name"` // Object name
 	Type string `json:"type"` // Object type
 }
 
-// AdsTargSuggestionsSchools struct
+// AdsTargSuggestionsSchools struct.
 type AdsTargSuggestionsSchools struct {
 	Desc   string `json:"desc"`   // Full school title
 	ID     int    `json:"id"`     // School ID
@@ -231,7 +231,7 @@ type AdsTargSuggestionsSchools struct {
 	Type   string `json:"type"`
 }
 
-// AdsTargetGroup struct
+// AdsTargetGroup struct.
 type AdsTargetGroup struct {
 	AudienceCount int    `json:"audience_count"` // Audience
 	Domain        string `json:"domain"`         // Site domain
@@ -241,13 +241,13 @@ type AdsTargetGroup struct {
 	Pixel         string `json:"pixel"`          // Pixel code
 }
 
-// AdsUsers struct
+// AdsUsers struct.
 type AdsUsers struct {
 	Accesses []AdsAccesses `json:"accesses"`
 	UserID   int           `json:"user_id"` // User ID
 }
 
-// AdsAd struct
+// AdsAd struct.
 type AdsAd struct {
 	AdFormat              int         `json:"ad_format"`   // Ad format
 	AdPlatform            interface{} `json:"ad_platform"` // Ad platform
@@ -270,7 +270,7 @@ type AdsAd struct {
 	Status                int         `json:"status"`
 }
 
-// AdsPromotedPostReach struct
+// AdsPromotedPostReach struct.
 type AdsPromotedPostReach struct {
 	Hide             int `json:"hide"`              // Hides amount
 	ID               int `json:"id"`                // Object ID from 'ids' parameter

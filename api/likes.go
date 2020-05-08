@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// LikesAddResponse struct
+// LikesAddResponse struct.
 type LikesAddResponse struct {
 	Likes int `json:"likes"`
 }
@@ -17,7 +17,7 @@ func (vk *VK) LikesAdd(params Params) (response LikesAddResponse, err error) {
 	return
 }
 
-// LikesDeleteResponse struct
+// LikesDeleteResponse struct.
 type LikesDeleteResponse struct {
 	Likes int `json:"likes"`
 }
@@ -30,7 +30,7 @@ func (vk *VK) LikesDelete(params Params) (response LikesDeleteResponse, err erro
 	return
 }
 
-// LikesGetListResponse struct
+// LikesGetListResponse struct.
 type LikesGetListResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
@@ -48,7 +48,7 @@ func (vk *VK) LikesGetList(params Params) (response LikesGetListResponse, err er
 	return
 }
 
-// LikesGetListExtendedResponse struct
+// LikesGetListExtendedResponse struct.
 type LikesGetListExtendedResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`
@@ -66,7 +66,7 @@ func (vk *VK) LikesGetListExtended(params Params) (response LikesGetListExtended
 	return
 }
 
-// LikesIsLikedResponse struct
+// LikesIsLikedResponse struct.
 type LikesIsLikedResponse struct {
 	Liked  object.BaseBoolInt `json:"liked"`
 	Copied object.BaseBoolInt `json:"copied"`

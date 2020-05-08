@@ -12,7 +12,7 @@ func (vk *VK) VideoAdd(params Params) (response int, err error) {
 	return
 }
 
-// VideoAddAlbumResponse struct
+// VideoAddAlbumResponse struct.
 type VideoAddAlbumResponse struct {
 	AlbumID int `json:"album_id"`
 }
@@ -89,7 +89,7 @@ func (vk *VK) VideoEditComment(params Params) (response int, err error) {
 	return
 }
 
-// VideoGetResponse struct
+// VideoGetResponse struct.
 type VideoGetResponse struct {
 	Count int                 `json:"count"`
 	Items []object.VideoVideo `json:"items"`
@@ -107,7 +107,7 @@ func (vk *VK) VideoGet(params Params) (response VideoGetResponse, err error) {
 	return
 }
 
-// VideoGetExtendedResponse struct
+// VideoGetExtendedResponse struct.
 type VideoGetExtendedResponse struct {
 	Count int                 `json:"count"`
 	Items []object.VideoVideo `json:"items"`
@@ -126,10 +126,10 @@ func (vk *VK) VideoGetExtended(params Params) (response VideoGetExtendedResponse
 	return
 }
 
-// VideoGetAlbumByIDResponse struct
+// VideoGetAlbumByIDResponse struct.
 type VideoGetAlbumByIDResponse object.VideoVideoAlbumFull
 
-// VideoGetAlbumByID returns video album info
+// VideoGetAlbumByID returns video album info.
 //
 // https://vk.com/dev/video.getAlbumById
 func (vk *VK) VideoGetAlbumByID(params Params) (response VideoGetAlbumByIDResponse, err error) {
@@ -137,7 +137,7 @@ func (vk *VK) VideoGetAlbumByID(params Params) (response VideoGetAlbumByIDRespon
 	return
 }
 
-// VideoGetAlbumsResponse struct
+// VideoGetAlbumsResponse struct.
 type VideoGetAlbumsResponse struct {
 	Count int                      `json:"count"`
 	Items []object.VideoVideoAlbum `json:"items"`
@@ -155,7 +155,7 @@ func (vk *VK) VideoGetAlbums(params Params) (response VideoGetAlbumsResponse, er
 	return
 }
 
-// VideoGetAlbumsExtendedResponse struct
+// VideoGetAlbumsExtendedResponse struct.
 type VideoGetAlbumsExtendedResponse struct {
 	Count int                          `json:"count"`
 	Items []object.VideoVideoAlbumFull `json:"items"`
@@ -173,7 +173,7 @@ func (vk *VK) VideoGetAlbumsExtended(params Params) (response VideoGetAlbumsExte
 	return
 }
 
-// VideoGetAlbumsByVideoResponse struct
+// VideoGetAlbumsByVideoResponse struct.
 type VideoGetAlbumsByVideoResponse []int
 
 // VideoGetAlbumsByVideo returns a list of albums in which the video is located.
@@ -188,7 +188,7 @@ func (vk *VK) VideoGetAlbumsByVideo(params Params) (response VideoGetAlbumsByVid
 	return
 }
 
-// VideoGetAlbumsByVideoExtendedResponse struct
+// VideoGetAlbumsByVideoExtendedResponse struct.
 type VideoGetAlbumsByVideoExtendedResponse struct {
 	Count int                          `json:"count"`
 	Items []object.VideoVideoAlbumFull `json:"items"`
@@ -206,7 +206,7 @@ func (vk *VK) VideoGetAlbumsByVideoExtended(params Params) (response VideoGetAlb
 	return
 }
 
-// VideoGetCommentsResponse struct
+// VideoGetCommentsResponse struct.
 type VideoGetCommentsResponse struct {
 	Count int                      `json:"count"`
 	Items []object.WallWallComment `json:"items"`
@@ -224,7 +224,7 @@ func (vk *VK) VideoGetComments(params Params) (response VideoGetCommentsResponse
 	return
 }
 
-// VideoGetCommentsExtendedResponse struct
+// VideoGetCommentsExtendedResponse struct.
 type VideoGetCommentsExtendedResponse struct {
 	Count int                      `json:"count"`
 	Items []object.WallWallComment `json:"items"`
@@ -299,7 +299,7 @@ func (vk *VK) VideoRestoreComment(params Params) (response int, err error) {
 	return
 }
 
-// VideoSaveResponse struct
+// VideoSaveResponse struct.
 type VideoSaveResponse object.VideoSaveResult
 
 // VideoSave returns a server address (required for upload) and video data.
@@ -310,7 +310,7 @@ func (vk *VK) VideoSave(params Params) (response VideoSaveResponse, err error) {
 	return
 }
 
-// VideoSearchResponse struct
+// VideoSearchResponse struct.
 type VideoSearchResponse struct {
 	Count int                 `json:"count"`
 	Items []object.VideoVideo `json:"items"`
@@ -328,7 +328,7 @@ func (vk *VK) VideoSearch(params Params) (response VideoSearchResponse, err erro
 	return
 }
 
-// VideoSearchExtendedResponse struct
+// VideoSearchExtendedResponse struct.
 type VideoSearchExtendedResponse struct {
 	Count int                 `json:"count"`
 	Items []object.VideoVideo `json:"items"`

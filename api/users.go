@@ -4,10 +4,10 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// UsersGetResponse users.get response
+// UsersGetResponse users.get response.
 type UsersGetResponse []object.UsersUser
 
-// UsersGet returns detailed information on users
+// UsersGet returns detailed information on users.
 //
 // https://vk.com/dev/users.get
 func (vk *VK) UsersGet(params Params) (response UsersGetResponse, err error) {
@@ -15,7 +15,7 @@ func (vk *VK) UsersGet(params Params) (response UsersGetResponse, err error) {
 	return
 }
 
-// UsersGetFollowersResponse struct
+// UsersGetFollowersResponse struct.
 type UsersGetFollowersResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
@@ -23,7 +23,7 @@ type UsersGetFollowersResponse struct {
 
 // UsersGetFollowers returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 //
-// fields=""
+// fields="";
 //
 // https://vk.com/dev/users.getFollowers
 func (vk *VK) UsersGetFollowers(params Params) (response UsersGetFollowersResponse, err error) {
@@ -33,7 +33,7 @@ func (vk *VK) UsersGetFollowers(params Params) (response UsersGetFollowersRespon
 	return
 }
 
-// UsersGetFollowersFieldsResponse struct
+// UsersGetFollowersFieldsResponse struct.
 type UsersGetFollowersFieldsResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`
@@ -41,7 +41,7 @@ type UsersGetFollowersFieldsResponse struct {
 
 // UsersGetFollowersFields returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 //
-// fields not empty
+// fields not empty.
 //
 // https://vk.com/dev/users.getFollowers
 func (vk *VK) UsersGetFollowersFields(params Params) (response UsersGetFollowersFieldsResponse, err error) {
@@ -54,7 +54,7 @@ func (vk *VK) UsersGetFollowersFields(params Params) (response UsersGetFollowers
 	return
 }
 
-// UsersGetSubscriptionsResponse struct
+// UsersGetSubscriptionsResponse struct.
 type UsersGetSubscriptionsResponse struct {
 	Users struct {
 		Count int   `json:"count"`
@@ -71,7 +71,8 @@ type UsersGetSubscriptionsResponse struct {
 // extended=0
 //
 // https://vk.com/dev/users.getSubscriptions
-// BUG(SevereCloud): UsersGetSubscriptions bad response with extended=1
+//
+// BUG(SevereCloud): UsersGetSubscriptions bad response with extended=1.
 func (vk *VK) UsersGetSubscriptions(params Params) (response UsersGetSubscriptionsResponse, err error) {
 	params["extended"] = false
 	err = vk.RequestUnmarshal("users.getSubscriptions", params, &response)
@@ -87,7 +88,7 @@ func (vk *VK) UsersReport(params Params) (response int, err error) {
 	return
 }
 
-// UsersSearchResponse struct
+// UsersSearchResponse struct.
 type UsersSearchResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`

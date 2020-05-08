@@ -271,7 +271,7 @@ func TestVK_CaptchaForce(t *testing.T) {
 	}
 }
 
-// FIXME: v2 remove TestInit
+// FIXME: v2 remove TestInit.
 func TestInit(t *testing.T) {
 	t.Parallel()
 

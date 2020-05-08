@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// PhotosConfirmTagBuilder builder
+// PhotosConfirmTagBuilder builder.
 //
 // Confirms a tag on a photo.
 //
@@ -13,7 +13,7 @@ type PhotosConfirmTagBuilder struct {
 	api.Params
 }
 
-// NewPhotosConfirmTagBuilder func
+// NewPhotosConfirmTagBuilder func.
 func NewPhotosConfirmTagBuilder() *PhotosConfirmTagBuilder {
 	return &PhotosConfirmTagBuilder{api.Params{}}
 }
@@ -36,39 +36,39 @@ func (b *PhotosConfirmTagBuilder) TagID(v int) *PhotosConfirmTagBuilder {
 	return b
 }
 
-// PhotosCopyBuilder builder
+// PhotosCopyBuilder builder.
 //
-// Allows to copy a photo to the "Saved photos" album
+// Allows to copy a photo to the "Saved photos" album.
 //
 // https://vk.com/dev/photos.copy
 type PhotosCopyBuilder struct {
 	api.Params
 }
 
-// NewPhotosCopyBuilder func
+// NewPhotosCopyBuilder func.
 func NewPhotosCopyBuilder() *PhotosCopyBuilder {
 	return &PhotosCopyBuilder{api.Params{}}
 }
 
-// OwnerID photo's owner ID
+// OwnerID photo's owner ID.
 func (b *PhotosCopyBuilder) OwnerID(v int) *PhotosCopyBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// PhotoID photo ID
+// PhotoID photo ID.
 func (b *PhotosCopyBuilder) PhotoID(v int) *PhotosCopyBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
-// AccessKey for private photos
+// AccessKey for private photos.
 func (b *PhotosCopyBuilder) AccessKey(v string) *PhotosCopyBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
-// PhotosCreateAlbumBuilder builder
+// PhotosCreateAlbumBuilder builder.
 //
 // Creates an empty photo album.
 //
@@ -77,7 +77,7 @@ type PhotosCreateAlbumBuilder struct {
 	api.Params
 }
 
-// NewPhotosCreateAlbumBuilder func
+// NewPhotosCreateAlbumBuilder func.
 func NewPhotosCreateAlbumBuilder() *PhotosCreateAlbumBuilder {
 	return &PhotosCreateAlbumBuilder{api.Params{}}
 }
@@ -100,31 +100,31 @@ func (b *PhotosCreateAlbumBuilder) Description(v string) *PhotosCreateAlbumBuild
 	return b
 }
 
-// PrivacyView parameter
+// PrivacyView parameter.
 func (b *PhotosCreateAlbumBuilder) PrivacyView(v []string) *PhotosCreateAlbumBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
-// PrivacyComment parameter
+// PrivacyComment parameter.
 func (b *PhotosCreateAlbumBuilder) PrivacyComment(v []string) *PhotosCreateAlbumBuilder {
 	b.Params["privacy_comment"] = v
 	return b
 }
 
-// UploadByAdminsOnly parameter
+// UploadByAdminsOnly parameter.
 func (b *PhotosCreateAlbumBuilder) UploadByAdminsOnly(v bool) *PhotosCreateAlbumBuilder {
 	b.Params["upload_by_admins_only"] = v
 	return b
 }
 
-// CommentsDisabled parameter
+// CommentsDisabled parameter.
 func (b *PhotosCreateAlbumBuilder) CommentsDisabled(v bool) *PhotosCreateAlbumBuilder {
 	b.Params["comments_disabled"] = v
 	return b
 }
 
-// PhotosCreateCommentBuilder builder
+// PhotosCreateCommentBuilder builder.
 //
 // Adds a new comment on the photo.
 //
@@ -133,7 +133,7 @@ type PhotosCreateCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosCreateCommentBuilder func
+// NewPhotosCreateCommentBuilder func.
 func NewPhotosCreateCommentBuilder() *PhotosCreateCommentBuilder {
 	return &PhotosCreateCommentBuilder{api.Params{}}
 }
@@ -160,43 +160,43 @@ func (b *PhotosCreateCommentBuilder) Message(v string) *PhotosCreateCommentBuild
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
 // '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID.
-// Example: "photo100172_166443618,photo66748_265827614"
+// Example: "photo100172_166443618,photo66748_265827614".
 func (b *PhotosCreateCommentBuilder) Attachments(v interface{}) *PhotosCreateCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
 
-// FromGroup '1' — to post a comment from the community
+// FromGroup '1' — to post a comment from the community.
 func (b *PhotosCreateCommentBuilder) FromGroup(v bool) *PhotosCreateCommentBuilder {
 	b.Params["from_group"] = v
 	return b
 }
 
-// ReplyToComment parameter
+// ReplyToComment parameter.
 func (b *PhotosCreateCommentBuilder) ReplyToComment(v int) *PhotosCreateCommentBuilder {
 	b.Params["reply_to_comment"] = v
 	return b
 }
 
-// StickerID parameter
+// StickerID parameter.
 func (b *PhotosCreateCommentBuilder) StickerID(v int) *PhotosCreateCommentBuilder {
 	b.Params["sticker_id"] = v
 	return b
 }
 
-// AccessKey parameter
+// AccessKey parameter.
 func (b *PhotosCreateCommentBuilder) AccessKey(v string) *PhotosCreateCommentBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
-// GUID parameter
+// GUID parameter.
 func (b *PhotosCreateCommentBuilder) GUID(v string) *PhotosCreateCommentBuilder {
 	b.Params["guid"] = v
 	return b
 }
 
-// PhotosDeleteBuilder builder
+// PhotosDeleteBuilder builder.
 //
 // Deletes a photo.
 //
@@ -205,7 +205,7 @@ type PhotosDeleteBuilder struct {
 	api.Params
 }
 
-// NewPhotosDeleteBuilder func
+// NewPhotosDeleteBuilder func.
 func NewPhotosDeleteBuilder() *PhotosDeleteBuilder {
 	return &PhotosDeleteBuilder{api.Params{}}
 }
@@ -222,7 +222,7 @@ func (b *PhotosDeleteBuilder) PhotoID(v int) *PhotosDeleteBuilder {
 	return b
 }
 
-// PhotosDeleteAlbumBuilder builder
+// PhotosDeleteAlbumBuilder builder.
 //
 // Deletes a photo album belonging to the current user.
 //
@@ -231,7 +231,7 @@ type PhotosDeleteAlbumBuilder struct {
 	api.Params
 }
 
-// NewPhotosDeleteAlbumBuilder func
+// NewPhotosDeleteAlbumBuilder func.
 func NewPhotosDeleteAlbumBuilder() *PhotosDeleteAlbumBuilder {
 	return &PhotosDeleteAlbumBuilder{api.Params{}}
 }
@@ -248,7 +248,7 @@ func (b *PhotosDeleteAlbumBuilder) GroupID(v int) *PhotosDeleteAlbumBuilder {
 	return b
 }
 
-// PhotosDeleteCommentBuilder builder
+// PhotosDeleteCommentBuilder builder.
 //
 // Deletes a comment on the photo.
 //
@@ -257,7 +257,7 @@ type PhotosDeleteCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosDeleteCommentBuilder func
+// NewPhotosDeleteCommentBuilder func.
 func NewPhotosDeleteCommentBuilder() *PhotosDeleteCommentBuilder {
 	return &PhotosDeleteCommentBuilder{api.Params{}}
 }
@@ -274,7 +274,7 @@ func (b *PhotosDeleteCommentBuilder) CommentID(v int) *PhotosDeleteCommentBuilde
 	return b
 }
 
-// PhotosEditBuilder builder
+// PhotosEditBuilder builder.
 //
 // Edits the caption of a photo.
 //
@@ -283,7 +283,7 @@ type PhotosEditBuilder struct {
 	api.Params
 }
 
-// NewPhotosEditBuilder func
+// NewPhotosEditBuilder func.
 func NewPhotosEditBuilder() *PhotosEditBuilder {
 	return &PhotosEditBuilder{api.Params{}}
 }
@@ -306,37 +306,37 @@ func (b *PhotosEditBuilder) Caption(v string) *PhotosEditBuilder {
 	return b
 }
 
-// Latitude parameter
+// Latitude parameter.
 func (b *PhotosEditBuilder) Latitude(v float64) *PhotosEditBuilder {
 	b.Params["latitude"] = v
 	return b
 }
 
-// Longitude parameter
+// Longitude parameter.
 func (b *PhotosEditBuilder) Longitude(v float64) *PhotosEditBuilder {
 	b.Params["longitude"] = v
 	return b
 }
 
-// PlaceStr parameter
+// PlaceStr parameter.
 func (b *PhotosEditBuilder) PlaceStr(v string) *PhotosEditBuilder {
 	b.Params["place_str"] = v
 	return b
 }
 
-// FoursquareID parameter
+// FoursquareID parameter.
 func (b *PhotosEditBuilder) FoursquareID(v string) *PhotosEditBuilder {
 	b.Params["foursquare_id"] = v
 	return b
 }
 
-// DeletePlace parameter
+// DeletePlace parameter.
 func (b *PhotosEditBuilder) DeletePlace(v bool) *PhotosEditBuilder {
 	b.Params["delete_place"] = v
 	return b
 }
 
-// PhotosEditAlbumBuilder builder
+// PhotosEditAlbumBuilder builder.
 //
 // Edits information about a photo album.
 //
@@ -345,7 +345,7 @@ type PhotosEditAlbumBuilder struct {
 	api.Params
 }
 
-// NewPhotosEditAlbumBuilder func
+// NewPhotosEditAlbumBuilder func.
 func NewPhotosEditAlbumBuilder() *PhotosEditAlbumBuilder {
 	return &PhotosEditAlbumBuilder{api.Params{}}
 }
@@ -374,31 +374,31 @@ func (b *PhotosEditAlbumBuilder) OwnerID(v int) *PhotosEditAlbumBuilder {
 	return b
 }
 
-// PrivacyView parameter
+// PrivacyView parameter.
 func (b *PhotosEditAlbumBuilder) PrivacyView(v []string) *PhotosEditAlbumBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
-// PrivacyComment parameter
+// PrivacyComment parameter.
 func (b *PhotosEditAlbumBuilder) PrivacyComment(v []string) *PhotosEditAlbumBuilder {
 	b.Params["privacy_comment"] = v
 	return b
 }
 
-// UploadByAdminsOnly parameter
+// UploadByAdminsOnly parameter.
 func (b *PhotosEditAlbumBuilder) UploadByAdminsOnly(v bool) *PhotosEditAlbumBuilder {
 	b.Params["upload_by_admins_only"] = v
 	return b
 }
 
-// CommentsDisabled parameter
+// CommentsDisabled parameter.
 func (b *PhotosEditAlbumBuilder) CommentsDisabled(v bool) *PhotosEditAlbumBuilder {
 	b.Params["comments_disabled"] = v
 	return b
 }
 
-// PhotosEditCommentBuilder builder
+// PhotosEditCommentBuilder builder.
 //
 // Edits a comment on a photo.
 //
@@ -407,7 +407,7 @@ type PhotosEditCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosEditCommentBuilder func
+// NewPhotosEditCommentBuilder func.
 func NewPhotosEditCommentBuilder() *PhotosEditCommentBuilder {
 	return &PhotosEditCommentBuilder{api.Params{}}
 }
@@ -435,13 +435,13 @@ func (b *PhotosEditCommentBuilder) Message(v string) *PhotosEditCommentBuilder {
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
 // '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID.
-// Example: "photo100172_166443618,photo66748_265827614"
+// Example: "photo100172_166443618,photo66748_265827614".
 func (b *PhotosEditCommentBuilder) Attachments(v interface{}) *PhotosEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
 
-// PhotosGetBuilder builder
+// PhotosGetBuilder builder.
 //
 // Returns a list of a user's or community's photos.
 //
@@ -450,7 +450,7 @@ type PhotosGetBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetBuilder func
+// NewPhotosGetBuilder func.
 func NewPhotosGetBuilder() *PhotosGetBuilder {
 	return &PhotosGetBuilder{api.Params{}}
 }
@@ -474,13 +474,13 @@ func (b *PhotosGetBuilder) PhotoIDs(v []string) *PhotosGetBuilder {
 	return b
 }
 
-// Rev Sort order: '1' — reverse chronological, '0' — chronological
+// Rev Sort order: '1' — reverse chronological, '0' — chronological.
 func (b *PhotosGetBuilder) Rev(v bool) *PhotosGetBuilder {
 	b.Params["rev"] = v
 	return b
 }
 
-// Extended '1' — to return additional 'likes', 'comments', and 'tags' fields, '0' — (default)
+// Extended '1' — to return additional 'likes', 'comments', and 'tags' fields, '0' — (default).
 func (b *PhotosGetBuilder) Extended(v bool) *PhotosGetBuilder {
 	b.Params["extended"] = v
 	return b
@@ -500,25 +500,25 @@ func (b *PhotosGetBuilder) Feed(v int) *PhotosGetBuilder {
 	return b
 }
 
-// PhotoSizes '1' — to return photo sizes in a [vk.com/dev/photo_sizes|special format]
+// PhotoSizes '1' — to return photo sizes in a [vk.com/dev/photo_sizes|special format].
 func (b *PhotosGetBuilder) PhotoSizes(v bool) *PhotosGetBuilder {
 	b.Params["photo_sizes"] = v
 	return b
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *PhotosGetBuilder) Offset(v int) *PhotosGetBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count parameter
+// Count parameter.
 func (b *PhotosGetBuilder) Count(v int) *PhotosGetBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// PhotosGetAlbumsBuilder builder
+// PhotosGetAlbumsBuilder builder.
 //
 // Returns a list of a user's or community's photo albums.
 //
@@ -527,7 +527,7 @@ type PhotosGetAlbumsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetAlbumsBuilder func
+// NewPhotosGetAlbumsBuilder func.
 func NewPhotosGetAlbumsBuilder() *PhotosGetAlbumsBuilder {
 	return &PhotosGetAlbumsBuilder{api.Params{}}
 }
@@ -556,25 +556,25 @@ func (b *PhotosGetAlbumsBuilder) Count(v int) *PhotosGetAlbumsBuilder {
 	return b
 }
 
-// NeedSystem '1' — to return system albums with negative IDs
+// NeedSystem '1' — to return system albums with negative IDs.
 func (b *PhotosGetAlbumsBuilder) NeedSystem(v bool) *PhotosGetAlbumsBuilder {
 	b.Params["need_system"] = v
 	return b
 }
 
-// NeedCovers '1' — to return an additional 'thumb_src' field, '0' — (default)
+// NeedCovers '1' — to return an additional 'thumb_src' field, '0' — (default).
 func (b *PhotosGetAlbumsBuilder) NeedCovers(v bool) *PhotosGetAlbumsBuilder {
 	b.Params["need_covers"] = v
 	return b
 }
 
-// PhotoSizes '1' — to return photo sizes in a
+// PhotoSizes '1' — to return photo sizes in a.
 func (b *PhotosGetAlbumsBuilder) PhotoSizes(v bool) *PhotosGetAlbumsBuilder {
 	b.Params["photo_sizes"] = v
 	return b
 }
 
-// PhotosGetAlbumsCountBuilder builder
+// PhotosGetAlbumsCountBuilder builder.
 //
 // Returns the number of photo albums belonging to a user or community.
 //
@@ -583,7 +583,7 @@ type PhotosGetAlbumsCountBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetAlbumsCountBuilder func
+// NewPhotosGetAlbumsCountBuilder func.
 func NewPhotosGetAlbumsCountBuilder() *PhotosGetAlbumsCountBuilder {
 	return &PhotosGetAlbumsCountBuilder{api.Params{}}
 }
@@ -600,7 +600,7 @@ func (b *PhotosGetAlbumsCountBuilder) GroupID(v int) *PhotosGetAlbumsCountBuilde
 	return b
 }
 
-// PhotosGetAllBuilder builder
+// PhotosGetAllBuilder builder.
 //
 // Returns a list of photos belonging to a user or community, in reverse chronological order.
 //
@@ -609,7 +609,7 @@ type PhotosGetAllBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetAllBuilder func
+// NewPhotosGetAllBuilder func.
 func NewPhotosGetAllBuilder() *PhotosGetAllBuilder {
 	return &PhotosGetAllBuilder{api.Params{}}
 }
@@ -620,7 +620,7 @@ func (b *PhotosGetAllBuilder) OwnerID(v int) *PhotosGetAllBuilder {
 	return b
 }
 
-// Extended '1' — to return detailed information about photos
+// Extended '1' — to return detailed information about photos.
 func (b *PhotosGetAllBuilder) Extended(v bool) *PhotosGetAllBuilder {
 	b.Params["extended"] = v
 	return b
@@ -645,7 +645,7 @@ func (b *PhotosGetAllBuilder) PhotoSizes(v bool) *PhotosGetAllBuilder {
 }
 
 // NoServiceAlbums '1' – to return photos only from standard albums, '0' – to return all photos including those in
-// service albums, e.g., 'My wall photos' (default)
+// service albums, e.g., 'My wall photos' (default).
 func (b *PhotosGetAllBuilder) NoServiceAlbums(v bool) *PhotosGetAllBuilder {
 	b.Params["no_service_albums"] = v
 	return b
@@ -664,7 +664,7 @@ func (b *PhotosGetAllBuilder) SkipHidden(v bool) *PhotosGetAllBuilder {
 	return b
 }
 
-// PhotosGetAllCommentsBuilder builder
+// PhotosGetAllCommentsBuilder builder.
 //
 // Returns a list of comments on a specific photo album or all albums of the user sorted in reverse chronological order.
 //
@@ -673,7 +673,7 @@ type PhotosGetAllCommentsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetAllCommentsBuilder func
+// NewPhotosGetAllCommentsBuilder func.
 func NewPhotosGetAllCommentsBuilder() *PhotosGetAllCommentsBuilder {
 	return &PhotosGetAllCommentsBuilder{api.Params{}}
 }
@@ -690,7 +690,7 @@ func (b *PhotosGetAllCommentsBuilder) AlbumID(v int) *PhotosGetAllCommentsBuilde
 	return b
 }
 
-// NeedLikes '1' — to return an additional 'likes' field, '0' — (default)
+// NeedLikes '1' — to return an additional 'likes' field, '0' — (default).
 func (b *PhotosGetAllCommentsBuilder) NeedLikes(v bool) *PhotosGetAllCommentsBuilder {
 	b.Params["need_likes"] = v
 	return b
@@ -708,7 +708,7 @@ func (b *PhotosGetAllCommentsBuilder) Count(v int) *PhotosGetAllCommentsBuilder 
 	return b
 }
 
-// PhotosGetByIDBuilder builder
+// PhotosGetByIDBuilder builder.
 //
 // Returns information about photos by their IDs.
 //
@@ -717,32 +717,32 @@ type PhotosGetByIDBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetByIDBuilder func
+// NewPhotosGetByIDBuilder func.
 func NewPhotosGetByIDBuilder() *PhotosGetByIDBuilder {
 	return &PhotosGetByIDBuilder{api.Params{}}
 }
 
 // Photos IDs separated with a comma, that are IDs of users who posted photos and IDs of photos themselves with an
 // underscore character between such IDs. To get information about a photo in the group album, you shall specify
-// group ID instead of user ID. Example: "1_129207899,6492_135055734, , -20629724_271945303"
+// group ID instead of user ID. Example: "1_129207899,6492_135055734, , -20629724_271945303".
 func (b *PhotosGetByIDBuilder) Photos(v []string) *PhotosGetByIDBuilder {
 	b.Params["photos"] = v
 	return b
 }
 
-// Extended '1' — to return additional fields, '0' — (default)
+// Extended '1' — to return additional fields, '0' — (default).
 func (b *PhotosGetByIDBuilder) Extended(v bool) *PhotosGetByIDBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// PhotoSizes '1' — to return photo sizes in a
+// PhotoSizes '1' — to return photo sizes in a.
 func (b *PhotosGetByIDBuilder) PhotoSizes(v bool) *PhotosGetByIDBuilder {
 	b.Params["photo_sizes"] = v
 	return b
 }
 
-// PhotosGetChatUploadServerBuilder builder
+// PhotosGetChatUploadServerBuilder builder.
 //
 // Returns an upload link for chat cover pictures.
 //
@@ -751,7 +751,7 @@ type PhotosGetChatUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetChatUploadServerBuilder func
+// NewPhotosGetChatUploadServerBuilder func.
 func NewPhotosGetChatUploadServerBuilder() *PhotosGetChatUploadServerBuilder {
 	return &PhotosGetChatUploadServerBuilder{api.Params{}}
 }
@@ -762,13 +762,13 @@ func (b *PhotosGetChatUploadServerBuilder) ChatID(v int) *PhotosGetChatUploadSer
 	return b
 }
 
-// CropX parameter
+// CropX parameter.
 func (b *PhotosGetChatUploadServerBuilder) CropX(v int) *PhotosGetChatUploadServerBuilder {
 	b.Params["crop_x"] = v
 	return b
 }
 
-// CropY parameter
+// CropY parameter.
 func (b *PhotosGetChatUploadServerBuilder) CropY(v int) *PhotosGetChatUploadServerBuilder {
 	b.Params["crop_y"] = v
 	return b
@@ -780,7 +780,7 @@ func (b *PhotosGetChatUploadServerBuilder) CropWidth(v int) *PhotosGetChatUpload
 	return b
 }
 
-// PhotosGetCommentsBuilder builder
+// PhotosGetCommentsBuilder builder.
 //
 // Returns a list of comments on a photo.
 //
@@ -789,7 +789,7 @@ type PhotosGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetCommentsBuilder func
+// NewPhotosGetCommentsBuilder func.
 func NewPhotosGetCommentsBuilder() *PhotosGetCommentsBuilder {
 	return &PhotosGetCommentsBuilder{api.Params{}}
 }
@@ -806,13 +806,13 @@ func (b *PhotosGetCommentsBuilder) PhotoID(v int) *PhotosGetCommentsBuilder {
 	return b
 }
 
-// NeedLikes '1' — to return an additional 'likes' field, '0' — (default)
+// NeedLikes '1' — to return an additional 'likes' field, '0' — (default).
 func (b *PhotosGetCommentsBuilder) NeedLikes(v bool) *PhotosGetCommentsBuilder {
 	b.Params["need_likes"] = v
 	return b
 }
 
-// StartCommentID parameter
+// StartCommentID parameter.
 func (b *PhotosGetCommentsBuilder) StartCommentID(v int) *PhotosGetCommentsBuilder {
 	b.Params["start_comment_id"] = v
 	return b
@@ -830,31 +830,31 @@ func (b *PhotosGetCommentsBuilder) Count(v int) *PhotosGetCommentsBuilder {
 	return b
 }
 
-// Sort Sort order: 'asc' — old first, 'desc' — new first
+// Sort Sort order: 'asc' — old first, 'desc' — new first.
 func (b *PhotosGetCommentsBuilder) Sort(v string) *PhotosGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
-// AccessKey parameter
+// AccessKey parameter.
 func (b *PhotosGetCommentsBuilder) AccessKey(v string) *PhotosGetCommentsBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 func (b *PhotosGetCommentsBuilder) Extended(v bool) *PhotosGetCommentsBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *PhotosGetCommentsBuilder) Fields(v []string) *PhotosGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// PhotosGetMarketAlbumUploadServerBuilder builder
+// PhotosGetMarketAlbumUploadServerBuilder builder.
 //
 // Returns the server address for market album photo upload.
 //
@@ -863,7 +863,7 @@ type PhotosGetMarketAlbumUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetMarketAlbumUploadServerBuilder func
+// NewPhotosGetMarketAlbumUploadServerBuilder func.
 func NewPhotosGetMarketAlbumUploadServerBuilder() *PhotosGetMarketAlbumUploadServerBuilder {
 	return &PhotosGetMarketAlbumUploadServerBuilder{api.Params{}}
 }
@@ -874,7 +874,7 @@ func (b *PhotosGetMarketAlbumUploadServerBuilder) GroupID(v int) *PhotosGetMarke
 	return b
 }
 
-// PhotosGetMarketUploadServerBuilder builder
+// PhotosGetMarketUploadServerBuilder builder.
 //
 // Returns the server address for market photo upload.
 //
@@ -883,7 +883,7 @@ type PhotosGetMarketUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetMarketUploadServerBuilder func
+// NewPhotosGetMarketUploadServerBuilder func.
 func NewPhotosGetMarketUploadServerBuilder() *PhotosGetMarketUploadServerBuilder {
 	return &PhotosGetMarketUploadServerBuilder{api.Params{}}
 }
@@ -918,7 +918,7 @@ func (b *PhotosGetMarketUploadServerBuilder) CropWidth(v int) *PhotosGetMarketUp
 	return b
 }
 
-// PhotosGetMessagesUploadServerBuilder builder
+// PhotosGetMessagesUploadServerBuilder builder.
 //
 // Returns the server address for photo upload in a private message for a user.
 //
@@ -927,7 +927,7 @@ type PhotosGetMessagesUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetMessagesUploadServerBuilder func
+// NewPhotosGetMessagesUploadServerBuilder func.
 func NewPhotosGetMessagesUploadServerBuilder() *PhotosGetMessagesUploadServerBuilder {
 	return &PhotosGetMessagesUploadServerBuilder{api.Params{}}
 }
@@ -939,7 +939,7 @@ func (b *PhotosGetMessagesUploadServerBuilder) PeerID(v int) *PhotosGetMessagesU
 	return b
 }
 
-// PhotosGetNewTagsBuilder builder
+// PhotosGetNewTagsBuilder builder.
 //
 // Returns a list of photos with tags that have not been viewed.
 //
@@ -948,7 +948,7 @@ type PhotosGetNewTagsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetNewTagsBuilder func
+// NewPhotosGetNewTagsBuilder func.
 func NewPhotosGetNewTagsBuilder() *PhotosGetNewTagsBuilder {
 	return &PhotosGetNewTagsBuilder{api.Params{}}
 }
@@ -965,7 +965,7 @@ func (b *PhotosGetNewTagsBuilder) Count(v int) *PhotosGetNewTagsBuilder {
 	return b
 }
 
-// PhotosGetOwnerCoverPhotoUploadServerBuilder builder
+// PhotosGetOwnerCoverPhotoUploadServerBuilder builder.
 //
 // Returns the server address for owner cover upload.
 //
@@ -974,7 +974,7 @@ type PhotosGetOwnerCoverPhotoUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetOwnerCoverPhotoUploadServerBuilder func
+// NewPhotosGetOwnerCoverPhotoUploadServerBuilder func.
 func NewPhotosGetOwnerCoverPhotoUploadServerBuilder() *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	return &PhotosGetOwnerCoverPhotoUploadServerBuilder{api.Params{}}
 }
@@ -985,31 +985,31 @@ func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) GroupID(v int) *PhotosGetO
 	return b
 }
 
-// CropX X coordinate of the left-upper corner
+// CropX X coordinate of the left-upper corner.
 func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropX(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	b.Params["crop_x"] = v
 	return b
 }
 
-// CropY Y coordinate of the left-upper corner
+// CropY Y coordinate of the left-upper corner.
 func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropY(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	b.Params["crop_y"] = v
 	return b
 }
 
-// CropX2 X coordinate of the right-bottom corner
+// CropX2 X coordinate of the right-bottom corner.
 func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropX2(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	b.Params["crop_x2"] = v
 	return b
 }
 
-// CropY2 Y coordinate of the right-bottom corner
+// CropY2 Y coordinate of the right-bottom corner.
 func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropY2(v int) *PhotosGetOwnerCoverPhotoUploadServerBuilder {
 	b.Params["crop_y2"] = v
 	return b
 }
 
-// PhotosGetOwnerPhotoUploadServerBuilder builder
+// PhotosGetOwnerPhotoUploadServerBuilder builder.
 //
 // Returns an upload server address for a profile or community photo.
 //
@@ -1018,19 +1018,19 @@ type PhotosGetOwnerPhotoUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetOwnerPhotoUploadServerBuilder func
+// NewPhotosGetOwnerPhotoUploadServerBuilder func.
 func NewPhotosGetOwnerPhotoUploadServerBuilder() *PhotosGetOwnerPhotoUploadServerBuilder {
 	return &PhotosGetOwnerPhotoUploadServerBuilder{api.Params{}}
 }
 
 // OwnerID identifier of a community or current user. "Note that community id must be negative. 'owner_id=1' – user,
-// 'owner_id=-1' – community, "
+// 'owner_id=-1' – community, ".
 func (b *PhotosGetOwnerPhotoUploadServerBuilder) OwnerID(v int) *PhotosGetOwnerPhotoUploadServerBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// PhotosGetTagsBuilder builder
+// PhotosGetTagsBuilder builder.
 //
 // Returns a list of tags on a photo.
 //
@@ -1039,7 +1039,7 @@ type PhotosGetTagsBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetTagsBuilder func
+// NewPhotosGetTagsBuilder func.
 func NewPhotosGetTagsBuilder() *PhotosGetTagsBuilder {
 	return &PhotosGetTagsBuilder{api.Params{}}
 }
@@ -1056,13 +1056,13 @@ func (b *PhotosGetTagsBuilder) PhotoID(v int) *PhotosGetTagsBuilder {
 	return b
 }
 
-// AccessKey parameter
+// AccessKey parameter.
 func (b *PhotosGetTagsBuilder) AccessKey(v string) *PhotosGetTagsBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
-// PhotosGetUploadServerBuilder builder
+// PhotosGetUploadServerBuilder builder.
 //
 // Returns the server address for photo upload.
 //
@@ -1071,7 +1071,7 @@ type PhotosGetUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetUploadServerBuilder func
+// NewPhotosGetUploadServerBuilder func.
 func NewPhotosGetUploadServerBuilder() *PhotosGetUploadServerBuilder {
 	return &PhotosGetUploadServerBuilder{api.Params{}}
 }
@@ -1082,13 +1082,13 @@ func (b *PhotosGetUploadServerBuilder) GroupID(v int) *PhotosGetUploadServerBuil
 	return b
 }
 
-// AlbumID parameter
+// AlbumID parameter.
 func (b *PhotosGetUploadServerBuilder) AlbumID(v int) *PhotosGetUploadServerBuilder {
 	b.Params["album_id"] = v
 	return b
 }
 
-// PhotosGetUserPhotosBuilder builder
+// PhotosGetUserPhotosBuilder builder.
 //
 // Returns a list of photos in which a user is tagged.
 //
@@ -1097,7 +1097,7 @@ type PhotosGetUserPhotosBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetUserPhotosBuilder func
+// NewPhotosGetUserPhotosBuilder func.
 func NewPhotosGetUserPhotosBuilder() *PhotosGetUserPhotosBuilder {
 	return &PhotosGetUserPhotosBuilder{api.Params{}}
 }
@@ -1120,20 +1120,20 @@ func (b *PhotosGetUserPhotosBuilder) Count(v int) *PhotosGetUserPhotosBuilder {
 	return b
 }
 
-// Extended '1' — to return an additional 'likes' field, '0' — (default)
+// Extended '1' — to return an additional 'likes' field, '0' — (default).
 func (b *PhotosGetUserPhotosBuilder) Extended(v bool) *PhotosGetUserPhotosBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
 // Sort Sort order: '1' — by date the tag was added in ascending order, '0' — by date the tag was added in descending
-// order
+// order.
 func (b *PhotosGetUserPhotosBuilder) Sort(v string) *PhotosGetUserPhotosBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
-// PhotosGetWallUploadServerBuilder builder
+// PhotosGetWallUploadServerBuilder builder.
 //
 // Returns the server address for photo upload onto a user's wall.
 //
@@ -1142,7 +1142,7 @@ type PhotosGetWallUploadServerBuilder struct {
 	api.Params
 }
 
-// NewPhotosGetWallUploadServerBuilder func
+// NewPhotosGetWallUploadServerBuilder func.
 func NewPhotosGetWallUploadServerBuilder() *PhotosGetWallUploadServerBuilder {
 	return &PhotosGetWallUploadServerBuilder{api.Params{}}
 }
@@ -1153,7 +1153,7 @@ func (b *PhotosGetWallUploadServerBuilder) GroupID(v int) *PhotosGetWallUploadSe
 	return b
 }
 
-// PhotosMakeCoverBuilder builder
+// PhotosMakeCoverBuilder builder.
 //
 // Makes a photo into an album cover.
 //
@@ -1162,7 +1162,7 @@ type PhotosMakeCoverBuilder struct {
 	api.Params
 }
 
-// NewPhotosMakeCoverBuilder func
+// NewPhotosMakeCoverBuilder func.
 func NewPhotosMakeCoverBuilder() *PhotosMakeCoverBuilder {
 	return &PhotosMakeCoverBuilder{api.Params{}}
 }
@@ -1185,7 +1185,7 @@ func (b *PhotosMakeCoverBuilder) AlbumID(v int) *PhotosMakeCoverBuilder {
 	return b
 }
 
-// PhotosMoveBuilder builder
+// PhotosMoveBuilder builder.
 //
 // Moves a photo from one album to another.
 //
@@ -1194,7 +1194,7 @@ type PhotosMoveBuilder struct {
 	api.Params
 }
 
-// NewPhotosMoveBuilder func
+// NewPhotosMoveBuilder func.
 func NewPhotosMoveBuilder() *PhotosMoveBuilder {
 	return &PhotosMoveBuilder{api.Params{}}
 }
@@ -1217,7 +1217,7 @@ func (b *PhotosMoveBuilder) PhotoID(v int) *PhotosMoveBuilder {
 	return b
 }
 
-// PhotosPutTagBuilder builder
+// PhotosPutTagBuilder builder.
 //
 // Adds a tag on the photo.
 //
@@ -1226,7 +1226,7 @@ type PhotosPutTagBuilder struct {
 	api.Params
 }
 
-// NewPhotosPutTagBuilder func
+// NewPhotosPutTagBuilder func.
 func NewPhotosPutTagBuilder() *PhotosPutTagBuilder {
 	return &PhotosPutTagBuilder{api.Params{}}
 }
@@ -1273,7 +1273,7 @@ func (b *PhotosPutTagBuilder) Y2(v float64) *PhotosPutTagBuilder {
 	return b
 }
 
-// PhotosRemoveTagBuilder builder
+// PhotosRemoveTagBuilder builder.
 //
 // Removes a tag from a photo.
 //
@@ -1282,7 +1282,7 @@ type PhotosRemoveTagBuilder struct {
 	api.Params
 }
 
-// NewPhotosRemoveTagBuilder func
+// NewPhotosRemoveTagBuilder func.
 func NewPhotosRemoveTagBuilder() *PhotosRemoveTagBuilder {
 	return &PhotosRemoveTagBuilder{api.Params{}}
 }
@@ -1305,7 +1305,7 @@ func (b *PhotosRemoveTagBuilder) TagID(v int) *PhotosRemoveTagBuilder {
 	return b
 }
 
-// PhotosReorderAlbumsBuilder builder
+// PhotosReorderAlbumsBuilder builder.
 //
 // Reorders the album in the list of user albums.
 //
@@ -1314,7 +1314,7 @@ type PhotosReorderAlbumsBuilder struct {
 	api.Params
 }
 
-// NewPhotosReorderAlbumsBuilder func
+// NewPhotosReorderAlbumsBuilder func.
 func NewPhotosReorderAlbumsBuilder() *PhotosReorderAlbumsBuilder {
 	return &PhotosReorderAlbumsBuilder{api.Params{}}
 }
@@ -1343,7 +1343,7 @@ func (b *PhotosReorderAlbumsBuilder) After(v int) *PhotosReorderAlbumsBuilder {
 	return b
 }
 
-// PhotosReorderPhotosBuilder builder
+// PhotosReorderPhotosBuilder builder.
 //
 // Reorders the photo in the list of photos of the user album.
 //
@@ -1352,7 +1352,7 @@ type PhotosReorderPhotosBuilder struct {
 	api.Params
 }
 
-// NewPhotosReorderPhotosBuilder func
+// NewPhotosReorderPhotosBuilder func.
 func NewPhotosReorderPhotosBuilder() *PhotosReorderPhotosBuilder {
 	return &PhotosReorderPhotosBuilder{api.Params{}}
 }
@@ -1381,7 +1381,7 @@ func (b *PhotosReorderPhotosBuilder) After(v int) *PhotosReorderPhotosBuilder {
 	return b
 }
 
-// PhotosReportBuilder builder
+// PhotosReportBuilder builder.
 //
 // Reports (submits a complaint about) a photo.
 //
@@ -1390,7 +1390,7 @@ type PhotosReportBuilder struct {
 	api.Params
 }
 
-// NewPhotosReportBuilder func
+// NewPhotosReportBuilder func.
 func NewPhotosReportBuilder() *PhotosReportBuilder {
 	return &PhotosReportBuilder{api.Params{}}
 }
@@ -1427,7 +1427,7 @@ func (b *PhotosReportBuilder) Reason(v int) *PhotosReportBuilder {
 	return b
 }
 
-// PhotosReportCommentBuilder builder
+// PhotosReportCommentBuilder builder.
 //
 // Reports (submits a complaint about) a comment on a photo.
 //
@@ -1436,7 +1436,7 @@ type PhotosReportCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosReportCommentBuilder func
+// NewPhotosReportCommentBuilder func.
 func NewPhotosReportCommentBuilder() *PhotosReportCommentBuilder {
 	return &PhotosReportCommentBuilder{api.Params{}}
 }
@@ -1473,7 +1473,7 @@ func (b *PhotosReportCommentBuilder) Reason(v int) *PhotosReportCommentBuilder {
 	return b
 }
 
-// PhotosRestoreBuilder builder
+// PhotosRestoreBuilder builder.
 //
 // Restores a deleted photo.
 //
@@ -1482,7 +1482,7 @@ type PhotosRestoreBuilder struct {
 	api.Params
 }
 
-// NewPhotosRestoreBuilder func
+// NewPhotosRestoreBuilder func.
 func NewPhotosRestoreBuilder() *PhotosRestoreBuilder {
 	return &PhotosRestoreBuilder{api.Params{}}
 }
@@ -1499,7 +1499,7 @@ func (b *PhotosRestoreBuilder) PhotoID(v int) *PhotosRestoreBuilder {
 	return b
 }
 
-// PhotosRestoreCommentBuilder builder
+// PhotosRestoreCommentBuilder builder.
 //
 // Restores a deleted comment on a photo.
 //
@@ -1508,7 +1508,7 @@ type PhotosRestoreCommentBuilder struct {
 	api.Params
 }
 
-// NewPhotosRestoreCommentBuilder func
+// NewPhotosRestoreCommentBuilder func.
 func NewPhotosRestoreCommentBuilder() *PhotosRestoreCommentBuilder {
 	return &PhotosRestoreCommentBuilder{api.Params{}}
 }
@@ -1525,7 +1525,7 @@ func (b *PhotosRestoreCommentBuilder) CommentID(v int) *PhotosRestoreCommentBuil
 	return b
 }
 
-// PhotosSaveBuilder builder
+// PhotosSaveBuilder builder.
 //
 // Saves photos after successful uploading.
 //
@@ -1534,7 +1534,7 @@ type PhotosSaveBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveBuilder func
+// NewPhotosSaveBuilder func.
 func NewPhotosSaveBuilder() *PhotosSaveBuilder {
 	return &PhotosSaveBuilder{api.Params{}}
 }
@@ -1587,7 +1587,7 @@ func (b *PhotosSaveBuilder) Caption(v string) *PhotosSaveBuilder {
 	return b
 }
 
-// PhotosSaveMarketAlbumPhotoBuilder builder
+// PhotosSaveMarketAlbumPhotoBuilder builder.
 //
 // Saves market album photos after successful uploading.
 //
@@ -1596,7 +1596,7 @@ type PhotosSaveMarketAlbumPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveMarketAlbumPhotoBuilder func
+// NewPhotosSaveMarketAlbumPhotoBuilder func.
 func NewPhotosSaveMarketAlbumPhotoBuilder() *PhotosSaveMarketAlbumPhotoBuilder {
 	return &PhotosSaveMarketAlbumPhotoBuilder{api.Params{}}
 }
@@ -1625,7 +1625,7 @@ func (b *PhotosSaveMarketAlbumPhotoBuilder) Hash(v string) *PhotosSaveMarketAlbu
 	return b
 }
 
-// PhotosSaveMarketPhotoBuilder builder
+// PhotosSaveMarketPhotoBuilder builder.
 //
 // Saves market photos after successful uploading.
 //
@@ -1634,7 +1634,7 @@ type PhotosSaveMarketPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveMarketPhotoBuilder func
+// NewPhotosSaveMarketPhotoBuilder func.
 func NewPhotosSaveMarketPhotoBuilder() *PhotosSaveMarketPhotoBuilder {
 	return &PhotosSaveMarketPhotoBuilder{api.Params{}}
 }
@@ -1675,7 +1675,7 @@ func (b *PhotosSaveMarketPhotoBuilder) CropHash(v string) *PhotosSaveMarketPhoto
 	return b
 }
 
-// PhotosSaveMessagesPhotoBuilder builder
+// PhotosSaveMessagesPhotoBuilder builder.
 //
 // Saves a photo after being successfully uploaded. URL obtained with
 // [vk.com/dev/photos.getMessagesUploadServer|photos.getMessagesUploadServer] method.
@@ -1685,7 +1685,7 @@ type PhotosSaveMessagesPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveMessagesPhotoBuilder func
+// NewPhotosSaveMessagesPhotoBuilder func.
 func NewPhotosSaveMessagesPhotoBuilder() *PhotosSaveMessagesPhotoBuilder {
 	return &PhotosSaveMessagesPhotoBuilder{api.Params{}}
 }
@@ -1696,19 +1696,19 @@ func (b *PhotosSaveMessagesPhotoBuilder) Photo(v string) *PhotosSaveMessagesPhot
 	return b
 }
 
-// Server parameter
+// Server parameter.
 func (b *PhotosSaveMessagesPhotoBuilder) Server(v int) *PhotosSaveMessagesPhotoBuilder {
 	b.Params["server"] = v
 	return b
 }
 
-// Hash parameter
+// Hash parameter.
 func (b *PhotosSaveMessagesPhotoBuilder) Hash(v string) *PhotosSaveMessagesPhotoBuilder {
 	b.Params["hash"] = v
 	return b
 }
 
-// PhotosSaveOwnerCoverPhotoBuilder builder
+// PhotosSaveOwnerCoverPhotoBuilder builder.
 //
 // Saves cover photo after successful uploading.
 //
@@ -1717,7 +1717,7 @@ type PhotosSaveOwnerCoverPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveOwnerCoverPhotoBuilder func
+// NewPhotosSaveOwnerCoverPhotoBuilder func.
 func NewPhotosSaveOwnerCoverPhotoBuilder() *PhotosSaveOwnerCoverPhotoBuilder {
 	return &PhotosSaveOwnerCoverPhotoBuilder{api.Params{}}
 }
@@ -1734,7 +1734,7 @@ func (b *PhotosSaveOwnerCoverPhotoBuilder) Photo(v string) *PhotosSaveOwnerCover
 	return b
 }
 
-// PhotosSaveOwnerPhotoBuilder builder
+// PhotosSaveOwnerPhotoBuilder builder.
 //
 // Saves a profile or community photo. Upload URL can be got with the
 // [vk.com/dev/photos.getOwnerPhotoUploadServer|photos.getOwnerPhotoUploadServer] method.
@@ -1744,7 +1744,7 @@ type PhotosSaveOwnerPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveOwnerPhotoBuilder func
+// NewPhotosSaveOwnerPhotoBuilder func.
 func NewPhotosSaveOwnerPhotoBuilder() *PhotosSaveOwnerPhotoBuilder {
 	return &PhotosSaveOwnerPhotoBuilder{api.Params{}}
 }
@@ -1767,7 +1767,7 @@ func (b *PhotosSaveOwnerPhotoBuilder) Photo(v string) *PhotosSaveOwnerPhotoBuild
 	return b
 }
 
-// PhotosSaveWallPhotoBuilder builder
+// PhotosSaveWallPhotoBuilder builder.
 //
 // Saves a photo to a user's or community's wall after being uploaded.
 //
@@ -1776,7 +1776,7 @@ type PhotosSaveWallPhotoBuilder struct {
 	api.Params
 }
 
-// NewPhotosSaveWallPhotoBuilder func
+// NewPhotosSaveWallPhotoBuilder func.
 func NewPhotosSaveWallPhotoBuilder() *PhotosSaveWallPhotoBuilder {
 	return &PhotosSaveWallPhotoBuilder{api.Params{}}
 }
@@ -1799,13 +1799,13 @@ func (b *PhotosSaveWallPhotoBuilder) Photo(v string) *PhotosSaveWallPhotoBuilder
 	return b
 }
 
-// Server parameter
+// Server parameter.
 func (b *PhotosSaveWallPhotoBuilder) Server(v int) *PhotosSaveWallPhotoBuilder {
 	b.Params["server"] = v
 	return b
 }
 
-// Hash parameter
+// Hash parameter.
 func (b *PhotosSaveWallPhotoBuilder) Hash(v string) *PhotosSaveWallPhotoBuilder {
 	b.Params["hash"] = v
 	return b
@@ -1829,7 +1829,7 @@ func (b *PhotosSaveWallPhotoBuilder) Caption(v string) *PhotosSaveWallPhotoBuild
 	return b
 }
 
-// PhotosSearchBuilder builder
+// PhotosSearchBuilder builder.
 //
 // Returns a list of photos.
 //
@@ -1838,7 +1838,7 @@ type PhotosSearchBuilder struct {
 	api.Params
 }
 
-// NewPhotosSearchBuilder func
+// NewPhotosSearchBuilder func.
 func NewPhotosSearchBuilder() *PhotosSearchBuilder {
 	return &PhotosSearchBuilder{api.Params{}}
 }
@@ -1861,19 +1861,19 @@ func (b *PhotosSearchBuilder) Long(v float64) *PhotosSearchBuilder {
 	return b
 }
 
-// StartTime parameter
+// StartTime parameter.
 func (b *PhotosSearchBuilder) StartTime(v int) *PhotosSearchBuilder {
 	b.Params["start_time"] = v
 	return b
 }
 
-// EndTime parameter
+// EndTime parameter.
 func (b *PhotosSearchBuilder) EndTime(v int) *PhotosSearchBuilder {
 	b.Params["end_time"] = v
 	return b
 }
 
-// Sort Sort order:
+// Sort Sort order.
 func (b *PhotosSearchBuilder) Sort(v int) *PhotosSearchBuilder {
 	b.Params["sort"] = v
 	return b

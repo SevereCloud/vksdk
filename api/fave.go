@@ -20,7 +20,7 @@ func (vk *VK) FaveAddLink(params Params) (response int, err error) {
 	return
 }
 
-// FaveAddPage method
+// FaveAddPage method.
 //
 // https://vk.com/dev/fave.addPage
 func (vk *VK) FaveAddPage(params Params) (response int, err error) {
@@ -28,7 +28,7 @@ func (vk *VK) FaveAddPage(params Params) (response int, err error) {
 	return
 }
 
-// FaveAddPost method
+// FaveAddPost method.
 //
 // https://vk.com/dev/fave.addPost
 func (vk *VK) FaveAddPost(params Params) (response int, err error) {
@@ -36,7 +36,7 @@ func (vk *VK) FaveAddPost(params Params) (response int, err error) {
 	return
 }
 
-// FaveAddProduct method
+// FaveAddProduct method.
 //
 // https://vk.com/dev/fave.addProduct
 func (vk *VK) FaveAddProduct(params Params) (response int, err error) {
@@ -44,10 +44,10 @@ func (vk *VK) FaveAddProduct(params Params) (response int, err error) {
 	return
 }
 
-// FaveAddTagResponse struct
+// FaveAddTagResponse struct.
 type FaveAddTagResponse object.FaveTag
 
-// FaveAddTag method
+// FaveAddTag method.
 //
 // https://vk.com/dev/fave.addTag
 func (vk *VK) FaveAddTag(params Params) (response FaveAddTagResponse, err error) {
@@ -55,7 +55,7 @@ func (vk *VK) FaveAddTag(params Params) (response FaveAddTagResponse, err error)
 	return
 }
 
-// FaveAddVideo method
+// FaveAddVideo method.
 //
 // https://vk.com/dev/fave.addVideo
 func (vk *VK) FaveAddVideo(params Params) (response int, err error) {
@@ -63,7 +63,7 @@ func (vk *VK) FaveAddVideo(params Params) (response int, err error) {
 	return
 }
 
-// FaveEditTag method
+// FaveEditTag method.
 //
 // https://vk.com/dev/fave.editTag
 func (vk *VK) FaveEditTag(params Params) (response int, err error) {
@@ -71,13 +71,13 @@ func (vk *VK) FaveEditTag(params Params) (response int, err error) {
 	return
 }
 
-// FaveGetResponse struct
+// FaveGetResponse struct.
 type FaveGetResponse struct {
 	Count int               `json:"count"`
 	Items []object.FaveItem `json:"items"`
 }
 
-// FaveGet method
+// FaveGet method.
 //
 // extended=0
 //
@@ -89,14 +89,14 @@ func (vk *VK) FaveGet(params Params) (response FaveGetResponse, err error) {
 	return
 }
 
-// FaveGetExtendedResponse struct
+// FaveGetExtendedResponse struct.
 type FaveGetExtendedResponse struct {
 	Count int               `json:"count"`
 	Items []object.FaveItem `json:"items"`
 	object.ExtendedResponse
 }
 
-// FaveGetExtended method
+// FaveGetExtended method.
 //
 // extended=1
 //
@@ -108,13 +108,13 @@ func (vk *VK) FaveGetExtended(params Params) (response FaveGetExtendedResponse, 
 	return
 }
 
-// FaveGetPagesResponse struct
+// FaveGetPagesResponse struct.
 type FaveGetPagesResponse struct {
 	Count int               `json:"count"`
 	Items []object.FavePage `json:"items"`
 }
 
-// FaveGetPages method
+// FaveGetPages method.
 //
 // https://vk.com/dev/fave.getPages
 func (vk *VK) FaveGetPages(params Params) (response FaveGetPagesResponse, err error) {
@@ -122,13 +122,13 @@ func (vk *VK) FaveGetPages(params Params) (response FaveGetPagesResponse, err er
 	return
 }
 
-// FaveGetTagsResponse struct
+// FaveGetTagsResponse struct.
 type FaveGetTagsResponse struct {
 	Count int              `json:"count"`
 	Items []object.FaveTag `json:"items"`
 }
 
-// FaveGetTags method
+// FaveGetTags method.
 //
 // https://vk.com/dev/fave.getTags
 func (vk *VK) FaveGetTags(params Params) (response FaveGetTagsResponse, err error) {
@@ -136,7 +136,7 @@ func (vk *VK) FaveGetTags(params Params) (response FaveGetTagsResponse, err erro
 	return
 }
 
-// FaveMarkSeen method
+// FaveMarkSeen method.
 //
 // https://vk.com/dev/fave.markSeen
 func (vk *VK) FaveMarkSeen(params Params) (response int, err error) {
@@ -144,7 +144,7 @@ func (vk *VK) FaveMarkSeen(params Params) (response int, err error) {
 	return
 }
 
-// FaveRemoveArticle method
+// FaveRemoveArticle method.
 //
 // https://vk.com/dev/fave.removeArticle
 func (vk *VK) FaveRemoveArticle(params Params) (response int, err error) {
@@ -160,7 +160,7 @@ func (vk *VK) FaveRemoveLink(params Params) (response int, err error) {
 	return
 }
 
-// FaveRemovePage method
+// FaveRemovePage method.
 //
 // https://vk.com/dev/fave.removePage
 func (vk *VK) FaveRemovePage(params Params) (response int, err error) {
@@ -168,7 +168,7 @@ func (vk *VK) FaveRemovePage(params Params) (response int, err error) {
 	return
 }
 
-// FaveRemovePost method
+// FaveRemovePost method.
 //
 // https://vk.com/dev/fave.removePost
 func (vk *VK) FaveRemovePost(params Params) (response int, err error) {
@@ -176,7 +176,7 @@ func (vk *VK) FaveRemovePost(params Params) (response int, err error) {
 	return
 }
 
-// FaveRemoveProduct method
+// FaveRemoveProduct method.
 //
 // https://vk.com/dev/fave.removeProduct
 func (vk *VK) FaveRemoveProduct(params Params) (response int, err error) {
@@ -184,7 +184,7 @@ func (vk *VK) FaveRemoveProduct(params Params) (response int, err error) {
 	return
 }
 
-// FaveRemoveTag method
+// FaveRemoveTag method.
 //
 // https://vk.com/dev/fave.removeTag
 func (vk *VK) FaveRemoveTag(params Params) (response int, err error) {
@@ -192,7 +192,7 @@ func (vk *VK) FaveRemoveTag(params Params) (response int, err error) {
 	return
 }
 
-// FaveRemoveVideo method
+// FaveRemoveVideo method.
 //
 // https://vk.com/dev/fave.removeVideo
 func (vk *VK) FaveRemoveVideo(params Params) (response int, err error) {
@@ -200,7 +200,7 @@ func (vk *VK) FaveRemoveVideo(params Params) (response int, err error) {
 	return
 }
 
-// FaveReorderTags method
+// FaveReorderTags method.
 //
 // https://vk.com/dev/fave.reorderTags
 func (vk *VK) FaveReorderTags(params Params) (response int, err error) {
@@ -208,7 +208,7 @@ func (vk *VK) FaveReorderTags(params Params) (response int, err error) {
 	return
 }
 
-// FaveSetPageTags method
+// FaveSetPageTags method.
 //
 // https://vk.com/dev/fave.setPageTags
 func (vk *VK) FaveSetPageTags(params Params) (response int, err error) {
@@ -216,7 +216,7 @@ func (vk *VK) FaveSetPageTags(params Params) (response int, err error) {
 	return
 }
 
-// FaveSetTags method
+// FaveSetTags method.
 //
 // https://vk.com/dev/fave.setTags
 func (vk *VK) FaveSetTags(params Params) (response int, err error) {
@@ -224,7 +224,7 @@ func (vk *VK) FaveSetTags(params Params) (response int, err error) {
 	return
 }
 
-// FaveTrackPageInteraction method
+// FaveTrackPageInteraction method.
 //
 // https://vk.com/dev/fave.trackPageInteraction
 func (vk *VK) FaveTrackPageInteraction(params Params) (response int, err error) {

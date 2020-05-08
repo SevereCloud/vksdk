@@ -12,7 +12,7 @@ func (vk *VK) OrdersCancelSubscription(params Params) (response int, err error) 
 	return
 }
 
-// OrdersChangeStateResponse struct
+// OrdersChangeStateResponse struct.
 type OrdersChangeStateResponse string // New state
 
 // OrdersChangeState Changes order status.
@@ -23,7 +23,7 @@ func (vk *VK) OrdersChangeState(params Params) (response OrdersChangeStateRespon
 	return
 }
 
-// OrdersGetResponse struct
+// OrdersGetResponse struct.
 type OrdersGetResponse []object.OrdersOrder
 
 // OrdersGet Returns a list of orders.
@@ -34,7 +34,7 @@ func (vk *VK) OrdersGet(params Params) (response OrdersGetResponse, err error) {
 	return
 }
 
-// OrdersGetAmountResponse struct
+// OrdersGetAmountResponse struct.
 type OrdersGetAmountResponse []object.OrdersAmount
 
 // OrdersGetAmount Returns the cost of votes in the user's consent.
@@ -45,7 +45,7 @@ func (vk *VK) OrdersGetAmount(params Params) (response OrdersGetAmountResponse, 
 	return
 }
 
-// OrdersGetByIDResponse struct
+// OrdersGetByIDResponse struct.
 type OrdersGetByIDResponse []object.OrdersOrder
 
 // OrdersGetByID Returns information about orders by their IDs.
@@ -56,7 +56,7 @@ func (vk *VK) OrdersGetByID(params Params) (response OrdersGetByIDResponse, err 
 	return
 }
 
-// OrdersGetUserSubscriptionByIDResponse struct
+// OrdersGetUserSubscriptionByIDResponse struct.
 type OrdersGetUserSubscriptionByIDResponse object.OrdersSubscription
 
 // OrdersGetUserSubscriptionByID Allows to get subscription by its ID.
@@ -67,7 +67,7 @@ func (vk *VK) OrdersGetUserSubscriptionByID(params Params) (response OrdersGetUs
 	return
 }
 
-// OrdersGetUserSubscriptionsResponse struct
+// OrdersGetUserSubscriptionsResponse struct.
 type OrdersGetUserSubscriptionsResponse struct {
 	Count int                         `json:"count"` // Total number
 	Items []object.OrdersSubscription `json:"items"`

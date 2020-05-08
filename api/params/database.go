@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// DatabaseGetChairsBuilder builder
+// DatabaseGetChairsBuilder builder.
 //
 // Returns list of chairs on a specified faculty.
 //
@@ -13,30 +13,30 @@ type DatabaseGetChairsBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetChairsBuilder func
+// NewDatabaseGetChairsBuilder func.
 func NewDatabaseGetChairsBuilder() *DatabaseGetChairsBuilder {
 	return &DatabaseGetChairsBuilder{api.Params{}}
 }
 
-// FacultyID id of the faculty to get chairs from
+// FacultyID id of the faculty to get chairs from.
 func (b *DatabaseGetChairsBuilder) FacultyID(v int) *DatabaseGetChairsBuilder {
 	b.Params["faculty_id"] = v
 	return b
 }
 
-// Offset offset required to get a certain subset of chairs
+// Offset offset required to get a certain subset of chairs.
 func (b *DatabaseGetChairsBuilder) Offset(v int) *DatabaseGetChairsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count amount of chairs to get
+// Count amount of chairs to get.
 func (b *DatabaseGetChairsBuilder) Count(v int) *DatabaseGetChairsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// DatabaseGetCitiesBuilder builder
+// DatabaseGetCitiesBuilder builder.
 //
 // Returns a list of cities.
 //
@@ -45,7 +45,7 @@ type DatabaseGetCitiesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetCitiesBuilder func
+// NewDatabaseGetCitiesBuilder func.
 func NewDatabaseGetCitiesBuilder() *DatabaseGetCitiesBuilder {
 	return &DatabaseGetCitiesBuilder{api.Params{}}
 }
@@ -68,11 +68,11 @@ func (b *DatabaseGetCitiesBuilder) Q(v string) *DatabaseGetCitiesBuilder {
 	return b
 }
 
-// NeedAll parameter
+// NeedAll parameter.
 //
 // * 1 — to return all cities in the country,
 //
-// * 0 — to return major cities in the country (default),
+// * 0 — to return major cities in the country (default).
 func (b *DatabaseGetCitiesBuilder) NeedAll(v bool) *DatabaseGetCitiesBuilder {
 	b.Params["need_all"] = v
 	return b
@@ -90,7 +90,7 @@ func (b *DatabaseGetCitiesBuilder) Count(v int) *DatabaseGetCitiesBuilder {
 	return b
 }
 
-// DatabaseGetCitiesByIDBuilder builder
+// DatabaseGetCitiesByIDBuilder builder.
 //
 // Returns information about cities by their IDs.
 //
@@ -99,7 +99,7 @@ type DatabaseGetCitiesByIDBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetCitiesByIDBuilder func
+// NewDatabaseGetCitiesByIDBuilder func.
 func NewDatabaseGetCitiesByIDBuilder() *DatabaseGetCitiesByIDBuilder {
 	return &DatabaseGetCitiesByIDBuilder{api.Params{}}
 }
@@ -110,7 +110,7 @@ func (b *DatabaseGetCitiesByIDBuilder) CityIDs(v []int) *DatabaseGetCitiesByIDBu
 	return b
 }
 
-// DatabaseGetCountriesBuilder builder
+// DatabaseGetCountriesBuilder builder.
 //
 // Returns a list of countries.
 //
@@ -119,14 +119,14 @@ type DatabaseGetCountriesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetCountriesBuilder func
+// NewDatabaseGetCountriesBuilder func.
 func NewDatabaseGetCountriesBuilder() *DatabaseGetCountriesBuilder {
 	return &DatabaseGetCountriesBuilder{api.Params{}}
 }
 
-// NeedAll parameter
+// NeedAll parameter.
 //
-// * 1 — to return a full list of all countries,
+// * 1 — to return a full list of all countries.
 //
 // * 0 — to return a list of countries near the current user's country (default).
 func (b *DatabaseGetCountriesBuilder) NeedAll(v bool) *DatabaseGetCountriesBuilder {
@@ -152,7 +152,7 @@ func (b *DatabaseGetCountriesBuilder) Count(v int) *DatabaseGetCountriesBuilder 
 	return b
 }
 
-// DatabaseGetCountriesByIDBuilder builder
+// DatabaseGetCountriesByIDBuilder builder.
 //
 // Returns information about countries by their IDs.
 //
@@ -161,7 +161,7 @@ type DatabaseGetCountriesByIDBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetCountriesByIDBuilder func
+// NewDatabaseGetCountriesByIDBuilder func.
 func NewDatabaseGetCountriesByIDBuilder() *DatabaseGetCountriesByIDBuilder {
 	return &DatabaseGetCountriesByIDBuilder{api.Params{}}
 }
@@ -172,7 +172,7 @@ func (b *DatabaseGetCountriesByIDBuilder) CountryIDs(v []int) *DatabaseGetCountr
 	return b
 }
 
-// DatabaseGetFacultiesBuilder builder
+// DatabaseGetFacultiesBuilder builder.
 //
 // Returns a list of faculties (i.e., university departments).
 //
@@ -181,7 +181,7 @@ type DatabaseGetFacultiesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetFacultiesBuilder func
+// NewDatabaseGetFacultiesBuilder func.
 func NewDatabaseGetFacultiesBuilder() *DatabaseGetFacultiesBuilder {
 	return &DatabaseGetFacultiesBuilder{api.Params{}}
 }
@@ -204,65 +204,65 @@ func (b *DatabaseGetFacultiesBuilder) Count(v int) *DatabaseGetFacultiesBuilder 
 	return b
 }
 
-// DatabaseGetMetroStationsBuilder builder
+// DatabaseGetMetroStationsBuilder builder.
 //
-// Get metro stations by city
+// Get metro stations by city.
 //
 // https://vk.com/dev/database.getMetroStations
 type DatabaseGetMetroStationsBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetMetroStationsBuilder func
+// NewDatabaseGetMetroStationsBuilder func.
 func NewDatabaseGetMetroStationsBuilder() *DatabaseGetMetroStationsBuilder {
 	return &DatabaseGetMetroStationsBuilder{api.Params{}}
 }
 
-// CityID parameter
+// CityID parameter.
 func (b *DatabaseGetMetroStationsBuilder) CityID(v int) *DatabaseGetMetroStationsBuilder {
 	b.Params["city_id"] = v
 	return b
 }
 
-// Offset parameter
+// Offset parameter.
 func (b *DatabaseGetMetroStationsBuilder) Offset(v int) *DatabaseGetMetroStationsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count parameter
+// Count parameter.
 func (b *DatabaseGetMetroStationsBuilder) Count(v int) *DatabaseGetMetroStationsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 func (b *DatabaseGetMetroStationsBuilder) Extended(v bool) *DatabaseGetMetroStationsBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// DatabaseGetMetroStationsByIDBuilder builder
+// DatabaseGetMetroStationsByIDBuilder builder.
 //
-// Get metro station by his id
+// Get metro station by his id.
 //
 // https://vk.com/dev/database.getMetroStationsById
 type DatabaseGetMetroStationsByIDBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetMetroStationsByIDBuilder func
+// NewDatabaseGetMetroStationsByIDBuilder func.
 func NewDatabaseGetMetroStationsByIDBuilder() *DatabaseGetMetroStationsByIDBuilder {
 	return &DatabaseGetMetroStationsByIDBuilder{api.Params{}}
 }
 
-// StationIDs parameter
+// StationIDs parameter.
 func (b *DatabaseGetMetroStationsByIDBuilder) StationIDs(v []int) *DatabaseGetMetroStationsByIDBuilder {
 	b.Params["station_ids"] = v
 	return b
 }
 
-// DatabaseGetRegionsBuilder builder
+// DatabaseGetRegionsBuilder builder.
 //
 // Returns a list of regions.
 //
@@ -271,7 +271,7 @@ type DatabaseGetRegionsBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetRegionsBuilder func
+// NewDatabaseGetRegionsBuilder func.
 func NewDatabaseGetRegionsBuilder() *DatabaseGetRegionsBuilder {
 	return &DatabaseGetRegionsBuilder{api.Params{}}
 }
@@ -300,7 +300,7 @@ func (b *DatabaseGetRegionsBuilder) Count(v int) *DatabaseGetRegionsBuilder {
 	return b
 }
 
-// DatabaseGetSchoolClassesBuilder builder
+// DatabaseGetSchoolClassesBuilder builder.
 //
 // Returns a list of school classes specified for the country.
 //
@@ -309,7 +309,7 @@ type DatabaseGetSchoolClassesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetSchoolClassesBuilder func
+// NewDatabaseGetSchoolClassesBuilder func.
 func NewDatabaseGetSchoolClassesBuilder() *DatabaseGetSchoolClassesBuilder {
 	return &DatabaseGetSchoolClassesBuilder{api.Params{}}
 }
@@ -320,7 +320,7 @@ func (b *DatabaseGetSchoolClassesBuilder) CountryID(v int) *DatabaseGetSchoolCla
 	return b
 }
 
-// DatabaseGetSchoolsBuilder builder
+// DatabaseGetSchoolsBuilder builder.
 //
 // Returns a list of schools.
 //
@@ -329,7 +329,7 @@ type DatabaseGetSchoolsBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetSchoolsBuilder func
+// NewDatabaseGetSchoolsBuilder func.
 func NewDatabaseGetSchoolsBuilder() *DatabaseGetSchoolsBuilder {
 	return &DatabaseGetSchoolsBuilder{api.Params{}}
 }
@@ -358,7 +358,7 @@ func (b *DatabaseGetSchoolsBuilder) Count(v int) *DatabaseGetSchoolsBuilder {
 	return b
 }
 
-// DatabaseGetUniversitiesBuilder builder
+// DatabaseGetUniversitiesBuilder builder.
 //
 // Returns a list of higher education institutions.
 //
@@ -367,7 +367,7 @@ type DatabaseGetUniversitiesBuilder struct {
 	api.Params
 }
 
-// NewDatabaseGetUniversitiesBuilder func
+// NewDatabaseGetUniversitiesBuilder func.
 func NewDatabaseGetUniversitiesBuilder() *DatabaseGetUniversitiesBuilder {
 	return &DatabaseGetUniversitiesBuilder{api.Params{}}
 }

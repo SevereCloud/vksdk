@@ -12,7 +12,7 @@ func (vk *VK) FriendsAdd(params Params) (response int, err error) {
 	return
 }
 
-// FriendsAddListResponse struct
+// FriendsAddListResponse struct.
 type FriendsAddListResponse struct {
 	ListID int `json:"list_id"`
 }
@@ -25,7 +25,7 @@ func (vk *VK) FriendsAddList(params Params) (response FriendsAddListResponse, er
 	return
 }
 
-// FriendsAreFriendsResponse struct
+// FriendsAreFriendsResponse struct.
 type FriendsAreFriendsResponse []object.FriendsFriendStatus
 
 // FriendsAreFriends checks the current user's friendship status with other specified users.
@@ -36,7 +36,7 @@ func (vk *VK) FriendsAreFriends(params Params) (response FriendsAreFriendsRespon
 	return
 }
 
-// FriendsDeleteResponse struct
+// FriendsDeleteResponse struct.
 type FriendsDeleteResponse struct {
 	Success           object.BaseBoolInt `json:"success"`
 	FriendDeleted     object.BaseBoolInt `json:"friend_deleted"`
@@ -85,13 +85,13 @@ func (vk *VK) FriendsEditList(params Params) (response int, err error) {
 	return
 }
 
-// FriendsGetResponse struct
+// FriendsGetResponse struct.
 type FriendsGetResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
 }
 
-// FriendsGet returns a list of user IDs or detailed information about a user's friends
+// FriendsGet returns a list of user IDs or detailed information about a user's friends.
 //
 // https://vk.com/dev/friends.get
 func (vk *VK) FriendsGet(params Params) (response FriendsGetResponse, err error) {
@@ -99,13 +99,13 @@ func (vk *VK) FriendsGet(params Params) (response FriendsGetResponse, err error)
 	return
 }
 
-// FriendsGetFieldsResponse struct
+// FriendsGetFieldsResponse struct.
 type FriendsGetFieldsResponse struct {
 	Count int                          `json:"count"`
 	Items []object.FriendsUserXtrLists `json:"items"`
 }
 
-// FriendsGetFields returns a list of user IDs or detailed information about a user's friends
+// FriendsGetFields returns a list of user IDs or detailed information about a user's friends.
 //
 // https://vk.com/dev/friends.get
 func (vk *VK) FriendsGetFields(params Params) (response FriendsGetFieldsResponse, err error) {
@@ -118,7 +118,7 @@ func (vk *VK) FriendsGetFields(params Params) (response FriendsGetFieldsResponse
 	return
 }
 
-// FriendsGetAppUsersResponse struct
+// FriendsGetAppUsersResponse struct.
 type FriendsGetAppUsersResponse []int
 
 // FriendsGetAppUsers returns a list of IDs of the current user's friends who installed the application.
@@ -129,7 +129,7 @@ func (vk *VK) FriendsGetAppUsers(params Params) (response FriendsGetAppUsersResp
 	return
 }
 
-// FriendsGetByPhonesResponse struct
+// FriendsGetByPhonesResponse struct.
 type FriendsGetByPhonesResponse []object.FriendsUserXtrPhone
 
 // FriendsGetByPhones returns a list of the current user's friends
@@ -141,7 +141,7 @@ func (vk *VK) FriendsGetByPhones(params Params) (response FriendsGetByPhonesResp
 	return
 }
 
-// FriendsGetListsResponse struct
+// FriendsGetListsResponse struct.
 type FriendsGetListsResponse struct {
 	Count int                         `json:"count"`
 	Items []object.FriendsFriendsList `json:"items"`
@@ -155,7 +155,7 @@ func (vk *VK) FriendsGetLists(params Params) (response FriendsGetListsResponse, 
 	return
 }
 
-// FriendsGetMutualResponse struct
+// FriendsGetMutualResponse struct.
 type FriendsGetMutualResponse []int
 
 // FriendsGetMutual returns a list of user IDs of the mutual friends of two users.
@@ -178,7 +178,7 @@ func (vk *VK) FriendsGetOnline(params Params) (response []int, err error) {
 	return
 }
 
-// FriendsGetOnlineOnlineMobileResponse struct
+// FriendsGetOnlineOnlineMobileResponse struct.
 type FriendsGetOnlineOnlineMobileResponse struct {
 	Online       []int `json:"online"`
 	OnlineMobile []int `json:"online_mobile"`
@@ -196,7 +196,7 @@ func (vk *VK) FriendsGetOnlineOnlineMobile(params Params) (response FriendsGetOn
 	return
 }
 
-// FriendsGetRecentResponse struct
+// FriendsGetRecentResponse struct.
 type FriendsGetRecentResponse []int
 
 // FriendsGetRecent returns a list of user IDs of the current user's recently added friends.
@@ -207,7 +207,7 @@ func (vk *VK) FriendsGetRecent(params Params) (response FriendsGetRecentResponse
 	return
 }
 
-// FriendsGetRequestsResponse struct
+// FriendsGetRequestsResponse struct.
 type FriendsGetRequestsResponse struct {
 	Count int   `json:"count"` // Total requests number
 	Items []int `json:"items"`
@@ -224,7 +224,7 @@ func (vk *VK) FriendsGetRequests(params Params) (response FriendsGetRequestsResp
 	return
 }
 
-// FriendsGetRequestsNeedMutualResponse struct
+// FriendsGetRequestsNeedMutualResponse struct.
 type FriendsGetRequestsNeedMutualResponse struct {
 	Count int                      `json:"count"` // Total requests number
 	Items []object.FriendsRequests `json:"items"`
@@ -241,7 +241,7 @@ func (vk *VK) FriendsGetRequestsNeedMutual(params Params) (response FriendsGetRe
 	return
 }
 
-// FriendsGetRequestsExtendedResponse struct
+// FriendsGetRequestsExtendedResponse struct.
 type FriendsGetRequestsExtendedResponse struct {
 	Count int                                `json:"count"`
 	Items []object.FriendsRequestsXtrMessage `json:"items"`
@@ -258,7 +258,7 @@ func (vk *VK) FriendsGetRequestsExtended(params Params) (response FriendsGetRequ
 	return
 }
 
-// FriendsGetSuggestionsResponse struct
+// FriendsGetSuggestionsResponse struct.
 type FriendsGetSuggestionsResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`
@@ -272,7 +272,7 @@ func (vk *VK) FriendsGetSuggestions(params Params) (response FriendsGetSuggestio
 	return
 }
 
-// FriendsSearchResponse struct
+// FriendsSearchResponse struct.
 type FriendsSearchResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`

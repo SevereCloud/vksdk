@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// MessagesAddChatUserBuilder builder
+// MessagesAddChatUserBuilder builder.
 //
 // Adds a new user to a chat.
 //
@@ -13,7 +13,7 @@ type MessagesAddChatUserBuilder struct {
 	api.Params
 }
 
-// NewMessagesAddChatUserBuilder func
+// NewMessagesAddChatUserBuilder func.
 func NewMessagesAddChatUserBuilder() *MessagesAddChatUserBuilder {
 	return &MessagesAddChatUserBuilder{api.Params{}}
 }
@@ -30,7 +30,7 @@ func (b *MessagesAddChatUserBuilder) UserID(v int) *MessagesAddChatUserBuilder {
 	return b
 }
 
-// MessagesAllowMessagesFromGroupBuilder builder
+// MessagesAllowMessagesFromGroupBuilder builder.
 //
 // Allows sending messages from community to the current user.
 //
@@ -39,7 +39,7 @@ type MessagesAllowMessagesFromGroupBuilder struct {
 	api.Params
 }
 
-// NewMessagesAllowMessagesFromGroupBuilder func
+// NewMessagesAllowMessagesFromGroupBuilder func.
 func NewMessagesAllowMessagesFromGroupBuilder() *MessagesAllowMessagesFromGroupBuilder {
 	return &MessagesAllowMessagesFromGroupBuilder{api.Params{}}
 }
@@ -50,13 +50,13 @@ func (b *MessagesAllowMessagesFromGroupBuilder) GroupID(v int) *MessagesAllowMes
 	return b
 }
 
-// Key parameter
+// Key parameter.
 func (b *MessagesAllowMessagesFromGroupBuilder) Key(v string) *MessagesAllowMessagesFromGroupBuilder {
 	b.Params["key"] = v
 	return b
 }
 
-// MessagesCreateChatBuilder builder
+// MessagesCreateChatBuilder builder.
 //
 // Creates a chat with several participants.
 //
@@ -65,7 +65,7 @@ type MessagesCreateChatBuilder struct {
 	api.Params
 }
 
-// NewMessagesCreateChatBuilder func
+// NewMessagesCreateChatBuilder func.
 func NewMessagesCreateChatBuilder() *MessagesCreateChatBuilder {
 	return &MessagesCreateChatBuilder{api.Params{}}
 }
@@ -82,7 +82,7 @@ func (b *MessagesCreateChatBuilder) Title(v string) *MessagesCreateChatBuilder {
 	return b
 }
 
-// MessagesDeleteBuilder builder
+// MessagesDeleteBuilder builder.
 //
 // Deletes one or more messages.
 //
@@ -91,7 +91,7 @@ type MessagesDeleteBuilder struct {
 	api.Params
 }
 
-// NewMessagesDeleteBuilder func
+// NewMessagesDeleteBuilder func.
 func NewMessagesDeleteBuilder() *MessagesDeleteBuilder {
 	return &MessagesDeleteBuilder{api.Params{}}
 }
@@ -108,7 +108,7 @@ func (b *MessagesDeleteBuilder) Spam(v bool) *MessagesDeleteBuilder {
 	return b
 }
 
-// GroupID Group ID (for group messages with user access token)
+// GroupID Group ID (for group messages with user access token).
 func (b *MessagesDeleteBuilder) GroupID(v int) *MessagesDeleteBuilder {
 	b.Params["group_id"] = v
 	return b
@@ -120,7 +120,7 @@ func (b *MessagesDeleteBuilder) DeleteForAll(v bool) *MessagesDeleteBuilder {
 	return b
 }
 
-// MessagesDeleteChatPhotoBuilder builder
+// MessagesDeleteChatPhotoBuilder builder.
 //
 // Deletes a chat's cover picture.
 //
@@ -129,7 +129,7 @@ type MessagesDeleteChatPhotoBuilder struct {
 	api.Params
 }
 
-// NewMessagesDeleteChatPhotoBuilder func
+// NewMessagesDeleteChatPhotoBuilder func.
 func NewMessagesDeleteChatPhotoBuilder() *MessagesDeleteChatPhotoBuilder {
 	return &MessagesDeleteChatPhotoBuilder{api.Params{}}
 }
@@ -140,13 +140,13 @@ func (b *MessagesDeleteChatPhotoBuilder) ChatID(v int) *MessagesDeleteChatPhotoB
 	return b
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *MessagesDeleteChatPhotoBuilder) GroupID(v int) *MessagesDeleteChatPhotoBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesDeleteConversationBuilder builder
+// MessagesDeleteConversationBuilder builder.
 //
 // Deletes all private messages in a conversation.
 //
@@ -155,12 +155,12 @@ type MessagesDeleteConversationBuilder struct {
 	api.Params
 }
 
-// NewMessagesDeleteConversationBuilder func
+// NewMessagesDeleteConversationBuilder func.
 func NewMessagesDeleteConversationBuilder() *MessagesDeleteConversationBuilder {
 	return &MessagesDeleteConversationBuilder{api.Params{}}
 }
 
-// UserID User ID. To clear a chat history use 'chat_id'
+// UserID User ID. To clear a chat history use 'chat_id'.
 func (b *MessagesDeleteConversationBuilder) UserID(v int) *MessagesDeleteConversationBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -174,13 +174,13 @@ func (b *MessagesDeleteConversationBuilder) PeerID(v int) *MessagesDeleteConvers
 	return b
 }
 
-// GroupID Group ID (for group messages with user access token)
+// GroupID Group ID (for group messages with user access token).
 func (b *MessagesDeleteConversationBuilder) GroupID(v int) *MessagesDeleteConversationBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesDenyMessagesFromGroupBuilder builder
+// MessagesDenyMessagesFromGroupBuilder builder.
 //
 // Denies sending message from community to the current user.
 //
@@ -189,7 +189,7 @@ type MessagesDenyMessagesFromGroupBuilder struct {
 	api.Params
 }
 
-// NewMessagesDenyMessagesFromGroupBuilder func
+// NewMessagesDenyMessagesFromGroupBuilder func.
 func NewMessagesDenyMessagesFromGroupBuilder() *MessagesDenyMessagesFromGroupBuilder {
 	return &MessagesDenyMessagesFromGroupBuilder{api.Params{}}
 }
@@ -200,7 +200,7 @@ func (b *MessagesDenyMessagesFromGroupBuilder) GroupID(v int) *MessagesDenyMessa
 	return b
 }
 
-// MessagesEditBuilder builder
+// MessagesEditBuilder builder.
 //
 // Edits the message.
 //
@@ -209,7 +209,7 @@ type MessagesEditBuilder struct {
 	api.Params
 }
 
-// NewMessagesEditBuilder func
+// NewMessagesEditBuilder func.
 func NewMessagesEditBuilder() *MessagesEditBuilder {
 	return &MessagesEditBuilder{api.Params{}}
 }
@@ -228,7 +228,7 @@ func (b *MessagesEditBuilder) Message(v string) *MessagesEditBuilder {
 	return b
 }
 
-// MessageID parameter
+// MessageID parameter.
 func (b *MessagesEditBuilder) MessageID(v int) *MessagesEditBuilder {
 	b.Params["message_id"] = v
 	return b
@@ -251,7 +251,7 @@ func (b *MessagesEditBuilder) Long(v float64) *MessagesEditBuilder {
 // "<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo,
 // 'video' — video, 'audio' — audio, 'doc' — document, 'wall' — wall post,
 // '<owner_id>' — ID of the media attachment owner. '<media_id>' — media
-// attachment ID. Example: "photo100172_166443618"
+// attachment ID. Example: "photo100172_166443618".
 func (b *MessagesEditBuilder) Attachment(v string) *MessagesEditBuilder {
 	b.Params["attachment"] = v
 	return b
@@ -269,19 +269,19 @@ func (b *MessagesEditBuilder) KeepSnippets(v bool) *MessagesEditBuilder {
 	return b
 }
 
-// GroupID Group ID (for group messages with user access token)
+// GroupID Group ID (for group messages with user access token).
 func (b *MessagesEditBuilder) GroupID(v int) *MessagesEditBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// DontParseLinks parameter
+// DontParseLinks parameter.
 func (b *MessagesEditBuilder) DontParseLinks(v bool) *MessagesEditBuilder {
 	b.Params["dont_parse_links"] = v
 	return b
 }
 
-// MessagesEditChatBuilder builder
+// MessagesEditChatBuilder builder.
 //
 // Edits the title of a chat.
 //
@@ -290,7 +290,7 @@ type MessagesEditChatBuilder struct {
 	api.Params
 }
 
-// NewMessagesEditChatBuilder func
+// NewMessagesEditChatBuilder func.
 func NewMessagesEditChatBuilder() *MessagesEditChatBuilder {
 	return &MessagesEditChatBuilder{api.Params{}}
 }
@@ -307,7 +307,7 @@ func (b *MessagesEditChatBuilder) Title(v string) *MessagesEditChatBuilder {
 	return b
 }
 
-// MessagesGetByConversationMessageIDBuilder builder
+// MessagesGetByConversationMessageIDBuilder builder.
 //
 // Returns messages by their IDs within the conversation.
 //
@@ -316,7 +316,7 @@ type MessagesGetByConversationMessageIDBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetByConversationMessageIDBuilder func
+// NewMessagesGetByConversationMessageIDBuilder func.
 func NewMessagesGetByConversationMessageIDBuilder() *MessagesGetByConversationMessageIDBuilder {
 	return &MessagesGetByConversationMessageIDBuilder{api.Params{}}
 }
@@ -335,7 +335,7 @@ func (b *MessagesGetByConversationMessageIDBuilder) ConversationMessageIDs(v []i
 	return b
 }
 
-// Extended Information whether the response should be extended
+// Extended Information whether the response should be extended.
 func (b *MessagesGetByConversationMessageIDBuilder) Extended(v bool) *MessagesGetByConversationMessageIDBuilder {
 	b.Params["extended"] = v
 	return b
@@ -347,13 +347,13 @@ func (b *MessagesGetByConversationMessageIDBuilder) Fields(v []string) *Messages
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesGetByConversationMessageIDBuilder) GroupID(v int) *MessagesGetByConversationMessageIDBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesGetByIDBuilder builder
+// MessagesGetByIDBuilder builder.
 //
 // Returns messages by their IDs.
 //
@@ -362,7 +362,7 @@ type MessagesGetByIDBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetByIDBuilder func
+// NewMessagesGetByIDBuilder func.
 func NewMessagesGetByIDBuilder() *MessagesGetByIDBuilder {
 	return &MessagesGetByIDBuilder{api.Params{}}
 }
@@ -382,7 +382,7 @@ func (b *MessagesGetByIDBuilder) PreviewLength(v int) *MessagesGetByIDBuilder {
 	return b
 }
 
-// Extended Information whether the response should be extended
+// Extended Information whether the response should be extended.
 func (b *MessagesGetByIDBuilder) Extended(v bool) *MessagesGetByIDBuilder {
 	b.Params["extended"] = v
 	return b
@@ -394,25 +394,25 @@ func (b *MessagesGetByIDBuilder) Fields(v []string) *MessagesGetByIDBuilder {
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesGetByIDBuilder) GroupID(v int) *MessagesGetByIDBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesGetChatPreviewBuilder builder
+// MessagesGetChatPreviewBuilder builder.
 //
 // https://vk.com/dev/messages.getChatPreview
 type MessagesGetChatPreviewBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetChatPreviewBuilder func
+// NewMessagesGetChatPreviewBuilder func.
 func NewMessagesGetChatPreviewBuilder() *MessagesGetChatPreviewBuilder {
 	return &MessagesGetChatPreviewBuilder{api.Params{}}
 }
 
-// PeerID parameter
+// PeerID parameter.
 func (b *MessagesGetChatPreviewBuilder) PeerID(v int) *MessagesGetChatPreviewBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -430,7 +430,7 @@ func (b *MessagesGetChatPreviewBuilder) Fields(v []string) *MessagesGetChatPrevi
 	return b
 }
 
-// MessagesGetConversationMembersBuilder builder
+// MessagesGetConversationMembersBuilder builder.
 //
 // Returns a list of IDs of users participating in a chat.
 //
@@ -439,7 +439,7 @@ type MessagesGetConversationMembersBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetConversationMembersBuilder func
+// NewMessagesGetConversationMembersBuilder func.
 func NewMessagesGetConversationMembersBuilder() *MessagesGetConversationMembersBuilder {
 	return &MessagesGetConversationMembersBuilder{api.Params{}}
 }
@@ -456,13 +456,13 @@ func (b *MessagesGetConversationMembersBuilder) Fields(v []string) *MessagesGetC
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesGetConversationMembersBuilder) GroupID(v int) *MessagesGetConversationMembersBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesGetConversationsBuilder builder
+// MessagesGetConversationsBuilder builder.
 //
 // Returns a list of the current user's conversations.
 //
@@ -471,7 +471,7 @@ type MessagesGetConversationsBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetConversationsBuilder func
+// NewMessagesGetConversationsBuilder func.
 func NewMessagesGetConversationsBuilder() *MessagesGetConversationsBuilder {
 	return &MessagesGetConversationsBuilder{api.Params{}}
 }
@@ -491,13 +491,13 @@ func (b *MessagesGetConversationsBuilder) Count(v int) *MessagesGetConversations
 // Filter Filter to apply: 'all' — all conversations, 'unread' — conversations
 // with unread messages, 'important' — conversations, marked as important (only
 // for community messages), 'unanswered' — conversations, marked as unanswered
-// (only for community messages)
+// (only for community messages).
 func (b *MessagesGetConversationsBuilder) Filter(v string) *MessagesGetConversationsBuilder {
 	b.Params["filter"] = v
 	return b
 }
 
-// Extended '1' — return extra information about users and communities
+// Extended '1' — return extra information about users and communities.
 func (b *MessagesGetConversationsBuilder) Extended(v bool) *MessagesGetConversationsBuilder {
 	b.Params["extended"] = v
 	return b
@@ -515,22 +515,22 @@ func (b *MessagesGetConversationsBuilder) Fields(v []string) *MessagesGetConvers
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesGetConversationsBuilder) GroupID(v int) *MessagesGetConversationsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesGetConversationsByIDBuilder builder
+// MessagesGetConversationsByIDBuilder builder.
 //
-// Returns conversations by their IDs
+// Returns conversations by their IDs.
 //
 // https://vk.com/dev/messages.getConversationsById
 type MessagesGetConversationsByIDBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetConversationsByIDBuilder func
+// NewMessagesGetConversationsByIDBuilder func.
 func NewMessagesGetConversationsByIDBuilder() *MessagesGetConversationsByIDBuilder {
 	return &MessagesGetConversationsByIDBuilder{api.Params{}}
 }
@@ -543,7 +543,7 @@ func (b *MessagesGetConversationsByIDBuilder) PeerIDs(v []int) *MessagesGetConve
 	return b
 }
 
-// Extended Return extended properties
+// Extended Return extended properties.
 func (b *MessagesGetConversationsByIDBuilder) Extended(v bool) *MessagesGetConversationsByIDBuilder {
 	b.Params["extended"] = v
 	return b
@@ -555,13 +555,13 @@ func (b *MessagesGetConversationsByIDBuilder) Fields(v []string) *MessagesGetCon
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesGetConversationsByIDBuilder) GroupID(v int) *MessagesGetConversationsByIDBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesGetHistoryBuilder builder
+// MessagesGetHistoryBuilder builder.
 //
 // Returns message history for the specified user or group chat.
 //
@@ -570,7 +570,7 @@ type MessagesGetHistoryBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetHistoryBuilder func
+// NewMessagesGetHistoryBuilder func.
 func NewMessagesGetHistoryBuilder() *MessagesGetHistoryBuilder {
 	return &MessagesGetHistoryBuilder{api.Params{}}
 }
@@ -593,7 +593,7 @@ func (b *MessagesGetHistoryBuilder) UserID(v int) *MessagesGetHistoryBuilder {
 	return b
 }
 
-// PeerID parameter
+// PeerID parameter.
 func (b *MessagesGetHistoryBuilder) PeerID(v int) *MessagesGetHistoryBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -612,7 +612,7 @@ func (b *MessagesGetHistoryBuilder) Rev(v int) *MessagesGetHistoryBuilder {
 	return b
 }
 
-// Extended Information whether the response should be extended
+// Extended Information whether the response should be extended.
 func (b *MessagesGetHistoryBuilder) Extended(v bool) *MessagesGetHistoryBuilder {
 	b.Params["extended"] = v
 	return b
@@ -624,13 +624,13 @@ func (b *MessagesGetHistoryBuilder) Fields(v []string) *MessagesGetHistoryBuilde
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesGetHistoryBuilder) GroupID(v int) *MessagesGetHistoryBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesGetHistoryAttachmentsBuilder builder
+// MessagesGetHistoryAttachmentsBuilder builder.
 //
 // Returns media files from the dialog or group chat.
 //
@@ -639,20 +639,20 @@ type MessagesGetHistoryAttachmentsBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetHistoryAttachmentsBuilder func
+// NewMessagesGetHistoryAttachmentsBuilder func.
 func NewMessagesGetHistoryAttachmentsBuilder() *MessagesGetHistoryAttachmentsBuilder {
 	return &MessagesGetHistoryAttachmentsBuilder{api.Params{}}
 }
 
 // PeerID Peer ID. ", For group chat: '2000000000 + chat ID' , ,
-// For community: '-community ID'"
+// For community: '-community ID'".
 func (b *MessagesGetHistoryAttachmentsBuilder) PeerID(v int) *MessagesGetHistoryAttachmentsBuilder {
 	b.Params["peer_id"] = v
 	return b
 }
 
 // MediaType Type of media files to return: *'photo',, *'video',, *'audio',,
-// *'doc',, *'link'.,*'market'.,*'wall'.,*'share'
+// *'doc',, *'link'.,*'market'.,*'wall'.,*'share'.
 func (b *MessagesGetHistoryAttachmentsBuilder) MediaType(v string) *MessagesGetHistoryAttachmentsBuilder {
 	b.Params["media_type"] = v
 	return b
@@ -670,7 +670,7 @@ func (b *MessagesGetHistoryAttachmentsBuilder) Count(v int) *MessagesGetHistoryA
 	return b
 }
 
-// PhotoSizes '1' — to return photo sizes in a
+// PhotoSizes '1' — to return photo sizes in a.
 func (b *MessagesGetHistoryAttachmentsBuilder) PhotoSizes(v bool) *MessagesGetHistoryAttachmentsBuilder {
 	b.Params["photo_sizes"] = v
 	return b
@@ -682,32 +682,32 @@ func (b *MessagesGetHistoryAttachmentsBuilder) Fields(v []string) *MessagesGetHi
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesGetHistoryAttachmentsBuilder) GroupID(v int) *MessagesGetHistoryAttachmentsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// PreserveOrder parameter
+// PreserveOrder parameter.
 func (b *MessagesGetHistoryAttachmentsBuilder) PreserveOrder(v bool) *MessagesGetHistoryAttachmentsBuilder {
 	b.Params["preserve_order"] = v
 	return b
 }
 
-// MaxForwardsLevel parameter
+// MaxForwardsLevel parameter.
 func (b *MessagesGetHistoryAttachmentsBuilder) MaxForwardsLevel(v int) *MessagesGetHistoryAttachmentsBuilder {
 	b.Params["max_forwards_level"] = v
 	return b
 }
 
-// MessagesGetInviteLinkBuilder builder
+// MessagesGetInviteLinkBuilder builder.
 //
 // https://vk.com/dev/messages.getInviteLink
 type MessagesGetInviteLinkBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetInviteLinkBuilder func
+// NewMessagesGetInviteLinkBuilder func.
 func NewMessagesGetInviteLinkBuilder() *MessagesGetInviteLinkBuilder {
 	return &MessagesGetInviteLinkBuilder{api.Params{}}
 }
@@ -725,13 +725,13 @@ func (b *MessagesGetInviteLinkBuilder) Reset(v bool) *MessagesGetInviteLinkBuild
 	return b
 }
 
-// GroupID Group ID
+// GroupID Group ID.
 func (b *MessagesGetInviteLinkBuilder) GroupID(v int) *MessagesGetInviteLinkBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesGetLastActivityBuilder builder
+// MessagesGetLastActivityBuilder builder.
 //
 // Returns a user's current status and date of last activity.
 //
@@ -740,7 +740,7 @@ type MessagesGetLastActivityBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetLastActivityBuilder func
+// NewMessagesGetLastActivityBuilder func.
 func NewMessagesGetLastActivityBuilder() *MessagesGetLastActivityBuilder {
 	return &MessagesGetLastActivityBuilder{api.Params{}}
 }
@@ -751,7 +751,7 @@ func (b *MessagesGetLastActivityBuilder) UserID(v int) *MessagesGetLastActivityB
 	return b
 }
 
-// MessagesGetLongPollHistoryBuilder builder
+// MessagesGetLongPollHistoryBuilder builder.
 //
 // Returns updates in user's private messages.
 //
@@ -760,7 +760,7 @@ type MessagesGetLongPollHistoryBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetLongPollHistoryBuilder func
+// NewMessagesGetLongPollHistoryBuilder func.
 func NewMessagesGetLongPollHistoryBuilder() *MessagesGetLongPollHistoryBuilder {
 	return &MessagesGetLongPollHistoryBuilder{api.Params{}}
 }
@@ -824,31 +824,31 @@ func (b *MessagesGetLongPollHistoryBuilder) MaxMsgID(v int) *MessagesGetLongPoll
 	return b
 }
 
-// GroupID Group ID (for group messages with user access token)
+// GroupID Group ID (for group messages with user access token).
 func (b *MessagesGetLongPollHistoryBuilder) GroupID(v int) *MessagesGetLongPollHistoryBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// LpVersion parameter
+// LpVersion parameter.
 func (b *MessagesGetLongPollHistoryBuilder) LpVersion(v int) *MessagesGetLongPollHistoryBuilder {
 	b.Params["lp_version"] = v
 	return b
 }
 
-// LastN parameter
+// LastN parameter.
 func (b *MessagesGetLongPollHistoryBuilder) LastN(v int) *MessagesGetLongPollHistoryBuilder {
 	b.Params["last_n"] = v
 	return b
 }
 
-// Credentials parameter
+// Credentials parameter.
 func (b *MessagesGetLongPollHistoryBuilder) Credentials(v bool) *MessagesGetLongPollHistoryBuilder {
 	b.Params["credentials"] = v
 	return b
 }
 
-// MessagesGetLongPollServerBuilder builder
+// MessagesGetLongPollServerBuilder builder.
 //
 // Returns data required for connection to a Long Poll server.
 //
@@ -857,7 +857,7 @@ type MessagesGetLongPollServerBuilder struct {
 	api.Params
 }
 
-// NewMessagesGetLongPollServerBuilder func
+// NewMessagesGetLongPollServerBuilder func.
 func NewMessagesGetLongPollServerBuilder() *MessagesGetLongPollServerBuilder {
 	return &MessagesGetLongPollServerBuilder{api.Params{}}
 }
@@ -869,19 +869,19 @@ func (b *MessagesGetLongPollServerBuilder) NeedPts(v bool) *MessagesGetLongPollS
 	return b
 }
 
-// GroupID Group ID (for group messages with user access token)
+// GroupID Group ID (for group messages with user access token).
 func (b *MessagesGetLongPollServerBuilder) GroupID(v int) *MessagesGetLongPollServerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// LpVersion Long poll version
+// LpVersion Long poll version.
 func (b *MessagesGetLongPollServerBuilder) LpVersion(v int) *MessagesGetLongPollServerBuilder {
 	b.Params["lp_version"] = v
 	return b
 }
 
-// MessagesIsMessagesFromGroupAllowedBuilder builder
+// MessagesIsMessagesFromGroupAllowedBuilder builder.
 //
 // Returns information whether sending messages from the community to
 // current user is allowed.
@@ -891,7 +891,7 @@ type MessagesIsMessagesFromGroupAllowedBuilder struct {
 	api.Params
 }
 
-// NewMessagesIsMessagesFromGroupAllowedBuilder func
+// NewMessagesIsMessagesFromGroupAllowedBuilder func.
 func NewMessagesIsMessagesFromGroupAllowedBuilder() *MessagesIsMessagesFromGroupAllowedBuilder {
 	return &MessagesIsMessagesFromGroupAllowedBuilder{api.Params{}}
 }
@@ -908,14 +908,14 @@ func (b *MessagesIsMessagesFromGroupAllowedBuilder) UserID(v int) *MessagesIsMes
 	return b
 }
 
-// MessagesJoinChatByInviteLinkBuilder builder
+// MessagesJoinChatByInviteLinkBuilder builder.
 //
 // https://vk.com/dev/messages.joinChatByInviteLink
 type MessagesJoinChatByInviteLinkBuilder struct {
 	api.Params
 }
 
-// NewMessagesJoinChatByInviteLinkBuilder func
+// NewMessagesJoinChatByInviteLinkBuilder func.
 func NewMessagesJoinChatByInviteLinkBuilder() *MessagesJoinChatByInviteLinkBuilder {
 	return &MessagesJoinChatByInviteLinkBuilder{api.Params{}}
 }
@@ -926,7 +926,7 @@ func (b *MessagesJoinChatByInviteLinkBuilder) Link(v string) *MessagesJoinChatBy
 	return b
 }
 
-// MessagesMarkAsAnsweredConversationBuilder builder
+// MessagesMarkAsAnsweredConversationBuilder builder.
 //
 // Marks and unmarks conversations as unanswered.
 //
@@ -935,7 +935,7 @@ type MessagesMarkAsAnsweredConversationBuilder struct {
 	api.Params
 }
 
-// NewMessagesMarkAsAnsweredConversationBuilder func
+// NewMessagesMarkAsAnsweredConversationBuilder func.
 func NewMessagesMarkAsAnsweredConversationBuilder() *MessagesMarkAsAnsweredConversationBuilder {
 	return &MessagesMarkAsAnsweredConversationBuilder{api.Params{}}
 }
@@ -946,19 +946,19 @@ func (b *MessagesMarkAsAnsweredConversationBuilder) PeerID(v int) *MessagesMarkA
 	return b
 }
 
-// Answered '1' — to mark as answered, '0' — to remove the mark
+// Answered '1' — to mark as answered, '0' — to remove the mark.
 func (b *MessagesMarkAsAnsweredConversationBuilder) Answered(v bool) *MessagesMarkAsAnsweredConversationBuilder {
 	b.Params["answered"] = v
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesMarkAsAnsweredConversationBuilder) GroupID(v int) *MessagesMarkAsAnsweredConversationBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesMarkAsImportantBuilder builder
+// MessagesMarkAsImportantBuilder builder.
 //
 // Marks and unmarks messages as important (starred).
 //
@@ -967,7 +967,7 @@ type MessagesMarkAsImportantBuilder struct {
 	api.Params
 }
 
-// NewMessagesMarkAsImportantBuilder func
+// NewMessagesMarkAsImportantBuilder func.
 func NewMessagesMarkAsImportantBuilder() *MessagesMarkAsImportantBuilder {
 	return &MessagesMarkAsImportantBuilder{api.Params{}}
 }
@@ -978,13 +978,13 @@ func (b *MessagesMarkAsImportantBuilder) MessageIDs(v []int) *MessagesMarkAsImpo
 	return b
 }
 
-// Important '1' — to add a star (mark as important), '0' — to remove the star
+// Important '1' — to add a star (mark as important), '0' — to remove the star.
 func (b *MessagesMarkAsImportantBuilder) Important(v int) *MessagesMarkAsImportantBuilder {
 	b.Params["important"] = v
 	return b
 }
 
-// MessagesMarkAsImportantConversationBuilder builder
+// MessagesMarkAsImportantConversationBuilder builder.
 //
 // Marks and unmarks conversations as important.
 //
@@ -993,7 +993,7 @@ type MessagesMarkAsImportantConversationBuilder struct {
 	api.Params
 }
 
-// NewMessagesMarkAsImportantConversationBuilder func
+// NewMessagesMarkAsImportantConversationBuilder func.
 func NewMessagesMarkAsImportantConversationBuilder() *MessagesMarkAsImportantConversationBuilder {
 	return &MessagesMarkAsImportantConversationBuilder{api.Params{}}
 }
@@ -1004,19 +1004,19 @@ func (b *MessagesMarkAsImportantConversationBuilder) PeerID(v int) *MessagesMark
 	return b
 }
 
-// Important '1' — to add a star (mark as important), '0' — to remove the star
+// Important '1' — to add a star (mark as important), '0' — to remove the star.
 func (b *MessagesMarkAsImportantConversationBuilder) Important(v bool) *MessagesMarkAsImportantConversationBuilder {
 	b.Params["important"] = v
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesMarkAsImportantConversationBuilder) GroupID(v int) *MessagesMarkAsImportantConversationBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesMarkAsReadBuilder builder
+// MessagesMarkAsReadBuilder builder.
 //
 // Marks messages as read.
 //
@@ -1025,7 +1025,7 @@ type MessagesMarkAsReadBuilder struct {
 	api.Params
 }
 
-// NewMessagesMarkAsReadBuilder func
+// NewMessagesMarkAsReadBuilder func.
 func NewMessagesMarkAsReadBuilder() *MessagesMarkAsReadBuilder {
 	return &MessagesMarkAsReadBuilder{api.Params{}}
 }
@@ -1050,13 +1050,13 @@ func (b *MessagesMarkAsReadBuilder) StartMessageID(v int) *MessagesMarkAsReadBui
 	return b
 }
 
-// GroupID Group ID (for group messages with user access token)
+// GroupID Group ID (for group messages with user access token).
 func (b *MessagesMarkAsReadBuilder) GroupID(v int) *MessagesMarkAsReadBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesPinBuilder builder
+// MessagesPinBuilder builder.
 //
 // Pin a message.
 //
@@ -1065,7 +1065,7 @@ type MessagesPinBuilder struct {
 	api.Params
 }
 
-// NewMessagesPinBuilder func
+// NewMessagesPinBuilder func.
 func NewMessagesPinBuilder() *MessagesPinBuilder {
 	return &MessagesPinBuilder{api.Params{}}
 }
@@ -1078,13 +1078,13 @@ func (b *MessagesPinBuilder) PeerID(v int) *MessagesPinBuilder {
 	return b
 }
 
-// MessageID parameter
+// MessageID parameter.
 func (b *MessagesPinBuilder) MessageID(v int) *MessagesPinBuilder {
 	b.Params["message_id"] = v
 	return b
 }
 
-// MessagesRemoveChatUserBuilder builder
+// MessagesRemoveChatUserBuilder builder.
 //
 // Allows the current user to leave a chat or, if the current user started the
 // chat, allows the user to remove another user from the chat.
@@ -1094,7 +1094,7 @@ type MessagesRemoveChatUserBuilder struct {
 	api.Params
 }
 
-// NewMessagesRemoveChatUserBuilder func
+// NewMessagesRemoveChatUserBuilder func.
 func NewMessagesRemoveChatUserBuilder() *MessagesRemoveChatUserBuilder {
 	return &MessagesRemoveChatUserBuilder{api.Params{}}
 }
@@ -1111,13 +1111,13 @@ func (b *MessagesRemoveChatUserBuilder) UserID(v int) *MessagesRemoveChatUserBui
 	return b
 }
 
-// MemberID parameter
+// MemberID parameter.
 func (b *MessagesRemoveChatUserBuilder) MemberID(v int) *MessagesRemoveChatUserBuilder {
 	b.Params["member_id"] = v
 	return b
 }
 
-// MessagesRestoreBuilder builder
+// MessagesRestoreBuilder builder.
 //
 // Restores a deleted message.
 //
@@ -1126,7 +1126,7 @@ type MessagesRestoreBuilder struct {
 	api.Params
 }
 
-// NewMessagesRestoreBuilder func
+// NewMessagesRestoreBuilder func.
 func NewMessagesRestoreBuilder() *MessagesRestoreBuilder {
 	return &MessagesRestoreBuilder{api.Params{}}
 }
@@ -1137,13 +1137,13 @@ func (b *MessagesRestoreBuilder) MessageID(v int) *MessagesRestoreBuilder {
 	return b
 }
 
-// GroupID Group ID (for group messages with user access token)
+// GroupID Group ID (for group messages with user access token).
 func (b *MessagesRestoreBuilder) GroupID(v int) *MessagesRestoreBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesSearchBuilder builder
+// MessagesSearchBuilder builder.
 //
 // Returns a list of the current user's private messages that match search
 // criteria.
@@ -1153,7 +1153,7 @@ type MessagesSearchBuilder struct {
 	api.Params
 }
 
-// NewMessagesSearchBuilder func
+// NewMessagesSearchBuilder func.
 func NewMessagesSearchBuilder() *MessagesSearchBuilder {
 	return &MessagesSearchBuilder{api.Params{}}
 }
@@ -1200,25 +1200,25 @@ func (b *MessagesSearchBuilder) Count(v int) *MessagesSearchBuilder {
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 func (b *MessagesSearchBuilder) Extended(v bool) *MessagesSearchBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *MessagesSearchBuilder) Fields(v []string) *MessagesSearchBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesSearchBuilder) GroupID(v int) *MessagesSearchBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesSearchConversationsBuilder builder
+// MessagesSearchConversationsBuilder builder.
 //
 // Returns a list of the current user's conversations that match search
 // criteria.
@@ -1228,7 +1228,7 @@ type MessagesSearchConversationsBuilder struct {
 	api.Params
 }
 
-// NewMessagesSearchConversationsBuilder func
+// NewMessagesSearchConversationsBuilder func.
 func NewMessagesSearchConversationsBuilder() *MessagesSearchConversationsBuilder {
 	return &MessagesSearchConversationsBuilder{api.Params{}}
 }
@@ -1245,7 +1245,7 @@ func (b *MessagesSearchConversationsBuilder) Count(v int) *MessagesSearchConvers
 	return b
 }
 
-// Extended '1' — return extra information about users and communities
+// Extended '1' — return extra information about users and communities.
 func (b *MessagesSearchConversationsBuilder) Extended(v bool) *MessagesSearchConversationsBuilder {
 	b.Params["extended"] = v
 	return b
@@ -1257,13 +1257,13 @@ func (b *MessagesSearchConversationsBuilder) Fields(v []string) *MessagesSearchC
 	return b
 }
 
-// GroupID Group ID (for group messages with user access token)
+// GroupID Group ID (for group messages with user access token).
 func (b *MessagesSearchConversationsBuilder) GroupID(v int) *MessagesSearchConversationsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesSendBuilder builder
+// MessagesSendBuilder builder.
 //
 // Sends a message.
 //
@@ -1272,7 +1272,7 @@ type MessagesSendBuilder struct {
 	api.Params
 }
 
-// NewMessagesSendBuilder func
+// NewMessagesSendBuilder func.
 func NewMessagesSendBuilder() *MessagesSendBuilder {
 	return &MessagesSendBuilder{api.Params{}}
 }
@@ -1338,13 +1338,13 @@ func (b *MessagesSendBuilder) Long(v float64) *MessagesSendBuilder {
 // "<owner_id>_<media_id>", '' — Type of media attachment: 'photo' — photo,
 // 'video' — video, 'audio' — audio, 'doc' — document, 'wall' — wall post,
 // '<owner_id>' — ID of the media attachment owner. '<media_id>' — media
-// attachment ID. Example: "photo100172_166443618"
+// attachment ID. Example: "photo100172_166443618".
 func (b *MessagesSendBuilder) Attachment(v interface{}) *MessagesSendBuilder {
 	b.Params["attachment"] = v
 	return b
 }
 
-// ReplyTo parameter
+// ReplyTo parameter.
 func (b *MessagesSendBuilder) ReplyTo(v int) *MessagesSendBuilder {
 	b.Params["reply_to"] = v
 	return b
@@ -1352,13 +1352,13 @@ func (b *MessagesSendBuilder) ReplyTo(v int) *MessagesSendBuilder {
 
 // ForwardMessages ID of forwarded messages, separated with a comma. Listed
 // messages of the sender will be shown in the message body at the
-// recipient's. Example: "123,431,544"
+// recipient's. Example: "123,431,544".
 func (b *MessagesSendBuilder) ForwardMessages(v []int) *MessagesSendBuilder {
 	b.Params["forward_messages"] = v
 	return b
 }
 
-// Forward parameter
+// Forward parameter.
 func (b *MessagesSendBuilder) Forward(v string) *MessagesSendBuilder {
 	b.Params["forward"] = v
 	return b
@@ -1370,7 +1370,7 @@ func (b *MessagesSendBuilder) StickerID(v int) *MessagesSendBuilder {
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesSendBuilder) GroupID(v int) *MessagesSendBuilder {
 	b.Params["group_id"] = v
 	return b
@@ -1390,31 +1390,31 @@ func (b *MessagesSendBuilder) Template(v interface{}) *MessagesSendBuilder {
 	return b
 }
 
-// Payload parameter
+// Payload parameter.
 func (b *MessagesSendBuilder) Payload(v string) *MessagesSendBuilder {
 	b.Params["payload"] = v
 	return b
 }
 
-// DontParseLinks parameter
+// DontParseLinks parameter.
 func (b *MessagesSendBuilder) DontParseLinks(v bool) *MessagesSendBuilder {
 	b.Params["dont_parse_links"] = v
 	return b
 }
 
-// DisableMentions parameter
+// DisableMentions parameter.
 func (b *MessagesSendBuilder) DisableMentions(v bool) *MessagesSendBuilder {
 	b.Params["disable_mentions"] = v
 	return b
 }
 
-// Intent parameter
+// Intent parameter.
 func (b *MessagesSendBuilder) Intent(v string) *MessagesSendBuilder {
 	b.Params["intent"] = v
 	return b
 }
 
-// MessagesSetActivityBuilder builder
+// MessagesSetActivityBuilder builder.
 //
 // Changes the status of a user as typing in a conversation.
 //
@@ -1423,7 +1423,7 @@ type MessagesSetActivityBuilder struct {
 	api.Params
 }
 
-// NewMessagesSetActivityBuilder func
+// NewMessagesSetActivityBuilder func.
 func NewMessagesSetActivityBuilder() *MessagesSetActivityBuilder {
 	return &MessagesSetActivityBuilder{api.Params{}}
 }
@@ -1448,13 +1448,13 @@ func (b *MessagesSetActivityBuilder) PeerID(v int) *MessagesSetActivityBuilder {
 	return b
 }
 
-// GroupID Group ID (for group messages with group access token)
+// GroupID Group ID (for group messages with group access token).
 func (b *MessagesSetActivityBuilder) GroupID(v int) *MessagesSetActivityBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// MessagesSetChatPhotoBuilder builder
+// MessagesSetChatPhotoBuilder builder.
 //
 // Sets a previously-uploaded picture as the cover picture of a chat.
 //
@@ -1463,7 +1463,7 @@ type MessagesSetChatPhotoBuilder struct {
 	api.Params
 }
 
-// NewMessagesSetChatPhotoBuilder func
+// NewMessagesSetChatPhotoBuilder func.
 func NewMessagesSetChatPhotoBuilder() *MessagesSetChatPhotoBuilder {
 	return &MessagesSetChatPhotoBuilder{api.Params{}}
 }
@@ -1476,25 +1476,25 @@ func (b *MessagesSetChatPhotoBuilder) File(v string) *MessagesSetChatPhotoBuilde
 	return b
 }
 
-// MessagesUnpinBuilder builder
+// MessagesUnpinBuilder builder.
 //
 // https://vk.com/dev/messages.unpin
 type MessagesUnpinBuilder struct {
 	api.Params
 }
 
-// NewMessagesUnpinBuilder func
+// NewMessagesUnpinBuilder func.
 func NewMessagesUnpinBuilder() *MessagesUnpinBuilder {
 	return &MessagesUnpinBuilder{api.Params{}}
 }
 
-// PeerID parameter
+// PeerID parameter.
 func (b *MessagesUnpinBuilder) PeerID(v int) *MessagesUnpinBuilder {
 	b.Params["peer_id"] = v
 	return b
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *MessagesUnpinBuilder) GroupID(v int) *MessagesUnpinBuilder {
 	b.Params["group_id"] = v
 	return b

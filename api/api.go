@@ -21,7 +21,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// Api constants
+// Api constants.
 const (
 	Version      = "5.103"
 	APIMethodURL = "https://api.vk.com/method/"
@@ -43,7 +43,7 @@ const (
 // you can read them on this page - https://vk.com/dev/ads_limits
 //
 // If one of this limits is exceeded, the server will return following error:
-// "Too many requests per second". (errors.TooMany)
+// "Too many requests per second". (errors.TooMany).
 //
 // If your app's logic implies many requests in a row, check the execute method.
 // It allows for up to 25 requests for different methods in a single request.
@@ -68,9 +68,9 @@ const (
 // In this case, you should ask the user to enter text from
 // the CaptchaImg image and repeat the request by adding parameters to it:
 //
-// captcha_sid - the obtained identifier
+// captcha_sid - the obtained identifier;
 //
-// captcha_key - text entered by the user
+// captcha_key - text entered by the user;
 //
 // More info: https://vk.com/dev/api_requests
 const (
@@ -78,7 +78,7 @@ const (
 	LimitGroupToken = 20
 )
 
-// VK struct
+// VK struct.
 type VK struct {
 	MethodURL    string
 	AccessToken  string
@@ -95,9 +95,9 @@ type VK struct {
 	rps       int
 }
 
-// Error struct VK
+// Error struct VK.
 //
-// Deprecated: use object.Error
+// Deprecated: use object.Error.
 type Error struct {
 	Code             int                       `json:"error_code"`
 	Message          string                    `json:"error_msg"`
@@ -108,14 +108,14 @@ type Error struct {
 	RequestParams    []object.BaseRequestParam `json:"request_params"`
 }
 
-// Response struct
+// Response struct.
 type Response struct {
 	Response      json.RawMessage       `json:"response"`
 	Error         object.Error          `json:"error"`
 	ExecuteErrors []object.ExecuteError `json:"execute_errors"`
 }
 
-// NewVK returns a new VK
+// NewVK returns a new VK.
 //
 // The VKSDK will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
@@ -155,14 +155,14 @@ func NewVKWithPool(tokens ...string) *VK {
 	return vk
 }
 
-// Init VK API
+// Init VK API.
 //
-// Deprecated: use NewVK
+// Deprecated: use NewVK.
 func Init(token string) *VK {
 	return NewVK(token)
 }
 
-// Params type
+// Params type.
 type Params map[string]interface{}
 
 // Lang -  determines the language for the data to be displayed on. For
@@ -185,7 +185,7 @@ func (p Params) TestMode(v bool) Params {
 	return p
 }
 
-// CaptchaSID received ID
+// CaptchaSID received ID.
 //
 // See https://vk.com/dev/captcha_error
 func (p Params) CaptchaSID(v string) Params {
@@ -193,7 +193,7 @@ func (p Params) CaptchaSID(v string) Params {
 	return p
 }
 
-// CaptchaKey text input
+// CaptchaKey text input.
 //
 // See https://vk.com/dev/captcha_error
 func (p Params) CaptchaKey(v string) Params {
@@ -201,7 +201,7 @@ func (p Params) CaptchaKey(v string) Params {
 	return p
 }
 
-// Confirm parameter
+// Confirm parameter.
 //
 // See https://vk.com/dev/need_confirmation
 func (p Params) Confirm(v bool) Params {
@@ -209,7 +209,7 @@ func (p Params) Confirm(v bool) Params {
 	return p
 }
 
-// defaultHandler provides access to VK API methods
+// defaultHandler provides access to VK API methods.
 func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 	u := vk.MethodURL + method
 	query := url.Values{}
@@ -282,9 +282,9 @@ func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 	}
 }
 
-// Request provides access to VK API methods
+// Request provides access to VK API methods.
 //
-// TODO: remove in v2
+// TODO: remove in v2.
 func (vk *VK) Request(method string, params Params) ([]byte, error) {
 	copyParams := make(Params)
 	for key, value := range params {
@@ -309,7 +309,7 @@ func (vk *VK) Request(method string, params Params) ([]byte, error) {
 	return resp.Response, err
 }
 
-// RequestUnmarshal provides access to VK API methods
+// RequestUnmarshal provides access to VK API methods.
 func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) error {
 	rawResponse, err := vk.Request(method, params)
 	if err != nil {
@@ -400,7 +400,7 @@ func fmtReflectValue(value reflect.Value, depth int) string {
 	return fmt.Sprint(value)
 }
 
-// FmtValue return vk format string
+// FmtValue return vk format string.
 func FmtValue(value interface{}, depth int) string {
 	if value == nil {
 		return ""
@@ -420,7 +420,7 @@ func FmtValue(value interface{}, depth int) string {
 	return fmtReflectValue(reflect.ValueOf(value), depth)
 }
 
-// CaptchaForce api method
+// CaptchaForce api method.
 func (vk *VK) CaptchaForce(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("captcha.force", params, &response)
 	return

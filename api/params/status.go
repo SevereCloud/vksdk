@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// StatusGetBuilder builder
+// StatusGetBuilder builder.
 //
 // Returns data required to show the status of a user or community.
 //
@@ -13,7 +13,7 @@ type StatusGetBuilder struct {
 	api.Params
 }
 
-// NewStatusGetBuilder func
+// NewStatusGetBuilder func.
 func NewStatusGetBuilder() *StatusGetBuilder {
 	return &StatusGetBuilder{api.Params{}}
 }
@@ -24,13 +24,13 @@ func (b *StatusGetBuilder) UserID(v int) *StatusGetBuilder {
 	return b
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *StatusGetBuilder) GroupID(v int) *StatusGetBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// StatusSetBuilder builder
+// StatusSetBuilder builder.
 //
 // Sets a new status for the current user.
 //
@@ -39,7 +39,7 @@ type StatusSetBuilder struct {
 	api.Params
 }
 
-// NewStatusSetBuilder func
+// NewStatusSetBuilder func.
 func NewStatusSetBuilder() *StatusSetBuilder {
 	return &StatusSetBuilder{api.Params{}}
 }

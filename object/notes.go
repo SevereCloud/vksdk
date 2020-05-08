@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// NotesNote struct
+// NotesNote struct.
 type NotesNote struct {
 	CanComment     BaseBoolInt   `json:"can_comment"` // Information whether current user can comment the note
 	Comments       int           `json:"comments"`    // Comments number
@@ -20,12 +20,12 @@ type NotesNote struct {
 	PrivacyComment []interface{} `json:"privacy_comment"`
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (note NotesNote) ToAttachment() string {
 	return fmt.Sprintf("note%d_%d", note.OwnerID, note.ID)
 }
 
-// NotesNoteComment struct
+// NotesNoteComment struct.
 type NotesNoteComment struct {
 	Date    int    `json:"date"`     // Date when the comment has beed added in Unixtime
 	ID      int    `json:"id"`       // Comment ID

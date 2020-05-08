@@ -1,12 +1,12 @@
 package wrapper // import "github.com/SevereCloud/vksdk/longpoll-user/v3"
 
-// MessageFlag type
+// MessageFlag type.
 type MessageFlag int
 
-// Has function
+// Has function.
 func (b MessageFlag) Has(flag MessageFlag) bool { return b&flag != 0 }
 
-// Each message has a flag, which is a value received by summing up any of the following parameters
+// Each message has a flag, which is a value received by summing up any of the following parameters.
 const (
 	Unread       MessageFlag = 1 << iota // Message is unread
 	Outbox                               // Message is outgoing
@@ -23,10 +23,10 @@ const (
 	NotDelivered             = 1 << 18   // Incoming message not delivered
 )
 
-// DialogFlag type
+// DialogFlag type.
 type DialogFlag int
 
-// Has func
+// Has func.
 func (b DialogFlag) Has(flag DialogFlag) bool { return b&flag != 0 }
 
 // Each dialog has flags, which are values received by summing up any of the
@@ -36,10 +36,10 @@ const (
 	UnansweredDialog                        // Dialog without a community reply
 )
 
-// TypeID chat change type identifier
+// TypeID chat change type identifier.
 type TypeID int
 
-// TypeID const
+// TypeID const.
 const (
 	ChatNameChange     TypeID = iota + 1 // The name of the conversation has changed
 	ChatCoverChange                      // The cover of the conversation has changed

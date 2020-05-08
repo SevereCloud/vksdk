@@ -1,18 +1,18 @@
 package object
 
-// AppWidgetsAppImageUploadResponse struct
+// AppWidgetsAppImageUploadResponse struct.
 type AppWidgetsAppImageUploadResponse struct {
 	Image string `json:"image"`
 	Hash  string `json:"hash"`
 }
 
-// AppWidgetsGroupImageUploadResponse struct
+// AppWidgetsGroupImageUploadResponse struct.
 type AppWidgetsGroupImageUploadResponse struct {
 	Image string `json:"image"`
 	Hash  string `json:"hash"`
 }
 
-// AppWidgetsImage struct
+// AppWidgetsImage struct.
 type AppWidgetsImage struct {
 	ID     string    `json:"id"`
 	Type   string    `json:"type"`

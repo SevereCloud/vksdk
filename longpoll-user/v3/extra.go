@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-// Action struct for AdditionalData
+// Action struct for AdditionalData.
 type Action struct {
 	SourceAct         string // Service action name with multiple dialogs
 	SourceMid         string // User ID to whom the service action concerns
@@ -16,7 +16,7 @@ type Action struct {
 	SourceChatLocalID string
 }
 
-// Possible values for Action.SourceAct
+// Possible values for Action.SourceAct.
 const (
 	ChatCreate      = "chat_create"       // create chat
 	ChatTitleUpdate = "chat_title_update" // change chat name
@@ -104,10 +104,10 @@ func (result *AdditionalData) parse(v map[string]interface{}) {
 	result.Action.parse(v)
 }
 
-// LongPollAttachments type
+// LongPollAttachments type.
 type LongPollAttachments map[string]interface{}
 
-// ExtraFields for a message object
+// ExtraFields for a message object.
 //
 // https://vk.com/dev/using_longpoll_3, point 3.1
 type ExtraFields struct {

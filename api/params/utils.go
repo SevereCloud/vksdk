@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// UtilsCheckLinkBuilder builder
+// UtilsCheckLinkBuilder builder.
 //
 // Checks whether a link is blocked in VK.
 //
@@ -13,7 +13,7 @@ type UtilsCheckLinkBuilder struct {
 	api.Params
 }
 
-// NewUtilsCheckLinkBuilder func
+// NewUtilsCheckLinkBuilder func.
 func NewUtilsCheckLinkBuilder() *UtilsCheckLinkBuilder {
 	return &UtilsCheckLinkBuilder{api.Params{}}
 }
@@ -24,7 +24,7 @@ func (b *UtilsCheckLinkBuilder) URL(v string) *UtilsCheckLinkBuilder {
 	return b
 }
 
-// UtilsDeleteFromLastShortenedBuilder builder
+// UtilsDeleteFromLastShortenedBuilder builder.
 //
 // Deletes shortened link from user's list.
 //
@@ -33,7 +33,7 @@ type UtilsDeleteFromLastShortenedBuilder struct {
 	api.Params
 }
 
-// NewUtilsDeleteFromLastShortenedBuilder func
+// NewUtilsDeleteFromLastShortenedBuilder func.
 func NewUtilsDeleteFromLastShortenedBuilder() *UtilsDeleteFromLastShortenedBuilder {
 	return &UtilsDeleteFromLastShortenedBuilder{api.Params{}}
 }
@@ -44,7 +44,7 @@ func (b *UtilsDeleteFromLastShortenedBuilder) Key(v string) *UtilsDeleteFromLast
 	return b
 }
 
-// UtilsGetLastShortenedLinksBuilder builder
+// UtilsGetLastShortenedLinksBuilder builder.
 //
 // Returns a list of user's shortened links.
 //
@@ -53,7 +53,7 @@ type UtilsGetLastShortenedLinksBuilder struct {
 	api.Params
 }
 
-// NewUtilsGetLastShortenedLinksBuilder func
+// NewUtilsGetLastShortenedLinksBuilder func.
 func NewUtilsGetLastShortenedLinksBuilder() *UtilsGetLastShortenedLinksBuilder {
 	return &UtilsGetLastShortenedLinksBuilder{api.Params{}}
 }
@@ -70,7 +70,7 @@ func (b *UtilsGetLastShortenedLinksBuilder) Offset(v int) *UtilsGetLastShortened
 	return b
 }
 
-// UtilsGetLinkStatsBuilder builder
+// UtilsGetLinkStatsBuilder builder.
 //
 // Returns stats data for shortened link.
 //
@@ -79,7 +79,7 @@ type UtilsGetLinkStatsBuilder struct {
 	api.Params
 }
 
-// NewUtilsGetLinkStatsBuilder func
+// NewUtilsGetLinkStatsBuilder func.
 func NewUtilsGetLinkStatsBuilder() *UtilsGetLinkStatsBuilder {
 	return &UtilsGetLinkStatsBuilder{api.Params{}}
 }
@@ -90,7 +90,7 @@ func (b *UtilsGetLinkStatsBuilder) Key(v string) *UtilsGetLinkStatsBuilder {
 	return b
 }
 
-// Source Source of scope
+// Source Source of scope.
 func (b *UtilsGetLinkStatsBuilder) Source(v string) *UtilsGetLinkStatsBuilder {
 	b.Params["source"] = v
 	return b
@@ -120,7 +120,7 @@ func (b *UtilsGetLinkStatsBuilder) Extended(v bool) *UtilsGetLinkStatsBuilder {
 	return b
 }
 
-// UtilsGetShortLinkBuilder builder
+// UtilsGetShortLinkBuilder builder.
 //
 // Allows to receive a link shortened via vk.cc.
 //
@@ -129,7 +129,7 @@ type UtilsGetShortLinkBuilder struct {
 	api.Params
 }
 
-// NewUtilsGetShortLinkBuilder func
+// NewUtilsGetShortLinkBuilder func.
 func NewUtilsGetShortLinkBuilder() *UtilsGetShortLinkBuilder {
 	return &UtilsGetShortLinkBuilder{api.Params{}}
 }
@@ -146,7 +146,7 @@ func (b *UtilsGetShortLinkBuilder) Private(v bool) *UtilsGetShortLinkBuilder {
 	return b
 }
 
-// UtilsResolveScreenNameBuilder builder
+// UtilsResolveScreenNameBuilder builder.
 //
 // Detects a type of object (e.g., user, community, application) and its ID by screen name.
 //
@@ -155,7 +155,7 @@ type UtilsResolveScreenNameBuilder struct {
 	api.Params
 }
 
-// NewUtilsResolveScreenNameBuilder func
+// NewUtilsResolveScreenNameBuilder func.
 func NewUtilsResolveScreenNameBuilder() *UtilsResolveScreenNameBuilder {
 	return &UtilsResolveScreenNameBuilder{api.Params{}}
 }

@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// WidgetsGetCommentsResponse struct
+// WidgetsGetCommentsResponse struct.
 type WidgetsGetCommentsResponse struct {
 	Count int                           `json:"count"`
 	Posts []object.WidgetsWidgetComment `json:"posts"`
@@ -18,7 +18,7 @@ func (vk *VK) WidgetsGetComments(params Params) (response WidgetsGetCommentsResp
 	return
 }
 
-// WidgetsGetPagesResponse struct
+// WidgetsGetPagesResponse struct.
 type WidgetsGetPagesResponse struct {
 	Count int                        `json:"count"`
 	Pages []object.WidgetsWidgetPage `json:"pages"`

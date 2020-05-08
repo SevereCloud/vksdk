@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// SearchGetHintsBuilder builder
+// SearchGetHintsBuilder builder.
 //
 // Allows the programmer to do a quick search for any substring.
 //
@@ -13,7 +13,7 @@ type SearchGetHintsBuilder struct {
 	api.Params
 }
 
-// NewSearchGetHintsBuilder func
+// NewSearchGetHintsBuilder func.
 func NewSearchGetHintsBuilder() *SearchGetHintsBuilder {
 	return &SearchGetHintsBuilder{api.Params{}}
 }
@@ -24,7 +24,7 @@ func (b *SearchGetHintsBuilder) Q(v string) *SearchGetHintsBuilder {
 	return b
 }
 
-// Offset Offset for querying specific result subset
+// Offset Offset for querying specific result subset.
 func (b *SearchGetHintsBuilder) Offset(v int) *SearchGetHintsBuilder {
 	b.Params["offset"] = v
 	return b
@@ -36,19 +36,19 @@ func (b *SearchGetHintsBuilder) Limit(v int) *SearchGetHintsBuilder {
 	return b
 }
 
-// Filters parameter
+// Filters parameter.
 func (b *SearchGetHintsBuilder) Filters(v []string) *SearchGetHintsBuilder {
 	b.Params["filters"] = v
 	return b
 }
 
-// Fields parameter
+// Fields parameter.
 func (b *SearchGetHintsBuilder) Fields(v []string) *SearchGetHintsBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// SearchGlobal parameter
+// SearchGlobal parameter.
 func (b *SearchGetHintsBuilder) SearchGlobal(v bool) *SearchGetHintsBuilder {
 	b.Params["search_global"] = v
 	return b

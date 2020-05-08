@@ -1,6 +1,6 @@
 package object
 
-// SearchHint struct
+// SearchHint struct.
 type SearchHint struct {
 	Description string      `json:"description"`      // Object description
 	Global      int         `json:"global,omitempty"` // Information whether the object has been found globally

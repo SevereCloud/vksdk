@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// UtilsDomainResolvedType object type
+// UtilsDomainResolvedType object type.
 const (
 	UtilsDomainResolvedTypeUser        = "user"
 	UtilsDomainResolvedTypeGroup       = "group"
@@ -8,13 +8,13 @@ const (
 	UtilsDomainResolvedTypePage        = "page"
 )
 
-// UtilsDomainResolved struct
+// UtilsDomainResolved struct.
 type UtilsDomainResolved struct {
 	ObjectID int    `json:"object_id"` // Object ID
 	Type     string `json:"type"`
 }
 
-// UtilsLastShortenedLink struct
+// UtilsLastShortenedLink struct.
 type UtilsLastShortenedLink struct {
 	AccessKey string `json:"access_key"` // Access key for private stats
 	Key       string `json:"key"`        // Link key (characters after vk.cc/)
@@ -24,32 +24,32 @@ type UtilsLastShortenedLink struct {
 	Views     int    `json:"views"`      // Total views number
 }
 
-// Link status
+// Link status.
 const (
 	UtilsLinkCheckedStatusNotBanned  = "not_banned"
 	UtilsLinkCheckedStatusBanned     = "banned"
 	UtilsLinkCheckedStatusProcessing = "processing"
 )
 
-// UtilsLinkChecked struct
+// UtilsLinkChecked struct.
 type UtilsLinkChecked struct {
 	Link   string `json:"link"` // Link URL
 	Status string `json:"status"`
 }
 
-// UtilsLinkStats struct
+// UtilsLinkStats struct.
 type UtilsLinkStats struct {
 	Key   string       `json:"key"` // Link key (characters after vk.cc/)
 	Stats []UtilsStats `json:"stats"`
 }
 
-// UtilsLinkStatsExtended struct
+// UtilsLinkStatsExtended struct.
 type UtilsLinkStatsExtended struct {
 	Key   string               `json:"key"` // Link key (characters after vk.cc/)
 	Stats []UtilsStatsExtended `json:"stats"`
 }
 
-// UtilsShortLink struct
+// UtilsShortLink struct.
 type UtilsShortLink struct {
 	AccessKey string `json:"access_key"` // Access key for private stats
 	Key       string `json:"key"`        // Link key (characters after vk.cc/)
@@ -57,25 +57,25 @@ type UtilsShortLink struct {
 	URL       string `json:"url"`        // Full URL
 }
 
-// UtilsStats struct
+// UtilsStats struct.
 type UtilsStats struct {
 	Timestamp int `json:"timestamp"` // Start time
 	Views     int `json:"views"`     // Total views number
 }
 
-// UtilsStatsCity struct
+// UtilsStatsCity struct.
 type UtilsStatsCity struct {
 	CityID int `json:"city_id"` // City ID
 	Views  int `json:"views"`   // Views number
 }
 
-// UtilsStatsCountry struct
+// UtilsStatsCountry struct.
 type UtilsStatsCountry struct {
 	CountryID int `json:"country_id"` // Country ID
 	Views     int `json:"views"`      // Views number
 }
 
-// UtilsStatsExtended struct
+// UtilsStatsExtended struct.
 type UtilsStatsExtended struct {
 	Cities    []UtilsStatsCity    `json:"cities"`
 	Countries []UtilsStatsCountry `json:"countries"`
@@ -84,7 +84,7 @@ type UtilsStatsExtended struct {
 	Views     int                 `json:"views"`     // Total views number
 }
 
-// UtilsStatsSexAge struct
+// UtilsStatsSexAge struct.
 type UtilsStatsSexAge struct {
 	AgeRange string `json:"age_range"` // Age denotation
 	Female   int    `json:"female"`    //  Views by female users

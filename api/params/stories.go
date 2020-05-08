@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// StoriesBanOwnerBuilder builder
+// StoriesBanOwnerBuilder builder.
 //
 // Allows to hide stories from chosen sources from current user's feed.
 //
@@ -13,18 +13,18 @@ type StoriesBanOwnerBuilder struct {
 	api.Params
 }
 
-// NewStoriesBanOwnerBuilder func
+// NewStoriesBanOwnerBuilder func.
 func NewStoriesBanOwnerBuilder() *StoriesBanOwnerBuilder {
 	return &StoriesBanOwnerBuilder{api.Params{}}
 }
 
-// OwnersIDs List of sources IDs
+// OwnersIDs List of sources IDs.
 func (b *StoriesBanOwnerBuilder) OwnersIDs(v []int) *StoriesBanOwnerBuilder {
 	b.Params["owners_ids"] = v
 	return b
 }
 
-// StoriesDeleteBuilder builder
+// StoriesDeleteBuilder builder.
 //
 // Allows to delete story.
 //
@@ -33,7 +33,7 @@ type StoriesDeleteBuilder struct {
 	api.Params
 }
 
-// NewStoriesDeleteBuilder func
+// NewStoriesDeleteBuilder func.
 func NewStoriesDeleteBuilder() *StoriesDeleteBuilder {
 	return &StoriesDeleteBuilder{api.Params{}}
 }
@@ -50,7 +50,7 @@ func (b *StoriesDeleteBuilder) StoryID(v int) *StoriesDeleteBuilder {
 	return b
 }
 
-// StoriesGetBuilder builder
+// StoriesGetBuilder builder.
 //
 // Returns stories available for current user.
 //
@@ -59,7 +59,7 @@ type StoriesGetBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetBuilder func
+// NewStoriesGetBuilder func.
 func NewStoriesGetBuilder() *StoriesGetBuilder {
 	return &StoriesGetBuilder{api.Params{}}
 }
@@ -76,7 +76,7 @@ func (b *StoriesGetBuilder) Extended(v bool) *StoriesGetBuilder {
 	return b
 }
 
-// StoriesGetBannedBuilder builder
+// StoriesGetBannedBuilder builder.
 //
 // Returns list of sources hidden from current user's feed.
 //
@@ -85,7 +85,7 @@ type StoriesGetBannedBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetBannedBuilder func
+// NewStoriesGetBannedBuilder func.
 func NewStoriesGetBannedBuilder() *StoriesGetBannedBuilder {
 	return &StoriesGetBannedBuilder{api.Params{}}
 }
@@ -96,13 +96,13 @@ func (b *StoriesGetBannedBuilder) Extended(v bool) *StoriesGetBannedBuilder {
 	return b
 }
 
-// Fields Additional fields to return
+// Fields Additional fields to return.
 func (b *StoriesGetBannedBuilder) Fields(v []string) *StoriesGetBannedBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// StoriesGetByIDBuilder builder
+// StoriesGetByIDBuilder builder.
 //
 // Returns story by its ID.
 //
@@ -111,7 +111,7 @@ type StoriesGetByIDBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetByIDBuilder func
+// NewStoriesGetByIDBuilder func.
 func NewStoriesGetByIDBuilder() *StoriesGetByIDBuilder {
 	return &StoriesGetByIDBuilder{api.Params{}}
 }
@@ -128,13 +128,13 @@ func (b *StoriesGetByIDBuilder) Extended(v bool) *StoriesGetByIDBuilder {
 	return b
 }
 
-// Fields Additional fields to return
+// Fields Additional fields to return.
 func (b *StoriesGetByIDBuilder) Fields(v []string) *StoriesGetByIDBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// StoriesGetPhotoUploadServerBuilder builder
+// StoriesGetPhotoUploadServerBuilder builder.
 //
 // Returns URL for uploading a story with photo.
 //
@@ -143,7 +143,7 @@ type StoriesGetPhotoUploadServerBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetPhotoUploadServerBuilder func
+// NewStoriesGetPhotoUploadServerBuilder func.
 func NewStoriesGetPhotoUploadServerBuilder() *StoriesGetPhotoUploadServerBuilder {
 	return &StoriesGetPhotoUploadServerBuilder{api.Params{}}
 }
@@ -184,7 +184,7 @@ func (b *StoriesGetPhotoUploadServerBuilder) GroupID(v int) *StoriesGetPhotoUplo
 	return b
 }
 
-// StoriesGetRepliesBuilder builder
+// StoriesGetRepliesBuilder builder.
 //
 // Returns replies to the story.
 //
@@ -193,7 +193,7 @@ type StoriesGetRepliesBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetRepliesBuilder func
+// NewStoriesGetRepliesBuilder func.
 func NewStoriesGetRepliesBuilder() *StoriesGetRepliesBuilder {
 	return &StoriesGetRepliesBuilder{api.Params{}}
 }
@@ -222,13 +222,13 @@ func (b *StoriesGetRepliesBuilder) Extended(v bool) *StoriesGetRepliesBuilder {
 	return b
 }
 
-// Fields Additional fields to return
+// Fields Additional fields to return.
 func (b *StoriesGetRepliesBuilder) Fields(v []string) *StoriesGetRepliesBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// StoriesGetStatsBuilder builder
+// StoriesGetStatsBuilder builder.
 //
 // Returns stories available for current user.
 //
@@ -237,7 +237,7 @@ type StoriesGetStatsBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetStatsBuilder func
+// NewStoriesGetStatsBuilder func.
 func NewStoriesGetStatsBuilder() *StoriesGetStatsBuilder {
 	return &StoriesGetStatsBuilder{api.Params{}}
 }
@@ -254,7 +254,7 @@ func (b *StoriesGetStatsBuilder) StoryID(v int) *StoriesGetStatsBuilder {
 	return b
 }
 
-// StoriesGetVideoUploadServerBuilder builder
+// StoriesGetVideoUploadServerBuilder builder.
 //
 // Allows to receive URL for uploading story with video.
 //
@@ -263,7 +263,7 @@ type StoriesGetVideoUploadServerBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetVideoUploadServerBuilder func
+// NewStoriesGetVideoUploadServerBuilder func.
 func NewStoriesGetVideoUploadServerBuilder() *StoriesGetVideoUploadServerBuilder {
 	return &StoriesGetVideoUploadServerBuilder{api.Params{}}
 }
@@ -304,7 +304,7 @@ func (b *StoriesGetVideoUploadServerBuilder) GroupID(v int) *StoriesGetVideoUplo
 	return b
 }
 
-// StoriesGetViewersBuilder builder
+// StoriesGetViewersBuilder builder.
 //
 // Returns a list of story viewers.
 //
@@ -313,7 +313,7 @@ type StoriesGetViewersBuilder struct {
 	api.Params
 }
 
-// NewStoriesGetViewersBuilder func
+// NewStoriesGetViewersBuilder func.
 func NewStoriesGetViewersBuilder() *StoriesGetViewersBuilder {
 	return &StoriesGetViewersBuilder{api.Params{}}
 }
@@ -342,13 +342,13 @@ func (b *StoriesGetViewersBuilder) Offset(v int) *StoriesGetViewersBuilder {
 	return b
 }
 
-// Extended '1' — to return detailed information about photos
+// Extended '1' — to return detailed information about photos.
 func (b *StoriesGetViewersBuilder) Extended(v bool) *StoriesGetViewersBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// StoriesHideAllRepliesBuilder builder
+// StoriesHideAllRepliesBuilder builder.
 //
 // Hides all replies in the last 24 hours from the user to current user's stories.
 //
@@ -357,7 +357,7 @@ type StoriesHideAllRepliesBuilder struct {
 	api.Params
 }
 
-// NewStoriesHideAllRepliesBuilder func
+// NewStoriesHideAllRepliesBuilder func.
 func NewStoriesHideAllRepliesBuilder() *StoriesHideAllRepliesBuilder {
 	return &StoriesHideAllRepliesBuilder{api.Params{}}
 }
@@ -368,13 +368,13 @@ func (b *StoriesHideAllRepliesBuilder) OwnerID(v int) *StoriesHideAllRepliesBuil
 	return b
 }
 
-// GroupID parameter
+// GroupID parameter.
 func (b *StoriesHideAllRepliesBuilder) GroupID(v int) *StoriesHideAllRepliesBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// StoriesHideReplyBuilder builder
+// StoriesHideReplyBuilder builder.
 //
 // Hides the reply to the current user's story.
 //
@@ -383,7 +383,7 @@ type StoriesHideReplyBuilder struct {
 	api.Params
 }
 
-// NewStoriesHideReplyBuilder func
+// NewStoriesHideReplyBuilder func.
 func NewStoriesHideReplyBuilder() *StoriesHideReplyBuilder {
 	return &StoriesHideReplyBuilder{api.Params{}}
 }
@@ -400,7 +400,7 @@ func (b *StoriesHideReplyBuilder) StoryID(v int) *StoriesHideReplyBuilder {
 	return b
 }
 
-// StoriesUnbanOwnerBuilder builder
+// StoriesUnbanOwnerBuilder builder.
 //
 // Allows to show stories from hidden sources in current user's feed.
 //
@@ -409,7 +409,7 @@ type StoriesUnbanOwnerBuilder struct {
 	api.Params
 }
 
-// NewStoriesUnbanOwnerBuilder func
+// NewStoriesUnbanOwnerBuilder func.
 func NewStoriesUnbanOwnerBuilder() *StoriesUnbanOwnerBuilder {
 	return &StoriesUnbanOwnerBuilder{api.Params{}}
 }

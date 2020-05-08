@@ -18,7 +18,7 @@ func (vk *VK) StoriesDelete(params Params) (response int, err error) {
 	return
 }
 
-// StoriesGetResponse struct
+// StoriesGetResponse struct.
 type StoriesGetResponse struct {
 	Count     int                     `json:"count"`
 	Items     [][]object.StoriesStory `json:"items"`
@@ -37,7 +37,7 @@ func (vk *VK) StoriesGet(params Params) (response StoriesGetResponse, err error)
 	return
 }
 
-// StoriesGetExtendedResponse struct
+// StoriesGetExtendedResponse struct.
 type StoriesGetExtendedResponse struct {
 	Count int                     `json:"count"`
 	Items [][]object.StoriesStory `json:"items"`
@@ -56,7 +56,7 @@ func (vk *VK) StoriesGetExtended(params Params) (response StoriesGetExtendedResp
 	return
 }
 
-// StoriesGetBannedResponse struct
+// StoriesGetBannedResponse struct.
 type StoriesGetBannedResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
@@ -74,7 +74,7 @@ func (vk *VK) StoriesGetBanned(params Params) (response StoriesGetBannedResponse
 	return
 }
 
-// StoriesGetBannedExtendedResponse struct
+// StoriesGetBannedExtendedResponse struct.
 type StoriesGetBannedExtendedResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
@@ -93,7 +93,7 @@ func (vk *VK) StoriesGetBannedExtended(params Params) (response StoriesGetBanned
 	return
 }
 
-// StoriesGetByIDResponse struct
+// StoriesGetByIDResponse struct.
 type StoriesGetByIDResponse struct {
 	Count int                   `json:"count"`
 	Items []object.StoriesStory `json:"items"`
@@ -111,7 +111,7 @@ func (vk *VK) StoriesGetByID(params Params) (response StoriesGetByIDResponse, er
 	return
 }
 
-// StoriesGetByIDExtendedResponse struct
+// StoriesGetByIDExtendedResponse struct.
 type StoriesGetByIDExtendedResponse struct {
 	Count int                   `json:"count"`
 	Items []object.StoriesStory `json:"items"`
@@ -130,7 +130,7 @@ func (vk *VK) StoriesGetByIDExtended(params Params) (response StoriesGetByIDExte
 	return
 }
 
-// StoriesGetPhotoUploadServerResponse struct
+// StoriesGetPhotoUploadServerResponse struct.
 type StoriesGetPhotoUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 	PeerIDs   []int  `json:"peer_ids"`
@@ -145,7 +145,7 @@ func (vk *VK) StoriesGetPhotoUploadServer(params Params) (response StoriesGetPho
 	return
 }
 
-// StoriesGetRepliesResponse struct
+// StoriesGetRepliesResponse struct.
 type StoriesGetRepliesResponse struct {
 	Count int                     `json:"count"`
 	Items [][]object.StoriesStory `json:"items"`
@@ -163,7 +163,7 @@ func (vk *VK) StoriesGetReplies(params Params) (response StoriesGetRepliesRespon
 	return
 }
 
-// StoriesGetRepliesExtendedResponse struct
+// StoriesGetRepliesExtendedResponse struct.
 type StoriesGetRepliesExtendedResponse struct {
 	Count int                     `json:"count"`
 	Items [][]object.StoriesStory `json:"items"`
@@ -182,7 +182,7 @@ func (vk *VK) StoriesGetRepliesExtended(params Params) (response StoriesGetRepli
 	return
 }
 
-// StoriesGetStatsResponse struct
+// StoriesGetStatsResponse struct.
 type StoriesGetStatsResponse object.StoriesStoryStats
 
 // StoriesGetStats return statistics data for the story.
@@ -193,7 +193,7 @@ func (vk *VK) StoriesGetStats(params Params) (response StoriesGetStatsResponse, 
 	return
 }
 
-// StoriesGetVideoUploadServerResponse struct
+// StoriesGetVideoUploadServerResponse struct.
 type StoriesGetVideoUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 	PeerIDs   []int  `json:"peer_ids"`
@@ -208,7 +208,7 @@ func (vk *VK) StoriesGetVideoUploadServer(params Params) (response StoriesGetVid
 	return
 }
 
-// StoriesGetViewersResponse struct
+// StoriesGetViewersResponse struct.
 type StoriesGetViewersResponse struct {
 	Count int   `json:"count"`
 	Items []int `json:"items"`
@@ -226,7 +226,7 @@ func (vk *VK) StoriesGetViewers(params Params) (response StoriesGetViewersRespon
 	return
 }
 
-// StoriesGetViewersExtendedResponse struct
+// StoriesGetViewersExtendedResponse struct.
 type StoriesGetViewersExtendedResponse struct {
 	Count int                `json:"count"`
 	Items []object.UsersUser `json:"items"`
@@ -260,7 +260,7 @@ func (vk *VK) StoriesHideReply(params Params) (response int, err error) {
 	return
 }
 
-// StoriesSearchResponse struct
+// StoriesSearchResponse struct.
 type StoriesSearchResponse struct {
 	Count int                     `json:"count"`
 	Items [][]object.StoriesStory `json:"items"`
@@ -278,7 +278,7 @@ func (vk *VK) StoriesSearch(params Params) (response StoriesSearchResponse, err 
 	return
 }
 
-// StoriesSearchExtendedResponse struct
+// StoriesSearchExtendedResponse struct.
 type StoriesSearchExtendedResponse struct {
 	Count int                     `json:"count"`
 	Items [][]object.StoriesStory `json:"items"`

@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// PhotosPhoto struct
+// PhotosPhoto struct.
 type PhotosPhoto struct {
 	AccessKey          string             `json:"access_key"` // Access key for the photo
 	AlbumID            int                `json:"album_id"`   // Album ID
@@ -35,12 +35,12 @@ type PhotosPhoto struct {
 	Updated            int                `json:"updated"`
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (photo PhotosPhoto) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
-// MaxSize return the largest PhotosPhotoSizes
+// MaxSize return the largest PhotosPhotoSizes.
 func (photo PhotosPhoto) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 	var max float64
 
@@ -55,7 +55,7 @@ func (photo PhotosPhoto) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 	return
 }
 
-// MinSize return the smallest PhotosPhotoSizes
+// MinSize return the smallest PhotosPhotoSizes.
 func (photo PhotosPhoto) MinSize() (minPhotoSize PhotosPhotoSizes) {
 	var min float64
 
@@ -70,7 +70,7 @@ func (photo PhotosPhoto) MinSize() (minPhotoSize PhotosPhotoSizes) {
 	return
 }
 
-// PhotosCommentXtrPid struct
+// PhotosCommentXtrPid struct.
 type PhotosCommentXtrPid struct {
 	Attachments    []WallCommentAttachment `json:"attachments"`
 	Date           int                     `json:"date"`    // Date when the comment has been added in Unixtime
@@ -85,18 +85,18 @@ type PhotosCommentXtrPid struct {
 	Thread         WallWallCommentThread   `json:"thread"`
 }
 
-// PhotosImage struct
+// PhotosImage struct.
 type PhotosImage struct {
 	BaseImage
 	Type string `json:"type"`
 }
 
-// PhotosChatUploadResponse struct
+// PhotosChatUploadResponse struct.
 type PhotosChatUploadResponse struct {
 	Response string `json:"response"` // Uploaded photo data
 }
 
-// PhotosMarketAlbumUploadResponse struct
+// PhotosMarketAlbumUploadResponse struct.
 type PhotosMarketAlbumUploadResponse struct {
 	GID    int    `json:"gid"`    // Community ID
 	Hash   string `json:"hash"`   // Uploading hash
@@ -104,7 +104,7 @@ type PhotosMarketAlbumUploadResponse struct {
 	Server int    `json:"server"` // Upload server number
 }
 
-// PhotosMarketUploadResponse struct
+// PhotosMarketUploadResponse struct.
 type PhotosMarketUploadResponse struct {
 	CropData string `json:"crop_data"` // Crop data
 	CropHash string `json:"crop_hash"` // Crop hash
@@ -114,21 +114,21 @@ type PhotosMarketUploadResponse struct {
 	Server   int    `json:"server"`    // Upload server number
 }
 
-// PhotosMessageUploadResponse struct
+// PhotosMessageUploadResponse struct.
 type PhotosMessageUploadResponse struct {
 	Hash   string `json:"hash"`   // Uploading hash
 	Photo  string `json:"photo"`  // Uploaded photo data
 	Server int    `json:"server"` // Upload server number
 }
 
-// PhotosOwnerUploadResponse struct
+// PhotosOwnerUploadResponse struct.
 type PhotosOwnerUploadResponse struct {
 	Hash   string `json:"hash"`   // Uploading hash
 	Photo  string `json:"photo"`  // Uploaded photo data
 	Server int    `json:"server"` // Upload server number
 }
 
-// PhotosPhotoAlbum struct
+// PhotosPhotoAlbum struct.
 type PhotosPhotoAlbum struct {
 	Created     int         `json:"created"`     // Date when the album has been created in Unixtime
 	Description string      `json:"description"` // Photo album description
@@ -140,12 +140,12 @@ type PhotosPhotoAlbum struct {
 	Updated     int         `json:"updated"` // Date when the album has been updated last time in Unixtime
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (album PhotosPhotoAlbum) ToAttachment() string {
 	return fmt.Sprintf("album%d_%s", album.OwnerID, album.ID)
 }
 
-// PhotosPhotoAlbumFull struct
+// PhotosPhotoAlbumFull struct.
 type PhotosPhotoAlbumFull struct {
 	CanUpload        BaseBoolInt `json:"can_upload"`        // Information whether current user can upload photo to the album
 	CommentsDisabled BaseBoolInt `json:"comments_disabled"` // Information whether album comments are disabled
@@ -165,12 +165,12 @@ type PhotosPhotoAlbumFull struct {
 	UploadByAdminsOnly int                `json:"upload_by_admins_only"` // Information whether only community administrators can upload photos
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (album PhotosPhotoAlbumFull) ToAttachment() string {
 	return fmt.Sprintf("album%d_%d", album.OwnerID, album.ID)
 }
 
-// MaxSize return the largest PhotosPhotoSizes
+// MaxSize return the largest PhotosPhotoSizes.
 func (album PhotosPhotoAlbumFull) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 	var max float64
 
@@ -185,7 +185,7 @@ func (album PhotosPhotoAlbumFull) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 	return
 }
 
-// MinSize return the smallest PhotosPhotoSizes
+// MinSize return the smallest PhotosPhotoSizes.
 func (album PhotosPhotoAlbumFull) MinSize() (minPhotoSize PhotosPhotoSizes) {
 	var min float64
 
@@ -200,7 +200,7 @@ func (album PhotosPhotoAlbumFull) MinSize() (minPhotoSize PhotosPhotoSizes) {
 	return
 }
 
-// PhotosPhotoFull struct
+// PhotosPhotoFull struct.
 type PhotosPhotoFull struct {
 	AccessKey  string          `json:"access_key"`  // Access key for the photo
 	AlbumID    int             `json:"album_id"`    // Album ID
@@ -222,12 +222,12 @@ type PhotosPhotoFull struct {
 	Width      int             `json:"width"`   // Original photo width
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (photo PhotosPhotoFull) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
-// PhotosPhotoFullXtrRealOffset struct
+// PhotosPhotoFullXtrRealOffset struct.
 type PhotosPhotoFullXtrRealOffset struct {
 	AccessKey  string             `json:"access_key"` // Access key for the photo
 	AlbumID    int                `json:"album_id"`   // Album ID
@@ -257,12 +257,12 @@ type PhotosPhotoFullXtrRealOffset struct {
 	Width      int                `json:"width"`   // Original photo width
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (photo PhotosPhotoFullXtrRealOffset) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
-// MaxSize return the largest PhotosPhotoSizes
+// MaxSize return the largest PhotosPhotoSizes.
 func (photo PhotosPhotoFullXtrRealOffset) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 	var max float64
 
@@ -277,7 +277,7 @@ func (photo PhotosPhotoFullXtrRealOffset) MaxSize() (maxPhotoSize PhotosPhotoSiz
 	return
 }
 
-// MinSize return the smallest PhotosPhotoSizes
+// MinSize return the smallest PhotosPhotoSizes.
 func (photo PhotosPhotoFullXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSizes) {
 	var min float64
 
@@ -292,13 +292,13 @@ func (photo PhotosPhotoFullXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSiz
 	return
 }
 
-// PhotosPhotoSizes struct
+// PhotosPhotoSizes struct.
 type PhotosPhotoSizes struct {
 	// BUG(VK): json: cannot unmarshal number 180.000000 into Go struct field PhotosPhotoSizes.height of type int
 	BaseImage
 }
 
-// PhotosPhotoTag struct
+// PhotosPhotoTag struct.
 type PhotosPhotoTag struct {
 	Date       int         `json:"date"`        // Date when tag has been added in Unixtime
 	ID         int         `json:"id"`          // Tag ID
@@ -312,14 +312,14 @@ type PhotosPhotoTag struct {
 	Y2         float64     `json:"y2"`          // Coordinate Y of the right lower corner
 }
 
-// PhotosPhotoUpload struct
+// PhotosPhotoUpload struct.
 type PhotosPhotoUpload struct {
 	AlbumID   int    `json:"album_id"`   // Album ID
 	UploadURL string `json:"upload_url"` // URL to upload photo
 	UserID    int    `json:"user_id"`    // User ID
 }
 
-// PhotosPhotoUploadResponse struct
+// PhotosPhotoUploadResponse struct.
 type PhotosPhotoUploadResponse struct {
 	AID        int    `json:"aid"`         // Album ID
 	Hash       string `json:"hash"`        // Uploading hash
@@ -327,7 +327,7 @@ type PhotosPhotoUploadResponse struct {
 	Server     int    `json:"server"`      // Upload server number
 }
 
-// PhotosPhotoXtrRealOffset struct
+// PhotosPhotoXtrRealOffset struct.
 type PhotosPhotoXtrRealOffset struct {
 	AccessKey  string             `json:"access_key"`  // Access key for the photo
 	AlbumID    int                `json:"album_id"`    // Album ID
@@ -352,12 +352,12 @@ type PhotosPhotoXtrRealOffset struct {
 	Width      int                `json:"width"`   // Original photo width
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (photo PhotosPhotoXtrRealOffset) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
-// MaxSize return the largest PhotosPhotoSizes
+// MaxSize return the largest PhotosPhotoSizes.
 func (photo PhotosPhotoXtrRealOffset) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 	var max float64
 
@@ -372,7 +372,7 @@ func (photo PhotosPhotoXtrRealOffset) MaxSize() (maxPhotoSize PhotosPhotoSizes) 
 	return
 }
 
-// MinSize return the smallest PhotosPhotoSizes
+// MinSize return the smallest PhotosPhotoSizes.
 func (photo PhotosPhotoXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSizes) {
 	var min float64
 
@@ -387,7 +387,7 @@ func (photo PhotosPhotoXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSizes) 
 	return
 }
 
-// PhotosPhotoXtrTagInfo struct
+// PhotosPhotoXtrTagInfo struct.
 type PhotosPhotoXtrTagInfo struct {
 	AccessKey  string             `json:"access_key"` // Access key for the photo
 	AlbumID    int                `json:"album_id"`   // Album ID
@@ -413,12 +413,12 @@ type PhotosPhotoXtrTagInfo struct {
 	Width      int                `json:"width"`       // Original photo width
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (photo PhotosPhotoXtrTagInfo) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
-// MaxSize return the largest PhotosPhotoSizes
+// MaxSize return the largest PhotosPhotoSizes.
 func (photo PhotosPhotoXtrTagInfo) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 	var max float64
 
@@ -433,7 +433,7 @@ func (photo PhotosPhotoXtrTagInfo) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 	return
 }
 
-// MinSize return the smallest PhotosPhotoSizes
+// MinSize return the smallest PhotosPhotoSizes.
 func (photo PhotosPhotoXtrTagInfo) MinSize() (minPhotoSize PhotosPhotoSizes) {
 	var min float64
 
@@ -448,7 +448,7 @@ func (photo PhotosPhotoXtrTagInfo) MinSize() (minPhotoSize PhotosPhotoSizes) {
 	return
 }
 
-// PhotosWallUploadResponse struct
+// PhotosWallUploadResponse struct.
 type PhotosWallUploadResponse struct {
 	Hash   string `json:"hash"`   // Uploading hash
 	Photo  string `json:"photo"`  // Uploaded photo data

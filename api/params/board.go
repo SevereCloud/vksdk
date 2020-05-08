@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// BoardAddTopicBuilder builder
+// BoardAddTopicBuilder builder.
 //
 // Creates a new topic on a community's discussion board.
 //
@@ -13,7 +13,7 @@ type BoardAddTopicBuilder struct {
 	api.Params
 }
 
-// NewBoardAddTopicBuilder func
+// NewBoardAddTopicBuilder func.
 func NewBoardAddTopicBuilder() *BoardAddTopicBuilder {
 	return &BoardAddTopicBuilder{api.Params{}}
 }
@@ -38,7 +38,9 @@ func (b *BoardAddTopicBuilder) Text(v string) *BoardAddTopicBuilder {
 
 // FromGroup For a community:
 //
-// * 1 — to post the topic as by the community, '0' — to post the topic as by the user (default)
+// * 1 — to post the topic as by the community,
+//
+// * 0 — to post the topic as by the user (default).
 func (b *BoardAddTopicBuilder) FromGroup(v bool) *BoardAddTopicBuilder {
 	b.Params["from_group"] = v
 	return b
@@ -47,7 +49,7 @@ func (b *BoardAddTopicBuilder) FromGroup(v bool) *BoardAddTopicBuilder {
 // Attachments List of media objects attached to the topic, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media object:
 // 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media owner.
-// '<media_id>' — Media ID. Example: "photo100172_166443618,photo66748_265827614"
+// '<media_id>' — Media ID. Example: "photo100172_166443618,photo66748_265827614".
 //
 // NOTE: If you try to attach more than one reference, an error will be thrown.
 func (b *BoardAddTopicBuilder) Attachments(v interface{}) *BoardAddTopicBuilder {
@@ -55,7 +57,7 @@ func (b *BoardAddTopicBuilder) Attachments(v interface{}) *BoardAddTopicBuilder 
 	return b
 }
 
-// BoardCloseTopicBuilder builder
+// BoardCloseTopicBuilder builder.
 //
 // Closes a topic on a community's discussion board so that comments cannot be posted.
 //
@@ -64,7 +66,7 @@ type BoardCloseTopicBuilder struct {
 	api.Params
 }
 
-// NewBoardCloseTopicBuilder func
+// NewBoardCloseTopicBuilder func.
 func NewBoardCloseTopicBuilder() *BoardCloseTopicBuilder {
 	return &BoardCloseTopicBuilder{api.Params{}}
 }
@@ -81,7 +83,7 @@ func (b *BoardCloseTopicBuilder) TopicID(v int) *BoardCloseTopicBuilder {
 	return b
 }
 
-// BoardCreateCommentBuilder builder
+// BoardCreateCommentBuilder builder.
 //
 // Adds a comment on a topic on a community's discussion board.
 //
@@ -90,7 +92,7 @@ type BoardCreateCommentBuilder struct {
 	api.Params
 }
 
-// NewBoardCreateCommentBuilder func
+// NewBoardCreateCommentBuilder func.
 func NewBoardCreateCommentBuilder() *BoardCreateCommentBuilder {
 	return &BoardCreateCommentBuilder{api.Params{}}
 }
@@ -123,7 +125,7 @@ func (b *BoardCreateCommentBuilder) Attachments(v interface{}) *BoardCreateComme
 	return b
 }
 
-// FromGroup '1' — to post the comment as by the community, '0' — to post the comment as by the user (default)
+// FromGroup '1' — to post the comment as by the community, '0' — to post the comment as by the user (default).
 func (b *BoardCreateCommentBuilder) FromGroup(v bool) *BoardCreateCommentBuilder {
 	b.Params["from_group"] = v
 	return b
@@ -141,7 +143,7 @@ func (b *BoardCreateCommentBuilder) GUID(v string) *BoardCreateCommentBuilder {
 	return b
 }
 
-// BoardDeleteCommentBuilder builder
+// BoardDeleteCommentBuilder builder.
 //
 // Deletes a comment on a topic on a community's discussion board.
 //
@@ -150,7 +152,7 @@ type BoardDeleteCommentBuilder struct {
 	api.Params
 }
 
-// NewBoardDeleteCommentBuilder func
+// NewBoardDeleteCommentBuilder func.
 func NewBoardDeleteCommentBuilder() *BoardDeleteCommentBuilder {
 	return &BoardDeleteCommentBuilder{api.Params{}}
 }
@@ -173,7 +175,7 @@ func (b *BoardDeleteCommentBuilder) CommentID(v int) *BoardDeleteCommentBuilder 
 	return b
 }
 
-// BoardDeleteTopicBuilder builder
+// BoardDeleteTopicBuilder builder.
 //
 // Deletes a topic from a community's discussion board.
 //
@@ -182,7 +184,7 @@ type BoardDeleteTopicBuilder struct {
 	api.Params
 }
 
-// NewBoardDeleteTopicBuilder func
+// NewBoardDeleteTopicBuilder func.
 func NewBoardDeleteTopicBuilder() *BoardDeleteTopicBuilder {
 	return &BoardDeleteTopicBuilder{api.Params{}}
 }
@@ -199,7 +201,7 @@ func (b *BoardDeleteTopicBuilder) TopicID(v int) *BoardDeleteTopicBuilder {
 	return b
 }
 
-// BoardEditCommentBuilder builder
+// BoardEditCommentBuilder builder.
 //
 // Edits a comment on a topic on a community's discussion board.
 //
@@ -208,7 +210,7 @@ type BoardEditCommentBuilder struct {
 	api.Params
 }
 
-// NewBoardEditCommentBuilder func
+// NewBoardEditCommentBuilder func.
 func NewBoardEditCommentBuilder() *BoardEditCommentBuilder {
 	return &BoardEditCommentBuilder{api.Params{}}
 }
@@ -241,13 +243,13 @@ func (b *BoardEditCommentBuilder) Message(v string) *BoardEditCommentBuilder {
 // in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' —
 // Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
-// Example: "photo100172_166443618,photo66748_265827614"
+// Example: "photo100172_166443618,photo66748_265827614".
 func (b *BoardEditCommentBuilder) Attachments(v interface{}) *BoardEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
 
-// BoardEditTopicBuilder builder
+// BoardEditTopicBuilder builder.
 //
 // Edits the title of a topic on a community's discussion board.
 //
@@ -256,7 +258,7 @@ type BoardEditTopicBuilder struct {
 	api.Params
 }
 
-// NewBoardEditTopicBuilder func
+// NewBoardEditTopicBuilder func.
 func NewBoardEditTopicBuilder() *BoardEditTopicBuilder {
 	return &BoardEditTopicBuilder{api.Params{}}
 }
@@ -279,7 +281,7 @@ func (b *BoardEditTopicBuilder) Title(v string) *BoardEditTopicBuilder {
 	return b
 }
 
-// BoardFixTopicBuilder builder
+// BoardFixTopicBuilder builder.
 //
 // Pins a topic (fixes its place) to the top of a community's discussion board.
 //
@@ -288,7 +290,7 @@ type BoardFixTopicBuilder struct {
 	api.Params
 }
 
-// NewBoardFixTopicBuilder func
+// NewBoardFixTopicBuilder func.
 func NewBoardFixTopicBuilder() *BoardFixTopicBuilder {
 	return &BoardFixTopicBuilder{api.Params{}}
 }
@@ -305,7 +307,7 @@ func (b *BoardFixTopicBuilder) TopicID(v int) *BoardFixTopicBuilder {
 	return b
 }
 
-// BoardGetCommentsBuilder builder
+// BoardGetCommentsBuilder builder.
 //
 // Returns a list of comments on a topic on a community's discussion board.
 //
@@ -314,7 +316,7 @@ type BoardGetCommentsBuilder struct {
 	api.Params
 }
 
-// NewBoardGetCommentsBuilder func
+// NewBoardGetCommentsBuilder func.
 func NewBoardGetCommentsBuilder() *BoardGetCommentsBuilder {
 	return &BoardGetCommentsBuilder{api.Params{}}
 }
@@ -331,13 +333,13 @@ func (b *BoardGetCommentsBuilder) TopicID(v int) *BoardGetCommentsBuilder {
 	return b
 }
 
-// NeedLikes '1' — to return the 'likes' field, '0' — not to return the 'likes' field (default)
+// NeedLikes '1' — to return the 'likes' field, '0' — not to return the 'likes' field (default).
 func (b *BoardGetCommentsBuilder) NeedLikes(v bool) *BoardGetCommentsBuilder {
 	b.Params["need_likes"] = v
 	return b
 }
 
-// StartCommentID parameter
+// StartCommentID parameter.
 func (b *BoardGetCommentsBuilder) StartCommentID(v int) *BoardGetCommentsBuilder {
 	b.Params["start_comment_id"] = v
 	return b
@@ -355,7 +357,7 @@ func (b *BoardGetCommentsBuilder) Count(v int) *BoardGetCommentsBuilder {
 	return b
 }
 
-// Extended '1' — to return information about users who posted comments, '0' — to return no additional fields (default)
+// Extended '1' — to return information about users who posted comments, '0' — to return no additional fields (default).
 func (b *BoardGetCommentsBuilder) Extended(v bool) *BoardGetCommentsBuilder {
 	b.Params["extended"] = v
 	return b
@@ -363,13 +365,13 @@ func (b *BoardGetCommentsBuilder) Extended(v bool) *BoardGetCommentsBuilder {
 
 // Sort Sort order:
 //
-// * asc — by creation date in chronological order, 'desc' — by creation date in reverse chronological order,
+// * asc — by creation date in chronological order, 'desc' — by creation date in reverse chronological order.
 func (b *BoardGetCommentsBuilder) Sort(v string) *BoardGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
-// BoardGetTopicsBuilder builder
+// BoardGetTopicsBuilder builder.
 //
 // Returns a list of topics on a community's discussion board.
 //
@@ -378,7 +380,7 @@ type BoardGetTopicsBuilder struct {
 	api.Params
 }
 
-// NewBoardGetTopicsBuilder func
+// NewBoardGetTopicsBuilder func.
 func NewBoardGetTopicsBuilder() *BoardGetTopicsBuilder {
 	return &BoardGetTopicsBuilder{api.Params{}}
 }
@@ -425,17 +427,17 @@ func (b *BoardGetTopicsBuilder) Count(v int) *BoardGetTopicsBuilder {
 	return b
 }
 
-// Extended parameter
+// Extended parameter.
 //
 // * 1 — to return information about users who created topics or who posted there last,
 //
-// * 0 — to return no additional fields (default)
+// * 0 — to return no additional fields (default).
 func (b *BoardGetTopicsBuilder) Extended(v bool) *BoardGetTopicsBuilder {
 	b.Params["extended"] = v
 	return b
 }
 
-// Preview parameter
+// Preview parameter.
 //
 // * 1 — to return the first comment in each topic;
 //
@@ -456,7 +458,7 @@ func (b *BoardGetTopicsBuilder) PreviewLength(v int) *BoardGetTopicsBuilder {
 	return b
 }
 
-// BoardOpenTopicBuilder builder
+// BoardOpenTopicBuilder builder.
 //
 // Re-opens a previously closed topic on a community's discussion board.
 //
@@ -465,7 +467,7 @@ type BoardOpenTopicBuilder struct {
 	api.Params
 }
 
-// NewBoardOpenTopicBuilder func
+// NewBoardOpenTopicBuilder func.
 func NewBoardOpenTopicBuilder() *BoardOpenTopicBuilder {
 	return &BoardOpenTopicBuilder{api.Params{}}
 }
@@ -482,7 +484,7 @@ func (b *BoardOpenTopicBuilder) TopicID(v int) *BoardOpenTopicBuilder {
 	return b
 }
 
-// BoardRestoreCommentBuilder builder
+// BoardRestoreCommentBuilder builder.
 //
 // Restores a comment deleted from a topic on a community's discussion board.
 //
@@ -491,7 +493,7 @@ type BoardRestoreCommentBuilder struct {
 	api.Params
 }
 
-// NewBoardRestoreCommentBuilder func
+// NewBoardRestoreCommentBuilder func.
 func NewBoardRestoreCommentBuilder() *BoardRestoreCommentBuilder {
 	return &BoardRestoreCommentBuilder{api.Params{}}
 }
@@ -514,7 +516,7 @@ func (b *BoardRestoreCommentBuilder) CommentID(v int) *BoardRestoreCommentBuilde
 	return b
 }
 
-// BoardUnfixTopicBuilder builder
+// BoardUnfixTopicBuilder builder.
 //
 // Unpins a pinned topic from the top of a community's discussion board.
 //
@@ -523,7 +525,7 @@ type BoardUnfixTopicBuilder struct {
 	api.Params
 }
 
-// NewBoardUnfixTopicBuilder func
+// NewBoardUnfixTopicBuilder func.
 func NewBoardUnfixTopicBuilder() *BoardUnfixTopicBuilder {
 	return &BoardUnfixTopicBuilder{api.Params{}}
 }

@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// AppsApp Type application type
+// AppsApp Type application type.
 const (
 	AppTypeApp          = "app"
 	AppTypeGame         = "game"
@@ -11,14 +11,14 @@ const (
 	AppTypeHTML5Game    = "html5_game"
 )
 
-// AppsLeaderboardType LeaderboardType type
+// AppsLeaderboardType LeaderboardType type.
 const (
 	AppsLeaderboardTypeNotSupported = iota
 	AppsLeaderboardTypeLevels
 	AppsLeaderboardTypePoints
 )
 
-// AppsApp struct
+// AppsApp struct.
 type AppsApp struct {
 	AuthorGroup     int           `json:"author_group"`     // Official community's ID
 	AuthorID        int           `json:"author_id"`        // Application author's ID
@@ -51,7 +51,7 @@ type AppsApp struct {
 	Icon16          string        `json:"icon_16"`
 }
 
-// AppsLeaderboard struct
+// AppsLeaderboard struct.
 type AppsLeaderboard struct {
 	Level  int `json:"level"`   // Level
 	Points int `json:"points"`  // Points number
@@ -59,7 +59,7 @@ type AppsLeaderboard struct {
 	UserID int `json:"user_id"` // User ID
 }
 
-// AppsScope Scope description
+// AppsScope Scope description.
 type AppsScope struct {
 	Name  string `json:"name"`  // Scope name
 	Title string `json:"title"` // Scope title

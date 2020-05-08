@@ -4,20 +4,20 @@ import (
 	"fmt"
 )
 
-// Information whether the MarketMarketItem is available
+// Information whether the MarketMarketItem is available.
 const (
 	MarketItemAvailable = iota
 	MarketItemRemoved
 	MarketItemUnavailable
 )
 
-// MarketCurrency struct
+// MarketCurrency struct.
 type MarketCurrency struct {
 	ID   int    `json:"id"`   // Currency ID
 	Name string `json:"name"` // Currency sign
 }
 
-// MarketMarketAlbum struct
+// MarketMarketAlbum struct.
 type MarketMarketAlbum struct {
 	Count       int         `json:"count"`    // Items number
 	ID          int         `json:"id"`       // Market album ID
@@ -27,19 +27,19 @@ type MarketMarketAlbum struct {
 	UpdatedTime int         `json:"updated_time"` // Date when album has been updated last time in Unixtime
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (marketAlbum MarketMarketAlbum) ToAttachment() string {
 	return fmt.Sprintf("market_album%d_%d", marketAlbum.OwnerID, marketAlbum.ID)
 }
 
-// MarketMarketCategory struct
+// MarketMarketCategory struct.
 type MarketMarketCategory struct {
 	ID      int           `json:"id"`   // Category ID
 	Name    string        `json:"name"` // Category name
 	Section MarketSection `json:"section"`
 }
 
-// MarketMarketItem struct
+// MarketMarketItem struct.
 type MarketMarketItem struct {
 	AccessKey    string               `json:"access_key"`   // Access key for the market item
 	Availability int                  `json:"availability"` // Information whether the item is available
@@ -64,12 +64,12 @@ type MarketMarketItem struct {
 	ExternalID   string               `json:"external_id"`
 }
 
-// ToAttachment return attachment format
+// ToAttachment return attachment format.
 func (market MarketMarketItem) ToAttachment() string {
 	return fmt.Sprintf("market%d_%d", market.OwnerID, market.ID)
 }
 
-// MarketPrice struct
+// MarketPrice struct.
 type MarketPrice struct {
 	Amount       string         `json:"amount"` // Amount
 	Currency     MarketCurrency `json:"currency"`
@@ -78,13 +78,13 @@ type MarketPrice struct {
 	Text         string         `json:"text"` // Text
 }
 
-// MarketSection struct
+// MarketSection struct.
 type MarketSection struct {
 	ID   int    `json:"id"`   // Section ID
 	Name string `json:"name"` // Section name
 }
 
-// MarketOrder struct
+// MarketOrder struct.
 type MarketOrder struct {
 	ID                int                 `json:"id"`
 	GroupID           int                 `json:"group_id"`
@@ -102,7 +102,7 @@ type MarketOrder struct {
 	PriceDetails      []MarketPriceDetail `json:"price_details"`
 }
 
-// MarketOrderItem struct
+// MarketOrderItem struct.
 type MarketOrderItem struct {
 	OwnerID  int              `json:"owner_id"`
 	ItemID   int              `json:"item_id"`
@@ -114,7 +114,7 @@ type MarketOrderItem struct {
 	Variants []string         `json:"variants"`
 }
 
-// MarketPriceDetail struct
+// MarketPriceDetail struct.
 type MarketPriceDetail struct {
 	Title    string      `json:"title"`
 	Price    MarketPrice `json:"price"`

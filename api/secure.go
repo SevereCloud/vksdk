@@ -4,10 +4,10 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// SecureAddAppEventResponse struct
+// SecureAddAppEventResponse struct.
 type SecureAddAppEventResponse int // FIXME: not found documentation. https://github.com/VKCOM/vk-api-schema/issues/98
 
-// SecureAddAppEvent Adds user activity information to an application
+// SecureAddAppEvent Adds user activity information to an application.
 //
 // https://vk.com/dev/secure.addAppEvent
 func (vk *VK) SecureAddAppEvent(params Params) (response SecureAddAppEventResponse, err error) {
@@ -15,7 +15,7 @@ func (vk *VK) SecureAddAppEvent(params Params) (response SecureAddAppEventRespon
 	return
 }
 
-// SecureCheckTokenResponse struct
+// SecureCheckTokenResponse struct.
 type SecureCheckTokenResponse object.SecureTokenChecked
 
 // SecureCheckToken Checks the user authentification in IFrame and Flash apps using the access_token parameter.
@@ -34,7 +34,7 @@ func (vk *VK) SecureGetAppBalance(params Params) (response int, err error) {
 	return
 }
 
-// SecureGetSMSHistoryResponse struct
+// SecureGetSMSHistoryResponse struct.
 type SecureGetSMSHistoryResponse []object.SecureSmsNotification
 
 // SecureGetSMSHistory Shows a list of SMS notifications sent by the application using secure.sendSMSNotification method.
@@ -45,7 +45,7 @@ func (vk *VK) SecureGetSMSHistory(params Params) (response SecureGetSMSHistoryRe
 	return
 }
 
-// SecureGetTransactionsHistoryResponse struct
+// SecureGetTransactionsHistoryResponse struct.
 type SecureGetTransactionsHistoryResponse []object.SecureTransaction
 
 // SecureGetTransactionsHistory Shows history of votes transaction between users and the application.
@@ -56,7 +56,7 @@ func (vk *VK) SecureGetTransactionsHistory(params Params) (response SecureGetTra
 	return
 }
 
-// SecureGetUserLevelResponse struct
+// SecureGetUserLevelResponse struct.
 type SecureGetUserLevelResponse []object.SecureLevel
 
 // SecureGetUserLevel Returns one of the previously set game levels of one or more users in the application.
@@ -67,13 +67,13 @@ func (vk *VK) SecureGetUserLevel(params Params) (response SecureGetUserLevelResp
 	return
 }
 
-// SecureGiveEventStickerResponse struct
+// SecureGiveEventStickerResponse struct.
 type SecureGiveEventStickerResponse []struct {
 	UserID int    `json:"user_id"`
 	Status string `json:"status"`
 }
 
-// SecureGiveEventSticker method
+// SecureGiveEventSticker method.
 //
 // https://vk.com/dev/secure.giveEventSticker
 func (vk *VK) SecureGiveEventSticker(params Params) (response SecureGiveEventStickerResponse, err error) {
@@ -81,7 +81,7 @@ func (vk *VK) SecureGiveEventSticker(params Params) (response SecureGiveEventSti
 	return
 }
 
-// SecureSendNotificationResponse struct
+// SecureSendNotificationResponse struct.
 type SecureSendNotificationResponse []int //User ID
 
 // SecureSendNotification Sends notification to the user.

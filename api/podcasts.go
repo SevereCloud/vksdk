@@ -4,12 +4,12 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// PodcastsGetCatalogResponse struct
+// PodcastsGetCatalogResponse struct.
 type PodcastsGetCatalogResponse struct {
 	Items []object.PodcastsItem `json:"items"`
 }
 
-// PodcastsGetCatalog method
+// PodcastsGetCatalog method.
 //
 // extended=0
 //
@@ -21,13 +21,13 @@ func (vk *VK) PodcastsGetCatalog(params Params) (response PodcastsGetCatalogResp
 	return
 }
 
-// PodcastsGetCatalogExtendedResponse struct
+// PodcastsGetCatalogExtendedResponse struct.
 type PodcastsGetCatalogExtendedResponse struct {
 	Items []object.PodcastsItem `json:"items"`
 	object.ExtendedResponse
 }
 
-// PodcastsGetCatalogExtended method
+// PodcastsGetCatalogExtended method.
 //
 // extended=1
 //
@@ -39,10 +39,10 @@ func (vk *VK) PodcastsGetCatalogExtended(params Params) (response PodcastsGetCat
 	return
 }
 
-// PodcastsGetCategoriesResponse struct
+// PodcastsGetCategoriesResponse struct.
 type PodcastsGetCategoriesResponse []object.PodcastsCategory
 
-// PodcastsGetCategories method
+// PodcastsGetCategories method.
 //
 // https://vk.com/dev/podcasts.getCategories
 func (vk *VK) PodcastsGetCategories(params Params) (response PodcastsGetCategoriesResponse, err error) {
@@ -50,13 +50,13 @@ func (vk *VK) PodcastsGetCategories(params Params) (response PodcastsGetCategori
 	return
 }
 
-// PodcastsGetEpisodesResponse struct
+// PodcastsGetEpisodesResponse struct.
 type PodcastsGetEpisodesResponse struct {
 	Count int                      `json:"count"`
 	Items []object.PodcastsEpisode `json:"items"`
 }
 
-// PodcastsGetEpisodes method
+// PodcastsGetEpisodes method.
 //
 // https://vk.com/dev/podcasts.getEpisodes
 func (vk *VK) PodcastsGetEpisodes(params Params) (response PodcastsGetEpisodesResponse, err error) {
@@ -64,13 +64,13 @@ func (vk *VK) PodcastsGetEpisodes(params Params) (response PodcastsGetEpisodesRe
 	return
 }
 
-// PodcastsGetFeedResponse struct
+// PodcastsGetFeedResponse struct.
 type PodcastsGetFeedResponse struct {
 	Items    []object.PodcastsEpisode `json:"items"`
 	NextFrom string                   `json:"next_from"`
 }
 
-// PodcastsGetFeed method
+// PodcastsGetFeed method.
 //
 // extended=0
 //
@@ -82,14 +82,14 @@ func (vk *VK) PodcastsGetFeed(params Params) (response PodcastsGetFeedResponse, 
 	return
 }
 
-// PodcastsGetFeedExtendedResponse struct
+// PodcastsGetFeedExtendedResponse struct.
 type PodcastsGetFeedExtendedResponse struct {
 	Items    []object.PodcastsEpisode `json:"items"`
 	NextFrom string                   `json:"next_from"`
 	object.ExtendedResponse
 }
 
-// PodcastsGetFeedExtended method
+// PodcastsGetFeedExtended method.
 //
 // extended=1
 //
@@ -101,7 +101,7 @@ func (vk *VK) PodcastsGetFeedExtended(params Params) (response PodcastsGetFeedEx
 	return
 }
 
-// PodcastsGetStartPageResponse struct
+// PodcastsGetStartPageResponse struct.
 type PodcastsGetStartPageResponse struct {
 	Order               []string                  `json:"order"`
 	InProgress          []object.PodcastsEpisode  `json:"in_progress"`
@@ -118,7 +118,7 @@ type PodcastsGetStartPageResponse struct {
 	} `json:"catalog"`
 }
 
-// PodcastsGetStartPage method
+// PodcastsGetStartPage method.
 //
 // extended=0
 //
@@ -130,7 +130,7 @@ func (vk *VK) PodcastsGetStartPage(params Params) (response PodcastsGetStartPage
 	return
 }
 
-// PodcastsGetStartPageExtendedResponse struct
+// PodcastsGetStartPageExtendedResponse struct.
 type PodcastsGetStartPageExtendedResponse struct {
 	Order               []string                  `json:"order"`
 	InProgress          []object.PodcastsEpisode  `json:"in_progress"`
@@ -148,7 +148,7 @@ type PodcastsGetStartPageExtendedResponse struct {
 	object.ExtendedResponse
 }
 
-// PodcastsGetStartPageExtended method
+// PodcastsGetStartPageExtended method.
 //
 // extended=1
 //
@@ -160,7 +160,7 @@ func (vk *VK) PodcastsGetStartPageExtended(params Params) (response PodcastsGetS
 	return
 }
 
-// PodcastsMarkAsListened method
+// PodcastsMarkAsListened method.
 //
 // https://vk.com/dev/podcasts.markAsListened
 func (vk *VK) PodcastsMarkAsListened(params Params) (response int, err error) {
@@ -168,7 +168,7 @@ func (vk *VK) PodcastsMarkAsListened(params Params) (response int, err error) {
 	return
 }
 
-// PodcastsSubscribe method
+// PodcastsSubscribe method.
 //
 // https://vk.com/dev/podcasts.subscribe
 func (vk *VK) PodcastsSubscribe(params Params) (response int, err error) {
@@ -176,7 +176,7 @@ func (vk *VK) PodcastsSubscribe(params Params) (response int, err error) {
 	return
 }
 
-// PodcastsUnsubscribe method
+// PodcastsUnsubscribe method.
 //
 // https://vk.com/dev/podcasts.unsubscribe
 func (vk *VK) PodcastsUnsubscribe(params Params) (response int, err error) {

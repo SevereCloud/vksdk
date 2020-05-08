@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// AuthCheckPhoneBuilder builder
+// AuthCheckPhoneBuilder builder.
 //
 // Checks a user's phone number for correctness.
 //
@@ -13,7 +13,7 @@ type AuthCheckPhoneBuilder struct {
 	api.Params
 }
 
-// NewAuthCheckPhoneBuilder func
+// NewAuthCheckPhoneBuilder func.
 func NewAuthCheckPhoneBuilder() *AuthCheckPhoneBuilder {
 	return &AuthCheckPhoneBuilder{api.Params{}}
 }
@@ -30,19 +30,19 @@ func (b *AuthCheckPhoneBuilder) ClientID(v int) *AuthCheckPhoneBuilder {
 	return b
 }
 
-// ClientSecret parameter
+// ClientSecret parameter.
 func (b *AuthCheckPhoneBuilder) ClientSecret(v string) *AuthCheckPhoneBuilder {
 	b.Params["client_secret"] = v
 	return b
 }
 
-// AuthByPhone parameter
+// AuthByPhone parameter.
 func (b *AuthCheckPhoneBuilder) AuthByPhone(v bool) *AuthCheckPhoneBuilder {
 	b.Params["auth_by_phone"] = v
 	return b
 }
 
-// AuthRestoreBuilder builder
+// AuthRestoreBuilder builder.
 //
 // Allows to restore account access using a code received via SMS.
 // This method is only available for apps with [vk.com/dev/auth_direct|Direct authorization] access.
@@ -52,7 +52,7 @@ type AuthRestoreBuilder struct {
 	api.Params
 }
 
-// NewAuthRestoreBuilder func
+// NewAuthRestoreBuilder func.
 func NewAuthRestoreBuilder() *AuthRestoreBuilder {
 	return &AuthRestoreBuilder{api.Params{}}
 }

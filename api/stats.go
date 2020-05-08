@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// StatsGetResponse struct
+// StatsGetResponse struct.
 type StatsGetResponse []object.StatsPeriod
 
 // StatsGet returns statistics of a community or an application.
@@ -15,7 +15,7 @@ func (vk *VK) StatsGet(params Params) (response StatsGetResponse, err error) {
 	return
 }
 
-// StatsGetPostReachResponse struct
+// StatsGetPostReachResponse struct.
 type StatsGetPostReachResponse []object.StatsWallpostStat
 
 // StatsGetPostReach returns stats for a wall post.

@@ -28,7 +28,7 @@ func (vk *VK) MessagesCreateChat(params Params) (response int, err error) {
 	return
 }
 
-// MessagesDeleteResponse struct
+// MessagesDeleteResponse struct.
 type MessagesDeleteResponse map[string]int
 
 // MessagesDelete deletes one or more messages.
@@ -39,7 +39,7 @@ func (vk *VK) MessagesDelete(params Params) (response MessagesDeleteResponse, er
 	return
 }
 
-// MessagesDeleteChatPhotoResponse struct
+// MessagesDeleteChatPhotoResponse struct.
 type MessagesDeleteChatPhotoResponse struct {
 	MessageID int                 `json:"message_id"`
 	Chat      object.MessagesChat `json:"chat"`
@@ -53,7 +53,7 @@ func (vk *VK) MessagesDeleteChatPhoto(params Params) (response MessagesDeleteCha
 	return
 }
 
-// MessagesDeleteConversationResponse struct
+// MessagesDeleteConversationResponse struct.
 type MessagesDeleteConversationResponse struct {
 	LastDeletedID int `json:"last_deleted_id"` // Id of the last message, that was deleted
 }
@@ -90,14 +90,14 @@ func (vk *VK) MessagesEditChat(params Params) (response int, err error) {
 	return
 }
 
-// MessagesGetByConversationMessageIDResponse struct
+// MessagesGetByConversationMessageIDResponse struct.
 type MessagesGetByConversationMessageIDResponse struct {
 	Count int                      `json:"count"`
 	Items []object.MessagesMessage `json:"items"`
 	object.ExtendedResponse
 }
 
-// MessagesGetByConversationMessageID messages.getByConversationMessageId
+// MessagesGetByConversationMessageID messages.getByConversationMessageId.
 //
 // https://vk.com/dev/messages.getByConversationMessageId
 func (vk *VK) MessagesGetByConversationMessageID(params Params) (response MessagesGetByConversationMessageIDResponse, err error) {
@@ -105,7 +105,7 @@ func (vk *VK) MessagesGetByConversationMessageID(params Params) (response Messag
 	return
 }
 
-// MessagesGetByIDResponse struct
+// MessagesGetByIDResponse struct.
 type MessagesGetByIDResponse struct {
 	Count int                      `json:"count"`
 	Items []object.MessagesMessage `json:"items"`
@@ -123,7 +123,7 @@ func (vk *VK) MessagesGetByID(params Params) (response MessagesGetByIDResponse, 
 	return
 }
 
-// MessagesGetByIDExtendedResponse struct
+// MessagesGetByIDExtendedResponse struct.
 type MessagesGetByIDExtendedResponse struct {
 	Count int                      `json:"count"`
 	Items []object.MessagesMessage `json:"items"`
@@ -142,7 +142,7 @@ func (vk *VK) MessagesGetByIDExtended(params Params) (response MessagesGetByIDEx
 	return
 }
 
-// MessagesGetChatResponse struct
+// MessagesGetChatResponse struct.
 type MessagesGetChatResponse object.MessagesChat
 
 // MessagesGetChat returns information about a chat.
@@ -153,7 +153,7 @@ func (vk *VK) MessagesGetChat(params Params) (response MessagesGetChatResponse, 
 	return
 }
 
-// MessagesGetChatChatIDsResponse struct
+// MessagesGetChatChatIDsResponse struct.
 type MessagesGetChatChatIDsResponse []object.MessagesChat
 
 // MessagesGetChatChatIDs returns information about a chat.
@@ -164,7 +164,7 @@ func (vk *VK) MessagesGetChatChatIDs(params Params) (response MessagesGetChatCha
 	return
 }
 
-// MessagesGetChatPreviewResponse struct
+// MessagesGetChatPreviewResponse struct.
 type MessagesGetChatPreviewResponse struct {
 	Preview object.MessagesChat `json:"preview"`
 	object.ExtendedResponse
@@ -178,7 +178,7 @@ func (vk *VK) MessagesGetChatPreview(params Params) (response MessagesGetChatPre
 	return
 }
 
-// MessagesGetConversationMembersResponse struct
+// MessagesGetConversationMembersResponse struct.
 type MessagesGetConversationMembersResponse struct {
 	Items []struct {
 		MemberID  int                `json:"member_id"`
@@ -206,7 +206,7 @@ func (vk *VK) MessagesGetConversationMembers(params Params) (response MessagesGe
 	return
 }
 
-// MessagesGetConversationsResponse struct
+// MessagesGetConversationsResponse struct.
 type MessagesGetConversationsResponse struct {
 	Count       int                                      `json:"count"`
 	Items       []object.MessagesConversationWithMessage `json:"items"`
@@ -224,7 +224,7 @@ func (vk *VK) MessagesGetConversations(params Params) (response MessagesGetConve
 	return
 }
 
-// MessagesGetConversationsByIDResponse struct
+// MessagesGetConversationsByIDResponse struct.
 type MessagesGetConversationsByIDResponse struct {
 	Count int                           `json:"count"`
 	Items []object.MessagesConversation `json:"items"`
@@ -242,7 +242,7 @@ func (vk *VK) MessagesGetConversationsByID(params Params) (response MessagesGetC
 	return
 }
 
-// MessagesGetConversationsByIDExtendedResponse struct
+// MessagesGetConversationsByIDExtendedResponse struct.
 type MessagesGetConversationsByIDExtendedResponse struct {
 	Count int                           `json:"count"`
 	Items []object.MessagesConversation `json:"items"`
@@ -261,7 +261,7 @@ func (vk *VK) MessagesGetConversationsByIDExtended(params Params) (response Mess
 	return
 }
 
-// MessagesGetHistoryResponse struct
+// MessagesGetHistoryResponse struct.
 type MessagesGetHistoryResponse struct {
 	Count   int                      `json:"count"`
 	Items   []object.MessagesMessage `json:"items"`
@@ -277,7 +277,7 @@ func (vk *VK) MessagesGetHistory(params Params) (response MessagesGetHistoryResp
 	return
 }
 
-// MessagesGetHistoryAttachmentsResponse struct
+// MessagesGetHistoryAttachmentsResponse struct.
 type MessagesGetHistoryAttachmentsResponse struct {
 	Items    []object.MessagesHistoryAttachment `json:"items"`
 	NextFrom string                             `json:"next_from"`
@@ -291,7 +291,7 @@ func (vk *VK) MessagesGetHistoryAttachments(params Params) (response MessagesGet
 	return
 }
 
-// MessagesGetImportantMessagesResponse struct
+// MessagesGetImportantMessagesResponse struct.
 type MessagesGetImportantMessagesResponse struct {
 	Messages struct {
 		Count int                      `json:"count"`
@@ -302,7 +302,7 @@ type MessagesGetImportantMessagesResponse struct {
 	Conversations []object.MessagesConversation `json:"conversations"`
 }
 
-// MessagesGetImportantMessages messages.getImportantMessages
+// MessagesGetImportantMessages messages.getImportantMessages.
 //
 // https://vk.com/dev/messages.getImportantMessages
 func (vk *VK) MessagesGetImportantMessages(params Params) (response MessagesGetImportantMessagesResponse, err error) {
@@ -310,7 +310,7 @@ func (vk *VK) MessagesGetImportantMessages(params Params) (response MessagesGetI
 	return
 }
 
-// MessagesGetInviteLinkResponse struct
+// MessagesGetInviteLinkResponse struct.
 type MessagesGetInviteLinkResponse struct {
 	Link string `json:"link"`
 }
@@ -323,7 +323,7 @@ func (vk *VK) MessagesGetInviteLink(params Params) (response MessagesGetInviteLi
 	return
 }
 
-// MessagesGetLastActivityResponse struct
+// MessagesGetLastActivityResponse struct.
 type MessagesGetLastActivityResponse object.MessagesLastActivity
 
 // MessagesGetLastActivity returns a user's current status and date of last activity.
@@ -334,7 +334,7 @@ func (vk *VK) MessagesGetLastActivity(params Params) (response MessagesGetLastAc
 	return
 }
 
-// MessagesGetLongPollHistoryResponse struct
+// MessagesGetLongPollHistoryResponse struct.
 type MessagesGetLongPollHistoryResponse struct {
 	History  [][]int              `json:"history"`
 	Groups   []object.GroupsGroup `json:"groups"`
@@ -357,7 +357,7 @@ func (vk *VK) MessagesGetLongPollHistory(params Params) (response MessagesGetLon
 	return
 }
 
-// MessagesGetLongPollServerResponse struct
+// MessagesGetLongPollServerResponse struct.
 type MessagesGetLongPollServerResponse object.MessagesLongpollParams
 
 // MessagesGetLongPollServer returns data required for connection to a Long Poll server.
@@ -368,7 +368,7 @@ func (vk *VK) MessagesGetLongPollServer(params Params) (response MessagesGetLong
 	return
 }
 
-// MessagesIsMessagesFromGroupAllowedResponse struct
+// MessagesIsMessagesFromGroupAllowedResponse struct.
 type MessagesIsMessagesFromGroupAllowedResponse struct {
 	IsAllowed object.BaseBoolInt `json:"is_allowed"`
 }
@@ -382,7 +382,7 @@ func (vk *VK) MessagesIsMessagesFromGroupAllowed(params Params) (response Messag
 	return
 }
 
-// MessagesJoinChatByInviteLinkResponse struct
+// MessagesJoinChatByInviteLinkResponse struct.
 type MessagesJoinChatByInviteLinkResponse struct {
 	ChatID int `json:"chat_id"`
 }
@@ -395,7 +395,7 @@ func (vk *VK) MessagesJoinChatByInviteLink(params Params) (response MessagesJoin
 	return
 }
 
-// MessagesMarkAsAnsweredConversation messages.markAsAnsweredConversation
+// MessagesMarkAsAnsweredConversation messages.markAsAnsweredConversation.
 //
 // https://vk.com/dev/messages.markAsAnsweredConversation
 func (vk *VK) MessagesMarkAsAnsweredConversation(params Params) (response int, err error) {
@@ -403,7 +403,7 @@ func (vk *VK) MessagesMarkAsAnsweredConversation(params Params) (response int, e
 	return
 }
 
-// MessagesMarkAsImportantResponse struct
+// MessagesMarkAsImportantResponse struct.
 type MessagesMarkAsImportantResponse []int
 
 // MessagesMarkAsImportant marks and un marks messages as important (starred).
@@ -414,7 +414,7 @@ func (vk *VK) MessagesMarkAsImportant(params Params) (response MessagesMarkAsImp
 	return
 }
 
-// MessagesMarkAsImportantConversation messages.markAsImportantConversation
+// MessagesMarkAsImportantConversation messages.markAsImportantConversation.
 //
 // https://vk.com/dev/messages.markAsImportantConversation
 func (vk *VK) MessagesMarkAsImportantConversation(params Params) (response int, err error) {
@@ -430,10 +430,10 @@ func (vk *VK) MessagesMarkAsRead(params Params) (response int, err error) {
 	return
 }
 
-// MessagesPinResponse struct
+// MessagesPinResponse struct.
 type MessagesPinResponse object.MessagesMessage
 
-// MessagesPin messages.pin
+// MessagesPin messages.pin.
 //
 // https://vk.com/dev/messages.pin
 func (vk *VK) MessagesPin(params Params) (response MessagesPinResponse, err error) {
@@ -457,7 +457,7 @@ func (vk *VK) MessagesRestore(params Params) (response int, err error) {
 	return
 }
 
-// MessagesSearchResponse struct
+// MessagesSearchResponse struct.
 type MessagesSearchResponse struct {
 	Count         int                           `json:"count"`
 	Items         []object.MessagesMessage      `json:"items"`
@@ -474,7 +474,7 @@ func (vk *VK) MessagesSearch(params Params) (response MessagesSearchResponse, er
 	return
 }
 
-// MessagesSearchConversationsResponse struct
+// MessagesSearchConversationsResponse struct.
 type MessagesSearchConversationsResponse struct {
 	Count int                           `json:"count"`
 	Items []object.MessagesConversation `json:"items"`
@@ -489,7 +489,7 @@ func (vk *VK) MessagesSearchConversations(params Params) (response MessagesSearc
 	return
 }
 
-// MessagesSend Sends a message
+// MessagesSend Sends a message.
 //
 // https://vk.com/dev/messages.send
 func (vk *VK) MessagesSend(params Params) (response int, err error) {
@@ -499,7 +499,7 @@ func (vk *VK) MessagesSend(params Params) (response int, err error) {
 	return
 }
 
-// MessagesSendUserIDsResponse struct
+// MessagesSendUserIDsResponse struct.
 type MessagesSendUserIDsResponse []struct {
 	PeerID    int `json:"peer_id"`
 	MessageID int `json:"message_id"`
@@ -509,9 +509,9 @@ type MessagesSendUserIDsResponse []struct {
 	} `json:"error"`
 }
 
-// MessagesSendUserIDs Sends a message
+// MessagesSendUserIDs Sends a message.
 //
-// need user_ids
+// need user_ids;
 //
 // https://vk.com/dev/messages.send
 func (vk *VK) MessagesSendUserIDs(params Params) (response MessagesSendUserIDsResponse, err error) {
@@ -519,7 +519,7 @@ func (vk *VK) MessagesSendUserIDs(params Params) (response MessagesSendUserIDsRe
 	return
 }
 
-// MessagesSendSticker Sends a message
+// MessagesSendSticker Sends a message.
 //
 // https://vk.com/dev/messages.sendSticker
 func (vk *VK) MessagesSendSticker(params Params) (response int, err error) {
@@ -537,7 +537,7 @@ func (vk *VK) MessagesSetActivity(params Params) (response int, err error) {
 	return
 }
 
-// MessagesSetChatPhotoResponse struct
+// MessagesSetChatPhotoResponse struct.
 type MessagesSetChatPhotoResponse struct {
 	MessageID int                 `json:"message_id"`
 	Chat      object.MessagesChat `json:"chat"`
@@ -551,7 +551,7 @@ func (vk *VK) MessagesSetChatPhoto(params Params) (response MessagesSetChatPhoto
 	return
 }
 
-// MessagesUnpin messages.unpin
+// MessagesUnpin messages.unpin.
 //
 // https://vk.com/dev/messages.unpin
 func (vk *VK) MessagesUnpin(params Params) (response int, err error) {

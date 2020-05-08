@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 )
 
-// DocsAddBuilder builder
+// DocsAddBuilder builder.
 //
 // Copies a document to a user's or community's document list.
 //
@@ -13,7 +13,7 @@ type DocsAddBuilder struct {
 	api.Params
 }
 
-// NewDocsAddBuilder func
+// NewDocsAddBuilder func.
 func NewDocsAddBuilder() *DocsAddBuilder {
 	return &DocsAddBuilder{api.Params{}}
 }
@@ -36,7 +36,7 @@ func (b *DocsAddBuilder) AccessKey(v string) *DocsAddBuilder {
 	return b
 }
 
-// DocsDeleteBuilder builder
+// DocsDeleteBuilder builder.
 //
 // Deletes a user or community document.
 //
@@ -45,7 +45,7 @@ type DocsDeleteBuilder struct {
 	api.Params
 }
 
-// NewDocsDeleteBuilder func
+// NewDocsDeleteBuilder func.
 func NewDocsDeleteBuilder() *DocsDeleteBuilder {
 	return &DocsDeleteBuilder{api.Params{}}
 }
@@ -62,7 +62,7 @@ func (b *DocsDeleteBuilder) DocID(v int) *DocsDeleteBuilder {
 	return b
 }
 
-// DocsEditBuilder builder
+// DocsEditBuilder builder.
 //
 // Edits a document.
 //
@@ -71,7 +71,7 @@ type DocsEditBuilder struct {
 	api.Params
 }
 
-// NewDocsEditBuilder func
+// NewDocsEditBuilder func.
 func NewDocsEditBuilder() *DocsEditBuilder {
 	return &DocsEditBuilder{api.Params{}}
 }
@@ -100,7 +100,7 @@ func (b *DocsEditBuilder) Tags(v []string) *DocsEditBuilder {
 	return b
 }
 
-// DocsGetBuilder builder
+// DocsGetBuilder builder.
 //
 // Returns detailed information about user or community documents.
 //
@@ -109,7 +109,7 @@ type DocsGetBuilder struct {
 	api.Params
 }
 
-// NewDocsGetBuilder func
+// NewDocsGetBuilder func.
 func NewDocsGetBuilder() *DocsGetBuilder {
 	return &DocsGetBuilder{api.Params{}}
 }
@@ -126,7 +126,7 @@ func (b *DocsGetBuilder) Offset(v int) *DocsGetBuilder {
 	return b
 }
 
-// Type parameter
+// Type parameter.
 func (b *DocsGetBuilder) Type(v int) *DocsGetBuilder {
 	b.Params["type"] = v
 	return b
@@ -138,7 +138,7 @@ func (b *DocsGetBuilder) OwnerID(v int) *DocsGetBuilder {
 	return b
 }
 
-// DocsGetByIDBuilder builder
+// DocsGetByIDBuilder builder.
 //
 // Returns information about documents by their IDs.
 //
@@ -147,18 +147,18 @@ type DocsGetByIDBuilder struct {
 	api.Params
 }
 
-// NewDocsGetByIDBuilder func
+// NewDocsGetByIDBuilder func.
 func NewDocsGetByIDBuilder() *DocsGetByIDBuilder {
 	return &DocsGetByIDBuilder{api.Params{}}
 }
 
-// Docs Document IDs. Example: , "66748_91488,66748_91455",
+// Docs Document IDs. Example: , "66748_91488,66748_91455".
 func (b *DocsGetByIDBuilder) Docs(v []string) *DocsGetByIDBuilder {
 	b.Params["docs"] = v
 	return b
 }
 
-// DocsGetMessagesUploadServerBuilder builder
+// DocsGetMessagesUploadServerBuilder builder.
 //
 // Returns the server address for document upload.
 //
@@ -167,7 +167,7 @@ type DocsGetMessagesUploadServerBuilder struct {
 	api.Params
 }
 
-// NewDocsGetMessagesUploadServerBuilder func
+// NewDocsGetMessagesUploadServerBuilder func.
 func NewDocsGetMessagesUploadServerBuilder() *DocsGetMessagesUploadServerBuilder {
 	return &DocsGetMessagesUploadServerBuilder{api.Params{}}
 }
@@ -186,7 +186,7 @@ func (b *DocsGetMessagesUploadServerBuilder) PeerID(v int) *DocsGetMessagesUploa
 	return b
 }
 
-// DocsGetTypesBuilder builder
+// DocsGetTypesBuilder builder.
 //
 // Returns documents types available for current user.
 //
@@ -195,7 +195,7 @@ type DocsGetTypesBuilder struct {
 	api.Params
 }
 
-// NewDocsGetTypesBuilder func
+// NewDocsGetTypesBuilder func.
 func NewDocsGetTypesBuilder() *DocsGetTypesBuilder {
 	return &DocsGetTypesBuilder{api.Params{}}
 }
@@ -206,7 +206,7 @@ func (b *DocsGetTypesBuilder) OwnerID(v int) *DocsGetTypesBuilder {
 	return b
 }
 
-// DocsGetUploadServerBuilder builder
+// DocsGetUploadServerBuilder builder.
 //
 // Returns the server address for document upload.
 //
@@ -215,7 +215,7 @@ type DocsGetUploadServerBuilder struct {
 	api.Params
 }
 
-// NewDocsGetUploadServerBuilder func
+// NewDocsGetUploadServerBuilder func.
 func NewDocsGetUploadServerBuilder() *DocsGetUploadServerBuilder {
 	return &DocsGetUploadServerBuilder{api.Params{}}
 }
@@ -226,7 +226,7 @@ func (b *DocsGetUploadServerBuilder) GroupID(v int) *DocsGetUploadServerBuilder 
 	return b
 }
 
-// DocsGetWallUploadServerBuilder builder
+// DocsGetWallUploadServerBuilder builder.
 //
 // Returns the server address for document upload onto a user's or community's wall.
 //
@@ -235,7 +235,7 @@ type DocsGetWallUploadServerBuilder struct {
 	api.Params
 }
 
-// NewDocsGetWallUploadServerBuilder func
+// NewDocsGetWallUploadServerBuilder func.
 func NewDocsGetWallUploadServerBuilder() *DocsGetWallUploadServerBuilder {
 	return &DocsGetWallUploadServerBuilder{api.Params{}}
 }
@@ -246,7 +246,7 @@ func (b *DocsGetWallUploadServerBuilder) GroupID(v int) *DocsGetWallUploadServer
 	return b
 }
 
-// DocsSaveBuilder builder
+// DocsSaveBuilder builder.
 //
 // Saves a document after [vk.com/dev/upload_files_2|uploading it to a server].
 //
@@ -255,7 +255,7 @@ type DocsSaveBuilder struct {
 	api.Params
 }
 
-// NewDocsSaveBuilder func
+// NewDocsSaveBuilder func.
 func NewDocsSaveBuilder() *DocsSaveBuilder {
 	return &DocsSaveBuilder{api.Params{}}
 }
@@ -278,7 +278,7 @@ func (b *DocsSaveBuilder) Tags(v string) *DocsSaveBuilder {
 	return b
 }
 
-// DocsSearchBuilder builder
+// DocsSearchBuilder builder.
 //
 // Returns a list of documents matching the search criteria.
 //
@@ -287,7 +287,7 @@ type DocsSearchBuilder struct {
 	api.Params
 }
 
-// NewDocsSearchBuilder func
+// NewDocsSearchBuilder func.
 func NewDocsSearchBuilder() *DocsSearchBuilder {
 	return &DocsSearchBuilder{api.Params{}}
 }
@@ -298,7 +298,7 @@ func (b *DocsSearchBuilder) Q(v string) *DocsSearchBuilder {
 	return b
 }
 
-// SearchOwn parameter
+// SearchOwn parameter.
 func (b *DocsSearchBuilder) SearchOwn(v bool) *DocsSearchBuilder {
 	b.Params["search_own"] = v
 	return b
