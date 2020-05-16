@@ -886,7 +886,7 @@ func (vk *VK) UploadLeadFormsPhoto(file io.Reader) (response string, err error) 
 // UploadAppImage uploading a Image into App collection for community app widgets.
 func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.AppWidgetsImage, err error) {
 	uploadServer, err := vk.AppWidgetsGetAppImageUploadServer(Params{
-		"iamge_type": imageType,
+		"image_type": imageType,
 	})
 	if err != nil {
 		return
