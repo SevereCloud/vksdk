@@ -15,7 +15,7 @@ func TestVK_GiftsGet(t *testing.T) {
 	needUserToken(t)
 
 	res, err := vkUser.GiftsGet(api.Params{
-		"user_id": 1,
+		"user_id": vkUserID,
 		"count":   20,
 	})
 	noError(t, err)
