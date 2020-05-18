@@ -197,6 +197,7 @@ func TestAdsGetAdsTargetingBuilder(t *testing.T) {
 	b.IncludeDeleted(true)
 	b.Limit(1)
 	b.Offset(1)
+	b.OnlyDeleted(true)
 
 	assert.Equal(t, b.Params["account_id"], 1)
 	assert.Equal(t, b.Params["ad_ids"], "text")
@@ -205,6 +206,7 @@ func TestAdsGetAdsTargetingBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["include_deleted"], true)
 	assert.Equal(t, b.Params["limit"], 1)
 	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, b.Params["only_deleted"], true)
 }
 
 func TestAdsGetBudgetBuilder(t *testing.T) {
