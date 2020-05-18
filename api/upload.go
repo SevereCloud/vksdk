@@ -892,7 +892,7 @@ func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.
 		return
 	}
 
-	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "image", "photo.jpeg")
 	if err != nil {
 		return
 	}
@@ -915,13 +915,13 @@ func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.
 // UploadGroupImage uploading a Image into Community collection for community app widgets.
 func (vk *VK) UploadGroupImage(imageType string, file io.Reader) (response object.AppWidgetsImage, err error) {
 	uploadServer, err := vk.AppWidgetsGetGroupImageUploadServer(Params{
-		"iamge_type": imageType,
+		"image_type": imageType,
 	})
 	if err != nil {
 		return
 	}
 
-	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "photo", "photo.jpeg")
+	bodyContent, err := vk.UploadFile(uploadServer.UploadURL, file, "image", "photo.jpeg")
 	if err != nil {
 		return
 	}
