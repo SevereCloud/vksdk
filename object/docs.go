@@ -38,6 +38,36 @@ type DocsDocPreviewPhoto struct {
 	Sizes []DocsDocPreviewPhotoSizes `json:"sizes"`
 }
 
+// MaxSize return the largest DocsDocPreviewPhotoSizes.
+func (photo DocsDocPreviewPhoto) MaxSize() (maxPhotoSize DocsDocPreviewPhotoSizes) {
+	var max float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size > max {
+			max = size
+			maxPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
+// MinSize return the smallest DocsDocPreviewPhotoSizes.
+func (photo DocsDocPreviewPhoto) MinSize() (minPhotoSize DocsDocPreviewPhotoSizes) {
+	var min float64
+
+	for _, photoSize := range photo.Sizes {
+		size := photoSize.Height * photoSize.Width
+		if size < min || min == 0 {
+			min = size
+			minPhotoSize = photoSize
+		}
+	}
+
+	return
+}
+
 // DocsDocPreviewPhotoSizes struct.
 type DocsDocPreviewPhotoSizes struct {
 	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field DocsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type Int
