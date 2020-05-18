@@ -72,6 +72,14 @@ func needServiceToken(t *testing.T) {
 	}
 }
 
+func needWidgetToken(t *testing.T) {
+	t.Helper()
+
+	if vkWidget.AccessToken == "" {
+		t.Skip("WIDGET_TOKEN empty")
+	}
+}
+
 func needChatID(t *testing.T) int {
 	mux.Lock()
 	defer mux.Unlock()
@@ -93,9 +101,9 @@ func needChatID(t *testing.T) int {
 	return vkChatID
 }
 
-var vkGroup, vkService, vkUser *api.VK // nolint:gochecknoglobals
-var vkUserID, vkGroupID, vkChatID int  // nolint:gochecknoglobals
-var mux sync.Mutex                     // nolint:gochecknoglobals
+var vkGroup, vkService, vkUser, vkWidget *api.VK // nolint:gochecknoglobals
+var vkUserID, vkGroupID, vkChatID int            // nolint:gochecknoglobals
+var mux sync.Mutex                               // nolint:gochecknoglobals
 
 func TestMain(m *testing.M) {
 	vkGroup = api.NewVK(os.Getenv("GROUP_TOKEN"))
@@ -108,6 +116,7 @@ func TestMain(m *testing.M) {
 		vkGroupID = group[0].ID
 	}
 
+	vkWidget = api.NewVK(os.Getenv("WIDGET_TOKEN"))
 	vkService = api.NewVK(os.Getenv("SERVICE_TOKEN"))
 	vkService.Limit = 3
 	vkUser = api.NewVK(os.Getenv("USER_TOKEN"))

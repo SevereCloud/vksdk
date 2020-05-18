@@ -38,6 +38,7 @@ golangci-lint run
 # GROUP_TOKEN=""
 # CLIENT_SECRET=""
 # USER_TOKEN=""
+# WIDGET_TOKEN=""
 # CLIENT_ID="123456"
 # GROUP_ID="123456"
 go test ./...
@@ -46,6 +47,22 @@ go test ./...
 Задавать токены не обязательно - тесты с их использованием будут пропущены. 
 **Не** рекомендуется задавать свой `USER_TOKEN`, так как тесты делают много 
 страшных вещей.
+
+Настройки для VSCode `.vscode/setting.json`
+
+```json
+{
+    "go.testEnvVars": {
+        "SERVICE_TOKEN": "",
+        "WIDGET_TOKEN": "",
+        "GROUP_TOKEN": "",
+        "CLIENT_SECRET": "",
+        "USER_TOKEN": "",
+        "CLIENT_ID": "123456",
+        "GROUP_ID": "123456"
+    } 
+}
+```
 
 ## Создание коммита
 

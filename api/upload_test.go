@@ -12,7 +12,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-const photoURL = "https://sun9-17.userapi.com/c853620/v853620933/dedb8/_5CIRVR-UA8.jpg"
+const (
+	photoURL        = "https://sun9-17.userapi.com/c853620/v853620933/dedb8/_5CIRVR-UA8.jpg"
+	photo480x480URL = "https://sun9-64.userapi.com/6MiMozkfYIEYi9p_GSdUUHNNV_H-D84aNLSabQ/59Rpw9oZq3M.jpg"
+)
 
 func TestVK_UploadFile(t *testing.T) {
 	t.Parallel()
@@ -521,31 +524,30 @@ func TestVK_UploadAppImage(t *testing.T) {
 	t.Parallel()
 
 	t.Skip("Access denied: method available only for community applications")
-	needServiceToken(t)
+	needWidgetToken(t)
 
-	response, err := http.Get(photoURL)
+	response, err := http.Get(photo480x480URL)
 	if err != nil {
 		t.Fatalf("%v", err)
 	}
 	defer response.Body.Close()
 
-	_, err = vkService.UploadAppImage("160x160", response.Body)
+	_, err = vkWidget.UploadAppImage("160x160", response.Body)
 	noError(t, err)
 }
 
 func TestVK_UploadGroupImage(t *testing.T) {
 	t.Parallel()
 
-	t.Skip("Access rights required: app_widget.")
-	needGroupToken(t)
+	needWidgetToken(t)
 
-	response, err := http.Get(photoURL)
+	response, err := http.Get(photo480x480URL)
 	if err != nil {
 		t.Fatalf("%v", err)
 	}
 	defer response.Body.Close()
 
-	_, err = vkGroup.UploadGroupImage("160x160", response.Body)
+	_, err = vkWidget.UploadGroupImage("160x160", response.Body)
 	noError(t, err)
 }
 
