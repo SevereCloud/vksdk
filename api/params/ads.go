@@ -497,6 +497,14 @@ func (b *AdsGetAdsTargetingBuilder) IncludeDeleted(v bool) *AdsGetAdsTargetingBu
 	return b
 }
 
+// OnlyDeleted parameter.
+//
+// TODO: write documentation.
+func (b *AdsGetAdsTargetingBuilder) OnlyDeleted(v bool) *AdsGetAdsTargetingBuilder {
+	b.Params["only_deleted"] = v
+	return b
+}
+
 // Limit Limit of number of returned ads. Used only if 'ad_ids' parameter is null, and 'campaign_ids' parameter
 // contains ID of only one campaign.
 func (b *AdsGetAdsTargetingBuilder) Limit(v int) *AdsGetAdsTargetingBuilder {
