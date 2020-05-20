@@ -212,6 +212,7 @@ const (
 	WallLinksForbidden      ErrorType = 222 // Hyperlinks are forbidden
 	WallReplyOwnerFlood     ErrorType = 223 // Too many replies
 	WallAdsPostLimitReached ErrorType = 224 // Too many ads posts
+	DonutDisabled           ErrorType = 225 // Donut is disabled
 	PollsAccess             ErrorType = 250 // Access to poll denied
 	PollsAnswerID           ErrorType = 252 // Invalid answer id
 	PollsPollID             ErrorType = 251 // Invalid poll id
