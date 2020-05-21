@@ -400,6 +400,54 @@ func (b *StoriesHideReplyBuilder) StoryID(v int) *StoriesHideReplyBuilder {
 	return b
 }
 
+// StoriesSendInteractionBuilder builder.
+//
+// Sends feedback to the story.
+//
+// https://vk.com/dev/stories.sendInteraction
+type StoriesSendInteractionBuilder struct {
+	api.Params
+}
+
+// NewStoriesSendInteractionBuilder func.
+func NewStoriesSendInteractionBuilder() *StoriesSendInteractionBuilder {
+	return &StoriesSendInteractionBuilder{api.Params{}}
+}
+
+// AccessKey parameter.
+//
+// required parameter.
+func (b *StoriesSendInteractionBuilder) AccessKey(v string) *StoriesSendInteractionBuilder {
+	b.Params["access_key"] = v
+	return b
+}
+
+// Message feedback text.
+//
+// maximum length 1000.
+func (b *StoriesSendInteractionBuilder) Message(v string) *StoriesSendInteractionBuilder {
+	b.Params["message"] = v
+	return b
+}
+
+// IsBroadcast parameter.
+func (b *StoriesSendInteractionBuilder) IsBroadcast(v bool) *StoriesSendInteractionBuilder {
+	b.Params["is_broadcast"] = v
+	return b
+}
+
+// IsAnonymous author of the feedback is anonymous.
+func (b *StoriesSendInteractionBuilder) IsAnonymous(v bool) *StoriesSendInteractionBuilder {
+	b.Params["is_anonymous"] = v
+	return b
+}
+
+// UnseenMarker parameter.
+func (b *StoriesSendInteractionBuilder) UnseenMarker(v bool) *StoriesSendInteractionBuilder {
+	b.Params["unseen_marker"] = v
+	return b
+}
+
 // StoriesUnbanOwnerBuilder builder.
 //
 // Allows to show stories from hidden sources in current user's feed.

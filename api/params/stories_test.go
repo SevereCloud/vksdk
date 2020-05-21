@@ -188,3 +188,21 @@ func TestStoriesUnbanOwnerBuilder(t *testing.T) {
 
 	assert.Equal(t, b.Params["owners_ids"], []int{1})
 }
+
+func TestStoriesSendInteractionBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewStoriesSendInteractionBuilder()
+
+	b.AccessKey("text")
+	b.Message("text")
+	b.IsBroadcast(true)
+	b.IsAnonymous(true)
+	b.UnseenMarker(true)
+
+	assert.Equal(t, b.Params["access_key"], "text")
+	assert.Equal(t, b.Params["message"], "text")
+	assert.Equal(t, b.Params["is_broadcast"], true)
+	assert.Equal(t, b.Params["is_anonymous"], true)
+	assert.Equal(t, b.Params["unseen_marker"], true)
+}

@@ -297,6 +297,17 @@ func (vk *VK) StoriesSearchExtended(params Params) (response StoriesSearchExtend
 	return
 }
 
+// StoriesSendInteraction sends feedback to the story.
+//
+// Available for applications with type VK Mini Apps. The default method is
+// not available to applications.
+//
+// https://vk.com/dev/stories.sendInteraction
+func (vk *VK) StoriesSendInteraction(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("stories.sendInteraction", params, &response)
+	return
+}
+
 // StoriesUnbanOwner allows to show stories from hidden sources in current user's feed.
 //
 // https://vk.com/dev/stories.unbanOwner
