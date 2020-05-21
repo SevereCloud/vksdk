@@ -1409,8 +1409,18 @@ func (b *MessagesSendBuilder) DisableMentions(v bool) *MessagesSendBuilder {
 }
 
 // Intent parameter.
+//
+// https://vk.com/dev/bots_docs_4
 func (b *MessagesSendBuilder) Intent(v string) *MessagesSendBuilder {
 	b.Params["intent"] = v
+	return b
+}
+
+// SubscribeID parameter.
+//
+// TODO: write subscribe_id documentation.
+func (b *MessagesSendBuilder) SubscribeID(v int) *MessagesSendBuilder {
+	b.Params["subscribe_id"] = v
 	return b
 }
 

@@ -545,6 +545,7 @@ func TestMessagesSendBuilder(t *testing.T) {
 	b.DontParseLinks(true)
 	b.DisableMentions(true)
 	b.Intent("text")
+	b.SubscribeID(1)
 
 	assert.Equal(t, b.Params["user_id"], 1)
 	assert.Equal(t, b.Params["random_id"], 1)
@@ -567,6 +568,7 @@ func TestMessagesSendBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["dont_parse_links"], true)
 	assert.Equal(t, b.Params["disable_mentions"], true)
 	assert.Equal(t, b.Params["intent"], "text")
+	assert.Equal(t, b.Params["subscribe_id"], 1)
 }
 
 func TestMessagesSetActivityBuilder(t *testing.T) {
