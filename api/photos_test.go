@@ -98,27 +98,27 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 	needUserToken(t)
 
 	commentID, err := vkUser.PhotosCreateComment(api.Params{
-		"owner_id": 233157978,
-		"photo_id": 456250946,
+		"owner_id": 540042353,
+		"photo_id": 457242463,
 		"message":  "Test photo comment",
 	})
 	noError(t, err)
 
 	_, err = vkUser.PhotosEditComment(api.Params{
-		"owner_id":   233157978,
+		"owner_id":   540042353,
 		"comment_id": commentID,
 		"message":    "Test photo comment edited",
 	})
 	noError(t, err)
 
 	_, err = vkUser.PhotosDeleteComment(api.Params{
-		"owner_id":   233157978,
+		"owner_id":   540042353,
 		"comment_id": commentID,
 	})
 	noError(t, err)
 
 	_, err = vkUser.PhotosRestoreComment(api.Params{
-		"owner_id":   233157978,
+		"owner_id":   540042353,
 		"comment_id": commentID,
 	})
 	noError(t, err)
