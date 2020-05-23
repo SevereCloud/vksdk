@@ -121,6 +121,7 @@ const (
 	EventLeadFormsNew         = "lead_forms_new"
 	EventAppPayload           = "app_payload"
 	EventMessageRead          = "message_read"
+	EventLikeAdd              = "like_add"
 )
 
 // GroupEvent struct.

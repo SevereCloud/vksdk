@@ -430,3 +430,15 @@ type MessageReadObject struct {
 	PeerID        int `json:"peer_id"`
 	ReadMessageID int `json:"read_message_id"`
 }
+
+// LikeAddFunc func.
+type LikeAddFunc func(LikeAddObject, int)
+
+// LikeAddObject struct.
+type LikeAddObject struct {
+	LikerID       int    `json:"like_id"`
+	ObjectType    string `json:"object_type"`
+	ObjectOwnerID int    `json:"object_owner_id"`
+	ObjectID      int    `json:"object_id"`
+	ThreadReplyID int    `json:"thread_reply_id"`
+}

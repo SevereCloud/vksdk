@@ -56,6 +56,7 @@ type FuncList struct {
 	leadFormsNew         []object.LeadFormsNewFunc
 	appPayload           []object.AppPayloadFunc
 	messageRead          []object.MessageReadFunc
+	likeAdd              []object.LikeAddFunc
 	special              map[string][]func(object.GroupEvent)
 }
 
@@ -462,8 +463,17 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.messageRead {
 			f(obj, e.GroupID)
 		}
+	case object.EventLikeAdd:
+		var obj object.LikeAddObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.likeAdd {
+			f(obj, e.GroupID)
+		}
 	}
-	// NOTE: like_add like_remove
+
 	return nil
 }
 
@@ -691,4 +701,7 @@ func (fl *FuncList) MessageRead(f object.MessageReadFunc) {
 	fl.messageRead = append(fl.messageRead, f)
 }
 
-// NOTE: like_add like_remove
+// LikeAdd handler.
+func (fl *FuncList) LikeAdd(f object.LikeAddFunc) {
+	fl.likeAdd = append(fl.likeAdd, f)
+}
