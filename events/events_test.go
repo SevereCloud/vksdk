@@ -1432,6 +1432,38 @@ func TestFuncList_HandlerLikeAdd(t *testing.T) {
 	)
 }
 
+func TestFuncList_HandlerLikeRemove(t *testing.T) {
+	t.Parallel()
+
+	fl := events.NewFuncList()
+
+	fl.LikeRemove(func(obj object.LikeRemoveObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
+
+	f := func(e object.GroupEvent, wantErr bool) {
+		if err := fl.Handler(e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		object.GroupEvent{
+			Type:    "like_remove",
+			Object:  []byte(`{"liker_id": 574423462,"object_type": "photo","object_owner_id": -178044536,"object_id": 457242474,"thread_reply_id": 0}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		object.GroupEvent{
+			Type:   "like_remove",
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
 func TestFuncList_OnEvent(t *testing.T) {
 	t.Parallel()
 

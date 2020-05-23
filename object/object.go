@@ -122,6 +122,7 @@ const (
 	EventAppPayload           = "app_payload"
 	EventMessageRead          = "message_read"
 	EventLikeAdd              = "like_add"
+	EventLikeRemove           = "like_remove"
 )
 
 // GroupEvent struct.

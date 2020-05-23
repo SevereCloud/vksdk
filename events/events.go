@@ -57,6 +57,7 @@ type FuncList struct {
 	appPayload           []object.AppPayloadFunc
 	messageRead          []object.MessageReadFunc
 	likeAdd              []object.LikeAddFunc
+	likeRemove           []object.LikeRemoveFunc
 	special              map[string][]func(object.GroupEvent)
 }
 
@@ -472,6 +473,15 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		for _, f := range fl.likeAdd {
 			f(obj, e.GroupID)
 		}
+	case object.EventLikeRemove:
+		var obj object.LikeRemoveObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.likeRemove {
+			f(obj, e.GroupID)
+		}
 	}
 
 	return nil
@@ -704,4 +714,9 @@ func (fl *FuncList) MessageRead(f object.MessageReadFunc) {
 // LikeAdd handler.
 func (fl *FuncList) LikeAdd(f object.LikeAddFunc) {
 	fl.likeAdd = append(fl.likeAdd, f)
+}
+
+// LikeRemove handler.
+func (fl *FuncList) LikeRemove(f object.LikeRemoveFunc) {
+	fl.likeRemove = append(fl.likeRemove, f)
 }
