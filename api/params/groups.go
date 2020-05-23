@@ -2174,6 +2174,18 @@ func (b *GroupsSetCallbackSettingsBuilder) LeadFormsNew(v bool) *GroupsSetCallba
 	return b
 }
 
+// LikeAdd New "I like" mark.
+func (b *GroupsSetCallbackSettingsBuilder) LikeAdd(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["like_add"] = v
+	return b
+}
+
+// LikeRemove Remove "I like" mark.
+func (b *GroupsSetCallbackSettingsBuilder) LikeRemove(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["like_remove"] = v
+	return b
+}
+
 // GroupsSetLongPollSettingsBuilder builder.
 //
 // Sets Long Poll notification settings.
@@ -2437,6 +2449,18 @@ func (b *GroupsSetLongPollSettingsBuilder) UserBlock(v bool) *GroupsSetLongPollS
 // UserUnblock User removed from community blacklist.
 func (b *GroupsSetLongPollSettingsBuilder) UserUnblock(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["user_unblock"] = v
+	return b
+}
+
+// LikeAdd New "I like" mark.
+func (b *GroupsSetLongPollSettingsBuilder) LikeAdd(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["like_add"] = v
+	return b
+}
+
+// LikeRemove Remove "I like" mark.
+func (b *GroupsSetLongPollSettingsBuilder) LikeRemove(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["like_remove"] = v
 	return b
 }
 

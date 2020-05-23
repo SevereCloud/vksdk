@@ -733,6 +733,8 @@ func TestGroupsSetCallbackSettingsBuilder(t *testing.T) {
 	b.UserBlock(true)
 	b.UserUnblock(true)
 	b.LeadFormsNew(true)
+	b.LikeAdd(true)
+	b.LikeRemove(true)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 	assert.Equal(t, b.Params["server_id"], 1)
@@ -777,6 +779,8 @@ func TestGroupsSetCallbackSettingsBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["user_block"], true)
 	assert.Equal(t, b.Params["user_unblock"], true)
 	assert.Equal(t, b.Params["lead_forms_new"], true)
+	assert.Equal(t, b.Params["like_add"], true)
+	assert.Equal(t, b.Params["like_remove"], true)
 }
 
 func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
@@ -826,6 +830,8 @@ func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
 	b.GroupOfficersEdit(true)
 	b.UserBlock(true)
 	b.UserUnblock(true)
+	b.LikeAdd(true)
+	b.LikeRemove(true)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 	assert.Equal(t, b.Params["enabled"], true)
@@ -869,6 +875,8 @@ func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["group_officers_edit"], true)
 	assert.Equal(t, b.Params["user_block"], true)
 	assert.Equal(t, b.Params["user_unblock"], true)
+	assert.Equal(t, b.Params["like_add"], true)
+	assert.Equal(t, b.Params["like_remove"], true)
 }
 
 func TestGroupsUnbanBuilder(t *testing.T) {
