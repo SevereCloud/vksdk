@@ -588,7 +588,6 @@ type GroupsLongPollEvents struct {
 	UserBlock            BaseBoolInt `json:"user_block"`
 	UserUnblock          BaseBoolInt `json:"user_unblock"`
 	MessageEdit          BaseBoolInt `json:"message_edit"`
-	MessagesEdit         BaseBoolInt `json:"messages_edit"` // BUG(VK): https://vk.com/bugtracker?act=show&id=86762
 	MessageTypingState   BaseBoolInt `json:"message_typing_state"`
 	LeadFormsNew         BaseBoolInt `json:"lead_forms_new"`
 	LikeAdd              BaseBoolInt `json:"like_add"`
@@ -596,6 +595,14 @@ type GroupsLongPollEvents struct {
 	VkpayTransaction     BaseBoolInt `json:"vkpay_transaction"`
 	AppPayload           BaseBoolInt `json:"app_payload"`
 	MessageRead          BaseBoolInt `json:"message_read"`
+
+	// Bugs
+	//
+	// TODO: v2 comment out
+	MessagesEdit  BaseBoolInt `json:"messages_edit"` // BUG(VK): https://vk.com/bugtracker?act=show&id=86762
+	WallNew       BaseBoolInt `json:"wall_new"`
+	WallNewReply  BaseBoolInt `json:"wall_new_reply"`
+	WallEditReply BaseBoolInt `json:"wall_edit_reply"`
 }
 
 // GroupsLongPollServer struct.
