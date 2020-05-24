@@ -2,6 +2,7 @@ package api_test
 
 import (
 	"testing"
+	"time"
 
 	"github.com/SevereCloud/vksdk/api/errors"
 
@@ -37,6 +38,8 @@ func TestVK_MessagesDelete(t *testing.T) {
 	})
 	noError(t, err)
 
+	time.Sleep(time.Second)
+
 	_, err = vkUser.MessagesEdit(api.Params{
 		"peer_id":    2000000000 + chatID,
 		"message_id": msgID,
@@ -56,6 +59,8 @@ func TestVK_MessagesDelete(t *testing.T) {
 	assert.NotEmpty(t, pin.Text)
 	assert.NotEmpty(t, pin.ConversationMessageID)
 	assert.NotEmpty(t, pin.Keyboard)
+
+	time.Sleep(time.Second)
 
 	_, err = vkUser.MessagesUnpin(api.Params{
 		"peer_id": 2000000000 + chatID,
@@ -96,6 +101,8 @@ func TestVK_MessagesDelete(t *testing.T) {
 		"message_ids": msgID,
 	})
 	noError(t, err)
+
+	time.Sleep(time.Second)
 
 	_, err = vkUser.MessagesRestore(api.Params{
 		"message_id": msgID,
