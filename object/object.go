@@ -355,6 +355,7 @@ type Article struct {
 	State         string      `json:"state"`
 	CanReport     BaseBoolInt `json:"can_report"`
 	IsFavorite    BaseBoolInt `json:"is_favorite"`
+	NoFooter      BaseBoolInt `json:"no_footer"`
 	Title         string      `json:"title"`
 	Subtitle      string      `json:"subtitle"`
 	Views         int         `json:"views"`
