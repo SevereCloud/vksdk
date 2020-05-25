@@ -167,6 +167,7 @@ type GroupsGroup struct {
 	Wall                 int                  `json:"wall"`
 	ActionButton         GroupsActionButton   `json:"action_button"`
 	TrackCode            string               `json:"string"`
+	PublicDateLabel      string               `json:"public_date_label"`
 }
 
 // ToMention return mention.
