@@ -283,9 +283,9 @@ type GroupsGroupLink struct {
 
 // GroupsGroupPublicCategoryList struct.
 type GroupsGroupPublicCategoryList struct {
-	ID           int                       `json:"id"`
-	Name         string                    `json:"name"`
-	SubtypesList []GroupsGroupCategoryType `json:"subtypes_list"`
+	ID            int                       `json:"id"`
+	Name          string                    `json:"name"`
+	Subcategories []GroupsGroupCategoryType `json:"subcategories"`
 }
 
 // GroupsGroupSettings Photos type.
