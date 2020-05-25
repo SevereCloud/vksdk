@@ -345,6 +345,7 @@ type MessagesGetLongPollHistoryResponse struct {
 	Profiles []object.UsersUser `json:"profiles"`
 	// Chats struct {} `json:"chats"`
 	NewPTS        int                           `json:"new_pts"`
+	FromPTS       int                           `json:"from_pts"`
 	More          object.BaseBoolInt            `json:"chats"`
 	Conversations []object.MessagesConversation `json:"conversations"`
 }
