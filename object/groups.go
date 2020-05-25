@@ -166,6 +166,7 @@ type GroupsGroup struct {
 	CropPhoto            UsersCropPhoto       `json:"crop_photo"`
 	Wall                 int                  `json:"wall"`
 	ActionButton         GroupsActionButton   `json:"action_button"`
+	TrackCode            string               `json:"string"`
 }
 
 // ToMention return mention.
