@@ -27,10 +27,11 @@ type VideoVideo struct {
 	Files             VideoVideoFiles   `json:"files"`
 	FirstFrame        []VideoVideoImage `json:"first_frame"`
 	Image             []VideoVideoImage `json:"image"`
-	Height            int               `json:"height"`     // Video height
-	ID                int               `json:"id"`         // Video ID
-	Live              int               `json:"live"`       // Returns if the video is a live stream
-	OwnerID           int               `json:"owner_id"`   // Video owner ID
+	Height            int               `json:"height"`   // Video height
+	ID                int               `json:"id"`       // Video ID
+	Live              int               `json:"live"`     // Returns if the video is a live stream
+	OwnerID           int               `json:"owner_id"` // Video owner ID
+	UserID            int               `json:"user_id"`
 	Photo130          string            `json:"photo_130"`  // URL of the preview image with 130 px in width
 	Photo320          string            `json:"photo_320"`  // URL of the preview image with 320 px in width
 	Photo640          string            `json:"photo_640"`  // URL of the preview image with 640 px in width
@@ -96,6 +97,8 @@ type VideoVideoFiles struct {
 	Mp4_360  string `json:"mp4_360"`  // URL of the mpeg4 file with 360p quality
 	Mp4_480  string `json:"mp4_480"`  // URL of the mpeg4 file with 480p quality
 	Mp4_720  string `json:"mp4_720"`  // URL of the mpeg4 file with 720p quality
+	Live     string `json:"live"`
+	HLS      string `json:"hls"`
 }
 
 // VideoCatBlock struct.
