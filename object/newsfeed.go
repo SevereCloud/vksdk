@@ -150,9 +150,11 @@ type NewsfeedNewsfeedItem struct {
 	NewsfeedItemDigest
 	NewsfeedItemStoriesBlock
 
-	CreatedBy int         `json:"created_by,omitempty"`
-	CanEdit   BaseBoolInt `json:"can_edit,omitempty"`
-	CanDelete BaseBoolInt `json:"can_delete,omitempty"`
+	CreatedBy        int         `json:"created_by,omitempty"`
+	CanEdit          BaseBoolInt `json:"can_edit,omitempty"`
+	CanDelete        BaseBoolInt `json:"can_delete,omitempty"`
+	CanDoubtCategory BaseBoolInt `json:"can_doubt_category"`
+	CanSetCategory   BaseBoolInt `json:"can_set_category"`
 	// TODO: Need more fields
 }
 
