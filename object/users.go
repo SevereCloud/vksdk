@@ -118,6 +118,7 @@ type UsersUser struct {
 	FoundWith              int                   `json:"found_with"` // TODO: check it
 	OnlineInfo             UsersOnlineInfo       `json:"online_info"`
 	Mutual                 FriendsRequestsMutual `json:"mutual"`
+	TrackCode              string                `json:"track_code"`
 }
 
 // ToMention return mention.
