@@ -18,6 +18,7 @@ type DocsDoc struct {
 	Type       int            `json:"type"`  // Document type
 	URL        string         `json:"url"`   // File URL
 	DocsDocPreviewAudioMessage
+	DocsDocPreviewGraffiti
 }
 
 // ToAttachment return attachment format.
