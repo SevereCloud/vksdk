@@ -34,6 +34,7 @@ type PhotosPhoto struct {
 	ThumbSrc           string             `json:"thumb_src"`
 	Title              string             `json:"title"`
 	Updated            int                `json:"updated"`
+	Color              string             `json:"color"`
 }
 
 // ToAttachment return attachment format.
