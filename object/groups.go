@@ -127,7 +127,7 @@ type GroupsGroup struct {
 	IsAdvertiser         BaseBoolInt          `json:"is_advertiser"`          // Information whether current user is advertiser
 	IsMember             BaseBoolInt          `json:"is_member"`              // Information whether current user is member
 	IsFavorite           BaseBoolInt          `json:"is_favorite"`            // Information whether community is in faves
-	IsAdult              BaseBoolInt          `json:"adult"`                  // Information whether community is adult
+	IsAdult              BaseBoolInt          `json:"is_adult"`               // Information whether community is adult
 	IsSubscribed         BaseBoolInt          `json:"is_subscribed"`          // Information whether current user is subscribed
 	CanPost              BaseBoolInt          `json:"can_post"`               // Information whether current user can post on community's wall
 	CanSeeAllPosts       BaseBoolInt          `json:"can_see_all_posts"`      // Information whether current user can see all posts on community's wall
