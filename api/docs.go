@@ -108,7 +108,7 @@ func (vk *VK) DocsGetWallUploadServer(params Params) (response DocsGetWallUpload
 
 // DocsSaveResponse struct.
 type DocsSaveResponse struct {
-	Type         string                      `json:"string"`
+	Type         string                      `json:"type"`
 	AudioMessage object.MessagesAudioMessage `json:"audio_message"`
 	Doc          object.DocsDoc              `json:"doc"`
 	Graffiti     object.MessagesGraffiti     `json:"graffiti"`
