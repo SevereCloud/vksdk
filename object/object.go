@@ -241,6 +241,7 @@ type BaseLink struct {
 	Product     BaseLinkProduct     `json:"product"`
 	Rating      BaseLinkRating      `json:"rating"`
 	Title       string              `json:"title"`
+	Target      string              `json:"target"`
 	URL         string              `json:"url"`
 	IsFavorite  BaseBoolInt         `json:"is_favorite"`
 }
