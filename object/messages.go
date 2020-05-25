@@ -386,6 +386,7 @@ type MessagesDialog struct {
 type MessagesHistoryAttachment struct {
 	Attachment MessagesHistoryMessageAttachment `json:"attachment"`
 	MessageID  int                              `json:"message_id"` // Message ID
+	FromID     int                              `json:"from_id"`
 }
 
 // MessagesHistoryMessageAttachment struct.
