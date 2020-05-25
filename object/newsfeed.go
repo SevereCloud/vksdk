@@ -109,6 +109,7 @@ type NewsfeedItemWallpost struct {
 	Activity    NewsfeedEventActivity    `json:"activity"`
 	Attachments []WallWallpostAttachment `json:"attachments"`
 	Comments    BaseCommentsInfo         `json:"comments"`
+	FromID      int                      `json:"from_id"`
 	CopyHistory []WallWallpost           `json:"copy_history"`
 	Geo         BaseGeo                  `json:"geo"`
 	Likes       BaseLikesInfo            `json:"likes"`
