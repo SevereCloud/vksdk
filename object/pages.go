@@ -29,6 +29,7 @@ type PagesWikipageFull struct {
 	CurrentUserCanEditAccess BaseBoolInt `json:"current_user_can_edit_access"` // Information whether current user can edit the page access settings
 	Edited                   int         `json:"edited"`                       // Date when the page has been edited in Unixtime
 	EditorID                 int         `json:"editor_id"`                    // Last editor ID
+	PageID                   int         `json:"page_id"`                      // Page ID
 	GroupID                  int         `json:"group_id"`                     // Community ID
 	HTML                     string      `json:"html"`                         // Page content, HTML
 	ID                       int         `json:"id"`                           // Page ID
