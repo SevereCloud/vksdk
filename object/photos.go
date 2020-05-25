@@ -23,6 +23,7 @@ type PhotosPhoto struct {
 	CommentsDisabled   BaseBoolInt        `json:"comments_disabled"`
 	ThumbIsLast        BaseBoolInt        `json:"thumb_is_last"`
 	UploadByAdminsOnly BaseBoolInt        `json:"upload_by_admins_only"`
+	HasTags            BaseBoolInt        `json:"has_tags"`
 	Created            int                `json:"created"`
 	Description        string             `json:"description"`
 	PrivacyComment     []string           `json:"privacy_comment"`
