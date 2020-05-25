@@ -143,6 +143,7 @@ type GroupsGroup struct {
 	CanSubscribePosts    BaseBoolInt          `json:"can_subscribe_posts"`    // Can subscribe to wall
 	HasMarketApp         BaseBoolInt          `json:"has_market_app"`         // Information whether community has market app
 	IsHiddenFromFeed     BaseBoolInt          `json:"is_hidden_from_feed"`
+	IsMarketCartEnabled  BaseBoolInt          `json:"is_market_cart_enabled"`
 	Verified             BaseBoolInt          `json:"verified"`      // Information whether community is verified
 	Trending             BaseBoolInt          `json:"trending"`      // Information whether the community has a fire pictogram.
 	Description          string               `json:"description"`   // Community description
@@ -168,6 +169,8 @@ type GroupsGroup struct {
 	ActionButton         GroupsActionButton   `json:"action_button"`
 	TrackCode            string               `json:"string"`
 	PublicDateLabel      string               `json:"public_date_label"`
+	AuthorID             int                  `json:"author_id"`
+	Phone                string               `json:"phone"`
 }
 
 // ToMention return mention.
