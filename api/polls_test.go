@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_PollsCreate(t *testing.T) {
@@ -46,8 +47,20 @@ func TestVK_PollsGetBackgrounds(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.PollsGetBackgrounds(api.Params{})
+	res, err := vkUser.PollsGetBackgrounds(api.Params{})
 	noError(t, err)
+
+	if assert.NotEmpty(t, res) {
+		assert.NotEmpty(t, res[0].Angle)
+		assert.NotEmpty(t, res[0].Color)
+		assert.NotEmpty(t, res[0].ID)
+		assert.NotEmpty(t, res[0].Name)
+		assert.NotEmpty(t, res[0].Type)
+
+		if assert.NotEmpty(t, res[0].Points) {
+			assert.NotEmpty(t, res[0].Points[0].Color)
+		}
+	}
 }
 
 func TestVK_PollsGetByID(t *testing.T) {

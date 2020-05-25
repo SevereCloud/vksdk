@@ -84,7 +84,7 @@ type PollsBackground struct {
 		Color    string  `json:"color"`
 	} `json:"points"`
 	ID   int    `json:"id"`
-	Name string `json:"string"`
+	Name string `json:"name"`
 }
 
 // PollsPhoto struct.
