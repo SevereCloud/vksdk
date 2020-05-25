@@ -14,29 +14,30 @@ type PollsAnswer struct {
 
 // PollsPoll struct.
 type PollsPoll struct {
-	AnswerID   int             `json:"answer_id"` // Current user's answer ID
-	Answers    []PollsAnswer   `json:"answers"`
-	Created    int             `json:"created"`  // Date when poll has been created in Unixtime
-	ID         int             `json:"id"`       // Poll ID
-	OwnerID    int             `json:"owner_id"` // Poll owner's ID
-	Question   string          `json:"question"` // Poll question
-	Votes      int             `json:"votes"`    // Votes number
-	AnswerIDs  []int           `json:"answer_ids"`
-	EndDate    int             `json:"end_date"`
-	Anonymous  BaseBoolInt     `json:"anonymous"` // Information whether the pole is anonymous
-	Closed     BaseBoolInt     `json:"closed"`
-	IsBoard    BaseBoolInt     `json:"is_board"`
-	CanEdit    BaseBoolInt     `json:"can_edit"`
-	CanVote    BaseBoolInt     `json:"can_vote"`
-	CanReport  BaseBoolInt     `json:"can_report"`
-	CanShare   BaseBoolInt     `json:"can_share"`
-	Multiple   BaseBoolInt     `json:"multiple"`
-	Photo      PhotosPhoto     `json:"photo"`
-	AuthorID   int             `json:"author_id"`
-	Background PollsBackground `json:"background"`
-	Friends    []PollsFriend   `json:"friends"`
-	Profiles   []UsersUser     `json:"profiles"`
-	Groups     []GroupsGroup   `json:"groups"`
+	AnswerID      int             `json:"answer_id"` // Current user's answer ID
+	Answers       []PollsAnswer   `json:"answers"`
+	Created       int             `json:"created"`  // Date when poll has been created in Unixtime
+	ID            int             `json:"id"`       // Poll ID
+	OwnerID       int             `json:"owner_id"` // Poll owner's ID
+	Question      string          `json:"question"` // Poll question
+	Votes         int             `json:"votes"`    // Votes number
+	AnswerIDs     []int           `json:"answer_ids"`
+	EndDate       int             `json:"end_date"`
+	Anonymous     BaseBoolInt     `json:"anonymous"` // Information whether the pole is anonymous
+	Closed        BaseBoolInt     `json:"closed"`
+	IsBoard       BaseBoolInt     `json:"is_board"`
+	CanEdit       BaseBoolInt     `json:"can_edit"`
+	CanVote       BaseBoolInt     `json:"can_vote"`
+	CanReport     BaseBoolInt     `json:"can_report"`
+	CanShare      BaseBoolInt     `json:"can_share"`
+	Multiple      BaseBoolInt     `json:"multiple"`
+	DisableUnvote BaseBoolInt     `json:"disable_unvote"`
+	Photo         PhotosPhoto     `json:"photo"`
+	AuthorID      int             `json:"author_id"`
+	Background    PollsBackground `json:"background"`
+	Friends       []PollsFriend   `json:"friends"`
+	Profiles      []UsersUser     `json:"profiles"`
+	Groups        []GroupsGroup   `json:"groups"`
 }
 
 // ToAttachment return attachment format.
