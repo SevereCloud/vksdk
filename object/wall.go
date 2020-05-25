@@ -53,10 +53,11 @@ const (
 
 // WallPostSource struct.
 type WallPostSource struct {
-	Data     string `json:"data"`     // Additional data
-	Platform string `json:"platform"` // Platform name
-	Type     string `json:"type"`
-	URL      string `json:"url"` // URL to an external site used to publish the post
+	Link     BaseLink `json:"link"`
+	Data     string   `json:"data"`     // Additional data
+	Platform string   `json:"platform"` // Platform name
+	Type     string   `json:"type"`
+	URL      string   `json:"url"` // URL to an external site used to publish the post
 }
 
 // WallPostedPhoto struct.
