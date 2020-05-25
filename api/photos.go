@@ -311,7 +311,8 @@ func (vk *VK) PhotosGetMarketUploadServer(params Params) (response PhotosGetMark
 type PhotosGetMessagesUploadServerResponse struct {
 	AlbumID   int    `json:"album_id"`
 	UploadURL string `json:"upload_url"`
-	UserID    int    `json:"user_id"`
+	UserID    int    `json:"user_id,omitempty"`
+	GroupID   int    `json:"group_id,omitempty"`
 }
 
 // PhotosGetMessagesUploadServer returns the server address for photo upload onto a messages.
