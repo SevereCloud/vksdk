@@ -668,6 +668,17 @@ func (vk *VK) GroupsTagBind(params Params) (response int, err error) {
 	return
 }
 
+// GroupsTagDelete allows to remove a community tag
+//
+// The remote tag will be automatically "unbind" from all conversations to
+// which it was "bind" earlier.
+//
+// https://vk.com/dev/groups.tagDelete
+func (vk *VK) GroupsTagDelete(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("groups.tagDelete", params, &response)
+	return
+}
+
 // GroupsUnban groups.unban.
 //
 // https://vk.com/dev/groups.unban

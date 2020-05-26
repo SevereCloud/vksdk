@@ -929,6 +929,18 @@ func TestGroupsTagBindBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["act"], "unbind")
 }
 
+func TestGroupsTagDeleteBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewGroupsTagDeleteBuilder()
+
+	b.GroupID(1)
+	b.TagID(1)
+
+	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["tag_id"], 1)
+}
+
 func TestGroupsUnbanBuilder(t *testing.T) {
 	t.Parallel()
 

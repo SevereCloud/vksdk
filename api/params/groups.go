@@ -2594,6 +2594,30 @@ func (b *GroupsTagBindBuilder) Unbind() *GroupsTagBindBuilder {
 	return b.Act("unbind")
 }
 
+// GroupsTagDeleteBuilder builder.
+//
+// https://vk.com/dev/groups.tagDelete
+type GroupsTagDeleteBuilder struct {
+	api.Params
+}
+
+// NewGroupsTagDeleteBuilder func.
+func NewGroupsTagDeleteBuilder() *GroupsTagDeleteBuilder {
+	return &GroupsTagDeleteBuilder{api.Params{}}
+}
+
+// GroupID parameter.
+func (b *GroupsTagDeleteBuilder) GroupID(v int) *GroupsTagDeleteBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// TagID parameter.
+func (b *GroupsTagDeleteBuilder) TagID(v int) *GroupsTagDeleteBuilder {
+	b.Params["tag_id"] = v
+	return b
+}
+
 // GroupsUnbanBuilder builder.
 //
 // https://vk.com/dev/groups.unban
