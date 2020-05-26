@@ -679,6 +679,14 @@ func (vk *VK) GroupsTagDelete(params Params) (response int, err error) {
 	return
 }
 
+// GroupsTagUpdate allows to change an existing tag
+//
+// https://vk.com/dev/groups.tagUpdate
+func (vk *VK) GroupsTagUpdate(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("groups.tagUpdate", params, &response)
+	return
+}
+
 // GroupsUnban groups.unban.
 //
 // https://vk.com/dev/groups.unban
