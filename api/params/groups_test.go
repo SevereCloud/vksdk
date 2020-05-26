@@ -879,6 +879,20 @@ func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["like_remove"], true)
 }
 
+func TestGroupsSetUserNoteBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewGroupsSetUserNoteBuilder()
+
+	b.GroupID(1)
+	b.UserID(1)
+	b.Note("text")
+
+	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, b.Params["note"], "text")
+}
+
 func TestGroupsUnbanBuilder(t *testing.T) {
 	t.Parallel()
 

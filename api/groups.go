@@ -643,6 +643,15 @@ func (vk *VK) GroupsSetSettings(params Params) (response int, err error) {
 	return
 }
 
+// GroupsSetUserNote allows to create or edit a note about a user as part
+// of the user's correspondence with the community
+//
+// https://vk.com/dev/groups.setUserNote
+func (vk *VK) GroupsSetUserNote(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("groups.setUserNote", params, &response)
+	return
+}
+
 // GroupsUnban groups.unban.
 //
 // https://vk.com/dev/groups.unban

@@ -2464,6 +2464,38 @@ func (b *GroupsSetLongPollSettingsBuilder) LikeRemove(v bool) *GroupsSetLongPoll
 	return b
 }
 
+// GroupsSetUserNoteBuilder builder.
+//
+// https://vk.com/dev/groups.setUserNote
+type GroupsSetUserNoteBuilder struct {
+	api.Params
+}
+
+// NewGroupsSetUserNoteBuilder func.
+func NewGroupsSetUserNoteBuilder() *GroupsSetUserNoteBuilder {
+	return &GroupsSetUserNoteBuilder{api.Params{}}
+}
+
+// GroupID parameter.
+func (b *GroupsSetUserNoteBuilder) GroupID(v int) *GroupsSetUserNoteBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// UserID parameter.
+func (b *GroupsSetUserNoteBuilder) UserID(v int) *GroupsSetUserNoteBuilder {
+	b.Params["user_id"] = v
+	return b
+}
+
+// Note parameter.
+//
+// maximum length 96.
+func (b *GroupsSetUserNoteBuilder) Note(v string) *GroupsSetUserNoteBuilder {
+	b.Params["note"] = v
+	return b
+}
+
 // GroupsUnbanBuilder builder.
 //
 // https://vk.com/dev/groups.unban
