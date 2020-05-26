@@ -167,7 +167,7 @@ type GroupsGroup struct {
 	CropPhoto            UsersCropPhoto       `json:"crop_photo"`
 	Wall                 int                  `json:"wall"`
 	ActionButton         GroupsActionButton   `json:"action_button"`
-	TrackCode            string               `json:"string"`
+	TrackCode            string               `json:"track_code"`
 	PublicDateLabel      string               `json:"public_date_label"`
 	AuthorID             int                  `json:"author_id"`
 	Phone                string               `json:"phone"`
