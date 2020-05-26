@@ -2,6 +2,7 @@ package api_test
 
 import (
 	"testing"
+	"time"
 
 	"github.com/SevereCloud/vksdk/api"
 
@@ -45,6 +46,8 @@ func TestVK_VideoAddAlbum(t *testing.T) {
 		"title": "Test2",
 	})
 	noError(t, err)
+
+	time.Sleep(time.Second)
 
 	_, err = vkUser.VideoAddToAlbum(api.Params{
 		"album_id": album.AlbumID,
