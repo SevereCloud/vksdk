@@ -715,3 +715,9 @@ type GroupsTokenPermissions struct {
 	Mask        int                            `json:"mask"`
 	Permissions []GroupsTokenPermissionSetting `json:"permissions"`
 }
+
+type GroupsTag struct {
+	ID    int    `json:"id"`
+	Name  string `json:"name"`
+	Color string `json:"color"`
+}

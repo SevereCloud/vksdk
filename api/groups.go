@@ -489,6 +489,17 @@ func (vk *VK) GroupsGetSettings(params Params) (response GroupsGetSettingsRespon
 	return
 }
 
+// GroupsGetTagListResponse struct.
+type GroupsGetTagListResponse []object.GroupsTag
+
+// GroupsGetTagList returns community tags list.
+//
+// https://vk.com/dev/groups.getTagList
+func (vk *VK) GroupsGetTagList(params Params) (response GroupsGetTagListResponse, err error) {
+	err = vk.RequestUnmarshal("groups.getTagList", params, &response)
+	return
+}
+
 // GroupsGetTokenPermissionsResponse struct.
 type GroupsGetTokenPermissionsResponse object.GroupsTokenPermissions
 

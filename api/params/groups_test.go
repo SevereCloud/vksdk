@@ -583,6 +583,16 @@ func TestGroupsGetSettingsBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["group_id"], 1)
 }
 
+func TestGroupsGetTagListBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewGroupsGetTagListBuilder()
+
+	b.GroupID(1)
+
+	assert.Equal(t, b.Params["group_id"], 1)
+}
+
 func TestGroupsInviteBuilder(t *testing.T) {
 	t.Parallel()
 

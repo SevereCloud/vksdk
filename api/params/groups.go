@@ -1649,6 +1649,24 @@ func (b *GroupsGetSettingsBuilder) GroupID(v int) *GroupsGetSettingsBuilder {
 	return b
 }
 
+// GroupsGetTagListBuilder builder.
+//
+// https://vk.com/dev/groups.getTagList
+type GroupsGetTagListBuilder struct {
+	api.Params
+}
+
+// NewGroupsGetTagListBuilder func.
+func NewGroupsGetTagListBuilder() *GroupsGetTagListBuilder {
+	return &GroupsGetTagListBuilder{api.Params{}}
+}
+
+// GroupID Community ID.
+func (b *GroupsGetTagListBuilder) GroupID(v int) *GroupsGetTagListBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
 // GroupsInviteBuilder builder.
 //
 // Allows to invite friends to the community.
