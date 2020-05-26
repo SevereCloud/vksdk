@@ -660,6 +660,14 @@ func (vk *VK) GroupsTagAdd(params Params) (response int, err error) {
 	return
 }
 
+// GroupsTagBind allows to "bind" and "unbind" community tags to conversations.
+//
+// https://vk.com/dev/groups.tagBind
+func (vk *VK) GroupsTagBind(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("groups.tagBind", params, &response)
+	return
+}
+
 // GroupsUnban groups.unban.
 //
 // https://vk.com/dev/groups.unban

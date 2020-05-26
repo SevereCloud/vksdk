@@ -2548,6 +2548,52 @@ func (b *GroupsTagAddBuilder) TagColor(v string) *GroupsTagAddBuilder {
 	return b
 }
 
+// GroupsTagBindBuilder builder.
+//
+// https://vk.com/dev/groups.tagBind
+type GroupsTagBindBuilder struct {
+	api.Params
+}
+
+// NewGroupsTagBindBuilder func.
+func NewGroupsTagBindBuilder() *GroupsTagBindBuilder {
+	return &GroupsTagBindBuilder{api.Params{}}
+}
+
+// GroupID parameter.
+func (b *GroupsTagBindBuilder) GroupID(v int) *GroupsTagBindBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// TagID parameter.
+func (b *GroupsTagBindBuilder) TagID(v int) *GroupsTagBindBuilder {
+	b.Params["tag_id"] = v
+	return b
+}
+
+// UserID parameter.
+func (b *GroupsTagBindBuilder) UserID(v int) *GroupsTagBindBuilder {
+	b.Params["user_id"] = v
+	return b
+}
+
+// Act parameter.
+func (b *GroupsTagBindBuilder) Act(v string) *GroupsTagBindBuilder {
+	b.Params["act"] = v
+	return b
+}
+
+// Bind tag.
+func (b *GroupsTagBindBuilder) Bind() *GroupsTagBindBuilder {
+	return b.Act("bind")
+}
+
+// Unbind tag.
+func (b *GroupsTagBindBuilder) Unbind() *GroupsTagBindBuilder {
+	return b.Act("unbind")
+}
+
 // GroupsUnbanBuilder builder.
 //
 // https://vk.com/dev/groups.unban

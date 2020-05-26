@@ -907,6 +907,28 @@ func TestGroupsTagAddBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["tag_color"], "text")
 }
 
+func TestGroupsTagBindBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewGroupsTagBindBuilder()
+
+	b.GroupID(1)
+	b.TagID(1)
+	b.UserID(1)
+	b.Act("text")
+
+	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["tag_id"], 1)
+	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, b.Params["act"], "text")
+
+	b.Bind()
+	assert.Equal(t, b.Params["act"], "bind")
+
+	b.Unbind()
+	assert.Equal(t, b.Params["act"], "unbind")
+}
+
 func TestGroupsUnbanBuilder(t *testing.T) {
 	t.Parallel()
 
