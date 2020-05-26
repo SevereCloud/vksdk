@@ -2496,6 +2496,58 @@ func (b *GroupsSetUserNoteBuilder) Note(v string) *GroupsSetUserNoteBuilder {
 	return b
 }
 
+// GroupsTagAddBuilder builder.
+//
+// https://vk.com/dev/groups.tagAdd
+type GroupsTagAddBuilder struct {
+	api.Params
+}
+
+// NewGroupsTagAddBuilder func.
+func NewGroupsTagAddBuilder() *GroupsTagAddBuilder {
+	return &GroupsTagAddBuilder{api.Params{}}
+}
+
+// GroupID parameter.
+func (b *GroupsTagAddBuilder) GroupID(v int) *GroupsTagAddBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// TagName parameter.
+func (b *GroupsTagAddBuilder) TagName(v string) *GroupsTagAddBuilder {
+	b.Params["tag_name"] = v
+	return b
+}
+
+// TagColor parameter.
+//
+// The following colours are permitted:
+// 4bb34b,
+// 5c9ce6,
+// e64646,
+// 792ec0,
+// 63b9ba,
+// ffa000,
+// ffc107,
+// 76787a,
+// 9e8d6b,
+// 45678f,
+// 539b9c,
+// 454647,
+// 7a6c4f,
+// 6bc76b,
+// 5181b8,
+// ff5c5c,
+// a162de,
+// 7ececf,
+// aaaeb3,
+// bbaa84.
+func (b *GroupsTagAddBuilder) TagColor(v string) *GroupsTagAddBuilder {
+	b.Params["tag_color"] = v
+	return b
+}
+
 // GroupsUnbanBuilder builder.
 //
 // https://vk.com/dev/groups.unban

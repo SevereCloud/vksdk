@@ -652,6 +652,14 @@ func (vk *VK) GroupsSetUserNote(params Params) (response int, err error) {
 	return
 }
 
+// GroupsTagAdd allows to add a new tag to the community
+//
+// https://vk.com/dev/groups.tagAdd
+func (vk *VK) GroupsTagAdd(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("groups.tagAdd", params, &response)
+	return
+}
+
 // GroupsUnban groups.unban.
 //
 // https://vk.com/dev/groups.unban
