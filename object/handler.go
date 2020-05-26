@@ -436,7 +436,7 @@ type LikeAddFunc func(LikeAddObject, int)
 
 // LikeAddObject struct.
 type LikeAddObject struct {
-	LikerID       int    `json:"like_id"`
+	LikerID       int    `json:"liker_id"`
 	ObjectType    string `json:"object_type"`
 	ObjectOwnerID int    `json:"object_owner_id"`
 	ObjectID      int    `json:"object_id"`
@@ -448,7 +448,7 @@ type LikeRemoveFunc func(LikeRemoveObject, int)
 
 // LikeRemoveObject struct.
 type LikeRemoveObject struct {
-	LikerID       int    `json:"like_id"`
+	LikerID       int    `json:"liker_id"`
 	ObjectType    string `json:"object_type"`
 	ObjectOwnerID int    `json:"object_owner_id"`
 	ObjectID      int    `json:"object_id"`
