@@ -441,6 +441,7 @@ type LikeAddObject struct {
 	ObjectOwnerID int    `json:"object_owner_id"`
 	ObjectID      int    `json:"object_id"`
 	ThreadReplyID int    `json:"thread_reply_id"`
+	PostID        int    `json:"post_id"` // for comment
 }
 
 // LikeRemoveFunc func.
@@ -453,4 +454,5 @@ type LikeRemoveObject struct {
 	ObjectOwnerID int    `json:"object_owner_id"`
 	ObjectID      int    `json:"object_id"`
 	ThreadReplyID int    `json:"thread_reply_id"`
+	PostID        int    `json:"post_id"` // for comment
 }
