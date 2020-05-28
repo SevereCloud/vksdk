@@ -73,6 +73,7 @@ type AccountAccountCounters struct {
 	SDK                    int `json:"sdk"`                     // New SDK number
 	MenuDiscoverBadge      int `json:"menu_discover_badge"`     // New menu discover badge number
 	Videos                 int `json:"videos"`                  // New video tags number
+	Faves                  int `json:"faves"`                   // New faves number
 }
 
 // AccountInfo struct.
