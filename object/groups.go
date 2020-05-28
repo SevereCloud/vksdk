@@ -629,13 +629,14 @@ type GroupsLongPollSettings struct {
 
 // GroupsMarketInfo struct.
 type GroupsMarketInfo struct {
-	ContactID    int            `json:"contact_id"` // Contact person ID
-	Currency     MarketCurrency `json:"currency"`
-	CurrencyText string         `json:"currency_text"` // Currency name
-	Enabled      BaseBoolInt    `json:"enabled"`       // Information whether the market is enabled
-	MainAlbumID  int            `json:"main_album_id"` // Main market album ID
-	PriceMax     string         `json:"price_max"`     // Maximum price
-	PriceMin     string         `json:"price_min"`     // Minimum price
+	ContactID    int               `json:"contact_id"` // Contact person ID
+	Currency     MarketCurrency    `json:"currency"`
+	CurrencyText string            `json:"currency_text"` // Currency name
+	Enabled      BaseBoolInt       `json:"enabled"`       // Information whether the market is enabled
+	MainAlbumID  int               `json:"main_album_id"` // Main market album ID
+	PriceMax     string            `json:"price_max"`     // Maximum price
+	PriceMin     string            `json:"price_min"`     // Minimum price
+	Wiki         PagesWikipageFull `json:"wiki"`
 }
 
 // GroupsGroupRole Role type.
