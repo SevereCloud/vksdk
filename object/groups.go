@@ -421,20 +421,12 @@ type GroupsGroupSettings struct {
 	LiveCovers         struct {
 		IsEnabled BaseBoolInt `json:"is_enabled"`
 	} `json:"live_covers"`
-	Market struct {
-		Enabled         BaseBoolInt `json:"enabled"`
-		CommentsEnabled BaseBoolInt `json:"comments_enabled"`
-		CountryIDs      []int       `json:"country_ids"`
-		ContactID       int         `json:"contact_id"`
-		Currency        struct {
-			ID   int    `json:"id"`
-			Name string `json:"name"`
-		} `json:"currency"`
-	} `json:"market"`
+	Market           GroupsMarketInfo     `json:"market"`
 	SectionsList     []GroupsSectionsList `json:"sections_list"`
 	MainSection      int                  `json:"main_section"`
 	SecondarySection int                  `json:"secondary_section"`
 	ActionButton     GroupsActionButton   `json:"action_button"`
+	Phone            string               `json:"phone"`
 }
 
 // GroupsSectionsList struct.
@@ -629,14 +621,16 @@ type GroupsLongPollSettings struct {
 
 // GroupsMarketInfo struct.
 type GroupsMarketInfo struct {
-	ContactID    int               `json:"contact_id"` // Contact person ID
-	Currency     MarketCurrency    `json:"currency"`
-	CurrencyText string            `json:"currency_text"` // Currency name
-	Enabled      BaseBoolInt       `json:"enabled"`       // Information whether the market is enabled
-	MainAlbumID  int               `json:"main_album_id"` // Main market album ID
-	PriceMax     string            `json:"price_max"`     // Maximum price
-	PriceMin     string            `json:"price_min"`     // Minimum price
-	Wiki         PagesWikipageFull `json:"wiki"`
+	ContactID       int               `json:"contact_id"` // Contact person ID
+	Currency        MarketCurrency    `json:"currency"`
+	CurrencyText    string            `json:"currency_text"` // Currency name
+	Enabled         BaseBoolInt       `json:"enabled"`       // Information whether the market is enabled
+	CommentsEnabled BaseBoolInt       `json:"comments_enabled"`
+	MainAlbumID     int               `json:"main_album_id"` // Main market album ID
+	PriceMax        string            `json:"price_max"`     // Maximum price
+	PriceMin        string            `json:"price_min"`     // Minimum price
+	Wiki            PagesWikipageFull `json:"wiki"`
+	CountryIDs      []int             `json:"country_ids"`
 }
 
 // GroupsGroupRole Role type.
