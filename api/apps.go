@@ -45,7 +45,7 @@ func (vk *VK) AppsGetCatalog(params Params) (response AppsGetCatalogResponse, er
 // AppsGetFriendsListResponse struct.
 type AppsGetFriendsListResponse struct {
 	Count int   `json:"count"`
-	Items []int `json:"profiles"`
+	Items []int `json:"items"`
 }
 
 // AppsGetFriendsList creates friends list for requests and invites in current app.
@@ -63,7 +63,7 @@ func (vk *VK) AppsGetFriendsList(params Params) (response AppsGetFriendsListResp
 // AppsGetFriendsListExtendedResponse struct.
 type AppsGetFriendsListExtendedResponse struct {
 	Count int                `json:"count"`
-	Items []object.UsersUser `json:"profiles"`
+	Items []object.UsersUser `json:"items"`
 }
 
 // AppsGetFriendsListExtended creates friends list for requests and invites in current app.
