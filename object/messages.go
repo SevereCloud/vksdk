@@ -346,6 +346,7 @@ type MessagesConversationChatSettings struct {
 		CanChangeInviteLink BaseBoolInt `json:"can_change_invite_link"`
 		CanCopyChat         BaseBoolInt `json:"can_copy_chat"`
 		CanModerate         BaseBoolInt `json:"can_moderate"`
+		CanCall             BaseBoolInt `json:"can_call"`
 	} `json:"acl"`
 	IsGroupChannel BaseBoolInt `json:"is_group_channel"`
 	OwnerID        int         `json:"owner_id"`
