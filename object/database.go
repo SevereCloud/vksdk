@@ -11,9 +11,10 @@ type DatabaseCity struct {
 
 // DatabaseMetroStation  struct.
 type DatabaseMetroStation struct {
-	ID    int    `json:"id"`    // Metro station ID
-	Name  string `json:"name"`  // Metro station name
-	Color string `json:"color"` // Metro station color
+	ID     int    `json:"id"`      // Metro station ID
+	Name   string `json:"name"`    // Metro station name
+	Color  string `json:"color"`   // Metro station color
+	CityID int    `json:"city_id"` // Metro station city ID
 }
 
 // DatabaseFaculty struct.
