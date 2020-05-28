@@ -259,23 +259,24 @@ type MessagesTemplateElementCarouselAction struct {
 
 // MessagesChat struct.
 type MessagesChat struct {
-	AdminID        int                       `json:"admin_id"` // Chat creator ID
-	ID             int                       `json:"id"`       // Chat ID
-	Kicked         BaseBoolInt               `json:"kicked"`   // Shows that user has been kicked from the chat
-	Left           BaseBoolInt               `json:"left"`     // Shows that user has been left the chat
-	Joined         BaseBoolInt               `json:"joined"`
-	IsDefaultPhoto BaseBoolInt               `json:"is_default_photo"`
-	Photo100       string                    `json:"photo_100"` // URL of the preview image with 100 px in width
-	Photo200       string                    `json:"photo_200"` // URL of the preview image with 200 px in width
-	Photo50        string                    `json:"photo_50"`  // URL of the preview image with 50 px in width
-	PushSettings   MessagesChatPushSettings  `json:"push_settings"`
-	Title          string                    `json:"title"` // Chat title
-	Type           string                    `json:"type"`  // Chat type
-	Users          []int                     `json:"users"`
-	MembersCount   int                       `json:"members_count"`
-	Members        []int                     `json:"members"`
-	Photo          MessagesChatSettingsPhoto `json:"photo"`
-	LocalID        int                       `json:"local_id"`
+	AdminID        int                              `json:"admin_id"` // Chat creator ID
+	ID             int                              `json:"id"`       // Chat ID
+	Kicked         BaseBoolInt                      `json:"kicked"`   // Shows that user has been kicked from the chat
+	Left           BaseBoolInt                      `json:"left"`     // Shows that user has been left the chat
+	Joined         BaseBoolInt                      `json:"joined"`
+	IsDefaultPhoto BaseBoolInt                      `json:"is_default_photo"`
+	Photo100       string                           `json:"photo_100"` // URL of the preview image with 100 px in width
+	Photo200       string                           `json:"photo_200"` // URL of the preview image with 200 px in width
+	Photo50        string                           `json:"photo_50"`  // URL of the preview image with 50 px in width
+	PushSettings   MessagesChatPushSettings         `json:"push_settings"`
+	Title          string                           `json:"title"` // Chat title
+	Type           string                           `json:"type"`  // Chat type
+	Users          []int                            `json:"users"`
+	MembersCount   int                              `json:"members_count"`
+	Members        []int                            `json:"members"`
+	Photo          MessagesChatSettingsPhoto        `json:"photo"`
+	LocalID        int                              `json:"local_id"`
+	ChatSettings   MessagesConversationChatSettings `json:"chat_settings"`
 }
 
 // MessagesChatFull struct.
