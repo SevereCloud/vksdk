@@ -120,6 +120,7 @@ type UsersUser struct {
 	Mutual                 FriendsRequestsMutual `json:"mutual"`
 	TrackCode              string                `json:"track_code"`
 	RelationPartner        UsersUserMin          `json:"relation_partner"`
+	Type                   string                `json:"type"`
 }
 
 // ToMention return mention.
