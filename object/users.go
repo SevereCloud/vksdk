@@ -252,6 +252,7 @@ type UsersSchool struct {
 	YearFrom      int    `json:"year_from"`      // Year the user started to study
 	YearGraduated int    `json:"year_graduated"` // Graduation year
 	YearTo        int    `json:"year_to"`        // Year the user finished to study
+	Speciality    string `json:"speciality,omitempty"`
 }
 
 // UsersUniversity struct.
