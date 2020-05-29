@@ -15,6 +15,7 @@ type VideoVideo struct {
 	CanLike           BaseBoolInt       `json:"can_like"`         // Information whether current user can like the video
 	CanRepost         BaseBoolInt       `json:"can_repost"`       // Information whether current user can repost this video
 	CanSubscribe      BaseBoolInt       `json:"can_subscribe"`
+	CanAttachLink     BaseBoolInt       `json:"can_attach_link"`
 	IsFavorite        BaseBoolInt       `json:"is_favorite"`
 	IsPrivate         BaseBoolInt       `json:"is_private"`
 	Added             BaseBoolInt       `json:"added"`
