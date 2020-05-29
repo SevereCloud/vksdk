@@ -121,6 +121,7 @@ type UsersUser struct {
 	TrackCode              string                `json:"track_code"`
 	RelationPartner        UsersUserMin          `json:"relation_partner"`
 	Type                   string                `json:"type"`
+	Skype                  string                `json:"skype"`
 }
 
 // ToMention return mention.
