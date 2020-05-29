@@ -31,7 +31,7 @@ func noError(t *testing.T, err error) bool {
 	if err != nil {
 		ctx := errors.GetErrorContext(err)
 		if ctx.Code != 0 {
-			var s string
+			s := "\n"
 			s += fmt.Sprintf("code: %d\n", ctx.Code)
 			s += fmt.Sprintf("text: %s\n", ctx.Text)
 			s += fmt.Sprintf("message: %s\n", ctx.Message)
@@ -42,6 +42,8 @@ func noError(t *testing.T, err error) bool {
 			}
 
 			t.Log(s)
+		} else {
+			t.Log(fmt.Sprintf("\n%#v", err))
 		}
 	}
 
