@@ -16,8 +16,8 @@ type NotesNote struct {
 	Title          string        `json:"title"`       // Note title
 	ViewURL        string        `json:"view_url"`    // URL of the page with note preview
 	ReadComments   int           `json:"read_comments"`
-	PrivacyView    []interface{} `json:"privacy_view"`
-	PrivacyComment []interface{} `json:"privacy_comment"`
+	PrivacyView    []interface{} `json:"privacy_view"`    // NOTE: old type privacy
+	PrivacyComment []interface{} `json:"privacy_comment"` // NOTE: old type privacy
 }
 
 // ToAttachment return attachment format.

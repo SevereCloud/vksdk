@@ -328,6 +328,28 @@ type BaseUserID struct {
 	UserID int `json:"user_id"`
 }
 
+// PrivacyCategory type.
+type PrivacyCategory string
+
+// Poossible values.
+const (
+	PrivacyAll              PrivacyCategory = "all"
+	PrivacyOnlyMe           PrivacyCategory = "only_me"
+	PrivacyFriends          PrivacyCategory = "friends"
+	PrivacyFriendsOfFriends PrivacyCategory = "friends_of_friends"
+)
+
+// Privacy struct.
+type Privacy struct {
+	Category PrivacyCategory `json:"category,omitempty"`
+	Lists    struct {
+		Allowed []int `json:"allowed"`
+	} `json:"lists,omitempty"`
+	Owners struct {
+		Excluded []int `json:"excluded"`
+	} `json:"owners,omitempty"`
+}
+
 // EventsEventAttach struct.
 type EventsEventAttach struct {
 	Address      string      `json:"address,omitempty"`       // address of event

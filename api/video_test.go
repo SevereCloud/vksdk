@@ -154,7 +154,7 @@ func TestVK_VideoGetExtended(t *testing.T) {
 	needUserToken(t)
 
 	res, err := vkUser.VideoGetExtended(api.Params{
-		"owner_id": 92093600,
+		// "owner_id": 92093600,
 	})
 	noError(t, err)
 

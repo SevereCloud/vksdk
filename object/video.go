@@ -48,8 +48,8 @@ type VideoVideo struct {
 	Likes             BaseLikesInfo     `json:"likes"`   // Count of likes
 	Reposts           BaseRepostsInfo   `json:"reposts"` // Count of views
 	TrackCode         string            `json:"track_code"`
-	PrivacyView       []interface{}     `json:"privacy_view"`
-	PrivacyComment    []interface{}     `json:"privacy_comment"`
+	PrivacyView       Privacy           `json:"privacy_view"`
+	PrivacyComment    Privacy           `json:"privacy_comment"`
 	ActionButton      VideoActionButton `json:"action_button"`
 	Restriction       VideoRestriction  `json:"restriction"`
 }
@@ -170,6 +170,7 @@ type VideoVideoAlbumFull struct {
 	Title       string            `json:"title"`        // Album title
 	UpdatedTime int               `json:"updated_time"` // Date when the album has been updated last time in Unixtime
 	ImageBlur   int               `json:"image_blur"`
+	Privacy     Privacy           `json:"privacy"`
 }
 
 // VideoVideoFull struct.
