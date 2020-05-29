@@ -39,6 +39,7 @@ type PagesWikipageFull struct {
 	Views                    int         `json:"views"`                        // Views number
 	WhoCanEdit               int         `json:"who_can_edit"`                 // Edit settings of the page
 	WhoCanView               int         `json:"who_can_view"`                 // View settings of the page
+	VersionCreated           int         `json:"version_created"`
 }
 
 // PagesWikipageHistory struct.
