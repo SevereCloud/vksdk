@@ -32,6 +32,7 @@ const (
 type AppsCatalogBanner struct {
 	BackgroundColor  string `json:"background_color"`
 	DescriptionColor string `json:"description_color"`
+	Description      string `json:"description"`
 	TitleColor       string `json:"title_color"`
 }
 
