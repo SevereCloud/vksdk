@@ -204,25 +204,33 @@ func (album PhotosPhotoAlbumFull) MinSize() (minPhotoSize PhotosPhotoSizes) {
 
 // PhotosPhotoFull struct.
 type PhotosPhotoFull struct {
-	AccessKey  string          `json:"access_key"`  // Access key for the photo
-	AlbumID    int             `json:"album_id"`    // Album ID
-	CanComment BaseBoolInt     `json:"can_comment"` // Information whether current user can comment the photo
-	HasTags    BaseBoolInt     `json:"has_tags"`
-	Comments   BaseObjectCount `json:"comments"`
-	Date       int             `json:"date"`   // Date when uploaded
-	Height     int             `json:"height"` // Original photo height
-	ID         int             `json:"id"`     // Photo ID
-	Images     []PhotosImage   `json:"images"`
-	Lat        float64         `json:"lat"` // Latitude
-	Likes      BaseLikes       `json:"likes"`
-	Long       float64         `json:"long"`     // Longitude
-	OwnerID    int             `json:"owner_id"` // Photo owner's ID
-	PostID     int             `json:"post_id"`  // Post ID
-	Reposts    BaseObjectCount `json:"reposts"`
-	Tags       BaseObjectCount `json:"tags"`
-	Text       string          `json:"text"`    // Photo caption
-	UserID     int             `json:"user_id"` // ID of the user who have uploaded the photo
-	Width      int             `json:"width"`   // Original photo width
+	AccessKey  string             `json:"access_key"`  // Access key for the photo
+	AlbumID    int                `json:"album_id"`    // Album ID
+	CanComment BaseBoolInt        `json:"can_comment"` // Information whether current user can comment the photo
+	HasTags    BaseBoolInt        `json:"has_tags"`
+	Comments   BaseObjectCount    `json:"comments"`
+	Date       int                `json:"date"`   // Date when uploaded
+	Height     int                `json:"height"` // Original photo height
+	ID         int                `json:"id"`     // Photo ID
+	Images     []PhotosImage      `json:"images"`
+	Lat        float64            `json:"lat"` // Latitude
+	Likes      BaseLikes          `json:"likes"`
+	Long       float64            `json:"long"`     // Longitude
+	OwnerID    int                `json:"owner_id"` // Photo owner's ID
+	PostID     int                `json:"post_id"`  // Post ID
+	Reposts    BaseObjectCount    `json:"reposts"`
+	Tags       BaseObjectCount    `json:"tags"`
+	Text       string             `json:"text"`       // Photo caption
+	UserID     int                `json:"user_id"`    // ID of the user who have uploaded the photo
+	Width      int                `json:"width"`      // Original photo width
+	Hidden     int                `json:"hidden"`     // Returns if the photo is hidden above the wall
+	Photo75    string             `json:"photo_75"`   // URL of image with 75 px width
+	Photo130   string             `json:"photo_130"`  // URL of image with 130 px width
+	Photo604   string             `json:"photo_604"`  // URL of image with 604 px width
+	Photo807   string             `json:"photo_807"`  // URL of image with 807 px width
+	Photo1280  string             `json:"photo_1280"` // URL of image with 1280 px width
+	Photo2560  string             `json:"photo_2560"` // URL of image with 2560 px width
+	Sizes      []PhotosPhotoSizes `json:"sizes"`
 }
 
 // ToAttachment return attachment format.
@@ -230,43 +238,8 @@ func (photo PhotosPhotoFull) ToAttachment() string {
 	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
 }
 
-// PhotosPhotoFullXtrRealOffset struct.
-type PhotosPhotoFullXtrRealOffset struct {
-	AccessKey  string             `json:"access_key"` // Access key for the photo
-	AlbumID    int                `json:"album_id"`   // Album ID
-	CanComment BaseBoolInt        `json:"can_comment"`
-	Comments   BaseObjectCount    `json:"comments"`
-	Date       int                `json:"date"`   // Date when uploaded
-	Height     int                `json:"height"` // Original photo height
-	Hidden     int                `json:"hidden"` // Returns if the photo is hidden above the wall
-	ID         int                `json:"id"`     // Photo ID
-	Lat        float64            `json:"lat"`    // Latitude
-	Likes      BaseLikes          `json:"likes"`
-	Long       float64            `json:"long"`        // Longitude
-	OwnerID    int                `json:"owner_id"`    // Photo owner's ID
-	Photo1280  string             `json:"photo_1280"`  // URL of image with 1280 px width
-	Photo130   string             `json:"photo_130"`   // URL of image with 130 px width
-	Photo2560  string             `json:"photo_2560"`  // URL of image with 2560 px width
-	Photo604   string             `json:"photo_604"`   // URL of image with 604 px width
-	Photo75    string             `json:"photo_75"`    // URL of image with 75 px width
-	Photo807   string             `json:"photo_807"`   // URL of image with 807 px width
-	PostID     int                `json:"post_id"`     // Post ID
-	RealOffset int                `json:"real_offset"` // Real position of the photo
-	Reposts    BaseObjectCount    `json:"reposts"`
-	Sizes      []PhotosPhotoSizes `json:"sizes"`
-	Tags       BaseObjectCount    `json:"tags"`
-	Text       string             `json:"text"`    // Photo caption
-	UserID     int                `json:"user_id"` // ID of the user who have uploaded the photo
-	Width      int                `json:"width"`   // Original photo width
-}
-
-// ToAttachment return attachment format.
-func (photo PhotosPhotoFullXtrRealOffset) ToAttachment() string {
-	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
-}
-
 // MaxSize return the largest PhotosPhotoSizes.
-func (photo PhotosPhotoFullXtrRealOffset) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
+func (photo PhotosPhotoFull) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 	var max float64
 
 	for _, photoSize := range photo.Sizes {
@@ -281,7 +254,7 @@ func (photo PhotosPhotoFullXtrRealOffset) MaxSize() (maxPhotoSize PhotosPhotoSiz
 }
 
 // MinSize return the smallest PhotosPhotoSizes.
-func (photo PhotosPhotoFullXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSizes) {
+func (photo PhotosPhotoFull) MinSize() (minPhotoSize PhotosPhotoSizes) {
 	var min float64
 
 	for _, photoSize := range photo.Sizes {
@@ -293,6 +266,12 @@ func (photo PhotosPhotoFullXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSiz
 	}
 
 	return
+}
+
+// PhotosPhotoFullXtrRealOffset struct.
+type PhotosPhotoFullXtrRealOffset struct {
+	PhotosPhotoFull
+	RealOffset int `json:"real_offset"` // Real position of the photo
 }
 
 // PhotosPhotoSizes struct.
@@ -332,123 +311,15 @@ type PhotosPhotoUploadResponse struct {
 
 // PhotosPhotoXtrRealOffset struct.
 type PhotosPhotoXtrRealOffset struct {
-	AccessKey  string             `json:"access_key"`  // Access key for the photo
-	AlbumID    int                `json:"album_id"`    // Album ID
-	Date       int                `json:"date"`        // Date when uploaded
-	Height     int                `json:"height"`      // Original photo height
-	Hidden     int                `json:"hidden"`      // Returns if the photo is hidden above the wall
-	ID         int                `json:"id"`          // Photo ID
-	Lat        float64            `json:"lat"`         // Latitude
-	Long       float64            `json:"long"`        // Longitude
-	OwnerID    int                `json:"owner_id"`    // Photo owner's ID
-	Photo1280  string             `json:"photo_1280"`  // URL of image with 1280 px width
-	Photo130   string             `json:"photo_130"`   // URL of image with 130 px width
-	Photo2560  string             `json:"photo_2560"`  // URL of image with 2560 px width
-	Photo604   string             `json:"photo_604"`   // URL of image with 604 px width
-	Photo75    string             `json:"photo_75"`    // URL of image with 75 px width
-	Photo807   string             `json:"photo_807"`   // URL of image with 807 px width
-	PostID     int                `json:"post_id"`     // Post ID
-	RealOffset int                `json:"real_offset"` // Real position of the photo
-	Sizes      []PhotosPhotoSizes `json:"sizes"`
-	Text       string             `json:"text"`    // Photo caption
-	UserID     int                `json:"user_id"` // ID of the user who have uploaded the photo
-	Width      int                `json:"width"`   // Original photo width
-}
-
-// ToAttachment return attachment format.
-func (photo PhotosPhotoXtrRealOffset) ToAttachment() string {
-	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
-}
-
-// MaxSize return the largest PhotosPhotoSizes.
-func (photo PhotosPhotoXtrRealOffset) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
-	var max float64
-
-	for _, photoSize := range photo.Sizes {
-		size := photoSize.Height * photoSize.Width
-		if size > max {
-			max = size
-			maxPhotoSize = photoSize
-		}
-	}
-
-	return
-}
-
-// MinSize return the smallest PhotosPhotoSizes.
-func (photo PhotosPhotoXtrRealOffset) MinSize() (minPhotoSize PhotosPhotoSizes) {
-	var min float64
-
-	for _, photoSize := range photo.Sizes {
-		size := photoSize.Height * photoSize.Width
-		if size < min || min == 0 {
-			min = size
-			minPhotoSize = photoSize
-		}
-	}
-
-	return
+	PhotosPhoto
+	RealOffset int `json:"real_offset"` // Real position of the photo
 }
 
 // PhotosPhotoXtrTagInfo struct.
 type PhotosPhotoXtrTagInfo struct {
-	AccessKey  string             `json:"access_key"` // Access key for the photo
-	AlbumID    int                `json:"album_id"`   // Album ID
-	Date       int                `json:"date"`       // Date when uploaded
-	Height     int                `json:"height"`     // Original photo height
-	ID         int                `json:"id"`         // Photo ID
-	Lat        float64            `json:"lat"`        // Latitude
-	Long       float64            `json:"long"`       // Longitude
-	OwnerID    int                `json:"owner_id"`   // Photo owner's ID
-	Photo1280  string             `json:"photo_1280"` // URL of image with 1280 px width
-	Photo130   string             `json:"photo_130"`  // URL of image with 130 px width
-	Photo2560  string             `json:"photo_2560"` // URL of image with 2560 px width
-	Photo604   string             `json:"photo_604"`  // URL of image with 604 px width
-	Photo75    string             `json:"photo_75"`   // URL of image with 75 px width
-	Photo807   string             `json:"photo_807"`  // URL of image with 807 px width
-	PlacerID   int                `json:"placer_id"`  // ID of the tag creator
-	PostID     int                `json:"post_id"`    // Post ID
-	Sizes      []PhotosPhotoSizes `json:"sizes"`
-	TagCreated int                `json:"tag_created"` // Date when tag has been added in Unixtime
-	TagID      int                `json:"tag_id"`      // Tag ID
-	Text       string             `json:"text"`        // Photo caption
-	UserID     int                `json:"user_id"`     // ID of the user who have uploaded the photo
-	Width      int                `json:"width"`       // Original photo width
-}
-
-// ToAttachment return attachment format.
-func (photo PhotosPhotoXtrTagInfo) ToAttachment() string {
-	return fmt.Sprintf("photo%d_%d", photo.OwnerID, photo.ID)
-}
-
-// MaxSize return the largest PhotosPhotoSizes.
-func (photo PhotosPhotoXtrTagInfo) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
-	var max float64
-
-	for _, photoSize := range photo.Sizes {
-		size := photoSize.Height * photoSize.Width
-		if size > max {
-			max = size
-			maxPhotoSize = photoSize
-		}
-	}
-
-	return
-}
-
-// MinSize return the smallest PhotosPhotoSizes.
-func (photo PhotosPhotoXtrTagInfo) MinSize() (minPhotoSize PhotosPhotoSizes) {
-	var min float64
-
-	for _, photoSize := range photo.Sizes {
-		size := photoSize.Height * photoSize.Width
-		if size < min || min == 0 {
-			min = size
-			minPhotoSize = photoSize
-		}
-	}
-
-	return
+	PhotosPhoto
+	TagCreated int `json:"tag_created"` // Date when tag has been added in Unixtime
+	TagID      int `json:"tag_id"`      // Tag ID
 }
 
 // PhotosWallUploadResponse struct.

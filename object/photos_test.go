@@ -48,8 +48,8 @@ func TestPhotosPhotoFullXtrRealOffset_ToAttachment(t *testing.T) {
 		}
 	}
 
-	f(object.PhotosPhotoFullXtrRealOffset{ID: 10, OwnerID: 20}, "photo20_10")
-	f(object.PhotosPhotoFullXtrRealOffset{ID: 20, OwnerID: -10}, "photo-10_20")
+	f(object.PhotosPhotoFullXtrRealOffset{object.PhotosPhotoFull{ID: 10, OwnerID: 20}, 0}, "photo20_10")
+	f(object.PhotosPhotoFullXtrRealOffset{object.PhotosPhotoFull{ID: 20, OwnerID: -10}, 0}, "photo-10_20")
 }
 
 func TestPhotosPhotoXtrRealOffset_ToAttachment(t *testing.T) {
@@ -63,8 +63,8 @@ func TestPhotosPhotoXtrRealOffset_ToAttachment(t *testing.T) {
 		}
 	}
 
-	f(object.PhotosPhotoXtrRealOffset{ID: 10, OwnerID: 20}, "photo20_10")
-	f(object.PhotosPhotoXtrRealOffset{ID: 20, OwnerID: -10}, "photo-10_20")
+	f(object.PhotosPhotoXtrRealOffset{object.PhotosPhoto{ID: 10, OwnerID: 20}, 0}, "photo20_10")
+	f(object.PhotosPhotoXtrRealOffset{object.PhotosPhoto{ID: 20, OwnerID: -10}, 0}, "photo-10_20")
 }
 
 func Test_PhotosPhotoAlbum_ToAttachment(t *testing.T) {
@@ -108,8 +108,8 @@ func TestPhotosPhotoXtrTagInfo_ToAttachment(t *testing.T) {
 		}
 	}
 
-	f(object.PhotosPhotoXtrTagInfo{ID: 10, OwnerID: 20}, "photo20_10")
-	f(object.PhotosPhotoXtrTagInfo{ID: 20, OwnerID: -10}, "photo-10_20")
+	f(object.PhotosPhotoXtrTagInfo{object.PhotosPhoto{ID: 10, OwnerID: 20}, 0, 0}, "photo20_10")
+	f(object.PhotosPhotoXtrTagInfo{object.PhotosPhoto{ID: 20, OwnerID: -10}, 0, 0}, "photo-10_20")
 }
 
 func TestPhotosPhoto_MaxSize(t *testing.T) {
@@ -151,6 +151,58 @@ func TestPhotosPhoto_MinSize(t *testing.T) {
 
 	f(object.PhotosPhoto{}, object.PhotosPhotoSizes{})
 	f(object.PhotosPhoto{
+		Sizes: []object.PhotosPhotoSizes{
+			{
+				object.BaseImage{Width: 10, Height: 20},
+			},
+			{
+				object.BaseImage{Width: 100, Height: 200},
+			},
+		},
+	}, object.PhotosPhotoSizes{
+		object.BaseImage{Width: 10, Height: 20},
+	})
+}
+
+func TestPhotosPhotoFull_MaxSize(t *testing.T) {
+	t.Parallel()
+
+	f := func(photo object.PhotosPhotoFull, want object.PhotosPhotoSizes) {
+		t.Helper()
+
+		if got := photo.MaxSize(); !reflect.DeepEqual(got, want) {
+			t.Errorf("PhotosPhotoFull.MaxSize() = %v, want %v", got, want)
+		}
+	}
+
+	f(object.PhotosPhotoFull{}, object.PhotosPhotoSizes{})
+	f(object.PhotosPhotoFull{
+		Sizes: []object.PhotosPhotoSizes{
+			{
+				object.BaseImage{Width: 10, Height: 20},
+			},
+			{
+				object.BaseImage{Width: 100, Height: 200},
+			},
+		},
+	}, object.PhotosPhotoSizes{
+		object.BaseImage{Width: 100, Height: 200},
+	})
+}
+
+func TestPhotosPhotoFull_MinSize(t *testing.T) {
+	t.Parallel()
+
+	f := func(photo object.PhotosPhotoFull, want object.PhotosPhotoSizes) {
+		t.Helper()
+
+		if got := photo.MinSize(); !reflect.DeepEqual(got, want) {
+			t.Errorf("PhotosPhotoFull.MinSize() = %v, want %v", got, want)
+		}
+	}
+
+	f(object.PhotosPhotoFull{}, object.PhotosPhotoSizes{})
+	f(object.PhotosPhotoFull{
 		Sizes: []object.PhotosPhotoSizes{
 			{
 				object.BaseImage{Width: 10, Height: 20},
@@ -229,14 +281,17 @@ func TestPhotosPhotoFullXtrRealOffset_MaxSize(t *testing.T) {
 
 	f(object.PhotosPhotoFullXtrRealOffset{}, object.PhotosPhotoSizes{})
 	f(object.PhotosPhotoFullXtrRealOffset{
-		Sizes: []object.PhotosPhotoSizes{
-			{
-				object.BaseImage{Width: 10, Height: 20},
-			},
-			{
-				object.BaseImage{Width: 100, Height: 200},
+		object.PhotosPhotoFull{
+			Sizes: []object.PhotosPhotoSizes{
+				{
+					object.BaseImage{Width: 10, Height: 20},
+				},
+				{
+					object.BaseImage{Width: 100, Height: 200},
+				},
 			},
 		},
+		0,
 	}, object.PhotosPhotoSizes{
 		object.BaseImage{Width: 100, Height: 200},
 	})
@@ -255,14 +310,17 @@ func TestPhotosPhotoFullXtrRealOffset_MinSize(t *testing.T) {
 
 	f(object.PhotosPhotoFullXtrRealOffset{}, object.PhotosPhotoSizes{})
 	f(object.PhotosPhotoFullXtrRealOffset{
-		Sizes: []object.PhotosPhotoSizes{
-			{
-				object.BaseImage{Width: 10, Height: 20},
-			},
-			{
-				object.BaseImage{Width: 100, Height: 200},
+		object.PhotosPhotoFull{
+			Sizes: []object.PhotosPhotoSizes{
+				{
+					object.BaseImage{Width: 10, Height: 20},
+				},
+				{
+					object.BaseImage{Width: 100, Height: 200},
+				},
 			},
 		},
+		0,
 	}, object.PhotosPhotoSizes{
 		object.BaseImage{Width: 10, Height: 20},
 	})
@@ -281,14 +339,17 @@ func TestPhotosPhotoXtrRealOffset_MaxSize(t *testing.T) {
 
 	f(object.PhotosPhotoXtrRealOffset{}, object.PhotosPhotoSizes{})
 	f(object.PhotosPhotoXtrRealOffset{
-		Sizes: []object.PhotosPhotoSizes{
-			{
-				object.BaseImage{Width: 10, Height: 20},
-			},
-			{
-				object.BaseImage{Width: 100, Height: 200},
+		object.PhotosPhoto{
+			Sizes: []object.PhotosPhotoSizes{
+				{
+					object.BaseImage{Width: 10, Height: 20},
+				},
+				{
+					object.BaseImage{Width: 100, Height: 200},
+				},
 			},
 		},
+		0,
 	}, object.PhotosPhotoSizes{
 		object.BaseImage{Width: 100, Height: 200},
 	})
@@ -307,14 +368,17 @@ func TestPhotosPhotoXtrRealOffset_MinSize(t *testing.T) {
 
 	f(object.PhotosPhotoXtrRealOffset{}, object.PhotosPhotoSizes{})
 	f(object.PhotosPhotoXtrRealOffset{
-		Sizes: []object.PhotosPhotoSizes{
-			{
-				object.BaseImage{Width: 10, Height: 20},
-			},
-			{
-				object.BaseImage{Width: 100, Height: 200},
+		object.PhotosPhoto{
+			Sizes: []object.PhotosPhotoSizes{
+				{
+					object.BaseImage{Width: 10, Height: 20},
+				},
+				{
+					object.BaseImage{Width: 100, Height: 200},
+				},
 			},
 		},
+		0,
 	}, object.PhotosPhotoSizes{
 		object.BaseImage{Width: 10, Height: 20},
 	})
@@ -333,14 +397,18 @@ func TestPhotosPhotoXtrTagInfo_MaxSize(t *testing.T) {
 
 	f(object.PhotosPhotoXtrTagInfo{}, object.PhotosPhotoSizes{})
 	f(object.PhotosPhotoXtrTagInfo{
-		Sizes: []object.PhotosPhotoSizes{
-			{
-				object.BaseImage{Width: 10, Height: 20},
-			},
-			{
-				object.BaseImage{Width: 100, Height: 200},
+		object.PhotosPhoto{
+			Sizes: []object.PhotosPhotoSizes{
+				{
+					object.BaseImage{Width: 10, Height: 20},
+				},
+				{
+					object.BaseImage{Width: 100, Height: 200},
+				},
 			},
 		},
+		0,
+		0,
 	}, object.PhotosPhotoSizes{
 		object.BaseImage{Width: 100, Height: 200},
 	})
@@ -359,14 +427,18 @@ func TestPhotosPhotoXtrTagInfo_MinSize(t *testing.T) {
 
 	f(object.PhotosPhotoXtrTagInfo{}, object.PhotosPhotoSizes{})
 	f(object.PhotosPhotoXtrTagInfo{
-		Sizes: []object.PhotosPhotoSizes{
-			{
-				object.BaseImage{Width: 10, Height: 20},
-			},
-			{
-				object.BaseImage{Width: 100, Height: 200},
+		object.PhotosPhoto{
+			Sizes: []object.PhotosPhotoSizes{
+				{
+					object.BaseImage{Width: 10, Height: 20},
+				},
+				{
+					object.BaseImage{Width: 100, Height: 200},
+				},
 			},
 		},
+		0,
+		0,
 	}, object.PhotosPhotoSizes{
 		object.BaseImage{Width: 10, Height: 20},
 	})
