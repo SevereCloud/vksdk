@@ -119,6 +119,9 @@ type NewsfeedItemWallpost struct {
 	MarkedAsAds int                      `json:"marked_as_ads,omitempty"`
 	Views       interface{}              `json:"views,omitempty"` // BUG: Views int or wallViews
 	IsFavorite  BaseBoolInt              `json:"is_favorite,omitempty"`
+	CanDelete   BaseBoolInt              `json:"can_delete"`
+	CanArchive  BaseBoolInt              `json:"can_archive"`
+	IsArchived  BaseBoolInt              `json:"is_archived"`
 	SignerID    int                      `json:"signer_id,omitempty"`
 	Text        string                   `json:"text"` // Post text
 }
@@ -137,6 +140,7 @@ type NewsfeedNewsfeedItem struct {
 	Type     string `json:"type"`
 	SourceID int    `json:"source_id"`
 	Date     int    `json:"date"`
+	TopicID  int    `json:"topic_id"`
 
 	PostID int `json:"post_id,omitempty"`
 
