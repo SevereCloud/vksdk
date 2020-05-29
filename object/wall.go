@@ -32,14 +32,19 @@ type WallCommentAttachment struct {
 	Sticker           BaseSticker       `json:"sticker"`
 	Type              string            `json:"type"`
 	Video             VideoVideo        `json:"video"`
+	Graffiti          WallGraffiti      `json:"graffiti"`
 }
 
 // WallGraffiti struct.
 type WallGraffiti struct {
-	ID       int    `json:"id"`        // Graffiti ID
-	OwnerID  int    `json:"owner_id"`  // Graffiti owner's ID
-	Photo200 string `json:"photo_200"` // URL of the preview image with 200 px in width
-	Photo586 string `json:"photo_586"` // URL of the preview image with 586 px in width
+	ID        int    `json:"id"`        // Graffiti ID
+	OwnerID   int    `json:"owner_id"`  // Graffiti owner's ID
+	Photo200  string `json:"photo_200"` // URL of the preview image with 200 px in width
+	Photo586  string `json:"photo_586"` // URL of the preview image with 586 px in width
+	URL       string `json:"url"`
+	Width     int    `json:"width"`
+	Height    int    `json:"height"`
+	AccessKey string `json:"access_key"`
 }
 
 // Type of post source.
