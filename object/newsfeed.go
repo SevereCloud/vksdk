@@ -124,6 +124,7 @@ type NewsfeedItemWallpost struct {
 	IsArchived  BaseBoolInt              `json:"is_archived"`
 	SignerID    int                      `json:"signer_id,omitempty"`
 	Text        string                   `json:"text"` // Post text
+	Copyright   WallPostCopyright        `json:"copyright"`
 }
 
 // NewsfeedList struct.

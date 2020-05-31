@@ -151,6 +151,7 @@ type WallWallpost struct {
 	IsArchived   BaseBoolInt              `json:"is_archived"` // Is post archived, only for post owners
 	MarkedAsAds  BaseBoolInt              `json:"marked_as_ads"`
 	Edited       int                      `json:"edited"` // Date of editing in Unixtime
+	Copyright    WallPostCopyright        `json:"copyright"`
 }
 
 // WallWallpostAttached struct.
@@ -237,4 +238,12 @@ type WallWallpostToID struct {
 	Text        string                   `json:"text"`        // Post text
 	ToID        int                      `json:"to_id"`       // Wall owner's ID
 	IsFavorite  BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
+}
+
+// WallPostCopyright information about the source of the post.
+type WallPostCopyright struct {
+	ID   int    `json:"id,omitempty"`
+	Link string `json:"link"`
+	Type string `json:"type"`
+	Name string `json:"name"`
 }
