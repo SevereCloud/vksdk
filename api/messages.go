@@ -281,6 +281,8 @@ func (vk *VK) MessagesGetHistory(params Params) (response MessagesGetHistoryResp
 type MessagesGetHistoryAttachmentsResponse struct {
 	Items    []object.MessagesHistoryAttachment `json:"items"`
 	NextFrom string                             `json:"next_from"`
+	Profiles []object.UsersUser                 `json:"profiles"`
+	Groups   []object.GroupsGroup               `json:"groups"`
 }
 
 // MessagesGetHistoryAttachments returns media files from the dialog or group chat.
