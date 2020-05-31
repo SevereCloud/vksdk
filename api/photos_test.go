@@ -132,7 +132,9 @@ func LoadPhoto(t *testing.T, albumID int) object.PhotosPhoto {
 	defer response.Body.Close()
 
 	photoSave, err := vkUser.UploadPhoto(albumID, response.Body)
-	noError(t, err)
+	if !noError(t, err) {
+		t.FailNow()
+	}
 
 	photo := photoSave[0]
 
