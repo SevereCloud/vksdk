@@ -218,7 +218,7 @@ type PhotosPhotoFull struct {
 	Long       float64            `json:"long"`     // Longitude
 	OwnerID    int                `json:"owner_id"` // Photo owner's ID
 	PostID     int                `json:"post_id"`  // Post ID
-	Reposts    BaseObjectCount    `json:"reposts"`
+	Reposts    BaseRepostsInfo    `json:"reposts"`
 	Tags       BaseObjectCount    `json:"tags"`
 	Text       string             `json:"text"`       // Photo caption
 	UserID     int                `json:"user_id"`    // ID of the user who have uploaded the photo
