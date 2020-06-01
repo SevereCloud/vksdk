@@ -133,8 +133,10 @@ type NewsfeedList struct {
 	Title string `json:"title"` // List title
 }
 
-// type NewsfeedListFull struct {
-// }
+// NewsfeedItemMarket struct.
+type NewsfeedItemMarket struct {
+	MarketMarketItem
+}
 
 // NewsfeedNewsfeedItem struct.
 type NewsfeedNewsfeedItem struct {
@@ -155,6 +157,7 @@ type NewsfeedNewsfeedItem struct {
 	NewsfeedItemVideo
 	NewsfeedItemDigest
 	NewsfeedItemStoriesBlock
+	NewsfeedItemMarket
 
 	CreatedBy        int         `json:"created_by,omitempty"`
 	CanEdit          BaseBoolInt `json:"can_edit,omitempty"`
