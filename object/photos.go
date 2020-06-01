@@ -207,6 +207,7 @@ type PhotosPhotoFull struct {
 	AccessKey  string             `json:"access_key"`  // Access key for the photo
 	AlbumID    int                `json:"album_id"`    // Album ID
 	CanComment BaseBoolInt        `json:"can_comment"` // Information whether current user can comment the photo
+	CanRepost  BaseBoolInt        `json:"can_repost"`  // Information whether current user can repost the photo
 	HasTags    BaseBoolInt        `json:"has_tags"`
 	Comments   BaseObjectCount    `json:"comments"`
 	Date       int                `json:"date"`   // Date when uploaded
