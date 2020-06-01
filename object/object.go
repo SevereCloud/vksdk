@@ -230,20 +230,22 @@ type BaseLikesInfo struct {
 
 // BaseLink struct.
 type BaseLink struct {
-	Application BaseLinkApplication `json:"application"`
-	Button      BaseLinkButton      `json:"button"`
-	Caption     string              `json:"caption"`
-	Description string              `json:"description"`
-	Photo       PhotosPhoto         `json:"photo"`
-	Video       VideoVideo          `json:"video"`
-	PreviewPage string              `json:"preview_page"`
-	PreviewURL  string              `json:"preview_url"`
-	Product     BaseLinkProduct     `json:"product"`
-	Rating      BaseLinkRating      `json:"rating"`
-	Title       string              `json:"title"`
-	Target      string              `json:"target"`
-	URL         string              `json:"url"`
-	IsFavorite  BaseBoolInt         `json:"is_favorite"`
+	Application  BaseLinkApplication `json:"application"`
+	Button       BaseLinkButton      `json:"button"`
+	ButtonText   string              `json:"button_text"`
+	ButtonAction string              `json:"button_action"`
+	Caption      string              `json:"caption"`
+	Description  string              `json:"description"`
+	Photo        PhotosPhoto         `json:"photo"`
+	Video        VideoVideo          `json:"video"`
+	PreviewPage  string              `json:"preview_page"`
+	PreviewURL   string              `json:"preview_url"`
+	Product      BaseLinkProduct     `json:"product"`
+	Rating       BaseLinkRating      `json:"rating"`
+	Title        string              `json:"title"`
+	Target       string              `json:"target"`
+	URL          string              `json:"url"`
+	IsFavorite   BaseBoolInt         `json:"is_favorite"`
 }
 
 // BaseLinkApplication struct.
