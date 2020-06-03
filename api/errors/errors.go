@@ -230,6 +230,7 @@ const (
 	// Check the app settings: http://vk.com/editapp?id={Your API_ID}&section=payments
 	VotesPermission                   ErrorType = 500
 	Votes                             ErrorType = 503  // Not enough votes
+	NotEnoughMoney                    ErrorType = 504  // Not enough money on owner's balance
 	AdsPermission                     ErrorType = 600  // Permission denied. You have no access to operations specified with given object(s)
 	WeightedFlood                     ErrorType = 601  // Permission denied. You have requested too many actions this day. Try later
 	AdsPartialSuccess                 ErrorType = 602  // Some part of the request has not been completed
