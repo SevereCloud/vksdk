@@ -24,13 +24,13 @@ func (b *DocsAddBuilder) OwnerID(v int) *DocsAddBuilder {
 	return b
 }
 
-// DocID Document ID.
+// DocID document ID.
 func (b *DocsAddBuilder) DocID(v int) *DocsAddBuilder {
 	b.Params["doc_id"] = v
 	return b
 }
 
-// AccessKey Access key. This parameter is required if 'access_key' was returned with the document's data.
+// AccessKey access key. This parameter is required if 'access_key' was returned with the document's data.
 func (b *DocsAddBuilder) AccessKey(v string) *DocsAddBuilder {
 	b.Params["access_key"] = v
 	return b
@@ -56,7 +56,7 @@ func (b *DocsDeleteBuilder) OwnerID(v int) *DocsDeleteBuilder {
 	return b
 }
 
-// DocID Document ID.
+// DocID document ID.
 func (b *DocsDeleteBuilder) DocID(v int) *DocsDeleteBuilder {
 	b.Params["doc_id"] = v
 	return b
@@ -76,25 +76,25 @@ func NewDocsEditBuilder() *DocsEditBuilder {
 	return &DocsEditBuilder{api.Params{}}
 }
 
-// OwnerID User ID or community ID. Use a negative value to designate a community ID.
+// OwnerID user ID or community ID. Use a negative value to designate a community ID.
 func (b *DocsEditBuilder) OwnerID(v int) *DocsEditBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// DocID Document ID.
+// DocID document ID.
 func (b *DocsEditBuilder) DocID(v int) *DocsEditBuilder {
 	b.Params["doc_id"] = v
 	return b
 }
 
-// Title Document title.
+// Title document.
 func (b *DocsEditBuilder) Title(v string) *DocsEditBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// Tags Document tags.
+// Tags document.
 func (b *DocsEditBuilder) Tags(v []string) *DocsEditBuilder {
 	b.Params["tags"] = v
 	return b
@@ -114,13 +114,13 @@ func NewDocsGetBuilder() *DocsGetBuilder {
 	return &DocsGetBuilder{api.Params{}}
 }
 
-// Count Number of documents to return. By default, all documents.
+// Count number of documents to return. By default, all documents.
 func (b *DocsGetBuilder) Count(v int) *DocsGetBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of documents.
+// Offset needed to return a specific subset of documents.
 func (b *DocsGetBuilder) Offset(v int) *DocsGetBuilder {
 	b.Params["offset"] = v
 	return b
@@ -152,7 +152,7 @@ func NewDocsGetByIDBuilder() *DocsGetByIDBuilder {
 	return &DocsGetByIDBuilder{api.Params{}}
 }
 
-// Docs Document IDs. Example: , "66748_91488,66748_91455".
+// Docs IDs. Example: , "66748_91488,66748_91455".
 func (b *DocsGetByIDBuilder) Docs(v []string) *DocsGetByIDBuilder {
 	b.Params["docs"] = v
 	return b
@@ -172,15 +172,15 @@ func NewDocsGetMessagesUploadServerBuilder() *DocsGetMessagesUploadServerBuilder
 	return &DocsGetMessagesUploadServerBuilder{api.Params{}}
 }
 
-// Type Document type.
+// Type document.
 func (b *DocsGetMessagesUploadServerBuilder) Type(v string) *DocsGetMessagesUploadServerBuilder {
 	b.Params["type"] = v
 	return b
 }
 
-// PeerID Destination ID. For user: 'User ID', e.g. '12345'.
+// PeerID destination ID. For user: 'User ID', e.g. '12345'.
 // For chat: '2000000000' + 'Chat ID', e.g. '2000000001'.
-// For community: '- Community ID', e.g. '-12345'.
+// For community: '- community ID', e.g. '-12345'.
 func (b *DocsGetMessagesUploadServerBuilder) PeerID(v int) *DocsGetMessagesUploadServerBuilder {
 	b.Params["peer_id"] = v
 	return b
@@ -220,7 +220,7 @@ func NewDocsGetUploadServerBuilder() *DocsGetUploadServerBuilder {
 	return &DocsGetUploadServerBuilder{api.Params{}}
 }
 
-// GroupID Community ID (if the document will be uploaded to the community).
+// GroupID community ID (if the document will be uploaded to the community).
 func (b *DocsGetUploadServerBuilder) GroupID(v int) *DocsGetUploadServerBuilder {
 	b.Params["group_id"] = v
 	return b
@@ -240,7 +240,7 @@ func NewDocsGetWallUploadServerBuilder() *DocsGetWallUploadServerBuilder {
 	return &DocsGetWallUploadServerBuilder{api.Params{}}
 }
 
-// GroupID Community ID (if the document will be uploaded to the community).
+// GroupID community ID (if the document will be uploaded to the community).
 func (b *DocsGetWallUploadServerBuilder) GroupID(v int) *DocsGetWallUploadServerBuilder {
 	b.Params["group_id"] = v
 	return b
@@ -266,13 +266,13 @@ func (b *DocsSaveBuilder) File(v string) *DocsSaveBuilder {
 	return b
 }
 
-// Title Document title.
+// Title document.
 func (b *DocsSaveBuilder) Title(v string) *DocsSaveBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// Tags Document tags.
+// Tags document.
 func (b *DocsSaveBuilder) Tags(v string) *DocsSaveBuilder {
 	b.Params["tags"] = v
 	return b
@@ -292,7 +292,7 @@ func NewDocsSearchBuilder() *DocsSearchBuilder {
 	return &DocsSearchBuilder{api.Params{}}
 }
 
-// Q Search query string.
+// Q search query string.
 func (b *DocsSearchBuilder) Q(v string) *DocsSearchBuilder {
 	b.Params["q"] = v
 	return b
@@ -304,13 +304,13 @@ func (b *DocsSearchBuilder) SearchOwn(v bool) *DocsSearchBuilder {
 	return b
 }
 
-// Count Number of results to return.
+// Count number of results to return.
 func (b *DocsSearchBuilder) Count(v int) *DocsSearchBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *DocsSearchBuilder) Offset(v int) *DocsSearchBuilder {
 	b.Params["offset"] = v
 	return b

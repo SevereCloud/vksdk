@@ -18,13 +18,13 @@ func NewAppsGetBuilder() *AppsGetBuilder {
 	return &AppsGetBuilder{api.Params{}}
 }
 
-// AppID Application ID.
+// AppID application ID.
 func (b *AppsGetBuilder) AppID(v int) *AppsGetBuilder {
 	b.Params["app_id"] = v
 	return b
 }
 
-// AppIDs List of application ID.
+// AppIDs list of application ID.
 func (b *AppsGetBuilder) AppIDs(v []string) *AppsGetBuilder {
 	b.Params["app_ids"] = v
 	return b
@@ -58,7 +58,7 @@ func (b *AppsGetBuilder) ReturnFriends(v bool) *AppsGetBuilder {
 	return b
 }
 
-// Fields Profile fields to return. Sample values:
+// Fields profile fields to return. Sample values:
 //
 // * nickname;
 //
@@ -108,7 +108,7 @@ func (b *AppsGetBuilder) Fields(v []string) *AppsGetBuilder {
 	return b
 }
 
-// NameCase Case for declension of user name and surname:
+// NameCase case for declension of user name and surname:
 //
 // * nom — nominative (default);
 //
@@ -140,7 +140,7 @@ func NewAppsGetCatalogBuilder() *AppsGetCatalogBuilder {
 	return &AppsGetCatalogBuilder{api.Params{}}
 }
 
-// Sort Sort order:
+// Sort order:
 //
 // * popular_today — popular for one day (default)
 //
@@ -156,13 +156,13 @@ func (b *AppsGetCatalogBuilder) Sort(v string) *AppsGetCatalogBuilder {
 	return b
 }
 
-// Offset Offset required to return a specific subset of apps.
+// Offset required to return a specific subset of apps.
 func (b *AppsGetCatalogBuilder) Offset(v int) *AppsGetCatalogBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of apps to return.
+// Count number of apps to return.
 func (b *AppsGetCatalogBuilder) Count(v int) *AppsGetCatalogBuilder {
 	b.Params["count"] = v
 	return b
@@ -203,7 +203,7 @@ func (b *AppsGetCatalogBuilder) NameCase(v string) *AppsGetCatalogBuilder {
 	return b
 }
 
-// Q Search query string.
+// Q search query string.
 func (b *AppsGetCatalogBuilder) Q(v string) *AppsGetCatalogBuilder {
 	b.Params["q"] = v
 	return b
@@ -241,7 +241,7 @@ func (b *AppsGetFriendsListBuilder) Extended(v bool) *AppsGetFriendsListBuilder 
 	return b
 }
 
-// Count List size.
+// Count - list size.
 func (b *AppsGetFriendsListBuilder) Count(v int) *AppsGetFriendsListBuilder {
 	b.Params["count"] = v
 	return b
@@ -253,7 +253,7 @@ func (b *AppsGetFriendsListBuilder) Offset(v int) *AppsGetFriendsListBuilder {
 	return b
 }
 
-// Type List type. Possible values:
+// Type list. Possible values:
 //
 // * invite — available for invites (don't play the game);
 //
@@ -265,7 +265,7 @@ func (b *AppsGetFriendsListBuilder) Type(v string) *AppsGetFriendsListBuilder {
 	return b
 }
 
-// Fields Additional profile fields, see [vk.com/dev/fields|description].
+// Fields additional profile fields, see [vk.com/dev/fields|description].
 func (b *AppsGetFriendsListBuilder) Fields(v []string) *AppsGetFriendsListBuilder {
 	b.Params["fields"] = v
 	return b
@@ -285,7 +285,7 @@ func NewAppsGetLeaderboardBuilder() *AppsGetLeaderboardBuilder {
 	return &AppsGetLeaderboardBuilder{api.Params{}}
 }
 
-// Type Leaderboard type. Possible values:
+// Type leaderboard. Possible values:
 //
 // * level — by level;
 //
@@ -297,7 +297,7 @@ func (b *AppsGetLeaderboardBuilder) Type(v string) *AppsGetLeaderboardBuilder {
 	return b
 }
 
-// Global Rating type. Possible values:
+// Global rating type. Possible values:
 //
 // * 1 — global rating among all players;
 //

@@ -7,7 +7,7 @@ import (
 // SecureAddAppEventResponse struct.
 type SecureAddAppEventResponse int // FIXME: not found documentation. https://github.com/VKCOM/vk-api-schema/issues/98
 
-// SecureAddAppEvent Adds user activity information to an application.
+// SecureAddAppEvent adds user activity information to an application.
 //
 // https://vk.com/dev/secure.addAppEvent
 func (vk *VK) SecureAddAppEvent(params Params) (response SecureAddAppEventResponse, err error) {
@@ -18,7 +18,7 @@ func (vk *VK) SecureAddAppEvent(params Params) (response SecureAddAppEventRespon
 // SecureCheckTokenResponse struct.
 type SecureCheckTokenResponse object.SecureTokenChecked
 
-// SecureCheckToken Checks the user authentification in IFrame and Flash apps using the access_token parameter.
+// SecureCheckToken checks the user authentification in IFrame and Flash apps using the access_token parameter.
 //
 // https://vk.com/dev/secure.checkToken
 func (vk *VK) SecureCheckToken(params Params) (response SecureCheckTokenResponse, err error) {
@@ -26,7 +26,7 @@ func (vk *VK) SecureCheckToken(params Params) (response SecureCheckTokenResponse
 	return
 }
 
-// SecureGetAppBalance Returns payment balance of the application in hundredth of a vote.
+// SecureGetAppBalance returns payment balance of the application in hundredth of a vote.
 //
 // https://vk.com/dev/secure.getAppBalance
 func (vk *VK) SecureGetAppBalance(params Params) (response int, err error) {
@@ -37,7 +37,7 @@ func (vk *VK) SecureGetAppBalance(params Params) (response int, err error) {
 // SecureGetSMSHistoryResponse struct.
 type SecureGetSMSHistoryResponse []object.SecureSmsNotification
 
-// SecureGetSMSHistory Shows a list of SMS notifications sent by the application using secure.sendSMSNotification method.
+// SecureGetSMSHistory shows a list of SMS notifications sent by the application using secure.sendSMSNotification method.
 //
 // https://vk.com/dev/secure.getSMSHistory
 func (vk *VK) SecureGetSMSHistory(params Params) (response SecureGetSMSHistoryResponse, err error) {
@@ -48,7 +48,7 @@ func (vk *VK) SecureGetSMSHistory(params Params) (response SecureGetSMSHistoryRe
 // SecureGetTransactionsHistoryResponse struct.
 type SecureGetTransactionsHistoryResponse []object.SecureTransaction
 
-// SecureGetTransactionsHistory Shows history of votes transaction between users and the application.
+// SecureGetTransactionsHistory shows history of votes transaction between users and the application.
 //
 // https://vk.com/dev/secure.getTransactionsHistory
 func (vk *VK) SecureGetTransactionsHistory(params Params) (response SecureGetTransactionsHistoryResponse, err error) {
@@ -59,7 +59,7 @@ func (vk *VK) SecureGetTransactionsHistory(params Params) (response SecureGetTra
 // SecureGetUserLevelResponse struct.
 type SecureGetUserLevelResponse []object.SecureLevel
 
-// SecureGetUserLevel Returns one of the previously set game levels of one or more users in the application.
+// SecureGetUserLevel returns one of the previously set game levels of one or more users in the application.
 //
 // https://vk.com/dev/secure.getUserLevel
 func (vk *VK) SecureGetUserLevel(params Params) (response SecureGetUserLevelResponse, err error) {
@@ -84,7 +84,7 @@ func (vk *VK) SecureGiveEventSticker(params Params) (response SecureGiveEventSti
 // SecureSendNotificationResponse struct.
 type SecureSendNotificationResponse []int //User ID
 
-// SecureSendNotification Sends notification to the user.
+// SecureSendNotification sends notification to the user.
 //
 // https://vk.com/dev/secure.sendNotification
 func (vk *VK) SecureSendNotification(params Params) (response SecureSendNotificationResponse, err error) {
@@ -92,7 +92,7 @@ func (vk *VK) SecureSendNotification(params Params) (response SecureSendNotifica
 	return
 }
 
-// SecureSendSMSNotification Sends SMS notification to a user's mobile device.
+// SecureSendSMSNotification sends SMS notification to a user's mobile device.
 //
 // https://vk.com/dev/secure.sendSMSNotification
 func (vk *VK) SecureSendSMSNotification(params Params) (response int, err error) {
@@ -100,7 +100,7 @@ func (vk *VK) SecureSendSMSNotification(params Params) (response int, err error)
 	return
 }
 
-// SecureSetCounter Sets a counter which is shown to the user in bold in the left menu.
+// SecureSetCounter sets a counter which is shown to the user in bold in the left menu.
 //
 // https://vk.com/dev/secure.setCounter
 func (vk *VK) SecureSetCounter(params Params) (response int, err error) {

@@ -24,7 +24,7 @@ func (b *FriendsAddBuilder) UserID(v int) *FriendsAddBuilder {
 	return b
 }
 
-// Text Text of the message (up to 500 characters) for the friend request, if any.
+// Text of the message (up to 500 characters) for the friend request, if any.
 func (b *FriendsAddBuilder) Text(v string) *FriendsAddBuilder {
 	b.Params["text"] = v
 	return b
@@ -50,7 +50,7 @@ func NewFriendsAddListBuilder() *FriendsAddListBuilder {
 	return &FriendsAddListBuilder{api.Params{}}
 }
 
-// Name Name of the friend list.
+// Name of the friend list.
 func (b *FriendsAddListBuilder) Name(v string) *FriendsAddListBuilder {
 	b.Params["name"] = v
 	return b
@@ -174,13 +174,13 @@ func NewFriendsEditListBuilder() *FriendsEditListBuilder {
 	return &FriendsEditListBuilder{api.Params{}}
 }
 
-// Name Name of the friend list.
+// Name of the friend list.
 func (b *FriendsEditListBuilder) Name(v string) *FriendsEditListBuilder {
 	b.Params["name"] = v
 	return b
 }
 
-// ListID Friend list ID.
+// ListID friend list ID.
 func (b *FriendsEditListBuilder) ListID(v int) *FriendsEditListBuilder {
 	b.Params["list_id"] = v
 	return b
@@ -218,13 +218,13 @@ func NewFriendsGetBuilder() *FriendsGetBuilder {
 	return &FriendsGetBuilder{api.Params{}}
 }
 
-// UserID User ID. By default, the current user ID.
+// UserID parameter. By default, the current user ID.
 func (b *FriendsGetBuilder) UserID(v int) *FriendsGetBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Order Sort order:
+// Order sort order:
 //
 // * name — by name (enabled only if the 'fields' parameter is used);
 //
@@ -243,19 +243,19 @@ func (b *FriendsGetBuilder) ListID(v int) *FriendsGetBuilder {
 	return b
 }
 
-// Count Number of friends to return.
+// Count number of friends to return.
 func (b *FriendsGetBuilder) Count(v int) *FriendsGetBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of friends.
+// Offset needed to return a specific subset of friends.
 func (b *FriendsGetBuilder) Offset(v int) *FriendsGetBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Fields Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex',
+// Fields profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex',
 // 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain',
 // 'has_mobile', 'rate', 'contacts', 'education'.
 func (b *FriendsGetBuilder) Fields(v []string) *FriendsGetBuilder {
@@ -263,7 +263,7 @@ func (b *FriendsGetBuilder) Fields(v []string) *FriendsGetBuilder {
 	return b
 }
 
-// NameCase Case for declension of user name and surname:
+// NameCase case for declension of user name and surname:
 //
 // * nom — nominative (default);
 //
@@ -302,13 +302,13 @@ func NewFriendsGetByPhonesBuilder() *FriendsGetByPhonesBuilder {
 	return &FriendsGetByPhonesBuilder{api.Params{}}
 }
 
-// Phones List of phone numbers in MSISDN format (maximum 1000). Example: "+79219876543,+79111234567".
+// Phones list of phone numbers in MSISDN format (maximum 1000). Example: "+79219876543,+79111234567".
 func (b *FriendsGetByPhonesBuilder) Phones(v []string) *FriendsGetByPhonesBuilder {
 	b.Params["phones"] = v
 	return b
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+// Fields profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
 // 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
 // 'rate', 'contacts', 'education', 'online, counters'.
 func (b *FriendsGetByPhonesBuilder) Fields(v []string) *FriendsGetByPhonesBuilder {
@@ -330,7 +330,7 @@ func NewFriendsGetListsBuilder() *FriendsGetListsBuilder {
 	return &FriendsGetListsBuilder{api.Params{}}
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *FriendsGetListsBuilder) UserID(v int) *FriendsGetListsBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -376,19 +376,19 @@ func (b *FriendsGetMutualBuilder) TargetUids(v []int) *FriendsGetMutualBuilder {
 	return b
 }
 
-// Order Sort order: 'random' — random order.
+// Order sort order: 'random' — random order.
 func (b *FriendsGetMutualBuilder) Order(v string) *FriendsGetMutualBuilder {
 	b.Params["order"] = v
 	return b
 }
 
-// Count Number of mutual friends to return.
+// Count number of mutual friends to return.
 func (b *FriendsGetMutualBuilder) Count(v int) *FriendsGetMutualBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of mutual friends.
+// Offset needed to return a specific subset of mutual friends.
 func (b *FriendsGetMutualBuilder) Offset(v int) *FriendsGetMutualBuilder {
 	b.Params["offset"] = v
 	return b
@@ -408,13 +408,13 @@ func NewFriendsGetOnlineBuilder() *FriendsGetOnlineBuilder {
 	return &FriendsGetOnlineBuilder{api.Params{}}
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *FriendsGetOnlineBuilder) UserID(v int) *FriendsGetOnlineBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// ListID Friend list ID. If this parameter is not set, information about all online friends is returned.
+// ListID friend list ID. If this parameter is not set, information about all online friends is returned.
 func (b *FriendsGetOnlineBuilder) ListID(v int) *FriendsGetOnlineBuilder {
 	b.Params["list_id"] = v
 	return b
@@ -428,19 +428,19 @@ func (b *FriendsGetOnlineBuilder) OnlineMobile(v bool) *FriendsGetOnlineBuilder 
 	return b
 }
 
-// Order Sort order: 'random' — random order.
+// Order sort order: 'random' — random order.
 func (b *FriendsGetOnlineBuilder) Order(v string) *FriendsGetOnlineBuilder {
 	b.Params["order"] = v
 	return b
 }
 
-// Count Number of friends to return.
+// Count number of friends to return.
 func (b *FriendsGetOnlineBuilder) Count(v int) *FriendsGetOnlineBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of friends.
+// Offset needed to return a specific subset of friends.
 func (b *FriendsGetOnlineBuilder) Offset(v int) *FriendsGetOnlineBuilder {
 	b.Params["offset"] = v
 	return b
@@ -460,7 +460,7 @@ func NewFriendsGetRecentBuilder() *FriendsGetRecentBuilder {
 	return &FriendsGetRecentBuilder{api.Params{}}
 }
 
-// Count Number of recently added friends to return.
+// Count number of recently added friends to return.
 func (b *FriendsGetRecentBuilder) Count(v int) *FriendsGetRecentBuilder {
 	b.Params["count"] = v
 	return b
@@ -480,13 +480,13 @@ func NewFriendsGetRequestsBuilder() *FriendsGetRequestsBuilder {
 	return &FriendsGetRequestsBuilder{api.Params{}}
 }
 
-// Offset Offset needed to return a specific subset of friend requests.
+// Offset needed to return a specific subset of friend requests.
 func (b *FriendsGetRequestsBuilder) Offset(v int) *FriendsGetRequestsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of friend requests to return (default 100, maximum 1000).
+// Count number of friend requests to return (default 100, maximum 1000).
 func (b *FriendsGetRequestsBuilder) Count(v int) *FriendsGetRequestsBuilder {
 	b.Params["count"] = v
 	return b
@@ -517,7 +517,7 @@ func (b *FriendsGetRequestsBuilder) Out(v bool) *FriendsGetRequestsBuilder {
 	return b
 }
 
-// Sort Sort order:
+// Sort order:
 //
 // * 1 — by number of mutual friends, '0' — by date.
 func (b *FriendsGetRequestsBuilder) Sort(v int) *FriendsGetRequestsBuilder {
@@ -578,19 +578,19 @@ func (b *FriendsGetSuggestionsBuilder) Filter(v []string) *FriendsGetSuggestions
 	return b
 }
 
-// Count Number of suggestions to return.
+// Count number of suggestions to return.
 func (b *FriendsGetSuggestionsBuilder) Count(v int) *FriendsGetSuggestionsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of suggestions.
+// Offset needed to return a specific subset of suggestions.
 func (b *FriendsGetSuggestionsBuilder) Offset(v int) *FriendsGetSuggestionsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+// Fields profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
 // 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
 // 'rate', 'contacts', 'education', 'online', 'counters'.
 func (b *FriendsGetSuggestionsBuilder) Fields(v []string) *FriendsGetSuggestionsBuilder {
@@ -598,7 +598,7 @@ func (b *FriendsGetSuggestionsBuilder) Fields(v []string) *FriendsGetSuggestions
 	return b
 }
 
-// NameCase Case for declension of user name and surname:
+// NameCase case for declension of user name and surname:
 //
 // * nom — nominative (default);
 //
@@ -630,19 +630,19 @@ func NewFriendsSearchBuilder() *FriendsSearchBuilder {
 	return &FriendsSearchBuilder{api.Params{}}
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *FriendsSearchBuilder) UserID(v int) *FriendsSearchBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Q Search query string (e.g., 'Vasya Babich').
+// Q search query string (e.g., 'Vasya Babich').
 func (b *FriendsSearchBuilder) Q(v string) *FriendsSearchBuilder {
 	b.Params["q"] = v
 	return b
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+// Fields profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
 // 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile',
 // 'rate', 'contacts', 'education', 'online'.
 func (b *FriendsSearchBuilder) Fields(v []string) *FriendsSearchBuilder {
@@ -650,7 +650,7 @@ func (b *FriendsSearchBuilder) Fields(v []string) *FriendsSearchBuilder {
 	return b
 }
 
-// NameCase Case for declension of user name and surname:
+// NameCase case for declension of user name and surname:
 //
 // * nom — nominative (default),
 //
@@ -668,13 +668,13 @@ func (b *FriendsSearchBuilder) NameCase(v string) *FriendsSearchBuilder {
 	return b
 }
 
-// Offset Offset needed to return a specific subset of friends.
+// Offset needed to return a specific subset of friends.
 func (b *FriendsSearchBuilder) Offset(v int) *FriendsSearchBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of friends to return.
+// Count number of friends to return.
 func (b *FriendsSearchBuilder) Count(v int) *FriendsSearchBuilder {
 	b.Params["count"] = v
 	return b

@@ -88,7 +88,7 @@ func NewNewsfeedGetBuilder() *NewsfeedGetBuilder {
 	return &NewsfeedGetBuilder{api.Params{}}
 }
 
-// Filters Filters to apply:
+// Filters to apply:
 //
 // * post — new wall posts;
 //
@@ -112,25 +112,25 @@ func (b *NewsfeedGetBuilder) ReturnBanned(v bool) *NewsfeedGetBuilder {
 	return b
 }
 
-// StartTime Earliest timestamp (in Unix time) of a news item to return. By default, 24 hours ago.
+// StartTime earliest timestamp (in Unix time) of a news item to return. By default, 24 hours ago.
 func (b *NewsfeedGetBuilder) StartTime(v int) *NewsfeedGetBuilder {
 	b.Params["start_time"] = v
 	return b
 }
 
-// EndTime Latest timestamp (in Unix time) of a news item to return. By default, the current time.
+// EndTime latest timestamp (in Unix time) of a news item to return. By default, the current time.
 func (b *NewsfeedGetBuilder) EndTime(v int) *NewsfeedGetBuilder {
 	b.Params["end_time"] = v
 	return b
 }
 
-// MaxPhotos Maximum number of photos to return. By default, '5'.
+// MaxPhotos maximum number of photos to return. By default, '5'.
 func (b *NewsfeedGetBuilder) MaxPhotos(v int) *NewsfeedGetBuilder {
 	b.Params["max_photos"] = v
 	return b
 }
 
-// SourceIDs Sources to obtain news from, separated by commas. User IDs can be specified in formats '' or 'u' ,
+// SourceIDs sources to obtain news from, separated by commas. User IDs can be specified in formats '' or 'u' ,
 // where '' is the user's friend ID.
 // Community IDs can be specified in formats '-' or 'g' , where '' is the community ID.
 //
@@ -148,14 +148,14 @@ func (b *NewsfeedGetBuilder) StartFrom(v string) *NewsfeedGetBuilder {
 	return b
 }
 
-// Count Number of news items to return (default 50, maximum 100). For auto feed, you can use the 'new_offset'
+// Count number of news items to return (default 50, maximum 100). For auto feed, you can use the 'new_offset'
 // parameter returned by this method.
 func (b *NewsfeedGetBuilder) Count(v int) *NewsfeedGetBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
 func (b *NewsfeedGetBuilder) Fields(v []string) *NewsfeedGetBuilder {
 	b.Params["fields"] = v
 	return b
@@ -187,13 +187,13 @@ func (b *NewsfeedGetBannedBuilder) Extended(v bool) *NewsfeedGetBannedBuilder {
 	return b
 }
 
-// Fields Profile fields to return.
+// Fields profile fields to return.
 func (b *NewsfeedGetBannedBuilder) Fields(v []string) *NewsfeedGetBannedBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// NameCase Case for declension of user name and surname:
+// NameCase case for declension of user name and surname:
 //
 // * nom — nominative (default);
 //
@@ -225,13 +225,13 @@ func NewNewsfeedGetCommentsBuilder() *NewsfeedGetCommentsBuilder {
 	return &NewsfeedGetCommentsBuilder{api.Params{}}
 }
 
-// Count Number of comments to return. For auto feed, you can use the 'new_offset' parameter returned by this method.
+// Count number of comments to return. For auto feed, you can use the 'new_offset' parameter returned by this method.
 func (b *NewsfeedGetCommentsBuilder) Count(v int) *NewsfeedGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Filters Filters to apply:
+// Filters to apply:
 //
 // * post — new comments on wall posts;
 //
@@ -247,20 +247,20 @@ func (b *NewsfeedGetCommentsBuilder) Filters(v []string) *NewsfeedGetCommentsBui
 	return b
 }
 
-// Reposts Object ID, comments on repost of which shall be returned, e.g. 'wall1_45486'.
+// Reposts object ID, comments on repost of which shall be returned, e.g. 'wall1_45486'.
 // (If the parameter is set, the 'filters' parameter is optional.).
 func (b *NewsfeedGetCommentsBuilder) Reposts(v string) *NewsfeedGetCommentsBuilder {
 	b.Params["reposts"] = v
 	return b
 }
 
-// StartTime Earliest timestamp (in Unix time) of a comment to return. By default, 24 hours ago.
+// StartTime earliest timestamp (in Unix time) of a comment to return. By default, 24 hours ago.
 func (b *NewsfeedGetCommentsBuilder) StartTime(v int) *NewsfeedGetCommentsBuilder {
 	b.Params["start_time"] = v
 	return b
 }
 
-// EndTime Latest timestamp (in Unix time) of a comment to return. By default, the current time.
+// EndTime latest timestamp (in Unix time) of a comment to return. By default, the current time.
 func (b *NewsfeedGetCommentsBuilder) EndTime(v int) *NewsfeedGetCommentsBuilder {
 	b.Params["end_time"] = v
 	return b
@@ -272,14 +272,14 @@ func (b *NewsfeedGetCommentsBuilder) LastCommentsCount(v int) *NewsfeedGetCommen
 	return b
 }
 
-// StartFrom Identificator needed to return the next page with results.
+// StartFrom identificator needed to return the next page with results.
 // Value for this parameter returns in 'next_from' field.
 func (b *NewsfeedGetCommentsBuilder) StartFrom(v string) *NewsfeedGetCommentsBuilder {
 	b.Params["start_from"] = v
 	return b
 }
 
-// Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
 func (b *NewsfeedGetCommentsBuilder) Fields(v []string) *NewsfeedGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
@@ -305,7 +305,7 @@ func (b *NewsfeedGetListsBuilder) ListIDs(v []int) *NewsfeedGetListsBuilder {
 	return b
 }
 
-// Extended Return additional list info.
+// Extended return additional list info.
 func (b *NewsfeedGetListsBuilder) Extended(v bool) *NewsfeedGetListsBuilder {
 	b.Params["extended"] = v
 	return b
@@ -325,31 +325,31 @@ func NewNewsfeedGetMentionsBuilder() *NewsfeedGetMentionsBuilder {
 	return &NewsfeedGetMentionsBuilder{api.Params{}}
 }
 
-// OwnerID Owner ID.
+// OwnerID parameter.
 func (b *NewsfeedGetMentionsBuilder) OwnerID(v int) *NewsfeedGetMentionsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// StartTime Earliest timestamp (in Unix time) of a post to return. By default, 24 hours ago.
+// StartTime earliest timestamp (in Unix time) of a post to return. By default, 24 hours ago.
 func (b *NewsfeedGetMentionsBuilder) StartTime(v int) *NewsfeedGetMentionsBuilder {
 	b.Params["start_time"] = v
 	return b
 }
 
-// EndTime Latest timestamp (in Unix time) of a post to return. By default, the current time.
+// EndTime latest timestamp (in Unix time) of a post to return. By default, the current time.
 func (b *NewsfeedGetMentionsBuilder) EndTime(v int) *NewsfeedGetMentionsBuilder {
 	b.Params["end_time"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of posts.
+// Offset needed to return a specific subset of posts.
 func (b *NewsfeedGetMentionsBuilder) Offset(v int) *NewsfeedGetMentionsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of posts to return.
+// Count number of posts to return.
 func (b *NewsfeedGetMentionsBuilder) Count(v int) *NewsfeedGetMentionsBuilder {
 	b.Params["count"] = v
 	return b
@@ -357,7 +357,7 @@ func (b *NewsfeedGetMentionsBuilder) Count(v int) *NewsfeedGetMentionsBuilder {
 
 // NewsfeedGetRecommendedBuilder builder.
 //
-// , Returns a list of newsfeeds recommended to the current user.
+// Returns a list of newsfeeds recommended to the current user.
 //
 // https://vk.com/dev/newsfeed.getRecommended
 type NewsfeedGetRecommendedBuilder struct {
@@ -369,19 +369,19 @@ func NewNewsfeedGetRecommendedBuilder() *NewsfeedGetRecommendedBuilder {
 	return &NewsfeedGetRecommendedBuilder{api.Params{}}
 }
 
-// StartTime Earliest timestamp (in Unix time) of a news item to return. By default, 24 hours ago.
+// StartTime earliest timestamp (in Unix time) of a news item to return. By default, 24 hours ago.
 func (b *NewsfeedGetRecommendedBuilder) StartTime(v int) *NewsfeedGetRecommendedBuilder {
 	b.Params["start_time"] = v
 	return b
 }
 
-// EndTime Latest timestamp (in Unix time) of a news item to return. By default, the current time.
+// EndTime latest timestamp (in Unix time) of a news item to return. By default, the current time.
 func (b *NewsfeedGetRecommendedBuilder) EndTime(v int) *NewsfeedGetRecommendedBuilder {
 	b.Params["end_time"] = v
 	return b
 }
 
-// MaxPhotos Maximum number of photos to return. By default, '5'.
+// MaxPhotos maximum number of photos to return. By default, '5'.
 func (b *NewsfeedGetRecommendedBuilder) MaxPhotos(v int) *NewsfeedGetRecommendedBuilder {
 	b.Params["max_photos"] = v
 	return b
@@ -393,13 +393,13 @@ func (b *NewsfeedGetRecommendedBuilder) StartFrom(v string) *NewsfeedGetRecommen
 	return b
 }
 
-// Count Number of news items to return.
+// Count number of news items to return.
 func (b *NewsfeedGetRecommendedBuilder) Count(v int) *NewsfeedGetRecommendedBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
 func (b *NewsfeedGetRecommendedBuilder) Fields(v []string) *NewsfeedGetRecommendedBuilder {
 	b.Params["fields"] = v
 	return b
@@ -458,7 +458,7 @@ func NewNewsfeedIgnoreItemBuilder() *NewsfeedIgnoreItemBuilder {
 	return &NewsfeedIgnoreItemBuilder{api.Params{}}
 }
 
-// Type Item type. Possible values:
+// Type item. Possible values:
 //
 // * wall – post on the wall;
 //
@@ -474,14 +474,14 @@ func (b *NewsfeedIgnoreItemBuilder) Type(v string) *NewsfeedIgnoreItemBuilder {
 	return b
 }
 
-// OwnerID Item owner's identifier (user or community),
+// OwnerID item owner's identifier (user or community),
 // Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community.
 func (b *NewsfeedIgnoreItemBuilder) OwnerID(v int) *NewsfeedIgnoreItemBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ItemID Item identifier.
+// ItemID item identifier.
 func (b *NewsfeedIgnoreItemBuilder) ItemID(v int) *NewsfeedIgnoreItemBuilder {
 	b.Params["item_id"] = v
 	return b
@@ -539,7 +539,7 @@ func NewNewsfeedSearchBuilder() *NewsfeedSearchBuilder {
 	return &NewsfeedSearchBuilder{api.Params{}}
 }
 
-// Q Search query string (e.g., 'New Year').
+// Q search query string (e.g., 'New Year').
 func (b *NewsfeedSearchBuilder) Q(v string) *NewsfeedSearchBuilder {
 	b.Params["q"] = v
 	return b
@@ -551,31 +551,31 @@ func (b *NewsfeedSearchBuilder) Extended(v bool) *NewsfeedSearchBuilder {
 	return b
 }
 
-// Count Number of posts to return.
+// Count number of posts to return.
 func (b *NewsfeedSearchBuilder) Count(v int) *NewsfeedSearchBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Latitude Geographical latitude point (in degrees, -90 to 90) within which to search.
+// Latitude geographical latitude point (in degrees, -90 to 90) within which to search.
 func (b *NewsfeedSearchBuilder) Latitude(v float64) *NewsfeedSearchBuilder {
 	b.Params["latitude"] = v
 	return b
 }
 
-// Longitude Geographical longitude point (in degrees, -180 to 180) within which to search.
+// Longitude geographical longitude point (in degrees, -180 to 180) within which to search.
 func (b *NewsfeedSearchBuilder) Longitude(v float64) *NewsfeedSearchBuilder {
 	b.Params["longitude"] = v
 	return b
 }
 
-// StartTime Earliest timestamp (in Unix time) of a news item to return. By default, 24 hours ago.
+// StartTime earliest timestamp (in Unix time) of a news item to return. By default, 24 hours ago.
 func (b *NewsfeedSearchBuilder) StartTime(v int) *NewsfeedSearchBuilder {
 	b.Params["start_time"] = v
 	return b
 }
 
-// EndTime Latest timestamp (in Unix time) of a news item to return. By default, the current time.
+// EndTime latest timestamp (in Unix time) of a news item to return. By default, the current time.
 func (b *NewsfeedSearchBuilder) EndTime(v int) *NewsfeedSearchBuilder {
 	b.Params["end_time"] = v
 	return b
@@ -587,7 +587,7 @@ func (b *NewsfeedSearchBuilder) StartFrom(v string) *NewsfeedSearchBuilder {
 	return b
 }
 
-// Fields Additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
 func (b *NewsfeedSearchBuilder) Fields(v []string) *NewsfeedSearchBuilder {
 	b.Params["fields"] = v
 	return b
@@ -607,7 +607,7 @@ func NewNewsfeedUnignoreItemBuilder() *NewsfeedUnignoreItemBuilder {
 	return &NewsfeedUnignoreItemBuilder{api.Params{}}
 }
 
-// Type Item type. Possible values:
+// Type item. Possible values:
 //
 // * wall – post on the wall;
 //
@@ -623,14 +623,14 @@ func (b *NewsfeedUnignoreItemBuilder) Type(v string) *NewsfeedUnignoreItemBuilde
 	return b
 }
 
-// OwnerID Item owner's identifier (user or community),
+// OwnerID item owner's identifier (user or community),
 // Note that community id must be negative. 'owner_id=1' – user , 'owner_id=-1' – community.
 func (b *NewsfeedUnignoreItemBuilder) OwnerID(v int) *NewsfeedUnignoreItemBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ItemID Item identifier.
+// ItemID parameter.
 func (b *NewsfeedUnignoreItemBuilder) ItemID(v int) *NewsfeedUnignoreItemBuilder {
 	b.Params["item_id"] = v
 	return b
@@ -666,13 +666,13 @@ func (b *NewsfeedUnsubscribeBuilder) Type(v string) *NewsfeedUnsubscribeBuilder 
 	return b
 }
 
-// OwnerID Object owner ID.
+// OwnerID object owner ID.
 func (b *NewsfeedUnsubscribeBuilder) OwnerID(v int) *NewsfeedUnsubscribeBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// ItemID Object ID.
+// ItemID object ID.
 func (b *NewsfeedUnsubscribeBuilder) ItemID(v int) *NewsfeedUnsubscribeBuilder {
 	b.Params["item_id"] = v
 	return b

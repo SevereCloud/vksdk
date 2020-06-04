@@ -18,19 +18,19 @@ func NewSearchGetHintsBuilder() *SearchGetHintsBuilder {
 	return &SearchGetHintsBuilder{api.Params{}}
 }
 
-// Q Search query string.
+// Q search query string.
 func (b *SearchGetHintsBuilder) Q(v string) *SearchGetHintsBuilder {
 	b.Params["q"] = v
 	return b
 }
 
-// Offset Offset for querying specific result subset.
+// Offset for querying specific result subset.
 func (b *SearchGetHintsBuilder) Offset(v int) *SearchGetHintsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Limit Maximum number of results to return.
+// Limit maximum number of results to return.
 func (b *SearchGetHintsBuilder) Limit(v int) *SearchGetHintsBuilder {
 	b.Params["limit"] = v
 	return b

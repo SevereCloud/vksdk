@@ -50,19 +50,19 @@ func NewDatabaseGetCitiesBuilder() *DatabaseGetCitiesBuilder {
 	return &DatabaseGetCitiesBuilder{api.Params{}}
 }
 
-// CountryID Country ID.
+// CountryID parameter.
 func (b *DatabaseGetCitiesBuilder) CountryID(v int) *DatabaseGetCitiesBuilder {
 	b.Params["country_id"] = v
 	return b
 }
 
-// RegionID Region ID.
+// RegionID parameter.
 func (b *DatabaseGetCitiesBuilder) RegionID(v int) *DatabaseGetCitiesBuilder {
 	b.Params["region_id"] = v
 	return b
 }
 
-// Q Search query.
+// Q search query.
 func (b *DatabaseGetCitiesBuilder) Q(v string) *DatabaseGetCitiesBuilder {
 	b.Params["q"] = v
 	return b
@@ -78,13 +78,13 @@ func (b *DatabaseGetCitiesBuilder) NeedAll(v bool) *DatabaseGetCitiesBuilder {
 	return b
 }
 
-// Offset Offset needed to return a specific subset of cities.
+// Offset needed to return a specific subset of cities.
 func (b *DatabaseGetCitiesBuilder) Offset(v int) *DatabaseGetCitiesBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of cities to return.
+// Count number of cities to return.
 func (b *DatabaseGetCitiesBuilder) Count(v int) *DatabaseGetCitiesBuilder {
 	b.Params["count"] = v
 	return b
@@ -104,7 +104,7 @@ func NewDatabaseGetCitiesByIDBuilder() *DatabaseGetCitiesByIDBuilder {
 	return &DatabaseGetCitiesByIDBuilder{api.Params{}}
 }
 
-// CityIDs City IDs.
+// CityIDs parameter.
 func (b *DatabaseGetCitiesByIDBuilder) CityIDs(v []int) *DatabaseGetCitiesByIDBuilder {
 	b.Params["city_ids"] = v
 	return b
@@ -134,19 +134,19 @@ func (b *DatabaseGetCountriesBuilder) NeedAll(v bool) *DatabaseGetCountriesBuild
 	return b
 }
 
-// Code Country codes in [vk.com/dev/country_codes|ISO 3166-1 alpha-2] standard.
+// Code - country codes in [vk.com/dev/country_codes|ISO 3166-1 alpha-2] standard.
 func (b *DatabaseGetCountriesBuilder) Code(v string) *DatabaseGetCountriesBuilder {
 	b.Params["code"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of countries.
+// Offset needed to return a specific subset of countries.
 func (b *DatabaseGetCountriesBuilder) Offset(v int) *DatabaseGetCountriesBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of countries to return.
+// Count number of countries to return.
 func (b *DatabaseGetCountriesBuilder) Count(v int) *DatabaseGetCountriesBuilder {
 	b.Params["count"] = v
 	return b
@@ -166,7 +166,7 @@ func NewDatabaseGetCountriesByIDBuilder() *DatabaseGetCountriesByIDBuilder {
 	return &DatabaseGetCountriesByIDBuilder{api.Params{}}
 }
 
-// CountryIDs Country IDs.
+// CountryIDs parameter.
 func (b *DatabaseGetCountriesByIDBuilder) CountryIDs(v []int) *DatabaseGetCountriesByIDBuilder {
 	b.Params["country_ids"] = v
 	return b
@@ -186,19 +186,19 @@ func NewDatabaseGetFacultiesBuilder() *DatabaseGetFacultiesBuilder {
 	return &DatabaseGetFacultiesBuilder{api.Params{}}
 }
 
-// UniversityID University ID.
+// UniversityID parameter.
 func (b *DatabaseGetFacultiesBuilder) UniversityID(v int) *DatabaseGetFacultiesBuilder {
 	b.Params["university_id"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of faculties.
+// Offset needed to return a specific subset of faculties.
 func (b *DatabaseGetFacultiesBuilder) Offset(v int) *DatabaseGetFacultiesBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of faculties to return.
+// Count number of faculties to return.
 func (b *DatabaseGetFacultiesBuilder) Count(v int) *DatabaseGetFacultiesBuilder {
 	b.Params["count"] = v
 	return b
@@ -276,25 +276,25 @@ func NewDatabaseGetRegionsBuilder() *DatabaseGetRegionsBuilder {
 	return &DatabaseGetRegionsBuilder{api.Params{}}
 }
 
-// CountryID Country ID, received in [vk.com/dev/database.getCountries|database.getCountries] method.
+// CountryID parameter, received in [vk.com/dev/database.getCountries|database.getCountries] method.
 func (b *DatabaseGetRegionsBuilder) CountryID(v int) *DatabaseGetRegionsBuilder {
 	b.Params["country_id"] = v
 	return b
 }
 
-// Q Search query.
+// Q search query.
 func (b *DatabaseGetRegionsBuilder) Q(v string) *DatabaseGetRegionsBuilder {
 	b.Params["q"] = v
 	return b
 }
 
-// Offset Offset needed to return specific subset of regions.
+// Offset needed to return specific subset of regions.
 func (b *DatabaseGetRegionsBuilder) Offset(v int) *DatabaseGetRegionsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of regions to return.
+// Count number of regions to return.
 func (b *DatabaseGetRegionsBuilder) Count(v int) *DatabaseGetRegionsBuilder {
 	b.Params["count"] = v
 	return b
@@ -314,7 +314,7 @@ func NewDatabaseGetSchoolClassesBuilder() *DatabaseGetSchoolClassesBuilder {
 	return &DatabaseGetSchoolClassesBuilder{api.Params{}}
 }
 
-// CountryID Country ID.
+// CountryID parameter.
 func (b *DatabaseGetSchoolClassesBuilder) CountryID(v int) *DatabaseGetSchoolClassesBuilder {
 	b.Params["country_id"] = v
 	return b
@@ -334,25 +334,25 @@ func NewDatabaseGetSchoolsBuilder() *DatabaseGetSchoolsBuilder {
 	return &DatabaseGetSchoolsBuilder{api.Params{}}
 }
 
-// Q Search query.
+// Q search query.
 func (b *DatabaseGetSchoolsBuilder) Q(v string) *DatabaseGetSchoolsBuilder {
 	b.Params["q"] = v
 	return b
 }
 
-// CityID City ID.
+// CityID parameter.
 func (b *DatabaseGetSchoolsBuilder) CityID(v int) *DatabaseGetSchoolsBuilder {
 	b.Params["city_id"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of schools.
+// Offset needed to return a specific subset of schools.
 func (b *DatabaseGetSchoolsBuilder) Offset(v int) *DatabaseGetSchoolsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of schools to return.
+// Count number of schools to return.
 func (b *DatabaseGetSchoolsBuilder) Count(v int) *DatabaseGetSchoolsBuilder {
 	b.Params["count"] = v
 	return b
@@ -372,19 +372,19 @@ func NewDatabaseGetUniversitiesBuilder() *DatabaseGetUniversitiesBuilder {
 	return &DatabaseGetUniversitiesBuilder{api.Params{}}
 }
 
-// Q Search query.
+// Q search query.
 func (b *DatabaseGetUniversitiesBuilder) Q(v string) *DatabaseGetUniversitiesBuilder {
 	b.Params["q"] = v
 	return b
 }
 
-// CountryID Country ID.
+// CountryID parameter.
 func (b *DatabaseGetUniversitiesBuilder) CountryID(v int) *DatabaseGetUniversitiesBuilder {
 	b.Params["country_id"] = v
 	return b
 }
 
-// CityID City ID.
+// CityID parameter.
 func (b *DatabaseGetUniversitiesBuilder) CityID(v int) *DatabaseGetUniversitiesBuilder {
 	b.Params["city_id"] = v
 	return b
@@ -396,7 +396,7 @@ func (b *DatabaseGetUniversitiesBuilder) Offset(v int) *DatabaseGetUniversitiesB
 	return b
 }
 
-// Count Number of universities to return.
+// Count number of universities to return.
 func (b *DatabaseGetUniversitiesBuilder) Count(v int) *DatabaseGetUniversitiesBuilder {
 	b.Params["count"] = v
 	return b

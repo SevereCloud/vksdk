@@ -243,7 +243,7 @@ func (vk *VK) VideoGetCommentsExtended(params Params) (response VideoGetComments
 	return
 }
 
-// VideoRemoveFromAlbum Allows you to remove the video from the album.
+// VideoRemoveFromAlbum allows you to remove the video from the album.
 //
 // https://vk.com/dev/video.removeFromAlbum
 func (vk *VK) VideoRemoveFromAlbum(params Params) (response int, err error) {

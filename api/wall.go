@@ -18,7 +18,7 @@ type WallCreateCommentResponse struct {
 	ParentsStack []int `json:"parents_stack"`
 }
 
-// WallCreateComment Adds a comment to a post on a user wall or community wall.
+// WallCreateComment adds a comment to a post on a user wall or community wall.
 //
 // https://vk.com/dev/wall.createComment
 func (vk *VK) WallCreateComment(params Params) (response WallCreateCommentResponse, err error) {

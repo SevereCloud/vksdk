@@ -22,7 +22,7 @@ func (vk *VK) NewsfeedDeleteBan(params Params) (response int, err error) {
 	return
 }
 
-// NewsfeedDeleteList The method allows you to delete a custom news list.
+// NewsfeedDeleteList the method allows you to delete a custom news list.
 //
 // https://vk.com/dev/newsfeed.deleteList
 func (vk *VK) NewsfeedDeleteList(params Params) (response int, err error) {
@@ -159,7 +159,7 @@ func (vk *VK) NewsfeedGetSuggestedSources(params Params) (response NewsfeedGetSu
 	return
 }
 
-// NewsfeedIgnoreItem Hides an item from the newsfeed.
+// NewsfeedIgnoreItem hides an item from the newsfeed.
 //
 // https://vk.com/dev/newsfeed.ignoreItem
 func (vk *VK) NewsfeedIgnoreItem(params Params) (response int, err error) {

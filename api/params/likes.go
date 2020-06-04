@@ -18,7 +18,7 @@ func NewLikesAddBuilder() *LikesAddBuilder {
 	return &LikesAddBuilder{api.Params{}}
 }
 
-// Type Object type:
+// Type object:
 //
 // * post — post on user or community wall;
 //
@@ -50,13 +50,13 @@ func (b *LikesAddBuilder) OwnerID(v int) *LikesAddBuilder {
 	return b
 }
 
-// ItemID Object ID.
+// ItemID parameter.
 func (b *LikesAddBuilder) ItemID(v int) *LikesAddBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// AccessKey Access key required for an object owned by a private entity.
+// AccessKey access key required for an object owned by a private entity.
 func (b *LikesAddBuilder) AccessKey(v string) *LikesAddBuilder {
 	b.Params["access_key"] = v
 	return b
@@ -76,7 +76,7 @@ func NewLikesDeleteBuilder() *LikesDeleteBuilder {
 	return &LikesDeleteBuilder{api.Params{}}
 }
 
-// Type Object type:
+// Type object:
 //
 // * post — post on user or community wall;
 //
@@ -108,7 +108,7 @@ func (b *LikesDeleteBuilder) OwnerID(v int) *LikesDeleteBuilder {
 	return b
 }
 
-// ItemID Object ID.
+// ItemID parameter.
 func (b *LikesDeleteBuilder) ItemID(v int) *LikesDeleteBuilder {
 	b.Params["item_id"] = v
 	return b
@@ -128,7 +128,7 @@ func NewLikesGetListBuilder() *LikesGetListBuilder {
 	return &LikesGetListBuilder{api.Params{}}
 }
 
-// Type Object type:
+// Type object:
 //
 // * post — post on user or community wall;
 //
@@ -163,7 +163,7 @@ func (b *LikesGetListBuilder) OwnerID(v int) *LikesGetListBuilder {
 	return b
 }
 
-// ItemID Object ID. If 'type' is set as 'sitepage', 'item_id' can include the 'page_id' parameter value used during
+// ItemID parameter. If 'type' is set as 'sitepage', 'item_id' can include the 'page_id' parameter value used during
 // initialization of the [vk.com/dev/Like|Like widget].
 func (b *LikesGetListBuilder) ItemID(v int) *LikesGetListBuilder {
 	b.Params["item_id"] = v
@@ -177,7 +177,7 @@ func (b *LikesGetListBuilder) PageURL(v string) *LikesGetListBuilder {
 	return b
 }
 
-// Filter Filters to apply:
+// Filter filters to apply:
 //
 // * likes — returns information about all users who liked the object (default);
 //
@@ -187,7 +187,7 @@ func (b *LikesGetListBuilder) Filter(v string) *LikesGetListBuilder {
 	return b
 }
 
-// FriendsOnly Specifies which users are returned:
+// FriendsOnly specifies which users are returned:
 //
 // * 1 — to return only the current user's friends;
 //
@@ -197,7 +197,7 @@ func (b *LikesGetListBuilder) FriendsOnly(v int) *LikesGetListBuilder {
 	return b
 }
 
-// Extended Specifies whether extended information will be returned.
+// Extended specifies whether extended information will be returned.
 //
 // * 1 — to return extended information about users and communities from the 'Likes' list;
 //
@@ -207,13 +207,13 @@ func (b *LikesGetListBuilder) Extended(v bool) *LikesGetListBuilder {
 	return b
 }
 
-// Offset Offset needed to select a specific subset of users.
+// Offset needed to select a specific subset of users.
 func (b *LikesGetListBuilder) Offset(v int) *LikesGetListBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of user IDs to return (maximum '1000'). Default is '100' if 'friends_only' is set to '0',
+// Count number of user IDs to return (maximum '1000'). Default is '100' if 'friends_only' is set to '0',
 // otherwise, the default is '10' if 'friends_only' is set to '1'.
 func (b *LikesGetListBuilder) Count(v int) *LikesGetListBuilder {
 	b.Params["count"] = v
@@ -240,13 +240,13 @@ func NewLikesIsLikedBuilder() *LikesIsLikedBuilder {
 	return &LikesIsLikedBuilder{api.Params{}}
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *LikesIsLikedBuilder) UserID(v int) *LikesIsLikedBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Type Object type:
+// Type object:
 //
 // * post — post on user or community wall;
 //
@@ -276,7 +276,7 @@ func (b *LikesIsLikedBuilder) OwnerID(v int) *LikesIsLikedBuilder {
 	return b
 }
 
-// ItemID Object ID.
+// ItemID parameter.
 func (b *LikesIsLikedBuilder) ItemID(v int) *LikesIsLikedBuilder {
 	b.Params["item_id"] = v
 	return b

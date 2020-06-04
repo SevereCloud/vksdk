@@ -1,6 +1,6 @@
 package object // import "github.com/SevereCloud/vksdk/object"
 
-// AppsApp Type application type.
+// AppsApp type application type.
 const (
 	AppTypeApp          = "app"
 	AppTypeGame         = "game"
@@ -11,7 +11,7 @@ const (
 	AppTypeHTML5Game    = "html5_game"
 )
 
-// AppsLeaderboardType LeaderboardType type.
+// AppsLeaderboardType leaderboardType type.
 const (
 	AppsLeaderboardTypeNotSupported = iota
 	AppsLeaderboardTypeLevels

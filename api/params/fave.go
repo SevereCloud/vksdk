@@ -36,7 +36,7 @@ func NewFaveAddLinkBuilder() *FaveAddLinkBuilder {
 	return &FaveAddLinkBuilder{api.Params{}}
 }
 
-// Link Link URL.
+// Link URL.
 func (b *FaveAddLinkBuilder) Link(v string) *FaveAddLinkBuilder {
 	b.Params["link"] = v
 	return b
@@ -222,19 +222,19 @@ func (b *FaveGetBuilder) ItemType(v string) *FaveGetBuilder {
 	return b
 }
 
-// TagID Tag ID.
+// TagID parameter.
 func (b *FaveGetBuilder) TagID(v int) *FaveGetBuilder {
 	b.Params["tag_id"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of users.
+// Offset needed to return a specific subset of users.
 func (b *FaveGetBuilder) Offset(v int) *FaveGetBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of users to return.
+// Count number of users to return.
 func (b *FaveGetBuilder) Count(v int) *FaveGetBuilder {
 	b.Params["count"] = v
 	return b
@@ -332,13 +332,13 @@ func NewFaveRemoveLinkBuilder() *FaveRemoveLinkBuilder {
 	return &FaveRemoveLinkBuilder{api.Params{}}
 }
 
-// LinkID Link ID (can be obtained by [vk.com/dev/faves.getLinks|faves.getLinks] method).
+// LinkID parameter (can be obtained by [vk.com/dev/faves.getLinks|faves.getLinks] method).
 func (b *FaveRemoveLinkBuilder) LinkID(v string) *FaveRemoveLinkBuilder {
 	b.Params["link_id"] = v
 	return b
 }
 
-// Link Link URL.
+// Link URL.
 func (b *FaveRemoveLinkBuilder) Link(v string) *FaveRemoveLinkBuilder {
 	b.Params["link"] = v
 	return b

@@ -36,27 +36,27 @@ func NewAccountChangePasswordBuilder() *AccountChangePasswordBuilder {
 	return &AccountChangePasswordBuilder{api.Params{}}
 }
 
-// RestoreSID Session id received after the [vk.com/dev/auth.restore|auth.restore] method is executed.
+// RestoreSID session id received after the [vk.com/dev/auth.restore|auth.restore] method is executed.
 // (If the password is changed right after the access was restored).
 func (b *AccountChangePasswordBuilder) RestoreSID(v string) *AccountChangePasswordBuilder {
 	b.Params["restore_sid"] = v
 	return b
 }
 
-// ChangePasswordHash Hash received after a successful OAuth authorization with a code got by SMS. (If the password is
+// ChangePasswordHash hash received after a successful OAuth authorization with a code got by SMS. (If the password is
 // changed right after the access was restored).
 func (b *AccountChangePasswordBuilder) ChangePasswordHash(v string) *AccountChangePasswordBuilder {
 	b.Params["change_password_hash"] = v
 	return b
 }
 
-// OldPassword Current user password.
+// OldPassword current user password.
 func (b *AccountChangePasswordBuilder) OldPassword(v string) *AccountChangePasswordBuilder {
 	b.Params["old_password"] = v
 	return b
 }
 
-// NewPassword New password that will be set as a current.
+// NewPassword that will be set as a current.
 func (b *AccountChangePasswordBuilder) NewPassword(v string) *AccountChangePasswordBuilder {
 	b.Params["new_password"] = v
 	return b
@@ -83,7 +83,7 @@ func (b *AccountGetActiveOffersBuilder) Offset(v int) *AccountGetActiveOffersBui
 	return b
 }
 
-// Count Number of results to return.
+// Count - number of results to return.
 func (b *AccountGetActiveOffersBuilder) Count(v int) *AccountGetActiveOffersBuilder {
 	b.Params["count"] = v
 	return b
@@ -103,7 +103,7 @@ func NewAccountGetAppPermissionsBuilder() *AccountGetAppPermissionsBuilder {
 	return &AccountGetAppPermissionsBuilder{api.Params{}}
 }
 
-// UserID User ID whose settings information shall be got. By default: current user.
+// UserID user ID whose settings information shall be got. By default: current user.
 func (b *AccountGetAppPermissionsBuilder) UserID(v int) *AccountGetAppPermissionsBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -123,13 +123,13 @@ func NewAccountGetBannedBuilder() *AccountGetBannedBuilder {
 	return &AccountGetBannedBuilder{api.Params{}}
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *AccountGetBannedBuilder) Offset(v int) *AccountGetBannedBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of results to return.
+// Count number of results to return.
 func (b *AccountGetBannedBuilder) Count(v int) *AccountGetBannedBuilder {
 	b.Params["count"] = v
 	return b
@@ -149,7 +149,7 @@ func NewAccountGetCountersBuilder() *AccountGetCountersBuilder {
 	return &AccountGetCountersBuilder{api.Params{}}
 }
 
-// Filter Counters to be returned.
+// Filter counters to be returned.
 func (b *AccountGetCountersBuilder) Filter(v []string) *AccountGetCountersBuilder {
 	b.Params["filter"] = v
 	return b
@@ -169,7 +169,7 @@ func NewAccountGetInfoBuilder() *AccountGetInfoBuilder {
 	return &AccountGetInfoBuilder{api.Params{}}
 }
 
-// Fields Fields to return. Possible values: *'country' — user country; *'https_required' — is "HTTPS only" option
+// Fields to return. Possible values: *'country' — user country; *'https_required' — is "HTTPS only" option
 // enabled; *'own_posts_default' — is "Show my posts only" option is enabled; *'no_wall_replies' — are wall replies
 // disabled or not; *'intro' — is intro passed by user or not; *'lang' — user language. By default: all.
 func (b *AccountGetInfoBuilder) Fields(v []string) *AccountGetInfoBuilder {
@@ -191,7 +191,7 @@ func NewAccountGetPushSettingsBuilder() *AccountGetPushSettingsBuilder {
 	return &AccountGetPushSettingsBuilder{api.Params{}}
 }
 
-// DeviceID Unique device ID.
+// DeviceID unique device ID.
 func (b *AccountGetPushSettingsBuilder) DeviceID(v string) *AccountGetPushSettingsBuilder {
 	b.Params["device_id"] = v
 	return b
@@ -211,37 +211,37 @@ func NewAccountRegisterDeviceBuilder() *AccountRegisterDeviceBuilder {
 	return &AccountRegisterDeviceBuilder{api.Params{}}
 }
 
-// Token Device token used to send notifications. (for mpns, the token shall be URL for sending of notifications).
+// Token device used to send notifications. (for mpns, the token shall be URL for sending of notifications).
 func (b *AccountRegisterDeviceBuilder) Token(v string) *AccountRegisterDeviceBuilder {
 	b.Params["token"] = v
 	return b
 }
 
-// DeviceModel String name of device model.
+// DeviceModel string name of device model.
 func (b *AccountRegisterDeviceBuilder) DeviceModel(v string) *AccountRegisterDeviceBuilder {
 	b.Params["device_model"] = v
 	return b
 }
 
-// DeviceYear Device year.
+// DeviceYear parameter.
 func (b *AccountRegisterDeviceBuilder) DeviceYear(v int) *AccountRegisterDeviceBuilder {
 	b.Params["device_year"] = v
 	return b
 }
 
-// DeviceID Unique device ID.
+// DeviceID unique device ID.
 func (b *AccountRegisterDeviceBuilder) DeviceID(v string) *AccountRegisterDeviceBuilder {
 	b.Params["device_id"] = v
 	return b
 }
 
-// SystemVersion String version of device operating system.
+// SystemVersion string version of device operating system.
 func (b *AccountRegisterDeviceBuilder) SystemVersion(v string) *AccountRegisterDeviceBuilder {
 	b.Params["system_version"] = v
 	return b
 }
 
-// Settings Push settings in a [vk.com/dev/push_settings|special format].
+// Settings push settings in a [vk.com/dev/push_settings|special format].
 func (b *AccountRegisterDeviceBuilder) Settings(v string) *AccountRegisterDeviceBuilder {
 	b.Params["settings"] = v
 	return b
@@ -267,25 +267,25 @@ func NewAccountSaveProfileInfoBuilder() *AccountSaveProfileInfoBuilder {
 	return &AccountSaveProfileInfoBuilder{api.Params{}}
 }
 
-// FirstName User first name.
+// FirstName user first name.
 func (b *AccountSaveProfileInfoBuilder) FirstName(v string) *AccountSaveProfileInfoBuilder {
 	b.Params["first_name"] = v
 	return b
 }
 
-// LastName User last name.
+// LastName user last name.
 func (b *AccountSaveProfileInfoBuilder) LastName(v string) *AccountSaveProfileInfoBuilder {
 	b.Params["last_name"] = v
 	return b
 }
 
-// MaidenName User maiden name (female only).
+// MaidenName user maiden name (female only).
 func (b *AccountSaveProfileInfoBuilder) MaidenName(v string) *AccountSaveProfileInfoBuilder {
 	b.Params["maiden_name"] = v
 	return b
 }
 
-// ScreenName User screen name.
+// ScreenName user screen name.
 func (b *AccountSaveProfileInfoBuilder) ScreenName(v string) *AccountSaveProfileInfoBuilder {
 	b.Params["screen_name"] = v
 	return b
@@ -297,7 +297,7 @@ func (b *AccountSaveProfileInfoBuilder) CancelRequestID(v int) *AccountSaveProfi
 	return b
 }
 
-// Sex User sex. Possible values:
+// Sex user gender. Possible values:
 //
 // * 1 – female;
 //
@@ -307,7 +307,7 @@ func (b *AccountSaveProfileInfoBuilder) Sex(v int) *AccountSaveProfileInfoBuilde
 	return b
 }
 
-// Relation User relationship status. Possible values:
+// Relation user relationship status. Possible values:
 //
 // * 1 – single;
 //
@@ -335,13 +335,13 @@ func (b *AccountSaveProfileInfoBuilder) RelationPartnerID(v int) *AccountSavePro
 	return b
 }
 
-// Bdate User birth date, format: DD.MM.YYYY.
+// Bdate user birth date, format: DD.MM.YYYY.
 func (b *AccountSaveProfileInfoBuilder) Bdate(v string) *AccountSaveProfileInfoBuilder {
 	b.Params["bdate"] = v
 	return b
 }
 
-// BdateVisibility Birth date visibility. Returned values:
+// BdateVisibility birth date visibility. Returned values:
 //
 // * 1 – show birth date;
 //
@@ -353,25 +353,25 @@ func (b *AccountSaveProfileInfoBuilder) BdateVisibility(v int) *AccountSaveProfi
 	return b
 }
 
-// HomeTown User home town.
+// HomeTown user home town.
 func (b *AccountSaveProfileInfoBuilder) HomeTown(v string) *AccountSaveProfileInfoBuilder {
 	b.Params["home_town"] = v
 	return b
 }
 
-// CountryID User country.
+// CountryID user country.
 func (b *AccountSaveProfileInfoBuilder) CountryID(v int) *AccountSaveProfileInfoBuilder {
 	b.Params["country_id"] = v
 	return b
 }
 
-// CityID User city.
+// CityID user city.
 func (b *AccountSaveProfileInfoBuilder) CityID(v int) *AccountSaveProfileInfoBuilder {
 	b.Params["city_id"] = v
 	return b
 }
 
-// Status Status text.
+// Status text.
 func (b *AccountSaveProfileInfoBuilder) Status(v string) *AccountSaveProfileInfoBuilder {
 	b.Params["status"] = v
 	return b
@@ -391,13 +391,13 @@ func NewAccountSetInfoBuilder() *AccountSetInfoBuilder {
 	return &AccountSetInfoBuilder{api.Params{}}
 }
 
-// Name Setting name.
+// Name - setting name.
 func (b *AccountSetInfoBuilder) Name(v string) *AccountSetInfoBuilder {
 	b.Params["name"] = v
 	return b
 }
 
-// Value Setting value.
+// Value - setting value.
 func (b *AccountSetInfoBuilder) Value(v string) *AccountSetInfoBuilder {
 	b.Params["value"] = v
 	return b
@@ -417,13 +417,13 @@ func NewAccountSetNameInMenuBuilder() *AccountSetNameInMenuBuilder {
 	return &AccountSetNameInMenuBuilder{api.Params{}}
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *AccountSetNameInMenuBuilder) UserID(v int) *AccountSetNameInMenuBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Name Application screen name.
+// Name - application screen name.
 func (b *AccountSetNameInMenuBuilder) Name(v string) *AccountSetNameInMenuBuilder {
 	b.Params["name"] = v
 	return b
@@ -463,25 +463,25 @@ func NewAccountSetPushSettingsBuilder() *AccountSetPushSettingsBuilder {
 	return &AccountSetPushSettingsBuilder{api.Params{}}
 }
 
-// DeviceID Unique device ID.
+// DeviceID unique device ID.
 func (b *AccountSetPushSettingsBuilder) DeviceID(v string) *AccountSetPushSettingsBuilder {
 	b.Params["device_id"] = v
 	return b
 }
 
-// Settings Push settings in a [vk.com/dev/push_settings|special format].
+// Settings push settings in a [vk.com/dev/push_settings|special format].
 func (b *AccountSetPushSettingsBuilder) Settings(v string) *AccountSetPushSettingsBuilder {
 	b.Params["settings"] = v
 	return b
 }
 
-// Key Notification key.
+// Key notification.
 func (b *AccountSetPushSettingsBuilder) Key(v string) *AccountSetPushSettingsBuilder {
 	b.Params["key"] = v
 	return b
 }
 
-// Value New value for the key in a [vk.com/dev/push_settings|special format].
+// Value new value for the key in a [vk.com/dev/push_settings|special format].
 func (b *AccountSetPushSettingsBuilder) Value(v []string) *AccountSetPushSettingsBuilder {
 	b.Params["value"] = v
 	return b
@@ -501,7 +501,7 @@ func NewAccountSetSilenceModeBuilder() *AccountSetSilenceModeBuilder {
 	return &AccountSetSilenceModeBuilder{api.Params{}}
 }
 
-// DeviceID Unique device ID.
+// DeviceID unique device ID.
 func (b *AccountSetSilenceModeBuilder) DeviceID(v string) *AccountSetSilenceModeBuilder {
 	b.Params["device_id"] = v
 	return b
@@ -513,7 +513,7 @@ func (b *AccountSetSilenceModeBuilder) Time(v int) *AccountSetSilenceModeBuilder
 	return b
 }
 
-// PeerID Destination ID. For user: 'User ID', e.g. '12345'.
+// PeerID destination ID. For user: 'User ID', e.g. '12345'.
 // For chat: '2000000000' + 'Chat ID', e.g. '2000000001'.
 // For community: '- Community ID', e.g. '-12345'.
 func (b *AccountSetSilenceModeBuilder) PeerID(v int) *AccountSetSilenceModeBuilder {
@@ -563,7 +563,7 @@ func NewAccountUnregisterDeviceBuilder() *AccountUnregisterDeviceBuilder {
 	return &AccountUnregisterDeviceBuilder{api.Params{}}
 }
 
-// DeviceID Unique device ID.
+// DeviceID unique device ID.
 func (b *AccountUnregisterDeviceBuilder) DeviceID(v string) *AccountUnregisterDeviceBuilder {
 	b.Params["device_id"] = v
 	return b

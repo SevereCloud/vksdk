@@ -198,7 +198,7 @@ type MessagesGetConversationMembersResponse struct {
 	object.ExtendedResponse
 }
 
-// MessagesGetConversationMembers Returns a list of IDs of users participating in a conversation.
+// MessagesGetConversationMembers returns a list of IDs of users participating in a conversation.
 //
 // https://vk.com/dev/messages.getConversationMembers
 func (vk *VK) MessagesGetConversationMembers(params Params) (response MessagesGetConversationMembersResponse, err error) {
@@ -444,7 +444,7 @@ func (vk *VK) MessagesPin(params Params) (response MessagesPinResponse, err erro
 	return
 }
 
-// MessagesRemoveChatUser Allows the current user to leave a chat or, if the current user started the chat, allows the user to remove another user from the chat.
+// MessagesRemoveChatUser allows the current user to leave a chat or, if the current user started the chat, allows the user to remove another user from the chat.
 //
 // https://vk.com/dev/messages.removeChatUser
 func (vk *VK) MessagesRemoveChatUser(params Params) (response int, err error) {
@@ -469,7 +469,7 @@ type MessagesSearchResponse struct {
 	Conversations []object.MessagesConversation `json:"conversations"`
 }
 
-// MessagesSearch Returns a list of the current user's private messages that match search criteria.
+// MessagesSearch returns a list of the current user's private messages that match search criteria.
 //
 // https://vk.com/dev/messages.search
 func (vk *VK) MessagesSearch(params Params) (response MessagesSearchResponse, err error) {
@@ -492,7 +492,7 @@ func (vk *VK) MessagesSearchConversations(params Params) (response MessagesSearc
 	return
 }
 
-// MessagesSend Sends a message.
+// MessagesSend sends a message.
 //
 // For user_ids or peer_ids parameters, use MessagesSendUserIDs.
 //
@@ -515,7 +515,7 @@ type MessagesSendUserIDsResponse []struct {
 	} `json:"error"`
 }
 
-// MessagesSendUserIDs Sends a message.
+// MessagesSendUserIDs sends a message.
 //
 // need user_ids or peer_ids;
 //
@@ -525,7 +525,7 @@ func (vk *VK) MessagesSendUserIDs(params Params) (response MessagesSendUserIDsRe
 	return
 }
 
-// MessagesSendSticker Sends a message.
+// MessagesSendSticker sends a message.
 //
 // https://vk.com/dev/messages.sendSticker
 func (vk *VK) MessagesSendSticker(params Params) (response int, err error) {

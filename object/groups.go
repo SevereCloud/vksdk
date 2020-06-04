@@ -185,7 +185,7 @@ type GroupsLiveCovers struct {
 	StoryIds   []string    `json:"story_ids"`
 }
 
-// GroupsBanInfo Reason type.
+// GroupsBanInfo reason type.
 const (
 	GroupsBanReasonOther = iota
 	GroupsBanReasonSpam

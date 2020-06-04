@@ -18,13 +18,13 @@ func NewAuthCheckPhoneBuilder() *AuthCheckPhoneBuilder {
 	return &AuthCheckPhoneBuilder{api.Params{}}
 }
 
-// Phone Phone number.
+// Phone phone number.
 func (b *AuthCheckPhoneBuilder) Phone(v string) *AuthCheckPhoneBuilder {
 	b.Params["phone"] = v
 	return b
 }
 
-// ClientID User ID.
+// ClientID user ID.
 func (b *AuthCheckPhoneBuilder) ClientID(v int) *AuthCheckPhoneBuilder {
 	b.Params["client_id"] = v
 	return b
@@ -57,13 +57,13 @@ func NewAuthRestoreBuilder() *AuthRestoreBuilder {
 	return &AuthRestoreBuilder{api.Params{}}
 }
 
-// Phone User phone number.
+// Phone user phone number.
 func (b *AuthRestoreBuilder) Phone(v string) *AuthRestoreBuilder {
 	b.Params["phone"] = v
 	return b
 }
 
-// LastName User last name.
+// LastName user last name.
 func (b *AuthRestoreBuilder) LastName(v string) *AuthRestoreBuilder {
 	b.Params["last_name"] = v
 	return b

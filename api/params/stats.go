@@ -18,13 +18,13 @@ func NewStatsGetBuilder() *StatsGetBuilder {
 	return &StatsGetBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *StatsGetBuilder) GroupID(v int) *StatsGetBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// AppID Application ID.
+// AppID application ID.
 func (b *StatsGetBuilder) AppID(v int) *StatsGetBuilder {
 	b.Params["app_id"] = v
 	return b

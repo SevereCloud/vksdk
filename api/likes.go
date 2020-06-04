@@ -36,7 +36,7 @@ type LikesGetListResponse struct {
 	Items []int `json:"items"`
 }
 
-// LikesGetList likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
+// LikesGetList likes.getList returns a list of IDs of users who added the specified object to their Likes list.
 //
 // extended=0
 //
@@ -54,7 +54,7 @@ type LikesGetListExtendedResponse struct {
 	Items []object.UsersUser `json:"items"`
 }
 
-// LikesGetListExtended likes.getList Returns a list of IDs of users who added the specified object to their Likes list.
+// LikesGetListExtended likes.getList returns a list of IDs of users who added the specified object to their Likes list.
 //
 // extended=1
 //

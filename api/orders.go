@@ -4,7 +4,7 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-// OrdersCancelSubscription Allows to cancel subscription.
+// OrdersCancelSubscription allows to cancel subscription.
 //
 // https://vk.com/dev/orders.cancelSubscription
 func (vk *VK) OrdersCancelSubscription(params Params) (response int, err error) {
@@ -15,7 +15,7 @@ func (vk *VK) OrdersCancelSubscription(params Params) (response int, err error) 
 // OrdersChangeStateResponse struct.
 type OrdersChangeStateResponse string // New state
 
-// OrdersChangeState Changes order status.
+// OrdersChangeState changes order status.
 //
 // https://vk.com/dev/orders.changeState
 func (vk *VK) OrdersChangeState(params Params) (response OrdersChangeStateResponse, err error) {
@@ -26,7 +26,7 @@ func (vk *VK) OrdersChangeState(params Params) (response OrdersChangeStateRespon
 // OrdersGetResponse struct.
 type OrdersGetResponse []object.OrdersOrder
 
-// OrdersGet Returns a list of orders.
+// OrdersGet returns a list of orders.
 //
 // https://vk.com/dev/orders.get
 func (vk *VK) OrdersGet(params Params) (response OrdersGetResponse, err error) {
@@ -37,7 +37,7 @@ func (vk *VK) OrdersGet(params Params) (response OrdersGetResponse, err error) {
 // OrdersGetAmountResponse struct.
 type OrdersGetAmountResponse []object.OrdersAmount
 
-// OrdersGetAmount Returns the cost of votes in the user's consent.
+// OrdersGetAmount returns the cost of votes in the user's consent.
 //
 // https://vk.com/dev/orders.getAmount
 func (vk *VK) OrdersGetAmount(params Params) (response OrdersGetAmountResponse, err error) {
@@ -48,7 +48,7 @@ func (vk *VK) OrdersGetAmount(params Params) (response OrdersGetAmountResponse, 
 // OrdersGetByIDResponse struct.
 type OrdersGetByIDResponse []object.OrdersOrder
 
-// OrdersGetByID Returns information about orders by their IDs.
+// OrdersGetByID returns information about orders by their IDs.
 //
 // https://vk.com/dev/orders.getByID
 func (vk *VK) OrdersGetByID(params Params) (response OrdersGetByIDResponse, err error) {
@@ -59,7 +59,7 @@ func (vk *VK) OrdersGetByID(params Params) (response OrdersGetByIDResponse, err 
 // OrdersGetUserSubscriptionByIDResponse struct.
 type OrdersGetUserSubscriptionByIDResponse object.OrdersSubscription
 
-// OrdersGetUserSubscriptionByID Allows to get subscription by its ID.
+// OrdersGetUserSubscriptionByID allows to get subscription by its ID.
 //
 // https://vk.com/dev/orders.getUserSubscriptionById
 func (vk *VK) OrdersGetUserSubscriptionByID(params Params) (response OrdersGetUserSubscriptionByIDResponse, err error) {
@@ -73,7 +73,7 @@ type OrdersGetUserSubscriptionsResponse struct {
 	Items []object.OrdersSubscription `json:"items"`
 }
 
-// OrdersGetUserSubscriptions Allows to get user's active subscriptions.
+// OrdersGetUserSubscriptions allows to get user's active subscriptions.
 //
 // https://vk.com/dev/orders.getUserSubscriptions
 func (vk *VK) OrdersGetUserSubscriptions(params Params) (response OrdersGetUserSubscriptionsResponse, err error) {
@@ -81,7 +81,7 @@ func (vk *VK) OrdersGetUserSubscriptions(params Params) (response OrdersGetUserS
 	return
 }
 
-// OrdersUpdateSubscription Allows to update subscription price.
+// OrdersUpdateSubscription allows to update subscription price.
 //
 // https://vk.com/dev/orders.updateSubscription
 func (vk *VK) OrdersUpdateSubscription(params Params) (response int, err error) {

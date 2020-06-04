@@ -18,13 +18,13 @@ func NewNotesAddBuilder() *NotesAddBuilder {
 	return &NotesAddBuilder{api.Params{}}
 }
 
-// Title Note title.
+// Title note title.
 func (b *NotesAddBuilder) Title(v string) *NotesAddBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// Text Note text.
+// Text note text.
 func (b *NotesAddBuilder) Text(v string) *NotesAddBuilder {
 	b.Params["text"] = v
 	return b
@@ -56,13 +56,13 @@ func NewNotesCreateCommentBuilder() *NotesCreateCommentBuilder {
 	return &NotesCreateCommentBuilder{api.Params{}}
 }
 
-// NoteID Note ID.
+// NoteID parameter.
 func (b *NotesCreateCommentBuilder) NoteID(v int) *NotesCreateCommentBuilder {
 	b.Params["note_id"] = v
 	return b
 }
 
-// OwnerID Note owner ID.
+// OwnerID note owner ID.
 func (b *NotesCreateCommentBuilder) OwnerID(v int) *NotesCreateCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -74,7 +74,7 @@ func (b *NotesCreateCommentBuilder) ReplyTo(v int) *NotesCreateCommentBuilder {
 	return b
 }
 
-// Message Comment text.
+// Message comment text.
 func (b *NotesCreateCommentBuilder) Message(v string) *NotesCreateCommentBuilder {
 	b.Params["message"] = v
 	return b
@@ -100,7 +100,7 @@ func NewNotesDeleteBuilder() *NotesDeleteBuilder {
 	return &NotesDeleteBuilder{api.Params{}}
 }
 
-// NoteID Note ID.
+// NoteID parameter.
 func (b *NotesDeleteBuilder) NoteID(v int) *NotesDeleteBuilder {
 	b.Params["note_id"] = v
 	return b
@@ -120,13 +120,13 @@ func NewNotesDeleteCommentBuilder() *NotesDeleteCommentBuilder {
 	return &NotesDeleteCommentBuilder{api.Params{}}
 }
 
-// CommentID Comment ID.
+// CommentID parameter.
 func (b *NotesDeleteCommentBuilder) CommentID(v int) *NotesDeleteCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
-// OwnerID Note owner ID.
+// OwnerID note owner ID.
 func (b *NotesDeleteCommentBuilder) OwnerID(v int) *NotesDeleteCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -146,19 +146,19 @@ func NewNotesEditBuilder() *NotesEditBuilder {
 	return &NotesEditBuilder{api.Params{}}
 }
 
-// NoteID Note ID.
+// NoteID parameter.
 func (b *NotesEditBuilder) NoteID(v int) *NotesEditBuilder {
 	b.Params["note_id"] = v
 	return b
 }
 
-// Title Note title.
+// Title note title.
 func (b *NotesEditBuilder) Title(v string) *NotesEditBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// Text Note text.
+// Text note text.
 func (b *NotesEditBuilder) Text(v string) *NotesEditBuilder {
 	b.Params["text"] = v
 	return b
@@ -190,19 +190,19 @@ func NewNotesEditCommentBuilder() *NotesEditCommentBuilder {
 	return &NotesEditCommentBuilder{api.Params{}}
 }
 
-// CommentID Comment ID.
+// CommentID parameter.
 func (b *NotesEditCommentBuilder) CommentID(v int) *NotesEditCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
-// OwnerID Note owner ID.
+// OwnerID note owner ID.
 func (b *NotesEditCommentBuilder) OwnerID(v int) *NotesEditCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// Message New comment text.
+// Message new comment text.
 func (b *NotesEditCommentBuilder) Message(v string) *NotesEditCommentBuilder {
 	b.Params["message"] = v
 	return b
@@ -222,13 +222,13 @@ func NewNotesGetBuilder() *NotesGetBuilder {
 	return &NotesGetBuilder{api.Params{}}
 }
 
-// NoteIDs Note IDs.
+// NoteIDs note IDs.
 func (b *NotesGetBuilder) NoteIDs(v []int) *NotesGetBuilder {
 	b.Params["note_ids"] = v
 	return b
 }
 
-// UserID Note owner ID.
+// UserID note owner ID.
 func (b *NotesGetBuilder) UserID(v int) *NotesGetBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -240,7 +240,7 @@ func (b *NotesGetBuilder) Offset(v int) *NotesGetBuilder {
 	return b
 }
 
-// Count Number of notes to return.
+// Count number of notes to return.
 func (b *NotesGetBuilder) Count(v int) *NotesGetBuilder {
 	b.Params["count"] = v
 	return b
@@ -266,13 +266,13 @@ func NewNotesGetByIDBuilder() *NotesGetByIDBuilder {
 	return &NotesGetByIDBuilder{api.Params{}}
 }
 
-// NoteID Note ID.
+// NoteID parameter.
 func (b *NotesGetByIDBuilder) NoteID(v int) *NotesGetByIDBuilder {
 	b.Params["note_id"] = v
 	return b
 }
 
-// OwnerID Note owner ID.
+// OwnerID note owner ID.
 func (b *NotesGetByIDBuilder) OwnerID(v int) *NotesGetByIDBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -298,13 +298,13 @@ func NewNotesGetCommentsBuilder() *NotesGetCommentsBuilder {
 	return &NotesGetCommentsBuilder{api.Params{}}
 }
 
-// NoteID Note ID.
+// NoteID parameter.
 func (b *NotesGetCommentsBuilder) NoteID(v int) *NotesGetCommentsBuilder {
 	b.Params["note_id"] = v
 	return b
 }
 
-// OwnerID Note owner ID.
+// OwnerID note owner ID.
 func (b *NotesGetCommentsBuilder) OwnerID(v int) *NotesGetCommentsBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -322,7 +322,7 @@ func (b *NotesGetCommentsBuilder) Offset(v int) *NotesGetCommentsBuilder {
 	return b
 }
 
-// Count Number of comments to return.
+// Count number of comments to return.
 func (b *NotesGetCommentsBuilder) Count(v int) *NotesGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
@@ -342,13 +342,13 @@ func NewNotesRestoreCommentBuilder() *NotesRestoreCommentBuilder {
 	return &NotesRestoreCommentBuilder{api.Params{}}
 }
 
-// CommentID Comment ID.
+// CommentID parameter.
 func (b *NotesRestoreCommentBuilder) CommentID(v int) *NotesRestoreCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
-// OwnerID Note owner ID.
+// OwnerID note owner ID.
 func (b *NotesRestoreCommentBuilder) OwnerID(v int) *NotesRestoreCommentBuilder {
 	b.Params["owner_id"] = v
 	return b

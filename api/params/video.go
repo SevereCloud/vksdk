@@ -24,7 +24,7 @@ func (b *VideoAddBuilder) TargetID(v int) *VideoAddBuilder {
 	return b
 }
 
-// VideoID Video ID.
+// VideoID parameter.
 func (b *VideoAddBuilder) VideoID(v int) *VideoAddBuilder {
 	b.Params["video_id"] = v
 	return b
@@ -50,13 +50,13 @@ func NewVideoAddAlbumBuilder() *VideoAddAlbumBuilder {
 	return &VideoAddAlbumBuilder{api.Params{}}
 }
 
-// GroupID Community ID (if the album will be created in a community).
+// GroupID community ID (if the album will be created in a community).
 func (b *VideoAddAlbumBuilder) GroupID(v int) *VideoAddAlbumBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// Title Album title.
+// Title album.
 func (b *VideoAddAlbumBuilder) Title(v string) *VideoAddAlbumBuilder {
 	b.Params["title"] = v
 	return b
@@ -138,19 +138,19 @@ func (b *VideoCreateCommentBuilder) OwnerID(v int) *VideoCreateCommentBuilder {
 	return b
 }
 
-// VideoID Video ID.
+// VideoID parameter.
 func (b *VideoCreateCommentBuilder) VideoID(v int) *VideoCreateCommentBuilder {
 	b.Params["video_id"] = v
 	return b
 }
 
-// Message New comment text.
+// Message new comment text.
 func (b *VideoCreateCommentBuilder) Message(v string) *VideoCreateCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
 
-// Attachments List of objects attached to the comment, in the following format:
+// Attachments list of objects attached to the comment, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
 // '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media attachment owner. '<media_id>' — Media attachment ID.
@@ -198,7 +198,7 @@ func NewVideoDeleteBuilder() *VideoDeleteBuilder {
 	return &VideoDeleteBuilder{api.Params{}}
 }
 
-// VideoID Video ID.
+// VideoID parameter.
 func (b *VideoDeleteBuilder) VideoID(v int) *VideoDeleteBuilder {
 	b.Params["video_id"] = v
 	return b
@@ -230,13 +230,13 @@ func NewVideoDeleteAlbumBuilder() *VideoDeleteAlbumBuilder {
 	return &VideoDeleteAlbumBuilder{api.Params{}}
 }
 
-// GroupID Community ID (if the album is owned by a community).
+// GroupID community ID (if the album is owned by a community).
 func (b *VideoDeleteAlbumBuilder) GroupID(v int) *VideoDeleteAlbumBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// AlbumID Album ID.
+// AlbumID parameter.
 func (b *VideoDeleteAlbumBuilder) AlbumID(v int) *VideoDeleteAlbumBuilder {
 	b.Params["album_id"] = v
 	return b
@@ -288,38 +288,38 @@ func (b *VideoEditBuilder) OwnerID(v int) *VideoEditBuilder {
 	return b
 }
 
-// VideoID Video ID.
+// VideoID parameter.
 func (b *VideoEditBuilder) VideoID(v int) *VideoEditBuilder {
 	b.Params["video_id"] = v
 	return b
 }
 
-// Name New video title.
+// Name new video title.
 func (b *VideoEditBuilder) Name(v string) *VideoEditBuilder {
 	b.Params["name"] = v
 	return b
 }
 
-// Desc New video description.
+// Desc new video description.
 func (b *VideoEditBuilder) Desc(v string) *VideoEditBuilder {
 	b.Params["desc"] = v
 	return b
 }
 
-// PrivacyView Privacy settings in a [vk.com/dev/privacy_setting|special format].
+// PrivacyView privacy settings in a [vk.com/dev/privacy_setting|special format].
 // Privacy setting is available for videos uploaded to own profile by user.
 func (b *VideoEditBuilder) PrivacyView(v []string) *VideoEditBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
-// PrivacyComment Privacy settings for comments in a [vk.com/dev/privacy_setting|special format].
+// PrivacyComment privacy settings for comments in a [vk.com/dev/privacy_setting|special format].
 func (b *VideoEditBuilder) PrivacyComment(v []string) *VideoEditBuilder {
 	b.Params["privacy_comment"] = v
 	return b
 }
 
-// NoComments Disable comments for the group video.
+// NoComments disable comments for the group video.
 func (b *VideoEditBuilder) NoComments(v bool) *VideoEditBuilder {
 	b.Params["no_comments"] = v
 	return b
@@ -345,19 +345,19 @@ func NewVideoEditAlbumBuilder() *VideoEditAlbumBuilder {
 	return &VideoEditAlbumBuilder{api.Params{}}
 }
 
-// GroupID Community ID (if the album edited is owned by a community).
+// GroupID community ID (if the album edited is owned by a community).
 func (b *VideoEditAlbumBuilder) GroupID(v int) *VideoEditAlbumBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// AlbumID Album ID.
+// AlbumID parameter.
 func (b *VideoEditAlbumBuilder) AlbumID(v int) *VideoEditAlbumBuilder {
 	b.Params["album_id"] = v
 	return b
 }
 
-// Title New album title.
+// Title new album title.
 func (b *VideoEditAlbumBuilder) Title(v string) *VideoEditAlbumBuilder {
 	b.Params["title"] = v
 	return b
@@ -397,19 +397,19 @@ func (b *VideoEditCommentBuilder) OwnerID(v int) *VideoEditCommentBuilder {
 	return b
 }
 
-// CommentID Comment ID.
+// CommentID parameter.
 func (b *VideoEditCommentBuilder) CommentID(v int) *VideoEditCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
-// Message New comment text.
+// Message new comment text.
 func (b *VideoEditCommentBuilder) Message(v string) *VideoEditCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
 
-// Attachments List of objects attached to the comment, in the following format:
+// Attachments list of objects attached to the comment, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
 // '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media attachment owner. '<media_id>' — Media attachment ID.
@@ -439,7 +439,7 @@ func (b *VideoGetBuilder) OwnerID(v int) *VideoGetBuilder {
 	return b
 }
 
-// Videos Video IDs, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>",
+// Videos IDs, in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>",
 // Use a negative value to designate a community ID.
 // Example: "-4363_136089719,13245770_137352259".
 func (b *VideoGetBuilder) Videos(v []string) *VideoGetBuilder {
@@ -453,13 +453,13 @@ func (b *VideoGetBuilder) AlbumID(v int) *VideoGetBuilder {
 	return b
 }
 
-// Count Number of videos to return.
+// Count number of videos to return.
 func (b *VideoGetBuilder) Count(v int) *VideoGetBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of videos.
+// Offset needed to return a specific subset of videos.
 func (b *VideoGetBuilder) Offset(v int) *VideoGetBuilder {
 	b.Params["offset"] = v
 	return b
@@ -491,7 +491,7 @@ func (b *VideoGetAlbumByIDBuilder) OwnerID(v int) *VideoGetAlbumByIDBuilder {
 	return b
 }
 
-// AlbumID Album ID.
+// AlbumID parameter.
 func (b *VideoGetAlbumByIDBuilder) AlbumID(v int) *VideoGetAlbumByIDBuilder {
 	b.Params["album_id"] = v
 	return b
@@ -517,13 +517,13 @@ func (b *VideoGetAlbumsBuilder) OwnerID(v int) *VideoGetAlbumsBuilder {
 	return b
 }
 
-// Offset Offset needed to return a specific subset of video albums.
+// Offset needed to return a specific subset of video albums.
 func (b *VideoGetAlbumsBuilder) Offset(v int) *VideoGetAlbumsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of video albums to return.
+// Count number of video albums to return.
 func (b *VideoGetAlbumsBuilder) Count(v int) *VideoGetAlbumsBuilder {
 	b.Params["count"] = v
 	return b
@@ -597,7 +597,7 @@ func (b *VideoGetCommentsBuilder) OwnerID(v int) *VideoGetCommentsBuilder {
 	return b
 }
 
-// VideoID Video ID.
+// VideoID parameter.
 func (b *VideoGetCommentsBuilder) VideoID(v int) *VideoGetCommentsBuilder {
 	b.Params["video_id"] = v
 	return b
@@ -615,19 +615,19 @@ func (b *VideoGetCommentsBuilder) StartCommentID(v int) *VideoGetCommentsBuilder
 	return b
 }
 
-// Offset Offset needed to return a specific subset of comments.
+// Offset needed to return a specific subset of comments.
 func (b *VideoGetCommentsBuilder) Offset(v int) *VideoGetCommentsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of comments to return.
+// Count number of comments to return.
 func (b *VideoGetCommentsBuilder) Count(v int) *VideoGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Sort Sort order: 'asc' — oldest comment first, 'desc' — newest comment first.
+// Sort order: 'asc' — oldest comment first, 'desc' — newest comment first.
 func (b *VideoGetCommentsBuilder) Sort(v string) *VideoGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
@@ -707,7 +707,7 @@ func (b *VideoReorderAlbumsBuilder) OwnerID(v int) *VideoReorderAlbumsBuilder {
 	return b
 }
 
-// AlbumID Album ID.
+// AlbumID parameter.
 func (b *VideoReorderAlbumsBuilder) AlbumID(v int) *VideoReorderAlbumsBuilder {
 	b.Params["album_id"] = v
 	return b
@@ -807,13 +807,13 @@ func (b *VideoReportBuilder) OwnerID(v int) *VideoReportBuilder {
 	return b
 }
 
-// VideoID Video ID.
+// VideoID parameter.
 func (b *VideoReportBuilder) VideoID(v int) *VideoReportBuilder {
 	b.Params["video_id"] = v
 	return b
 }
 
-// Reason Reason for the complaint:
+// Reason for the complaint:
 //
 // * 0 – spam;
 //
@@ -833,7 +833,7 @@ func (b *VideoReportBuilder) Reason(v int) *VideoReportBuilder {
 	return b
 }
 
-// Comment Comment describing the complaint.
+// Comment describing the complaint.
 func (b *VideoReportBuilder) Comment(v string) *VideoReportBuilder {
 	b.Params["comment"] = v
 	return b
@@ -871,7 +871,7 @@ func (b *VideoReportCommentBuilder) CommentID(v int) *VideoReportCommentBuilder 
 	return b
 }
 
-// Reason Reason for the complaint:
+// Reason for the complaint:
 //
 // * 0 – spam;
 //
@@ -905,7 +905,7 @@ func NewVideoRestoreBuilder() *VideoRestoreBuilder {
 	return &VideoRestoreBuilder{api.Params{}}
 }
 
-// VideoID Video ID.
+// VideoID parameter.
 func (b *VideoRestoreBuilder) VideoID(v int) *VideoRestoreBuilder {
 	b.Params["video_id"] = v
 	return b
@@ -957,13 +957,13 @@ func NewVideoSaveBuilder() *VideoSaveBuilder {
 	return &VideoSaveBuilder{api.Params{}}
 }
 
-// Name Name of the video.
+// Name of the video.
 func (b *VideoSaveBuilder) Name(v string) *VideoSaveBuilder {
 	b.Params["name"] = v
 	return b
 }
 
-// Description Description of the video.
+// Description of the video.
 func (b *VideoSaveBuilder) Description(v string) *VideoSaveBuilder {
 	b.Params["description"] = v
 	return b
@@ -1051,19 +1051,21 @@ func NewVideoSearchBuilder() *VideoSearchBuilder {
 	return &VideoSearchBuilder{api.Params{}}
 }
 
-// Q Search query string (e.g., 'The Beatles').
+// Q search query string (e.g., 'The Beatles').
 func (b *VideoSearchBuilder) Q(v string) *VideoSearchBuilder {
 	b.Params["q"] = v
 	return b
 }
 
-// Sort Sort order: '1' — by duration, '2' — by relevance, '0' — by date added.
+// Sort order: '1' — by duration, '2' — by relevance, '0' — by date added.
 func (b *VideoSearchBuilder) Sort(v int) *VideoSearchBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
-// Hd If not null, only searches for high-definition videos.
+// Hd if not null, only searches for high-definition videos.
+//
+// TODO: v2 rename HD.
 func (b *VideoSearchBuilder) Hd(v int) *VideoSearchBuilder {
 	b.Params["hd"] = v
 	return b
@@ -1075,7 +1077,7 @@ func (b *VideoSearchBuilder) Adult(v bool) *VideoSearchBuilder {
 	return b
 }
 
-// Filters Filters to apply:
+// Filters to apply:
 //
 // * youtube — return YouTube videos only;
 //
@@ -1095,7 +1097,7 @@ func (b *VideoSearchBuilder) SearchOwn(v bool) *VideoSearchBuilder {
 	return b
 }
 
-// Offset Offset needed to return a specific subset of videos.
+// Offset needed to return a specific subset of videos.
 func (b *VideoSearchBuilder) Offset(v int) *VideoSearchBuilder {
 	b.Params["offset"] = v
 	return b
@@ -1113,7 +1115,7 @@ func (b *VideoSearchBuilder) Shorter(v int) *VideoSearchBuilder {
 	return b
 }
 
-// Count Number of videos to return.
+// Count number of videos to return.
 func (b *VideoSearchBuilder) Count(v int) *VideoSearchBuilder {
 	b.Params["count"] = v
 	return b

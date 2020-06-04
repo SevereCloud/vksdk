@@ -24,25 +24,25 @@ func (b *MarketAddBuilder) OwnerID(v int) *MarketAddBuilder {
 	return b
 }
 
-// Name Item name.
+// Name item.
 func (b *MarketAddBuilder) Name(v string) *MarketAddBuilder {
 	b.Params["name"] = v
 	return b
 }
 
-// Description Item description.
+// Description item.
 func (b *MarketAddBuilder) Description(v string) *MarketAddBuilder {
 	b.Params["description"] = v
 	return b
 }
 
-// CategoryID Item category ID.
+// CategoryID item.
 func (b *MarketAddBuilder) CategoryID(v int) *MarketAddBuilder {
 	b.Params["category_id"] = v
 	return b
 }
 
-// Price Item price.
+// Price item.
 func (b *MarketAddBuilder) Price(v float64) *MarketAddBuilder {
 	b.Params["price"] = v
 	return b
@@ -54,13 +54,13 @@ func (b *MarketAddBuilder) OldPrice(v float64) *MarketAddBuilder {
 	return b
 }
 
-// Deleted Item status ('1' — deleted, '0' — not deleted).
+// Deleted item status ('1' — deleted, '0' — not deleted).
 func (b *MarketAddBuilder) Deleted(v bool) *MarketAddBuilder {
 	b.Params["deleted"] = v
 	return b
 }
 
-// MainPhotoID Cover photo ID.
+// MainPhotoID cover photo ID.
 func (b *MarketAddBuilder) MainPhotoID(v int) *MarketAddBuilder {
 	b.Params["main_photo_id"] = v
 	return b
@@ -72,7 +72,7 @@ func (b *MarketAddBuilder) PhotoIDs(v []int) *MarketAddBuilder {
 	return b
 }
 
-// URL Url for button in market item.
+// URL for button in market item.
 func (b *MarketAddBuilder) URL(v string) *MarketAddBuilder {
 	b.Params["url"] = v
 	return b
@@ -98,19 +98,19 @@ func (b *MarketAddAlbumBuilder) OwnerID(v int) *MarketAddAlbumBuilder {
 	return b
 }
 
-// Title Collection title.
+// Title collection title.
 func (b *MarketAddAlbumBuilder) Title(v string) *MarketAddAlbumBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// PhotoID Cover photo ID.
+// PhotoID cover photo ID.
 func (b *MarketAddAlbumBuilder) PhotoID(v int) *MarketAddAlbumBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
-// MainAlbum Set as main ('1' – set, '0' – no).
+// MainAlbum set as main ('1' – set, '0' – no).
 func (b *MarketAddAlbumBuilder) MainAlbum(v bool) *MarketAddAlbumBuilder {
 	b.Params["main_album"] = v
 	return b
@@ -136,13 +136,13 @@ func (b *MarketAddToAlbumBuilder) OwnerID(v int) *MarketAddToAlbumBuilder {
 	return b
 }
 
-// ItemID Item ID.
+// ItemID parameter.
 func (b *MarketAddToAlbumBuilder) ItemID(v int) *MarketAddToAlbumBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// AlbumIDs Collections IDs to add item to.
+// AlbumIDs collections IDs to add item to.
 func (b *MarketAddToAlbumBuilder) AlbumIDs(v []int) *MarketAddToAlbumBuilder {
 	b.Params["album_ids"] = v
 	return b
@@ -168,19 +168,19 @@ func (b *MarketCreateCommentBuilder) OwnerID(v int) *MarketCreateCommentBuilder 
 	return b
 }
 
-// ItemID Item ID.
+// ItemID parameter.
 func (b *MarketCreateCommentBuilder) ItemID(v int) *MarketCreateCommentBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// Message Comment text (required if 'attachments' parameter is not specified).
+// Message comment text (required if 'attachments' parameter is not specified).
 func (b *MarketCreateCommentBuilder) Message(v string) *MarketCreateCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
 
-// Attachments Comma-separated list of objects attached to a comment.
+// Attachments comma-separated list of objects attached to a comment.
 // The field is submitted the following way: , "'<owner_id>_<media_id>,<owner_id>_<media_id>'",
 // '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
 // '<owner_id>' - media owner id, '<media_id>' - media attachment id,
@@ -202,13 +202,13 @@ func (b *MarketCreateCommentBuilder) ReplyToComment(v int) *MarketCreateCommentB
 	return b
 }
 
-// StickerID Sticker ID.
+// StickerID parameter.
 func (b *MarketCreateCommentBuilder) StickerID(v int) *MarketCreateCommentBuilder {
 	b.Params["sticker_id"] = v
 	return b
 }
 
-// GUID Random value to avoid resending one comment.
+// GUID random value to avoid resending one comment.
 func (b *MarketCreateCommentBuilder) GUID(v string) *MarketCreateCommentBuilder {
 	b.Params["guid"] = v
 	return b
@@ -234,7 +234,7 @@ func (b *MarketDeleteBuilder) OwnerID(v int) *MarketDeleteBuilder {
 	return b
 }
 
-// ItemID Item ID.
+// ItemID parameter.
 func (b *MarketDeleteBuilder) ItemID(v int) *MarketDeleteBuilder {
 	b.Params["item_id"] = v
 	return b
@@ -260,7 +260,7 @@ func (b *MarketDeleteAlbumBuilder) OwnerID(v int) *MarketDeleteAlbumBuilder {
 	return b
 }
 
-// AlbumID Collection ID.
+// AlbumID collection ID.
 func (b *MarketDeleteAlbumBuilder) AlbumID(v int) *MarketDeleteAlbumBuilder {
 	b.Params["album_id"] = v
 	return b
@@ -314,43 +314,43 @@ func (b *MarketEditBuilder) OwnerID(v int) *MarketEditBuilder {
 	return b
 }
 
-// ItemID Item ID.
+// ItemID parameter.
 func (b *MarketEditBuilder) ItemID(v int) *MarketEditBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// Name Item name.
+// Name item name.
 func (b *MarketEditBuilder) Name(v string) *MarketEditBuilder {
 	b.Params["name"] = v
 	return b
 }
 
-// Description Item description.
+// Description item description.
 func (b *MarketEditBuilder) Description(v string) *MarketEditBuilder {
 	b.Params["description"] = v
 	return b
 }
 
-// CategoryID Item category ID.
+// CategoryID item category ID.
 func (b *MarketEditBuilder) CategoryID(v int) *MarketEditBuilder {
 	b.Params["category_id"] = v
 	return b
 }
 
-// Price Item price.
+// Price item price.
 func (b *MarketEditBuilder) Price(v float64) *MarketEditBuilder {
 	b.Params["price"] = v
 	return b
 }
 
-// Deleted Item status ('1' — deleted, '0' — not deleted).
+// Deleted item status ('1' — deleted, '0' — not deleted).
 func (b *MarketEditBuilder) Deleted(v bool) *MarketEditBuilder {
 	b.Params["deleted"] = v
 	return b
 }
 
-// MainPhotoID Cover photo ID.
+// MainPhotoID cover photo ID.
 func (b *MarketEditBuilder) MainPhotoID(v int) *MarketEditBuilder {
 	b.Params["main_photo_id"] = v
 	return b
@@ -362,7 +362,7 @@ func (b *MarketEditBuilder) PhotoIDs(v []int) *MarketEditBuilder {
 	return b
 }
 
-// URL Url for button in market item.
+// URL for button in market item.
 func (b *MarketEditBuilder) URL(v string) *MarketEditBuilder {
 	b.Params["url"] = v
 	return b
@@ -388,25 +388,25 @@ func (b *MarketEditAlbumBuilder) OwnerID(v int) *MarketEditAlbumBuilder {
 	return b
 }
 
-// AlbumID Collection ID.
+// AlbumID collection ID.
 func (b *MarketEditAlbumBuilder) AlbumID(v int) *MarketEditAlbumBuilder {
 	b.Params["album_id"] = v
 	return b
 }
 
-// Title Collection title.
+// Title collection.
 func (b *MarketEditAlbumBuilder) Title(v string) *MarketEditAlbumBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// PhotoID Cover photo id.
+// PhotoID cover photo id.
 func (b *MarketEditAlbumBuilder) PhotoID(v int) *MarketEditAlbumBuilder {
 	b.Params["photo_id"] = v
 	return b
 }
 
-// MainAlbum Set as main ('1' – set, '0' – no).
+// MainAlbum set as main ('1' – set, '0' – no).
 func (b *MarketEditAlbumBuilder) MainAlbum(v bool) *MarketEditAlbumBuilder {
 	b.Params["main_album"] = v
 	return b
@@ -470,19 +470,19 @@ func (b *MarketEditCommentBuilder) OwnerID(v int) *MarketEditCommentBuilder {
 	return b
 }
 
-// CommentID Comment ID.
+// CommentID parameter.
 func (b *MarketEditCommentBuilder) CommentID(v int) *MarketEditCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
-// Message New comment text (required if 'attachments' are not specified), 2048 symbols maximum.
+// Message new comment text (required if 'attachments' are not specified), 2048 symbols maximum.
 func (b *MarketEditCommentBuilder) Message(v string) *MarketEditCommentBuilder {
 	b.Params["message"] = v
 	return b
 }
 
-// Attachments Comma-separated list of objects attached to a comment. The field is submitted the following way:
+// Attachments comma-separated list of objects attached to a comment. The field is submitted the following way:
 // , "'<owner_id>_<media_id>,<owner_id>_<media_id>'",
 // '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
 // '<owner_id>' - media owner id, '<media_id>' - media attachment id,
@@ -521,13 +521,13 @@ func (b *MarketGetBuilder) AlbumID(v int) *MarketGetBuilder {
 	return b
 }
 
-// Count Number of items to return.
+// Count number of items to return.
 func (b *MarketGetBuilder) Count(v int) *MarketGetBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *MarketGetBuilder) Offset(v int) *MarketGetBuilder {
 	b.Params["offset"] = v
 	return b
@@ -589,13 +589,13 @@ func (b *MarketGetAlbumsBuilder) OwnerID(v int) *MarketGetAlbumsBuilder {
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *MarketGetAlbumsBuilder) Offset(v int) *MarketGetAlbumsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of items to return.
+// Count number of items to return.
 func (b *MarketGetAlbumsBuilder) Count(v int) *MarketGetAlbumsBuilder {
 	b.Params["count"] = v
 	return b
@@ -615,7 +615,7 @@ func NewMarketGetByIDBuilder() *MarketGetByIDBuilder {
 	return &MarketGetByIDBuilder{api.Params{}}
 }
 
-// ItemIDs Comma-separated ids list: {user id}_{item id}. If an item belongs to a community -{community id} is used.
+// ItemIDs comma-separated ids list: {user id}_{item id}. If an item belongs to a community -{community id} is used.
 // 'Videos' value example: , '-4363_136089719,13245770_137352259'.
 func (b *MarketGetByIDBuilder) ItemIDs(v []string) *MarketGetByIDBuilder {
 	b.Params["item_ids"] = v
@@ -642,13 +642,13 @@ func NewMarketGetCategoriesBuilder() *MarketGetCategoriesBuilder {
 	return &MarketGetCategoriesBuilder{api.Params{}}
 }
 
-// Count Number of results to return.
+// Count number of results to return.
 func (b *MarketGetCategoriesBuilder) Count(v int) *MarketGetCategoriesBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *MarketGetCategoriesBuilder) Offset(v int) *MarketGetCategoriesBuilder {
 	b.Params["offset"] = v
 	return b
@@ -674,7 +674,7 @@ func (b *MarketGetCommentsBuilder) OwnerID(v int) *MarketGetCommentsBuilder {
 	return b
 }
 
-// ItemID Item ID.
+// ItemID parameter.
 func (b *MarketGetCommentsBuilder) ItemID(v int) *MarketGetCommentsBuilder {
 	b.Params["item_id"] = v
 	return b
@@ -698,13 +698,13 @@ func (b *MarketGetCommentsBuilder) Offset(v int) *MarketGetCommentsBuilder {
 	return b
 }
 
-// Count Number of results to return.
+// Count number of results to return.
 func (b *MarketGetCommentsBuilder) Count(v int) *MarketGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Sort Sort order ('asc' — from old to new, 'desc' — from new to old).
+// Sort order ('asc' — from old to new, 'desc' — from new to old).
 func (b *MarketGetCommentsBuilder) Sort(v string) *MarketGetCommentsBuilder {
 	b.Params["sort"] = v
 	return b
@@ -719,7 +719,7 @@ func (b *MarketGetCommentsBuilder) Extended(v bool) *MarketGetCommentsBuilder {
 	return b
 }
 
-// Fields List of additional profile fields to return. See the [vk.com/dev/fields|details].
+// Fields list of additional profile fields to return. See the [vk.com/dev/fields|details].
 func (b *MarketGetCommentsBuilder) Fields(v []string) *MarketGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
@@ -751,7 +751,7 @@ func (b *MarketGetGroupOrdersBuilder) Offset(v int) *MarketGetGroupOrdersBuilder
 	return b
 }
 
-// Count Number of items to return.
+// Count number of items to return.
 func (b *MarketGetGroupOrdersBuilder) Count(v int) *MarketGetGroupOrdersBuilder {
 	b.Params["count"] = v
 	return b
@@ -841,13 +841,13 @@ func (b *MarketRemoveFromAlbumBuilder) OwnerID(v int) *MarketRemoveFromAlbumBuil
 	return b
 }
 
-// ItemID Item ID.
+// ItemID parameter.
 func (b *MarketRemoveFromAlbumBuilder) ItemID(v int) *MarketRemoveFromAlbumBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// AlbumIDs Collections IDs to remove item from.
+// AlbumIDs collections IDs to remove item from.
 func (b *MarketRemoveFromAlbumBuilder) AlbumIDs(v []int) *MarketRemoveFromAlbumBuilder {
 	b.Params["album_ids"] = v
 	return b
@@ -873,7 +873,7 @@ func (b *MarketReorderAlbumsBuilder) OwnerID(v int) *MarketReorderAlbumsBuilder 
 	return b
 }
 
-// AlbumID Collection ID.
+// AlbumID collection ID.
 func (b *MarketReorderAlbumsBuilder) AlbumID(v int) *MarketReorderAlbumsBuilder {
 	b.Params["album_id"] = v
 	return b
@@ -917,7 +917,7 @@ func (b *MarketReorderItemsBuilder) AlbumID(v int) *MarketReorderItemsBuilder {
 	return b
 }
 
-// ItemID Item ID.
+// ItemID parameter.
 func (b *MarketReorderItemsBuilder) ItemID(v int) *MarketReorderItemsBuilder {
 	b.Params["item_id"] = v
 	return b
@@ -955,13 +955,13 @@ func (b *MarketReportBuilder) OwnerID(v int) *MarketReportBuilder {
 	return b
 }
 
-// ItemID Item ID.
+// ItemID parameter.
 func (b *MarketReportBuilder) ItemID(v int) *MarketReportBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// Reason Complaint reason. Possible values:
+// Reason complaint. Possible values:
 //
 // * 0 – spam;
 //
@@ -1001,13 +1001,13 @@ func (b *MarketReportCommentBuilder) OwnerID(v int) *MarketReportCommentBuilder 
 	return b
 }
 
-// CommentID Comment ID.
+// CommentID parameter.
 func (b *MarketReportCommentBuilder) CommentID(v int) *MarketReportCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
 }
 
-// Reason Complaint reason. Possible values:
+// Reason complaint. Possible values:
 //
 // * 0 – spam;
 //
@@ -1047,7 +1047,7 @@ func (b *MarketRestoreBuilder) OwnerID(v int) *MarketRestoreBuilder {
 	return b
 }
 
-// ItemID Deleted item ID.
+// ItemID deleted item ID.
 func (b *MarketRestoreBuilder) ItemID(v int) *MarketRestoreBuilder {
 	b.Params["item_id"] = v
 	return b
@@ -1106,25 +1106,25 @@ func (b *MarketSearchBuilder) AlbumID(v int) *MarketSearchBuilder {
 	return b
 }
 
-// Q Search query, for example "pink slippers".
+// Q search query, for example "pink slippers".
 func (b *MarketSearchBuilder) Q(v string) *MarketSearchBuilder {
 	b.Params["q"] = v
 	return b
 }
 
-// PriceFrom Minimum item price value.
+// PriceFrom minimum item price value.
 func (b *MarketSearchBuilder) PriceFrom(v int) *MarketSearchBuilder {
 	b.Params["price_from"] = v
 	return b
 }
 
-// PriceTo Maximum item price value.
+// PriceTo maximum item price value.
 func (b *MarketSearchBuilder) PriceTo(v int) *MarketSearchBuilder {
 	b.Params["price_to"] = v
 	return b
 }
 
-// Tags Comma-separated tag IDs list.
+// Tags comma-separated tag IDs list.
 func (b *MarketSearchBuilder) Tags(v []int) *MarketSearchBuilder {
 	b.Params["tags"] = v
 	return b
@@ -1142,13 +1142,13 @@ func (b *MarketSearchBuilder) Rev(v int) *MarketSearchBuilder {
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *MarketSearchBuilder) Offset(v int) *MarketSearchBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of items to return.
+// Count number of items to return.
 func (b *MarketSearchBuilder) Count(v int) *MarketSearchBuilder {
 	b.Params["count"] = v
 	return b

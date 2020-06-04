@@ -24,7 +24,7 @@ func (b *PollsAddVoteBuilder) OwnerID(v int) *PollsAddVoteBuilder {
 	return b
 }
 
-// PollID Poll ID.
+// PollID parameter.
 func (b *PollsAddVoteBuilder) PollID(v int) *PollsAddVoteBuilder {
 	b.Params["poll_id"] = v
 	return b
@@ -81,7 +81,7 @@ func (b *PollsCreateBuilder) EndDate(v int) *PollsCreateBuilder {
 	return b
 }
 
-// OwnerID If a poll will be added to a communty it is required to send a negative group identifier.
+// OwnerID if a poll will be added to a communty it is required to send a negative group identifier.
 // Current user by default.
 func (b *PollsCreateBuilder) OwnerID(v int) *PollsCreateBuilder {
 	b.Params["owner_id"] = v
@@ -126,13 +126,13 @@ func (b *PollsDeleteVoteBuilder) OwnerID(v int) *PollsDeleteVoteBuilder {
 	return b
 }
 
-// PollID Poll ID.
+// PollID parameter.
 func (b *PollsDeleteVoteBuilder) PollID(v int) *PollsDeleteVoteBuilder {
 	b.Params["poll_id"] = v
 	return b
 }
 
-// AnswerID Answer ID.
+// AnswerID parameter.
 func (b *PollsDeleteVoteBuilder) AnswerID(v int) *PollsDeleteVoteBuilder {
 	b.Params["answer_id"] = v
 	return b
@@ -239,7 +239,7 @@ func (b *PollsGetByIDBuilder) IsBoard(v bool) *PollsGetByIDBuilder {
 	return b
 }
 
-// PollID Poll ID.
+// PollID parameter.
 func (b *PollsGetByIDBuilder) PollID(v int) *PollsGetByIDBuilder {
 	b.Params["poll_id"] = v
 	return b
@@ -289,13 +289,13 @@ func (b *PollsGetVotersBuilder) OwnerID(v int) *PollsGetVotersBuilder {
 	return b
 }
 
-// PollID Poll ID.
+// PollID parameter.
 func (b *PollsGetVotersBuilder) PollID(v int) *PollsGetVotersBuilder {
 	b.Params["poll_id"] = v
 	return b
 }
 
-// AnswerIDs Answer IDs.
+// AnswerIDs parameter.
 func (b *PollsGetVotersBuilder) AnswerIDs(v []int) *PollsGetVotersBuilder {
 	b.Params["answer_ids"] = v
 	return b
@@ -313,20 +313,20 @@ func (b *PollsGetVotersBuilder) FriendsOnly(v bool) *PollsGetVotersBuilder {
 	return b
 }
 
-// Offset Offset needed to return a specific subset of voters. '0' — (default).
+// Offset needed to return a specific subset of voters. '0' — (default).
 func (b *PollsGetVotersBuilder) Offset(v int) *PollsGetVotersBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of user IDs to return (if the 'friends_only' parameter is not set, maximum '1000', otherwise '10').
+// Count number of user IDs to return (if the 'friends_only' parameter is not set, maximum '1000', otherwise '10').
 // '100' — (default).
 func (b *PollsGetVotersBuilder) Count(v int) *PollsGetVotersBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Fields Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate (birthdate)', 'city',
+// Fields profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate (birthdate)', 'city',
 // 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education',
 // 'online', 'counters'.
 func (b *PollsGetVotersBuilder) Fields(v []string) *PollsGetVotersBuilder {
@@ -334,7 +334,7 @@ func (b *PollsGetVotersBuilder) Fields(v []string) *PollsGetVotersBuilder {
 	return b
 }
 
-// NameCase Case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive ,
+// NameCase case for declension of user name and surname: , 'nom' — nominative (default) , 'gen' — genitive ,
 // 'dat' — dative , 'acc' — accusative , 'ins' — instrumental , 'abl' — prepositional.
 func (b *PollsGetVotersBuilder) NameCase(v string) *PollsGetVotersBuilder {
 	b.Params["name_case"] = v

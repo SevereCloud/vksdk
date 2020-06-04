@@ -36,7 +36,7 @@ func (b *BoardAddTopicBuilder) Text(v string) *BoardAddTopicBuilder {
 	return b
 }
 
-// FromGroup For a community:
+// FromGroup for a community:
 //
 // * 1 — to post the topic as by the community,
 //
@@ -46,7 +46,7 @@ func (b *BoardAddTopicBuilder) FromGroup(v bool) *BoardAddTopicBuilder {
 	return b
 }
 
-// Attachments List of media objects attached to the topic, in the following format:
+// Attachments list of media objects attached to the topic, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media object:
 // 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media owner.
 // '<media_id>' — Media ID. Example: "photo100172_166443618,photo66748_265827614".
@@ -77,7 +77,7 @@ func (b *BoardCloseTopicBuilder) GroupID(v int) *BoardCloseTopicBuilder {
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardCloseTopicBuilder) TopicID(v int) *BoardCloseTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
@@ -131,13 +131,13 @@ func (b *BoardCreateCommentBuilder) FromGroup(v bool) *BoardCreateCommentBuilder
 	return b
 }
 
-// StickerID Sticker ID.
+// StickerID parameter.
 func (b *BoardCreateCommentBuilder) StickerID(v int) *BoardCreateCommentBuilder {
 	b.Params["sticker_id"] = v
 	return b
 }
 
-// GUID Unique identifier to avoid repeated comments.
+// GUID unique identifier to avoid repeated comments.
 func (b *BoardCreateCommentBuilder) GUID(v string) *BoardCreateCommentBuilder {
 	b.Params["guid"] = v
 	return b
@@ -163,13 +163,13 @@ func (b *BoardDeleteCommentBuilder) GroupID(v int) *BoardDeleteCommentBuilder {
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardDeleteCommentBuilder) TopicID(v int) *BoardDeleteCommentBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
 
-// CommentID Comment ID.
+// CommentID parameter.
 func (b *BoardDeleteCommentBuilder) CommentID(v int) *BoardDeleteCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
@@ -195,7 +195,7 @@ func (b *BoardDeleteTopicBuilder) GroupID(v int) *BoardDeleteTopicBuilder {
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardDeleteTopicBuilder) TopicID(v int) *BoardDeleteTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
@@ -221,7 +221,7 @@ func (b *BoardEditCommentBuilder) GroupID(v int) *BoardEditCommentBuilder {
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardEditCommentBuilder) TopicID(v int) *BoardEditCommentBuilder {
 	b.Params["topic_id"] = v
 	return b
@@ -269,13 +269,13 @@ func (b *BoardEditTopicBuilder) GroupID(v int) *BoardEditTopicBuilder {
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardEditTopicBuilder) TopicID(v int) *BoardEditTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
 
-// Title New title of the topic.
+// Title new title of the topic.
 func (b *BoardEditTopicBuilder) Title(v string) *BoardEditTopicBuilder {
 	b.Params["title"] = v
 	return b
@@ -301,7 +301,7 @@ func (b *BoardFixTopicBuilder) GroupID(v int) *BoardFixTopicBuilder {
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardFixTopicBuilder) TopicID(v int) *BoardFixTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
@@ -327,7 +327,7 @@ func (b *BoardGetCommentsBuilder) GroupID(v int) *BoardGetCommentsBuilder {
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardGetCommentsBuilder) TopicID(v int) *BoardGetCommentsBuilder {
 	b.Params["topic_id"] = v
 	return b
@@ -345,13 +345,13 @@ func (b *BoardGetCommentsBuilder) StartCommentID(v int) *BoardGetCommentsBuilder
 	return b
 }
 
-// Offset Offset needed to return a specific subset of comments.
+// Offset needed to return a specific subset of comments.
 func (b *BoardGetCommentsBuilder) Offset(v int) *BoardGetCommentsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of comments to return.
+// Count number of comments to return.
 func (b *BoardGetCommentsBuilder) Count(v int) *BoardGetCommentsBuilder {
 	b.Params["count"] = v
 	return b
@@ -363,7 +363,7 @@ func (b *BoardGetCommentsBuilder) Extended(v bool) *BoardGetCommentsBuilder {
 	return b
 }
 
-// Sort Sort order:
+// Sort order:
 //
 // * asc — by creation date in chronological order, 'desc' — by creation date in reverse chronological order.
 func (b *BoardGetCommentsBuilder) Sort(v string) *BoardGetCommentsBuilder {
@@ -398,7 +398,7 @@ func (b *BoardGetTopicsBuilder) TopicIDs(v []int) *BoardGetTopicsBuilder {
 	return b
 }
 
-// Order Sort order:
+// Order sort order:
 //
 // * 1 — by date updated in reverse chronological order.
 //
@@ -415,13 +415,13 @@ func (b *BoardGetTopicsBuilder) Order(v int) *BoardGetTopicsBuilder {
 	return b
 }
 
-// Offset Offset needed to return a specific subset of topics.
+// Offset needed to return a specific subset of topics.
 func (b *BoardGetTopicsBuilder) Offset(v int) *BoardGetTopicsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of topics to return.
+// Count number of topics to return.
 func (b *BoardGetTopicsBuilder) Count(v int) *BoardGetTopicsBuilder {
 	b.Params["count"] = v
 	return b
@@ -451,7 +451,7 @@ func (b *BoardGetTopicsBuilder) Preview(v int) *BoardGetTopicsBuilder {
 	return b
 }
 
-// PreviewLength Number of characters after which to truncate the previewed comment.
+// PreviewLength number of characters after which to truncate the previewed comment.
 // To preview the full comment, specify '0'.
 func (b *BoardGetTopicsBuilder) PreviewLength(v int) *BoardGetTopicsBuilder {
 	b.Params["preview_length"] = v
@@ -478,7 +478,7 @@ func (b *BoardOpenTopicBuilder) GroupID(v int) *BoardOpenTopicBuilder {
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardOpenTopicBuilder) TopicID(v int) *BoardOpenTopicBuilder {
 	b.Params["topic_id"] = v
 	return b
@@ -504,13 +504,13 @@ func (b *BoardRestoreCommentBuilder) GroupID(v int) *BoardRestoreCommentBuilder 
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardRestoreCommentBuilder) TopicID(v int) *BoardRestoreCommentBuilder {
 	b.Params["topic_id"] = v
 	return b
 }
 
-// CommentID Comment ID.
+// CommentID parameter.
 func (b *BoardRestoreCommentBuilder) CommentID(v int) *BoardRestoreCommentBuilder {
 	b.Params["comment_id"] = v
 	return b
@@ -536,7 +536,7 @@ func (b *BoardUnfixTopicBuilder) GroupID(v int) *BoardUnfixTopicBuilder {
 	return b
 }
 
-// TopicID Topic ID.
+// TopicID parameter.
 func (b *BoardUnfixTopicBuilder) TopicID(v int) *BoardUnfixTopicBuilder {
 	b.Params["topic_id"] = v
 	return b

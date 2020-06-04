@@ -18,7 +18,7 @@ func NewNotificationsGetBuilder() *NotificationsGetBuilder {
 	return &NotificationsGetBuilder{api.Params{}}
 }
 
-// Count Number of notifications to return.
+// Count number of notifications to return.
 func (b *NotificationsGetBuilder) Count(v int) *NotificationsGetBuilder {
 	b.Params["count"] = v
 	return b
@@ -48,13 +48,13 @@ func (b *NotificationsGetBuilder) Filters(v []string) *NotificationsGetBuilder {
 	return b
 }
 
-// StartTime Earliest timestamp (in Unix time) of a notification to return. By default, 24 hours ago.
+// StartTime earliest timestamp (in Unix time) of a notification to return. By default, 24 hours ago.
 func (b *NotificationsGetBuilder) StartTime(v int) *NotificationsGetBuilder {
 	b.Params["start_time"] = v
 	return b
 }
 
-// EndTime Latest timestamp (in Unix time) of a notification to return. By default, the current time.
+// EndTime latest timestamp (in Unix time) of a notification to return. By default, the current time.
 func (b *NotificationsGetBuilder) EndTime(v int) *NotificationsGetBuilder {
 	b.Params["end_time"] = v
 	return b

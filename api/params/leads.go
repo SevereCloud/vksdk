@@ -18,13 +18,13 @@ func NewLeadsCheckUserBuilder() *LeadsCheckUserBuilder {
 	return &LeadsCheckUserBuilder{api.Params{}}
 }
 
-// LeadID Lead ID.
+// LeadID parameter.
 func (b *LeadsCheckUserBuilder) LeadID(v int) *LeadsCheckUserBuilder {
 	b.Params["lead_id"] = v
 	return b
 }
 
-// TestResult Value to be return in 'result' field when test mode is used.
+// TestResult value to be return in 'result' field when test mode is used.
 func (b *LeadsCheckUserBuilder) TestResult(v int) *LeadsCheckUserBuilder {
 	b.Params["test_result"] = v
 	return b
@@ -42,13 +42,13 @@ func (b *LeadsCheckUserBuilder) AutoStart(v bool) *LeadsCheckUserBuilder {
 	return b
 }
 
-// Age User age.
+// Age user age.
 func (b *LeadsCheckUserBuilder) Age(v int) *LeadsCheckUserBuilder {
 	b.Params["age"] = v
 	return b
 }
 
-// Country User country code.
+// Country user country code.
 func (b *LeadsCheckUserBuilder) Country(v string) *LeadsCheckUserBuilder {
 	b.Params["country"] = v
 	return b
@@ -68,19 +68,19 @@ func NewLeadsCompleteBuilder() *LeadsCompleteBuilder {
 	return &LeadsCompleteBuilder{api.Params{}}
 }
 
-// VkSID Session obtained as GET parameter when session started.
+// VkSID session obtained as GET parameter when session started.
 func (b *LeadsCompleteBuilder) VkSID(v string) *LeadsCompleteBuilder {
 	b.Params["vk_sid"] = v
 	return b
 }
 
-// Secret Secret key from the lead testing interface.
+// Secret secret key from the lead testing interface.
 func (b *LeadsCompleteBuilder) Secret(v string) *LeadsCompleteBuilder {
 	b.Params["secret"] = v
 	return b
 }
 
-// Comment Comment text.
+// Comment text.
 func (b *LeadsCompleteBuilder) Comment(v string) *LeadsCompleteBuilder {
 	b.Params["comment"] = v
 	return b
@@ -100,25 +100,25 @@ func NewLeadsGetStatsBuilder() *LeadsGetStatsBuilder {
 	return &LeadsGetStatsBuilder{api.Params{}}
 }
 
-// LeadID Lead ID.
+// LeadID lead ID.
 func (b *LeadsGetStatsBuilder) LeadID(v int) *LeadsGetStatsBuilder {
 	b.Params["lead_id"] = v
 	return b
 }
 
-// Secret Secret key obtained from the lead testing interface.
+// Secret key obtained from the lead testing interface.
 func (b *LeadsGetStatsBuilder) Secret(v string) *LeadsGetStatsBuilder {
 	b.Params["secret"] = v
 	return b
 }
 
-// DateStart Day to start stats from (YYYY_MM_DD, e.g.2011-09-17).
+// DateStart day to start stats from (YYYY_MM_DD, e.g.2011-09-17).
 func (b *LeadsGetStatsBuilder) DateStart(v string) *LeadsGetStatsBuilder {
 	b.Params["date_start"] = v
 	return b
 }
 
-// DateEnd Day to finish stats (YYYY_MM_DD, e.g.2011-09-17).
+// DateEnd day to finish stats (YYYY_MM_DD, e.g.2011-09-17).
 func (b *LeadsGetStatsBuilder) DateEnd(v string) *LeadsGetStatsBuilder {
 	b.Params["date_end"] = v
 	return b
@@ -138,31 +138,31 @@ func NewLeadsGetUsersBuilder() *LeadsGetUsersBuilder {
 	return &LeadsGetUsersBuilder{api.Params{}}
 }
 
-// OfferID Offer ID.
+// OfferID parameter.
 func (b *LeadsGetUsersBuilder) OfferID(v int) *LeadsGetUsersBuilder {
 	b.Params["offer_id"] = v
 	return b
 }
 
-// Secret Secret key obtained in the lead testing interface.
+// Secret key obtained in the lead testing interface.
 func (b *LeadsGetUsersBuilder) Secret(v string) *LeadsGetUsersBuilder {
 	b.Params["secret"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *LeadsGetUsersBuilder) Offset(v int) *LeadsGetUsersBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of results to return.
+// Count number of results to return.
 func (b *LeadsGetUsersBuilder) Count(v int) *LeadsGetUsersBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Status Action type. Possible values:
+// Status action type. Possible values:
 //
 // * 0 — start;
 //
@@ -178,7 +178,7 @@ func (b *LeadsGetUsersBuilder) Status(v int) *LeadsGetUsersBuilder {
 	return b
 }
 
-// Reverse Sort order. Possible values:
+// Reverse sort order. Possible values:
 //
 // * 1 — chronological;
 //
@@ -202,7 +202,7 @@ func NewLeadsMetricHitBuilder() *LeadsMetricHitBuilder {
 	return &LeadsMetricHitBuilder{api.Params{}}
 }
 
-// Data Metric data obtained in the lead interface.
+// Data metric data obtained in the lead interface.
 func (b *LeadsMetricHitBuilder) Data(v string) *LeadsMetricHitBuilder {
 	b.Params["data"] = v
 	return b
@@ -222,13 +222,13 @@ func NewLeadsStartBuilder() *LeadsStartBuilder {
 	return &LeadsStartBuilder{api.Params{}}
 }
 
-// LeadID Lead ID.
+// LeadID lead ID.
 func (b *LeadsStartBuilder) LeadID(v int) *LeadsStartBuilder {
 	b.Params["lead_id"] = v
 	return b
 }
 
-// Secret Secret key from the lead testing interface.
+// Secret key from the lead testing interface.
 func (b *LeadsStartBuilder) Secret(v string) *LeadsStartBuilder {
 	b.Params["secret"] = v
 	return b

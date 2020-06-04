@@ -18,7 +18,7 @@ func NewUtilsCheckLinkBuilder() *UtilsCheckLinkBuilder {
 	return &UtilsCheckLinkBuilder{api.Params{}}
 }
 
-// URL Link to check (e.g., 'http://google.com').
+// URL link to check (e.g., 'http://google.com').
 func (b *UtilsCheckLinkBuilder) URL(v string) *UtilsCheckLinkBuilder {
 	b.Params["url"] = v
 	return b
@@ -38,7 +38,7 @@ func NewUtilsDeleteFromLastShortenedBuilder() *UtilsDeleteFromLastShortenedBuild
 	return &UtilsDeleteFromLastShortenedBuilder{api.Params{}}
 }
 
-// Key Link key (characters after vk.cc/).
+// Key link (characters after vk.cc/).
 func (b *UtilsDeleteFromLastShortenedBuilder) Key(v string) *UtilsDeleteFromLastShortenedBuilder {
 	b.Params["key"] = v
 	return b
@@ -58,13 +58,13 @@ func NewUtilsGetLastShortenedLinksBuilder() *UtilsGetLastShortenedLinksBuilder {
 	return &UtilsGetLastShortenedLinksBuilder{api.Params{}}
 }
 
-// Count Number of links to return.
+// Count number of links to return.
 func (b *UtilsGetLastShortenedLinksBuilder) Count(v int) *UtilsGetLastShortenedLinksBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of links.
+// Offset needed to return a specific subset of links.
 func (b *UtilsGetLastShortenedLinksBuilder) Offset(v int) *UtilsGetLastShortenedLinksBuilder {
 	b.Params["offset"] = v
 	return b
@@ -84,31 +84,31 @@ func NewUtilsGetLinkStatsBuilder() *UtilsGetLinkStatsBuilder {
 	return &UtilsGetLinkStatsBuilder{api.Params{}}
 }
 
-// Key Link key (characters after vk.cc/).
+// Key link (characters after vk.cc/).
 func (b *UtilsGetLinkStatsBuilder) Key(v string) *UtilsGetLinkStatsBuilder {
 	b.Params["key"] = v
 	return b
 }
 
-// Source Source of scope.
+// Source of scope.
 func (b *UtilsGetLinkStatsBuilder) Source(v string) *UtilsGetLinkStatsBuilder {
 	b.Params["source"] = v
 	return b
 }
 
-// AccessKey Access key for private link stats.
+// AccessKey access key for private link stats.
 func (b *UtilsGetLinkStatsBuilder) AccessKey(v string) *UtilsGetLinkStatsBuilder {
 	b.Params["access_key"] = v
 	return b
 }
 
-// Interval Interval.
+// Interval parameter.
 func (b *UtilsGetLinkStatsBuilder) Interval(v string) *UtilsGetLinkStatsBuilder {
 	b.Params["interval"] = v
 	return b
 }
 
-// IntervalsCount Number of intervals to return.
+// IntervalsCount number of intervals to return.
 func (b *UtilsGetLinkStatsBuilder) IntervalsCount(v int) *UtilsGetLinkStatsBuilder {
 	b.Params["intervals_count"] = v
 	return b
@@ -160,7 +160,7 @@ func NewUtilsResolveScreenNameBuilder() *UtilsResolveScreenNameBuilder {
 	return &UtilsResolveScreenNameBuilder{api.Params{}}
 }
 
-// ScreenName Screen name of the user, community (e.g., 'apiclub,' 'andrew', or 'rules_of_war'), or application.
+// ScreenName of the user, community (e.g., 'apiclub,' 'andrew', or 'rules_of_war'), or application.
 func (b *UtilsResolveScreenNameBuilder) ScreenName(v string) *UtilsResolveScreenNameBuilder {
 	b.Params["screen_name"] = v
 	return b

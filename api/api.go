@@ -123,7 +123,7 @@ type Response struct {
 //
 // In some cases this might be intended, but it is a better practice
 // to create a custom HTTP Client to share explicitly through
-// your application. You can configure the VKSDK to use  the custom
+// your application. You can configure the VKSDK to use the custom
 // HTTP Client by setting the VK.Client value.
 //
 // This set limit 20 requests per second.
@@ -165,7 +165,7 @@ func Init(token string) *VK {
 // Params type.
 type Params map[string]interface{}
 
-// Lang -  determines the language for the data to be displayed on. For
+// Lang - determines the language for the data to be displayed on. For
 // example country and city names. If you use a non-cyrillic language,
 // cyrillic symbols will be transtiterated automatically.
 // Numeric format from account.getInfo is supported as well.

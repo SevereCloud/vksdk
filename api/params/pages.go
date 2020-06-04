@@ -18,7 +18,7 @@ func NewPagesClearCacheBuilder() *PagesClearCacheBuilder {
 	return &PagesClearCacheBuilder{api.Params{}}
 }
 
-// URL Address of the page where you need to refesh the cached version.
+// URL address of the page where you need to refesh the cached version.
 func (b *PagesClearCacheBuilder) URL(v string) *PagesClearCacheBuilder {
 	b.Params["url"] = v
 	return b
@@ -38,13 +38,13 @@ func NewPagesGetBuilder() *PagesGetBuilder {
 	return &PagesGetBuilder{api.Params{}}
 }
 
-// OwnerID Page owner ID.
+// OwnerID page owner ID.
 func (b *PagesGetBuilder) OwnerID(v int) *PagesGetBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// PageID Wiki page ID.
+// PageID wiki page ID.
 func (b *PagesGetBuilder) PageID(v int) *PagesGetBuilder {
 	b.Params["page_id"] = v
 	return b
@@ -62,7 +62,7 @@ func (b *PagesGetBuilder) SitePreview(v bool) *PagesGetBuilder {
 	return b
 }
 
-// Title Wiki page title.
+// Title wiki page title.
 func (b *PagesGetBuilder) Title(v string) *PagesGetBuilder {
 	b.Params["title"] = v
 	return b
@@ -94,7 +94,7 @@ func NewPagesGetHistoryBuilder() *PagesGetHistoryBuilder {
 	return &PagesGetHistoryBuilder{api.Params{}}
 }
 
-// PageID Wiki page ID.
+// PageID wiki page ID.
 func (b *PagesGetHistoryBuilder) PageID(v int) *PagesGetHistoryBuilder {
 	b.Params["page_id"] = v
 	return b
@@ -216,7 +216,7 @@ func (b *PagesSaveBuilder) Text(v string) *PagesSaveBuilder {
 	return b
 }
 
-// PageID Wiki page ID. The 'title' parameter can be passed instead of 'pid'.
+// PageID wiki page ID. The 'title' parameter can be passed instead of 'pid'.
 func (b *PagesSaveBuilder) PageID(v int) *PagesSaveBuilder {
 	b.Params["page_id"] = v
 	return b
@@ -228,13 +228,13 @@ func (b *PagesSaveBuilder) GroupID(v int) *PagesSaveBuilder {
 	return b
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *PagesSaveBuilder) UserID(v int) *PagesSaveBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Title Wiki page title.
+// Title wiki page title.
 func (b *PagesSaveBuilder) Title(v string) *PagesSaveBuilder {
 	b.Params["title"] = v
 	return b
@@ -254,7 +254,7 @@ func NewPagesSaveAccessBuilder() *PagesSaveAccessBuilder {
 	return &PagesSaveAccessBuilder{api.Params{}}
 }
 
-// PageID Wiki page ID.
+// PageID wiki page ID.
 func (b *PagesSaveAccessBuilder) PageID(v int) *PagesSaveAccessBuilder {
 	b.Params["page_id"] = v
 	return b
@@ -272,7 +272,7 @@ func (b *PagesSaveAccessBuilder) UserID(v int) *PagesSaveAccessBuilder {
 	return b
 }
 
-// View Who can view the wiki page:
+// View who can view the wiki page:
 //
 // * 1 — only community members;
 //
@@ -284,7 +284,7 @@ func (b *PagesSaveAccessBuilder) View(v int) *PagesSaveAccessBuilder {
 	return b
 }
 
-// Edit Who can edit the wiki page:
+// Edit who can edit the wiki page:
 //
 // * 1 — only community members;
 //

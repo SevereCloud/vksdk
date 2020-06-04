@@ -144,19 +144,19 @@ func NewGroupsAddLinkBuilder() *GroupsAddLinkBuilder {
 	return &GroupsAddLinkBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsAddLinkBuilder) GroupID(v int) *GroupsAddLinkBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// Link Link URL.
+// Link link URL.
 func (b *GroupsAddLinkBuilder) Link(v string) *GroupsAddLinkBuilder {
 	b.Params["link"] = v
 	return b
 }
 
-// Text Description text for the link.
+// Text description text for the link.
 func (b *GroupsAddLinkBuilder) Text(v string) *GroupsAddLinkBuilder {
 	b.Params["text"] = v
 	return b
@@ -176,13 +176,13 @@ func NewGroupsApproveRequestBuilder() *GroupsApproveRequestBuilder {
 	return &GroupsApproveRequestBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsApproveRequestBuilder) GroupID(v int) *GroupsApproveRequestBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *GroupsApproveRequestBuilder) UserID(v int) *GroupsApproveRequestBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -250,19 +250,19 @@ func NewGroupsCreateBuilder() *GroupsCreateBuilder {
 	return &GroupsCreateBuilder{api.Params{}}
 }
 
-// Title Community title.
+// Title community.
 func (b *GroupsCreateBuilder) Title(v string) *GroupsCreateBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// Description Community description (ignored for 'type' = 'public').
+// Description community (ignored for 'type' = 'public').
 func (b *GroupsCreateBuilder) Description(v string) *GroupsCreateBuilder {
 	b.Params["description"] = v
 	return b
 }
 
-// Type Community type. Possible values:
+// Type community. Possible values:
 //
 // * group – group;
 //
@@ -274,13 +274,13 @@ func (b *GroupsCreateBuilder) Type(v string) *GroupsCreateBuilder {
 	return b
 }
 
-// PublicCategory Category ID (for 'type' = 'public' only).
+// PublicCategory category ID (for 'type' = 'public' only).
 func (b *GroupsCreateBuilder) PublicCategory(v int) *GroupsCreateBuilder {
 	b.Params["public_category"] = v
 	return b
 }
 
-// Subtype Public page subtype. Possible values:
+// Subtype public page subtype. Possible values:
 //
 // * 1 – place or small business;
 //
@@ -332,13 +332,13 @@ func NewGroupsDeleteLinkBuilder() *GroupsDeleteLinkBuilder {
 	return &GroupsDeleteLinkBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsDeleteLinkBuilder) GroupID(v int) *GroupsDeleteLinkBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// LinkID Link ID.
+// LinkID parameter.
 func (b *GroupsDeleteLinkBuilder) LinkID(v int) *GroupsDeleteLinkBuilder {
 	b.Params["link_id"] = v
 	return b
@@ -376,31 +376,31 @@ func NewGroupsEditBuilder() *GroupsEditBuilder {
 	return &GroupsEditBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsEditBuilder) GroupID(v int) *GroupsEditBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// Title Community title.
+// Title community.
 func (b *GroupsEditBuilder) Title(v string) *GroupsEditBuilder {
 	b.Params["title"] = v
 	return b
 }
 
-// Description Community description.
+// Description community.
 func (b *GroupsEditBuilder) Description(v string) *GroupsEditBuilder {
 	b.Params["description"] = v
 	return b
 }
 
-// ScreenName Community screen name.
+// ScreenName community.
 func (b *GroupsEditBuilder) ScreenName(v string) *GroupsEditBuilder {
 	b.Params["screen_name"] = v
 	return b
 }
 
-// Access Community type. Possible values:
+// Access community type. Possible values:
 //
 // * 0 – open;
 //
@@ -412,13 +412,13 @@ func (b *GroupsEditBuilder) Access(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Website Website that will be displayed in the community information field.
+// Website that will be displayed in the community information field.
 func (b *GroupsEditBuilder) Website(v string) *GroupsEditBuilder {
 	b.Params["website"] = v
 	return b
 }
 
-// Subject Community subject. Possible values:
+// Subject community subject. Possible values:
 //
 // * 1 – auto/moto,
 //
@@ -508,13 +508,13 @@ func (b *GroupsEditBuilder) Subject(v string) *GroupsEditBuilder {
 	return b
 }
 
-// Email Organizer email (for events).
+// Email organizer email (for events).
 func (b *GroupsEditBuilder) Email(v string) *GroupsEditBuilder {
 	b.Params["email"] = v
 	return b
 }
 
-// Phone Organizer phone number (for events).
+// Phone organizer phone number (for events).
 func (b *GroupsEditBuilder) Phone(v string) *GroupsEditBuilder {
 	b.Params["phone"] = v
 	return b
@@ -527,43 +527,43 @@ func (b *GroupsEditBuilder) Rss(v string) *GroupsEditBuilder {
 	return b
 }
 
-// EventStartDate Event start date in Unixtime format.
+// EventStartDate event start date in Unixtime format.
 func (b *GroupsEditBuilder) EventStartDate(v int) *GroupsEditBuilder {
 	b.Params["event_start_date"] = v
 	return b
 }
 
-// EventFinishDate Event finish date in Unixtime format.
+// EventFinishDate event finish date in Unixtime format.
 func (b *GroupsEditBuilder) EventFinishDate(v int) *GroupsEditBuilder {
 	b.Params["event_finish_date"] = v
 	return b
 }
 
-// EventGroupID Organizer community ID (for events only).
+// EventGroupID organizer community ID (for events only).
 func (b *GroupsEditBuilder) EventGroupID(v int) *GroupsEditBuilder {
 	b.Params["event_group_id"] = v
 	return b
 }
 
-// PublicCategory Public page category ID.
+// PublicCategory public page category ID.
 func (b *GroupsEditBuilder) PublicCategory(v int) *GroupsEditBuilder {
 	b.Params["public_category"] = v
 	return b
 }
 
-// PublicSubcategory Public page subcategory ID.
+// PublicSubcategory public page subcategory ID.
 func (b *GroupsEditBuilder) PublicSubcategory(v int) *GroupsEditBuilder {
 	b.Params["public_subcategory"] = v
 	return b
 }
 
-// PublicDate Founding date of a company or organization owning the community in "dd.mm.YYYY" format.
+// PublicDate founding date of a company or organization owning the community in "dd.mm.YYYY" format.
 func (b *GroupsEditBuilder) PublicDate(v string) *GroupsEditBuilder {
 	b.Params["public_date"] = v
 	return b
 }
 
-// Wall Wall settings. Possible values:
+// Wall settings. Possible values:
 //
 // * 0 – disabled;
 //
@@ -577,7 +577,7 @@ func (b *GroupsEditBuilder) Wall(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Topics Board topics settings. Possbile values:
+// Topics settings. Possbile values:
 //
 // * 0 – disabled;
 //
@@ -589,7 +589,7 @@ func (b *GroupsEditBuilder) Topics(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Photos Photos settings. Possible values:
+// Photos settings. Possible values:
 //
 // * 0 – disabled;
 //
@@ -601,7 +601,7 @@ func (b *GroupsEditBuilder) Photos(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Video Video settings. Possible values:
+// Video settings. Possible values:
 //
 // * 0 – disabled;
 //
@@ -613,7 +613,7 @@ func (b *GroupsEditBuilder) Video(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Audio Audio settings. Possible values:
+// Audio settings. Possible values:
 //
 // * 0 – disabled;
 //
@@ -625,7 +625,7 @@ func (b *GroupsEditBuilder) Audio(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Links Links settings (for public pages only). Possible values:
+// Links settings (for public pages only). Possible values:
 //
 // * 0 – disabled;
 //
@@ -635,7 +635,7 @@ func (b *GroupsEditBuilder) Links(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// Events Events settings (for public pages only). Possible values:
+// Events settings (for public pages only). Possible values:
 //
 // * 0 – disabled;
 //
@@ -645,7 +645,7 @@ func (b *GroupsEditBuilder) Events(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// Places Places settings (for public pages only). Possible values:
+// Places settings (for public pages only). Possible values:
 //
 // * 0 – disabled;
 //
@@ -655,7 +655,7 @@ func (b *GroupsEditBuilder) Places(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// Contacts Contacts settings (for public pages only). Possible values:
+// Contacts settings (for public pages only). Possible values:
 //
 // * 0 – disabled;
 //
@@ -665,7 +665,7 @@ func (b *GroupsEditBuilder) Contacts(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// Docs Documents settings. Possible values:
+// Docs settings. Possible values:
 //
 // * 0 – disabled;
 //
@@ -677,7 +677,7 @@ func (b *GroupsEditBuilder) Docs(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Wiki Wiki pages settings. Possible values:
+// Wiki pages settings. Possible values:
 //
 // * 0 – disabled;
 //
@@ -689,7 +689,7 @@ func (b *GroupsEditBuilder) Wiki(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Messages Community messages. Possible values:
+// Messages community messages. Possible values:
 //
 // * 0 — disabled;
 //
@@ -711,7 +711,7 @@ func (b *GroupsEditBuilder) Addresses(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// AgeLimits Community age limits. Possible values:
+// AgeLimits community age limits. Possible values:
 //
 // * 1 — no limits;
 //
@@ -723,7 +723,7 @@ func (b *GroupsEditBuilder) AgeLimits(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Market Market settings. Possible values:
+// Market settings. Possible values:
 //
 // * 0 – disabled;
 //
@@ -733,7 +733,7 @@ func (b *GroupsEditBuilder) Market(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// MarketComments market comments settings. Possible values:
+// MarketComments settings. Possible values:
 //
 // * 0 – disabled;
 //
@@ -743,19 +743,19 @@ func (b *GroupsEditBuilder) MarketComments(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// MarketCountry Market delivery countries.
+// MarketCountry countries.
 func (b *GroupsEditBuilder) MarketCountry(v []int) *GroupsEditBuilder {
 	b.Params["market_country"] = v
 	return b
 }
 
-// MarketCity Market delivery cities (if only one country is specified).
+// MarketCity cities (if only one country is specified).
 func (b *GroupsEditBuilder) MarketCity(v []int) *GroupsEditBuilder {
 	b.Params["market_city"] = v
 	return b
 }
 
-// MarketCurrency Market currency settings. Possbile values:
+// MarketCurrency settings. Possbile values:
 //
 // * 643 – Russian rubles,
 //
@@ -771,7 +771,7 @@ func (b *GroupsEditBuilder) MarketCurrency(v int) *GroupsEditBuilder {
 	return b
 }
 
-// MarketContact Seller contact for market. Set '0' for community messages.
+// MarketContact seller contact for market. Set '0' for community messages.
 func (b *GroupsEditBuilder) MarketContact(v int) *GroupsEditBuilder {
 	b.Params["market_contact"] = v
 	return b
@@ -783,7 +783,7 @@ func (b *GroupsEditBuilder) MarketWiki(v int) *GroupsEditBuilder {
 	return b
 }
 
-// ObsceneFilter Obscene expressions filter in comments. Possible values:
+// ObsceneFilter obscene expressions filter in comments. Possible values:
 //
 // * 0 – disabled;
 //
@@ -793,7 +793,7 @@ func (b *GroupsEditBuilder) ObsceneFilter(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// ObsceneStopwords Stopwords filter in comments. Possible values:
+// ObsceneStopwords stopwords filter in comments. Possible values:
 //
 // * 0 – disabled;
 //
@@ -803,7 +803,7 @@ func (b *GroupsEditBuilder) ObsceneStopwords(v bool) *GroupsEditBuilder {
 	return b
 }
 
-// ObsceneWords Keywords for stopwords filter.
+// ObsceneWords keywords for stopwords filter.
 func (b *GroupsEditBuilder) ObsceneWords(v []string) *GroupsEditBuilder {
 	b.Params["obscene_words"] = v
 	return b
@@ -821,13 +821,13 @@ func (b *GroupsEditBuilder) SecondarySection(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Country Country of the community.
+// Country of the community.
 func (b *GroupsEditBuilder) Country(v int) *GroupsEditBuilder {
 	b.Params["country"] = v
 	return b
 }
 
-// City City of the community.
+// City of the community.
 func (b *GroupsEditBuilder) City(v int) *GroupsEditBuilder {
 	b.Params["city"] = v
 	return b
@@ -985,19 +985,19 @@ func NewGroupsEditLinkBuilder() *GroupsEditLinkBuilder {
 	return &GroupsEditLinkBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsEditLinkBuilder) GroupID(v int) *GroupsEditLinkBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// LinkID Link ID.
+// LinkID parameter.
 func (b *GroupsEditLinkBuilder) LinkID(v int) *GroupsEditLinkBuilder {
 	b.Params["link_id"] = v
 	return b
 }
 
-// Text New description text for the link.
+// Text new description text for the link.
 func (b *GroupsEditLinkBuilder) Text(v string) *GroupsEditLinkBuilder {
 	b.Params["text"] = v
 	return b
@@ -1017,19 +1017,19 @@ func NewGroupsEditManagerBuilder() *GroupsEditManagerBuilder {
 	return &GroupsEditManagerBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsEditManagerBuilder) GroupID(v int) *GroupsEditManagerBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *GroupsEditManagerBuilder) UserID(v int) *GroupsEditManagerBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// Role Manager role. Possible values:
+// Role manager role. Possible values:
 //
 // * moderator;
 //
@@ -1047,19 +1047,19 @@ func (b *GroupsEditManagerBuilder) IsContact(v bool) *GroupsEditManagerBuilder {
 	return b
 }
 
-// ContactPosition Position to show in Contacts block.
+// ContactPosition position to show in Contacts block.
 func (b *GroupsEditManagerBuilder) ContactPosition(v string) *GroupsEditManagerBuilder {
 	b.Params["contact_position"] = v
 	return b
 }
 
-// ContactPhone Contact phone.
+// ContactPhone parameter.
 func (b *GroupsEditManagerBuilder) ContactPhone(v string) *GroupsEditManagerBuilder {
 	b.Params["contact_phone"] = v
 	return b
 }
 
-// ContactEmail Contact e-mail.
+// ContactEmail parameter.
 func (b *GroupsEditManagerBuilder) ContactEmail(v string) *GroupsEditManagerBuilder {
 	b.Params["contact_email"] = v
 	return b
@@ -1097,7 +1097,7 @@ func NewGroupsGetBuilder() *GroupsGetBuilder {
 	return &GroupsGetBuilder{api.Params{}}
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *GroupsGetBuilder) UserID(v int) *GroupsGetBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -1131,19 +1131,19 @@ func (b *GroupsGetBuilder) Filter(v []string) *GroupsGetBuilder {
 	return b
 }
 
-// Fields Profile fields to return.
+// Fields profile fields to return.
 func (b *GroupsGetBuilder) Fields(v []string) *GroupsGetBuilder {
 	b.Params["fields"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of communities.
+// Offset needed to return a specific subset of communities.
 func (b *GroupsGetBuilder) Offset(v int) *GroupsGetBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of communities to return.
+// Count number of communities to return.
 func (b *GroupsGetBuilder) Count(v int) *GroupsGetBuilder {
 	b.Params["count"] = v
 	return b
@@ -1175,31 +1175,31 @@ func (b *GroupsGetAddressesBuilder) AddressIDs(v []int) *GroupsGetAddressesBuild
 	return b
 }
 
-// Latitude Latitude of  the user geo position.
+// Latitude of the user geo position.
 func (b *GroupsGetAddressesBuilder) Latitude(v float64) *GroupsGetAddressesBuilder {
 	b.Params["latitude"] = v
 	return b
 }
 
-// Longitude Longitude of the user geo position.
+// Longitude of the user geo position.
 func (b *GroupsGetAddressesBuilder) Longitude(v float64) *GroupsGetAddressesBuilder {
 	b.Params["longitude"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of community addresses.
+// Offset needed to return a specific subset of community addresses.
 func (b *GroupsGetAddressesBuilder) Offset(v int) *GroupsGetAddressesBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of community addresses to return.
+// Count number of community addresses to return.
 func (b *GroupsGetAddressesBuilder) Count(v int) *GroupsGetAddressesBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Fields Address fields.
+// Fields address fields.
 func (b *GroupsGetAddressesBuilder) Fields(v []string) *GroupsGetAddressesBuilder {
 	b.Params["fields"] = v
 	return b
@@ -1219,19 +1219,19 @@ func NewGroupsGetBannedBuilder() *GroupsGetBannedBuilder {
 	return &GroupsGetBannedBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsGetBannedBuilder) GroupID(v int) *GroupsGetBannedBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of users.
+// Offset needed to return a specific subset of users.
 func (b *GroupsGetBannedBuilder) Offset(v int) *GroupsGetBannedBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of users to return.
+// Count number of users to return.
 func (b *GroupsGetBannedBuilder) Count(v int) *GroupsGetBannedBuilder {
 	b.Params["count"] = v
 	return b
@@ -1275,7 +1275,7 @@ func (b *GroupsGetByIDBuilder) GroupID(v string) *GroupsGetByIDBuilder {
 	return b
 }
 
-// Fields Group fields to return.
+// Fields group fields to return.
 func (b *GroupsGetByIDBuilder) Fields(v []string) *GroupsGetByIDBuilder {
 	b.Params["fields"] = v
 	return b
@@ -1295,7 +1295,7 @@ func NewGroupsGetCallbackConfirmationCodeBuilder() *GroupsGetCallbackConfirmatio
 	return &GroupsGetCallbackConfirmationCodeBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsGetCallbackConfirmationCodeBuilder) GroupID(v int) *GroupsGetCallbackConfirmationCodeBuilder {
 	b.Params["group_id"] = v
 	return b
@@ -1339,13 +1339,13 @@ func NewGroupsGetCallbackSettingsBuilder() *GroupsGetCallbackSettingsBuilder {
 	return &GroupsGetCallbackSettingsBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsGetCallbackSettingsBuilder) GroupID(v int) *GroupsGetCallbackSettingsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// ServerID Server ID.
+// ServerID parameter.
 func (b *GroupsGetCallbackSettingsBuilder) ServerID(v int) *GroupsGetCallbackSettingsBuilder {
 	b.Params["server_id"] = v
 	return b
@@ -1365,13 +1365,13 @@ func NewGroupsGetCatalogBuilder() *GroupsGetCatalogBuilder {
 	return &GroupsGetCatalogBuilder{api.Params{}}
 }
 
-// CategoryID Category id received from [vk.com/dev/groups.getCatalogInfo|groups.getCatalogInfo].
+// CategoryID received from [vk.com/dev/groups.getCatalogInfo|groups.getCatalogInfo].
 func (b *GroupsGetCatalogBuilder) CategoryID(v int) *GroupsGetCatalogBuilder {
 	b.Params["category_id"] = v
 	return b
 }
 
-// SubcategoryID Subcategory id received from [vk.com/dev/groups.getCatalogInfo|groups.getCatalogInfo].
+// SubcategoryID received from [vk.com/dev/groups.getCatalogInfo|groups.getCatalogInfo].
 func (b *GroupsGetCatalogBuilder) SubcategoryID(v int) *GroupsGetCatalogBuilder {
 	b.Params["subcategory_id"] = v
 	return b
@@ -1417,25 +1417,25 @@ func NewGroupsGetInvitedUsersBuilder() *GroupsGetInvitedUsersBuilder {
 	return &GroupsGetInvitedUsersBuilder{api.Params{}}
 }
 
-// GroupID Group ID to return invited users for.
+// GroupID community ID to return invited users for.
 func (b *GroupsGetInvitedUsersBuilder) GroupID(v int) *GroupsGetInvitedUsersBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *GroupsGetInvitedUsersBuilder) Offset(v int) *GroupsGetInvitedUsersBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of results to return.
+// Count number of results to return.
 func (b *GroupsGetInvitedUsersBuilder) Count(v int) *GroupsGetInvitedUsersBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Fields List of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50,
+// Fields list of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50,
 // photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile,
 // lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post,
 // can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count,
@@ -1445,7 +1445,7 @@ func (b *GroupsGetInvitedUsersBuilder) Fields(v []string) *GroupsGetInvitedUsers
 	return b
 }
 
-// NameCase Case for declension of user name and surname. Possible values:
+// NameCase case for declension of user name and surname. Possible values:
 //
 // * nom — nominative (default);
 //
@@ -1477,13 +1477,13 @@ func NewGroupsGetInvitesBuilder() *GroupsGetInvitesBuilder {
 	return &GroupsGetInvitesBuilder{api.Params{}}
 }
 
-// Offset Offset needed to return a specific subset of invitations.
+// Offset needed to return a specific subset of invitations.
 func (b *GroupsGetInvitesBuilder) Offset(v int) *GroupsGetInvitesBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of invitations to return.
+// Count number of invitations to return.
 func (b *GroupsGetInvitesBuilder) Count(v int) *GroupsGetInvitesBuilder {
 	b.Params["count"] = v
 	return b
@@ -1509,7 +1509,7 @@ func NewGroupsGetLongPollServerBuilder() *GroupsGetLongPollServerBuilder {
 	return &GroupsGetLongPollServerBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsGetLongPollServerBuilder) GroupID(v int) *GroupsGetLongPollServerBuilder {
 	b.Params["group_id"] = v
 	return b
@@ -1529,7 +1529,7 @@ func NewGroupsGetLongPollSettingsBuilder() *GroupsGetLongPollSettingsBuilder {
 	return &GroupsGetLongPollSettingsBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsGetLongPollSettingsBuilder) GroupID(v int) *GroupsGetLongPollSettingsBuilder {
 	b.Params["group_id"] = v
 	return b
@@ -1555,26 +1555,26 @@ func (b *GroupsGetMembersBuilder) GroupID(v string) *GroupsGetMembersBuilder {
 	return b
 }
 
-// Sort Sort order. Available values: 'id_asc', 'id_desc', 'time_asc', 'time_desc'. 'time_asc' and 'time_desc'
+// Sort order. Available values: 'id_asc', 'id_desc', 'time_asc', 'time_desc'. 'time_asc' and 'time_desc'
 // are availavle only if the method is called by the group's 'moderator'.
 func (b *GroupsGetMembersBuilder) Sort(v string) *GroupsGetMembersBuilder {
 	b.Params["sort"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of community members.
+// Offset needed to return a specific subset of community members.
 func (b *GroupsGetMembersBuilder) Offset(v int) *GroupsGetMembersBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of community members to return.
+// Count number of community members to return.
 func (b *GroupsGetMembersBuilder) Count(v int) *GroupsGetMembersBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Fields List of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50, photo_100,
+// Fields list of additional fields to be returned. Available values: 'sex, bdate, city, country, photo_50, photo_100,
 // photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain,
 // has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts,
 // can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
@@ -1605,25 +1605,25 @@ func NewGroupsGetRequestsBuilder() *GroupsGetRequestsBuilder {
 	return &GroupsGetRequestsBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsGetRequestsBuilder) GroupID(v int) *GroupsGetRequestsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *GroupsGetRequestsBuilder) Offset(v int) *GroupsGetRequestsBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of results to return.
+// Count number of results to return.
 func (b *GroupsGetRequestsBuilder) Count(v int) *GroupsGetRequestsBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Fields Profile fields to return.
+// Fields profile fields to return.
 func (b *GroupsGetRequestsBuilder) Fields(v []string) *GroupsGetRequestsBuilder {
 	b.Params["fields"] = v
 	return b
@@ -1643,7 +1643,7 @@ func NewGroupsGetSettingsBuilder() *GroupsGetSettingsBuilder {
 	return &GroupsGetSettingsBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsGetSettingsBuilder) GroupID(v int) *GroupsGetSettingsBuilder {
 	b.Params["group_id"] = v
 	return b
@@ -1661,7 +1661,7 @@ func NewGroupsGetTagListBuilder() *GroupsGetTagListBuilder {
 	return &GroupsGetTagListBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsGetTagListBuilder) GroupID(v int) *GroupsGetTagListBuilder {
 	b.Params["group_id"] = v
 	return b
@@ -1681,13 +1681,13 @@ func NewGroupsInviteBuilder() *GroupsInviteBuilder {
 	return &GroupsInviteBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsInviteBuilder) GroupID(v int) *GroupsInviteBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *GroupsInviteBuilder) UserID(v int) *GroupsInviteBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -1713,13 +1713,13 @@ func (b *GroupsIsMemberBuilder) GroupID(v string) *GroupsIsMemberBuilder {
 	return b
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *GroupsIsMemberBuilder) UserID(v int) *GroupsIsMemberBuilder {
 	b.Params["user_id"] = v
 	return b
 }
 
-// UserIDs User IDs.
+// UserIDs user IDs.
 func (b *GroupsIsMemberBuilder) UserIDs(v []int) *GroupsIsMemberBuilder {
 	b.Params["user_ids"] = v
 	return b
@@ -1751,7 +1751,7 @@ func (b *GroupsJoinBuilder) GroupID(v int) *GroupsJoinBuilder {
 	return b
 }
 
-// NotSure Optional parameter which is taken into account when 'gid' belongs to the event:
+// NotSure optional parameter which is taken into account when 'gid' belongs to the event:
 //
 // * 1 — Perhaps I will attend;
 //
@@ -1795,13 +1795,13 @@ func NewGroupsRemoveUserBuilder() *GroupsRemoveUserBuilder {
 	return &GroupsRemoveUserBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsRemoveUserBuilder) GroupID(v int) *GroupsRemoveUserBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// UserID User ID.
+// UserID parameter.
 func (b *GroupsRemoveUserBuilder) UserID(v int) *GroupsRemoveUserBuilder {
 	b.Params["user_id"] = v
 	return b
@@ -1821,13 +1821,13 @@ func NewGroupsReorderLinkBuilder() *GroupsReorderLinkBuilder {
 	return &GroupsReorderLinkBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsReorderLinkBuilder) GroupID(v int) *GroupsReorderLinkBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// LinkID Link ID.
+// LinkID parameter.
 func (b *GroupsReorderLinkBuilder) LinkID(v int) *GroupsReorderLinkBuilder {
 	b.Params["link_id"] = v
 	return b
@@ -1853,25 +1853,25 @@ func NewGroupsSearchBuilder() *GroupsSearchBuilder {
 	return &GroupsSearchBuilder{api.Params{}}
 }
 
-// Q Search query string.
+// Q search query string.
 func (b *GroupsSearchBuilder) Q(v string) *GroupsSearchBuilder {
 	b.Params["q"] = v
 	return b
 }
 
-// Type Community type. Possible values: 'group, page, event.'.
+// Type community . Possible values: 'group, page, event.'.
 func (b *GroupsSearchBuilder) Type(v string) *GroupsSearchBuilder {
 	b.Params["type"] = v
 	return b
 }
 
-// CountryID Country ID.
+// CountryID parameter.
 func (b *GroupsSearchBuilder) CountryID(v int) *GroupsSearchBuilder {
 	b.Params["country_id"] = v
 	return b
 }
 
-// CityID City ID. If this parameter is transmitted, country_id is ignored.
+// CityID parameter. If this parameter is transmitted, country_id is ignored.
 func (b *GroupsSearchBuilder) CityID(v int) *GroupsSearchBuilder {
 	b.Params["city_id"] = v
 	return b
@@ -1889,7 +1889,7 @@ func (b *GroupsSearchBuilder) Market(v bool) *GroupsSearchBuilder {
 	return b
 }
 
-// Sort Sort order. Possible values:
+// Sort order. Possible values:
 //
 // * 0 — default sorting (similar the full version of the site);
 //
@@ -1907,13 +1907,13 @@ func (b *GroupsSearchBuilder) Sort(v int) *GroupsSearchBuilder {
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *GroupsSearchBuilder) Offset(v int) *GroupsSearchBuilder {
 	b.Params["offset"] = v
 	return b
 }
 
-// Count Number of communities to return.
+// Count number of communities to return.
 // Note that you can not receive more than first thousand of results, regardless of 'count' and 'offset' values.
 func (b *GroupsSearchBuilder) Count(v int) *GroupsSearchBuilder {
 	b.Params["count"] = v
@@ -1934,13 +1934,13 @@ func NewGroupsSetCallbackSettingsBuilder() *GroupsSetCallbackSettingsBuilder {
 	return &GroupsSetCallbackSettingsBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsSetCallbackSettingsBuilder) GroupID(v int) *GroupsSetCallbackSettingsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// ServerID Server ID.
+// ServerID parameter.
 func (b *GroupsSetCallbackSettingsBuilder) ServerID(v int) *GroupsSetCallbackSettingsBuilder {
 	b.Params["server_id"] = v
 	return b
@@ -1952,19 +1952,19 @@ func (b *GroupsSetCallbackSettingsBuilder) APIVersion(v string) *GroupsSetCallba
 	return b
 }
 
-// MessageNew A new incoming message has been received ('0' — disabled, '1' — enabled).
+// MessageNew a new incoming message has been received ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) MessageNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_new"] = v
 	return b
 }
 
-// MessageReply A new outcoming message has been received ('0' — disabled, '1' — enabled).
+// MessageReply a new outcoming message has been received ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) MessageReply(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_reply"] = v
 	return b
 }
 
-// MessageAllow Allowed messages notifications ('0' — disabled, '1' — enabled).
+// MessageAllow allowed messages notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) MessageAllow(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_allow"] = v
 	return b
@@ -1976,7 +1976,7 @@ func (b *GroupsSetCallbackSettingsBuilder) MessageEdit(v bool) *GroupsSetCallbac
 	return b
 }
 
-// MessageDeny Denied messages notifications ('0' — disabled, '1' — enabled).
+// MessageDeny denied messages notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) MessageDeny(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_deny"] = v
 	return b
@@ -1988,169 +1988,169 @@ func (b *GroupsSetCallbackSettingsBuilder) MessageTypingState(v bool) *GroupsSet
 	return b
 }
 
-// PhotoNew New photos notifications ('0' — disabled, '1' — enabled).
+// PhotoNew new photos notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) PhotoNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_new"] = v
 	return b
 }
 
-// AudioNew New audios notifications ('0' — disabled, '1' — enabled).
+// AudioNew new audios notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) AudioNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["audio_new"] = v
 	return b
 }
 
-// VideoNew New videos notifications ('0' — disabled, '1' — enabled).
+// VideoNew new videos notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) VideoNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_new"] = v
 	return b
 }
 
-// WallReplyNew New wall replies notifications ('0' — disabled, '1' — enabled).
+// WallReplyNew new wall replies notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) WallReplyNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_reply_new"] = v
 	return b
 }
 
-// WallReplyEdit Wall replies edited notifications ('0' — disabled, '1' — enabled).
+// WallReplyEdit wall replies edited notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) WallReplyEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_reply_edit"] = v
 	return b
 }
 
-// WallReplyDelete A wall comment has been deleted ('0' — disabled, '1' — enabled).
+// WallReplyDelete a wall comment has been deleted ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) WallReplyDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_reply_delete"] = v
 	return b
 }
 
-// WallReplyRestore A wall comment has been restored ('0' — disabled, '1' — enabled).
+// WallReplyRestore a wall comment has been restored ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) WallReplyRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_reply_restore"] = v
 	return b
 }
 
-// WallPostNew New wall posts notifications ('0' — disabled, '1' — enabled).
+// WallPostNew new wall posts notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) WallPostNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_post_new"] = v
 	return b
 }
 
-// WallRepost New wall posts notifications ('0' — disabled, '1' — enabled).
+// WallRepost new wall posts notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) WallRepost(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_repost"] = v
 	return b
 }
 
-// BoardPostNew New board posts notifications ('0' — disabled, '1' — enabled).
+// BoardPostNew new board posts notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) BoardPostNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["board_post_new"] = v
 	return b
 }
 
-// BoardPostEdit Board posts edited notifications ('0' — disabled, '1' — enabled).
+// BoardPostEdit board posts edited notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) BoardPostEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["board_post_edit"] = v
 	return b
 }
 
-// BoardPostRestore Board posts restored notifications ('0' — disabled, '1' — enabled).
+// BoardPostRestore board posts restored notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) BoardPostRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["board_post_restore"] = v
 	return b
 }
 
-// BoardPostDelete Board posts deleted notifications ('0' — disabled, '1' — enabled).
+// BoardPostDelete board posts deleted notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) BoardPostDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["board_post_delete"] = v
 	return b
 }
 
-// PhotoCommentNew New comment to photo notifications ('0' — disabled, '1' — enabled).
+// PhotoCommentNew new comment to photo notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) PhotoCommentNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_comment_new"] = v
 	return b
 }
 
-// PhotoCommentEdit A photo comment has been edited ('0' — disabled, '1' — enabled).
+// PhotoCommentEdit a photo comment has been edited ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) PhotoCommentEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_comment_edit"] = v
 	return b
 }
 
-// PhotoCommentDelete A photo comment has been deleted ('0' — disabled, '1' — enabled).
+// PhotoCommentDelete a photo comment has been deleted ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) PhotoCommentDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_comment_delete"] = v
 	return b
 }
 
-// PhotoCommentRestore A photo comment has been restored ('0' — disabled, '1' — enabled).
+// PhotoCommentRestore a photo comment has been restored ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) PhotoCommentRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_comment_restore"] = v
 	return b
 }
 
-// VideoCommentNew New comment to video notifications ('0' — disabled, '1' — enabled).
+// VideoCommentNew new comment to video notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) VideoCommentNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_comment_new"] = v
 	return b
 }
 
-// VideoCommentEdit A video comment has been edited ('0' — disabled, '1' — enabled).
+// VideoCommentEdit a video comment has been edited ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) VideoCommentEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_comment_edit"] = v
 	return b
 }
 
-// VideoCommentDelete A video comment has been deleted ('0' — disabled, '1' — enabled).
+// VideoCommentDelete a video comment has been deleted ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) VideoCommentDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_comment_delete"] = v
 	return b
 }
 
-// VideoCommentRestore A video comment has been restored ('0' — disabled, '1' — enabled).
+// VideoCommentRestore a video comment has been restored ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) VideoCommentRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_comment_restore"] = v
 	return b
 }
 
-// MarketCommentNew New comment to market item notifications ('0' — disabled, '1' — enabled).
+// MarketCommentNew new comment to market item notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) MarketCommentNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["market_comment_new"] = v
 	return b
 }
 
-// MarketCommentEdit A market comment has been edited ('0' — disabled, '1' — enabled).
+// MarketCommentEdit a market comment has been edited ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) MarketCommentEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["market_comment_edit"] = v
 	return b
 }
 
-// MarketCommentDelete A market comment has been deleted ('0' — disabled, '1' — enabled).
+// MarketCommentDelete a market comment has been deleted ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) MarketCommentDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["market_comment_delete"] = v
 	return b
 }
 
-// MarketCommentRestore A market comment has been restored ('0' — disabled, '1' — enabled).
+// MarketCommentRestore a market comment has been restored ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) MarketCommentRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["market_comment_restore"] = v
 	return b
 }
 
-// PollVoteNew A vote in a public poll has been added ('0' — disabled, '1' — enabled).
+// PollVoteNew a vote in a public poll has been added ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) PollVoteNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["poll_vote_new"] = v
 	return b
 }
 
-// GroupJoin Joined community notifications ('0' — disabled, '1' — enabled).
+// GroupJoin joined community notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) GroupJoin(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["group_join"] = v
 	return b
 }
 
-// GroupLeave Left community notifications ('0' — disabled, '1' — enabled).
+// GroupLeave left community notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetCallbackSettingsBuilder) GroupLeave(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["group_leave"] = v
 	return b
@@ -2174,31 +2174,31 @@ func (b *GroupsSetCallbackSettingsBuilder) GroupOfficersEdit(v bool) *GroupsSetC
 	return b
 }
 
-// UserBlock User added to community blacklist.
+// UserBlock user added to community blacklist.
 func (b *GroupsSetCallbackSettingsBuilder) UserBlock(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["user_block"] = v
 	return b
 }
 
-// UserUnblock User removed from community blacklist.
+// UserUnblock user removed from community blacklist.
 func (b *GroupsSetCallbackSettingsBuilder) UserUnblock(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["user_unblock"] = v
 	return b
 }
 
-// LeadFormsNew New form in lead forms.
+// LeadFormsNew new form in lead forms.
 func (b *GroupsSetCallbackSettingsBuilder) LeadFormsNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["lead_forms_new"] = v
 	return b
 }
 
-// LikeAdd New "I like" mark.
+// LikeAdd new "I like" mark.
 func (b *GroupsSetCallbackSettingsBuilder) LikeAdd(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["like_add"] = v
 	return b
 }
 
-// LikeRemove Remove "I like" mark.
+// LikeRemove remove "I like" mark.
 func (b *GroupsSetCallbackSettingsBuilder) LikeRemove(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["like_remove"] = v
 	return b
@@ -2218,13 +2218,13 @@ func NewGroupsSetLongPollSettingsBuilder() *GroupsSetLongPollSettingsBuilder {
 	return &GroupsSetLongPollSettingsBuilder{api.Params{}}
 }
 
-// GroupID Community ID.
+// GroupID community ID.
 func (b *GroupsSetLongPollSettingsBuilder) GroupID(v int) *GroupsSetLongPollSettingsBuilder {
 	b.Params["group_id"] = v
 	return b
 }
 
-// Enabled Sets whether Long Poll is enabled ('0' — disabled, '1' — enabled).
+// Enabled sets whether Long Poll is enabled ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) Enabled(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["enabled"] = v
 	return b
@@ -2236,31 +2236,31 @@ func (b *GroupsSetLongPollSettingsBuilder) APIVersion(v string) *GroupsSetLongPo
 	return b
 }
 
-// MessageNew A new incoming message has been received ('0' — disabled, '1' — enabled).
+// MessageNew a new incoming message has been received ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) MessageNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_new"] = v
 	return b
 }
 
-// MessageReply A new outcoming message has been received ('0' — disabled, '1' — enabled).
+// MessageReply a new outcoming message has been received ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) MessageReply(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_reply"] = v
 	return b
 }
 
-// MessageAllow Allowed messages notifications ('0' — disabled, '1' — enabled).
+// MessageAllow allowed messages notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) MessageAllow(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_allow"] = v
 	return b
 }
 
-// MessageDeny Denied messages notifications ('0' — disabled, '1' — enabled).
+// MessageDeny denied messages notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) MessageDeny(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_deny"] = v
 	return b
 }
 
-// MessageEdit A message has been edited ('0' — disabled, '1' — enabled).
+// MessageEdit a message has been edited ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) MessageEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_edit"] = v
 	return b
@@ -2272,169 +2272,169 @@ func (b *GroupsSetLongPollSettingsBuilder) MessageTypingState(v bool) *GroupsSet
 	return b
 }
 
-// PhotoNew New photos notifications ('0' — disabled, '1' — enabled).
+// PhotoNew new photos notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) PhotoNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_new"] = v
 	return b
 }
 
-// AudioNew New audios notifications ('0' — disabled, '1' — enabled).
+// AudioNew new audios notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) AudioNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["audio_new"] = v
 	return b
 }
 
-// VideoNew New videos notifications ('0' — disabled, '1' — enabled).
+// VideoNew new videos notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) VideoNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_new"] = v
 	return b
 }
 
-// WallReplyNew New wall replies notifications ('0' — disabled, '1' — enabled).
+// WallReplyNew new wall replies notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) WallReplyNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_reply_new"] = v
 	return b
 }
 
-// WallReplyEdit Wall replies edited notifications ('0' — disabled, '1' — enabled).
+// WallReplyEdit wall replies edited notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) WallReplyEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_reply_edit"] = v
 	return b
 }
 
-// WallReplyDelete A wall comment has been deleted ('0' — disabled, '1' — enabled).
+// WallReplyDelete a wall comment has been deleted ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) WallReplyDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_reply_delete"] = v
 	return b
 }
 
-// WallReplyRestore A wall comment has been restored ('0' — disabled, '1' — enabled).
+// WallReplyRestore a wall comment has been restored ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) WallReplyRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_reply_restore"] = v
 	return b
 }
 
-// WallPostNew New wall posts notifications ('0' — disabled, '1' — enabled).
+// WallPostNew new wall posts notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) WallPostNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_post_new"] = v
 	return b
 }
 
-// WallRepost New wall posts notifications ('0' — disabled, '1' — enabled).
+// WallRepost new wall posts notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) WallRepost(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_repost"] = v
 	return b
 }
 
-// BoardPostNew New board posts notifications ('0' — disabled, '1' — enabled).
+// BoardPostNew new board posts notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) BoardPostNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["board_post_new"] = v
 	return b
 }
 
-// BoardPostEdit Board posts edited notifications ('0' — disabled, '1' — enabled).
+// BoardPostEdit board posts edited notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) BoardPostEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["board_post_edit"] = v
 	return b
 }
 
-// BoardPostRestore Board posts restored notifications ('0' — disabled, '1' — enabled).
+// BoardPostRestore board posts restored notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) BoardPostRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["board_post_restore"] = v
 	return b
 }
 
-// BoardPostDelete Board posts deleted notifications ('0' — disabled, '1' — enabled).
+// BoardPostDelete board posts deleted notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) BoardPostDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["board_post_delete"] = v
 	return b
 }
 
-// PhotoCommentNew New comment to photo notifications ('0' — disabled, '1' — enabled).
+// PhotoCommentNew new comment to photo notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) PhotoCommentNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_comment_new"] = v
 	return b
 }
 
-// PhotoCommentEdit A photo comment has been edited ('0' — disabled, '1' — enabled).
+// PhotoCommentEdit a photo comment has been edited ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) PhotoCommentEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_comment_edit"] = v
 	return b
 }
 
-// PhotoCommentDelete A photo comment has been deleted ('0' — disabled, '1' — enabled).
+// PhotoCommentDelete a photo comment has been deleted ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) PhotoCommentDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_comment_delete"] = v
 	return b
 }
 
-// PhotoCommentRestore A photo comment has been restored ('0' — disabled, '1' — enabled).
+// PhotoCommentRestore a photo comment has been restored ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) PhotoCommentRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_comment_restore"] = v
 	return b
 }
 
-// VideoCommentNew New comment to video notifications ('0' — disabled, '1' — enabled).
+// VideoCommentNew new comment to video notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) VideoCommentNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_comment_new"] = v
 	return b
 }
 
-// VideoCommentEdit A video comment has been edited ('0' — disabled, '1' — enabled).
+// VideoCommentEdit a video comment has been edited ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) VideoCommentEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_comment_edit"] = v
 	return b
 }
 
-// VideoCommentDelete A video comment has been deleted ('0' — disabled, '1' — enabled).
+// VideoCommentDelete a video comment has been deleted ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) VideoCommentDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_comment_delete"] = v
 	return b
 }
 
-// VideoCommentRestore A video comment has been restored ('0' — disabled, '1' — enabled).
+// VideoCommentRestore a video comment has been restored ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) VideoCommentRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_comment_restore"] = v
 	return b
 }
 
-// MarketCommentNew New comment to market item notifications ('0' — disabled, '1' — enabled).
+// MarketCommentNew new comment to market item notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) MarketCommentNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["market_comment_new"] = v
 	return b
 }
 
-// MarketCommentEdit A market comment has been edited ('0' — disabled, '1' — enabled).
+// MarketCommentEdit a market comment has been edited ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) MarketCommentEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["market_comment_edit"] = v
 	return b
 }
 
-// MarketCommentDelete A market comment has been deleted ('0' — disabled, '1' — enabled).
+// MarketCommentDelete a market comment has been deleted ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) MarketCommentDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["market_comment_delete"] = v
 	return b
 }
 
-// MarketCommentRestore A market comment has been restored ('0' — disabled, '1' — enabled).
+// MarketCommentRestore a market comment has been restored ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) MarketCommentRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["market_comment_restore"] = v
 	return b
 }
 
-// PollVoteNew A vote in a public poll has been added ('0' — disabled, '1' — enabled).
+// PollVoteNew a vote in a public poll has been added ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) PollVoteNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["poll_vote_new"] = v
 	return b
 }
 
-// GroupJoin Joined community notifications ('0' — disabled, '1' — enabled).
+// GroupJoin joined community notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) GroupJoin(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["group_join"] = v
 	return b
 }
 
-// GroupLeave Left community notifications ('0' — disabled, '1' — enabled).
+// GroupLeave left community notifications ('0' — disabled, '1' — enabled).
 func (b *GroupsSetLongPollSettingsBuilder) GroupLeave(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["group_leave"] = v
 	return b
@@ -2458,25 +2458,25 @@ func (b *GroupsSetLongPollSettingsBuilder) GroupOfficersEdit(v bool) *GroupsSetL
 	return b
 }
 
-// UserBlock User added to community blacklist.
+// UserBlock user added to community blacklist.
 func (b *GroupsSetLongPollSettingsBuilder) UserBlock(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["user_block"] = v
 	return b
 }
 
-// UserUnblock User removed from community blacklist.
+// UserUnblock user removed from community blacklist.
 func (b *GroupsSetLongPollSettingsBuilder) UserUnblock(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["user_unblock"] = v
 	return b
 }
 
-// LikeAdd New "I like" mark.
+// LikeAdd new "I like" mark.
 func (b *GroupsSetLongPollSettingsBuilder) LikeAdd(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["like_add"] = v
 	return b
 }
 
-// LikeRemove Remove "I like" mark.
+// LikeRemove remove "I like" mark.
 func (b *GroupsSetLongPollSettingsBuilder) LikeRemove(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["like_remove"] = v
 	return b

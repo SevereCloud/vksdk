@@ -18,7 +18,7 @@ func NewStoriesBanOwnerBuilder() *StoriesBanOwnerBuilder {
 	return &StoriesBanOwnerBuilder{api.Params{}}
 }
 
-// OwnersIDs List of sources IDs.
+// OwnersIDs list of sources IDs.
 func (b *StoriesBanOwnerBuilder) OwnersIDs(v []int) *StoriesBanOwnerBuilder {
 	b.Params["owners_ids"] = v
 	return b
@@ -38,13 +38,13 @@ func NewStoriesDeleteBuilder() *StoriesDeleteBuilder {
 	return &StoriesDeleteBuilder{api.Params{}}
 }
 
-// OwnerID Story owner's ID. Current user id is used by default.
+// OwnerID story owner's ID. Current user id is used by default.
 func (b *StoriesDeleteBuilder) OwnerID(v int) *StoriesDeleteBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// StoryID Story ID.
+// StoryID parameter.
 func (b *StoriesDeleteBuilder) StoryID(v int) *StoriesDeleteBuilder {
 	b.Params["story_id"] = v
 	return b
@@ -64,7 +64,7 @@ func NewStoriesGetBuilder() *StoriesGetBuilder {
 	return &StoriesGetBuilder{api.Params{}}
 }
 
-// OwnerID Owner ID.
+// OwnerID parameter.
 func (b *StoriesGetBuilder) OwnerID(v int) *StoriesGetBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -96,7 +96,7 @@ func (b *StoriesGetBannedBuilder) Extended(v bool) *StoriesGetBannedBuilder {
 	return b
 }
 
-// Fields Additional fields to return.
+// Fields additional fields to return.
 func (b *StoriesGetBannedBuilder) Fields(v []string) *StoriesGetBannedBuilder {
 	b.Params["fields"] = v
 	return b
@@ -116,7 +116,7 @@ func NewStoriesGetByIDBuilder() *StoriesGetByIDBuilder {
 	return &StoriesGetByIDBuilder{api.Params{}}
 }
 
-// Stories Stories IDs separated by commas. Use format {owner_id}+'_'+{story_id}, for example, 12345_54331.
+// Stories IDs separated by commas. Use format {owner_id}+'_'+{story_id}, for example, 12345_54331.
 func (b *StoriesGetByIDBuilder) Stories(v []string) *StoriesGetByIDBuilder {
 	b.Params["stories"] = v
 	return b
@@ -128,7 +128,7 @@ func (b *StoriesGetByIDBuilder) Extended(v bool) *StoriesGetByIDBuilder {
 	return b
 }
 
-// Fields Additional fields to return.
+// Fields additional fields to return.
 func (b *StoriesGetByIDBuilder) Fields(v []string) *StoriesGetByIDBuilder {
 	b.Params["fields"] = v
 	return b
@@ -154,7 +154,7 @@ func (b *StoriesGetPhotoUploadServerBuilder) AddToNews(v bool) *StoriesGetPhotoU
 	return b
 }
 
-// UserIDs List of users IDs who can see the story.
+// UserIDs list of users IDs who can see the story.
 func (b *StoriesGetPhotoUploadServerBuilder) UserIDs(v []int) *StoriesGetPhotoUploadServerBuilder {
 	b.Params["user_ids"] = v
 	return b
@@ -166,13 +166,13 @@ func (b *StoriesGetPhotoUploadServerBuilder) ReplyToStory(v string) *StoriesGetP
 	return b
 }
 
-// LinkText Link text (for community's stories only).
+// LinkText link text (for community's stories only).
 func (b *StoriesGetPhotoUploadServerBuilder) LinkText(v string) *StoriesGetPhotoUploadServerBuilder {
 	b.Params["link_text"] = v
 	return b
 }
 
-// LinkURL Link URL. Internal links on https://vk.com only.
+// LinkURL link URL. Internal links on https://vk.com only.
 func (b *StoriesGetPhotoUploadServerBuilder) LinkURL(v string) *StoriesGetPhotoUploadServerBuilder {
 	b.Params["link_url"] = v
 	return b
@@ -198,19 +198,19 @@ func NewStoriesGetRepliesBuilder() *StoriesGetRepliesBuilder {
 	return &StoriesGetRepliesBuilder{api.Params{}}
 }
 
-// OwnerID Story owner ID.
+// OwnerID story owner ID.
 func (b *StoriesGetRepliesBuilder) OwnerID(v int) *StoriesGetRepliesBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// StoryID Story ID.
+// StoryID parameter.
 func (b *StoriesGetRepliesBuilder) StoryID(v int) *StoriesGetRepliesBuilder {
 	b.Params["story_id"] = v
 	return b
 }
 
-// AccessKey Access key for the private object.
+// AccessKey access key for the private object.
 func (b *StoriesGetRepliesBuilder) AccessKey(v string) *StoriesGetRepliesBuilder {
 	b.Params["access_key"] = v
 	return b
@@ -222,7 +222,7 @@ func (b *StoriesGetRepliesBuilder) Extended(v bool) *StoriesGetRepliesBuilder {
 	return b
 }
 
-// Fields Additional fields to return.
+// Fields additional fields to return.
 func (b *StoriesGetRepliesBuilder) Fields(v []string) *StoriesGetRepliesBuilder {
 	b.Params["fields"] = v
 	return b
@@ -242,13 +242,13 @@ func NewStoriesGetStatsBuilder() *StoriesGetStatsBuilder {
 	return &StoriesGetStatsBuilder{api.Params{}}
 }
 
-// OwnerID Story owner ID.
+// OwnerID story owner ID.
 func (b *StoriesGetStatsBuilder) OwnerID(v int) *StoriesGetStatsBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// StoryID Story ID.
+// StoryID parameter.
 func (b *StoriesGetStatsBuilder) StoryID(v int) *StoriesGetStatsBuilder {
 	b.Params["story_id"] = v
 	return b
@@ -274,7 +274,7 @@ func (b *StoriesGetVideoUploadServerBuilder) AddToNews(v bool) *StoriesGetVideoU
 	return b
 }
 
-// UserIDs List of users IDs who can see the story.
+// UserIDs list of users IDs who can see the story.
 func (b *StoriesGetVideoUploadServerBuilder) UserIDs(v []int) *StoriesGetVideoUploadServerBuilder {
 	b.Params["user_ids"] = v
 	return b
@@ -286,13 +286,13 @@ func (b *StoriesGetVideoUploadServerBuilder) ReplyToStory(v string) *StoriesGetV
 	return b
 }
 
-// LinkText Link text (for community's stories only).
+// LinkText link text (for community's stories only).
 func (b *StoriesGetVideoUploadServerBuilder) LinkText(v string) *StoriesGetVideoUploadServerBuilder {
 	b.Params["link_text"] = v
 	return b
 }
 
-// LinkURL Link URL. Internal links on https://vk.com only.
+// LinkURL link URL. Internal links on https://vk.com only.
 func (b *StoriesGetVideoUploadServerBuilder) LinkURL(v string) *StoriesGetVideoUploadServerBuilder {
 	b.Params["link_url"] = v
 	return b
@@ -318,25 +318,25 @@ func NewStoriesGetViewersBuilder() *StoriesGetViewersBuilder {
 	return &StoriesGetViewersBuilder{api.Params{}}
 }
 
-// OwnerID Story owner ID.
+// OwnerID story owner ID.
 func (b *StoriesGetViewersBuilder) OwnerID(v int) *StoriesGetViewersBuilder {
 	b.Params["owner_id"] = v
 	return b
 }
 
-// StoryID Story ID.
+// StoryID parameter.
 func (b *StoriesGetViewersBuilder) StoryID(v int) *StoriesGetViewersBuilder {
 	b.Params["story_id"] = v
 	return b
 }
 
-// Count Maximum number of results.
+// Count maximum number of results.
 func (b *StoriesGetViewersBuilder) Count(v int) *StoriesGetViewersBuilder {
 	b.Params["count"] = v
 	return b
 }
 
-// Offset Offset needed to return a specific subset of results.
+// Offset needed to return a specific subset of results.
 func (b *StoriesGetViewersBuilder) Offset(v int) *StoriesGetViewersBuilder {
 	b.Params["offset"] = v
 	return b
@@ -394,7 +394,7 @@ func (b *StoriesHideReplyBuilder) OwnerID(v int) *StoriesHideReplyBuilder {
 	return b
 }
 
-// StoryID Story ID.
+// StoryID parameter.
 func (b *StoriesHideReplyBuilder) StoryID(v int) *StoriesHideReplyBuilder {
 	b.Params["story_id"] = v
 	return b
@@ -462,7 +462,7 @@ func NewStoriesUnbanOwnerBuilder() *StoriesUnbanOwnerBuilder {
 	return &StoriesUnbanOwnerBuilder{api.Params{}}
 }
 
-// OwnersIDs List of hidden sources to show stories from.
+// OwnersIDs list of hidden sources to show stories from.
 func (b *StoriesUnbanOwnerBuilder) OwnersIDs(v []int) *StoriesUnbanOwnerBuilder {
 	b.Params["owners_ids"] = v
 	return b
