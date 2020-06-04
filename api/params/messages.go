@@ -1315,7 +1315,7 @@ func (b *MessagesSendBuilder) UserIDs(v []int) *MessagesSendBuilder {
 	return b
 }
 
-// UserIDs IDs of message recipients.
+// PeerIDs IDs of message recipients.
 func (b *MessagesSendBuilder) PeerIDs(v []int) *MessagesSendBuilder {
 	b.Params["peer_ids"] = v
 	return b
