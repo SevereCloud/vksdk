@@ -1315,6 +1315,12 @@ func (b *MessagesSendBuilder) UserIDs(v []int) *MessagesSendBuilder {
 	return b
 }
 
+// UserIDs IDs of message recipients.
+func (b *MessagesSendBuilder) PeerIDs(v []int) *MessagesSendBuilder {
+	b.Params["peer_ids"] = v
+	return b
+}
+
 // Message (Required if 'attachments' is not set.) Text of the message.
 func (b *MessagesSendBuilder) Message(v string) *MessagesSendBuilder {
 	b.Params["message"] = v
