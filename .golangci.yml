@@ -31,6 +31,12 @@ linters:
     - whitespace
     - wsl
     - godot
+    - asciicheck
+    - nolintlint
+
+    # - testpackage # TODO: Fix testpackage
+    # - nestif # TODO: Fix nestif
+    # - goerr113 # TODO: Enable v2
 
   # don't enable:
   # - depguard
@@ -45,7 +51,7 @@ linters:
   # - lll
   # - rowserrcheck
   # - scopelint
-
+  # - gomodguard
 
 issues:
   exclude-rules:

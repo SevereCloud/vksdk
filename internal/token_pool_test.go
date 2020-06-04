@@ -1,7 +1,9 @@
-package internal
+package internal_test
 
 import (
 	"testing"
+
+	"github.com/SevereCloud/vksdk/internal"
 )
 
 func TestTokenPool(t *testing.T) {
@@ -11,7 +13,7 @@ func TestTokenPool(t *testing.T) {
 		"1", "2", "3", "4", "5",
 	}
 
-	p := NewTokenPool(tokens...)
+	p := internal.NewTokenPool(tokens...)
 
 	for i := 0; i < len(tokens)*2; i++ {
 		tokenIdx := i % len(tokens)

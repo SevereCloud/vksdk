@@ -36,7 +36,7 @@ func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string)
 	contentType := writer.FormDataContentType()
 	_ = writer.Close()
 
-	resp, err := vk.Client.Post(url, contentType, body) // nolint: gosec
+	resp, err := vk.Client.Post(url, contentType, body)
 	if err != nil {
 		return
 	}
@@ -213,7 +213,7 @@ func (vk *VK) uploadOwnerPhoto(params Params, squareCrop string, file io.Reader)
 
 	_ = writer.Close()
 
-	resp, err := vk.Client.Post(uploadServer.UploadURL, contentType, body) // nolint: gosec
+	resp, err := vk.Client.Post(uploadServer.UploadURL, contentType, body)
 	if err != nil {
 		return
 	}

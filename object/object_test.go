@@ -1,23 +1,19 @@
-/*
-Package object contains objects for VK.
-
-See more https://vk.com/dev/objects
-*/
-package object
+package object_test
 
 import (
 	"testing"
 
+	"github.com/SevereCloud/vksdk/object"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestBaseBoolInt_UnmarshalJSON(t *testing.T) {
 	t.Parallel()
 
-	f := func(data []byte, want BaseBoolInt, wantErr string) {
+	f := func(data []byte, want object.BaseBoolInt, wantErr string) {
 		t.Helper()
 
-		var b BaseBoolInt
+		var b object.BaseBoolInt
 
 		err := b.UnmarshalJSON(data)
 		if err != nil {
@@ -37,10 +33,10 @@ func TestBaseBoolInt_UnmarshalJSON(t *testing.T) {
 func TestBaseImage_UnmarshalJSON(t *testing.T) {
 	t.Parallel()
 
-	f := func(data []byte, want BaseImage, wantErr string) {
+	f := func(data []byte, want object.BaseImage, wantErr string) {
 		t.Helper()
 
-		var b BaseImage
+		var b object.BaseImage
 
 		err := b.UnmarshalJSON(data)
 		if err != nil {
@@ -50,14 +46,14 @@ func TestBaseImage_UnmarshalJSON(t *testing.T) {
 		assert.Equal(t, want, b)
 	}
 
-	f([]byte("{}"), BaseImage{}, "")
+	f([]byte("{}"), object.BaseImage{}, "")
 	f([]byte(`{
 		"src": "https://pp.vk.me/c633825/v633825034/7369/wbsAsrooqfA.jpg",
 		"width": 130,
 		"height": 87,
 		"type": "m"
 		}`),
-		BaseImage{
+		object.BaseImage{
 			URL:    "https://pp.vk.me/c633825/v633825034/7369/wbsAsrooqfA.jpg",
 			Width:  130,
 			Height: 87,
@@ -71,7 +67,7 @@ func TestBaseImage_UnmarshalJSON(t *testing.T) {
 		"height": 87,
 		"type": "m"
 		}`),
-		BaseImage{
+		object.BaseImage{
 			URL:    "https://pp.vk.me/c633825/v633825034/7369/wbsAsrooqfA.jpg",
 			Width:  130,
 			Height: 87,
@@ -79,5 +75,5 @@ func TestBaseImage_UnmarshalJSON(t *testing.T) {
 		},
 		"",
 	)
-	f([]byte("null"), BaseImage{}, "json: cannot unmarshal ? into Go value of type BaseImage")
+	f([]byte("null"), object.BaseImage{}, "json: cannot unmarshal ? into Go value of type BaseImage")
 }
