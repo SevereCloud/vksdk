@@ -494,9 +494,12 @@ func (vk *VK) MessagesSearchConversations(params Params) (response MessagesSearc
 
 // MessagesSend Sends a message.
 //
+// For user_ids or peer_ids parameters, use MessagesSendUserIDs.
+//
 // https://vk.com/dev/messages.send
 func (vk *VK) MessagesSend(params Params) (response int, err error) {
 	params["user_ids"] = ""
+	params["peer_ids"] = ""
 	err = vk.RequestUnmarshal("messages.send", params, &response)
 
 	return
@@ -514,7 +517,7 @@ type MessagesSendUserIDsResponse []struct {
 
 // MessagesSendUserIDs Sends a message.
 //
-// need user_ids;
+// need user_ids or peer_ids;
 //
 // https://vk.com/dev/messages.send
 func (vk *VK) MessagesSendUserIDs(params Params) (response MessagesSendUserIDsResponse, err error) {
