@@ -242,6 +242,7 @@ const (
 	GroupNeed2fa                      ErrorType = 703  // You need to enable 2FA for this action
 	GroupHostNeed2fa                  ErrorType = 704  // User needs to enable 2FA for this action
 	GroupTooManyAddresses             ErrorType = 706  // Too many addresses in club
+	GroupAppIsNotInstalledInCommunity ErrorType = 711  // "Application is not installed in community
 	GroupInvalidInviteLink            ErrorType = 714  // Invite link is invalid - expired, deleted or not exists
 	VideoAlreadyAdded                 ErrorType = 800  // This video is already added
 	VideoCommentsClosed               ErrorType = 801  // Comments for this video are closed
