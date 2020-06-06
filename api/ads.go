@@ -4,6 +4,14 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
+// AdsDeleteTargetGroup deletes target group.
+//
+// https://vk.com/dev/ads.deleteTargetGroup
+func (vk *VK) AdsDeleteTargetGroup(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("ads.deleteTargetGroup", params, &response)
+	return
+}
+
 // AdsGetAccountsResponse struct
 type AdsGetAccountsResponse []object.AdsAccount
 
