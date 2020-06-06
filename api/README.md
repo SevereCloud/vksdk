@@ -22,7 +22,7 @@ vk := api.NewVK("<TOKEN>")
 - `groups.get` с extended=1 -> `vk.GroupsGetExtended(api.Params{})`
 
 Список всех методов можно найти на 
-[данной странице](https://godoc.org/github.com/SevereCloud/vksdk/api#VK).
+[данной странице](https://pkg.go.dev/github.com/SevereCloud/vksdk/api?tab=doc#VK).
 
 Пример запроса [`users.get`](https://vk.com/dev/users.get)
 
@@ -39,7 +39,7 @@ if err != nil {
 
 [![документация](https://godoc.org/github.com/SevereCloud/vksdk/api/params?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/api/params)
 
-Модуль params предназначен для генерации запросов.
+Модуль params предназначен для генерации параметров запроса.
 
 ```go
 // import "github.com/SevereCloud/vksdk/api/params"
@@ -101,6 +101,8 @@ err = vk.RequestUnmarshal("users.get", params, &response)
 if err != nil {
 	log.Fatal(err)
 }
+
+log.Print(response)
 ```
 
 #### Execute
@@ -138,7 +140,7 @@ vk.Handler = func(method string, params api.Params) (api.Response, error) {
 
 Это может потребоваться, если вы можете поставить свой обработчик с [fasthttp](https://github.com/valyala/fasthttp) и логгером.
 
-Стандартный обработчик использует стандартные библиотеки [encoding/json](https://pkg.go.dev/net/http) и [net/http](https://pkg.go.dev/net/http). В стандартном обработчике можно настроить ограничитель запросов и HTTP клиент.
+Стандартный обработчик использует [encoding/json](https://pkg.go.dev/net/http) и [net/http](https://pkg.go.dev/net/http). В стандартном обработчике можно настроить ограничитель запросов и HTTP клиент.
 
 #### Ограничитель запросов
 
