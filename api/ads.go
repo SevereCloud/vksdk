@@ -52,3 +52,11 @@ func (vk *VK) AdsUpdateTargetGroup(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("ads.updateTargetGroup", params, &response)
 	return
 }
+
+// AdsUpdateTargetPixel edits target pixel.
+//
+// https://vk.com/dev/ads.updateTargetPixel
+func (vk *VK) AdsUpdateTargetPixel(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("ads. updateTargetPixel", params, &response)
+	return
+}
