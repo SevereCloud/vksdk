@@ -12,6 +12,14 @@ func (vk *VK) AdsDeleteTargetGroup(params Params) (response int, err error) {
 	return
 }
 
+// AdsDeleteTargetPixel deletes target pixel.
+//
+// https://vk.com/dev/ads.deleteTargetPixel
+func (vk *VK) AdsDeleteTargetPixel(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("ads.deleteTargetPixel", params, &response)
+	return
+}
+
 // AdsGetAccountsResponse struct
 type AdsGetAccountsResponse []object.AdsAccount
 
