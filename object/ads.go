@@ -9,7 +9,8 @@ type AdsAccesses struct {
 // AdsAccount struct.
 type AdsAccount struct {
 	AccessRole    string      `json:"access_role"`
-	AccountID     int         `json:"account_id"`     // Account ID
+	AccountID     int         `json:"account_id"` // Account ID
+	AccountName   string      `json:"account_name"`
 	AccountStatus BaseBoolInt `json:"account_status"` // Information whether account is active
 	AccountType   string      `json:"account_type"`
 }
