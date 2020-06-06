@@ -44,3 +44,11 @@ func (vk *VK) AdsRemoveTargetContacts(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("ads.removeTargetContacts", params, &response)
 	return
 }
+
+// AdsUpdateTargetGroup edits target group.
+//
+// https://vk.com/dev/ads.updateTargetGroup
+func (vk *VK) AdsUpdateTargetGroup(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("ads.updateTargetGroup", params, &response)
+	return
+}
