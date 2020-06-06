@@ -285,6 +285,16 @@ func TestAdsGetFloodStatsBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["account_id"], 1)
 }
 
+func TestAdsGetMusiciansBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewAdsGetMusiciansBuilder()
+
+	b.ArtistName("text")
+
+	assert.Equal(t, b.Params["artist_name"], "text")
+}
+
 func TestAdsGetOfficeUsersBuilder(t *testing.T) {
 	t.Parallel()
 

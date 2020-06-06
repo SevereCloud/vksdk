@@ -724,6 +724,26 @@ func (b *AdsGetFloodStatsBuilder) AccountID(v int) *AdsGetFloodStatsBuilder {
 	return b
 }
 
+// TODO: add ads.getLookalikeRequests Builder
+
+// AdsGetMusiciansBuilder builder.
+//
+// https://vk.com/dev/ads.getMusicians
+type AdsGetMusiciansBuilder struct {
+	api.Params
+}
+
+// NewAdsGetMusiciansBuilder func.
+func NewAdsGetMusiciansBuilder() *AdsGetMusiciansBuilder {
+	return &AdsGetMusiciansBuilder{api.Params{}}
+}
+
+// ArtistName parameter.
+func (b *AdsGetMusiciansBuilder) ArtistName(v string) *AdsGetMusiciansBuilder {
+	b.Params["artist_name"] = v
+	return b
+}
+
 // AdsGetOfficeUsersBuilder builder.
 //
 // Returns a list of managers and supervisors of advertising account.

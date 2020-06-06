@@ -262,6 +262,19 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 // 	return
 // }
 
+// AdsGetMusiciansResponse struct.
+type AdsGetMusiciansResponse struct {
+	Items []object.BaseObjectWithName
+}
+
+// AdsGetMusicians returns a list of musicians.
+//
+// https://vk.com/dev/ads.getMusicians
+func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, err error) {
+	err = vk.RequestUnmarshal("ads.getMusicians", params, &response)
+	return
+}
+
 // TODO: AdsGetOfficeUsersResponse struct.
 // type AdsGetOfficeUsersResponse struct{}
 
