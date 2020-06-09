@@ -124,7 +124,9 @@ type AppsGetScopesResponse struct {
 	Items []object.AppsScope `json:"items"`
 }
 
-// AppsGetScopes x
+// AppsGetScopes ...
+//
+// TODO: write docs
 //
 // https://vk.com/dev/apps.getScopes
 func (vk *VK) AppsGetScopes(params Params) (response AppsGetScopesResponse, err error) {
