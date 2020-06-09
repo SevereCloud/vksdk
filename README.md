@@ -42,6 +42,9 @@
   - Промежуточный http обработчик
 - [Payments API](https://pkg.go.dev/github.com/SevereCloud/vksdk/payments)
   - Обрабатывает уведомления о платежах
+- [Скиллы Маруси](https://pkg.go.dev/github.com/SevereCloud/vksdk/marusia)
+  - Готовые структуры и методы
+  - Обработка запросов от Маруси
 
 ### Установка
 
