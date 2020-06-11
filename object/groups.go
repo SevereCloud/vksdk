@@ -632,6 +632,7 @@ type GroupsMarketInfo struct {
 	PriceMin        string            `json:"price_min"`     // Minimum price
 	Wiki            PagesWikipageFull `json:"wiki"`
 	CountryIDs      []int             `json:"country_ids"`
+	// TODO: add in 5.110 CanMessage      BaseBoolInt       `json:"can_message"`
 }
 
 // GroupsGroupRole Role type.

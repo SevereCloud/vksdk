@@ -20,8 +20,10 @@ func (s StorageGetResponse) ToMap() map[string]string {
 // StorageGet returns a value of variable with the name set by key parameter.
 //
 // StorageGet always return array!
+//
 // https://vk.com/dev/storage.get
 func (vk *VK) StorageGet(params Params) (response StorageGetResponse, err error) {
+	// TODO: remove in 5.110
 	if _, prs := params["keys"]; !prs {
 		params["keys"] = params["key"]
 		params["key"] = ""
