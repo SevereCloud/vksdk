@@ -45,6 +45,7 @@ type FuncList struct {
 	marketCommentRestore []object.MarketCommentRestoreFunc
 	marketCommentDelete  []object.MarketCommentDeleteFunc
 	marketOrderNew       []object.MarketOrderNewFunc
+	marketOrderEdit      []object.MarketOrderEditFunc
 	groupLeave           []object.GroupLeaveFunc
 	groupJoin            []object.GroupJoinFunc
 	userBlock            []object.UserBlockFunc
@@ -364,6 +365,15 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		}
 
 		for _, f := range fl.marketOrderNew {
+			f(obj, e.GroupID)
+		}
+	case object.EventMarketOrderEdit:
+		var obj object.MarketOrderEditObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.marketOrderEdit {
 			f(obj, e.GroupID)
 		}
 	case object.EventGroupLeave:

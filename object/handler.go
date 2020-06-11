@@ -261,6 +261,12 @@ type MarketOrderNewFunc func(MarketOrderNewObject, int)
 // MarketOrderNewObject struct.
 type MarketOrderNewObject MarketOrder
 
+// MarketOrderEditFunc func.
+type MarketOrderEditFunc func(MarketOrderEditObject, int)
+
+// MarketOrderEditObject struct.
+type MarketOrderEditObject MarketOrder
+
 // GroupLeaveFunc func.
 type GroupLeaveFunc func(GroupLeaveObject, int)
 

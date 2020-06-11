@@ -110,6 +110,7 @@ const (
 	EventMarketCommentRestore = "market_comment_restore"
 	EventMarketCommentDelete  = "market_comment_delete"
 	EventMarketOrderNew       = "market_order_new"
+	EventMarketOrderEdit      = "market_order_edit"
 	EventGroupLeave           = "group_leave"
 	EventGroupJoin            = "group_join"
 	EventUserBlock            = "user_block"
