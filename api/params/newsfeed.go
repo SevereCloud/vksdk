@@ -636,6 +636,12 @@ func (b *NewsfeedUnignoreItemBuilder) ItemID(v int) *NewsfeedUnignoreItemBuilder
 	return b
 }
 
+// TrackCode parameter.
+func (b *NewsfeedUnignoreItemBuilder) TrackCode(v string) *NewsfeedUnignoreItemBuilder {
+	b.Params["track_code"] = v
+	return b
+}
+
 // NewsfeedUnsubscribeBuilder builder.
 //
 // Unsubscribes the current user from specified newsfeeds.

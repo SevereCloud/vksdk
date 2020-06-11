@@ -237,10 +237,12 @@ func TestNewsfeedUnignoreItemBuilder(t *testing.T) {
 	b.Type("text")
 	b.OwnerID(1)
 	b.ItemID(1)
+	b.TrackCode("text")
 
 	assert.Equal(t, b.Params["type"], "text")
 	assert.Equal(t, b.Params["owner_id"], 1)
 	assert.Equal(t, b.Params["item_id"], 1)
+	assert.Equal(t, b.Params["track_code"], "text")
 }
 
 func TestNewsfeedUnsubscribeBuilder(t *testing.T) {
