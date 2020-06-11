@@ -34,9 +34,11 @@ func TestNotificationsSendMessageBuilder(t *testing.T) {
 	b.Message("text")
 	b.Fragment("text")
 	b.GroupID(1)
+	b.RandomID(1)
 
 	assert.Equal(t, b.Params["user_ids"], []int{1})
 	assert.Equal(t, b.Params["message"], "text")
 	assert.Equal(t, b.Params["fragment"], "text")
 	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["random_id"], int64(1))
 }

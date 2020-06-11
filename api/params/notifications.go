@@ -95,3 +95,16 @@ func (b *NotificationsSendMessageBuilder) GroupID(v int) *NotificationsSendMessa
 	b.Params["group_id"] = v
 	return b
 }
+
+// RandomID a unique (API_ID and Sender ID) identifier designed to prevent
+// sending the same message again. It is stored together with the message
+// and is available in the message history.
+//
+// The specified random_id is used to check uniqueness for the entire message
+// history, so use a wide range (up to int64).
+//
+// Accessible for versions from 5.107.
+func (b *NotificationsSendMessageBuilder) RandomID(v int64) *NotificationsSendMessageBuilder {
+	b.Params["random_id"] = v
+	return b
+}
