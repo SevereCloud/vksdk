@@ -255,6 +255,12 @@ type MarketCommentDeleteObject struct {
 	ItemID    int `json:"item_id"`
 }
 
+// MarketOrderNewFunc func.
+type MarketOrderNewFunc func(MarketOrderNewObject, int)
+
+// MarketOrderNewObject struct.
+type MarketOrderNewObject MarketOrder
+
 // GroupLeaveFunc func.
 type GroupLeaveFunc func(GroupLeaveObject, int)
 
