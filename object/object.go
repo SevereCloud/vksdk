@@ -463,8 +463,8 @@ type ExecuteError struct {
 
 // ExtendedResponse struct.
 type ExtendedResponse struct {
-	Profiles []UsersUser   `json:"profiles"`
-	Groups   []GroupsGroup `json:"groups"`
+	Profiles []UsersUser   `json:"profiles,omitempty"`
+	Groups   []GroupsGroup `json:"groups,omitempty"`
 }
 
 // ClientInfo struct.

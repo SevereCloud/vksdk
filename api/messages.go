@@ -211,9 +211,7 @@ type MessagesGetConversationsResponse struct {
 	Count       int                                      `json:"count"`
 	Items       []object.MessagesConversationWithMessage `json:"items"`
 	UnreadCount int                                      `json:"unread_count"`
-	Profiles    []object.UsersUser                       `json:"profiles"`
-	Groups      []object.GroupsGroup                     `json:"groups"`
-	//
+	object.ExtendedResponse
 }
 
 // MessagesGetConversations returns a list of conversations.
@@ -267,6 +265,7 @@ type MessagesGetHistoryResponse struct {
 	Items   []object.MessagesMessage `json:"items"`
 	InRead  int                      `json:"in_read"`
 	OutRead int                      `json:"out_read"`
+	object.ExtendedResponse
 }
 
 // MessagesGetHistory returns message history for the specified user or group chat.
@@ -281,8 +280,7 @@ func (vk *VK) MessagesGetHistory(params Params) (response MessagesGetHistoryResp
 type MessagesGetHistoryAttachmentsResponse struct {
 	Items    []object.MessagesHistoryAttachment `json:"items"`
 	NextFrom string                             `json:"next_from"`
-	Profiles []object.UsersUser                 `json:"profiles"`
-	Groups   []object.GroupsGroup               `json:"groups"`
+	object.ExtendedResponse
 }
 
 // MessagesGetHistoryAttachments returns media files from the dialog or group chat.
@@ -299,9 +297,8 @@ type MessagesGetImportantMessagesResponse struct {
 		Count int                      `json:"count"`
 		Items []object.MessagesMessage `json:"items"`
 	} `json:"messages"`
-	Profiles      []object.UsersUser            `json:"profiles"`
-	Groups        []object.GroupsGroup          `json:"groups"`
 	Conversations []object.MessagesConversation `json:"conversations"`
+	object.ExtendedResponse
 }
 
 // MessagesGetImportantMessages messages.getImportantMessages.
@@ -462,11 +459,10 @@ func (vk *VK) MessagesRestore(params Params) (response int, err error) {
 
 // MessagesSearchResponse struct.
 type MessagesSearchResponse struct {
-	Count         int                           `json:"count"`
-	Items         []object.MessagesMessage      `json:"items"`
-	Profiles      []object.UsersUser            `json:"profiles"`
-	Groups        []object.GroupsGroup          `json:"groups"`
-	Conversations []object.MessagesConversation `json:"conversations"`
+	Count int                      `json:"count"`
+	Items []object.MessagesMessage `json:"items"`
+	object.ExtendedResponse
+	Conversations []object.MessagesConversation `json:"conversations,omitempty"`
 }
 
 // MessagesSearch returns a list of the current user's private messages that match search criteria.
