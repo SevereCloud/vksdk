@@ -221,7 +221,7 @@ func TestVK_InvalidContentType(t *testing.T) {
 	var testObj string
 
 	err := vkGroup.RequestUnmarshal("t/t", api.Params{}, testObj)
-	if err.Error() != "invalid content-type" {
+	if err == nil || err.Error() != "invalid content-type" {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}
 }
