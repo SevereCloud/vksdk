@@ -24,7 +24,7 @@ import (
 // Api constants.
 const (
 	Version      = "5.103"
-	APIMethodURL = "https://api.vk.com/method/"
+	APIMethodURL = "https://api.vk.com/method/" // TODO: v2 rename (name starts with package name)
 )
 
 // VKontakte API methods (except for methods from secure and ads sections)

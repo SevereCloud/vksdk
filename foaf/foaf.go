@@ -14,7 +14,7 @@ import (
 )
 
 // FOAFURL url foaf.
-const FOAFURL = "https://vk.com/foaf.php"
+const FOAFURL = "https://vk.com/foaf.php" // TODO: v2 rename (name starts with package name)
 
 // Context keys to use with https://golang.org/pkg/context
 // WithValue function to associate.
