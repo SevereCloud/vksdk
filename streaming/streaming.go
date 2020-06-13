@@ -300,7 +300,7 @@ func (s *Streaming) Run() error {
 
 	c, wsResp, err := s.Dialer.Dial(u.String(), requestHeader)
 	if err != nil {
-		if err == websocket.ErrBadHandshake {
+		if err == websocket.ErrBadHandshake && wsResp != nil {
 			var r response
 
 			err = json.NewDecoder(wsResp.Body).Decode(&r)
