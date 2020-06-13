@@ -172,7 +172,7 @@ type AdsStatsFormat struct {
 	Overall         int    `json:"overall"`           // 1 if period=overall
 	Reach           int    `json:"reach"`             // Reach
 	Spent           int    `json:"spent"`             // Spent funds
-	VideoClicksSite int    `json:"video_clicks_site"` // Clickthoughs to the advertised site
+	VideoClicksSite int    `json:"video_clicks_site"` // Click-thoughts to the advertised site
 	VideoViews      int    `json:"video_views"`       // Video views number
 	VideoViewsFull  int    `json:"video_views_full"`  // Video views (full video)
 	VideoViewsHalf  int    `json:"video_views_half"`  // Video views (half of video)

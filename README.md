@@ -80,7 +80,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Иницилизируем longpoll
+	// Инициализируем longpoll
 	lp, err := longpoll.NewLongpoll(vk, group[0].ID)
 	if err != nil {
 		log.Fatal(err)

@@ -3,7 +3,7 @@ package object // import "github.com/SevereCloud/vksdk/object"
 // FriendsFriendStatus FriendStatus type.
 const (
 	FriendsStatusNotFriend        = iota // not a friend
-	FriendsStatusOutComingRequest        // outcoming request
+	FriendsStatusOutComingRequest        // out coming request
 	FriendsStatusInComingRequest         // incoming request
 	FriendsStatusIsFriend                // is friend
 )

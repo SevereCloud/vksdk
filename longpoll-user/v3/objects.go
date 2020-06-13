@@ -338,7 +338,7 @@ func (result *DialogsFlagsSet) parse(i []interface{}) error {
 
 // DeleteMessages struct for event with code 13.
 //
-// Deletings all messages in PeerID dialogs with IDs up to LocalID.
+// Deleting all messages in PeerID dialogs with IDs up to LocalID.
 type DeleteMessages struct {
 	PeerID  int
 	LocalID int

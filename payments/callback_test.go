@@ -76,7 +76,7 @@ func TestNewCallback(t *testing.T) {
 	)
 	f(
 		url.Values{
-			"notification_type": {"not_proccesed"},
+			"notification_type": {"not_processed"},
 			"app_id":            {"1"},
 			"user_id":           {"1"},
 			"receiver_id":       {"1"},
@@ -87,7 +87,7 @@ func TestNewCallback(t *testing.T) {
 		response{
 			Error: payments.Error{
 				Code:     payments.CommonError,
-				Msg:      "not_proccesed not processed",
+				Msg:      "not_processed not processed",
 				Critical: true,
 			},
 		},
@@ -106,7 +106,7 @@ func TestCallback_Sign(t *testing.T) {
 	f(nil, "5ebe2294ecd0e0f08eab7690d2a6ee69")
 	f(
 		url.Values{
-			"notification_type": {"not_proccesed"},
+			"notification_type": {"not_processed"},
 			"app_id":            {"1"},
 			"user_id":           {"1"},
 			"receiver_id":       {"1"},
@@ -118,7 +118,7 @@ func TestCallback_Sign(t *testing.T) {
 	)
 	f(
 		url.Values{
-			"notification_type": {"not_proccesed"},
+			"notification_type": {"not_processed"},
 			"app_id":            {"1"},
 			"user_id":           {"1"},
 			"receiver_id":       {"1"},

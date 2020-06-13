@@ -33,9 +33,9 @@ type Longpoll struct {
 	events.FuncList
 }
 
-// NewLongpoll returns a new Lonpoll.
+// NewLongpoll returns a new Longpoll.
 //
-// The Lonpoll will use the http.DefaultClient.
+// The Longpoll will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
 // of your application the modifications will be picked up by the SDK as well.
 func NewLongpoll(vk *api.VK, groupID int) (*Longpoll, error) {
@@ -52,9 +52,9 @@ func NewLongpoll(vk *api.VK, groupID int) (*Longpoll, error) {
 	return lp, err
 }
 
-// NewLongpollCommunity returns a new Lonpoll for community token.
+// NewLongpollCommunity returns a new Longpoll for community token.
 //
-// The Lonpoll will use the http.DefaultClient.
+// The Longpoll will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
 // of your application the modifications will be picked up by the SDK as well.
 func NewLongpollCommunity(vk *api.VK) (*Longpoll, error) {

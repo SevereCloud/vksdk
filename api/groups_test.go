@@ -47,18 +47,18 @@ func TestVK_GroupsAddAddress(t *testing.T) {
 	// }
 
 	res2, err := vkGroup.GroupsEditAddress(api.Params{
-		"group_id":            vkGroupID,
-		"address_id":          res.ID,
-		"title":               "Точка встречи parkrun",
-		"addres2s":            "Сосновкий лесопарк",
-		"additional_addres2s": "Парковая дорожка между футбольным полем и спортивной площадкой",
-		"country_id":          1,
-		"city_id":             2,
-		"metro_id":            189,
-		"latitude":            60.0179405118554,
-		"longitude":           30.365817365050702,
-		"phone":               "88005553535",
-		"work_info_status":    "always_opened",
+		"group_id":           vkGroupID,
+		"address_id":         res.ID,
+		"title":              "Точка встречи parkrun",
+		"address":            "Сосновкий лесопарк",
+		"additional_address": "Парковая дорожка между футбольным полем и спортивной площадкой",
+		"country_id":         1,
+		"city_id":            2,
+		"metro_id":           189,
+		"latitude":           60.0179405118554,
+		"longitude":          30.365817365050702,
+		"phone":              "88005553535",
+		"work_info_status":   "always_opened",
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res2.ID)
@@ -306,7 +306,7 @@ func TestVK_GroupsGet(t *testing.T) {
 
 	res, err := vkUser.GroupsGet(api.Params{
 		"user_id": 117253521,
-		"fields":  "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_datef,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
+		"fields":  "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_date,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -320,7 +320,7 @@ func TestVK_GroupsGetExtended(t *testing.T) {
 
 	res, err := vkUser.GroupsGetExtended(api.Params{
 		"user_id": 117253521,
-		"fields":  "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_datef,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
+		"fields":  "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_date,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -370,7 +370,7 @@ func TestVK_GroupsGetByID(t *testing.T) {
 
 	res, err := vkGroup.GroupsGetByID(api.Params{
 		"group_ids": "apiclub",
-		"fields":    "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_datef,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
+		"fields":    "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_date,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
 	})
 
 	noError(t, err)
@@ -453,7 +453,7 @@ func TestVK_GroupsGetByID_private(t *testing.T) {
 
 	res, err := vkGroup.GroupsGetByID(api.Params{
 		"group_ids": "184580855",
-		"fields":    "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_datef,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
+		"fields":    "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_date,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
 	})
 
 	noError(t, err)

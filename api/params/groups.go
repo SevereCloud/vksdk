@@ -266,9 +266,9 @@ func (b *GroupsCreateBuilder) Description(v string) *GroupsCreateBuilder {
 //
 // * group – group;
 //
-// * eent' – event;
+// * event' – event;
 //
-// * pblic' – public page.
+// * public' – public page.
 func (b *GroupsCreateBuilder) Type(v string) *GroupsCreateBuilder {
 	b.Params["type"] = v
 	return b
@@ -577,7 +577,7 @@ func (b *GroupsEditBuilder) Wall(v int) *GroupsEditBuilder {
 	return b
 }
 
-// Topics settings. Possbile values:
+// Topics settings. Possible values:
 //
 // * 0 – disabled;
 //
@@ -755,7 +755,7 @@ func (b *GroupsEditBuilder) MarketCity(v []int) *GroupsEditBuilder {
 	return b
 }
 
-// MarketCurrency settings. Possbile values:
+// MarketCurrency settings. Possible values:
 //
 // * 643 – Russian rubles,
 //
@@ -1033,9 +1033,9 @@ func (b *GroupsEditManagerBuilder) UserID(v int) *GroupsEditManagerBuilder {
 //
 // * moderator;
 //
-// * eitor';
+// * editor';
 //
-// * aministrator'.
+// * administrator'.
 func (b *GroupsEditManagerBuilder) Role(v string) *GroupsEditManagerBuilder {
 	b.Params["role"] = v
 	return b
@@ -1556,7 +1556,7 @@ func (b *GroupsGetMembersBuilder) GroupID(v string) *GroupsGetMembersBuilder {
 }
 
 // Sort order. Available values: 'id_asc', 'id_desc', 'time_asc', 'time_desc'. 'time_asc' and 'time_desc'
-// are availavle only if the method is called by the group's 'moderator'.
+// are available only if the method is called by the group's 'moderator'.
 func (b *GroupsGetMembersBuilder) Sort(v string) *GroupsGetMembersBuilder {
 	b.Params["sort"] = v
 	return b
@@ -1585,7 +1585,7 @@ func (b *GroupsGetMembersBuilder) Fields(v []string) *GroupsGetMembersBuilder {
 
 // Filter *'friends' – only friends in this community will be returned;
 //
-// * usure' – only those who pressed 'I may attend' will be returned (if it's an event).
+// * unsure' – only those who pressed 'I may attend' will be returned (if it's an event).
 func (b *GroupsGetMembersBuilder) Filter(v string) *GroupsGetMembersBuilder {
 	b.Params["filter"] = v
 	return b

@@ -272,7 +272,7 @@ type DeleteMessagesHandler func(m DeleteMessages)
 //
 // event with code 13.
 //
-// Deletings all messages in PeerID dialogs with IDs up to LocalID.
+// Deleting all messages in PeerID dialogs with IDs up to LocalID.
 func (w Wrapper) OnDeleteMessages(f DeleteMessagesHandler) {
 	w.longpoll.EventNew(13, func(i []interface{}) error {
 		var event DeleteMessages

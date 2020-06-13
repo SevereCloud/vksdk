@@ -162,7 +162,7 @@ vk.Handler = func(method string, params api.Params) (api.Response, error) {
 Если Вы превысите частотное ограничение, сервер вернет ошибку с кодом 
 **6: "Too many requests per second."**.
 
-C помощью параметра `vk.Limit` можно установить ограничение на определенное 
+С помощью параметра `vk.Limit` можно установить ограничение на определенное 
 количество запросов в секунду 
 
 #### HTTP client
@@ -307,7 +307,7 @@ messageInfo, err = vk.UploadChatPhotoCrop(peerID, cropX, cropY, cropWidth, file)
 photosPhoto, err = vk.UploadMarketPhoto(groupID, mainPhoto, file)
 ```
 
-Основную фотографию c обрезкой:
+Основную фотографию с обрезкой:
 
 ```go
 photosPhoto, err = vk.UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth, file)
@@ -411,7 +411,7 @@ docsDoc, err = vk.UploadMessagesDoc(peerID, "audio_message", title, tags, file)
 uploadInfo, err = vk.UploadStoriesPhoto(params, file)
 ```
 
-Загрузить истроию с видео. [Параметры](https://vk.com/dev/stories.getVideoUploadServer)
+Загрузить историю с видео. [Параметры](https://vk.com/dev/stories.getVideoUploadServer)
 
 ```go
 uploadInfo, err = vk.UploadStoriesVideo(params, file)

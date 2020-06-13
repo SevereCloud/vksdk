@@ -167,7 +167,7 @@ type Params map[string]interface{}
 
 // Lang - determines the language for the data to be displayed on. For
 // example country and city names. If you use a non-cyrillic language,
-// cyrillic symbols will be transtiterated automatically.
+// cyrillic symbols will be transliterated automatically.
 // Numeric format from account.getInfo is supported as well.
 //
 // 	p.Lang(object.LangRU)

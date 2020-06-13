@@ -11,7 +11,7 @@ type SecureSmsNotification struct {
 	AppID   int    `json:"app_id"`  // Application ID
 	Date    int    `json:"date"`    // Date when message has been sent in Unixtime
 	ID      int    `json:"id"`      // Notification ID
-	Message string `json:"message"` // Messsage text
+	Message string `json:"message"` // Message text
 	UserID  int    `json:"user_id"` // User ID
 }
 

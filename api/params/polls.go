@@ -81,7 +81,7 @@ func (b *PollsCreateBuilder) EndDate(v int) *PollsCreateBuilder {
 	return b
 }
 
-// OwnerID if a poll will be added to a communty it is required to send a negative group identifier.
+// OwnerID if a poll will be added to a community it is required to send a negative group identifier.
 // Current user by default.
 func (b *PollsCreateBuilder) OwnerID(v int) *PollsCreateBuilder {
 	b.Params["owner_id"] = v

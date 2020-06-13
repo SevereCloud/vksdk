@@ -117,7 +117,7 @@ const (
 	//
 	// confirmation_text – text of the message to be shown in the default confirmation window.
 	//
-	// The app should display the default confirmation windos
+	// The app should display the default confirmation window
 	// with text from confirmation_text and two buttons: "Continue" and "Cancel".
 	// If user confirms the action repeat the request with an extra parameter: confirm = 1.
 	//
@@ -135,7 +135,7 @@ const (
 
 	// One of the parameters specified was missing or invalid
 	//
-	// Check the reqired parameters list and their format on a method description page.
+	// Check the required parameters list and their format on a method description page.
 	Param ErrorType = 100
 
 	// Invalid application API ID
@@ -346,7 +346,7 @@ func (errorType ErrorType) Wrapf(err error, msg string, args ...interface{}) err
 	return customError{errorType: errorType, originalError: errors.Wrapf(err, msg, args...)}
 }
 
-// Error returns the mssage of a customError.
+// Error returns the message of a customError.
 func (error customError) Error() string {
 	return error.originalError.Error()
 }

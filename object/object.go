@@ -335,7 +335,7 @@ type BaseUserID struct {
 // PrivacyCategory type.
 type PrivacyCategory string
 
-// Poossible values.
+// Possible values.
 const (
 	PrivacyAll              PrivacyCategory = "all"
 	PrivacyOnlyMe           PrivacyCategory = "only_me"
@@ -406,14 +406,14 @@ type Error struct {
 	// (for Standalone apps only). Following error will be returned:
 	//
 	// Error code: 24
-	// Error text: Corfirmation required
+	// Error text: Confirmation required
 	//
 	// Following parameter is transmitted with the error message as well:
 	//
 	// confirmation_text – text of the message to be shown in the default
 	// confirmation window.
 	//
-	// The app should display the default confirmation windos with text from
+	// The app should display the default confirmation window with text from
 	// confirmation_text and two buttons: "Continue" and "Cancel". If user
 	// confirms the action repeat the request with an extra parameter: confirm = 1.
 	//

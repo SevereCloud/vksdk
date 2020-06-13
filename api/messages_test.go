@@ -82,13 +82,13 @@ func TestVK_MessagesDelete(t *testing.T) {
 		assert.NotEmpty(t, get.Items[0].Text)
 		assert.NotEmpty(t, get.Items[0].ConversationMessageID)
 
-		getConv, err := vkUser.MessagesGetByConversationMessageID(api.Params{
+		getConversation, err := vkUser.MessagesGetByConversationMessageID(api.Params{
 			"peer_id":                  2000000000 + chatID,
 			"conversation_message_ids": get.Items[0].ConversationMessageID,
 		})
 		noError(t, err)
-		assert.NotEmpty(t, getConv.Count)
-		assert.NotEmpty(t, getConv.Items)
+		assert.NotEmpty(t, getConversation.Count)
+		assert.NotEmpty(t, getConversation.Items)
 	}
 
 	getEx, err := vkUser.MessagesGetByIDExtended(api.Params{

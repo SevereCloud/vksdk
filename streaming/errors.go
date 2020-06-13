@@ -62,7 +62,7 @@ func (errorType ErrorType) Wrapf(err error, msg string, args ...interface{}) err
 	return customError{errorType: errorType, originalError: errors.Wrapf(err, msg, args...)}
 }
 
-// Error returns the mssage of a customError.
+// Error returns the message of a customError.
 func (error customError) Error() string {
 	return error.originalError.Error()
 }

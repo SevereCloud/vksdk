@@ -452,7 +452,7 @@ func (b *MarketEditOrderBuilder) Status(v int) *MarketEditOrderBuilder {
 
 // MarketEditCommentBuilder builder.
 //
-// Chages item comment's text.
+// Changes item comment's text.
 //
 // https://vk.com/dev/market.editComment
 type MarketEditCommentBuilder struct {

@@ -24,7 +24,7 @@ func TestContextUserAgent(t *testing.T) {
 	f(context.Background(), internal.UserAgent)
 
 	ctx := context.Background()
-	userAgent := "AOAOA"
+	userAgent := "agent"
 	ctx = context.WithValue(ctx, internal.UserAgentKey, userAgent)
 	f(ctx, userAgent)
 }
@@ -73,7 +73,7 @@ const (
 	requestBody     = "ok"
 )
 
-func okHandler(w http.ResponseWriter, r *http.Request) {
+func okHandler(w http.ResponseWriter, _ *http.Request) {
 	time.Sleep(requestDuration)
 	io.WriteString(w, requestBody)
 }

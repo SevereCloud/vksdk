@@ -18,7 +18,7 @@ func (vk *VK) SecureAddAppEvent(params Params) (response SecureAddAppEventRespon
 // SecureCheckTokenResponse struct.
 type SecureCheckTokenResponse object.SecureTokenChecked
 
-// SecureCheckToken checks the user authentification in IFrame and Flash apps using the access_token parameter.
+// SecureCheckToken checks the user authentication in IFrame and Flash apps using the access_token parameter.
 //
 // https://vk.com/dev/secure.checkToken
 func (vk *VK) SecureCheckToken(params Params) (response SecureCheckTokenResponse, err error) {

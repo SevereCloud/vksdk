@@ -37,7 +37,7 @@ func TestMain(m *testing.M) {
 func TestStreaming_AllRule(t *testing.T) {
 	needServiceToken(t)
 
-	err := stream.AddRule("abcd", "test")
+	err := stream.AddRule("rule", "test")
 	assert.NoError(t, err)
 
 	err = stream.UpdateRules([]streaming.Rule{{Tag: "test", Value: "test"}})
@@ -81,7 +81,7 @@ func TestStreaming_NoHost(t *testing.T) {
 	err = s.DeleteRule("test")
 	assert.Error(t, err)
 
-	err = s.UpdateRules([]streaming.Rule{{Tag: "test", Value: "ujhbkf"}})
+	err = s.UpdateRules([]streaming.Rule{{Tag: "test", Value: "value"}})
 	assert.Error(t, err)
 }
 
@@ -102,7 +102,7 @@ func TestStreaming_BadHost(t *testing.T) {
 	err = s.DeleteRule("test")
 	assert.Error(t, err)
 
-	err = s.UpdateRules([]streaming.Rule{{Tag: "test", Value: "ujhbkf"}})
+	err = s.UpdateRules([]streaming.Rule{{Tag: "test", Value: "value"}})
 	assert.Error(t, err)
 }
 

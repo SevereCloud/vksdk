@@ -68,10 +68,10 @@ type StatsViews struct {
 type StatsWallpostStat struct {
 	Hide             int `json:"hide"`              // Hidings number
 	JoinGroup        int `json:"join_group"`        // People have joined the group
-	Links            int `json:"links"`             // Link clickthrough
+	Links            int `json:"links"`             // Link click-through
 	ReachSubscribers int `json:"reach_subscribers"` // Subscribers reach
 	ReachTotal       int `json:"reach_total"`       // Total reach
 	Report           int `json:"report"`            // Reports number
-	ToGroup          int `json:"to_group"`          // Clickthrough to community
+	ToGroup          int `json:"to_group"`          // Click-through to community
 	Unsubscribe      int `json:"unsubscribe"`       // Unsubscribed members
 }

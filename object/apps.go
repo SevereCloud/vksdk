@@ -53,7 +53,7 @@ type AppsApp struct {
 	Icon278           string                `json:"icon_278"`      // URL of the app icon with 279 px in width
 	Icon75            string                `json:"icon_75"`       // URL of the app icon with 75 px in width
 	ID                int                   `json:"id"`            // Application ID
-	International     BaseBoolInt           `json:"international"` // Information whether the application is multilanguage
+	International     BaseBoolInt           `json:"international"` // Information whether the application is multi language
 	IsInCatalog       BaseBoolInt           `json:"is_in_catalog"` // Information whether application is in mobile catalog
 	Installed         BaseBoolInt           `json:"installed"`
 	PushEnabled       BaseBoolInt           `json:"push_enabled"`

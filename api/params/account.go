@@ -443,7 +443,7 @@ func NewAccountSetOnlineBuilder() *AccountSetOnlineBuilder {
 	return &AccountSetOnlineBuilder{api.Params{}}
 }
 
-// Voip 1 if videocalls are available for current device.
+// Voip 1 if video calls are available for current device.
 func (b *AccountSetOnlineBuilder) Voip(v bool) *AccountSetOnlineBuilder {
 	b.Params["voip"] = v
 	return b

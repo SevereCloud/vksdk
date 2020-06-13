@@ -41,7 +41,7 @@ func TestOrderStatusChangeRequest_OfferID(t *testing.T) {
 
 	f(
 		payments.OrderStatusChangeRequest{
-			Item: "abcd1234",
+			Item: "test1234",
 		},
 		0,
 	)

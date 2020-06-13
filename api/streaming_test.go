@@ -84,7 +84,7 @@ func TestVK_StreamingGetStem(t *testing.T) {
 		}
 
 		if response.Stem != "собак" {
-			t.Error("Sterm wrong")
+			t.Error("Stem wrong")
 		}
 	})
 }

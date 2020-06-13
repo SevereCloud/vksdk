@@ -127,7 +127,7 @@ const (
 // Reason type.
 type Reason string
 
-// Reason for cancelation.
+// Reason for cancellation.
 const (
 	// Subscription canceled by the user.
 	UserDecision Reason = "user_decision"
@@ -240,7 +240,7 @@ const (
 	UserNotExist = 22
 )
 
-// Error structur.
+// Error struct.
 //
 // When critical errors occur, the order cancels and the app event onOrderFail
 // is sent.
@@ -522,7 +522,7 @@ type GetSubscriptionResponse struct {
 	// Subscription price shown in votes.
 	Price int `json:"price"`
 
-	// Subscription period durationin in days. Possible values: 3, 7, 30.
+	// Subscription period duration in days. Possible values: 3, 7, 30.
 	Period int `json:"period"`
 
 	// Trial period duration in days. Possible values: 3, 7, 30.
@@ -554,7 +554,7 @@ func (cb *Callback) OnGetSubscriptionTest(f func(e GetSubscriptionRequest) (*Get
 type SubscriptionStatusChangeRequest struct {
 	Notification
 
-	// Reason for cancelation.
+	// Reason for cancellation.
 	CancelReason Reason `schema:"cancel_reason"`
 
 	// Product identifier in the application.
@@ -629,7 +629,7 @@ func (cb *Callback) OnSubscriptionStatusChangeTest(f func(e SubscriptionStatusCh
 	cb.subscriptionStatusChangeTest = f
 }
 
-// response structur.
+// response struct.
 type response struct {
 	Response interface{} `json:"response,omitempty"`
 	Error    *Error      `json:"error,omitempty"`

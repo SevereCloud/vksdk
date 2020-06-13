@@ -15,9 +15,9 @@ func TestVK_LeadForms(t *testing.T) {
 
 	params := api.Params{
 		"group_id":        vkGroupID,
-		"name":            "kwedkjn",
-		"title":           "kjn",
-		"description":     "kjn",
+		"name":            "test",
+		"title":           "test",
+		"description":     "test",
 		"questions":       `[{"type":"first_name"},{"type":"input","label":"Кличка кота"}]`,
 		"policy_link_url": "ya.ru",
 	}

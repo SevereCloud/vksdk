@@ -54,7 +54,7 @@ func TestVK_NotesCreateComment(t *testing.T) {
 	_, err = vkUser.NotesEditComment(api.Params{
 		"comment_id": comment,
 		"owner_id":   2314852,
-		"message":    "Test note commentedited",
+		"message":    "Test note comment edited",
 	})
 	assert.Equal(t, errors.GetType(err), errors.Param)
 

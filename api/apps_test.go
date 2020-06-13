@@ -94,4 +94,4 @@ func TestVK_AppsGetScopes(t *testing.T) {
 }
 
 // TODO: TestVK_AppsGetScore
-// TODO: TestVK_AppsSsendRequest
+// TODO: TestVK_AppsSendRequest

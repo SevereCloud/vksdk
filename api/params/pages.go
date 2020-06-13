@@ -18,7 +18,7 @@ func NewPagesClearCacheBuilder() *PagesClearCacheBuilder {
 	return &PagesClearCacheBuilder{api.Params{}}
 }
 
-// URL address of the page where you need to refesh the cached version.
+// URL address of the page where you need to refresh the cached version.
 func (b *PagesClearCacheBuilder) URL(v string) *PagesClearCacheBuilder {
 	b.Params["url"] = v
 	return b

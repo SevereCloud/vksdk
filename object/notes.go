@@ -27,7 +27,7 @@ func (note NotesNote) ToAttachment() string {
 
 // NotesNoteComment struct.
 type NotesNoteComment struct {
-	Date    int    `json:"date"`     // Date when the comment has beed added in Unixtime
+	Date    int    `json:"date"`     // Date when the comment has been added in Unixtime
 	ID      int    `json:"id"`       // Comment ID
 	Message string `json:"message"`  // Comment text
 	NID     int    `json:"nid"`      // Note ID
