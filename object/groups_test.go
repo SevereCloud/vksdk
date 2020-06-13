@@ -61,7 +61,7 @@ func TestGroupsSectionsList_UnmarshalJSON(t *testing.T) {
 
 	f(
 		[]byte(`[123, "test"]`),
-		object.GroupsSectionsList{123, "test"},
+		object.GroupsSectionsList{ID: 123, Name: "test"},
 		false,
 	)
 
