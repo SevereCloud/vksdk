@@ -140,7 +140,7 @@ func GetPerson(ctx context.Context, userID int) (Person, error) {
 	q.Add("id", strconv.Itoa(userID))
 	req.URL.RawQuery = q.Encode()
 
-	rdf, err := getFoaf(ctx, req)
+	r, err := getFoaf(ctx, req)
 
-	return rdf.Person, err
+	return r.Person, err
 }

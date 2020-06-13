@@ -501,12 +501,12 @@ func (result *UsersTyping) parse(i []interface{}) error {
 		return fmt.Errorf(errFmtTooShortArray, "UsersTyping", 5, len(i))
 	}
 
-	v, err := interfaceToIDSlice(i[1])
+	userIDs, err := interfaceToIDSlice(i[1])
 	if err != nil {
 		return err
 	}
 
-	result.UserIDs = v
+	result.UserIDs = userIDs
 
 	if v, ok := i[2].(float64); ok {
 		result.PeerID = int(v)

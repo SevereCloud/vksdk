@@ -26,7 +26,7 @@ const (
 )
 
 func (result *Action) parse(v map[string]interface{}) {
-	if sourceAct, ok := v["source_act"].(string); ok {
+	if sourceAct, exist := v["source_act"].(string); exist {
 		result.SourceAct = sourceAct
 
 		switch sourceAct {

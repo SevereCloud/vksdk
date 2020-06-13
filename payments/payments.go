@@ -636,7 +636,7 @@ type response struct {
 }
 
 func (cb *Callback) handlerForm(form url.Values) (*response, error) {
-	response := new(response)
+	r := new(response)
 	decoder := schema.NewDecoder()
 	decoder.IgnoreUnknownKeys(true)
 
@@ -649,65 +649,65 @@ func (cb *Callback) handlerForm(form url.Values) (*response, error) {
 			return nil, err
 		}
 
-		response.Response, response.Error = cb.getItem(event)
+		r.Response, r.Error = cb.getItem(event)
 	case t == GetItem.Test() && cb.getItemTest != nil:
 		var event GetItemRequest
 		if err := decoder.Decode(&event, form); err != nil {
 			return nil, err
 		}
 
-		response.Response, response.Error = cb.getItemTest(event)
+		r.Response, r.Error = cb.getItemTest(event)
 	case t == GetSubscription && cb.getSubscription != nil:
 		var event GetSubscriptionRequest
 		if err := decoder.Decode(&event, form); err != nil {
 			return nil, err
 		}
 
-		response.Response, response.Error = cb.getSubscription(event)
+		r.Response, r.Error = cb.getSubscription(event)
 	case t == GetSubscription.Test() && cb.getSubscriptionTest != nil:
 		var event GetSubscriptionRequest
 		if err := decoder.Decode(&event, form); err != nil {
 			return nil, err
 		}
 
-		response.Response, response.Error = cb.getSubscriptionTest(event)
+		r.Response, r.Error = cb.getSubscriptionTest(event)
 	case t == OrderStatusChange && cb.orderStatusChange != nil:
 		var event OrderStatusChangeRequest
 		if err := decoder.Decode(&event, form); err != nil {
 			return nil, err
 		}
 
-		response.Response, response.Error = cb.orderStatusChange(event)
+		r.Response, r.Error = cb.orderStatusChange(event)
 	case t == OrderStatusChange.Test() && cb.orderStatusChangeTest != nil:
 		var event OrderStatusChangeRequest
 		if err := decoder.Decode(&event, form); err != nil {
 			return nil, err
 		}
 
-		response.Response, response.Error = cb.orderStatusChangeTest(event)
+		r.Response, r.Error = cb.orderStatusChangeTest(event)
 	case t == SubscriptionStatusChange && cb.subscriptionStatusChange != nil:
 		var event SubscriptionStatusChangeRequest
 		if err := decoder.Decode(&event, form); err != nil {
 			return nil, err
 		}
 
-		response.Response, response.Error = cb.subscriptionStatusChange(event)
+		r.Response, r.Error = cb.subscriptionStatusChange(event)
 	case t == SubscriptionStatusChange.Test() && cb.subscriptionStatusChangeTest != nil:
 		var event SubscriptionStatusChangeRequest
 		if err := decoder.Decode(&event, form); err != nil {
 			return nil, err
 		}
 
-		response.Response, response.Error = cb.subscriptionStatusChangeTest(event)
+		r.Response, r.Error = cb.subscriptionStatusChangeTest(event)
 	default:
-		response.Error = &Error{
+		r.Error = &Error{
 			Code:     CommonError,
 			Msg:      fmt.Sprintf("%s not processed", t),
 			Critical: true,
 		}
 	}
 
-	return response, nil
+	return r, nil
 }
 
 // HandleFunc a request handler that process notifications

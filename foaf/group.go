@@ -37,7 +37,7 @@ func GetGroup(ctx context.Context, groupID int) (Group, error) {
 	q.Add("id", strconv.Itoa(-groupID))
 	req.URL.RawQuery = q.Encode()
 
-	rdf, err := getFoaf(ctx, req)
+	r, err := getFoaf(ctx, req)
 
-	return rdf.Group, err
+	return r.Group, err
 }

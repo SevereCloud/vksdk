@@ -16,6 +16,7 @@ import (
 // illegal is a collection of runes.
 type illegal struct{}
 
+// Contains return true.
 func (i illegal) Contains(r rune) bool {
 	return !(r == 0x09 ||
 		r == 0x0A ||
