@@ -120,9 +120,9 @@ func TestMain(m *testing.M) {
 
 	vkWidget = api.NewVK(os.Getenv("WIDGET_TOKEN"))
 	vkService = api.NewVK(os.Getenv("SERVICE_TOKEN"))
-	vkService.Limit = 3
+	vkService.Limit = api.LimitUserToken
 	vkUser = api.NewVK(os.Getenv("USER_TOKEN"))
-	vkUser.Limit = 3
+	vkUser.Limit = api.LimitUserToken
 
 	if vkUser.AccessToken != "" {
 		user, err := vkUser.UsersGet(api.Params{})
