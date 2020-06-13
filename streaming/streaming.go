@@ -165,9 +165,9 @@ func (s *Streaming) doRequest(req *http.Request) (*response, error) {
 
 // GetRules gets current rules from a stream.
 func (s *Streaming) GetRules() ([]Rule, error) {
-	url := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
+	link := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
 
-	req, err := http.NewRequest("GET", url, nil)
+	req, err := http.NewRequest("GET", link, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -184,7 +184,7 @@ func (s *Streaming) GetRules() ([]Rule, error) {
 //
 // - the maximum length of a rule's tag (tag) in bytes — 256.
 func (s *Streaming) AddRule(tag, value string) error {
-	url := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
+	link := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
 
 	type content struct {
 		Rule Rule `json:"rule"`
@@ -200,7 +200,7 @@ func (s *Streaming) AddRule(tag, value string) error {
 	buf := new(bytes.Buffer)
 	_ = json.NewEncoder(buf).Encode(body)
 
-	req, err := http.NewRequest("POST", url, buf)
+	req, err := http.NewRequest("POST", link, buf)
 	if err != nil {
 		return err
 	}
@@ -214,7 +214,7 @@ func (s *Streaming) AddRule(tag, value string) error {
 
 // DeleteRule removes a rule from a stream.
 func (s *Streaming) DeleteRule(tag string) error {
-	url := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
+	link := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
 
 	type content struct {
 		Tag string `json:"tag"`
@@ -227,7 +227,7 @@ func (s *Streaming) DeleteRule(tag string) error {
 	buf := new(bytes.Buffer)
 	_ = json.NewEncoder(buf).Encode(body)
 
-	req, err := http.NewRequest("DELETE", url, buf)
+	req, err := http.NewRequest("DELETE", link, buf)
 	if err != nil {
 		return err
 	}
