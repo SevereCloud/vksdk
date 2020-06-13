@@ -82,7 +82,7 @@ func TestNewCallback(t *testing.T) {
 			"receiver_id":       {"1"},
 			"order_id":          {"1"},
 			"subscription_id":   {"1"},
-			"sig":               {"1775a79ef32435d760d344500b5e5abf"},
+			"sig":               {"4dd8fa646851ff3f756e6c26d321471b"},
 		},
 		response{
 			Error: payments.Error{
@@ -112,9 +112,9 @@ func TestCallback_Sign(t *testing.T) {
 			"receiver_id":       {"1"},
 			"order_id":          {"1"},
 			"subscription_id":   {"1"},
-			"sig":               {"1775a79ef32435d760d344500b5e5abf"},
+			"sig":               {"4dd8fa646851ff3f756e6c26d321471b"},
 		},
-		"1775a79ef32435d760d344500b5e5abf",
+		"4dd8fa646851ff3f756e6c26d321471b",
 	)
 	f(
 		url.Values{
@@ -125,7 +125,7 @@ func TestCallback_Sign(t *testing.T) {
 			"order_id":          {"1"},
 			"subscription_id":   {"1"},
 		},
-		"1775a79ef32435d760d344500b5e5abf",
+		"4dd8fa646851ff3f756e6c26d321471b",
 	)
 }
 
