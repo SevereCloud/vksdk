@@ -373,7 +373,7 @@ func TestVK_FaveTag(t *testing.T) {
 	assert.NotEmpty(t, tags)
 
 	// FaveReorderTags need all tags
-	ids := []int{}
+	ids := make([]int, 0)
 	for _, tag := range tags.Items {
 		ids = append(ids, tag.ID)
 	}
