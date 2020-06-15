@@ -257,17 +257,20 @@ func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 		if err != nil {
 			return response, err
 		}
-		defer resp.Body.Close()
 
 		mediatype, _, _ := mime.ParseMediaType(resp.Header.Get("Content-Type"))
 		if mediatype != "application/json" {
+			_ = resp.Body.Close()
 			return response, fmt.Errorf("invalid content-type")
 		}
 
 		err = json.NewDecoder(resp.Body).Decode(&response)
 		if err != nil {
+			_ = resp.Body.Close()
 			return response, err
 		}
+
+		_ = resp.Body.Close()
 
 		err = errors.New(response.Error)
 		if err != nil {
