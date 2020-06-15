@@ -84,13 +84,27 @@ type MarketSection struct {
 	Name string `json:"name"` // Section name
 }
 
+// MarketOrderStatus order status.
+type MarketOrderStatus int
+
+// Possible values.
+const (
+	MarketOrderNew MarketOrderStatus = iota
+	MarketOrderPending
+	MarketOrderProcessing
+	MarketOrderShipped
+	MarketOrderComplete
+	MarketOrderCanceled
+	MarketOrderRefund
+)
+
 // MarketOrder struct.
 type MarketOrder struct {
 	ID                int                 `json:"id"`
 	GroupID           int                 `json:"group_id"`
 	UserID            int                 `json:"user_id"`
 	Date              int                 `json:"date"`
-	Status            int                 `json:"status"`
+	Status            int                 `json:"status"` // TODO: v2 MarketOrderStatus
 	ItemsCount        int                 `json:"items_count"`
 	TotalPrice        MarketPrice         `json:"total_price"`
 	DisplayOrderID    string              `json:"display_order_id"`
