@@ -75,6 +75,9 @@ const (
 	// Unable to compile code.
 	Compile ErrorType = 12
 
+	// Runtime error occurred during code invocation.
+	Runtime ErrorType = 13
+
 	// Captcha needed
 	//
 	// See https://vk.com/dev/captcha_error
