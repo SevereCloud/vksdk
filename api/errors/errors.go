@@ -72,6 +72,9 @@ const (
 	// Switch the app off in Settings: https://vk.com/editapp?id={Your API_ID}
 	EnabledInTest ErrorType = 11
 
+	// Unable to compile code.
+	Compile ErrorType = 12
+
 	// Captcha needed
 	//
 	// See https://vk.com/dev/captcha_error
