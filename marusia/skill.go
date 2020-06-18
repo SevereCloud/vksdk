@@ -83,7 +83,7 @@ Webhook URL, который вы указали в настройках.
 
 	wh := marusia.NewWebhook()
 
-wh.OnEvent(func(r marusia.Request) (resp marusia.Response) {
+	wh.OnEvent(func(r marusia.Request) (resp marusia.Response) {
 		switch r.Request.Type {
 		case marusia.SimpleUtterance:
 			switch r.Request.Command {
