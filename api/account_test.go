@@ -18,6 +18,8 @@ func TestVK_AccountBan(t *testing.T) {
 	})
 	noError(t, err)
 
+	time.Sleep(3 * time.Second)
+
 	_, err = vkUser.AccountBan(api.Params{
 		"owner_id": -1,
 	})
@@ -36,6 +38,8 @@ func TestVK_AccountBan(t *testing.T) {
 		"owner_id": 1,
 	})
 	noError(t, err)
+
+	time.Sleep(3 * time.Second)
 
 	_, err = vkUser.AccountUnban(api.Params{
 		"owner_id": -1,
