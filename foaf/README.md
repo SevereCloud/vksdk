@@ -2,11 +2,14 @@
 
 [![Documentation](https://godoc.org/github.com/SevereCloud/vksdk/foaf?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/foaf)
 
-FOAF (акроним от Friend of a Friend - "друг друга") является машиночитаемым языком для описания людей, групп и отношений между ними.
+FOAF (акроним от Friend of a Friend - "друг друга") является машиночитаемым
+языком для описания людей, групп и отношений между ними.
 
-VK имеет модифицированный FOAF, который был сделан по примеру яндекса + добавили свои теги(некоторых тегов нет в документации). К сожалению, документация яндекса потерялась во времени ([archive](https://web.archive.org/web/20140909053226/http://api.yandex.ru/blogs/doc/indexation/concepts/what-is-foaf.xml)).
+VK имеет модифицированный FOAF, который был сделан по примеру яндекса + добавили
+свои теги(некоторых тегов нет в документации). К сожалению, документация яндекса
+потерялась во времени ([archive](https://web.archive.org/web/20140909053226/http://api.yandex.ru/blogs/doc/indexation/concepts/what-is-foaf.xml)).
 
-### Примеры
+## Примеры
 
 Получение пользователя
 
@@ -20,7 +23,6 @@ if err != nil {
 
 log.Println(person)
 ```
-
 
 ```go
 ctx := context.Background()

@@ -12,7 +12,7 @@
 
 [English documentation](https://pkg.go.dev/github.com/SevereCloud/vksdk)
 
-### Возможности
+## Возможности
 
 - [API](https://github.com/SevereCloud/vksdk/tree/master/api#api)
   - Возвращает готовые структуры
@@ -46,18 +46,17 @@
   - Готовые структуры и методы
   - Обработка запросов от Маруси
 
-### Установка
+## Установка
 
 ```shell
 # go mod init mymodulename
 go get github.com/SevereCloud/vksdk@latest
 ```
 
-### Примеры использования
+## Примеры использования
 
-- [Joe](https://github.com/go-joe/joe) адаптер: https://github.com/tdakkota/joe-vk-adapter 
-- [Logrus](https://github.com/sirupsen/logrus) hook: https://github.com/SevereCloud/vkrus
-
+- [Joe](https://github.com/go-joe/joe) адаптер: <https://github.com/tdakkota/joe-vk-adapter>
+- [Logrus](https://github.com/sirupsen/logrus) hook: <https://github.com/SevereCloud/vkrus>
 
 ### Пример
 
@@ -114,6 +113,6 @@ func main() {
 }
 ```
 
-### Лицензия
+## Лицензия
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk?ref=badge_large)
