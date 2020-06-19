@@ -2690,7 +2690,7 @@ func (b *GroupsTagUpdateBuilder) TagName(v string) *GroupsTagUpdateBuilder {
 // aaaeb3,
 // bbaa84.
 //
-// Deprecated: removed from vk dev
+// Deprecated: removed from vk dev.
 func (b *GroupsTagUpdateBuilder) TagColor(v string) *GroupsTagUpdateBuilder {
 	b.Params["tag_color"] = v
 	return b
