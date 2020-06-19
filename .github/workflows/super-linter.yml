@@ -1,0 +1,13 @@
+---
+name: golangci-lint
+on: [push, pull_request]
+jobs:
+  golangci:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Lint Code Base
+        uses: docker://github/super-linter:v2.1.0
+        env:
+          VALIDATE_GO: false

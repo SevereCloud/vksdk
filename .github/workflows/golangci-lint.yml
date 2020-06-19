@@ -1,3 +1,4 @@
+---
 name: golangci-lint
 on: [push, pull_request]
 jobs:
@@ -9,7 +10,9 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v1
         with:
-          # Required: the version of golangci-lint is required and must be specified without patch version: we always use the latest patch version.
+          # Required: the version of golangci-lint is required and must be
+          # specified without patch version: we always use the latest
+          # patch version.
           version: v1.27
 
           # Optional: golangci-lint command line arguments.

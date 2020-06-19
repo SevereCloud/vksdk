@@ -1,6 +1,7 @@
+---
 linters:
-    disable-all: true
-    enable:
+  disable-all: true
+  enable:
     - bodyclose
     - deadcode
     - errcheck
@@ -34,24 +35,24 @@ linters:
     - asciicheck
     - nolintlint
 
-    # - testpackage # TODO: Fix testpackage
-    # - nestif # TODO: Fix nestif
-    # - goerr113 # TODO: Enable v2
+# - testpackage # TODO: Fix testpackage
+# - nestif # TODO: Fix nestif
+# - goerr113 # TODO: Enable v2
 
-  # don't enable:
-  # - depguard
-  # - dogsled
-  # - dupl
-  # - funlen
-  # - gochecknoinits
-  # - gocognit
-  # - gocyclo
-  # - godox
-  # - gomnd
-  # - lll
-  # - rowserrcheck
-  # - scopelint
-  # - gomodguard
+# don't enable:
+# - depguard
+# - dogsled
+# - dupl
+# - funlen
+# - gochecknoinits
+# - gocognit
+# - gocyclo
+# - godox
+# - gomnd
+# - lll
+# - rowserrcheck
+# - scopelint
+# - gomodguard
 
 issues:
   exclude-rules:
@@ -64,15 +65,12 @@ issues:
 
     - linters:
         - errcheck
-      source: ".((os\\.)?std(out|err)\\..*|.*Close|.*Flush|os\\.Remove(All)?|.*printf?|os\\.(Un)?Setenv)."
+      source: ".((os\\.)?std(out|err)\\..*|.*Close|.*Flush|os\\.Remove(All)?|
+        .*printf?|os\\.(Un)?Setenv)."
 
     - linters:
         - stylecheck
       text: "ST1003:.*(Ts|ts).*TS"
-
-#     - linters:
-#         - lll
-#       source: "^(func|type|struct)"
 
   exclude-use-default: false
 
