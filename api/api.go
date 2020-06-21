@@ -322,22 +322,32 @@ func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) er
 	return json.Unmarshal(rawResponse, &obj)
 }
 
-// Execute a universal method for calling a sequence of other methods while saving and filtering interim results.
+// ExecuteWithArgs a universal method for calling a sequence of other methods
+// while saving and filtering interim results.
 //
-// https://vk.com/dev/Execute
-func (vk *VK) Execute(code string, obj interface{}) error {
+// The Args map variable allows you to retrieve the parameters passed during
+// the request and avoids code formatting.
+//
+// 	return Args.code; // return parameter "code"
+// 	return Args.v; // return parameter "v"
+//
+// https://vk.com/dev/execute
+func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error {
 	token := vk.AccessToken
 	if vk.IsPoolClient {
 		token = vk.tokenPool.Get()
 	}
 
-	params := Params{
-		"code":         code,
-		"access_token": token,
-		"v":            vk.Version,
+	copyParams := make(Params)
+	for key, value := range params {
+		copyParams[key] = FmtValue(value, 0)
 	}
 
-	resp, err := vk.Handler("execute", params)
+	copyParams["code"] = code
+	copyParams["access_token"] = token
+	copyParams["v"] = vk.Version
+
+	resp, err := vk.Handler("execute", copyParams)
 
 	// Add execute errors
 	for _, executeError := range resp.ExecuteErrors {
@@ -361,6 +371,14 @@ func (vk *VK) Execute(code string, obj interface{}) error {
 	}
 
 	return err
+}
+
+// Execute a universal method for calling a sequence of other methods while
+// saving and filtering interim results.
+//
+// https://vk.com/dev/execute
+func (vk *VK) Execute(code string, obj interface{}) error {
+	return vk.ExecuteWithArgs(code, Params{}, obj)
 }
 
 func fmtBool(value bool) string {
