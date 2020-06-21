@@ -327,6 +327,66 @@ type BaseSticker struct {
 	StickerID            int         `json:"sticker_id"`
 }
 
+// MaxSize return the largest BaseSticker.
+func (sticker BaseSticker) MaxSize() (maxImageSize BaseImage) {
+	var max float64
+
+	for _, imageSize := range sticker.Images {
+		size := imageSize.Height * imageSize.Width
+		if size > max {
+			max = size
+			maxImageSize = imageSize
+		}
+	}
+
+	return
+}
+
+// MinSize return the smallest BaseSticker.
+func (sticker BaseSticker) MinSize() (minImageSize BaseImage) {
+	var min float64
+
+	for _, imageSize := range sticker.Images {
+		size := imageSize.Height * imageSize.Width
+		if size < min || min == 0 {
+			min = size
+			minImageSize = imageSize
+		}
+	}
+
+	return
+}
+
+// MaxSizeBackground return the largest BaseSticker with background.
+func (sticker BaseSticker) MaxSizeBackground() (maxImageSize BaseImage) {
+	var max float64
+
+	for _, imageSize := range sticker.ImagesWithBackground {
+		size := imageSize.Height * imageSize.Width
+		if size > max {
+			max = size
+			maxImageSize = imageSize
+		}
+	}
+
+	return
+}
+
+// MinSizeBackground return the smallest BaseSticker with background.
+func (sticker BaseSticker) MinSizeBackground() (minImageSize BaseImage) {
+	var min float64
+
+	for _, imageSize := range sticker.ImagesWithBackground {
+		size := imageSize.Height * imageSize.Width
+		if size < min || min == 0 {
+			min = size
+			minImageSize = imageSize
+		}
+	}
+
+	return
+}
+
 // BaseUserID struct.
 type BaseUserID struct {
 	UserID int `json:"user_id"`

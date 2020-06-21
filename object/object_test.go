@@ -1,6 +1,7 @@
 package object_test
 
 import (
+	"reflect"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/object"
@@ -76,4 +77,108 @@ func TestBaseImage_UnmarshalJSON(t *testing.T) {
 		"",
 	)
 	f([]byte("null"), object.BaseImage{}, "json: cannot unmarshal ? into Go value of type BaseImage")
+}
+
+func TestBaseSticker_MaxSize(t *testing.T) {
+	t.Parallel()
+
+	f := func(photo object.BaseSticker, want object.BaseImage) {
+		t.Helper()
+
+		if got := photo.MaxSize(); !reflect.DeepEqual(got, want) {
+			t.Errorf("BaseSticker.MaxSize() = %v, want %v", got, want)
+		}
+	}
+
+	f(object.BaseSticker{}, object.BaseImage{})
+	f(object.BaseSticker{
+		Images: []object.BaseImage{
+			{
+				Width: 10, Height: 20,
+			},
+			{
+				Width: 100, Height: 200,
+			},
+		},
+	}, object.BaseImage{
+		Width: 100, Height: 200,
+	})
+}
+
+func TestBaseSticker_MinSize(t *testing.T) {
+	t.Parallel()
+
+	f := func(photo object.BaseSticker, want object.BaseImage) {
+		t.Helper()
+
+		if got := photo.MinSize(); !reflect.DeepEqual(got, want) {
+			t.Errorf("BaseSticker.MinSize() = %v, want %v", got, want)
+		}
+	}
+
+	f(object.BaseSticker{}, object.BaseImage{})
+	f(object.BaseSticker{
+		Images: []object.BaseImage{
+			{
+				Width: 10, Height: 20,
+			},
+			{
+				Width: 100, Height: 200,
+			},
+		},
+	}, object.BaseImage{
+		Width: 10, Height: 20,
+	})
+}
+
+func TestBaseSticker_MaxSizeBackground(t *testing.T) {
+	t.Parallel()
+
+	f := func(photo object.BaseSticker, want object.BaseImage) {
+		t.Helper()
+
+		if got := photo.MaxSizeBackground(); !reflect.DeepEqual(got, want) {
+			t.Errorf("BaseSticker.MaxSizeBackground() = %v, want %v", got, want)
+		}
+	}
+
+	f(object.BaseSticker{}, object.BaseImage{})
+	f(object.BaseSticker{
+		ImagesWithBackground: []object.BaseImage{
+			{
+				Width: 10, Height: 20,
+			},
+			{
+				Width: 100, Height: 200,
+			},
+		},
+	}, object.BaseImage{
+		Width: 100, Height: 200,
+	})
+}
+
+func TestBaseSticker_MinSizeBackground(t *testing.T) {
+	t.Parallel()
+
+	f := func(photo object.BaseSticker, want object.BaseImage) {
+		t.Helper()
+
+		if got := photo.MinSizeBackground(); !reflect.DeepEqual(got, want) {
+			t.Errorf("BaseSticker.MinSizeBackground() = %v, want %v", got, want)
+		}
+	}
+
+	f(object.BaseSticker{}, object.BaseImage{})
+	f(object.BaseSticker{
+		ImagesWithBackground: []object.BaseImage{
+			{
+				Width: 10, Height: 20,
+			},
+			{
+				Width: 100, Height: 200,
+			},
+		},
+	}, object.BaseImage{
+		Width: 10, Height: 20,
+	})
 }
