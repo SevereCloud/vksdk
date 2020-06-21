@@ -322,6 +322,7 @@ const (
 	AssertVotes                       ErrorType = 3305 // Assert votes
 	TokenExtension                    ErrorType = 3609 // Token extension required
 	UserDeactivated                   ErrorType = 3610 // User is deactivated
+	ServiceDeactivated                ErrorType = 3611 // Service is deactivated for user
 )
 
 // ErrorType is the type of an error.
