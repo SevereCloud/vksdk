@@ -281,6 +281,7 @@ const (
 	MessagesChatDisabled              ErrorType = 945  // Chat was disabled
 	MessagesChatNotSupported          ErrorType = 946  // Chat not support
 	MessagesMemberAccessToGroupDenied ErrorType = 947  // Can't add user to chat, because user has no access to group
+	MessagesEditPinned                ErrorType = 949  // Can't edit pinned message yet
 	ParamPhone                        ErrorType = 1000 // Invalid phone number
 	PhoneAlreadyUsed                  ErrorType = 1004 // This phone number is used by another user
 	AuthFloodError                    ErrorType = 1105 // Too many auth attempts, try again later
