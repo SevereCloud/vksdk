@@ -324,6 +324,7 @@ const (
 	TokenExtension                    ErrorType = 3609 // Token extension required
 	UserDeactivated                   ErrorType = 3610 // User is deactivated
 	ServiceDeactivated                ErrorType = 3611 // Service is deactivated for user
+	AliExpressTag                     ErrorType = 3800 // Can't set AliExpress tag to this type of object
 )
 
 // ErrorType is the type of an error.
