@@ -6,4 +6,4 @@ Source https://github.com/SevereCloud/vksdk
 package vksdk
 
 // Version module.
-const Version = "1.10.0"
+const Version = "2.0.0"
