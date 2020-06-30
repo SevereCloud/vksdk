@@ -114,12 +114,17 @@ func (keyboard *MessagesKeyboard) AddRow() *MessagesKeyboard {
 }
 
 // AddTextButton add Text button in last row.
-func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, color string) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddTextButton(label string, payload interface{}, color string) *MessagesKeyboard {
+	b, err := json.Marshal(payload)
+	if err != nil {
+		panic(err)
+	}
+
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonText,
 			Label:   label,
-			Payload: payload,
+			Payload: string(b),
 		},
 		Color: color,
 	}
@@ -131,11 +136,16 @@ func (keyboard *MessagesKeyboard) AddTextButton(label string, payload string, co
 }
 
 // AddOpenLinkButton add Open Link button in last row.
-func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label, payload string) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label string, payload interface{}) *MessagesKeyboard {
+	b, err := json.Marshal(payload)
+	if err != nil {
+		panic(err)
+	}
+
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonOpenLink,
-			Payload: payload,
+			Payload: string(b),
 			Label:   label,
 			Link:    link,
 		},
@@ -148,11 +158,16 @@ func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label, payload string)
 }
 
 // AddLocationButton add Location button in last row.
-func (keyboard *MessagesKeyboard) AddLocationButton(payload string) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddLocationButton(payload interface{}) *MessagesKeyboard {
+	b, err := json.Marshal(payload)
+	if err != nil {
+		panic(err)
+	}
+
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonLocation,
-			Payload: payload,
+			Payload: string(b),
 		},
 	}
 
@@ -163,11 +178,16 @@ func (keyboard *MessagesKeyboard) AddLocationButton(payload string) *MessagesKey
 }
 
 // AddVKPayButton add VK Pay button in last row.
-func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddVKPayButton(payload interface{}, hash string) *MessagesKeyboard {
+	b, err := json.Marshal(payload)
+	if err != nil {
+		panic(err)
+	}
+
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonVKPay,
-			Payload: payload,
+			Payload: string(b),
 			Hash:    hash,
 		},
 	}
@@ -179,13 +199,18 @@ func (keyboard *MessagesKeyboard) AddVKPayButton(payload string, hash string) *M
 }
 
 // AddVKAppsButton add VK Apps button in last row.
-func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload, label, hash string) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload interface{}, label, hash string) *MessagesKeyboard {
+	b, err := json.Marshal(payload)
+	if err != nil {
+		panic(err)
+	}
+
 	button := MessagesKeyboardButton{
 		Action: MessagesKeyboardButtonAction{
 			Type:    ButtonVKApp,
 			AppID:   appID,
 			OwnerID: ownerID,
-			Payload: payload,
+			Payload: string(b),
 			Label:   label,
 			Hash:    hash,
 		},
