@@ -140,7 +140,7 @@ func TestMessagesGraffiti_ToAttachment(t *testing.T) {
 func TestMessagesKeyboard_ToJSON(t *testing.T) {
 	t.Parallel()
 
-	f := func(keyboard object.MessagesKeyboard, want string) {
+	f := func(keyboard *object.MessagesKeyboard, want string) {
 		t.Helper()
 
 		got := keyboard.ToJSON()

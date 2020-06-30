@@ -86,21 +86,17 @@ type MessagesKeyboard struct {
 	Inline   BaseBoolInt                `json:"inline,omitempty"`
 }
 
-// NewMessagesKeyboard return MessagesKeyboard.
-//
-// FIXME: v2 return *MessagesKeyboard.
-func NewMessagesKeyboard(oneTime BaseBoolInt) MessagesKeyboard {
-	return MessagesKeyboard{
+// NewMessagesKeyboard returns a new MessagesKeyboard.
+func NewMessagesKeyboard(oneTime BaseBoolInt) *MessagesKeyboard {
+	return &MessagesKeyboard{
 		Buttons: [][]MessagesKeyboardButton{},
 		OneTime: oneTime,
 	}
 }
 
-// NewMessagesKeyboardInline return inline MessagesKeyboard.
-//
-// FIXME: v2 return *MessagesKeyboard.
-func NewMessagesKeyboardInline() MessagesKeyboard {
-	return MessagesKeyboard{
+// NewMessagesKeyboardInline returns a new inline MessagesKeyboard.
+func NewMessagesKeyboardInline() *MessagesKeyboard {
+	return &MessagesKeyboard{
 		Buttons: [][]MessagesKeyboardButton{},
 		Inline:  true,
 	}
