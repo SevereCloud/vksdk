@@ -36,7 +36,7 @@ func TestMessagesKeyboard_AddTextButton(t *testing.T) {
 	keyboard.AddTextButton(label, payload, color)
 	assert.Equal(t, keyboard.Buttons[0][0].Color, color)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
 }
 
 func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
@@ -53,7 +53,7 @@ func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
 	keyboard.AddRow()
 
 	keyboard.AddOpenLinkButton(link, label, payload)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Link, link)
 }
@@ -68,7 +68,7 @@ func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
 	keyboard.AddRow()
 
 	keyboard.AddLocationButton(payload)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
 }
 
 func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
@@ -84,7 +84,7 @@ func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
 	keyboard.AddRow()
 
 	keyboard.AddVKPayButton(payload, hash)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Hash, hash)
 }
 
@@ -106,7 +106,7 @@ func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
 	keyboard.AddVKAppsButton(appID, ownerID, payload, label, hash)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.AppID, appID)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.OwnerID, ownerID)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, payload)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Hash, hash)
 }
