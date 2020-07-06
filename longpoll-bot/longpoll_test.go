@@ -146,7 +146,7 @@ func TestLongpoll_RunError(t *testing.T) {
 	t.Parallel()
 
 	vk := api.NewVK("")
-	lp, _ := Init(vk, 0)
+	lp, _ := NewLongpoll(vk, 0)
 	lp.Wait = 1
 
 	t.Run("Run client error", func(t *testing.T) {

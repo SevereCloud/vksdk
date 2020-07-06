@@ -959,12 +959,10 @@ func TestGroupsTagUpdateBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.TagID(1)
 	b.TagName("text")
-	b.TagColor("text")
 
 	assert.Equal(t, b.Params["group_id"], 1)
 	assert.Equal(t, b.Params["tag_id"], 1)
 	assert.Equal(t, b.Params["tag_name"], "text")
-	assert.Equal(t, b.Params["tag_color"], "text")
 }
 
 func TestGroupsUnbanBuilder(t *testing.T) {

@@ -155,13 +155,6 @@ func NewVKWithPool(tokens ...string) *VK {
 	return vk
 }
 
-// Init VK API.
-//
-// Deprecated: use NewVK.
-func Init(token string) *VK {
-	return NewVK(token)
-}
-
 // Params type.
 type Params map[string]interface{}
 

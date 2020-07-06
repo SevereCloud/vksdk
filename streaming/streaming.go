@@ -374,12 +374,3 @@ func NewStreaming(vk *api.VK) (*Streaming, error) {
 
 	return s, nil
 }
-
-// Init Streaming.
-//
-// This can be called with a service token.
-//
-// Deprecated: use NewStreaming.
-func Init(vk *api.VK) (*Streaming, error) {
-	return NewStreaming(vk)
-}

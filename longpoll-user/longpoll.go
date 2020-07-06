@@ -117,22 +117,6 @@ func NewLongpoll(vk *api.VK, mode Mode) (*Longpoll, error) {
 	return lp, err
 }
 
-// Init Longpoll.
-//
-// Deprecated: use NewLongpoll.
-func Init(vk *api.VK, mode Mode) (lp Longpoll, err error) {
-	// NOTE: what about group_id?
-	lp.VK = vk
-	lp.Mode = mode
-	lp.Version = 3
-	lp.Wait = 25
-	lp.funcList = make(FuncList)
-	lp.Client = &http.Client{}
-	err = lp.updateServer(true)
-
-	return
-}
-
 func (lp *Longpoll) updateServer(updateTs bool) error {
 	params := api.Params{
 		"lp_version": lp.Version,

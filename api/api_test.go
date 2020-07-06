@@ -308,14 +308,6 @@ func TestVK_CaptchaForce(t *testing.T) {
 	}
 }
 
-// FIXME: v2 remove TestInit.
-func TestInit(t *testing.T) {
-	t.Parallel()
-
-	vk := api.Init("")
-	assert.NotNil(t, vk)
-}
-
 func TestParams_methods(t *testing.T) {
 	t.Parallel()
 
