@@ -1063,10 +1063,8 @@ func (b *VideoSearchBuilder) Sort(v int) *VideoSearchBuilder {
 	return b
 }
 
-// Hd if not null, only searches for high-definition videos.
-//
-// TODO: v2 rename HD.
-func (b *VideoSearchBuilder) Hd(v int) *VideoSearchBuilder {
+// HD if not null, only searches for high-definition videos.
+func (b *VideoSearchBuilder) HD(v int) *VideoSearchBuilder {
 	b.Params["hd"] = v
 	return b
 }
