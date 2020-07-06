@@ -337,7 +337,7 @@ type MessagesConversationChatSettings struct {
 	PinnedMessage MessagesPinnedMessage     `json:"pinned_message"`
 	State         string                    `json:"state"`
 	Title         string                    `json:"title"`
-	ActiveIDS     []int                     `json:"active_ids"` // FIXME: v2 ActiveIDs
+	ActiveIDs     []int                     `json:"active_ids"`
 	ACL           struct {
 		CanInvite           BaseBoolInt `json:"can_invite"`
 		CanChangeInfo       BaseBoolInt `json:"can_change_info"`

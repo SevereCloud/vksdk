@@ -258,7 +258,7 @@ func TestVK_MessagesGetConversationsByID(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].ChatSettings.State)
 		assert.NotEmpty(t, res.Items[0].ChatSettings.ACL)
 		assert.NotEmpty(t, res.Items[0].ChatSettings.MembersCount)
-		assert.NotEmpty(t, res.Items[0].ChatSettings.ActiveIDS)
+		assert.NotEmpty(t, res.Items[0].ChatSettings.ActiveIDs)
 	}
 }
 

@@ -138,7 +138,7 @@ func TestVK_NewsfeedSaveList(t *testing.T) {
 	if assert.NotEmpty(t, lists.Items) {
 		assert.NotEmpty(t, lists.Items[0].ID)
 		assert.NotEmpty(t, lists.Items[0].Title)
-		assert.NotEmpty(t, lists.Items[0].SourceIDS)
+		assert.NotEmpty(t, lists.Items[0].SourceIDs)
 	}
 
 	_, err = vkUser.NewsfeedDeleteList(api.Params{
