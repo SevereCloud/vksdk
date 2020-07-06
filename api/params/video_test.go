@@ -416,7 +416,7 @@ func TestVideoSearchBuilder(t *testing.T) {
 
 	b.Q("text")
 	b.Sort(1)
-	b.Hd(1)
+	b.HD(1)
 	b.Adult(true)
 	b.Filters([]string{"text"})
 	b.SearchOwn(true)
