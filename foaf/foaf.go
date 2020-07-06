@@ -13,8 +13,8 @@ import (
 	"github.com/SevereCloud/vksdk/internal"
 )
 
-// FOAFURL url foaf.
-const FOAFURL = "https://vk.com/foaf.php" // TODO: v2 rename (name starts with package name)
+// BaseURL url foaf.
+const BaseURL = "https://vk.com/foaf.php"
 
 // Context keys to use with https://golang.org/pkg/context
 // WithValue function to associate.
