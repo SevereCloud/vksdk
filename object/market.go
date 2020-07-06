@@ -104,7 +104,7 @@ type MarketOrder struct {
 	GroupID           int                 `json:"group_id"`
 	UserID            int                 `json:"user_id"`
 	Date              int                 `json:"date"`
-	Status            int                 `json:"status"` // TODO: v2 MarketOrderStatus
+	Status            MarketOrderStatus   `json:"status"`
 	ItemsCount        int                 `json:"items_count"`
 	TotalPrice        MarketPrice         `json:"total_price"`
 	DisplayOrderID    string              `json:"display_order_id"`
