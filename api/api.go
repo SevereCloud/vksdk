@@ -23,8 +23,8 @@ import (
 
 // Api constants.
 const (
-	Version      = "5.103"
-	APIMethodURL = "https://api.vk.com/method/" // TODO: v2 rename (name starts with package name)
+	Version   = "5.103"
+	MethodURL = "https://api.vk.com/method/"
 )
 
 // VKontakte API methods (except for methods from secure and ads sections)
@@ -135,7 +135,7 @@ func NewVK(token string) *VK {
 	vk.Handler = vk.defaultHandler
 
 	// TODO: remove in v2
-	vk.MethodURL = APIMethodURL
+	vk.MethodURL = MethodURL
 	vk.Client = http.DefaultClient
 	vk.Limit = LimitGroupToken
 	vk.UserAgent = internal.UserAgent
