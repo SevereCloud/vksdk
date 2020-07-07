@@ -95,10 +95,12 @@ type DocsDocPreviewVideo struct {
 
 // DocsDocPreviewAudioMessage struct.
 type DocsDocPreviewAudioMessage struct {
-	Duration int    `json:"duration"`
-	Waveform []int  `json:"waveform"`
-	LinkOgg  string `json:"link_ogg"`
-	LinkMp3  string `json:"link_mp3"`
+	Duration        int    `json:"duration"`
+	Waveform        []int  `json:"waveform"`
+	LinkOgg         string `json:"link_ogg"`
+	LinkMp3         string `json:"link_mp3"`
+	Transcript      string `json:"transcript"`
+	TranscriptState string `json:"transcript_state"`
 }
 
 // DocsDocTypes struct.
