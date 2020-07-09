@@ -521,6 +521,14 @@ func (vk *VK) MessagesSendUserIDs(params Params) (response MessagesSendUserIDsRe
 	return
 }
 
+// MessagesSendMessageEventAnswer method.
+//
+// https://vk.com/dev/messages.sendMessageEventAnswer
+func (vk *VK) MessagesSendMessageEventAnswer(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("messages.sendMessageEventAnswer", params, &response)
+	return
+}
+
 // MessagesSendSticker sends a message.
 //
 // https://vk.com/dev/messages.sendSticker

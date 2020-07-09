@@ -1431,6 +1431,44 @@ func (b *MessagesSendBuilder) SubscribeID(v int) *MessagesSendBuilder {
 	return b
 }
 
+// MessagesSendMessageEventAnswerBuilder builder.
+//
+// Changes the status of a user as typing in a conversation.
+//
+// https://vk.com/dev/messages.sendMessageEventAnswer
+type MessagesSendMessageEventAnswerBuilder struct {
+	api.Params
+}
+
+// NewMessagesSendMessageEventAnswerBuilder func.
+func NewMessagesSendMessageEventAnswerBuilder() *MessagesSendMessageEventAnswerBuilder {
+	return &MessagesSendMessageEventAnswerBuilder{api.Params{}}
+}
+
+// EventID parameter.
+func (b *MessagesSendMessageEventAnswerBuilder) EventID(v string) *MessagesSendMessageEventAnswerBuilder {
+	b.Params["event_id"] = v
+	return b
+}
+
+// UserID parameter.
+func (b *MessagesSendMessageEventAnswerBuilder) UserID(v int) *MessagesSendMessageEventAnswerBuilder {
+	b.Params["user_id"] = v
+	return b
+}
+
+// PeerID parameter.
+func (b *MessagesSendMessageEventAnswerBuilder) PeerID(v int) *MessagesSendMessageEventAnswerBuilder {
+	b.Params["peer_id"] = v
+	return b
+}
+
+// EventData parameter.
+func (b *MessagesSendMessageEventAnswerBuilder) EventData(v string) *MessagesSendMessageEventAnswerBuilder {
+	b.Params["event_data"] = v
+	return b
+}
+
 // MessagesSetActivityBuilder builder.
 //
 // Changes the status of a user as typing in a conversation.
