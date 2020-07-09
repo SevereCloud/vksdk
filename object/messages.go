@@ -223,6 +223,28 @@ func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload in
 	return keyboard
 }
 
+// AddCallbackButton add Callback button in last row.
+func (keyboard *MessagesKeyboard) AddCallbackButton(label string, payload interface{}, color string) *MessagesKeyboard {
+	b, err := json.Marshal(payload)
+	if err != nil {
+		panic(err)
+	}
+
+	button := MessagesKeyboardButton{
+		Action: MessagesKeyboardButtonAction{
+			Type:    ButtonCallback,
+			Label:   label,
+			Payload: string(b),
+		},
+		Color: color,
+	}
+
+	lastRow := len(keyboard.Buttons) - 1
+	keyboard.Buttons[lastRow] = append(keyboard.Buttons[lastRow], button)
+
+	return keyboard
+}
+
 // ToJSON returns the JSON encoding of MessagesKeyboard.
 func (keyboard MessagesKeyboard) ToJSON() string {
 	b, _ := json.Marshal(keyboard)
