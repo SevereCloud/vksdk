@@ -78,6 +78,18 @@ type MessageTypingStateObject struct {
 	ToID   int    `json:"to_id"`
 }
 
+// MessageEventFunc func.
+type MessageEventFunc func(MessageEventObject, int)
+
+// MessageEventObject struct.
+type MessageEventObject struct {
+	UserID                int    `json:"user_id"`
+	PeerID                int    `json:"peer_id"`
+	EventID               string `json:"event_id"`
+	Payload               string `json:"payload"`
+	ConversationMessageID int    `json:"conversation_message_id"`
+}
+
 // PhotoNewFunc func.
 type PhotoNewFunc func(PhotoNewObject, int)
 

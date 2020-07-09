@@ -19,6 +19,7 @@ type FuncList struct {
 	messageAllow         []object.MessageAllowFunc
 	messageDeny          []object.MessageDenyFunc
 	messageTypingState   []object.MessageTypingStateFunc
+	messageEvent         []object.MessageEventFunc
 	photoNew             []object.PhotoNewFunc
 	photoCommentNew      []object.PhotoCommentNewFunc
 	photoCommentEdit     []object.PhotoCommentEditFunc
@@ -131,6 +132,15 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 		}
 
 		for _, f := range fl.messageTypingState {
+			f(obj, e.GroupID)
+		}
+	case object.EventMessageEvent:
+		var obj object.MessageEventObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.messageEvent {
 			f(obj, e.GroupID)
 		}
 	case object.EventPhotoNew:
@@ -544,6 +554,11 @@ func (fl *FuncList) MessageDeny(f object.MessageDenyFunc) {
 // MessageTypingState handler.
 func (fl *FuncList) MessageTypingState(f object.MessageTypingStateFunc) {
 	fl.messageTypingState = append(fl.messageTypingState, f)
+}
+
+// MessageEvent handler.
+func (fl *FuncList) MessageEvent(f object.MessageEventFunc) {
+	fl.messageEvent = append(fl.messageEvent, f)
 }
 
 // PhotoNew handler.

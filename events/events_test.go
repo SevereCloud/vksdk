@@ -216,6 +216,38 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 	)
 }
 
+func TestFuncList_HandlerMessageEvent(t *testing.T) {
+	t.Parallel()
+
+	fl := events.NewFuncList()
+
+	fl.MessageEvent(func(obj object.MessageEventObject, groupID int) {
+		assert.Equal(t, groupID, GID)
+	})
+
+	f := func(e object.GroupEvent, wantErr bool) {
+		if err := fl.Handler(e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		object.GroupEvent{
+			Type:    "message_event",
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		object.GroupEvent{
+			Type:   "message_event",
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
 func TestFuncList_HandlerPhotoNew(t *testing.T) {
 	t.Parallel()
 

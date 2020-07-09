@@ -84,6 +84,7 @@ const (
 	EventMessageAllow         = "message_allow"
 	EventMessageDeny          = "message_deny"
 	EventMessageTypingState   = "message_typing_state"
+	EventMessageEvent         = "message_event"
 	EventPhotoNew             = "photo_new"
 	EventPhotoCommentNew      = "photo_comment_new"
 	EventPhotoCommentEdit     = "photo_comment_edit"
