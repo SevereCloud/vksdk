@@ -639,6 +639,21 @@ const (
 	ButtonOpenLink = "open_link"
 )
 
+// Button color. This parameter is used only for buttons with the text and callback types.
+const (
+	Primary = "primary" // Blue button, indicates the main action. #5181B8
+	ButtonBlue
+
+	Secondary = "secondary" // Default white button. #FFFFFF
+	ButtonWhite
+
+	Negative = "negative" // Dangerous or negative action (cancel, delete etc.) #E64646
+	ButtonRed
+
+	Positive = "positive" // Accept, agree. #4BB34B
+	ButtonGreen
+)
+
 // Platform content creation platform.
 type Platform int
 
