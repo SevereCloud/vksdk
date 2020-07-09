@@ -111,6 +111,25 @@ func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Hash, hash)
 }
 
+func TestMessagesKeyboard_AddCallbackButton(t *testing.T) {
+	t.Parallel()
+
+	const (
+		label   = "label"
+		payload = "payload"
+		color   = "color"
+	)
+
+	keyboard := object.NewMessagesKeyboard(false)
+
+	keyboard.AddRow()
+
+	keyboard.AddCallbackButton(label, payload, color)
+	assert.Equal(t, keyboard.Buttons[0][0].Color, color)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
+	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
+}
+
 func TestMessagesAudioMessage_ToAttachment(t *testing.T) {
 	t.Parallel()
 

@@ -636,6 +636,7 @@ const (
 	ButtonVKApp    = "open_app"
 	ButtonLocation = "location"
 	ButtonOpenLink = "open_link"
+	ButtonCallback = "callback"
 )
 
 // Platform content creation platform.
