@@ -4,6 +4,22 @@ import (
 	"encoding/json"
 )
 
+// StoriesViewer struct.
+type StoriesViewer struct {
+	IsLiked bool `json:"is_liked"`
+	UserID  int  `json:"user_id"`
+
+	// For extended
+	User struct {
+		Type            string `json:"type"`
+		ID              int    `json:"id"`
+		FirstName       string `json:"first_name"`
+		LastName        string `json:"last_name"`
+		IsClosed        bool   `json:"is_closed"`
+		CanAccessClosed bool   `json:"can_access_closed"`
+	} `json:"user,omitempty"`
+}
+
 // StoriesNarrativeInfo type.
 type StoriesNarrativeInfo struct {
 	Author string `json:"author"`

@@ -213,8 +213,8 @@ func (vk *VK) StoriesGetVideoUploadServer(params Params) (response StoriesGetVid
 
 // StoriesGetViewersResponse struct.
 type StoriesGetViewersResponse struct {
-	Count int   `json:"count"`
-	Items []int `json:"items"`
+	Count int                    `json:"count"`
+	Items []object.StoriesViewer `json:"items"`
 }
 
 // StoriesGetViewers returns a list of story viewers.
@@ -223,25 +223,6 @@ type StoriesGetViewersResponse struct {
 //
 // https://vk.com/dev/stories.getViewers
 func (vk *VK) StoriesGetViewers(params Params) (response StoriesGetViewersResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("stories.getViewers", params, &response)
-
-	return
-}
-
-// StoriesGetViewersExtendedResponse struct.
-type StoriesGetViewersExtendedResponse struct {
-	Count int                `json:"count"`
-	Items []object.UsersUser `json:"items"`
-}
-
-// StoriesGetViewersExtended returns a list of story viewers.
-//
-// extended=1
-//
-// https://vk.com/dev/stories.getViewers
-func (vk *VK) StoriesGetViewersExtended(params Params) (response StoriesGetViewersExtendedResponse, err error) {
-	params["extended"] = true
 	err = vk.RequestUnmarshal("stories.getViewers", params, &response)
 
 	return

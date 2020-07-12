@@ -111,9 +111,6 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 	_, err = vkGroup.StoriesGetViewers(params)
 	noError(t, err)
 
-	_, err = vkGroup.StoriesGetViewersExtended(params)
-	noError(t, err)
-
 	_, err = vkGroup.StoriesDelete(params)
 	noError(t, err)
 }
