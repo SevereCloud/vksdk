@@ -78,13 +78,18 @@ type AccountAccountCounters struct {
 
 // AccountInfo struct.
 type AccountInfo struct {
-	Country           string      `json:"country"`           // Country code
-	Lang              int         `json:"lang"`              // Language ID
-	HTTPSRequired     BaseBoolInt `json:"https_required"`    // Information whether HTTPS-only is enabled
-	Intro             BaseBoolInt `json:"intro"`             // Information whether user has been processed intro
-	NoWallReplies     BaseBoolInt `json:"no_wall_replies"`   // Information whether wall comments should be hidden
-	OwnPostsDefault   BaseBoolInt `json:"own_posts_default"` // Information whether only owners posts should be shown
-	TwoFactorRequired BaseBoolInt `json:"2fa_required"`      // Two factor authentication is enabled
+	Country                   string            `json:"country"`           // Country code
+	Lang                      int               `json:"lang"`              // Language ID
+	HTTPSRequired             BaseBoolInt       `json:"https_required"`    // Information whether HTTPS-only is enabled
+	Intro                     BaseBoolInt       `json:"intro"`             // Information whether user has been processed intro
+	NoWallReplies             BaseBoolInt       `json:"no_wall_replies"`   // Information whether wall comments should be hidden
+	OwnPostsDefault           BaseBoolInt       `json:"own_posts_default"` // Information whether only owners posts should be shown
+	TwoFactorRequired         BaseBoolInt       `json:"2fa_required"`      // Two factor authentication is enabled
+	EuUser                    BaseBoolInt       `json:"eu_user"`
+	CommunityComments         BaseBoolInt       `json:"community_comments"`
+	IsLiveStreamingEnabled    BaseBoolInt       `json:"is_live_streaming_enabled"`
+	IsNewLiveStreamingEnabled BaseBoolInt       `json:"is_new_live_streaming_enabled"`
+	LinkRedirects             map[string]string `json:"link_redirects"`
 }
 
 // AccountPushSettings struct.
