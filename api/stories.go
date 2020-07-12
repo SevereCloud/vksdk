@@ -20,9 +20,10 @@ func (vk *VK) StoriesDelete(params Params) (response int, err error) {
 
 // StoriesGetResponse struct.
 type StoriesGetResponse struct {
-	Count     int                     `json:"count"`
-	Items     [][]object.StoriesStory `json:"items"`
-	PromoData object.StoriesPromoData `json:"promo_data"`
+	Count            int                      `json:"count"`
+	Items            []object.StoriesFeedItem `json:"items"`
+	PromoData        object.StoriesPromoData  `json:"promo_data"`
+	NeedUploadScreen object.BaseBoolInt       `json:"need_upload_screen"`
 }
 
 // StoriesGet returns stories available for current user.
@@ -39,8 +40,10 @@ func (vk *VK) StoriesGet(params Params) (response StoriesGetResponse, err error)
 
 // StoriesGetExtendedResponse struct.
 type StoriesGetExtendedResponse struct {
-	Count int                     `json:"count"`
-	Items [][]object.StoriesStory `json:"items"`
+	Count            int                      `json:"count"`
+	Items            []object.StoriesFeedItem `json:"items"`
+	PromoData        object.StoriesPromoData  `json:"promo_data"`
+	NeedUploadScreen object.BaseBoolInt       `json:"need_upload_screen"`
 	object.ExtendedResponse
 }
 
@@ -147,8 +150,8 @@ func (vk *VK) StoriesGetPhotoUploadServer(params Params) (response StoriesGetPho
 
 // StoriesGetRepliesResponse struct.
 type StoriesGetRepliesResponse struct {
-	Count int                     `json:"count"`
-	Items [][]object.StoriesStory `json:"items"`
+	Count int                      `json:"count"`
+	Items []object.StoriesFeedItem `json:"items"`
 }
 
 // StoriesGetReplies returns replies to the story.
@@ -165,8 +168,8 @@ func (vk *VK) StoriesGetReplies(params Params) (response StoriesGetRepliesRespon
 
 // StoriesGetRepliesExtendedResponse struct.
 type StoriesGetRepliesExtendedResponse struct {
-	Count int                     `json:"count"`
-	Items [][]object.StoriesStory `json:"items"`
+	Count int                      `json:"count"`
+	Items []object.StoriesFeedItem `json:"items"`
 	object.ExtendedResponse
 }
 
@@ -262,8 +265,8 @@ func (vk *VK) StoriesHideReply(params Params) (response int, err error) {
 
 // StoriesSearchResponse struct.
 type StoriesSearchResponse struct {
-	Count int                     `json:"count"`
-	Items [][]object.StoriesStory `json:"items"`
+	Count int                      `json:"count"`
+	Items []object.StoriesFeedItem `json:"items"`
 }
 
 // StoriesSearch returns search results for stories.
@@ -280,8 +283,8 @@ func (vk *VK) StoriesSearch(params Params) (response StoriesSearchResponse, err 
 
 // StoriesSearchExtendedResponse struct.
 type StoriesSearchExtendedResponse struct {
-	Count int                     `json:"count"`
-	Items [][]object.StoriesStory `json:"items"`
+	Count int                      `json:"count"`
+	Items []object.StoriesFeedItem `json:"items"`
 	object.ExtendedResponse
 }
 

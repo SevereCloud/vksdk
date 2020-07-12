@@ -68,14 +68,17 @@ type StoriesStory struct {
 	CanReply             BaseBoolInt              `json:"can_reply"`     // Information whether current user can reply to the story (0 - no, 1 - yes).
 	CanSee               BaseBoolInt              `json:"can_see"`       // Information whether current user can see the story (0 - no, 1 - yes).
 	CanShare             BaseBoolInt              `json:"can_share"`     // Information whether current user can share the story (0 - no, 1 - yes).
-	Date                 int                      `json:"date"`          // Date when story has been added in Unixtime.
-	ID                   int                      `json:"id"`            // Story ID.
 	IsDeleted            BaseBoolInt              `json:"is_deleted"`    // Information whether the story is deleted (false - no, true - yes).
 	IsExpired            BaseBoolInt              `json:"is_expired"`    // Information whether the story is expired (false - no, true - yes).
 	NoSound              BaseBoolInt              `json:"no_sound"`      // Is video without sound
 	IsRestricted         BaseBoolInt              `json:"is_restricted"` // Does author have stories privacy restrictions
 	Seen                 BaseBoolInt              `json:"seen"`          // Information whether current user has seen the story or not (0 - no, 1 - yes).
 	IsOwnerPinned        BaseBoolInt              `json:"is_owner_pinned"`
+	IsOneTime            BaseBoolInt              `json:"is_one_time"`
+	NeedMute             BaseBoolInt              `json:"need_mute"`
+	MuteReply            BaseBoolInt              `json:"mute_reply"`
+	Date                 int                      `json:"date"` // Date when story has been added in Unixtime.
+	ID                   int                      `json:"id"`   // Story ID.
 	Link                 StoriesStoryLink         `json:"link"`
 	OwnerID              int                      `json:"owner_id"` // Story owner's ID.
 	ParentStory          *StoriesStory            `json:"parent_story"`
@@ -96,6 +99,24 @@ type StoriesStory struct {
 	NarrativesCount      int                      `json:"narratives_count"`
 	FirstNarrativeTitle  string                   `json:"first_narrative_title"`
 	Questions            StoriesQuestions         `json:"questions"`
+}
+
+// StoriesFeedItemType type.
+type StoriesFeedItemType string
+
+// Possible values.
+const (
+	StoriesFeedItemStories   StoriesFeedItemType = "stories"
+	StoriesFeedItemCommunity StoriesFeedItemType = "community_grouped_stories"
+	StoriesFeedItemApp       StoriesFeedItemType = "app_grouped_stories"
+)
+
+// StoriesFeedItem struct.
+type StoriesFeedItem struct {
+	Type    StoriesFeedItemType `json:"type"`
+	Stories []StoriesStory      `json:"stories"`
+	Grouped StoriesFeedItemType `json:"grouped"`
+	App     AppsApp             `json:"app"`
 }
 
 // StoriesClickableStickers struct.
