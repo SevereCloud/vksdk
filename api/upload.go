@@ -674,8 +674,8 @@ func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, f
 
 // UploadStories struct.
 type UploadStories struct {
-	Stories object.StoriesStory `json:"story"`
-	Sig     string              `json:"_sig"`
+	UploadResult string `json:"upload_result"`
+	Sig          string `json:"_sig"`
 }
 
 type rawUploadStoriesPhoto struct {
@@ -687,8 +687,11 @@ type rawUploadStoriesPhoto struct {
 }
 
 type rawUploadStoriesVideo struct {
-	UploadStories
-	uploadError
+	Response UploadStories `json:"response"`
+	Error    struct {
+		ErrorCode int    `json:"error_code"`
+		Type      string `json:"type"`
+	} `json:"error"`
 }
 
 // UploadStoriesPhoto uploading Story.
@@ -699,7 +702,7 @@ type rawUploadStoriesVideo struct {
 // maximum 720х1280, 30fps.
 //
 // https://vk.com/dev/stories.getPhotoUploadServer
-func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response UploadStories, err error) {
+func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response StoriesSaveResponse, err error) {
 	uploadServer, err := vk.StoriesGetPhotoUploadServer(params)
 	if err != nil {
 		return
@@ -719,10 +722,12 @@ func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response Upload
 
 	if handler.Error.ErrorCode != 0 {
 		err = fmt.Errorf(handler.Error.Type)
-	} else {
-		response.Sig = handler.Response.Sig
-		response.Stories = handler.Response.Stories
+		return
 	}
+
+	response, err = vk.StoriesSave(Params{
+		"upload_results": handler.Response.UploadResult,
+	})
 
 	return
 }
@@ -730,7 +735,7 @@ func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response Upload
 // UploadStoriesVideo uploading Story.
 //
 // Video format: h264 video, aac audio, maximum 720х1280, 30fps.
-func (vk *VK) UploadStoriesVideo(params Params, file io.Reader) (response UploadStories, err error) {
+func (vk *VK) UploadStoriesVideo(params Params, file io.Reader) (response StoriesSaveResponse, err error) {
 	uploadServer, err := vk.StoriesGetVideoUploadServer(params)
 	if err != nil {
 		return
@@ -748,13 +753,14 @@ func (vk *VK) UploadStoriesVideo(params Params, file io.Reader) (response Upload
 		return
 	}
 
-	if handler.ErrorCode != 0 {
-		// TODO: new type error
-		err = fmt.Errorf(handler.Error)
-	} else {
-		response.Sig = handler.Sig
-		response.Stories = handler.Stories
+	if handler.Error.ErrorCode != 0 {
+		err = fmt.Errorf(handler.Error.Type)
+		return
 	}
+
+	response, err = vk.StoriesSave(Params{
+		"upload_results": handler.Response.UploadResult,
+	})
 
 	return
 }

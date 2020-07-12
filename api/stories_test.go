@@ -91,12 +91,13 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 		"add_to_news": true,
 	}, response.Body)
 	noError(t, err)
-	assert.NotEmpty(t, res.Stories)
-	// assert.NotEmpty(t, res.Sig)
+	if !assert.NotEmpty(t, res.Items) {
+		t.FailNow()
+	}
 
 	params := api.Params{
-		"owner_id": res.Stories.OwnerID,
-		"story_id": res.Stories.ID,
+		"owner_id": res.Items[0].OwnerID,
+		"story_id": res.Items[0].ID,
 	}
 
 	_, err = vkGroup.StoriesGetReplies(params)
