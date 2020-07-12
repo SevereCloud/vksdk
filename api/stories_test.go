@@ -91,6 +91,7 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 		"add_to_news": true,
 	}, response.Body)
 	noError(t, err)
+
 	if !assert.NotEmpty(t, res.Items) {
 		t.FailNow()
 	}
