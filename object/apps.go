@@ -38,9 +38,12 @@ type AppsCatalogBanner struct {
 
 // AppsApp struct.
 type AppsApp struct {
-	AuthorGroup       int                   `json:"author_group"`     // Official community's ID
-	AuthorID          int                   `json:"author_id"`        // Application author's ID
-	AuthorURL         string                `json:"author_url"`       // Application author's URL
+	AuthorGroup int    `json:"author_group"` // Official community's ID
+	AuthorID    int    `json:"author_id"`    // Application author's ID
+	AuthorURL   string `json:"author_url"`   // Application author's URL
+	// TODO: v2 5.120 add author_owner_id
+	// AuthorOwnerID         int    `json:"author_owner_id"`
+
 	Banner1120        string                `json:"banner_1120"`      // URL of the app banner with 1120 px in width
 	Banner560         string                `json:"banner_560"`       // URL of the app banner with 560 px in width
 	CatalogPosition   int                   `json:"catalog_position"` // Catalog position
@@ -60,6 +63,7 @@ type AppsApp struct {
 	HideTabbar        BaseBoolInt           `json:"hide_tabbar"`
 	IsNew             BaseBoolInt           `json:"is_new"`
 	New               BaseBoolInt           `json:"new"`
+	IsInstalled       BaseBoolInt           `json:"is_installed"`
 	LeaderboardType   int                   `json:"leaderboard_type"`
 	MembersCount      int                   `json:"members_count"`  // Members number
 	PlatformID        int                   `json:"platform_id"`    // Application ID in store
@@ -73,6 +77,15 @@ type AppsApp struct {
 	Icon576           string                `json:"icon_576"`
 	ScreenOrientation AppsScreenOrientation `json:"screen_orientation"`
 	CatalogBanner     AppsCatalogBanner     `json:"catalog_banner"`
+
+	// mobile_controls_type = 0 - прозрачный элемент управления поверх области с игрой;
+	// mobile_controls_type = 1 - чёрная полоска над областью с игрой;
+	// mobile_controls_type = 2 - только для vk apps, без контроллов.
+	MobileControlsType int `json:"mobile_controls_type"`
+
+	// mobile_view_support_type = 0 - игра не использует нижнюю часть экрана на iPhoneX, черная полоса есть.
+	// mobile_view_support_type = 1 - игра использует нижнюю часть экрана на iPhoneX, черной полосы нет.
+	MobileViewSupportType int `json:"mobile_view_support_type"`
 }
 
 // AppsLeaderboard struct.

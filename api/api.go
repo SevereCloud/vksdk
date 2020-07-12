@@ -23,7 +23,7 @@ import (
 
 // Api constants.
 const (
-	Version   = "5.103"
+	Version   = "5.105"
 	MethodURL = "https://api.vk.com/method/"
 )
 
