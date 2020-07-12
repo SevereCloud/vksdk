@@ -62,6 +62,15 @@ type MarketMarketItem struct {
 	URL          string               `json:"url"` // URL to item
 	ButtonTitle  string               `json:"button_title"`
 	ExternalID   string               `json:"external_id"`
+	Dimensions   MarketDimensions     `json:"dimensions"`
+	Weight       int                  `json:"weight"`
+}
+
+// MarketDimensions struct.
+type MarketDimensions struct {
+	Width  int `json:"width"`
+	Height int `json:"height"`
+	Length int `json:"length"`
 }
 
 // ToAttachment return attachment format.
