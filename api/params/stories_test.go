@@ -179,6 +179,16 @@ func TestStoriesHideReplyBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["story_id"], 1)
 }
 
+func TestStoriesSaveBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewStoriesSaveBuilder()
+
+	b.UploadResults("test")
+
+	assert.Equal(t, b.Params["upload_results"], "test")
+}
+
 func TestStoriesUnbanOwnerBuilder(t *testing.T) {
 	t.Parallel()
 

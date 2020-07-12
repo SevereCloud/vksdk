@@ -400,6 +400,26 @@ func (b *StoriesHideReplyBuilder) StoryID(v int) *StoriesHideReplyBuilder {
 	return b
 }
 
+// StoriesSaveBuilder builder.
+//
+// https://vk.com/dev/stories.save
+type StoriesSaveBuilder struct {
+	api.Params
+}
+
+// NewStoriesSaveBuilder func.
+func NewStoriesSaveBuilder() *StoriesSaveBuilder {
+	return &StoriesSaveBuilder{api.Params{}}
+}
+
+// UploadResults parameter.
+//
+// required parameter.
+func (b *StoriesSaveBuilder) UploadResults(v string) *StoriesSaveBuilder {
+	b.Params["upload_results"] = v
+	return b
+}
+
 // StoriesSendInteractionBuilder builder.
 //
 // Sends feedback to the story.

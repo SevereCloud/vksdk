@@ -244,6 +244,20 @@ func (vk *VK) StoriesHideReply(params Params) (response int, err error) {
 	return
 }
 
+// StoriesSaveResponse struct.
+type StoriesSaveResponse struct {
+	Count int                   `json:"count"`
+	Items []object.StoriesStory `json:"items"`
+}
+
+// StoriesSave method.
+//
+// https://vk.com/dev/stories.save
+func (vk *VK) StoriesSave(params Params) (response StoriesSaveResponse, err error) {
+	err = vk.RequestUnmarshal("stories.save", params, &response)
+	return
+}
+
 // StoriesSearchResponse struct.
 type StoriesSearchResponse struct {
 	Count int                      `json:"count"`
