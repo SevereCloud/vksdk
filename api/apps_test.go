@@ -36,8 +36,6 @@ func TestVK_AppsGet(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].Icon139)
 		assert.NotEmpty(t, res.Items[0].Icon150)
 		assert.NotEmpty(t, res.Items[0].Icon278)
-		assert.NotEmpty(t, res.Items[0].AuthorGroup)
-		assert.NotEmpty(t, res.Items[0].AuthorURL)
 		assert.NotEmpty(t, res.Items[0].Banner1120)
 		assert.NotEmpty(t, res.Items[0].Banner560)
 		assert.NotEmpty(t, res.Items[0].Genre)
