@@ -625,12 +625,12 @@ type GroupsMarketInfo struct {
 	CurrencyText    string            `json:"currency_text"` // Currency name
 	Enabled         BaseBoolInt       `json:"enabled"`       // Information whether the market is enabled
 	CommentsEnabled BaseBoolInt       `json:"comments_enabled"`
+	CanMessage      BaseBoolInt       `json:"can_message"`
 	MainAlbumID     int               `json:"main_album_id"` // Main market album ID
 	PriceMax        string            `json:"price_max"`     // Maximum price
 	PriceMin        string            `json:"price_min"`     // Minimum price
 	Wiki            PagesWikipageFull `json:"wiki"`
 	CountryIDs      []int             `json:"country_ids"`
-	// TODO: add in 5.110 CanMessage      BaseBoolInt       `json:"can_message"`
 }
 
 // GroupsGroupRole Role type.
