@@ -321,8 +321,13 @@ type MessagesConversation struct {
 	PushSettings    MessagesConversationPushSettings `json:"push_settings"`
 	Important       BaseBoolInt                      `json:"important"`
 	Unanswered      BaseBoolInt                      `json:"unanswered"`
+	IsMarkedUnread  BaseBoolInt                      `json:"is_marked_unread"`
 	UnreadCount     int                              `json:"unread_count"` // Unread messages number
 	CurrentKeyboard MessagesKeyboard                 `json:"current_keyboard"`
+	SortID          struct {
+		MajorID int `json:"major_id"`
+		MinorID int `json:"minor_id"`
+	} `json:"sort_id"`
 }
 
 // MessagesConversationCanWrite struct.
@@ -340,17 +345,21 @@ type MessagesConversationChatSettings struct {
 	Title         string                    `json:"title"`
 	ActiveIDs     []int                     `json:"active_ids"`
 	ACL           struct {
-		CanInvite           BaseBoolInt `json:"can_invite"`
-		CanChangeInfo       BaseBoolInt `json:"can_change_info"`
-		CanChangePin        BaseBoolInt `json:"can_change_pin"`
-		CanPromoteUsers     BaseBoolInt `json:"can_promote_users"`
-		CanSeeInviteLink    BaseBoolInt `json:"can_see_invite_link"`
-		CanChangeInviteLink BaseBoolInt `json:"can_change_invite_link"`
-		CanCopyChat         BaseBoolInt `json:"can_copy_chat"`
-		CanModerate         BaseBoolInt `json:"can_moderate"`
-		CanCall             BaseBoolInt `json:"can_call"`
+		CanInvite            BaseBoolInt `json:"can_invite"`
+		CanChangeInfo        BaseBoolInt `json:"can_change_info"`
+		CanChangePin         BaseBoolInt `json:"can_change_pin"`
+		CanPromoteUsers      BaseBoolInt `json:"can_promote_users"`
+		CanSeeInviteLink     BaseBoolInt `json:"can_see_invite_link"`
+		CanChangeInviteLink  BaseBoolInt `json:"can_change_invite_link"`
+		CanCopyChat          BaseBoolInt `json:"can_copy_chat"`
+		CanModerate          BaseBoolInt `json:"can_moderate"`
+		CanCall              BaseBoolInt `json:"can_call"`
+		CanUseMassMentions   BaseBoolInt `json:"can_use_mass_mentions"`
+		CanChangeServiceType BaseBoolInt `json:"can_change_service_type"`
 	} `json:"acl"`
 	IsGroupChannel BaseBoolInt `json:"is_group_channel"`
+	IsDisappearing BaseBoolInt `json:"is_disappearing"`
+	IsService      BaseBoolInt `json:"is_service"`
 	OwnerID        int         `json:"owner_id"`
 	AdminIDs       []int       `json:"admin_ids"`
 }
