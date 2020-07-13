@@ -637,6 +637,7 @@ const (
 	ButtonVKApp    = "open_app"
 	ButtonLocation = "location"
 	ButtonOpenLink = "open_link"
+	ButtonCallback = "callback"
 )
 
 // Button color. This parameter is used only for buttons with the text and callback types.
