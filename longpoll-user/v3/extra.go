@@ -73,7 +73,7 @@ type AdditionalData struct {
 	Title     string // Message's subject.
 	RefSource string
 	From      string // User ID of who sent the message if the message is from a chat
-	ExpireTtl string
+	ExpireTTL string
 	IsExpired string
 	// FromAdmin ID of the administrator who sent the message. It is returned for
 	// messages sent from a community (only for community administrators).
@@ -99,8 +99,8 @@ func (result *AdditionalData) parse(v map[string]interface{}) {
 		result.FromAdmin = fromAdmin
 	}
 
-	if expireTtl, ok := v["expire_ttl"].(string); ok {
-		result.ExpireTtl = expireTtl
+	if expireTTL, ok := v["expire_ttl"].(string); ok {
+		result.ExpireTTL = expireTTL
 	}
 
 	if isExpired, ok := v["is_expired"].(string); ok {
