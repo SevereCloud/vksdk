@@ -1,6 +1,6 @@
 # Обработчик User Long Poll API v3
 
-[![Documentation](https://godoc.org/github.com/SevereCloud/vksdk/longpoll-user/v3?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-user/v3)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/longpoll-user/v3)](https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-user/v3)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/using_longpoll)
 
 Данный модуль поддерживает версию **3**.
