@@ -632,12 +632,12 @@ const (
 
 // Button action type.
 const (
-	ButtonText     = "text"
-	ButtonVKPay    = "vkpay"
-	ButtonVKApp    = "open_app"
-	ButtonLocation = "location"
-	ButtonOpenLink = "open_link"
-	ButtonCallback = "callback"
+	ButtonText     = "text"      // A button that sends a message with text specified in the label.
+	ButtonVKPay    = "vkpay"     // Opens the VK Pay window with predefined parameters. The button is called “Pay with VK Pay” (VK Pay is displayed as a logo). This button always stretches to the whole keyboard width.
+	ButtonVKApp    = "open_app"  // Opens a specified VK Apps app. This button always stretches to the whole keyboard width.
+	ButtonLocation = "location"  // Sends the location to the chat. This button always stretches to the whole keyboard width.
+	ButtonOpenLink = "open_link" // Opens the specified link.
+	ButtonCallback = "callback"  // Allows, without sending a message from the user, to receive a notification about pressing the button and perform the necessary action.
 )
 
 // Button color. This parameter is used only for buttons with the text and callback types.
@@ -669,4 +669,12 @@ const (
 	PlatformWindows               // Windows 8
 	PlatformFull                  // full web version
 	PlatformOther                 // other apps
+)
+
+// Conversations types.
+const (
+	PeerUser  = "user"
+	PeerChat  = "chat"
+	PeerGroup = "group"
+	PeerEmail = "email"
 )
