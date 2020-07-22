@@ -1415,6 +1415,30 @@ func (b *MessagesSendBuilder) DisableMentions(v bool) *MessagesSendBuilder {
 	return b
 }
 
+// An intent is a label that specifies the approximate content of the message
+// sent by the community. It is sent in the optional intent parameter of the
+// messages.send method.
+const (
+	// Used for ad newsletter messages.
+	PromoNewsletter = "promo_newsletter"
+
+	// Used for messages that request permission from the user to send them an
+	// advertising message.
+	BotAdInvite = "bot_ad_invite"
+
+	// Used for the bots advertising message.
+	BotAdPromo = "bot_ad_promo"
+
+	AccountUpdate         = "account_update"
+	ConfirmedNotification = "confirmed_notification"
+	CustomerSupport       = "customer_support"
+	Default               = "default"
+	GameNotification      = "game_notification"
+	ModeratedNewsletter   = "moderated_newsletter"
+	NonPromoNewsletter    = "non_promo_newsletter"
+	PurchaseUpdate        = "purchase_update"
+)
+
 // Intent parameter.
 //
 // https://vk.com/dev/bots_docs_4
