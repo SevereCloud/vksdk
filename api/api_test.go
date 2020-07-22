@@ -103,9 +103,11 @@ func needChatID(t *testing.T) int {
 	return vkChatID
 }
 
-var vkGroup, vkService, vkUser, vkWidget *api.VK // nolint:gochecknoglobals
-var vkUserID, vkGroupID, vkChatID int            // nolint:gochecknoglobals
-var mux sync.Mutex                               // nolint:gochecknoglobals
+var (
+	vkGroup, vkService, vkUser, vkWidget *api.VK    // nolint:gochecknoglobals
+	vkUserID, vkGroupID, vkChatID        int        // nolint:gochecknoglobals
+	mux                                  sync.Mutex // nolint:gochecknoglobals
+)
 
 func TestMain(m *testing.M) {
 	vkGroup = api.NewVK(os.Getenv("GROUP_TOKEN"))

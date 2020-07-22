@@ -82,7 +82,7 @@ func (vk *VK) SecureGiveEventSticker(params Params) (response SecureGiveEventSti
 }
 
 // SecureSendNotificationResponse struct.
-type SecureSendNotificationResponse []int //User ID
+type SecureSendNotificationResponse []int // User ID
 
 // SecureSendNotification sends notification to the user.
 //

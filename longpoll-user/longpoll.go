@@ -121,8 +121,8 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	params := api.Params{
 		"lp_version": lp.Version,
 	}
-	serverSetting, err := lp.VK.MessagesGetLongPollServer(params)
 
+	serverSetting, err := lp.VK.MessagesGetLongPollServer(params)
 	if err != nil {
 		return err
 	}

@@ -398,6 +398,7 @@ func TestVK_FaveTag(t *testing.T) {
 		"id": tags.Items[tags.Count-2].ID,
 	})
 }
+
 func TestVK_FaveVideo(t *testing.T) {
 	t.Parallel()
 

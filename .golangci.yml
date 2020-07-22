@@ -34,7 +34,7 @@ linters:
     - godot
     - asciicheck
     - nolintlint
-
+    - gofumpt
 # - testpackage # TODO: Fix testpackage
 # - nestif # TODO: Fix nestif
 # - goerr113 # TODO: Enable v2
@@ -53,6 +53,7 @@ linters:
 # - rowserrcheck
 # - scopelint
 # - gomodguard
+# - exhaustive
 
 issues:
   exclude-rules:

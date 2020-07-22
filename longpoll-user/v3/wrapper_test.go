@@ -39,8 +39,10 @@ func needChatID(t *testing.T) int {
 	return vkChatID
 }
 
-var vkUser *api.VK         // nolint:gochecknoglobals
-var vkUserID, vkChatID int // nolint:gochecknoglobals
+var (
+	vkUser             *api.VK // nolint:gochecknoglobals
+	vkUserID, vkChatID int     // nolint:gochecknoglobals
+)
 
 func TestMain(m *testing.M) {
 	time.Sleep(1 * time.Second)
