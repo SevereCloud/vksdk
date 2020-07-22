@@ -12,6 +12,14 @@ func (vk *VK) PhotosConfirmTag(params Params) (response int, err error) {
 	return
 }
 
+// PhotosConfirmTags confirms a tags on a photo.
+//
+// https://vk.com/dev/photos.confirmTags
+func (vk *VK) PhotosConfirmTags(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("photos.confirmTags", params, &response)
+	return
+}
+
 // PhotosCopy allows to copy a photo to the "Saved photos" album.
 //
 // https://vk.com/dev/photos.copy

@@ -21,6 +21,16 @@ func TestPhotosConfirmTagBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["tag_id"], 1)
 }
 
+func TestPhotosConfirmTagsBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewPhotosConfirmTagsBuilder()
+
+	b.Tags("text")
+
+	assert.Equal(t, b.Params["tags"], "text")
+}
+
 func TestPhotosCopyBuilder(t *testing.T) {
 	t.Parallel()
 

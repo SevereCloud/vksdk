@@ -14,11 +14,22 @@ func TestVK_PhotosConfirmTag(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.PhotosConfirmTag(api.Params{
+	ok, err := vkUser.PhotosConfirmTag(api.Params{
 		"photo_id": 1234,
 		"tag_id":   5678,
 	})
 	noError(t, err)
+	assert.Equal(t, 0, ok)
+}
+
+func TestVK_PhotosConfirmTags(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	ok, err := vkUser.PhotosConfirmTags(api.Params{})
+	noError(t, err)
+	assert.Equal(t, 0, ok)
 }
 
 func TestVK_PhotosCopy(t *testing.T) {
