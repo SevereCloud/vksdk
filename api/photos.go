@@ -47,6 +47,14 @@ func (vk *VK) PhotosCreateComment(params Params) (response int, err error) {
 	return
 }
 
+// PhotosDeclineTags method.
+//
+// https://vk.com/dev/photos.declineTags
+func (vk *VK) PhotosDeclineTags(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("photos.declineTags", params, &response)
+	return
+}
+
 // PhotosDelete deletes a photo.
 //
 // https://vk.com/dev/photos.delete
