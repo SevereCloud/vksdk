@@ -195,6 +195,8 @@ const (
 	AttachmentTypeMarketAlbum = "market_album"
 	AttachmentTypeMarket      = "market"
 	AttachmentTypeEvent       = "event"
+	AttachmentTypeWall        = "wall"
+	AttachmentTypeStory       = "story"
 )
 
 // WallWallpostAttachment struct.
