@@ -6,22 +6,23 @@ import (
 
 // AudioAudioFull struct.
 type AudioAudioFull struct {
-	ID             int                `json:"id"`
-	OwnerID        int                `json:"owner_id"`
-	Artist         string             `json:"artist"`
-	Title          string             `json:"title"`
-	Duration       int                `json:"duration"`
-	Date           int                `json:"date"`
-	URL            string             `json:"url"`
-	IsHq           BaseBoolInt        `json:"is_hq"`
-	IsExplicit     BaseBoolInt        `json:"is_explicit"`
-	StoriesAllowed BaseBoolInt        `json:"stories_allowed"`
-	LyricsID       int                `json:"lyrics_id"`
-	AlbumID        int                `json:"album_id"`
-	GenreID        int                `json:"genre_id"`
-	TrackCode      string             `json:"track_code"`
-	NoSearch       int                `json:"no_search"`
-	MainArtists    []AudioAudioArtist `json:"main_artists"`
+	ID                 int                `json:"id"`
+	OwnerID            int                `json:"owner_id"`
+	Artist             string             `json:"artist"`
+	Title              string             `json:"title"`
+	Duration           int                `json:"duration"`
+	Date               int                `json:"date"`
+	URL                string             `json:"url"`
+	IsHq               BaseBoolInt        `json:"is_hq"`
+	IsExplicit         BaseBoolInt        `json:"is_explicit"`
+	StoriesAllowed     BaseBoolInt        `json:"stories_allowed"`
+	ShortVideosAllowed BaseBoolInt        `json:"short_videos_allowed"`
+	LyricsID           int                `json:"lyrics_id"`
+	AlbumID            int                `json:"album_id"`
+	GenreID            int                `json:"genre_id"`
+	TrackCode          string             `json:"track_code"`
+	NoSearch           int                `json:"no_search"`
+	MainArtists        []AudioAudioArtist `json:"main_artists"`
 }
 
 // ToAttachment return attachment format.
