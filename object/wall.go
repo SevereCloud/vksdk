@@ -152,6 +152,7 @@ type WallWallpost struct {
 	MarkedAsAds  BaseBoolInt              `json:"marked_as_ads"`
 	Edited       int                      `json:"edited"` // Date of editing in Unixtime
 	Copyright    WallPostCopyright        `json:"copyright"`
+	PostID       int                      `json:"post_id"`
 }
 
 // WallWallpostAttached struct.
