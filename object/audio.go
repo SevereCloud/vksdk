@@ -19,6 +19,7 @@ type AudioAudio struct {
 	StoriesAllowed     BaseBoolInt        `json:"stories_allowed"`
 	ShortVideosAllowed BaseBoolInt        `json:"short_videos_allowed"`
 	IsFocusTrack       BaseBoolInt        `json:"is_focus_track"`
+	IsLicensed         BaseBoolInt        `json:"is_licensed"`
 	LyricsID           int                `json:"lyrics_id"`
 	AlbumID            int                `json:"album_id"`
 	GenreID            int                `json:"genre_id"`
@@ -39,10 +40,8 @@ type AudioAds struct {
 	ContentID      string `json:"content_id"`
 	Duration       string `json:"duration"`
 	AccountAgeType string `json:"account_age_type"`
-
-	// TODO: Wut?
-	// PUID1          string `json:"puid1"`
-	// PUID22         string `json:"puid22"`
+	PUID1          string `json:"puid1"`
+	PUID22         string `json:"puid22"`
 }
 
 // AudioAudioArtist struct.
