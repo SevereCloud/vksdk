@@ -166,7 +166,7 @@ func (vk *VK) MessagesGetChatChatIDs(params Params) (response MessagesGetChatCha
 
 // MessagesGetChatPreviewResponse struct.
 type MessagesGetChatPreviewResponse struct {
-	Preview object.MessagesChat `json:"preview"`
+	Preview object.MessagesChatPreview `json:"preview"`
 	object.ExtendedResponse
 }
 
