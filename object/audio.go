@@ -17,6 +17,7 @@ type AudioAudioFull struct {
 	IsExplicit         BaseBoolInt        `json:"is_explicit"`
 	StoriesAllowed     BaseBoolInt        `json:"stories_allowed"`
 	ShortVideosAllowed BaseBoolInt        `json:"short_videos_allowed"`
+	IsFocusTrack       BaseBoolInt        `json:"is_focus_track"`
 	LyricsID           int                `json:"lyrics_id"`
 	AlbumID            int                `json:"album_id"`
 	GenreID            int                `json:"genre_id"`
