@@ -106,25 +106,36 @@ type NewsfeedItemVideoVideo struct {
 
 // NewsfeedItemWallpost struct.
 type NewsfeedItemWallpost struct {
-	Activity    NewsfeedEventActivity    `json:"activity"`
-	Attachments []WallWallpostAttachment `json:"attachments"`
-	Comments    BaseCommentsInfo         `json:"comments"`
-	FromID      int                      `json:"from_id"`
-	CopyHistory []WallWallpost           `json:"copy_history"`
-	Geo         BaseGeo                  `json:"geo"`
-	Likes       BaseLikesInfo            `json:"likes"`
-	PostSource  WallPostSource           `json:"post_source"`
-	PostType    string                   `json:"post_type"`
-	Reposts     BaseRepostsInfo          `json:"reposts"`
-	MarkedAsAds int                      `json:"marked_as_ads,omitempty"`
-	Views       interface{}              `json:"views,omitempty"` // BUG: Views int or wallViews
-	IsFavorite  BaseBoolInt              `json:"is_favorite,omitempty"`
-	CanDelete   BaseBoolInt              `json:"can_delete"`
-	CanArchive  BaseBoolInt              `json:"can_archive"`
-	IsArchived  BaseBoolInt              `json:"is_archived"`
-	SignerID    int                      `json:"signer_id,omitempty"`
-	Text        string                   `json:"text"` // Post text
-	Copyright   WallPostCopyright        `json:"copyright"`
+	Activity       NewsfeedEventActivity    `json:"activity"`
+	Attachments    []WallWallpostAttachment `json:"attachments"`
+	Comments       BaseCommentsInfo         `json:"comments"`
+	FromID         int                      `json:"from_id"`
+	CopyHistory    []WallWallpost           `json:"copy_history"`
+	Geo            BaseGeo                  `json:"geo"`
+	Likes          BaseLikesInfo            `json:"likes"`
+	PostSource     WallPostSource           `json:"post_source"`
+	PostType       string                   `json:"post_type"`
+	Reposts        BaseRepostsInfo          `json:"reposts"`
+	MarkedAsAds    int                      `json:"marked_as_ads,omitempty"`
+	Views          interface{}              `json:"views,omitempty"` // BUG: Views int or wallViews
+	IsFavorite     BaseBoolInt              `json:"is_favorite,omitempty"`
+	CanDelete      BaseBoolInt              `json:"can_delete"`
+	CanArchive     BaseBoolInt              `json:"can_archive"`
+	IsArchived     BaseBoolInt              `json:"is_archived"`
+	SignerID       int                      `json:"signer_id,omitempty"`
+	Text           string                   `json:"text"` // Post text
+	Copyright      WallPostCopyright        `json:"copyright"`
+	CategoryAction NewsfeedCategoryAction   `json:"category_action"`
+}
+
+// NewsfeedCategoryAction struct.
+type NewsfeedCategoryAction struct {
+	Action struct {
+		Target string `json:"target"`
+		Type   string `json:"type"`
+		URL    string `json:"url"`
+	} `json:"action"`
+	Name string `json:"name"`
 }
 
 // NewsfeedList struct.
