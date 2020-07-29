@@ -346,9 +346,10 @@ type MessagesChatPushSettings struct {
 
 // MessagesChatSettingsPhoto struct.
 type MessagesChatSettingsPhoto struct {
-	Photo100 string `json:"photo_100"`
-	Photo200 string `json:"photo_200"`
-	Photo50  string `json:"photo_50"`
+	Photo100       string      `json:"photo_100"`
+	Photo200       string      `json:"photo_200"`
+	Photo50        string      `json:"photo_50"`
+	IsDefaultPhoto BaseBoolInt `json:"is_default_photo"`
 }
 
 // MessagesConversation struct.
