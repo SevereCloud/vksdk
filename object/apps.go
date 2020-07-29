@@ -39,6 +39,7 @@ type AppsCatalogBanner struct {
 // AppsApp struct.
 type AppsApp struct {
 	AuthorOwnerID     int                   `json:"author_owner_id"`
+	AuthorURL         string                `json:"author_url"`
 	Banner1120        string                `json:"banner_1120"`      // URL of the app banner with 1120 px in width
 	Banner560         string                `json:"banner_560"`       // URL of the app banner with 560 px in width
 	CatalogPosition   int                   `json:"catalog_position"` // Catalog position
