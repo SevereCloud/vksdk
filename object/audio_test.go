@@ -6,19 +6,6 @@ import (
 	"github.com/SevereCloud/vksdk/object"
 )
 
-func TestAudioAudioFull_ToAttachment(t *testing.T) {
-	t.Parallel()
-
-	f := func(audio object.AudioAudioFull, want string) {
-		if got := audio.ToAttachment(); got != want {
-			t.Errorf("AudioAudioFull.ToAttachment() = %v, want %v", got, want)
-		}
-	}
-
-	f(object.AudioAudioFull{ID: 10, OwnerID: 20}, "audio20_10")
-	f(object.AudioAudioFull{ID: 20, OwnerID: -10}, "audio-10_20")
-}
-
 func TestAudioAudio_ToAttachment(t *testing.T) {
 	t.Parallel()
 

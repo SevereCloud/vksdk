@@ -21,7 +21,7 @@ type WallAttachedNote struct {
 
 // WallCommentAttachment struct.
 type WallCommentAttachment struct {
-	Audio             AudioAudioFull    `json:"audio"`
+	Audio             AudioAudio        `json:"audio"`
 	Doc               DocsDoc           `json:"doc"`
 	Link              BaseLink          `json:"link"`
 	Market            MarketMarketItem  `json:"market"`
@@ -204,7 +204,7 @@ type WallWallpostAttachment struct {
 	AccessKey         string            `json:"access_key"` // Access key for the audio
 	Album             PhotosPhotoAlbum  `json:"album"`
 	App               WallAppPost       `json:"app"`
-	Audio             AudioAudioFull    `json:"audio"`
+	Audio             AudioAudio        `json:"audio"`
 	Doc               DocsDoc           `json:"doc"`
 	Event             EventsEventAttach `json:"event"`
 	Graffiti          WallGraffiti      `json:"graffiti"`

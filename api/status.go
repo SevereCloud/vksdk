@@ -6,8 +6,8 @@ import (
 
 // StatusGetResponse struct.
 type StatusGetResponse struct {
-	Audio object.AudioAudioFull `json:"audio"`
-	Text  string                `json:"text"`
+	Audio object.AudioAudio `json:"audio"`
+	Text  string            `json:"text"`
 }
 
 // StatusGet returns data required to show the status of a user or community.

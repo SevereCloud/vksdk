@@ -244,8 +244,8 @@ type StoriesClickableSticker struct { // nolint: maligned
 	Poll PollsPoll `json:"poll,omitempty"`
 
 	// type=music
-	Audio          AudioAudioFull `json:"audio,omitempty"`
-	AudioStartTime int            `json:"audio_start_time,omitempty"`
+	Audio          AudioAudio `json:"audio,omitempty"`
+	AudioStartTime int        `json:"audio_start_time,omitempty"`
 
 	// type=app
 	App                      AppsApp     `json:"app"`

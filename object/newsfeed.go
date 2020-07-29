@@ -17,8 +17,8 @@ type NewsfeedItemAudio struct {
 
 // NewsfeedItemAudioAudio struct.
 type NewsfeedItemAudioAudio struct {
-	Count int              `json:"count"` // Audios number
-	Items []AudioAudioFull `json:"items"`
+	Count int          `json:"count"` // Audios number
+	Items []AudioAudio `json:"items"`
 }
 
 // NewsfeedItemDigest struct.

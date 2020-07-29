@@ -4,8 +4,9 @@ import (
 	"fmt"
 )
 
-// AudioAudioFull struct.
-type AudioAudioFull struct {
+// AudioAudio struct.
+type AudioAudio struct {
+	AccessKey          string             `json:"access_key"` // Access key for the audio
 	ID                 int                `json:"id"`
 	OwnerID            int                `json:"owner_id"`
 	Artist             string             `json:"artist"`
@@ -27,7 +28,7 @@ type AudioAudioFull struct {
 }
 
 // ToAttachment return attachment format.
-func (audio AudioAudioFull) ToAttachment() string {
+func (audio AudioAudio) ToAttachment() string {
 	return fmt.Sprintf("audio%d_%d", audio.OwnerID, audio.ID)
 }
 
@@ -36,24 +37,6 @@ type AudioAudioArtist struct {
 	Name   string `json:"name"`
 	ID     string `json:"id"`
 	Domain string `json:"domain"`
-}
-
-// AudioAudio struct.
-type AudioAudio struct {
-	AccessKey    string      `json:"access_key"` // Access key for the audio
-	Artist       string      `json:"artist"`     // Artist name
-	ID           int         `json:"id"`         // Audio ID
-	IsExplicit   BaseBoolInt `json:"is_explicit"`
-	IsFocusTrack BaseBoolInt `json:"is_focus_track"`
-	IsLicensed   BaseBoolInt `json:"is_licensed"`
-	OwnerID      int         `json:"owner_id"` // Audio owner's ID
-	Title        string      `json:"title"`    // Title
-	URL          string      `json:"url"`      // URL of mp3 file
-}
-
-// ToAttachment return attachment format.
-func (audio AudioAudio) ToAttachment() string {
-	return fmt.Sprintf("audio%d_%d", audio.OwnerID, audio.ID)
 }
 
 // AudioAudioUploadResponse struct.

@@ -77,7 +77,7 @@ type UsersUser struct {
 	Instagram              string                `json:"instagram"`
 	Site                   string                `json:"site"`
 	Status                 string                `json:"status"`
-	StatusAudio            AudioAudioFull        `json:"status_audio"`
+	StatusAudio            AudioAudio            `json:"status_audio"`
 	LastSeen               UsersLastSeen         `json:"last_seen"`
 	CropPhoto              UsersCropPhoto        `json:"crop_photo"`
 	FollowersCount         int                   `json:"followers_count"`

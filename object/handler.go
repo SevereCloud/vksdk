@@ -130,7 +130,7 @@ type PhotoCommentDeleteObject struct {
 type AudioNewFunc func(AudioNewObject, int)
 
 // AudioNewObject struct.
-type AudioNewObject AudioAudioFull
+type AudioNewObject AudioAudio
 
 // VideoNewFunc func.
 type VideoNewFunc func(VideoNewObject, int)

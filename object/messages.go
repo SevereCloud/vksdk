@@ -447,15 +447,15 @@ type MessagesHistoryAttachment struct {
 
 // MessagesHistoryMessageAttachment struct.
 type MessagesHistoryMessageAttachment struct {
-	Audio  AudioAudioFull `json:"audio"`
-	Doc    DocsDoc        `json:"doc"`
-	Link   BaseLink       `json:"link"`
-	Market BaseLink       `json:"market"`
-	Photo  PhotosPhoto    `json:"photo"`
-	Share  BaseLink       `json:"share"`
-	Type   string         `json:"type"`
-	Video  VideoVideo     `json:"video"`
-	Wall   BaseLink       `json:"wall"`
+	Audio  AudioAudio  `json:"audio"`
+	Doc    DocsDoc     `json:"doc"`
+	Link   BaseLink    `json:"link"`
+	Market BaseLink    `json:"market"`
+	Photo  PhotosPhoto `json:"photo"`
+	Share  BaseLink    `json:"share"`
+	Type   string      `json:"type"`
+	Video  VideoVideo  `json:"video"`
+	Wall   BaseLink    `json:"wall"`
 }
 
 // MessagesLastActivity struct.
@@ -505,7 +505,7 @@ type MessagesMessageActionPhoto struct {
 
 // MessagesMessageAttachment struct.
 type MessagesMessageAttachment struct {
-	Audio             AudioAudioFull       `json:"audio"`
+	Audio             AudioAudio           `json:"audio"`
 	Doc               DocsDoc              `json:"doc"`
 	Gift              GiftsLayout          `json:"gift"`
 	Link              BaseLink             `json:"link"`
