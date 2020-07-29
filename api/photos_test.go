@@ -140,9 +140,8 @@ func TestVK_PhotosDeclineTags(t *testing.T) {
 
 	needUserToken(t)
 
-	ok, err := vkUser.PhotosDeclineTags(api.Params{})
+	_, err := vkUser.PhotosDeclineTags(api.Params{})
 	noError(t, err)
-	assert.Equal(t, 1, ok)
 }
 
 func LoadPhoto(t *testing.T, albumID int) object.PhotosPhoto {

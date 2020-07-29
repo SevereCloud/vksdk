@@ -25,11 +25,24 @@ type AudioAudio struct {
 	TrackCode          string             `json:"track_code"`
 	NoSearch           int                `json:"no_search"`
 	MainArtists        []AudioAudioArtist `json:"main_artists"`
+	Ads                AudioAds           `json:"ads"`
+	Subtitle           string             `json:"subtitle"`
 }
 
 // ToAttachment return attachment format.
 func (audio AudioAudio) ToAttachment() string {
 	return fmt.Sprintf("audio%d_%d", audio.OwnerID, audio.ID)
+}
+
+// AudioAds struct.
+type AudioAds struct {
+	ContentID      string `json:"content_id"`
+	Duration       string `json:"duration"`
+	AccountAgeType string `json:"account_age_type"`
+
+	// TODO: Wut?
+	// PUID1          string `json:"puid1"`
+	// PUID22         string `json:"puid22"`
 }
 
 // AudioAudioArtist struct.
