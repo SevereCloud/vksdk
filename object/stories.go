@@ -93,6 +93,7 @@ type StoriesStory struct {
 	IsOneTime            BaseBoolInt              `json:"is_one_time"`
 	NeedMute             BaseBoolInt              `json:"need_mute"`
 	MuteReply            BaseBoolInt              `json:"mute_reply"`
+	CanLike              BaseBoolInt              `json:"can_like"`
 	Date                 int                      `json:"date"` // Date when story has been added in Unixtime.
 	ID                   int                      `json:"id"`   // Story ID.
 	Link                 StoriesStoryLink         `json:"link"`
