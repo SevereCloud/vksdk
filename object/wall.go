@@ -240,6 +240,7 @@ type WallWallpostToID struct {
 	Text         string                   `json:"text"`        // Post text
 	ToID         int                      `json:"to_id"`       // Wall owner's ID
 	IsFavorite   BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
+	MarkedAsAds  BaseBoolInt              `json:"marked_as_ads"`
 	ParentsStack []int                    `json:"parents_stack"`
 }
 
