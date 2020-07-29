@@ -390,11 +390,34 @@ type MessagesConversationChatSettings struct {
 		CanUseMassMentions   BaseBoolInt `json:"can_use_mass_mentions"`
 		CanChangeServiceType BaseBoolInt `json:"can_change_service_type"`
 	} `json:"acl"`
-	IsGroupChannel BaseBoolInt `json:"is_group_channel"`
-	IsDisappearing BaseBoolInt `json:"is_disappearing"`
-	IsService      BaseBoolInt `json:"is_service"`
-	OwnerID        int         `json:"owner_id"`
-	AdminIDs       []int       `json:"admin_ids"`
+	IsGroupChannel   BaseBoolInt             `json:"is_group_channel"`
+	IsDisappearing   BaseBoolInt             `json:"is_disappearing"`
+	IsService        BaseBoolInt             `json:"is_service"`
+	IsCreatedForCall BaseBoolInt             `json:"is_created_for_call"`
+	OwnerID          int                     `json:"owner_id"`
+	AdminIDs         []int                   `json:"admin_ids"`
+	Permissions      MessagesChatPermissions `json:"permissions"`
+}
+
+// MessagesChatPermission struct.
+type MessagesChatPermission string
+
+// Possible values.
+const (
+	OwnerChatPermission          MessagesChatPermission = "owner"
+	OwnerAndAdminsChatPermission MessagesChatPermission = "owner_and_admins"
+	AllChatPermission            MessagesChatPermission = "all"
+)
+
+// MessagesChatPermissions struct.
+type MessagesChatPermissions struct {
+	Invite          MessagesChatPermission `json:"invite"`
+	ChangeInfo      MessagesChatPermission `json:"change_info"`
+	ChangePin       MessagesChatPermission `json:"change_pin"`
+	UseMassMentions MessagesChatPermission `json:"use_mass_mentions"`
+	SeeInviteLink   MessagesChatPermission `json:"see_invite_link"`
+	Call            MessagesChatPermission `json:"call"`
+	ChangeAdmins    MessagesChatPermission `json:"change_admins"`
 }
 
 // MessagesConversationPeer struct.
