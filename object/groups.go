@@ -512,6 +512,8 @@ type GroupsActionButtonTarget struct {
 
 	// ActionType == ActionTypeOpenGroupApp
 	AppID int `json:"app_id"`
+
+	IsInternal BaseBoolInt `json:"is_internal"`
 }
 
 // GroupsGroupXtrInvitedBy struct.
