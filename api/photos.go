@@ -627,3 +627,11 @@ func (vk *VK) PhotosSearch(params Params) (response PhotosSearchResponse, err er
 	err = vk.RequestUnmarshal("photos.search", params, &response)
 	return
 }
+
+// PhotosSkipTags returns a list of photos.
+//
+// https://vk.com/dev/photos.skipTags
+func (vk *VK) PhotosSkipTags(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("photos.skipTags", params, &response)
+	return
+}

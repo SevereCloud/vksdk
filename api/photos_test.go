@@ -475,3 +475,12 @@ func TestVK_PhotosSearch(t *testing.T) {
 	})
 	noError(t, err)
 }
+
+func TestVK_PhotosSkipTags(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	_, err := vkUser.PhotosSkipTags(api.Params{})
+	noError(t, err)
+}
