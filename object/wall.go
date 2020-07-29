@@ -153,6 +153,7 @@ type WallWallpost struct {
 	Edited       int                      `json:"edited"` // Date of editing in Unixtime
 	Copyright    WallPostCopyright        `json:"copyright"`
 	PostID       int                      `json:"post_id"`
+	ParentsStack []int                    `json:"parents_stack"`
 }
 
 // WallWallpostAttached struct.
