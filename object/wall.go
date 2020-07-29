@@ -223,23 +223,24 @@ type WallWallpostAttachment struct {
 
 // WallWallpostToID struct.
 type WallWallpostToID struct {
-	Attachments []WallWallpostAttachment `json:"attachments"`
-	Comments    BaseCommentsInfo         `json:"comments"`
-	CopyOwnerID int                      `json:"copy_owner_id"` // ID of the source post owner
-	CopyPostID  int                      `json:"copy_post_id"`  // ID of the source post
-	Date        int                      `json:"date"`          // Date of publishing in Unixtime
-	FromID      int                      `json:"from_id"`       // Post author ID
-	Geo         BaseGeo                  `json:"geo"`
-	ID          int                      `json:"id"` // Post ID
-	Likes       BaseLikesInfo            `json:"likes"`
-	PostID      int                      `json:"post_id"` // wall post ID (if comment)
-	PostSource  WallPostSource           `json:"post_source"`
-	PostType    string                   `json:"post_type"`
-	Reposts     BaseRepostsInfo          `json:"reposts"`
-	SignerID    int                      `json:"signer_id"`   // Post signer ID
-	Text        string                   `json:"text"`        // Post text
-	ToID        int                      `json:"to_id"`       // Wall owner's ID
-	IsFavorite  BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
+	Attachments  []WallWallpostAttachment `json:"attachments"`
+	Comments     BaseCommentsInfo         `json:"comments"`
+	CopyOwnerID  int                      `json:"copy_owner_id"` // ID of the source post owner
+	CopyPostID   int                      `json:"copy_post_id"`  // ID of the source post
+	Date         int                      `json:"date"`          // Date of publishing in Unixtime
+	FromID       int                      `json:"from_id"`       // Post author ID
+	Geo          BaseGeo                  `json:"geo"`
+	ID           int                      `json:"id"` // Post ID
+	Likes        BaseLikesInfo            `json:"likes"`
+	PostID       int                      `json:"post_id"` // wall post ID (if comment)
+	PostSource   WallPostSource           `json:"post_source"`
+	PostType     string                   `json:"post_type"`
+	Reposts      BaseRepostsInfo          `json:"reposts"`
+	SignerID     int                      `json:"signer_id"`   // Post signer ID
+	Text         string                   `json:"text"`        // Post text
+	ToID         int                      `json:"to_id"`       // Wall owner's ID
+	IsFavorite   BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
+	ParentsStack []int                    `json:"parents_stack"`
 }
 
 // WallPostCopyright information about the source of the post.
