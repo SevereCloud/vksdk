@@ -44,10 +44,10 @@ type MarketMarketItem struct {
 	AccessKey          string                     `json:"access_key"`   // Access key for the market item
 	Availability       int                        `json:"availability"` // Information whether the item is available
 	Category           MarketMarketCategory       `json:"category"`
-	Date               int                        `json:"date"`        // Date when the item has been created in Unixtime
-	Description        string                     `json:"description"` // Item description
-	ID                 int                        `json:"id"`          // Item ID
-	OwnerID            int                        `json:"owner_id"`    // Item owner's ID
+	Date               int                        `json:"date,omitempty"` // Date when the item has been created in Unixtime
+	Description        string                     `json:"description"`    // Item description
+	ID                 int                        `json:"id"`             // Item ID
+	OwnerID            int                        `json:"owner_id"`       // Item owner's ID
 	Price              MarketPrice                `json:"price"`
 	ThumbPhoto         string                     `json:"thumb_photo"` // URL of the preview image
 	Title              string                     `json:"title"`       // Item title
@@ -59,7 +59,7 @@ type MarketMarketItem struct {
 	Photos             []PhotosPhoto              `json:"photos"`
 	Likes              BaseLikesInfo              `json:"likes"`
 	Reposts            BaseRepostsInfo            `json:"reposts"`
-	ViewsCount         int                        `json:"views_count"`
+	ViewsCount         int                        `json:"views_count,omitempty"`
 	URL                string                     `json:"url"` // URL to item
 	ButtonTitle        string                     `json:"button_title"`
 	ExternalID         string                     `json:"external_id"`

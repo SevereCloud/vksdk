@@ -82,7 +82,7 @@ func testFave(t *testing.T, f object.FaveItem) {
 				}
 			}
 
-			assert.NotEmpty(t, f.Product.Date, "f.Product.Date")
+			// assert.NotEmpty(t, f.Product.Date, "f.Product.Date")
 			assert.NotEmpty(t, f.Product.Description, "f.Product.Description")
 			// assert.NotEmpty(t,f.Product.ExternalID)
 			assert.NotEmpty(t, f.Product.ID, "f.Product.ID")

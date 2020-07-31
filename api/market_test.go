@@ -243,7 +243,7 @@ func TestVK_MarketGetByID(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].Category.Name)
 		assert.NotEmpty(t, res.Items[0].Category.Section.ID)
 		assert.NotEmpty(t, res.Items[0].Category.Section.Name)
-		assert.NotEmpty(t, res.Items[0].Date)
+		// assert.NotEmpty(t, res.Items[0].Date)
 		assert.NotEmpty(t, res.Items[0].Description)
 		// assert.NotEmpty(t, res.Items[0].ExternalID)
 		assert.NotEmpty(t, res.Items[0].ID)
@@ -259,8 +259,8 @@ func TestVK_MarketGetByID(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].CanComment)
 		assert.NotEmpty(t, res.Items[0].CanRepost)
 		assert.NotEmpty(t, res.Items[0].Likes)
+		// assert.NotEmpty(t, res.Items[0].ViewsCount)
 		assert.NotEmpty(t, res.Items[0].Reposts)
-		assert.NotEmpty(t, res.Items[0].ViewsCount)
 	}
 }
 
@@ -370,7 +370,7 @@ func TestVK_MarketSearch(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].Category.Name)
 		assert.NotEmpty(t, res.Items[0].Category.Section.ID)
 		assert.NotEmpty(t, res.Items[0].Category.Section.Name)
-		assert.NotEmpty(t, res.Items[0].Date)
+		// assert.NotEmpty(t, res.Items[0].Date)
 		assert.NotEmpty(t, res.Items[0].Description)
 		// assert.NotEmpty(t, res.Items[0].ExternalID)
 		assert.NotEmpty(t, res.Items[0].ID)
@@ -384,7 +384,7 @@ func TestVK_MarketSearch(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].AlbumsIDs)
 		assert.NotEmpty(t, res.Items[0].Photos)
 		assert.NotEmpty(t, res.Items[0].Likes)
+		// assert.NotEmpty(t, res.Items[0].ViewsCount)
 		assert.NotEmpty(t, res.Items[0].Reposts)
-		assert.NotEmpty(t, res.Items[0].ViewsCount)
 	}
 }

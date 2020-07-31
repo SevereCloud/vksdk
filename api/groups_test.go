@@ -415,7 +415,7 @@ func TestVK_GroupsGetByID(t *testing.T) {
 		}
 		// assert.NotEmpty(t, group.Contacts)
 		assert.NotEmpty(t, group.Site)
-		assert.NotEmpty(t, group.MainSection)
+		// assert.NotEmpty(t, group.MainSection)
 		// assert.NotEmpty(t, group.Trending)
 		// assert.NotEmpty(t, group.IsMessagesBlocked)
 		assert.NotEmpty(t, group.OnlineStatus)
