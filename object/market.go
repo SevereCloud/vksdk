@@ -41,29 +41,40 @@ type MarketMarketCategory struct {
 
 // MarketMarketItem struct.
 type MarketMarketItem struct {
-	AccessKey    string               `json:"access_key"`   // Access key for the market item
-	Availability int                  `json:"availability"` // Information whether the item is available
-	Category     MarketMarketCategory `json:"category"`
-	Date         int                  `json:"date"`        // Date when the item has been created in Unixtime
-	Description  string               `json:"description"` // Item description
-	ID           int                  `json:"id"`          // Item ID
-	OwnerID      int                  `json:"owner_id"`    // Item owner's ID
-	Price        MarketPrice          `json:"price"`
-	ThumbPhoto   string               `json:"thumb_photo"` // URL of the preview image
-	Title        string               `json:"title"`       // Item title
-	CanComment   BaseBoolInt          `json:"can_comment"`
-	CanRepost    BaseBoolInt          `json:"can_repost"`
-	IsFavorite   BaseBoolInt          `json:"is_favorite"`
-	AlbumsIDs    []int                `json:"albums_ids"`
-	Photos       []PhotosPhoto        `json:"photos"`
-	Likes        BaseLikesInfo        `json:"likes"`
-	Reposts      BaseRepostsInfo      `json:"reposts"`
-	ViewsCount   int                  `json:"views_count"`
-	URL          string               `json:"url"` // URL to item
-	ButtonTitle  string               `json:"button_title"`
-	ExternalID   string               `json:"external_id"`
-	Dimensions   MarketDimensions     `json:"dimensions"`
-	Weight       int                  `json:"weight"`
+	AccessKey          string                     `json:"access_key"`   // Access key for the market item
+	Availability       int                        `json:"availability"` // Information whether the item is available
+	Category           MarketMarketCategory       `json:"category"`
+	Date               int                        `json:"date"`        // Date when the item has been created in Unixtime
+	Description        string                     `json:"description"` // Item description
+	ID                 int                        `json:"id"`          // Item ID
+	OwnerID            int                        `json:"owner_id"`    // Item owner's ID
+	Price              MarketPrice                `json:"price"`
+	ThumbPhoto         string                     `json:"thumb_photo"` // URL of the preview image
+	Title              string                     `json:"title"`       // Item title
+	CanComment         BaseBoolInt                `json:"can_comment"`
+	CanRepost          BaseBoolInt                `json:"can_repost"`
+	IsFavorite         BaseBoolInt                `json:"is_favorite"`
+	IsMainVariant      BaseBoolInt                `json:"is_main_variant"`
+	AlbumsIDs          []int                      `json:"albums_ids"`
+	Photos             []PhotosPhoto              `json:"photos"`
+	Likes              BaseLikesInfo              `json:"likes"`
+	Reposts            BaseRepostsInfo            `json:"reposts"`
+	ViewsCount         int                        `json:"views_count"`
+	URL                string                     `json:"url"` // URL to item
+	ButtonTitle        string                     `json:"button_title"`
+	ExternalID         string                     `json:"external_id"`
+	Dimensions         MarketDimensions           `json:"dimensions"`
+	Weight             int                        `json:"weight"`
+	VariantsGroupingID int                        `json:"variants_grouping_id"`
+	PropertyValues     []MarketMarketItemProperty `json:"property_values"`
+	CartQuantity       int                        `json:"cart_quantity"`
+}
+
+// MarketMarketItemProperty struct.
+type MarketMarketItemProperty struct {
+	VariantID    int    `json:"variant_id"`
+	VariantName  string `json:"variant_name"`
+	PropertyName string `json:"property_name"`
 }
 
 // MarketDimensions struct.
@@ -109,20 +120,59 @@ const (
 
 // MarketOrder struct.
 type MarketOrder struct {
-	ID                int                 `json:"id"`
-	GroupID           int                 `json:"group_id"`
-	UserID            int                 `json:"user_id"`
-	Date              int                 `json:"date"`
-	Status            MarketOrderStatus   `json:"status"`
-	ItemsCount        int                 `json:"items_count"`
-	TotalPrice        MarketPrice         `json:"total_price"`
-	DisplayOrderID    string              `json:"display_order_id"`
-	TrackNumber       string              `json:"track_number"`
-	TrackLink         string              `json:"track_link"`
-	Comment           string              `json:"comment"`
-	Address           string              `json:"address"`
-	PreviewOrderItems []MarketOrderItem   `json:"preview_order_items"`
-	PriceDetails      []MarketPriceDetail `json:"price_details"`
+	ID                int                  `json:"id"`
+	GroupID           int                  `json:"group_id"`
+	UserID            int                  `json:"user_id"`
+	Date              int                  `json:"date"`
+	Status            MarketOrderStatus    `json:"status"`
+	ItemsCount        int                  `json:"items_count"`
+	TotalPrice        MarketPrice          `json:"total_price"`
+	DisplayOrderID    string               `json:"display_order_id"`
+	Comment           string               `json:"comment"`
+	PreviewOrderItems []MarketOrderItem    `json:"preview_order_items"`
+	PriceDetails      []MarketPriceDetail  `json:"price_details"`
+	Delivery          MarketOrderDelivery  `json:"delivery"`
+	Recipient         MarketOrderRecipient `json:"recipient"`
+}
+
+// MarketOrderDelivery struct.
+type MarketOrderDelivery struct {
+	TrackNumber   string              `json:"track_number"`
+	TrackLink     string              `json:"track_link"`
+	Address       string              `json:"address"`
+	Type          string              `json:"type"`
+	DeliveryPoint MarketDeliveryPoint `json:"delivery_point,omitempty"`
+}
+
+// MarketDeliveryPoint struct.
+type MarketDeliveryPoint struct {
+	ID           int                        `json:"id"`
+	ExternalID   string                     `json:"external_id"`
+	OutpostOnly  BaseBoolInt                `json:"outpost_only"`
+	CashOnly     BaseBoolInt                `json:"cash_only"`
+	Address      MarketDeliveryPointAddress `json:"address"`
+	DisplayTitle string                     `json:"display_title"`
+	ServiceID    int                        `json:"service_id"`
+}
+
+// MarketDeliveryPointAddress struct.
+type MarketDeliveryPointAddress struct {
+	ID             int     `json:"id"`
+	Address        string  `json:"address"`
+	CityID         int     `json:"city_id"`
+	CountryID      int     `json:"country_id"`
+	Latitude       float64 `json:"latitude"`
+	Longitude      float64 `json:"longitude"`
+	Phone          string  `json:"phone"`
+	Title          string  `json:"title"`
+	WorkInfoStatus string  `json:"work_info_status"`
+}
+
+// MarketOrderRecipient struct.
+type MarketOrderRecipient struct {
+	Name        string `json:"name"`
+	Phone       string `json:"phone"`
+	DisplayText string `json:"display_text"`
 }
 
 // MarketOrderItem struct.
@@ -141,5 +191,5 @@ type MarketOrderItem struct {
 type MarketPriceDetail struct {
 	Title    string      `json:"title"`
 	Price    MarketPrice `json:"price"`
-	IsAccent bool        `json:"is_accent,omitempty"`
+	IsAccent BaseBoolInt `json:"is_accent,omitempty"`
 }
