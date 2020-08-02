@@ -1,6 +1,7 @@
 package api_test
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -243,7 +244,7 @@ func TestVK_InvalidContentType(t *testing.T) {
 	var testObj string
 
 	err := vkGroup.RequestUnmarshal("t/t", api.Params{}, testObj)
-	if err == nil || err.Error() != "invalid content-type" {
+	if err == nil || err.Error() != "api: invalid content-type" {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}
 }
@@ -300,7 +301,7 @@ func TestVK_CaptchaForce(t *testing.T) {
 
 	_, err := vkUser.CaptchaForce(api.Params{})
 
-	if e, ok := err.(*api.Error); err != nil || !ok || e.Code != api.ErrCaptcha {
+	if errors.Is(err, api.ErrCaptcha) {
 		t.Errorf("VK.CaptchaForce() err=%v, want 14", err)
 	}
 }

@@ -680,10 +680,7 @@ type rawUploadStoriesPhoto struct {
 
 type rawUploadStoriesVideo struct {
 	Response UploadStories `json:"response"`
-	Error    struct {
-		ErrorCode int    `json:"error_code"`
-		Type      string `json:"type"`
-	} `json:"error"`
+	UploadError
 }
 
 // UploadStoriesPhoto uploading Story.
@@ -749,13 +746,8 @@ func (vk *VK) UploadStoriesVideo(params Params, file io.Reader) (response Storie
 		return
 	}
 
-	if handler.Error.ErrorCode != 0 {
-		err = &UploadError{
-			Code: handler.Error.ErrorCode,
-			Err:  handler.Error.Type,
-		}
-
-		return response, err
+	if handler.UploadError.Code != 0 {
+		return response, &handler.UploadError
 	}
 
 	response, err = vk.StoriesSave(Params{

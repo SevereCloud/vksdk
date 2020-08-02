@@ -259,10 +259,10 @@ func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 				continue
 			}
 
-			return response, response.Error
+			return response, &response.Error
 		}
 
-		return response, response.Error
+		return response, &response.Error
 	}
 }
 
@@ -329,13 +329,14 @@ func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error
 	copyParams["v"] = vk.Version
 
 	resp, err := vk.Handler("execute", copyParams)
-	if resp.ExecuteErrors != nil {
-		return resp.ExecuteErrors
-	}
 
 	jsonErr := json.Unmarshal(resp.Response, &obj)
 	if jsonErr != nil {
 		return jsonErr
+	}
+
+	if resp.ExecuteErrors != nil {
+		return resp.ExecuteErrors
 	}
 
 	return err
