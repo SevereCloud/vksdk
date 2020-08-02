@@ -404,8 +404,8 @@ func (e Error) Is(target error) bool {
 		return e.Code == t.Code && e.Message == t.Message
 	}
 
-	if t, ok := target.(ErrorType); ok {
-		return e.Code == t
+	if t, ok := target.(*ErrorType); ok {
+		return e.Code == *t
 	}
 
 	return false
