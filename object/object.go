@@ -8,7 +8,7 @@ package object // import "github.com/SevereCloud/vksdk/object"
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
+	"reflect"
 )
 
 // Attachment interface.
@@ -33,7 +33,10 @@ func (b *BaseBoolInt) UnmarshalJSON(data []byte) (err error) {
 		*b = false
 	default:
 		// return json error
-		err = fmt.Errorf("json: cannot unmarshal ? into Go value of type BaseBoolInt")
+		err = &json.UnmarshalTypeError{
+			Value: string(data),
+			Type:  reflect.TypeOf((*BaseBoolInt)(nil)),
+		}
 	}
 
 	return
