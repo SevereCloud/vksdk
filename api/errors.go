@@ -312,6 +312,7 @@ const (
 	ErrMarketItemHasBadLinks             ErrorType = 1408 // Item has bad links in description
 	ErrMarketShopNotEnabled              ErrorType = 1409 // Shop not enabled
 	ErrMarketCartEmpty                   ErrorType = 1427 // Cart is empty
+	ErrMarketSpecifyDimensions           ErrorType = 1429 // Specify width, length, height and weight all together
 	ErrStoryExpired                      ErrorType = 1600 // Story has already expired
 	ErrStoryIncorrectReplyPrivacy        ErrorType = 1602 // Incorrect reply privacy
 	ErrPrettyCardsCardNotFound           ErrorType = 1900 // Card not found
