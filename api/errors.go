@@ -451,3 +451,20 @@ type InvalidContentType struct {
 func (e InvalidContentType) Error() string {
 	return "api: invalid content-type"
 }
+
+// UploadError type.
+type UploadError struct {
+	Err      string `json:"error"`
+	Code     int    `json:"error_code"`
+	Descr    string `json:"error_descr"`
+	IsLogged bool   `json:"error_is_logged"`
+}
+
+// Error returns the message of a UploadError.
+func (e UploadError) Error() string {
+	if e.Err != "" {
+		return "api: " + e.Err
+	}
+
+	return fmt.Sprintf("api: upload code %d", e.Code)
+}

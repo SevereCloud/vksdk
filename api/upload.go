@@ -3,20 +3,12 @@ package api // import "github.com/SevereCloud/vksdk/api"
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"mime/multipart"
 
 	"github.com/SevereCloud/vksdk/object"
 )
-
-type uploadError struct {
-	Error         string `json:"error"`
-	ErrorCode     int    `json:"error_code"`
-	ErrorDescr    string `json:"error_descr"`
-	ErrorIsLogged bool   `json:"error_is_logged"`
-}
 
 // UploadFile uploading file.
 func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string) (bodyContent []byte, err error) {
@@ -494,15 +486,15 @@ func (vk *VK) UploadVideo(params Params, file io.Reader) (response VideoSaveResp
 		return
 	}
 
-	var videoUploadError uploadError
+	var videoUploadError UploadError
 
 	err = json.Unmarshal(bodyContent, &videoUploadError)
 	if err != nil {
 		return
 	}
 
-	if videoUploadError.ErrorCode != 0 {
-		err = fmt.Errorf(videoUploadError.Error)
+	if videoUploadError.Code != 0 {
+		err = &videoUploadError
 	}
 
 	return
@@ -519,15 +511,15 @@ func (vk *VK) uploadDoc(url, title, tags string, file io.Reader) (response DocsS
 		return
 	}
 
-	var docUploadError uploadError
+	var docUploadError UploadError
 
 	err = json.Unmarshal(bodyContent, &docUploadError)
 	if err != nil {
 		return
 	}
 
-	if docUploadError.Error != "" {
-		err = fmt.Errorf(docUploadError.Error)
+	if docUploadError.Err != "" {
+		err = &docUploadError
 		return
 	}
 
@@ -721,15 +713,19 @@ func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response Storie
 	}
 
 	if handler.Error.ErrorCode != 0 {
-		err = fmt.Errorf(handler.Error.Type)
-		return
+		err = &UploadError{
+			Code: handler.Error.ErrorCode,
+			Err:  handler.Error.Type,
+		}
+
+		return response, err
 	}
 
 	response, err = vk.StoriesSave(Params{
 		"upload_results": handler.Response.UploadResult,
 	})
 
-	return
+	return response, err
 }
 
 // UploadStoriesVideo uploading Story.
@@ -754,15 +750,19 @@ func (vk *VK) UploadStoriesVideo(params Params, file io.Reader) (response Storie
 	}
 
 	if handler.Error.ErrorCode != 0 {
-		err = fmt.Errorf(handler.Error.Type)
-		return
+		err = &UploadError{
+			Code: handler.Error.ErrorCode,
+			Err:  handler.Error.Type,
+		}
+
+		return response, err
 	}
 
 	response, err = vk.StoriesSave(Params{
 		"upload_results": handler.Response.UploadResult,
 	})
 
-	return
+	return response, err
 }
 
 // uploadPollsPhoto uploading a Poll Photo.
@@ -846,8 +846,7 @@ func (vk *VK) UploadPrettyCardsPhoto(file io.Reader) (response string, err error
 	response = handler.Photo
 
 	if handler.ErrCode != 0 {
-		// TODO: new type error
-		err = fmt.Errorf("%d", handler.ErrCode)
+		err = &UploadError{Code: handler.ErrCode}
 	}
 
 	return
@@ -882,8 +881,7 @@ func (vk *VK) UploadLeadFormsPhoto(file io.Reader) (response string, err error) 
 	response = handler.Photo
 
 	if handler.ErrCode != 0 {
-		// TODO: new type error
-		err = fmt.Errorf("%d", handler.ErrCode)
+		err = &UploadError{Code: handler.ErrCode}
 	}
 
 	return
