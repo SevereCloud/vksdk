@@ -83,6 +83,7 @@ package streaming
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -157,7 +158,7 @@ func (s *Streaming) doRequest(req *http.Request) (*response, error) {
 	}
 
 	if r.Code == codeError {
-		return nil, NewError(r.Error)
+		return nil, &r.Error
 	}
 
 	return &r, nil
@@ -270,7 +271,7 @@ func (s *Streaming) handlerWebsocket(r response) error {
 			f(r.Event)
 		}
 	case codeError:
-		return NewError(r.Error)
+		return &r.Error
 	}
 
 	return nil
@@ -300,7 +301,7 @@ func (s *Streaming) Run() error {
 
 	c, wsResp, err := s.Dialer.Dial(u.String(), requestHeader)
 	if err != nil {
-		if err == websocket.ErrBadHandshake && wsResp != nil {
+		if errors.Is(err, websocket.ErrBadHandshake) && wsResp != nil {
 			var r response
 
 			err = json.NewDecoder(wsResp.Body).Decode(&r)
