@@ -4,7 +4,6 @@ Package internal unimportable
 package internal // import "github.com/SevereCloud/vksdk/internal"
 
 import (
-	"fmt"
 	"io"
 	"strings"
 
@@ -43,7 +42,7 @@ type CharsetUnknownError struct {
 
 // Error returns the message of a CharsetUnknownError.
 func (c *CharsetUnknownError) Error() string {
-	return fmt.Sprintf("unknown charset: %s", c.Name)
+	return "unknown charset: " + c.Name
 }
 
 // CharsetReader if non-nil, defines a function to generate

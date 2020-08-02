@@ -41,7 +41,7 @@ type Error struct {
 
 // Error returns the message of a Error.
 func (e Error) Error() string {
-	return fmt.Sprintf("streaming: %s", e.Message)
+	return "streaming: " + e.Message
 }
 
 // Is unwraps its first argument sequentially looking for an error that matches
