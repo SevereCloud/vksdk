@@ -415,13 +415,13 @@ func (e Error) Is(target error) bool {
 // be assigned to its second argument, which must be a pointer. If it
 // succeeds, it performs the assignment and returns true. Otherwise, it
 // returns false.
-func (e Error) As(target error) bool {
-	if t, ok := target.(Error); ok {
+func (e Error) As(target interface{}) bool {
+	if t, ok := target.(*Error); ok {
 		return e.Code == t.Code
 	}
 
-	if t, ok := target.(ErrorType); ok {
-		return e.Code == t
+	if t, ok := target.(*ErrorType); ok {
+		return e.Code == *t
 	}
 
 	return false
