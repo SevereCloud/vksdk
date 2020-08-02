@@ -441,3 +441,13 @@ type ExecuteErrors []ExecuteError
 func (e ExecuteErrors) Error() string {
 	return fmt.Sprintf("api: execute errors (%d)", len(e))
 }
+
+// InvalidContentType type.
+type InvalidContentType struct {
+	ContentType string
+}
+
+// Error returns the message of a InvalidContentType.
+func (e InvalidContentType) Error() string {
+	return "api: invalid content-type"
+}
