@@ -36,6 +36,16 @@ func XMLSanitizerReader(xml io.Reader) io.Reader {
 	return transform.NewReader(xml, t)
 }
 
+// CharsetUnknownError unknown charset.
+type CharsetUnknownError struct {
+	Name string
+}
+
+// Error returns the message of a CharsetUnknownError.
+func (c *CharsetUnknownError) Error() string {
+	return fmt.Sprintf("unknown charset: %s", c.Name)
+}
+
 // CharsetReader if non-nil, defines a function to generate
 // charset-conversion readers, converting from the provided
 // non-UTF-8 charset into UTF-8. If CharsetReader is nil or
@@ -46,6 +56,6 @@ func CharsetReader(charset string, input io.Reader) (io.Reader, error) {
 	case "windows-1251":
 		return charmap.Windows1251.NewDecoder().Reader(input), nil
 	default:
-		return nil, fmt.Errorf("unknown charset: %s", charset)
+		return nil, &CharsetUnknownError{Name: charset}
 	}
 }
