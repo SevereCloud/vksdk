@@ -284,6 +284,7 @@ const (
 	ErrMessagesChatNotSupported          ErrorType = 946  // Chat not support
 	ErrMessagesMemberAccessToGroupDenied ErrorType = 947  // Can't add user to chat, because user has no access to group
 	ErrMessagesEditPinned                ErrorType = 949  // Can't edit pinned message yet
+	ErrMessagesReplyTimedOut             ErrorType = 950  // Can't send message, reply timed out
 	ErrParamPhone                        ErrorType = 1000 // Invalid phone number
 	ErrPhoneAlreadyUsed                  ErrorType = 1004 // This phone number is used by another user
 	ErrAuthFloodError                    ErrorType = 1105 // Too many auth attempts, try again later
