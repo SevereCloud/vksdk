@@ -7,8 +7,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
-	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -300,7 +298,7 @@ func TestVK_UploadVideo_Error(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadVideo(api.Params{}, response.Body)
-	if errors.GetType(err) != errors.NoType {
+	if _, ok := err.(*api.Error); err != nil && !ok {
 		t.Errorf("VK.UploadVideo() err = %v, want %v", err, -1)
 	}
 }
@@ -311,7 +309,7 @@ func TestVK_uploadDoc_Error(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.UploadDoc("", "", new(bytes.Buffer))
-	if errors.GetType(err) != errors.NoType {
+	if _, ok := err.(*api.Error); err != nil && !ok {
 		t.Errorf("VK.UploadDoc() err = %v, want %v", err, -1)
 	}
 }
@@ -437,7 +435,7 @@ func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.UploadStoriesPhoto(api.Params{}, new(bytes.Buffer))
-	if errors.GetType(err) != errors.NoType {
+	if _, ok := err.(*api.Error); err != nil && !ok {
 		t.Errorf("VK.UploadStoriesPhoto() err = %v, want %v", err, -1)
 	}
 }
@@ -454,7 +452,7 @@ func TestVK_UploadStoriesVideo_Error(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadStoriesVideo(api.Params{}, response.Body)
-	if errors.GetType(err) != errors.NoType {
+	if _, ok := err.(*api.Error); err != nil && !ok {
 		t.Errorf("VK.UploadStoriesVideo() err = %v, want %v", err, -1)
 	}
 }
@@ -556,66 +554,25 @@ func TestVK_Upload_Error(t *testing.T) {
 
 	vk := api.NewVK("")
 
-	_, err := vk.UploadPhoto(0, new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadWallPhoto(new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadUserPhoto(new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadMessagesPhoto(1, new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadChatPhoto(1, new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadMarketPhoto(1, false, new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadMarketAlbumPhoto(1, new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadVideo(api.Params{}, new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadDoc("", "", new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadGroupDoc(1, "", "", new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadWallDoc("", "", new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadGroupWallDoc(1, "", "", new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadMessagesDoc(1, "", "", "", new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadOwnerCoverPhoto(1, 0, 0, 0, 0, new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadStoriesPhoto(api.Params{}, new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadStoriesVideo(api.Params{}, new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadPollsPhoto(new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadPrettyCardsPhoto(new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadLeadFormsPhoto(new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadAppImage("", new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
-
-	_, err = vk.UploadGroupImage("", new(bytes.Buffer))
-	assert.Equal(t, errors.GetType(err), errors.Auth)
+	_, _ = vk.UploadPhoto(0, new(bytes.Buffer))
+	_, _ = vk.UploadWallPhoto(new(bytes.Buffer))
+	_, _ = vk.UploadUserPhoto(new(bytes.Buffer))
+	_, _ = vk.UploadMessagesPhoto(1, new(bytes.Buffer))
+	_, _ = vk.UploadChatPhoto(1, new(bytes.Buffer))
+	_, _ = vk.UploadMarketPhoto(1, false, new(bytes.Buffer))
+	_, _ = vk.UploadMarketAlbumPhoto(1, new(bytes.Buffer))
+	_, _ = vk.UploadVideo(api.Params{}, new(bytes.Buffer))
+	_, _ = vk.UploadDoc("", "", new(bytes.Buffer))
+	_, _ = vk.UploadGroupDoc(1, "", "", new(bytes.Buffer))
+	_, _ = vk.UploadWallDoc("", "", new(bytes.Buffer))
+	_, _ = vk.UploadGroupWallDoc(1, "", "", new(bytes.Buffer))
+	_, _ = vk.UploadMessagesDoc(1, "", "", "", new(bytes.Buffer))
+	_, _ = vk.UploadOwnerCoverPhoto(1, 0, 0, 0, 0, new(bytes.Buffer))
+	_, _ = vk.UploadStoriesPhoto(api.Params{}, new(bytes.Buffer))
+	_, _ = vk.UploadStoriesVideo(api.Params{}, new(bytes.Buffer))
+	_, _ = vk.UploadPollsPhoto(new(bytes.Buffer))
+	_, _ = vk.UploadPrettyCardsPhoto(new(bytes.Buffer))
+	_, _ = vk.UploadLeadFormsPhoto(new(bytes.Buffer))
+	_, _ = vk.UploadAppImage("", new(bytes.Buffer))
+	_, _ = vk.UploadGroupImage("", new(bytes.Buffer))
 }

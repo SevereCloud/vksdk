@@ -16,7 +16,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/SevereCloud/vksdk/internal"
 	"github.com/SevereCloud/vksdk/object"
 )
@@ -95,24 +94,11 @@ type VK struct {
 	rps       int
 }
 
-// Error struct VK.
-//
-// Deprecated: use object.Error.
-type Error struct {
-	Code             int                       `json:"error_code"`
-	Message          string                    `json:"error_msg"`
-	Text             string                    `json:"error_text"`
-	CaptchaSID       string                    `json:"captcha_sid"`
-	CaptchaImg       string                    `json:"captcha_img"`
-	ConfirmationText string                    `json:"confirmation_text"` //  text of the message to be shown in the default confirmation window.
-	RequestParams    []object.BaseRequestParam `json:"request_params"`
-}
-
 // Response struct.
 type Response struct {
-	Response      json.RawMessage       `json:"response"`
-	Error         object.Error          `json:"error"`
-	ExecuteErrors []object.ExecuteError `json:"execute_errors"`
+	Response      json.RawMessage `json:"response"`
+	Error         Error           `json:"error"`
+	ExecuteErrors ExecuteErrors   `json:"execute_errors"`
 }
 
 // NewVK returns a new VK.
@@ -265,16 +251,18 @@ func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 
 		_ = resp.Body.Close()
 
-		err = errors.New(response.Error)
-		if err != nil {
-			if errors.GetType(err) == errors.TooMany && attempt < vk.Limit {
+		switch response.Error.Code {
+		case ErrNoType:
+			return response, nil
+		case ErrTooMany:
+			if attempt < vk.Limit {
 				continue
 			}
 
-			return response, err
+			return response, response.Error
 		}
 
-		return response, nil
+		return response, response.Error
 	}
 }
 
@@ -341,21 +329,8 @@ func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error
 	copyParams["v"] = vk.Version
 
 	resp, err := vk.Handler("execute", copyParams)
-
-	// Add execute errors
-	for _, executeError := range resp.ExecuteErrors {
-		context := object.Error{
-			Code:    executeError.ErrorCode,
-			Message: executeError.ErrorMsg,
-			RequestParams: []object.BaseRequestParam{
-				{
-					Key:   "method",
-					Value: executeError.Method,
-				},
-			},
-		}
-
-		err = errors.AddErrorContext(err, context)
+	if resp.ExecuteErrors != nil {
+		return resp.ExecuteErrors
 	}
 
 	jsonErr := json.Unmarshal(resp.Response, &obj)

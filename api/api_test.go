@@ -9,7 +9,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/SevereCloud/vksdk/object"
 	"github.com/stretchr/testify/assert"
 )
@@ -17,34 +16,29 @@ import (
 func noError(t *testing.T, err error) bool {
 	t.Helper()
 
-	switch errors.GetType(err) {
-	// case errors.TooMany:
-	// 	t.Skip("Too many requests per second")
-	case errors.Server:
-		t.Skip("Internal server error")
-	case errors.Permission:
-		t.Skip("Permission to perform this action is denied")
-	case errors.Captcha:
-		t.Skip("Captcha needed")
-	}
-
-	if err != nil {
-		ctx := errors.GetErrorContext(err)
-		if ctx.Code != 0 {
+	if e, ok := err.(*api.Error); ok {
+		switch e.Code {
+		case api.ErrServer:
+			t.Skip("Internal server error")
+		case api.ErrPermission:
+			t.Skip("Permission to perform this action is denied")
+		case api.ErrCaptcha:
+			t.Skip("Captcha needed")
+		default:
 			s := "\n"
-			s += fmt.Sprintf("code: %d\n", ctx.Code)
-			s += fmt.Sprintf("text: %s\n", ctx.Text)
-			s += fmt.Sprintf("message: %s\n", ctx.Message)
+			s += fmt.Sprintf("code: %d\n", e.Code)
+			s += fmt.Sprintf("text: %s\n", e.Text)
+			s += fmt.Sprintf("message: %s\n", e.Message)
 			s += "params:\n"
 
-			for _, param := range ctx.RequestParams {
+			for _, param := range e.RequestParams {
 				s += fmt.Sprintf("\t%s: %s\n", param.Key, param.Value)
 			}
 
 			t.Log(s)
-		} else {
-			t.Log(fmt.Sprintf("\n%#v", err))
 		}
+	} else {
+		t.Log(fmt.Sprintf("\n%#v", err))
 	}
 
 	return assert.NoError(t, err)
@@ -305,7 +299,8 @@ func TestVK_CaptchaForce(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.CaptchaForce(api.Params{})
-	if errors.GetType(err) != errors.Captcha {
+
+	if e, ok := err.(*api.Error); err != nil || !ok || e.Code != api.ErrCaptcha {
 		t.Errorf("VK.CaptchaForce() err=%v, want 14", err)
 	}
 }

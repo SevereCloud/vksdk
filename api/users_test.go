@@ -5,7 +5,6 @@ import (
 
 	"github.com/SevereCloud/vksdk/api"
 
-	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -134,7 +133,7 @@ func TestVK_UsersReport(t *testing.T) {
 		"type":    "spam",
 		"comment": "Тестовый репорт - github.com/SevereCloud/vksdk",
 	})
-	if errors.GetType(err) == errors.Access {
+	if e, ok := err.(*api.Error); ok && e.Code == api.ErrAccess {
 		t.Skip("Access denied")
 	}
 

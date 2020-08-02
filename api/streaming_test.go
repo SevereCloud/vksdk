@@ -4,8 +4,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
-	"github.com/SevereCloud/vksdk/api/errors"
 )
 
 func TestVK_StreamingGetServerURL(t *testing.T) {
@@ -114,35 +112,35 @@ func TestVK_StreamingError(t *testing.T) {
 
 	t.Run("StreamingGetServerURL error", func(t *testing.T) {
 		_, err := vk.StreamingGetServerURL(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		if e, ok := err.(*api.Error); ok && e.Code == api.ErrAuth {
 			t.Errorf("StreamingGetServerURL error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingGetSettings error", func(t *testing.T) {
 		_, err := vk.StreamingGetSettings(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		if e, ok := err.(*api.Error); ok && e.Code == api.ErrAuth {
 			t.Errorf("StreamingGetSettings error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingGetStats error", func(t *testing.T) {
 		_, err := vk.StreamingGetStats(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		if e, ok := err.(*api.Error); ok && e.Code == api.ErrAuth {
 			t.Errorf("StreamingGetStats error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingGetStem error", func(t *testing.T) {
 		_, err := vk.StreamingGetStem(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		if e, ok := err.(*api.Error); ok && e.Code == api.ErrAuth {
 			t.Errorf("StreamingGetStem error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingSetSettings error", func(t *testing.T) {
 		_, err := vk.StreamingSetSettings(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		if e, ok := err.(*api.Error); ok && e.Code == api.ErrAuth {
 			t.Errorf("StreamingSetSettings error bad %v", err)
 		}
 	})
