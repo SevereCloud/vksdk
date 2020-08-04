@@ -314,6 +314,7 @@ const (
 	ErrMarketCartEmpty                   ErrorType = 1427 // Cart is empty
 	ErrMarketSpecifyDimensions           ErrorType = 1429 // Specify width, length, height and weight all together
 	ErrVKPayStatus                       ErrorType = 1430 // VK Pay status can not be changed
+	ErrMarketAlreadyEnabled              ErrorType = 1431 // Market was already enabled in this group
 	ErrStoryExpired                      ErrorType = 1600 // Story has already expired
 	ErrStoryIncorrectReplyPrivacy        ErrorType = 1602 // Incorrect reply privacy
 	ErrPrettyCardsCardNotFound           ErrorType = 1900 // Card not found
