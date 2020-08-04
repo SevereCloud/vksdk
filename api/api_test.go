@@ -301,7 +301,7 @@ func TestVK_CaptchaForce(t *testing.T) {
 
 	_, err := vkUser.CaptchaForce(api.Params{})
 
-	if errors.Is(err, api.ErrCaptcha) {
+	if !errors.Is(err, api.ErrCaptcha) {
 		t.Errorf("VK.CaptchaForce() err=%v, want 14", err)
 	}
 }
