@@ -336,7 +336,7 @@ func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error
 	}
 
 	if resp.ExecuteErrors != nil {
-		return resp.ExecuteErrors
+		return &resp.ExecuteErrors
 	}
 
 	return err
