@@ -466,8 +466,8 @@ func TestVK_MessagesSendSticker(t *testing.T) {
 
 	_, err := vkUser.MessagesSendSticker(api.Params{
 		"chat_id":    chatID,
-		"random":     0,
-		"sticker_id": 279,
+		"random_id":  0,
+		"sticker_id": 9008,
 	})
 	noError(t, err)
 }
