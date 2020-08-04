@@ -15,7 +15,7 @@ type MessageFlagsChange struct {
 
 func (result *MessageFlagsChange) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "MessageFlagsChange", least: 3, got: len(i)}
+		return &tooShortArray{structName: "MessageFlagsChange", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -40,7 +40,7 @@ type MessageFlagsSet struct {
 
 func (result *MessageFlagsSet) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "MessageFlagsSet", least: 3, got: len(i)}
+		return &tooShortArray{structName: "MessageFlagsSet", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -65,7 +65,7 @@ type MessageFlagsReset struct {
 
 func (result *MessageFlagsReset) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "MessageFlagsReset", least: 3, got: len(i)}
+		return &tooShortArray{structName: "MessageFlagsReset", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -90,7 +90,7 @@ type NewMessage struct {
 
 func (result *NewMessage) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "NewMessage", least: 3, got: len(i)}
+		return &tooShortArray{structName: "NewMessage", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -119,7 +119,7 @@ type EditMessage struct {
 
 func (result *EditMessage) parse(i []interface{}) error {
 	if len(i) < 6 {
-		return tooShortArray{structName: "EditMessage", least: 6, got: len(i)}
+		return &tooShortArray{structName: "EditMessage", least: 6, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -167,7 +167,7 @@ type ReadInMessages struct {
 
 func (result *ReadInMessages) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "ReadInMessages", least: 3, got: len(i)}
+		return &tooShortArray{structName: "ReadInMessages", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -191,7 +191,7 @@ type ReadOutMessages struct {
 
 func (result *ReadOutMessages) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "ReadOutMessages", least: 3, got: len(i)}
+		return &tooShortArray{structName: "ReadOutMessages", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -216,7 +216,7 @@ type FriendBecameOnline struct {
 
 func (result *FriendBecameOnline) parse(i []interface{}) error {
 	if len(i) < 4 {
-		return tooShortArray{structName: "FriendBecameOnline", least: 4, got: len(i)}
+		return &tooShortArray{structName: "FriendBecameOnline", least: 4, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -245,7 +245,7 @@ type FriendBecameOffline struct {
 
 func (result *FriendBecameOffline) parse(i []interface{}) error {
 	if len(i) < 4 {
-		return tooShortArray{structName: "FriendBecameOffline", least: 4, got: len(i)}
+		return &tooShortArray{structName: "FriendBecameOffline", least: 4, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -273,7 +273,7 @@ type DialogFlagsReset struct {
 
 func (result *DialogFlagsReset) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "DialogFlagsReset", least: 3, got: len(i)}
+		return &tooShortArray{structName: "DialogFlagsReset", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -297,7 +297,7 @@ type DialogFlagsReplace struct {
 
 func (result *DialogFlagsReplace) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "DialogFlagsReplace", least: 3, got: len(i)}
+		return &tooShortArray{structName: "DialogFlagsReplace", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -321,7 +321,7 @@ type DialogsFlagsSet struct {
 
 func (result *DialogsFlagsSet) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "DialogsFlagsSet", least: 3, got: len(i)}
+		return &tooShortArray{structName: "DialogsFlagsSet", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -345,7 +345,7 @@ type DeleteMessages struct {
 
 func (result *DeleteMessages) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "DeleteMessages", least: 3, got: len(i)}
+		return &tooShortArray{structName: "DeleteMessages", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -369,7 +369,7 @@ type RestoreDeletedMessages struct {
 
 func (result *RestoreDeletedMessages) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "RestoreDeletedMessages", least: 3, got: len(i)}
+		return &tooShortArray{structName: "RestoreDeletedMessages", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -394,7 +394,7 @@ type ChatParamsChange struct {
 
 func (result *ChatParamsChange) parse(i []interface{}) error {
 	if len(i) < 2 {
-		return tooShortArray{structName: "ChatParamsChange", least: 2, got: len(i)}
+		return &tooShortArray{structName: "ChatParamsChange", least: 2, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -421,7 +421,7 @@ type ChatInfoChange struct {
 
 func (result *ChatInfoChange) parse(i []interface{}) error {
 	if len(i) < 4 {
-		return tooShortArray{structName: "ChatInfoChange", least: 4, got: len(i)}
+		return &tooShortArray{structName: "ChatInfoChange", least: 4, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -449,7 +449,7 @@ type UserTyping struct {
 
 func (result *UserTyping) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "UserTyping", least: 3, got: len(i)}
+		return &tooShortArray{structName: "UserTyping", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -473,7 +473,7 @@ type UserTypingChat struct {
 
 func (result *UserTypingChat) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "UserTypingChat", least: 3, got: len(i)}
+		return &tooShortArray{structName: "UserTypingChat", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -497,7 +497,7 @@ type UsersTyping struct {
 
 func (result *UsersTyping) parse(i []interface{}) error {
 	if len(i) < 5 {
-		return tooShortArray{structName: "UsersTyping", least: 5, got: len(i)}
+		return &tooShortArray{structName: "UsersTyping", least: 5, got: len(i)}
 	}
 
 	userIDs, err := interfaceToIDSlice(i[1])
@@ -532,7 +532,7 @@ type UsersRecordingAudioMessage struct {
 
 func (result *UsersRecordingAudioMessage) parse(i []interface{}) error {
 	if len(i) < 5 {
-		return tooShortArray{structName: "UsersRecordingAudioMessage", least: 5, got: len(i)}
+		return &tooShortArray{structName: "UsersRecordingAudioMessage", least: 5, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -565,7 +565,7 @@ type UserCall struct {
 
 func (result *UserCall) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "UserCall", least: 3, got: len(i)}
+		return &tooShortArray{structName: "UserCall", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -586,7 +586,7 @@ type CounterChange struct {
 
 func (result *CounterChange) parse(i []interface{}) error {
 	if len(i) < 2 {
-		return tooShortArray{structName: "CounterChange", least: 2, got: len(i)}
+		return &tooShortArray{structName: "CounterChange", least: 2, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
@@ -606,7 +606,7 @@ type NotificationSettingsChange struct {
 // ParseMode8 should be called if ExtendedEvents flag set.
 func (result *NotificationSettingsChange) parseMode8(i []interface{}) error {
 	if len(i) < 2 {
-		return tooShortArray{structName: "NotificationSettingsChange", least: 2, got: len(i)}
+		return &tooShortArray{structName: "NotificationSettingsChange", least: 2, got: len(i)}
 	}
 
 	v, err := interfaceToStringIntMap(i[1])
@@ -623,7 +623,7 @@ func (result *NotificationSettingsChange) parseMode8(i []interface{}) error {
 
 func (result *NotificationSettingsChange) parse(i []interface{}) error {
 	if len(i) < 3 {
-		return tooShortArray{structName: "NotificationSettingsChange", least: 3, got: len(i)}
+		return &tooShortArray{structName: "NotificationSettingsChange", least: 3, got: len(i)}
 	}
 
 	if v, ok := i[1].(float64); ok {
