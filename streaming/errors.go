@@ -2,116 +2,58 @@ package streaming // import "github.com/SevereCloud/vksdk/streaming"
 
 import (
 	"fmt"
-
-	"github.com/pkg/errors"
 )
 
 // ErrorType is the type of an error.
 type ErrorType int
 
+// Error returns the message of a ErrorType.
+func (e ErrorType) Error() string {
+	return fmt.Sprintf("streaming: error with code %d", e)
+}
+
 // Error codes. See https://vk.com/dev/streaming_api_docs_2
 const (
-	NoType ErrorType = 0 // NoType error
+	ErrNoType ErrorType = 0 // NoType error
 	// Settings for updating the connection to WebSocket are incorrectly transmitted
-	UpgradeWebsocket             ErrorType = 1000
-	UnsupportedHTTP              ErrorType = 1001 // Unsupported HTTP method
-	ContentType                  ErrorType = 1002 // “Content-type” key is absent or invalid
-	MissingKey                   ErrorType = 1003 // "key" parameter is absent
-	BadKey                       ErrorType = 1004 // "key" parameter is invalid
-	BadStreamID                  ErrorType = 1005 // "stream_id" parameter is invalid
-	ConnectionAlreadyEstablished ErrorType = 1006 // Such connection has been established already
-	InvalidJSON                  ErrorType = 2000 // Invalid JSON
-	TagAlreadyExist              ErrorType = 2001 // The rule this such tag has been added already
-	TagNotExist                  ErrorType = 2002 // The this such tag is absent
-	InvalidRule                  ErrorType = 2003 // Invalid rule
-	TooManyFilters               ErrorType = 2004 // Too many filters in one rule
-	UnbalancedQuotes             ErrorType = 2005 // Unbalanced quotes
-	TooManyRules                 ErrorType = 2006 // Too many rules in one stream
-	MinusKeywordsOnly            ErrorType = 2008 // You can't use minus keywords only
+	ErrUpgradeWebsocket             ErrorType = 1000
+	ErrUnsupportedHTTP              ErrorType = 1001 // Unsupported HTTP method
+	ErrContentType                  ErrorType = 1002 // “Content-type” key is absent or invalid
+	ErrMissingKey                   ErrorType = 1003 // "key" parameter is absent
+	ErrBadKey                       ErrorType = 1004 // "key" parameter is invalid
+	ErrBadStreamID                  ErrorType = 1005 // "stream_id" parameter is invalid
+	ErrConnectionAlreadyEstablished ErrorType = 1006 // Such connection has been established already
+	ErrInvalidJSON                  ErrorType = 2000 // Invalid JSON
+	ErrTagAlreadyExist              ErrorType = 2001 // The rule this such tag has been added already
+	ErrTagNotExist                  ErrorType = 2002 // The this such tag is absent
+	ErrInvalidRule                  ErrorType = 2003 // Invalid rule
+	ErrTooManyFilters               ErrorType = 2004 // Too many filters in one rule
+	ErrUnbalancedQuotes             ErrorType = 2005 // Unbalanced quotes
+	ErrTooManyRules                 ErrorType = 2006 // Too many rules in one stream
+	ErrMinusKeywordsOnly            ErrorType = 2008 // You can't use minus keywords only
 )
 
 // Error description.
 type Error struct {
-	Message   string `json:"message"`    // error message;
-	ErrorCode int    `json:"error_code"` // error code
+	Code    ErrorType `json:"error_code"` // error code
+	Message string    `json:"message"`    // error message
 }
 
-type customError struct {
-	errorType     ErrorType
-	originalError error
-	context       Error
+// Error returns the message of a Error.
+func (e Error) Error() string {
+	return "streaming: " + e.Message
 }
 
-// New creates a new customError.
-func (errorType ErrorType) New(msg string) error {
-	return customError{errorType: errorType, originalError: errors.New(msg)}
-}
-
-// Newf creates a new customError with formatted message.
-func (errorType ErrorType) Newf(msg string, args ...interface{}) error {
-	return customError{errorType: errorType, originalError: fmt.Errorf(msg, args...)}
-}
-
-// Wrap creates a new wrapped error.
-func (errorType ErrorType) Wrap(err error, msg string) error {
-	return errorType.Wrapf(err, msg)
-}
-
-// Wrapf creates a new wrapped error with formatted message.
-func (errorType ErrorType) Wrapf(err error, msg string, args ...interface{}) error {
-	return customError{errorType: errorType, originalError: errors.Wrapf(err, msg, args...)}
-}
-
-// Error returns the message of a customError.
-func (error customError) Error() string {
-	return error.originalError.Error()
-}
-
-// NewError creates a no type error.
-func NewError(vkErr Error) error {
-	if vkErr.ErrorCode == 0 {
-		return nil
+// Is unwraps its first argument sequentially looking for an error that matches
+// the second.
+func (e Error) Is(target error) bool {
+	if t, ok := target.(*Error); ok {
+		return e.Code == t.Code && e.Message == t.Message
 	}
 
-	return customError{
-		errorType:     ErrorType(vkErr.ErrorCode),
-		originalError: errors.New(vkErr.Message),
-		context:       vkErr,
-	}
-}
-
-// Cause gives the original error.
-func Cause(err error) error {
-	return errors.Cause(err)
-}
-
-// AddErrorContext adds a context to an error.
-func AddErrorContext(err error, context Error) error {
-	if customErr, ok := err.(customError); ok {
-		return customError{
-			errorType:     customErr.errorType,
-			originalError: customErr.originalError,
-			context:       context,
-		}
+	if t, ok := target.(ErrorType); ok {
+		return e.Code == t
 	}
 
-	return customError{errorType: NoType, originalError: err, context: context}
-}
-
-// GetErrorContext returns the error context.
-func GetErrorContext(err error) Error {
-	if customErr, ok := err.(customError); ok {
-		return customErr.context
-	}
-
-	return Error{}
-}
-
-// GetType returns the error type.
-func GetType(err error) ErrorType {
-	if customErr, ok := err.(customError); ok {
-		return customErr.errorType
-	}
-
-	return NoType
+	return false
 }

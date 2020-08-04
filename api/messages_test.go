@@ -4,8 +4,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/SevereCloud/vksdk/api/errors"
-
 	"github.com/SevereCloud/vksdk/api"
 	"github.com/stretchr/testify/assert"
 )
@@ -468,12 +466,10 @@ func TestVK_MessagesSendSticker(t *testing.T) {
 
 	_, err := vkUser.MessagesSendSticker(api.Params{
 		"chat_id":    chatID,
-		"random":     0,
-		"sticker_id": 279,
+		"random_id":  0,
+		"sticker_id": 9008,
 	})
-	if errors.GetType(err) == 0 {
-		assert.NoError(t, err)
-	}
+	noError(t, err)
 }
 
 func TestVK_MessagesSetActivity(t *testing.T) {

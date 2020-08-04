@@ -3,6 +3,7 @@ package object // import "github.com/SevereCloud/vksdk/object"
 import (
 	"encoding/json"
 	"fmt"
+	"reflect"
 )
 
 // GroupsAddress WorkInfoStatus of information about timetable.
@@ -448,18 +449,31 @@ func (g *GroupsSectionsList) UnmarshalJSON(data []byte) error {
 	}
 
 	if len(alias) != 2 {
-		return fmt.Errorf("json: cannot unmarshal %s into Go value of type GroupsSectionsList", data)
+		return &json.UnmarshalTypeError{
+			Value: string(data),
+			Type:  reflect.TypeOf((*GroupsSectionsList)(nil)),
+		}
 	}
 
 	// default concrete Go type float64 for JSON numbers
 	id, ok := alias[0].(float64)
 	if !ok {
-		return fmt.Errorf("json: cannot unmarshal %s into Go value of type GroupsSectionsList.ID", data)
+		return &json.UnmarshalTypeError{
+			Value:  string(data),
+			Type:   reflect.TypeOf((*GroupsSectionsList)(nil)),
+			Struct: "GroupsSectionsList",
+			Field:  "ID",
+		}
 	}
 
 	name, ok := alias[1].(string)
 	if !ok {
-		return fmt.Errorf("json: cannot unmarshal %s into Go value of type GroupsSectionsList.Name", data)
+		return &json.UnmarshalTypeError{
+			Value:  string(data),
+			Type:   reflect.TypeOf((*GroupsSectionsList)(nil)),
+			Struct: "GroupsSectionsList",
+			Field:  "Name",
+		}
 	}
 
 	g.ID = int(id)

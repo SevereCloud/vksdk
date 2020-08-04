@@ -35,9 +35,10 @@ linters:
     - asciicheck
     - nolintlint
     - gofumpt
+    - goerr113
+
 # - testpackage # TODO: Fix testpackage
 # - nestif # TODO: Fix nestif
-# - goerr113 # TODO: Enable v2
 
 # don't enable:
 # - depguard

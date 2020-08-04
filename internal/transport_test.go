@@ -2,6 +2,7 @@ package internal_test
 
 import (
 	"context"
+	"errors"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -135,7 +136,7 @@ func TestCancelBeforeHeaders(t *testing.T) {
 		t.Fatal("Get returned unexpected nil error")
 	}
 
-	if err != context.Canceled {
+	if !errors.Is(err, context.Canceled) {
 		t.Errorf("err = %v; want %v", err, context.Canceled)
 	}
 }

@@ -175,9 +175,9 @@ func (lp *Longpoll) checkResponse(response object.LongpollResponse) (err error) 
 	case 3:
 		err = lp.updateServer(true)
 	case 4:
-		err = fmt.Errorf("not valid version")
+		err = ErrNotValidVersion
 	default:
-		err = fmt.Errorf(`"failed":%d`, response.Failed)
+		err = &Failed{response.Failed}
 	}
 
 	return

@@ -128,7 +128,7 @@ func (lp *Longpoll) checkResponse(response object.LongpollBotResponse) (err erro
 	case 3:
 		err = lp.updateServer(true)
 	default:
-		err = fmt.Errorf(`"failed":%d`, response.Failed)
+		err = &Failed{response.Failed}
 	}
 
 	return
