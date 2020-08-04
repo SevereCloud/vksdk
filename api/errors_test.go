@@ -27,35 +27,23 @@ func TestError_Is(t *testing.T) {
 		assert.Equal(t, want, errors.Is(err, target))
 	}
 
-	e1 := api.ErrorType(1)
-	e2 := api.ErrorType(2)
-
 	f(&api.Error{Code: api.ErrorType(1)}, &api.Error{Code: api.ErrorType(1)}, true)
-	f(&api.Error{Code: api.ErrorType(1)}, &e1, true)
+	f(&api.Error{Code: api.ErrAuth}, api.ErrAuth, true)
 	f(&api.Error{Code: api.ErrorType(1), Message: "123"}, &api.Error{Code: api.ErrorType(1), Message: "123"}, true)
 
 	f(&api.Error{Code: api.ErrorType(1)}, &api.Error{Code: api.ErrorType(2)}, false)
-	f(&api.Error{Code: api.ErrorType(1)}, &e2, false)
+	f(&api.Error{Code: api.ErrorType(1)}, api.ErrorType(2), false)
 	f(&api.Error{Code: api.ErrorType(1), Message: "123"}, &api.Error{Code: api.ErrorType(1), Message: "321"}, false)
 	f(&api.Error{Code: api.ErrorType(1)}, &streaming.Error{}, false)
 }
 
 func TestError_As(t *testing.T) {
-	f := func(err *api.Error, target interface{}, want bool) {
-		assert.Equal(t, want, errors.As(err, target))
+	var target *api.Error
+
+	err := &api.Error{Code: api.ErrorType(1)}
+	if !errors.As(err, &target) && target.Code == 1 {
+		t.Error("As not working")
 	}
-
-	e1 := api.ErrorType(1)
-	e2 := api.ErrorType(2)
-
-	f(&api.Error{Code: api.ErrorType(1)}, &api.Error{Code: api.ErrorType(1)}, true)
-	f(&api.Error{Code: api.ErrorType(1)}, &e1, true)
-	f(&api.Error{Code: api.ErrorType(1), Message: "123"}, &api.Error{Code: api.ErrorType(1), Message: "123"}, true)
-	f(&api.Error{Code: api.ErrorType(1), Message: "123"}, &api.Error{Code: api.ErrorType(1), Message: "321"}, true)
-
-	f(&api.Error{Code: api.ErrorType(1)}, &api.Error{Code: api.ErrorType(2)}, false)
-	f(&api.Error{Code: api.ErrorType(1)}, &e2, false)
-	f(&api.Error{Code: api.ErrorType(1)}, &streaming.Error{}, false)
 }
 
 func TestInvalidContentType(t *testing.T) {

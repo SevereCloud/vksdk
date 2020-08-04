@@ -38,7 +38,7 @@ func noError(t *testing.T, err error) bool {
 
 			t.Log(s)
 		}
-	} else {
+	} else if err != nil {
 		t.Log(fmt.Sprintf("\n%#v", err))
 	}
 

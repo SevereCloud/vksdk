@@ -27,33 +27,21 @@ func TestError_Is(t *testing.T) {
 		assert.Equal(t, want, errors.Is(err, target))
 	}
 
-	e1 := streaming.ErrorType(1)
-	e2 := streaming.ErrorType(2)
-
 	f(&streaming.Error{Code: streaming.ErrorType(1)}, &streaming.Error{Code: streaming.ErrorType(1)}, true)
-	f(&streaming.Error{Code: streaming.ErrorType(1)}, &e1, true)
+	f(&streaming.Error{Code: streaming.ErrorType(1)}, streaming.ErrorType(1), true)
 	f(&streaming.Error{Code: streaming.ErrorType(1), Message: "123"}, &streaming.Error{Code: streaming.ErrorType(1), Message: "123"}, true)
 
 	f(&streaming.Error{Code: streaming.ErrorType(1)}, &streaming.Error{Code: streaming.ErrorType(2)}, false)
-	f(&streaming.Error{Code: streaming.ErrorType(1)}, &e2, false)
+	f(&streaming.Error{Code: streaming.ErrorType(1)}, streaming.ErrorType(2), false)
 	f(&streaming.Error{Code: streaming.ErrorType(1), Message: "123"}, &streaming.Error{Code: streaming.ErrorType(1), Message: "321"}, false)
 	f(&streaming.Error{Code: streaming.ErrorType(1)}, &api.Error{}, false)
 }
 
 func TestError_As(t *testing.T) {
-	f := func(err *streaming.Error, target interface{}, want bool) {
-		assert.Equal(t, want, errors.As(err, target))
+	var target *streaming.Error
+
+	err := &streaming.Error{Code: streaming.ErrorType(1)}
+	if !errors.As(err, &target) && target.Code == 1 {
+		t.Error("As not working")
 	}
-
-	e1 := streaming.ErrorType(1)
-	e2 := streaming.ErrorType(2)
-
-	f(&streaming.Error{Code: streaming.ErrorType(1)}, &streaming.Error{Code: streaming.ErrorType(1)}, true)
-	f(&streaming.Error{Code: streaming.ErrorType(1)}, &e1, true)
-	f(&streaming.Error{Code: streaming.ErrorType(1), Message: "123"}, &streaming.Error{Code: streaming.ErrorType(1), Message: "123"}, true)
-	f(&streaming.Error{Code: streaming.ErrorType(1), Message: "123"}, &streaming.Error{Code: streaming.ErrorType(1), Message: "321"}, true)
-
-	f(&streaming.Error{Code: streaming.ErrorType(1)}, &streaming.Error{Code: streaming.ErrorType(2)}, false)
-	f(&streaming.Error{Code: streaming.ErrorType(1)}, &e2, false)
-	f(&streaming.Error{Code: streaming.ErrorType(1)}, &api.Error{}, false)
 }
