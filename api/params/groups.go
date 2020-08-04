@@ -2666,6 +2666,45 @@ func (b *GroupsTagUpdateBuilder) TagName(v string) *GroupsTagUpdateBuilder {
 	return b
 }
 
+// GroupsToggleMarketBuilder builder.
+//
+// https://vk.com/dev/groups.toggleMarket
+type GroupsToggleMarketBuilder struct {
+	api.Params
+}
+
+// NewGroupsToggleMarketBuilder func.
+func NewGroupsToggleMarketBuilder() *GroupsToggleMarketBuilder {
+	return &GroupsToggleMarketBuilder{api.Params{}}
+}
+
+// GroupID parameter.
+func (b *GroupsToggleMarketBuilder) GroupID(v int) *GroupsToggleMarketBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// GroupMarketState market state.
+type GroupMarketState string
+
+// Possible values.
+const (
+	GroupMarketNone     GroupMarketState = "none"
+	GroupMarketBasic    GroupMarketState = "basic"
+	GroupMarketAdvanced GroupMarketState = "advanced"
+)
+
+// State parameter.
+//
+// 	none
+// 	basic
+// 	advanced
+//
+func (b *GroupsToggleMarketBuilder) State(v GroupMarketState) *GroupsToggleMarketBuilder {
+	b.Params["state"] = v
+	return b
+}
+
 // GroupsUnbanBuilder builder.
 //
 // https://vk.com/dev/groups.unban

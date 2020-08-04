@@ -698,6 +698,14 @@ func (vk *VK) GroupsTagUpdate(params Params) (response int, err error) {
 	return
 }
 
+// GroupsToggleMarket method.
+//
+// https://vk.com/dev/groups.toggleMarket
+func (vk *VK) GroupsToggleMarket(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("groups.toggleMarket", params, &response)
+	return
+}
+
 // GroupsUnban groups.unban.
 //
 // https://vk.com/dev/groups.unban

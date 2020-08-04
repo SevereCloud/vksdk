@@ -965,6 +965,18 @@ func TestGroupsTagUpdateBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["tag_name"], "text")
 }
 
+func TestGroupsToggleMarketBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewGroupsToggleMarketBuilder()
+
+	b.GroupID(1)
+	b.State("none")
+
+	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["state"], params.GroupMarketState("none"))
+}
+
 func TestGroupsUnbanBuilder(t *testing.T) {
 	t.Parallel()
 

@@ -1,6 +1,7 @@
 package api_test
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
@@ -761,6 +762,28 @@ func TestVK_GroupsLeave(t *testing.T) {
 
 func TestVK_GroupsRemoveUser(t *testing.T) {
 	// TODO: Add test cases.
+}
+
+func TestVK_GroupsToggleMarket(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+	needGroupToken(t)
+
+	_, err := vkUser.GroupsToggleMarket(api.Params{
+		"group_id": vkGroupID,
+		"state":    "none",
+	})
+	if err != nil && !errors.Is(err, api.ErrMarketAlreadyDisabled) {
+		noError(t, err)
+		t.FailNow()
+	}
+
+	_, err = vkUser.GroupsToggleMarket(api.Params{
+		"group_id": vkGroupID,
+		"state":    "advanced",
+	})
+	noError(t, err)
 }
 
 func TestVK_GroupsSearch(t *testing.T) {
