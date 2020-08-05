@@ -14,7 +14,7 @@
 
 ### Версия API
 
-Данная библиотека поддерживает версию API **5.103**.
+Данная библиотека поддерживает версию API **5.122**.
 
 ### Подтверждение сервера
 
@@ -31,12 +31,12 @@
 ### Обработчик событий
 
 Для каждого события существует отдельный обработчик, который передает функции
-`object` и `groupID`.
+`ctx` и `object`.
 
 Пример для события `message_new`
 
 ```go
-cb.MessageNew(func(object object.MessageNewObject, groupID int) {
+cb.MessageNew(func(ctx context.Context, object object.MessageNewObject) {
 	...
 })
 ```
@@ -71,7 +71,7 @@ func main() {
 	cb.ConfirmationKey = "693d0ba9"
 	// cb.ConfirmationKeys[170561776] = "693d0ba9"
 
-	cb.MessageNew(func(obj object.MessageNewObject, groupID int) {
+	cb.MessageNew(func(ctx context.Context, obj object.MessageNewObject) {
 		log.Print(obj.Message.Text)
 	})
 

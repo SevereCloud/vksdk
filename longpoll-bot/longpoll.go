@@ -6,16 +6,24 @@ See more https://vk.com/dev/bots_longpoll
 package longpoll // import "github.com/SevereCloud/vksdk/longpoll-bot"
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"sync/atomic"
 
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/internal"
 
 	"github.com/SevereCloud/vksdk/api"
 	"github.com/SevereCloud/vksdk/events"
 )
+
+// Response struct.
+type Response struct {
+	Ts      string              `json:"ts"`
+	Updates []events.GroupEvent `json:"updates"`
+	Failed  int                 `json:"failed"`
+}
 
 // Longpoll struct.
 type Longpoll struct {
@@ -27,7 +35,7 @@ type Longpoll struct {
 	VK      *api.VK
 	Client  *http.Client
 
-	funcFullResponseList []func(object.LongpollBotResponse)
+	funcFullResponseList []func(Response)
 	inShutdown           int32
 
 	events.FuncList
@@ -96,8 +104,8 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	return nil
 }
 
-func (lp *Longpoll) check() (object.LongpollBotResponse, error) {
-	var response object.LongpollBotResponse
+func (lp *Longpoll) check() (Response, error) {
+	var response Response
 
 	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, lp.Wait)
 
@@ -117,7 +125,7 @@ func (lp *Longpoll) check() (object.LongpollBotResponse, error) {
 	return response, err
 }
 
-func (lp *Longpoll) checkResponse(response object.LongpollBotResponse) (err error) {
+func (lp *Longpoll) checkResponse(response Response) (err error) {
 	switch response.Failed {
 	case 0:
 		lp.Ts = response.Ts
@@ -144,8 +152,10 @@ func (lp *Longpoll) Run() error {
 			return err
 		}
 
+		ctx := context.WithValue(context.Background(), internal.LongpollTsKey, resp.Ts)
+
 		for _, event := range resp.Updates {
-			err = lp.Handler(event)
+			err = lp.Handler(ctx, event)
 			if err != nil {
 				return err
 			}
@@ -165,6 +175,6 @@ func (lp *Longpoll) Shutdown() {
 }
 
 // FullResponse handler.
-func (lp *Longpoll) FullResponse(f func(object.LongpollBotResponse)) {
+func (lp *Longpoll) FullResponse(f func(Response)) {
 	lp.funcFullResponseList = append(lp.funcFullResponseList, f)
 }

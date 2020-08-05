@@ -1,58 +1,34 @@
-package object // import "github.com/SevereCloud/vksdk/object"
+package events // import "github.com/SevereCloud/vksdk/events"
 
 import (
-	"bytes"
-	"encoding/json"
+	"context"
+
+	"github.com/SevereCloud/vksdk/object"
 )
 
 // MessageNewFunc func.
-type MessageNewFunc func(MessageNewObject, int)
+type MessageNewFunc func(context.Context, MessageNewObject)
 
 // MessageNewObject struct.
 type MessageNewObject struct {
-	Message    MessagesMessage `json:"message"`
-	ClientInfo ClientInfo      `json:"client_info"`
-}
-
-// UnmarshalJSON need for support api version < 5.103.
-//
-// To unmarshal JSON into a value implementing the Unmarshaler interface,
-// Unmarshal calls that value's UnmarshalJSON method.
-// See more https://golang.org/pkg/encoding/json/#Unmarshal
-func (obj *MessageNewObject) UnmarshalJSON(data []byte) (err error) {
-	// The renamed type is necessary to avoid loops
-	type renamedMessageNewObject MessageNewObject
-
-	var renamedObj renamedMessageNewObject
-
-	if bytes.Contains(data, []byte(`"message":`)) {
-		// v >= 5.103
-		err = json.Unmarshal(data, &renamedObj)
-	} else {
-		// Support v < 5.103
-		err = json.Unmarshal(data, &renamedObj.Message)
-	}
-
-	obj.Message = renamedObj.Message
-	obj.ClientInfo = renamedObj.ClientInfo
-
-	return
+	Message    object.MessagesMessage `json:"message"`
+	ClientInfo object.ClientInfo      `json:"client_info"`
 }
 
 // MessageReplyFunc func.
-type MessageReplyFunc func(MessageReplyObject, int)
+type MessageReplyFunc func(context.Context, MessageReplyObject)
 
 // MessageReplyObject struct.
-type MessageReplyObject MessagesMessage
+type MessageReplyObject object.MessagesMessage
 
 // MessageEditFunc func.
-type MessageEditFunc func(MessageEditObject, int)
+type MessageEditFunc func(context.Context, MessageEditObject)
 
 // MessageEditObject struct.
-type MessageEditObject MessagesMessage
+type MessageEditObject object.MessagesMessage
 
 // MessageAllowFunc func.
-type MessageAllowFunc func(MessageAllowObject, int)
+type MessageAllowFunc func(context.Context, MessageAllowObject)
 
 // MessageAllowObject struct.
 type MessageAllowObject struct {
@@ -61,7 +37,7 @@ type MessageAllowObject struct {
 }
 
 // MessageDenyFunc func.
-type MessageDenyFunc func(MessageDenyObject, int)
+type MessageDenyFunc func(context.Context, MessageDenyObject)
 
 // MessageDenyObject struct.
 type MessageDenyObject struct {
@@ -69,7 +45,7 @@ type MessageDenyObject struct {
 }
 
 // MessageTypingStateFunc func.
-type MessageTypingStateFunc func(MessageTypingStateObject, int)
+type MessageTypingStateFunc func(context.Context, MessageTypingStateObject)
 
 // MessageTypingStateObject struct.
 type MessageTypingStateObject struct {
@@ -79,7 +55,7 @@ type MessageTypingStateObject struct {
 }
 
 // MessageEventFunc func.
-type MessageEventFunc func(MessageEventObject, int)
+type MessageEventFunc func(context.Context, MessageEventObject)
 
 // MessageEventObject struct.
 type MessageEventObject struct {
@@ -91,31 +67,31 @@ type MessageEventObject struct {
 }
 
 // PhotoNewFunc func.
-type PhotoNewFunc func(PhotoNewObject, int)
+type PhotoNewFunc func(context.Context, PhotoNewObject)
 
 // PhotoNewObject struct.
-type PhotoNewObject PhotosPhoto
+type PhotoNewObject object.PhotosPhoto
 
 // PhotoCommentNewFunc func.
-type PhotoCommentNewFunc func(PhotoCommentNewObject, int)
+type PhotoCommentNewFunc func(context.Context, PhotoCommentNewObject)
 
 // PhotoCommentNewObject struct.
-type PhotoCommentNewObject WallWallComment
+type PhotoCommentNewObject object.WallWallComment
 
 // PhotoCommentEditFunc func.
-type PhotoCommentEditFunc func(PhotoCommentEditObject, int)
+type PhotoCommentEditFunc func(context.Context, PhotoCommentEditObject)
 
 // PhotoCommentEditObject struct.
-type PhotoCommentEditObject WallWallComment
+type PhotoCommentEditObject object.WallWallComment
 
 // PhotoCommentRestoreFunc func.
-type PhotoCommentRestoreFunc func(PhotoCommentRestoreObject, int)
+type PhotoCommentRestoreFunc func(context.Context, PhotoCommentRestoreObject)
 
 // PhotoCommentRestoreObject struct.
-type PhotoCommentRestoreObject WallWallComment
+type PhotoCommentRestoreObject object.WallWallComment
 
 // PhotoCommentDeleteFunc func.
-type PhotoCommentDeleteFunc func(PhotoCommentDeleteObject, int)
+type PhotoCommentDeleteFunc func(context.Context, PhotoCommentDeleteObject)
 
 // PhotoCommentDeleteObject struct.
 type PhotoCommentDeleteObject struct {
@@ -127,37 +103,37 @@ type PhotoCommentDeleteObject struct {
 }
 
 // AudioNewFunc func.
-type AudioNewFunc func(AudioNewObject, int)
+type AudioNewFunc func(context.Context, AudioNewObject)
 
 // AudioNewObject struct.
-type AudioNewObject AudioAudio
+type AudioNewObject object.AudioAudio
 
 // VideoNewFunc func.
-type VideoNewFunc func(VideoNewObject, int)
+type VideoNewFunc func(context.Context, VideoNewObject)
 
 // VideoNewObject struct.
-type VideoNewObject VideoVideo
+type VideoNewObject object.VideoVideo
 
 // VideoCommentNewFunc func.
-type VideoCommentNewFunc func(VideoCommentNewObject, int)
+type VideoCommentNewFunc func(context.Context, VideoCommentNewObject)
 
 // VideoCommentNewObject struct.
-type VideoCommentNewObject WallWallComment
+type VideoCommentNewObject object.WallWallComment
 
 // VideoCommentEditFunc func.
-type VideoCommentEditFunc func(VideoCommentEditObject, int)
+type VideoCommentEditFunc func(context.Context, VideoCommentEditObject)
 
 // VideoCommentEditObject struct.
-type VideoCommentEditObject WallWallComment
+type VideoCommentEditObject object.WallWallComment
 
 // VideoCommentRestoreFunc func.
-type VideoCommentRestoreFunc func(VideoCommentRestoreObject, int)
+type VideoCommentRestoreFunc func(context.Context, VideoCommentRestoreObject)
 
 // VideoCommentRestoreObject struct.
-type VideoCommentRestoreObject WallWallComment
+type VideoCommentRestoreObject object.WallWallComment
 
 // VideoCommentDeleteFunc func.
-type VideoCommentDeleteFunc func(VideoCommentDeleteObject, int)
+type VideoCommentDeleteFunc func(context.Context, VideoCommentDeleteObject)
 
 // VideoCommentDeleteObject struct.
 type VideoCommentDeleteObject struct {
@@ -169,37 +145,37 @@ type VideoCommentDeleteObject struct {
 }
 
 // WallPostNewFunc func.
-type WallPostNewFunc func(WallPostNewObject, int)
+type WallPostNewFunc func(context.Context, WallPostNewObject)
 
 // WallPostNewObject struct.
-type WallPostNewObject WallWallpost
+type WallPostNewObject object.WallWallpost
 
 // WallRepostFunc func.
-type WallRepostFunc func(WallRepostObject, int)
+type WallRepostFunc func(context.Context, WallRepostObject)
 
 // WallRepostObject struct.
-type WallRepostObject WallWallpost
+type WallRepostObject object.WallWallpost
 
 // WallReplyNewFunc func.
-type WallReplyNewFunc func(WallReplyNewObject, int)
+type WallReplyNewFunc func(context.Context, WallReplyNewObject)
 
 // WallReplyNewObject struct.
-type WallReplyNewObject WallWallComment
+type WallReplyNewObject object.WallWallComment
 
 // WallReplyEditFunc func.
-type WallReplyEditFunc func(WallReplyEditObject, int)
+type WallReplyEditFunc func(context.Context, WallReplyEditObject)
 
 // WallReplyEditObject struct.
-type WallReplyEditObject WallWallComment
+type WallReplyEditObject object.WallWallComment
 
 // WallReplyRestoreFunc func.
-type WallReplyRestoreFunc func(WallReplyRestoreObject, int)
+type WallReplyRestoreFunc func(context.Context, WallReplyRestoreObject)
 
 // WallReplyRestoreObject struct.
-type WallReplyRestoreObject WallWallComment
+type WallReplyRestoreObject object.WallWallComment
 
 // WallReplyDeleteFunc func.
-type WallReplyDeleteFunc func(WallReplyDeleteObject, int)
+type WallReplyDeleteFunc func(context.Context, WallReplyDeleteObject)
 
 // WallReplyDeleteObject struct.
 type WallReplyDeleteObject struct {
@@ -210,25 +186,25 @@ type WallReplyDeleteObject struct {
 }
 
 // BoardPostNewFunc func.
-type BoardPostNewFunc func(BoardPostNewObject, int)
+type BoardPostNewFunc func(context.Context, BoardPostNewObject)
 
 // BoardPostNewObject struct.
-type BoardPostNewObject BoardTopicComment
+type BoardPostNewObject object.BoardTopicComment
 
 // BoardPostEditFunc func.
-type BoardPostEditFunc func(BoardPostEditObject, int)
+type BoardPostEditFunc func(context.Context, BoardPostEditObject)
 
 // BoardPostEditObject struct.
-type BoardPostEditObject BoardTopicComment
+type BoardPostEditObject object.BoardTopicComment
 
 // BoardPostRestoreFunc func.
-type BoardPostRestoreFunc func(BoardPostRestoreObject, int)
+type BoardPostRestoreFunc func(context.Context, BoardPostRestoreObject)
 
 // BoardPostRestoreObject struct.
-type BoardPostRestoreObject BoardTopicComment
+type BoardPostRestoreObject object.BoardTopicComment
 
 // BoardPostDeleteFunc func.
-type BoardPostDeleteFunc func(BoardPostDeleteObject, int)
+type BoardPostDeleteFunc func(context.Context, BoardPostDeleteObject)
 
 // BoardPostDeleteObject struct.
 type BoardPostDeleteObject struct {
@@ -238,25 +214,25 @@ type BoardPostDeleteObject struct {
 }
 
 // MarketCommentNewFunc func.
-type MarketCommentNewFunc func(MarketCommentNewObject, int)
+type MarketCommentNewFunc func(context.Context, MarketCommentNewObject)
 
 // MarketCommentNewObject struct.
-type MarketCommentNewObject WallWallComment
+type MarketCommentNewObject object.WallWallComment
 
 // MarketCommentEditFunc func.
-type MarketCommentEditFunc func(MarketCommentEditObject, int)
+type MarketCommentEditFunc func(context.Context, MarketCommentEditObject)
 
 // MarketCommentEditObject struct.
-type MarketCommentEditObject WallWallComment
+type MarketCommentEditObject object.WallWallComment
 
 // MarketCommentRestoreFunc func.
-type MarketCommentRestoreFunc func(MarketCommentRestoreObject, int)
+type MarketCommentRestoreFunc func(context.Context, MarketCommentRestoreObject)
 
 // MarketCommentRestoreObject struct.
-type MarketCommentRestoreObject WallWallComment
+type MarketCommentRestoreObject object.WallWallComment
 
 // MarketCommentDeleteFunc func.
-type MarketCommentDeleteFunc func(MarketCommentDeleteObject, int)
+type MarketCommentDeleteFunc func(context.Context, MarketCommentDeleteObject)
 
 // MarketCommentDeleteObject struct.
 type MarketCommentDeleteObject struct {
@@ -268,28 +244,28 @@ type MarketCommentDeleteObject struct {
 }
 
 // MarketOrderNewFunc func.
-type MarketOrderNewFunc func(MarketOrderNewObject, int)
+type MarketOrderNewFunc func(context.Context, MarketOrderNewObject)
 
 // MarketOrderNewObject struct.
-type MarketOrderNewObject MarketOrder
+type MarketOrderNewObject object.MarketOrder
 
 // MarketOrderEditFunc func.
-type MarketOrderEditFunc func(MarketOrderEditObject, int)
+type MarketOrderEditFunc func(context.Context, MarketOrderEditObject)
 
 // MarketOrderEditObject struct.
-type MarketOrderEditObject MarketOrder
+type MarketOrderEditObject object.MarketOrder
 
 // GroupLeaveFunc func.
-type GroupLeaveFunc func(GroupLeaveObject, int)
+type GroupLeaveFunc func(context.Context, GroupLeaveObject)
 
 // GroupLeaveObject struct.
 type GroupLeaveObject struct {
-	UserID int         `json:"user_id"`
-	Self   BaseBoolInt `json:"self"`
+	UserID int                `json:"user_id"`
+	Self   object.BaseBoolInt `json:"self"`
 }
 
 // GroupJoinFunc func.
-type GroupJoinFunc func(GroupJoinObject, int)
+type GroupJoinFunc func(context.Context, GroupJoinObject)
 
 // GroupJoinObject struct.
 type GroupJoinObject struct {
@@ -298,7 +274,7 @@ type GroupJoinObject struct {
 }
 
 // UserBlockFunc func.
-type UserBlockFunc func(UserBlockObject, int)
+type UserBlockFunc func(context.Context, UserBlockObject)
 
 // UserBlockObject struct.
 type UserBlockObject struct {
@@ -310,7 +286,7 @@ type UserBlockObject struct {
 }
 
 // UserUnblockFunc func.
-type UserUnblockFunc func(UserUnblockObject, int)
+type UserUnblockFunc func(context.Context, UserUnblockObject)
 
 // UserUnblockObject struct.
 type UserUnblockObject struct {
@@ -320,7 +296,7 @@ type UserUnblockObject struct {
 }
 
 // PollVoteNewFunc func.
-type PollVoteNewFunc func(PollVoteNewObject, int)
+type PollVoteNewFunc func(context.Context, PollVoteNewObject)
 
 // PollVoteNewObject struct.
 //
@@ -333,7 +309,7 @@ type PollVoteNewObject struct {
 }
 
 // GroupOfficersEditFunc func.
-type GroupOfficersEditFunc func(GroupOfficersEditObject, int)
+type GroupOfficersEditFunc func(context.Context, GroupOfficersEditObject)
 
 // GroupOfficersEditObject struct.
 type GroupOfficersEditObject struct {
@@ -356,11 +332,12 @@ type ChangesInt struct {
 }
 
 // GroupChangeSettingsFunc func.
-type GroupChangeSettingsFunc func(GroupChangeSettingsObject, int)
+type GroupChangeSettingsFunc func(context.Context, GroupChangeSettingsObject)
 
 // GroupChangeSettingsObject struct
-// спасибо vk.com/eee
+//
 // BUG(VK): Phone https://vk.com/bugtracker?act=show&id=64240
+//
 // BUG(VK): Email https://vk.com/bugtracker?act=show&id=86650
 type GroupChangeSettingsObject struct {
 	UserID  int `json:"user_id"`
@@ -398,16 +375,16 @@ type GroupChangeSettingsObject struct {
 }
 
 // GroupChangePhotoFunc func.
-type GroupChangePhotoFunc func(GroupChangePhotoObject, int)
+type GroupChangePhotoFunc func(context.Context, GroupChangePhotoObject)
 
 // GroupChangePhotoObject struct.
 type GroupChangePhotoObject struct {
-	UserID int         `json:"user_id"`
-	Photo  PhotosPhoto `json:"photo"`
+	UserID int                `json:"user_id"`
+	Photo  object.PhotosPhoto `json:"photo"`
 }
 
 // VkpayTransactionFunc func.
-type VkpayTransactionFunc func(VkpayTransactionObject, int)
+type VkpayTransactionFunc func(context.Context, VkpayTransactionObject)
 
 // VkpayTransactionObject struct.
 type VkpayTransactionObject struct {
@@ -418,7 +395,7 @@ type VkpayTransactionObject struct {
 }
 
 // LeadFormsNewFunc func.
-type LeadFormsNewFunc func(LeadFormsNewObject, int)
+type LeadFormsNewFunc func(context.Context, LeadFormsNewObject)
 
 // LeadFormsNewObject struct.
 type LeadFormsNewObject struct {
@@ -436,7 +413,7 @@ type LeadFormsNewObject struct {
 }
 
 // AppPayloadFunc func.
-type AppPayloadFunc func(AppPayloadObject, int)
+type AppPayloadFunc func(context.Context, AppPayloadObject)
 
 // AppPayloadObject struct.
 type AppPayloadObject struct {
@@ -446,7 +423,7 @@ type AppPayloadObject struct {
 }
 
 // MessageReadFunc func.
-type MessageReadFunc func(MessageReadObject, int)
+type MessageReadFunc func(context.Context, MessageReadObject)
 
 // MessageReadObject struct.
 type MessageReadObject struct {
@@ -456,7 +433,7 @@ type MessageReadObject struct {
 }
 
 // LikeAddFunc func.
-type LikeAddFunc func(LikeAddObject, int)
+type LikeAddFunc func(context.Context, LikeAddObject)
 
 // LikeAddObject struct.
 type LikeAddObject struct {
@@ -469,7 +446,7 @@ type LikeAddObject struct {
 }
 
 // LikeRemoveFunc func.
-type LikeRemoveFunc func(LikeRemoveObject, int)
+type LikeRemoveFunc func(context.Context, LikeRemoveObject)
 
 // LikeRemoveObject struct.
 type LikeRemoveObject struct {

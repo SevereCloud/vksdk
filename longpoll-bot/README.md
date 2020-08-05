@@ -10,7 +10,7 @@
 
 ### Версия API
 
-Данная библиотека поддерживает версию API **5.103**.
+Данная библиотека поддерживает версию API **5.122**.
 
 ### Инициализация
 
@@ -52,12 +52,12 @@ lp.Client.Transport = httpTransport
 ### Обработчик событий
 
 Для каждого события существует отдельный обработчик, который передает функции
-`object` и `groupID`.
+`ctx` и `object`.
 
 Пример для события `message_new`
 
 ```go
-lp.MessageNew(func(object object.MessageNewObject, groupID int) {
+lp.MessageNew(func(ctx context.Context, obj object.MessageNewObject) {
 	...
 })
 ```
@@ -111,7 +111,7 @@ func main() {
 		panic(err)
 	}
 
-	lp.MessageNew(func(obj object.MessageNewObject, groupID int) {
+	lp.MessageNew(func(ctx context.Context, obj object.MessageNewObject) {
 		log.Print(obj.Message.Text)
 	})
 

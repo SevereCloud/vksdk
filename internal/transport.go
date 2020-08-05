@@ -22,6 +22,9 @@ type ContextKey int
 const (
 	HTTPClientKey ContextKey = iota
 	UserAgentKey
+	GroupIDKey
+	EventIDKey
+	LongpollTsKey
 )
 
 // ContextClient return *http.Client.

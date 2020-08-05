@@ -78,80 +78,11 @@ const (
 	SexMale
 )
 
-// EventType list.
-const (
-	EventConfirmation         = "confirmation"
-	EventMessageNew           = "message_new"
-	EventMessageReply         = "message_reply"
-	EventMessageEdit          = "message_edit"
-	EventMessageAllow         = "message_allow"
-	EventMessageDeny          = "message_deny"
-	EventMessageTypingState   = "message_typing_state"
-	EventMessageEvent         = "message_event"
-	EventPhotoNew             = "photo_new"
-	EventPhotoCommentNew      = "photo_comment_new"
-	EventPhotoCommentEdit     = "photo_comment_edit"
-	EventPhotoCommentRestore  = "photo_comment_restore"
-	EventPhotoCommentDelete   = "photo_comment_delete"
-	EventAudioNew             = "audio_new"
-	EventVideoNew             = "video_new"
-	EventVideoCommentNew      = "video_comment_new"
-	EventVideoCommentEdit     = "video_comment_edit"
-	EventVideoCommentRestore  = "video_comment_restore"
-	EventVideoCommentDelete   = "video_comment_delete"
-	EventWallPostNew          = "wall_post_new"
-	EventWallRepost           = "wall_repost"
-	EventWallReplyNew         = "wall_reply_new"
-	EventWallReplyEdit        = "wall_reply_edit"
-	EventWallReplyRestore     = "wall_reply_restore"
-	EventWallReplyDelete      = "wall_reply_delete"
-	EventBoardPostNew         = "board_post_new"
-	EventBoardPostEdit        = "board_post_edit"
-	EventBoardPostRestore     = "board_post_restore"
-	EventBoardPostDelete      = "board_post_delete"
-	EventMarketCommentNew     = "market_comment_new"
-	EventMarketCommentEdit    = "market_comment_edit"
-	EventMarketCommentRestore = "market_comment_restore"
-	EventMarketCommentDelete  = "market_comment_delete"
-	EventMarketOrderNew       = "market_order_new"
-	EventMarketOrderEdit      = "market_order_edit"
-	EventGroupLeave           = "group_leave"
-	EventGroupJoin            = "group_join"
-	EventUserBlock            = "user_block"
-	EventUserUnblock          = "user_unblock"
-	EventPollVoteNew          = "poll_vote_new"
-	EventGroupOfficersEdit    = "group_officers_edit"
-	EventGroupChangeSettings  = "group_change_settings"
-	EventGroupChangePhoto     = "group_change_photo"
-	EventVkpayTransaction     = "vkpay_transaction"
-	EventLeadFormsNew         = "lead_forms_new"
-	EventAppPayload           = "app_payload"
-	EventMessageRead          = "message_read"
-	EventLikeAdd              = "like_add"
-	EventLikeRemove           = "like_remove"
-)
-
-// GroupEvent struct.
-type GroupEvent struct {
-	Type    string          `json:"type"`
-	Object  json.RawMessage `json:"object"`
-	GroupID int             `json:"group_id"`
-	EventID string          `json:"event_id"`
-	Secret  string          `json:"secret"`
-}
-
 // LongpollResponse struct.
 type LongpollResponse struct {
 	Ts      int             `json:"ts"`
 	Updates [][]interface{} `json:"updates"`
 	Failed  int             `json:"failed"`
-}
-
-// LongpollBotResponse struct.
-type LongpollBotResponse struct {
-	Ts      string       `json:"ts"`
-	Updates []GroupEvent `json:"updates"`
-	Failed  int          `json:"failed"`
 }
 
 // BaseCommentsInfo struct.

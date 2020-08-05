@@ -6,511 +6,580 @@ See more https://vk.com/dev/groups_events
 package events // import "github.com/SevereCloud/vksdk/events"
 
 import (
+	"context"
 	"encoding/json"
 
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/internal"
 )
+
+// EventType type.
+type EventType string
+
+// EventType list.
+const (
+	EventConfirmation         = "confirmation"
+	EventMessageNew           = "message_new"
+	EventMessageReply         = "message_reply"
+	EventMessageEdit          = "message_edit"
+	EventMessageAllow         = "message_allow"
+	EventMessageDeny          = "message_deny"
+	EventMessageTypingState   = "message_typing_state"
+	EventMessageEvent         = "message_event"
+	EventPhotoNew             = "photo_new"
+	EventPhotoCommentNew      = "photo_comment_new"
+	EventPhotoCommentEdit     = "photo_comment_edit"
+	EventPhotoCommentRestore  = "photo_comment_restore"
+	EventPhotoCommentDelete   = "photo_comment_delete"
+	EventAudioNew             = "audio_new"
+	EventVideoNew             = "video_new"
+	EventVideoCommentNew      = "video_comment_new"
+	EventVideoCommentEdit     = "video_comment_edit"
+	EventVideoCommentRestore  = "video_comment_restore"
+	EventVideoCommentDelete   = "video_comment_delete"
+	EventWallPostNew          = "wall_post_new"
+	EventWallRepost           = "wall_repost"
+	EventWallReplyNew         = "wall_reply_new"
+	EventWallReplyEdit        = "wall_reply_edit"
+	EventWallReplyRestore     = "wall_reply_restore"
+	EventWallReplyDelete      = "wall_reply_delete"
+	EventBoardPostNew         = "board_post_new"
+	EventBoardPostEdit        = "board_post_edit"
+	EventBoardPostRestore     = "board_post_restore"
+	EventBoardPostDelete      = "board_post_delete"
+	EventMarketCommentNew     = "market_comment_new"
+	EventMarketCommentEdit    = "market_comment_edit"
+	EventMarketCommentRestore = "market_comment_restore"
+	EventMarketCommentDelete  = "market_comment_delete"
+	EventMarketOrderNew       = "market_order_new"
+	EventMarketOrderEdit      = "market_order_edit"
+	EventGroupLeave           = "group_leave"
+	EventGroupJoin            = "group_join"
+	EventUserBlock            = "user_block"
+	EventUserUnblock          = "user_unblock"
+	EventPollVoteNew          = "poll_vote_new"
+	EventGroupOfficersEdit    = "group_officers_edit"
+	EventGroupChangeSettings  = "group_change_settings"
+	EventGroupChangePhoto     = "group_change_photo"
+	EventVkpayTransaction     = "vkpay_transaction"
+	EventLeadFormsNew         = "lead_forms_new"
+	EventAppPayload           = "app_payload"
+	EventMessageRead          = "message_read"
+	EventLikeAdd              = "like_add"
+	EventLikeRemove           = "like_remove"
+)
+
+// GroupEvent struct.
+type GroupEvent struct {
+	Type    EventType       `json:"type"`
+	Object  json.RawMessage `json:"object"`
+	GroupID int             `json:"group_id"`
+	EventID string          `json:"event_id"`
+	Secret  string          `json:"secret"`
+}
 
 // FuncList struct.
 type FuncList struct {
-	messageNew           []object.MessageNewFunc
-	messageReply         []object.MessageReplyFunc
-	messageEdit          []object.MessageEditFunc
-	messageAllow         []object.MessageAllowFunc
-	messageDeny          []object.MessageDenyFunc
-	messageTypingState   []object.MessageTypingStateFunc
-	messageEvent         []object.MessageEventFunc
-	photoNew             []object.PhotoNewFunc
-	photoCommentNew      []object.PhotoCommentNewFunc
-	photoCommentEdit     []object.PhotoCommentEditFunc
-	photoCommentRestore  []object.PhotoCommentRestoreFunc
-	photoCommentDelete   []object.PhotoCommentDeleteFunc
-	audioNew             []object.AudioNewFunc
-	videoNew             []object.VideoNewFunc
-	videoCommentNew      []object.VideoCommentNewFunc
-	videoCommentEdit     []object.VideoCommentEditFunc
-	videoCommentRestore  []object.VideoCommentRestoreFunc
-	videoCommentDelete   []object.VideoCommentDeleteFunc
-	wallPostNew          []object.WallPostNewFunc
-	wallRepost           []object.WallRepostFunc
-	wallReplyNew         []object.WallReplyNewFunc
-	wallReplyEdit        []object.WallReplyEditFunc
-	wallReplyRestore     []object.WallReplyRestoreFunc
-	wallReplyDelete      []object.WallReplyDeleteFunc
-	boardPostNew         []object.BoardPostNewFunc
-	boardPostEdit        []object.BoardPostEditFunc
-	boardPostRestore     []object.BoardPostRestoreFunc
-	boardPostDelete      []object.BoardPostDeleteFunc
-	marketCommentNew     []object.MarketCommentNewFunc
-	marketCommentEdit    []object.MarketCommentEditFunc
-	marketCommentRestore []object.MarketCommentRestoreFunc
-	marketCommentDelete  []object.MarketCommentDeleteFunc
-	marketOrderNew       []object.MarketOrderNewFunc
-	marketOrderEdit      []object.MarketOrderEditFunc
-	groupLeave           []object.GroupLeaveFunc
-	groupJoin            []object.GroupJoinFunc
-	userBlock            []object.UserBlockFunc
-	userUnblock          []object.UserUnblockFunc
-	pollVoteNew          []object.PollVoteNewFunc
-	groupOfficersEdit    []object.GroupOfficersEditFunc
-	groupChangeSettings  []object.GroupChangeSettingsFunc
-	groupChangePhoto     []object.GroupChangePhotoFunc
-	vkpayTransaction     []object.VkpayTransactionFunc
-	leadFormsNew         []object.LeadFormsNewFunc
-	appPayload           []object.AppPayloadFunc
-	messageRead          []object.MessageReadFunc
-	likeAdd              []object.LikeAddFunc
-	likeRemove           []object.LikeRemoveFunc
-	special              map[string][]func(object.GroupEvent)
+	messageNew           []MessageNewFunc
+	messageReply         []MessageReplyFunc
+	messageEdit          []MessageEditFunc
+	messageAllow         []MessageAllowFunc
+	messageDeny          []MessageDenyFunc
+	messageTypingState   []MessageTypingStateFunc
+	messageEvent         []MessageEventFunc
+	photoNew             []PhotoNewFunc
+	photoCommentNew      []PhotoCommentNewFunc
+	photoCommentEdit     []PhotoCommentEditFunc
+	photoCommentRestore  []PhotoCommentRestoreFunc
+	photoCommentDelete   []PhotoCommentDeleteFunc
+	audioNew             []AudioNewFunc
+	videoNew             []VideoNewFunc
+	videoCommentNew      []VideoCommentNewFunc
+	videoCommentEdit     []VideoCommentEditFunc
+	videoCommentRestore  []VideoCommentRestoreFunc
+	videoCommentDelete   []VideoCommentDeleteFunc
+	wallPostNew          []WallPostNewFunc
+	wallRepost           []WallRepostFunc
+	wallReplyNew         []WallReplyNewFunc
+	wallReplyEdit        []WallReplyEditFunc
+	wallReplyRestore     []WallReplyRestoreFunc
+	wallReplyDelete      []WallReplyDeleteFunc
+	boardPostNew         []BoardPostNewFunc
+	boardPostEdit        []BoardPostEditFunc
+	boardPostRestore     []BoardPostRestoreFunc
+	boardPostDelete      []BoardPostDeleteFunc
+	marketCommentNew     []MarketCommentNewFunc
+	marketCommentEdit    []MarketCommentEditFunc
+	marketCommentRestore []MarketCommentRestoreFunc
+	marketCommentDelete  []MarketCommentDeleteFunc
+	marketOrderNew       []MarketOrderNewFunc
+	marketOrderEdit      []MarketOrderEditFunc
+	groupLeave           []GroupLeaveFunc
+	groupJoin            []GroupJoinFunc
+	userBlock            []UserBlockFunc
+	userUnblock          []UserUnblockFunc
+	pollVoteNew          []PollVoteNewFunc
+	groupOfficersEdit    []GroupOfficersEditFunc
+	groupChangeSettings  []GroupChangeSettingsFunc
+	groupChangePhoto     []GroupChangePhotoFunc
+	vkpayTransaction     []VkpayTransactionFunc
+	leadFormsNew         []LeadFormsNewFunc
+	appPayload           []AppPayloadFunc
+	messageRead          []MessageReadFunc
+	likeAdd              []LikeAddFunc
+	likeRemove           []LikeRemoveFunc
+	special              map[EventType][]func(context.Context, GroupEvent)
 }
 
 // NewFuncList returns a new FuncList.
 func NewFuncList() *FuncList {
 	return &FuncList{
-		special: make(map[string][]func(object.GroupEvent)),
+		special: make(map[EventType][]func(context.Context, GroupEvent)),
 	}
 }
 
 // Handler group event handler.
-func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
+func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:gocyclo
+	ctx = context.WithValue(ctx, internal.GroupIDKey, e.GroupID)
+	ctx = context.WithValue(ctx, internal.EventIDKey, e.EventID)
+
 	if sliceFunc, ok := fl.special[e.Type]; ok {
 		for _, f := range sliceFunc {
-			f(e)
+			f(ctx, e)
 		}
 	}
 
 	switch e.Type {
-	case object.EventMessageNew:
-		var obj object.MessageNewObject
+	case EventMessageNew:
+		var obj MessageNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.messageNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMessageReply:
-		var obj object.MessageReplyObject
+	case EventMessageReply:
+		var obj MessageReplyObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.messageReply {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMessageEdit:
-		var obj object.MessageEditObject
+	case EventMessageEdit:
+		var obj MessageEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.messageEdit {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMessageAllow:
-		var obj object.MessageAllowObject
+	case EventMessageAllow:
+		var obj MessageAllowObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.messageAllow {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMessageDeny:
-		var obj object.MessageDenyObject
+	case EventMessageDeny:
+		var obj MessageDenyObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.messageDeny {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMessageTypingState: // На основе ответа
-		var obj object.MessageTypingStateObject
+	case EventMessageTypingState: // На основе ответа
+		var obj MessageTypingStateObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.messageTypingState {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMessageEvent:
-		var obj object.MessageEventObject
+	case EventMessageEvent:
+		var obj MessageEventObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.messageEvent {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventPhotoNew:
-		var obj object.PhotoNewObject
+	case EventPhotoNew:
+		var obj PhotoNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.photoNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventPhotoCommentNew:
-		var obj object.PhotoCommentNewObject
+	case EventPhotoCommentNew:
+		var obj PhotoCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.photoCommentNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventPhotoCommentEdit:
-		var obj object.PhotoCommentEditObject
+	case EventPhotoCommentEdit:
+		var obj PhotoCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.photoCommentEdit {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventPhotoCommentRestore:
-		var obj object.PhotoCommentRestoreObject
+	case EventPhotoCommentRestore:
+		var obj PhotoCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.photoCommentRestore {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventPhotoCommentDelete:
-		var obj object.PhotoCommentDeleteObject
+	case EventPhotoCommentDelete:
+		var obj PhotoCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.photoCommentDelete {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventAudioNew:
-		var obj object.AudioNewObject
+	case EventAudioNew:
+		var obj AudioNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.audioNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventVideoNew:
-		var obj object.VideoNewObject
+	case EventVideoNew:
+		var obj VideoNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.videoNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventVideoCommentNew:
-		var obj object.VideoCommentNewObject
+	case EventVideoCommentNew:
+		var obj VideoCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.videoCommentNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventVideoCommentEdit:
-		var obj object.VideoCommentEditObject
+	case EventVideoCommentEdit:
+		var obj VideoCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.videoCommentEdit {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventVideoCommentRestore:
-		var obj object.VideoCommentRestoreObject
+	case EventVideoCommentRestore:
+		var obj VideoCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.videoCommentRestore {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventVideoCommentDelete:
-		var obj object.VideoCommentDeleteObject
+	case EventVideoCommentDelete:
+		var obj VideoCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.videoCommentDelete {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventWallPostNew:
-		var obj object.WallPostNewObject
+	case EventWallPostNew:
+		var obj WallPostNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.wallPostNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventWallRepost:
-		var obj object.WallRepostObject
+	case EventWallRepost:
+		var obj WallRepostObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.wallRepost {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventWallReplyNew:
-		var obj object.WallReplyNewObject
+	case EventWallReplyNew:
+		var obj WallReplyNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.wallReplyNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventWallReplyEdit:
-		var obj object.WallReplyEditObject
+	case EventWallReplyEdit:
+		var obj WallReplyEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.wallReplyEdit {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventWallReplyRestore:
-		var obj object.WallReplyRestoreObject
+	case EventWallReplyRestore:
+		var obj WallReplyRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.wallReplyRestore {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventWallReplyDelete:
-		var obj object.WallReplyDeleteObject
+	case EventWallReplyDelete:
+		var obj WallReplyDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.wallReplyDelete {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventBoardPostNew:
-		var obj object.BoardPostNewObject
+	case EventBoardPostNew:
+		var obj BoardPostNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.boardPostNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventBoardPostEdit:
-		var obj object.BoardPostEditObject
+	case EventBoardPostEdit:
+		var obj BoardPostEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.boardPostEdit {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventBoardPostRestore:
-		var obj object.BoardPostRestoreObject
+	case EventBoardPostRestore:
+		var obj BoardPostRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.boardPostRestore {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventBoardPostDelete:
-		var obj object.BoardPostDeleteObject
+	case EventBoardPostDelete:
+		var obj BoardPostDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.boardPostDelete {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMarketCommentNew:
-		var obj object.MarketCommentNewObject
+	case EventMarketCommentNew:
+		var obj MarketCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.marketCommentNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMarketCommentEdit:
-		var obj object.MarketCommentEditObject
+	case EventMarketCommentEdit:
+		var obj MarketCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.marketCommentEdit {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMarketCommentRestore:
-		var obj object.MarketCommentRestoreObject
+	case EventMarketCommentRestore:
+		var obj MarketCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.marketCommentRestore {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMarketCommentDelete:
-		var obj object.MarketCommentDeleteObject
+	case EventMarketCommentDelete:
+		var obj MarketCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.marketCommentDelete {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMarketOrderNew:
-		var obj object.MarketOrderNewObject
+	case EventMarketOrderNew:
+		var obj MarketOrderNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.marketOrderNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMarketOrderEdit:
-		var obj object.MarketOrderEditObject
+	case EventMarketOrderEdit:
+		var obj MarketOrderEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.marketOrderEdit {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventGroupLeave:
-		var obj object.GroupLeaveObject
+	case EventGroupLeave:
+		var obj GroupLeaveObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.groupLeave {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventGroupJoin:
-		var obj object.GroupJoinObject
+	case EventGroupJoin:
+		var obj GroupJoinObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.groupJoin {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventUserBlock:
-		var obj object.UserBlockObject
+	case EventUserBlock:
+		var obj UserBlockObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.userBlock {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventUserUnblock:
-		var obj object.UserUnblockObject
+	case EventUserUnblock:
+		var obj UserUnblockObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.userUnblock {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventPollVoteNew:
-		var obj object.PollVoteNewObject
+	case EventPollVoteNew:
+		var obj PollVoteNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.pollVoteNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventGroupOfficersEdit:
-		var obj object.GroupOfficersEditObject
+	case EventGroupOfficersEdit:
+		var obj GroupOfficersEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.groupOfficersEdit {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventGroupChangeSettings:
-		var obj object.GroupChangeSettingsObject
+	case EventGroupChangeSettings:
+		var obj GroupChangeSettingsObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.groupChangeSettings {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventGroupChangePhoto:
-		var obj object.GroupChangePhotoObject
+	case EventGroupChangePhoto:
+		var obj GroupChangePhotoObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.groupChangePhoto {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventVkpayTransaction:
-		var obj object.VkpayTransactionObject
+	case EventVkpayTransaction:
+		var obj VkpayTransactionObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.vkpayTransaction {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventLeadFormsNew:
-		var obj object.LeadFormsNewObject
+	case EventLeadFormsNew:
+		var obj LeadFormsNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.leadFormsNew {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventAppPayload:
-		var obj object.AppPayloadObject
+	case EventAppPayload:
+		var obj AppPayloadObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.appPayload {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventMessageRead:
-		var obj object.MessageReadObject
+	case EventMessageRead:
+		var obj MessageReadObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.messageRead {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventLikeAdd:
-		var obj object.LikeAddObject
+	case EventLikeAdd:
+		var obj LikeAddObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.likeAdd {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
-	case object.EventLikeRemove:
-		var obj object.LikeRemoveObject
+	case EventLikeRemove:
+		var obj LikeRemoveObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return err
 		}
 
 		for _, f := range fl.likeRemove {
-			f(obj, e.GroupID)
+			f(ctx, obj)
 		}
 	}
 
@@ -518,240 +587,240 @@ func (fl FuncList) Handler(e object.GroupEvent) error { // nolint:gocyclo
 }
 
 // OnEvent handler.
-func (fl *FuncList) OnEvent(eventType string, f func(object.GroupEvent)) {
+func (fl *FuncList) OnEvent(eventType EventType, f func(context.Context, GroupEvent)) {
 	if fl.special == nil {
-		fl.special = make(map[string][]func(object.GroupEvent))
+		fl.special = make(map[EventType][]func(context.Context, GroupEvent))
 	}
 
 	fl.special[eventType] = append(fl.special[eventType], f)
 }
 
 // MessageNew handler.
-func (fl *FuncList) MessageNew(f object.MessageNewFunc) {
+func (fl *FuncList) MessageNew(f MessageNewFunc) {
 	fl.messageNew = append(fl.messageNew, f)
 }
 
 // MessageReply handler.
-func (fl *FuncList) MessageReply(f object.MessageReplyFunc) {
+func (fl *FuncList) MessageReply(f MessageReplyFunc) {
 	fl.messageReply = append(fl.messageReply, f)
 }
 
 // MessageEdit handler.
-func (fl *FuncList) MessageEdit(f object.MessageEditFunc) {
+func (fl *FuncList) MessageEdit(f MessageEditFunc) {
 	fl.messageEdit = append(fl.messageEdit, f)
 }
 
 // MessageAllow handler.
-func (fl *FuncList) MessageAllow(f object.MessageAllowFunc) {
+func (fl *FuncList) MessageAllow(f MessageAllowFunc) {
 	fl.messageAllow = append(fl.messageAllow, f)
 }
 
 // MessageDeny handler.
-func (fl *FuncList) MessageDeny(f object.MessageDenyFunc) {
+func (fl *FuncList) MessageDeny(f MessageDenyFunc) {
 	fl.messageDeny = append(fl.messageDeny, f)
 }
 
 // MessageTypingState handler.
-func (fl *FuncList) MessageTypingState(f object.MessageTypingStateFunc) {
+func (fl *FuncList) MessageTypingState(f MessageTypingStateFunc) {
 	fl.messageTypingState = append(fl.messageTypingState, f)
 }
 
 // MessageEvent handler.
-func (fl *FuncList) MessageEvent(f object.MessageEventFunc) {
+func (fl *FuncList) MessageEvent(f MessageEventFunc) {
 	fl.messageEvent = append(fl.messageEvent, f)
 }
 
 // PhotoNew handler.
-func (fl *FuncList) PhotoNew(f object.PhotoNewFunc) {
+func (fl *FuncList) PhotoNew(f PhotoNewFunc) {
 	fl.photoNew = append(fl.photoNew, f)
 }
 
 // PhotoCommentNew handler.
-func (fl *FuncList) PhotoCommentNew(f object.PhotoCommentNewFunc) {
+func (fl *FuncList) PhotoCommentNew(f PhotoCommentNewFunc) {
 	fl.photoCommentNew = append(fl.photoCommentNew, f)
 }
 
 // PhotoCommentEdit handler.
-func (fl *FuncList) PhotoCommentEdit(f object.PhotoCommentEditFunc) {
+func (fl *FuncList) PhotoCommentEdit(f PhotoCommentEditFunc) {
 	fl.photoCommentEdit = append(fl.photoCommentEdit, f)
 }
 
 // PhotoCommentRestore handler.
-func (fl *FuncList) PhotoCommentRestore(f object.PhotoCommentRestoreFunc) {
+func (fl *FuncList) PhotoCommentRestore(f PhotoCommentRestoreFunc) {
 	fl.photoCommentRestore = append(fl.photoCommentRestore, f)
 }
 
 // PhotoCommentDelete handler.
-func (fl *FuncList) PhotoCommentDelete(f object.PhotoCommentDeleteFunc) {
+func (fl *FuncList) PhotoCommentDelete(f PhotoCommentDeleteFunc) {
 	fl.photoCommentDelete = append(fl.photoCommentDelete, f)
 }
 
 // AudioNew handler.
-func (fl *FuncList) AudioNew(f object.AudioNewFunc) {
+func (fl *FuncList) AudioNew(f AudioNewFunc) {
 	fl.audioNew = append(fl.audioNew, f)
 }
 
 // VideoNew handler.
-func (fl *FuncList) VideoNew(f object.VideoNewFunc) {
+func (fl *FuncList) VideoNew(f VideoNewFunc) {
 	fl.videoNew = append(fl.videoNew, f)
 }
 
 // VideoCommentNew handler.
-func (fl *FuncList) VideoCommentNew(f object.VideoCommentNewFunc) {
+func (fl *FuncList) VideoCommentNew(f VideoCommentNewFunc) {
 	fl.videoCommentNew = append(fl.videoCommentNew, f)
 }
 
 // VideoCommentEdit handler.
-func (fl *FuncList) VideoCommentEdit(f object.VideoCommentEditFunc) {
+func (fl *FuncList) VideoCommentEdit(f VideoCommentEditFunc) {
 	fl.videoCommentEdit = append(fl.videoCommentEdit, f)
 }
 
 // VideoCommentRestore handler.
-func (fl *FuncList) VideoCommentRestore(f object.VideoCommentRestoreFunc) {
+func (fl *FuncList) VideoCommentRestore(f VideoCommentRestoreFunc) {
 	fl.videoCommentRestore = append(fl.videoCommentRestore, f)
 }
 
 // VideoCommentDelete handler.
-func (fl *FuncList) VideoCommentDelete(f object.VideoCommentDeleteFunc) {
+func (fl *FuncList) VideoCommentDelete(f VideoCommentDeleteFunc) {
 	fl.videoCommentDelete = append(fl.videoCommentDelete, f)
 }
 
 // WallPostNew handler.
-func (fl *FuncList) WallPostNew(f object.WallPostNewFunc) {
+func (fl *FuncList) WallPostNew(f WallPostNewFunc) {
 	fl.wallPostNew = append(fl.wallPostNew, f)
 }
 
 // WallRepost handler.
-func (fl *FuncList) WallRepost(f object.WallRepostFunc) {
+func (fl *FuncList) WallRepost(f WallRepostFunc) {
 	fl.wallRepost = append(fl.wallRepost, f)
 }
 
 // WallReplyNew handler.
-func (fl *FuncList) WallReplyNew(f object.WallReplyNewFunc) {
+func (fl *FuncList) WallReplyNew(f WallReplyNewFunc) {
 	fl.wallReplyNew = append(fl.wallReplyNew, f)
 }
 
 // WallReplyEdit handler.
-func (fl *FuncList) WallReplyEdit(f object.WallReplyEditFunc) {
+func (fl *FuncList) WallReplyEdit(f WallReplyEditFunc) {
 	fl.wallReplyEdit = append(fl.wallReplyEdit, f)
 }
 
 // WallReplyRestore handler.
-func (fl *FuncList) WallReplyRestore(f object.WallReplyRestoreFunc) {
+func (fl *FuncList) WallReplyRestore(f WallReplyRestoreFunc) {
 	fl.wallReplyRestore = append(fl.wallReplyRestore, f)
 }
 
 // WallReplyDelete handler.
-func (fl *FuncList) WallReplyDelete(f object.WallReplyDeleteFunc) {
+func (fl *FuncList) WallReplyDelete(f WallReplyDeleteFunc) {
 	fl.wallReplyDelete = append(fl.wallReplyDelete, f)
 }
 
 // BoardPostNew handler.
-func (fl *FuncList) BoardPostNew(f object.BoardPostNewFunc) {
+func (fl *FuncList) BoardPostNew(f BoardPostNewFunc) {
 	fl.boardPostNew = append(fl.boardPostNew, f)
 }
 
 // BoardPostEdit handler.
-func (fl *FuncList) BoardPostEdit(f object.BoardPostEditFunc) {
+func (fl *FuncList) BoardPostEdit(f BoardPostEditFunc) {
 	fl.boardPostEdit = append(fl.boardPostEdit, f)
 }
 
 // BoardPostRestore handler.
-func (fl *FuncList) BoardPostRestore(f object.BoardPostRestoreFunc) {
+func (fl *FuncList) BoardPostRestore(f BoardPostRestoreFunc) {
 	fl.boardPostRestore = append(fl.boardPostRestore, f)
 }
 
 // BoardPostDelete handler.
-func (fl *FuncList) BoardPostDelete(f object.BoardPostDeleteFunc) {
+func (fl *FuncList) BoardPostDelete(f BoardPostDeleteFunc) {
 	fl.boardPostDelete = append(fl.boardPostDelete, f)
 }
 
 // MarketCommentNew handler.
-func (fl *FuncList) MarketCommentNew(f object.MarketCommentNewFunc) {
+func (fl *FuncList) MarketCommentNew(f MarketCommentNewFunc) {
 	fl.marketCommentNew = append(fl.marketCommentNew, f)
 }
 
 // MarketCommentEdit handler.
-func (fl *FuncList) MarketCommentEdit(f object.MarketCommentEditFunc) {
+func (fl *FuncList) MarketCommentEdit(f MarketCommentEditFunc) {
 	fl.marketCommentEdit = append(fl.marketCommentEdit, f)
 }
 
 // MarketCommentRestore handler.
-func (fl *FuncList) MarketCommentRestore(f object.MarketCommentRestoreFunc) {
+func (fl *FuncList) MarketCommentRestore(f MarketCommentRestoreFunc) {
 	fl.marketCommentRestore = append(fl.marketCommentRestore, f)
 }
 
 // MarketCommentDelete handler.
-func (fl *FuncList) MarketCommentDelete(f object.MarketCommentDeleteFunc) {
+func (fl *FuncList) MarketCommentDelete(f MarketCommentDeleteFunc) {
 	fl.marketCommentDelete = append(fl.marketCommentDelete, f)
 }
 
 // GroupLeave handler.
-func (fl *FuncList) GroupLeave(f object.GroupLeaveFunc) {
+func (fl *FuncList) GroupLeave(f GroupLeaveFunc) {
 	fl.groupLeave = append(fl.groupLeave, f)
 }
 
 // GroupJoin handler.
-func (fl *FuncList) GroupJoin(f object.GroupJoinFunc) {
+func (fl *FuncList) GroupJoin(f GroupJoinFunc) {
 	fl.groupJoin = append(fl.groupJoin, f)
 }
 
 // UserBlock handler.
-func (fl *FuncList) UserBlock(f object.UserBlockFunc) {
+func (fl *FuncList) UserBlock(f UserBlockFunc) {
 	fl.userBlock = append(fl.userBlock, f)
 }
 
 // UserUnblock handler.
-func (fl *FuncList) UserUnblock(f object.UserUnblockFunc) {
+func (fl *FuncList) UserUnblock(f UserUnblockFunc) {
 	fl.userUnblock = append(fl.userUnblock, f)
 }
 
 // PollVoteNew handler.
-func (fl *FuncList) PollVoteNew(f object.PollVoteNewFunc) {
+func (fl *FuncList) PollVoteNew(f PollVoteNewFunc) {
 	fl.pollVoteNew = append(fl.pollVoteNew, f)
 }
 
 // GroupOfficersEdit handler.
-func (fl *FuncList) GroupOfficersEdit(f object.GroupOfficersEditFunc) {
+func (fl *FuncList) GroupOfficersEdit(f GroupOfficersEditFunc) {
 	fl.groupOfficersEdit = append(fl.groupOfficersEdit, f)
 }
 
 // GroupChangeSettings handler.
-func (fl *FuncList) GroupChangeSettings(f object.GroupChangeSettingsFunc) {
+func (fl *FuncList) GroupChangeSettings(f GroupChangeSettingsFunc) {
 	fl.groupChangeSettings = append(fl.groupChangeSettings, f)
 }
 
 // GroupChangePhoto handler.
-func (fl *FuncList) GroupChangePhoto(f object.GroupChangePhotoFunc) {
+func (fl *FuncList) GroupChangePhoto(f GroupChangePhotoFunc) {
 	fl.groupChangePhoto = append(fl.groupChangePhoto, f)
 }
 
 // VkpayTransaction handler.
-func (fl *FuncList) VkpayTransaction(f object.VkpayTransactionFunc) {
+func (fl *FuncList) VkpayTransaction(f VkpayTransactionFunc) {
 	fl.vkpayTransaction = append(fl.vkpayTransaction, f)
 }
 
 // LeadFormsNew handler.
-func (fl *FuncList) LeadFormsNew(f object.LeadFormsNewFunc) {
+func (fl *FuncList) LeadFormsNew(f LeadFormsNewFunc) {
 	fl.leadFormsNew = append(fl.leadFormsNew, f)
 }
 
 // AppPayload handler.
-func (fl *FuncList) AppPayload(f object.AppPayloadFunc) {
+func (fl *FuncList) AppPayload(f AppPayloadFunc) {
 	fl.appPayload = append(fl.appPayload, f)
 }
 
 // MessageRead handler.
-func (fl *FuncList) MessageRead(f object.MessageReadFunc) {
+func (fl *FuncList) MessageRead(f MessageReadFunc) {
 	fl.messageRead = append(fl.messageRead, f)
 }
 
 // LikeAdd handler.
-func (fl *FuncList) LikeAdd(f object.LikeAddFunc) {
+func (fl *FuncList) LikeAdd(f LikeAddFunc) {
 	fl.likeAdd = append(fl.likeAdd, f)
 }
 
 // LikeRemove handler.
-func (fl *FuncList) LikeRemove(f object.LikeRemoveFunc) {
+func (fl *FuncList) LikeRemove(f LikeRemoveFunc) {
 	fl.likeRemove = append(fl.likeRemove, f)
 }
