@@ -15,7 +15,8 @@ func (e ErrorType) Error() string {
 // Error codes. See https://vk.com/dev/streaming_api_docs_2
 const (
 	ErrNoType ErrorType = 0 // NoType error
-	// Settings for updating the connection to WebSocket are incorrectly transmitted
+	// Settings for updating the connection to WebSocket are incorrectly
+	// transmitted.
 	ErrUpgradeWebsocket             ErrorType = 1000
 	ErrUnsupportedHTTP              ErrorType = 1001 // Unsupported HTTP method
 	ErrContentType                  ErrorType = 1002 // “Content-type” key is absent or invalid

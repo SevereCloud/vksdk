@@ -55,6 +55,8 @@ linters:
 # - scopelint
 # - gomodguard
 # - exhaustive
+# - nlreturn
+# - gci
 
 issues:
   exclude-rules:
@@ -75,7 +77,3 @@ issues:
       text: "ST1003:.*(Ts|ts).*TS"
 
   exclude-use-default: false
-
-
-service:
-  golangci-lint-version: 1.24.x

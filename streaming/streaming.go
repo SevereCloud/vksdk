@@ -106,8 +106,6 @@ type response struct {
 
 const (
 	codeEvent = 100
-	// codeOk      = 200 // is unused (deadcode)
-	// codeService = 300 // is unused (deadcode)
 	codeError = 400
 )
 

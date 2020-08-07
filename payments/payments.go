@@ -117,7 +117,7 @@ const (
 	// balance. If the response is a failure, the order is canceled.
 	Chargeable Status = "chargeable"
 
-	// Subscription is active;
+	// Subscription is active.
 	Active Status = "active"
 
 	// Subscription is canceled.

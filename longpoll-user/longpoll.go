@@ -69,15 +69,15 @@ type Mode = int
 
 // A list of necessary option codes.
 const (
-	// receive attachments
+	// receive attachments.
 	ReceiveAttachments Mode = 1 << 1
-	// receive more events
+	// receive more events.
 	ExtendedEvents Mode = 1 << 3
-	// receive pts (used in messages.getLongPollHistory)
+	// receive pts (used in messages.getLongPollHistory).
 	ReturnPts Mode = 1 << 5
-	// extra fields in event type 8(friend become online)
+	// extra fields in event type 8(friend become online).
 	Code8ExtraFields Mode = 1 << 6
-	// return random_id field
+	// return random_id field.
 	ReturnRandomID Mode = 1 << 7
 )
 

@@ -37,7 +37,7 @@ const (
 
 	// User authorization failed
 	//
-	// Make sure that you use a correct authorization type
+	// Make sure that you use a correct authorization type.
 	ErrAuth ErrorType = 5
 
 	// Too many requests per second
@@ -56,7 +56,7 @@ const (
 
 	// Invalid request
 	//
-	// Check the request syntax and used parameters list (it can be found on a method description page)
+	// Check the request syntax and used parameters list (it can be found on a method description page).
 	ErrRequest ErrorType = 8
 
 	// Flood control
@@ -71,7 +71,10 @@ const (
 
 	// In test mode application should be disabled or user should be authorized
 	//
-	// Switch the app off in Settings: https://vk.com/editapp?id={Your API_ID}
+	// Switch the app off in Settings:
+	//
+	// 	https://vk.com/editapp?id={Your API_ID}
+	//
 	ErrEnabledInTest ErrorType = 11
 
 	// Unable to compile code.
@@ -159,7 +162,7 @@ const (
 	// Invalid user id
 	//
 	// Make sure that you use a correct id. You can get an id using a screen
-	// name with the utils.resolveScreenName method
+	// name with the utils.resolveScreenName method.
 	ErrParamUserID        ErrorType = 113
 	ErrParamAlbumID       ErrorType = 114 // Invalid album id
 	ErrParamServer        ErrorType = 118 // Invalid server
@@ -176,7 +179,7 @@ const (
 
 	// Invalid timestamp
 	//
-	// You may get a correct value with the utils.getServerTime method
+	// You may get a correct value with the utils.getServerTime method.
 	ErrParamTimestamp     ErrorType = 150
 	ErrFriendsListID      ErrorType = 171 // Invalid list id
 	ErrFriendsListLimit   ErrorType = 173 // Reached the maximum number of lists
@@ -235,7 +238,10 @@ const (
 
 	// Permission denied. You must enable votes processing in application settings
 	//
-	// Check the app settings: http://vk.com/editapp?id={Your API_ID}&section=payments
+	// Check the app settings:
+	//
+	// 	http://vk.com/editapp?id={Your API_ID}&section=payments
+	//
 	ErrVotesPermission                   ErrorType = 500
 	ErrVotes                             ErrorType = 503  // Not enough votes
 	ErrNotEnoughMoney                    ErrorType = 504  // Not enough money on owner's balance
