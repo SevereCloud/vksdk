@@ -212,6 +212,7 @@ type FriendBecameOnline struct {
 	UserID    int
 	Extra     int
 	Timestamp time.Time
+	AppID     int
 }
 
 func (result *FriendBecameOnline) parse(i []interface{}) error {
@@ -229,6 +230,10 @@ func (result *FriendBecameOnline) parse(i []interface{}) error {
 
 	if v, ok := i[3].(float64); ok {
 		result.Timestamp = time.Unix(int64(v), 0)
+	}
+
+	if v, ok := i[4].(float64); ok {
+		result.AppID = int(v)
 	}
 
 	return nil
