@@ -462,7 +462,7 @@ type MessagesMessageAttachment struct {
 	Sticker           BaseSticker          `json:"sticker"`
 	Type              string               `json:"type"`
 	Video             VideoVideo           `json:"video"`
-	Wall              WallWallpostAttached `json:"wall"`
+	Wall              WallWallpost         `json:"wall"`
 	WallReply         WallWallComment      `json:"wall_reply"`
 	AudioMessage      DocsDoc              `json:"audio_message"`
 	Graffiti          DocsDoc              `json:"graffiti"`
