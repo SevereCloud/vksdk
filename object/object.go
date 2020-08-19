@@ -499,12 +499,28 @@ const (
 
 // Button action type.
 const (
-	ButtonText     = "text"      // A button that sends a message with text specified in the label.
-	ButtonVKPay    = "vkpay"     // Opens the VK Pay window with predefined parameters. The button is called “Pay with VK Pay” (VK Pay is displayed as a logo). This button always stretches to the whole keyboard width.
-	ButtonVKApp    = "open_app"  // Opens a specified VK Apps app. This button always stretches to the whole keyboard width.
-	ButtonLocation = "location"  // Sends the location to the chat. This button always stretches to the whole keyboard width.
-	ButtonOpenLink = "open_link" // Opens the specified link.
-	ButtonCallback = "callback"  // Allows, without sending a message from the user, to receive a notification about pressing the button and perform the necessary action.
+	// A button that sends a message with text specified in the label.
+	ButtonText = "text"
+
+	// Opens the VK Pay window with predefined parameters. The button is called
+	// “Pay with VK Pay” (VK Pay is displayed as a logo). This button always
+	// stretches to the whole keyboard width.
+	ButtonVKPay = "vkpay"
+
+	// Opens a specified VK Apps app. This button always stretches to the whole
+	// keyboard width.
+	ButtonVKApp = "open_app"
+
+	// Sends the location to the chat. This button always stretches to the
+	// whole keyboard width.
+	ButtonLocation = "location"
+
+	// Opens the specified link.
+	ButtonOpenLink = "open_link"
+
+	// Allows, without sending a message from the user, to receive a
+	// notification about pressing the button and perform the necessary action.
+	ButtonCallback = "callback"
 )
 
 // Button color. This parameter is used only for buttons with the text and callback types.

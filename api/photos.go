@@ -305,7 +305,10 @@ type PhotosGetMarketAlbumUploadServerResponse struct {
 // PhotosGetMarketAlbumUploadServer returns the server address for market album photo upload.
 //
 // https://vk.com/dev/photos.getMarketAlbumUploadServer
-func (vk *VK) PhotosGetMarketAlbumUploadServer(params Params) (response PhotosGetMarketAlbumUploadServerResponse, err error) {
+func (vk *VK) PhotosGetMarketAlbumUploadServer(params Params) (
+	response PhotosGetMarketAlbumUploadServerResponse,
+	err error,
+) {
 	err = vk.RequestUnmarshal("photos.getMarketAlbumUploadServer", params, &response)
 	return
 }
@@ -361,7 +364,10 @@ type PhotosGetOwnerCoverPhotoUploadServerResponse struct {
 // PhotosGetOwnerCoverPhotoUploadServer receives server address for uploading community cover.
 //
 // https://vk.com/dev/photos.getOwnerCoverPhotoUploadServer
-func (vk *VK) PhotosGetOwnerCoverPhotoUploadServer(params Params) (response PhotosGetOwnerCoverPhotoUploadServerResponse, err error) {
+func (vk *VK) PhotosGetOwnerCoverPhotoUploadServer(params Params) (
+	response PhotosGetOwnerCoverPhotoUploadServerResponse,
+	err error,
+) {
 	err = vk.RequestUnmarshal("photos.getOwnerCoverPhotoUploadServer", params, &response)
 	return
 }
@@ -371,10 +377,14 @@ type PhotosGetOwnerPhotoUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
 
-// PhotosGetOwnerPhotoUploadServer returns an upload server address for a profile or community photo.
+// PhotosGetOwnerPhotoUploadServer returns an upload server address for a
+// profile or community photo.
 //
 // https://vk.com/dev/photos.getOwnerPhotoUploadServer
-func (vk *VK) PhotosGetOwnerPhotoUploadServer(params Params) (response PhotosGetOwnerPhotoUploadServerResponse, err error) {
+func (vk *VK) PhotosGetOwnerPhotoUploadServer(params Params) (
+	response PhotosGetOwnerPhotoUploadServerResponse,
+	err error,
+) {
 	err = vk.RequestUnmarshal("photos.getOwnerPhotoUploadServer", params, &response)
 	return
 }

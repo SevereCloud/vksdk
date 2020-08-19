@@ -13,7 +13,10 @@ type AppWidgetsGetAppImageUploadServerResponse struct {
 // photo to the app collection for community app widgets.
 //
 // https://vk.com/dev/appWidgets.getAppImageUploadServer
-func (vk *VK) AppWidgetsGetAppImageUploadServer(params Params) (response AppWidgetsGetAppImageUploadServerResponse, err error) {
+func (vk *VK) AppWidgetsGetAppImageUploadServer(params Params) (
+	response AppWidgetsGetAppImageUploadServerResponse,
+	err error,
+) {
 	err = vk.RequestUnmarshal("appWidgets.getAppImageUploadServer", params, &response)
 	return
 }
@@ -41,7 +44,10 @@ type AppWidgetsGetGroupImageUploadServerResponse struct {
 // a photo to the community collection for community app widgets.
 //
 // https://vk.com/dev/appWidgets.getGroupImageUploadServer
-func (vk *VK) AppWidgetsGetGroupImageUploadServer(params Params) (response AppWidgetsGetGroupImageUploadServerResponse, err error) {
+func (vk *VK) AppWidgetsGetGroupImageUploadServer(params Params) (
+	response AppWidgetsGetGroupImageUploadServerResponse,
+	err error,
+) {
 	err = vk.RequestUnmarshal("appWidgets.getGroupImageUploadServer", params, &response)
 	return
 }

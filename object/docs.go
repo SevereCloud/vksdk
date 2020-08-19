@@ -71,7 +71,8 @@ func (photo DocsDocPreviewPhoto) MinSize() (minPhotoSize DocsDocPreviewPhotoSize
 
 // DocsDocPreviewPhotoSizes struct.
 type DocsDocPreviewPhotoSizes struct {
-	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field DocsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type Int
+	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field
+	// DocsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type Int
 	Height float64 `json:"height"` // Height in px
 	Src    string  `json:"src"`    // URL of the image
 	Type   string  `json:"type"`

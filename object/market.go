@@ -41,13 +41,15 @@ type MarketMarketCategory struct {
 
 // MarketMarketItem struct.
 type MarketMarketItem struct {
-	AccessKey          string                     `json:"access_key"`   // Access key for the market item
-	Availability       int                        `json:"availability"` // Information whether the item is available
-	Category           MarketMarketCategory       `json:"category"`
-	Date               int                        `json:"date,omitempty"` // Date when the item has been created in Unixtime
-	Description        string                     `json:"description"`    // Item description
-	ID                 int                        `json:"id"`             // Item ID
-	OwnerID            int                        `json:"owner_id"`       // Item owner's ID
+	AccessKey    string               `json:"access_key"`   // Access key for the market item
+	Availability int                  `json:"availability"` // Information whether the item is available
+	Category     MarketMarketCategory `json:"category"`
+
+	// Date when the item has been created in Unixtime.
+	Date               int                        `json:"date,omitempty"`
+	Description        string                     `json:"description"` // Item description
+	ID                 int                        `json:"id"`          // Item ID
+	OwnerID            int                        `json:"owner_id"`    // Item owner's ID
 	Price              MarketPrice                `json:"price"`
 	ThumbPhoto         string                     `json:"thumb_photo"` // URL of the preview image
 	Title              string                     `json:"title"`       // Item title

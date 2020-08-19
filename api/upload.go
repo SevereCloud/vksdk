@@ -175,7 +175,10 @@ func (vk *VK) UploadGroupWallPhoto(groupID int, file io.Reader) (response Photos
 //
 // Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
 // width+height not more than 14000 px, file size up to 50 Mb.
-func (vk *VK) uploadOwnerPhoto(params Params, squareCrop string, file io.Reader) (response PhotosSaveOwnerPhotoResponse, err error) {
+func (vk *VK) uploadOwnerPhoto(params Params, squareCrop string, file io.Reader) (
+	response PhotosSaveOwnerPhotoResponse,
+	err error,
+) {
 	uploadServer, err := vk.PhotosGetOwnerPhotoUploadServer(params)
 	if err != nil {
 		return
@@ -255,7 +258,10 @@ func (vk *VK) UploadUserPhoto(file io.Reader) (response PhotosSaveOwnerPhotoResp
 //
 // Limits: size not less than 200x200px, aspect ratio from 0.25 to 3,
 // width+height not more than 14000 px, file size up to 50 Mb.
-func (vk *VK) UploadOwnerPhoto(ownerID int, squareCrop string, file io.Reader) (response PhotosSaveOwnerPhotoResponse, err error) {
+func (vk *VK) UploadOwnerPhoto(ownerID int, squareCrop string, file io.Reader) (
+	response PhotosSaveOwnerPhotoResponse,
+	err error,
+) {
 	response, err = vk.uploadOwnerPhoto(Params{
 		"owner_id": ownerID,
 	}, squareCrop, file)
@@ -352,7 +358,10 @@ func (vk *VK) UploadChatPhoto(chatID int, file io.Reader) (response MessagesSetC
 // Limits: size not less than 200x200px,
 // width+height not more than 14000 px, file size up to 50 Mb,
 // aspect ratio of at least 1:20.
-func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.Reader) (response MessagesSetChatPhotoResponse, err error) {
+func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.Reader) (
+	response MessagesSetChatPhotoResponse,
+	err error,
+) {
 	response, err = vk.uploadChatPhoto(Params{
 		"chat_id":    chatID,
 		"crop_x":     cropX,
@@ -407,7 +416,10 @@ func (vk *VK) uploadMarketPhoto(params Params, file io.Reader) (response PhotosS
 // Limits: size not less than 400x400px,
 // width+height not more than 14000 px, file size up to 50 Mb,
 // aspect ratio of at least 1:20.
-func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (response PhotosSaveMarketPhotoResponse, err error) {
+func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (
+	response PhotosSaveMarketPhotoResponse,
+	err error,
+) {
 	response, err = vk.uploadMarketPhoto(Params{
 		"group_id":   groupID,
 		"main_photo": mainPhoto,
@@ -423,7 +435,10 @@ func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (re
 // Limits: size not less than 400x400px,
 // width+height not more than 14000 px, file size up to 50 Mb,
 // aspect ratio of at least 1:20.
-func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file io.Reader) (response PhotosSaveMarketPhotoResponse, err error) {
+func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file io.Reader) (
+	response PhotosSaveMarketPhotoResponse,
+	err error,
+) {
 	response, err = vk.uploadMarketPhoto(Params{
 		"group_id":   groupID,
 		"main_photo": true,
@@ -442,7 +457,10 @@ func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file i
 // Limits: size not less than 1280x720px,
 // width+height not more than 14000 px, file size up to 50 Mb,
 // aspect ratio of at least 1:20.
-func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (response PhotosSaveMarketAlbumPhotoResponse, err error) {
+func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (
+	response PhotosSaveMarketAlbumPhotoResponse,
+	err error,
+) {
 	uploadServer, err := vk.PhotosGetMarketAlbumUploadServer(Params{
 		"group_id": groupID,
 	})
@@ -462,14 +480,12 @@ func (vk *VK) UploadMarketAlbumPhoto(groupID int, file io.Reader) (response Phot
 		return
 	}
 
-	response, err = vk.PhotosSaveMarketAlbumPhoto(Params{
+	return vk.PhotosSaveMarketAlbumPhoto(Params{
 		"group_id": groupID,
 		"server":   handler.Server,
 		"photo":    handler.Photo,
 		"hash":     handler.Hash,
 	})
-
-	return
 }
 
 // UploadVideo uploading Video Files.
@@ -594,7 +610,10 @@ func (vk *VK) UploadWallDoc(title, tags string, file io.Reader) (response DocsSa
 // Supported formats: any formats excepting mp3 and executable files.
 //
 // Limits: file size up to 200 MB.
-func (vk *VK) UploadGroupWallDoc(groupID int, title, tags string, file io.Reader) (response DocsSaveResponse, err error) {
+func (vk *VK) UploadGroupWallDoc(groupID int, title, tags string, file io.Reader) (
+	response DocsSaveResponse,
+	err error,
+) {
 	uploadServer, err := vk.DocsGetWallUploadServer(Params{
 		"group_id": groupID,
 	})
@@ -612,7 +631,10 @@ func (vk *VK) UploadGroupWallDoc(groupID int, title, tags string, file io.Reader
 // Supported formats: any formats excepting mp3 and executable files.
 //
 // Limits: file size up to 200 MB.
-func (vk *VK) UploadMessagesDoc(peerID int, typeDoc, title, tags string, file io.Reader) (response DocsSaveResponse, err error) {
+func (vk *VK) UploadMessagesDoc(peerID int, typeDoc, title, tags string, file io.Reader) (
+	response DocsSaveResponse,
+	err error,
+) {
 	uploadServer, err := vk.DocsGetMessagesUploadServer(Params{
 		"peer_id": peerID,
 		"type":    typeDoc,
@@ -632,7 +654,10 @@ func (vk *VK) UploadMessagesDoc(peerID int, typeDoc, title, tags string, file io
 //
 // Limits: minimum photo size 795x200px, width+height not more than 14000px,
 // file size up to 50 MB. Recommended size: 1590x400px.
-func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, file io.Reader) (response PhotosSaveOwnerCoverPhotoResponse, err error) {
+func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, file io.Reader) (
+	response PhotosSaveOwnerCoverPhotoResponse,
+	err error,
+) {
 	uploadServer, err := vk.PhotosGetOwnerCoverPhotoUploadServer(Params{
 		"group_id": groupID,
 		"crop_x":   cropX,
@@ -656,12 +681,10 @@ func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, f
 		return
 	}
 
-	response, err = vk.PhotosSaveOwnerCoverPhoto(Params{
+	return vk.PhotosSaveOwnerCoverPhoto(Params{
 		"photo": handler.Photo,
 		"hash":  handler.Hash,
 	})
-
-	return
 }
 
 // UploadStories struct.

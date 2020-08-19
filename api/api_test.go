@@ -217,7 +217,11 @@ func TestVK_ExecuteWithArgs_error(t *testing.T) {
 
 	var response int
 
-	err := vkGroup.ExecuteWithArgs(`API.users.get({user_id: parseInt(Args.user_id)});return 1;`, api.Params{"user_id": -1}, &response)
+	err := vkGroup.ExecuteWithArgs(
+		`API.users.get({user_id: parseInt(Args.user_id)});return 1;`,
+		api.Params{"user_id": -1},
+		&response,
+	)
 	assert.Error(t, err)
 	assert.Equal(t, 1, response)
 }

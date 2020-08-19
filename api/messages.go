@@ -100,7 +100,10 @@ type MessagesGetByConversationMessageIDResponse struct {
 // MessagesGetByConversationMessageID messages.getByConversationMessageId.
 //
 // https://vk.com/dev/messages.getByConversationMessageId
-func (vk *VK) MessagesGetByConversationMessageID(params Params) (response MessagesGetByConversationMessageIDResponse, err error) {
+func (vk *VK) MessagesGetByConversationMessageID(params Params) (
+	response MessagesGetByConversationMessageIDResponse,
+	err error,
+) {
 	err = vk.RequestUnmarshal("messages.getByConversationMessageId", params, &response)
 	return
 }
@@ -201,7 +204,10 @@ type MessagesGetConversationMembersResponse struct {
 // MessagesGetConversationMembers returns a list of IDs of users participating in a conversation.
 //
 // https://vk.com/dev/messages.getConversationMembers
-func (vk *VK) MessagesGetConversationMembers(params Params) (response MessagesGetConversationMembersResponse, err error) {
+func (vk *VK) MessagesGetConversationMembers(params Params) (
+	response MessagesGetConversationMembersResponse,
+	err error,
+) {
 	err = vk.RequestUnmarshal("messages.getConversationMembers", params, &response)
 	return
 }
@@ -252,7 +258,10 @@ type MessagesGetConversationsByIDExtendedResponse struct {
 // extended=1
 //
 // https://vk.com/dev/messages.getConversationsById
-func (vk *VK) MessagesGetConversationsByIDExtended(params Params) (response MessagesGetConversationsByIDExtendedResponse, err error) {
+func (vk *VK) MessagesGetConversationsByIDExtended(params Params) (
+	response MessagesGetConversationsByIDExtendedResponse,
+	err error,
+) {
 	params["extended"] = true
 	err = vk.RequestUnmarshal("messages.getConversationsById", params, &response)
 
@@ -377,7 +386,10 @@ type MessagesIsMessagesFromGroupAllowedResponse struct {
 // sending messages from the community to current user is allowed.
 //
 // https://vk.com/dev/messages.isMessagesFromGroupAllowed
-func (vk *VK) MessagesIsMessagesFromGroupAllowed(params Params) (response MessagesIsMessagesFromGroupAllowedResponse, err error) {
+func (vk *VK) MessagesIsMessagesFromGroupAllowed(params Params) (
+	response MessagesIsMessagesFromGroupAllowedResponse,
+	err error,
+) {
 	err = vk.RequestUnmarshal("messages.isMessagesFromGroupAllowed", params, &response)
 	return
 }
@@ -441,7 +453,9 @@ func (vk *VK) MessagesPin(params Params) (response MessagesPinResponse, err erro
 	return
 }
 
-// MessagesRemoveChatUser allows the current user to leave a chat or, if the current user started the chat, allows the user to remove another user from the chat.
+// MessagesRemoveChatUser allows the current user to leave a chat or, if the
+// current user started the chat, allows the user to remove another user from
+// the chat.
 //
 // https://vk.com/dev/messages.removeChatUser
 func (vk *VK) MessagesRemoveChatUser(params Params) (response int, err error) {

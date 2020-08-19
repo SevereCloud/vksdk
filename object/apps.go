@@ -38,33 +38,35 @@ type AppsCatalogBanner struct {
 
 // AppsApp struct.
 type AppsApp struct {
-	AuthorOwnerID     int                   `json:"author_owner_id"`
-	AuthorURL         string                `json:"author_url"`
-	Banner1120        string                `json:"banner_1120"`      // URL of the app banner with 1120 px in width
-	Banner560         string                `json:"banner_560"`       // URL of the app banner with 560 px in width
-	CatalogPosition   int                   `json:"catalog_position"` // Catalog position
-	Description       string                `json:"description"`      // Application description
-	Friends           []int                 `json:"friends"`
-	Genre             string                `json:"genre"`         // Genre name
-	GenreID           int                   `json:"genre_id"`      // Genre ID
-	Icon139           string                `json:"icon_139"`      // URL of the app icon with 139 px in width
-	Icon150           string                `json:"icon_150"`      // URL of the app icon with 150 px in width
-	Icon278           string                `json:"icon_278"`      // URL of the app icon with 279 px in width
-	Icon75            string                `json:"icon_75"`       // URL of the app icon with 75 px in width
-	ID                int                   `json:"id"`            // Application ID
-	International     BaseBoolInt           `json:"international"` // Information whether the application is multi language
-	IsInCatalog       BaseBoolInt           `json:"is_in_catalog"` // Information whether application is in mobile catalog
-	Installed         BaseBoolInt           `json:"installed"`
-	PushEnabled       BaseBoolInt           `json:"push_enabled"`
-	HideTabbar        BaseBoolInt           `json:"hide_tabbar"`
-	IsNew             BaseBoolInt           `json:"is_new"`
-	New               BaseBoolInt           `json:"new"`
-	IsInstalled       BaseBoolInt           `json:"is_installed"`
-	LeaderboardType   int                   `json:"leaderboard_type"`
-	MembersCount      int                   `json:"members_count"`  // Members number
-	PlatformID        int                   `json:"platform_id"`    // Application ID in store
-	PublishedDate     int                   `json:"published_date"` // Date when the application has been published in Unixtime
-	ScreenName        string                `json:"screen_name"`    // Screen name
+	AuthorOwnerID   int         `json:"author_owner_id"`
+	AuthorURL       string      `json:"author_url"`
+	Banner1120      string      `json:"banner_1120"`      // URL of the app banner with 1120 px in width
+	Banner560       string      `json:"banner_560"`       // URL of the app banner with 560 px in width
+	CatalogPosition int         `json:"catalog_position"` // Catalog position
+	Description     string      `json:"description"`      // Application description
+	Friends         []int       `json:"friends"`
+	Genre           string      `json:"genre"`         // Genre name
+	GenreID         int         `json:"genre_id"`      // Genre ID
+	Icon139         string      `json:"icon_139"`      // URL of the app icon with 139 px in width
+	Icon150         string      `json:"icon_150"`      // URL of the app icon with 150 px in width
+	Icon278         string      `json:"icon_278"`      // URL of the app icon with 279 px in width
+	Icon75          string      `json:"icon_75"`       // URL of the app icon with 75 px in width
+	ID              int         `json:"id"`            // Application ID
+	International   BaseBoolInt `json:"international"` // Information whether the application is multi language
+	IsInCatalog     BaseBoolInt `json:"is_in_catalog"` // Information whether application is in mobile catalog
+	Installed       BaseBoolInt `json:"installed"`
+	PushEnabled     BaseBoolInt `json:"push_enabled"`
+	HideTabbar      BaseBoolInt `json:"hide_tabbar"`
+	IsNew           BaseBoolInt `json:"is_new"`
+	New             BaseBoolInt `json:"new"`
+	IsInstalled     BaseBoolInt `json:"is_installed"`
+	LeaderboardType int         `json:"leaderboard_type"`
+	MembersCount    int         `json:"members_count"` // Members number
+	PlatformID      int         `json:"platform_id"`   // Application ID in store
+
+	// Date when the application has been published in Unixtime.
+	PublishedDate     int                   `json:"published_date"`
+	ScreenName        string                `json:"screen_name"` // Screen name
 	Screenshots       []PhotosPhoto         `json:"screenshots"`
 	Section           string                `json:"section"` // Application section name
 	Title             string                `json:"title"`   // Application title

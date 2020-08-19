@@ -1,7 +1,8 @@
 /*
 Package foaf wrapper for FOAF.
 
-Specification https://web.archive.org/web/20140909053226/http://api.yandex.ru/blogs/doc/indexation/concepts/what-is-foaf.xml
+Specification
+https://web.archive.org/web/20140909053226/http://api.yandex.ru/blogs/doc/indexation/concepts/what-is-foaf.xml
 */
 package foaf // import "github.com/SevereCloud/vksdk/foaf"
 

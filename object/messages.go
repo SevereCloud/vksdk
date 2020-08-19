@@ -38,32 +38,44 @@ func (doc MessagesGraffiti) ToAttachment() string {
 
 // MessagesMessage struct.
 type MessagesMessage struct {
-	AdminAuthorID         int                         `json:"admin_author_id"` // Only for messages from community. Contains user ID of community admin, who sent this message.
-	Action                MessagesMessageAction       `json:"action"`
-	Attachments           []MessagesMessageAttachment `json:"attachments"`
-	ConversationMessageID int                         `json:"conversation_message_id"` // Unique auto-incremented number for all messages with this peer
-	Date                  int                         `json:"date"`                    // Date when the message has been sent in Unixtime
-	FromID                int                         `json:"from_id"`                 // Message author's ID
-	FwdMessages           []MessagesMessage           `json:"fwd_Messages"`            // Forwarded messages
-	ReplyMessage          *MessagesMessage            `json:"reply_message"`
-	Geo                   BaseMessageGeo              `json:"geo"`
-	ID                    int                         `json:"id"`        // Message ID
-	Deleted               BaseBoolInt                 `json:"deleted"`   // Is it an deleted message
-	Important             BaseBoolInt                 `json:"important"` // Is it an important message
-	IsHidden              BaseBoolInt                 `json:"is_hidden"`
-	IsCropped             BaseBoolInt                 `json:"is_cropped"`
-	Out                   BaseBoolInt                 `json:"out"` // Information whether the message is outcoming
-	Keyboard              MessagesKeyboard            `json:"keyboard"`
-	Template              MessagesTemplate            `json:"template"`
-	Payload               string                      `json:"payload"`
-	PeerID                int                         `json:"peer_id"`   // Peer ID
-	RandomID              int                         `json:"random_id"` // ID used for sending messages. It returned only for outgoing messages
-	Ref                   string                      `json:"ref"`
-	RefSource             string                      `json:"ref_source"`
-	Text                  string                      `json:"text"`          // Message text
-	UpdateTime            int                         `json:"update_time"`   // Date when the message has been updated in Unixtime
-	MembersCount          int                         `json:"members_count"` // Members number
-	ExpireTTL             int                         `json:"expire_ttl"`
+	// Only for messages from community. Contains user ID of community admin,
+	// who sent this message.
+	AdminAuthorID int                         `json:"admin_author_id"`
+	Action        MessagesMessageAction       `json:"action"`
+	Attachments   []MessagesMessageAttachment `json:"attachments"`
+
+	// Unique auto-incremented number for all messages with this peer.
+	ConversationMessageID int `json:"conversation_message_id"`
+
+	// Date when the message has been sent in Unixtime.
+	Date int `json:"date"`
+
+	// Message author's ID.
+	FromID int `json:"from_id"`
+
+	// Forwarded messages.
+	FwdMessages  []MessagesMessage `json:"fwd_Messages"`
+	ReplyMessage *MessagesMessage  `json:"reply_message"`
+	Geo          BaseMessageGeo    `json:"geo"`
+	ID           int               `json:"id"`        // Message ID
+	Deleted      BaseBoolInt       `json:"deleted"`   // Is it an deleted message
+	Important    BaseBoolInt       `json:"important"` // Is it an important message
+	IsHidden     BaseBoolInt       `json:"is_hidden"`
+	IsCropped    BaseBoolInt       `json:"is_cropped"`
+	Out          BaseBoolInt       `json:"out"` // Information whether the message is outcoming
+	Keyboard     MessagesKeyboard  `json:"keyboard"`
+	Template     MessagesTemplate  `json:"template"`
+	Payload      string            `json:"payload"`
+	PeerID       int               `json:"peer_id"` // Peer ID
+
+	// ID used for sending messages. It returned only for outgoing messages.
+	RandomID     int    `json:"random_id"`
+	Ref          string `json:"ref"`
+	RefSource    string `json:"ref_source"`
+	Text         string `json:"text"`          // Message text
+	UpdateTime   int    `json:"update_time"`   // Date when the message has been updated in Unixtime
+	MembersCount int    `json:"members_count"` // Members number
+	ExpireTTL    int    `json:"expire_ttl"`
 }
 
 // MessagesBasePayload struct.
@@ -200,7 +212,11 @@ func (keyboard *MessagesKeyboard) AddVKPayButton(payload interface{}, hash strin
 }
 
 // AddVKAppsButton add VK Apps button in last row.
-func (keyboard *MessagesKeyboard) AddVKAppsButton(appID, ownerID int, payload interface{}, label, hash string) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddVKAppsButton(
+	appID, ownerID int,
+	payload interface{},
+	label, hash string,
+) *MessagesKeyboard {
 	b, err := json.Marshal(payload)
 	if err != nil {
 		panic(err)
@@ -343,13 +359,15 @@ type MessagesChatSettingsPhoto struct {
 
 // MessagesConversation struct.
 type MessagesConversation struct {
-	CanWrite        MessagesConversationCanWrite     `json:"can_write"`
-	ChatSettings    MessagesConversationChatSettings `json:"chat_settings"`
-	InRead          int                              `json:"in_read"`         // Last message user have read
-	LastMessageID   int                              `json:"last_message_id"` // ID of the last message in conversation
-	Mentions        []int                            `json:"mentions"`        // IDs of messages with mentions
-	MessageRequest  string                           `json:"message_request"`
-	OutRead         int                              `json:"out_read"` // Last outcoming message have been read by the opponent
+	CanWrite       MessagesConversationCanWrite     `json:"can_write"`
+	ChatSettings   MessagesConversationChatSettings `json:"chat_settings"`
+	InRead         int                              `json:"in_read"`         // Last message user have read
+	LastMessageID  int                              `json:"last_message_id"` // ID of the last message in conversation
+	Mentions       []int                            `json:"mentions"`        // IDs of messages with mentions
+	MessageRequest string                           `json:"message_request"`
+
+	// Last outcoming message have been read by the opponent.
+	OutRead         int                              `json:"out_read"`
 	Peer            MessagesConversationPeer         `json:"peer"`
 	PushSettings    MessagesConversationPushSettings `json:"push_settings"`
 	Important       BaseBoolInt                      `json:"important"`
@@ -500,13 +518,17 @@ const (
 
 // MessagesMessageAction struct.
 type MessagesMessageAction struct {
-	ConversationMessageID int                        `json:"conversation_message_id"` // Message ID
-	Email                 string                     `json:"email"`                   // Email address for chat_invite_user or chat_kick_user actions
-	MemberID              int                        `json:"member_id"`               // User or email peer ID
-	Message               string                     `json:"message"`                 // Message body of related message
-	Photo                 MessagesMessageActionPhoto `json:"photo"`
-	Text                  string                     `json:"text"` // New chat title for chat_create and chat_title_update actions
-	Type                  string                     `json:"type"`
+	ConversationMessageID int `json:"conversation_message_id"` // Message ID
+
+	// Email address for chat_invite_user or chat_kick_user actions.
+	Email    string                     `json:"email"`
+	MemberID int                        `json:"member_id"` // User or email peer ID
+	Message  string                     `json:"message"`   // Message body of related message
+	Photo    MessagesMessageActionPhoto `json:"photo"`
+
+	// New chat title for chat_create and chat_title_update actions.
+	Text string `json:"text"`
+	Type string `json:"type"`
 }
 
 // MessagesMessageActionPhoto struct.
@@ -549,16 +571,22 @@ type MessageCall struct {
 
 // MessagesPinnedMessage struct.
 type MessagesPinnedMessage struct {
-	Attachments           []MessagesMessageAttachment `json:"attachments"`
-	ConversationMessageID int                         `json:"conversation_message_id"` // Unique auto-incremented number for all Messages with this peer
-	Date                  int                         `json:"date"`                    // Date when the message has been sent in Unixtime
-	FromID                int                         `json:"from_id"`                 // Message author's ID
-	FwdMessages           []*MessagesMessage          `json:"fwd_Messages"`
-	Geo                   BaseMessageGeo              `json:"geo"`
-	ID                    int                         `json:"id"`      // Message ID
-	PeerID                int                         `json:"peer_id"` // Peer ID
-	ReplyMessage          *MessagesMessage            `json:"reply_message"`
-	Text                  string                      `json:"text"` // Message text
+	Attachments []MessagesMessageAttachment `json:"attachments"`
+
+	// Unique auto-incremented number for all Messages with this peer.
+	ConversationMessageID int `json:"conversation_message_id"`
+
+	// Date when the message has been sent in Unixtime.
+	Date int `json:"date"`
+
+	// Message author's ID.
+	FromID       int                `json:"from_id"`
+	FwdMessages  []*MessagesMessage `json:"fwd_Messages"`
+	Geo          BaseMessageGeo     `json:"geo"`
+	ID           int                `json:"id"`      // Message ID
+	PeerID       int                `json:"peer_id"` // Peer ID
+	ReplyMessage *MessagesMessage   `json:"reply_message"`
+	Text         string             `json:"text"` // Message text
 }
 
 // MessagesUserXtrInvitedBy struct.

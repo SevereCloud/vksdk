@@ -37,7 +37,8 @@ func (vk *VK) SecureGetAppBalance(params Params) (response int, err error) {
 // SecureGetSMSHistoryResponse struct.
 type SecureGetSMSHistoryResponse []object.SecureSmsNotification
 
-// SecureGetSMSHistory shows a list of SMS notifications sent by the application using secure.sendSMSNotification method.
+// SecureGetSMSHistory shows a list of SMS notifications sent by the
+// application using secure.sendSMSNotification method.
 //
 // https://vk.com/dev/secure.getSMSHistory
 func (vk *VK) SecureGetSMSHistory(params Params) (response SecureGetSMSHistoryResponse, err error) {

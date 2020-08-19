@@ -232,7 +232,10 @@ type GroupsGetCallbackConfirmationCodeResponse struct {
 // GroupsGetCallbackConfirmationCode returns Callback API confirmation code for the community.
 //
 // https://vk.com/dev/groups.getCallbackConfirmationCode
-func (vk *VK) GroupsGetCallbackConfirmationCode(params Params) (response GroupsGetCallbackConfirmationCodeResponse, err error) {
+func (vk *VK) GroupsGetCallbackConfirmationCode(params Params) (
+	response GroupsGetCallbackConfirmationCodeResponse,
+	err error,
+) {
 	err = vk.RequestUnmarshal("groups.getCallbackConfirmationCode", params, &response)
 	return
 }
@@ -425,7 +428,10 @@ type GroupsGetMembersFilterManagersResponse struct {
 // filter=managers
 //
 // https://vk.com/dev/groups.getMembers
-func (vk *VK) GroupsGetMembersFilterManagers(params Params) (response GroupsGetMembersFilterManagersResponse, err error) {
+func (vk *VK) GroupsGetMembersFilterManagers(params Params) (
+	response GroupsGetMembersFilterManagersResponse,
+	err error,
+) {
 	params["filter"] = "managers"
 	err = vk.RequestUnmarshal("groups.getMembers", params, &response)
 

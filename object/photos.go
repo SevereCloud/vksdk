@@ -149,22 +149,29 @@ func (album PhotosPhotoAlbum) ToAttachment() string {
 
 // PhotosPhotoAlbumFull struct.
 type PhotosPhotoAlbumFull struct {
-	CanUpload          BaseBoolInt        `json:"can_upload"`        // Information whether current user can upload photo to the album
-	CommentsDisabled   BaseBoolInt        `json:"comments_disabled"` // Information whether album comments are disabled
-	Created            int                `json:"created"`           // Date when the album has been created in Unixtime
-	Description        string             `json:"description"`       // Photo album description
-	ID                 int                `json:"id"`                // Photo album ID
-	OwnerID            int                `json:"owner_id"`          // Album owner's ID
-	Size               int                `json:"size"`              // Photos number
-	PrivacyComment     Privacy            `json:"privacy_comment"`
-	PrivacyView        Privacy            `json:"privacy_view"`
-	Sizes              []PhotosPhotoSizes `json:"sizes"`
-	ThumbID            int                `json:"thumb_id"`              // Thumb photo ID
-	ThumbIsLast        int                `json:"thumb_is_last"`         // Information whether the album thumb is last photo
-	ThumbSrc           string             `json:"thumb_src"`             // URL of the thumb image
-	Title              string             `json:"title"`                 // Photo album title
-	Updated            int                `json:"updated"`               // Date when the album has been updated last time in Unixtime
-	UploadByAdminsOnly int                `json:"upload_by_admins_only"` // Information whether only community administrators can upload photos
+	// Information whether current user can upload photo to the album.
+	CanUpload        BaseBoolInt        `json:"can_upload"`
+	CommentsDisabled BaseBoolInt        `json:"comments_disabled"` // Information whether album comments are disabled
+	Created          int                `json:"created"`           // Date when the album has been created in Unixtime
+	Description      string             `json:"description"`       // Photo album description
+	ID               int                `json:"id"`                // Photo album ID
+	OwnerID          int                `json:"owner_id"`          // Album owner's ID
+	Size             int                `json:"size"`              // Photos number
+	PrivacyComment   Privacy            `json:"privacy_comment"`
+	PrivacyView      Privacy            `json:"privacy_view"`
+	Sizes            []PhotosPhotoSizes `json:"sizes"`
+	ThumbID          int                `json:"thumb_id"` // Thumb photo ID
+
+	// Information whether the album thumb is last photo.
+	ThumbIsLast int    `json:"thumb_is_last"`
+	ThumbSrc    string `json:"thumb_src"` // URL of the thumb image
+	Title       string `json:"title"`     // Photo album title
+
+	// Date when the album has been updated last time in Unixtime.
+	Updated int `json:"updated"`
+
+	// Information whether only community administrators can upload photos.
+	UploadByAdminsOnly int `json:"upload_by_admins_only"`
 }
 
 // ToAttachment return attachment format.

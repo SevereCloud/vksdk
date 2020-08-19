@@ -60,19 +60,21 @@ type AdsClient struct {
 
 // AdsCriteria struct.
 type AdsCriteria struct {
-	AgeFrom              int         `json:"age_from"`               // Age from
-	AgeTo                int         `json:"age_to"`                 // Age to
-	Apps                 string      `json:"apps"`                   // Apps IDs
-	AppsNot              string      `json:"apps_not"`               // Apps IDs to except
-	Birthday             int         `json:"birthday"`               // Days to birthday
-	Cities               string      `json:"cities"`                 // Cities IDs
-	CitiesNot            string      `json:"cities_not"`             // Cities IDs to except
-	Country              int         `json:"country"`                // Country ID
-	Districts            string      `json:"districts"`              // Districts IDs
-	Groups               string      `json:"groups"`                 // Communities IDs
-	InterestCategories   string      `json:"interest_categories"`    // Interests categories IDs
-	Interests            string      `json:"interests"`              // Interests
-	Paying               BaseBoolInt `json:"paying"`                 // Information whether the user has proceeded VK payments before
+	AgeFrom            int    `json:"age_from"`            // Age from
+	AgeTo              int    `json:"age_to"`              // Age to
+	Apps               string `json:"apps"`                // Apps IDs
+	AppsNot            string `json:"apps_not"`            // Apps IDs to except
+	Birthday           int    `json:"birthday"`            // Days to birthday
+	Cities             string `json:"cities"`              // Cities IDs
+	CitiesNot          string `json:"cities_not"`          // Cities IDs to except
+	Country            int    `json:"country"`             // Country ID
+	Districts          string `json:"districts"`           // Districts IDs
+	Groups             string `json:"groups"`              // Communities IDs
+	InterestCategories string `json:"interest_categories"` // Interests categories IDs
+	Interests          string `json:"interests"`           // Interests
+
+	// Information whether the user has proceeded VK payments before.
+	Paying               BaseBoolInt `json:"paying"`
 	Positions            string      `json:"positions"`              // Positions IDs
 	Religions            string      `json:"religions"`              // Religions IDs
 	RetargetingGroups    string      `json:"retargeting_groups"`     // Retargeting groups IDs

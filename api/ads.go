@@ -427,7 +427,10 @@ func (vk *VK) AdsRemoveTargetContacts(params Params) (response int, err error) {
 // TODO: AdsSaveLookalikeRequestResult ...
 //
 // https://vk.com/dev/ads.saveLookalikeRequestResult
-// func (vk *VK) AdsSaveLookalikeRequestResult(params Params) (response AdsSaveLookalikeRequestResultResponse, err error) {
+// func (vk *VK) AdsSaveLookalikeRequestResult(params Params) (
+// 		response AdsSaveLookalikeRequestResultResponse,
+// 		err error,
+// 	) {
 // 	err = vk.RequestUnmarshal("ads.saveLookalikeRequestResult", params, &response)
 // 	return
 // }

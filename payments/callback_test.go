@@ -26,14 +26,6 @@ func TestNewCallback(t *testing.T) {
 	cb := payments.NewCallback(secret)
 	assert.Equal(t, secret, cb.Secret)
 
-	// cb.OnSubscriptionStatusChange(func(e payments.SubscriptionStatusChangeRequest) (*payments.SubscriptionStatusChangeResponse, *payments.Error) {
-	// 	return nil, &paymentErr
-	// })
-
-	// cb.OnSubscriptionStatusChangeTest(func(e payments.SubscriptionStatusChangeRequest) (*payments.SubscriptionStatusChangeResponse, *payments.Error) {
-	// 	return nil, &paymentErr
-	// })
-
 	f := func(v url.Values, wantResp response) {
 		t.Helper()
 
@@ -368,11 +360,17 @@ func TestCallback_OnOrderStatusChange(t *testing.T) {
 	cb := payments.NewCallback(secret)
 	assert.Equal(t, secret, cb.Secret)
 
-	cb.OnOrderStatusChange(func(e payments.OrderStatusChangeRequest) (*payments.OrderStatusChangeResponse, *payments.Error) {
+	cb.OnOrderStatusChange(func(e payments.OrderStatusChangeRequest) (
+		*payments.OrderStatusChangeResponse,
+		*payments.Error,
+	) {
 		return nil, &paymentErr
 	})
 
-	cb.OnOrderStatusChangeTest(func(e payments.OrderStatusChangeRequest) (*payments.OrderStatusChangeResponse, *payments.Error) {
+	cb.OnOrderStatusChangeTest(func(e payments.OrderStatusChangeRequest) (
+		*payments.OrderStatusChangeResponse,
+		*payments.Error,
+	) {
 		return nil, &paymentErr
 	})
 
@@ -494,11 +492,17 @@ func TestCallback_OnSubscriptionStatusChange(t *testing.T) {
 	cb := payments.NewCallback(secret)
 	assert.Equal(t, secret, cb.Secret)
 
-	cb.OnSubscriptionStatusChange(func(e payments.SubscriptionStatusChangeRequest) (*payments.SubscriptionStatusChangeResponse, *payments.Error) {
+	cb.OnSubscriptionStatusChange(func(e payments.SubscriptionStatusChangeRequest) (
+		*payments.SubscriptionStatusChangeResponse,
+		*payments.Error,
+	) {
 		return nil, &paymentErr
 	})
 
-	cb.OnSubscriptionStatusChangeTest(func(e payments.SubscriptionStatusChangeRequest) (*payments.SubscriptionStatusChangeResponse, *payments.Error) {
+	cb.OnSubscriptionStatusChangeTest(func(e payments.SubscriptionStatusChangeRequest) (
+		*payments.SubscriptionStatusChangeResponse,
+		*payments.Error,
+	) {
 		return nil, &paymentErr
 	})
 

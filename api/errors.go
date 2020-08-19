@@ -25,7 +25,8 @@ const (
 
 	// Application is disabled. Enable your application or use test mode
 	//
-	// You need to switch on the app in Settings (https://vk.com/editapp?id={Your API_ID}
+	// You need to switch on the app in Settings
+	// https://vk.com/editapp?id={Your API_ID}
 	// or use the test mode (test_mode=1).
 	ErrDisabled ErrorType = 2
 
@@ -49,19 +50,22 @@ const (
 
 	// Permission to perform this action is denied
 	//
-	// Make sure that your have received required permissions during the authorization.
+	// Make sure that your have received required permissions during the
+	// authorization.
 	// You can do it with the account.getAppPermissions method.
 	// https://vk.com/dev/permissions
 	ErrPermission ErrorType = 7
 
 	// Invalid request
 	//
-	// Check the request syntax and used parameters list (it can be found on a method description page).
+	// Check the request syntax and used parameters list (it can be found on
+	// a method description page).
 	ErrRequest ErrorType = 8
 
 	// Flood control
 	//
-	// You need to decrease the count of identical requests. For more efficient work you may use execute.
+	// You need to decrease the count of identical requests. For more efficient
+	// work you may use execute.
 	ErrFlood ErrorType = 9
 
 	// Internal server error
@@ -90,30 +94,39 @@ const (
 
 	// Access denied
 	//
-	// Make sure that you use correct identifiers and the content is available for the user in the full version of the site.
+	// Make sure that you use correct identifiers and the content is available
+	// for the user in the full version of the site.
 	ErrAccess ErrorType = 15
 
 	// HTTP authorization failed
 	//
-	// To avoid this error check if a user has the 'Use secure connection' option enabled with the account.getInfo method.
+	// To avoid this error check if a user has the 'Use secure connection'
+	// option enabled with the account.getInfo method.
 	ErrAuthHTTPS ErrorType = 16
 
 	// Validation required
 	//
-	// Make sure that you don't use a token received with http://vk.com/dev/auth_mobile for a request from the server. It's restricted.
+	// Make sure that you don't use a token received with
+	// http://vk.com/dev/auth_mobile for a request from the server.
+	// It's restricted.
 	//
 	// https://vk.com/dev/need_validation
 	ErrAuthValidation ErrorType = 17
 	ErrUserDeleted    ErrorType = 18 // User was deleted or banned
 	ErrBlocked        ErrorType = 19 // Content blocked
 
-	// Permission to perform this action is denied for non-standalone applications
+	// Permission to perform this action is denied for non-standalone
+	// applications
 	//
-	// If you see this error despite your app has the Standalone type, make sure that you use redirect_uri=https://oauth.vk.com/blank.html.
+	// If you see this error despite your app has the Standalone type, make
+	// sure that you use redirect_uri=https://oauth.vk.com/blank.html.
 	// Details here: https://vk.com/dev/auth_mobile
 	ErrMethodPermission ErrorType = 20
-	ErrMethodAds        ErrorType = 21 // Permission to perform this action is allowed only for standalone and OpenAPI applications
-	ErrUpload           ErrorType = 22 // Upload error
+
+	// Permission to perform this action is allowed only for standalone and
+	// OpenAPI applications.
+	ErrMethodAds ErrorType = 21
+	ErrUpload    ErrorType = 22 // Upload error
 
 	// This method was disabled
 	//
@@ -122,15 +135,20 @@ const (
 
 	// Confirmation required
 	//
-	// In some cases VK requires to request action confirmation from the user (for Standalone apps only).
+	// In some cases VK requires to request action confirmation from the user
+	// (for Standalone apps only).
 	//
 	// Following parameter is transmitted with the error message as well:
 	//
-	// confirmation_text – text of the message to be shown in the default confirmation window.
+	// confirmation_text – text of the message to be shown in the default
+	// confirmation window.
 	//
 	// The app should display the default confirmation window
-	// with text from confirmation_text and two buttons: "Continue" and "Cancel".
-	// If user confirms the action repeat the request with an extra parameter: confirm = 1.
+	// with text from confirmation_text and two buttons: "Continue" and
+	// "Cancel".
+	// If user confirms the action repeat the request with an extra parameter:
+	//
+	// 	confirm = 1.
 	//
 	// https://vk.com/dev/need_confirmation
 	ErrNeedConfirmation      ErrorType = 24
@@ -146,12 +164,14 @@ const (
 
 	// One of the parameters specified was missing or invalid
 	//
-	// Check the required parameters list and their format on a method description page.
+	// Check the required parameters list and their format on a method
+	// description page.
 	ErrParam ErrorType = 100
 
 	// Invalid application API ID
 	//
-	// Find the app in the administrated list in settings: http://vk.com/apps?act=settings
+	// Find the app in the administrated list in settings:
+	// http://vk.com/apps?act=settings
 	// And set the correct API_ID in the request.
 	ErrParamAPIID   ErrorType = 101
 	ErrLimits       ErrorType = 103 // Out of limits
@@ -163,30 +183,46 @@ const (
 	//
 	// Make sure that you use a correct id. You can get an id using a screen
 	// name with the utils.resolveScreenName method.
-	ErrParamUserID        ErrorType = 113
-	ErrParamAlbumID       ErrorType = 114 // Invalid album id
-	ErrParamServer        ErrorType = 118 // Invalid server
-	ErrParamTitle         ErrorType = 119 // Invalid title
-	ErrParamPhotos        ErrorType = 122 // Invalid photos
-	ErrParamHash          ErrorType = 121 // Invalid hash
-	ErrParamPhoto         ErrorType = 129 // Invalid photo
-	ErrParamGroupID       ErrorType = 125 // Invalid group id
-	ErrParamPageID        ErrorType = 140 // Page not found
-	ErrAccessPage         ErrorType = 141 // Access to page denied
-	ErrMobileNotActivated ErrorType = 146 // The mobile number of the user is unknown
-	ErrInsufficientFunds  ErrorType = 147 // Application has insufficient funds
-	ErrAccessMenu         ErrorType = 148 // Access to the menu of the user denied
+	ErrParamUserID  ErrorType = 113
+	ErrParamAlbumID ErrorType = 114 // Invalid album id
+	ErrParamServer  ErrorType = 118 // Invalid server
+	ErrParamTitle   ErrorType = 119 // Invalid title
+	ErrParamPhotos  ErrorType = 122 // Invalid photos
+	ErrParamHash    ErrorType = 121 // Invalid hash
+	ErrParamPhoto   ErrorType = 129 // Invalid photo
+	ErrParamGroupID ErrorType = 125 // Invalid group id
+	ErrParamPageID  ErrorType = 140 // Page not found
+	ErrAccessPage   ErrorType = 141 // Access to page denied
+
+	// The mobile number of the user is unknown.
+	ErrMobileNotActivated ErrorType = 146
+
+	// Application has insufficient funds.
+	ErrInsufficientFunds ErrorType = 147
+
+	// Access to the menu of the user denied.
+	ErrAccessMenu ErrorType = 148
 
 	// Invalid timestamp
 	//
 	// You may get a correct value with the utils.getServerTime method.
-	ErrParamTimestamp     ErrorType = 150
-	ErrFriendsListID      ErrorType = 171 // Invalid list id
-	ErrFriendsListLimit   ErrorType = 173 // Reached the maximum number of lists
-	ErrFriendsAddYourself ErrorType = 174 // Cannot add user himself as friend
-	ErrFriendsAddInEnemy  ErrorType = 175 // Cannot add this user to friends as they have put you on their blacklist
-	ErrFriendsAddEnemy    ErrorType = 176 // Cannot add this user to friends as you put him on blacklist
-	ErrFriendsAddNotFound ErrorType = 177 // Cannot add this user to friends as user not found
+	ErrParamTimestamp ErrorType = 150
+	ErrFriendsListID  ErrorType = 171 // Invalid list id
+
+	// Reached the maximum number of lists.
+	ErrFriendsListLimit ErrorType = 173
+
+	// Cannot add user himself as friend.
+	ErrFriendsAddYourself ErrorType = 174
+
+	// Cannot add this user to friends as they have put you on their blacklist.
+	ErrFriendsAddInEnemy ErrorType = 175
+
+	// Cannot add this user to friends as you put him on blacklist.
+	ErrFriendsAddEnemy ErrorType = 176
+
+	// Cannot add this user to friends as user not found.
+	ErrFriendsAddNotFound ErrorType = 177
 	ErrParamNoteID        ErrorType = 180 // Note not found
 	ErrAccessNote         ErrorType = 181 // Access to note denied
 	ErrAccessNoteComment  ErrorType = 182 // You can't comment this note
@@ -208,27 +244,66 @@ const (
 
 	// Access to group denied
 	//
-	// Make sure that the current user is a member or admin of the community (for closed and private groups and events).
-	ErrAccessGroup             ErrorType = 203
-	ErrAccessVideo             ErrorType = 204 // Access denied
-	ErrAccessMarket            ErrorType = 205 // Access denied
-	ErrWallAccessPost          ErrorType = 210 // Access to wall's post denied
-	ErrWallAccessComment       ErrorType = 211 // Access to wall's comment denied
-	ErrWallAccessReplies       ErrorType = 212 // Access to post comments denied
-	ErrWallAccessAddReply      ErrorType = 213 // Access to status replies denied
-	ErrWallAddPost             ErrorType = 214 // Access to adding post denied
-	ErrWallAdsPublished        ErrorType = 219 // Advertisement post was recently added
-	ErrWallTooManyRecipients   ErrorType = 220 // Too many recipients
-	ErrStatusNoAudio           ErrorType = 221 // User disabled track name broadcast
-	ErrWallLinksForbidden      ErrorType = 222 // Hyperlinks are forbidden
-	ErrWallReplyOwnerFlood     ErrorType = 223 // Too many replies
-	ErrWallAdsPostLimitReached ErrorType = 224 // Too many ads posts
-	ErrDonutDisabled           ErrorType = 225 // Donut is disabled
-	ErrPollsAccess             ErrorType = 250 // Access to poll denied
-	ErrPollsAnswerID           ErrorType = 252 // Invalid answer id
-	ErrPollsPollID             ErrorType = 251 // Invalid poll id
-	ErrPollsAccessWithoutVote  ErrorType = 253 // Access denied, please vote first
-	ErrAccessGroups            ErrorType = 260 // Access to the groups list is denied due to the user's privacy settings
+	// Make sure that the current user is a member or admin of the community
+	// (for closed and private groups and events).
+	ErrAccessGroup ErrorType = 203
+
+	// Access denied.
+	ErrAccessVideo ErrorType = 204
+
+	// Access denied.
+	ErrAccessMarket ErrorType = 205
+
+	// Access to wall's post denied.
+	ErrWallAccessPost ErrorType = 210
+
+	// Access to wall's comment denied.
+	ErrWallAccessComment ErrorType = 211
+
+	// Access to post comments denied.
+	ErrWallAccessReplies ErrorType = 212
+
+	// Access to status replies denied.
+	ErrWallAccessAddReply ErrorType = 213
+
+	// Access to adding post denied.
+	ErrWallAddPost ErrorType = 214
+
+	// Advertisement post was recently added.
+	ErrWallAdsPublished ErrorType = 219
+
+	// Too many recipients.
+	ErrWallTooManyRecipients ErrorType = 220
+
+	// User disabled track name broadcast.
+	ErrStatusNoAudio ErrorType = 221
+
+	// Hyperlinks are forbidden.
+	ErrWallLinksForbidden ErrorType = 222
+
+	// Too many replies.
+	ErrWallReplyOwnerFlood ErrorType = 223
+
+	// Too many ads posts.
+	ErrWallAdsPostLimitReached ErrorType = 224
+
+	// Donut is disabled.
+	ErrDonutDisabled ErrorType = 225
+
+	// Access to poll denied.
+	ErrPollsAccess ErrorType = 250
+
+	// Invalid answer id.
+	ErrPollsAnswerID ErrorType = 252
+
+	// Invalid poll id.
+	ErrPollsPollID ErrorType = 251
+
+	// Access denied, please vote first.
+	ErrPollsAccessWithoutVote ErrorType = 253
+
+	// Access to the groups list is denied due to the user's privacy settings.
+	ErrAccessGroups ErrorType = 260
 
 	// This album is full
 	//
@@ -236,108 +311,301 @@ const (
 	ErrAlbumFull   ErrorType = 300
 	ErrAlbumsLimit ErrorType = 302 // Albums number limit is reached
 
-	// Permission denied. You must enable votes processing in application settings
+	// Permission denied. You must enable votes processing in application
+	// settings
 	//
 	// Check the app settings:
 	//
 	// 	http://vk.com/editapp?id={Your API_ID}&section=payments
 	//
-	ErrVotesPermission                   ErrorType = 500
-	ErrVotes                             ErrorType = 503  // Not enough votes
-	ErrNotEnoughMoney                    ErrorType = 504  // Not enough money on owner's balance
-	ErrAdsPermission                     ErrorType = 600  // Permission denied. You have no access to operations specified with given object(s)
-	ErrWeightedFlood                     ErrorType = 601  // Permission denied. You have requested too many actions this day. Try later
-	ErrAdsPartialSuccess                 ErrorType = 602  // Some part of the request has not been completed
-	ErrAdsSpecific                       ErrorType = 603  // Some ads error occurred
-	ErrAdsObjectDeleted                  ErrorType = 629  // Object deleted
-	ErrGroupChangeCreator                ErrorType = 700  // Cannot edit creator role
-	ErrGroupNotInClub                    ErrorType = 701  // User should be in club
-	ErrGroupTooManyOfficers              ErrorType = 702  // Too many officers in club
-	ErrGroupNeed2fa                      ErrorType = 703  // You need to enable 2FA for this action
-	ErrGroupHostNeed2fa                  ErrorType = 704  // User needs to enable 2FA for this action
-	ErrGroupTooManyAddresses             ErrorType = 706  // Too many addresses in club
-	ErrGroupAppIsNotInstalledInCommunity ErrorType = 711  // "Application is not installed in community
-	ErrGroupInvalidInviteLink            ErrorType = 714  // Invite link is invalid - expired, deleted or not exists
-	ErrVideoAlreadyAdded                 ErrorType = 800  // This video is already added
-	ErrVideoCommentsClosed               ErrorType = 801  // Comments for this video are closed
-	ErrMessagesUserBlocked               ErrorType = 900  // Can't send messages for users from blacklist
-	ErrMessagesDenySend                  ErrorType = 901  // Can't send messages for users without permission
-	ErrMessagesPrivacy                   ErrorType = 902  // Can't send messages to this user due to their privacy settings
-	ErrMessagesTooOldPts                 ErrorType = 907  // Value of ts or pts is too old
-	ErrMessagesTooNewPts                 ErrorType = 908  // Value of ts or pts is too new
-	ErrMessagesEditExpired               ErrorType = 909  // Can't edit this message, because it's too old
-	ErrMessagesTooBig                    ErrorType = 910  // Can't sent this message, because it's too big
-	ErrMessagesKeyboardInvalid           ErrorType = 911  // Keyboard format is invalid
-	ErrMessagesChatBotFeature            ErrorType = 912  // This is a chat bot feature, change this status in settings
-	ErrMessagesTooLongForwards           ErrorType = 913  // Too many forwarded messages
-	ErrMessagesTooLongMessage            ErrorType = 914  // Message is too long
-	ErrMessagesChatUserNoAccess          ErrorType = 917  // You don't have access to this chat
-	ErrMessagesCantSeeInviteLink         ErrorType = 919  // You can't see invite link for this chat
-	ErrMessagesEditKindDisallowed        ErrorType = 920  // Can't edit this kind of message
-	ErrMessagesCantFwd                   ErrorType = 921  // Can't forward these messages
-	ErrMessagesCantDeleteForAll          ErrorType = 924  // Can't delete this message for everybody
-	ErrMessagesChatNotAdmin              ErrorType = 925  // You are not admin of this chat
-	ErrMessagesChatNotExist              ErrorType = 927  // Chat does not exist
-	ErrMessagesCantChangeInviteLink      ErrorType = 931  // You can't change invite link for this chat
-	ErrMessagesGroupPeerAccess           ErrorType = 932  // Your community can't interact with this peer
-	ErrMessagesChatUserNotInChat         ErrorType = 935  // User not found in chat
-	ErrMessagesContactNotFound           ErrorType = 936  // Contact not found
-	ErrMessagesMessageRequestAlreadySend ErrorType = 939  // Message request already send
-	ErrMessagesTooManyPosts              ErrorType = 940  // Too many posts in messages
-	ErrMessagesCantUseIntent             ErrorType = 943  // Cannot use this intent
-	ErrMessagesLimitIntent               ErrorType = 944  // Limits overflow for this intent
-	ErrMessagesChatDisabled              ErrorType = 945  // Chat was disabled
-	ErrMessagesChatNotSupported          ErrorType = 946  // Chat not support
-	ErrMessagesMemberAccessToGroupDenied ErrorType = 947  // Can't add user to chat, because user has no access to group
-	ErrMessagesEditPinned                ErrorType = 949  // Can't edit pinned message yet
-	ErrMessagesReplyTimedOut             ErrorType = 950  // Can't send message, reply timed out
-	ErrParamPhone                        ErrorType = 1000 // Invalid phone number
-	ErrPhoneAlreadyUsed                  ErrorType = 1004 // This phone number is used by another user
-	ErrAuthFloodError                    ErrorType = 1105 // Too many auth attempts, try again later
-	ErrAuthDelay                         ErrorType = 1112 // Processing.. Try later
-	ErrParamDocID                        ErrorType = 1150 // Invalid document id
-	ErrParamDocDeleteAccess              ErrorType = 1151 // Access to document deleting is denied
-	ErrParamDocTitle                     ErrorType = 1152 // Invalid document title
-	ErrParamDocAccess                    ErrorType = 1153 // Access to document is denied
-	ErrPhotoChanged                      ErrorType = 1160 // Original photo was changed
-	ErrTooManyLists                      ErrorType = 1170 // Too many feed lists
-	ErrAppsAlreadyUnlocked               ErrorType = 1251 // This achievement is already unlocked
-	ErrAppsSubscriptionNotFound          ErrorType = 1256 // Subscription not found
-	ErrAppsSubscriptionInvalidStatus     ErrorType = 1257 // Subscription is in invalid status
-	ErrInvalidAddress                    ErrorType = 1260 // Invalid screen name
-	ErrCommunitiesCatalogDisabled        ErrorType = 1310 // Catalog is not available for this user
-	ErrCommunitiesCategoriesDisabled     ErrorType = 1311 // Catalog categories are not available for this user
-	ErrMarketRestoreTooLate              ErrorType = 1400 // Too late for restore
-	ErrMarketCommentsClosed              ErrorType = 1401 // Comments for this market are closed
-	ErrMarketAlbumNotFound               ErrorType = 1402 // Album not found
-	ErrMarketItemNotFound                ErrorType = 1403 // Item not found
-	ErrMarketItemAlreadyAdded            ErrorType = 1404 // Item already added to album
-	ErrMarketTooManyItems                ErrorType = 1405 // Too many items
-	ErrMarketTooManyItemsInAlbum         ErrorType = 1406 // Too many items in album
-	ErrMarketTooManyAlbums               ErrorType = 1407 // Too many albums
-	ErrMarketItemHasBadLinks             ErrorType = 1408 // Item has bad links in description
-	ErrMarketShopNotEnabled              ErrorType = 1409 // Shop not enabled
-	ErrMarketCartEmpty                   ErrorType = 1427 // Cart is empty
-	ErrMarketSpecifyDimensions           ErrorType = 1429 // Specify width, length, height and weight all together
-	ErrVKPayStatus                       ErrorType = 1430 // VK Pay status can not be changed
-	ErrMarketAlreadyEnabled              ErrorType = 1431 // Market was already enabled in this group
-	ErrMarketAlreadyDisabled             ErrorType = 1432 // Market was already disabled in this group
-	ErrStoryExpired                      ErrorType = 1600 // Story has already expired
-	ErrStoryIncorrectReplyPrivacy        ErrorType = 1602 // Incorrect reply privacy
-	ErrPrettyCardsCardNotFound           ErrorType = 1900 // Card not found
-	ErrPrettyCardsTooManyCards           ErrorType = 1901 // Too many cards
-	ErrPrettyCardsCardIsConnectedToPost  ErrorType = 1902 // Card is connected to post
-	ErrCallbackServersLimit              ErrorType = 2000 // Servers number limit is reached
-	ErrRecaptcha                         ErrorType = 3300 // Recaptcha needed
-	ErrPhoneValidation                   ErrorType = 3301 // Phone validation needed
-	ErrPasswordValidation                ErrorType = 3302 // Password validation needed
-	ErrOtpAppValidation                  ErrorType = 3303 // Otp app validation needed
-	ErrEmailConfirmation                 ErrorType = 3304 // Email confirmation needed
-	ErrAssertVotes                       ErrorType = 3305 // Assert votes
-	ErrTokenExtension                    ErrorType = 3609 // Token extension required
-	ErrUserDeactivated                   ErrorType = 3610 // User is deactivated
-	ErrServiceDeactivated                ErrorType = 3611 // Service is deactivated for user
-	ErrAliExpressTag                     ErrorType = 3800 // Can't set AliExpress tag to this type of object
+	ErrVotesPermission ErrorType = 500
+
+	// Not enough votes.
+	ErrVotes ErrorType = 503
+
+	// Not enough money on owner's balance.
+	ErrNotEnoughMoney ErrorType = 504
+
+	// Permission denied. You have no access to operations specified with
+	// given object(s).
+	ErrAdsPermission ErrorType = 600
+
+	// Permission denied. You have requested too many actions this day. Try
+	// later.
+	ErrWeightedFlood ErrorType = 601
+
+	// Some part of the request has not been completed.
+	ErrAdsPartialSuccess ErrorType = 602
+
+	// Some ads error occurred.
+	ErrAdsSpecific ErrorType = 603
+
+	// Object deleted.
+	ErrAdsObjectDeleted ErrorType = 629
+
+	// Cannot edit creator role.
+	ErrGroupChangeCreator ErrorType = 700
+
+	// User should be in club.
+	ErrGroupNotInClub ErrorType = 701
+
+	// Too many officers in club.
+	ErrGroupTooManyOfficers ErrorType = 702
+
+	// You need to enable 2FA for this action.
+	ErrGroupNeed2fa ErrorType = 703
+
+	// User needs to enable 2FA for this action.
+	ErrGroupHostNeed2fa ErrorType = 704
+
+	// Too many addresses in club.
+	ErrGroupTooManyAddresses ErrorType = 706
+
+	// "Application is not installed in community.
+	ErrGroupAppIsNotInstalledInCommunity ErrorType = 711
+
+	// Invite link is invalid - expired, deleted or not exists.
+	ErrGroupInvalidInviteLink ErrorType = 714
+
+	// This video is already added.
+	ErrVideoAlreadyAdded ErrorType = 800
+
+	// Comments for this video are closed.
+	ErrVideoCommentsClosed ErrorType = 801
+
+	// Can't send messages for users from blacklist.
+	ErrMessagesUserBlocked ErrorType = 900
+
+	// Can't send messages for users without permission.
+	ErrMessagesDenySend ErrorType = 901
+
+	// Can't send messages to this user due to their privacy settings.
+	ErrMessagesPrivacy ErrorType = 902
+
+	// Value of ts or pts is too old.
+	ErrMessagesTooOldPts ErrorType = 907
+
+	// Value of ts or pts is too new.
+	ErrMessagesTooNewPts ErrorType = 908
+
+	// Can't edit this message, because it's too old.
+	ErrMessagesEditExpired ErrorType = 909
+
+	// Can't sent this message, because it's too big.
+	ErrMessagesTooBig ErrorType = 910
+
+	// Keyboard format is invalid.
+	ErrMessagesKeyboardInvalid ErrorType = 911
+
+	// This is a chat bot feature, change this status in settings.
+	ErrMessagesChatBotFeature ErrorType = 912
+
+	// Too many forwarded messages.
+	ErrMessagesTooLongForwards ErrorType = 913
+
+	// Message is too long.
+	ErrMessagesTooLongMessage ErrorType = 914
+
+	// You don't have access to this chat.
+	ErrMessagesChatUserNoAccess ErrorType = 917
+
+	// You can't see invite link for this chat.
+	ErrMessagesCantSeeInviteLink ErrorType = 919
+
+	// Can't edit this kind of message.
+	ErrMessagesEditKindDisallowed ErrorType = 920
+
+	// Can't forward these messages.
+	ErrMessagesCantFwd ErrorType = 921
+
+	// Can't delete this message for everybody.
+	ErrMessagesCantDeleteForAll ErrorType = 924
+
+	// You are not admin of this chat.
+	ErrMessagesChatNotAdmin ErrorType = 925
+
+	// Chat does not exist.
+	ErrMessagesChatNotExist ErrorType = 927
+
+	// You can't change invite link for this chat.
+	ErrMessagesCantChangeInviteLink ErrorType = 931
+
+	// Your community can't interact with this peer.
+	ErrMessagesGroupPeerAccess ErrorType = 932
+
+	// User not found in chat.
+	ErrMessagesChatUserNotInChat ErrorType = 935
+
+	// Contact not found.
+	ErrMessagesContactNotFound ErrorType = 936
+
+	// Message request already send.
+	ErrMessagesMessageRequestAlreadySend ErrorType = 939
+
+	// Too many posts in messages.
+	ErrMessagesTooManyPosts ErrorType = 940
+
+	// Cannot use this intent.
+	ErrMessagesCantUseIntent ErrorType = 943
+
+	// Limits overflow for this intent.
+	ErrMessagesLimitIntent ErrorType = 944
+
+	// Chat was disabled.
+	ErrMessagesChatDisabled ErrorType = 945
+
+	// Chat not support.
+	ErrMessagesChatNotSupported ErrorType = 946
+
+	// Can't add user to chat, because user has no access to group.
+	ErrMessagesMemberAccessToGroupDenied ErrorType = 947
+
+	// Can't edit pinned message yet.
+	ErrMessagesEditPinned ErrorType = 949
+
+	// Can't send message, reply timed out.
+	ErrMessagesReplyTimedOut ErrorType = 950
+
+	// Invalid phone number.
+	ErrParamPhone ErrorType = 1000
+
+	// This phone number is used by another user.
+	ErrPhoneAlreadyUsed ErrorType = 1004
+
+	// Too many auth attempts, try again later.
+	ErrAuthFloodError ErrorType = 1105
+
+	// Processing.. Try later.
+	ErrAuthDelay ErrorType = 1112
+
+	// Invalid document id.
+	ErrParamDocID ErrorType = 1150
+
+	// Access to document deleting is denied.
+	ErrParamDocDeleteAccess ErrorType = 1151
+
+	// Invalid document title.
+	ErrParamDocTitle ErrorType = 1152
+
+	// Access to document is denied.
+	ErrParamDocAccess ErrorType = 1153
+
+	// Original photo was changed.
+	ErrPhotoChanged ErrorType = 1160
+
+	// Too many feed lists.
+	ErrTooManyLists ErrorType = 1170
+
+	// This achievement is already unlocked.
+	ErrAppsAlreadyUnlocked ErrorType = 1251
+
+	// Subscription not found.
+	ErrAppsSubscriptionNotFound ErrorType = 1256
+
+	// Subscription is in invalid status.
+	ErrAppsSubscriptionInvalidStatus ErrorType = 1257
+
+	// Invalid screen name.
+	ErrInvalidAddress ErrorType = 1260
+
+	// Catalog is not available for this user.
+	ErrCommunitiesCatalogDisabled ErrorType = 1310
+
+	// Catalog categories are not available for this user.
+	ErrCommunitiesCategoriesDisabled ErrorType = 1311
+
+	// Too late for restore.
+	ErrMarketRestoreTooLate ErrorType = 1400
+
+	// Comments for this market are closed.
+	ErrMarketCommentsClosed ErrorType = 1401
+
+	// Album not found.
+	ErrMarketAlbumNotFound ErrorType = 1402
+
+	// Item not found.
+	ErrMarketItemNotFound ErrorType = 1403
+
+	// Item already added to album.
+	ErrMarketItemAlreadyAdded ErrorType = 1404
+
+	// Too many items.
+	ErrMarketTooManyItems ErrorType = 1405
+
+	// Too many items in album.
+	ErrMarketTooManyItemsInAlbum ErrorType = 1406
+
+	// Too many albums.
+	ErrMarketTooManyAlbums ErrorType = 1407
+
+	// Item has bad links in description.
+	ErrMarketItemHasBadLinks ErrorType = 1408
+
+	// Shop not enabled.
+	ErrMarketShopNotEnabled ErrorType = 1409
+
+	// Cart is empty.
+	ErrMarketCartEmpty ErrorType = 1427
+
+	// Specify width, length, height and weight all together.
+	ErrMarketSpecifyDimensions ErrorType = 1429
+
+	// VK Pay status can not be changed.
+	ErrVKPayStatus ErrorType = 1430
+
+	// Market was already enabled in this group.
+	ErrMarketAlreadyEnabled ErrorType = 1431
+
+	// Market was already disabled in this group.
+	ErrMarketAlreadyDisabled ErrorType = 1432
+
+	// Story has already expired.
+	ErrStoryExpired ErrorType = 1600
+
+	// Incorrect reply privacy.
+	ErrStoryIncorrectReplyPrivacy ErrorType = 1602
+
+	// Card not found.
+	ErrPrettyCardsCardNotFound ErrorType = 1900
+
+	// Too many cards.
+	ErrPrettyCardsTooManyCards ErrorType = 1901
+
+	// Card is connected to post.
+	ErrPrettyCardsCardIsConnectedToPost ErrorType = 1902
+
+	// Servers number limit is reached.
+	ErrCallbackServersLimit ErrorType = 2000
+
+	// Recaptcha needed.
+	ErrRecaptcha ErrorType = 3300
+
+	// Phone validation needed.
+	ErrPhoneValidation ErrorType = 3301
+
+	// Password validation needed.
+	ErrPasswordValidation ErrorType = 3302
+
+	// Otp app validation needed.
+	ErrOtpAppValidation ErrorType = 3303
+
+	// Email confirmation needed.
+	ErrEmailConfirmation ErrorType = 3304
+
+	// Assert votes.
+	ErrAssertVotes ErrorType = 3305
+
+	// Token extension required.
+	ErrTokenExtension ErrorType = 3609
+
+	// User is deactivated.
+	ErrUserDeactivated ErrorType = 3610
+
+	// Service is deactivated for user.
+	ErrServiceDeactivated ErrorType = 3611
+
+	// Can't set AliExpress tag to this type of object.
+	ErrAliExpressTag ErrorType = 3800
 )
 
 // Error struct VK.
@@ -361,7 +629,8 @@ type Error struct {
 	//
 	// The app should display the default confirmation window with text from
 	// confirmation_text and two buttons: "Continue" and "Cancel". If user
-	// confirms the action repeat the request with an extra parameter: confirm = 1.
+	// confirms the action repeat the request with an extra parameter:
+	// confirm = 1.
 	//
 	// See https://vk.com/dev/need_confirmation
 	ConfirmationText string `json:"confirmation_text"`

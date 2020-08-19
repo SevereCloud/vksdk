@@ -21,7 +21,8 @@ type UsersGetFollowersResponse struct {
 	Items []int `json:"items"`
 }
 
-// UsersGetFollowers returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
+// UsersGetFollowers returns a list of IDs of followers of the user in
+// question, sorted by date added, most recent first.
 //
 // fields="";
 //
@@ -39,7 +40,8 @@ type UsersGetFollowersFieldsResponse struct {
 	Items []object.UsersUser `json:"items"`
 }
 
-// UsersGetFollowersFields returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
+// UsersGetFollowersFields returns a list of IDs of followers of the user in
+// question, sorted by date added, most recent first.
 //
 // fields not empty.
 //

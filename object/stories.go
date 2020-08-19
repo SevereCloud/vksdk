@@ -79,16 +79,36 @@ type StoriesStory struct {
 	// Information whether story has question sticker and current user can send question to the author
 	CanAsk BaseBoolInt `json:"can_ask"`
 	// Information whether story has question sticker and current user can send anonymous question to the author
-	CanAskAnonymous      BaseBoolInt              `json:"can_ask_anonymous"`
-	CanComment           BaseBoolInt              `json:"can_comment"`   // Information whether current user can comment the story (0 - no, 1 - yes).
-	CanReply             BaseBoolInt              `json:"can_reply"`     // Information whether current user can reply to the story (0 - no, 1 - yes).
-	CanSee               BaseBoolInt              `json:"can_see"`       // Information whether current user can see the story (0 - no, 1 - yes).
-	CanShare             BaseBoolInt              `json:"can_share"`     // Information whether current user can share the story (0 - no, 1 - yes).
-	IsDeleted            BaseBoolInt              `json:"is_deleted"`    // Information whether the story is deleted (false - no, true - yes).
-	IsExpired            BaseBoolInt              `json:"is_expired"`    // Information whether the story is expired (false - no, true - yes).
-	NoSound              BaseBoolInt              `json:"no_sound"`      // Is video without sound
-	IsRestricted         BaseBoolInt              `json:"is_restricted"` // Does author have stories privacy restrictions
-	Seen                 BaseBoolInt              `json:"seen"`          // Information whether current user has seen the story or not (0 - no, 1 - yes).
+	CanAskAnonymous BaseBoolInt `json:"can_ask_anonymous"`
+
+	// Information whether current user can comment the story (0 - no, 1 - yes).
+	CanComment BaseBoolInt `json:"can_comment"`
+
+	// Information whether current user can reply to the story
+	// (0 - no, 1 - yes).
+	CanReply BaseBoolInt `json:"can_reply"`
+
+	// Information whether current user can see the story (0 - no, 1 - yes).
+	CanSee BaseBoolInt `json:"can_see"`
+
+	// Information whether current user can share the story (0 - no, 1 - yes).
+	CanShare BaseBoolInt `json:"can_share"`
+
+	// Information whether the story is deleted (false - no, true - yes).
+	IsDeleted BaseBoolInt `json:"is_deleted"`
+
+	// Information whether the story is expired (false - no, true - yes).
+	IsExpired BaseBoolInt `json:"is_expired"`
+
+	// Is video without sound
+	NoSound BaseBoolInt `json:"no_sound"`
+
+	// Does author have stories privacy restrictions
+	IsRestricted BaseBoolInt `json:"is_restricted"`
+
+	// Information whether current user has seen the story or not
+	// (0 - no, 1 - yes).
+	Seen                 BaseBoolInt              `json:"seen"`
 	IsOwnerPinned        BaseBoolInt              `json:"is_owner_pinned"`
 	IsOneTime            BaseBoolInt              `json:"is_one_time"`
 	NeedMute             BaseBoolInt              `json:"need_mute"`
