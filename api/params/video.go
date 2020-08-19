@@ -1124,3 +1124,15 @@ func (b *VideoSearchBuilder) Extended(v bool) *VideoSearchBuilder {
 	b.Params["extended"] = v
 	return b
 }
+
+// Legal parameter.
+func (b *VideoSearchBuilder) Legal(v bool) *VideoSearchBuilder {
+	b.Params["legal"] = v
+	return b
+}
+
+// LegalOwner parameter.
+func (b *VideoSearchBuilder) LegalOwner(v int) *VideoSearchBuilder {
+	b.Params["legal_owner"] = v
+	return b
+}
