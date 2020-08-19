@@ -540,23 +540,23 @@ type MessagesMessageActionPhoto struct {
 
 // MessagesMessageAttachment struct.
 type MessagesMessageAttachment struct {
-	Audio             AudioAudio           `json:"audio"`
-	Doc               DocsDoc              `json:"doc"`
-	Gift              GiftsLayout          `json:"gift"`
-	Link              BaseLink             `json:"link"`
-	Market            MarketMarketItem     `json:"market"`
-	MarketMarketAlbum MarketMarketAlbum    `json:"market_market_album"`
-	Photo             PhotosPhoto          `json:"photo"`
-	Sticker           BaseSticker          `json:"sticker"`
-	Type              string               `json:"type"`
-	Video             VideoVideo           `json:"video"`
-	Wall              WallWallpostAttached `json:"wall"`
-	WallReply         WallWallComment      `json:"wall_reply"`
-	AudioMessage      DocsDoc              `json:"audio_message"`
-	Graffiti          DocsDoc              `json:"graffiti"`
-	Poll              PollsPoll            `json:"poll"`
-	Call              MessageCall          `json:"call"`
-	Story             StoriesStory         `json:"story"`
+	Audio             AudioAudio        `json:"audio"`
+	Doc               DocsDoc           `json:"doc"`
+	Gift              GiftsLayout       `json:"gift"`
+	Link              BaseLink          `json:"link"`
+	Market            MarketMarketItem  `json:"market"`
+	MarketMarketAlbum MarketMarketAlbum `json:"market_market_album"`
+	Photo             PhotosPhoto       `json:"photo"`
+	Sticker           BaseSticker       `json:"sticker"`
+	Type              string            `json:"type"`
+	Video             VideoVideo        `json:"video"`
+	Wall              WallWallpost      `json:"wall"`
+	WallReply         WallWallComment   `json:"wall_reply"`
+	AudioMessage      DocsDoc           `json:"audio_message"`
+	Graffiti          DocsDoc           `json:"graffiti"`
+	Poll              PollsPoll         `json:"poll"`
+	Call              MessageCall       `json:"call"`
+	Story             StoriesStory      `json:"story"`
 }
 
 // MessageCall struct.

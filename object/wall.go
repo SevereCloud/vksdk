@@ -156,27 +156,6 @@ type WallWallpost struct {
 	ParentsStack []int                    `json:"parents_stack"`
 }
 
-// WallWallpostAttached struct.
-type WallWallpostAttached struct {
-	Attachments []WallWallpostAttachment `json:"attachments"`
-	CanDelete   BaseBoolInt              `json:"can_delete"`
-	Comments    BaseCommentsInfo         `json:"comments"`
-	CopyOwnerID int                      `json:"copy_owner_id"`
-	CopyPostID  int                      `json:"copy_post_id"`
-	CopyText    string                   `json:"copy_text"`
-	Date        int                      `json:"date"`
-	FromID      int                      `json:"from_id"`
-	Geo         BaseGeo                  `json:"geo"`
-	ID          int                      `json:"id"`
-	Likes       BaseLikesInfo            `json:"likes"`
-	PostSource  WallPostSource           `json:"post_source"`
-	PostType    string                   `json:"post_type"`
-	Reposts     BaseRepostsInfo          `json:"reposts"`
-	SignerID    int                      `json:"signer_id"`
-	Text        string                   `json:"text"`
-	ToID        int                      `json:"to_id"`
-}
-
 // Attachment type.
 //
 // TODO: check this.
