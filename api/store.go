@@ -85,3 +85,11 @@ func (vk *VK) StoreGetProductsExtended(params Params) (response StoreGetProducts
 
 	return
 }
+
+// StoreMarkAsViewed method.
+//
+// https://vk.com/dev/store.markAsViewed
+func (vk *VK) StoreMarkAsViewed(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("store.markAsViewed", &response, params)
+	return
+}
