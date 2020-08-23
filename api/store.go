@@ -33,3 +33,39 @@ func (vk *VK) StoreRemoveStickersFromFavorite(params Params) (response int, err 
 	err = vk.RequestUnmarshal("store.removeStickersFromFavorite", &response, params)
 	return
 }
+
+// StoreGetProductsResponse struct.
+type StoreGetProductsResponse struct {
+	Count int                   `json:"count"`
+	Items []object.StoreProduct `json:"items"`
+}
+
+// StoreGetProducts method.
+//
+// extended=0
+//
+// https://vk.com/dev/store.getProducts
+func (vk *VK) StoreGetProducts(params Params) (response StoreGetProductsResponse, err error) {
+	params["extended"] = false
+	err = vk.RequestUnmarshal("store.getProducts", &response, params)
+
+	return
+}
+
+// StoreGetProductsExtendedResponse struct.
+type StoreGetProductsExtendedResponse struct {
+	Count int                           `json:"count"`
+	Items []object.StoreProductExtended `json:"items"`
+}
+
+// StoreGetProductsExtended method.
+//
+// extended=1
+//
+// https://vk.com/dev/store.getProducts
+func (vk *VK) StoreGetProductsExtended(params Params) (response StoreGetProductsExtendedResponse, err error) {
+	params["extended"] = true
+	err = vk.RequestUnmarshal("store.getProducts", &response, params)
+
+	return
+}
