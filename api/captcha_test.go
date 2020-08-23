@@ -1,0 +1,20 @@
+package api_test
+
+import (
+	"errors"
+	"testing"
+
+	"github.com/SevereCloud/vksdk/api"
+)
+
+func TestVK_CaptchaForce(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	_, err := vkUser.CaptchaForce(api.Params{})
+
+	if !errors.Is(err, api.ErrCaptcha) {
+		t.Errorf("VK.CaptchaForce() err=%v, want 14", err)
+	}
+}

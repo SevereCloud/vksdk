@@ -1,7 +1,6 @@
 package api_test
 
 import (
-	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -296,18 +295,6 @@ func Test_FmtValue(t *testing.T) {
 	// Pointer
 	f(&intSlice, "1,2,3")
 	f(&photo, "photo321_123")
-}
-
-func TestVK_CaptchaForce(t *testing.T) {
-	t.Parallel()
-
-	needUserToken(t)
-
-	_, err := vkUser.CaptchaForce(api.Params{})
-
-	if !errors.Is(err, api.ErrCaptcha) {
-		t.Errorf("VK.CaptchaForce() err=%v, want 14", err)
-	}
 }
 
 func TestParams_methods(t *testing.T) {
