@@ -42,6 +42,14 @@ func (vk *VK) StoreActivateProduct(params Params) (response int, err error) {
 	return
 }
 
+// StoreDeactivateProduct method.
+//
+// https://vk.com/dev/store.deactivateProduct
+func (vk *VK) StoreDeactivateProduct(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("store.deactivateProduct", &response, params)
+	return
+}
+
 // StoreGetProductsResponse struct.
 type StoreGetProductsResponse struct {
 	Count int                   `json:"count"`
