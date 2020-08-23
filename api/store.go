@@ -93,3 +93,11 @@ func (vk *VK) StoreMarkAsViewed(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("store.markAsViewed", &response, params)
 	return
 }
+
+// StoreReorderProducts method.
+//
+// https://vk.com/dev/store.reorderProducts
+func (vk *VK) StoreReorderProducts(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("store.reorderProducts", &response, params)
+	return
+}
