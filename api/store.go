@@ -86,6 +86,17 @@ func (vk *VK) StoreGetProductsExtended(params Params) (response StoreGetProducts
 	return
 }
 
+// StoreGetStickersResponse struct.
+type StoreGetStickersResponse []object.BaseSticker
+
+// StoreGetStickers method.
+//
+// https://vk.com/dev/store.getStickers
+func (vk *VK) StoreGetStickers(params Params) (response StoreGetStickersResponse, err error) {
+	err = vk.RequestUnmarshal("store.getStickers", &response, params)
+	return
+}
+
 // StoreMarkAsViewed method.
 //
 // https://vk.com/dev/store.markAsViewed
