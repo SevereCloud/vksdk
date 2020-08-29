@@ -269,7 +269,7 @@ func TestVK_MarketGetCategories(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.MarketGetCategories(api.Params{})
+	res, err := vkUser.MarketGetCategories(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 

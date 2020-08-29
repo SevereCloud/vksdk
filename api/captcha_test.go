@@ -12,7 +12,7 @@ func TestVK_CaptchaForce(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.CaptchaForce(api.Params{})
+	_, err := vkUser.CaptchaForce(nil)
 
 	if !errors.Is(err, api.ErrCaptcha) {
 		t.Errorf("VK.CaptchaForce() err=%v, want 14", err)

@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/pages.clearCache
 func (vk *VK) PagesClearCache(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("pages.clearCache", params, &response)
+	err = vk.RequestUnmarshal("pages.clearCache", &response, params)
 	return
 }
 
@@ -19,7 +19,7 @@ type PagesGetResponse object.PagesWikipageFull
 //
 // https://vk.com/dev/pages.get
 func (vk *VK) PagesGet(params Params) (response PagesGetResponse, err error) {
-	err = vk.RequestUnmarshal("pages.get", params, &response)
+	err = vk.RequestUnmarshal("pages.get", &response, params)
 	return
 }
 
@@ -30,7 +30,7 @@ type PagesGetHistoryResponse []object.PagesWikipageHistory
 //
 // https://vk.com/dev/pages.getHistory
 func (vk *VK) PagesGetHistory(params Params) (response PagesGetHistoryResponse, err error) {
-	err = vk.RequestUnmarshal("pages.getHistory", params, &response)
+	err = vk.RequestUnmarshal("pages.getHistory", &response, params)
 	return
 }
 
@@ -41,7 +41,7 @@ type PagesGetTitlesResponse []object.PagesWikipageFull
 //
 // https://vk.com/dev/pages.getTitles
 func (vk *VK) PagesGetTitles(params Params) (response PagesGetTitlesResponse, err error) {
-	err = vk.RequestUnmarshal("pages.getTitles", params, &response)
+	err = vk.RequestUnmarshal("pages.getTitles", &response, params)
 	return
 }
 
@@ -52,7 +52,7 @@ type PagesGetVersionResponse object.PagesWikipageFull
 //
 // https://vk.com/dev/pages.getVersion
 func (vk *VK) PagesGetVersion(params Params) (response PagesGetVersionResponse, err error) {
-	err = vk.RequestUnmarshal("pages.getVersion", params, &response)
+	err = vk.RequestUnmarshal("pages.getVersion", &response, params)
 	return
 }
 
@@ -60,7 +60,7 @@ func (vk *VK) PagesGetVersion(params Params) (response PagesGetVersionResponse, 
 //
 // https://vk.com/dev/pages.parseWiki
 func (vk *VK) PagesParseWiki(params Params) (response string, err error) {
-	err = vk.RequestUnmarshal("pages.parseWiki", params, &response)
+	err = vk.RequestUnmarshal("pages.parseWiki", &response, params)
 	return
 }
 
@@ -68,7 +68,7 @@ func (vk *VK) PagesParseWiki(params Params) (response string, err error) {
 //
 // https://vk.com/dev/pages.save
 func (vk *VK) PagesSave(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("pages.save", params, &response)
+	err = vk.RequestUnmarshal("pages.save", &response, params)
 	return
 }
 
@@ -76,6 +76,6 @@ func (vk *VK) PagesSave(params Params) (response int, err error) {
 //
 // https://vk.com/dev/pages.saveAccess
 func (vk *VK) PagesSaveAccess(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("pages.saveAccess", params, &response)
+	err = vk.RequestUnmarshal("pages.saveAccess", &response, params)
 	return
 }

@@ -13,7 +13,7 @@ type UtilsCheckLinkResponse object.UtilsLinkChecked
 //
 // https://vk.com/dev/utils.checkLink
 func (vk *VK) UtilsCheckLink(params Params) (response UtilsCheckLinkResponse, err error) {
-	err = vk.RequestUnmarshal("utils.checkLink", params, &response)
+	err = vk.RequestUnmarshal("utils.checkLink", &response, params)
 	return
 }
 
@@ -21,7 +21,7 @@ func (vk *VK) UtilsCheckLink(params Params) (response UtilsCheckLinkResponse, er
 //
 // https://vk.com/dev/utils.deleteFromLastShortened
 func (vk *VK) UtilsDeleteFromLastShortened(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("utils.deleteFromLastShortened", params, &response)
+	err = vk.RequestUnmarshal("utils.deleteFromLastShortened", &response, params)
 	return
 }
 
@@ -35,7 +35,7 @@ type UtilsGetLastShortenedLinksResponse struct {
 //
 // https://vk.com/dev/utils.getLastShortenedLinks
 func (vk *VK) UtilsGetLastShortenedLinks(params Params) (response UtilsGetLastShortenedLinksResponse, err error) {
-	err = vk.RequestUnmarshal("utils.getLastShortenedLinks", params, &response)
+	err = vk.RequestUnmarshal("utils.getLastShortenedLinks", &response, params)
 	return
 }
 
@@ -48,8 +48,7 @@ type UtilsGetLinkStatsResponse object.UtilsLinkStats
 //
 // https://vk.com/dev/utils.getLinkStats
 func (vk *VK) UtilsGetLinkStats(params Params) (response UtilsGetLinkStatsResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("utils.getLinkStats", params, &response)
+	err = vk.RequestUnmarshal("utils.getLinkStats", &response, params, Params{"extended": false})
 
 	return
 }
@@ -63,8 +62,7 @@ type UtilsGetLinkStatsExtendedResponse object.UtilsLinkStatsExtended
 //
 // https://vk.com/dev/utils.getLinkStats
 func (vk *VK) UtilsGetLinkStatsExtended(params Params) (response UtilsGetLinkStatsExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("utils.getLinkStats", params, &response)
+	err = vk.RequestUnmarshal("utils.getLinkStats", &response, params, Params{"extended": true})
 
 	return
 }
@@ -73,7 +71,7 @@ func (vk *VK) UtilsGetLinkStatsExtended(params Params) (response UtilsGetLinkSta
 //
 // https://vk.com/dev/utils.getServerTime
 func (vk *VK) UtilsGetServerTime(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("utils.getServerTime", params, &response)
+	err = vk.RequestUnmarshal("utils.getServerTime", &response, params)
 	return
 }
 
@@ -84,7 +82,7 @@ type UtilsGetShortLinkResponse object.UtilsShortLink
 //
 // https://vk.com/dev/utils.getShortLink
 func (vk *VK) UtilsGetShortLink(params Params) (response UtilsGetShortLinkResponse, err error) {
-	err = vk.RequestUnmarshal("utils.getShortLink", params, &response)
+	err = vk.RequestUnmarshal("utils.getShortLink", &response, params)
 	return
 }
 

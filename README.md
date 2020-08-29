@@ -77,7 +77,7 @@ func main() {
 	vk := api.NewVK(token)
 
 	// Получаем информацию о группе
-	group, err := vk.GroupsGetByID(api.Params{})
+	group, err := vk.GroupsGetByID(nil)
 	if err != nil {
 		log.Fatal(err)
 	}

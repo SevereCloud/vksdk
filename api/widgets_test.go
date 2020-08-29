@@ -41,7 +41,7 @@ func TestVK_WidgetsGetPages(t *testing.T) {
 
 	needServiceToken(t)
 
-	res, err := vkService.WidgetsGetPages(api.Params{})
+	res, err := vkService.WidgetsGetPages(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res)
 }

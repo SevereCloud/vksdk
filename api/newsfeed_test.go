@@ -18,12 +18,12 @@ func TestVK_NewsfeedAddBan(t *testing.T) {
 	})
 	noError(t, err)
 
-	banned, err := vkUser.NewsfeedGetBanned(api.Params{})
+	banned, err := vkUser.NewsfeedGetBanned(nil)
 	noError(t, err)
 	assert.NotEmpty(t, banned.Groups)
 	assert.NotEmpty(t, banned.Members)
 
-	bannedEx, err := vkUser.NewsfeedGetBannedExtended(api.Params{})
+	bannedEx, err := vkUser.NewsfeedGetBannedExtended(nil)
 	noError(t, err)
 	assert.NotEmpty(t, bannedEx.Groups)
 	assert.NotEmpty(t, bannedEx.Profiles)
@@ -40,7 +40,7 @@ func TestVK_NewsfeedGet(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.NewsfeedGet(api.Params{})
+	res, err := vkUser.NewsfeedGet(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Items)
 	assert.NotEmpty(t, res.Profiles)
@@ -81,7 +81,7 @@ func TestVK_NewsfeedGetRecommended(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.NewsfeedGetRecommended(api.Params{})
+	res, err := vkUser.NewsfeedGetRecommended(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Items)
 	assert.NotEmpty(t, res.Profiles)
@@ -93,7 +93,7 @@ func TestVK_NewsfeedGetSuggestedSources(t *testing.T) {
 	// FIXME: NewsfeedGetSuggestedSources have bug
 	// needUserToken(t)
 
-	// res, err := vkUser.NewsfeedGetSuggestedSources(api.Params{})
+	// res, err := vkUser.NewsfeedGetSuggestedSources(nil)
 	// noError(t, err)
 	// assert.NotEmpty(t, res.Count)
 	// assert.NotEmpty(t, res.Items)

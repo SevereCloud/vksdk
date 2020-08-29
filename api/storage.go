@@ -23,7 +23,7 @@ func (s StorageGetResponse) ToMap() map[string]string {
 //
 // https://vk.com/dev/storage.get
 func (vk *VK) StorageGet(params Params) (response StorageGetResponse, err error) {
-	err = vk.RequestUnmarshal("storage.get", params, &response)
+	err = vk.RequestUnmarshal("storage.get", &response, params)
 
 	return
 }
@@ -35,7 +35,7 @@ type StorageGetKeysResponse []string
 //
 // https://vk.com/dev/storage.getKeys
 func (vk *VK) StorageGetKeys(params Params) (response StorageGetKeysResponse, err error) {
-	err = vk.RequestUnmarshal("storage.getKeys", params, &response)
+	err = vk.RequestUnmarshal("storage.getKeys", &response, params)
 	return
 }
 
@@ -43,6 +43,6 @@ func (vk *VK) StorageGetKeys(params Params) (response StorageGetKeysResponse, er
 //
 // https://vk.com/dev/storage.set
 func (vk *VK) StorageSet(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("storage.set", params, &response)
+	err = vk.RequestUnmarshal("storage.set", &response, params)
 	return
 }

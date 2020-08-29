@@ -227,7 +227,7 @@ func TestVK_MessagesGetConversations(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.MessagesGetConversations(api.Params{})
+	res, err := vkUser.MessagesGetConversations(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
@@ -302,7 +302,7 @@ func TestVK_MessagesGetImportantMessages(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.MessagesGetImportantMessages(api.Params{})
+	_, err := vkUser.MessagesGetImportantMessages(nil)
 	noError(t, err)
 }
 
@@ -450,7 +450,7 @@ func TestVK_MessagesSearchConversations(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.MessagesSearchConversations(api.Params{})
+	_, err := vkUser.MessagesSearchConversations(nil)
 	noError(t, err)
 }
 

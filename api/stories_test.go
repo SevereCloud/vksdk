@@ -18,12 +18,12 @@ func TestVK_StoriesBanOwner(t *testing.T) {
 	})
 	noError(t, err)
 
-	banned, err := vkUser.StoriesGetBanned(api.Params{})
+	banned, err := vkUser.StoriesGetBanned(nil)
 	noError(t, err)
 	assert.NotEmpty(t, banned.Count)
 	assert.NotEmpty(t, banned.Items)
 
-	bannedEx, err := vkUser.StoriesGetBannedExtended(api.Params{})
+	bannedEx, err := vkUser.StoriesGetBannedExtended(nil)
 	noError(t, err)
 	assert.NotEmpty(t, bannedEx.Count)
 	assert.NotEmpty(t, bannedEx.Items)
@@ -41,7 +41,7 @@ func TestVK_StoriesGet(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.StoriesGet(api.Params{})
+	_, err := vkUser.StoriesGet(nil)
 	noError(t, err)
 }
 
@@ -50,7 +50,7 @@ func TestVK_StoriesGetExtended(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.StoriesGetExtended(api.Params{})
+	_, err := vkUser.StoriesGetExtended(nil)
 	noError(t, err)
 }
 

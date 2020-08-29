@@ -24,7 +24,7 @@ func TestVK_StorageGetKeys(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.StorageGetKeys(api.Params{})
+	_, err := vkUser.StorageGetKeys(nil)
 	noError(t, err)
 }
 

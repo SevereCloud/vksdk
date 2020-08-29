@@ -561,7 +561,7 @@ func (vk *VK) uploadDoc(url, title, tags string, file io.Reader) (response DocsS
 //
 // Limits: file size up to 200 MB.
 func (vk *VK) UploadDoc(title, tags string, file io.Reader) (response DocsSaveResponse, err error) {
-	uploadServer, err := vk.DocsGetUploadServer(Params{})
+	uploadServer, err := vk.DocsGetUploadServer(nil)
 	if err != nil {
 		return
 	}
@@ -595,7 +595,7 @@ func (vk *VK) UploadGroupDoc(groupID int, title, tags string, file io.Reader) (r
 //
 // Limits: file size up to 200 MB.
 func (vk *VK) UploadWallDoc(title, tags string, file io.Reader) (response DocsSaveResponse, err error) {
-	uploadServer, err := vk.DocsGetWallUploadServer(Params{})
+	uploadServer, err := vk.DocsGetWallUploadServer(nil)
 	if err != nil {
 		return
 	}
@@ -841,7 +841,7 @@ type uploadPrettyCardsPhotoHandler struct {
 //
 // Supported formats: JPG, PNG, GIF.
 func (vk *VK) UploadPrettyCardsPhoto(file io.Reader) (response string, err error) {
-	uploadURL, err := vk.PrettyCardsGetUploadURL(Params{})
+	uploadURL, err := vk.PrettyCardsGetUploadURL(nil)
 	if err != nil {
 		return
 	}
@@ -876,7 +876,7 @@ type uploadLeadFormsPhotoHandler struct {
 //
 // Supported formats: JPG, PNG, GIF.
 func (vk *VK) UploadLeadFormsPhoto(file io.Reader) (response string, err error) {
-	uploadURL, err := vk.LeadFormsGetUploadURL(Params{})
+	uploadURL, err := vk.LeadFormsGetUploadURL(nil)
 	if err != nil {
 		return
 	}

@@ -45,7 +45,7 @@ func TestVK_GiftsGetCatalog(t *testing.T) {
 	needUserToken(t)
 
 	// NOTE: Access denied: method allowed only for official app
-	_, err := vkUser.GiftsGetCatalog(api.Params{})
+	_, err := vkUser.GiftsGetCatalog(nil)
 	if e, ok := err.(*api.Error); ok && e.Code == api.ErrAccess {
 		t.Errorf("VK.GiftsGetCatalog() err = %v", err)
 	}

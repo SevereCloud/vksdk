@@ -137,7 +137,7 @@ func TestVK_Fave(t *testing.T) {
 
 	needUserToken(t)
 
-	fave, err := vkUser.FaveGet(api.Params{})
+	fave, err := vkUser.FaveGet(nil)
 	if !noError(t, err) {
 		log.Fatal(err)
 	}
@@ -368,7 +368,7 @@ func TestVK_FaveTag(t *testing.T) {
 	noError(t, err)
 	assert.NotEmpty(t, res)
 
-	tags, err := vkUser.FaveGetTags(api.Params{})
+	tags, err := vkUser.FaveGetTags(nil)
 	noError(t, err)
 	assert.NotEmpty(t, tags)
 
@@ -430,13 +430,13 @@ func TestVK_FaveGet(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveGet(api.Params{})
+	res, err := vkUser.FaveGet(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res)
 
 	time.Sleep(sleepTime)
 
-	_, err = vkUser.FaveGetExtended(api.Params{})
+	_, err = vkUser.FaveGetExtended(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res)
 }
@@ -448,7 +448,7 @@ func TestVK_FaveGetPages(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveGetPages(api.Params{})
+	res, err := vkUser.FaveGetPages(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
@@ -489,7 +489,7 @@ func TestVK_FaveMarkSeen(t *testing.T) {
 
 	time.Sleep(sleepTime)
 
-	res, err := vkUser.FaveMarkSeen(api.Params{})
+	res, err := vkUser.FaveMarkSeen(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res)
 }

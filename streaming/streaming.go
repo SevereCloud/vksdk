@@ -357,7 +357,7 @@ func (s *Streaming) Shutdown() {
 // This means that if the http.DefaultClient is modified by other components
 // of your application the modifications will be picked up by the SDK as well.
 func NewStreaming(vk *api.VK) (*Streaming, error) {
-	resp, err := vk.StreamingGetServerURL(api.Params{})
+	resp, err := vk.StreamingGetServerURL(nil)
 	if err != nil {
 		return nil, err
 	}

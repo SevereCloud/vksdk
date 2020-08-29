@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/wall.closeComments
 func (vk *VK) WallCloseComments(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.closeComments", params, &response)
+	err = vk.RequestUnmarshal("wall.closeComments", &response, params)
 	return
 }
 
@@ -22,7 +22,7 @@ type WallCreateCommentResponse struct {
 //
 // https://vk.com/dev/wall.createComment
 func (vk *VK) WallCreateComment(params Params) (response WallCreateCommentResponse, err error) {
-	err = vk.RequestUnmarshal("wall.createComment", params, &response)
+	err = vk.RequestUnmarshal("wall.createComment", &response, params)
 	return
 }
 
@@ -30,7 +30,7 @@ func (vk *VK) WallCreateComment(params Params) (response WallCreateCommentRespon
 //
 // https://vk.com/dev/wall.delete
 func (vk *VK) WallDelete(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.delete", params, &response)
+	err = vk.RequestUnmarshal("wall.delete", &response, params)
 	return
 }
 
@@ -38,7 +38,7 @@ func (vk *VK) WallDelete(params Params) (response int, err error) {
 //
 // https://vk.com/dev/wall.deleteComment
 func (vk *VK) WallDeleteComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.deleteComment", params, &response)
+	err = vk.RequestUnmarshal("wall.deleteComment", &response, params)
 	return
 }
 
@@ -51,7 +51,7 @@ type WallEditResponse struct {
 //
 // https://vk.com/dev/wall.edit
 func (vk *VK) WallEdit(params Params) (response WallEditResponse, err error) {
-	err = vk.RequestUnmarshal("wall.edit", params, &response)
+	err = vk.RequestUnmarshal("wall.edit", &response, params)
 	return
 }
 
@@ -59,7 +59,7 @@ func (vk *VK) WallEdit(params Params) (response WallEditResponse, err error) {
 //
 // https://vk.com/dev/wall.editAdsStealth
 func (vk *VK) WallEditAdsStealth(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.editAdsStealth", params, &response)
+	err = vk.RequestUnmarshal("wall.editAdsStealth", &response, params)
 	return
 }
 
@@ -67,7 +67,7 @@ func (vk *VK) WallEditAdsStealth(params Params) (response int, err error) {
 //
 // https://vk.com/dev/wall.editComment
 func (vk *VK) WallEditComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.editComment", params, &response)
+	err = vk.RequestUnmarshal("wall.editComment", &response, params)
 	return
 }
 
@@ -83,8 +83,7 @@ type WallGetResponse struct {
 //
 // https://vk.com/dev/wall.get
 func (vk *VK) WallGet(params Params) (response WallGetResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("wall.get", params, &response)
+	err = vk.RequestUnmarshal("wall.get", &response, params, Params{"extended": false})
 
 	return
 }
@@ -102,8 +101,7 @@ type WallGetExtendedResponse struct {
 //
 // https://vk.com/dev/wall.get
 func (vk *VK) WallGetExtended(params Params) (response WallGetExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("wall.get", params, &response)
+	err = vk.RequestUnmarshal("wall.get", &response, params, Params{"extended": true})
 
 	return
 }
@@ -117,8 +115,7 @@ type WallGetByIDResponse []object.WallWallpost
 //
 // https://vk.com/dev/wall.getById
 func (vk *VK) WallGetByID(params Params) (response WallGetByIDResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("wall.getById", params, &response)
+	err = vk.RequestUnmarshal("wall.getById", &response, params, Params{"extended": false})
 
 	return
 }
@@ -135,8 +132,7 @@ type WallGetByIDExtendedResponse struct {
 //
 // https://vk.com/dev/wall.getById
 func (vk *VK) WallGetByIDExtended(params Params) (response WallGetByIDExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("wall.getById", params, &response)
+	err = vk.RequestUnmarshal("wall.getById", &response, params, Params{"extended": true})
 
 	return
 }
@@ -156,8 +152,7 @@ type WallGetCommentResponse struct {
 //
 // https://vk.com/dev/wall.getComment
 func (vk *VK) WallGetComment(params Params) (response WallGetCommentResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("wall.getComment", params, &response)
+	err = vk.RequestUnmarshal("wall.getComment", &response, params, Params{"extended": false})
 
 	return
 }
@@ -180,8 +175,7 @@ type WallGetCommentExtendedResponse struct {
 //
 // https://vk.com/dev/wall.getComment
 func (vk *VK) WallGetCommentExtended(params Params) (response WallGetCommentExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("wall.getComment", params, &response)
+	err = vk.RequestUnmarshal("wall.getComment", &response, params, Params{"extended": true})
 
 	return
 }
@@ -202,8 +196,7 @@ type WallGetCommentsResponse struct {
 //
 // https://vk.com/dev/wall.getComments
 func (vk *VK) WallGetComments(params Params) (response WallGetCommentsResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("wall.getComments", params, &response)
+	err = vk.RequestUnmarshal("wall.getComments", &response, params, Params{"extended": false})
 
 	return
 }
@@ -225,8 +218,7 @@ type WallGetCommentsExtendedResponse struct {
 //
 // https://vk.com/dev/wall.getComments
 func (vk *VK) WallGetCommentsExtended(params Params) (response WallGetCommentsExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("wall.getComments", params, &response)
+	err = vk.RequestUnmarshal("wall.getComments", &response, params, Params{"extended": true})
 
 	return
 }
@@ -241,7 +233,7 @@ type WallGetRepostsResponse struct {
 //
 // https://vk.com/dev/wall.getReposts
 func (vk *VK) WallGetReposts(params Params) (response WallGetRepostsResponse, err error) {
-	err = vk.RequestUnmarshal("wall.getReposts", params, &response)
+	err = vk.RequestUnmarshal("wall.getReposts", &response, params)
 	return
 }
 
@@ -249,7 +241,7 @@ func (vk *VK) WallGetReposts(params Params) (response WallGetRepostsResponse, er
 //
 // https://vk.com/dev/wall.openComments
 func (vk *VK) WallOpenComments(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.openComments", params, &response)
+	err = vk.RequestUnmarshal("wall.openComments", &response, params)
 	return
 }
 
@@ -257,7 +249,7 @@ func (vk *VK) WallOpenComments(params Params) (response int, err error) {
 //
 // https://vk.com/dev/wall.pin
 func (vk *VK) WallPin(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.pin", params, &response)
+	err = vk.RequestUnmarshal("wall.pin", &response, params)
 	return
 }
 
@@ -270,7 +262,7 @@ type WallPostResponse struct {
 //
 // https://vk.com/dev/wall.post
 func (vk *VK) WallPost(params Params) (response WallPostResponse, err error) {
-	err = vk.RequestUnmarshal("wall.post", params, &response)
+	err = vk.RequestUnmarshal("wall.post", &response, params)
 	return
 }
 
@@ -285,7 +277,7 @@ type WallPostAdsStealthResponse struct {
 //
 // https://vk.com/dev/wall.postAdsStealth
 func (vk *VK) WallPostAdsStealth(params Params) (response WallPostAdsStealthResponse, err error) {
-	err = vk.RequestUnmarshal("wall.postAdsStealth", params, &response)
+	err = vk.RequestUnmarshal("wall.postAdsStealth", &response, params)
 	return
 }
 
@@ -293,7 +285,7 @@ func (vk *VK) WallPostAdsStealth(params Params) (response WallPostAdsStealthResp
 //
 // https://vk.com/dev/wall.reportComment
 func (vk *VK) WallReportComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.reportComment", params, &response)
+	err = vk.RequestUnmarshal("wall.reportComment", &response, params)
 	return
 }
 
@@ -301,7 +293,7 @@ func (vk *VK) WallReportComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/wall.reportPost
 func (vk *VK) WallReportPost(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.reportPost", params, &response)
+	err = vk.RequestUnmarshal("wall.reportPost", &response, params)
 	return
 }
 
@@ -317,7 +309,7 @@ type WallRepostResponse struct {
 //
 // https://vk.com/dev/wall.repost
 func (vk *VK) WallRepost(params Params) (response WallRepostResponse, err error) {
-	err = vk.RequestUnmarshal("wall.repost", params, &response)
+	err = vk.RequestUnmarshal("wall.repost", &response, params)
 	return
 }
 
@@ -325,7 +317,7 @@ func (vk *VK) WallRepost(params Params) (response WallRepostResponse, err error)
 //
 // https://vk.com/dev/wall.restore
 func (vk *VK) WallRestore(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.restore", params, &response)
+	err = vk.RequestUnmarshal("wall.restore", &response, params)
 	return
 }
 
@@ -333,7 +325,7 @@ func (vk *VK) WallRestore(params Params) (response int, err error) {
 //
 // https://vk.com/dev/wall.restoreComment
 func (vk *VK) WallRestoreComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.restoreComment", params, &response)
+	err = vk.RequestUnmarshal("wall.restoreComment", &response, params)
 	return
 }
 
@@ -349,8 +341,7 @@ type WallSearchResponse struct {
 //
 // https://vk.com/dev/wall.search
 func (vk *VK) WallSearch(params Params) (response WallSearchResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("wall.search", params, &response)
+	err = vk.RequestUnmarshal("wall.search", &response, params, Params{"extended": false})
 
 	return
 }
@@ -368,8 +359,7 @@ type WallSearchExtendedResponse struct {
 //
 // https://vk.com/dev/wall.search
 func (vk *VK) WallSearchExtended(params Params) (response WallSearchExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("wall.search", params, &response)
+	err = vk.RequestUnmarshal("wall.search", &response, params, Params{"extended": true})
 
 	return
 }
@@ -378,6 +368,6 @@ func (vk *VK) WallSearchExtended(params Params) (response WallSearchExtendedResp
 //
 // https://vk.com/dev/wall.unpin
 func (vk *VK) WallUnpin(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("wall.unpin", params, &response)
+	err = vk.RequestUnmarshal("wall.unpin", &response, params)
 	return
 }

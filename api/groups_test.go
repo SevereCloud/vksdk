@@ -694,7 +694,7 @@ func TestVK_GroupsGetCatalogInfo(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.GroupsGetCatalogInfo(api.Params{})
+	res, err := vkUser.GroupsGetCatalogInfo(nil)
 	noError(t, err)
 	// assert.NotEmpty(t, res.Categories[0].ID)
 	assert.NotEmpty(t, res.Enabled)
@@ -705,7 +705,7 @@ func TestVK_GroupsGetCatalogInfoExtended(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.GroupsGetCatalogInfoExtended(api.Params{})
+	res, err := vkUser.GroupsGetCatalogInfoExtended(nil)
 	noError(t, err)
 	// if assert.NotEmpty(t, res.Categories) {
 	// 	assert.NotEmpty(t, res.Categories[0].Name)
@@ -732,7 +732,7 @@ func TestVK_GroupsGetInvites(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.GroupsGetInvites(api.Params{})
+	_, err := vkUser.GroupsGetInvites(nil)
 	noError(t, err)
 }
 
@@ -741,7 +741,7 @@ func TestVK_GroupsGetInvitesExtended(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.GroupsGetInvitesExtended(api.Params{})
+	_, err := vkUser.GroupsGetInvitesExtended(nil)
 	noError(t, err)
 }
 
@@ -869,7 +869,7 @@ func TestVK_GroupsGetTokenPermissions(t *testing.T) {
 
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsGetTokenPermissions(api.Params{})
+	res, err := vkGroup.GroupsGetTokenPermissions(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Mask)
 	assert.NotEmpty(t, res.Permissions[0].Name)

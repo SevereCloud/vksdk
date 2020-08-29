@@ -106,7 +106,7 @@ var (
 func TestMain(m *testing.M) {
 	vkGroup = api.NewVK(os.Getenv("GROUP_TOKEN"))
 	if vkGroup.AccessToken != "" {
-		group, err := vkGroup.GroupsGetByID(api.Params{})
+		group, err := vkGroup.GroupsGetByID(nil)
 		if err != nil {
 			log.Fatalf("GROUP_TOKEN bad: %v", err)
 		}
@@ -121,7 +121,7 @@ func TestMain(m *testing.M) {
 	vkUser.Limit = api.LimitUserToken
 
 	if vkUser.AccessToken != "" {
-		user, err := vkUser.UsersGet(api.Params{})
+		user, err := vkUser.UsersGet(nil)
 		if err != nil {
 			log.Fatalf("USER_TOKEN bad: %v", err)
 		}
@@ -144,7 +144,7 @@ func TestVK_Request(t *testing.T) {
 	vk := api.NewVK(groupToken)
 
 	t.Run("Request 403 error", func(t *testing.T) {
-		_, err := vk.Request("", api.Params{})
+		_, err := vk.Request("", nil)
 		if err == nil {
 			t.Errorf("VK.Request() got1 = %v, want -1", err)
 		}
@@ -171,7 +171,7 @@ func TestVK_RequestLimit(t *testing.T) {
 		wg.Add(1)
 
 		go func() {
-			_, err := vkUser.UsersGet(api.Params{})
+			_, err := vkUser.UsersGet(nil)
 			assert.NoError(t, err)
 
 			wg.Done()
@@ -190,7 +190,7 @@ func TestVK_InvalidContentType(t *testing.T) {
 
 	var testObj string
 
-	err := vkGroup.RequestUnmarshal("t/t", api.Params{}, testObj)
+	err := vkGroup.RequestUnmarshal("t/t", testObj, nil)
 	if err == nil || err.Error() != "api: invalid content-type" {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}

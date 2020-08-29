@@ -4,7 +4,7 @@ package api // import "github.com/SevereCloud/vksdk/api"
 //
 // https://vk.com/dev/auth.checkPhone
 func (vk *VK) AuthCheckPhone(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("auth.checkPhone", params, &response)
+	err = vk.RequestUnmarshal("auth.checkPhone", &response, params)
 	return
 }
 
@@ -18,6 +18,6 @@ type AuthRestoreResponse struct {
 //
 // https://vk.com/dev/auth.restore
 func (vk *VK) AuthRestore(params Params) (response AuthRestoreResponse, err error) {
-	err = vk.RequestUnmarshal("auth.restore", params, &response)
+	err = vk.RequestUnmarshal("auth.restore", &response, params)
 	return
 }

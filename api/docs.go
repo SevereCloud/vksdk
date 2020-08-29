@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/docs.add
 func (vk *VK) DocsAdd(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("docs.add", params, &response)
+	err = vk.RequestUnmarshal("docs.add", &response, params)
 	return
 }
 
@@ -16,7 +16,7 @@ func (vk *VK) DocsAdd(params Params) (response int, err error) {
 //
 // https://vk.com/dev/docs.delete
 func (vk *VK) DocsDelete(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("docs.delete", params, &response)
+	err = vk.RequestUnmarshal("docs.delete", &response, params)
 	return
 }
 
@@ -24,7 +24,7 @@ func (vk *VK) DocsDelete(params Params) (response int, err error) {
 //
 // https://vk.com/dev/docs.edit
 func (vk *VK) DocsEdit(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("docs.edit", params, &response)
+	err = vk.RequestUnmarshal("docs.edit", &response, params)
 	return
 }
 
@@ -38,7 +38,7 @@ type DocsGetResponse struct {
 //
 // https://vk.com/dev/docs.get
 func (vk *VK) DocsGet(params Params) (response DocsGetResponse, err error) {
-	err = vk.RequestUnmarshal("docs.get", params, &response)
+	err = vk.RequestUnmarshal("docs.get", &response, params)
 	return
 }
 
@@ -49,7 +49,7 @@ type DocsGetByIDResponse []object.DocsDoc
 //
 // https://vk.com/dev/docs.getById
 func (vk *VK) DocsGetByID(params Params) (response DocsGetByIDResponse, err error) {
-	err = vk.RequestUnmarshal("docs.getById", params, &response)
+	err = vk.RequestUnmarshal("docs.getById", &response, params)
 	return
 }
 
@@ -62,7 +62,7 @@ type DocsGetMessagesUploadServerResponse struct {
 //
 // https://vk.com/dev/docs.getMessagesUploadServer
 func (vk *VK) DocsGetMessagesUploadServer(params Params) (response DocsGetMessagesUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("docs.getMessagesUploadServer", params, &response)
+	err = vk.RequestUnmarshal("docs.getMessagesUploadServer", &response, params)
 	return
 }
 
@@ -76,7 +76,7 @@ type DocsGetTypesResponse struct {
 //
 // https://vk.com/dev/docs.getTypes
 func (vk *VK) DocsGetTypes(params Params) (response DocsGetTypesResponse, err error) {
-	err = vk.RequestUnmarshal("docs.getTypes", params, &response)
+	err = vk.RequestUnmarshal("docs.getTypes", &response, params)
 	return
 }
 
@@ -89,7 +89,7 @@ type DocsGetUploadServerResponse struct {
 //
 // https://vk.com/dev/docs.getUploadServer
 func (vk *VK) DocsGetUploadServer(params Params) (response DocsGetUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("docs.getUploadServer", params, &response)
+	err = vk.RequestUnmarshal("docs.getUploadServer", &response, params)
 	return
 }
 
@@ -102,7 +102,7 @@ type DocsGetWallUploadServerResponse struct {
 //
 // https://vk.com/dev/docs.getWallUploadServer
 func (vk *VK) DocsGetWallUploadServer(params Params) (response DocsGetWallUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("docs.getWallUploadServer", params, &response)
+	err = vk.RequestUnmarshal("docs.getWallUploadServer", &response, params)
 	return
 }
 
@@ -118,7 +118,7 @@ type DocsSaveResponse struct {
 //
 // https://vk.com/dev/docs.save
 func (vk *VK) DocsSave(params Params) (response DocsSaveResponse, err error) {
-	err = vk.RequestUnmarshal("docs.save", params, &response)
+	err = vk.RequestUnmarshal("docs.save", &response, params)
 	return
 }
 
@@ -132,6 +132,6 @@ type DocsSearchResponse struct {
 //
 // https://vk.com/dev/docs.search
 func (vk *VK) DocsSearch(params Params) (response DocsSearchResponse, err error) {
-	err = vk.RequestUnmarshal("docs.search", params, &response)
+	err = vk.RequestUnmarshal("docs.search", &response, params)
 	return
 }

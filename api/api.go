@@ -86,7 +86,7 @@ type VK struct {
 	IsPoolClient bool
 	Limit        int
 	UserAgent    string
-	Handler      func(method string, params Params) (Response, error)
+	Handler      func(method string, params ...Params) (Response, error)
 
 	tokenPool internal.TokenPool
 	mux       sync.Mutex
@@ -189,12 +189,14 @@ func (p Params) Confirm(v bool) Params {
 }
 
 // defaultHandler provides access to VK API methods.
-func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
+func (vk *VK) defaultHandler(method string, sliceParams ...Params) (Response, error) {
 	u := vk.MethodURL + method
 	query := url.Values{}
 
-	for key, value := range params {
-		query.Set(key, FmtValue(value, 0))
+	for _, params := range sliceParams {
+		for key, value := range params {
+			query.Set(key, FmtValue(value, 0))
+		}
 	}
 
 	attempt := 0
@@ -267,35 +269,27 @@ func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 }
 
 // Request provides access to VK API methods.
-//
-// TODO: remove in v2.
-func (vk *VK) Request(method string, params Params) ([]byte, error) {
-	copyParams := make(Params)
-	for key, value := range params {
-		copyParams[key] = FmtValue(value, 0)
+func (vk *VK) Request(method string, sliceParams ...Params) ([]byte, error) {
+	token := vk.AccessToken
+	if vk.IsPoolClient {
+		token = vk.tokenPool.Get()
 	}
 
-	if _, ok := copyParams["access_token"]; !ok {
-		token := vk.AccessToken
-		if vk.IsPoolClient {
-			token = vk.tokenPool.Get()
-		}
-
-		copyParams["access_token"] = token
+	reqParams := Params{
+		"access_token": token,
+		"v":            vk.Version,
 	}
 
-	if _, ok := copyParams["v"]; !ok {
-		copyParams["v"] = vk.Version
-	}
+	sliceParams = append(sliceParams, reqParams)
 
-	resp, err := vk.Handler(method, copyParams)
+	resp, err := vk.Handler(method, sliceParams...)
 
 	return resp.Response, err
 }
 
 // RequestUnmarshal provides access to VK API methods.
-func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) error {
-	rawResponse, err := vk.Request(method, params)
+func (vk *VK) RequestUnmarshal(method string, obj interface{}, sliceParams ...Params) error {
+	rawResponse, err := vk.Request(method, sliceParams...)
 	if err != nil {
 		return err
 	}

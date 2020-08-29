@@ -51,7 +51,7 @@ func TestMain(m *testing.M) {
 	vkUser.Limit = 3
 
 	if vkUser.AccessToken != "" {
-		user, err := vkUser.UsersGet(api.Params{})
+		user, err := vkUser.UsersGet(nil)
 		if err != nil {
 			log.Fatalf("USER_TOKEN bad: %v", err)
 		}

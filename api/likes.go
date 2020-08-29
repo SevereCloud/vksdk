@@ -13,7 +13,7 @@ type LikesAddResponse struct {
 //
 // https://vk.com/dev/likes.add
 func (vk *VK) LikesAdd(params Params) (response LikesAddResponse, err error) {
-	err = vk.RequestUnmarshal("likes.add", params, &response)
+	err = vk.RequestUnmarshal("likes.add", &response, params)
 	return
 }
 
@@ -26,7 +26,7 @@ type LikesDeleteResponse struct {
 //
 // https://vk.com/dev/likes.delete
 func (vk *VK) LikesDelete(params Params) (response LikesDeleteResponse, err error) {
-	err = vk.RequestUnmarshal("likes.delete", params, &response)
+	err = vk.RequestUnmarshal("likes.delete", &response, params)
 	return
 }
 
@@ -42,8 +42,7 @@ type LikesGetListResponse struct {
 //
 // https://vk.com/dev/likes.getList
 func (vk *VK) LikesGetList(params Params) (response LikesGetListResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("likes.getList", params, &response)
+	err = vk.RequestUnmarshal("likes.getList", &response, params, Params{"extended": false})
 
 	return
 }
@@ -60,8 +59,7 @@ type LikesGetListExtendedResponse struct {
 //
 // https://vk.com/dev/likes.getList
 func (vk *VK) LikesGetListExtended(params Params) (response LikesGetListExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("likes.getList", params, &response)
+	err = vk.RequestUnmarshal("likes.getList", &response, params, Params{"extended": true})
 
 	return
 }
@@ -76,6 +74,6 @@ type LikesIsLikedResponse struct {
 //
 // https://vk.com/dev/likes.isLiked
 func (vk *VK) LikesIsLiked(params Params) (response LikesIsLikedResponse, err error) {
-	err = vk.RequestUnmarshal("likes.isLiked", params, &response)
+	err = vk.RequestUnmarshal("likes.isLiked", &response, params)
 	return
 }

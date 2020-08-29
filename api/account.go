@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/account.ban
 func (vk *VK) AccountBan(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.ban", params, &response)
+	err = vk.RequestUnmarshal("account.ban", &response, params)
 	return
 }
 
@@ -21,7 +21,7 @@ type AccountChangePasswordResponse struct {
 //
 // https://vk.com/dev/account.changePassword
 func (vk *VK) AccountChangePassword(params Params) (response AccountChangePasswordResponse, err error) {
-	err = vk.RequestUnmarshal("account.changePassword", params, &response)
+	err = vk.RequestUnmarshal("account.changePassword", &response, params)
 	return
 }
 
@@ -37,7 +37,7 @@ type AccountGetActiveOffersResponse struct {
 //
 // https://vk.com/dev/account.getActiveOffers
 func (vk *VK) AccountGetActiveOffers(params Params) (response AccountGetActiveOffersResponse, err error) {
-	err = vk.RequestUnmarshal("account.getActiveOffers", params, &response)
+	err = vk.RequestUnmarshal("account.getActiveOffers", &response, params)
 	return
 }
 
@@ -45,7 +45,7 @@ func (vk *VK) AccountGetActiveOffers(params Params) (response AccountGetActiveOf
 //
 // https://vk.com/dev/account.getAppPermissions
 func (vk *VK) AccountGetAppPermissions(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.getAppPermissions", params, &response)
+	err = vk.RequestUnmarshal("account.getAppPermissions", &response, params)
 	return
 }
 
@@ -60,7 +60,7 @@ type AccountGetBannedResponse struct {
 //
 // https://vk.com/dev/account.getBanned
 func (vk *VK) AccountGetBanned(params Params) (response AccountGetBannedResponse, err error) {
-	err = vk.RequestUnmarshal("account.getBanned", params, &response)
+	err = vk.RequestUnmarshal("account.getBanned", &response, params)
 	return
 }
 
@@ -71,7 +71,7 @@ type AccountGetCountersResponse object.AccountAccountCounters
 //
 // https://vk.com/dev/account.getCounters
 func (vk *VK) AccountGetCounters(params Params) (response AccountGetCountersResponse, err error) {
-	err = vk.RequestUnmarshal("account.getCounters", params, &response)
+	err = vk.RequestUnmarshal("account.getCounters", &response, params)
 	return
 }
 
@@ -82,7 +82,7 @@ type AccountGetInfoResponse object.AccountInfo
 //
 // https://vk.com/dev/account.getInfo
 func (vk *VK) AccountGetInfo(params Params) (response AccountGetInfoResponse, err error) {
-	err = vk.RequestUnmarshal("account.getInfo", params, &response)
+	err = vk.RequestUnmarshal("account.getInfo", &response, params)
 	return
 }
 
@@ -93,7 +93,7 @@ type AccountGetProfileInfoResponse object.AccountUserSettings
 //
 // https://vk.com/dev/account.getProfileInfo
 func (vk *VK) AccountGetProfileInfo(params Params) (response AccountGetProfileInfoResponse, err error) {
-	err = vk.RequestUnmarshal("account.getProfileInfo", params, &response)
+	err = vk.RequestUnmarshal("account.getProfileInfo", &response, params)
 	return
 }
 
@@ -104,7 +104,7 @@ type AccountGetPushSettingsResponse object.AccountPushSettings
 //
 // https://vk.com/dev/account.getPushSettings
 func (vk *VK) AccountGetPushSettings(params Params) (response AccountGetPushSettingsResponse, err error) {
-	err = vk.RequestUnmarshal("account.getPushSettings", params, &response)
+	err = vk.RequestUnmarshal("account.getPushSettings", &response, params)
 	return
 }
 
@@ -112,7 +112,7 @@ func (vk *VK) AccountGetPushSettings(params Params) (response AccountGetPushSett
 //
 // https://vk.com/dev/account.registerDevice
 func (vk *VK) AccountRegisterDevice(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.registerDevice", params, &response)
+	err = vk.RequestUnmarshal("account.registerDevice", &response, params)
 	return
 }
 
@@ -126,7 +126,7 @@ type AccountSaveProfileInfoResponse struct {
 //
 // https://vk.com/dev/account.saveProfileInfo
 func (vk *VK) AccountSaveProfileInfo(params Params) (response AccountSaveProfileInfoResponse, err error) {
-	err = vk.RequestUnmarshal("account.saveProfileInfo", params, &response)
+	err = vk.RequestUnmarshal("account.saveProfileInfo", &response, params)
 	return
 }
 
@@ -134,7 +134,7 @@ func (vk *VK) AccountSaveProfileInfo(params Params) (response AccountSaveProfile
 //
 // https://vk.com/dev/account.setInfo
 func (vk *VK) AccountSetInfo(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.setInfo", params, &response)
+	err = vk.RequestUnmarshal("account.setInfo", &response, params)
 	return
 }
 
@@ -143,7 +143,7 @@ func (vk *VK) AccountSetInfo(params Params) (response int, err error) {
 //
 // https://vk.com/dev/account.setNameInMenu
 func (vk *VK) AccountSetNameInMenu(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.setNameInMenu", params, &response)
+	err = vk.RequestUnmarshal("account.setNameInMenu", &response, params)
 	return
 }
 
@@ -151,7 +151,7 @@ func (vk *VK) AccountSetNameInMenu(params Params) (response int, err error) {
 //
 // https://vk.com/dev/account.setOffline
 func (vk *VK) AccountSetOffline(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.setOffline", params, &response)
+	err = vk.RequestUnmarshal("account.setOffline", &response, params)
 	return
 }
 
@@ -159,7 +159,7 @@ func (vk *VK) AccountSetOffline(params Params) (response int, err error) {
 //
 // https://vk.com/dev/account.setOnline
 func (vk *VK) AccountSetOnline(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.setOnline", params, &response)
+	err = vk.RequestUnmarshal("account.setOnline", &response, params)
 	return
 }
 
@@ -167,7 +167,7 @@ func (vk *VK) AccountSetOnline(params Params) (response int, err error) {
 //
 // https://vk.com/dev/account.setPushSettings
 func (vk *VK) AccountSetPushSettings(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.setPushSettings", params, &response)
+	err = vk.RequestUnmarshal("account.setPushSettings", &response, params)
 	return
 }
 
@@ -175,7 +175,7 @@ func (vk *VK) AccountSetPushSettings(params Params) (response int, err error) {
 //
 // https://vk.com/dev/account.setSilenceMode
 func (vk *VK) AccountSetSilenceMode(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.setSilenceMode", params, &response)
+	err = vk.RequestUnmarshal("account.setSilenceMode", &response, params)
 	return
 }
 
@@ -183,7 +183,7 @@ func (vk *VK) AccountSetSilenceMode(params Params) (response int, err error) {
 //
 // https://vk.com/dev/account.unban
 func (vk *VK) AccountUnban(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.unban", params, &response)
+	err = vk.RequestUnmarshal("account.unban", &response, params)
 	return
 }
 
@@ -191,6 +191,6 @@ func (vk *VK) AccountUnban(params Params) (response int, err error) {
 //
 // https://vk.com/dev/account.unregisterDevice
 func (vk *VK) AccountUnregisterDevice(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("account.unregisterDevice", params, &response)
+	err = vk.RequestUnmarshal("account.unregisterDevice", &response, params)
 	return
 }

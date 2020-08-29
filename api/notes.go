@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/notes.add
 func (vk *VK) NotesAdd(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("notes.add", params, &response)
+	err = vk.RequestUnmarshal("notes.add", &response, params)
 	return
 }
 
@@ -16,7 +16,7 @@ func (vk *VK) NotesAdd(params Params) (response int, err error) {
 //
 // https://vk.com/dev/notes.createComment
 func (vk *VK) NotesCreateComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("notes.createComment", params, &response)
+	err = vk.RequestUnmarshal("notes.createComment", &response, params)
 	return
 }
 
@@ -24,7 +24,7 @@ func (vk *VK) NotesCreateComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/notes.delete
 func (vk *VK) NotesDelete(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("notes.delete", params, &response)
+	err = vk.RequestUnmarshal("notes.delete", &response, params)
 	return
 }
 
@@ -32,7 +32,7 @@ func (vk *VK) NotesDelete(params Params) (response int, err error) {
 //
 // https://vk.com/dev/notes.deleteComment
 func (vk *VK) NotesDeleteComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("notes.deleteComment", params, &response)
+	err = vk.RequestUnmarshal("notes.deleteComment", &response, params)
 	return
 }
 
@@ -40,7 +40,7 @@ func (vk *VK) NotesDeleteComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/notes.edit
 func (vk *VK) NotesEdit(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("notes.edit", params, &response)
+	err = vk.RequestUnmarshal("notes.edit", &response, params)
 	return
 }
 
@@ -48,7 +48,7 @@ func (vk *VK) NotesEdit(params Params) (response int, err error) {
 //
 // https://vk.com/dev/notes.editComment
 func (vk *VK) NotesEditComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("notes.editComment", params, &response)
+	err = vk.RequestUnmarshal("notes.editComment", &response, params)
 	return
 }
 
@@ -62,7 +62,7 @@ type NotesGetResponse struct {
 //
 // https://vk.com/dev/notes.get
 func (vk *VK) NotesGet(params Params) (response NotesGetResponse, err error) {
-	err = vk.RequestUnmarshal("notes.get", params, &response)
+	err = vk.RequestUnmarshal("notes.get", &response, params)
 	return
 }
 
@@ -73,7 +73,7 @@ type NotesGetByIDResponse object.NotesNote
 //
 // https://vk.com/dev/notes.getById
 func (vk *VK) NotesGetByID(params Params) (response NotesGetByIDResponse, err error) {
-	err = vk.RequestUnmarshal("notes.getById", params, &response)
+	err = vk.RequestUnmarshal("notes.getById", &response, params)
 	return
 }
 
@@ -87,7 +87,7 @@ type NotesGetCommentsResponse struct {
 //
 // https://vk.com/dev/notes.getComments
 func (vk *VK) NotesGetComments(params Params) (response NotesGetCommentsResponse, err error) {
-	err = vk.RequestUnmarshal("notes.getComments", params, &response)
+	err = vk.RequestUnmarshal("notes.getComments", &response, params)
 	return
 }
 
@@ -95,6 +95,6 @@ func (vk *VK) NotesGetComments(params Params) (response NotesGetCommentsResponse
 //
 // https://vk.com/dev/notes.restoreComment
 func (vk *VK) NotesRestoreComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("notes.restoreComment", params, &response)
+	err = vk.RequestUnmarshal("notes.restoreComment", &response, params)
 	return
 }

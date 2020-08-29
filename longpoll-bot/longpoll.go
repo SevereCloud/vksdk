@@ -66,7 +66,7 @@ func NewLongpoll(vk *api.VK, groupID int) (*Longpoll, error) {
 // This means that if the http.DefaultClient is modified by other components
 // of your application the modifications will be picked up by the SDK as well.
 func NewLongpollCommunity(vk *api.VK) (*Longpoll, error) {
-	resp, err := vk.GroupsGetByID(api.Params{})
+	resp, err := vk.GroupsGetByID(nil)
 	if err != nil {
 		return nil, err
 	}

@@ -94,7 +94,7 @@ params := api.Params{
 }
 
 // Делаем запрос
-err = vk.RequestUnmarshal("users.get", params, &response)
+err = vk.RequestUnmarshal("users.get", &response, params)
 if err != nil {
 	log.Fatal(err)
 }

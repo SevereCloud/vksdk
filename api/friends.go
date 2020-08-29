@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/friends.add
 func (vk *VK) FriendsAdd(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("friends.add", params, &response)
+	err = vk.RequestUnmarshal("friends.add", &response, params)
 	return
 }
 
@@ -21,7 +21,7 @@ type FriendsAddListResponse struct {
 //
 // https://vk.com/dev/friends.addList
 func (vk *VK) FriendsAddList(params Params) (response FriendsAddListResponse, err error) {
-	err = vk.RequestUnmarshal("friends.addList", params, &response)
+	err = vk.RequestUnmarshal("friends.addList", &response, params)
 	return
 }
 
@@ -32,7 +32,7 @@ type FriendsAreFriendsResponse []object.FriendsFriendStatus
 //
 // https://vk.com/dev/friends.areFriends
 func (vk *VK) FriendsAreFriends(params Params) (response FriendsAreFriendsResponse, err error) {
-	err = vk.RequestUnmarshal("friends.areFriends", params, &response)
+	err = vk.RequestUnmarshal("friends.areFriends", &response, params)
 	return
 }
 
@@ -49,7 +49,7 @@ type FriendsDeleteResponse struct {
 //
 // https://vk.com/dev/friends.delete
 func (vk *VK) FriendsDelete(params Params) (response FriendsDeleteResponse, err error) {
-	err = vk.RequestUnmarshal("friends.delete", params, &response)
+	err = vk.RequestUnmarshal("friends.delete", &response, params)
 	return
 }
 
@@ -57,7 +57,7 @@ func (vk *VK) FriendsDelete(params Params) (response FriendsDeleteResponse, err 
 //
 // https://vk.com/dev/friends.deleteAllRequests
 func (vk *VK) FriendsDeleteAllRequests(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("friends.deleteAllRequests", params, &response)
+	err = vk.RequestUnmarshal("friends.deleteAllRequests", &response, params)
 	return
 }
 
@@ -65,7 +65,7 @@ func (vk *VK) FriendsDeleteAllRequests(params Params) (response int, err error) 
 //
 // https://vk.com/dev/friends.deleteList
 func (vk *VK) FriendsDeleteList(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("friends.deleteList", params, &response)
+	err = vk.RequestUnmarshal("friends.deleteList", &response, params)
 	return
 }
 
@@ -73,7 +73,7 @@ func (vk *VK) FriendsDeleteList(params Params) (response int, err error) {
 //
 // https://vk.com/dev/friends.edit
 func (vk *VK) FriendsEdit(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("friends.edit", params, &response)
+	err = vk.RequestUnmarshal("friends.edit", &response, params)
 	return
 }
 
@@ -81,7 +81,7 @@ func (vk *VK) FriendsEdit(params Params) (response int, err error) {
 //
 // https://vk.com/dev/friends.editList
 func (vk *VK) FriendsEditList(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("friends.editList", params, &response)
+	err = vk.RequestUnmarshal("friends.editList", &response, params)
 	return
 }
 
@@ -95,7 +95,7 @@ type FriendsGetResponse struct {
 //
 // https://vk.com/dev/friends.get
 func (vk *VK) FriendsGet(params Params) (response FriendsGetResponse, err error) {
-	err = vk.RequestUnmarshal("friends.get", params, &response)
+	err = vk.RequestUnmarshal("friends.get", &response, params)
 	return
 }
 
@@ -109,11 +109,12 @@ type FriendsGetFieldsResponse struct {
 //
 // https://vk.com/dev/friends.get
 func (vk *VK) FriendsGetFields(params Params) (response FriendsGetFieldsResponse, err error) {
+	reqParams := make(Params)
 	if v, prs := params["fields"]; v == "" || !prs {
-		params["fields"] = "id"
+		reqParams["fields"] = "id"
 	}
 
-	err = vk.RequestUnmarshal("friends.get", params, &response)
+	err = vk.RequestUnmarshal("friends.get", &response, params, reqParams)
 
 	return
 }
@@ -125,7 +126,7 @@ type FriendsGetAppUsersResponse []int
 //
 // https://vk.com/dev/friends.getAppUsers
 func (vk *VK) FriendsGetAppUsers(params Params) (response FriendsGetAppUsersResponse, err error) {
-	err = vk.RequestUnmarshal("friends.getAppUsers", params, &response)
+	err = vk.RequestUnmarshal("friends.getAppUsers", &response, params)
 	return
 }
 
@@ -137,7 +138,7 @@ type FriendsGetByPhonesResponse []object.FriendsUserXtrPhone
 //
 // https://vk.com/dev/friends.getByPhones
 func (vk *VK) FriendsGetByPhones(params Params) (response FriendsGetByPhonesResponse, err error) {
-	err = vk.RequestUnmarshal("friends.getByPhones", params, &response)
+	err = vk.RequestUnmarshal("friends.getByPhones", &response, params)
 	return
 }
 
@@ -151,7 +152,7 @@ type FriendsGetListsResponse struct {
 //
 // https://vk.com/dev/friends.getLists
 func (vk *VK) FriendsGetLists(params Params) (response FriendsGetListsResponse, err error) {
-	err = vk.RequestUnmarshal("friends.getLists", params, &response)
+	err = vk.RequestUnmarshal("friends.getLists", &response, params)
 	return
 }
 
@@ -162,7 +163,7 @@ type FriendsGetMutualResponse []int
 //
 // https://vk.com/dev/friends.getMutual
 func (vk *VK) FriendsGetMutual(params Params) (response FriendsGetMutualResponse, err error) {
-	err = vk.RequestUnmarshal("friends.getMutual", params, &response)
+	err = vk.RequestUnmarshal("friends.getMutual", &response, params)
 	return
 }
 
@@ -172,8 +173,7 @@ func (vk *VK) FriendsGetMutual(params Params) (response FriendsGetMutualResponse
 //
 // https://vk.com/dev/friends.getOnline
 func (vk *VK) FriendsGetOnline(params Params) (response []int, err error) {
-	params["online_mobile"] = false
-	err = vk.RequestUnmarshal("friends.getOnline", params, &response)
+	err = vk.RequestUnmarshal("friends.getOnline", &response, params, Params{"online_mobile": false})
 
 	return
 }
@@ -190,8 +190,7 @@ type FriendsGetOnlineOnlineMobileResponse struct {
 //
 // https://vk.com/dev/friends.getOnline
 func (vk *VK) FriendsGetOnlineOnlineMobile(params Params) (response FriendsGetOnlineOnlineMobileResponse, err error) {
-	params["online_mobile"] = true
-	err = vk.RequestUnmarshal("friends.getOnline", params, &response)
+	err = vk.RequestUnmarshal("friends.getOnline", &response, params, Params{"online_mobile": true})
 
 	return
 }
@@ -203,7 +202,7 @@ type FriendsGetRecentResponse []int
 //
 // https://vk.com/dev/friends.getRecent
 func (vk *VK) FriendsGetRecent(params Params) (response FriendsGetRecentResponse, err error) {
-	err = vk.RequestUnmarshal("friends.getRecent", params, &response)
+	err = vk.RequestUnmarshal("friends.getRecent", &response, params)
 	return
 }
 
@@ -217,9 +216,12 @@ type FriendsGetRequestsResponse struct {
 //
 // https://vk.com/dev/friends.getRequests
 func (vk *VK) FriendsGetRequests(params Params) (response FriendsGetRequestsResponse, err error) {
-	params["need_mutual"] = false
-	params["extended"] = false
-	err = vk.RequestUnmarshal("friends.getRequests", params, &response)
+	reqParams := Params{
+		"need_mutual": false,
+		"extended":    false,
+	}
+
+	err = vk.RequestUnmarshal("friends.getRequests", &response, params, reqParams)
 
 	return
 }
@@ -234,9 +236,12 @@ type FriendsGetRequestsNeedMutualResponse struct {
 //
 // https://vk.com/dev/friends.getRequests
 func (vk *VK) FriendsGetRequestsNeedMutual(params Params) (response FriendsGetRequestsNeedMutualResponse, err error) {
-	params["need_mutual"] = true
-	params["extended"] = false
-	err = vk.RequestUnmarshal("friends.getRequests", params, &response)
+	reqParams := Params{
+		"extended":    false,
+		"need_mutual": true,
+	}
+
+	err = vk.RequestUnmarshal("friends.getRequests", &response, params, reqParams)
 
 	return
 }
@@ -251,9 +256,12 @@ type FriendsGetRequestsExtendedResponse struct {
 //
 // https://vk.com/dev/friends.getRequests
 func (vk *VK) FriendsGetRequestsExtended(params Params) (response FriendsGetRequestsExtendedResponse, err error) {
-	params["need_mutual"] = false
-	params["extended"] = true
-	err = vk.RequestUnmarshal("friends.getRequests", params, &response)
+	reqParams := Params{
+		"need_mutual": false,
+		"extended":    true,
+	}
+
+	err = vk.RequestUnmarshal("friends.getRequests", &response, params, reqParams)
 
 	return
 }
@@ -268,7 +276,7 @@ type FriendsGetSuggestionsResponse struct {
 //
 // https://vk.com/dev/friends.getSuggestions
 func (vk *VK) FriendsGetSuggestions(params Params) (response FriendsGetSuggestionsResponse, err error) {
-	err = vk.RequestUnmarshal("friends.getSuggestions", params, &response)
+	err = vk.RequestUnmarshal("friends.getSuggestions", &response, params)
 	return
 }
 
@@ -282,6 +290,6 @@ type FriendsSearchResponse struct {
 //
 // https://vk.com/dev/friends.search
 func (vk *VK) FriendsSearch(params Params) (response FriendsSearchResponse, err error) {
-	err = vk.RequestUnmarshal("friends.search", params, &response)
+	err = vk.RequestUnmarshal("friends.search", &response, params)
 	return
 }

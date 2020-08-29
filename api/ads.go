@@ -11,7 +11,7 @@ import (
 //
 // https://vk.com/dev/ads.addOfficeUsers
 // func (vk *VK) AdsAddOfficeUsers(params Params) (response AdsAddOfficeUsersResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.addOfficeUsers", params, &response)
+// 	err = vk.RequestUnmarshal("ads.addOfficeUsers", &response, params)
 // 	return
 // }
 
@@ -22,7 +22,7 @@ import (
 //
 // https://vk.com/dev/ads.checkLink
 // func (vk *VK) AdsCheckLink(params Params) (response AdsCheckLinkResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.checkLink", params, &response)
+// 	err = vk.RequestUnmarshal("ads.checkLink", &response, params)
 // 	return
 // }
 
@@ -33,7 +33,7 @@ import (
 //
 // https://vk.com/dev/ads.createAds
 // func (vk *VK) AdsCreateAds(params Params) (response AdsCreateAdsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createAds", params, &response)
+// 	err = vk.RequestUnmarshal("ads.createAds", &response, params)
 // 	return
 // }
 
@@ -44,7 +44,7 @@ import (
 //
 // https://vk.com/dev/ads.createCampaigns
 // func (vk *VK) AdsCreateCampaigns(params Params) (response AdsCreateCampaignsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createCampaigns", params, &response)
+// 	err = vk.RequestUnmarshal("ads.createCampaigns", &response, params)
 // 	return
 // }
 
@@ -55,7 +55,7 @@ import (
 //
 // https://vk.com/dev/ads.createClients
 // func (vk *VK) AdsCreateClients(params Params) (response AdsCreateClientsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createClients", params, &response)
+// 	err = vk.RequestUnmarshal("ads.createClients", &response, params)
 // 	return
 // }
 
@@ -66,7 +66,7 @@ import (
 //
 // https://vk.com/dev/ads.createLookalikeRequest
 // func (vk *VK) AdsCreateLookalikeRequest(params Params) (response AdsCreateLookalikeRequestResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createLookalikeRequest", params, &response)
+// 	err = vk.RequestUnmarshal("ads.createLookalikeRequest", &response, params)
 // 	return
 // }
 
@@ -77,7 +77,7 @@ import (
 //
 // https://vk.com/dev/ads.createTargetGroup
 // func (vk *VK) AdsCreateTargetGroup(params Params) (response AdsCreateTargetGroupResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createTargetGroup", params, &response)
+// 	err = vk.RequestUnmarshal("ads.createTargetGroup", &response, params)
 // 	return
 // }
 
@@ -88,7 +88,7 @@ import (
 //
 // https://vk.com/dev/ads.createTargetPixel
 // func (vk *VK) AdsCreateTargetPixel(params Params) (response AdsCreateTargetPixelResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createTargetPixel", params, &response)
+// 	err = vk.RequestUnmarshal("ads.createTargetPixel", &response, params)
 // 	return
 // }
 
@@ -99,7 +99,7 @@ import (
 //
 // https://vk.com/dev/ads.deleteAds
 // func (vk *VK) AdsDeleteAds(params Params) (response AdsDeleteAdsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.deleteAds", params, &response)
+// 	err = vk.RequestUnmarshal("ads.deleteAds", &response, params)
 // 	return
 // }
 
@@ -110,7 +110,7 @@ import (
 //
 // https://vk.com/dev/ads.deleteCampaigns
 // func (vk *VK) AdsDeleteCampaigns(params Params) (response AdsDeleteCampaignsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.deleteCampaigns", params, &response)
+// 	err = vk.RequestUnmarshal("ads.deleteCampaigns", &response, params)
 // 	return
 // }
 
@@ -121,7 +121,7 @@ import (
 //
 // https://vk.com/dev/ads.deleteClients
 // func (vk *VK) AdsDeleteClients(params Params) (response AdsDeleteClientsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.deleteClients", params, &response)
+// 	err = vk.RequestUnmarshal("ads.deleteClients", &response, params)
 // 	return
 // }
 
@@ -129,7 +129,7 @@ import (
 //
 // https://vk.com/dev/ads.deleteTargetGroup
 func (vk *VK) AdsDeleteTargetGroup(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("ads.deleteTargetGroup", params, &response)
+	err = vk.RequestUnmarshal("ads.deleteTargetGroup", &response, params)
 	return
 }
 
@@ -137,7 +137,7 @@ func (vk *VK) AdsDeleteTargetGroup(params Params) (response int, err error) {
 //
 // https://vk.com/dev/ads.deleteTargetPixel
 func (vk *VK) AdsDeleteTargetPixel(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("ads.deleteTargetPixel", params, &response)
+	err = vk.RequestUnmarshal("ads.deleteTargetPixel", &response, params)
 	return
 }
 
@@ -148,7 +148,7 @@ type AdsGetAccountsResponse []object.AdsAccount
 //
 // https://vk.com/dev/ads.getAccounts
 func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, err error) {
-	err = vk.RequestUnmarshal("ads.getAccounts", params, &response)
+	err = vk.RequestUnmarshal("ads.getAccounts", &response, params)
 	return
 }
 
@@ -159,7 +159,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getAds
 // func (vk *VK) AdsGetAds(params Params) (response AdsGetAdsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getAds", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getAds", &response, params)
 // 	return
 // }
 
@@ -170,7 +170,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getAdsLayout
 // func (vk *VK) AdsGetAdsLayout(params Params) (response AdsGetAdsLayoutResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getAdsLayout", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getAdsLayout", &response, params)
 // 	return
 // }
 
@@ -181,7 +181,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getAdsTargeting
 // func (vk *VK) AdsGetAdsTargeting(params Params) (response AdsGetAdsTargetingResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getAdsTargeting", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getAdsTargeting", &response, params)
 // 	return
 // }
 
@@ -192,7 +192,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getBudget
 // func (vk *VK) AdsGetBudget(params Params) (response AdsGetBudgetResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getBudget", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getBudget", &response, params)
 // 	return
 // }
 
@@ -203,7 +203,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getCampaigns
 // func (vk *VK) AdsGetCampaigns(params Params) (response AdsGetCampaignsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getCampaigns", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getCampaigns", &response, params)
 // 	return
 // }
 
@@ -214,7 +214,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getCategories
 // func (vk *VK) AdsGetCategories(params Params) (response AdsGetCategoriesResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getCategories", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getCategories", &response, params)
 // 	return
 // }
 
@@ -225,7 +225,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getClients
 // func (vk *VK) AdsGetClients(params Params) (response AdsGetClientsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getClients", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getClients", &response, params)
 // 	return
 // }
 
@@ -236,7 +236,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getDemographics
 // func (vk *VK) AdsGetDemographics(params Params) (response AdsGetDemographicsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getDemographics", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getDemographics", &response, params)
 // 	return
 // }
 
@@ -247,7 +247,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getFloodStats
 // func (vk *VK) AdsGetFloodStats(params Params) (response AdsGetFloodStatsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getFloodStats", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getFloodStats", &response, params)
 // 	return
 // }
 
@@ -258,7 +258,7 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 //
 // https://vk.com/dev/ads.getLookalikeRequests
 // func (vk *VK) AdsGetLookalikeRequests(params Params) (response AdsGetLookalikeRequestsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getLookalikeRequests", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getLookalikeRequests", &response, params)
 // 	return
 // }
 
@@ -271,7 +271,7 @@ type AdsGetMusiciansResponse struct {
 //
 // https://vk.com/dev/ads.getMusicians
 func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, err error) {
-	err = vk.RequestUnmarshal("ads.getMusicians", params, &response)
+	err = vk.RequestUnmarshal("ads.getMusicians", &response, params)
 	return
 }
 
@@ -282,7 +282,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getOfficeUsers
 // func (vk *VK) AdsGetOfficeUsers(params Params) (response AdsGetOfficeUsersResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getOfficeUsers", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getOfficeUsers", &response, params)
 // 	return
 // }
 
@@ -293,7 +293,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getPostsReach
 // func (vk *VK) AdsGetPostsReach(params Params) (response AdsGetPostsReachResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getPostsReach", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getPostsReach", &response, params)
 // 	return
 // }
 
@@ -304,7 +304,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getRejectionReason
 // func (vk *VK) AdsGetRejectionReason(params Params) (response AdsGetRejectionReasonResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getRejectionReason", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getRejectionReason", &response, params)
 // 	return
 // }
 
@@ -315,7 +315,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getStatistics
 // func (vk *VK) AdsGetStatistics(params Params) (response AdsGetStatisticsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getStatistics", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getStatistics", &response, params)
 // 	return
 // }
 
@@ -326,7 +326,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getSuggestions
 // func (vk *VK) AdsGetSuggestions(params Params) (response AdsGetSuggestionsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getSuggestions", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getSuggestions", &response, params)
 // 	return
 // }
 
@@ -337,7 +337,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getTargetGroups
 // func (vk *VK) AdsGetTargetGroups(params Params) (response AdsGetTargetGroupsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getTargetGroups", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getTargetGroups", &response, params)
 // 	return
 // }
 
@@ -348,7 +348,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getTargetPixels
 // func (vk *VK) AdsGetTargetPixels(params Params) (response AdsGetTargetPixelsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getTargetPixels", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getTargetPixels", &response, params)
 // 	return
 // }
 
@@ -359,7 +359,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getTargetingStats
 // func (vk *VK) AdsGetTargetingStats(params Params) (response AdsGetTargetingStatsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getTargetingStats", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getTargetingStats", &response, params)
 // 	return
 // }
 
@@ -370,7 +370,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getUploadURL
 // func (vk *VK) AdsGetUploadURL(params Params) (response AdsGetUploadURLResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getUploadURL", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getUploadURL", &response, params)
 // 	return
 // }
 
@@ -381,7 +381,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.getVideoUploadURL
 // func (vk *VK) AdsGetVideoUploadURL(params Params) (response AdsGetVideoUploadURLResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getVideoUploadURL", params, &response)
+// 	err = vk.RequestUnmarshal("ads.getVideoUploadURL", &response, params)
 // 	return
 // }
 
@@ -392,7 +392,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.importTargetContacts
 // func (vk *VK) AdsImportTargetContacts(params Params) (response AdsImportTargetContactsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.importTargetContacts", params, &response)
+// 	err = vk.RequestUnmarshal("ads.importTargetContacts", &response, params)
 // 	return
 // }
 
@@ -403,7 +403,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.removeOfficeUsers
 // func (vk *VK) AdsRemoveOfficeUsers(params Params) (response AdsRemoveOfficeUsersResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.removeOfficeUsers", params, &response)
+// 	err = vk.RequestUnmarshal("ads.removeOfficeUsers", &response, params)
 // 	return
 // }
 
@@ -417,7 +417,7 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 //
 // https://vk.com/dev/ads.removeTargetContacts
 func (vk *VK) AdsRemoveTargetContacts(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("ads.removeTargetContacts", params, &response)
+	err = vk.RequestUnmarshal("ads.removeTargetContacts", &response, params)
 	return
 }
 
@@ -431,7 +431,7 @@ func (vk *VK) AdsRemoveTargetContacts(params Params) (response int, err error) {
 // 		response AdsSaveLookalikeRequestResultResponse,
 // 		err error,
 // 	) {
-// 	err = vk.RequestUnmarshal("ads.saveLookalikeRequestResult", params, &response)
+// 	err = vk.RequestUnmarshal("ads.saveLookalikeRequestResult", &response, params)
 // 	return
 // }
 
@@ -442,7 +442,7 @@ func (vk *VK) AdsRemoveTargetContacts(params Params) (response int, err error) {
 //
 // https://vk.com/dev/ads.shareTargetGroup
 // func (vk *VK) AdsShareTargetGroup(params Params) (response AdsShareTargetGroupResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.shareTargetGroup", params, &response)
+// 	err = vk.RequestUnmarshal("ads.shareTargetGroup", &response, params)
 // 	return
 // }
 
@@ -453,7 +453,7 @@ func (vk *VK) AdsRemoveTargetContacts(params Params) (response int, err error) {
 //
 // https://vk.com/dev/ads.updateAds
 // func (vk *VK) AdsUpdateAds(params Params) (response AdsUpdateAdsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.updateAds", params, &response)
+// 	err = vk.RequestUnmarshal("ads.updateAds", &response, params)
 // 	return
 // }
 
@@ -464,7 +464,7 @@ func (vk *VK) AdsRemoveTargetContacts(params Params) (response int, err error) {
 //
 // https://vk.com/dev/ads.updateCampaigns
 // func (vk *VK) AdsUpdateCampaigns(params Params) (response AdsUpdateCampaignsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.updateCampaigns", params, &response)
+// 	err = vk.RequestUnmarshal("ads.updateCampaigns", &response, params)
 // 	return
 // }
 
@@ -475,7 +475,7 @@ func (vk *VK) AdsRemoveTargetContacts(params Params) (response int, err error) {
 //
 // https://vk.com/dev/ads.updateClients
 // func (vk *VK) AdsUpdateClients(params Params) (response AdsUpdateClientsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.updateClients", params, &response)
+// 	err = vk.RequestUnmarshal("ads.updateClients", &response, params)
 // 	return
 // }
 
@@ -483,7 +483,7 @@ func (vk *VK) AdsRemoveTargetContacts(params Params) (response int, err error) {
 //
 // https://vk.com/dev/ads.updateTargetGroup
 func (vk *VK) AdsUpdateTargetGroup(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("ads.updateTargetGroup", params, &response)
+	err = vk.RequestUnmarshal("ads.updateTargetGroup", &response, params)
 	return
 }
 
@@ -491,6 +491,6 @@ func (vk *VK) AdsUpdateTargetGroup(params Params) (response int, err error) {
 //
 // https://vk.com/dev/ads.updateTargetPixel
 func (vk *VK) AdsUpdateTargetPixel(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("ads. updateTargetPixel", params, &response)
+	err = vk.RequestUnmarshal("ads. updateTargetPixel", &response, params)
 	return
 }

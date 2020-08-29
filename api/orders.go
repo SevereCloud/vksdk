@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/orders.cancelSubscription
 func (vk *VK) OrdersCancelSubscription(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("orders.cancelSubscription", params, &response)
+	err = vk.RequestUnmarshal("orders.cancelSubscription", &response, params)
 	return
 }
 
@@ -19,7 +19,7 @@ type OrdersChangeStateResponse string // New state
 //
 // https://vk.com/dev/orders.changeState
 func (vk *VK) OrdersChangeState(params Params) (response OrdersChangeStateResponse, err error) {
-	err = vk.RequestUnmarshal("orders.changeState", params, &response)
+	err = vk.RequestUnmarshal("orders.changeState", &response, params)
 	return
 }
 
@@ -30,7 +30,7 @@ type OrdersGetResponse []object.OrdersOrder
 //
 // https://vk.com/dev/orders.get
 func (vk *VK) OrdersGet(params Params) (response OrdersGetResponse, err error) {
-	err = vk.RequestUnmarshal("orders.get", params, &response)
+	err = vk.RequestUnmarshal("orders.get", &response, params)
 	return
 }
 
@@ -41,7 +41,7 @@ type OrdersGetAmountResponse []object.OrdersAmount
 //
 // https://vk.com/dev/orders.getAmount
 func (vk *VK) OrdersGetAmount(params Params) (response OrdersGetAmountResponse, err error) {
-	err = vk.RequestUnmarshal("orders.getAmount", params, &response)
+	err = vk.RequestUnmarshal("orders.getAmount", &response, params)
 	return
 }
 
@@ -52,7 +52,7 @@ type OrdersGetByIDResponse []object.OrdersOrder
 //
 // https://vk.com/dev/orders.getByID
 func (vk *VK) OrdersGetByID(params Params) (response OrdersGetByIDResponse, err error) {
-	err = vk.RequestUnmarshal("orders.getById", params, &response)
+	err = vk.RequestUnmarshal("orders.getById", &response, params)
 	return
 }
 
@@ -63,7 +63,7 @@ type OrdersGetUserSubscriptionByIDResponse object.OrdersSubscription
 //
 // https://vk.com/dev/orders.getUserSubscriptionById
 func (vk *VK) OrdersGetUserSubscriptionByID(params Params) (response OrdersGetUserSubscriptionByIDResponse, err error) {
-	err = vk.RequestUnmarshal("orders.getUserSubscriptionById", params, &response)
+	err = vk.RequestUnmarshal("orders.getUserSubscriptionById", &response, params)
 	return
 }
 
@@ -77,7 +77,7 @@ type OrdersGetUserSubscriptionsResponse struct {
 //
 // https://vk.com/dev/orders.getUserSubscriptions
 func (vk *VK) OrdersGetUserSubscriptions(params Params) (response OrdersGetUserSubscriptionsResponse, err error) {
-	err = vk.RequestUnmarshal("orders.getUserSubscriptions", params, &response)
+	err = vk.RequestUnmarshal("orders.getUserSubscriptions", &response, params)
 	return
 }
 
@@ -85,6 +85,6 @@ func (vk *VK) OrdersGetUserSubscriptions(params Params) (response OrdersGetUserS
 //
 // https://vk.com/dev/orders.updateSubscription
 func (vk *VK) OrdersUpdateSubscription(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("orders.updateSubscription", params, &response)
+	err = vk.RequestUnmarshal("orders.updateSubscription", &response, params)
 	return
 }

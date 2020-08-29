@@ -11,7 +11,7 @@ type GroupsAddAddressResponse object.GroupsAddress
 //
 // https://vk.com/dev/groups.addAddress
 func (vk *VK) GroupsAddAddress(params Params) (response GroupsAddAddressResponse, err error) {
-	err = vk.RequestUnmarshal("groups.addAddress", params, &response)
+	err = vk.RequestUnmarshal("groups.addAddress", &response, params)
 	return
 }
 
@@ -24,7 +24,7 @@ type GroupsAddCallbackServerResponse struct {
 //
 // https://vk.com/dev/groups.addCallbackServer
 func (vk *VK) GroupsAddCallbackServer(params Params) (response GroupsAddCallbackServerResponse, err error) {
-	err = vk.RequestUnmarshal("groups.addCallbackServer", params, &response)
+	err = vk.RequestUnmarshal("groups.addCallbackServer", &response, params)
 	return
 }
 
@@ -35,7 +35,7 @@ type GroupsAddLinkResponse object.GroupsGroupLink
 //
 // https://vk.com/dev/groups.addLink
 func (vk *VK) GroupsAddLink(params Params) (response GroupsAddLinkResponse, err error) {
-	err = vk.RequestUnmarshal("groups.addLink", params, &response)
+	err = vk.RequestUnmarshal("groups.addLink", &response, params)
 	return
 }
 
@@ -43,7 +43,7 @@ func (vk *VK) GroupsAddLink(params Params) (response GroupsAddLinkResponse, err 
 //
 // https://vk.com/dev/groups.approveRequest
 func (vk *VK) GroupsApproveRequest(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.approveRequest", params, &response)
+	err = vk.RequestUnmarshal("groups.approveRequest", &response, params)
 	return
 }
 
@@ -51,7 +51,7 @@ func (vk *VK) GroupsApproveRequest(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.ban
 func (vk *VK) GroupsBan(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.ban", params, &response)
+	err = vk.RequestUnmarshal("groups.ban", &response, params)
 	return
 }
 
@@ -62,7 +62,7 @@ type GroupsCreateResponse object.GroupsGroup
 //
 // https://vk.com/dev/groups.create
 func (vk *VK) GroupsCreate(params Params) (response GroupsCreateResponse, err error) {
-	err = vk.RequestUnmarshal("groups.create", params, &response)
+	err = vk.RequestUnmarshal("groups.create", &response, params)
 	return
 }
 
@@ -70,7 +70,7 @@ func (vk *VK) GroupsCreate(params Params) (response GroupsCreateResponse, err er
 //
 // https://vk.com/dev/groups.deleteAddress
 func (vk *VK) GroupsDeleteAddress(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.deleteAddress", params, &response)
+	err = vk.RequestUnmarshal("groups.deleteAddress", &response, params)
 	return
 }
 
@@ -78,7 +78,7 @@ func (vk *VK) GroupsDeleteAddress(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.deleteCallbackServer
 func (vk *VK) GroupsDeleteCallbackServer(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.deleteCallbackServer", params, &response)
+	err = vk.RequestUnmarshal("groups.deleteCallbackServer", &response, params)
 	return
 }
 
@@ -86,7 +86,7 @@ func (vk *VK) GroupsDeleteCallbackServer(params Params) (response int, err error
 //
 // https://vk.com/dev/groups.deleteLink
 func (vk *VK) GroupsDeleteLink(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.deleteLink", params, &response)
+	err = vk.RequestUnmarshal("groups.deleteLink", &response, params)
 	return
 }
 
@@ -94,7 +94,7 @@ func (vk *VK) GroupsDeleteLink(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.disableOnline
 func (vk *VK) GroupsDisableOnline(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.disableOnline", params, &response)
+	err = vk.RequestUnmarshal("groups.disableOnline", &response, params)
 	return
 }
 
@@ -102,7 +102,7 @@ func (vk *VK) GroupsDisableOnline(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.edit
 func (vk *VK) GroupsEdit(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.edit", params, &response)
+	err = vk.RequestUnmarshal("groups.edit", &response, params)
 	return
 }
 
@@ -113,7 +113,7 @@ type GroupsEditAddressResponse object.GroupsAddress
 //
 // https://vk.com/dev/groups.editAddress
 func (vk *VK) GroupsEditAddress(params Params) (response GroupsEditAddressResponse, err error) {
-	err = vk.RequestUnmarshal("groups.editAddress", params, &response)
+	err = vk.RequestUnmarshal("groups.editAddress", &response, params)
 	return
 }
 
@@ -121,7 +121,7 @@ func (vk *VK) GroupsEditAddress(params Params) (response GroupsEditAddressRespon
 //
 // https://vk.com/dev/groups.editCallbackServer
 func (vk *VK) GroupsEditCallbackServer(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.editCallbackServer", params, &response)
+	err = vk.RequestUnmarshal("groups.editCallbackServer", &response, params)
 	return
 }
 
@@ -129,7 +129,7 @@ func (vk *VK) GroupsEditCallbackServer(params Params) (response int, err error) 
 //
 // https://vk.com/dev/groups.editLink
 func (vk *VK) GroupsEditLink(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.editLink", params, &response)
+	err = vk.RequestUnmarshal("groups.editLink", &response, params)
 	return
 }
 
@@ -137,7 +137,7 @@ func (vk *VK) GroupsEditLink(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.editManager
 func (vk *VK) GroupsEditManager(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.editManager", params, &response)
+	err = vk.RequestUnmarshal("groups.editManager", &response, params)
 	return
 }
 
@@ -145,7 +145,7 @@ func (vk *VK) GroupsEditManager(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.enableOnline
 func (vk *VK) GroupsEnableOnline(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.enableOnline", params, &response)
+	err = vk.RequestUnmarshal("groups.enableOnline", &response, params)
 	return
 }
 
@@ -161,8 +161,7 @@ type GroupsGetResponse struct {
 //
 // https://vk.com/dev/groups.get
 func (vk *VK) GroupsGet(params Params) (response GroupsGetResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("groups.get", params, &response)
+	err = vk.RequestUnmarshal("groups.get", &response, params, Params{"extended": false})
 
 	return
 }
@@ -179,8 +178,7 @@ type GroupsGetExtendedResponse struct {
 //
 // https://vk.com/dev/groups.get
 func (vk *VK) GroupsGetExtended(params Params) (response GroupsGetExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("groups.get", params, &response)
+	err = vk.RequestUnmarshal("groups.get", &response, params, Params{"extended": true})
 
 	return
 }
@@ -195,7 +193,7 @@ type GroupsGetAddressesResponse struct {
 //
 // https://vk.com/dev/groups.getAddresses
 func (vk *VK) GroupsGetAddresses(params Params) (response GroupsGetAddressesResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getAddresses", params, &response)
+	err = vk.RequestUnmarshal("groups.getAddresses", &response, params)
 	return
 }
 
@@ -209,7 +207,7 @@ type GroupsGetBannedResponse struct {
 //
 // https://vk.com/dev/groups.getBanned
 func (vk *VK) GroupsGetBanned(params Params) (response GroupsGetBannedResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getBanned", params, &response)
+	err = vk.RequestUnmarshal("groups.getBanned", &response, params)
 	return
 }
 
@@ -220,7 +218,7 @@ type GroupsGetByIDResponse []object.GroupsGroup
 //
 // https://vk.com/dev/groups.getById
 func (vk *VK) GroupsGetByID(params Params) (response GroupsGetByIDResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getById", params, &response)
+	err = vk.RequestUnmarshal("groups.getById", &response, params)
 	return
 }
 
@@ -236,7 +234,7 @@ func (vk *VK) GroupsGetCallbackConfirmationCode(params Params) (
 	response GroupsGetCallbackConfirmationCodeResponse,
 	err error,
 ) {
-	err = vk.RequestUnmarshal("groups.getCallbackConfirmationCode", params, &response)
+	err = vk.RequestUnmarshal("groups.getCallbackConfirmationCode", &response, params)
 	return
 }
 
@@ -250,7 +248,7 @@ type GroupsGetCallbackServersResponse struct {
 //
 // https://vk.com/dev/groups.getCallbackServers
 func (vk *VK) GroupsGetCallbackServers(params Params) (response GroupsGetCallbackServersResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getCallbackServers", params, &response)
+	err = vk.RequestUnmarshal("groups.getCallbackServers", &response, params)
 	return
 }
 
@@ -263,7 +261,7 @@ type GroupsGetCallbackSettingsResponse object.GroupsCallbackSettings
 //
 // https://vk.com/dev/groups.getCallbackSettings
 func (vk *VK) GroupsGetCallbackSettings(params Params) (response GroupsGetCallbackSettingsResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getCallbackSettings", params, &response)
+	err = vk.RequestUnmarshal("groups.getCallbackSettings", &response, params)
 	return
 }
 
@@ -277,7 +275,7 @@ type GroupsGetCatalogResponse struct {
 //
 // https://vk.com/dev/groups.getCatalog
 func (vk *VK) GroupsGetCatalog(params Params) (response GroupsGetCatalogResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getCatalog", params, &response)
+	err = vk.RequestUnmarshal("groups.getCatalog", &response, params)
 	return
 }
 
@@ -293,8 +291,7 @@ type GroupsGetCatalogInfoResponse struct {
 //
 // https://vk.com/dev/groups.getCatalogInfo
 func (vk *VK) GroupsGetCatalogInfo(params Params) (response GroupsGetCatalogInfoResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("groups.getCatalogInfo", params, &response)
+	err = vk.RequestUnmarshal("groups.getCatalogInfo", &response, params, Params{"extended": false})
 
 	return
 }
@@ -311,8 +308,7 @@ type GroupsGetCatalogInfoExtendedResponse struct {
 //
 // https://vk.com/dev/groups.getCatalogInfo
 func (vk *VK) GroupsGetCatalogInfoExtended(params Params) (response GroupsGetCatalogInfoExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("groups.getCatalogInfo", params, &response)
+	err = vk.RequestUnmarshal("groups.getCatalogInfo", &response, params, Params{"extended": true})
 
 	return
 }
@@ -327,7 +323,7 @@ type GroupsGetInvitedUsersResponse struct {
 //
 // https://vk.com/dev/groups.getInvitedUsers
 func (vk *VK) GroupsGetInvitedUsers(params Params) (response GroupsGetInvitedUsersResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getInvitedUsers", params, &response)
+	err = vk.RequestUnmarshal("groups.getInvitedUsers", &response, params)
 	return
 }
 
@@ -341,7 +337,7 @@ type GroupsGetInvitesResponse struct {
 //
 // https://vk.com/dev/groups.getInvites
 func (vk *VK) GroupsGetInvites(params Params) (response GroupsGetInvitesResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getInvites", params, &response)
+	err = vk.RequestUnmarshal("groups.getInvites", &response, params)
 	return
 }
 
@@ -356,7 +352,7 @@ type GroupsGetInvitesExtendedResponse struct {
 //
 // https://vk.com/dev/groups.getInvites
 func (vk *VK) GroupsGetInvitesExtended(params Params) (response GroupsGetInvitesExtendedResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getInvites", params, &response)
+	err = vk.RequestUnmarshal("groups.getInvites", &response, params)
 	return
 }
 
@@ -367,7 +363,7 @@ type GroupsGetLongPollServerResponse object.GroupsLongPollServer
 //
 // https://vk.com/dev/groups.getLongPollServer
 func (vk *VK) GroupsGetLongPollServer(params Params) (response GroupsGetLongPollServerResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getLongPollServer", params, &response)
+	err = vk.RequestUnmarshal("groups.getLongPollServer", &response, params)
 	return
 }
 
@@ -378,7 +374,7 @@ type GroupsGetLongPollSettingsResponse object.GroupsLongPollSettings
 //
 // https://vk.com/dev/groups.getLongPollSettings
 func (vk *VK) GroupsGetLongPollSettings(params Params) (response GroupsGetLongPollSettingsResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getLongPollSettings", params, &response)
+	err = vk.RequestUnmarshal("groups.getLongPollSettings", &response, params)
 	return
 }
 
@@ -392,9 +388,7 @@ type GroupsGetMembersResponse struct {
 //
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembers(params Params) (response GroupsGetMembersResponse, err error) {
-	params["fields"] = ""
-	params["filter"] = ""
-	err = vk.RequestUnmarshal("groups.getMembers", params, &response)
+	err = vk.RequestUnmarshal("groups.getMembers", &response, params, Params{"filter": ""})
 
 	return
 }
@@ -409,11 +403,12 @@ type GroupsGetMembersFieldsResponse struct {
 //
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembersFields(params Params) (response GroupsGetMembersFieldsResponse, err error) {
+	reqParams := make(Params)
 	if v, prs := params["fields"]; v == "" || !prs {
-		params["fields"] = "id"
+		reqParams["fields"] = "id"
 	}
 
-	err = vk.RequestUnmarshal("groups.getMembers", params, &response)
+	err = vk.RequestUnmarshal("groups.getMembers", &response, params, reqParams)
 
 	return
 }
@@ -432,8 +427,7 @@ func (vk *VK) GroupsGetMembersFilterManagers(params Params) (
 	response GroupsGetMembersFilterManagersResponse,
 	err error,
 ) {
-	params["filter"] = "managers"
-	err = vk.RequestUnmarshal("groups.getMembers", params, &response)
+	err = vk.RequestUnmarshal("groups.getMembers", &response, params, Params{"filter": "managers"})
 
 	return
 }
@@ -445,7 +439,7 @@ type GroupsGetOnlineStatusResponse object.GroupsOnlineStatus
 //
 // https://vk.com/dev/groups.getOnlineStatus
 func (vk *VK) GroupsGetOnlineStatus(params Params) (response GroupsGetOnlineStatusResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getOnlineStatus", params, &response)
+	err = vk.RequestUnmarshal("groups.getOnlineStatus", &response, params)
 	return
 }
 
@@ -459,8 +453,7 @@ type GroupsGetRequestsResponse struct {
 //
 // https://vk.com/dev/groups.getRequests
 func (vk *VK) GroupsGetRequests(params Params) (response GroupsGetRequestsResponse, err error) {
-	params["fields"] = ""
-	err = vk.RequestUnmarshal("groups.getRequests", params, &response)
+	err = vk.RequestUnmarshal("groups.getRequests", &response, params, Params{"fields": ""})
 
 	return
 }
@@ -475,11 +468,12 @@ type GroupsGetRequestsFieldsResponse struct {
 //
 // https://vk.com/dev/groups.getRequests
 func (vk *VK) GroupsGetRequestsFields(params Params) (response GroupsGetRequestsFieldsResponse, err error) {
+	reqParams := make(Params)
 	if v, prs := params["fields"]; v == "" || !prs {
-		params["fields"] = "id"
+		reqParams["fields"] = "id"
 	}
 
-	err = vk.RequestUnmarshal("groups.getRequests", params, &response)
+	err = vk.RequestUnmarshal("groups.getRequests", &response, params, reqParams)
 
 	return
 }
@@ -491,7 +485,7 @@ type GroupsGetSettingsResponse object.GroupsGroupSettings
 //
 // https://vk.com/dev/groups.getSettings
 func (vk *VK) GroupsGetSettings(params Params) (response GroupsGetSettingsResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getSettings", params, &response)
+	err = vk.RequestUnmarshal("groups.getSettings", &response, params)
 	return
 }
 
@@ -502,7 +496,7 @@ type GroupsGetTagListResponse []object.GroupsTag
 //
 // https://vk.com/dev/groups.getTagList
 func (vk *VK) GroupsGetTagList(params Params) (response GroupsGetTagListResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getTagList", params, &response)
+	err = vk.RequestUnmarshal("groups.getTagList", &response, params)
 	return
 }
 
@@ -513,7 +507,7 @@ type GroupsGetTokenPermissionsResponse object.GroupsTokenPermissions
 //
 // https://vk.com/dev/groups.getTokenPermissions
 func (vk *VK) GroupsGetTokenPermissions(params Params) (response GroupsGetTokenPermissionsResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getTokenPermissions", params, &response)
+	err = vk.RequestUnmarshal("groups.getTokenPermissions", &response, params)
 	return
 }
 
@@ -521,7 +515,7 @@ func (vk *VK) GroupsGetTokenPermissions(params Params) (response GroupsGetTokenP
 //
 // https://vk.com/dev/groups.invite
 func (vk *VK) GroupsInvite(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.invite", params, &response)
+	err = vk.RequestUnmarshal("groups.invite", &response, params)
 	return
 }
 
@@ -531,8 +525,7 @@ func (vk *VK) GroupsInvite(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMember(params Params) (response int, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("groups.isMember", params, &response)
+	err = vk.RequestUnmarshal("groups.isMember", &response, params, Params{"extended": false})
 
 	return
 }
@@ -552,8 +545,7 @@ type GroupsIsMemberExtendedResponse struct {
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMemberExtended(params Params) (response GroupsIsMemberExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("groups.isMember", params, &response)
+	err = vk.RequestUnmarshal("groups.isMember", &response, params, Params{"extended": true})
 
 	return
 }
@@ -568,8 +560,7 @@ type GroupsIsMemberUserIDsExtendedResponse []object.GroupsMemberStatusFull
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMemberUserIDsExtended(params Params) (response GroupsIsMemberUserIDsExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("groups.isMember", params, &response)
+	err = vk.RequestUnmarshal("groups.isMember", &response, params, Params{"extended": true})
 
 	return
 }
@@ -584,8 +575,7 @@ type GroupsIsMemberUserIDsResponse []object.GroupsMemberStatus
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMemberUserIDs(params Params) (response GroupsIsMemberUserIDsResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("groups.isMember", params, &response)
+	err = vk.RequestUnmarshal("groups.isMember", &response, params, Params{"extended": false})
 
 	return
 }
@@ -594,7 +584,7 @@ func (vk *VK) GroupsIsMemberUserIDs(params Params) (response GroupsIsMemberUserI
 //
 // https://vk.com/dev/groups.join
 func (vk *VK) GroupsJoin(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.join", params, &response)
+	err = vk.RequestUnmarshal("groups.join", &response, params)
 	return
 }
 
@@ -602,7 +592,7 @@ func (vk *VK) GroupsJoin(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.leave
 func (vk *VK) GroupsLeave(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.leave", params, &response)
+	err = vk.RequestUnmarshal("groups.leave", &response, params)
 	return
 }
 
@@ -610,7 +600,7 @@ func (vk *VK) GroupsLeave(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.removeUser
 func (vk *VK) GroupsRemoveUser(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.removeUser", params, &response)
+	err = vk.RequestUnmarshal("groups.removeUser", &response, params)
 	return
 }
 
@@ -618,7 +608,7 @@ func (vk *VK) GroupsRemoveUser(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.reorderLink
 func (vk *VK) GroupsReorderLink(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.reorderLink", params, &response)
+	err = vk.RequestUnmarshal("groups.reorderLink", &response, params)
 	return
 }
 
@@ -632,7 +622,7 @@ type GroupsSearchResponse struct {
 //
 // https://vk.com/dev/groups.search
 func (vk *VK) GroupsSearch(params Params) (response GroupsSearchResponse, err error) {
-	err = vk.RequestUnmarshal("groups.search", params, &response)
+	err = vk.RequestUnmarshal("groups.search", &response, params)
 	return
 }
 
@@ -640,7 +630,7 @@ func (vk *VK) GroupsSearch(params Params) (response GroupsSearchResponse, err er
 //
 // https://vk.com/dev/groups.setCallbackSettings
 func (vk *VK) GroupsSetCallbackSettings(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.setCallbackSettings", params, &response)
+	err = vk.RequestUnmarshal("groups.setCallbackSettings", &response, params)
 	return
 }
 
@@ -648,7 +638,7 @@ func (vk *VK) GroupsSetCallbackSettings(params Params) (response int, err error)
 //
 // https://vk.com/dev/groups.setLongPollSettings
 func (vk *VK) GroupsSetLongPollSettings(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.setLongPollSettings", params, &response)
+	err = vk.RequestUnmarshal("groups.setLongPollSettings", &response, params)
 	return
 }
 
@@ -656,7 +646,7 @@ func (vk *VK) GroupsSetLongPollSettings(params Params) (response int, err error)
 //
 // https://vk.com/dev/groups.setSettings
 func (vk *VK) GroupsSetSettings(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.setSettings", params, &response)
+	err = vk.RequestUnmarshal("groups.setSettings", &response, params)
 	return
 }
 
@@ -665,7 +655,7 @@ func (vk *VK) GroupsSetSettings(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.setUserNote
 func (vk *VK) GroupsSetUserNote(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.setUserNote", params, &response)
+	err = vk.RequestUnmarshal("groups.setUserNote", &response, params)
 	return
 }
 
@@ -673,7 +663,7 @@ func (vk *VK) GroupsSetUserNote(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.tagAdd
 func (vk *VK) GroupsTagAdd(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.tagAdd", params, &response)
+	err = vk.RequestUnmarshal("groups.tagAdd", &response, params)
 	return
 }
 
@@ -681,7 +671,7 @@ func (vk *VK) GroupsTagAdd(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.tagBind
 func (vk *VK) GroupsTagBind(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.tagBind", params, &response)
+	err = vk.RequestUnmarshal("groups.tagBind", &response, params)
 	return
 }
 
@@ -692,7 +682,7 @@ func (vk *VK) GroupsTagBind(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.tagDelete
 func (vk *VK) GroupsTagDelete(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.tagDelete", params, &response)
+	err = vk.RequestUnmarshal("groups.tagDelete", &response, params)
 	return
 }
 
@@ -700,7 +690,7 @@ func (vk *VK) GroupsTagDelete(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.tagUpdate
 func (vk *VK) GroupsTagUpdate(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.tagUpdate", params, &response)
+	err = vk.RequestUnmarshal("groups.tagUpdate", &response, params)
 	return
 }
 
@@ -708,7 +698,7 @@ func (vk *VK) GroupsTagUpdate(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.toggleMarket
 func (vk *VK) GroupsToggleMarket(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.toggleMarket", params, &response)
+	err = vk.RequestUnmarshal("groups.toggleMarket", &response, params)
 	return
 }
 
@@ -716,6 +706,6 @@ func (vk *VK) GroupsToggleMarket(params Params) (response int, err error) {
 //
 // https://vk.com/dev/groups.unban
 func (vk *VK) GroupsUnban(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("groups.unban", params, &response)
+	err = vk.RequestUnmarshal("groups.unban", &response, params)
 	return
 }

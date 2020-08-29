@@ -12,7 +12,7 @@ func TestVK_AdsGetAccounts(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.AdsGetAccounts(api.Params{})
+	_, err := vkUser.AdsGetAccounts(nil)
 	noError(t, err)
 }
 

@@ -6,7 +6,7 @@ import "github.com/SevereCloud/vksdk/object"
 //
 // https://vk.com/dev/stories.banOwner
 func (vk *VK) StoriesBanOwner(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("stories.banOwner", params, &response)
+	err = vk.RequestUnmarshal("stories.banOwner", &response, params)
 	return
 }
 
@@ -14,7 +14,7 @@ func (vk *VK) StoriesBanOwner(params Params) (response int, err error) {
 //
 // https://vk.com/dev/stories.delete
 func (vk *VK) StoriesDelete(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("stories.delete", params, &response)
+	err = vk.RequestUnmarshal("stories.delete", &response, params)
 	return
 }
 
@@ -32,8 +32,7 @@ type StoriesGetResponse struct {
 //
 // https://vk.com/dev/stories.get
 func (vk *VK) StoriesGet(params Params) (response StoriesGetResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("stories.get", params, &response)
+	err = vk.RequestUnmarshal("stories.get", &response, params, Params{"extended": false})
 
 	return
 }
@@ -53,8 +52,7 @@ type StoriesGetExtendedResponse struct {
 //
 // https://vk.com/dev/stories.get
 func (vk *VK) StoriesGetExtended(params Params) (response StoriesGetExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("stories.get", params, &response)
+	err = vk.RequestUnmarshal("stories.get", &response, params, Params{"extended": true})
 
 	return
 }
@@ -71,8 +69,7 @@ type StoriesGetBannedResponse struct {
 //
 // https://vk.com/dev/stories.getBanned
 func (vk *VK) StoriesGetBanned(params Params) (response StoriesGetBannedResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("stories.getBanned", params, &response)
+	err = vk.RequestUnmarshal("stories.getBanned", &response, params, Params{"extended": false})
 
 	return
 }
@@ -90,8 +87,7 @@ type StoriesGetBannedExtendedResponse struct {
 //
 // https://vk.com/dev/stories.getBanned
 func (vk *VK) StoriesGetBannedExtended(params Params) (response StoriesGetBannedExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("stories.getBanned", params, &response)
+	err = vk.RequestUnmarshal("stories.getBanned", &response, params, Params{"extended": true})
 
 	return
 }
@@ -108,8 +104,7 @@ type StoriesGetByIDResponse struct {
 //
 // https://vk.com/dev/stories.getById
 func (vk *VK) StoriesGetByID(params Params) (response StoriesGetByIDResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("stories.getById", params, &response)
+	err = vk.RequestUnmarshal("stories.getById", &response, params, Params{"extended": false})
 
 	return
 }
@@ -127,8 +122,7 @@ type StoriesGetByIDExtendedResponse struct {
 //
 // https://vk.com/dev/stories.getById
 func (vk *VK) StoriesGetByIDExtended(params Params) (response StoriesGetByIDExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("stories.getById", params, &response)
+	err = vk.RequestUnmarshal("stories.getById", &response, params, Params{"extended": true})
 
 	return
 }
@@ -144,7 +138,7 @@ type StoriesGetPhotoUploadServerResponse struct {
 //
 // https://vk.com/dev/stories.getPhotoUploadServer
 func (vk *VK) StoriesGetPhotoUploadServer(params Params) (response StoriesGetPhotoUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("stories.getPhotoUploadServer", params, &response)
+	err = vk.RequestUnmarshal("stories.getPhotoUploadServer", &response, params)
 	return
 }
 
@@ -160,8 +154,7 @@ type StoriesGetRepliesResponse struct {
 //
 // https://vk.com/dev/stories.getReplies
 func (vk *VK) StoriesGetReplies(params Params) (response StoriesGetRepliesResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("stories.getReplies", params, &response)
+	err = vk.RequestUnmarshal("stories.getReplies", &response, params, Params{"extended": false})
 
 	return
 }
@@ -179,8 +172,7 @@ type StoriesGetRepliesExtendedResponse struct {
 //
 // https://vk.com/dev/stories.getReplies
 func (vk *VK) StoriesGetRepliesExtended(params Params) (response StoriesGetRepliesExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("stories.getReplies", params, &response)
+	err = vk.RequestUnmarshal("stories.getReplies", &response, params, Params{"extended": true})
 
 	return
 }
@@ -192,7 +184,7 @@ type StoriesGetStatsResponse object.StoriesStoryStats
 //
 // https://vk.com/dev/stories.getStats
 func (vk *VK) StoriesGetStats(params Params) (response StoriesGetStatsResponse, err error) {
-	err = vk.RequestUnmarshal("stories.getStats", params, &response)
+	err = vk.RequestUnmarshal("stories.getStats", &response, params)
 	return
 }
 
@@ -207,7 +199,7 @@ type StoriesGetVideoUploadServerResponse struct {
 //
 // https://vk.com/dev/stories.getVideoUploadServer
 func (vk *VK) StoriesGetVideoUploadServer(params Params) (response StoriesGetVideoUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("stories.getVideoUploadServer", params, &response)
+	err = vk.RequestUnmarshal("stories.getVideoUploadServer", &response, params)
 	return
 }
 
@@ -223,7 +215,7 @@ type StoriesGetViewersResponse struct {
 //
 // https://vk.com/dev/stories.getViewers
 func (vk *VK) StoriesGetViewers(params Params) (response StoriesGetViewersResponse, err error) {
-	err = vk.RequestUnmarshal("stories.getViewers", params, &response)
+	err = vk.RequestUnmarshal("stories.getViewers", &response, params)
 
 	return
 }
@@ -232,7 +224,7 @@ func (vk *VK) StoriesGetViewers(params Params) (response StoriesGetViewersRespon
 //
 // https://vk.com/dev/stories.hideAllReplies
 func (vk *VK) StoriesHideAllReplies(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("stories.hideAllReplies", params, &response)
+	err = vk.RequestUnmarshal("stories.hideAllReplies", &response, params)
 	return
 }
 
@@ -240,7 +232,7 @@ func (vk *VK) StoriesHideAllReplies(params Params) (response int, err error) {
 //
 // https://vk.com/dev/stories.hideReply
 func (vk *VK) StoriesHideReply(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("stories.hideReply", params, &response)
+	err = vk.RequestUnmarshal("stories.hideReply", &response, params)
 	return
 }
 
@@ -254,7 +246,7 @@ type StoriesSaveResponse struct {
 //
 // https://vk.com/dev/stories.save
 func (vk *VK) StoriesSave(params Params) (response StoriesSaveResponse, err error) {
-	err = vk.RequestUnmarshal("stories.save", params, &response)
+	err = vk.RequestUnmarshal("stories.save", &response, params)
 	return
 }
 
@@ -270,8 +262,7 @@ type StoriesSearchResponse struct {
 //
 // https://vk.com/dev/stories.search
 func (vk *VK) StoriesSearch(params Params) (response StoriesSearchResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("stories.search", params, &response)
+	err = vk.RequestUnmarshal("stories.search", &response, params, Params{"extended": false})
 
 	return
 }
@@ -289,8 +280,7 @@ type StoriesSearchExtendedResponse struct {
 //
 // https://vk.com/dev/stories.search
 func (vk *VK) StoriesSearchExtended(params Params) (response StoriesSearchExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("stories.search", params, &response)
+	err = vk.RequestUnmarshal("stories.search", &response, params, Params{"extended": true})
 
 	return
 }
@@ -302,7 +292,7 @@ func (vk *VK) StoriesSearchExtended(params Params) (response StoriesSearchExtend
 //
 // https://vk.com/dev/stories.sendInteraction
 func (vk *VK) StoriesSendInteraction(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("stories.sendInteraction", params, &response)
+	err = vk.RequestUnmarshal("stories.sendInteraction", &response, params)
 	return
 }
 
@@ -310,6 +300,6 @@ func (vk *VK) StoriesSendInteraction(params Params) (response int, err error) {
 //
 // https://vk.com/dev/stories.unbanOwner
 func (vk *VK) StoriesUnbanOwner(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("stories.unbanOwner", params, &response)
+	err = vk.RequestUnmarshal("stories.unbanOwner", &response, params)
 	return
 }

@@ -6,7 +6,7 @@ import "github.com/SevereCloud/vksdk/object"
 //
 // https://vk.com/dev/polls.addVote
 func (vk *VK) PollsAddVote(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("polls.addVote", params, &response)
+	err = vk.RequestUnmarshal("polls.addVote", &response, params)
 	return
 }
 
@@ -17,7 +17,7 @@ type PollsCreateResponse object.PollsPoll
 //
 // https://vk.com/dev/polls.create
 func (vk *VK) PollsCreate(params Params) (response PollsCreateResponse, err error) {
-	err = vk.RequestUnmarshal("polls.create", params, &response)
+	err = vk.RequestUnmarshal("polls.create", &response, params)
 	return
 }
 
@@ -25,7 +25,7 @@ func (vk *VK) PollsCreate(params Params) (response PollsCreateResponse, err erro
 //
 // https://vk.com/dev/polls.deleteVote
 func (vk *VK) PollsDeleteVote(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("polls.deleteVote", params, &response)
+	err = vk.RequestUnmarshal("polls.deleteVote", &response, params)
 	return
 }
 
@@ -33,7 +33,7 @@ func (vk *VK) PollsDeleteVote(params Params) (response int, err error) {
 //
 // https://vk.com/dev/polls.edit
 func (vk *VK) PollsEdit(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("polls.edit", params, &response)
+	err = vk.RequestUnmarshal("polls.edit", &response, params)
 	return
 }
 
@@ -44,7 +44,7 @@ type PollsGetBackgroundsResponse []object.PollsBackground
 //
 // https://vk.com/dev/polls.getBackgrounds
 func (vk *VK) PollsGetBackgrounds(params Params) (response PollsGetBackgroundsResponse, err error) {
-	err = vk.RequestUnmarshal("polls.getBackgrounds", params, &response)
+	err = vk.RequestUnmarshal("polls.getBackgrounds", &response, params)
 	return
 }
 
@@ -55,7 +55,7 @@ type PollsGetByIDResponse object.PollsPoll
 //
 // https://vk.com/dev/polls.getById
 func (vk *VK) PollsGetByID(params Params) (response PollsGetByIDResponse, err error) {
-	err = vk.RequestUnmarshal("polls.getById", params, &response)
+	err = vk.RequestUnmarshal("polls.getById", &response, params)
 	return
 }
 
@@ -68,7 +68,7 @@ type PollsGetPhotoUploadServerResponse struct {
 //
 // https://vk.com/dev/polls.getPhotoUploadServer
 func (vk *VK) PollsGetPhotoUploadServer(params Params) (response PollsGetPhotoUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("polls.getPhotoUploadServer", params, &response)
+	err = vk.RequestUnmarshal("polls.getPhotoUploadServer", &response, params)
 	return
 }
 
@@ -79,7 +79,7 @@ type PollsGetVotersResponse []object.PollsVoters
 //
 // https://vk.com/dev/polls.getVoters
 func (vk *VK) PollsGetVoters(params Params) (response PollsGetVotersResponse, err error) {
-	err = vk.RequestUnmarshal("polls.getVoters", params, &response)
+	err = vk.RequestUnmarshal("polls.getVoters", &response, params)
 	return
 }
 
@@ -90,7 +90,7 @@ type PollsGetVotersFieldsResponse []object.PollsVotersFields
 //
 // https://vk.com/dev/polls.getVoters
 func (vk *VK) PollsGetVotersFields(params Params) (response PollsGetVotersFieldsResponse, err error) {
-	err = vk.RequestUnmarshal("polls.getVoters", params, &response)
+	err = vk.RequestUnmarshal("polls.getVoters", &response, params)
 	return
 }
 
@@ -101,6 +101,6 @@ type PollsSavePhotoResponse object.PollsPhoto
 //
 // https://vk.com/dev/polls.savePhoto
 func (vk *VK) PollsSavePhoto(params Params) (response PollsSavePhotoResponse, err error) {
-	err = vk.RequestUnmarshal("polls.savePhoto", params, &response)
+	err = vk.RequestUnmarshal("polls.savePhoto", &response, params)
 	return
 }

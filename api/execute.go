@@ -18,16 +18,13 @@ func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error
 		token = vk.tokenPool.Get()
 	}
 
-	copyParams := make(Params)
-	for key, value := range params {
-		copyParams[key] = FmtValue(value, 0)
+	reqParams := Params{
+		"code":         code,
+		"access_token": token,
+		"v":            vk.Version,
 	}
 
-	copyParams["code"] = code
-	copyParams["access_token"] = token
-	copyParams["v"] = vk.Version
-
-	resp, err := vk.Handler("execute", copyParams)
+	resp, err := vk.Handler("execute", params, reqParams)
 
 	jsonErr := json.Unmarshal(resp.Response, &obj)
 	if jsonErr != nil {
