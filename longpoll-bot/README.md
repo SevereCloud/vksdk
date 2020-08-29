@@ -57,7 +57,7 @@ lp.Client.Transport = httpTransport
 Пример для события `message_new`
 
 ```go
-lp.MessageNew(func(ctx context.Context, obj object.MessageNewObject) {
+lp.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
 	...
 })
 ```
@@ -72,6 +72,17 @@ lp.FullResponse(func(resp object.LongpollBotResponse) {
 ```
 
 Полный список событий Вы найдёте [в документации](https://vk.com/dev/groups_events)
+
+### Контекст
+
+Поля `groupID`, `ts` и `eventID` передаются в `ctx`. Чтобы получить их, можно
+воспользоваться следующими функциями:
+
+```go
+groupID := events.GroupIDFromContext(ctx)
+eventID := events.EventIDFromContext(ctx)
+ts := longpoll.TsFromContext(ctx)
+```
 
 ### Запуск и остановка
 
@@ -101,7 +112,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 
 	longpoll "github.com/SevereCloud/vksdk/longpoll-bot"
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/events"
 )
 
 func main() {
@@ -111,7 +122,7 @@ func main() {
 		panic(err)
 	}
 
-	lp.MessageNew(func(ctx context.Context, obj object.MessageNewObject) {
+	lp.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
 		log.Print(obj.Message.Text)
 	})
 

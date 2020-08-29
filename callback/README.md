@@ -36,12 +36,22 @@
 Пример для события `message_new`
 
 ```go
-cb.MessageNew(func(ctx context.Context, object object.MessageNewObject) {
+cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
 	...
 })
 ```
 
 Полный список событий Вы найдёте [в документации](https://vk.com/dev/groups_events)
+
+### Контекст
+
+Поля `groupID` и `eventID` передаются в `ctx`. Чтобы получить их, можно
+воспользоваться следующими функциями:
+
+```go
+groupID := events.GroupIDFromContext(ctx)
+eventID := events.EventIDFromContext(ctx)
+```
 
 ### Веб-сервер
 
@@ -62,7 +72,7 @@ import (
 	"net/http"
 
 	"github.com/SevereCloud/vksdk/callback"
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/events"
 )
 
 func main() {
@@ -71,7 +81,7 @@ func main() {
 	cb.ConfirmationKey = "693d0ba9"
 	// cb.ConfirmationKeys[170561776] = "693d0ba9"
 
-	cb.MessageNew(func(ctx context.Context, obj object.MessageNewObject) {
+	cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
 		log.Print(obj.Message.Text)
 	})
 
