@@ -15,11 +15,13 @@ func TestLikesAddBuilder(t *testing.T) {
 	b.Type("text")
 	b.OwnerID(1)
 	b.ItemID(1)
+	b.ReactionID(1)
 	b.AccessKey("text")
 
 	assert.Equal(t, b.Params["type"], "text")
 	assert.Equal(t, b.Params["owner_id"], 1)
 	assert.Equal(t, b.Params["item_id"], 1)
+	assert.Equal(t, b.Params["reaction_id"], 1)
 	assert.Equal(t, b.Params["access_key"], "text")
 }
 

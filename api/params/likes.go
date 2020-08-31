@@ -56,6 +56,12 @@ func (b *LikesAddBuilder) ItemID(v int) *LikesAddBuilder {
 	return b
 }
 
+// ReactionID parameter.
+func (b *LikesAddBuilder) ReactionID(v int) *LikesAddBuilder {
+	b.Params["reaction_id"] = v
+	return b
+}
+
 // AccessKey access key required for an object owned by a private entity.
 func (b *LikesAddBuilder) AccessKey(v string) *LikesAddBuilder {
 	b.Params["access_key"] = v
