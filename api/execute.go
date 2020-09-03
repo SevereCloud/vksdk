@@ -13,10 +13,7 @@ import "encoding/json"
 //
 // https://vk.com/dev/execute
 func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error {
-	token := vk.AccessToken
-	if vk.IsPoolClient {
-		token = vk.tokenPool.Get()
-	}
+	token := vk.getToken()
 
 	reqParams := Params{
 		"code":         code,

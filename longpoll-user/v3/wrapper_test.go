@@ -16,7 +16,7 @@ import (
 func needUserToken(t *testing.T) {
 	t.Helper()
 
-	if vkUser.AccessToken == "" {
+	if vkUser == nil {
 		t.Skip("USER_TOKEN empty")
 	}
 }
@@ -47,10 +47,10 @@ var (
 func TestMain(m *testing.M) {
 	time.Sleep(1 * time.Second)
 
-	vkUser = api.NewVK(os.Getenv("USER_TOKEN"))
-	vkUser.Limit = 3
+	if token := os.Getenv("USER_TOKEN"); token != "" {
+		vkUser = api.NewVK(token)
+		vkUser.Limit = 3
 
-	if vkUser.AccessToken != "" {
 		user, err := vkUser.UsersGet(nil)
 		if err != nil {
 			log.Fatalf("USER_TOKEN bad: %v", err)

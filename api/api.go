@@ -14,6 +14,7 @@ import (
 	"net/url"
 	"reflect"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/SevereCloud/vksdk"
@@ -80,19 +81,18 @@ const (
 
 // VK struct.
 type VK struct {
+	accessTokens []string
+	lastToken    uint32
 	MethodURL    string
-	AccessToken  string
 	Version      string
 	Client       *http.Client
-	IsPoolClient bool
 	Limit        int
 	UserAgent    string
 	Handler      func(method string, params ...Params) (Response, error)
 
-	tokenPool internal.TokenPool
-	mux       sync.Mutex
-	lastTime  time.Time
-	rps       int
+	mux      sync.Mutex
+	lastTime time.Time
+	rps      int
 }
 
 // Response struct.
@@ -113,10 +113,11 @@ type Response struct {
 // your application. You can configure the VKSDK to use the custom
 // HTTP Client by setting the VK.Client value.
 //
-// This set limit 20 requests per second.
-func NewVK(token string) *VK {
+// This set limit 20 requests per second for one token.
+func NewVK(tokens ...string) *VK {
 	var vk VK
-	vk.AccessToken = token
+
+	vk.accessTokens = tokens
 	vk.Version = Version
 
 	vk.Handler = vk.defaultHandler
@@ -125,20 +126,14 @@ func NewVK(token string) *VK {
 	vk.Client = http.DefaultClient
 	vk.Limit = LimitGroupToken
 	vk.UserAgent = internal.UserAgent
-	vk.IsPoolClient = false
 
 	return &vk
 }
 
-// NewVKWithPool is similar to NewVK but uses token pool for api calls.
-// Use this if you need to increase RPS limit.
-func NewVKWithPool(tokens ...string) *VK {
-	vk := NewVK("pool")
-	vk.tokenPool = internal.NewTokenPool(tokens...)
-	vk.Limit = LimitGroupToken * len(tokens)
-	vk.IsPoolClient = true
-
-	return vk
+// getToken return next token (simple round-robin).
+func (vk *VK) getToken() string {
+	i := atomic.AddUint32(&vk.lastToken, 1)
+	return vk.accessTokens[(int(i)-1)%len(vk.accessTokens)]
 }
 
 // Params type.
@@ -214,7 +209,7 @@ func (vk *VK) defaultHandler(method string, sliceParams ...Params) (Response, er
 			if sleepTime < 0 {
 				vk.lastTime = time.Now()
 				vk.rps = 0
-			} else if vk.rps == vk.Limit {
+			} else if vk.rps == vk.Limit*len(vk.accessTokens) {
 				time.Sleep(sleepTime)
 				vk.lastTime = time.Now()
 				vk.rps = 0
@@ -270,10 +265,7 @@ func (vk *VK) defaultHandler(method string, sliceParams ...Params) (Response, er
 
 // Request provides access to VK API methods.
 func (vk *VK) Request(method string, sliceParams ...Params) ([]byte, error) {
-	token := vk.AccessToken
-	if vk.IsPoolClient {
-		token = vk.tokenPool.Get()
-	}
+	token := vk.getToken()
 
 	reqParams := Params{
 		"access_token": token,

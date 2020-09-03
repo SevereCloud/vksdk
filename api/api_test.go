@@ -47,7 +47,7 @@ func noError(t *testing.T, err error) bool {
 func needUserToken(t *testing.T) {
 	t.Helper()
 
-	if vkUser.AccessToken == "" {
+	if vkUser == nil {
 		t.Skip("USER_TOKEN empty")
 	}
 }
@@ -55,7 +55,7 @@ func needUserToken(t *testing.T) {
 func needGroupToken(t *testing.T) {
 	t.Helper()
 
-	if vkGroup.AccessToken == "" {
+	if vkGroup == nil {
 		t.Skip("GROUP_TOKEN empty")
 	}
 }
@@ -63,7 +63,7 @@ func needGroupToken(t *testing.T) {
 func needServiceToken(t *testing.T) {
 	t.Helper()
 
-	if vkService.AccessToken == "" {
+	if vkService == nil {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 }
@@ -71,7 +71,7 @@ func needServiceToken(t *testing.T) {
 func needWidgetToken(t *testing.T) {
 	t.Helper()
 
-	if vkWidget.AccessToken == "" {
+	if vkWidget == nil {
 		t.Skip("WIDGET_TOKEN empty")
 	}
 }
@@ -104,8 +104,9 @@ var (
 )
 
 func TestMain(m *testing.M) {
-	vkGroup = api.NewVK(os.Getenv("GROUP_TOKEN"))
-	if vkGroup.AccessToken != "" {
+	if token := os.Getenv("GROUP_TOKEN"); token != "" {
+		vkGroup = api.NewVK(token)
+
 		group, err := vkGroup.GroupsGetByID(nil)
 		if err != nil {
 			log.Fatalf("GROUP_TOKEN bad: %v", err)
@@ -114,13 +115,19 @@ func TestMain(m *testing.M) {
 		vkGroupID = group[0].ID
 	}
 
-	vkWidget = api.NewVK(os.Getenv("WIDGET_TOKEN"))
-	vkService = api.NewVK(os.Getenv("SERVICE_TOKEN"))
-	vkService.Limit = api.LimitUserToken
-	vkUser = api.NewVK(os.Getenv("USER_TOKEN"))
-	vkUser.Limit = api.LimitUserToken
+	if token := os.Getenv("WIDGET_TOKEN"); token != "" {
+		vkWidget = api.NewVK(token)
+	}
 
-	if vkUser.AccessToken != "" {
+	if token := os.Getenv("SERVICE_TOKEN"); token != "" {
+		vkService = api.NewVK(token)
+		vkService.Limit = api.LimitUserToken
+	}
+
+	if token := os.Getenv("USER_TOKEN"); token != "" {
+		vkUser = api.NewVK(token)
+		vkUser.Limit = api.LimitUserToken
+
 		user, err := vkUser.UsersGet(nil)
 		if err != nil {
 			log.Fatalf("USER_TOKEN bad: %v", err)
