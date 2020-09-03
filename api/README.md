@@ -52,33 +52,33 @@ res, err = api.MessageSend(b.Params)
 
 ### Обработка ошибок
 
-[![документация](https://godoc.org/github.com/SevereCloud/vksdk/api/errors?status.svg)](https://pkg.go.dev/github.com/SevereCloud/vksdk/api/errors)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/errors)
 
-Пример обработки ошибки
+Обработка ошибок полностью поддерживает методы
+[go 1.13](https://blog.golang.org/go1.13-errors)
 
 ```go
-// import "github.com/SevereCloud/vksdk/api/errors"
-
-switch errors.GetType(err) {
-case errors.NoType:
-	log.Print("Ошибка не связанная с работой самого API")
-case errors.Captcha:
-	log.Print("Требуется ввод кода с картинки (Captcha)")
-case 1:
-	log.Print("Код ошибки 1")
-default:
-	log.Print("Другая ошибка")
+if errors.Is(err, api.ErrAuth) {
+	log.Println("User authorization failed")
 }
 ```
 
-Получение ошибки, [отправленной ВК](https://pkg.go.dev/github.com/SevereCloud/vksdk/object#Error)
-
 ```go
-// import "github.com/SevereCloud/vksdk/api/errors"
-
-vkErr := errors.GetErrorContext(err)
+var e *api.Error
+if errors.As(err, &e) {
+	switch e.Code {
+	case api.ErrCaptcha:
+		log.Println("Требуется ввод кода с картинки (Captcha)")
+		log.Printf("sid %s img %s", e.CaptchaSID, e.CaptchaImg)
+	case 1:
+		log.Println("Код ошибки 1")
+	default:
+		log.Printf("Ошибка %d %s", e.Code, e.Text)
+	}
+}
 ```
+
+Для Execute существует отдельная ошибка `ExecuteErrors`
 
 ### Запрос любого метода
 
@@ -110,8 +110,6 @@ log.Print(response)
 Универсальный метод, который позволяет запускать последовательность других
 методов, сохраняя и фильтруя промежуточные результаты.
 
-TODO: описать ошибки
-
 ```go
 var response struct {
 	Text string `json:"text"`
@@ -131,7 +129,7 @@ log.Print(response.Text)
 В качестве параметров принимать название метода и параметры.
 
 ```go
-vk.Handler = func(method string, params api.Params) (api.Response, error) {
+vk.Handler = func(method string, params ...api.Params) (api.Response, error) {
 	// ...
 }
 ```
@@ -174,12 +172,18 @@ vk.Handler = func(method string, params api.Params) (api.Response, error) {
 Пример прокси
 
 ```go
+
 dialer, _ := proxy.SOCKS5("tcp", "127.0.0.1:9050", nil, proxy.Direct)
 httpTransport := &http.Transport{
 	Dial:              dialer.Dial,
 }
 httpTransport.Dial = dialer.Dial
-vk.Client.Transport = httpTransport
+
+client := &http.Client{
+	Transport: httpTransport,
+}
+
+vk.Client = client
 ```
 
 ### Ошибка с Captcha

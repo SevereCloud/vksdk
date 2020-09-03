@@ -16,13 +16,14 @@ import (
 	"sync"
 	"time"
 
+	"github.com/SevereCloud/vksdk"
 	"github.com/SevereCloud/vksdk/internal"
 	"github.com/SevereCloud/vksdk/object"
 )
 
 // Api constants.
 const (
-	Version   = "5.122"
+	Version   = vksdk.API
 	MethodURL = "https://api.vk.com/method/"
 )
 
@@ -120,7 +121,6 @@ func NewVK(token string) *VK {
 
 	vk.Handler = vk.defaultHandler
 
-	// TODO: remove in v2
 	vk.MethodURL = MethodURL
 	vk.Client = http.DefaultClient
 	vk.Limit = LimitGroupToken
