@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"sync/atomic"
 
+	"github.com/SevereCloud/vksdk"
 	"github.com/SevereCloud/vksdk/internal"
 
 	"github.com/SevereCloud/vksdk/api"
@@ -142,9 +143,30 @@ func (lp *Longpoll) checkResponse(response Response) (err error) {
 	return
 }
 
+func (lp Longpoll) autoSetting() error {
+	params := api.Params{
+		"group_id":    lp.GroupID,
+		"enabled":     true,
+		"api_version": vksdk.API,
+	}
+	for _, event := range lp.ListEvents() {
+		params[string(event)] = true
+	}
+
+	// Updating LongPoll settings
+	_, err := lp.VK.GroupsSetLongPollSettings(params)
+
+	return err
+}
+
 // Run handler.
 func (lp *Longpoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
+
+	err := lp.autoSetting()
+	if err != nil {
+		return err
+	}
 
 	for atomic.LoadInt32(&lp.inShutdown) == 0 {
 		resp, err := lp.check()
