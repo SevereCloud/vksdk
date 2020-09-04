@@ -84,4 +84,7 @@ git push origin <name_of_your_new_branch>
 ```
 
 Затем откройте [pull request](https://github.com/SevereCloud/vksdk/pulls)
-с `master` веткой
+с веткой:
+
+- `master` если это багфикс
+- `dev` если это новая фича
