@@ -101,7 +101,7 @@ func TestVK_DocsGetTypes(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetTypes(api.Params{})
+	res, err := vkUser.DocsGetTypes(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
@@ -117,7 +117,7 @@ func TestVK_DocsGetUploadServer(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetUploadServer(api.Params{})
+	res, err := vkUser.DocsGetUploadServer(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
@@ -127,7 +127,7 @@ func TestVK_DocsGetMessagesUploadServer(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetMessagesUploadServer(api.Params{})
+	res, err := vkUser.DocsGetMessagesUploadServer(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }
@@ -137,7 +137,7 @@ func TestVK_DocsGetWallUploadServer(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.DocsGetWallUploadServer(api.Params{})
+	res, err := vkUser.DocsGetWallUploadServer(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.UploadURL)
 }

@@ -18,12 +18,12 @@ func TestVK_StoriesBanOwner(t *testing.T) {
 	})
 	noError(t, err)
 
-	banned, err := vkUser.StoriesGetBanned(api.Params{})
+	banned, err := vkUser.StoriesGetBanned(nil)
 	noError(t, err)
 	assert.NotEmpty(t, banned.Count)
 	assert.NotEmpty(t, banned.Items)
 
-	bannedEx, err := vkUser.StoriesGetBannedExtended(api.Params{})
+	bannedEx, err := vkUser.StoriesGetBannedExtended(nil)
 	noError(t, err)
 	assert.NotEmpty(t, bannedEx.Count)
 	assert.NotEmpty(t, bannedEx.Items)
@@ -41,7 +41,7 @@ func TestVK_StoriesGet(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.StoriesGet(api.Params{})
+	_, err := vkUser.StoriesGet(nil)
 	noError(t, err)
 }
 
@@ -50,7 +50,7 @@ func TestVK_StoriesGetExtended(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.StoriesGetExtended(api.Params{})
+	_, err := vkUser.StoriesGetExtended(nil)
 	noError(t, err)
 }
 
@@ -91,12 +91,14 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 		"add_to_news": true,
 	}, response.Body)
 	noError(t, err)
-	assert.NotEmpty(t, res.Stories)
-	// assert.NotEmpty(t, res.Sig)
+
+	if !assert.NotEmpty(t, res.Items) {
+		t.FailNow()
+	}
 
 	params := api.Params{
-		"owner_id": res.Stories.OwnerID,
-		"story_id": res.Stories.ID,
+		"owner_id": res.Items[0].OwnerID,
+		"story_id": res.Items[0].ID,
 	}
 
 	_, err = vkGroup.StoriesGetReplies(params)
@@ -109,9 +111,6 @@ func TestVK_StoriesGetReplies(t *testing.T) {
 	noError(t, err)
 
 	_, err = vkGroup.StoriesGetViewers(params)
-	noError(t, err)
-
-	_, err = vkGroup.StoriesGetViewersExtended(params)
 	noError(t, err)
 
 	_, err = vkGroup.StoriesDelete(params)

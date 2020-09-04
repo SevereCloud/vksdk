@@ -6,7 +6,7 @@
 
 Требования:
 
-- [Go 1.11+](https://golang.org/doc/install)
+- [Go 1.13+](https://golang.org/doc/install)
 - [golangci-lint](https://github.com/golangci/golangci-lint)
 - [global .gitignore](https://help.github.com/en/articles/ignoring-files#create-a-global-gitignore)
 
@@ -84,4 +84,7 @@ git push origin <name_of_your_new_branch>
 ```
 
 Затем откройте [pull request](https://github.com/SevereCloud/vksdk/pulls)
-с `master` веткой
+с веткой:
+
+- `master` если это багфикс
+- `dev` если это новая фича

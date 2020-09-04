@@ -44,7 +44,7 @@ func TestVK_FriendsList(t *testing.T) {
 	noError(t, err)
 	assert.NotEmpty(t, res)
 
-	lists, err := vkUser.FriendsGetLists(api.Params{})
+	lists, err := vkUser.FriendsGetLists(nil)
 	noError(t, err)
 	assert.NotEmpty(t, lists.Count)
 	assert.NotEmpty(t, lists.Items)
@@ -74,7 +74,7 @@ func TestVK_FriendsDeleteAllRequests(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.FriendsDeleteAllRequests(api.Params{})
+	res, err := vkUser.FriendsDeleteAllRequests(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res)
 }
@@ -86,7 +86,7 @@ func TestVK_FriendsEdit(t *testing.T) {
 	// NOTE: https://vk.com/bug191897
 	needUserToken(t)
 
-	_, _ = vkUser.FriendsEdit(api.Params{})
+	_, _ = vkUser.FriendsEdit(nil)
 }
 
 func TestVK_FriendsGet(t *testing.T) {
@@ -115,7 +115,7 @@ func TestVK_FriendsGetAppUsers(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.FriendsGetAppUsers(api.Params{})
+	_, err := vkUser.FriendsGetAppUsers(nil)
 	noError(t, err)
 }
 
@@ -148,10 +148,10 @@ func TestVK_FriendsGetOnline(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.FriendsGetOnline(api.Params{})
+	_, err := vkUser.FriendsGetOnline(nil)
 	noError(t, err)
 
-	_, err = vkUser.FriendsGetOnlineOnlineMobile(api.Params{})
+	_, err = vkUser.FriendsGetOnlineOnlineMobile(nil)
 	noError(t, err)
 }
 
@@ -160,7 +160,7 @@ func TestVK_FriendsGetRecent(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.FriendsGetRecent(api.Params{})
+	_, err := vkUser.FriendsGetRecent(nil)
 	noError(t, err)
 }
 
@@ -196,7 +196,7 @@ func TestVK_FriendsGetSuggestions(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.FriendsGetSuggestions(api.Params{})
+	res, err := vkUser.FriendsGetSuggestions(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)

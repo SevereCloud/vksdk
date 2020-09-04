@@ -1,6 +1,7 @@
 package api_test
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
@@ -306,7 +307,58 @@ func TestVK_GroupsGet(t *testing.T) {
 
 	res, err := vkUser.GroupsGet(api.Params{
 		"user_id": 117253521,
-		"fields":  "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_date,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
+		"fields": []string{
+			"market",
+			"member_status",
+			"is_favorite",
+			"is_subscribed",
+			"city",
+			"country",
+			"verified",
+			"description",
+			"wiki_page",
+			"members_count",
+			"counters",
+			"cover",
+			"can_post",
+			"can_see_all_posts",
+			"activity",
+			"fixed_post",
+			"can_create_topic",
+			"can_upload_video",
+			"has_photo",
+			"status",
+			"main_album_id",
+			"links",
+			"contacts",
+			"site",
+			"main_section",
+			"trending",
+			"can_message",
+			"is_market_cart_enabled",
+			"is_messages_blocked",
+			"can_send_notify",
+			"online_status",
+			"start_date",
+			"finish_date",
+			"age_limits",
+			"ban_info",
+			"action_button",
+			"author_id",
+			"phone",
+			"has_market_app",
+			"addresses",
+			"live_covers",
+			"is_adult",
+			"can_subscribe_posts",
+			"warning_notification",
+			"can_upload_doc",
+			"crop_photo",
+			"is_hidden_from_feed",
+			"place",
+			"public_date_label",
+			"wall",
+		},
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -320,7 +372,58 @@ func TestVK_GroupsGetExtended(t *testing.T) {
 
 	res, err := vkUser.GroupsGetExtended(api.Params{
 		"user_id": 117253521,
-		"fields":  "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_date,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
+		"fields": []string{
+			"market",
+			"member_status",
+			"is_favorite",
+			"is_subscribed",
+			"city",
+			"country",
+			"verified",
+			"description",
+			"wiki_page",
+			"members_count",
+			"counters",
+			"cover",
+			"can_post",
+			"can_see_all_posts",
+			"activity",
+			"fixed_post",
+			"can_create_topic",
+			"can_upload_video",
+			"has_photo",
+			"status",
+			"main_album_id",
+			"links",
+			"contacts",
+			"site",
+			"main_section",
+			"trending",
+			"can_message",
+			"is_market_cart_enabled",
+			"is_messages_blocked",
+			"can_send_notify",
+			"online_status",
+			"start_date",
+			"finish_date",
+			"age_limits",
+			"ban_info",
+			"action_button",
+			"author_id",
+			"phone",
+			"has_market_app",
+			"addresses",
+			"live_covers",
+			"is_adult",
+			"can_subscribe_posts",
+			"warning_notification",
+			"can_upload_doc",
+			"crop_photo",
+			"is_hidden_from_feed",
+			"place",
+			"public_date_label",
+			"wall",
+		},
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
@@ -370,7 +473,58 @@ func TestVK_GroupsGetByID(t *testing.T) {
 
 	res, err := vkGroup.GroupsGetByID(api.Params{
 		"group_ids": "apiclub",
-		"fields":    "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_date,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
+		"fields": []string{
+			"market",
+			"member_status",
+			"is_favorite",
+			"is_subscribed",
+			"city",
+			"country",
+			"verified",
+			"description",
+			"wiki_page",
+			"members_count",
+			"counters",
+			"cover",
+			"can_post",
+			"can_see_all_posts",
+			"activity",
+			"fixed_post",
+			"can_create_topic",
+			"can_upload_video",
+			"has_photo",
+			"status",
+			"main_album_id",
+			"links",
+			"contacts",
+			"site",
+			"main_section",
+			"trending",
+			"can_message",
+			"is_market_cart_enabled",
+			"is_messages_blocked",
+			"can_send_notify",
+			"online_status",
+			"start_date",
+			"finish_date",
+			"age_limits",
+			"ban_info",
+			"action_button",
+			"author_id",
+			"phone",
+			"has_market_app",
+			"addresses",
+			"live_covers",
+			"is_adult",
+			"can_subscribe_posts",
+			"warning_notification",
+			"can_upload_doc",
+			"crop_photo",
+			"is_hidden_from_feed",
+			"place",
+			"public_date_label",
+			"wall",
+		},
 	})
 
 	noError(t, err)
@@ -415,7 +569,7 @@ func TestVK_GroupsGetByID(t *testing.T) {
 		}
 		// assert.NotEmpty(t, group.Contacts)
 		assert.NotEmpty(t, group.Site)
-		assert.NotEmpty(t, group.MainSection)
+		// assert.NotEmpty(t, group.MainSection)
 		// assert.NotEmpty(t, group.Trending)
 		// assert.NotEmpty(t, group.IsMessagesBlocked)
 		assert.NotEmpty(t, group.OnlineStatus)
@@ -453,7 +607,58 @@ func TestVK_GroupsGetByID_private(t *testing.T) {
 
 	res, err := vkGroup.GroupsGetByID(api.Params{
 		"group_ids": "184580855",
-		"fields":    "market,member_status,is_favorite,is_subscribed,city,country,verified,description,wiki_page,members_count,counters,cover,can_post,can_see_all_posts,activity,fixed_post,can_create_topic,can_upload_video,has_photo,status,main_album_id,links,contacts,site,main_section,trending,can_message,is_market_cart_enabled,is_messages_blocked,can_send_notify,online_status,start_date,finish_date,age_limits,ban_info,action_button,author_id,phone,has_market_app,addresses,live_covers,is_adult,can_subscribe_posts,warning_notification,can_upload_doc,crop_photo,is_hidden_from_feed,place,public_date_label,wall",
+		"fields": []string{
+			"market",
+			"member_status",
+			"is_favorite",
+			"is_subscribed",
+			"city",
+			"country",
+			"verified",
+			"description",
+			"wiki_page",
+			"members_count",
+			"counters",
+			"cover",
+			"can_post",
+			"can_see_all_posts",
+			"activity",
+			"fixed_post",
+			"can_create_topic",
+			"can_upload_video",
+			"has_photo",
+			"status",
+			"main_album_id",
+			"links",
+			"contacts",
+			"site",
+			"main_section",
+			"trending",
+			"can_message",
+			"is_market_cart_enabled",
+			"is_messages_blocked",
+			"can_send_notify",
+			"online_status",
+			"start_date",
+			"finish_date",
+			"age_limits",
+			"ban_info",
+			"action_button",
+			"author_id",
+			"phone",
+			"has_market_app",
+			"addresses",
+			"live_covers",
+			"is_adult",
+			"can_subscribe_posts",
+			"warning_notification",
+			"can_upload_doc",
+			"crop_photo",
+			"is_hidden_from_feed",
+			"place",
+			"public_date_label",
+			"wall",
+		},
 	})
 
 	noError(t, err)
@@ -489,7 +694,7 @@ func TestVK_GroupsGetCatalogInfo(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.GroupsGetCatalogInfo(api.Params{})
+	res, err := vkUser.GroupsGetCatalogInfo(nil)
 	noError(t, err)
 	// assert.NotEmpty(t, res.Categories[0].ID)
 	assert.NotEmpty(t, res.Enabled)
@@ -500,7 +705,7 @@ func TestVK_GroupsGetCatalogInfoExtended(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.GroupsGetCatalogInfoExtended(api.Params{})
+	res, err := vkUser.GroupsGetCatalogInfoExtended(nil)
 	noError(t, err)
 	// if assert.NotEmpty(t, res.Categories) {
 	// 	assert.NotEmpty(t, res.Categories[0].Name)
@@ -527,7 +732,7 @@ func TestVK_GroupsGetInvites(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.GroupsGetInvites(api.Params{})
+	_, err := vkUser.GroupsGetInvites(nil)
 	noError(t, err)
 }
 
@@ -536,7 +741,7 @@ func TestVK_GroupsGetInvitesExtended(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.GroupsGetInvitesExtended(api.Params{})
+	_, err := vkUser.GroupsGetInvitesExtended(nil)
 	noError(t, err)
 }
 
@@ -664,7 +869,7 @@ func TestVK_GroupsGetTokenPermissions(t *testing.T) {
 
 	needGroupToken(t)
 
-	res, err := vkGroup.GroupsGetTokenPermissions(api.Params{})
+	res, err := vkGroup.GroupsGetTokenPermissions(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Mask)
 	assert.NotEmpty(t, res.Permissions[0].Name)
@@ -761,6 +966,28 @@ func TestVK_GroupsLeave(t *testing.T) {
 
 func TestVK_GroupsRemoveUser(t *testing.T) {
 	// TODO: Add test cases.
+}
+
+func TestVK_GroupsToggleMarket(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+	needGroupToken(t)
+
+	_, err := vkUser.GroupsToggleMarket(api.Params{
+		"group_id": vkGroupID,
+		"state":    "none",
+	})
+	if err != nil && !errors.Is(err, api.ErrMarketAlreadyDisabled) {
+		noError(t, err)
+		t.FailNow()
+	}
+
+	_, err = vkUser.GroupsToggleMarket(api.Params{
+		"group_id": vkGroupID,
+		"state":    "advanced",
+	})
+	noError(t, err)
 }
 
 func TestVK_GroupsSearch(t *testing.T) {

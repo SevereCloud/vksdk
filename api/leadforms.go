@@ -14,7 +14,7 @@ type LeadFormsCreateResponse struct {
 //
 // https://vk.com/dev/leadForms.create
 func (vk *VK) LeadFormsCreate(params Params) (response LeadFormsCreateResponse, err error) {
-	err = vk.RequestUnmarshal("leadForms.create", params, &response)
+	err = vk.RequestUnmarshal("leadForms.create", &response, params)
 	return
 }
 
@@ -27,7 +27,7 @@ type LeadFormsDeleteResponse struct {
 //
 // https://vk.com/dev/leadForms.delete
 func (vk *VK) LeadFormsDelete(params Params) (response LeadFormsDeleteResponse, err error) {
-	err = vk.RequestUnmarshal("leadForms.delete", params, &response)
+	err = vk.RequestUnmarshal("leadForms.delete", &response, params)
 	return
 }
 
@@ -38,7 +38,7 @@ type LeadFormsGetResponse object.LeadFormsForm
 //
 // https://vk.com/dev/leadForms.get
 func (vk *VK) LeadFormsGet(params Params) (response LeadFormsGetResponse, err error) {
-	err = vk.RequestUnmarshal("leadForms.get", params, &response)
+	err = vk.RequestUnmarshal("leadForms.get", &response, params)
 	return
 }
 
@@ -51,7 +51,7 @@ type LeadFormsGetLeadsResponse struct {
 //
 // https://vk.com/dev/leadForms.getLeads
 func (vk *VK) LeadFormsGetLeads(params Params) (response LeadFormsGetLeadsResponse, err error) {
-	err = vk.RequestUnmarshal("leadForms.getLeads", params, &response)
+	err = vk.RequestUnmarshal("leadForms.getLeads", &response, params)
 	return
 }
 
@@ -59,7 +59,7 @@ func (vk *VK) LeadFormsGetLeads(params Params) (response LeadFormsGetLeadsRespon
 //
 // https://vk.com/dev/leadForms.getUploadURL
 func (vk *VK) LeadFormsGetUploadURL(params Params) (response string, err error) {
-	err = vk.RequestUnmarshal("leadForms.getUploadURL", params, &response)
+	err = vk.RequestUnmarshal("leadForms.getUploadURL", &response, params)
 	return
 }
 
@@ -70,7 +70,7 @@ type LeadFormsListResponse []object.LeadFormsForm
 //
 // https://vk.com/dev/leadForms.list
 func (vk *VK) LeadFormsList(params Params) (response LeadFormsListResponse, err error) {
-	err = vk.RequestUnmarshal("leadForms.list", params, &response)
+	err = vk.RequestUnmarshal("leadForms.list", &response, params)
 	return
 }
 
@@ -84,6 +84,6 @@ type LeadFormsUpdateResponse struct {
 //
 // https://vk.com/dev/leadForms.update
 func (vk *VK) LeadFormsUpdate(params Params) (response LeadFormsUpdateResponse, err error) {
-	err = vk.RequestUnmarshal("leadForms.update", params, &response)
+	err = vk.RequestUnmarshal("leadForms.update", &response, params)
 	return
 }

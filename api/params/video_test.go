@@ -416,7 +416,7 @@ func TestVideoSearchBuilder(t *testing.T) {
 
 	b.Q("text")
 	b.Sort(1)
-	b.Hd(1)
+	b.HD(1)
 	b.Adult(true)
 	b.Filters([]string{"text"})
 	b.SearchOwn(true)
@@ -425,6 +425,8 @@ func TestVideoSearchBuilder(t *testing.T) {
 	b.Shorter(1)
 	b.Count(1)
 	b.Extended(true)
+	b.Legal(true)
+	b.LegalOwner(1)
 
 	assert.Equal(t, b.Params["q"], "text")
 	assert.Equal(t, b.Params["sort"], 1)
@@ -437,4 +439,6 @@ func TestVideoSearchBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["shorter"], 1)
 	assert.Equal(t, b.Params["count"], 1)
 	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, b.Params["legal"], true)
+	assert.Equal(t, b.Params["legal_owner"], 1)
 }

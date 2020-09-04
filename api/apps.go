@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/apps.deleteAppRequests
 func (vk *VK) AppsDeleteAppRequests(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("apps.deleteAppRequests", params, &response)
+	err = vk.RequestUnmarshal("apps.deleteAppRequests", &response, params)
 	return
 }
 
@@ -23,7 +23,7 @@ type AppsGetResponse struct {
 //
 // https://vk.com/dev/apps.get
 func (vk *VK) AppsGet(params Params) (response AppsGetResponse, err error) {
-	err = vk.RequestUnmarshal("apps.get", params, &response)
+	err = vk.RequestUnmarshal("apps.get", &response, params)
 	return
 }
 
@@ -38,7 +38,7 @@ type AppsGetCatalogResponse struct {
 //
 // https://vk.com/dev/apps.getCatalog
 func (vk *VK) AppsGetCatalog(params Params) (response AppsGetCatalogResponse, err error) {
-	err = vk.RequestUnmarshal("apps.getCatalog", params, &response)
+	err = vk.RequestUnmarshal("apps.getCatalog", &response, params)
 	return
 }
 
@@ -54,8 +54,7 @@ type AppsGetFriendsListResponse struct {
 //
 // https://vk.com/dev/apps.getFriendsList
 func (vk *VK) AppsGetFriendsList(params Params) (response AppsGetFriendsListResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("apps.getFriendsList", params, &response)
+	err = vk.RequestUnmarshal("apps.getFriendsList", &response, params, Params{"extended": false})
 
 	return
 }
@@ -72,8 +71,7 @@ type AppsGetFriendsListExtendedResponse struct {
 //
 // https://vk.com/dev/apps.getFriendsList
 func (vk *VK) AppsGetFriendsListExtended(params Params) (response AppsGetFriendsListExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("apps.getFriendsList", params, &response)
+	err = vk.RequestUnmarshal("apps.getFriendsList", &response, params, Params{"extended": true})
 
 	return
 }
@@ -90,8 +88,7 @@ type AppsGetLeaderboardResponse struct {
 //
 // https://vk.com/dev/apps.getLeaderboard
 func (vk *VK) AppsGetLeaderboard(params Params) (response AppsGetLeaderboardResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("apps.getLeaderboard", params, &response)
+	err = vk.RequestUnmarshal("apps.getLeaderboard", &response, params, Params{"extended": false})
 
 	return
 }
@@ -112,8 +109,7 @@ type AppsGetLeaderboardExtendedResponse struct {
 //
 // https://vk.com/dev/apps.getLeaderboard
 func (vk *VK) AppsGetLeaderboardExtended(params Params) (response AppsGetLeaderboardExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("apps.getLeaderboard", params, &response)
+	err = vk.RequestUnmarshal("apps.getLeaderboard", &response, params, Params{"extended": true})
 
 	return
 }
@@ -130,7 +126,7 @@ type AppsGetScopesResponse struct {
 //
 // https://vk.com/dev/apps.getScopes
 func (vk *VK) AppsGetScopes(params Params) (response AppsGetScopesResponse, err error) {
-	err = vk.RequestUnmarshal("apps.getScopes", params, &response)
+	err = vk.RequestUnmarshal("apps.getScopes", &response, params)
 	return
 }
 
@@ -140,7 +136,7 @@ func (vk *VK) AppsGetScopes(params Params) (response AppsGetScopesResponse, err 
 //
 // https://vk.com/dev/apps.getScore
 func (vk *VK) AppsGetScore(params Params) (response string, err error) {
-	err = vk.RequestUnmarshal("apps.getScore", params, &response)
+	err = vk.RequestUnmarshal("apps.getScore", &response, params)
 	return
 }
 
@@ -148,6 +144,6 @@ func (vk *VK) AppsGetScore(params Params) (response string, err error) {
 //
 // https://vk.com/dev/apps.sendRequest
 func (vk *VK) AppsSendRequest(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("apps.sendRequest", params, &response)
+	err = vk.RequestUnmarshal("apps.sendRequest", &response, params)
 	return
 }

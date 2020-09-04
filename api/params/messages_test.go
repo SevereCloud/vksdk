@@ -573,6 +573,22 @@ func TestMessagesSendBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["subscribe_id"], 1)
 }
 
+func TestMessagesSendMessageEventAnswerBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMessagesSendMessageEventAnswerBuilder()
+
+	b.EventID("text")
+	b.UserID(1)
+	b.PeerID(1)
+	b.EventData("text")
+
+	assert.Equal(t, b.Params["event_id"], "text")
+	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, b.Params["peer_id"], 1)
+	assert.Equal(t, b.Params["event_data"], "text")
+}
+
 func TestMessagesSetActivityBuilder(t *testing.T) {
 	t.Parallel()
 

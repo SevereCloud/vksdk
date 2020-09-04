@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/board.addTopic
 func (vk *VK) BoardAddTopic(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.addTopic", params, &response)
+	err = vk.RequestUnmarshal("board.addTopic", &response, params)
 	return
 }
 
@@ -16,7 +16,7 @@ func (vk *VK) BoardAddTopic(params Params) (response int, err error) {
 //
 // https://vk.com/dev/board.closeTopic
 func (vk *VK) BoardCloseTopic(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.closeTopic", params, &response)
+	err = vk.RequestUnmarshal("board.closeTopic", &response, params)
 	return
 }
 
@@ -24,7 +24,7 @@ func (vk *VK) BoardCloseTopic(params Params) (response int, err error) {
 //
 // https://vk.com/dev/board.createComment
 func (vk *VK) BoardCreateComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.createComment", params, &response)
+	err = vk.RequestUnmarshal("board.createComment", &response, params)
 	return
 }
 
@@ -32,7 +32,7 @@ func (vk *VK) BoardCreateComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/board.deleteComment
 func (vk *VK) BoardDeleteComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.deleteComment", params, &response)
+	err = vk.RequestUnmarshal("board.deleteComment", &response, params)
 	return
 }
 
@@ -40,7 +40,7 @@ func (vk *VK) BoardDeleteComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/board.deleteTopic
 func (vk *VK) BoardDeleteTopic(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.deleteTopic", params, &response)
+	err = vk.RequestUnmarshal("board.deleteTopic", &response, params)
 	return
 }
 
@@ -48,7 +48,7 @@ func (vk *VK) BoardDeleteTopic(params Params) (response int, err error) {
 //
 // https://vk.com/dev/board.editComment
 func (vk *VK) BoardEditComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.editComment", params, &response)
+	err = vk.RequestUnmarshal("board.editComment", &response, params)
 	return
 }
 
@@ -56,7 +56,7 @@ func (vk *VK) BoardEditComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/board.editTopic
 func (vk *VK) BoardEditTopic(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.editTopic", params, &response)
+	err = vk.RequestUnmarshal("board.editTopic", &response, params)
 	return
 }
 
@@ -64,7 +64,7 @@ func (vk *VK) BoardEditTopic(params Params) (response int, err error) {
 //
 // https://vk.com/dev/board.fixTopic
 func (vk *VK) BoardFixTopic(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.fixTopic", params, &response)
+	err = vk.RequestUnmarshal("board.fixTopic", &response, params)
 	return
 }
 
@@ -82,8 +82,7 @@ type BoardGetCommentsResponse struct {
 //
 // https://vk.com/dev/board.getComments
 func (vk *VK) BoardGetComments(params Params) (response BoardGetCommentsResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("board.getComments", params, &response)
+	err = vk.RequestUnmarshal("board.getComments", &response, params, Params{"extended": false})
 
 	return
 }
@@ -104,8 +103,7 @@ type BoardGetCommentsExtendedResponse struct {
 //
 // https://vk.com/dev/board.getComments
 func (vk *VK) BoardGetCommentsExtended(params Params) (response BoardGetCommentsExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("board.getComments", params, &response)
+	err = vk.RequestUnmarshal("board.getComments", &response, params, Params{"extended": true})
 
 	return
 }
@@ -124,8 +122,7 @@ type BoardGetTopicsResponse struct {
 //
 // https://vk.com/dev/board.getTopics
 func (vk *VK) BoardGetTopics(params Params) (response BoardGetTopicsResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("board.getTopics", params, &response)
+	err = vk.RequestUnmarshal("board.getTopics", &response, params, Params{"extended": false})
 
 	return
 }
@@ -146,8 +143,7 @@ type BoardGetTopicsExtendedResponse struct {
 //
 // https://vk.com/dev/board.getTopics
 func (vk *VK) BoardGetTopicsExtended(params Params) (response BoardGetTopicsExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("board.getTopics", params, &response)
+	err = vk.RequestUnmarshal("board.getTopics", &response, params, Params{"extended": true})
 
 	return
 }
@@ -156,7 +152,7 @@ func (vk *VK) BoardGetTopicsExtended(params Params) (response BoardGetTopicsExte
 //
 // https://vk.com/dev/board.openTopic
 func (vk *VK) BoardOpenTopic(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.openTopic", params, &response)
+	err = vk.RequestUnmarshal("board.openTopic", &response, params)
 	return
 }
 
@@ -164,7 +160,7 @@ func (vk *VK) BoardOpenTopic(params Params) (response int, err error) {
 //
 // https://vk.com/dev/board.restoreComment
 func (vk *VK) BoardRestoreComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.restoreComment", params, &response)
+	err = vk.RequestUnmarshal("board.restoreComment", &response, params)
 	return
 }
 
@@ -172,6 +168,6 @@ func (vk *VK) BoardRestoreComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/board.unfixTopic
 func (vk *VK) BoardUnfixTopic(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("board.unfixTopic", params, &response)
+	err = vk.RequestUnmarshal("board.unfixTopic", &response, params)
 	return
 }

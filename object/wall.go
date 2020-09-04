@@ -21,7 +21,7 @@ type WallAttachedNote struct {
 
 // WallCommentAttachment struct.
 type WallCommentAttachment struct {
-	Audio             AudioAudioFull    `json:"audio"`
+	Audio             AudioAudio        `json:"audio"`
 	Doc               DocsDoc           `json:"doc"`
 	Link              BaseLink          `json:"link"`
 	Market            MarketMarketItem  `json:"market"`
@@ -152,27 +152,8 @@ type WallWallpost struct {
 	MarkedAsAds  BaseBoolInt              `json:"marked_as_ads"`
 	Edited       int                      `json:"edited"` // Date of editing in Unixtime
 	Copyright    WallPostCopyright        `json:"copyright"`
-}
-
-// WallWallpostAttached struct.
-type WallWallpostAttached struct {
-	Attachments []WallWallpostAttachment `json:"attachments"`
-	CanDelete   BaseBoolInt              `json:"can_delete"`
-	Comments    BaseCommentsInfo         `json:"comments"`
-	CopyOwnerID int                      `json:"copy_owner_id"`
-	CopyPostID  int                      `json:"copy_post_id"`
-	CopyText    string                   `json:"copy_text"`
-	Date        int                      `json:"date"`
-	FromID      int                      `json:"from_id"`
-	Geo         BaseGeo                  `json:"geo"`
-	ID          int                      `json:"id"`
-	Likes       BaseLikesInfo            `json:"likes"`
-	PostSource  WallPostSource           `json:"post_source"`
-	PostType    string                   `json:"post_type"`
-	Reposts     BaseRepostsInfo          `json:"reposts"`
-	SignerID    int                      `json:"signer_id"`
-	Text        string                   `json:"text"`
-	ToID        int                      `json:"to_id"`
+	PostID       int                      `json:"post_id"`
+	ParentsStack []int                    `json:"parents_stack"`
 }
 
 // Attachment type.
@@ -195,6 +176,8 @@ const (
 	AttachmentTypeMarketAlbum = "market_album"
 	AttachmentTypeMarket      = "market"
 	AttachmentTypeEvent       = "event"
+	AttachmentTypeWall        = "wall"
+	AttachmentTypeStory       = "story"
 )
 
 // WallWallpostAttachment struct.
@@ -202,7 +185,7 @@ type WallWallpostAttachment struct {
 	AccessKey         string            `json:"access_key"` // Access key for the audio
 	Album             PhotosPhotoAlbum  `json:"album"`
 	App               WallAppPost       `json:"app"`
-	Audio             AudioAudioFull    `json:"audio"`
+	Audio             AudioAudio        `json:"audio"`
 	Doc               DocsDoc           `json:"doc"`
 	Event             EventsEventAttach `json:"event"`
 	Graffiti          WallGraffiti      `json:"graffiti"`
@@ -221,23 +204,25 @@ type WallWallpostAttachment struct {
 
 // WallWallpostToID struct.
 type WallWallpostToID struct {
-	Attachments []WallWallpostAttachment `json:"attachments"`
-	Comments    BaseCommentsInfo         `json:"comments"`
-	CopyOwnerID int                      `json:"copy_owner_id"` // ID of the source post owner
-	CopyPostID  int                      `json:"copy_post_id"`  // ID of the source post
-	Date        int                      `json:"date"`          // Date of publishing in Unixtime
-	FromID      int                      `json:"from_id"`       // Post author ID
-	Geo         BaseGeo                  `json:"geo"`
-	ID          int                      `json:"id"` // Post ID
-	Likes       BaseLikesInfo            `json:"likes"`
-	PostID      int                      `json:"post_id"` // wall post ID (if comment)
-	PostSource  WallPostSource           `json:"post_source"`
-	PostType    string                   `json:"post_type"`
-	Reposts     BaseRepostsInfo          `json:"reposts"`
-	SignerID    int                      `json:"signer_id"`   // Post signer ID
-	Text        string                   `json:"text"`        // Post text
-	ToID        int                      `json:"to_id"`       // Wall owner's ID
-	IsFavorite  BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
+	Attachments  []WallWallpostAttachment `json:"attachments"`
+	Comments     BaseCommentsInfo         `json:"comments"`
+	CopyOwnerID  int                      `json:"copy_owner_id"` // ID of the source post owner
+	CopyPostID   int                      `json:"copy_post_id"`  // ID of the source post
+	Date         int                      `json:"date"`          // Date of publishing in Unixtime
+	FromID       int                      `json:"from_id"`       // Post author ID
+	Geo          BaseGeo                  `json:"geo"`
+	ID           int                      `json:"id"` // Post ID
+	Likes        BaseLikesInfo            `json:"likes"`
+	PostID       int                      `json:"post_id"` // wall post ID (if comment)
+	PostSource   WallPostSource           `json:"post_source"`
+	PostType     string                   `json:"post_type"`
+	Reposts      BaseRepostsInfo          `json:"reposts"`
+	SignerID     int                      `json:"signer_id"`   // Post signer ID
+	Text         string                   `json:"text"`        // Post text
+	ToID         int                      `json:"to_id"`       // Wall owner's ID
+	IsFavorite   BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
+	MarkedAsAds  BaseBoolInt              `json:"marked_as_ads"`
+	ParentsStack []int                    `json:"parents_stack"`
 }
 
 // WallPostCopyright information about the source of the post.

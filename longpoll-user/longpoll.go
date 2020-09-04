@@ -23,7 +23,7 @@ the community access key(access rights required: messages).
 And then longpoll
 
 	mode := longpoll.ReceiveAttachments + longpoll.ExtendedEvents
-	lp, err := longpoll.NewLongpoll(vk, mode)
+	lp, err := longpoll.NewLongPoll(vk, mode)
 
 Setting
 
@@ -69,20 +69,20 @@ type Mode = int
 
 // A list of necessary option codes.
 const (
-	// receive attachments
+	// receive attachments.
 	ReceiveAttachments Mode = 1 << 1
-	// receive more events
+	// receive more events.
 	ExtendedEvents Mode = 1 << 3
-	// receive pts (used in messages.getLongPollHistory)
+	// receive pts (used in messages.getLongPollHistory).
 	ReturnPts Mode = 1 << 5
-	// extra fields in event type 8(friend become online)
+	// extra fields in event type 8(friend become online).
 	Code8ExtraFields Mode = 1 << 6
-	// return random_id field
+	// return random_id field.
 	ReturnRandomID Mode = 1 << 7
 )
 
-// Longpoll struct.
-type Longpoll struct {
+// LongPoll struct.
+type LongPoll struct {
 	Key     string
 	Server  string
 	Ts      int
@@ -93,17 +93,17 @@ type Longpoll struct {
 	Client  *http.Client
 
 	funcList             FuncList
-	funcFullResponseList []func(object.LongpollResponse)
+	funcFullResponseList []func(object.LongPollResponse)
 	inShutdown           int32
 }
 
-// NewLongpoll returns a new Longpoll.
+// NewLongPoll returns a new LongPoll.
 //
-// The Longpoll will use the http.DefaultClient.
+// The LongPoll will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
 // of your application the modifications will be picked up by the SDK as well.
-func NewLongpoll(vk *api.VK, mode Mode) (*Longpoll, error) {
-	lp := &Longpoll{
+func NewLongPoll(vk *api.VK, mode Mode) (*LongPoll, error) {
+	lp := &LongPoll{
 		VK:       vk,
 		Mode:     mode,
 		Version:  3,
@@ -117,28 +117,12 @@ func NewLongpoll(vk *api.VK, mode Mode) (*Longpoll, error) {
 	return lp, err
 }
 
-// Init Longpoll.
-//
-// Deprecated: use NewLongpoll.
-func Init(vk *api.VK, mode Mode) (lp Longpoll, err error) {
-	// NOTE: what about group_id?
-	lp.VK = vk
-	lp.Mode = mode
-	lp.Version = 3
-	lp.Wait = 25
-	lp.funcList = make(FuncList)
-	lp.Client = &http.Client{}
-	err = lp.updateServer(true)
-
-	return
-}
-
-func (lp *Longpoll) updateServer(updateTs bool) error {
+func (lp *LongPoll) updateServer(updateTs bool) error {
 	params := api.Params{
 		"lp_version": lp.Version,
 	}
-	serverSetting, err := lp.VK.MessagesGetLongPollServer(params)
 
+	serverSetting, err := lp.VK.MessagesGetLongPollServer(params)
 	if err != nil {
 		return err
 	}
@@ -153,7 +137,7 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	return nil
 }
 
-func (lp *Longpoll) check() (response object.LongpollResponse, err error) {
+func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 	u := fmt.Sprintf(
 		"https://%s?act=a_check&key=%s&ts=%d&wait=%d&mode=%d&version=%d",
 		lp.Server,
@@ -180,7 +164,7 @@ func (lp *Longpoll) check() (response object.LongpollResponse, err error) {
 	return
 }
 
-func (lp *Longpoll) checkResponse(response object.LongpollResponse) (err error) {
+func (lp *LongPoll) checkResponse(response object.LongPollResponse) (err error) {
 	switch response.Failed {
 	case 0:
 		lp.Ts = response.Ts
@@ -191,16 +175,16 @@ func (lp *Longpoll) checkResponse(response object.LongpollResponse) (err error) 
 	case 3:
 		err = lp.updateServer(true)
 	case 4:
-		err = fmt.Errorf("not valid version")
+		err = ErrNotValidVersion
 	default:
-		err = fmt.Errorf(`"failed":%d`, response.Failed)
+		err = &Failed{response.Failed}
 	}
 
 	return
 }
 
 // Run handler.
-func (lp *Longpoll) Run() error {
+func (lp *LongPoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
 
 	for atomic.LoadInt32(&lp.inShutdown) == 0 {
@@ -224,16 +208,16 @@ func (lp *Longpoll) Run() error {
 }
 
 // Shutdown gracefully shuts down the longpoll without interrupting any active connections.
-func (lp *Longpoll) Shutdown() {
+func (lp *LongPoll) Shutdown() {
 	atomic.StoreInt32(&lp.inShutdown, 1)
 }
 
 // EventNew handler.
-func (lp *Longpoll) EventNew(key int, f EventNewFunc) {
+func (lp *LongPoll) EventNew(key int, f EventNewFunc) {
 	lp.funcList[key] = append(lp.funcList[key], f)
 }
 
 // FullResponse handler.
-func (lp *Longpoll) FullResponse(f func(object.LongpollResponse)) {
+func (lp *LongPoll) FullResponse(f func(object.LongPollResponse)) {
 	lp.funcFullResponseList = append(lp.funcFullResponseList, f)
 }

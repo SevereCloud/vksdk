@@ -8,57 +8,57 @@
 [![release](https://img.shields.io/github/v/tag/SevereCloud/vksdk?label=release)](https://github.com/SevereCloud/vksdk/releases)
 [![license](https://img.shields.io/github/license/SevereCloud/vksdk.svg?maxAge=2592000)](https://github.com/SevereCloud/vksdk/blob/master/LICENSE)
 
-**VK SDK for Golang** готовая реализация основных функций VK API для языка Go.
+**VK SDK for Golang** ready implementation of the main VK API functions for Go.
 
-[English documentation](https://pkg.go.dev/github.com/SevereCloud/vksdk)
+[Russian documentation](https://github.com/SevereCloud/vksdk/wiki)
 
-## Возможности
+## Features
 
-- [API](https://github.com/SevereCloud/vksdk/tree/master/api#api)
-  - Возвращает готовые структуры
-  - Реализовано 400+ методов
-  - Возможность изменять обработчик запросов
-  - Возможность изменять HTTP клиент
-  - Ограничитель запросов
-  - Загрузка файлов
-- [Callback API](https://github.com/SevereCloud/vksdk/tree/master/callback#callback-api)
-  - Поддерживает все события
-  - Возвращает готовые структуры
-- [Bots Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/longpoll-bot#bots-long-poll-api)
-  - Поддерживает все события
-  - Возвращает готовые структуры
-  - Возможность изменять HTTP клиент
-- [User Long Poll API](https://github.com/SevereCloud/vksdk/tree/master/longpoll-user#user-long-poll-api)
-  - Возвращает готовые структуры
-  - Возможность изменять HTTP клиент
+- [API](https://pkg.go.dev/github.com/SevereCloud/vksdk/api)
+  - 400+ methods
+  - Ability to change the request handler
+  - Ability to modify HTTP client
+  - Request Limiter
+  - Token pool
+- [Callback API](https://pkg.go.dev/github.com/SevereCloud/vksdk/callback)
+  - Tracking tool for users activity in your VK communities
+  - Supports all events
+  - Auto setting callback
+- [Bots Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-bot)
+  - Allows you to work with community events in real time
+  - Supports all events
+  - Ability to modify HTTP client
+- [User Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-user)
+  - Allows you to work with user events in real time
+  - Ability to modify HTTP client
 - [Streaming API](https://pkg.go.dev/github.com/SevereCloud/vksdk/streaming)
-  - Возвращает готовые структуры
-  - Возможность изменять HTTP клиент
-- [FOAF](https://github.com/SevereCloud/vksdk/tree/master/foaf#foaf)
-  - Работает с пользователями и группами
-  - Возвращает готовые структуры
-- [VK Mini Apps](https://github.com/SevereCloud/vksdk/tree/master/vkapps#vk-mini-apps)
-  - Проверка параметров запуска
-  - Промежуточный http обработчик
+  - Receiving public data from VK by specified keywords
+  - Ability to modify HTTP client
+- [FOAF](https://pkg.go.dev/github.com/SevereCloud/vksdk/foaf)
+  - Machine-readable ontology describing persons
+  - Works with users and groups
+  - The only place to get page creation date
+- [VK Mini Apps](https://pkg.go.dev/github.com/SevereCloud/vksdk/vkapps)
+  - Checking launch parameters
+  - Intermediate http handler
 - [Payments API](https://pkg.go.dev/github.com/SevereCloud/vksdk/payments)
-  - Обрабатывает уведомления о платежах
-- [Скиллы Маруси](https://pkg.go.dev/github.com/SevereCloud/vksdk/marusia)
-  - Готовые структуры и методы
-  - Обработка запросов от Маруси
+  - Processes payment notifications
+- [Marusia Skills](https://pkg.go.dev/github.com/SevereCloud/vksdk/marusia)
+  - For creating Marusia Skills
 
-## Установка
+## Install
 
-```shell
+```bash
 # go mod init mymodulename
 go get github.com/SevereCloud/vksdk@latest
 ```
 
-## Примеры использования
+## Use by
 
-- [Joe](https://github.com/go-joe/joe) адаптер: <https://github.com/tdakkota/joe-vk-adapter>
+- [Joe](https://github.com/go-joe/joe) adapter: <https://github.com/tdakkota/joe-vk-adapter>
 - [Logrus](https://github.com/sirupsen/logrus) hook: <https://github.com/SevereCloud/vkrus>
 
-### Пример
+### Example
 
 ```go
 package main
@@ -73,22 +73,22 @@ import (
 )
 
 func main() {
-	token := "<TOKEN>" // рекомендуется использовать os.Getenv("TOKEN")
+	token := "<TOKEN>" // use os.Getenv("TOKEN")
 	vk := api.NewVK(token)
 
-	// Получаем информацию о группе
-	group, err := vk.GroupsGetByID(api.Params{})
+	// get information about the group
+	group, err := vk.GroupsGetByID(nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Инициализируем longpoll
-	lp, err := longpoll.NewLongpoll(vk, group[0].ID)
+	// Initializing Long Poll
+	lp, err := longpoll.NewLongPoll(vk, group[0].ID)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Событие нового сообщения
+	// New message event
 	lp.MessageNew(func(obj object.MessageNewObject, groupID int) {
 		log.Printf("%d: %s", obj.Message.PeerID, obj.Message.Text)
 
@@ -105,14 +105,14 @@ func main() {
 		}
 	})
 
-	// Запускаем Bots Longpoll
-	log.Println("Start longpoll")
+	// Run Bots Long Poll
+	log.Println("Start Long Poll")
 	if err := lp.Run(); err != nil {
 		log.Fatal(err)
 	}
 }
 ```
 
-## Лицензия
+## LICENSE
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSevereCloud%2Fvksdk?ref=badge_large)

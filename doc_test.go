@@ -1,7 +1,6 @@
 package vksdk_test
 
 import (
-	"errors"
 	"os/exec"
 	"regexp"
 	"strconv"
@@ -15,7 +14,7 @@ type version struct {
 	major, minor, patch int
 }
 
-func newVersion(name string) (*version, error) {
+func newVersion(name string) *version {
 	re := regexp.MustCompile(`(?m)(\d+)\.(\d+)\.(\d+)`)
 
 	v := &version{}
@@ -26,10 +25,10 @@ func newVersion(name string) (*version, error) {
 		v.minor, _ = strconv.Atoi(s[2])
 		v.patch, _ = strconv.Atoi(s[3])
 	} else {
-		return nil, errors.New("not found version")
+		return nil
 	}
 
-	return v, nil
+	return v
 }
 
 func TestVersion(t *testing.T) {
@@ -47,14 +46,14 @@ func TestVersion(t *testing.T) {
 		t.Fatal("git describe: ", err)
 	}
 
-	tag, err := newVersion(string(out))
-	if err != nil {
-		t.Fatal(err)
+	tag := newVersion(string(out))
+	if tag == nil {
+		t.Fatal("not found version")
 	}
 
-	code, err := newVersion(vksdk.Version)
-	if err != nil {
-		t.Fatal(err)
+	code := newVersion(vksdk.Version)
+	if code == nil {
+		t.Fatal("not found version")
 	}
 
 	switch {

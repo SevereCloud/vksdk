@@ -47,7 +47,7 @@ func TestVK_PollsGetBackgrounds(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.PollsGetBackgrounds(api.Params{})
+	res, err := vkUser.PollsGetBackgrounds(nil)
 	noError(t, err)
 
 	if assert.NotEmpty(t, res) {
@@ -92,7 +92,7 @@ func TestVK_PollsGetPhotoUploadServer(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.PollsGetPhotoUploadServer(api.Params{})
+	_, err := vkUser.PollsGetPhotoUploadServer(nil)
 	noError(t, err)
 }
 

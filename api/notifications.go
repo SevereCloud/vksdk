@@ -22,7 +22,7 @@ type NotificationsGetResponse struct {
 //
 // https://vk.com/dev/notifications.get
 func (vk *VK) NotificationsGet(params Params) (response NotificationsGetResponse, err error) {
-	err = vk.RequestUnmarshal("notifications.get", params, &response)
+	err = vk.RequestUnmarshal("notifications.get", &response, params)
 	return
 }
 
@@ -31,7 +31,7 @@ func (vk *VK) NotificationsGet(params Params) (response NotificationsGetResponse
 //
 // https://vk.com/dev/notifications.markAsViewed
 func (vk *VK) NotificationsMarkAsViewed(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("notifications.markAsViewed", params, &response)
+	err = vk.RequestUnmarshal("notifications.markAsViewed", &response, params)
 	return
 }
 
@@ -49,6 +49,6 @@ type NotificationsSendMessageResponse []struct {
 //
 // https://vk.com/dev/notifications.sendMessage
 func (vk *VK) NotificationsSendMessage(params Params) (response NotificationsSendMessageResponse, err error) {
-	err = vk.RequestUnmarshal("notifications.sendMessage", params, &response)
+	err = vk.RequestUnmarshal("notifications.sendMessage", &response, params)
 	return
 }

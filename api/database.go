@@ -14,7 +14,7 @@ type DatabaseGetChairsResponse struct {
 //
 // https://vk.com/dev/database.getChairs
 func (vk *VK) DatabaseGetChairs(params Params) (response DatabaseGetChairsResponse, err error) {
-	err = vk.RequestUnmarshal("database.getChairs", params, &response)
+	err = vk.RequestUnmarshal("database.getChairs", &response, params)
 	return
 }
 
@@ -28,7 +28,7 @@ type DatabaseGetCitiesResponse struct {
 //
 // https://vk.com/dev/database.getCities
 func (vk *VK) DatabaseGetCities(params Params) (response DatabaseGetCitiesResponse, err error) {
-	err = vk.RequestUnmarshal("database.getCities", params, &response)
+	err = vk.RequestUnmarshal("database.getCities", &response, params)
 	return
 }
 
@@ -39,7 +39,7 @@ type DatabaseGetCitiesByIDResponse []object.DatabaseCity
 //
 // https://vk.com/dev/database.getCitiesByID
 func (vk *VK) DatabaseGetCitiesByID(params Params) (response DatabaseGetCitiesByIDResponse, err error) {
-	err = vk.RequestUnmarshal("database.getCitiesById", params, &response)
+	err = vk.RequestUnmarshal("database.getCitiesById", &response, params)
 	return
 }
 
@@ -53,7 +53,7 @@ type DatabaseGetCountriesResponse struct {
 //
 // https://vk.com/dev/database.getCountries
 func (vk *VK) DatabaseGetCountries(params Params) (response DatabaseGetCountriesResponse, err error) {
-	err = vk.RequestUnmarshal("database.getCountries", params, &response)
+	err = vk.RequestUnmarshal("database.getCountries", &response, params)
 	return
 }
 
@@ -64,7 +64,7 @@ type DatabaseGetCountriesByIDResponse []object.BaseObject
 //
 // https://vk.com/dev/database.getCountriesByID
 func (vk *VK) DatabaseGetCountriesByID(params Params) (response DatabaseGetCountriesByIDResponse, err error) {
-	err = vk.RequestUnmarshal("database.getCountriesById", params, &response)
+	err = vk.RequestUnmarshal("database.getCountriesById", &response, params)
 	return
 }
 
@@ -78,7 +78,7 @@ type DatabaseGetFacultiesResponse struct {
 //
 // https://vk.com/dev/database.getFaculties
 func (vk *VK) DatabaseGetFaculties(params Params) (response DatabaseGetFacultiesResponse, err error) {
-	err = vk.RequestUnmarshal("database.getFaculties", params, &response)
+	err = vk.RequestUnmarshal("database.getFaculties", &response, params)
 	return
 }
 
@@ -92,7 +92,7 @@ type DatabaseGetMetroStationsResponse struct {
 //
 // https://vk.com/dev/database.getMetroStations
 func (vk *VK) DatabaseGetMetroStations(params Params) (response DatabaseGetMetroStationsResponse, err error) {
-	err = vk.RequestUnmarshal("database.getMetroStations", params, &response)
+	err = vk.RequestUnmarshal("database.getMetroStations", &response, params)
 	return
 }
 
@@ -103,7 +103,7 @@ type DatabaseGetMetroStationsByIDResponse []object.DatabaseMetroStation
 //
 // https://vk.com/dev/database.getMetroStationsById
 func (vk *VK) DatabaseGetMetroStationsByID(params Params) (response DatabaseGetMetroStationsByIDResponse, err error) {
-	err = vk.RequestUnmarshal("database.getMetroStationsById", params, &response)
+	err = vk.RequestUnmarshal("database.getMetroStationsById", &response, params)
 	return
 }
 
@@ -117,7 +117,7 @@ type DatabaseGetRegionsResponse struct {
 //
 // https://vk.com/dev/database.getRegions
 func (vk *VK) DatabaseGetRegions(params Params) (response DatabaseGetRegionsResponse, err error) {
-	err = vk.RequestUnmarshal("database.getRegions", params, &response)
+	err = vk.RequestUnmarshal("database.getRegions", &response, params)
 	return
 }
 
@@ -130,7 +130,7 @@ type DatabaseGetSchoolClassesResponse [][]interface{}
 //
 // https://vk.com/dev/database.getSchoolClasses
 func (vk *VK) DatabaseGetSchoolClasses(params Params) (response DatabaseGetSchoolClassesResponse, err error) {
-	err = vk.RequestUnmarshal("database.getSchoolClasses", params, &response)
+	err = vk.RequestUnmarshal("database.getSchoolClasses", &response, params)
 	return
 }
 
@@ -144,7 +144,7 @@ type DatabaseGetSchoolsResponse struct {
 //
 // https://vk.com/dev/database.getSchools
 func (vk *VK) DatabaseGetSchools(params Params) (response DatabaseGetSchoolsResponse, err error) {
-	err = vk.RequestUnmarshal("database.getSchools", params, &response)
+	err = vk.RequestUnmarshal("database.getSchools", &response, params)
 	return
 }
 
@@ -158,6 +158,6 @@ type DatabaseGetUniversitiesResponse struct {
 //
 // https://vk.com/dev/database.getUniversities
 func (vk *VK) DatabaseGetUniversities(params Params) (response DatabaseGetUniversitiesResponse, err error) {
-	err = vk.RequestUnmarshal("database.getUniversities", params, &response)
+	err = vk.RequestUnmarshal("database.getUniversities", &response, params)
 	return
 }

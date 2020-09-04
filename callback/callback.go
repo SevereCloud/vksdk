@@ -6,13 +6,13 @@ See more https://vk.com/dev/callback_api
 package callback // import "github.com/SevereCloud/vksdk/callback"
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/SevereCloud/vksdk/events"
-	"github.com/SevereCloud/vksdk/object"
 )
 
 // Callback struct SecretKeys [GroupID]SecretKey.
@@ -21,6 +21,7 @@ type Callback struct {
 	ConfirmationKey  string
 	SecretKeys       map[int]string
 	SecretKey        string
+	Title            string
 
 	events.FuncList
 }
@@ -28,6 +29,7 @@ type Callback struct {
 // NewCallback return *Callback.
 func NewCallback() *Callback {
 	cb := &Callback{
+		Title:            "vksdk",
 		ConfirmationKeys: make(map[int]string),
 		SecretKeys:       make(map[int]string),
 		FuncList:         *events.NewFuncList(),
@@ -40,7 +42,7 @@ func NewCallback() *Callback {
 func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 
-	var e object.GroupEvent
+	var e events.GroupEvent
 	if err := decoder.Decode(&e); err != nil {
 		log.Printf("Callback.HandleFunc: %v", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
@@ -55,7 +57,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	if e.Type == object.EventConfirmation {
+	if e.Type == events.EventConfirmation {
 		if cb.ConfirmationKeys[e.GroupID] != "" {
 			fmt.Fprintf(w, cb.ConfirmationKeys[e.GroupID])
 		} else {
@@ -65,7 +67,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := cb.Handler(e); err != nil {
+	if err := cb.Handler(context.TODO(), e); err != nil {
 		log.Printf("Callback.HandleFunc: %v", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 

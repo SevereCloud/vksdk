@@ -16,7 +16,7 @@ import (
 func needUserToken(t *testing.T) {
 	t.Helper()
 
-	if vkUser.AccessToken == "" {
+	if vkUser == nil {
 		t.Skip("USER_TOKEN empty")
 	}
 }
@@ -39,17 +39,19 @@ func needChatID(t *testing.T) int {
 	return vkChatID
 }
 
-var vkUser *api.VK         // nolint:gochecknoglobals
-var vkUserID, vkChatID int // nolint:gochecknoglobals
+var (
+	vkUser             *api.VK // nolint:gochecknoglobals
+	vkUserID, vkChatID int     // nolint:gochecknoglobals
+)
 
 func TestMain(m *testing.M) {
 	time.Sleep(1 * time.Second)
 
-	vkUser = api.NewVK(os.Getenv("USER_TOKEN"))
-	vkUser.Limit = 3
+	if token := os.Getenv("USER_TOKEN"); token != "" {
+		vkUser = api.NewVK(token)
+		vkUser.Limit = 3
 
-	if vkUser.AccessToken != "" {
-		user, err := vkUser.UsersGet(api.Params{})
+		user, err := vkUser.UsersGet(nil)
 		if err != nil {
 			log.Fatalf("USER_TOKEN bad: %v", err)
 		}
@@ -67,7 +69,7 @@ func TestWrapper(t *testing.T) {
 
 	exit := make(chan bool, 1)
 
-	lp, err := longpoll.NewLongpoll(vkUser, 2)
+	lp, err := longpoll.NewLongPoll(vkUser, 2)
 	if err != nil {
 		t.Fatalf("lp.Init err: %v", err)
 	}

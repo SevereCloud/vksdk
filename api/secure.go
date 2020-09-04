@@ -11,7 +11,7 @@ type SecureAddAppEventResponse int // FIXME: not found documentation. https://gi
 //
 // https://vk.com/dev/secure.addAppEvent
 func (vk *VK) SecureAddAppEvent(params Params) (response SecureAddAppEventResponse, err error) {
-	err = vk.RequestUnmarshal("secure.addAppEvent", params, &response)
+	err = vk.RequestUnmarshal("secure.addAppEvent", &response, params)
 	return
 }
 
@@ -22,7 +22,7 @@ type SecureCheckTokenResponse object.SecureTokenChecked
 //
 // https://vk.com/dev/secure.checkToken
 func (vk *VK) SecureCheckToken(params Params) (response SecureCheckTokenResponse, err error) {
-	err = vk.RequestUnmarshal("secure.checkToken", params, &response)
+	err = vk.RequestUnmarshal("secure.checkToken", &response, params)
 	return
 }
 
@@ -30,18 +30,19 @@ func (vk *VK) SecureCheckToken(params Params) (response SecureCheckTokenResponse
 //
 // https://vk.com/dev/secure.getAppBalance
 func (vk *VK) SecureGetAppBalance(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("secure.getAppBalance", params, &response)
+	err = vk.RequestUnmarshal("secure.getAppBalance", &response, params)
 	return
 }
 
 // SecureGetSMSHistoryResponse struct.
 type SecureGetSMSHistoryResponse []object.SecureSmsNotification
 
-// SecureGetSMSHistory shows a list of SMS notifications sent by the application using secure.sendSMSNotification method.
+// SecureGetSMSHistory shows a list of SMS notifications sent by the
+// application using secure.sendSMSNotification method.
 //
 // https://vk.com/dev/secure.getSMSHistory
 func (vk *VK) SecureGetSMSHistory(params Params) (response SecureGetSMSHistoryResponse, err error) {
-	err = vk.RequestUnmarshal("secure.getSMSHistory", params, &response)
+	err = vk.RequestUnmarshal("secure.getSMSHistory", &response, params)
 	return
 }
 
@@ -52,7 +53,7 @@ type SecureGetTransactionsHistoryResponse []object.SecureTransaction
 //
 // https://vk.com/dev/secure.getTransactionsHistory
 func (vk *VK) SecureGetTransactionsHistory(params Params) (response SecureGetTransactionsHistoryResponse, err error) {
-	err = vk.RequestUnmarshal("secure.getTransactionsHistory", params, &response)
+	err = vk.RequestUnmarshal("secure.getTransactionsHistory", &response, params)
 	return
 }
 
@@ -63,7 +64,7 @@ type SecureGetUserLevelResponse []object.SecureLevel
 //
 // https://vk.com/dev/secure.getUserLevel
 func (vk *VK) SecureGetUserLevel(params Params) (response SecureGetUserLevelResponse, err error) {
-	err = vk.RequestUnmarshal("secure.getUserLevel", params, &response)
+	err = vk.RequestUnmarshal("secure.getUserLevel", &response, params)
 	return
 }
 
@@ -77,18 +78,18 @@ type SecureGiveEventStickerResponse []struct {
 //
 // https://vk.com/dev/secure.giveEventSticker
 func (vk *VK) SecureGiveEventSticker(params Params) (response SecureGiveEventStickerResponse, err error) {
-	err = vk.RequestUnmarshal("secure.giveEventSticker", params, &response)
+	err = vk.RequestUnmarshal("secure.giveEventSticker", &response, params)
 	return
 }
 
 // SecureSendNotificationResponse struct.
-type SecureSendNotificationResponse []int //User ID
+type SecureSendNotificationResponse []int // User ID
 
 // SecureSendNotification sends notification to the user.
 //
 // https://vk.com/dev/secure.sendNotification
 func (vk *VK) SecureSendNotification(params Params) (response SecureSendNotificationResponse, err error) {
-	err = vk.RequestUnmarshal("secure.sendNotification", params, &response)
+	err = vk.RequestUnmarshal("secure.sendNotification", &response, params)
 	return
 }
 
@@ -96,7 +97,7 @@ func (vk *VK) SecureSendNotification(params Params) (response SecureSendNotifica
 //
 // https://vk.com/dev/secure.sendSMSNotification
 func (vk *VK) SecureSendSMSNotification(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("secure.sendSMSNotification", params, &response)
+	err = vk.RequestUnmarshal("secure.sendSMSNotification", &response, params)
 	return
 }
 
@@ -104,6 +105,6 @@ func (vk *VK) SecureSendSMSNotification(params Params) (response int, err error)
 //
 // https://vk.com/dev/secure.setCounter
 func (vk *VK) SecureSetCounter(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("secure.setCounter", params, &response)
+	err = vk.RequestUnmarshal("secure.setCounter", &response, params)
 	return
 }

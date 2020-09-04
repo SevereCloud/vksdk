@@ -1415,6 +1415,30 @@ func (b *MessagesSendBuilder) DisableMentions(v bool) *MessagesSendBuilder {
 	return b
 }
 
+// An intent is a label that specifies the approximate content of the message
+// sent by the community. It is sent in the optional intent parameter of the
+// messages.send method.
+const (
+	// Used for ad newsletter messages.
+	PromoNewsletter = "promo_newsletter"
+
+	// Used for messages that request permission from the user to send them an
+	// advertising message.
+	BotAdInvite = "bot_ad_invite"
+
+	// Used for the bots advertising message.
+	BotAdPromo = "bot_ad_promo"
+
+	AccountUpdate         = "account_update"
+	ConfirmedNotification = "confirmed_notification"
+	CustomerSupport       = "customer_support"
+	Default               = "default"
+	GameNotification      = "game_notification"
+	ModeratedNewsletter   = "moderated_newsletter"
+	NonPromoNewsletter    = "non_promo_newsletter"
+	PurchaseUpdate        = "purchase_update"
+)
+
 // Intent parameter.
 //
 // https://vk.com/dev/bots_docs_4
@@ -1428,6 +1452,44 @@ func (b *MessagesSendBuilder) Intent(v string) *MessagesSendBuilder {
 // TODO: write subscribe_id documentation.
 func (b *MessagesSendBuilder) SubscribeID(v int) *MessagesSendBuilder {
 	b.Params["subscribe_id"] = v
+	return b
+}
+
+// MessagesSendMessageEventAnswerBuilder builder.
+//
+// Changes the status of a user as typing in a conversation.
+//
+// https://vk.com/dev/messages.sendMessageEventAnswer
+type MessagesSendMessageEventAnswerBuilder struct {
+	api.Params
+}
+
+// NewMessagesSendMessageEventAnswerBuilder func.
+func NewMessagesSendMessageEventAnswerBuilder() *MessagesSendMessageEventAnswerBuilder {
+	return &MessagesSendMessageEventAnswerBuilder{api.Params{}}
+}
+
+// EventID parameter.
+func (b *MessagesSendMessageEventAnswerBuilder) EventID(v string) *MessagesSendMessageEventAnswerBuilder {
+	b.Params["event_id"] = v
+	return b
+}
+
+// UserID parameter.
+func (b *MessagesSendMessageEventAnswerBuilder) UserID(v int) *MessagesSendMessageEventAnswerBuilder {
+	b.Params["user_id"] = v
+	return b
+}
+
+// PeerID parameter.
+func (b *MessagesSendMessageEventAnswerBuilder) PeerID(v int) *MessagesSendMessageEventAnswerBuilder {
+	b.Params["peer_id"] = v
+	return b
+}
+
+// EventData parameter.
+func (b *MessagesSendMessageEventAnswerBuilder) EventData(v string) *MessagesSendMessageEventAnswerBuilder {
+	b.Params["event_data"] = v
 	return b
 }
 

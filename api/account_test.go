@@ -27,7 +27,7 @@ func TestVK_AccountBan(t *testing.T) {
 
 	time.Sleep(3 * time.Second)
 
-	res, err := vkUser.AccountGetBanned(api.Params{})
+	res, err := vkUser.AccountGetBanned(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
@@ -56,7 +56,7 @@ func TestVK_AccountGetActiveOffers(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.AccountGetActiveOffers(api.Params{})
+	_, err := vkUser.AccountGetActiveOffers(nil)
 	noError(t, err)
 }
 
@@ -88,7 +88,7 @@ func TestVK_AccountGetInfo(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.AccountGetInfo(api.Params{})
+	_, err := vkUser.AccountGetInfo(nil)
 	noError(t, err)
 }
 
@@ -97,19 +97,19 @@ func TestVK_AccountGetProfileInfo(t *testing.T) {
 
 	needUserToken(t)
 
-	info, err := vkUser.AccountGetProfileInfo(api.Params{})
+	info, err := vkUser.AccountGetProfileInfo(nil)
 	noError(t, err)
 	assert.NotEmpty(t, info.FirstName)
 	assert.NotEmpty(t, info.LastName)
 	// assert.NotEmpty(t, info.Bdate)
-	//assert.NotEmpty(t, info.BdateVisibility)
-	//assert.NotEmpty(t, info.City)
-	//assert.NotEmpty(t, info.Country)
-	//assert.NotEmpty(t, info.HomeTown)
-	//assert.NotEmpty(t, info.Relation)
-	//assert.NotEmpty(t, info.Sex)
-	//assert.NotEmpty(t, info.Status)
-	//assert.NotEmpty(t, info.ScreenName)
+	// assert.NotEmpty(t, info.BdateVisibility)
+	// assert.NotEmpty(t, info.City)
+	// assert.NotEmpty(t, info.Country)
+	// assert.NotEmpty(t, info.HomeTown)
+	// assert.NotEmpty(t, info.Relation)
+	// assert.NotEmpty(t, info.Sex)
+	// assert.NotEmpty(t, info.Status)
+	// assert.NotEmpty(t, info.ScreenName)
 	assert.NotEmpty(t, info.Phone)
 }
 
@@ -133,7 +133,7 @@ func TestVK_AccountSaveProfileInfo(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.AccountSaveProfileInfo(api.Params{})
+	_, err := vkUser.AccountSaveProfileInfo(nil)
 	noError(t, err)
 }
 
@@ -150,7 +150,7 @@ func TestVK_AccountSetOffline(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.AccountSetOffline(api.Params{})
+	_, err := vkUser.AccountSetOffline(nil)
 	noError(t, err)
 }
 
@@ -159,7 +159,7 @@ func TestVK_AccountSetOnline(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.AccountSetOnline(api.Params{})
+	_, err := vkUser.AccountSetOnline(nil)
 	noError(t, err)
 }
 

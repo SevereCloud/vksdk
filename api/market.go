@@ -13,7 +13,7 @@ type MarketAddResponse struct {
 //
 // https://vk.com/dev/market.add
 func (vk *VK) MarketAdd(params Params) (response MarketAddResponse, err error) {
-	err = vk.RequestUnmarshal("market.add", params, &response)
+	err = vk.RequestUnmarshal("market.add", &response, params)
 	return
 }
 
@@ -26,7 +26,7 @@ type MarketAddAlbumResponse struct {
 //
 // https://vk.com/dev/market.addAlbum
 func (vk *VK) MarketAddAlbum(params Params) (response MarketAddAlbumResponse, err error) {
-	err = vk.RequestUnmarshal("market.addAlbum", params, &response)
+	err = vk.RequestUnmarshal("market.addAlbum", &response, params)
 	return
 }
 
@@ -34,7 +34,7 @@ func (vk *VK) MarketAddAlbum(params Params) (response MarketAddAlbumResponse, er
 //
 // https://vk.com/dev/market.addToAlbum
 func (vk *VK) MarketAddToAlbum(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.addToAlbum", params, &response)
+	err = vk.RequestUnmarshal("market.addToAlbum", &response, params)
 	return
 }
 
@@ -42,7 +42,7 @@ func (vk *VK) MarketAddToAlbum(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.createComment
 func (vk *VK) MarketCreateComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.createComment", params, &response)
+	err = vk.RequestUnmarshal("market.createComment", &response, params)
 	return
 }
 
@@ -50,7 +50,7 @@ func (vk *VK) MarketCreateComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.delete
 func (vk *VK) MarketDelete(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.delete", params, &response)
+	err = vk.RequestUnmarshal("market.delete", &response, params)
 	return
 }
 
@@ -58,7 +58,7 @@ func (vk *VK) MarketDelete(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.deleteAlbum
 func (vk *VK) MarketDeleteAlbum(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.deleteAlbum", params, &response)
+	err = vk.RequestUnmarshal("market.deleteAlbum", &response, params)
 	return
 }
 
@@ -66,7 +66,7 @@ func (vk *VK) MarketDeleteAlbum(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.deleteComment
 func (vk *VK) MarketDeleteComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.deleteComment", params, &response)
+	err = vk.RequestUnmarshal("market.deleteComment", &response, params)
 	return
 }
 
@@ -74,7 +74,7 @@ func (vk *VK) MarketDeleteComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.edit
 func (vk *VK) MarketEdit(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.edit", params, &response)
+	err = vk.RequestUnmarshal("market.edit", &response, params)
 	return
 }
 
@@ -82,7 +82,7 @@ func (vk *VK) MarketEdit(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.editAlbum
 func (vk *VK) MarketEditAlbum(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.editAlbum", params, &response)
+	err = vk.RequestUnmarshal("market.editAlbum", &response, params)
 	return
 }
 
@@ -90,7 +90,7 @@ func (vk *VK) MarketEditAlbum(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.editComment
 func (vk *VK) MarketEditComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.editComment", params, &response)
+	err = vk.RequestUnmarshal("market.editComment", &response, params)
 	return
 }
 
@@ -98,7 +98,7 @@ func (vk *VK) MarketEditComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.editOrder
 func (vk *VK) MarketEditOrder(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.editOrder", params, &response)
+	err = vk.RequestUnmarshal("market.editOrder", &response, params)
 	return
 }
 
@@ -112,7 +112,7 @@ type MarketGetResponse struct {
 //
 // https://vk.com/dev/market.get
 func (vk *VK) MarketGet(params Params) (response MarketGetResponse, err error) {
-	err = vk.RequestUnmarshal("market.get", params, &response)
+	err = vk.RequestUnmarshal("market.get", &response, params)
 	return
 }
 
@@ -126,7 +126,7 @@ type MarketGetAlbumByIDResponse struct {
 //
 // https://vk.com/dev/market.getAlbumById
 func (vk *VK) MarketGetAlbumByID(params Params) (response MarketGetAlbumByIDResponse, err error) {
-	err = vk.RequestUnmarshal("market.getAlbumById", params, &response)
+	err = vk.RequestUnmarshal("market.getAlbumById", &response, params)
 	return
 }
 
@@ -140,7 +140,7 @@ type MarketGetAlbumsResponse struct {
 //
 // https://vk.com/dev/market.getAlbums
 func (vk *VK) MarketGetAlbums(params Params) (response MarketGetAlbumsResponse, err error) {
-	err = vk.RequestUnmarshal("market.getAlbums", params, &response)
+	err = vk.RequestUnmarshal("market.getAlbums", &response, params)
 	return
 }
 
@@ -154,7 +154,7 @@ type MarketGetByIDResponse struct {
 //
 // https://vk.com/dev/market.getById
 func (vk *VK) MarketGetByID(params Params) (response MarketGetByIDResponse, err error) {
-	err = vk.RequestUnmarshal("market.getById", params, &response)
+	err = vk.RequestUnmarshal("market.getById", &response, params)
 	return
 }
 
@@ -168,7 +168,7 @@ type MarketGetCategoriesResponse struct {
 //
 // https://vk.com/dev/market.getCategories
 func (vk *VK) MarketGetCategories(params Params) (response MarketGetCategoriesResponse, err error) {
-	err = vk.RequestUnmarshal("market.getCategories", params, &response)
+	err = vk.RequestUnmarshal("market.getCategories", &response, params)
 	return
 }
 
@@ -184,8 +184,7 @@ type MarketGetCommentsResponse struct {
 //
 // https://vk.com/dev/market.getComments
 func (vk *VK) MarketGetComments(params Params) (response MarketGetCommentsResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("market.getComments", params, &response)
+	err = vk.RequestUnmarshal("market.getComments", &response, params, Params{"extended": false})
 
 	return
 }
@@ -203,8 +202,7 @@ type MarketGetCommentsExtendedResponse struct {
 //
 // https://vk.com/dev/market.getComments
 func (vk *VK) MarketGetCommentsExtended(params Params) (response MarketGetCommentsExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("market.getComments", params, &response)
+	err = vk.RequestUnmarshal("market.getComments", &response, params, Params{"extended": true})
 
 	return
 }
@@ -219,7 +217,7 @@ type MarketGetGroupOrdersResponse struct {
 //
 // https://vk.com/dev/market.getGroupOrders
 func (vk *VK) MarketGetGroupOrders(params Params) (response MarketGetGroupOrdersResponse, err error) {
-	err = vk.RequestUnmarshal("market.getGroupOrders", params, &response)
+	err = vk.RequestUnmarshal("market.getGroupOrders", &response, params)
 	return
 }
 
@@ -232,7 +230,7 @@ type MarketGetOrderByIDResponse struct {
 //
 // https://vk.com/dev/market.getOrderById
 func (vk *VK) MarketGetOrderByID(params Params) (response MarketGetOrderByIDResponse, err error) {
-	err = vk.RequestUnmarshal("market.getOrderById", params, &response)
+	err = vk.RequestUnmarshal("market.getOrderById", &response, params)
 	return
 }
 
@@ -246,7 +244,7 @@ type MarketGetOrderItemsResponse struct {
 //
 // https://vk.com/dev/market.getOrderItems
 func (vk *VK) MarketGetOrderItems(params Params) (response MarketGetOrderItemsResponse, err error) {
-	err = vk.RequestUnmarshal("market.getOrderItems", params, &response)
+	err = vk.RequestUnmarshal("market.getOrderItems", &response, params)
 	return
 }
 
@@ -254,7 +252,7 @@ func (vk *VK) MarketGetOrderItems(params Params) (response MarketGetOrderItemsRe
 //
 // https://vk.com/dev/market.removeFromAlbum
 func (vk *VK) MarketRemoveFromAlbum(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.removeFromAlbum", params, &response)
+	err = vk.RequestUnmarshal("market.removeFromAlbum", &response, params)
 	return
 }
 
@@ -262,7 +260,7 @@ func (vk *VK) MarketRemoveFromAlbum(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.reorderAlbums
 func (vk *VK) MarketReorderAlbums(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.reorderAlbums", params, &response)
+	err = vk.RequestUnmarshal("market.reorderAlbums", &response, params)
 	return
 }
 
@@ -270,7 +268,7 @@ func (vk *VK) MarketReorderAlbums(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.reorderItems
 func (vk *VK) MarketReorderItems(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.reorderItems", params, &response)
+	err = vk.RequestUnmarshal("market.reorderItems", &response, params)
 	return
 }
 
@@ -278,7 +276,7 @@ func (vk *VK) MarketReorderItems(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.report
 func (vk *VK) MarketReport(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.report", params, &response)
+	err = vk.RequestUnmarshal("market.report", &response, params)
 	return
 }
 
@@ -286,7 +284,7 @@ func (vk *VK) MarketReport(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.reportComment
 func (vk *VK) MarketReportComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.reportComment", params, &response)
+	err = vk.RequestUnmarshal("market.reportComment", &response, params)
 	return
 }
 
@@ -294,7 +292,7 @@ func (vk *VK) MarketReportComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.restore
 func (vk *VK) MarketRestore(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.restore", params, &response)
+	err = vk.RequestUnmarshal("market.restore", &response, params)
 	return
 }
 
@@ -302,7 +300,7 @@ func (vk *VK) MarketRestore(params Params) (response int, err error) {
 //
 // https://vk.com/dev/market.restoreComment
 func (vk *VK) MarketRestoreComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("market.restoreComment", params, &response)
+	err = vk.RequestUnmarshal("market.restoreComment", &response, params)
 	return
 }
 
@@ -316,6 +314,6 @@ type MarketSearchResponse struct {
 //
 // https://vk.com/dev/market.search
 func (vk *VK) MarketSearch(params Params) (response MarketSearchResponse, err error) {
-	err = vk.RequestUnmarshal("market.search", params, &response)
+	err = vk.RequestUnmarshal("market.search", &response, params)
 	return
 }

@@ -135,7 +135,7 @@ type Location struct {
 
 // GetPerson return Person.
 func GetPerson(ctx context.Context, userID int) (Person, error) {
-	req, _ := http.NewRequest("GET", FOAFURL, nil)
+	req, _ := http.NewRequest("GET", BaseURL, nil)
 	q := req.URL.Query()
 	q.Add("id", strconv.Itoa(userID))
 	req.URL.RawQuery = q.Encode()

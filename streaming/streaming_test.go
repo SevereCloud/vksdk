@@ -199,11 +199,3 @@ func TestNewStreaming(t *testing.T) {
 	_, err := streaming.NewStreaming(api.NewVK(""))
 	assert.Error(t, err)
 }
-
-// FIXME: v2 remove.
-func TestInit(t *testing.T) {
-	t.Parallel()
-
-	_, err := streaming.Init(api.NewVK(""))
-	assert.Error(t, err)
-}

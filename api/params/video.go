@@ -1063,10 +1063,8 @@ func (b *VideoSearchBuilder) Sort(v int) *VideoSearchBuilder {
 	return b
 }
 
-// Hd if not null, only searches for high-definition videos.
-//
-// TODO: v2 rename HD.
-func (b *VideoSearchBuilder) Hd(v int) *VideoSearchBuilder {
+// HD if not null, only searches for high-definition videos.
+func (b *VideoSearchBuilder) HD(v int) *VideoSearchBuilder {
 	b.Params["hd"] = v
 	return b
 }
@@ -1124,5 +1122,17 @@ func (b *VideoSearchBuilder) Count(v int) *VideoSearchBuilder {
 // Extended parameter.
 func (b *VideoSearchBuilder) Extended(v bool) *VideoSearchBuilder {
 	b.Params["extended"] = v
+	return b
+}
+
+// Legal parameter.
+func (b *VideoSearchBuilder) Legal(v bool) *VideoSearchBuilder {
+	b.Params["legal"] = v
+	return b
+}
+
+// LegalOwner parameter.
+func (b *VideoSearchBuilder) LegalOwner(v int) *VideoSearchBuilder {
+	b.Params["legal_owner"] = v
 	return b
 }

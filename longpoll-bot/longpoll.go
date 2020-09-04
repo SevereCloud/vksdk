@@ -6,19 +6,28 @@ See more https://vk.com/dev/bots_longpoll
 package longpoll // import "github.com/SevereCloud/vksdk/longpoll-bot"
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"sync/atomic"
 
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk"
+	"github.com/SevereCloud/vksdk/internal"
 
 	"github.com/SevereCloud/vksdk/api"
 	"github.com/SevereCloud/vksdk/events"
 )
 
-// Longpoll struct.
-type Longpoll struct {
+// Response struct.
+type Response struct {
+	Ts      string              `json:"ts"`
+	Updates []events.GroupEvent `json:"updates"`
+	Failed  int                 `json:"failed"`
+}
+
+// LongPoll struct.
+type LongPoll struct {
 	GroupID int
 	Server  string
 	Key     string
@@ -27,19 +36,19 @@ type Longpoll struct {
 	VK      *api.VK
 	Client  *http.Client
 
-	funcFullResponseList []func(object.LongpollBotResponse)
+	funcFullResponseList []func(Response)
 	inShutdown           int32
 
 	events.FuncList
 }
 
-// NewLongpoll returns a new Longpoll.
+// NewLongPoll returns a new LongPoll.
 //
-// The Longpoll will use the http.DefaultClient.
+// The LongPoll will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
 // of your application the modifications will be picked up by the SDK as well.
-func NewLongpoll(vk *api.VK, groupID int) (*Longpoll, error) {
-	lp := &Longpoll{
+func NewLongPoll(vk *api.VK, groupID int) (*LongPoll, error) {
+	lp := &LongPoll{
 		VK:      vk,
 		GroupID: groupID,
 		Wait:    25,
@@ -52,18 +61,18 @@ func NewLongpoll(vk *api.VK, groupID int) (*Longpoll, error) {
 	return lp, err
 }
 
-// NewLongpollCommunity returns a new Longpoll for community token.
+// NewLongPollCommunity returns a new LongPoll for community token.
 //
-// The Longpoll will use the http.DefaultClient.
+// The LongPoll will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
 // of your application the modifications will be picked up by the SDK as well.
-func NewLongpollCommunity(vk *api.VK) (*Longpoll, error) {
-	resp, err := vk.GroupsGetByID(api.Params{})
+func NewLongPollCommunity(vk *api.VK) (*LongPoll, error) {
+	resp, err := vk.GroupsGetByID(nil)
 	if err != nil {
 		return nil, err
 	}
 
-	lp := &Longpoll{
+	lp := &LongPoll{
 		VK:      vk,
 		GroupID: resp[0].ID,
 		Wait:    25,
@@ -76,21 +85,7 @@ func NewLongpollCommunity(vk *api.VK) (*Longpoll, error) {
 	return lp, err
 }
 
-// Init Longpoll.
-//
-// Deprecated: use NewLongpoll.
-func Init(vk *api.VK, groupID int) (lp Longpoll, err error) {
-	lp.VK = vk
-	lp.GroupID = groupID
-	lp.Wait = 25
-	lp.Client = &http.Client{}
-	lp.FuncList = *events.NewFuncList()
-	err = lp.updateServer(true)
-
-	return
-}
-
-func (lp *Longpoll) updateServer(updateTs bool) error {
+func (lp *LongPoll) updateServer(updateTs bool) error {
 	params := api.Params{
 		"group_id": lp.GroupID,
 	}
@@ -110,8 +105,8 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	return nil
 }
 
-func (lp *Longpoll) check() (object.LongpollBotResponse, error) {
-	var response object.LongpollBotResponse
+func (lp *LongPoll) check() (Response, error) {
+	var response Response
 
 	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, lp.Wait)
 
@@ -131,7 +126,7 @@ func (lp *Longpoll) check() (object.LongpollBotResponse, error) {
 	return response, err
 }
 
-func (lp *Longpoll) checkResponse(response object.LongpollBotResponse) (err error) {
+func (lp *LongPoll) checkResponse(response Response) (err error) {
 	switch response.Failed {
 	case 0:
 		lp.Ts = response.Ts
@@ -142,15 +137,36 @@ func (lp *Longpoll) checkResponse(response object.LongpollBotResponse) (err erro
 	case 3:
 		err = lp.updateServer(true)
 	default:
-		err = fmt.Errorf(`"failed":%d`, response.Failed)
+		err = &Failed{response.Failed}
 	}
 
 	return
 }
 
+func (lp LongPoll) autoSetting() error {
+	params := api.Params{
+		"group_id":    lp.GroupID,
+		"enabled":     true,
+		"api_version": vksdk.API,
+	}
+	for _, event := range lp.ListEvents() {
+		params[string(event)] = true
+	}
+
+	// Updating LongPoll settings
+	_, err := lp.VK.GroupsSetLongPollSettings(params)
+
+	return err
+}
+
 // Run handler.
-func (lp *Longpoll) Run() error {
+func (lp *LongPoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
+
+	err := lp.autoSetting()
+	if err != nil {
+		return err
+	}
 
 	for atomic.LoadInt32(&lp.inShutdown) == 0 {
 		resp, err := lp.check()
@@ -158,8 +174,10 @@ func (lp *Longpoll) Run() error {
 			return err
 		}
 
+		ctx := context.WithValue(context.Background(), internal.LongPollTsKey, resp.Ts)
+
 		for _, event := range resp.Updates {
-			err = lp.Handler(event)
+			err = lp.Handler(ctx, event)
 			if err != nil {
 				return err
 			}
@@ -174,11 +192,11 @@ func (lp *Longpoll) Run() error {
 }
 
 // Shutdown gracefully shuts down the longpoll without interrupting any active connections.
-func (lp *Longpoll) Shutdown() {
+func (lp *LongPoll) Shutdown() {
 	atomic.StoreInt32(&lp.inShutdown, 1)
 }
 
 // FullResponse handler.
-func (lp *Longpoll) FullResponse(f func(object.LongpollBotResponse)) {
+func (lp *LongPoll) FullResponse(f func(Response)) {
 	lp.funcFullResponseList = append(lp.funcFullResponseList, f)
 }

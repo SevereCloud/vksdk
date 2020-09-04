@@ -33,7 +33,7 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 	noError(t, err)
 	assert.NotEmpty(t, shortLink)
 
-	res, err := vkUser.UtilsGetLastShortenedLinks(api.Params{})
+	res, err := vkUser.UtilsGetLastShortenedLinks(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
@@ -73,7 +73,7 @@ func TestVK_UtilsGetServerTime(t *testing.T) {
 
 	needGroupToken(t)
 
-	res, err := vkGroup.UtilsGetServerTime(api.Params{})
+	res, err := vkGroup.UtilsGetServerTime(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res)
 }

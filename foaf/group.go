@@ -32,7 +32,7 @@ type Group struct {
 
 // GetGroup return Group.
 func GetGroup(ctx context.Context, groupID int) (Group, error) {
-	req, _ := http.NewRequest("GET", FOAFURL, nil)
+	req, _ := http.NewRequest("GET", BaseURL, nil)
 	q := req.URL.Query()
 	q.Add("id", strconv.Itoa(-groupID))
 	req.URL.RawQuery = q.Encode()

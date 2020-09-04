@@ -11,7 +11,7 @@ func TestVK_StatusGet(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.StatusGet(api.Params{})
+	_, err := vkUser.StatusGet(nil)
 	noError(t, err)
 }
 

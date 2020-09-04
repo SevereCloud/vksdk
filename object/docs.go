@@ -71,7 +71,8 @@ func (photo DocsDocPreviewPhoto) MinSize() (minPhotoSize DocsDocPreviewPhotoSize
 
 // DocsDocPreviewPhotoSizes struct.
 type DocsDocPreviewPhotoSizes struct {
-	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field DocsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type Int
+	// BUG(VK): json: cannot unmarshal number 162.000000 into Go struct field
+	// DocsDocPreviewPhotoSizes.doc.preview.photo.sizes.height of type Int
 	Height float64 `json:"height"` // Height in px
 	Src    string  `json:"src"`    // URL of the image
 	Type   string  `json:"type"`
@@ -95,10 +96,12 @@ type DocsDocPreviewVideo struct {
 
 // DocsDocPreviewAudioMessage struct.
 type DocsDocPreviewAudioMessage struct {
-	Duration int    `json:"duration"`
-	Waveform []int  `json:"waveform"`
-	LinkOgg  string `json:"link_ogg"`
-	LinkMp3  string `json:"link_mp3"`
+	Duration        int    `json:"duration"`
+	Waveform        []int  `json:"waveform"`
+	LinkOgg         string `json:"link_ogg"`
+	LinkMp3         string `json:"link_mp3"`
+	Transcript      string `json:"transcript"`
+	TranscriptState string `json:"transcript_state"`
 }
 
 // DocsDocTypes struct.

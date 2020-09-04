@@ -14,7 +14,7 @@
 
 ### Версия API
 
-Данная библиотека поддерживает версию API **5.103**.
+Данная библиотека поддерживает версию API **5.122**.
 
 ### Подтверждение сервера
 
@@ -31,17 +31,27 @@
 ### Обработчик событий
 
 Для каждого события существует отдельный обработчик, который передает функции
-`object` и `groupID`.
+`ctx` и `object`.
 
 Пример для события `message_new`
 
 ```go
-cb.MessageNew(func(object object.MessageNewObject, groupID int) {
+cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
 	...
 })
 ```
 
 Полный список событий Вы найдёте [в документации](https://vk.com/dev/groups_events)
+
+### Контекст
+
+Поля `groupID` и `eventID` передаются в `ctx`. Чтобы получить их, можно
+воспользоваться следующими функциями:
+
+```go
+groupID := events.GroupIDFromContext(ctx)
+eventID := events.EventIDFromContext(ctx)
+```
 
 ### Веб-сервер
 
@@ -58,11 +68,12 @@ http.ListenAndServe(":8080", nil)
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
 
 	"github.com/SevereCloud/vksdk/callback"
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/events"
 )
 
 func main() {
@@ -71,11 +82,63 @@ func main() {
 	cb.ConfirmationKey = "693d0ba9"
 	// cb.ConfirmationKeys[170561776] = "693d0ba9"
 
-	cb.MessageNew(func(obj object.MessageNewObject, groupID int) {
+	cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
 		log.Print(obj.Message.Text)
 	})
 
 	http.HandleFunc("/callback", cb.HandleFunc)
+
+	http.ListenAndServe(":8080", nil)
+}
+```
+
+## Автоматическая настройка
+
+Для автоматической настройки callback сервера, существует метод `AutoSetting`.
+Данный метод:
+
+- проверяет существующие настройки callback
+- удаляет сервер, если он сломан
+- создает новый callback, если его нет
+- генерирует секрет
+- настраивает callback сервер с событиями, которые были прописаны в коде
+
+`AutoSetting` требуется запускать вместе с веб-сервером.
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+	"net/http"
+	"os"
+
+	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/callback"
+	"github.com/SevereCloud/vksdk/events"
+)
+
+func main() {
+	groupToken := "<TOKEN>" // рекомендуется использовать os.Getenv("TOKEN")
+	vk := api.NewVK(groupToken)
+
+	cb := callback.NewCallback()
+	cb.Title = "example-bot"
+
+	cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
+		log.Print(obj.Message.Text)
+	})
+
+	http.HandleFunc("/callback", cb.HandleFunc)
+
+	go func() {
+		err := cb.AutoSetting(vk, "https://example.com/callback")
+		if err != nil {
+			log.Println(err)
+			os.Exit(1)
+		}
+	}()
 
 	http.ListenAndServe(":8080", nil)
 }

@@ -14,11 +14,12 @@ func TestVK_PhotosConfirmTag(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.PhotosConfirmTag(api.Params{
+	ok, err := vkUser.PhotosConfirmTag(api.Params{
 		"photo_id": 1234,
 		"tag_id":   5678,
 	})
 	noError(t, err)
+	assert.Equal(t, 0, ok)
 }
 
 func TestVK_PhotosCopy(t *testing.T) {
@@ -343,7 +344,7 @@ func TestVK_PhotosGetNewTags(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.PhotosGetNewTags(api.Params{})
+	_, err := vkUser.PhotosGetNewTags(nil)
 	noError(t, err)
 }
 
@@ -364,7 +365,7 @@ func TestVK_PhotosGetOwnerPhotoUploadServer(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.PhotosGetOwnerPhotoUploadServer(api.Params{})
+	_, err := vkUser.PhotosGetOwnerPhotoUploadServer(nil)
 	noError(t, err)
 }
 

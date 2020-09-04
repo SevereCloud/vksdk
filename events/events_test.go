@@ -1,12 +1,12 @@
 package events_test
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 
 	"github.com/SevereCloud/vksdk/events"
-	"github.com/SevereCloud/vksdk/object"
 )
 
 const GID = 123456
@@ -16,40 +16,33 @@ func TestFuncList_HandlerMessageNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageNew(func(obj object.MessageNewObject, groupID int) {
+	fl.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
 		t.Helper()
 
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 		assert.NotEmpty(t, obj.Message)
 	})
 
-	f := func(e object.GroupEvent, wantErr bool) {
+	f := func(e events.GroupEvent, wantErr bool) {
 		t.Helper()
 
-		if err := fl.Handler(e); (err != nil) != wantErr {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "message_new",
+		events.GroupEvent{
+			Type:    events.EventMessageNew,
 			Object:  []byte(`{"message":{"date":1,"from_id":1,"id":1,"peer_id":1,"text":"{}"},"client_info":{}}`),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:    "message_new",
-			Object:  []byte(`{"date":1,"from_id":1,"id":1,"peer_id":1,"text":"{}"}`),
-			GroupID: GID,
-		},
-		false,
-	)
-	f(
-		object.GroupEvent{
-			Type:   "message_new",
+		events.GroupEvent{
+			Type:   events.EventMessageNew,
 			Object: []byte(""),
 		},
 		true,
@@ -61,27 +54,29 @@ func TestFuncList_HandlerMessageReply(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageReply(func(obj object.MessageReplyObject, groupID int) {
+	fl.MessageReply(func(ctx context.Context, obj events.MessageReplyObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMessageReply}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "message_reply",
+		events.GroupEvent{
+			Type:    events.EventMessageReply,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "message_reply",
+		events.GroupEvent{
+			Type:   events.EventMessageReply,
 			Object: []byte(""),
 		},
 		true,
@@ -93,27 +88,29 @@ func TestFuncList_HandlerMessageEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageEdit(func(obj object.MessageEditObject, groupID int) {
+	fl.MessageEdit(func(ctx context.Context, obj events.MessageEditObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMessageEdit}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "message_edit",
+		events.GroupEvent{
+			Type:    events.EventMessageEdit,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "message_edit",
+		events.GroupEvent{
+			Type:   events.EventMessageEdit,
 			Object: []byte(""),
 		},
 		true,
@@ -125,27 +122,29 @@ func TestFuncList_HandlerMessageAllow(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageAllow(func(obj object.MessageAllowObject, groupID int) {
+	fl.MessageAllow(func(ctx context.Context, obj events.MessageAllowObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMessageAllow}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "message_allow",
+		events.GroupEvent{
+			Type:    events.EventMessageAllow,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "message_allow",
+		events.GroupEvent{
+			Type:   events.EventMessageAllow,
 			Object: []byte(""),
 		},
 		true,
@@ -157,27 +156,29 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageDeny(func(obj object.MessageDenyObject, groupID int) {
+	fl.MessageDeny(func(ctx context.Context, obj events.MessageDenyObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMessageDeny}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "message_deny",
+		events.GroupEvent{
+			Type:    events.EventMessageDeny,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "message_deny",
+		events.GroupEvent{
+			Type:   events.EventMessageDeny,
 			Object: []byte(""),
 		},
 		true,
@@ -189,27 +190,63 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageTypingState(func(obj object.MessageTypingStateObject, groupID int) {
+	fl.MessageTypingState(func(ctx context.Context, obj events.MessageTypingStateObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMessageTypingState}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "message_typing_state",
+		events.GroupEvent{
+			Type:    events.EventMessageTypingState,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "message_typing_state",
+		events.GroupEvent{
+			Type:   events.EventMessageTypingState,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_HandlerMessageEvent(t *testing.T) {
+	t.Parallel()
+
+	fl := events.NewFuncList()
+
+	fl.MessageEvent(func(ctx context.Context, obj events.MessageEventObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventMessageEvent}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventMessageEvent,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventMessageEvent,
 			Object: []byte(""),
 		},
 		true,
@@ -221,27 +258,29 @@ func TestFuncList_HandlerPhotoNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoNew(func(obj object.PhotoNewObject, groupID int) {
+	fl.PhotoNew(func(ctx context.Context, obj events.PhotoNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventPhotoNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "photo_new",
+		events.GroupEvent{
+			Type:    events.EventPhotoNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "photo_new",
+		events.GroupEvent{
+			Type:   events.EventPhotoNew,
 			Object: []byte(""),
 		},
 		true,
@@ -253,27 +292,29 @@ func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoCommentNew(func(obj object.PhotoCommentNewObject, groupID int) {
+	fl.PhotoCommentNew(func(ctx context.Context, obj events.PhotoCommentNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventPhotoCommentNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "photo_comment_new",
+		events.GroupEvent{
+			Type:    events.EventPhotoCommentNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "photo_comment_new",
+		events.GroupEvent{
+			Type:   events.EventPhotoCommentNew,
 			Object: []byte(""),
 		},
 		true,
@@ -285,27 +326,29 @@ func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoCommentEdit(func(obj object.PhotoCommentEditObject, groupID int) {
+	fl.PhotoCommentEdit(func(ctx context.Context, obj events.PhotoCommentEditObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventPhotoCommentEdit}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "photo_comment_edit",
+		events.GroupEvent{
+			Type:    events.EventPhotoCommentEdit,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "photo_comment_edit",
+		events.GroupEvent{
+			Type:   events.EventPhotoCommentEdit,
 			Object: []byte(""),
 		},
 		true,
@@ -317,27 +360,29 @@ func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoCommentRestore(func(obj object.PhotoCommentRestoreObject, groupID int) {
+	fl.PhotoCommentRestore(func(ctx context.Context, obj events.PhotoCommentRestoreObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventPhotoCommentRestore}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "photo_comment_restore",
+		events.GroupEvent{
+			Type:    events.EventPhotoCommentRestore,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "photo_comment_restore",
+		events.GroupEvent{
+			Type:   events.EventPhotoCommentRestore,
 			Object: []byte(""),
 		},
 		true,
@@ -349,27 +394,29 @@ func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoCommentDelete(func(obj object.PhotoCommentDeleteObject, groupID int) {
+	fl.PhotoCommentDelete(func(ctx context.Context, obj events.PhotoCommentDeleteObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventPhotoCommentDelete}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "photo_comment_delete",
+		events.GroupEvent{
+			Type:    events.EventPhotoCommentDelete,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "photo_comment_delete",
+		events.GroupEvent{
+			Type:   events.EventPhotoCommentDelete,
 			Object: []byte(""),
 		},
 		true,
@@ -381,27 +428,29 @@ func TestFuncList_HandlerAudioNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.AudioNew(func(obj object.AudioNewObject, groupID int) {
+	fl.AudioNew(func(ctx context.Context, obj events.AudioNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventAudioNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "audio_new",
+		events.GroupEvent{
+			Type:    events.EventAudioNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "audio_new",
+		events.GroupEvent{
+			Type:   events.EventAudioNew,
 			Object: []byte(""),
 		},
 		true,
@@ -413,27 +462,29 @@ func TestFuncList_HandlerVideoNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoNew(func(obj object.VideoNewObject, groupID int) {
+	fl.VideoNew(func(ctx context.Context, obj events.VideoNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventVideoNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "video_new",
+		events.GroupEvent{
+			Type:    events.EventVideoNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "video_new",
+		events.GroupEvent{
+			Type:   events.EventVideoNew,
 			Object: []byte(""),
 		},
 		true,
@@ -445,27 +496,29 @@ func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoCommentNew(func(obj object.VideoCommentNewObject, groupID int) {
+	fl.VideoCommentNew(func(ctx context.Context, obj events.VideoCommentNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventVideoCommentNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "video_comment_new",
+		events.GroupEvent{
+			Type:    events.EventVideoCommentNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "video_comment_new",
+		events.GroupEvent{
+			Type:   events.EventVideoCommentNew,
 			Object: []byte(""),
 		},
 		true,
@@ -477,27 +530,29 @@ func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoCommentEdit(func(obj object.VideoCommentEditObject, groupID int) {
+	fl.VideoCommentEdit(func(ctx context.Context, obj events.VideoCommentEditObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventVideoCommentEdit}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "video_comment_edit",
+		events.GroupEvent{
+			Type:    events.EventVideoCommentEdit,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "video_comment_edit",
+		events.GroupEvent{
+			Type:   events.EventVideoCommentEdit,
 			Object: []byte(""),
 		},
 		true,
@@ -509,27 +564,29 @@ func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoCommentRestore(func(obj object.VideoCommentRestoreObject, groupID int) {
+	fl.VideoCommentRestore(func(ctx context.Context, obj events.VideoCommentRestoreObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventVideoCommentRestore}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "video_comment_restore",
+		events.GroupEvent{
+			Type:    events.EventVideoCommentRestore,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "video_comment_restore",
+		events.GroupEvent{
+			Type:   events.EventVideoCommentRestore,
 			Object: []byte(""),
 		},
 		true,
@@ -541,27 +598,29 @@ func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoCommentDelete(func(obj object.VideoCommentDeleteObject, groupID int) {
+	fl.VideoCommentDelete(func(ctx context.Context, obj events.VideoCommentDeleteObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventVideoCommentDelete}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "video_comment_delete",
+		events.GroupEvent{
+			Type:    events.EventVideoCommentDelete,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "video_comment_delete",
+		events.GroupEvent{
+			Type:   events.EventVideoCommentDelete,
 			Object: []byte(""),
 		},
 		true,
@@ -573,27 +632,29 @@ func TestFuncList_HandlerWallPostNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallPostNew(func(obj object.WallPostNewObject, groupID int) {
+	fl.WallPostNew(func(ctx context.Context, obj events.WallPostNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventWallPostNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "wall_post_new",
+		events.GroupEvent{
+			Type:    events.EventWallPostNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "wall_post_new",
+		events.GroupEvent{
+			Type:   events.EventWallPostNew,
 			Object: []byte(""),
 		},
 		true,
@@ -605,27 +666,29 @@ func TestFuncList_HandlerWallRepost(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallRepost(func(obj object.WallRepostObject, groupID int) {
+	fl.WallRepost(func(ctx context.Context, obj events.WallRepostObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventWallRepost}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "wall_repost",
+		events.GroupEvent{
+			Type:    events.EventWallRepost,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "wall_repost",
+		events.GroupEvent{
+			Type:   events.EventWallRepost,
 			Object: []byte(""),
 		},
 		true,
@@ -637,27 +700,29 @@ func TestFuncList_HandlerWallReplyNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallReplyNew(func(obj object.WallReplyNewObject, groupID int) {
+	fl.WallReplyNew(func(ctx context.Context, obj events.WallReplyNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventWallReplyNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "wall_reply_new",
+		events.GroupEvent{
+			Type:    events.EventWallReplyNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "wall_reply_new",
+		events.GroupEvent{
+			Type:   events.EventWallReplyNew,
 			Object: []byte(""),
 		},
 		true,
@@ -669,27 +734,29 @@ func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallReplyEdit(func(obj object.WallReplyEditObject, groupID int) {
+	fl.WallReplyEdit(func(ctx context.Context, obj events.WallReplyEditObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventWallReplyEdit}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "wall_reply_edit",
+		events.GroupEvent{
+			Type:    events.EventWallReplyEdit,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "wall_reply_edit",
+		events.GroupEvent{
+			Type:   events.EventWallReplyEdit,
 			Object: []byte(""),
 		},
 		true,
@@ -701,27 +768,29 @@ func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallReplyRestore(func(obj object.WallReplyRestoreObject, groupID int) {
+	fl.WallReplyRestore(func(ctx context.Context, obj events.WallReplyRestoreObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventWallReplyRestore}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "wall_reply_restore",
+		events.GroupEvent{
+			Type:    events.EventWallReplyRestore,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "wall_reply_restore",
+		events.GroupEvent{
+			Type:   events.EventWallReplyRestore,
 			Object: []byte(""),
 		},
 		true,
@@ -733,27 +802,29 @@ func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallReplyDelete(func(obj object.WallReplyDeleteObject, groupID int) {
+	fl.WallReplyDelete(func(ctx context.Context, obj events.WallReplyDeleteObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventWallReplyDelete}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "wall_reply_delete",
+		events.GroupEvent{
+			Type:    events.EventWallReplyDelete,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "wall_reply_delete",
+		events.GroupEvent{
+			Type:   events.EventWallReplyDelete,
 			Object: []byte(""),
 		},
 		true,
@@ -765,27 +836,29 @@ func TestFuncList_HandlerBoardPostNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.BoardPostNew(func(obj object.BoardPostNewObject, groupID int) {
+	fl.BoardPostNew(func(ctx context.Context, obj events.BoardPostNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventBoardPostNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "board_post_new",
+		events.GroupEvent{
+			Type:    events.EventBoardPostNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "board_post_new",
+		events.GroupEvent{
+			Type:   events.EventBoardPostNew,
 			Object: []byte(""),
 		},
 		true,
@@ -797,27 +870,29 @@ func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.BoardPostEdit(func(obj object.BoardPostEditObject, groupID int) {
+	fl.BoardPostEdit(func(ctx context.Context, obj events.BoardPostEditObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventBoardPostEdit}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "board_post_edit",
+		events.GroupEvent{
+			Type:    events.EventBoardPostEdit,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "board_post_edit",
+		events.GroupEvent{
+			Type:   events.EventBoardPostEdit,
 			Object: []byte(""),
 		},
 		true,
@@ -829,27 +904,29 @@ func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.BoardPostRestore(func(obj object.BoardPostRestoreObject, groupID int) {
+	fl.BoardPostRestore(func(ctx context.Context, obj events.BoardPostRestoreObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventBoardPostRestore}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "board_post_restore",
+		events.GroupEvent{
+			Type:    events.EventBoardPostRestore,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "board_post_restore",
+		events.GroupEvent{
+			Type:   events.EventBoardPostRestore,
 			Object: []byte(""),
 		},
 		true,
@@ -861,27 +938,29 @@ func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.BoardPostDelete(func(obj object.BoardPostDeleteObject, groupID int) {
+	fl.BoardPostDelete(func(ctx context.Context, obj events.BoardPostDeleteObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventBoardPostDelete}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "board_post_delete",
+		events.GroupEvent{
+			Type:    events.EventBoardPostDelete,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "board_post_delete",
+		events.GroupEvent{
+			Type:   events.EventBoardPostDelete,
 			Object: []byte(""),
 		},
 		true,
@@ -893,27 +972,29 @@ func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketCommentNew(func(obj object.MarketCommentNewObject, groupID int) {
+	fl.MarketCommentNew(func(ctx context.Context, obj events.MarketCommentNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMarketCommentNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "market_comment_new",
+		events.GroupEvent{
+			Type:    events.EventMarketCommentNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "market_comment_new",
+		events.GroupEvent{
+			Type:   events.EventMarketCommentNew,
 			Object: []byte(""),
 		},
 		true,
@@ -925,27 +1006,29 @@ func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketCommentEdit(func(obj object.MarketCommentEditObject, groupID int) {
+	fl.MarketCommentEdit(func(ctx context.Context, obj events.MarketCommentEditObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMarketCommentEdit}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "market_comment_edit",
+		events.GroupEvent{
+			Type:    events.EventMarketCommentEdit,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "market_comment_edit",
+		events.GroupEvent{
+			Type:   events.EventMarketCommentEdit,
 			Object: []byte(""),
 		},
 		true,
@@ -957,27 +1040,29 @@ func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketCommentRestore(func(obj object.MarketCommentRestoreObject, groupID int) {
+	fl.MarketCommentRestore(func(ctx context.Context, obj events.MarketCommentRestoreObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMarketCommentRestore}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "market_comment_restore",
+		events.GroupEvent{
+			Type:    events.EventMarketCommentRestore,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "market_comment_restore",
+		events.GroupEvent{
+			Type:   events.EventMarketCommentRestore,
 			Object: []byte(""),
 		},
 		true,
@@ -989,27 +1074,97 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketCommentDelete(func(obj object.MarketCommentDeleteObject, groupID int) {
+	fl.MarketCommentDelete(func(ctx context.Context, obj events.MarketCommentDeleteObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMarketCommentDelete}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "market_comment_delete",
+		events.GroupEvent{
+			Type:    events.EventMarketCommentDelete,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "market_comment_delete",
+		events.GroupEvent{
+			Type:   events.EventMarketCommentDelete,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_HandlerMarketOrderNew(t *testing.T) {
+	t.Parallel()
+
+	fl := events.NewFuncList()
+
+	fl.MarketOrderNew(func(ctx context.Context, obj events.MarketOrderNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventMarketOrderNew}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketOrderNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventMarketOrderNew,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_HandlerMarketOrderEdit(t *testing.T) {
+	t.Parallel()
+
+	fl := events.NewFuncList()
+
+	fl.MarketOrderEdit(func(ctx context.Context, obj events.MarketOrderEditObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventMarketOrderEdit}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketOrderEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventMarketOrderEdit,
 			Object: []byte(""),
 		},
 		true,
@@ -1021,27 +1176,29 @@ func TestFuncList_HandlerGroupLeave(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupLeave(func(obj object.GroupLeaveObject, groupID int) {
+	fl.GroupLeave(func(ctx context.Context, obj events.GroupLeaveObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventGroupLeave}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "group_leave",
+		events.GroupEvent{
+			Type:    events.EventGroupLeave,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "group_leave",
+		events.GroupEvent{
+			Type:   events.EventGroupLeave,
 			Object: []byte(""),
 		},
 		true,
@@ -1053,27 +1210,29 @@ func TestFuncList_HandlerGroupJoin(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupJoin(func(obj object.GroupJoinObject, groupID int) {
+	fl.GroupJoin(func(ctx context.Context, obj events.GroupJoinObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventGroupJoin}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "group_join",
+		events.GroupEvent{
+			Type:    events.EventGroupJoin,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "group_join",
+		events.GroupEvent{
+			Type:   events.EventGroupJoin,
 			Object: []byte(""),
 		},
 		true,
@@ -1085,27 +1244,29 @@ func TestFuncList_HandlerUserBlock(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.UserBlock(func(obj object.UserBlockObject, groupID int) {
+	fl.UserBlock(func(ctx context.Context, obj events.UserBlockObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventUserBlock}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "user_block",
+		events.GroupEvent{
+			Type:    events.EventUserBlock,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "user_block",
+		events.GroupEvent{
+			Type:   events.EventUserBlock,
 			Object: []byte(""),
 		},
 		true,
@@ -1117,27 +1278,29 @@ func TestFuncList_HandlerUserUnblock(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.UserUnblock(func(obj object.UserUnblockObject, groupID int) {
+	fl.UserUnblock(func(ctx context.Context, obj events.UserUnblockObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventUserUnblock}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "user_unblock",
+		events.GroupEvent{
+			Type:    events.EventUserUnblock,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "user_unblock",
+		events.GroupEvent{
+			Type:   events.EventUserUnblock,
 			Object: []byte(""),
 		},
 		true,
@@ -1149,27 +1312,29 @@ func TestFuncList_HandlerPollVoteNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PollVoteNew(func(obj object.PollVoteNewObject, groupID int) {
+	fl.PollVoteNew(func(ctx context.Context, obj events.PollVoteNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventPollVoteNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "poll_vote_new",
+		events.GroupEvent{
+			Type:    events.EventPollVoteNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "poll_vote_new",
+		events.GroupEvent{
+			Type:   events.EventPollVoteNew,
 			Object: []byte(""),
 		},
 		true,
@@ -1181,27 +1346,29 @@ func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupOfficersEdit(func(obj object.GroupOfficersEditObject, groupID int) {
+	fl.GroupOfficersEdit(func(ctx context.Context, obj events.GroupOfficersEditObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventGroupOfficersEdit}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "group_officers_edit",
+		events.GroupEvent{
+			Type:    events.EventGroupOfficersEdit,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "group_officers_edit",
+		events.GroupEvent{
+			Type:   events.EventGroupOfficersEdit,
 			Object: []byte(""),
 		},
 		true,
@@ -1213,27 +1380,29 @@ func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupChangeSettings(func(obj object.GroupChangeSettingsObject, groupID int) {
+	fl.GroupChangeSettings(func(ctx context.Context, obj events.GroupChangeSettingsObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventGroupChangeSettings}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "group_change_settings",
+		events.GroupEvent{
+			Type:    events.EventGroupChangeSettings,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "group_change_settings",
+		events.GroupEvent{
+			Type:   events.EventGroupChangeSettings,
 			Object: []byte(""),
 		},
 		true,
@@ -1245,27 +1414,29 @@ func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupChangePhoto(func(obj object.GroupChangePhotoObject, groupID int) {
+	fl.GroupChangePhoto(func(ctx context.Context, obj events.GroupChangePhotoObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventGroupChangePhoto}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "group_change_photo",
+		events.GroupEvent{
+			Type:    events.EventGroupChangePhoto,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "group_change_photo",
+		events.GroupEvent{
+			Type:   events.EventGroupChangePhoto,
 			Object: []byte(""),
 		},
 		true,
@@ -1277,27 +1448,29 @@ func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VkpayTransaction(func(obj object.VkpayTransactionObject, groupID int) {
+	fl.VkpayTransaction(func(ctx context.Context, obj events.VkpayTransactionObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventVkpayTransaction}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "vkpay_transaction",
+		events.GroupEvent{
+			Type:    events.EventVkpayTransaction,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "vkpay_transaction",
+		events.GroupEvent{
+			Type:   events.EventVkpayTransaction,
 			Object: []byte(""),
 		},
 		true,
@@ -1309,27 +1482,29 @@ func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.LeadFormsNew(func(obj object.LeadFormsNewObject, groupID int) {
+	fl.LeadFormsNew(func(ctx context.Context, obj events.LeadFormsNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventLeadFormsNew}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "lead_forms_new",
+		events.GroupEvent{
+			Type:    events.EventLeadFormsNew,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "lead_forms_new",
+		events.GroupEvent{
+			Type:   events.EventLeadFormsNew,
 			Object: []byte(""),
 		},
 		true,
@@ -1341,27 +1516,29 @@ func TestFuncList_HandlerAppPayload(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.AppPayload(func(obj object.AppPayloadObject, groupID int) {
+	fl.AppPayload(func(ctx context.Context, obj events.AppPayloadObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventAppPayload}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "app_payload",
+		events.GroupEvent{
+			Type:    events.EventAppPayload,
 			Object:  []byte(`{"user_id":117253521,"app_id":6703670,"payload":"{\"foo\":\"bar\"}"}`),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "app_payload",
+		events.GroupEvent{
+			Type:   events.EventAppPayload,
 			Object: []byte(""),
 		},
 		true,
@@ -1373,27 +1550,29 @@ func TestFuncList_HandlerMessageRead(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageRead(func(obj object.MessageReadObject, groupID int) {
+	fl.MessageRead(func(ctx context.Context, obj events.MessageReadObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMessageRead}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "message_read",
+		events.GroupEvent{
+			Type:    events.EventMessageRead,
 			Object:  []byte(`{"from_id":1,"peer_id":1,"read_message_id":1}`),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "message_read",
+		events.GroupEvent{
+			Type:   events.EventMessageRead,
 			Object: []byte(""),
 		},
 		true,
@@ -1405,27 +1584,29 @@ func TestFuncList_HandlerLikeAdd(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.LikeAdd(func(obj object.LikeAddObject, groupID int) {
+	fl.LikeAdd(func(ctx context.Context, obj events.LikeAddObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventLikeAdd}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "like_add",
+		events.GroupEvent{
+			Type:    events.EventLikeAdd,
 			Object:  []byte(`{"liker_id": 574423462,"object_type": "photo","object_owner_id": -178044536,"object_id": 457242474,"thread_reply_id": 0}`),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "like_add",
+		events.GroupEvent{
+			Type:   events.EventLikeAdd,
 			Object: []byte(""),
 		},
 		true,
@@ -1437,27 +1618,29 @@ func TestFuncList_HandlerLikeRemove(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.LikeRemove(func(obj object.LikeRemoveObject, groupID int) {
+	fl.LikeRemove(func(ctx context.Context, obj events.LikeRemoveObject) {
+		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventLikeRemove}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
-			Type:    "like_remove",
+		events.GroupEvent{
+			Type:    events.EventLikeRemove,
 			Object:  []byte(`{"liker_id": 574423462,"object_type": "photo","object_owner_id": -178044536,"object_id": 457242474,"thread_reply_id": 0}`),
 			GroupID: GID,
 		},
 		false,
 	)
 	f(
-		object.GroupEvent{
-			Type:   "like_remove",
+		events.GroupEvent{
+			Type:   events.EventLikeRemove,
 			Object: []byte(""),
 		},
 		true,
@@ -1469,18 +1652,19 @@ func TestFuncList_OnEvent(t *testing.T) {
 
 	var fl events.FuncList
 
-	fl.OnEvent("wtf_event", func(e object.GroupEvent) {
+	fl.OnEvent("wtf_event", func(_ context.Context, e events.GroupEvent) {
 		assert.NotEmpty(t, e)
 	})
+	assert.Equal(t, []events.EventType{"wtf_event"}, fl.ListEvents())
 
-	f := func(e object.GroupEvent, wantErr bool) {
-		if err := fl.Handler(e); (err != nil) != wantErr {
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
 
 	f(
-		object.GroupEvent{
+		events.GroupEvent{
 			Type:    "wtf_event",
 			Object:  []byte(`{"from_id":1,"peer_id":1,"read_message_id":1}`),
 			GroupID: GID,
@@ -1488,7 +1672,7 @@ func TestFuncList_OnEvent(t *testing.T) {
 		false,
 	)
 	f(
-		object.GroupEvent{
+		events.GroupEvent{
 			Type:   "wtf_event",
 			Object: []byte(""),
 		},

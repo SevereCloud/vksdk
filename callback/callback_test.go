@@ -1,4 +1,4 @@
-package callback
+package callback_test
 
 import (
 	"bytes"
@@ -6,6 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/SevereCloud/vksdk/callback"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -180,7 +181,7 @@ func TestCallback_HandleFunc(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			cb := Callback{
+			cb := callback.Callback{
 				ConfirmationKeys: tt.fields.ConfirmationKeys,
 				ConfirmationKey:  tt.fields.ConfirmationKey,
 				SecretKeys:       tt.fields.SecretKeys,
@@ -207,6 +208,6 @@ func TestCallback_HandleFunc(t *testing.T) {
 func TestNewCallback(t *testing.T) {
 	t.Parallel()
 
-	cb := NewCallback()
+	cb := callback.NewCallback()
 	assert.NotNil(t, cb)
 }

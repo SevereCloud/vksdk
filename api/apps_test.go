@@ -13,7 +13,7 @@ func TestVK_AppsDeleteAppRequests(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.AppsDeleteAppRequests(api.Params{})
+	res, err := vkUser.AppsDeleteAppRequests(nil)
 	noError(t, err)
 	assert.Equal(t, res, 1)
 }
@@ -36,8 +36,6 @@ func TestVK_AppsGet(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].Icon139)
 		assert.NotEmpty(t, res.Items[0].Icon150)
 		assert.NotEmpty(t, res.Items[0].Icon278)
-		assert.NotEmpty(t, res.Items[0].AuthorGroup)
-		assert.NotEmpty(t, res.Items[0].AuthorURL)
 		assert.NotEmpty(t, res.Items[0].Banner1120)
 		assert.NotEmpty(t, res.Items[0].Banner560)
 		assert.NotEmpty(t, res.Items[0].Genre)
@@ -56,7 +54,7 @@ func TestVK_AppsGetCatalog(t *testing.T) {
 
 	needServiceToken(t)
 
-	res, err := vkService.AppsGetCatalog(api.Params{})
+	res, err := vkService.AppsGetCatalog(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
@@ -67,12 +65,12 @@ func TestVK_AppsGetFriendsList(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.AppsGetFriendsList(api.Params{})
+	_, err := vkUser.AppsGetFriendsList(nil)
 	noError(t, err)
 	// assert.NotEmpty(t, res.Count)
 	// assert.NotEmpty(t, res.Items)
 
-	_, err = vkUser.AppsGetFriendsListExtended(api.Params{})
+	_, err = vkUser.AppsGetFriendsListExtended(nil)
 	noError(t, err)
 }
 
@@ -83,7 +81,7 @@ func TestVK_AppsGetScopes(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.AppsGetScopes(api.Params{})
+	res, err := vkUser.AppsGetScopes(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 

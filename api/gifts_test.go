@@ -5,7 +5,6 @@ import (
 
 	"github.com/SevereCloud/vksdk/api"
 
-	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -46,8 +45,8 @@ func TestVK_GiftsGetCatalog(t *testing.T) {
 	needUserToken(t)
 
 	// NOTE: Access denied: method allowed only for official app
-	_, err := vkUser.GiftsGetCatalog(api.Params{})
-	if err != nil && errors.GetType(err) != errors.Access {
+	_, err := vkUser.GiftsGetCatalog(nil)
+	if e, ok := err.(*api.Error); ok && e.Code == api.ErrAccess {
 		t.Errorf("VK.GiftsGetCatalog() err = %v", err)
 	}
 }

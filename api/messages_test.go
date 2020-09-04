@@ -4,8 +4,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/SevereCloud/vksdk/api/errors"
-
 	"github.com/SevereCloud/vksdk/api"
 	"github.com/stretchr/testify/assert"
 )
@@ -229,7 +227,7 @@ func TestVK_MessagesGetConversations(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.MessagesGetConversations(api.Params{})
+	res, err := vkUser.MessagesGetConversations(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res.Count)
 
@@ -258,7 +256,7 @@ func TestVK_MessagesGetConversationsByID(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].ChatSettings.State)
 		assert.NotEmpty(t, res.Items[0].ChatSettings.ACL)
 		assert.NotEmpty(t, res.Items[0].ChatSettings.MembersCount)
-		assert.NotEmpty(t, res.Items[0].ChatSettings.ActiveIDS)
+		assert.NotEmpty(t, res.Items[0].ChatSettings.ActiveIDs)
 	}
 }
 
@@ -304,7 +302,7 @@ func TestVK_MessagesGetImportantMessages(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.MessagesGetImportantMessages(api.Params{})
+	_, err := vkUser.MessagesGetImportantMessages(nil)
 	noError(t, err)
 }
 
@@ -452,7 +450,7 @@ func TestVK_MessagesSearchConversations(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.MessagesSearchConversations(api.Params{})
+	_, err := vkUser.MessagesSearchConversations(nil)
 	noError(t, err)
 }
 
@@ -468,12 +466,10 @@ func TestVK_MessagesSendSticker(t *testing.T) {
 
 	_, err := vkUser.MessagesSendSticker(api.Params{
 		"chat_id":    chatID,
-		"random":     0,
-		"sticker_id": 279,
+		"random_id":  0,
+		"sticker_id": 9008,
 	})
-	if errors.GetType(err) == 0 {
-		assert.NoError(t, err)
-	}
+	noError(t, err)
 }
 
 func TestVK_MessagesSetActivity(t *testing.T) {

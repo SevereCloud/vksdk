@@ -83,6 +83,7 @@ package streaming
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -105,8 +106,6 @@ type response struct {
 
 const (
 	codeEvent = 100
-	// codeOk      = 200 // is unused (deadcode)
-	// codeService = 300 // is unused (deadcode)
 	codeError = 400
 )
 
@@ -157,7 +156,7 @@ func (s *Streaming) doRequest(req *http.Request) (*response, error) {
 	}
 
 	if r.Code == codeError {
-		return nil, NewError(r.Error)
+		return nil, &r.Error
 	}
 
 	return &r, nil
@@ -270,7 +269,7 @@ func (s *Streaming) handlerWebsocket(r response) error {
 			f(r.Event)
 		}
 	case codeError:
-		return NewError(r.Error)
+		return &r.Error
 	}
 
 	return nil
@@ -300,7 +299,7 @@ func (s *Streaming) Run() error {
 
 	c, wsResp, err := s.Dialer.Dial(u.String(), requestHeader)
 	if err != nil {
-		if err == websocket.ErrBadHandshake && wsResp != nil {
+		if errors.Is(err, websocket.ErrBadHandshake) && wsResp != nil {
 			var r response
 
 			err = json.NewDecoder(wsResp.Body).Decode(&r)
@@ -358,7 +357,7 @@ func (s *Streaming) Shutdown() {
 // This means that if the http.DefaultClient is modified by other components
 // of your application the modifications will be picked up by the SDK as well.
 func NewStreaming(vk *api.VK) (*Streaming, error) {
-	resp, err := vk.StreamingGetServerURL(api.Params{})
+	resp, err := vk.StreamingGetServerURL(nil)
 	if err != nil {
 		return nil, err
 	}
@@ -373,13 +372,4 @@ func NewStreaming(vk *api.VK) (*Streaming, error) {
 	}
 
 	return s, nil
-}
-
-// Init Streaming.
-//
-// This can be called with a service token.
-//
-// Deprecated: use NewStreaming.
-func Init(vk *api.VK) (*Streaming, error) {
-	return NewStreaming(vk)
 }

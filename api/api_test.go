@@ -9,7 +9,6 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-	"github.com/SevereCloud/vksdk/api/errors"
 	"github.com/SevereCloud/vksdk/object"
 	"github.com/stretchr/testify/assert"
 )
@@ -17,34 +16,29 @@ import (
 func noError(t *testing.T, err error) bool {
 	t.Helper()
 
-	switch errors.GetType(err) {
-	// case errors.TooMany:
-	// 	t.Skip("Too many requests per second")
-	case errors.Server:
-		t.Skip("Internal server error")
-	case errors.Permission:
-		t.Skip("Permission to perform this action is denied")
-	case errors.Captcha:
-		t.Skip("Captcha needed")
-	}
-
-	if err != nil {
-		ctx := errors.GetErrorContext(err)
-		if ctx.Code != 0 {
+	if e, ok := err.(*api.Error); ok {
+		switch e.Code {
+		case api.ErrServer:
+			t.Skip("Internal server error")
+		case api.ErrPermission:
+			t.Skip("Permission to perform this action is denied")
+		case api.ErrCaptcha:
+			t.Skip("Captcha needed")
+		default:
 			s := "\n"
-			s += fmt.Sprintf("code: %d\n", ctx.Code)
-			s += fmt.Sprintf("text: %s\n", ctx.Text)
-			s += fmt.Sprintf("message: %s\n", ctx.Message)
+			s += fmt.Sprintf("code: %d\n", e.Code)
+			s += fmt.Sprintf("text: %s\n", e.Text)
+			s += fmt.Sprintf("message: %s\n", e.Message)
 			s += "params:\n"
 
-			for _, param := range ctx.RequestParams {
+			for _, param := range e.RequestParams {
 				s += fmt.Sprintf("\t%s: %s\n", param.Key, param.Value)
 			}
 
 			t.Log(s)
-		} else {
-			t.Log(fmt.Sprintf("\n%#v", err))
 		}
+	} else if err != nil {
+		t.Log(fmt.Sprintf("\n%#v", err))
 	}
 
 	return assert.NoError(t, err)
@@ -53,7 +47,7 @@ func noError(t *testing.T, err error) bool {
 func needUserToken(t *testing.T) {
 	t.Helper()
 
-	if vkUser.AccessToken == "" {
+	if vkUser == nil {
 		t.Skip("USER_TOKEN empty")
 	}
 }
@@ -61,7 +55,7 @@ func needUserToken(t *testing.T) {
 func needGroupToken(t *testing.T) {
 	t.Helper()
 
-	if vkGroup.AccessToken == "" {
+	if vkGroup == nil {
 		t.Skip("GROUP_TOKEN empty")
 	}
 }
@@ -69,7 +63,7 @@ func needGroupToken(t *testing.T) {
 func needServiceToken(t *testing.T) {
 	t.Helper()
 
-	if vkService.AccessToken == "" {
+	if vkService == nil {
 		t.Skip("SERVICE_TOKEN empty")
 	}
 }
@@ -77,7 +71,7 @@ func needServiceToken(t *testing.T) {
 func needWidgetToken(t *testing.T) {
 	t.Helper()
 
-	if vkWidget.AccessToken == "" {
+	if vkWidget == nil {
 		t.Skip("WIDGET_TOKEN empty")
 	}
 }
@@ -103,14 +97,17 @@ func needChatID(t *testing.T) int {
 	return vkChatID
 }
 
-var vkGroup, vkService, vkUser, vkWidget *api.VK // nolint:gochecknoglobals
-var vkUserID, vkGroupID, vkChatID int            // nolint:gochecknoglobals
-var mux sync.Mutex                               // nolint:gochecknoglobals
+var (
+	vkGroup, vkService, vkUser, vkWidget *api.VK    // nolint:gochecknoglobals
+	vkUserID, vkGroupID, vkChatID        int        // nolint:gochecknoglobals
+	mux                                  sync.Mutex // nolint:gochecknoglobals
+)
 
 func TestMain(m *testing.M) {
-	vkGroup = api.NewVK(os.Getenv("GROUP_TOKEN"))
-	if vkGroup.AccessToken != "" {
-		group, err := vkGroup.GroupsGetByID(api.Params{})
+	if token := os.Getenv("GROUP_TOKEN"); token != "" {
+		vkGroup = api.NewVK(token)
+
+		group, err := vkGroup.GroupsGetByID(nil)
 		if err != nil {
 			log.Fatalf("GROUP_TOKEN bad: %v", err)
 		}
@@ -118,14 +115,20 @@ func TestMain(m *testing.M) {
 		vkGroupID = group[0].ID
 	}
 
-	vkWidget = api.NewVK(os.Getenv("WIDGET_TOKEN"))
-	vkService = api.NewVK(os.Getenv("SERVICE_TOKEN"))
-	vkService.Limit = api.LimitUserToken
-	vkUser = api.NewVK(os.Getenv("USER_TOKEN"))
-	vkUser.Limit = api.LimitUserToken
+	if token := os.Getenv("WIDGET_TOKEN"); token != "" {
+		vkWidget = api.NewVK(token)
+	}
 
-	if vkUser.AccessToken != "" {
-		user, err := vkUser.UsersGet(api.Params{})
+	if token := os.Getenv("SERVICE_TOKEN"); token != "" {
+		vkService = api.NewVK(token)
+		vkService.Limit = api.LimitUserToken
+	}
+
+	if token := os.Getenv("USER_TOKEN"); token != "" {
+		vkUser = api.NewVK(token)
+		vkUser.Limit = api.LimitUserToken
+
+		user, err := vkUser.UsersGet(nil)
 		if err != nil {
 			log.Fatalf("USER_TOKEN bad: %v", err)
 		}
@@ -148,7 +151,7 @@ func TestVK_Request(t *testing.T) {
 	vk := api.NewVK(groupToken)
 
 	t.Run("Request 403 error", func(t *testing.T) {
-		_, err := vk.Request("", api.Params{})
+		_, err := vk.Request("", nil)
 		if err == nil {
 			t.Errorf("VK.Request() got1 = %v, want -1", err)
 		}
@@ -175,7 +178,7 @@ func TestVK_RequestLimit(t *testing.T) {
 		wg.Add(1)
 
 		go func() {
-			_, err := vkUser.UsersGet(api.Params{})
+			_, err := vkUser.UsersGet(nil)
 			assert.NoError(t, err)
 
 			wg.Done()
@@ -187,58 +190,6 @@ func TestVK_RequestLimit(t *testing.T) {
 	vkUser.Limit = 3
 }
 
-func TestVK_Execute_error(t *testing.T) {
-	t.Parallel()
-
-	needGroupToken(t)
-
-	var response int
-
-	err := vkGroup.Execute(`API.users.get({user_id:-1});return 1;`, &response)
-	assert.Error(t, err)
-	assert.Equal(t, 1, response)
-}
-
-func TestVK_Execute_object(t *testing.T) {
-	t.Parallel()
-
-	needGroupToken(t)
-
-	var response struct {
-		Text string `json:"text"`
-	}
-
-	err := vkGroup.Execute(`return {text: "hello"};`, &response)
-	assert.NoError(t, err)
-	assert.Equal(t, "hello", response.Text)
-}
-
-func TestVK_ExecuteWithArgs_error(t *testing.T) {
-	t.Parallel()
-
-	needGroupToken(t)
-
-	var response int
-
-	err := vkGroup.ExecuteWithArgs(`API.users.get({user_id: parseInt(Args.user_id)});return 1;`, api.Params{"user_id": -1}, &response)
-	assert.Error(t, err)
-	assert.Equal(t, 1, response)
-}
-
-func TestVK_ExecuteWithArgs_object(t *testing.T) {
-	t.Parallel()
-
-	needGroupToken(t)
-
-	var response struct {
-		Text string `json:"text"`
-	}
-
-	err := vkGroup.ExecuteWithArgs(`return {text: Args.text};`, api.Params{"text": "hello"}, &response)
-	assert.NoError(t, err)
-	assert.Equal(t, "hello", response.Text)
-}
-
 func TestVK_InvalidContentType(t *testing.T) {
 	t.Parallel()
 
@@ -246,8 +197,8 @@ func TestVK_InvalidContentType(t *testing.T) {
 
 	var testObj string
 
-	err := vkGroup.RequestUnmarshal("t/t", api.Params{}, testObj)
-	if err == nil || err.Error() != "invalid content-type" {
+	err := vkGroup.RequestUnmarshal("t/t", testObj, nil)
+	if err == nil || err.Error() != "api: invalid content-type" {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}
 }
@@ -295,25 +246,6 @@ func Test_FmtValue(t *testing.T) {
 	// Pointer
 	f(&intSlice, "1,2,3")
 	f(&photo, "photo321_123")
-}
-
-func TestVK_CaptchaForce(t *testing.T) {
-	t.Parallel()
-
-	needUserToken(t)
-
-	_, err := vkUser.CaptchaForce(api.Params{})
-	if errors.GetType(err) != errors.Captcha {
-		t.Errorf("VK.CaptchaForce() err=%v, want 14", err)
-	}
-}
-
-// FIXME: v2 remove TestInit.
-func TestInit(t *testing.T) {
-	t.Parallel()
-
-	vk := api.Init("")
-	assert.NotNil(t, vk)
 }
 
 func TestParams_methods(t *testing.T) {

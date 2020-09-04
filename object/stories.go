@@ -4,6 +4,22 @@ import (
 	"encoding/json"
 )
 
+// StoriesViewer struct.
+type StoriesViewer struct {
+	IsLiked bool `json:"is_liked"`
+	UserID  int  `json:"user_id"`
+
+	// For extended
+	User struct {
+		Type            string `json:"type"`
+		ID              int    `json:"id"`
+		FirstName       string `json:"first_name"`
+		LastName        string `json:"last_name"`
+		IsClosed        bool   `json:"is_closed"`
+		CanAccessClosed bool   `json:"can_access_closed"`
+	} `json:"user,omitempty"`
+}
+
 // StoriesNarrativeInfo type.
 type StoriesNarrativeInfo struct {
 	Author string `json:"author"`
@@ -63,19 +79,43 @@ type StoriesStory struct {
 	// Information whether story has question sticker and current user can send question to the author
 	CanAsk BaseBoolInt `json:"can_ask"`
 	// Information whether story has question sticker and current user can send anonymous question to the author
-	CanAskAnonymous      BaseBoolInt              `json:"can_ask_anonymous"`
-	CanComment           BaseBoolInt              `json:"can_comment"`   // Information whether current user can comment the story (0 - no, 1 - yes).
-	CanReply             BaseBoolInt              `json:"can_reply"`     // Information whether current user can reply to the story (0 - no, 1 - yes).
-	CanSee               BaseBoolInt              `json:"can_see"`       // Information whether current user can see the story (0 - no, 1 - yes).
-	CanShare             BaseBoolInt              `json:"can_share"`     // Information whether current user can share the story (0 - no, 1 - yes).
-	Date                 int                      `json:"date"`          // Date when story has been added in Unixtime.
-	ID                   int                      `json:"id"`            // Story ID.
-	IsDeleted            BaseBoolInt              `json:"is_deleted"`    // Information whether the story is deleted (false - no, true - yes).
-	IsExpired            BaseBoolInt              `json:"is_expired"`    // Information whether the story is expired (false - no, true - yes).
-	NoSound              BaseBoolInt              `json:"no_sound"`      // Is video without sound
-	IsRestricted         BaseBoolInt              `json:"is_restricted"` // Does author have stories privacy restrictions
-	Seen                 BaseBoolInt              `json:"seen"`          // Information whether current user has seen the story or not (0 - no, 1 - yes).
+	CanAskAnonymous BaseBoolInt `json:"can_ask_anonymous"`
+
+	// Information whether current user can comment the story (0 - no, 1 - yes).
+	CanComment BaseBoolInt `json:"can_comment"`
+
+	// Information whether current user can reply to the story
+	// (0 - no, 1 - yes).
+	CanReply BaseBoolInt `json:"can_reply"`
+
+	// Information whether current user can see the story (0 - no, 1 - yes).
+	CanSee BaseBoolInt `json:"can_see"`
+
+	// Information whether current user can share the story (0 - no, 1 - yes).
+	CanShare BaseBoolInt `json:"can_share"`
+
+	// Information whether the story is deleted (false - no, true - yes).
+	IsDeleted BaseBoolInt `json:"is_deleted"`
+
+	// Information whether the story is expired (false - no, true - yes).
+	IsExpired BaseBoolInt `json:"is_expired"`
+
+	// Is video without sound
+	NoSound BaseBoolInt `json:"no_sound"`
+
+	// Does author have stories privacy restrictions
+	IsRestricted BaseBoolInt `json:"is_restricted"`
+
+	// Information whether current user has seen the story or not
+	// (0 - no, 1 - yes).
+	Seen                 BaseBoolInt              `json:"seen"`
 	IsOwnerPinned        BaseBoolInt              `json:"is_owner_pinned"`
+	IsOneTime            BaseBoolInt              `json:"is_one_time"`
+	NeedMute             BaseBoolInt              `json:"need_mute"`
+	MuteReply            BaseBoolInt              `json:"mute_reply"`
+	CanLike              BaseBoolInt              `json:"can_like"`
+	Date                 int                      `json:"date"` // Date when story has been added in Unixtime.
+	ID                   int                      `json:"id"`   // Story ID.
 	Link                 StoriesStoryLink         `json:"link"`
 	OwnerID              int                      `json:"owner_id"` // Story owner's ID.
 	ParentStory          *StoriesStory            `json:"parent_story"`
@@ -96,6 +136,24 @@ type StoriesStory struct {
 	NarrativesCount      int                      `json:"narratives_count"`
 	FirstNarrativeTitle  string                   `json:"first_narrative_title"`
 	Questions            StoriesQuestions         `json:"questions"`
+}
+
+// StoriesFeedItemType type.
+type StoriesFeedItemType string
+
+// Possible values.
+const (
+	StoriesFeedItemStories   StoriesFeedItemType = "stories"
+	StoriesFeedItemCommunity StoriesFeedItemType = "community_grouped_stories"
+	StoriesFeedItemApp       StoriesFeedItemType = "app_grouped_stories"
+)
+
+// StoriesFeedItem struct.
+type StoriesFeedItem struct {
+	Type    StoriesFeedItemType `json:"type"`
+	Stories []StoriesStory      `json:"stories"`
+	Grouped StoriesFeedItemType `json:"grouped"`
+	App     AppsApp             `json:"app"`
 }
 
 // StoriesClickableStickers struct.
@@ -206,8 +264,8 @@ type StoriesClickableSticker struct { // nolint: maligned
 	Poll PollsPoll `json:"poll,omitempty"`
 
 	// type=music
-	Audio          AudioAudioFull `json:"audio,omitempty"`
-	AudioStartTime int            `json:"audio_start_time,omitempty"`
+	Audio          AudioAudio `json:"audio,omitempty"`
+	AudioStartTime int        `json:"audio_start_time,omitempty"`
 
 	// type=app
 	App                      AppsApp     `json:"app"`

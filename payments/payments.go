@@ -30,15 +30,24 @@ time.
 		// ...
 	})
 
-	cb.OnOrderStatusChange(func(e payments.OrderStatusChangeRequest) (*payments.OrderStatusChangeResponse, *payments.Error) {
+	cb.OnOrderStatusChange(func(e payments.OrderStatusChangeRequest) (
+		*payments.OrderStatusChangeResponse,
+		*payments.Error,
+	) {
 		// ...
 	})
 
-	cb.OnGetSubscription(func(e payments.GetSubscriptionRequest) (*payments.GetSubscriptionResponse, *payments.Error) {
+	cb.OnGetSubscription(func(e payments.GetSubscriptionRequest) (
+		*payments.GetSubscriptionResponse,
+		*payments.Error,
+	) {
 		// ...
 	})
 
-	cb.OnSubscriptionStatusChange(func(e payments.SubscriptionStatusChangeRequest) (*payments.SubscriptionStatusChangeResponse, *payments.Error) {
+	cb.OnSubscriptionStatusChange(func(e payments.SubscriptionStatusChangeRequest) (
+		*payments.SubscriptionStatusChangeResponse,
+		*payments.Error,
+	) {
 		// ...
 	})
 
@@ -66,15 +75,24 @@ In test mode, the suffix '_test' is added to the NotificationType parameter.
 		// ...
 	})
 
-	cb.OnOrderStatusChangeTest(func(e payments.OrderStatusChangeRequest) (*payments.OrderStatusChangeResponse, *payments.Error) {
+	cb.OnOrderStatusChangeTest(func(e payments.OrderStatusChangeRequest) (
+		*payments.OrderStatusChangeResponse,
+		*payments.Error,
+	) {
 		// ...
 	})
 
-	cb.OnGetSubscriptionTest(func(e payments.GetSubscriptionRequest) (*payments.GetSubscriptionResponse, *payments.Error) {
+	cb.OnGetSubscriptionTest(func(e payments.GetSubscriptionRequest) (
+		*payments.GetSubscriptionResponse,
+		*payments.Error,
+	) {
 		// ...
 	})
 
-	cb.OnSubscriptionStatusChangeTest(func(e payments.SubscriptionStatusChangeRequest) (*payments.SubscriptionStatusChangeResponse, *payments.Error) {
+	cb.OnSubscriptionStatusChangeTest(func(e payments.SubscriptionStatusChangeRequest) (
+		*payments.SubscriptionStatusChangeResponse,
+		*payments.Error,
+	) {
 		// ...
 	})
 
@@ -117,7 +135,7 @@ const (
 	// balance. If the response is a failure, the order is canceled.
 	Chargeable Status = "chargeable"
 
-	// Subscription is active;
+	// Subscription is active.
 	Active Status = "active"
 
 	// Subscription is canceled.
@@ -620,12 +638,18 @@ type SubscriptionStatusChangeResponse struct {
 // new one.
 //
 // See https://vk.com/dev/payments_subscriptionstatus
-func (cb *Callback) OnSubscriptionStatusChange(f func(e SubscriptionStatusChangeRequest) (*SubscriptionStatusChangeResponse, *Error)) {
+func (cb *Callback) OnSubscriptionStatusChange(f func(e SubscriptionStatusChangeRequest) (
+	*SubscriptionStatusChangeResponse,
+	*Error,
+)) {
 	cb.subscriptionStatusChange = f
 }
 
 // OnSubscriptionStatusChangeTest OnSubscriptionStatusChange for test.
-func (cb *Callback) OnSubscriptionStatusChangeTest(f func(e SubscriptionStatusChangeRequest) (*SubscriptionStatusChangeResponse, *Error)) {
+func (cb *Callback) OnSubscriptionStatusChangeTest(f func(e SubscriptionStatusChangeRequest) (
+	*SubscriptionStatusChangeResponse,
+	*Error,
+)) {
 	cb.subscriptionStatusChangeTest = f
 }
 

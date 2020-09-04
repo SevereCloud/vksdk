@@ -8,7 +8,7 @@ import (
 //
 // https://vk.com/dev/photos.confirmTag
 func (vk *VK) PhotosConfirmTag(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.confirmTag", params, &response)
+	err = vk.RequestUnmarshal("photos.confirmTag", &response, params)
 	return
 }
 
@@ -16,7 +16,7 @@ func (vk *VK) PhotosConfirmTag(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.copy
 func (vk *VK) PhotosCopy(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.copy", params, &response)
+	err = vk.RequestUnmarshal("photos.copy", &response, params)
 	return
 }
 
@@ -27,7 +27,7 @@ type PhotosCreateAlbumResponse object.PhotosPhotoAlbumFull
 //
 // https://vk.com/dev/photos.createAlbum
 func (vk *VK) PhotosCreateAlbum(params Params) (response PhotosCreateAlbumResponse, err error) {
-	err = vk.RequestUnmarshal("photos.createAlbum", params, &response)
+	err = vk.RequestUnmarshal("photos.createAlbum", &response, params)
 	return
 }
 
@@ -35,7 +35,7 @@ func (vk *VK) PhotosCreateAlbum(params Params) (response PhotosCreateAlbumRespon
 //
 // https://vk.com/dev/photos.createComment
 func (vk *VK) PhotosCreateComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.createComment", params, &response)
+	err = vk.RequestUnmarshal("photos.createComment", &response, params)
 	return
 }
 
@@ -43,7 +43,7 @@ func (vk *VK) PhotosCreateComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.delete
 func (vk *VK) PhotosDelete(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.delete", params, &response)
+	err = vk.RequestUnmarshal("photos.delete", &response, params)
 	return
 }
 
@@ -51,7 +51,7 @@ func (vk *VK) PhotosDelete(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.deleteAlbum
 func (vk *VK) PhotosDeleteAlbum(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.deleteAlbum", params, &response)
+	err = vk.RequestUnmarshal("photos.deleteAlbum", &response, params)
 	return
 }
 
@@ -59,7 +59,7 @@ func (vk *VK) PhotosDeleteAlbum(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.deleteComment
 func (vk *VK) PhotosDeleteComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.deleteComment", params, &response)
+	err = vk.RequestUnmarshal("photos.deleteComment", &response, params)
 	return
 }
 
@@ -67,7 +67,7 @@ func (vk *VK) PhotosDeleteComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.edit
 func (vk *VK) PhotosEdit(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.edit", params, &response)
+	err = vk.RequestUnmarshal("photos.edit", &response, params)
 	return
 }
 
@@ -75,7 +75,7 @@ func (vk *VK) PhotosEdit(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.editAlbum
 func (vk *VK) PhotosEditAlbum(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.editAlbum", params, &response)
+	err = vk.RequestUnmarshal("photos.editAlbum", &response, params)
 	return
 }
 
@@ -83,7 +83,7 @@ func (vk *VK) PhotosEditAlbum(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.editComment
 func (vk *VK) PhotosEditComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.editComment", params, &response)
+	err = vk.RequestUnmarshal("photos.editComment", &response, params)
 	return
 }
 
@@ -99,8 +99,7 @@ type PhotosGetResponse struct {
 //
 // https://vk.com/dev/photos.get
 func (vk *VK) PhotosGet(params Params) (response PhotosGetResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("photos.get", params, &response)
+	err = vk.RequestUnmarshal("photos.get", &response, params, Params{"extended": false})
 
 	return
 }
@@ -117,8 +116,7 @@ type PhotosGetExtendedResponse struct {
 //
 // https://vk.com/dev/photos.get
 func (vk *VK) PhotosGetExtended(params Params) (response PhotosGetExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("photos.get", params, &response)
+	err = vk.RequestUnmarshal("photos.get", &response, params, Params{"extended": true})
 
 	return
 }
@@ -133,7 +131,7 @@ type PhotosGetAlbumsResponse struct {
 //
 // https://vk.com/dev/photos.getAlbums
 func (vk *VK) PhotosGetAlbums(params Params) (response PhotosGetAlbumsResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getAlbums", params, &response)
+	err = vk.RequestUnmarshal("photos.getAlbums", &response, params)
 	return
 }
 
@@ -141,7 +139,7 @@ func (vk *VK) PhotosGetAlbums(params Params) (response PhotosGetAlbumsResponse, 
 //
 // https://vk.com/dev/photos.getAlbumsCount
 func (vk *VK) PhotosGetAlbumsCount(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.getAlbumsCount", params, &response)
+	err = vk.RequestUnmarshal("photos.getAlbumsCount", &response, params)
 	return
 }
 
@@ -158,8 +156,7 @@ type PhotosGetAllResponse struct {
 //
 // https://vk.com/dev/photos.getAll
 func (vk *VK) PhotosGetAll(params Params) (response PhotosGetAllResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("photos.getAll", params, &response)
+	err = vk.RequestUnmarshal("photos.getAll", &response, params, Params{"extended": false})
 
 	return
 }
@@ -177,8 +174,7 @@ type PhotosGetAllExtendedResponse struct {
 //
 // https://vk.com/dev/photos.getAll
 func (vk *VK) PhotosGetAllExtended(params Params) (response PhotosGetAllExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("photos.getAll", params, &response)
+	err = vk.RequestUnmarshal("photos.getAll", &response, params, Params{"extended": true})
 
 	return
 }
@@ -194,7 +190,7 @@ type PhotosGetAllCommentsResponse struct {
 //
 // https://vk.com/dev/photos.getAllComments
 func (vk *VK) PhotosGetAllComments(params Params) (response PhotosGetAllCommentsResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getAllComments", params, &response)
+	err = vk.RequestUnmarshal("photos.getAllComments", &response, params)
 	return
 }
 
@@ -207,8 +203,7 @@ type PhotosGetByIDResponse []object.PhotosPhoto
 //
 // https://vk.com/dev/photos.getById
 func (vk *VK) PhotosGetByID(params Params) (response PhotosGetByIDResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("photos.getById", params, &response)
+	err = vk.RequestUnmarshal("photos.getById", &response, params, Params{"extended": false})
 
 	return
 }
@@ -222,8 +217,7 @@ type PhotosGetByIDExtendedResponse []object.PhotosPhotoFull
 //
 // https://vk.com/dev/photos.getById
 func (vk *VK) PhotosGetByIDExtended(params Params) (response PhotosGetByIDExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("photos.getById", params, &response)
+	err = vk.RequestUnmarshal("photos.getById", &response, params, Params{"extended": true})
 
 	return
 }
@@ -237,7 +231,7 @@ type PhotosGetChatUploadServerResponse struct {
 //
 // https://vk.com/dev/photos.getChatUploadServer
 func (vk *VK) PhotosGetChatUploadServer(params Params) (response PhotosGetChatUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getChatUploadServer", params, &response)
+	err = vk.RequestUnmarshal("photos.getChatUploadServer", &response, params)
 	return
 }
 
@@ -254,8 +248,7 @@ type PhotosGetCommentsResponse struct {
 //
 // https://vk.com/dev/photos.getComments
 func (vk *VK) PhotosGetComments(params Params) (response PhotosGetCommentsResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("photos.getComments", params, &response)
+	err = vk.RequestUnmarshal("photos.getComments", &response, params, Params{"extended": false})
 
 	return
 }
@@ -275,8 +268,7 @@ type PhotosGetCommentsExtendedResponse struct {
 //
 // https://vk.com/dev/photos.getComments
 func (vk *VK) PhotosGetCommentsExtended(params Params) (response PhotosGetCommentsExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("photos.getComments", params, &response)
+	err = vk.RequestUnmarshal("photos.getComments", &response, params, Params{"extended": true})
 
 	return
 }
@@ -289,8 +281,11 @@ type PhotosGetMarketAlbumUploadServerResponse struct {
 // PhotosGetMarketAlbumUploadServer returns the server address for market album photo upload.
 //
 // https://vk.com/dev/photos.getMarketAlbumUploadServer
-func (vk *VK) PhotosGetMarketAlbumUploadServer(params Params) (response PhotosGetMarketAlbumUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getMarketAlbumUploadServer", params, &response)
+func (vk *VK) PhotosGetMarketAlbumUploadServer(params Params) (
+	response PhotosGetMarketAlbumUploadServerResponse,
+	err error,
+) {
+	err = vk.RequestUnmarshal("photos.getMarketAlbumUploadServer", &response, params)
 	return
 }
 
@@ -303,7 +298,7 @@ type PhotosGetMarketUploadServerResponse struct {
 //
 // https://vk.com/dev/photos.getMarketUploadServer
 func (vk *VK) PhotosGetMarketUploadServer(params Params) (response PhotosGetMarketUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getMarketUploadServer", params, &response)
+	err = vk.RequestUnmarshal("photos.getMarketUploadServer", &response, params)
 	return
 }
 
@@ -319,7 +314,7 @@ type PhotosGetMessagesUploadServerResponse struct {
 //
 // https://vk.com/dev/photos.getMessagesUploadServer
 func (vk *VK) PhotosGetMessagesUploadServer(params Params) (response PhotosGetMessagesUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getMessagesUploadServer", params, &response)
+	err = vk.RequestUnmarshal("photos.getMessagesUploadServer", &response, params)
 	return
 }
 
@@ -333,7 +328,7 @@ type PhotosGetNewTagsResponse struct {
 //
 // https://vk.com/dev/photos.getNewTags
 func (vk *VK) PhotosGetNewTags(params Params) (response PhotosGetNewTagsResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getNewTags", params, &response)
+	err = vk.RequestUnmarshal("photos.getNewTags", &response, params)
 	return
 }
 
@@ -345,8 +340,11 @@ type PhotosGetOwnerCoverPhotoUploadServerResponse struct {
 // PhotosGetOwnerCoverPhotoUploadServer receives server address for uploading community cover.
 //
 // https://vk.com/dev/photos.getOwnerCoverPhotoUploadServer
-func (vk *VK) PhotosGetOwnerCoverPhotoUploadServer(params Params) (response PhotosGetOwnerCoverPhotoUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getOwnerCoverPhotoUploadServer", params, &response)
+func (vk *VK) PhotosGetOwnerCoverPhotoUploadServer(params Params) (
+	response PhotosGetOwnerCoverPhotoUploadServerResponse,
+	err error,
+) {
+	err = vk.RequestUnmarshal("photos.getOwnerCoverPhotoUploadServer", &response, params)
 	return
 }
 
@@ -355,11 +353,15 @@ type PhotosGetOwnerPhotoUploadServerResponse struct {
 	UploadURL string `json:"upload_url"`
 }
 
-// PhotosGetOwnerPhotoUploadServer returns an upload server address for a profile or community photo.
+// PhotosGetOwnerPhotoUploadServer returns an upload server address for a
+// profile or community photo.
 //
 // https://vk.com/dev/photos.getOwnerPhotoUploadServer
-func (vk *VK) PhotosGetOwnerPhotoUploadServer(params Params) (response PhotosGetOwnerPhotoUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getOwnerPhotoUploadServer", params, &response)
+func (vk *VK) PhotosGetOwnerPhotoUploadServer(params Params) (
+	response PhotosGetOwnerPhotoUploadServerResponse,
+	err error,
+) {
+	err = vk.RequestUnmarshal("photos.getOwnerPhotoUploadServer", &response, params)
 	return
 }
 
@@ -370,7 +372,7 @@ type PhotosGetTagsResponse []object.PhotosPhotoTag
 //
 // https://vk.com/dev/photos.getTags
 func (vk *VK) PhotosGetTags(params Params) (response PhotosGetTagsResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getTags", params, &response)
+	err = vk.RequestUnmarshal("photos.getTags", &response, params)
 	return
 }
 
@@ -381,7 +383,7 @@ type PhotosGetUploadServerResponse object.PhotosPhotoUpload
 //
 // https://vk.com/dev/photos.getUploadServer
 func (vk *VK) PhotosGetUploadServer(params Params) (response PhotosGetUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getUploadServer", params, &response)
+	err = vk.RequestUnmarshal("photos.getUploadServer", &response, params)
 	return
 }
 
@@ -397,8 +399,7 @@ type PhotosGetUserPhotosResponse struct {
 //
 // https://vk.com/dev/photos.getUserPhotos
 func (vk *VK) PhotosGetUserPhotos(params Params) (response PhotosGetUserPhotosResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("photos.getUserPhotos", params, &response)
+	err = vk.RequestUnmarshal("photos.getUserPhotos", &response, params, Params{"extended": false})
 
 	return
 }
@@ -415,8 +416,7 @@ type PhotosGetUserPhotosExtendedResponse struct {
 //
 // https://vk.com/dev/photos.getUserPhotos
 func (vk *VK) PhotosGetUserPhotosExtended(params Params) (response PhotosGetUserPhotosExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("photos.getUserPhotos", params, &response)
+	err = vk.RequestUnmarshal("photos.getUserPhotos", &response, params, Params{"extended": true})
 
 	return
 }
@@ -428,7 +428,7 @@ type PhotosGetWallUploadServerResponse object.PhotosPhotoUpload
 //
 // https://vk.com/dev/photos.getWallUploadServer
 func (vk *VK) PhotosGetWallUploadServer(params Params) (response PhotosGetWallUploadServerResponse, err error) {
-	err = vk.RequestUnmarshal("photos.getWallUploadServer", params, &response)
+	err = vk.RequestUnmarshal("photos.getWallUploadServer", &response, params)
 	return
 }
 
@@ -436,7 +436,7 @@ func (vk *VK) PhotosGetWallUploadServer(params Params) (response PhotosGetWallUp
 //
 // https://vk.com/dev/photos.makeCover
 func (vk *VK) PhotosMakeCover(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.makeCover", params, &response)
+	err = vk.RequestUnmarshal("photos.makeCover", &response, params)
 	return
 }
 
@@ -444,7 +444,7 @@ func (vk *VK) PhotosMakeCover(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.moveMoves
 func (vk *VK) PhotosMove(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.move", params, &response)
+	err = vk.RequestUnmarshal("photos.move", &response, params)
 	return
 }
 
@@ -452,7 +452,7 @@ func (vk *VK) PhotosMove(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.putTag
 func (vk *VK) PhotosPutTag(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.putTag", params, &response)
+	err = vk.RequestUnmarshal("photos.putTag", &response, params)
 	return
 }
 
@@ -460,7 +460,7 @@ func (vk *VK) PhotosPutTag(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.removeTag
 func (vk *VK) PhotosRemoveTag(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.removeTag", params, &response)
+	err = vk.RequestUnmarshal("photos.removeTag", &response, params)
 	return
 }
 
@@ -468,7 +468,7 @@ func (vk *VK) PhotosRemoveTag(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.reorderAlbums
 func (vk *VK) PhotosReorderAlbums(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.reorderAlbums", params, &response)
+	err = vk.RequestUnmarshal("photos.reorderAlbums", &response, params)
 	return
 }
 
@@ -476,7 +476,7 @@ func (vk *VK) PhotosReorderAlbums(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.reorderPhotos
 func (vk *VK) PhotosReorderPhotos(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.reorderPhotos", params, &response)
+	err = vk.RequestUnmarshal("photos.reorderPhotos", &response, params)
 	return
 }
 
@@ -484,7 +484,7 @@ func (vk *VK) PhotosReorderPhotos(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.report
 func (vk *VK) PhotosReport(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.report", params, &response)
+	err = vk.RequestUnmarshal("photos.report", &response, params)
 	return
 }
 
@@ -492,7 +492,7 @@ func (vk *VK) PhotosReport(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.reportComment
 func (vk *VK) PhotosReportComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.reportComment", params, &response)
+	err = vk.RequestUnmarshal("photos.reportComment", &response, params)
 	return
 }
 
@@ -500,7 +500,7 @@ func (vk *VK) PhotosReportComment(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.restore
 func (vk *VK) PhotosRestore(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.restore", params, &response)
+	err = vk.RequestUnmarshal("photos.restore", &response, params)
 	return
 }
 
@@ -508,7 +508,7 @@ func (vk *VK) PhotosRestore(params Params) (response int, err error) {
 //
 // https://vk.com/dev/photos.restoreComment
 func (vk *VK) PhotosRestoreComment(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.restoreComment", params, &response)
+	err = vk.RequestUnmarshal("photos.restoreComment", &response, params)
 	return
 }
 
@@ -519,7 +519,7 @@ type PhotosSaveResponse []object.PhotosPhoto
 //
 // https://vk.com/dev/photos.save
 func (vk *VK) PhotosSave(params Params) (response PhotosSaveResponse, err error) {
-	err = vk.RequestUnmarshal("photos.save", params, &response)
+	err = vk.RequestUnmarshal("photos.save", &response, params)
 	return
 }
 
@@ -530,7 +530,7 @@ type PhotosSaveMarketAlbumPhotoResponse []object.PhotosPhoto
 //
 // https://vk.com/dev/photos.saveMarketAlbumPhoto
 func (vk *VK) PhotosSaveMarketAlbumPhoto(params Params) (response PhotosSaveMarketAlbumPhotoResponse, err error) {
-	err = vk.RequestUnmarshal("photos.saveMarketAlbumPhoto", params, &response)
+	err = vk.RequestUnmarshal("photos.saveMarketAlbumPhoto", &response, params)
 	return
 }
 
@@ -541,7 +541,7 @@ type PhotosSaveMarketPhotoResponse []object.PhotosPhoto
 //
 // https://vk.com/dev/photos.saveMarketPhoto
 func (vk *VK) PhotosSaveMarketPhoto(params Params) (response PhotosSaveMarketPhotoResponse, err error) {
-	err = vk.RequestUnmarshal("photos.saveMarketPhoto", params, &response)
+	err = vk.RequestUnmarshal("photos.saveMarketPhoto", &response, params)
 	return
 }
 
@@ -552,7 +552,7 @@ type PhotosSaveMessagesPhotoResponse []object.PhotosPhoto
 //
 // https://vk.com/dev/photos.saveMessagesPhoto
 func (vk *VK) PhotosSaveMessagesPhoto(params Params) (response PhotosSaveMessagesPhotoResponse, err error) {
-	err = vk.RequestUnmarshal("photos.saveMessagesPhoto", params, &response)
+	err = vk.RequestUnmarshal("photos.saveMessagesPhoto", &response, params)
 	return
 }
 
@@ -565,7 +565,7 @@ type PhotosSaveOwnerCoverPhotoResponse struct {
 //
 // https://vk.com/dev/photos.saveOwnerCoverPhoto
 func (vk *VK) PhotosSaveOwnerCoverPhoto(params Params) (response PhotosSaveOwnerCoverPhotoResponse, err error) {
-	err = vk.RequestUnmarshal("photos.saveOwnerCoverPhoto", params, &response)
+	err = vk.RequestUnmarshal("photos.saveOwnerCoverPhoto", &response, params)
 	return
 }
 
@@ -583,7 +583,7 @@ type PhotosSaveOwnerPhotoResponse struct {
 //
 // https://vk.com/dev/photos.saveOwnerPhoto
 func (vk *VK) PhotosSaveOwnerPhoto(params Params) (response PhotosSaveOwnerPhotoResponse, err error) {
-	err = vk.RequestUnmarshal("photos.saveOwnerPhoto", params, &response)
+	err = vk.RequestUnmarshal("photos.saveOwnerPhoto", &response, params)
 	return
 }
 
@@ -594,7 +594,7 @@ type PhotosSaveWallPhotoResponse []object.PhotosPhoto
 //
 // https://vk.com/dev/photos.saveWallPhoto
 func (vk *VK) PhotosSaveWallPhoto(params Params) (response PhotosSaveWallPhotoResponse, err error) {
-	err = vk.RequestUnmarshal("photos.saveWallPhoto", params, &response)
+	err = vk.RequestUnmarshal("photos.saveWallPhoto", &response, params)
 	return
 }
 
@@ -608,6 +608,6 @@ type PhotosSearchResponse struct {
 //
 // https://vk.com/dev/photos.search
 func (vk *VK) PhotosSearch(params Params) (response PhotosSearchResponse, err error) {
-	err = vk.RequestUnmarshal("photos.search", params, &response)
+	err = vk.RequestUnmarshal("photos.search", &response, params)
 	return
 }

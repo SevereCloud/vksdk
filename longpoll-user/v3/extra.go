@@ -1,7 +1,6 @@
 package wrapper // import "github.com/SevereCloud/vksdk/longpoll-user/v3"
 
 import (
-	"fmt"
 	"reflect"
 	"time"
 )
@@ -73,6 +72,8 @@ type AdditionalData struct {
 	Title     string // Message's subject.
 	RefSource string
 	From      string // User ID of who sent the message if the message is from a chat
+	ExpireTTL string
+	IsExpired string
 	// FromAdmin ID of the administrator who sent the message. It is returned for
 	// messages sent from a community (only for community administrators).
 	FromAdmin string
@@ -95,6 +96,14 @@ func (result *AdditionalData) parse(v map[string]interface{}) {
 
 	if fromAdmin, ok := v["from_admin"].(string); ok {
 		result.FromAdmin = fromAdmin
+	}
+
+	if expireTTL, ok := v["expire_ttl"].(string); ok {
+		result.ExpireTTL = expireTTL
+	}
+
+	if isExpired, ok := v["is_expired"].(string); ok {
+		result.IsExpired = isExpired
 	}
 
 	if emoji, ok := v["emoji"].(string); ok {
@@ -157,7 +166,7 @@ func (result *ExtraFields) parseExtraFields(i []interface{}) error {
 func interfaceToStringIntMap(m interface{}) (map[string]int, error) {
 	reflectedMap := reflect.ValueOf(m)
 	if reflectedMap.Kind() != reflect.Map {
-		return nil, fmt.Errorf("expected a slice, got %T", m)
+		return nil, &expectedSlice{m}
 	}
 
 	result := make(map[string]int, reflectedMap.Len())
@@ -165,7 +174,7 @@ func interfaceToStringIntMap(m interface{}) (map[string]int, error) {
 	for _, key := range reflectedMap.MapKeys() {
 		v, ok := reflectedMap.MapIndex(key).Interface().(float64)
 		if !ok {
-			return nil, fmt.Errorf("cast failed, value type: %T", reflectedMap.MapIndex(key).Interface())
+			return nil, &failedCast{reflectedMap.MapIndex(key).Interface()}
 		}
 
 		result[key.String()] = int(v)
@@ -177,7 +186,7 @@ func interfaceToStringIntMap(m interface{}) (map[string]int, error) {
 func interfaceToIDSlice(slice interface{}) ([]int, error) {
 	reflectedSlice := reflect.ValueOf(slice)
 	if reflectedSlice.Kind() != reflect.Slice {
-		return nil, fmt.Errorf("expected a slice, got %T", slice)
+		return nil, &expectedSlice{slice}
 	}
 
 	result := make([]int, reflectedSlice.Len())
@@ -185,7 +194,7 @@ func interfaceToIDSlice(slice interface{}) ([]int, error) {
 	for i := 0; i < reflectedSlice.Len(); i++ {
 		v, ok := reflectedSlice.Index(i).Interface().(float64)
 		if !ok {
-			return nil, fmt.Errorf("cast failed, value type: %T", reflectedSlice.Index(i).Interface())
+			return nil, &failedCast{reflectedSlice.Index(i).Interface()}
 		}
 
 		result[i] = int(v)

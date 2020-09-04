@@ -10,7 +10,7 @@ type StreamingGetServerURLResponse struct {
 //
 // https://vk.com/dev/streaming.getServerUrl
 func (vk *VK) StreamingGetServerURL(params Params) (response StreamingGetServerURLResponse, err error) {
-	err = vk.RequestUnmarshal("streaming.getServerUrl", params, &response)
+	err = vk.RequestUnmarshal("streaming.getServerUrl", &response, params)
 	return
 }
 
@@ -23,7 +23,7 @@ type StreamingGetSettingsResponse struct {
 //
 // https://vk.com/dev/streaming.getSettings
 func (vk *VK) StreamingGetSettings(params Params) (response StreamingGetSettingsResponse, err error) {
-	err = vk.RequestUnmarshal("streaming.getSettings", params, &response)
+	err = vk.RequestUnmarshal("streaming.getSettings", &response, params)
 	return
 }
 
@@ -40,7 +40,7 @@ type StreamingGetStatsResponse []struct {
 //
 // https://vk.com/dev/streaming.getStats
 func (vk *VK) StreamingGetStats(params Params) (response StreamingGetStatsResponse, err error) {
-	err = vk.RequestUnmarshal("streaming.getStats", params, &response)
+	err = vk.RequestUnmarshal("streaming.getStats", &response, params)
 	return
 }
 
@@ -53,7 +53,7 @@ type StreamingGetStemResponse struct {
 //
 // https://vk.com/dev/streaming.getStem
 func (vk *VK) StreamingGetStem(params Params) (response StreamingGetStemResponse, err error) {
-	err = vk.RequestUnmarshal("streaming.getStem", params, &response)
+	err = vk.RequestUnmarshal("streaming.getStem", &response, params)
 	return
 }
 
@@ -61,7 +61,7 @@ func (vk *VK) StreamingGetStem(params Params) (response StreamingGetStemResponse
 //
 // https://vk.com/dev/streaming.setSettings
 func (vk *VK) StreamingSetSettings(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("streaming.setSettings", params, &response)
+	err = vk.RequestUnmarshal("streaming.setSettings", &response, params)
 
 	return
 }

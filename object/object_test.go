@@ -28,7 +28,7 @@ func TestBaseBoolInt_UnmarshalJSON(t *testing.T) {
 	f([]byte("true"), true, "")
 	f([]byte("0"), false, "")
 	f([]byte("false"), false, "")
-	f([]byte("null"), false, "json: cannot unmarshal ? into Go value of type BaseBoolInt")
+	f([]byte("null"), false, "json: cannot unmarshal null into Go value of type *object.BaseBoolInt")
 }
 
 func TestBaseImage_UnmarshalJSON(t *testing.T) {

@@ -9,7 +9,7 @@ import (
 //
 // https://vk.com/dev/newsfeed.addBan
 func (vk *VK) NewsfeedAddBan(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("newsfeed.addBan", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.addBan", &response, params)
 	return
 }
 
@@ -18,7 +18,7 @@ func (vk *VK) NewsfeedAddBan(params Params) (response int, err error) {
 //
 // https://vk.com/dev/newsfeed.deleteBan
 func (vk *VK) NewsfeedDeleteBan(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("newsfeed.deleteBan", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.deleteBan", &response, params)
 	return
 }
 
@@ -26,7 +26,7 @@ func (vk *VK) NewsfeedDeleteBan(params Params) (response int, err error) {
 //
 // https://vk.com/dev/newsfeed.deleteList
 func (vk *VK) NewsfeedDeleteList(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("newsfeed.deleteList", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.deleteList", &response, params)
 	return
 }
 
@@ -41,7 +41,7 @@ type NewsfeedGetResponse struct {
 //
 // https://vk.com/dev/newsfeed.get
 func (vk *VK) NewsfeedGet(params Params) (response NewsfeedGetResponse, err error) {
-	err = vk.RequestUnmarshal("newsfeed.get", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.get", &response, params)
 	return
 }
 
@@ -57,8 +57,7 @@ type NewsfeedGetBannedResponse struct {
 //
 // https://vk.com/dev/newsfeed.getBanned
 func (vk *VK) NewsfeedGetBanned(params Params) (response NewsfeedGetBannedResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("newsfeed.getBanned", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.getBanned", &response, params, Params{"extended": false})
 
 	return
 }
@@ -74,8 +73,7 @@ type NewsfeedGetBannedExtendedResponse struct {
 //
 // https://vk.com/dev/newsfeed.getBanned
 func (vk *VK) NewsfeedGetBannedExtended(params Params) (response NewsfeedGetBannedExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("newsfeed.getBanned", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.getBanned", &response, params, Params{"extended": true})
 
 	return
 }
@@ -91,7 +89,7 @@ type NewsfeedGetCommentsResponse struct {
 //
 // https://vk.com/dev/newsfeed.getComments
 func (vk *VK) NewsfeedGetComments(params Params) (response NewsfeedGetCommentsResponse, err error) {
-	err = vk.RequestUnmarshal("newsfeed.getComments", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.getComments", &response, params)
 	return
 }
 
@@ -102,7 +100,7 @@ type NewsfeedGetListsResponse struct {
 		ID        int    `json:"id"`
 		Title     string `json:"title"`
 		NoReposts int    `json:"no_reposts"`
-		SourceIDS []int  `json:"source_ids"` // FIXME: v2 SourceIDs
+		SourceIDs []int  `json:"source_ids"`
 	} `json:"items"`
 }
 
@@ -110,7 +108,7 @@ type NewsfeedGetListsResponse struct {
 //
 // https://vk.com/dev/newsfeed.getLists
 func (vk *VK) NewsfeedGetLists(params Params) (response NewsfeedGetListsResponse, err error) {
-	err = vk.RequestUnmarshal("newsfeed.getLists", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.getLists", &response, params)
 	return
 }
 
@@ -124,7 +122,7 @@ type NewsfeedGetMentionsResponse struct {
 //
 // https://vk.com/dev/newsfeed.getMentions
 func (vk *VK) NewsfeedGetMentions(params Params) (response NewsfeedGetMentionsResponse, err error) {
-	err = vk.RequestUnmarshal("newsfeed.getMentions", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.getMentions", &response, params)
 	return
 }
 
@@ -141,7 +139,7 @@ type NewsfeedGetRecommendedResponse struct {
 //
 // https://vk.com/dev/newsfeed.getRecommended
 func (vk *VK) NewsfeedGetRecommended(params Params) (response NewsfeedGetRecommendedResponse, err error) {
-	err = vk.RequestUnmarshal("newsfeed.getRecommended", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.getRecommended", &response, params)
 	return
 }
 
@@ -155,7 +153,7 @@ type NewsfeedGetSuggestedSourcesResponse struct {
 //
 // https://vk.com/dev/newsfeed.getSuggestedSources
 func (vk *VK) NewsfeedGetSuggestedSources(params Params) (response NewsfeedGetSuggestedSourcesResponse, err error) {
-	err = vk.RequestUnmarshal("newsfeed.getSuggestedSources", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.getSuggestedSources", &response, params)
 	return
 }
 
@@ -163,7 +161,7 @@ func (vk *VK) NewsfeedGetSuggestedSources(params Params) (response NewsfeedGetSu
 //
 // https://vk.com/dev/newsfeed.ignoreItem
 func (vk *VK) NewsfeedIgnoreItem(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("newsfeed.ignoreItem", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.ignoreItem", &response, params)
 	return
 }
 
@@ -171,7 +169,7 @@ func (vk *VK) NewsfeedIgnoreItem(params Params) (response int, err error) {
 //
 // https://vk.com/dev/newsfeed.saveList
 func (vk *VK) NewsfeedSaveList(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("newsfeed.saveList", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.saveList", &response, params)
 	return
 }
 
@@ -189,8 +187,7 @@ type NewsfeedSearchResponse struct {
 //
 // https://vk.com/dev/newsfeed.search
 func (vk *VK) NewsfeedSearch(params Params) (response NewsfeedSearchResponse, err error) {
-	params["extended"] = false
-	err = vk.RequestUnmarshal("newsfeed.search", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.search", &response, params, Params{"extended": false})
 
 	return
 }
@@ -211,8 +208,7 @@ type NewsfeedSearchExtendedResponse struct {
 //
 // https://vk.com/dev/newsfeed.search
 func (vk *VK) NewsfeedSearchExtended(params Params) (response NewsfeedSearchExtendedResponse, err error) {
-	params["extended"] = true
-	err = vk.RequestUnmarshal("newsfeed.search", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.search", &response, params, Params{"extended": true})
 
 	return
 }
@@ -221,7 +217,7 @@ func (vk *VK) NewsfeedSearchExtended(params Params) (response NewsfeedSearchExte
 //
 // https://vk.com/dev/newsfeed.unignoreItem
 func (vk *VK) NewsfeedUnignoreItem(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("newsfeed.unignoreItem", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.unignoreItem", &response, params)
 	return
 }
 
@@ -229,6 +225,6 @@ func (vk *VK) NewsfeedUnignoreItem(params Params) (response int, err error) {
 //
 // https://vk.com/dev/newsfeed.unsubscribe
 func (vk *VK) NewsfeedUnsubscribe(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("newsfeed.unsubscribe", params, &response)
+	err = vk.RequestUnmarshal("newsfeed.unsubscribe", &response, params)
 	return
 }

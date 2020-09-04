@@ -11,7 +11,7 @@ type StatsGetResponse []object.StatsPeriod
 //
 // https://vk.com/dev/stats.get
 func (vk *VK) StatsGet(params Params) (response StatsGetResponse, err error) {
-	err = vk.RequestUnmarshal("stats.get", params, &response)
+	err = vk.RequestUnmarshal("stats.get", &response, params)
 	return
 }
 
@@ -22,7 +22,7 @@ type StatsGetPostReachResponse []object.StatsWallpostStat
 //
 // https://vk.com/dev/stats.getPostReach
 func (vk *VK) StatsGetPostReach(params Params) (response StatsGetPostReachResponse, err error) {
-	err = vk.RequestUnmarshal("stats.getPostReach", params, &response)
+	err = vk.RequestUnmarshal("stats.getPostReach", &response, params)
 	return
 }
 
@@ -30,6 +30,6 @@ func (vk *VK) StatsGetPostReach(params Params) (response StatsGetPostReachRespon
 //
 // https://vk.com/dev/stats.trackVisitor
 func (vk *VK) StatsTrackVisitor(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("stats.trackVisitor", params, &response)
+	err = vk.RequestUnmarshal("stats.trackVisitor", &response, params)
 	return
 }

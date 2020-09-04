@@ -54,8 +54,10 @@ type WidgetsWidgetLikes struct {
 
 // WidgetsWidgetPage struct.
 type WidgetsWidgetPage struct {
-	Comments    WidgetsWidgetLikes `json:"comments,omitempty"`
-	Date        int                `json:"date,omitempty"`        // Date when Widgets on the page has been initialized firstly in Unixtime
+	Comments WidgetsWidgetLikes `json:"comments,omitempty"`
+
+	// Date when Widgets on the page has been initialized firstly in Unixtime
+	Date        int                `json:"date,omitempty"`
 	Description string             `json:"description,omitempty"` // Page description
 	ID          int                `json:"id,omitempty"`          // Page ID
 	Likes       WidgetsWidgetLikes `json:"likes,omitempty"`

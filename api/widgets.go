@@ -14,7 +14,7 @@ type WidgetsGetCommentsResponse struct {
 //
 // https://vk.com/dev/widgets.getComments
 func (vk *VK) WidgetsGetComments(params Params) (response WidgetsGetCommentsResponse, err error) {
-	err = vk.RequestUnmarshal("widgets.getComments", params, &response)
+	err = vk.RequestUnmarshal("widgets.getComments", &response, params)
 	return
 }
 
@@ -28,6 +28,6 @@ type WidgetsGetPagesResponse struct {
 //
 // https://vk.com/dev/widgets.getPages
 func (vk *VK) WidgetsGetPages(params Params) (response WidgetsGetPagesResponse, err error) {
-	err = vk.RequestUnmarshal("widgets.getPages", params, &response)
+	err = vk.RequestUnmarshal("widgets.getPages", &response, params)
 	return
 }

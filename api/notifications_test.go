@@ -28,7 +28,7 @@ func TestVK_NotificationsMarkAsViewed(t *testing.T) {
 
 	needUserToken(t)
 
-	res, err := vkUser.NotificationsMarkAsViewed(api.Params{})
+	res, err := vkUser.NotificationsMarkAsViewed(nil)
 	noError(t, err)
 	assert.NotEmpty(t, res)
 }

@@ -8,7 +8,7 @@ package object // import "github.com/SevereCloud/vksdk/object"
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
+	"reflect"
 )
 
 // Attachment interface.
@@ -33,7 +33,10 @@ func (b *BaseBoolInt) UnmarshalJSON(data []byte) (err error) {
 		*b = false
 	default:
 		// return json error
-		err = fmt.Errorf("json: cannot unmarshal ? into Go value of type BaseBoolInt")
+		err = &json.UnmarshalTypeError{
+			Value: string(data),
+			Type:  reflect.TypeOf((*BaseBoolInt)(nil)),
+		}
 	}
 
 	return
@@ -75,79 +78,11 @@ const (
 	SexMale
 )
 
-// EventType list.
-const (
-	EventConfirmation         = "confirmation"
-	EventMessageNew           = "message_new"
-	EventMessageReply         = "message_reply"
-	EventMessageEdit          = "message_edit"
-	EventMessageAllow         = "message_allow"
-	EventMessageDeny          = "message_deny"
-	EventMessageTypingState   = "message_typing_state"
-	EventPhotoNew             = "photo_new"
-	EventPhotoCommentNew      = "photo_comment_new"
-	EventPhotoCommentEdit     = "photo_comment_edit"
-	EventPhotoCommentRestore  = "photo_comment_restore"
-	EventPhotoCommentDelete   = "photo_comment_delete"
-	EventAudioNew             = "audio_new"
-	EventVideoNew             = "video_new"
-	EventVideoCommentNew      = "video_comment_new"
-	EventVideoCommentEdit     = "video_comment_edit"
-	EventVideoCommentRestore  = "video_comment_restore"
-	EventVideoCommentDelete   = "video_comment_delete"
-	EventWallPostNew          = "wall_post_new"
-	EventWallRepost           = "wall_repost"
-	EventWallReplyNew         = "wall_reply_new"
-	EventWallReplyEdit        = "wall_reply_edit"
-	EventWallReplyRestore     = "wall_reply_restore"
-	EventWallReplyDelete      = "wall_reply_delete"
-	EventBoardPostNew         = "board_post_new"
-	EventBoardPostEdit        = "board_post_edit"
-	EventBoardPostRestore     = "board_post_restore"
-	EventBoardPostDelete      = "board_post_delete"
-	EventMarketCommentNew     = "market_comment_new"
-	EventMarketCommentEdit    = "market_comment_edit"
-	EventMarketCommentRestore = "market_comment_restore"
-	EventMarketCommentDelete  = "market_comment_delete"
-	EventMarketOrderNew       = "market_order_new"
-	EventMarketOrderEdit      = "market_order_edit"
-	EventGroupLeave           = "group_leave"
-	EventGroupJoin            = "group_join"
-	EventUserBlock            = "user_block"
-	EventUserUnblock          = "user_unblock"
-	EventPollVoteNew          = "poll_vote_new"
-	EventGroupOfficersEdit    = "group_officers_edit"
-	EventGroupChangeSettings  = "group_change_settings"
-	EventGroupChangePhoto     = "group_change_photo"
-	EventVkpayTransaction     = "vkpay_transaction"
-	EventLeadFormsNew         = "lead_forms_new"
-	EventAppPayload           = "app_payload"
-	EventMessageRead          = "message_read"
-	EventLikeAdd              = "like_add"
-	EventLikeRemove           = "like_remove"
-)
-
-// GroupEvent struct.
-type GroupEvent struct {
-	Type    string          `json:"type"`
-	Object  json.RawMessage `json:"object"`
-	GroupID int             `json:"group_id"`
-	EventID string          `json:"event_id"`
-	Secret  string          `json:"secret"`
-}
-
-// LongpollResponse struct.
-type LongpollResponse struct {
+// LongPollResponse struct.
+type LongPollResponse struct {
 	Ts      int             `json:"ts"`
 	Updates [][]interface{} `json:"updates"`
 	Failed  int             `json:"failed"`
-}
-
-// LongpollBotResponse struct.
-type LongpollBotResponse struct {
-	Ts      string       `json:"ts"`
-	Updates []GroupEvent `json:"updates"`
-	Failed  int          `json:"failed"`
 }
 
 // BaseCommentsInfo struct.
@@ -454,73 +389,6 @@ type Article struct {
 	Photo         PhotosPhoto `json:"photo"`
 }
 
-// Error struct.
-type Error struct {
-	Code       int    `json:"error_code"`
-	Message    string `json:"error_msg"`
-	Text       string `json:"error_text"`
-	CaptchaSID string `json:"captcha_sid"`
-	CaptchaImg string `json:"captcha_img"`
-
-	// In some cases VK requires to request action confirmation from the user
-	// (for Standalone apps only). Following error will be returned:
-	//
-	// Error code: 24
-	// Error text: Confirmation required
-	//
-	// Following parameter is transmitted with the error message as well:
-	//
-	// confirmation_text – text of the message to be shown in the default
-	// confirmation window.
-	//
-	// The app should display the default confirmation window with text from
-	// confirmation_text and two buttons: "Continue" and "Cancel". If user
-	// confirms the action repeat the request with an extra parameter: confirm = 1.
-	//
-	// See https://vk.com/dev/need_confirmation
-	ConfirmationText string `json:"confirmation_text"`
-
-	// In some cases VK requires a user validation procedure. . As a result
-	// starting from API version 5.0 (for the older versions captcha_error
-	// will be requested) following error will be returned as a reply to any
-	// API request:
-	//
-	// Error code: 17
-	// Error text: Validation Required
-	//
-	// Following parameter is transmitted with an error message:
-	// redirect_uri – a special address to open in a browser to pass the
-	// validation procedure.
-	//
-	// After passing the validation a user will be redirected to the service
-	// page:
-	//
-	// https://oauth.vk.com/blank.html#{Data required for validation}
-	//
-	// In case of successful validation following parameters will be
-	// transmitted after #:
-	//
-	// https://oauth.vk.com/blank.html#success=1&access_token={NEW USER TOKEN}&user_id={USER ID}
-	//
-	// If a token was not received by https a new secret will be transmitted
-	// as well.
-	//
-	// In case of unsuccessful validation following address is transmitted:
-	//
-	// https://oauth.vk.com/blank.html#fail=1
-	//
-	// See https://vk.com/dev/need_validation
-	RedirectURI   string             `json:"redirect_uri"`
-	RequestParams []BaseRequestParam `json:"request_params"`
-}
-
-// ExecuteError struct.
-type ExecuteError struct {
-	Method    string `json:"method"`
-	ErrorCode int    `json:"error_code"`
-	ErrorMsg  string `json:"error_msg"`
-}
-
 // ExtendedResponse struct.
 type ExtendedResponse struct {
 	Profiles []UsersUser   `json:"profiles,omitempty"`
@@ -631,11 +499,43 @@ const (
 
 // Button action type.
 const (
-	ButtonText     = "text"
-	ButtonVKPay    = "vkpay"
-	ButtonVKApp    = "open_app"
+	// A button that sends a message with text specified in the label.
+	ButtonText = "text"
+
+	// Opens the VK Pay window with predefined parameters. The button is called
+	// “Pay with VK Pay” (VK Pay is displayed as a logo). This button always
+	// stretches to the whole keyboard width.
+	ButtonVKPay = "vkpay"
+
+	// Opens a specified VK Apps app. This button always stretches to the whole
+	// keyboard width.
+	ButtonVKApp = "open_app"
+
+	// Sends the location to the chat. This button always stretches to the
+	// whole keyboard width.
 	ButtonLocation = "location"
+
+	// Opens the specified link.
 	ButtonOpenLink = "open_link"
+
+	// Allows, without sending a message from the user, to receive a
+	// notification about pressing the button and perform the necessary action.
+	ButtonCallback = "callback"
+)
+
+// Button color. This parameter is used only for buttons with the text and callback types.
+const (
+	Primary = "primary" // Blue button, indicates the main action. #5181B8
+	ButtonBlue
+
+	Secondary = "secondary" // Default white button. #FFFFFF
+	ButtonWhite
+
+	Negative = "negative" // Dangerous or negative action (cancel, delete etc.) #E64646
+	ButtonRed
+
+	Positive = "positive" // Accept, agree. #4BB34B
+	ButtonGreen
 )
 
 // Platform content creation platform.
@@ -652,4 +552,12 @@ const (
 	PlatformWindows               // Windows 8
 	PlatformFull                  // full web version
 	PlatformOther                 // other apps
+)
+
+// Conversations types.
+const (
+	PeerUser  = "user"
+	PeerChat  = "chat"
+	PeerGroup = "group"
+	PeerEmail = "email"
 )

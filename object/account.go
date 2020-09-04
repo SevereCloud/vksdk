@@ -78,21 +78,44 @@ type AccountAccountCounters struct {
 
 // AccountInfo struct.
 type AccountInfo struct {
-	Country           string      `json:"country"`           // Country code
-	Lang              int         `json:"lang"`              // Language ID
-	HTTPSRequired     BaseBoolInt `json:"https_required"`    // Information whether HTTPS-only is enabled
-	Intro             BaseBoolInt `json:"intro"`             // Information whether user has been processed intro
-	NoWallReplies     BaseBoolInt `json:"no_wall_replies"`   // Information whether wall comments should be hidden
-	OwnPostsDefault   BaseBoolInt `json:"own_posts_default"` // Information whether only owners posts should be shown
-	TwoFactorRequired BaseBoolInt `json:"2fa_required"`      // Two factor authentication is enabled
+
+	// Country code.
+	Country string `json:"country"`
+
+	// Language ID.
+	Lang int `json:"lang"`
+
+	// Information whether HTTPS-only is enabled.
+	HTTPSRequired BaseBoolInt `json:"https_required"`
+
+	// Information whether user has been processed intro.
+	Intro BaseBoolInt `json:"intro"`
+
+	// Information whether wall comments should be hidden.
+	NoWallReplies BaseBoolInt `json:"no_wall_replies"`
+
+	// Information whether only owners posts should be shown.
+	OwnPostsDefault BaseBoolInt `json:"own_posts_default"`
+
+	// Two factor authentication is enabled.
+	TwoFactorRequired         BaseBoolInt       `json:"2fa_required"`
+	EuUser                    BaseBoolInt       `json:"eu_user"`
+	CommunityComments         BaseBoolInt       `json:"community_comments"`
+	IsLiveStreamingEnabled    BaseBoolInt       `json:"is_live_streaming_enabled"`
+	IsNewLiveStreamingEnabled BaseBoolInt       `json:"is_new_live_streaming_enabled"`
+	LinkRedirects             map[string]string `json:"link_redirects"`
 }
 
 // AccountPushSettings struct.
 type AccountPushSettings struct {
 	Conversations AccountPushConversations `json:"conversations"`
-	Disabled      BaseBoolInt              `json:"disabled"`       // Information whether notifications are disabled
-	DisabledUntil int                      `json:"disabled_until"` // Time until that notifications are disabled in Unixtime
-	Settings      AccountPushParams        `json:"settings"`
+
+	// Information whether notifications are disabled.
+	Disabled BaseBoolInt `json:"disabled"`
+
+	// Time until that notifications are disabled in Unixtime.
+	DisabledUntil int               `json:"disabled_until"`
+	Settings      AccountPushParams `json:"settings"`
 }
 
 // AccountUserSettings struct.

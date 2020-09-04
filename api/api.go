@@ -14,17 +14,18 @@ import (
 	"net/url"
 	"reflect"
 	"sync"
+	"sync/atomic"
 	"time"
 
-	"github.com/SevereCloud/vksdk/api/errors"
+	"github.com/SevereCloud/vksdk"
 	"github.com/SevereCloud/vksdk/internal"
 	"github.com/SevereCloud/vksdk/object"
 )
 
 // Api constants.
 const (
-	Version      = "5.103"
-	APIMethodURL = "https://api.vk.com/method/" // TODO: v2 rename (name starts with package name)
+	Version   = vksdk.API
+	MethodURL = "https://api.vk.com/method/"
 )
 
 // VKontakte API methods (except for methods from secure and ads sections)
@@ -80,39 +81,25 @@ const (
 
 // VK struct.
 type VK struct {
+	accessTokens []string
+	lastToken    uint32
 	MethodURL    string
-	AccessToken  string
 	Version      string
 	Client       *http.Client
-	IsPoolClient bool
 	Limit        int
 	UserAgent    string
-	Handler      func(method string, params Params) (Response, error)
+	Handler      func(method string, params ...Params) (Response, error)
 
-	tokenPool internal.TokenPool
-	mux       sync.Mutex
-	lastTime  time.Time
-	rps       int
-}
-
-// Error struct VK.
-//
-// Deprecated: use object.Error.
-type Error struct {
-	Code             int                       `json:"error_code"`
-	Message          string                    `json:"error_msg"`
-	Text             string                    `json:"error_text"`
-	CaptchaSID       string                    `json:"captcha_sid"`
-	CaptchaImg       string                    `json:"captcha_img"`
-	ConfirmationText string                    `json:"confirmation_text"` //  text of the message to be shown in the default confirmation window.
-	RequestParams    []object.BaseRequestParam `json:"request_params"`
+	mux      sync.Mutex
+	lastTime time.Time
+	rps      int
 }
 
 // Response struct.
 type Response struct {
-	Response      json.RawMessage       `json:"response"`
-	Error         object.Error          `json:"error"`
-	ExecuteErrors []object.ExecuteError `json:"execute_errors"`
+	Response      json.RawMessage `json:"response"`
+	Error         Error           `json:"error"`
+	ExecuteErrors ExecuteErrors   `json:"execute_errors"`
 }
 
 // NewVK returns a new VK.
@@ -126,40 +113,27 @@ type Response struct {
 // your application. You can configure the VKSDK to use the custom
 // HTTP Client by setting the VK.Client value.
 //
-// This set limit 20 requests per second.
-func NewVK(token string) *VK {
+// This set limit 20 requests per second for one token.
+func NewVK(tokens ...string) *VK {
 	var vk VK
-	vk.AccessToken = token
+
+	vk.accessTokens = tokens
 	vk.Version = Version
 
 	vk.Handler = vk.defaultHandler
 
-	// TODO: remove in v2
-	vk.MethodURL = APIMethodURL
+	vk.MethodURL = MethodURL
 	vk.Client = http.DefaultClient
 	vk.Limit = LimitGroupToken
 	vk.UserAgent = internal.UserAgent
-	vk.IsPoolClient = false
 
 	return &vk
 }
 
-// NewVKWithPool is similar to NewVK but uses token pool for api calls.
-// Use this if you need to increase RPS limit.
-func NewVKWithPool(tokens ...string) *VK {
-	vk := NewVK("pool")
-	vk.tokenPool = internal.NewTokenPool(tokens...)
-	vk.Limit = LimitGroupToken * len(tokens)
-	vk.IsPoolClient = true
-
-	return vk
-}
-
-// Init VK API.
-//
-// Deprecated: use NewVK.
-func Init(token string) *VK {
-	return NewVK(token)
+// getToken return next token (simple round-robin).
+func (vk *VK) getToken() string {
+	i := atomic.AddUint32(&vk.lastToken, 1)
+	return vk.accessTokens[(int(i)-1)%len(vk.accessTokens)]
 }
 
 // Params type.
@@ -210,12 +184,14 @@ func (p Params) Confirm(v bool) Params {
 }
 
 // defaultHandler provides access to VK API methods.
-func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
+func (vk *VK) defaultHandler(method string, sliceParams ...Params) (Response, error) {
 	u := vk.MethodURL + method
 	query := url.Values{}
 
-	for key, value := range params {
-		query.Set(key, FmtValue(value, 0))
+	for _, params := range sliceParams {
+		for key, value := range params {
+			query.Set(key, FmtValue(value, 0))
+		}
 	}
 
 	attempt := 0
@@ -233,7 +209,7 @@ func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 			if sleepTime < 0 {
 				vk.lastTime = time.Now()
 				vk.rps = 0
-			} else if vk.rps == vk.Limit {
+			} else if vk.rps == vk.Limit*len(vk.accessTokens) {
 				time.Sleep(sleepTime)
 				vk.lastTime = time.Now()
 				vk.rps = 0
@@ -261,7 +237,7 @@ func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 		mediatype, _, _ := mime.ParseMediaType(resp.Header.Get("Content-Type"))
 		if mediatype != "application/json" {
 			_ = resp.Body.Close()
-			return response, fmt.Errorf("invalid content-type")
+			return response, &InvalidContentType{mediatype}
 		}
 
 		err = json.NewDecoder(resp.Body).Decode(&response)
@@ -272,121 +248,45 @@ func (vk *VK) defaultHandler(method string, params Params) (Response, error) {
 
 		_ = resp.Body.Close()
 
-		err = errors.New(response.Error)
-		if err != nil {
-			if errors.GetType(err) == errors.TooMany && attempt < vk.Limit {
+		switch response.Error.Code {
+		case ErrNoType:
+			return response, nil
+		case ErrTooMany:
+			if attempt < vk.Limit {
 				continue
 			}
 
-			return response, err
+			return response, &response.Error
 		}
 
-		return response, nil
+		return response, &response.Error
 	}
 }
 
 // Request provides access to VK API methods.
-//
-// TODO: remove in v2.
-func (vk *VK) Request(method string, params Params) ([]byte, error) {
-	copyParams := make(Params)
-	for key, value := range params {
-		copyParams[key] = FmtValue(value, 0)
+func (vk *VK) Request(method string, sliceParams ...Params) ([]byte, error) {
+	token := vk.getToken()
+
+	reqParams := Params{
+		"access_token": token,
+		"v":            vk.Version,
 	}
 
-	if _, ok := copyParams["access_token"]; !ok {
-		token := vk.AccessToken
-		if vk.IsPoolClient {
-			token = vk.tokenPool.Get()
-		}
+	sliceParams = append(sliceParams, reqParams)
 
-		copyParams["access_token"] = token
-	}
-
-	if _, ok := copyParams["v"]; !ok {
-		copyParams["v"] = vk.Version
-	}
-
-	resp, err := vk.Handler(method, copyParams)
+	resp, err := vk.Handler(method, sliceParams...)
 
 	return resp.Response, err
 }
 
 // RequestUnmarshal provides access to VK API methods.
-func (vk *VK) RequestUnmarshal(method string, params Params, obj interface{}) error {
-	rawResponse, err := vk.Request(method, params)
+func (vk *VK) RequestUnmarshal(method string, obj interface{}, sliceParams ...Params) error {
+	rawResponse, err := vk.Request(method, sliceParams...)
 	if err != nil {
 		return err
 	}
 
 	return json.Unmarshal(rawResponse, &obj)
-}
-
-// ExecuteWithArgs a universal method for calling a sequence of other methods
-// while saving and filtering interim results.
-//
-// The Args map variable allows you to retrieve the parameters passed during
-// the request and avoids code formatting.
-//
-// 	return Args.code; // return parameter "code"
-// 	return Args.v; // return parameter "v"
-//
-// https://vk.com/dev/execute
-func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error {
-	token := vk.AccessToken
-	if vk.IsPoolClient {
-		token = vk.tokenPool.Get()
-	}
-
-	copyParams := make(Params)
-	for key, value := range params {
-		copyParams[key] = FmtValue(value, 0)
-	}
-
-	copyParams["code"] = code
-	copyParams["access_token"] = token
-	copyParams["v"] = vk.Version
-
-	resp, err := vk.Handler("execute", copyParams)
-
-	// Add execute errors
-	for _, executeError := range resp.ExecuteErrors {
-		context := object.Error{
-			Code:    executeError.ErrorCode,
-			Message: executeError.ErrorMsg,
-			RequestParams: []object.BaseRequestParam{
-				{
-					Key:   "method",
-					Value: executeError.Method,
-				},
-			},
-		}
-
-		err = errors.AddErrorContext(err, context)
-	}
-
-	jsonErr := json.Unmarshal(resp.Response, &obj)
-	if jsonErr != nil {
-		return jsonErr
-	}
-
-	return err
-}
-
-// Execute a universal method for calling a sequence of other methods while
-// saving and filtering interim results.
-//
-// https://vk.com/dev/execute
-func (vk *VK) Execute(code string, obj interface{}) error {
-	return vk.ExecuteWithArgs(code, Params{}, obj)
-}
-
-func fmtBool(value bool) string {
-	if value {
-		return "1"
-	}
-
-	return "0"
 }
 
 func fmtReflectValue(value reflect.Value, depth int) string {
@@ -439,10 +339,4 @@ func FmtValue(value interface{}, depth int) string {
 	}
 
 	return fmtReflectValue(reflect.ValueOf(value), depth)
-}
-
-// CaptchaForce api method.
-func (vk *VK) CaptchaForce(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("captcha.force", params, &response)
-	return
 }

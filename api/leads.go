@@ -11,7 +11,7 @@ type LeadsCheckUserResponse object.LeadsChecked
 //
 // https://vk.com/dev/leads.checkUser
 func (vk *VK) LeadsCheckUser(params Params) (response LeadsCheckUserResponse, err error) {
-	err = vk.RequestUnmarshal("leads.checkUser", params, &response)
+	err = vk.RequestUnmarshal("leads.checkUser", &response, params)
 	return
 }
 
@@ -22,7 +22,7 @@ type LeadsCompleteResponse object.LeadsComplete
 //
 // https://vk.com/dev/leads.complete
 func (vk *VK) LeadsComplete(params Params) (response LeadsCompleteResponse, err error) {
-	err = vk.RequestUnmarshal("leads.complete", params, &response)
+	err = vk.RequestUnmarshal("leads.complete", &response, params)
 	return
 }
 
@@ -33,7 +33,7 @@ type LeadsGetStatsResponse object.LeadsLead
 //
 // https://vk.com/dev/leads.getStats
 func (vk *VK) LeadsGetStats(params Params) (response LeadsGetStatsResponse, err error) {
-	err = vk.RequestUnmarshal("leads.getStats", params, &response)
+	err = vk.RequestUnmarshal("leads.getStats", &response, params)
 	return
 }
 
@@ -44,7 +44,7 @@ type LeadsGetUsersResponse object.LeadsEntry
 //
 // https://vk.com/dev/leads.getUsers
 func (vk *VK) LeadsGetUsers(params Params) (response LeadsGetUsersResponse, err error) {
-	err = vk.RequestUnmarshal("leads.getUsers", params, &response)
+	err = vk.RequestUnmarshal("leads.getUsers", &response, params)
 	return
 }
 
@@ -58,7 +58,7 @@ type LeadsMetricHitResponse struct {
 //
 // https://vk.com/dev/leads.metricHit
 func (vk *VK) LeadsMetricHit(params Params) (response LeadsMetricHitResponse, err error) {
-	err = vk.RequestUnmarshal("leads.metricHit", params, &response)
+	err = vk.RequestUnmarshal("leads.metricHit", &response, params)
 	return
 }
 
@@ -69,6 +69,6 @@ type LeadsStartResponse object.LeadsStart
 //
 // https://vk.com/dev/leads.start
 func (vk *VK) LeadsStart(params Params) (response LeadsStartResponse, err error) {
-	err = vk.RequestUnmarshal("leads.start", params, &response)
+	err = vk.RequestUnmarshal("leads.start", &response, params)
 	return
 }

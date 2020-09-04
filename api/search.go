@@ -12,6 +12,6 @@ type SearchGetHintsResponse struct {
 //
 // https://vk.com/dev/search.getHints
 func (vk *VK) SearchGetHints(params Params) (response SearchGetHintsResponse, err error) {
-	err = vk.RequestUnmarshal("search.getHints", params, &response)
+	err = vk.RequestUnmarshal("search.getHints", &response, params)
 	return
 }

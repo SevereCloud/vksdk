@@ -1,11 +1,10 @@
 package api_test
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/api"
-
-	"github.com/SevereCloud/vksdk/api/errors"
 )
 
 func TestVK_StreamingGetServerURL(t *testing.T) {
@@ -14,7 +13,7 @@ func TestVK_StreamingGetServerURL(t *testing.T) {
 	needServiceToken(t)
 
 	t.Run("StreamingGetServerURL not empty", func(t *testing.T) {
-		response, err := vkService.StreamingGetServerURL(api.Params{})
+		response, err := vkService.StreamingGetServerURL(nil)
 		if err != nil {
 			t.Errorf("%v", err)
 		}
@@ -34,7 +33,7 @@ func TestVK_StreamingGetSettings(t *testing.T) {
 	needServiceToken(t)
 
 	t.Run("StreamingGetSettings not empty", func(t *testing.T) {
-		response, err := vkService.StreamingGetSettings(api.Params{})
+		response, err := vkService.StreamingGetSettings(nil)
 		if err != nil {
 			t.Errorf("%v", err)
 		}
@@ -113,36 +112,36 @@ func TestVK_StreamingError(t *testing.T) {
 	vk := api.NewVK("")
 
 	t.Run("StreamingGetServerURL error", func(t *testing.T) {
-		_, err := vk.StreamingGetServerURL(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		_, err := vk.StreamingGetServerURL(nil)
+		if !errors.Is(err, api.ErrAuth) {
 			t.Errorf("StreamingGetServerURL error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingGetSettings error", func(t *testing.T) {
-		_, err := vk.StreamingGetSettings(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		_, err := vk.StreamingGetSettings(nil)
+		if !errors.Is(err, api.ErrAuth) {
 			t.Errorf("StreamingGetSettings error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingGetStats error", func(t *testing.T) {
-		_, err := vk.StreamingGetStats(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		_, err := vk.StreamingGetStats(nil)
+		if !errors.Is(err, api.ErrAuth) {
 			t.Errorf("StreamingGetStats error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingGetStem error", func(t *testing.T) {
-		_, err := vk.StreamingGetStem(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		_, err := vk.StreamingGetStem(nil)
+		if !errors.Is(err, api.ErrAuth) {
 			t.Errorf("StreamingGetStem error bad %v", err)
 		}
 	})
 
 	t.Run("StreamingSetSettings error", func(t *testing.T) {
-		_, err := vk.StreamingSetSettings(api.Params{})
-		if errors.GetType(err) != errors.Auth {
+		_, err := vk.StreamingSetSettings(nil)
+		if !errors.Is(err, api.ErrAuth) {
 			t.Errorf("StreamingSetSettings error bad %v", err)
 		}
 	})

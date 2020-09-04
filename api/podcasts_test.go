@@ -13,13 +13,13 @@ func TestVK_PodcastsGet(t *testing.T) {
 	t.Skip("7 Permission to perform this action is denied")
 	needUserToken(t)
 
-	_, err := vkUser.PodcastsGetCatalog(api.Params{})
+	_, err := vkUser.PodcastsGetCatalog(nil)
 	noError(t, err)
 
-	_, err = vkUser.PodcastsGetCatalogExtended(api.Params{})
+	_, err = vkUser.PodcastsGetCatalogExtended(nil)
 	noError(t, err)
 
-	_, err = vkUser.PodcastsGetCategories(api.Params{})
+	_, err = vkUser.PodcastsGetCategories(nil)
 	noError(t, err)
 
 	_, err = vkUser.PodcastsGetEpisodes(api.Params{
@@ -27,16 +27,16 @@ func TestVK_PodcastsGet(t *testing.T) {
 	})
 	noError(t, err)
 
-	_, err = vkUser.PodcastsGetFeed(api.Params{})
+	_, err = vkUser.PodcastsGetFeed(nil)
 	noError(t, err)
 
-	_, err = vkUser.PodcastsGetFeedExtended(api.Params{})
+	_, err = vkUser.PodcastsGetFeedExtended(nil)
 	noError(t, err)
 
-	_, err = vkUser.PodcastsGetStartPage(api.Params{})
+	_, err = vkUser.PodcastsGetStartPage(nil)
 	noError(t, err)
 
-	_, err = vkUser.PodcastsGetStartPageExtended(api.Params{})
+	_, err = vkUser.PodcastsGetStartPageExtended(nil)
 	noError(t, err)
 }
 

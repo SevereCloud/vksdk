@@ -26,6 +26,6 @@ func TestVK_StatsTrackVisitor(t *testing.T) {
 
 	needUserToken(t)
 
-	_, err := vkUser.StatsTrackVisitor(api.Params{})
+	_, err := vkUser.StatsTrackVisitor(nil)
 	noError(t, err)
 }

@@ -8,7 +8,7 @@
 ```go
 // import "github.com/SevereCloud/vksdk/longpoll-user/v3"
 
-w := wrapper.NewWrapper(&lp)
+w := wrapper.NewWrapper(lp)
 
 // event with code 4
 w.OnNewMessage(func(m wrapper.NewMessage) {

@@ -4,20 +4,20 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/internal"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCharsetReader(t *testing.T) {
 	t.Parallel()
 
-	f := func(charset string, wantErr bool) {
+	f := func(charset string, wantErr string) {
 		_, err := internal.CharsetReader(charset, nil)
-		if (err != nil) != wantErr {
-			t.Errorf("CharsetReader() error = %v, wantErr %v", err, wantErr)
-			return
+		if err != nil || wantErr != "" {
+			assert.EqualError(t, err, wantErr)
 		}
 	}
 
-	f("", true)
-	f("windows-1251", false)
-	f("WINDOWS-1251", false)
+	f("test", "unknown charset: test")
+	f("windows-1251", "")
+	f("WINDOWS-1251", "")
 }

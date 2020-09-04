@@ -34,10 +34,11 @@ linters:
     - godot
     - asciicheck
     - nolintlint
+    - gofumpt
+    - goerr113
 
 # - testpackage # TODO: Fix testpackage
 # - nestif # TODO: Fix nestif
-# - goerr113 # TODO: Enable v2
 
 # don't enable:
 # - depguard
@@ -53,6 +54,9 @@ linters:
 # - rowserrcheck
 # - scopelint
 # - gomodguard
+# - exhaustive
+# - nlreturn
+# - gci
 
 issues:
   exclude-rules:
@@ -73,7 +77,3 @@ issues:
       text: "ST1003:.*(Ts|ts).*TS"
 
   exclude-use-default: false
-
-
-service:
-  golangci-lint-version: 1.24.x
