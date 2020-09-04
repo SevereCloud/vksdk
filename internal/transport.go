@@ -24,7 +24,7 @@ const (
 	UserAgentKey
 	GroupIDKey
 	EventIDKey
-	LongpollTsKey
+	LongPollTsKey
 )
 
 // ContextClient return *http.Client.

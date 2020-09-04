@@ -5,8 +5,8 @@
 
 ## Подключение Bots Long Poll API
 
-Чтобы использовать Bots Long Poll API, откройте раздел «Управление сообществом»,
-на вкладке «Работа с API»→«Long Poll API» выберите «Включён».
+Long Poll настраивается автоматически. Вам не требуется заходить в настройки
+сообщества.
 
 ### Версия API
 
@@ -27,7 +27,7 @@ vk := api.NewVK("<TOKEN>")
 А потом сам longpoll
 
 ```go
-lp, err := longpoll.NewLongpoll(vk api.VK, groupID int)
+lp, err := longpoll.NewLongPoll(vk api.VK, groupID int)
 // По умолчанию Wait = 25
 // lp.Wait = 90
 // lp.Ts = "123"
@@ -66,7 +66,7 @@ lp.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
 или специальной обработки `failed`), можно воспользоваться следующим обработчиком.
 
 ```go
-lp.FullResponse(func(resp object.LongpollBotResponse) {
+lp.FullResponse(func(resp object.LongPollBotResponse) {
 	...
 })
 ```
@@ -117,7 +117,7 @@ import (
 
 func main() {
 	vk := api.NewVK("<TOKEN>")
-	lp, err := longpoll.NewLongpoll(vk, 12345678)
+	lp, err := longpoll.NewLongPoll(vk, 12345678)
 	if err != nil {
 		panic(err)
 	}

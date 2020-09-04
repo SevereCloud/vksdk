@@ -69,7 +69,7 @@ func TestWrapper(t *testing.T) {
 
 	exit := make(chan bool, 1)
 
-	lp, err := longpoll.NewLongpoll(vkUser, 2)
+	lp, err := longpoll.NewLongPoll(vkUser, 2)
 	if err != nil {
 		t.Fatalf("lp.Init err: %v", err)
 	}

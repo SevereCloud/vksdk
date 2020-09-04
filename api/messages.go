@@ -363,7 +363,7 @@ func (vk *VK) MessagesGetLongPollHistory(params Params) (response MessagesGetLon
 }
 
 // MessagesGetLongPollServerResponse struct.
-type MessagesGetLongPollServerResponse object.MessagesLongpollParams
+type MessagesGetLongPollServerResponse object.MessagesLongPollParams
 
 // MessagesGetLongPollServer returns data required for connection to a Long Poll server.
 //

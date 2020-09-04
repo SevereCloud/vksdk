@@ -11,6 +11,6 @@ import (
 
 func TestTsFromContext(t *testing.T) {
 	const ts = 123
-	ctx := context.WithValue(context.Background(), internal.LongpollTsKey, ts)
+	ctx := context.WithValue(context.Background(), internal.LongPollTsKey, ts)
 	assert.Equal(t, ts, longpoll.TsFromContext(ctx))
 }

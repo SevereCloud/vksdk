@@ -82,8 +82,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Инициализируем longpoll
-	lp, err := longpoll.NewLongpoll(vk, group[0].ID)
+	// Инициализируем Long Poll
+	lp, err := longpoll.NewLongPoll(vk, group[0].ID)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -105,8 +105,8 @@ func main() {
 		}
 	})
 
-	// Запускаем Bots Longpoll
-	log.Println("Start longpoll")
+	// Запускаем Bots Long Poll
+	log.Println("Start Long Poll")
 	if err := lp.Run(); err != nil {
 		log.Fatal(err)
 	}

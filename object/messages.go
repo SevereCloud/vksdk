@@ -495,8 +495,8 @@ type MessagesLastActivity struct {
 	Time   int         `json:"time"`   // Time when user was online in Unixtime
 }
 
-// MessagesLongpollParams struct.
-type MessagesLongpollParams struct {
+// MessagesLongPollParams struct.
+type MessagesLongPollParams struct {
 	Key    string `json:"key"`    // Key
 	Pts    int    `json:"pts"`    // Persistent timestamp
 	Server string `json:"server"` // Server URL

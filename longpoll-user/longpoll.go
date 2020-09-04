@@ -23,7 +23,7 @@ the community access key(access rights required: messages).
 And then longpoll
 
 	mode := longpoll.ReceiveAttachments + longpoll.ExtendedEvents
-	lp, err := longpoll.NewLongpoll(vk, mode)
+	lp, err := longpoll.NewLongPoll(vk, mode)
 
 Setting
 
@@ -81,8 +81,8 @@ const (
 	ReturnRandomID Mode = 1 << 7
 )
 
-// Longpoll struct.
-type Longpoll struct {
+// LongPoll struct.
+type LongPoll struct {
 	Key     string
 	Server  string
 	Ts      int
@@ -93,17 +93,17 @@ type Longpoll struct {
 	Client  *http.Client
 
 	funcList             FuncList
-	funcFullResponseList []func(object.LongpollResponse)
+	funcFullResponseList []func(object.LongPollResponse)
 	inShutdown           int32
 }
 
-// NewLongpoll returns a new Longpoll.
+// NewLongPoll returns a new LongPoll.
 //
-// The Longpoll will use the http.DefaultClient.
+// The LongPoll will use the http.DefaultClient.
 // This means that if the http.DefaultClient is modified by other components
 // of your application the modifications will be picked up by the SDK as well.
-func NewLongpoll(vk *api.VK, mode Mode) (*Longpoll, error) {
-	lp := &Longpoll{
+func NewLongPoll(vk *api.VK, mode Mode) (*LongPoll, error) {
+	lp := &LongPoll{
 		VK:       vk,
 		Mode:     mode,
 		Version:  3,
@@ -117,7 +117,7 @@ func NewLongpoll(vk *api.VK, mode Mode) (*Longpoll, error) {
 	return lp, err
 }
 
-func (lp *Longpoll) updateServer(updateTs bool) error {
+func (lp *LongPoll) updateServer(updateTs bool) error {
 	params := api.Params{
 		"lp_version": lp.Version,
 	}
@@ -137,7 +137,7 @@ func (lp *Longpoll) updateServer(updateTs bool) error {
 	return nil
 }
 
-func (lp *Longpoll) check() (response object.LongpollResponse, err error) {
+func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 	u := fmt.Sprintf(
 		"https://%s?act=a_check&key=%s&ts=%d&wait=%d&mode=%d&version=%d",
 		lp.Server,
@@ -164,7 +164,7 @@ func (lp *Longpoll) check() (response object.LongpollResponse, err error) {
 	return
 }
 
-func (lp *Longpoll) checkResponse(response object.LongpollResponse) (err error) {
+func (lp *LongPoll) checkResponse(response object.LongPollResponse) (err error) {
 	switch response.Failed {
 	case 0:
 		lp.Ts = response.Ts
@@ -184,7 +184,7 @@ func (lp *Longpoll) checkResponse(response object.LongpollResponse) (err error) 
 }
 
 // Run handler.
-func (lp *Longpoll) Run() error {
+func (lp *LongPoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
 
 	for atomic.LoadInt32(&lp.inShutdown) == 0 {
@@ -208,16 +208,16 @@ func (lp *Longpoll) Run() error {
 }
 
 // Shutdown gracefully shuts down the longpoll without interrupting any active connections.
-func (lp *Longpoll) Shutdown() {
+func (lp *LongPoll) Shutdown() {
 	atomic.StoreInt32(&lp.inShutdown, 1)
 }
 
 // EventNew handler.
-func (lp *Longpoll) EventNew(key int, f EventNewFunc) {
+func (lp *LongPoll) EventNew(key int, f EventNewFunc) {
 	lp.funcList[key] = append(lp.funcList[key], f)
 }
 
 // FullResponse handler.
-func (lp *Longpoll) FullResponse(f func(object.LongpollResponse)) {
+func (lp *LongPoll) FullResponse(f func(object.LongPollResponse)) {
 	lp.funcFullResponseList = append(lp.funcFullResponseList, f)
 }

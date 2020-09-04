@@ -23,7 +23,7 @@ vk := api.NewVK("<TOKEN>")
 
 ```go
 mode := longpoll.ReceiveAttachments + longpoll.ExtendedEvents
-lp, err := longpoll.NewLongpoll(vk, mode)
+lp, err := longpoll.NewLongPoll(vk, mode)
 // По умолчанию Wait = 25
 // lp.Wait = 90
 // lp.Ts = 123
@@ -69,7 +69,7 @@ lp.EventNew(4, func(event []interface{}) {
 или специальной обработки `failed`), можно воспользоваться следующим обработчиком.
 
 ```go
-lp.FullResponse(func(resp object.LongpollResponse) {
+lp.FullResponse(func(resp object.LongPollResponse) {
 	...
 })
 ```
@@ -108,7 +108,7 @@ import (
 
 func main() {
 	vk := api.NewVK("<TOKEN>")
-	lp, err := longpoll.NewLongpoll(vk, 2)
+	lp, err := longpoll.NewLongPoll(vk, 2)
 	if err != nil {
 		log.Fatal(err)
 	}

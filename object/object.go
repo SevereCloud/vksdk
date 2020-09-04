@@ -78,8 +78,8 @@ const (
 	SexMale
 )
 
-// LongpollResponse struct.
-type LongpollResponse struct {
+// LongPollResponse struct.
+type LongPollResponse struct {
 	Ts      int             `json:"ts"`
 	Updates [][]interface{} `json:"updates"`
 	Failed  int             `json:"failed"`
