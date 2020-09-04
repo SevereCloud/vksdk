@@ -22,16 +22,6 @@ func TestVK_PhotosConfirmTag(t *testing.T) {
 	assert.Equal(t, 0, ok)
 }
 
-func TestVK_PhotosConfirmTags(t *testing.T) {
-	t.Parallel()
-
-	needUserToken(t)
-
-	ok, err := vkUser.PhotosConfirmTags(nil)
-	noError(t, err)
-	assert.Equal(t, 0, ok)
-}
-
 func TestVK_PhotosCopy(t *testing.T) {
 	t.Parallel()
 
@@ -132,15 +122,6 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 		"owner_id":   540042353,
 		"comment_id": commentID,
 	})
-	noError(t, err)
-}
-
-func TestVK_PhotosDeclineTags(t *testing.T) {
-	t.Parallel()
-
-	needUserToken(t)
-
-	_, err := vkUser.PhotosDeclineTags(nil)
 	noError(t, err)
 }
 
@@ -472,14 +453,5 @@ func TestVK_PhotosSearch(t *testing.T) {
 	_, err := vkUser.PhotosSearch(api.Params{
 		"q": "Nature",
 	})
-	noError(t, err)
-}
-
-func TestVK_PhotosSkipTags(t *testing.T) {
-	t.Parallel()
-
-	needUserToken(t)
-
-	_, err := vkUser.PhotosSkipTags(nil)
 	noError(t, err)
 }

@@ -12,14 +12,6 @@ func (vk *VK) PhotosConfirmTag(params Params) (response int, err error) {
 	return
 }
 
-// PhotosConfirmTags confirms a tags on a photo.
-//
-// https://vk.com/dev/photos.confirmTags
-func (vk *VK) PhotosConfirmTags(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.confirmTags", &response, params)
-	return
-}
-
 // PhotosCopy allows to copy a photo to the "Saved photos" album.
 //
 // https://vk.com/dev/photos.copy
@@ -44,14 +36,6 @@ func (vk *VK) PhotosCreateAlbum(params Params) (response PhotosCreateAlbumRespon
 // https://vk.com/dev/photos.createComment
 func (vk *VK) PhotosCreateComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("photos.createComment", &response, params)
-	return
-}
-
-// PhotosDeclineTags method.
-//
-// https://vk.com/dev/photos.declineTags
-func (vk *VK) PhotosDeclineTags(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.declineTags", &response, params)
 	return
 }
 
@@ -625,13 +609,5 @@ type PhotosSearchResponse struct {
 // https://vk.com/dev/photos.search
 func (vk *VK) PhotosSearch(params Params) (response PhotosSearchResponse, err error) {
 	err = vk.RequestUnmarshal("photos.search", &response, params)
-	return
-}
-
-// PhotosSkipTags returns a list of photos.
-//
-// https://vk.com/dev/photos.skipTags
-func (vk *VK) PhotosSkipTags(params Params) (response int, err error) {
-	err = vk.RequestUnmarshal("photos.skipTags", &response, params)
 	return
 }

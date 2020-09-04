@@ -36,26 +36,6 @@ func (b *PhotosConfirmTagBuilder) TagID(v int) *PhotosConfirmTagBuilder {
 	return b
 }
 
-// PhotosConfirmTagsBuilder builder.
-//
-// Confirms a tag on a photo.
-//
-// https://vk.com/dev/photos.confirmTags
-type PhotosConfirmTagsBuilder struct {
-	api.Params
-}
-
-// NewPhotosConfirmTagsBuilder func.
-func NewPhotosConfirmTagsBuilder() *PhotosConfirmTagsBuilder {
-	return &PhotosConfirmTagsBuilder{api.Params{}}
-}
-
-// Tags parameter.
-func (b *PhotosConfirmTagsBuilder) Tags(v string) *PhotosConfirmTagsBuilder {
-	b.Params["tags"] = v
-	return b
-}
-
 // PhotosCopyBuilder builder.
 //
 // Allows to copy a photo to the "Saved photos" album.
