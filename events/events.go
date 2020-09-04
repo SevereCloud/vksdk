@@ -128,6 +128,7 @@ type FuncList struct {
 	likeAdd              []LikeAddFunc
 	likeRemove           []LikeRemoveFunc
 	special              map[EventType][]func(context.Context, GroupEvent)
+	eventsList           []EventType
 }
 
 // NewFuncList returns a new FuncList.
@@ -586,6 +587,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 	return nil
 }
 
+// ListEvents return list of events.
+func (fl FuncList) ListEvents() []EventType {
+	return fl.eventsList
+}
+
 // OnEvent handler.
 func (fl *FuncList) OnEvent(eventType EventType, f func(context.Context, GroupEvent)) {
 	if fl.special == nil {
@@ -593,244 +599,293 @@ func (fl *FuncList) OnEvent(eventType EventType, f func(context.Context, GroupEv
 	}
 
 	fl.special[eventType] = append(fl.special[eventType], f)
+	fl.eventsList = append(fl.eventsList, eventType)
 }
 
 // MessageNew handler.
 func (fl *FuncList) MessageNew(f MessageNewFunc) {
 	fl.messageNew = append(fl.messageNew, f)
+	fl.eventsList = append(fl.eventsList, EventMessageNew)
 }
 
 // MessageReply handler.
 func (fl *FuncList) MessageReply(f MessageReplyFunc) {
 	fl.messageReply = append(fl.messageReply, f)
+	fl.eventsList = append(fl.eventsList, EventMessageReply)
 }
 
 // MessageEdit handler.
 func (fl *FuncList) MessageEdit(f MessageEditFunc) {
 	fl.messageEdit = append(fl.messageEdit, f)
+	fl.eventsList = append(fl.eventsList, EventMessageEdit)
 }
 
 // MessageAllow handler.
 func (fl *FuncList) MessageAllow(f MessageAllowFunc) {
 	fl.messageAllow = append(fl.messageAllow, f)
+	fl.eventsList = append(fl.eventsList, EventMessageAllow)
 }
 
 // MessageDeny handler.
 func (fl *FuncList) MessageDeny(f MessageDenyFunc) {
 	fl.messageDeny = append(fl.messageDeny, f)
+	fl.eventsList = append(fl.eventsList, EventMessageDeny)
 }
 
 // MessageTypingState handler.
 func (fl *FuncList) MessageTypingState(f MessageTypingStateFunc) {
 	fl.messageTypingState = append(fl.messageTypingState, f)
+	fl.eventsList = append(fl.eventsList, EventMessageTypingState)
 }
 
 // MessageEvent handler.
 func (fl *FuncList) MessageEvent(f MessageEventFunc) {
 	fl.messageEvent = append(fl.messageEvent, f)
+	fl.eventsList = append(fl.eventsList, EventMessageEvent)
 }
 
 // PhotoNew handler.
 func (fl *FuncList) PhotoNew(f PhotoNewFunc) {
 	fl.photoNew = append(fl.photoNew, f)
+	fl.eventsList = append(fl.eventsList, EventPhotoNew)
 }
 
 // PhotoCommentNew handler.
 func (fl *FuncList) PhotoCommentNew(f PhotoCommentNewFunc) {
 	fl.photoCommentNew = append(fl.photoCommentNew, f)
+	fl.eventsList = append(fl.eventsList, EventPhotoCommentNew)
 }
 
 // PhotoCommentEdit handler.
 func (fl *FuncList) PhotoCommentEdit(f PhotoCommentEditFunc) {
 	fl.photoCommentEdit = append(fl.photoCommentEdit, f)
+	fl.eventsList = append(fl.eventsList, EventPhotoCommentEdit)
 }
 
 // PhotoCommentRestore handler.
 func (fl *FuncList) PhotoCommentRestore(f PhotoCommentRestoreFunc) {
 	fl.photoCommentRestore = append(fl.photoCommentRestore, f)
+	fl.eventsList = append(fl.eventsList, EventPhotoCommentRestore)
 }
 
 // PhotoCommentDelete handler.
 func (fl *FuncList) PhotoCommentDelete(f PhotoCommentDeleteFunc) {
 	fl.photoCommentDelete = append(fl.photoCommentDelete, f)
+	fl.eventsList = append(fl.eventsList, EventPhotoCommentDelete)
 }
 
 // AudioNew handler.
 func (fl *FuncList) AudioNew(f AudioNewFunc) {
 	fl.audioNew = append(fl.audioNew, f)
+	fl.eventsList = append(fl.eventsList, EventAudioNew)
 }
 
 // VideoNew handler.
 func (fl *FuncList) VideoNew(f VideoNewFunc) {
 	fl.videoNew = append(fl.videoNew, f)
+	fl.eventsList = append(fl.eventsList, EventVideoNew)
 }
 
 // VideoCommentNew handler.
 func (fl *FuncList) VideoCommentNew(f VideoCommentNewFunc) {
 	fl.videoCommentNew = append(fl.videoCommentNew, f)
+	fl.eventsList = append(fl.eventsList, EventVideoCommentNew)
 }
 
 // VideoCommentEdit handler.
 func (fl *FuncList) VideoCommentEdit(f VideoCommentEditFunc) {
 	fl.videoCommentEdit = append(fl.videoCommentEdit, f)
+	fl.eventsList = append(fl.eventsList, EventVideoCommentEdit)
 }
 
 // VideoCommentRestore handler.
 func (fl *FuncList) VideoCommentRestore(f VideoCommentRestoreFunc) {
 	fl.videoCommentRestore = append(fl.videoCommentRestore, f)
+	fl.eventsList = append(fl.eventsList, EventVideoCommentRestore)
 }
 
 // VideoCommentDelete handler.
 func (fl *FuncList) VideoCommentDelete(f VideoCommentDeleteFunc) {
 	fl.videoCommentDelete = append(fl.videoCommentDelete, f)
+	fl.eventsList = append(fl.eventsList, EventVideoCommentDelete)
 }
 
 // WallPostNew handler.
 func (fl *FuncList) WallPostNew(f WallPostNewFunc) {
 	fl.wallPostNew = append(fl.wallPostNew, f)
+	fl.eventsList = append(fl.eventsList, EventWallPostNew)
 }
 
 // WallRepost handler.
 func (fl *FuncList) WallRepost(f WallRepostFunc) {
 	fl.wallRepost = append(fl.wallRepost, f)
+	fl.eventsList = append(fl.eventsList, EventWallRepost)
 }
 
 // WallReplyNew handler.
 func (fl *FuncList) WallReplyNew(f WallReplyNewFunc) {
 	fl.wallReplyNew = append(fl.wallReplyNew, f)
+	fl.eventsList = append(fl.eventsList, EventWallReplyNew)
 }
 
 // WallReplyEdit handler.
 func (fl *FuncList) WallReplyEdit(f WallReplyEditFunc) {
 	fl.wallReplyEdit = append(fl.wallReplyEdit, f)
+	fl.eventsList = append(fl.eventsList, EventWallReplyEdit)
 }
 
 // WallReplyRestore handler.
 func (fl *FuncList) WallReplyRestore(f WallReplyRestoreFunc) {
 	fl.wallReplyRestore = append(fl.wallReplyRestore, f)
+	fl.eventsList = append(fl.eventsList, EventWallReplyRestore)
 }
 
 // WallReplyDelete handler.
 func (fl *FuncList) WallReplyDelete(f WallReplyDeleteFunc) {
 	fl.wallReplyDelete = append(fl.wallReplyDelete, f)
+	fl.eventsList = append(fl.eventsList, EventWallReplyDelete)
 }
 
 // BoardPostNew handler.
 func (fl *FuncList) BoardPostNew(f BoardPostNewFunc) {
 	fl.boardPostNew = append(fl.boardPostNew, f)
+	fl.eventsList = append(fl.eventsList, EventBoardPostNew)
 }
 
 // BoardPostEdit handler.
 func (fl *FuncList) BoardPostEdit(f BoardPostEditFunc) {
 	fl.boardPostEdit = append(fl.boardPostEdit, f)
+	fl.eventsList = append(fl.eventsList, EventBoardPostEdit)
 }
 
 // BoardPostRestore handler.
 func (fl *FuncList) BoardPostRestore(f BoardPostRestoreFunc) {
 	fl.boardPostRestore = append(fl.boardPostRestore, f)
+	fl.eventsList = append(fl.eventsList, EventBoardPostRestore)
 }
 
 // BoardPostDelete handler.
 func (fl *FuncList) BoardPostDelete(f BoardPostDeleteFunc) {
 	fl.boardPostDelete = append(fl.boardPostDelete, f)
+	fl.eventsList = append(fl.eventsList, EventBoardPostDelete)
 }
 
 // MarketCommentNew handler.
 func (fl *FuncList) MarketCommentNew(f MarketCommentNewFunc) {
 	fl.marketCommentNew = append(fl.marketCommentNew, f)
+	fl.eventsList = append(fl.eventsList, EventMarketCommentNew)
 }
 
 // MarketCommentEdit handler.
 func (fl *FuncList) MarketCommentEdit(f MarketCommentEditFunc) {
 	fl.marketCommentEdit = append(fl.marketCommentEdit, f)
+	fl.eventsList = append(fl.eventsList, EventMarketCommentEdit)
 }
 
 // MarketCommentRestore handler.
 func (fl *FuncList) MarketCommentRestore(f MarketCommentRestoreFunc) {
 	fl.marketCommentRestore = append(fl.marketCommentRestore, f)
+	fl.eventsList = append(fl.eventsList, EventMarketCommentRestore)
 }
 
 // MarketCommentDelete handler.
 func (fl *FuncList) MarketCommentDelete(f MarketCommentDeleteFunc) {
 	fl.marketCommentDelete = append(fl.marketCommentDelete, f)
+	fl.eventsList = append(fl.eventsList, EventMarketCommentDelete)
 }
 
 // MarketOrderNew handler.
 func (fl *FuncList) MarketOrderNew(f MarketOrderNewFunc) {
 	fl.marketOrderNew = append(fl.marketOrderNew, f)
+	fl.eventsList = append(fl.eventsList, EventMarketOrderNew)
 }
 
 // MarketOrderEdit handler.
 func (fl *FuncList) MarketOrderEdit(f MarketOrderEditFunc) {
 	fl.marketOrderEdit = append(fl.marketOrderEdit, f)
+	fl.eventsList = append(fl.eventsList, EventMarketOrderEdit)
 }
 
 // GroupLeave handler.
 func (fl *FuncList) GroupLeave(f GroupLeaveFunc) {
 	fl.groupLeave = append(fl.groupLeave, f)
+	fl.eventsList = append(fl.eventsList, EventGroupLeave)
 }
 
 // GroupJoin handler.
 func (fl *FuncList) GroupJoin(f GroupJoinFunc) {
 	fl.groupJoin = append(fl.groupJoin, f)
+	fl.eventsList = append(fl.eventsList, EventGroupJoin)
 }
 
 // UserBlock handler.
 func (fl *FuncList) UserBlock(f UserBlockFunc) {
 	fl.userBlock = append(fl.userBlock, f)
+	fl.eventsList = append(fl.eventsList, EventUserBlock)
 }
 
 // UserUnblock handler.
 func (fl *FuncList) UserUnblock(f UserUnblockFunc) {
 	fl.userUnblock = append(fl.userUnblock, f)
+	fl.eventsList = append(fl.eventsList, EventUserUnblock)
 }
 
 // PollVoteNew handler.
 func (fl *FuncList) PollVoteNew(f PollVoteNewFunc) {
 	fl.pollVoteNew = append(fl.pollVoteNew, f)
+	fl.eventsList = append(fl.eventsList, EventPollVoteNew)
 }
 
 // GroupOfficersEdit handler.
 func (fl *FuncList) GroupOfficersEdit(f GroupOfficersEditFunc) {
 	fl.groupOfficersEdit = append(fl.groupOfficersEdit, f)
+	fl.eventsList = append(fl.eventsList, EventGroupOfficersEdit)
 }
 
 // GroupChangeSettings handler.
 func (fl *FuncList) GroupChangeSettings(f GroupChangeSettingsFunc) {
 	fl.groupChangeSettings = append(fl.groupChangeSettings, f)
+	fl.eventsList = append(fl.eventsList, EventGroupChangeSettings)
 }
 
 // GroupChangePhoto handler.
 func (fl *FuncList) GroupChangePhoto(f GroupChangePhotoFunc) {
 	fl.groupChangePhoto = append(fl.groupChangePhoto, f)
+	fl.eventsList = append(fl.eventsList, EventGroupChangePhoto)
 }
 
 // VkpayTransaction handler.
 func (fl *FuncList) VkpayTransaction(f VkpayTransactionFunc) {
 	fl.vkpayTransaction = append(fl.vkpayTransaction, f)
+	fl.eventsList = append(fl.eventsList, EventVkpayTransaction)
 }
 
 // LeadFormsNew handler.
 func (fl *FuncList) LeadFormsNew(f LeadFormsNewFunc) {
 	fl.leadFormsNew = append(fl.leadFormsNew, f)
+	fl.eventsList = append(fl.eventsList, EventLeadFormsNew)
 }
 
 // AppPayload handler.
 func (fl *FuncList) AppPayload(f AppPayloadFunc) {
 	fl.appPayload = append(fl.appPayload, f)
+	fl.eventsList = append(fl.eventsList, EventAppPayload)
 }
 
 // MessageRead handler.
 func (fl *FuncList) MessageRead(f MessageReadFunc) {
 	fl.messageRead = append(fl.messageRead, f)
+	fl.eventsList = append(fl.eventsList, EventMessageRead)
 }
 
 // LikeAdd handler.
 func (fl *FuncList) LikeAdd(f LikeAddFunc) {
 	fl.likeAdd = append(fl.likeAdd, f)
+	fl.eventsList = append(fl.eventsList, EventLikeAdd)
 }
 
 // LikeRemove handler.
 func (fl *FuncList) LikeRemove(f LikeRemoveFunc) {
 	fl.likeRemove = append(fl.likeRemove, f)
+	fl.eventsList = append(fl.eventsList, EventLikeRemove)
 }
