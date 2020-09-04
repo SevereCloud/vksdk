@@ -755,6 +755,16 @@ func (fl *FuncList) MarketCommentDelete(f MarketCommentDeleteFunc) {
 	fl.marketCommentDelete = append(fl.marketCommentDelete, f)
 }
 
+// MarketOrderNew handler.
+func (fl *FuncList) MarketOrderNew(f MarketOrderNewFunc) {
+	fl.marketOrderNew = append(fl.marketOrderNew, f)
+}
+
+// MarketOrderEdit handler.
+func (fl *FuncList) MarketOrderEdit(f MarketOrderEditFunc) {
+	fl.marketOrderEdit = append(fl.marketOrderEdit, f)
+}
+
 // GroupLeave handler.
 func (fl *FuncList) GroupLeave(f GroupLeaveFunc) {
 	fl.groupLeave = append(fl.groupLeave, f)

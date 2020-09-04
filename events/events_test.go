@@ -1048,6 +1048,7 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 		groupID := events.GroupIDFromContext(ctx)
 		assert.Equal(t, groupID, GID)
 	})
+	assert.Equal(t, []events.EventType{events.EventMarketCommentDelete}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
 		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
@@ -1057,7 +1058,7 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 
 	f(
 		events.GroupEvent{
-			Type:    "market_comment_delete",
+			Type:    events.EventMarketCommentDelete,
 			Object:  []byte("{}"),
 			GroupID: GID,
 		},
@@ -1065,7 +1066,74 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 	)
 	f(
 		events.GroupEvent{
-			Type:   "market_comment_delete",
+			Type:   events.EventMarketCommentDelete,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_HandlerMarketOrderNew(t *testing.T) {
+	t.Parallel()
+
+	fl := events.NewFuncList()
+
+	fl.MarketOrderNew(func(ctx context.Context, obj events.MarketOrderNewObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketOrderNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventMarketOrderNew,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_HandlerMarketOrderEdit(t *testing.T) {
+	t.Parallel()
+
+	fl := events.NewFuncList()
+
+	fl.MarketOrderEdit(func(ctx context.Context, obj events.MarketOrderEditObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventMarketOrderEdit}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketOrderEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventMarketOrderEdit,
 			Object: []byte(""),
 		},
 		true,
