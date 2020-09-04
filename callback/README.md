@@ -68,6 +68,7 @@ http.ListenAndServe(":8080", nil)
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
 
@@ -86,6 +87,58 @@ func main() {
 	})
 
 	http.HandleFunc("/callback", cb.HandleFunc)
+
+	http.ListenAndServe(":8080", nil)
+}
+```
+
+## Автоматическая настройка
+
+Для автоматической настройки callback сервера, существует метод `AutoSetting`.
+Данный метод:
+
+- проверяет существующие настройки callback
+- удаляет сервер, если он сломан
+- создает новый callback, если его нет
+- генерирует секрет
+- настраивает callback сервер с событиями, которые были прописаны в коде
+
+`AutoSetting` требуется запускать вместе с веб-сервером.
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+	"net/http"
+	"os"
+
+	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/callback"
+	"github.com/SevereCloud/vksdk/events"
+)
+
+func main() {
+	groupToken := "<TOKEN>" // рекомендуется использовать os.Getenv("TOKEN")
+	vk := api.NewVK(groupToken)
+
+	cb := callback.NewCallback()
+	cb.Title = "example-bot"
+
+	cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
+		log.Print(obj.Message.Text)
+	})
+
+	http.HandleFunc("/callback", cb.HandleFunc)
+
+	go func() {
+		err := cb.AutoSetting(vk, "https://example.com/callback")
+		if err != nil {
+			log.Println(err)
+			os.Exit(1)
+		}
+	}()
 
 	http.ListenAndServe(":8080", nil)
 }

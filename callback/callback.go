@@ -21,6 +21,7 @@ type Callback struct {
 	ConfirmationKey  string
 	SecretKeys       map[int]string
 	SecretKey        string
+	Title            string
 
 	events.FuncList
 }
@@ -28,6 +29,7 @@ type Callback struct {
 // NewCallback return *Callback.
 func NewCallback() *Callback {
 	cb := &Callback{
+		Title:            "vksdk",
 		ConfirmationKeys: make(map[int]string),
 		SecretKeys:       make(map[int]string),
 		FuncList:         *events.NewFuncList(),
