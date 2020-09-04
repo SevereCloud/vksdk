@@ -79,54 +79,54 @@ type GroupEvent struct {
 
 // FuncList struct.
 type FuncList struct {
-	messageNew           []MessageNewFunc
-	messageReply         []MessageReplyFunc
-	messageEdit          []MessageEditFunc
-	messageAllow         []MessageAllowFunc
-	messageDeny          []MessageDenyFunc
-	messageTypingState   []MessageTypingStateFunc
-	messageEvent         []MessageEventFunc
-	photoNew             []PhotoNewFunc
-	photoCommentNew      []PhotoCommentNewFunc
-	photoCommentEdit     []PhotoCommentEditFunc
-	photoCommentRestore  []PhotoCommentRestoreFunc
-	photoCommentDelete   []PhotoCommentDeleteFunc
-	audioNew             []AudioNewFunc
-	videoNew             []VideoNewFunc
-	videoCommentNew      []VideoCommentNewFunc
-	videoCommentEdit     []VideoCommentEditFunc
-	videoCommentRestore  []VideoCommentRestoreFunc
-	videoCommentDelete   []VideoCommentDeleteFunc
-	wallPostNew          []WallPostNewFunc
-	wallRepost           []WallRepostFunc
-	wallReplyNew         []WallReplyNewFunc
-	wallReplyEdit        []WallReplyEditFunc
-	wallReplyRestore     []WallReplyRestoreFunc
-	wallReplyDelete      []WallReplyDeleteFunc
-	boardPostNew         []BoardPostNewFunc
-	boardPostEdit        []BoardPostEditFunc
-	boardPostRestore     []BoardPostRestoreFunc
-	boardPostDelete      []BoardPostDeleteFunc
-	marketCommentNew     []MarketCommentNewFunc
-	marketCommentEdit    []MarketCommentEditFunc
-	marketCommentRestore []MarketCommentRestoreFunc
-	marketCommentDelete  []MarketCommentDeleteFunc
-	marketOrderNew       []MarketOrderNewFunc
-	marketOrderEdit      []MarketOrderEditFunc
-	groupLeave           []GroupLeaveFunc
-	groupJoin            []GroupJoinFunc
-	userBlock            []UserBlockFunc
-	userUnblock          []UserUnblockFunc
-	pollVoteNew          []PollVoteNewFunc
-	groupOfficersEdit    []GroupOfficersEditFunc
-	groupChangeSettings  []GroupChangeSettingsFunc
-	groupChangePhoto     []GroupChangePhotoFunc
-	vkpayTransaction     []VkpayTransactionFunc
-	leadFormsNew         []LeadFormsNewFunc
-	appPayload           []AppPayloadFunc
-	messageRead          []MessageReadFunc
-	likeAdd              []LikeAddFunc
-	likeRemove           []LikeRemoveFunc
+	messageNew           []func(context.Context, MessageNewObject)
+	messageReply         []func(context.Context, MessageReplyObject)
+	messageEdit          []func(context.Context, MessageEditObject)
+	messageAllow         []func(context.Context, MessageAllowObject)
+	messageDeny          []func(context.Context, MessageDenyObject)
+	messageTypingState   []func(context.Context, MessageTypingStateObject)
+	messageEvent         []func(context.Context, MessageEventObject)
+	photoNew             []func(context.Context, PhotoNewObject)
+	photoCommentNew      []func(context.Context, PhotoCommentNewObject)
+	photoCommentEdit     []func(context.Context, PhotoCommentEditObject)
+	photoCommentRestore  []func(context.Context, PhotoCommentRestoreObject)
+	photoCommentDelete   []func(context.Context, PhotoCommentDeleteObject)
+	audioNew             []func(context.Context, AudioNewObject)
+	videoNew             []func(context.Context, VideoNewObject)
+	videoCommentNew      []func(context.Context, VideoCommentNewObject)
+	videoCommentEdit     []func(context.Context, VideoCommentEditObject)
+	videoCommentRestore  []func(context.Context, VideoCommentRestoreObject)
+	videoCommentDelete   []func(context.Context, VideoCommentDeleteObject)
+	wallPostNew          []func(context.Context, WallPostNewObject)
+	wallRepost           []func(context.Context, WallRepostObject)
+	wallReplyNew         []func(context.Context, WallReplyNewObject)
+	wallReplyEdit        []func(context.Context, WallReplyEditObject)
+	wallReplyRestore     []func(context.Context, WallReplyRestoreObject)
+	wallReplyDelete      []func(context.Context, WallReplyDeleteObject)
+	boardPostNew         []func(context.Context, BoardPostNewObject)
+	boardPostEdit        []func(context.Context, BoardPostEditObject)
+	boardPostRestore     []func(context.Context, BoardPostRestoreObject)
+	boardPostDelete      []func(context.Context, BoardPostDeleteObject)
+	marketCommentNew     []func(context.Context, MarketCommentNewObject)
+	marketCommentEdit    []func(context.Context, MarketCommentEditObject)
+	marketCommentRestore []func(context.Context, MarketCommentRestoreObject)
+	marketCommentDelete  []func(context.Context, MarketCommentDeleteObject)
+	marketOrderNew       []func(context.Context, MarketOrderNewObject)
+	marketOrderEdit      []func(context.Context, MarketOrderEditObject)
+	groupLeave           []func(context.Context, GroupLeaveObject)
+	groupJoin            []func(context.Context, GroupJoinObject)
+	userBlock            []func(context.Context, UserBlockObject)
+	userUnblock          []func(context.Context, UserUnblockObject)
+	pollVoteNew          []func(context.Context, PollVoteNewObject)
+	groupOfficersEdit    []func(context.Context, GroupOfficersEditObject)
+	groupChangeSettings  []func(context.Context, GroupChangeSettingsObject)
+	groupChangePhoto     []func(context.Context, GroupChangePhotoObject)
+	vkpayTransaction     []func(context.Context, VkpayTransactionObject)
+	leadFormsNew         []func(context.Context, LeadFormsNewObject)
+	appPayload           []func(context.Context, AppPayloadObject)
+	messageRead          []func(context.Context, MessageReadObject)
+	likeAdd              []func(context.Context, LikeAddObject)
+	likeRemove           []func(context.Context, LikeRemoveObject)
 	special              map[EventType][]func(context.Context, GroupEvent)
 	eventsList           []EventType
 }
@@ -603,289 +603,289 @@ func (fl *FuncList) OnEvent(eventType EventType, f func(context.Context, GroupEv
 }
 
 // MessageNew handler.
-func (fl *FuncList) MessageNew(f MessageNewFunc) {
+func (fl *FuncList) MessageNew(f func(context.Context, MessageNewObject)) {
 	fl.messageNew = append(fl.messageNew, f)
 	fl.eventsList = append(fl.eventsList, EventMessageNew)
 }
 
 // MessageReply handler.
-func (fl *FuncList) MessageReply(f MessageReplyFunc) {
+func (fl *FuncList) MessageReply(f func(context.Context, MessageReplyObject)) {
 	fl.messageReply = append(fl.messageReply, f)
 	fl.eventsList = append(fl.eventsList, EventMessageReply)
 }
 
 // MessageEdit handler.
-func (fl *FuncList) MessageEdit(f MessageEditFunc) {
+func (fl *FuncList) MessageEdit(f func(context.Context, MessageEditObject)) {
 	fl.messageEdit = append(fl.messageEdit, f)
 	fl.eventsList = append(fl.eventsList, EventMessageEdit)
 }
 
 // MessageAllow handler.
-func (fl *FuncList) MessageAllow(f MessageAllowFunc) {
+func (fl *FuncList) MessageAllow(f func(context.Context, MessageAllowObject)) {
 	fl.messageAllow = append(fl.messageAllow, f)
 	fl.eventsList = append(fl.eventsList, EventMessageAllow)
 }
 
 // MessageDeny handler.
-func (fl *FuncList) MessageDeny(f MessageDenyFunc) {
+func (fl *FuncList) MessageDeny(f func(context.Context, MessageDenyObject)) {
 	fl.messageDeny = append(fl.messageDeny, f)
 	fl.eventsList = append(fl.eventsList, EventMessageDeny)
 }
 
 // MessageTypingState handler.
-func (fl *FuncList) MessageTypingState(f MessageTypingStateFunc) {
+func (fl *FuncList) MessageTypingState(f func(context.Context, MessageTypingStateObject)) {
 	fl.messageTypingState = append(fl.messageTypingState, f)
 	fl.eventsList = append(fl.eventsList, EventMessageTypingState)
 }
 
 // MessageEvent handler.
-func (fl *FuncList) MessageEvent(f MessageEventFunc) {
+func (fl *FuncList) MessageEvent(f func(context.Context, MessageEventObject)) {
 	fl.messageEvent = append(fl.messageEvent, f)
 	fl.eventsList = append(fl.eventsList, EventMessageEvent)
 }
 
 // PhotoNew handler.
-func (fl *FuncList) PhotoNew(f PhotoNewFunc) {
+func (fl *FuncList) PhotoNew(f func(context.Context, PhotoNewObject)) {
 	fl.photoNew = append(fl.photoNew, f)
 	fl.eventsList = append(fl.eventsList, EventPhotoNew)
 }
 
 // PhotoCommentNew handler.
-func (fl *FuncList) PhotoCommentNew(f PhotoCommentNewFunc) {
+func (fl *FuncList) PhotoCommentNew(f func(context.Context, PhotoCommentNewObject)) {
 	fl.photoCommentNew = append(fl.photoCommentNew, f)
 	fl.eventsList = append(fl.eventsList, EventPhotoCommentNew)
 }
 
 // PhotoCommentEdit handler.
-func (fl *FuncList) PhotoCommentEdit(f PhotoCommentEditFunc) {
+func (fl *FuncList) PhotoCommentEdit(f func(context.Context, PhotoCommentEditObject)) {
 	fl.photoCommentEdit = append(fl.photoCommentEdit, f)
 	fl.eventsList = append(fl.eventsList, EventPhotoCommentEdit)
 }
 
 // PhotoCommentRestore handler.
-func (fl *FuncList) PhotoCommentRestore(f PhotoCommentRestoreFunc) {
+func (fl *FuncList) PhotoCommentRestore(f func(context.Context, PhotoCommentRestoreObject)) {
 	fl.photoCommentRestore = append(fl.photoCommentRestore, f)
 	fl.eventsList = append(fl.eventsList, EventPhotoCommentRestore)
 }
 
 // PhotoCommentDelete handler.
-func (fl *FuncList) PhotoCommentDelete(f PhotoCommentDeleteFunc) {
+func (fl *FuncList) PhotoCommentDelete(f func(context.Context, PhotoCommentDeleteObject)) {
 	fl.photoCommentDelete = append(fl.photoCommentDelete, f)
 	fl.eventsList = append(fl.eventsList, EventPhotoCommentDelete)
 }
 
 // AudioNew handler.
-func (fl *FuncList) AudioNew(f AudioNewFunc) {
+func (fl *FuncList) AudioNew(f func(context.Context, AudioNewObject)) {
 	fl.audioNew = append(fl.audioNew, f)
 	fl.eventsList = append(fl.eventsList, EventAudioNew)
 }
 
 // VideoNew handler.
-func (fl *FuncList) VideoNew(f VideoNewFunc) {
+func (fl *FuncList) VideoNew(f func(context.Context, VideoNewObject)) {
 	fl.videoNew = append(fl.videoNew, f)
 	fl.eventsList = append(fl.eventsList, EventVideoNew)
 }
 
 // VideoCommentNew handler.
-func (fl *FuncList) VideoCommentNew(f VideoCommentNewFunc) {
+func (fl *FuncList) VideoCommentNew(f func(context.Context, VideoCommentNewObject)) {
 	fl.videoCommentNew = append(fl.videoCommentNew, f)
 	fl.eventsList = append(fl.eventsList, EventVideoCommentNew)
 }
 
 // VideoCommentEdit handler.
-func (fl *FuncList) VideoCommentEdit(f VideoCommentEditFunc) {
+func (fl *FuncList) VideoCommentEdit(f func(context.Context, VideoCommentEditObject)) {
 	fl.videoCommentEdit = append(fl.videoCommentEdit, f)
 	fl.eventsList = append(fl.eventsList, EventVideoCommentEdit)
 }
 
 // VideoCommentRestore handler.
-func (fl *FuncList) VideoCommentRestore(f VideoCommentRestoreFunc) {
+func (fl *FuncList) VideoCommentRestore(f func(context.Context, VideoCommentRestoreObject)) {
 	fl.videoCommentRestore = append(fl.videoCommentRestore, f)
 	fl.eventsList = append(fl.eventsList, EventVideoCommentRestore)
 }
 
 // VideoCommentDelete handler.
-func (fl *FuncList) VideoCommentDelete(f VideoCommentDeleteFunc) {
+func (fl *FuncList) VideoCommentDelete(f func(context.Context, VideoCommentDeleteObject)) {
 	fl.videoCommentDelete = append(fl.videoCommentDelete, f)
 	fl.eventsList = append(fl.eventsList, EventVideoCommentDelete)
 }
 
 // WallPostNew handler.
-func (fl *FuncList) WallPostNew(f WallPostNewFunc) {
+func (fl *FuncList) WallPostNew(f func(context.Context, WallPostNewObject)) {
 	fl.wallPostNew = append(fl.wallPostNew, f)
 	fl.eventsList = append(fl.eventsList, EventWallPostNew)
 }
 
 // WallRepost handler.
-func (fl *FuncList) WallRepost(f WallRepostFunc) {
+func (fl *FuncList) WallRepost(f func(context.Context, WallRepostObject)) {
 	fl.wallRepost = append(fl.wallRepost, f)
 	fl.eventsList = append(fl.eventsList, EventWallRepost)
 }
 
 // WallReplyNew handler.
-func (fl *FuncList) WallReplyNew(f WallReplyNewFunc) {
+func (fl *FuncList) WallReplyNew(f func(context.Context, WallReplyNewObject)) {
 	fl.wallReplyNew = append(fl.wallReplyNew, f)
 	fl.eventsList = append(fl.eventsList, EventWallReplyNew)
 }
 
 // WallReplyEdit handler.
-func (fl *FuncList) WallReplyEdit(f WallReplyEditFunc) {
+func (fl *FuncList) WallReplyEdit(f func(context.Context, WallReplyEditObject)) {
 	fl.wallReplyEdit = append(fl.wallReplyEdit, f)
 	fl.eventsList = append(fl.eventsList, EventWallReplyEdit)
 }
 
 // WallReplyRestore handler.
-func (fl *FuncList) WallReplyRestore(f WallReplyRestoreFunc) {
+func (fl *FuncList) WallReplyRestore(f func(context.Context, WallReplyRestoreObject)) {
 	fl.wallReplyRestore = append(fl.wallReplyRestore, f)
 	fl.eventsList = append(fl.eventsList, EventWallReplyRestore)
 }
 
 // WallReplyDelete handler.
-func (fl *FuncList) WallReplyDelete(f WallReplyDeleteFunc) {
+func (fl *FuncList) WallReplyDelete(f func(context.Context, WallReplyDeleteObject)) {
 	fl.wallReplyDelete = append(fl.wallReplyDelete, f)
 	fl.eventsList = append(fl.eventsList, EventWallReplyDelete)
 }
 
 // BoardPostNew handler.
-func (fl *FuncList) BoardPostNew(f BoardPostNewFunc) {
+func (fl *FuncList) BoardPostNew(f func(context.Context, BoardPostNewObject)) {
 	fl.boardPostNew = append(fl.boardPostNew, f)
 	fl.eventsList = append(fl.eventsList, EventBoardPostNew)
 }
 
 // BoardPostEdit handler.
-func (fl *FuncList) BoardPostEdit(f BoardPostEditFunc) {
+func (fl *FuncList) BoardPostEdit(f func(context.Context, BoardPostEditObject)) {
 	fl.boardPostEdit = append(fl.boardPostEdit, f)
 	fl.eventsList = append(fl.eventsList, EventBoardPostEdit)
 }
 
 // BoardPostRestore handler.
-func (fl *FuncList) BoardPostRestore(f BoardPostRestoreFunc) {
+func (fl *FuncList) BoardPostRestore(f func(context.Context, BoardPostRestoreObject)) {
 	fl.boardPostRestore = append(fl.boardPostRestore, f)
 	fl.eventsList = append(fl.eventsList, EventBoardPostRestore)
 }
 
 // BoardPostDelete handler.
-func (fl *FuncList) BoardPostDelete(f BoardPostDeleteFunc) {
+func (fl *FuncList) BoardPostDelete(f func(context.Context, BoardPostDeleteObject)) {
 	fl.boardPostDelete = append(fl.boardPostDelete, f)
 	fl.eventsList = append(fl.eventsList, EventBoardPostDelete)
 }
 
 // MarketCommentNew handler.
-func (fl *FuncList) MarketCommentNew(f MarketCommentNewFunc) {
+func (fl *FuncList) MarketCommentNew(f func(context.Context, MarketCommentNewObject)) {
 	fl.marketCommentNew = append(fl.marketCommentNew, f)
 	fl.eventsList = append(fl.eventsList, EventMarketCommentNew)
 }
 
 // MarketCommentEdit handler.
-func (fl *FuncList) MarketCommentEdit(f MarketCommentEditFunc) {
+func (fl *FuncList) MarketCommentEdit(f func(context.Context, MarketCommentEditObject)) {
 	fl.marketCommentEdit = append(fl.marketCommentEdit, f)
 	fl.eventsList = append(fl.eventsList, EventMarketCommentEdit)
 }
 
 // MarketCommentRestore handler.
-func (fl *FuncList) MarketCommentRestore(f MarketCommentRestoreFunc) {
+func (fl *FuncList) MarketCommentRestore(f func(context.Context, MarketCommentRestoreObject)) {
 	fl.marketCommentRestore = append(fl.marketCommentRestore, f)
 	fl.eventsList = append(fl.eventsList, EventMarketCommentRestore)
 }
 
 // MarketCommentDelete handler.
-func (fl *FuncList) MarketCommentDelete(f MarketCommentDeleteFunc) {
+func (fl *FuncList) MarketCommentDelete(f func(context.Context, MarketCommentDeleteObject)) {
 	fl.marketCommentDelete = append(fl.marketCommentDelete, f)
 	fl.eventsList = append(fl.eventsList, EventMarketCommentDelete)
 }
 
 // MarketOrderNew handler.
-func (fl *FuncList) MarketOrderNew(f MarketOrderNewFunc) {
+func (fl *FuncList) MarketOrderNew(f func(context.Context, MarketOrderNewObject)) {
 	fl.marketOrderNew = append(fl.marketOrderNew, f)
 	fl.eventsList = append(fl.eventsList, EventMarketOrderNew)
 }
 
 // MarketOrderEdit handler.
-func (fl *FuncList) MarketOrderEdit(f MarketOrderEditFunc) {
+func (fl *FuncList) MarketOrderEdit(f func(context.Context, MarketOrderEditObject)) {
 	fl.marketOrderEdit = append(fl.marketOrderEdit, f)
 	fl.eventsList = append(fl.eventsList, EventMarketOrderEdit)
 }
 
 // GroupLeave handler.
-func (fl *FuncList) GroupLeave(f GroupLeaveFunc) {
+func (fl *FuncList) GroupLeave(f func(context.Context, GroupLeaveObject)) {
 	fl.groupLeave = append(fl.groupLeave, f)
 	fl.eventsList = append(fl.eventsList, EventGroupLeave)
 }
 
 // GroupJoin handler.
-func (fl *FuncList) GroupJoin(f GroupJoinFunc) {
+func (fl *FuncList) GroupJoin(f func(context.Context, GroupJoinObject)) {
 	fl.groupJoin = append(fl.groupJoin, f)
 	fl.eventsList = append(fl.eventsList, EventGroupJoin)
 }
 
 // UserBlock handler.
-func (fl *FuncList) UserBlock(f UserBlockFunc) {
+func (fl *FuncList) UserBlock(f func(context.Context, UserBlockObject)) {
 	fl.userBlock = append(fl.userBlock, f)
 	fl.eventsList = append(fl.eventsList, EventUserBlock)
 }
 
 // UserUnblock handler.
-func (fl *FuncList) UserUnblock(f UserUnblockFunc) {
+func (fl *FuncList) UserUnblock(f func(context.Context, UserUnblockObject)) {
 	fl.userUnblock = append(fl.userUnblock, f)
 	fl.eventsList = append(fl.eventsList, EventUserUnblock)
 }
 
 // PollVoteNew handler.
-func (fl *FuncList) PollVoteNew(f PollVoteNewFunc) {
+func (fl *FuncList) PollVoteNew(f func(context.Context, PollVoteNewObject)) {
 	fl.pollVoteNew = append(fl.pollVoteNew, f)
 	fl.eventsList = append(fl.eventsList, EventPollVoteNew)
 }
 
 // GroupOfficersEdit handler.
-func (fl *FuncList) GroupOfficersEdit(f GroupOfficersEditFunc) {
+func (fl *FuncList) GroupOfficersEdit(f func(context.Context, GroupOfficersEditObject)) {
 	fl.groupOfficersEdit = append(fl.groupOfficersEdit, f)
 	fl.eventsList = append(fl.eventsList, EventGroupOfficersEdit)
 }
 
 // GroupChangeSettings handler.
-func (fl *FuncList) GroupChangeSettings(f GroupChangeSettingsFunc) {
+func (fl *FuncList) GroupChangeSettings(f func(context.Context, GroupChangeSettingsObject)) {
 	fl.groupChangeSettings = append(fl.groupChangeSettings, f)
 	fl.eventsList = append(fl.eventsList, EventGroupChangeSettings)
 }
 
 // GroupChangePhoto handler.
-func (fl *FuncList) GroupChangePhoto(f GroupChangePhotoFunc) {
+func (fl *FuncList) GroupChangePhoto(f func(context.Context, GroupChangePhotoObject)) {
 	fl.groupChangePhoto = append(fl.groupChangePhoto, f)
 	fl.eventsList = append(fl.eventsList, EventGroupChangePhoto)
 }
 
 // VkpayTransaction handler.
-func (fl *FuncList) VkpayTransaction(f VkpayTransactionFunc) {
+func (fl *FuncList) VkpayTransaction(f func(context.Context, VkpayTransactionObject)) {
 	fl.vkpayTransaction = append(fl.vkpayTransaction, f)
 	fl.eventsList = append(fl.eventsList, EventVkpayTransaction)
 }
 
 // LeadFormsNew handler.
-func (fl *FuncList) LeadFormsNew(f LeadFormsNewFunc) {
+func (fl *FuncList) LeadFormsNew(f func(context.Context, LeadFormsNewObject)) {
 	fl.leadFormsNew = append(fl.leadFormsNew, f)
 	fl.eventsList = append(fl.eventsList, EventLeadFormsNew)
 }
 
 // AppPayload handler.
-func (fl *FuncList) AppPayload(f AppPayloadFunc) {
+func (fl *FuncList) AppPayload(f func(context.Context, AppPayloadObject)) {
 	fl.appPayload = append(fl.appPayload, f)
 	fl.eventsList = append(fl.eventsList, EventAppPayload)
 }
 
 // MessageRead handler.
-func (fl *FuncList) MessageRead(f MessageReadFunc) {
+func (fl *FuncList) MessageRead(f func(context.Context, MessageReadObject)) {
 	fl.messageRead = append(fl.messageRead, f)
 	fl.eventsList = append(fl.eventsList, EventMessageRead)
 }
 
 // LikeAdd handler.
-func (fl *FuncList) LikeAdd(f LikeAddFunc) {
+func (fl *FuncList) LikeAdd(f func(context.Context, LikeAddObject)) {
 	fl.likeAdd = append(fl.likeAdd, f)
 	fl.eventsList = append(fl.eventsList, EventLikeAdd)
 }
 
 // LikeRemove handler.
-func (fl *FuncList) LikeRemove(f LikeRemoveFunc) {
+func (fl *FuncList) LikeRemove(f func(context.Context, LikeRemoveObject)) {
 	fl.likeRemove = append(fl.likeRemove, f)
 	fl.eventsList = append(fl.eventsList, EventLikeRemove)
 }
