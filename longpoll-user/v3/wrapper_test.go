@@ -6,11 +6,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/SevereCloud/vksdk/api"
-	wrapper "github.com/SevereCloud/vksdk/longpoll-user/v3"
+	"github.com/SevereCloud/vksdk/v2/api"
+	wrapper "github.com/SevereCloud/vksdk/v2/longpoll-user/v3"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/SevereCloud/vksdk/longpoll-user"
+	"github.com/SevereCloud/vksdk/v2/longpoll-user"
 )
 
 func needUserToken(t *testing.T) {

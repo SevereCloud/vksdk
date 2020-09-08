@@ -1,4 +1,4 @@
-package api // import "github.com/SevereCloud/vksdk/api"
+package api // import "github.com/SevereCloud/vksdk/v2/api"
 
 // StreamingGetServerURLResponse struct.
 type StreamingGetServerURLResponse struct {

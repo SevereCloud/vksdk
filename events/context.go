@@ -1,9 +1,9 @@
-package events // import "github.com/SevereCloud/vksdk/events"
+package events // import "github.com/SevereCloud/vksdk/v2/events"
 
 import (
 	"context"
 
-	"github.com/SevereCloud/vksdk/internal"
+	"github.com/SevereCloud/vksdk/v2/internal"
 )
 
 // GroupIDFromContext returns the GroupID from context.

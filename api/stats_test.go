@@ -3,7 +3,7 @@ package api_test
 import (
 	"testing"
 
-	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/v2/api"
 )
 
 func TestVK_StatsGet(t *testing.T) {

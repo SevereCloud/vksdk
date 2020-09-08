@@ -3,7 +3,7 @@ package api
 import (
 	"fmt"
 
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 // ErrorType is the type of an error.

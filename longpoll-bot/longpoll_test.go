@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/v2/api"
 )
 
 func TestLongPoll_Shutdown(t *testing.T) {

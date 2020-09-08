@@ -1,4 +1,4 @@
-package api // import "github.com/SevereCloud/vksdk/api"
+package api // import "github.com/SevereCloud/vksdk/v2/api"
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"mime/multipart"
 
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 // UploadFile uploading file.

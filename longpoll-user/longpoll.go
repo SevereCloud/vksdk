@@ -43,7 +43,7 @@ Wrapper
 
 Wrapper allows you to get ready-made structures
 
-Wrapper for v3 https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-user/v3
+Wrapper for v3 https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-user/v3
 
 Run and shutdown
 
@@ -52,7 +52,7 @@ TODO: write about lp.Run() and lp.Shutdown()
 
 VK documentation https://vk.com/dev/using_longpoll
 */
-package longpoll // import "github.com/SevereCloud/vksdk/longpoll-user"
+package longpoll // import "github.com/SevereCloud/vksdk/v2/longpoll-user"
 
 import (
 	"encoding/json"
@@ -60,8 +60,8 @@ import (
 	"net/http"
 	"sync/atomic"
 
-	"github.com/SevereCloud/vksdk/api"
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 // Mode additional answer options.

@@ -14,36 +14,36 @@
 
 ## Features
 
-- [API](https://pkg.go.dev/github.com/SevereCloud/vksdk/api)
+- [API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api)
   - 400+ methods
   - Ability to change the request handler
   - Ability to modify HTTP client
   - Request Limiter
   - Token pool
-- [Callback API](https://pkg.go.dev/github.com/SevereCloud/vksdk/callback)
+- [Callback API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/callback)
   - Tracking tool for users activity in your VK communities
   - Supports all events
   - Auto setting callback
-- [Bots Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-bot)
+- [Bots Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-bot)
   - Allows you to work with community events in real time
   - Supports all events
   - Ability to modify HTTP client
-- [User Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/longpoll-user)
+- [User Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-user)
   - Allows you to work with user events in real time
   - Ability to modify HTTP client
-- [Streaming API](https://pkg.go.dev/github.com/SevereCloud/vksdk/streaming)
+- [Streaming API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/streaming)
   - Receiving public data from VK by specified keywords
   - Ability to modify HTTP client
-- [FOAF](https://pkg.go.dev/github.com/SevereCloud/vksdk/foaf)
+- [FOAF](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/foaf)
   - Machine-readable ontology describing persons
   - Works with users and groups
   - The only place to get page creation date
-- [VK Mini Apps](https://pkg.go.dev/github.com/SevereCloud/vksdk/vkapps)
+- [VK Mini Apps](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/vkapps)
   - Checking launch parameters
   - Intermediate http handler
-- [Payments API](https://pkg.go.dev/github.com/SevereCloud/vksdk/payments)
+- [Payments API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/payments)
   - Processes payment notifications
-- [Marusia Skills](https://pkg.go.dev/github.com/SevereCloud/vksdk/marusia)
+- [Marusia Skills](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/marusia)
   - For creating Marusia Skills
 
 ## Install
@@ -66,10 +66,10 @@ package main
 import (
 	"log"
 
-	"github.com/SevereCloud/vksdk/api"
-	"github.com/SevereCloud/vksdk/api/params"
-	"github.com/SevereCloud/vksdk/longpoll-bot"
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v2/api/params"
+	"github.com/SevereCloud/vksdk/v2/longpoll-bot"
+	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 func main() {

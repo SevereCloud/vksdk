@@ -3,7 +3,7 @@ package longpoll_test
 import (
 	"testing"
 
-	"github.com/SevereCloud/vksdk/longpoll-user"
+	"github.com/SevereCloud/vksdk/v2/longpoll-user"
 	"github.com/stretchr/testify/assert"
 )
 

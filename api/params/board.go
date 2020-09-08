@@ -1,7 +1,7 @@
-package params // import "github.com/SevereCloud/vksdk/api/params"
+package params // import "github.com/SevereCloud/vksdk/v2/api/params"
 
 import (
-	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/v2/api"
 )
 
 // BoardAddTopicBuilder builder.

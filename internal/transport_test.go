@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/SevereCloud/vksdk/internal"
+	"github.com/SevereCloud/vksdk/v2/internal"
 	"github.com/stretchr/testify/assert"
 )
 

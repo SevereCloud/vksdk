@@ -3,7 +3,7 @@ package object_test
 import (
 	"testing"
 
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 func TestMarketMarketItem_ToAttachment(t *testing.T) {

@@ -3,7 +3,7 @@ Package callback implements Callback API.
 
 See more https://vk.com/dev/callback_api
 */
-package callback // import "github.com/SevereCloud/vksdk/callback"
+package callback // import "github.com/SevereCloud/vksdk/v2/callback"
 
 import (
 	"context"
@@ -12,7 +12,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/SevereCloud/vksdk/events"
+	"github.com/SevereCloud/vksdk/v2/events"
 )
 
 // Callback struct SecretKeys [GroupID]SecretKey.

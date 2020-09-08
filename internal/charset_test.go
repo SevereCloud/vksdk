@@ -3,7 +3,7 @@ package internal_test
 import (
 	"testing"
 
-	"github.com/SevereCloud/vksdk/internal"
+	"github.com/SevereCloud/vksdk/v2/internal"
 	"github.com/stretchr/testify/assert"
 )
 

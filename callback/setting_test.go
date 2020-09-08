@@ -6,9 +6,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/api"
-	"github.com/SevereCloud/vksdk/callback"
-	"github.com/SevereCloud/vksdk/events"
+	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v2/callback"
+	"github.com/SevereCloud/vksdk/v2/events"
 	"github.com/stretchr/testify/assert"
 )
 

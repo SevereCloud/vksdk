@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/v2/api"
 )
 
 func TestVK_StreamingGetServerURL(t *testing.T) {

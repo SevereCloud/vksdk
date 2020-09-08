@@ -128,7 +128,7 @@ Webhook URL, который вы указали в настройках.
 
 	http.ListenAndServe(":8080", nil)
 */
-package marusia // import "github.com/SevereCloud/vksdk/marusia"
+package marusia // import "github.com/SevereCloud/vksdk/v2/marusia"
 
 import (
 	"encoding/json"

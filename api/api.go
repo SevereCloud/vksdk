@@ -3,7 +3,7 @@ Package api implements VK API.
 
 See more https://vk.com/dev/api_requests
 */
-package api // import "github.com/SevereCloud/vksdk/api"
+package api // import "github.com/SevereCloud/vksdk/v2/api"
 
 import (
 	"bytes"
@@ -17,9 +17,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/SevereCloud/vksdk"
-	"github.com/SevereCloud/vksdk/internal"
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/v2"
+	"github.com/SevereCloud/vksdk/v2/internal"
+	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 // Api constants.

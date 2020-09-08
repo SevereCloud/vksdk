@@ -99,7 +99,7 @@ In test mode, the suffix '_test' is added to the NotificationType parameter.
 The order IDs in test mode (i.e. the notification parameter OrderID) can
 overlap with the order IDs in operating mode.
 */
-package payments // import "github.com/SevereCloud/vksdk/payments"
+package payments // import "github.com/SevereCloud/vksdk/v2/payments"
 
 import (
 	"crypto/md5" // nolint: gosec

@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 func TestPhotosPhoto_ToAttachment(t *testing.T) {

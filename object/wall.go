@@ -1,4 +1,4 @@
-package object // import "github.com/SevereCloud/vksdk/object"
+package object // import "github.com/SevereCloud/vksdk/v2/object"
 
 // WallAppPost struct.
 type WallAppPost struct {

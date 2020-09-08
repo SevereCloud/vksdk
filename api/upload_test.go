@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/api"
+	"github.com/SevereCloud/vksdk/v2/api"
 	"github.com/stretchr/testify/assert"
 )
 

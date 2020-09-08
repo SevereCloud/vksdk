@@ -1,6 +1,6 @@
 # FOAF
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/foaf)](https://pkg.go.dev/github.com/SevereCloud/vksdk/foaf)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/foaf)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/foaf)
 
 FOAF (акроним от Friend of a Friend - "друг друга") является машиночитаемым
 языком для описания людей, групп и отношений между ними.

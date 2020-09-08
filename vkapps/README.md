@@ -1,6 +1,6 @@
 # VK Mini Apps
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/vkapps)](https://pkg.go.dev/github.com/SevereCloud/vksdk/vkapps)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/vkapps)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/vkapps)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/vk_apps_docs)
 
 [VK Mini Apps](https://vk.com/dev/vk_apps_docs) — это платформа встраиваемых

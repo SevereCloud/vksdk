@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/foaf"
+	"github.com/SevereCloud/vksdk/v2/foaf"
 	"github.com/stretchr/testify/assert"
 )
 

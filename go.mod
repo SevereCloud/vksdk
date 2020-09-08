@@ -1,4 +1,4 @@
-module github.com/SevereCloud/vksdk
+module github.com/SevereCloud/vksdk/v2
 
 go 1.13
 

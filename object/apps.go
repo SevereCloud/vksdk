@@ -1,4 +1,4 @@
-package object // import "github.com/SevereCloud/vksdk/object"
+package object // import "github.com/SevereCloud/vksdk/v2/object"
 
 // AppsApp type application type.
 const (

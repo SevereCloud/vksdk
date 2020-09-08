@@ -1,7 +1,7 @@
-package api // import "github.com/SevereCloud/vksdk/api"
+package api // import "github.com/SevereCloud/vksdk/v2/api"
 
 import (
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 // PagesClearCache allows to clear the cache of particular external pages which may be attached to VK posts.

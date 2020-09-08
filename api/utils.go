@@ -1,9 +1,9 @@
-package api // import "github.com/SevereCloud/vksdk/api"
+package api // import "github.com/SevereCloud/vksdk/v2/api"
 
 import (
 	"encoding/json"
 
-	"github.com/SevereCloud/vksdk/object"
+	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 // UtilsCheckLinkResponse struct.
