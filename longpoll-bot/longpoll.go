@@ -143,7 +143,7 @@ func (lp *LongPoll) checkResponse(response Response) (err error) {
 	return
 }
 
-func (lp LongPoll) autoSetting() error {
+func (lp *LongPoll) autoSetting() error {
 	params := api.Params{
 		"group_id":    lp.GroupID,
 		"enabled":     true,
