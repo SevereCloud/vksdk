@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Market was already disabled in this group.
+	ErrMarketShopAlreadyDisabled ErrorType = 1432
+
 	// Invalid image crop format.
 	ErrMarketPhotosCropInvalidFormat ErrorType = 1433
 
