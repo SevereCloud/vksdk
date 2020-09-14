@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Property not found.
+	ErrMarketPropertyNotFound ErrorType = 1417
+
 	// Grouping must have two or more items.
 	ErrMarketGroupingMustContainMoreThanOneItem ErrorType = 1425
 
