@@ -7,6 +7,16 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestWallCheckCopyrightLinkBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewWallCheckCopyrightLinkBuilder()
+
+	b.Link("test")
+
+	assert.Equal(t, b.Params["link"], "test")
+}
+
 func TestWallCloseCommentsBuilder(t *testing.T) {
 	t.Parallel()
 

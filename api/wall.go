@@ -4,6 +4,14 @@ import (
 	"github.com/SevereCloud/vksdk/v2/object"
 )
 
+// WallCheckCopyrightLink method.
+//
+// https://vk.com/dev/wall.checkCopyrightLink
+func (vk *VK) WallCheckCopyrightLink(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("wall.checkCopyrightLink", &response, params)
+	return
+}
+
 // WallCloseComments turn off post commenting.
 //
 // https://vk.com/dev/wall.closeComments
