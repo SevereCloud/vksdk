@@ -290,16 +290,17 @@ type PhotosPhotoSizes struct {
 
 // PhotosPhotoTag struct.
 type PhotosPhotoTag struct {
-	Date       int         `json:"date"`        // Date when tag has been added in Unixtime
-	ID         int         `json:"id"`          // Tag ID
-	PlacerID   int         `json:"placer_id"`   // ID of the tag creator
-	TaggedName string      `json:"tagged_name"` // Tag description
-	UserID     int         `json:"user_id"`     // Tagged user ID
-	Viewed     BaseBoolInt `json:"viewed"`      // Information whether the tag is reviewed
-	X          float64     `json:"x"`           // Coordinate X of the left upper corner
-	X2         float64     `json:"x2"`          // Coordinate X of the right lower corner
-	Y          float64     `json:"y"`           // Coordinate Y of the left upper corner
-	Y2         float64     `json:"y2"`          // Coordinate Y of the right lower corner
+	Date        int         `json:"date"`        // Date when tag has been added in Unixtime
+	ID          int         `json:"id"`          // Tag ID
+	PlacerID    int         `json:"placer_id"`   // ID of the tag creator
+	TaggedName  string      `json:"tagged_name"` // Tag description
+	Description string      `json:"description"` // Tagged description.
+	UserID      int         `json:"user_id"`     // Tagged user ID
+	Viewed      BaseBoolInt `json:"viewed"`      // Information whether the tag is reviewed
+	X           float64     `json:"x"`           // Coordinate X of the left upper corner
+	X2          float64     `json:"x2"`          // Coordinate X of the right lower corner
+	Y           float64     `json:"y"`           // Coordinate Y of the left upper corner
+	Y2          float64     `json:"y2"`          // Coordinate Y of the right lower corner
 }
 
 // PhotosPhotoUpload struct.
