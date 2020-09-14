@@ -317,7 +317,7 @@ type CardItem struct {
 	// TODO: Описание изображения.
 	// Description string `json:"description,omitempty"`
 
-	// ID изображения из раздела "Медиа-файлы" настроек в VKApps.
+	// ID изображения из раздела "Медиа-файлы" в настройках скилла.
 	ImageID int `json:"image_id"`
 }
 
@@ -332,7 +332,7 @@ type Card struct {
 	// Описание изображения.
 	Description string `json:"description,omitempty"`
 
-	// ID изображения из раздела "Медиа-файлы" настроек в VKApps
+	// ID изображения из раздела "Медиа-файлы" в настройках скилла
 	// (игнорируется для типа ItemsList).
 	ImageID int `json:"image_id,omitempty"`
 
