@@ -577,6 +577,9 @@ const (
 	// Servers number limit is reached.
 	ErrCallbackServersLimit ErrorType = 2000
 
+	// Specified link is incorrect (can't find source).
+	ErrWallCheckLinkCantDetermineSource ErrorType = 3102
+
 	// Recaptcha needed.
 	ErrRecaptcha ErrorType = 3300
 
