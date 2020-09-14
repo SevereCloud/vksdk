@@ -258,8 +258,10 @@ type BaseRepostsInfo struct {
 type BaseSticker struct {
 	Images               []BaseImage `json:"images"`
 	ImagesWithBackground []BaseImage `json:"images_with_background"`
-	ProductID            int         `json:"product_id"`
+	ProductID            int         `json:"product_id,omitempty"`
 	StickerID            int         `json:"sticker_id"`
+	IsAllowed            BaseBoolInt `json:"is_allowed,omitempty"`
+	AnimationURL         string      `json:"animation_url,omitempty"`
 }
 
 // MaxSize return the largest BaseSticker.
