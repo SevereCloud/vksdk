@@ -6,6 +6,7 @@ const (
 	UtilsDomainResolvedTypeGroup       = "group"
 	UtilsDomainResolvedTypeApplication = "application"
 	UtilsDomainResolvedTypePage        = "page"
+	UtilsDomainResolvedTypeVkApp       = "vk_app"
 )
 
 // UtilsDomainResolved struct.
