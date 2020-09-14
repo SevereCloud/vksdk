@@ -118,6 +118,8 @@ type StoriesStory struct {
 	// Does author have stories privacy restrictions
 	IsRestricted BaseBoolInt `json:"is_restricted"`
 
+	CanUseInNarrative BaseBoolInt `json:"can_use_in_narrative"`
+
 	// Information whether current user has seen the story or not
 	// (0 - no, 1 - yes).
 	Seen                 BaseBoolInt              `json:"seen"`
