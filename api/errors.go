@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Crop bottom right corner is outside of the image.
+	ErrMarketPhotosCropOverflow ErrorType = 1434
+
 	// Crop size is less than the minimum.
 	ErrMarketPhotosCropSizeTooLow ErrorType = 1435
 
