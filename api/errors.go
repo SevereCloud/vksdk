@@ -647,13 +647,22 @@ const (
 	ErrAliExpressTag ErrorType = 3800
 )
 
+// ErrorSubtype is the subtype of an error.
+type ErrorSubtype int
+
+// Error returns the message of a ErrorSubtype.
+func (e ErrorSubtype) Error() string {
+	return fmt.Sprintf("api: error with subcode %d", e)
+}
+
 // Error struct VK.
 type Error struct {
-	Code       ErrorType `json:"error_code"`
-	Message    string    `json:"error_msg"`
-	Text       string    `json:"error_text"`
-	CaptchaSID string    `json:"captcha_sid"`
-	CaptchaImg string    `json:"captcha_img"`
+	Code       ErrorType    `json:"error_code"`
+	Subcode    ErrorSubtype `json:"error_subcode"`
+	Message    string       `json:"error_msg"`
+	Text       string       `json:"error_text"`
+	CaptchaSID string       `json:"captcha_sid"`
+	CaptchaImg string       `json:"captcha_img"`
 
 	// In some cases VK requires to request action confirmation from the user
 	// (for Standalone apps only). Following error will be returned:
