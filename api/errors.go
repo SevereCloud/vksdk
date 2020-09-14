@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Crop size is less than the minimum.
+	ErrMarketPhotosCropSizeTooLow ErrorType = 1435
+
 	// Cart is empty.
 	ErrMarketCartEmpty ErrorType = 1427
 
