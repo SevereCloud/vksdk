@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// VK Pay status can not be changed.
+	ErrMarketCantChangeVkpayStatus ErrorType = 1430
+
 	// Market was already enabled in this group.
 	ErrMarketShopAlreadyEnabled ErrorType = 1431
 
