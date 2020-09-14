@@ -54,49 +54,43 @@ func TestNewBigImage(t *testing.T) {
 	)
 }
 
-// TODO:
-// func TestNewItemsList(t *testing.T) {
-// 	t.Parallel()
+func TestNewItemsList(t *testing.T) {
+	t.Parallel()
 
-// 	f := func(title, description string, items []marusia.CardItem, actual *marusia.Card) {
-// 		t.Helper()
+	f := func(items []marusia.CardItem, actual *marusia.Card) {
+		t.Helper()
 
-// 		card := marusia.NewItemsList(title, description, items)
+		card := marusia.NewItemsList(items...)
 
-// 		assert.Equal(t, card, actual)
-// 	}
+		assert.Equal(t, card, actual)
+	}
 
-// 	f("title", "description", []marusia.CardItem{{1}, {2}},
-// 		&marusia.Card{
-// 			Type:        marusia.ItemsList,
-// 			Title:       "title",
-// 			Description: "description",
-// 			Items:       []marusia.CardItem{{1}, {2}},
-// 		},
-// 	)
-// }
+	f([]marusia.CardItem{{1}, {2}},
+		&marusia.Card{
+			Type:  marusia.ItemsList,
+			Items: []marusia.CardItem{{1}, {2}},
+		},
+	)
+}
 
-// TODO:
-// func TestNewImageList(t *testing.T) {
-// 	t.Parallel()
+func TestNewImageList(t *testing.T) {
+	t.Parallel()
 
-// 	f := func(title, description string, items []int, actual *marusia.Card) {
-// 		t.Helper()
+	f := func(items []int, actual *marusia.Card) {
+		t.Helper()
 
-// 		card := marusia.NewImageList(title, description, items...)
+		card := marusia.NewImageList(items...)
 
-// 		assert.Equal(t, card, actual)
-// 	}
+		assert.Equal(t, card, actual)
+	}
 
-// 	f("title", "description", []int{1, 2},
-// 		&marusia.Card{
-// 			Type:        marusia.ItemsList,
-// 			Title:       "title",
-// 			Description: "description",
-// 			Items:       []marusia.CardItem{{1}, {2}},
-// 		},
-// 	)
-// }
+	f([]int{1, 2},
+		&marusia.Card{
+			Type:  marusia.ItemsList,
+			Items: []marusia.CardItem{{1}, {2}},
+		},
+	)
+}
 
 func TestResponse_AddURL(t *testing.T) {
 	t.Parallel()

@@ -683,19 +683,31 @@ type GroupsLongPollSettings struct {
 	IsEnabled  BaseBoolInt          `json:"is_enabled"` // Shows whether Long Poll is enabled
 }
 
+// GroupsMarketType ...
+type GroupsMarketType string
+
+// Possible values.
+const (
+	GroupsMarketBasic    GroupsMarketType = "basic"
+	GroupsMarketAdvanced GroupsMarketType = "advanced"
+)
+
 // GroupsMarketInfo struct.
 type GroupsMarketInfo struct {
-	ContactID       int               `json:"contact_id"` // Contact person ID
-	Currency        MarketCurrency    `json:"currency"`
-	CurrencyText    string            `json:"currency_text"` // Currency name
-	Enabled         BaseBoolInt       `json:"enabled"`       // Information whether the market is enabled
-	CommentsEnabled BaseBoolInt       `json:"comments_enabled"`
-	CanMessage      BaseBoolInt       `json:"can_message"`
-	MainAlbumID     int               `json:"main_album_id"` // Main market album ID
-	PriceMax        string            `json:"price_max"`     // Maximum price
-	PriceMin        string            `json:"price_min"`     // Minimum price
-	Wiki            PagesWikipageFull `json:"wiki"`
-	CountryIDs      []int             `json:"country_ids"`
+	// information about the type of store. Returned if the group includes
+	// the "Products" section.
+	Type            GroupsMarketType  `json:"type,omitempty"`
+	ContactID       int               `json:"contact_id,omitempty"` // Contact person ID
+	Currency        MarketCurrency    `json:"currency,omitempty"`
+	CurrencyText    string            `json:"currency_text,omitempty"` // Currency name
+	Enabled         BaseBoolInt       `json:"enabled"`                 // Information whether the market is enabled
+	CommentsEnabled BaseBoolInt       `json:"comments_enabled,omitempty"`
+	CanMessage      BaseBoolInt       `json:"can_message,omitempty"`
+	MainAlbumID     int               `json:"main_album_id,omitempty"` // Main market album ID
+	PriceMax        string            `json:"price_max,omitempty"`     // Maximum price
+	PriceMin        string            `json:"price_min,omitempty"`     // Minimum price
+	Wiki            PagesWikipageFull `json:"wiki,omitempty"`
+	CountryIDs      []int             `json:"country_ids,omitempty"`
 }
 
 // GroupsGroupRole Role type.
