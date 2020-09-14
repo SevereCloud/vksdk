@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Cart is empty.
+	ErrMarketOrdersNoCartItems ErrorType = 1427
+
 	// Specify width, length, height and weight all together.
 	ErrMarketInvalidDimensions ErrorType = 1429
 
