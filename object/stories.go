@@ -71,6 +71,18 @@ type StoriesStoryStatsStat struct {
 	State string `json:"state"`
 }
 
+// StoriesStoryType story type.
+type StoriesStoryType string
+
+// Possible values.
+const (
+	StoriesStoryPhoto          StoriesStoryType = "photo"
+	StoriesStoryVideo          StoriesStoryType = "video"
+	StoriesStoryLiveActive     StoriesStoryType = "live_active"
+	StoriesStoryLiveFinished   StoriesStoryType = "live_finished"
+	StoriesStoryBirthdayInvite StoriesStoryType = "birthday_invite"
+)
+
 // StoriesStory struct.
 type StoriesStory struct {
 	AccessKey string      `json:"access_key"` // Access key for private object.
