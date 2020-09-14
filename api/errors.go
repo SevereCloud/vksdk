@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Market was already enabled in this group.
+	ErrMarketShopAlreadyEnabled ErrorType = 1431
+
 	// Market was already disabled in this group.
 	ErrMarketShopAlreadyDisabled ErrorType = 1432
 
