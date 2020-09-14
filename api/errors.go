@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Item must have distinct properties.
+	ErrMarketGroupingItemsMustHaveDistinctProperties ErrorType = 1426
+
 	// Cart is empty.
 	ErrMarketOrdersNoCartItems ErrorType = 1427
 
