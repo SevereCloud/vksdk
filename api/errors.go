@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Variant not found.
+	ErrMarketVariantNotFound ErrorType = 1416
+
 	// Property not found.
 	ErrMarketPropertyNotFound ErrorType = 1417
 
