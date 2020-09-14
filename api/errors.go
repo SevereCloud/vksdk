@@ -544,6 +544,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Specify width, length, height and weight all together.
+	ErrMarketInvalidDimensions ErrorType = 1429
+
 	// VK Pay status can not be changed.
 	ErrMarketCantChangeVkpayStatus ErrorType = 1430
 
