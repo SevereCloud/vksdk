@@ -3,6 +3,7 @@ package api_test
 import (
 	"net/http"
 	"testing"
+	"time"
 
 	"github.com/SevereCloud/vksdk/v2/api"
 	"github.com/stretchr/testify/assert"
@@ -67,6 +68,8 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 	noError(t, err)
 	assert.NotEmpty(t, album)
 
+	time.Sleep(sleepTime)
+
 	_, err = vkUser.MarketEditAlbum(api.Params{
 		"owner_id": -vkGroupID,
 		"album_id": album.MarketAlbumID,
@@ -74,8 +77,15 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 	})
 	noError(t, err)
 
+	time.Sleep(sleepTime)
+
 	marketID := MarketAdd(t)
+
+	time.Sleep(sleepTime)
+
 	marketBeforeID := MarketAdd(t)
+
+	time.Sleep(sleepTime)
 
 	_, err = vkUser.MarketAddToAlbum(api.Params{
 		"owner_id":  -vkGroupID,
@@ -84,12 +94,16 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 	})
 	noError(t, err)
 
+	time.Sleep(sleepTime)
+
 	_, err = vkUser.MarketAddToAlbum(api.Params{
 		"owner_id":  -vkGroupID,
 		"album_ids": album.MarketAlbumID,
 		"item_id":   marketBeforeID,
 	})
 	noError(t, err)
+
+	time.Sleep(sleepTime)
 
 	_, err = vkUser.MarketReorderItems(api.Params{
 		"owner_id": -vkGroupID,
@@ -99,6 +113,8 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 	})
 	noError(t, err)
 
+	time.Sleep(sleepTime)
+
 	_, err = vkUser.MarketRemoveFromAlbum(api.Params{
 		"owner_id":  -vkGroupID,
 		"album_ids": album.MarketAlbumID,
@@ -106,11 +122,15 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 	})
 	noError(t, err)
 
+	time.Sleep(sleepTime)
+
 	albumAfter, err := vkUser.MarketAddAlbum(api.Params{
 		"owner_id": -vkGroupID,
 		"title":    "Test album2",
 	})
 	noError(t, err)
+
+	time.Sleep(sleepTime)
 
 	_, err = vkUser.MarketReorderAlbums(api.Params{
 		"owner_id": -vkGroupID,
@@ -119,11 +139,16 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 	})
 	noError(t, err)
 
+	time.Sleep(sleepTime)
+
 	_, err = vkUser.MarketDeleteAlbum(api.Params{
 		"owner_id": -vkGroupID,
 		"album_id": album.MarketAlbumID,
 	})
 	noError(t, err)
+
+	time.Sleep(sleepTime)
+
 	_, err = vkUser.MarketDeleteAlbum(api.Params{
 		"owner_id": -vkGroupID,
 		"album_id": albumAfter.MarketAlbumID,
