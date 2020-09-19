@@ -1409,6 +1409,13 @@ func (b *MessagesSendBuilder) Payload(v string) *MessagesSendBuilder {
 	return b
 }
 
+// ContentSource parameter.
+// https://vk.com/dev/bots_docs_2
+func (b *MessagesSendBuilder) ContentSource(v interface{}) *MessagesSendBuilder {
+	b.Params["content_source"] = v
+	return b
+}
+
 // DontParseLinks parameter.
 func (b *MessagesSendBuilder) DontParseLinks(v bool) *MessagesSendBuilder {
 	b.Params["dont_parse_links"] = v
