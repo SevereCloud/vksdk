@@ -195,3 +195,23 @@ func TestMessagesTemplate_ToJSON(t *testing.T) {
 		`{"type":"carousel","elements":[]}`,
 	)
 }
+
+func TestMessageContentSource_ToJSON(t *testing.T) {
+	t.Parallel()
+
+	f := func(cs *object.MessageContentSource, want string) {
+		t.Helper()
+
+		got := cs.ToJSON()
+		assert.Equal(t, got, want)
+	}
+
+	f(
+		object.NewMessageContentSourceURL("https://vk.com"),
+		`{"type":"url","url":"https://vk.com"}`,
+	)
+	f(
+		object.NewMessageContentSourceMessage(1, 2, 3),
+		`{"type":"message","owner_id":1,"peer_id":2,"conversation_message_id":3}`,
+	)
+}

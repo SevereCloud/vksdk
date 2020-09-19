@@ -317,6 +317,56 @@ type MessagesTemplateElementCarouselAction struct {
 	Link string `json:"link"`
 }
 
+// MessageContentSourceMessage ...
+type MessageContentSourceMessage struct {
+	OwnerID               int `json:"owner_id,omitempty"`
+	PeerID                int `json:"peer_id,omitempty"`
+	ConversationMessageID int `json:"conversation_message_id,omitempty"`
+}
+
+// MessageContentSourceURL ...
+type MessageContentSourceURL struct {
+	URL string `json:"url,omitempty"`
+}
+
+// MessageContentSource struct.
+//
+// https://vk.com/dev/bots_docs_2
+type MessageContentSource struct {
+	Type                        string `json:"type"`
+	MessageContentSourceMessage        // type message
+	MessageContentSourceURL            // type url
+
+}
+
+// NewMessageContentSourceMessage ...
+func NewMessageContentSourceMessage(ownerID, peerID, conversationMessageID int) *MessageContentSource {
+	return &MessageContentSource{
+		Type: "message",
+		MessageContentSourceMessage: MessageContentSourceMessage{
+			OwnerID:               ownerID,
+			PeerID:                peerID,
+			ConversationMessageID: conversationMessageID,
+		},
+	}
+}
+
+// NewMessageContentSourceURL ...
+func NewMessageContentSourceURL(u string) *MessageContentSource {
+	return &MessageContentSource{
+		Type: "url",
+		MessageContentSourceURL: MessageContentSourceURL{
+			URL: u,
+		},
+	}
+}
+
+// ToJSON returns the JSON encoding of MessageContentSource.
+func (contentSource MessageContentSource) ToJSON() string {
+	b, _ := json.Marshal(contentSource)
+	return string(b)
+}
+
 // MessagesChat struct.
 type MessagesChat struct {
 	AdminID        int         `json:"admin_id"` // Chat creator ID
