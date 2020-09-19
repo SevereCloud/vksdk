@@ -445,6 +445,9 @@ const (
 	// Too many posts in messages.
 	ErrMessagesTooManyPosts ErrorType = 940
 
+	// Cannot pin one-time story.
+	ErrMessagesCantPinOneTimeStory ErrorType = 942
+
 	// Cannot use this intent.
 	ErrMessagesCantUseIntent ErrorType = 943
 
