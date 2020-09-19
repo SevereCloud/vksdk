@@ -444,9 +444,11 @@ func TestMessagesPinBuilder(t *testing.T) {
 
 	b.PeerID(1)
 	b.MessageID(1)
+	b.ConversationMessageID(1)
 
 	assert.Equal(t, b.Params["peer_id"], 1)
 	assert.Equal(t, b.Params["message_id"], 1)
+	assert.Equal(t, b.Params["conversation_message_id"], 1)
 }
 
 func TestMessagesRemoveChatUserBuilder(t *testing.T) {

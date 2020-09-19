@@ -1085,6 +1085,12 @@ func (b *MessagesPinBuilder) MessageID(v int) *MessagesPinBuilder {
 	return b
 }
 
+// ConversationMessageID parameter.
+func (b *MessagesPinBuilder) ConversationMessageID(v int) *MessagesPinBuilder {
+	b.Params["conversation_message_id"] = v
+	return b
+}
+
 // MessagesRemoveChatUserBuilder builder.
 //
 // Allows the current user to leave a chat or, if the current user started the
