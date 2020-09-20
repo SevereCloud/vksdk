@@ -36,6 +36,7 @@ type VideoVideo struct {
 	Added             BaseBoolInt       `json:"added"`
 	Repeat            BaseBoolInt       `json:"repeat"` // Information whether the video is repeated
 	ContentRestricted BaseBoolInt       `json:"content_restricted"`
+	Live              BaseBoolInt       `json:"live"` // Returns if the video is a live stream
 	Comments          int               `json:"comments"`    // Number of comments
 	Date              int               `json:"date"`        // Date when video has been uploaded in Unixtime
 	Description       string            `json:"description"` // Video description
@@ -45,7 +46,6 @@ type VideoVideo struct {
 	Image             []VideoVideoImage `json:"image"`
 	Height            int               `json:"height"`   // Video height
 	ID                int               `json:"id"`       // Video ID
-	Live              int               `json:"live"`     // Returns if the video is a live stream
 	OwnerID           int               `json:"owner_id"` // Video owner ID
 	UserID            int               `json:"user_id"`
 	Photo130          string            `json:"photo_130"`  // URL of the preview image with 130 px in width
