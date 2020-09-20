@@ -37,6 +37,7 @@ type VideoVideo struct {
 	Repeat            BaseBoolInt       `json:"repeat"` // Information whether the video is repeated
 	ContentRestricted BaseBoolInt       `json:"content_restricted"`
 	Live              BaseBoolInt       `json:"live"` // Returns if the video is a live stream
+	Upcoming          BaseBoolInt       `json:"upcoming"`
 	Comments          int               `json:"comments"`    // Number of comments
 	Date              int               `json:"date"`        // Date when video has been uploaded in Unixtime
 	Description       string            `json:"description"` // Video description
