@@ -65,7 +65,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"owner_id": -vkGroupID,
 		"title":    "Test album",
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 	assert.NotEmpty(t, album)
 
 	time.Sleep(sleepTime)
@@ -75,7 +75,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"album_id": album.MarketAlbumID,
 		"title":    "Test edit album",
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	time.Sleep(sleepTime)
 
@@ -92,7 +92,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"album_ids": album.MarketAlbumID,
 		"item_id":   marketID,
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	time.Sleep(sleepTime)
 
@@ -101,7 +101,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"album_ids": album.MarketAlbumID,
 		"item_id":   marketBeforeID,
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	time.Sleep(sleepTime)
 
@@ -111,7 +111,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"item_id":  marketID,
 		"before":   marketBeforeID,
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	time.Sleep(sleepTime)
 
@@ -120,7 +120,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"album_ids": album.MarketAlbumID,
 		"item_id":   marketBeforeID,
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	time.Sleep(sleepTime)
 
@@ -128,7 +128,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"owner_id": -vkGroupID,
 		"title":    "Test album2",
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	time.Sleep(sleepTime)
 
@@ -137,7 +137,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"album_id": album.MarketAlbumID,
 		"after":    albumAfter.MarketAlbumID,
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	time.Sleep(sleepTime)
 
@@ -145,7 +145,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"owner_id": -vkGroupID,
 		"album_id": album.MarketAlbumID,
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	time.Sleep(sleepTime)
 
@@ -153,7 +153,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"owner_id": -vkGroupID,
 		"album_id": albumAfter.MarketAlbumID,
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 }
 
 func TestVK_MarketEditOrder(t *testing.T) {

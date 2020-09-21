@@ -44,6 +44,12 @@ func noError(t *testing.T, err error) bool {
 	return assert.NoError(t, err)
 }
 
+func noErrorOrFail(t *testing.T, err error) {
+	if !noError(t, err) {
+		t.FailNow()
+	}
+}
+
 func needUserToken(t *testing.T) {
 	t.Helper()
 
