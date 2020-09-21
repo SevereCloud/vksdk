@@ -135,6 +135,10 @@ const (
 	// balance. If the response is a failure, the order is canceled.
 	Chargeable Status = "chargeable"
 
+	// Available as of API version 5.132. Order cancelled. It is necessary
+	// to pick up game values given to the user for payments.
+	Refunded Status = "refunded"
+
 	// Subscription is active.
 	Active Status = "active"
 
@@ -421,6 +425,9 @@ type OrderStatusChangeRequest struct {
 	// in the application. In case of successful reply the payment system will
 	// charge votes to the application account. In case of error message the
 	// order will be canceled.
+	//
+	// refunded - Available as of API version 5.132. Order cancelled. It is necessary
+	// to pick up game values given to the user for payments.
 	Status Status `schema:"status,required"`
 
 	// Product name passed to the purchase dialog box.

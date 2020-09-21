@@ -71,6 +71,18 @@ type StoriesStoryStatsStat struct {
 	State string `json:"state"`
 }
 
+// StoriesStoryType story type.
+type StoriesStoryType string
+
+// Possible values.
+const (
+	StoriesStoryPhoto          StoriesStoryType = "photo"
+	StoriesStoryVideo          StoriesStoryType = "video"
+	StoriesStoryLiveActive     StoriesStoryType = "live_active"
+	StoriesStoryLiveFinished   StoriesStoryType = "live_finished"
+	StoriesStoryBirthdayInvite StoriesStoryType = "birthday_invite"
+)
+
 // StoriesStory struct.
 type StoriesStory struct {
 	AccessKey string      `json:"access_key"` // Access key for private object.
@@ -105,6 +117,8 @@ type StoriesStory struct {
 
 	// Does author have stories privacy restrictions
 	IsRestricted BaseBoolInt `json:"is_restricted"`
+
+	CanUseInNarrative BaseBoolInt `json:"can_use_in_narrative"`
 
 	// Information whether current user has seen the story or not
 	// (0 - no, 1 - yes).

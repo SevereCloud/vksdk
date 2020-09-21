@@ -445,6 +445,9 @@ const (
 	// Too many posts in messages.
 	ErrMessagesTooManyPosts ErrorType = 940
 
+	// Cannot pin one-time story.
+	ErrMessagesCantPinOneTimeStory ErrorType = 942
+
 	// Cannot use this intent.
 	ErrMessagesCantUseIntent ErrorType = 943
 
@@ -544,6 +547,42 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Variant not found.
+	ErrMarketVariantNotFound ErrorType = 1416
+
+	// Property not found.
+	ErrMarketPropertyNotFound ErrorType = 1417
+
+	// Grouping must have two or more items.
+	ErrMarketGroupingMustContainMoreThanOneItem ErrorType = 1425
+
+	// Item must have distinct properties.
+	ErrMarketGroupingItemsMustHaveDistinctProperties ErrorType = 1426
+
+	// Cart is empty.
+	ErrMarketOrdersNoCartItems ErrorType = 1427
+
+	// Specify width, length, height and weight all together.
+	ErrMarketInvalidDimensions ErrorType = 1429
+
+	// VK Pay status can not be changed.
+	ErrMarketCantChangeVkpayStatus ErrorType = 1430
+
+	// Market was already enabled in this group.
+	ErrMarketShopAlreadyEnabled ErrorType = 1431
+
+	// Market was already disabled in this group.
+	ErrMarketShopAlreadyDisabled ErrorType = 1432
+
+	// Invalid image crop format.
+	ErrMarketPhotosCropInvalidFormat ErrorType = 1433
+
+	// Crop bottom right corner is outside of the image.
+	ErrMarketPhotosCropOverflow ErrorType = 1434
+
+	// Crop size is less than the minimum.
+	ErrMarketPhotosCropSizeTooLow ErrorType = 1435
+
 	// Cart is empty.
 	ErrMarketCartEmpty ErrorType = 1427
 
@@ -577,6 +616,9 @@ const (
 	// Servers number limit is reached.
 	ErrCallbackServersLimit ErrorType = 2000
 
+	// Specified link is incorrect (can't find source).
+	ErrWallCheckLinkCantDetermineSource ErrorType = 3102
+
 	// Recaptcha needed.
 	ErrRecaptcha ErrorType = 3300
 
@@ -608,13 +650,22 @@ const (
 	ErrAliExpressTag ErrorType = 3800
 )
 
+// ErrorSubtype is the subtype of an error.
+type ErrorSubtype int
+
+// Error returns the message of a ErrorSubtype.
+func (e ErrorSubtype) Error() string {
+	return fmt.Sprintf("api: error with subcode %d", e)
+}
+
 // Error struct VK.
 type Error struct {
-	Code       ErrorType `json:"error_code"`
-	Message    string    `json:"error_msg"`
-	Text       string    `json:"error_text"`
-	CaptchaSID string    `json:"captcha_sid"`
-	CaptchaImg string    `json:"captcha_img"`
+	Code       ErrorType    `json:"error_code"`
+	Subcode    ErrorSubtype `json:"error_subcode"`
+	Message    string       `json:"error_msg"`
+	Text       string       `json:"error_text"`
+	CaptchaSID string       `json:"captcha_sid"`
+	CaptchaImg string       `json:"captcha_img"`
 
 	// In some cases VK requires to request action confirmation from the user
 	// (for Standalone apps only). Following error will be returned:

@@ -251,6 +251,8 @@ type BaseCategoryObject struct {
 // BaseRepostsInfo struct.
 type BaseRepostsInfo struct {
 	Count        int `json:"count"`
+	WallCount    int `json:"wall_count"`
+	MailCount    int `json:"mail_count"`
 	UserReposted int `json:"user_reposted"`
 }
 

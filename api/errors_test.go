@@ -14,6 +14,11 @@ func TestErrorType(t *testing.T) {
 	assert.EqualError(t, err, "api: error with code 1")
 }
 
+func TestErrorSubtype(t *testing.T) {
+	err := api.ErrorSubtype(1)
+	assert.EqualError(t, err, "api: error with subcode 1")
+}
+
 func TestError_Error(t *testing.T) {
 	err := api.Error{
 		Code:    api.ErrorType(1),

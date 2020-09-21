@@ -1085,6 +1085,12 @@ func (b *MessagesPinBuilder) MessageID(v int) *MessagesPinBuilder {
 	return b
 }
 
+// ConversationMessageID parameter.
+func (b *MessagesPinBuilder) ConversationMessageID(v int) *MessagesPinBuilder {
+	b.Params["conversation_message_id"] = v
+	return b
+}
+
 // MessagesRemoveChatUserBuilder builder.
 //
 // Allows the current user to leave a chat or, if the current user started the
@@ -1400,6 +1406,13 @@ func (b *MessagesSendBuilder) Template(v interface{}) *MessagesSendBuilder {
 // Payload parameter.
 func (b *MessagesSendBuilder) Payload(v string) *MessagesSendBuilder {
 	b.Params["payload"] = v
+	return b
+}
+
+// ContentSource parameter.
+// https://vk.com/dev/bots_docs_2
+func (b *MessagesSendBuilder) ContentSource(v interface{}) *MessagesSendBuilder {
+	b.Params["content_source"] = v
 	return b
 }
 

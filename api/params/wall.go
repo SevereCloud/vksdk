@@ -4,6 +4,24 @@ import (
 	"github.com/SevereCloud/vksdk/v2/api"
 )
 
+// WallCheckCopyrightLinkBuilder builder.
+//
+// https://vk.com/dev/wall.checkCopyrightLink
+type WallCheckCopyrightLinkBuilder struct {
+	api.Params
+}
+
+// NewWallCheckCopyrightLinkBuilder func.
+func NewWallCheckCopyrightLinkBuilder() *WallCheckCopyrightLinkBuilder {
+	return &WallCheckCopyrightLinkBuilder{api.Params{}}
+}
+
+// Link parameter.
+func (b *WallCheckCopyrightLinkBuilder) Link(v string) *WallCheckCopyrightLinkBuilder {
+	b.Params["link"] = v
+	return b
+}
+
 // WallCloseCommentsBuilder builder.
 //
 // https://vk.com/dev/wall.closeComments

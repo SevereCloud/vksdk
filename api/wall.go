@@ -4,6 +4,14 @@ import (
 	"github.com/SevereCloud/vksdk/v2/object"
 )
 
+// WallCheckCopyrightLink method.
+//
+// https://vk.com/dev/wall.checkCopyrightLink
+func (vk *VK) WallCheckCopyrightLink(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("wall.checkCopyrightLink", &response, params)
+	return
+}
+
 // WallCloseComments turn off post commenting.
 //
 // https://vk.com/dev/wall.closeComments
@@ -299,10 +307,12 @@ func (vk *VK) WallReportPost(params Params) (response int, err error) {
 
 // WallRepostResponse struct.
 type WallRepostResponse struct {
-	Success      int `json:"success"`
-	PostID       int `json:"post_id"`
-	RepostsCount int `json:"reposts_count"`
-	LikesCount   int `json:"likes_count"`
+	Success         int `json:"success"`
+	PostID          int `json:"post_id"`
+	RepostsCount    int `json:"reposts_count"`
+	LikesCount      int `json:"likes_count"`
+	WallRepostCount int `json:"wall_repost_count"`
+	MailRepostCount int `json:"mail_repost_count"`
 }
 
 // WallRepost reposts ( copies) an object to a user wall or community wall.

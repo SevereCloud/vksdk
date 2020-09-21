@@ -284,6 +284,73 @@ type MessagesKeyboardButtonAction struct {
 	Link    string `json:"link,omitempty"`     // Link URL
 }
 
+// MessagesEventDataShowSnackbar struct.
+type MessagesEventDataShowSnackbar struct {
+	Text string `json:"text,omitempty"`
+}
+
+// MessagesEventDataOpenLink struct.
+type MessagesEventDataOpenLink struct {
+	Link string `json:"link,omitempty"`
+}
+
+// MessagesEventDataOpenApp struct.
+type MessagesEventDataOpenApp struct {
+	AppID   int    `json:"app_id,omitempty"`
+	OwnerID int    `json:"owner_id,omitempty"`
+	Hash    string `json:"hash,omitempty"`
+}
+
+// MessagesEventData struct.
+type MessagesEventData struct {
+	Type string `json:"type"`
+	MessagesEventDataShowSnackbar
+	MessagesEventDataOpenLink
+	MessagesEventDataOpenApp
+}
+
+// NewMessagesEventDataShowSnackbar show disappearing message.
+//
+// Contains the field text - the text you want to print
+// (maximum 90 characters). Snackbar is shown for 10 seconds and automatically
+// hides, while the user has the ability to flick it off the screen.
+func NewMessagesEventDataShowSnackbar(text string) *MessagesEventData {
+	return &MessagesEventData{
+		Type: "show_snackbar",
+		MessagesEventDataShowSnackbar: MessagesEventDataShowSnackbar{
+			Text: text,
+		},
+	}
+}
+
+// NewMessagesEventDataOpenLink open the link. Click on the specified address.
+func NewMessagesEventDataOpenLink(link string) *MessagesEventData {
+	return &MessagesEventData{
+		Type: "open_link",
+		MessagesEventDataOpenLink: MessagesEventDataOpenLink{
+			Link: link,
+		},
+	}
+}
+
+// NewMessagesEventDataOpenApp open the link. Click on the specified address.
+func NewMessagesEventDataOpenApp(appID, ownerID int, hash string) *MessagesEventData {
+	return &MessagesEventData{
+		Type: "open_app",
+		MessagesEventDataOpenApp: MessagesEventDataOpenApp{
+			AppID:   appID,
+			OwnerID: ownerID,
+			Hash:    hash,
+		},
+	}
+}
+
+// ToJSON returns the JSON encoding of MessagesEventData.
+func (eventData MessagesEventData) ToJSON() string {
+	b, _ := json.Marshal(eventData)
+	return string(b)
+}
+
 // MessagesTemplate struct
 // https://vk.com/dev/bot_docs_templates
 type MessagesTemplate struct {
@@ -315,6 +382,56 @@ type MessagesTemplateElementCarousel struct {
 type MessagesTemplateElementCarouselAction struct {
 	Type string `json:"type"`
 	Link string `json:"link"`
+}
+
+// MessageContentSourceMessage ...
+type MessageContentSourceMessage struct {
+	OwnerID               int `json:"owner_id,omitempty"`
+	PeerID                int `json:"peer_id,omitempty"`
+	ConversationMessageID int `json:"conversation_message_id,omitempty"`
+}
+
+// MessageContentSourceURL ...
+type MessageContentSourceURL struct {
+	URL string `json:"url,omitempty"`
+}
+
+// MessageContentSource struct.
+//
+// https://vk.com/dev/bots_docs_2
+type MessageContentSource struct {
+	Type                        string `json:"type"`
+	MessageContentSourceMessage        // type message
+	MessageContentSourceURL            // type url
+
+}
+
+// NewMessageContentSourceMessage ...
+func NewMessageContentSourceMessage(ownerID, peerID, conversationMessageID int) *MessageContentSource {
+	return &MessageContentSource{
+		Type: "message",
+		MessageContentSourceMessage: MessageContentSourceMessage{
+			OwnerID:               ownerID,
+			PeerID:                peerID,
+			ConversationMessageID: conversationMessageID,
+		},
+	}
+}
+
+// NewMessageContentSourceURL ...
+func NewMessageContentSourceURL(u string) *MessageContentSource {
+	return &MessageContentSource{
+		Type: "url",
+		MessageContentSourceURL: MessageContentSourceURL{
+			URL: u,
+		},
+	}
+}
+
+// ToJSON returns the JSON encoding of MessageContentSource.
+func (contentSource MessageContentSource) ToJSON() string {
+	b, _ := json.Marshal(contentSource)
+	return string(b)
 }
 
 // MessagesChat struct.
