@@ -215,3 +215,31 @@ func TestMessageContentSource_ToJSON(t *testing.T) {
 		`{"type":"message","owner_id":1,"peer_id":2,"conversation_message_id":3}`,
 	)
 }
+
+func TestMessagesEventData_ToJSON(t *testing.T) {
+	t.Parallel()
+
+	f := func(eventData *object.MessagesEventData, want string) {
+		t.Helper()
+
+		got := eventData.ToJSON()
+		assert.Equal(t, got, want)
+	}
+
+	f(
+		object.NewMessagesEventDataShowSnackbar("test"),
+		`{"type":"show_snackbar","text":"test"}`,
+	)
+	f(
+		object.NewMessagesEventDataOpenLink("https://vk.com"),
+		`{"type":"open_link","link":"https://vk.com"}`,
+	)
+	f(
+		object.NewMessagesEventDataOpenApp(1, 2, "3"),
+		`{"type":"open_app","app_id":1,"owner_id":2,"hash":"3"}`,
+	)
+	f(
+		object.NewMessagesEventDataOpenApp(1, 0, "3"),
+		`{"type":"open_app","app_id":1,"hash":"3"}`,
+	)
+}
