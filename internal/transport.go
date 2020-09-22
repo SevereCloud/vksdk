@@ -64,11 +64,8 @@ func DoRequest(ctx context.Context, req *http.Request) (*http.Response, error) {
 	// If we got an error, and the context has been canceled,
 	// the context's error is probably more useful.
 	if err != nil {
-		select {
-		case <-ctx.Done():
-			err = ctx.Err()
-		default:
-		}
+		<-ctx.Done()
+		err = ctx.Err()
 	}
 
 	return resp, err

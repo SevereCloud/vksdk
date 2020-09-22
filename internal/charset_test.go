@@ -1,11 +1,22 @@
 package internal_test
 
 import (
+	"bytes"
+	"io/ioutil"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v2/internal"
 	"github.com/stretchr/testify/assert"
 )
+
+func TestXMLSanitizerReader(t *testing.T) {
+	r := bytes.NewBuffer([]byte{0x09, 0x0B})
+	newR := internal.XMLSanitizerReader(r)
+
+	b, err := ioutil.ReadAll(newR)
+	assert.NoError(t, err)
+	assert.Equal(t, []byte{0x09}, b)
+}
 
 func TestCharsetReader(t *testing.T) {
 	t.Parallel()
