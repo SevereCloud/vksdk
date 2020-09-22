@@ -62,3 +62,13 @@ func TestGetGroup_Private(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypeGroup, group.GroupType)
 }
+
+func TestGetGroup_Error(t *testing.T) {
+	t.Parallel()
+
+	ctx, cancel := context.WithCancel(context.Background())
+	cancel()
+
+	_, err := foaf.GetGroup(ctx, 1)
+	assert.Error(t, err, "context canceled")
+}
