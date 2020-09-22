@@ -39,6 +39,20 @@ func TestMessagesKeyboard_AddTextButton(t *testing.T) {
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
 }
 
+func TestMessagesKeyboard_AddTextButton_Panic(t *testing.T) {
+	t.Parallel()
+
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+
+	keyboard := object.NewMessagesKeyboard(false)
+	keyboard.AddRow()
+	keyboard.AddTextButton("label", make(chan int), "color")
+}
+
 func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
 	t.Parallel()
 
@@ -58,6 +72,20 @@ func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Link, link)
 }
 
+func TestMessagesKeyboard_AddOpenLinkButton_Panic(t *testing.T) {
+	t.Parallel()
+
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+
+	keyboard := object.NewMessagesKeyboard(false)
+	keyboard.AddRow()
+	keyboard.AddOpenLinkButton("ink", "label", make(chan int))
+}
+
 func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
 	t.Parallel()
 
@@ -69,6 +97,20 @@ func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
 
 	keyboard.AddLocationButton(payload)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
+}
+
+func TestMessagesKeyboard_AddLocationButton_Panic(t *testing.T) {
+	t.Parallel()
+
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+
+	keyboard := object.NewMessagesKeyboard(false)
+	keyboard.AddRow()
+	keyboard.AddLocationButton(make(chan int))
 }
 
 func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
@@ -86,6 +128,20 @@ func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
 	keyboard.AddVKPayButton(payload, hash)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Hash, hash)
+}
+
+func TestMessagesKeyboard_AddVKPayButton_Panic(t *testing.T) {
+	t.Parallel()
+
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+
+	keyboard := object.NewMessagesKeyboard(false)
+	keyboard.AddRow()
+	keyboard.AddVKPayButton(make(chan int), "hash")
 }
 
 func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
@@ -111,6 +167,20 @@ func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Hash, hash)
 }
 
+func TestMessagesKeyboard_AddVKAppsButton_Panic(t *testing.T) {
+	t.Parallel()
+
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+
+	keyboard := object.NewMessagesKeyboard(false)
+	keyboard.AddRow()
+	keyboard.AddVKAppsButton(1, 1, make(chan int), "label", "hash")
+}
+
 func TestMessagesKeyboard_AddCallbackButton(t *testing.T) {
 	t.Parallel()
 
@@ -128,6 +198,20 @@ func TestMessagesKeyboard_AddCallbackButton(t *testing.T) {
 	assert.Equal(t, keyboard.Buttons[0][0].Color, color)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
 	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
+}
+
+func TestMessagesKeyboard_AddCallbackButton_Panic(t *testing.T) {
+	t.Parallel()
+
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+
+	keyboard := object.NewMessagesKeyboard(false)
+	keyboard.AddRow()
+	keyboard.AddCallbackButton("label", make(chan int), "color")
 }
 
 func TestMessagesAudioMessage_ToAttachment(t *testing.T) {
