@@ -64,12 +64,13 @@ go get github.com/SevereCloud/vksdk/v2@latest
 package main
 
 import (
+	"context"
 	"log"
 
 	"github.com/SevereCloud/vksdk/v2/api"
 	"github.com/SevereCloud/vksdk/v2/api/params"
+	"github.com/SevereCloud/vksdk/v2/events"
 	"github.com/SevereCloud/vksdk/v2/longpoll-bot"
-	"github.com/SevereCloud/vksdk/v2/object"
 )
 
 func main() {
@@ -89,7 +90,7 @@ func main() {
 	}
 
 	// New message event
-	lp.MessageNew(func(obj object.MessageNewObject, groupID int) {
+	lp.MessageNew(func(_ context.Context, obj events.MessageNewObject) {
 		log.Printf("%d: %s", obj.Message.PeerID, obj.Message.Text)
 
 		if obj.Message.Text == "ping" {
