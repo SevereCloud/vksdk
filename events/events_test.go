@@ -12,8 +12,6 @@ import (
 const GID = 123456
 
 func TestFuncList_HandlerMessageNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
@@ -40,6 +38,15 @@ func TestFuncList_HandlerMessageNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMessageNew,
+			Object:  []byte(`{"message":{"date":1,"from_id":1,"id":1,"peer_id":1,"text":"{}"},"client_info":{}}`),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMessageNew,
@@ -50,8 +57,6 @@ func TestFuncList_HandlerMessageNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageReply(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MessageReply(func(ctx context.Context, obj events.MessageReplyObject) {
@@ -74,6 +79,15 @@ func TestFuncList_HandlerMessageReply(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMessageReply,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMessageReply,
@@ -84,8 +98,6 @@ func TestFuncList_HandlerMessageReply(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageEdit(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MessageEdit(func(ctx context.Context, obj events.MessageEditObject) {
@@ -108,6 +120,15 @@ func TestFuncList_HandlerMessageEdit(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMessageEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMessageEdit,
@@ -118,8 +139,6 @@ func TestFuncList_HandlerMessageEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageAllow(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MessageAllow(func(ctx context.Context, obj events.MessageAllowObject) {
@@ -142,6 +161,15 @@ func TestFuncList_HandlerMessageAllow(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMessageAllow,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMessageAllow,
@@ -152,8 +180,6 @@ func TestFuncList_HandlerMessageAllow(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageDeny(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MessageDeny(func(ctx context.Context, obj events.MessageDenyObject) {
@@ -176,6 +202,15 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMessageDeny,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMessageDeny,
@@ -186,8 +221,6 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageTypingState(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MessageTypingState(func(ctx context.Context, obj events.MessageTypingStateObject) {
@@ -210,6 +243,15 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMessageTypingState,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMessageTypingState,
@@ -220,8 +262,6 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageEvent(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MessageEvent(func(ctx context.Context, obj events.MessageEventObject) {
@@ -244,6 +284,15 @@ func TestFuncList_HandlerMessageEvent(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMessageEvent,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMessageEvent,
@@ -254,8 +303,6 @@ func TestFuncList_HandlerMessageEvent(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.PhotoNew(func(ctx context.Context, obj events.PhotoNewObject) {
@@ -278,6 +325,15 @@ func TestFuncList_HandlerPhotoNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventPhotoNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventPhotoNew,
@@ -288,8 +344,6 @@ func TestFuncList_HandlerPhotoNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.PhotoCommentNew(func(ctx context.Context, obj events.PhotoCommentNewObject) {
@@ -312,6 +366,15 @@ func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventPhotoCommentNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventPhotoCommentNew,
@@ -322,8 +385,6 @@ func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.PhotoCommentEdit(func(ctx context.Context, obj events.PhotoCommentEditObject) {
@@ -346,6 +407,15 @@ func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventPhotoCommentEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventPhotoCommentEdit,
@@ -356,8 +426,6 @@ func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.PhotoCommentRestore(func(ctx context.Context, obj events.PhotoCommentRestoreObject) {
@@ -380,6 +448,15 @@ func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventPhotoCommentRestore,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventPhotoCommentRestore,
@@ -390,8 +467,6 @@ func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.PhotoCommentDelete(func(ctx context.Context, obj events.PhotoCommentDeleteObject) {
@@ -414,6 +489,15 @@ func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventPhotoCommentDelete,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventPhotoCommentDelete,
@@ -424,8 +508,6 @@ func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerAudioNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.AudioNew(func(ctx context.Context, obj events.AudioNewObject) {
@@ -448,6 +530,15 @@ func TestFuncList_HandlerAudioNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventAudioNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventAudioNew,
@@ -458,8 +549,6 @@ func TestFuncList_HandlerAudioNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.VideoNew(func(ctx context.Context, obj events.VideoNewObject) {
@@ -482,6 +571,15 @@ func TestFuncList_HandlerVideoNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventVideoNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventVideoNew,
@@ -492,8 +590,6 @@ func TestFuncList_HandlerVideoNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.VideoCommentNew(func(ctx context.Context, obj events.VideoCommentNewObject) {
@@ -516,6 +612,15 @@ func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventVideoCommentNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventVideoCommentNew,
@@ -526,8 +631,6 @@ func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.VideoCommentEdit(func(ctx context.Context, obj events.VideoCommentEditObject) {
@@ -550,6 +653,15 @@ func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventVideoCommentEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventVideoCommentEdit,
@@ -560,8 +672,6 @@ func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.VideoCommentRestore(func(ctx context.Context, obj events.VideoCommentRestoreObject) {
@@ -584,6 +694,15 @@ func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventVideoCommentRestore,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventVideoCommentRestore,
@@ -594,8 +713,6 @@ func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.VideoCommentDelete(func(ctx context.Context, obj events.VideoCommentDeleteObject) {
@@ -618,6 +735,15 @@ func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventVideoCommentDelete,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventVideoCommentDelete,
@@ -628,8 +754,6 @@ func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallPostNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.WallPostNew(func(ctx context.Context, obj events.WallPostNewObject) {
@@ -652,6 +776,15 @@ func TestFuncList_HandlerWallPostNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventWallPostNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventWallPostNew,
@@ -662,8 +795,6 @@ func TestFuncList_HandlerWallPostNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallRepost(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.WallRepost(func(ctx context.Context, obj events.WallRepostObject) {
@@ -686,6 +817,15 @@ func TestFuncList_HandlerWallRepost(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventWallRepost,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventWallRepost,
@@ -696,8 +836,6 @@ func TestFuncList_HandlerWallRepost(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.WallReplyNew(func(ctx context.Context, obj events.WallReplyNewObject) {
@@ -720,6 +858,15 @@ func TestFuncList_HandlerWallReplyNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventWallReplyNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventWallReplyNew,
@@ -730,8 +877,6 @@ func TestFuncList_HandlerWallReplyNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.WallReplyEdit(func(ctx context.Context, obj events.WallReplyEditObject) {
@@ -754,6 +899,15 @@ func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventWallReplyEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventWallReplyEdit,
@@ -764,8 +918,6 @@ func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.WallReplyRestore(func(ctx context.Context, obj events.WallReplyRestoreObject) {
@@ -788,6 +940,15 @@ func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventWallReplyRestore,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventWallReplyRestore,
@@ -798,8 +959,6 @@ func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.WallReplyDelete(func(ctx context.Context, obj events.WallReplyDeleteObject) {
@@ -822,6 +981,15 @@ func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventWallReplyDelete,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventWallReplyDelete,
@@ -832,8 +1000,6 @@ func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.BoardPostNew(func(ctx context.Context, obj events.BoardPostNewObject) {
@@ -856,6 +1022,15 @@ func TestFuncList_HandlerBoardPostNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventBoardPostNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventBoardPostNew,
@@ -866,8 +1041,6 @@ func TestFuncList_HandlerBoardPostNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.BoardPostEdit(func(ctx context.Context, obj events.BoardPostEditObject) {
@@ -890,6 +1063,15 @@ func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventBoardPostEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventBoardPostEdit,
@@ -900,8 +1082,6 @@ func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.BoardPostRestore(func(ctx context.Context, obj events.BoardPostRestoreObject) {
@@ -924,6 +1104,15 @@ func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventBoardPostRestore,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventBoardPostRestore,
@@ -934,8 +1123,6 @@ func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.BoardPostDelete(func(ctx context.Context, obj events.BoardPostDeleteObject) {
@@ -958,6 +1145,15 @@ func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventBoardPostDelete,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventBoardPostDelete,
@@ -968,8 +1164,6 @@ func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MarketCommentNew(func(ctx context.Context, obj events.MarketCommentNewObject) {
@@ -992,6 +1186,15 @@ func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketCommentNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMarketCommentNew,
@@ -1002,8 +1205,6 @@ func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MarketCommentEdit(func(ctx context.Context, obj events.MarketCommentEditObject) {
@@ -1026,6 +1227,15 @@ func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketCommentEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMarketCommentEdit,
@@ -1036,8 +1246,6 @@ func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MarketCommentRestore(func(ctx context.Context, obj events.MarketCommentRestoreObject) {
@@ -1060,6 +1268,15 @@ func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketCommentRestore,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMarketCommentRestore,
@@ -1070,8 +1287,6 @@ func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MarketCommentDelete(func(ctx context.Context, obj events.MarketCommentDeleteObject) {
@@ -1094,6 +1309,15 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketCommentDelete,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMarketCommentDelete,
@@ -1104,8 +1328,6 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketOrderNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MarketOrderNew(func(ctx context.Context, obj events.MarketOrderNewObject) {
@@ -1128,6 +1350,15 @@ func TestFuncList_HandlerMarketOrderNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketOrderNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMarketOrderNew,
@@ -1138,8 +1369,6 @@ func TestFuncList_HandlerMarketOrderNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerMarketOrderEdit(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MarketOrderEdit(func(ctx context.Context, obj events.MarketOrderEditObject) {
@@ -1162,6 +1391,15 @@ func TestFuncList_HandlerMarketOrderEdit(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMarketOrderEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMarketOrderEdit,
@@ -1172,8 +1410,6 @@ func TestFuncList_HandlerMarketOrderEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupLeave(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.GroupLeave(func(ctx context.Context, obj events.GroupLeaveObject) {
@@ -1196,6 +1432,15 @@ func TestFuncList_HandlerGroupLeave(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventGroupLeave,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventGroupLeave,
@@ -1206,8 +1451,6 @@ func TestFuncList_HandlerGroupLeave(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupJoin(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.GroupJoin(func(ctx context.Context, obj events.GroupJoinObject) {
@@ -1230,6 +1473,15 @@ func TestFuncList_HandlerGroupJoin(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventGroupJoin,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventGroupJoin,
@@ -1240,8 +1492,6 @@ func TestFuncList_HandlerGroupJoin(t *testing.T) {
 }
 
 func TestFuncList_HandlerUserBlock(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.UserBlock(func(ctx context.Context, obj events.UserBlockObject) {
@@ -1264,6 +1514,15 @@ func TestFuncList_HandlerUserBlock(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventUserBlock,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventUserBlock,
@@ -1274,8 +1533,6 @@ func TestFuncList_HandlerUserBlock(t *testing.T) {
 }
 
 func TestFuncList_HandlerUserUnblock(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.UserUnblock(func(ctx context.Context, obj events.UserUnblockObject) {
@@ -1298,6 +1555,15 @@ func TestFuncList_HandlerUserUnblock(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventUserUnblock,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventUserUnblock,
@@ -1308,8 +1574,6 @@ func TestFuncList_HandlerUserUnblock(t *testing.T) {
 }
 
 func TestFuncList_HandlerPollVoteNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.PollVoteNew(func(ctx context.Context, obj events.PollVoteNewObject) {
@@ -1332,6 +1596,15 @@ func TestFuncList_HandlerPollVoteNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventPollVoteNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventPollVoteNew,
@@ -1342,8 +1615,6 @@ func TestFuncList_HandlerPollVoteNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.GroupOfficersEdit(func(ctx context.Context, obj events.GroupOfficersEditObject) {
@@ -1366,6 +1637,15 @@ func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventGroupOfficersEdit,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventGroupOfficersEdit,
@@ -1376,8 +1656,6 @@ func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.GroupChangeSettings(func(ctx context.Context, obj events.GroupChangeSettingsObject) {
@@ -1400,6 +1678,15 @@ func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventGroupChangeSettings,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventGroupChangeSettings,
@@ -1410,8 +1697,6 @@ func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
 }
 
 func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.GroupChangePhoto(func(ctx context.Context, obj events.GroupChangePhotoObject) {
@@ -1434,6 +1719,15 @@ func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventGroupChangePhoto,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventGroupChangePhoto,
@@ -1444,8 +1738,6 @@ func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
 }
 
 func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.VkpayTransaction(func(ctx context.Context, obj events.VkpayTransactionObject) {
@@ -1468,6 +1760,15 @@ func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventVkpayTransaction,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventVkpayTransaction,
@@ -1478,8 +1779,6 @@ func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
 }
 
 func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.LeadFormsNew(func(ctx context.Context, obj events.LeadFormsNewObject) {
@@ -1502,6 +1801,15 @@ func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventLeadFormsNew,
+			Object:  []byte("{}"),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventLeadFormsNew,
@@ -1512,8 +1820,6 @@ func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
 }
 
 func TestFuncList_HandlerAppPayload(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.AppPayload(func(ctx context.Context, obj events.AppPayloadObject) {
@@ -1536,6 +1842,15 @@ func TestFuncList_HandlerAppPayload(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventAppPayload,
+			Object:  []byte(`{"user_id":117253521,"app_id":6703670,"payload":"{\"foo\":\"bar\"}"}`),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventAppPayload,
@@ -1546,8 +1861,6 @@ func TestFuncList_HandlerAppPayload(t *testing.T) {
 }
 
 func TestFuncList_HandlerMessageRead(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.MessageRead(func(ctx context.Context, obj events.MessageReadObject) {
@@ -1570,6 +1883,15 @@ func TestFuncList_HandlerMessageRead(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventMessageRead,
+			Object:  []byte(`{"from_id":1,"peer_id":1,"read_message_id":1}`),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventMessageRead,
@@ -1580,8 +1902,6 @@ func TestFuncList_HandlerMessageRead(t *testing.T) {
 }
 
 func TestFuncList_HandlerLikeAdd(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.LikeAdd(func(ctx context.Context, obj events.LikeAddObject) {
@@ -1604,6 +1924,15 @@ func TestFuncList_HandlerLikeAdd(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventLikeAdd,
+			Object:  []byte(`{"liker_id": 574423462,"object_type": "photo","object_owner_id": -178044536,"object_id": 457242474,"thread_reply_id": 0}`),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventLikeAdd,
@@ -1614,8 +1943,6 @@ func TestFuncList_HandlerLikeAdd(t *testing.T) {
 }
 
 func TestFuncList_HandlerLikeRemove(t *testing.T) {
-	t.Parallel()
-
 	fl := events.NewFuncList()
 
 	fl.LikeRemove(func(ctx context.Context, obj events.LikeRemoveObject) {
@@ -1638,6 +1965,15 @@ func TestFuncList_HandlerLikeRemove(t *testing.T) {
 		},
 		false,
 	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventLikeRemove,
+			Object:  []byte(`{"liker_id": 574423462,"object_type": "photo","object_owner_id": -178044536,"object_id": 457242474,"thread_reply_id": 0}`),
+			GroupID: GID,
+		},
+		false,
+	)
 	f(
 		events.GroupEvent{
 			Type:   events.EventLikeRemove,
@@ -1648,8 +1984,6 @@ func TestFuncList_HandlerLikeRemove(t *testing.T) {
 }
 
 func TestFuncList_OnEvent(t *testing.T) {
-	t.Parallel()
-
 	var fl events.FuncList
 
 	fl.OnEvent("wtf_event", func(_ context.Context, e events.GroupEvent) {
@@ -1663,6 +1997,15 @@ func TestFuncList_OnEvent(t *testing.T) {
 		}
 	}
 
+	f(
+		events.GroupEvent{
+			Type:    "wtf_event",
+			Object:  []byte(`{"from_id":1,"peer_id":1,"read_message_id":1}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	fl.Goroutine(true)
 	f(
 		events.GroupEvent{
 			Type:    "wtf_event",
