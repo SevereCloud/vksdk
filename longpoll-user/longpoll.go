@@ -95,6 +95,7 @@ type LongPoll struct {
 	funcList             map[int][]EventNewFunc
 	funcFullResponseList []func(object.LongPollResponse)
 	inShutdown           int32
+	goroutine            bool
 }
 
 // NewLongPoll returns a new LongPoll.
@@ -115,6 +116,11 @@ func NewLongPoll(vk *api.VK, mode Mode) (*LongPoll, error) {
 	err := lp.updateServer(true)
 
 	return lp, err
+}
+
+// Goroutine invoke functions in a goroutine.
+func (lp *LongPoll) Goroutine(v bool) {
+	lp.goroutine = v
 }
 
 func (lp *LongPoll) updateServer(updateTs bool) error {
@@ -187,8 +193,13 @@ func (lp LongPoll) handler(event []interface{}) error {
 	key := int(event[0].(float64))
 
 	for _, f := range lp.funcList[key] {
-		if err := f(event); err != nil {
-			return err
+		if lp.goroutine {
+			go func() { _ = f(event) }()
+		} else {
+			err := f(event)
+			if err != nil {
+				return err
+			}
 		}
 	}
 
@@ -212,7 +223,11 @@ func (lp *LongPoll) Run() error {
 		}
 
 		for _, f := range lp.funcFullResponseList {
-			f(resp)
+			if lp.goroutine {
+				go func() { f(resp) }()
+			} else {
+				f(resp)
+			}
 		}
 	}
 
