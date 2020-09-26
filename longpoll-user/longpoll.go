@@ -92,7 +92,7 @@ type LongPoll struct {
 	VK      *api.VK
 	Client  *http.Client
 
-	funcList             FuncList
+	funcList             map[int][]EventNewFunc
 	funcFullResponseList []func(object.LongPollResponse)
 	inShutdown           int32
 }
@@ -183,6 +183,18 @@ func (lp *LongPoll) checkResponse(response object.LongPollResponse) (err error) 
 	return
 }
 
+func (lp LongPoll) handler(event []interface{}) error {
+	key := int(event[0].(float64))
+
+	for _, f := range lp.funcList[key] {
+		if err := f(event); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 // Run handler.
 func (lp *LongPoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
@@ -194,7 +206,7 @@ func (lp *LongPoll) Run() error {
 		}
 
 		for _, event := range resp.Updates {
-			if err := lp.funcList.Handler(event); err != nil {
+			if err := lp.handler(event); err != nil {
 				return err
 			}
 		}
