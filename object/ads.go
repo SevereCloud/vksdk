@@ -12,6 +12,7 @@ type AdsAccount struct {
 	AccountID     int         `json:"account_id"` // Account ID
 	AccountName   string      `json:"account_name"`
 	AccountStatus BaseBoolInt `json:"account_status"` // Information whether account is active
+	CanViewBudget BaseBoolInt `json:"can_view_budget"`
 	AccountType   string      `json:"account_type"`
 }
 
