@@ -707,6 +707,7 @@ type GroupsMarketInfo struct {
 	PriceMax        string            `json:"price_max,omitempty"`     // Maximum price
 	PriceMin        string            `json:"price_min,omitempty"`     // Minimum price
 	Wiki            PagesWikipageFull `json:"wiki,omitempty"`
+	CityIDs         []int             `json:"city_ids"`
 	CountryIDs      []int             `json:"country_ids,omitempty"`
 }
 
