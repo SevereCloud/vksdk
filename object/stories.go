@@ -165,6 +165,7 @@ const (
 // StoriesFeedItem struct.
 type StoriesFeedItem struct {
 	Type    StoriesFeedItemType `json:"type"`
+	ID      string              `json:"id"`
 	Stories []StoriesStory      `json:"stories"`
 	Grouped StoriesFeedItemType `json:"grouped"`
 	App     AppsApp             `json:"app"`
