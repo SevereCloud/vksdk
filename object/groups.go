@@ -659,6 +659,7 @@ type GroupsLongPollEvents struct {
 	VkpayTransaction     BaseBoolInt `json:"vkpay_transaction"`
 	AppPayload           BaseBoolInt `json:"app_payload"`
 	MessageRead          BaseBoolInt `json:"message_read"`
+	MessageEvent         BaseBoolInt `json:"message_event"`
 
 	// Bugs
 	// MessagesEdit  BaseBoolInt `json:"messages_edit"`
