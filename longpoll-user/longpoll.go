@@ -92,9 +92,10 @@ type LongPoll struct {
 	VK      *api.VK
 	Client  *http.Client
 
-	funcList             FuncList
+	funcList             map[int][]EventNewFunc
 	funcFullResponseList []func(object.LongPollResponse)
 	inShutdown           int32
+	goroutine            bool
 }
 
 // NewLongPoll returns a new LongPoll.
@@ -115,6 +116,11 @@ func NewLongPoll(vk *api.VK, mode Mode) (*LongPoll, error) {
 	err := lp.updateServer(true)
 
 	return lp, err
+}
+
+// Goroutine invoke functions in a goroutine.
+func (lp *LongPoll) Goroutine(v bool) {
+	lp.goroutine = v
 }
 
 func (lp *LongPoll) updateServer(updateTs bool) error {
@@ -183,6 +189,23 @@ func (lp *LongPoll) checkResponse(response object.LongPollResponse) (err error) 
 	return
 }
 
+func (lp LongPoll) handler(event []interface{}) error {
+	key := int(event[0].(float64))
+
+	for _, f := range lp.funcList[key] {
+		if lp.goroutine {
+			go func() { _ = f(event) }()
+		} else {
+			err := f(event)
+			if err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
+
 // Run handler.
 func (lp *LongPoll) Run() error {
 	atomic.StoreInt32(&lp.inShutdown, 0)
@@ -194,13 +217,17 @@ func (lp *LongPoll) Run() error {
 		}
 
 		for _, event := range resp.Updates {
-			if err := lp.funcList.Handler(event); err != nil {
+			if err := lp.handler(event); err != nil {
 				return err
 			}
 		}
 
 		for _, f := range lp.funcFullResponseList {
-			f(resp)
+			if lp.goroutine {
+				go func() { f(resp) }()
+			} else {
+				f(resp)
+			}
 		}
 	}
 

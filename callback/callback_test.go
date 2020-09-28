@@ -2,6 +2,7 @@ package callback_test
 
 import (
 	"bytes"
+	"log"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -210,4 +211,24 @@ func TestNewCallback(t *testing.T) {
 
 	cb := callback.NewCallback()
 	assert.NotNil(t, cb)
+}
+
+func TestCallback_ErrorLog(t *testing.T) {
+	t.Parallel()
+
+	var buf bytes.Buffer
+
+	cb := callback.NewCallback()
+	cb.ErrorLog = log.New(&buf, "", 0)
+
+	req, err := http.NewRequest("POST", "/callback", bytes.NewBuffer([]byte{}))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	rr := httptest.NewRecorder()
+	handler := http.HandlerFunc(cb.HandleFunc)
+
+	handler.ServeHTTP(rr, req)
+	assert.Equal(t, "callback: EOF\n", buf.String())
 }

@@ -516,12 +516,10 @@ func (vk *VK) MessagesSend(params Params) (response int, err error) {
 
 // MessagesSendUserIDsResponse struct.
 type MessagesSendUserIDsResponse []struct {
-	PeerID    int `json:"peer_id"`
-	MessageID int `json:"message_id"`
-	Error     struct {
-		Code        int    `json:"code"`
-		Description string `json:"description"`
-	} `json:"error"`
+	PeerID                int   `json:"peer_id"`
+	MessageID             int   `json:"message_id"`
+	ConversationMessageID int   `json:"conversation_message_id"`
+	Error                 Error `json:"error"`
 }
 
 // MessagesSendUserIDs sends a message.

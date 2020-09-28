@@ -4,6 +4,8 @@ package longpoll
 type EventNewFunc func([]interface{}) error
 
 // FuncList struct.
+//
+// Deprecated: FuncList built into LongPoll.
 type FuncList map[int][]EventNewFunc
 
 // Handler func.

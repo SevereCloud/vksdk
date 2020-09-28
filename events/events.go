@@ -129,6 +129,8 @@ type FuncList struct {
 	likeRemove           []func(context.Context, LikeRemoveObject)
 	special              map[EventType][]func(context.Context, GroupEvent)
 	eventsList           []EventType
+
+	goroutine bool
 }
 
 // NewFuncList returns a new FuncList.
@@ -145,7 +147,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 
 	if sliceFunc, ok := fl.special[e.Type]; ok {
 		for _, f := range sliceFunc {
-			f(ctx, e)
+			if fl.goroutine {
+				go func() { f(ctx, e) }()
+			} else {
+				f(ctx, e)
+			}
 		}
 	}
 
@@ -157,7 +163,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.messageNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMessageReply:
 		var obj MessageReplyObject
@@ -166,7 +176,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.messageReply {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMessageEdit:
 		var obj MessageEditObject
@@ -175,7 +189,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.messageEdit {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMessageAllow:
 		var obj MessageAllowObject
@@ -184,7 +202,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.messageAllow {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMessageDeny:
 		var obj MessageDenyObject
@@ -193,7 +215,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.messageDeny {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMessageTypingState: // На основе ответа
 		var obj MessageTypingStateObject
@@ -202,7 +228,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.messageTypingState {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMessageEvent:
 		var obj MessageEventObject
@@ -211,7 +241,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.messageEvent {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventPhotoNew:
 		var obj PhotoNewObject
@@ -220,7 +254,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.photoNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventPhotoCommentNew:
 		var obj PhotoCommentNewObject
@@ -229,7 +267,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.photoCommentNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventPhotoCommentEdit:
 		var obj PhotoCommentEditObject
@@ -238,7 +280,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.photoCommentEdit {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventPhotoCommentRestore:
 		var obj PhotoCommentRestoreObject
@@ -247,7 +293,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.photoCommentRestore {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventPhotoCommentDelete:
 		var obj PhotoCommentDeleteObject
@@ -256,7 +306,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.photoCommentDelete {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventAudioNew:
 		var obj AudioNewObject
@@ -265,7 +319,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.audioNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventVideoNew:
 		var obj VideoNewObject
@@ -274,7 +332,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.videoNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventVideoCommentNew:
 		var obj VideoCommentNewObject
@@ -283,7 +345,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.videoCommentNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventVideoCommentEdit:
 		var obj VideoCommentEditObject
@@ -292,7 +358,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.videoCommentEdit {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventVideoCommentRestore:
 		var obj VideoCommentRestoreObject
@@ -301,7 +371,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.videoCommentRestore {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventVideoCommentDelete:
 		var obj VideoCommentDeleteObject
@@ -310,7 +384,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.videoCommentDelete {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventWallPostNew:
 		var obj WallPostNewObject
@@ -319,7 +397,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.wallPostNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventWallRepost:
 		var obj WallRepostObject
@@ -328,7 +410,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.wallRepost {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventWallReplyNew:
 		var obj WallReplyNewObject
@@ -337,7 +423,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.wallReplyNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventWallReplyEdit:
 		var obj WallReplyEditObject
@@ -346,7 +436,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.wallReplyEdit {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventWallReplyRestore:
 		var obj WallReplyRestoreObject
@@ -355,7 +449,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.wallReplyRestore {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventWallReplyDelete:
 		var obj WallReplyDeleteObject
@@ -364,7 +462,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.wallReplyDelete {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventBoardPostNew:
 		var obj BoardPostNewObject
@@ -373,7 +475,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.boardPostNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventBoardPostEdit:
 		var obj BoardPostEditObject
@@ -382,7 +488,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.boardPostEdit {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventBoardPostRestore:
 		var obj BoardPostRestoreObject
@@ -391,7 +501,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.boardPostRestore {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventBoardPostDelete:
 		var obj BoardPostDeleteObject
@@ -400,7 +514,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.boardPostDelete {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMarketCommentNew:
 		var obj MarketCommentNewObject
@@ -409,7 +527,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.marketCommentNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMarketCommentEdit:
 		var obj MarketCommentEditObject
@@ -418,7 +540,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.marketCommentEdit {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMarketCommentRestore:
 		var obj MarketCommentRestoreObject
@@ -427,7 +553,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.marketCommentRestore {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMarketCommentDelete:
 		var obj MarketCommentDeleteObject
@@ -436,7 +566,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.marketCommentDelete {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMarketOrderNew:
 		var obj MarketOrderNewObject
@@ -445,7 +579,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.marketOrderNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMarketOrderEdit:
 		var obj MarketOrderEditObject
@@ -454,7 +592,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.marketOrderEdit {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventGroupLeave:
 		var obj GroupLeaveObject
@@ -463,7 +605,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.groupLeave {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventGroupJoin:
 		var obj GroupJoinObject
@@ -472,7 +618,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.groupJoin {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventUserBlock:
 		var obj UserBlockObject
@@ -481,7 +631,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.userBlock {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventUserUnblock:
 		var obj UserUnblockObject
@@ -490,7 +644,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.userUnblock {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventPollVoteNew:
 		var obj PollVoteNewObject
@@ -499,7 +657,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.pollVoteNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventGroupOfficersEdit:
 		var obj GroupOfficersEditObject
@@ -508,7 +670,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.groupOfficersEdit {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventGroupChangeSettings:
 		var obj GroupChangeSettingsObject
@@ -517,7 +683,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.groupChangeSettings {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventGroupChangePhoto:
 		var obj GroupChangePhotoObject
@@ -526,7 +696,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.groupChangePhoto {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventVkpayTransaction:
 		var obj VkpayTransactionObject
@@ -535,7 +709,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.vkpayTransaction {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventLeadFormsNew:
 		var obj LeadFormsNewObject
@@ -544,7 +722,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.leadFormsNew {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventAppPayload:
 		var obj AppPayloadObject
@@ -553,7 +735,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.appPayload {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventMessageRead:
 		var obj MessageReadObject
@@ -562,7 +748,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.messageRead {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventLikeAdd:
 		var obj LikeAddObject
@@ -571,7 +761,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.likeAdd {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	case EventLikeRemove:
 		var obj LikeRemoveObject
@@ -580,7 +774,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 		}
 
 		for _, f := range fl.likeRemove {
-			f(ctx, obj)
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
 		}
 	}
 
@@ -590,6 +788,11 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 // ListEvents return list of events.
 func (fl FuncList) ListEvents() []EventType {
 	return fl.eventsList
+}
+
+// Goroutine invoke functions in a goroutine.
+func (fl *FuncList) Goroutine(v bool) {
+	fl.goroutine = v
 }
 
 // OnEvent handler.
