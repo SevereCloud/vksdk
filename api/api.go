@@ -7,6 +7,7 @@ package api // import "github.com/SevereCloud/vksdk/v2/api"
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"mime"
@@ -183,17 +184,33 @@ func (p Params) Confirm(v bool) Params {
 	return p
 }
 
-// defaultHandler provides access to VK API methods.
-func (vk *VK) defaultHandler(method string, sliceParams ...Params) (Response, error) {
-	u := vk.MethodURL + method
+// WithContext parameter.
+func (p Params) WithContext(ctx context.Context) Params {
+	p[":context"] = ctx
+	return p
+}
+
+func buildQuery(sliceParams ...Params) (context.Context, url.Values) {
 	query := url.Values{}
+	ctx := context.Background()
 
 	for _, params := range sliceParams {
 		for key, value := range params {
-			query.Set(key, FmtValue(value, 0))
+			if key != ":context" {
+				query.Set(key, FmtValue(value, 0))
+			} else {
+				ctx = value.(context.Context)
+			}
 		}
 	}
 
+	return ctx, query
+}
+
+// defaultHandler provides access to VK API methods.
+func (vk *VK) defaultHandler(method string, sliceParams ...Params) (Response, error) {
+	u := vk.MethodURL + method
+	ctx, query := buildQuery(sliceParams...)
 	attempt := 0
 
 	for {
@@ -221,7 +238,7 @@ func (vk *VK) defaultHandler(method string, sliceParams ...Params) (Response, er
 
 		rawBody := bytes.NewBufferString(query.Encode())
 
-		req, err := http.NewRequest("POST", u, rawBody)
+		req, err := http.NewRequestWithContext(ctx, "POST", u, rawBody)
 		if err != nil {
 			return response, err
 		}

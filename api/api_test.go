@@ -1,12 +1,14 @@
 package api_test
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"os"
 	"reflect"
 	"sync"
 	"testing"
+	"time"
 
 	"github.com/SevereCloud/vksdk/v2/api"
 	"github.com/SevereCloud/vksdk/v2/object"
@@ -270,4 +272,19 @@ func TestParams_methods(t *testing.T) {
 	assert.Equal(t, p["captcha_sid"], "text")
 	assert.Equal(t, p["captcha_key"], "text")
 	assert.Equal(t, p["confirm"], true)
+}
+
+func TestContext(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Millisecond*10)
+	defer cancel()
+
+	p := api.Params{}
+	p.WithContext(ctx)
+
+	_, err := vkUser.UsersGet(p)
+	assert.EqualError(t, err, "Post \"https://api.vk.com/method/users.get\": context deadline exceeded")
 }
