@@ -622,15 +622,16 @@ type MessagesLongPollParams struct {
 
 // MessagesMessageAction status.
 const (
-	ChatPhotoUpdate      = "chat_photo_update"
-	ChatPhotoRemove      = "chat_photo_remove"
-	ChatCreate           = "chat_create"
-	ChatTitleUpdate      = "chat_title_update"
-	ChatInviteUser       = "chat_invite_user"
-	ChatKickUser         = "chat_kick_user"
-	ChatPinMessage       = "chat_pin_message"
-	ChatUnpinMessage     = "chat_unpin_message"
-	ChatInviteUserByLink = "chat_invite_user_by_link"
+	ChatPhotoUpdate        = "chat_photo_update"
+	ChatPhotoRemove        = "chat_photo_remove"
+	ChatCreate             = "chat_create"
+	ChatTitleUpdate        = "chat_title_update"
+	ChatInviteUser         = "chat_invite_user"
+	ChatKickUser           = "chat_kick_user"
+	ChatPinMessage         = "chat_pin_message"
+	ChatUnpinMessage       = "chat_unpin_message"
+	ChatInviteUserByLink   = "chat_invite_user_by_link"
+	AcceptedMessageRequest = "accepted_message_request"
 )
 
 // MessagesMessageAction struct.
