@@ -969,6 +969,12 @@ func (b *VideoSaveBuilder) Description(v string) *VideoSaveBuilder {
 	return b
 }
 
+// IsUnitedVideoUpload parameter.
+func (b *VideoSaveBuilder) IsUnitedVideoUpload(v bool) *VideoSaveBuilder {
+	b.Params["is_united_video_upload"] = v
+	return b
+}
+
 // IsPrivate parameter.
 //
 // * 1 — to designate the video as private (send it via a private message), the video will not appear

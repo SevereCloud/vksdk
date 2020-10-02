@@ -384,6 +384,7 @@ func TestVideoSaveBuilder(t *testing.T) {
 
 	b.Name("text")
 	b.Description("text")
+	b.IsUnitedVideoUpload(true)
 	b.IsPrivate(true)
 	b.Wallpost(true)
 	b.Link("text")
@@ -397,6 +398,7 @@ func TestVideoSaveBuilder(t *testing.T) {
 
 	assert.Equal(t, b.Params["name"], "text")
 	assert.Equal(t, b.Params["description"], "text")
+	assert.Equal(t, b.Params["is_united_video_upload"], true)
 	assert.Equal(t, b.Params["is_private"], true)
 	assert.Equal(t, b.Params["wallpost"], true)
 	assert.Equal(t, b.Params["link"], "text")
