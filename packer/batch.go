@@ -11,6 +11,9 @@ import (
 	"github.com/SevereCloud/vksdk/v2/object"
 )
 
+// ErrNoResponse error.
+var ErrNoResponse = fmt.Errorf("packer: no response")
+
 type request struct {
 	method   string
 	params   []api.Params
@@ -25,7 +28,9 @@ func (b batch) appendRequest(req request) {
 
 func (b batch) code() string {
 	var sb strings.Builder
+
 	sb.WriteString("return {")
+
 	for id, request := range b {
 		sb.WriteString(`"` + id + `":API.` + request.method + "({")
 
@@ -44,7 +49,9 @@ func (b batch) code() string {
 
 		sb.WriteString("}),")
 	}
+
 	sb.WriteString("};")
+
 	return sb.String()
 }
 
@@ -58,6 +65,7 @@ func (p *Packer) sendBatch(bat batch) {
 
 func (p *Packer) trySendBatch(bat batch) error {
 	code := bat.code()
+
 	if p.debug {
 		log.Printf("packer: batch: code: \n%s\n", code)
 	}
@@ -68,18 +76,21 @@ func (p *Packer) trySendBatch(bat batch) error {
 	}
 
 	failedRequestIndex := 0
+
 	for name, body := range pack.Responses {
 		request, ok := bat[name]
 		if !ok {
 			if p.debug {
 				log.Printf("packer: batch: handler %s not registered\n", name)
 			}
+
 			continue
 		}
 
 		methodResponse := api.Response{
 			Response: body,
 		}
+
 		if bytes.Equal(body, []byte("false")) {
 			methodErr := executeErrorToMethodError(request, pack.ExecuteErrors[failedRequestIndex])
 			methodResponse.Error = methodErr
@@ -100,10 +111,10 @@ func (p *Packer) trySendBatch(bat batch) error {
 	}
 
 	if len(bat) > 0 {
-		err := fmt.Errorf("packer: no response")
 		for _, req := range bat {
-			req.callback(api.Response{}, err)
+			req.callback(api.Response{}, ErrNoResponse)
 		}
+
 		bat = nil
 	}
 

@@ -9,6 +9,7 @@ func newTokenPool(tokens ...string) *tokenPool {
 	for _, t := range tokens {
 		c <- t
 	}
+
 	return &tokenPool{
 		tokens: c,
 	}
@@ -17,5 +18,6 @@ func newTokenPool(tokens ...string) *tokenPool {
 func (tp *tokenPool) Get() string {
 	token := <-tp.tokens
 	tp.tokens <- token
+
 	return token
 }

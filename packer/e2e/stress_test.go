@@ -16,21 +16,26 @@ func TestManyAPICalls(t *testing.T) {
 		t.Skip("USER_TOKEN empty")
 	}
 
+	num := 500
 	vk := api.NewVK(token)
 	vk.Limit = api.LimitUserToken
 	packer.Default(vk)
+
 	var wg sync.WaitGroup
-	num := 500
+
 	wg.Add(num)
+
 	for i := 0; i < num; i++ {
-		go func(i int) {
+		go func() {
 			defer wg.Done()
+
 			resp, err := vk.UtilsResolveScreenName(api.Params{
 				"screen_name": "durov",
 			})
+
 			assert.Nil(t, err)
 			assert.Equal(t, 1, resp.ObjectID)
-		}(i)
+		}()
 	}
 	wg.Wait()
 }

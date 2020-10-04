@@ -1,3 +1,4 @@
+// Package packer .
 package packer
 
 import (
@@ -11,29 +12,29 @@ import (
 // VKHandler - alias to function which proceeds requests to VK API.
 type VKHandler = func(string, ...api.Params) (api.Response, error)
 
-// FilterMode - batch filter mode
+// FilterMode - batch filter mode.
 type FilterMode bool
 
 const (
-	// Allow mode
+	// Allow mode.
 	Allow FilterMode = true
-	// Ignore mode
+	// Ignore mode.
 	Ignore FilterMode = false
 )
 
-// Packer struct
+// Packer struct.
 type Packer struct {
 	maxPackedRequests int
-	tokenPool         *tokenPool
 	filterMode        FilterMode
-	filterMethods     map[string]struct{}
 	debug             bool
-	vkHandler         VKHandler
-	batch             batch
 	mtx               sync.Mutex
+	vkHandler         VKHandler
+	tokenPool         *tokenPool
+	filterMethods     map[string]struct{}
+	batch             batch
 }
 
-// Option - Packer option
+// Option - Packer option.
 type Option func(*Packer)
 
 // MaxPackedRequests sets the maximum API calls inside one batch.
@@ -41,6 +42,7 @@ func MaxPackedRequests(max int) Option {
 	if max < 1 || max > 25 {
 		max = 25
 	}
+
 	return func(p *Packer) {
 		p.maxPackedRequests = max
 	}
@@ -78,6 +80,7 @@ func New(handler VKHandler, tokens []string, opts ...Option) *Packer {
 		vkHandler:         handler,
 		batch:             make(batch),
 	}
+
 	for _, opt := range opts {
 		opt(p)
 	}
@@ -90,6 +93,7 @@ func New(handler VKHandler, tokens []string, opts ...Option) *Packer {
 func Default(vk *api.VK, opts ...Option) {
 	p := New(vk.Handler, vk.Tokens(), opts...)
 	vk.Handler = p.Handler
+
 	go func() {
 		for {
 			time.Sleep(time.Second * 2)
@@ -121,21 +125,25 @@ func (p *Packer) Handler(method string, params ...api.Params) (api.Response, err
 	)
 
 	wg.Add(1)
+
 	handler := func(r api.Response, e error) {
 		resp = r
 		err = e
+
 		wg.Done()
 	}
 
 	p.mtx.Lock()
 	p.batch.appendRequest(request{method, params, handler})
+
 	if len(p.batch) == p.maxPackedRequests {
 		go p.sendBatch(p.batch)
 		p.batch = make(batch)
 	}
-	p.mtx.Unlock()
 
+	p.mtx.Unlock()
 	wg.Wait()
+
 	return resp, err
 }
 
