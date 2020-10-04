@@ -136,7 +136,7 @@ func (vk *VK) getToken() string {
 	return vk.accessTokens[(int(i)-1)%len(vk.accessTokens)]
 }
 
-// Tokens returns client access tokens
+// Tokens returns client access tokens.
 func (vk *VK) Tokens() []string {
 	return vk.accessTokens
 }
