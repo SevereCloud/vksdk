@@ -11,19 +11,3 @@ func iterateAll(iterFn func(key string, value interface{}), params ...api.Params
 		}
 	}
 }
-
-func escape(s string) string {
-	newstr := make([]rune, 0, len(s))
-	escaped := false
-
-	for _, r := range s {
-		if r == '"' && !escaped {
-			newstr = append(newstr, '\\')
-		}
-
-		newstr = append(newstr, r)
-		escaped = r == '\\'
-	}
-
-	return string(newstr)
-}
