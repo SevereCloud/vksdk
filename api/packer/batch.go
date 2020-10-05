@@ -36,12 +36,13 @@ func (b batch) code() string {
 		sb.WriteString(`"` + id + `":API.` + request.method + "({")
 
 		iterateAll(func(name string, value interface{}) {
-			switch name {
-			case "access_token", "v":
+			if name == "access_token" ||
+				name == "v" ||
+				(len(name) > 0 && name[0] == ':') {
 				return
 			}
 
-			b, err := json.Marshal(value)
+			b, err := json.Marshal(api.FmtValue(value, 0))
 			if err != nil {
 				panic(err)
 			}
