@@ -35,20 +35,24 @@ func (b batch) code() string {
 	for id, request := range b {
 		sb.WriteString(`"` + id + `":API.` + request.method + "({")
 
-		iterateAll(func(name string, value interface{}) {
-			if name == "access_token" ||
-				name == "v" ||
-				(len(name) > 0 && name[0] == ':') {
+		iterateAll(func(key string, value interface{}) {
+			if key == "access_token" ||
+				key == "v" ||
+				(len(key) > 0 && key[0] == ':') {
 				return
 			}
 
-			b, err := json.Marshal(api.FmtValue(value, 0))
+			keyEsc, err := json.Marshal(key)
 			if err != nil {
 				panic(err)
 			}
 
-			str := string(b)
-			sb.WriteString(`"` + name + `":` + str + ",")
+			valueEsc, err := json.Marshal(api.FmtValue(value, 0))
+			if err != nil {
+				panic(err)
+			}
+
+			sb.WriteString(string(keyEsc) + `:` + string(valueEsc) + ",")
 		}, request.params...)
 
 		sb.WriteString("}),")
