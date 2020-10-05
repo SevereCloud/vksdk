@@ -6,11 +6,11 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v2/api"
-	packer "github.com/SevereCloud/vksdk/v2/packer"
+	"github.com/SevereCloud/vksdk/v2/api/packer"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestMain(t *testing.T) {
+func TestPacker(t *testing.T) {
 	token := os.Getenv("USER_TOKEN")
 	if token == "" {
 		t.Skip("USER_TOKEN empty")

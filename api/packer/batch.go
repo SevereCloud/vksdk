@@ -35,15 +35,18 @@ func (b batch) code() string {
 		sb.WriteString(`"` + id + `":API.` + request.method + "({")
 
 		iterateAll(func(name string, value interface{}) {
-			if name == "access_token" {
+			switch name {
+			case "access_token", "v":
 				return
 			}
+
 			valueString := ""
 			if s, ok := value.(string); ok {
-				valueString = `"` + s + `"`
+				valueString = `"` + escape(s) + `"`
 			} else {
 				valueString = api.FmtValue(value, 0)
 			}
+
 			sb.WriteString(`"` + name + `":` + valueString + ",")
 		}, request.params...)
 

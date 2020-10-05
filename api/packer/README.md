@@ -1,4 +1,4 @@
-# Packer
+# Пакер
 
 Пакер батчит все выполняемые VKSDK запросы в execute запросы.
 
@@ -9,11 +9,12 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/SevereCloud/vksdk/v2/api"
 	"github.com/SevereCloud/vksdk/v2/api/params"
-	packer "github.com/SevereCloud/vksdk/v2/packer"
+	"github.com/SevereCloud/vksdk/v2/api/packer"
 )
 
 func main() {
@@ -26,7 +27,7 @@ func main() {
 			ScreenName("durov").Params,
 	)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println("durov id:", resp.ObjectID)
