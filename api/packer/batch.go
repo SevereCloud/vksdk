@@ -2,7 +2,6 @@ package packer
 
 import (
 	"bytes"
-	"encoding/json"
 	"fmt"
 	"log"
 	"strconv"
@@ -42,17 +41,7 @@ func (b batch) code() string {
 				return
 			}
 
-			keyEsc, err := json.Marshal(key)
-			if err != nil {
-				panic(err)
-			}
-
-			valueEsc, err := json.Marshal(api.FmtValue(value, 0))
-			if err != nil {
-				panic(err)
-			}
-
-			sb.WriteString(string(keyEsc) + `:` + string(valueEsc) + ",")
+			sb.WriteString(strconv.Quote(key) + `:` + strconv.Quote(api.FmtValue(value, 0)) + ",")
 		}, request.params...)
 
 		sb.WriteString("}),")
