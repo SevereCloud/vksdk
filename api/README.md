@@ -366,7 +366,6 @@ videoUploadResponse, err = vk.UploadVideo(params, file)
 
 - doc - обычный документ;
 - audio_message - голосовое сообщение
-- graffiti - граффити
 
 Загрузить документ:
 

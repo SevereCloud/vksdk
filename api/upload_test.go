@@ -391,28 +391,6 @@ func TestVK_UploadMessagesDoc(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_UploadMessagesDocGraffiti(t *testing.T) {
-	t.Parallel()
-
-	needUserToken(t)
-
-	response, err := http.Get(photoURL)
-	if err != nil {
-		t.Fatalf("%v", err)
-	}
-	defer response.Body.Close()
-
-	doc, err := vkUser.UploadMessagesDoc(117253521, "graffiti", "test.png", "test", response.Body)
-	noError(t, err)
-
-	_, err = vkUser.MessagesSend(api.Params{
-		"peer_id":    117253521,
-		"random_id":  0,
-		"attachment": doc.Graffiti,
-	})
-	noError(t, err)
-}
-
 func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
 	t.Parallel()
 
