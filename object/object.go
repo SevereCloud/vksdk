@@ -262,6 +262,7 @@ type BaseSticker struct {
 	ImagesWithBackground []BaseImage `json:"images_with_background"`
 	ProductID            int         `json:"product_id"`
 	StickerID            int         `json:"sticker_id"`
+	AnimationURL         string      `json:"animation_url"`
 }
 
 // MaxSize return the largest BaseSticker.
