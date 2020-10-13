@@ -87,4 +87,4 @@ git push origin <name_of_your_new_branch>
 с веткой:
 
 - `master` если это багфикс
-- `dev` если это новая фича
+- `dev-v1.2.3` если это новая фича
