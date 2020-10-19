@@ -1317,6 +1317,8 @@ func (b *MessagesSendBuilder) ChatID(v int) *MessagesSendBuilder {
 }
 
 // UserIDs IDs of message recipients (if new conversation shall be started).
+//
+// Deprecated: outdated option, only for versions before 5.138.
 func (b *MessagesSendBuilder) UserIDs(v []int) *MessagesSendBuilder {
 	b.Params["user_ids"] = v
 	return b
