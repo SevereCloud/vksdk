@@ -522,6 +522,16 @@ type MessagesSendUserIDsResponse []struct {
 	Error                 Error `json:"error"`
 }
 
+// MessagesSendPeerIDs sends a message.
+//
+// need peer_ids;
+//
+// https://vk.com/dev/messages.send
+func (vk *VK) MessagesSendPeerIDs(params Params) (response MessagesSendUserIDsResponse, err error) {
+	err = vk.RequestUnmarshal("messages.send", &response, params)
+	return
+}
+
 // MessagesSendUserIDs sends a message.
 //
 // need user_ids or peer_ids;
