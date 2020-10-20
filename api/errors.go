@@ -290,6 +290,9 @@ const (
 	// Donut is disabled.
 	ErrDonutDisabled ErrorType = 225
 
+	// Reaction can not be applied to the object.
+	ErrReactionCantApplied ErrorType = 232
+
 	// Access to poll denied.
 	ErrPollsAccess ErrorType = 250
 
