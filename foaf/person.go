@@ -47,7 +47,7 @@ type Person struct {
 	SecondName        string       `xml:"secondName"`
 	Name              string       `xml:"name"`
 	Weblog            Weblog       `xml:"weblog"`
-	Gender            string       `xml:"gender"`
+	Gender            Gender       `xml:"gender"`
 	Created           Date         `xml:"created"`
 	LastLoggedIn      Date         `xml:"lastLoggedIn"`
 	Modified          Date         `xml:"modified"`
