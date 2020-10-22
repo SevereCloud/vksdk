@@ -56,11 +56,13 @@ package longpoll // import "github.com/SevereCloud/vksdk/v2/longpoll-user"
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
+	"net/url"
+	"strconv"
 	"sync/atomic"
 
 	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v2/internal"
 	"github.com/SevereCloud/vksdk/v2/object"
 )
 
@@ -90,7 +92,9 @@ type LongPoll struct {
 	Version int
 	Wait    int
 	VK      *api.VK
-	Client  *http.Client
+
+	Client    *http.Client
+	UserAgent string
 
 	funcList             map[int][]EventNewFunc
 	funcFullResponseList []func(object.LongPollResponse)
@@ -105,12 +109,13 @@ type LongPoll struct {
 // of your application the modifications will be picked up by the SDK as well.
 func NewLongPoll(vk *api.VK, mode Mode) (*LongPoll, error) {
 	lp := &LongPoll{
-		VK:       vk,
-		Mode:     mode,
-		Version:  3,
-		Wait:     25,
-		funcList: make(FuncList),
-		Client:   http.DefaultClient,
+		VK:        vk,
+		Mode:      mode,
+		Version:   3,
+		Wait:      25,
+		funcList:  make(FuncList),
+		Client:    http.DefaultClient,
+		UserAgent: internal.UserAgent,
 	}
 
 	err := lp.updateServer(true)
@@ -144,17 +149,29 @@ func (lp *LongPoll) updateServer(updateTs bool) error {
 }
 
 func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
-	u := fmt.Sprintf(
-		"https://%s?act=a_check&key=%s&ts=%d&wait=%d&mode=%d&version=%d",
-		lp.Server,
-		lp.Key,
-		lp.Ts,
-		lp.Wait,
-		lp.Mode,
-		lp.Version,
-	)
+	u, err := url.Parse(lp.Server)
+	if err != nil {
+		return
+	}
 
-	resp, err := lp.Client.Get(u)
+	u.Scheme = "https"
+
+	q := u.Query()
+	q.Set("key", lp.Key)
+	q.Set("ts", strconv.Itoa(lp.Ts))
+	q.Set("wait", strconv.Itoa(lp.Wait))
+	q.Set("mode", strconv.Itoa(lp.Mode))
+	q.Set("version", strconv.Itoa(lp.Version))
+	u.RawQuery = q.Encode()
+
+	req, err := http.NewRequest("GET", u.String(), nil)
+	if err != nil {
+		return
+	}
+
+	req.Header.Set("User-Agent", lp.UserAgent)
+
+	resp, err := lp.Client.Do(req)
 	if err != nil {
 		return
 	}
@@ -167,7 +184,7 @@ func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 
 	err = lp.checkResponse(response)
 
-	return
+	return response, err
 }
 
 func (lp *LongPoll) checkResponse(response object.LongPollResponse) (err error) {
