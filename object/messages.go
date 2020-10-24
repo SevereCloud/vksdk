@@ -675,6 +675,7 @@ type MessagesMessageAttachment struct {
 	Poll              PollsPoll         `json:"poll"`
 	Call              MessageCall       `json:"call"`
 	Story             StoriesStory      `json:"story"`
+	Podcast           PodcastsEpisode   `json:"podcast"`
 }
 
 // MessageCall struct.
