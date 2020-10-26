@@ -178,6 +178,7 @@ const (
 	AttachmentTypeEvent       = "event"
 	AttachmentTypeWall        = "wall"
 	AttachmentTypeStory       = "story"
+	AttachmentTypePodcast     = "podcast"
 )
 
 // WallWallpostAttachment struct.
@@ -200,6 +201,7 @@ type WallWallpostAttachment struct {
 	PostedPhoto       WallPostedPhoto   `json:"posted_photo"`
 	Type              string            `json:"type"`
 	Video             VideoVideo        `json:"video"`
+	Podcast           PodcastsEpisode   `json:"podcast"`
 }
 
 // WallWallpostToID struct.

@@ -515,6 +515,8 @@ func (vk *VK) MessagesSend(params Params) (response int, err error) {
 }
 
 // MessagesSendUserIDsResponse struct.
+//
+// TODO: v3 rename MessagesSendPeerIDsResponse - user_ids outdated.
 type MessagesSendUserIDsResponse []struct {
 	PeerID                int   `json:"peer_id"`
 	MessageID             int   `json:"message_id"`
@@ -522,14 +524,25 @@ type MessagesSendUserIDsResponse []struct {
 	Error                 Error `json:"error"`
 }
 
+// MessagesSendPeerIDs sends a message.
+//
+// need peer_ids;
+//
+// https://vk.com/dev/messages.send
+func (vk *VK) MessagesSendPeerIDs(params Params) (response MessagesSendUserIDsResponse, err error) {
+	err = vk.RequestUnmarshal("messages.send", &response, params)
+	return
+}
+
 // MessagesSendUserIDs sends a message.
 //
 // need user_ids or peer_ids;
 //
 // https://vk.com/dev/messages.send
+//
+// Deprecated: user_ids outdated, use MessagesSendPeerIDs.
 func (vk *VK) MessagesSendUserIDs(params Params) (response MessagesSendUserIDsResponse, err error) {
-	err = vk.RequestUnmarshal("messages.send", &response, params)
-	return
+	return vk.MessagesSendPeerIDs(params)
 }
 
 // MessagesSendMessageEventAnswer method.
