@@ -157,6 +157,7 @@ func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 	u.Scheme = "https"
 
 	q := u.Query()
+	q.Set("act", "a_check")
 	q.Set("key", lp.Key)
 	q.Set("ts", strconv.Itoa(lp.Ts))
 	q.Set("wait", strconv.Itoa(lp.Wait))
