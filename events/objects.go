@@ -1,6 +1,8 @@
 package events // import "github.com/SevereCloud/vksdk/v2/events"
 
 import (
+	"encoding/json"
+
 	"github.com/SevereCloud/vksdk/v2/object"
 )
 
@@ -36,11 +38,11 @@ type MessageTypingStateObject struct {
 
 // MessageEventObject struct.
 type MessageEventObject struct {
-	UserID                int    `json:"user_id"`
-	PeerID                int    `json:"peer_id"`
-	EventID               string `json:"event_id"`
-	Payload               string `json:"payload"`
-	ConversationMessageID int    `json:"conversation_message_id"`
+	UserID                int             `json:"user_id"`
+	PeerID                int             `json:"peer_id"`
+	EventID               string          `json:"event_id"`
+	Payload               json.RawMessage `json:"payload"`
+	ConversationMessageID int             `json:"conversation_message_id"`
 }
 
 // PhotoNewObject struct.
