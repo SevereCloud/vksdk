@@ -11,8 +11,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-const sleepTime = 300 * time.Millisecond
-
 func testFave(t *testing.T, f object.FaveItem) {
 	t.Helper()
 

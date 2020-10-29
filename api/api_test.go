@@ -15,6 +15,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+const sleepTime = time.Second
+
 func noError(t *testing.T, err error) bool {
 	t.Helper()
 
