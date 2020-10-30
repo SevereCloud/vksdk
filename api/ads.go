@@ -237,16 +237,16 @@ func (vk *VK) AdsGetAccounts(params Params) (response AdsGetAccountsResponse, er
 	return
 }
 
-// TODO: AdsGetAdsResponse struct.
-// type AdsGetAdsResponse struct{}
+// AdsGetAdsResponse struct.
+type AdsGetAdsResponse []object.AdsAd
 
-// AdsGetAds TODO: ...
+// AdsGetAds returns a list of ads.
 //
 // https://vk.com/dev/ads.getAds
-// func (vk *VK) AdsGetAds(params Params) (response AdsGetAdsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getAds", &response, params)
-// 	return
-// }
+func (vk *VK) AdsGetAds(params Params) (response AdsGetAdsResponse, err error) {
+	err = vk.RequestUnmarshal("ads.getAds", &response, params)
+	return
+}
 
 // TODO: AdsGetAdsLayoutResponse struct.
 // type AdsGetAdsLayoutResponse struct{}

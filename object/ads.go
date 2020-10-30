@@ -267,25 +267,35 @@ type AdsUsers struct {
 
 // AdsAd struct.
 type AdsAd struct {
-	AdFormat              int         `json:"ad_format"`   // Ad format
-	AdPlatform            interface{} `json:"ad_platform"` // Ad platform
-	AllLimit              int         `json:"all_limit"`   // Total limit
-	Approved              int         `json:"approved"`
-	CampaignID            int         `json:"campaign_id"`  // Campaign ID
-	Category1ID           int         `json:"category1_id"` // Category ID
-	Category2ID           int         `json:"category2_id"` // Additional category ID
-	CostType              int         `json:"cost_type"`
-	Cpc                   int         `json:"cpc"`                    // Cost of a click, kopecks
-	Cpm                   int         `json:"cpm"`                    // Cost of 1000 impressions, kopecks
-	DisclaimerMedical     BaseBoolInt `json:"disclaimer_medical"`     // Information whether disclaimer is enabled
-	DisclaimerSpecialist  BaseBoolInt `json:"disclaimer_specialist"`  // Information whether disclaimer is enabled
-	DisclaimerSupplements BaseBoolInt `json:"disclaimer_supplements"` // Information whether disclaimer is enabled
-	Video                 BaseBoolInt `json:"video"`                  // Information whether the ad is a video
-	ImpressionsLimited    BaseBoolInt `json:"impressions_limited"`    // Information whether impressions are limited
-	ImpressionsLimit      int         `json:"impressions_limit"`      // Impressions limit
-	ID                    int         `json:"id"`                     // Ad ID
-	Name                  string      `json:"name"`                   // Ad title
-	Status                int         `json:"status"`
+	Approved                string      `json:"approved"`
+	AllLimit                string      `json:"all_limit"`
+	Category1ID             string      `json:"category1_id"`
+	Category2ID             string      `json:"category2_id"`
+	Cpm                     string      `json:"cpm"`
+	AdFormat                int         `json:"ad_format"`   // Ad format
+	AdPlatform              interface{} `json:"ad_platform"` // Ad platform
+	CampaignID              int         `json:"campaign_id"` // Campaign ID
+	CostType                int         `json:"cost_type"`
+	Cpc                     int         `json:"cpc"`                    // Cost of a click, kopecks
+	DisclaimerMedical       BaseBoolInt `json:"disclaimer_medical"`     // Information whether disclaimer is enabled
+	DisclaimerSpecialist    BaseBoolInt `json:"disclaimer_specialist"`  // Information whether disclaimer is enabled
+	DisclaimerSupplements   BaseBoolInt `json:"disclaimer_supplements"` // Information whether disclaimer is enabled
+	Video                   BaseBoolInt `json:"video"`                  // Information whether the ad is a video
+	ImpressionsLimited      BaseBoolInt `json:"impressions_limited"`    // Information whether impressions are limited
+	Autobidding             BaseBoolInt `json:"autobidding"`
+	ImpressionsLimit        int         `json:"impressions_limit"` // Impressions limit
+	ID                      string      `json:"id"`                // Ad ID
+	Name                    string      `json:"name"`              // Ad title
+	Status                  int         `json:"status"`
+	CreateTime              string      `json:"create_time"`
+	UpdateTime              string      `json:"update_time"`
+	GoalType                int         `json:"goal_type"`
+	DayLimit                string      `json:"day_limit"`
+	StartTime               string      `json:"start_time"`
+	StopTime                string      `json:"stop_time"`
+	AgeRestriction          string      `json:"age_restriction"`
+	EventsRetargetingGroups interface{} `json:"events_retargeting_groups"`
+	ImpressionsLimitPeriod  string      `json:"impressions_limit_period"`
 }
 
 // AdsPromotedPostReach struct.
