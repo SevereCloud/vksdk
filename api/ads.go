@@ -160,16 +160,21 @@ func (vk *VK) AdsCreateTargetPixel(params Params) (response AdsCreateTargetPixel
 	return
 }
 
-// TODO: AdsDeleteAdsResponse struct.
-// type AdsDeleteAdsResponse struct{}
+// AdsDeleteAdsResponse struct.
+//
+// Each response is 0 — deleted successfully, or an error code.
+type AdsDeleteAdsResponse []ErrorType
 
-// TODO: AdsDeleteAds ...
+// AdsDeleteAds archives ads.
+//
+// Warning! Maximum allowed number of ads, archived with
+// a single request - 100.
 //
 // https://vk.com/dev/ads.deleteAds
-// func (vk *VK) AdsDeleteAds(params Params) (response AdsDeleteAdsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.deleteAds", &response, params)
-// 	return
-// }
+func (vk *VK) AdsDeleteAds(params Params) (response AdsDeleteAdsResponse, err error) {
+	err = vk.RequestUnmarshal("ads.deleteAds", &response, params)
+	return
+}
 
 // TODO: AdsDeleteCampaignsResponse struct.
 // type AdsDeleteCampaignsResponse struct{}
