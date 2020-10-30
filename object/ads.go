@@ -119,12 +119,20 @@ type AdsFloodStats struct {
 	Refresh int `json:"refresh"` // Time to refresh in seconds
 }
 
-// AdsLinkStatus struct.
-type AdsLinkStatus struct {
-	Description string `json:"description"`  // Reject reason
-	RedirectURL string `json:"redirect_url"` // URL
-	Status      string `json:"status"`       // Link status
-}
+// AdsLinkStatus link status.
+type AdsLinkStatus string
+
+// Possible values.
+const (
+	// allowed to use in ads.
+	AdsLinkAllowed AdsLinkStatus = "allowed"
+
+	// prohibited to use for this type of the object.
+	AdsLinkDisallowed AdsLinkStatus = "disallowed"
+
+	// checking, wait please.
+	AdsLinkInProgress AdsLinkStatus = "in_progress"
+)
 
 // AdsParagraphs struct.
 type AdsParagraphs struct {

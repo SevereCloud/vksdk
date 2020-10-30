@@ -15,16 +15,25 @@ import (
 // 	return
 // }
 
-// TODO: AdsCheckLinkResponse struct.
-// type AdsCheckLinkResponse struct{}
+// AdsCheckLinkResponse struct.
+type AdsCheckLinkResponse struct {
+	// link status
+	Status object.AdsLinkStatus `json:"status"`
 
-// TODO: AdsCheckLink ...
+	// (if status = disallowed) — description of the reason
+	Description string `json:"description,omitempty"`
+
+	// (if the end link differs from original and status = allowed) — end link.
+	RedirectURL string `json:"redirect_url,omitempty"`
+}
+
+// AdsCheckLink allows to check the ad link.
 //
 // https://vk.com/dev/ads.checkLink
-// func (vk *VK) AdsCheckLink(params Params) (response AdsCheckLinkResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.checkLink", &response, params)
-// 	return
-// }
+func (vk *VK) AdsCheckLink(params Params) (response AdsCheckLinkResponse, err error) {
+	err = vk.RequestUnmarshal("ads.checkLink", &response, params)
+	return
+}
 
 // TODO: AdsCreateAdsResponse struct.
 // type AdsCreateAdsResponse struct{}
