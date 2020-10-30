@@ -19,8 +19,8 @@ const (
 	Fixed                                //	Message was user-checked for spam
 	Media                                // Message has media content
 	Hidden       MessageFlag = 1 << 16   // Greeting message from a community
-	DeleteForAll             = 1 << 17   // Message was deleted for all
-	NotDelivered             = 1 << 18   // Incoming message not delivered
+	DeleteForAll MessageFlag = 1 << 17   // Message was deleted for all
+	NotDelivered MessageFlag = 1 << 18   // Incoming message not delivered
 )
 
 // DialogFlag type.
