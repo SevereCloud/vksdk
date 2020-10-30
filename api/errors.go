@@ -163,6 +163,9 @@ const (
 	ErrRateLimit      ErrorType = 29
 	ErrPrivateProfile ErrorType = 30 // This profile is private
 
+	// Method execution was interrupted due to timeout.
+	ErrExecutionTimeout ErrorType = 36
+
 	// One of the parameters specified was missing or invalid
 	//
 	// Check the required parameters list and their format on a method
