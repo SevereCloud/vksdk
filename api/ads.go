@@ -69,16 +69,21 @@ func (vk *VK) AdsCreateAds(params Params) (response AdsCreateAdsResponse, err er
 	return
 }
 
-// TODO: AdsCreateCampaignsResponse struct.
-// type AdsCreateCampaignsResponse struct{}
+// AdsCreateCampaignsResponse struct.
+type AdsCreateCampaignsResponse []struct {
+	ID int `json:"id"`
+	AdsError
+}
 
-// TODO: AdsCreateCampaigns ...
+// AdsCreateCampaigns creates advertising campaigns.
+//
+// Please note! Allowed number of campaigns created in one request is 50.
 //
 // https://vk.com/dev/ads.createCampaigns
-// func (vk *VK) AdsCreateCampaigns(params Params) (response AdsCreateCampaignsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createCampaigns", &response, params)
-// 	return
-// }
+func (vk *VK) AdsCreateCampaigns(params Params) (response AdsCreateCampaignsResponse, err error) {
+	err = vk.RequestUnmarshal("ads.createCampaigns", &response, params)
+	return
+}
 
 // TODO: AdsCreateClientsResponse struct.
 // type AdsCreateClientsResponse struct{}
