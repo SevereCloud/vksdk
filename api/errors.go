@@ -347,6 +347,9 @@ const (
 	// Object deleted.
 	ErrAdsObjectDeleted ErrorType = 629
 
+	// Lookalike request audience save already in progress.
+	ErrAdsLookalikeAudienceSaveAlreadyInProgress ErrorType = 634
+
 	// Cannot edit creator role.
 	ErrGroupChangeCreator ErrorType = 700
 
