@@ -368,6 +368,15 @@ const (
 	// Domain app is forbidden.
 	ErrAdsDomainAppForbidden ErrorType = 610
 
+	// Application must be verified.
+	ErrAdsApplicationMustBeVerified ErrorType = 611
+
+	// Application must be in domains list of site of ad unit.
+	ErrAdsApplicationMustBeInDomainsList ErrorType = 612
+
+	// Application is blocked.
+	ErrAdsApplicationBlocked ErrorType = 613
+
 	// Domain of type specified is forbidden in current office type.
 	ErrAdsDomainTypeForbiddenInCurrentOffice ErrorType = 614
 
