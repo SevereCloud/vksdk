@@ -248,16 +248,16 @@ func (vk *VK) AdsGetAds(params Params) (response AdsGetAdsResponse, err error) {
 	return
 }
 
-// TODO: AdsGetAdsLayoutResponse struct.
-// type AdsGetAdsLayoutResponse struct{}
+// AdsGetAdsLayoutResponse struct.
+type AdsGetAdsLayoutResponse []object.AdsAdLayout
 
-// TODO: AdsGetAdsLayout ...
+// AdsGetAdsLayout returns descriptions of ad layouts.
 //
 // https://vk.com/dev/ads.getAdsLayout
-// func (vk *VK) AdsGetAdsLayout(params Params) (response AdsGetAdsLayoutResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getAdsLayout", &response, params)
-// 	return
-// }
+func (vk *VK) AdsGetAdsLayout(params Params) (response AdsGetAdsLayoutResponse, err error) {
+	err = vk.RequestUnmarshal("ads.getAdsLayout", &response, params)
+	return
+}
 
 // TODO: AdsGetAdsTargetingResponse struct.
 // type AdsGetAdsTargetingResponse struct{}

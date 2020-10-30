@@ -18,18 +18,21 @@ type AdsAccount struct {
 
 // AdsAdLayout struct.
 type AdsAdLayout struct {
-	AdFormat    int         `json:"ad_format"`   // Ad format
-	CampaignID  int         `json:"campaign_id"` // Campaign ID
-	CostType    int         `json:"cost_type"`
-	Description string      `json:"description"`  // Ad description
-	ID          int         `json:"id"`           // Ad ID
-	ImageSrc    string      `json:"image_src"`    // Image URL
-	ImageSrc2x  string      `json:"image_src_2x"` // URL of the preview image in double size
-	LinkDomain  string      `json:"link_domain"`  // Domain of advertised object
-	LinkURL     string      `json:"link_url"`     // URL of advertised object
-	PreviewLink string      `json:"preview_link"` // TODO: check it link to preview an ad as it is shown on the website
-	Title       string      `json:"title"`        // Ad title
-	Video       BaseBoolInt `json:"video"`        // Information whether the ad is a video
+	AdFormat       interface{} `json:"ad_format"`    // Ad format
+	Description    string      `json:"description"`  // Ad description
+	ImageSrc       string      `json:"image_src"`    // Image URL
+	ImageSrc2x     string      `json:"image_src_2x"` // URL of the preview image in double size
+	LinkDomain     string      `json:"link_domain"`  // Domain of advertised object
+	LinkURL        string      `json:"link_url"`     // URL of advertised object
+	PreviewLink    string      `json:"preview_link"` // preview an ad as it is shown on the website
+	Title          string      `json:"title"`        // Ad title
+	Video          BaseBoolInt `json:"video"`        // Information whether the ad is a video
+	ID             string      `json:"id"`
+	CampaignID     int         `json:"campaign_id"`
+	GoalType       int         `json:"goal_type"`
+	CostType       int         `json:"cost_type"`
+	AgeRestriction string      `json:"age_restriction"`
+	LinkType       string      `json:"link_type"`
 }
 
 // AdsCampaign struct.
