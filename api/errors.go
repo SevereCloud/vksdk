@@ -425,6 +425,18 @@ const (
 	// Object deleted.
 	ErrAdsObjectDeleted ErrorType = 629
 
+	// Lookalike request with same source already in progress.
+	ErrAdsLookalikeRequestAlreadyInProgress ErrorType = 630
+
+	// Max count of lookalike requests per day reached.
+	ErrAdsLookalikeRequestsLimit ErrorType = 631
+
+	// Given audience is too small.
+	ErrAdsAudienceTooSmall ErrorType = 632
+
+	// Given audience is too large.
+	ErrAdsAudienceTooLarge ErrorType = 633
+
 	// Lookalike request audience save already in progress.
 	ErrAdsLookalikeAudienceSaveAlreadyInProgress ErrorType = 634
 
