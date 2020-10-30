@@ -353,6 +353,9 @@ const (
 	// Max count of lookalike request audience saves per day reached.
 	ErrAdsLookalikeSavesLimit ErrorType = 635
 
+	// Max count of retargeting groups reached.
+	ErrAdsRetargetingGroupsLimit ErrorType = 636
+
 	// Cannot edit creator role.
 	ErrGroupChangeCreator ErrorType = 700
 
