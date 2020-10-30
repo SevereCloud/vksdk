@@ -245,12 +245,18 @@ type AdsTargSuggestionsSchools struct {
 
 // AdsTargetGroup struct.
 type AdsTargetGroup struct {
-	AudienceCount int    `json:"audience_count"` // Audience
-	Domain        string `json:"domain"`         // Site domain
-	ID            int    `json:"id"`             // Group ID
-	Lifetime      int    `json:"lifetime"`       // Number of days for user to be in group
-	Name          string `json:"name"`           // Group name
-	Pixel         string `json:"pixel"`          // Pixel code
+	AudienceCount   int         `json:"audience_count"` // Audience
+	ID              int         `json:"id"`             // Group ID
+	Lifetime        int         `json:"lifetime"`       // Number of days for user to be in group
+	Name            string      `json:"name"`           // Group name
+	LastUpdated     int         `json:"last_updated"`
+	IsAudience      BaseBoolInt `json:"is_audience"`
+	IsShared        BaseBoolInt `json:"is_shared"`
+	FileSource      BaseBoolInt `json:"file_source"`
+	APISource       BaseBoolInt `json:"api_source"`
+	LookalikeSource BaseBoolInt `json:"lookalike_source"`
+	Domain          string      `json:"domain,omitempty"` // Site domain
+	Pixel           string      `json:"pixel,omitempty"`  // Pixel code
 }
 
 // AdsUsers struct.

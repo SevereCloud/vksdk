@@ -415,16 +415,16 @@ func (vk *VK) AdsGetMusicians(params Params) (response AdsGetMusiciansResponse, 
 // 	return
 // }
 
-// TODO: AdsGetTargetGroupsResponse struct.
-// type AdsGetTargetGroupsResponse struct{}
+// AdsGetTargetGroupsResponse struct.
+type AdsGetTargetGroupsResponse []object.AdsTargetGroup
 
-// TODO: AdsGetTargetGroups ...
+// AdsGetTargetGroups returns a list of target groups.
 //
 // https://vk.com/dev/ads.getTargetGroups
-// func (vk *VK) AdsGetTargetGroups(params Params) (response AdsGetTargetGroupsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.getTargetGroups", &response, params)
-// 	return
-// }
+func (vk *VK) AdsGetTargetGroups(params Params) (response AdsGetTargetGroupsResponse, err error) {
+	err = vk.RequestUnmarshal("ads.getTargetGroups", &response, params)
+	return
+}
 
 // TODO: AdsGetTargetPixelsResponse struct.
 // type AdsGetTargetPixelsResponse struct{}
