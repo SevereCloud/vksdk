@@ -52,16 +52,22 @@ func (vk *VK) AdsCheckLink(params Params) (response AdsCheckLinkResponse, err er
 	return
 }
 
-// TODO: AdsCreateAdsResponse struct.
-// type AdsCreateAdsResponse struct{}
+// AdsCreateAdsResponse struct.
+type AdsCreateAdsResponse []struct {
+	ID int `json:"id"`
+	AdsError
+}
 
-// TODO: AdsCreateAds ...
+// AdsCreateAds creates ads.
+//
+// Please note! Maximum allowed number of ads created in one request is 5.
+// Minimum size of ad audience is 50 people.
 //
 // https://vk.com/dev/ads.createAds
-// func (vk *VK) AdsCreateAds(params Params) (response AdsCreateAdsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createAds", &response, params)
-// 	return
-// }
+func (vk *VK) AdsCreateAds(params Params) (response AdsCreateAdsResponse, err error) {
+	err = vk.RequestUnmarshal("ads.createAds", &response, params)
+	return
+}
 
 // TODO: AdsCreateCampaignsResponse struct.
 // type AdsCreateCampaignsResponse struct{}
