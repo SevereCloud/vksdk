@@ -2,6 +2,7 @@ package api_test
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -20,7 +21,8 @@ const sleepTime = time.Second
 func noError(t *testing.T, err error) bool {
 	t.Helper()
 
-	if e, ok := err.(*api.Error); ok {
+	var e api.Error
+	if errors.As(err, &e) {
 		switch e.Code {
 		case api.ErrServer:
 			t.Skip("Internal server error")
@@ -160,21 +162,17 @@ func TestVK_Request(t *testing.T) {
 
 	vk := api.NewVK(groupToken)
 
-	t.Run("Request 403 error", func(t *testing.T) {
-		_, err := vk.Request("", nil)
-		if err == nil {
-			t.Errorf("VK.Request() got1 = %v, want -1", err)
-		}
-	})
+	_, err := vk.Request("", nil)
+	if err == nil {
+		t.Errorf("VK.Request() got1 = %v, want -1", err)
+	}
 
 	vk.MethodURL = ""
 
-	t.Run("Client error", func(t *testing.T) {
-		_, err := vk.Request("test", api.Params{"test": "test"})
-		if err == nil {
-			t.Errorf("VK.Request() got1 = %v, want -1", err)
-		}
-	})
+	_, err = vk.Request("test", api.Params{"test": "test"})
+	if err == nil {
+		t.Errorf("VK.Request() got1 = %v, want -1", err)
+	}
 }
 
 func TestVK_RequestLimit(t *testing.T) {

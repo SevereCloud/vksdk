@@ -11,13 +11,13 @@ import (
 func TestLongPoll_Shutdown(t *testing.T) {
 	t.Parallel()
 
-	t.Run("Shutdown", func(t *testing.T) {
-		lp := &LongPoll{}
-		lp.Shutdown()
-		if lp.inShutdown != 1 {
-			t.Error("inShutdown != 1")
-		}
-	})
+	lp := &LongPoll{}
+
+	lp.Shutdown()
+
+	if lp.inShutdown != 1 {
+		t.Error("inShutdown != 1")
+	}
 }
 
 func TestLongPoll_Handler(t *testing.T) {
@@ -25,12 +25,11 @@ func TestLongPoll_Handler(t *testing.T) {
 	// nolint:gocyclo
 	lp := &LongPoll{}
 
-	t.Run("FullResponse", func(t *testing.T) {
-		lp.FullResponse(func(resp Response) {})
-		if len(lp.funcFullResponseList) != 1 {
-			t.Error("Want len = 1")
-		}
-	})
+	lp.FullResponse(func(resp Response) {})
+
+	if len(lp.funcFullResponseList) != 1 {
+		t.Error("Want len = 1")
+	}
 }
 
 func TestNewLongPoll(t *testing.T) {
@@ -148,17 +147,13 @@ func TestLongPoll_RunError(t *testing.T) {
 	lp, _ := NewLongPoll(vk, 0)
 	lp.Wait = 1
 
-	t.Run("Run client error", func(t *testing.T) {
-		if err := lp.Run(); err == nil {
-			t.Error(err)
-		}
-	})
+	if err := lp.Run(); err == nil {
+		t.Error(err)
+	}
 
 	lp.Server = "http://example.com"
 
-	t.Run("Run json error", func(t *testing.T) {
-		if err := lp.Run(); err == nil {
-			t.Error(err)
-		}
-	})
+	if err := lp.Run(); err == nil {
+		t.Error(err)
+	}
 }

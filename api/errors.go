@@ -1,6 +1,7 @@
 package api
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/SevereCloud/vksdk/v2/object"
@@ -731,12 +732,14 @@ func (e Error) Error() string {
 // Is unwraps its first argument sequentially looking for an error that matches
 // the second.
 func (e Error) Is(target error) bool {
-	if t, ok := target.(*Error); ok {
-		return e.Code == t.Code && e.Message == t.Message
+	var tError Error
+	if errors.As(target, &tError) {
+		return e.Code == tError.Code && e.Message == tError.Message
 	}
 
-	if t, ok := target.(ErrorType); ok {
-		return e.Code == t
+	var tErrorType ErrorType
+	if errors.As(target, &tErrorType) {
+		return e.Code == tErrorType
 	}
 
 	return false

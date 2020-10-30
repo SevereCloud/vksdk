@@ -1,6 +1,7 @@
 package api_test
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v2/api"
@@ -46,7 +47,7 @@ func TestVK_GiftsGetCatalog(t *testing.T) {
 
 	// NOTE: Access denied: method allowed only for official app
 	_, err := vkUser.GiftsGetCatalog(nil)
-	if e, ok := err.(*api.Error); ok && e.Code == api.ErrAccess {
+	if errors.Is(err, api.ErrAccess) {
 		t.Errorf("VK.GiftsGetCatalog() err = %v", err)
 	}
 }

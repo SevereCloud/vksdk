@@ -36,7 +36,10 @@ linters:
     - nolintlint
     - gofumpt
     - goerr113
+    - tparallel
+    - errorlint
 
+# - wrapcheck # TODO: v3 Fix
 # - testpackage # TODO: Fix testpackage
 # - nestif # TODO: Fix nestif
 
@@ -57,6 +60,7 @@ linters:
 # - exhaustive
 # - nlreturn
 # - gci
+# - exhaustivestruct
 
 issues:
   exclude-rules:

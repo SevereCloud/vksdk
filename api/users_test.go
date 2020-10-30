@@ -1,6 +1,7 @@
 package api_test
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v2/api"
@@ -195,7 +196,8 @@ func TestVK_UsersReport(t *testing.T) {
 		"type":    "spam",
 		"comment": "Тестовый репорт - github.com/SevereCloud/vksdk",
 	})
-	if e, ok := err.(*api.Error); ok && e.Code == api.ErrAccess {
+
+	if errors.Is(err, api.ErrAccess) {
 		t.Skip("Access denied")
 	}
 
