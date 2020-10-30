@@ -836,6 +836,8 @@ func (e Error) Is(target error) bool {
 }
 
 // ExecuteError struct.
+//
+// TODO: v3 Code is ErrorType.
 type ExecuteError struct {
 	Method string `json:"method"`
 	Code   int    `json:"error_code"`
