@@ -350,6 +350,9 @@ const (
 	// Lookalike request audience save already in progress.
 	ErrAdsLookalikeAudienceSaveAlreadyInProgress ErrorType = 634
 
+	// Max count of lookalike request audience saves per day reached.
+	ErrAdsLookalikeSavesLimit ErrorType = 635
+
 	// Cannot edit creator role.
 	ErrGroupChangeCreator ErrorType = 700
 
