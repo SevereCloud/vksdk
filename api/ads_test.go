@@ -7,6 +7,29 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestAdsResponse_UnmarshalJSON(t *testing.T) {
+	f := func(data []byte, expected api.AdsAddOfficeUsersItem) {
+		var r api.AdsAddOfficeUsersItem
+
+		r.UnmarshalJSON(data)
+
+		assert.Equal(t, expected, r)
+	}
+
+	f([]byte("false"), api.AdsAddOfficeUsersItem{OK: false})
+	f([]byte("true"), api.AdsAddOfficeUsersItem{OK: true})
+	f(
+		[]byte(`{"error_code": 100,"error_desc": "One of the parameters specified was missing or invalid: data[1][user_id]"}`),
+		api.AdsAddOfficeUsersItem{
+			OK: false,
+			Error: api.AdsError{
+				Code: 100,
+				Desc: "One of the parameters specified was missing or invalid: data[1][user_id]",
+			},
+		},
+	)
+}
+
 func TestVK_AdsGetAccounts(t *testing.T) {
 	t.Parallel()
 

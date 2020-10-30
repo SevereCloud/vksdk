@@ -1,19 +1,36 @@
 package api // import "github.com/SevereCloud/vksdk/v2/api"
 
 import (
+	"encoding/json"
+
 	"github.com/SevereCloud/vksdk/v2/object"
 )
 
-// TODO: AdsAddOfficeUsersResponse struct.
-// type AdsAddOfficeUsersResponse struct{}
+// AdsAddOfficeUsersItem struct.
+type AdsAddOfficeUsersItem struct {
+	OK    object.BaseBoolInt
+	Error AdsError
+}
 
-// TODO: AdsAddOfficeUsers ...
+// UnmarshalJSON func.
+func (r *AdsAddOfficeUsersItem) UnmarshalJSON(data []byte) (err error) {
+	if r.OK.UnmarshalJSON(data) != nil {
+		return json.Unmarshal(data, &r.Error)
+	}
+
+	return
+}
+
+// AdsAddOfficeUsersResponse struct.
+type AdsAddOfficeUsersResponse []AdsAddOfficeUsersItem
+
+// AdsAddOfficeUsers adds managers and/or supervisors to advertising account.
 //
 // https://vk.com/dev/ads.addOfficeUsers
-// func (vk *VK) AdsAddOfficeUsers(params Params) (response AdsAddOfficeUsersResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.addOfficeUsers", &response, params)
-// 	return
-// }
+func (vk *VK) AdsAddOfficeUsers(params Params) (response AdsAddOfficeUsersResponse, err error) {
+	err = vk.RequestUnmarshal("ads.addOfficeUsers", &response, params)
+	return
+}
 
 // AdsCheckLinkResponse struct.
 type AdsCheckLinkResponse struct {
