@@ -103,16 +103,18 @@ func (vk *VK) AdsCreateClients(params Params) (response AdsCreateClientsResponse
 	return
 }
 
-// TODO: AdsCreateLookalikeRequestResponse struct.
-// type AdsCreateLookalikeRequestResponse struct{}
+// AdsCreateLookalikeRequestResponse struct.
+type AdsCreateLookalikeRequestResponse struct {
+	RequestID int `json:"request_id"`
+}
 
-// TODO: AdsCreateLookalikeRequest ...
+// AdsCreateLookalikeRequest creates a request to find a similar audience.
 //
 // https://vk.com/dev/ads.createLookalikeRequest
-// func (vk *VK) AdsCreateLookalikeRequest(params Params) (response AdsCreateLookalikeRequestResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createLookalikeRequest", &response, params)
-// 	return
-// }
+func (vk *VK) AdsCreateLookalikeRequest(params Params) (response AdsCreateLookalikeRequestResponse, err error) {
+	err = vk.RequestUnmarshal("ads.createLookalikeRequest", &response, params)
+	return
+}
 
 // AdsCreateTargetGroupResponse struct.
 type AdsCreateTargetGroupResponse struct {
