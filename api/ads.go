@@ -167,8 +167,7 @@ type AdsDeleteAdsResponse []ErrorType
 
 // AdsDeleteAds archives ads.
 //
-// Warning! Maximum allowed number of ads, archived with
-// a single request - 100.
+// Warning! Maximum allowed number of ads archived in one request is 100.
 //
 // https://vk.com/dev/ads.deleteAds
 func (vk *VK) AdsDeleteAds(params Params) (response AdsDeleteAdsResponse, err error) {
@@ -184,8 +183,7 @@ type AdsDeleteCampaignsResponse []ErrorType
 // AdsDeleteCampaigns archives advertising campaigns.
 //
 //
-// Warning! Maximum allowed number of campaigns, archived with
-// a single request - 100.
+// Warning! Maximum allowed number of campaigns archived in one request is 100.
 //
 // https://vk.com/dev/ads.deleteCampaigns
 func (vk *VK) AdsDeleteCampaigns(params Params) (response AdsDeleteCampaignsResponse, err error) {
@@ -193,16 +191,22 @@ func (vk *VK) AdsDeleteCampaigns(params Params) (response AdsDeleteCampaignsResp
 	return
 }
 
-// TODO: AdsDeleteClientsResponse struct.
-// type AdsDeleteClientsResponse struct{}
+// AdsDeleteClientsResponse struct.
+//
+// Each response is 0 — deleted successfully, or an error code.
+type AdsDeleteClientsResponse []ErrorType
 
-// TODO: AdsDeleteClients ...
+// AdsDeleteClients archives clients of an advertising agency.
+//
+// Available only for advertising agencies.
+//
+// Please note! Maximum allowed number of clients edited in one request is 10.
 //
 // https://vk.com/dev/ads.deleteClients
-// func (vk *VK) AdsDeleteClients(params Params) (response AdsDeleteClientsResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.deleteClients", &response, params)
-// 	return
-// }
+func (vk *VK) AdsDeleteClients(params Params) (response AdsDeleteClientsResponse, err error) {
+	err = vk.RequestUnmarshal("ads.deleteClients", &response, params)
+	return
+}
 
 // AdsDeleteTargetGroup deletes target group.
 //
