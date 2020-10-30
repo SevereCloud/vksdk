@@ -844,6 +844,12 @@ func (b *WallPostBuilder) MuteNotifications(v bool) *WallPostBuilder {
 	return b
 }
 
+// DonutPaidDuration parameter.
+func (b *WallPostBuilder) DonutPaidDuration(v int) *WallPostBuilder {
+	b.Params["donut_paid_duration"] = v
+	return b
+}
+
 // WallPostAdsStealthBuilder builder.
 //
 // Allows to create hidden post which will not be shown on the community's wall and can be used for creating an ad
