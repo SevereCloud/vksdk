@@ -150,6 +150,25 @@ func TestVK_WallGetByID(t *testing.T) {
 	noError(t, err)
 }
 
+// See https://github.com/SevereCloud/vksdk/issues/147
+func TestVK_WallGetByID_issues147(t *testing.T) {
+	t.Parallel()
+
+	needServiceToken(t)
+
+	res, err := vkService.WallGetByID(api.Params{
+		"posts": "-195263939_4",
+	})
+	noError(t, err)
+	assert.NotEmpty(t, res)
+
+	res, err = vkService.WallGetByID(api.Params{
+		"posts": "-169097025_377",
+	})
+	noError(t, err)
+	assert.NotEmpty(t, res[0].Attachments[0].Market.ID)
+}
+
 func TestVK_WallGetComment(t *testing.T) {
 	t.Parallel()
 

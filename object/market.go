@@ -1,6 +1,8 @@
 package object // import "github.com/SevereCloud/vksdk/v2/object"
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -70,6 +72,28 @@ type MarketMarketItem struct {
 	VariantsGroupingID int                        `json:"variants_grouping_id"`
 	PropertyValues     []MarketMarketItemProperty `json:"property_values"`
 	CartQuantity       int                        `json:"cart_quantity"`
+}
+
+// UnmarshalJSON MarketMarketItem.
+//
+// BUG(VK): https://github.com/SevereCloud/vksdk/issues/147
+func (market *MarketMarketItem) UnmarshalJSON(data []byte) error {
+	if bytes.Equal(data, []byte("false")) {
+		return nil
+	}
+
+	type renamedMarketMarketItem MarketMarketItem
+
+	var r renamedMarketMarketItem
+
+	err := json.Unmarshal(data, &r)
+	if err != nil {
+		return err
+	}
+
+	*market = MarketMarketItem(r)
+
+	return nil
 }
 
 // MarketMarketItemProperty struct.
