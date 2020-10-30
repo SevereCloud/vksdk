@@ -876,3 +876,30 @@ func (e UploadError) Error() string {
 
 	return fmt.Sprintf("api: upload code %d", e.Code)
 }
+
+// AdsError struct.
+type AdsError struct {
+	Code ErrorType `json:"error_code"`
+	Desc string    `json:"error_desc"`
+}
+
+// Error returns the message of a AdsError.
+func (e AdsError) Error() string {
+	return "api: " + e.Desc
+}
+
+// Is unwraps its first argument sequentially looking for an error that matches
+// the second.
+func (e AdsError) Is(target error) bool {
+	var tAdsError *AdsError
+	if errors.As(target, &tAdsError) {
+		return e.Code == tAdsError.Code && e.Desc == tAdsError.Desc
+	}
+
+	var tErrorType ErrorType
+	if errors.As(target, &tErrorType) {
+		return e.Code == tErrorType
+	}
+
+	return false
+}
