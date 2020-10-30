@@ -139,16 +139,26 @@ func (vk *VK) AdsCreateTargetGroup(params Params) (response AdsCreateTargetGroup
 	return
 }
 
-// TODO: AdsCreateTargetPixelResponse struct.
-// type AdsCreateTargetPixelResponse struct{}
+// AdsCreateTargetPixelResponse struct.
+type AdsCreateTargetPixelResponse struct {
+	ID    int    `json:"id"`
+	Pixel string `json:"pixel"`
+}
 
-// TODO: AdsCreateTargetPixel ...
+// AdsCreateTargetPixel Creates retargeting pixel.
+//
+// Method returns pixel code for users accounting on the advertiser site.
+// Authorized VK users who visited the page with pixel code on it will be
+// added to retargeting audience with corresponding rules. You can also use
+// Open API, ads.importTargetContacts method and loading from file.
+//
+// Maximum pixels number per advertising account is 25.
 //
 // https://vk.com/dev/ads.createTargetPixel
-// func (vk *VK) AdsCreateTargetPixel(params Params) (response AdsCreateTargetPixelResponse, err error) {
-// 	err = vk.RequestUnmarshal("ads.createTargetPixel", &response, params)
-// 	return
-// }
+func (vk *VK) AdsCreateTargetPixel(params Params) (response AdsCreateTargetPixelResponse, err error) {
+	err = vk.RequestUnmarshal("ads.createTargetPixel", &response, params)
+	return
+}
 
 // TODO: AdsDeleteAdsResponse struct.
 // type AdsDeleteAdsResponse struct{}
