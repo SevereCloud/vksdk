@@ -49,7 +49,7 @@ func (e Error) Error() string {
 // Is unwraps its first argument sequentially looking for an error that matches
 // the second.
 func (e Error) Is(target error) bool {
-	var tError Error
+	var tError *Error
 	if errors.As(target, &tError) {
 		return e.Code == tError.Code && e.Message == tError.Message
 	}

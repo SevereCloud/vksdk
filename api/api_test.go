@@ -21,7 +21,7 @@ const sleepTime = time.Second
 func noError(t *testing.T, err error) bool {
 	t.Helper()
 
-	var e api.Error
+	var e *api.Error
 	if errors.As(err, &e) {
 		switch e.Code {
 		case api.ErrServer:
