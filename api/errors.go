@@ -347,6 +347,72 @@ const (
 	// Some ads error occurred.
 	ErrAdsSpecific ErrorType = 603
 
+	// Invalid domain.
+	ErrAdsDomainInvalid ErrorType = 604
+
+	// Domain is forbidden.
+	ErrAdsDomainForbidden ErrorType = 605
+
+	// Domain is reserved.
+	ErrAdsDomainReserved ErrorType = 606
+
+	// Domain is occupied.
+	ErrAdsDomainOccupied ErrorType = 607
+
+	// Domain is active.
+	ErrAdsDomainActive ErrorType = 608
+
+	// Domain app is invalid.
+	ErrAdsDomainAppInvalid ErrorType = 609
+
+	// Domain app is forbidden.
+	ErrAdsDomainAppForbidden ErrorType = 610
+
+	// Domain of type specified is forbidden in current office type.
+	ErrAdsDomainTypeForbiddenInCurrentOffice ErrorType = 614
+
+	// Domain group is invalid.
+	ErrAdsDomainGroupInvalid ErrorType = 615
+
+	// Domain group is forbidden.
+	ErrAdsDomainGroupForbidden ErrorType = 616
+
+	// Domain app is blocked.
+	ErrAdsDomainAppBlocked ErrorType = 617
+
+	// Domain group is not open.
+	ErrAdsDomainGroupNotOpen ErrorType = 618
+
+	// Domain group is not possible to be joined to adsweb.
+	ErrAdsDomainGroupNotPossibleJoined ErrorType = 619
+
+	// Domain group is blocked.
+	ErrAdsDomainGroupBlocked ErrorType = 620
+
+	// Domain group has restriction: links are forbidden.
+	ErrAdsDomainGroupLinksForbidden ErrorType = 621
+
+	// Domain group has restriction: excluded from search.
+	ErrAdsDomainGroupExcludedFromSearch ErrorType = 622
+
+	// Domain group has restriction: cover is forbidden.
+	ErrAdsDomainGroupCoverForbidden ErrorType = 623
+
+	// Domain group has wrong category.
+	ErrAdsDomainGroupWrongCategory ErrorType = 624
+
+	// Domain group has wrong name.
+	ErrAdsDomainGroupWrongName ErrorType = 625
+
+	// Domain group has low posts reach.
+	ErrAdsDomainGroupLowPostsReach ErrorType = 626
+
+	// Domain group has wrong class.
+	ErrAdsDomainGroupWrongClass ErrorType = 627
+
+	// Domain group is created recently.
+	ErrAdsDomainGroupCreatedRecently ErrorType = 628
+
 	// Object deleted.
 	ErrAdsObjectDeleted ErrorType = 629
 
@@ -358,6 +424,9 @@ const (
 
 	// Max count of retargeting groups reached.
 	ErrAdsRetargetingGroupsLimit ErrorType = 636
+
+	// Domain group has active nemesis punishment.
+	ErrAdsDomainGroupActiveNemesisPunishment ErrorType = 637
 
 	// Cannot edit creator role.
 	ErrGroupChangeCreator ErrorType = 700
