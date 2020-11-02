@@ -711,3 +711,34 @@ type MessagesPinnedMessage struct {
 // MessagesUserXtrInvitedBy struct.
 type MessagesUserXtrInvitedBy struct {
 }
+
+// MessagesForward struct.
+type MessagesForward struct {
+	// Message owner. It is worth passing it on if you want to forward messages
+	// from the community to a dialog.
+	OwnerID int `json:"owner_id,omitempty"`
+
+	// Identifier of the place from which the messages are to be sent.
+	PeerID int `json:"peer_id,omitempty"`
+
+	// Messages can be passed to conversation_message_ids array:
+	//
+	// - that are in a personal dialog with the bot;
+	//
+	// - which are outbound messages from the bot;
+	//
+	// - written after the bot has entered the conversation.
+	ConversationMessageIDs []int `json:"conversation_message_ids,omitempty"`
+	MessageIDs             []int `json:"message_ids,omitempty"`
+
+	// Reply to messages. It is worth passing if you want to reply to messages
+	// in the chat room where the messages are. In this case there should be
+	// only one element in the conversation_message_ids/message_ids.
+	IsReply bool `json:"is_reply,omitempty"`
+}
+
+// ToJSON returns the JSON encoding of MessagesForward.
+func (forward MessagesForward) ToJSON() string {
+	b, _ := json.Marshal(forward)
+	return string(b)
+}

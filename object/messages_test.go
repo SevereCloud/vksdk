@@ -327,3 +327,29 @@ func TestMessagesEventData_ToJSON(t *testing.T) {
 		`{"type":"open_app","app_id":1,"hash":"3"}`,
 	)
 }
+
+func TestMessagesForward_ToJSON(t *testing.T) {
+	t.Parallel()
+
+	f := func(forward object.MessagesForward, want string) {
+		t.Helper()
+
+		got := forward.ToJSON()
+		assert.Equal(t, got, want)
+	}
+
+	f(
+		object.MessagesForward{
+			OwnerID:                1,
+			PeerID:                 2,
+			ConversationMessageIDs: []int{3},
+			IsReply:                true,
+			MessageIDs:             []int{4},
+		},
+		`{"owner_id":1,"peer_id":2,"conversation_message_ids":[3],"message_ids":[4],"is_reply":true}`,
+	)
+	f(
+		object.MessagesForward{},
+		`{}`,
+	)
+}

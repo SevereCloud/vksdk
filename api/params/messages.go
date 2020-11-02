@@ -1374,7 +1374,7 @@ func (b *MessagesSendBuilder) ForwardMessages(v []int) *MessagesSendBuilder {
 }
 
 // Forward parameter.
-func (b *MessagesSendBuilder) Forward(v string) *MessagesSendBuilder {
+func (b *MessagesSendBuilder) Forward(v interface{}) *MessagesSendBuilder {
 	b.Params["forward"] = v
 	return b
 }
