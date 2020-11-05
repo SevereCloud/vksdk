@@ -63,6 +63,7 @@ type MessagesMessage struct {
 	IsHidden     BaseBoolInt       `json:"is_hidden"`
 	IsCropped    BaseBoolInt       `json:"is_cropped"`
 	Out          BaseBoolInt       `json:"out"` // Information whether the message is outcoming
+	WasListened  BaseBoolInt       `json:"was_listened,omitempty"`
 	Keyboard     MessagesKeyboard  `json:"keyboard"`
 	Template     MessagesTemplate  `json:"template"`
 	Payload      string            `json:"payload"`
