@@ -266,11 +266,19 @@ func (vk *VK) MessagesGetConversationsByIDExtended(params Params) (
 
 // MessagesGetHistoryResponse struct.
 type MessagesGetHistoryResponse struct {
-	Count   int                      `json:"count"`
-	Items   []object.MessagesMessage `json:"items"`
-	InRead  int                      `json:"in_read"`
-	OutRead int                      `json:"out_read"`
+	Count int                      `json:"count"`
+	Items []object.MessagesMessage `json:"items"`
+
+	// extended=1
 	object.ExtendedResponse
+
+	// extended=1
+	Conversations []object.MessagesConversation `json:"conversations,omitempty"`
+
+	// Deprecated: use .Conversations.InRead
+	InRead int `json:"in_read,omitempty"`
+	// Deprecated: use .Conversations.OutRead
+	OutRead int `json:"out_read,omitempty"`
 }
 
 // MessagesGetHistory returns message history for the specified user or group chat.
