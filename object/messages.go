@@ -57,6 +57,7 @@ type MessagesMessage struct {
 	FwdMessages  []MessagesMessage `json:"fwd_Messages"`
 	ReplyMessage *MessagesMessage  `json:"reply_message"`
 	Geo          BaseMessageGeo    `json:"geo"`
+	PinnedAt     int               `json:"pinned_at,omitempty"`
 	ID           int               `json:"id"`        // Message ID
 	Deleted      BaseBoolInt       `json:"deleted"`   // Is it an deleted message
 	Important    BaseBoolInt       `json:"important"` // Is it an important message
