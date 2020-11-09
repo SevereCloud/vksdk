@@ -844,7 +844,24 @@ func (b *WallPostBuilder) MuteNotifications(v bool) *WallPostBuilder {
 	return b
 }
 
-// DonutPaidDuration parameter.
+// DonutPaidDuration period of time during which the post will be available for
+// VK Donut paid subscribers.
+//
+// -1 - exclusively for donators;
+//
+// 86400 - for 1 day;
+//
+// 172800 - for 2 days;
+//
+// 172800 - for 3 days;
+//
+// 345600 - for 4 days;
+//
+// 432000 - for 5 days;
+//
+// 518400 - for 6 days;
+//
+// 604800 - for 7 days.
 func (b *WallPostBuilder) DonutPaidDuration(v int) *WallPostBuilder {
 	b.Params["donut_paid_duration"] = v
 	return b

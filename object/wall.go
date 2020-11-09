@@ -154,6 +154,7 @@ type WallWallpost struct {
 	Copyright    WallPostCopyright        `json:"copyright"`
 	PostID       int                      `json:"post_id"`
 	ParentsStack []int                    `json:"parents_stack"`
+	Donut        WallWallpostDonut        `json:"donut"` // need api v5.125
 }
 
 // Attachment type.
@@ -225,6 +226,15 @@ type WallWallpostToID struct {
 	IsFavorite   BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
 	MarkedAsAds  BaseBoolInt              `json:"marked_as_ads"`
 	ParentsStack []int                    `json:"parents_stack"`
+}
+
+// WallWallpostDonut info about VK Donut.
+type WallWallpostDonut struct {
+	IsDonut            BaseBoolInt          `json:"is_donut"`
+	CanPublishFreeCopy BaseBoolInt          `json:"can_publish_free_copy"`
+	PaidDuration       int                  `json:"paid_duration"`
+	EditMode           string               `json:"edit_mode"`
+	Durations          []BaseObjectWithName `json:"durations"`
 }
 
 // WallPostCopyright information about the source of the post.
