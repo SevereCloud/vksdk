@@ -34,9 +34,9 @@ func TestVK_MessagesDelete(t *testing.T) {
 		"random_id": 0,
 		"message":   "Message",
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
-	time.Sleep(5 * time.Second)
+	time.Sleep(10 * time.Second)
 
 	_, err = vkUser.MessagesEdit(api.Params{
 		"peer_id":    2000000000 + chatID,
