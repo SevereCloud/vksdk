@@ -117,11 +117,12 @@ func (market MarketMarketItem) ToAttachment() string {
 
 // MarketPrice struct.
 type MarketPrice struct {
-	Amount       string         `json:"amount"` // Amount
-	Currency     MarketCurrency `json:"currency"`
-	DiscountRate int            `json:"discount_rate"`
-	OldAmount    string         `json:"old_amount"`
-	Text         string         `json:"text"` // Text
+	Amount        string         `json:"amount"` // Amount
+	Currency      MarketCurrency `json:"currency"`
+	DiscountRate  int            `json:"discount_rate"`
+	OldAmount     string         `json:"old_amount"`
+	Text          string         `json:"text"` // Text
+	OldAmountText string         `json:"old_amount_text"`
 }
 
 // MarketSection struct.
