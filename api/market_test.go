@@ -20,7 +20,7 @@ func MarketAdd(t *testing.T) int {
 	defer response.Body.Close()
 
 	res, err := vkUser.UploadMarketPhoto(vkGroupID, true, response.Body)
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	market, err := vkUser.MarketAdd(api.Params{
 		"owner_id":      -vkGroupID,
@@ -30,7 +30,7 @@ func MarketAdd(t *testing.T) int {
 		"price":         1000,
 		"main_photo_id": res[0].ID,
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 	assert.NotEmpty(t, market.MarketItemID)
 
 	_, err = vkUser.MarketEdit(api.Params{
@@ -50,7 +50,7 @@ func MarketAdd(t *testing.T) int {
 		"owner_id": -vkGroupID,
 		"item_id":  market.MarketItemID,
 	})
-	noError(t, err)
+	noErrorOrFail(t, err)
 
 	return market.MarketItemID
 }
