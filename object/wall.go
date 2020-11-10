@@ -110,6 +110,13 @@ type WallWallComment struct {
 	ParentsStack   []int                   `json:"parents_stack"`
 	OwnerID        int                     `json:"owner_id"`
 	Thread         WallWallCommentThread   `json:"thread"`
+	Donut          WallWallCommentDonut    `json:"donut"`
+}
+
+// WallWallCommentDonut info about VK Donut.
+type WallWallCommentDonut struct {
+	IsDonut     BaseBoolInt `json:"is_donut"`
+	Placeholder string      `json:"placeholder"`
 }
 
 // WallPost type.
