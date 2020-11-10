@@ -745,6 +745,13 @@ func TestGroupsSetCallbackSettingsBuilder(t *testing.T) {
 	b.LeadFormsNew(true)
 	b.LikeAdd(true)
 	b.LikeRemove(true)
+	b.DonutSubscriptionCreate(true)
+	b.DonutSubscriptionProlonged(true)
+	b.DonutSubscriptionExpired(true)
+	b.DonutSubscriptionCancelled(true)
+	b.DonutSubscriptionPriceChanged(true)
+	b.DonutMoneyWithdraw(true)
+	b.DonutMoneyWithdrawError(true)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 	assert.Equal(t, b.Params["server_id"], 1)
@@ -791,6 +798,13 @@ func TestGroupsSetCallbackSettingsBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["lead_forms_new"], true)
 	assert.Equal(t, b.Params["like_add"], true)
 	assert.Equal(t, b.Params["like_remove"], true)
+	assert.Equal(t, b.Params["donut_subscription_create"], true)
+	assert.Equal(t, b.Params["donut_subscription_prolonged"], true)
+	assert.Equal(t, b.Params["donut_subscription_expired"], true)
+	assert.Equal(t, b.Params["donut_subscription_cancelled"], true)
+	assert.Equal(t, b.Params["donut_subscription_price_changed"], true)
+	assert.Equal(t, b.Params["donut_money_withdraw"], true)
+	assert.Equal(t, b.Params["donut_money_withdraw_error"], true)
 }
 
 func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
@@ -842,6 +856,13 @@ func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
 	b.UserUnblock(true)
 	b.LikeAdd(true)
 	b.LikeRemove(true)
+	b.DonutSubscriptionCreate(true)
+	b.DonutSubscriptionProlonged(true)
+	b.DonutSubscriptionExpired(true)
+	b.DonutSubscriptionCancelled(true)
+	b.DonutSubscriptionPriceChanged(true)
+	b.DonutMoneyWithdraw(true)
+	b.DonutMoneyWithdrawError(true)
 
 	assert.Equal(t, b.Params["group_id"], 1)
 	assert.Equal(t, b.Params["enabled"], true)
@@ -887,6 +908,13 @@ func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["user_unblock"], true)
 	assert.Equal(t, b.Params["like_add"], true)
 	assert.Equal(t, b.Params["like_remove"], true)
+	assert.Equal(t, b.Params["donut_subscription_create"], true)
+	assert.Equal(t, b.Params["donut_subscription_prolonged"], true)
+	assert.Equal(t, b.Params["donut_subscription_expired"], true)
+	assert.Equal(t, b.Params["donut_subscription_cancelled"], true)
+	assert.Equal(t, b.Params["donut_subscription_price_changed"], true)
+	assert.Equal(t, b.Params["donut_money_withdraw"], true)
+	assert.Equal(t, b.Params["donut_money_withdraw_error"], true)
 }
 
 func TestGroupsSetUserNoteBuilder(t *testing.T) {

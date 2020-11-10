@@ -313,3 +313,47 @@ type LikeRemoveObject struct {
 	ThreadReplyID int    `json:"thread_reply_id"`
 	PostID        int    `json:"post_id"` // for comment
 }
+
+// DonutSubscriptionCreateObject struct.
+type DonutSubscriptionCreateObject struct {
+	Amount           int     `json:"amount"`
+	AmountWithoutFee float64 `json:"amount_without_fee"`
+	UserID           int     `json:"user_id"`
+}
+
+// DonutSubscriptionProlongedObject struct.
+type DonutSubscriptionProlongedObject struct {
+	Amount           int     `json:"amount"`
+	AmountWithoutFee float64 `json:"amount_without_fee"`
+	UserID           int     `json:"user_id"`
+}
+
+// DonutSubscriptionExpiredObject struct.
+type DonutSubscriptionExpiredObject struct {
+	UserID int `json:"user_id"`
+}
+
+// DonutSubscriptionCancelledObject struct.
+type DonutSubscriptionCancelledObject struct {
+	UserID int `json:"user_id"`
+}
+
+// DonutSubscriptionPriceChangedObject struct.
+type DonutSubscriptionPriceChangedObject struct {
+	AmountOld            int     `json:"amount_old"`
+	AmountNew            int     `json:"amount_new"`
+	AmountDiff           float64 `json:"amount_diff"`
+	AmountDiffWithoutFee float64 `json:"amount_diff_without_fee"`
+	UserID               int     `json:"user_id"`
+}
+
+// DonutMoneyWithdrawObject struct.
+type DonutMoneyWithdrawObject struct {
+	Amount           int     `json:"amount"`
+	AmountWithoutFee float64 `json:"amount_without_fee"`
+}
+
+// DonutMoneyWithdrawErrorObject struct.
+type DonutMoneyWithdrawErrorObject struct {
+	Reason string `json:"reason"`
+}

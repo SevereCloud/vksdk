@@ -17,55 +17,62 @@ type EventType string
 
 // EventType list.
 const (
-	EventConfirmation         = "confirmation"
-	EventMessageNew           = "message_new"
-	EventMessageReply         = "message_reply"
-	EventMessageEdit          = "message_edit"
-	EventMessageAllow         = "message_allow"
-	EventMessageDeny          = "message_deny"
-	EventMessageTypingState   = "message_typing_state"
-	EventMessageEvent         = "message_event"
-	EventPhotoNew             = "photo_new"
-	EventPhotoCommentNew      = "photo_comment_new"
-	EventPhotoCommentEdit     = "photo_comment_edit"
-	EventPhotoCommentRestore  = "photo_comment_restore"
-	EventPhotoCommentDelete   = "photo_comment_delete"
-	EventAudioNew             = "audio_new"
-	EventVideoNew             = "video_new"
-	EventVideoCommentNew      = "video_comment_new"
-	EventVideoCommentEdit     = "video_comment_edit"
-	EventVideoCommentRestore  = "video_comment_restore"
-	EventVideoCommentDelete   = "video_comment_delete"
-	EventWallPostNew          = "wall_post_new"
-	EventWallRepost           = "wall_repost"
-	EventWallReplyNew         = "wall_reply_new"
-	EventWallReplyEdit        = "wall_reply_edit"
-	EventWallReplyRestore     = "wall_reply_restore"
-	EventWallReplyDelete      = "wall_reply_delete"
-	EventBoardPostNew         = "board_post_new"
-	EventBoardPostEdit        = "board_post_edit"
-	EventBoardPostRestore     = "board_post_restore"
-	EventBoardPostDelete      = "board_post_delete"
-	EventMarketCommentNew     = "market_comment_new"
-	EventMarketCommentEdit    = "market_comment_edit"
-	EventMarketCommentRestore = "market_comment_restore"
-	EventMarketCommentDelete  = "market_comment_delete"
-	EventMarketOrderNew       = "market_order_new"
-	EventMarketOrderEdit      = "market_order_edit"
-	EventGroupLeave           = "group_leave"
-	EventGroupJoin            = "group_join"
-	EventUserBlock            = "user_block"
-	EventUserUnblock          = "user_unblock"
-	EventPollVoteNew          = "poll_vote_new"
-	EventGroupOfficersEdit    = "group_officers_edit"
-	EventGroupChangeSettings  = "group_change_settings"
-	EventGroupChangePhoto     = "group_change_photo"
-	EventVkpayTransaction     = "vkpay_transaction"
-	EventLeadFormsNew         = "lead_forms_new"
-	EventAppPayload           = "app_payload"
-	EventMessageRead          = "message_read"
-	EventLikeAdd              = "like_add"
-	EventLikeRemove           = "like_remove"
+	EventConfirmation                  = "confirmation"
+	EventMessageNew                    = "message_new"
+	EventMessageReply                  = "message_reply"
+	EventMessageEdit                   = "message_edit"
+	EventMessageAllow                  = "message_allow"
+	EventMessageDeny                   = "message_deny"
+	EventMessageTypingState            = "message_typing_state"
+	EventMessageEvent                  = "message_event"
+	EventPhotoNew                      = "photo_new"
+	EventPhotoCommentNew               = "photo_comment_new"
+	EventPhotoCommentEdit              = "photo_comment_edit"
+	EventPhotoCommentRestore           = "photo_comment_restore"
+	EventPhotoCommentDelete            = "photo_comment_delete"
+	EventAudioNew                      = "audio_new"
+	EventVideoNew                      = "video_new"
+	EventVideoCommentNew               = "video_comment_new"
+	EventVideoCommentEdit              = "video_comment_edit"
+	EventVideoCommentRestore           = "video_comment_restore"
+	EventVideoCommentDelete            = "video_comment_delete"
+	EventWallPostNew                   = "wall_post_new"
+	EventWallRepost                    = "wall_repost"
+	EventWallReplyNew                  = "wall_reply_new"
+	EventWallReplyEdit                 = "wall_reply_edit"
+	EventWallReplyRestore              = "wall_reply_restore"
+	EventWallReplyDelete               = "wall_reply_delete"
+	EventBoardPostNew                  = "board_post_new"
+	EventBoardPostEdit                 = "board_post_edit"
+	EventBoardPostRestore              = "board_post_restore"
+	EventBoardPostDelete               = "board_post_delete"
+	EventMarketCommentNew              = "market_comment_new"
+	EventMarketCommentEdit             = "market_comment_edit"
+	EventMarketCommentRestore          = "market_comment_restore"
+	EventMarketCommentDelete           = "market_comment_delete"
+	EventMarketOrderNew                = "market_order_new"
+	EventMarketOrderEdit               = "market_order_edit"
+	EventGroupLeave                    = "group_leave"
+	EventGroupJoin                     = "group_join"
+	EventUserBlock                     = "user_block"
+	EventUserUnblock                   = "user_unblock"
+	EventPollVoteNew                   = "poll_vote_new"
+	EventGroupOfficersEdit             = "group_officers_edit"
+	EventGroupChangeSettings           = "group_change_settings"
+	EventGroupChangePhoto              = "group_change_photo"
+	EventVkpayTransaction              = "vkpay_transaction"
+	EventLeadFormsNew                  = "lead_forms_new"
+	EventAppPayload                    = "app_payload"
+	EventMessageRead                   = "message_read"
+	EventLikeAdd                       = "like_add"
+	EventLikeRemove                    = "like_remove"
+	EventDonutSubscriptionCreate       = "donut_subscription_create"
+	EventDonutSubscriptionProlonged    = "donut_subscription_prolonged"
+	EventDonutSubscriptionExpired      = "donut_subscription_expired"
+	EventDonutSubscriptionCancelled    = "donut_subscription_cancelled"
+	EventDonutSubscriptionPriceChanged = "donut_subscription_price_changed"
+	EventDonutMoneyWithdraw            = "donut_money_withdraw"
+	EventDonutMoneyWithdrawError       = "donut_money_withdraw_error"
 )
 
 // GroupEvent struct.
@@ -79,56 +86,63 @@ type GroupEvent struct {
 
 // FuncList struct.
 type FuncList struct {
-	messageNew           []func(context.Context, MessageNewObject)
-	messageReply         []func(context.Context, MessageReplyObject)
-	messageEdit          []func(context.Context, MessageEditObject)
-	messageAllow         []func(context.Context, MessageAllowObject)
-	messageDeny          []func(context.Context, MessageDenyObject)
-	messageTypingState   []func(context.Context, MessageTypingStateObject)
-	messageEvent         []func(context.Context, MessageEventObject)
-	photoNew             []func(context.Context, PhotoNewObject)
-	photoCommentNew      []func(context.Context, PhotoCommentNewObject)
-	photoCommentEdit     []func(context.Context, PhotoCommentEditObject)
-	photoCommentRestore  []func(context.Context, PhotoCommentRestoreObject)
-	photoCommentDelete   []func(context.Context, PhotoCommentDeleteObject)
-	audioNew             []func(context.Context, AudioNewObject)
-	videoNew             []func(context.Context, VideoNewObject)
-	videoCommentNew      []func(context.Context, VideoCommentNewObject)
-	videoCommentEdit     []func(context.Context, VideoCommentEditObject)
-	videoCommentRestore  []func(context.Context, VideoCommentRestoreObject)
-	videoCommentDelete   []func(context.Context, VideoCommentDeleteObject)
-	wallPostNew          []func(context.Context, WallPostNewObject)
-	wallRepost           []func(context.Context, WallRepostObject)
-	wallReplyNew         []func(context.Context, WallReplyNewObject)
-	wallReplyEdit        []func(context.Context, WallReplyEditObject)
-	wallReplyRestore     []func(context.Context, WallReplyRestoreObject)
-	wallReplyDelete      []func(context.Context, WallReplyDeleteObject)
-	boardPostNew         []func(context.Context, BoardPostNewObject)
-	boardPostEdit        []func(context.Context, BoardPostEditObject)
-	boardPostRestore     []func(context.Context, BoardPostRestoreObject)
-	boardPostDelete      []func(context.Context, BoardPostDeleteObject)
-	marketCommentNew     []func(context.Context, MarketCommentNewObject)
-	marketCommentEdit    []func(context.Context, MarketCommentEditObject)
-	marketCommentRestore []func(context.Context, MarketCommentRestoreObject)
-	marketCommentDelete  []func(context.Context, MarketCommentDeleteObject)
-	marketOrderNew       []func(context.Context, MarketOrderNewObject)
-	marketOrderEdit      []func(context.Context, MarketOrderEditObject)
-	groupLeave           []func(context.Context, GroupLeaveObject)
-	groupJoin            []func(context.Context, GroupJoinObject)
-	userBlock            []func(context.Context, UserBlockObject)
-	userUnblock          []func(context.Context, UserUnblockObject)
-	pollVoteNew          []func(context.Context, PollVoteNewObject)
-	groupOfficersEdit    []func(context.Context, GroupOfficersEditObject)
-	groupChangeSettings  []func(context.Context, GroupChangeSettingsObject)
-	groupChangePhoto     []func(context.Context, GroupChangePhotoObject)
-	vkpayTransaction     []func(context.Context, VkpayTransactionObject)
-	leadFormsNew         []func(context.Context, LeadFormsNewObject)
-	appPayload           []func(context.Context, AppPayloadObject)
-	messageRead          []func(context.Context, MessageReadObject)
-	likeAdd              []func(context.Context, LikeAddObject)
-	likeRemove           []func(context.Context, LikeRemoveObject)
-	special              map[EventType][]func(context.Context, GroupEvent)
-	eventsList           []EventType
+	messageNew                    []func(context.Context, MessageNewObject)
+	messageReply                  []func(context.Context, MessageReplyObject)
+	messageEdit                   []func(context.Context, MessageEditObject)
+	messageAllow                  []func(context.Context, MessageAllowObject)
+	messageDeny                   []func(context.Context, MessageDenyObject)
+	messageTypingState            []func(context.Context, MessageTypingStateObject)
+	messageEvent                  []func(context.Context, MessageEventObject)
+	photoNew                      []func(context.Context, PhotoNewObject)
+	photoCommentNew               []func(context.Context, PhotoCommentNewObject)
+	photoCommentEdit              []func(context.Context, PhotoCommentEditObject)
+	photoCommentRestore           []func(context.Context, PhotoCommentRestoreObject)
+	photoCommentDelete            []func(context.Context, PhotoCommentDeleteObject)
+	audioNew                      []func(context.Context, AudioNewObject)
+	videoNew                      []func(context.Context, VideoNewObject)
+	videoCommentNew               []func(context.Context, VideoCommentNewObject)
+	videoCommentEdit              []func(context.Context, VideoCommentEditObject)
+	videoCommentRestore           []func(context.Context, VideoCommentRestoreObject)
+	videoCommentDelete            []func(context.Context, VideoCommentDeleteObject)
+	wallPostNew                   []func(context.Context, WallPostNewObject)
+	wallRepost                    []func(context.Context, WallRepostObject)
+	wallReplyNew                  []func(context.Context, WallReplyNewObject)
+	wallReplyEdit                 []func(context.Context, WallReplyEditObject)
+	wallReplyRestore              []func(context.Context, WallReplyRestoreObject)
+	wallReplyDelete               []func(context.Context, WallReplyDeleteObject)
+	boardPostNew                  []func(context.Context, BoardPostNewObject)
+	boardPostEdit                 []func(context.Context, BoardPostEditObject)
+	boardPostRestore              []func(context.Context, BoardPostRestoreObject)
+	boardPostDelete               []func(context.Context, BoardPostDeleteObject)
+	marketCommentNew              []func(context.Context, MarketCommentNewObject)
+	marketCommentEdit             []func(context.Context, MarketCommentEditObject)
+	marketCommentRestore          []func(context.Context, MarketCommentRestoreObject)
+	marketCommentDelete           []func(context.Context, MarketCommentDeleteObject)
+	marketOrderNew                []func(context.Context, MarketOrderNewObject)
+	marketOrderEdit               []func(context.Context, MarketOrderEditObject)
+	groupLeave                    []func(context.Context, GroupLeaveObject)
+	groupJoin                     []func(context.Context, GroupJoinObject)
+	userBlock                     []func(context.Context, UserBlockObject)
+	userUnblock                   []func(context.Context, UserUnblockObject)
+	pollVoteNew                   []func(context.Context, PollVoteNewObject)
+	groupOfficersEdit             []func(context.Context, GroupOfficersEditObject)
+	groupChangeSettings           []func(context.Context, GroupChangeSettingsObject)
+	groupChangePhoto              []func(context.Context, GroupChangePhotoObject)
+	vkpayTransaction              []func(context.Context, VkpayTransactionObject)
+	leadFormsNew                  []func(context.Context, LeadFormsNewObject)
+	appPayload                    []func(context.Context, AppPayloadObject)
+	messageRead                   []func(context.Context, MessageReadObject)
+	likeAdd                       []func(context.Context, LikeAddObject)
+	likeRemove                    []func(context.Context, LikeRemoveObject)
+	donutSubscriptionCreate       []func(context.Context, DonutSubscriptionCreateObject)
+	donutSubscriptionProlonged    []func(context.Context, DonutSubscriptionProlongedObject)
+	donutSubscriptionExpired      []func(context.Context, DonutSubscriptionExpiredObject)
+	donutSubscriptionCancelled    []func(context.Context, DonutSubscriptionCancelledObject)
+	donutSubscriptionPriceChanged []func(context.Context, DonutSubscriptionPriceChangedObject)
+	donutMoneyWithdraw            []func(context.Context, DonutMoneyWithdrawObject)
+	donutMoneyWithdrawError       []func(context.Context, DonutMoneyWithdrawErrorObject)
+	special                       map[EventType][]func(context.Context, GroupEvent)
+	eventsList                    []EventType
 
 	goroutine bool
 }
@@ -780,6 +794,97 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:
 				f(ctx, obj)
 			}
 		}
+	case EventDonutSubscriptionCreate:
+		var obj DonutSubscriptionCreateObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.donutSubscriptionCreate {
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
+		}
+	case EventDonutSubscriptionProlonged:
+		var obj DonutSubscriptionProlongedObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.donutSubscriptionProlonged {
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
+		}
+	case EventDonutSubscriptionExpired:
+		var obj DonutSubscriptionExpiredObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.donutSubscriptionExpired {
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
+		}
+	case EventDonutSubscriptionCancelled:
+		var obj DonutSubscriptionCancelledObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.donutSubscriptionCancelled {
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
+		}
+	case EventDonutSubscriptionPriceChanged:
+		var obj DonutSubscriptionPriceChangedObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.donutSubscriptionPriceChanged {
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
+		}
+	case EventDonutMoneyWithdraw:
+		var obj DonutMoneyWithdrawObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.donutMoneyWithdraw {
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
+		}
+	case EventDonutMoneyWithdrawError:
+		var obj DonutMoneyWithdrawErrorObject
+		if err := json.Unmarshal(e.Object, &obj); err != nil {
+			return err
+		}
+
+		for _, f := range fl.donutMoneyWithdrawError {
+			if fl.goroutine {
+				go func() { f(ctx, obj) }()
+			} else {
+				f(ctx, obj)
+			}
+		}
 	}
 
 	return nil
@@ -1091,4 +1196,46 @@ func (fl *FuncList) LikeAdd(f func(context.Context, LikeAddObject)) {
 func (fl *FuncList) LikeRemove(f func(context.Context, LikeRemoveObject)) {
 	fl.likeRemove = append(fl.likeRemove, f)
 	fl.eventsList = append(fl.eventsList, EventLikeRemove)
+}
+
+// DonutSubscriptionCreate handler.
+func (fl *FuncList) DonutSubscriptionCreate(f func(context.Context, DonutSubscriptionCreateObject)) {
+	fl.donutSubscriptionCreate = append(fl.donutSubscriptionCreate, f)
+	fl.eventsList = append(fl.eventsList, EventDonutSubscriptionCreate)
+}
+
+// DonutSubscriptionProlonged handler.
+func (fl *FuncList) DonutSubscriptionProlonged(f func(context.Context, DonutSubscriptionProlongedObject)) {
+	fl.donutSubscriptionProlonged = append(fl.donutSubscriptionProlonged, f)
+	fl.eventsList = append(fl.eventsList, EventDonutSubscriptionProlonged)
+}
+
+// DonutSubscriptionExpired handler.
+func (fl *FuncList) DonutSubscriptionExpired(f func(context.Context, DonutSubscriptionExpiredObject)) {
+	fl.donutSubscriptionExpired = append(fl.donutSubscriptionExpired, f)
+	fl.eventsList = append(fl.eventsList, EventDonutSubscriptionExpired)
+}
+
+// DonutSubscriptionCancelled handler.
+func (fl *FuncList) DonutSubscriptionCancelled(f func(context.Context, DonutSubscriptionCancelledObject)) {
+	fl.donutSubscriptionCancelled = append(fl.donutSubscriptionCancelled, f)
+	fl.eventsList = append(fl.eventsList, EventDonutSubscriptionCancelled)
+}
+
+// DonutSubscriptionPriceChanged handler.
+func (fl *FuncList) DonutSubscriptionPriceChanged(f func(context.Context, DonutSubscriptionPriceChangedObject)) {
+	fl.donutSubscriptionPriceChanged = append(fl.donutSubscriptionPriceChanged, f)
+	fl.eventsList = append(fl.eventsList, EventDonutSubscriptionPriceChanged)
+}
+
+// DonutMoneyWithdraw handler.
+func (fl *FuncList) DonutMoneyWithdraw(f func(context.Context, DonutMoneyWithdrawObject)) {
+	fl.donutMoneyWithdraw = append(fl.donutMoneyWithdraw, f)
+	fl.eventsList = append(fl.eventsList, EventDonutMoneyWithdraw)
+}
+
+// DonutMoneyWithdrawError handler.
+func (fl *FuncList) DonutMoneyWithdrawError(f func(context.Context, DonutMoneyWithdrawErrorObject)) {
+	fl.donutMoneyWithdrawError = append(fl.donutMoneyWithdrawError, f)
+	fl.eventsList = append(fl.eventsList, EventDonutMoneyWithdrawError)
 }

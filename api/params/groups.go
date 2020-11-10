@@ -2204,6 +2204,48 @@ func (b *GroupsSetCallbackSettingsBuilder) LikeRemove(v bool) *GroupsSetCallback
 	return b
 }
 
+// DonutSubscriptionCreate event.
+func (b *GroupsSetCallbackSettingsBuilder) DonutSubscriptionCreate(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["donut_subscription_create"] = v
+	return b
+}
+
+// DonutSubscriptionProlonged event.
+func (b *GroupsSetCallbackSettingsBuilder) DonutSubscriptionProlonged(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["donut_subscription_prolonged"] = v
+	return b
+}
+
+// DonutSubscriptionExpired event.
+func (b *GroupsSetCallbackSettingsBuilder) DonutSubscriptionExpired(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["donut_subscription_expired"] = v
+	return b
+}
+
+// DonutSubscriptionCancelled event.
+func (b *GroupsSetCallbackSettingsBuilder) DonutSubscriptionCancelled(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["donut_subscription_cancelled"] = v
+	return b
+}
+
+// DonutSubscriptionPriceChanged event.
+func (b *GroupsSetCallbackSettingsBuilder) DonutSubscriptionPriceChanged(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["donut_subscription_price_changed"] = v
+	return b
+}
+
+// DonutMoneyWithdraw event.
+func (b *GroupsSetCallbackSettingsBuilder) DonutMoneyWithdraw(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["donut_money_withdraw"] = v
+	return b
+}
+
+// DonutMoneyWithdrawError event.
+func (b *GroupsSetCallbackSettingsBuilder) DonutMoneyWithdrawError(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["donut_money_withdraw_error"] = v
+	return b
+}
+
 // GroupsSetLongPollSettingsBuilder builder.
 //
 // Sets Long Poll notification settings.
@@ -2479,6 +2521,48 @@ func (b *GroupsSetLongPollSettingsBuilder) LikeAdd(v bool) *GroupsSetLongPollSet
 // LikeRemove remove "I like" mark.
 func (b *GroupsSetLongPollSettingsBuilder) LikeRemove(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["like_remove"] = v
+	return b
+}
+
+// DonutSubscriptionCreate event.
+func (b *GroupsSetLongPollSettingsBuilder) DonutSubscriptionCreate(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["donut_subscription_create"] = v
+	return b
+}
+
+// DonutSubscriptionProlonged event.
+func (b *GroupsSetLongPollSettingsBuilder) DonutSubscriptionProlonged(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["donut_subscription_prolonged"] = v
+	return b
+}
+
+// DonutSubscriptionExpired event.
+func (b *GroupsSetLongPollSettingsBuilder) DonutSubscriptionExpired(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["donut_subscription_expired"] = v
+	return b
+}
+
+// DonutSubscriptionCancelled event.
+func (b *GroupsSetLongPollSettingsBuilder) DonutSubscriptionCancelled(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["donut_subscription_cancelled"] = v
+	return b
+}
+
+// DonutSubscriptionPriceChanged event.
+func (b *GroupsSetLongPollSettingsBuilder) DonutSubscriptionPriceChanged(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["donut_subscription_price_changed"] = v
+	return b
+}
+
+// DonutMoneyWithdraw event.
+func (b *GroupsSetLongPollSettingsBuilder) DonutMoneyWithdraw(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["donut_money_withdraw"] = v
+	return b
+}
+
+// DonutMoneyWithdrawError event.
+func (b *GroupsSetLongPollSettingsBuilder) DonutMoneyWithdrawError(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["donut_money_withdraw_error"] = v
 	return b
 }
 

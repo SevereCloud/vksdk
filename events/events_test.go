@@ -1983,6 +1983,293 @@ func TestFuncList_HandlerLikeRemove(t *testing.T) {
 	)
 }
 
+func TestFuncList_DonutSubscriptionCreate(t *testing.T) {
+	fl := events.NewFuncList()
+
+	fl.DonutSubscriptionCreate(func(ctx context.Context, obj events.DonutSubscriptionCreateObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionCreate}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionCreate,
+			Object:  []byte(`{"amount":50,"amount_without_fee":47.5,"user_id":117253521}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionCreate,
+			Object:  []byte(`{"amount":50,"amount_without_fee":47.5,"user_id":117253521}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventDonutSubscriptionCreate,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_DonutSubscriptionProlonged(t *testing.T) {
+	fl := events.NewFuncList()
+
+	fl.DonutSubscriptionProlonged(func(ctx context.Context, obj events.DonutSubscriptionProlongedObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionProlonged}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionProlonged,
+			Object:  []byte(`{"amount":50,"amount_without_fee":47.5,"user_id":117253521}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionProlonged,
+			Object:  []byte(`{"amount":50,"amount_without_fee":47.5,"user_id":117253521}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventDonutSubscriptionProlonged,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_DonutSubscriptionExpired(t *testing.T) {
+	fl := events.NewFuncList()
+
+	fl.DonutSubscriptionExpired(func(ctx context.Context, obj events.DonutSubscriptionExpiredObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionExpired}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionExpired,
+			Object:  []byte(`{"user_id":117253521}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionExpired,
+			Object:  []byte(`{"user_id":117253521}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventDonutSubscriptionExpired,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_DonutSubscriptionCancelled(t *testing.T) {
+	fl := events.NewFuncList()
+
+	fl.DonutSubscriptionCancelled(func(ctx context.Context, obj events.DonutSubscriptionCancelledObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionCancelled}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionCancelled,
+			Object:  []byte(`{"user_id":117253521}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionCancelled,
+			Object:  []byte(`{"user_id":117253521}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventDonutSubscriptionCancelled,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_DonutSubscriptionPriceChanged(t *testing.T) {
+	fl := events.NewFuncList()
+
+	fl.DonutSubscriptionPriceChanged(func(ctx context.Context, obj events.DonutSubscriptionPriceChangedObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionPriceChanged}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionPriceChanged,
+			Object:  []byte(`{"amount_old":50,"amount_new":69}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutSubscriptionPriceChanged,
+			Object:  []byte(`{"amount_old":50,"amount_new":69}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventDonutSubscriptionPriceChanged,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_DonutMoneyWithdraw(t *testing.T) {
+	fl := events.NewFuncList()
+
+	fl.DonutMoneyWithdraw(func(ctx context.Context, obj events.DonutMoneyWithdrawObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventDonutMoneyWithdraw}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutMoneyWithdraw,
+			Object:  []byte(`{"amount":50,"amount_without_fee":47.5}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutMoneyWithdraw,
+			Object:  []byte(`{"amount":50,"amount_without_fee":47.5}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventDonutMoneyWithdraw,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
+func TestFuncList_DonutMoneyWithdrawError(t *testing.T) {
+	fl := events.NewFuncList()
+
+	fl.DonutMoneyWithdrawError(func(ctx context.Context, obj events.DonutMoneyWithdrawErrorObject) {
+		groupID := events.GroupIDFromContext(ctx)
+		assert.Equal(t, groupID, GID)
+	})
+	assert.Equal(t, []events.EventType{events.EventDonutMoneyWithdrawError}, fl.ListEvents())
+
+	f := func(e events.GroupEvent, wantErr bool) {
+		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
+		}
+	}
+
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutMoneyWithdrawError,
+			Object:  []byte(`{"reason":"test"}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	fl.Goroutine(true)
+	f(
+		events.GroupEvent{
+			Type:    events.EventDonutMoneyWithdrawError,
+			Object:  []byte(`{"reason":"test"}`),
+			GroupID: GID,
+		},
+		false,
+	)
+	f(
+		events.GroupEvent{
+			Type:   events.EventDonutMoneyWithdrawError,
+			Object: []byte(""),
+		},
+		true,
+	)
+}
+
 func TestFuncList_OnEvent(t *testing.T) {
 	var fl events.FuncList
 
