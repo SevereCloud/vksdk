@@ -54,3 +54,17 @@ func TestVK_AdsGetMusicians(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].Name)
 	}
 }
+
+func TestVK_AdsCheckLink(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	res, err := vkUser.AdsCheckLink(api.Params{
+		"account_id": needAccountID(t),
+		"link_type":  "post",
+		"link_url":   "https://vk.com/wall-1_337125",
+	})
+	noError(t, err)
+	assert.NotEmpty(t, res)
+}

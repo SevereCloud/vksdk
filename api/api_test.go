@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"reflect"
+	"strconv"
 	"sync"
 	"testing"
 	"time"
@@ -88,6 +89,16 @@ func needWidgetToken(t *testing.T) {
 	}
 }
 
+func needAccountID(t *testing.T) int {
+	t.Helper()
+
+	if vkAccountID == 0 {
+		t.Skip("ACCOUNT_ID empty")
+	}
+
+	return vkAccountID
+}
+
 func needChatID(t *testing.T) int {
 	mux.Lock()
 	defer mux.Unlock()
@@ -110,9 +121,9 @@ func needChatID(t *testing.T) int {
 }
 
 var (
-	vkGroup, vkService, vkUser, vkWidget *api.VK    // nolint:gochecknoglobals
-	vkUserID, vkGroupID, vkChatID        int        // nolint:gochecknoglobals
-	mux                                  sync.Mutex // nolint:gochecknoglobals
+	vkGroup, vkService, vkUser, vkWidget       *api.VK    // nolint:gochecknoglobals
+	vkUserID, vkGroupID, vkChatID, vkAccountID int        // nolint:gochecknoglobals
+	mux                                        sync.Mutex // nolint:gochecknoglobals
 )
 
 func TestMain(m *testing.M) {
@@ -147,6 +158,8 @@ func TestMain(m *testing.M) {
 
 		vkUserID = user[0].ID
 	}
+
+	vkAccountID, _ = strconv.Atoi(os.Getenv("ACCOUNT_ID"))
 
 	runTests := m.Run()
 	os.Exit(runTests)

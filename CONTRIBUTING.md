@@ -41,6 +41,7 @@ golangci-lint run
 # WIDGET_TOKEN=""
 # CLIENT_ID="123456"
 # GROUP_ID="123456"
+# ACCOUNT_ID="123456"
 go test ./...
 ```
 
@@ -59,7 +60,8 @@ go test ./...
         "CLIENT_SECRET": "",
         "USER_TOKEN": "",
         "CLIENT_ID": "123456",
-        "GROUP_ID": "123456"
+        "GROUP_ID": "123456",
+        "ACCOUNT_ID": "123456"
     }
 }
 ```
