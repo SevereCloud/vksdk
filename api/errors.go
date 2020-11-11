@@ -166,6 +166,9 @@ const (
 	// Method execution was interrupted due to timeout.
 	ErrExecutionTimeout ErrorType = 36
 
+	// User was banned.
+	ErrUserBanned ErrorType = 37
+
 	// One of the parameters specified was missing or invalid
 	//
 	// Check the required parameters list and their format on a method
