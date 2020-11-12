@@ -1952,19 +1952,19 @@ func (b *GroupsSetCallbackSettingsBuilder) APIVersion(v string) *GroupsSetCallba
 	return b
 }
 
-// MessageNew a new incoming message has been received ('0' — disabled, '1' — enabled).
+// MessageNew a new incoming message has been received.
 func (b *GroupsSetCallbackSettingsBuilder) MessageNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_new"] = v
 	return b
 }
 
-// MessageReply a new outcoming message has been received ('0' — disabled, '1' — enabled).
+// MessageReply a new outcoming message has been received.
 func (b *GroupsSetCallbackSettingsBuilder) MessageReply(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_reply"] = v
 	return b
 }
 
-// MessageAllow allowed messages notifications ('0' — disabled, '1' — enabled).
+// MessageAllow allowed messages notifications.
 func (b *GroupsSetCallbackSettingsBuilder) MessageAllow(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_allow"] = v
 	return b
@@ -1976,7 +1976,7 @@ func (b *GroupsSetCallbackSettingsBuilder) MessageEdit(v bool) *GroupsSetCallbac
 	return b
 }
 
-// MessageDeny denied messages notifications ('0' — disabled, '1' — enabled).
+// MessageDeny denied messages notifications.
 func (b *GroupsSetCallbackSettingsBuilder) MessageDeny(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["message_deny"] = v
 	return b
@@ -1988,169 +1988,181 @@ func (b *GroupsSetCallbackSettingsBuilder) MessageTypingState(v bool) *GroupsSet
 	return b
 }
 
-// PhotoNew new photos notifications ('0' — disabled, '1' — enabled).
+// PhotoNew new photos notifications.
 func (b *GroupsSetCallbackSettingsBuilder) PhotoNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_new"] = v
 	return b
 }
 
-// AudioNew new audios notifications ('0' — disabled, '1' — enabled).
+// AudioNew new audios notifications.
 func (b *GroupsSetCallbackSettingsBuilder) AudioNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["audio_new"] = v
 	return b
 }
 
-// VideoNew new videos notifications ('0' — disabled, '1' — enabled).
+// VideoNew new videos notifications.
 func (b *GroupsSetCallbackSettingsBuilder) VideoNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_new"] = v
 	return b
 }
 
-// WallReplyNew new wall replies notifications ('0' — disabled, '1' — enabled).
+// WallReplyNew new wall replies notifications.
 func (b *GroupsSetCallbackSettingsBuilder) WallReplyNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_reply_new"] = v
 	return b
 }
 
-// WallReplyEdit wall replies edited notifications ('0' — disabled, '1' — enabled).
+// WallReplyEdit wall replies edited notifications.
 func (b *GroupsSetCallbackSettingsBuilder) WallReplyEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_reply_edit"] = v
 	return b
 }
 
-// WallReplyDelete a wall comment has been deleted ('0' — disabled, '1' — enabled).
+// WallReplyDelete a wall comment has been deleted.
 func (b *GroupsSetCallbackSettingsBuilder) WallReplyDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_reply_delete"] = v
 	return b
 }
 
-// WallReplyRestore a wall comment has been restored ('0' — disabled, '1' — enabled).
+// WallReplyRestore a wall comment has been restored.
 func (b *GroupsSetCallbackSettingsBuilder) WallReplyRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_reply_restore"] = v
 	return b
 }
 
-// WallPostNew new wall posts notifications ('0' — disabled, '1' — enabled).
+// WallPostNew new wall posts notifications.
 func (b *GroupsSetCallbackSettingsBuilder) WallPostNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_post_new"] = v
 	return b
 }
 
-// WallRepost new wall posts notifications ('0' — disabled, '1' — enabled).
+// WallRepost new wall posts notifications.
 func (b *GroupsSetCallbackSettingsBuilder) WallRepost(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["wall_repost"] = v
 	return b
 }
 
-// BoardPostNew new board posts notifications ('0' — disabled, '1' — enabled).
+// BoardPostNew new board posts notifications.
 func (b *GroupsSetCallbackSettingsBuilder) BoardPostNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["board_post_new"] = v
 	return b
 }
 
-// BoardPostEdit board posts edited notifications ('0' — disabled, '1' — enabled).
+// BoardPostEdit board posts edited notifications.
 func (b *GroupsSetCallbackSettingsBuilder) BoardPostEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["board_post_edit"] = v
 	return b
 }
 
-// BoardPostRestore board posts restored notifications ('0' — disabled, '1' — enabled).
+// BoardPostRestore board posts restored notifications.
 func (b *GroupsSetCallbackSettingsBuilder) BoardPostRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["board_post_restore"] = v
 	return b
 }
 
-// BoardPostDelete board posts deleted notifications ('0' — disabled, '1' — enabled).
+// BoardPostDelete board posts deleted notifications.
 func (b *GroupsSetCallbackSettingsBuilder) BoardPostDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["board_post_delete"] = v
 	return b
 }
 
-// PhotoCommentNew new comment to photo notifications ('0' — disabled, '1' — enabled).
+// PhotoCommentNew new comment to photo notifications.
 func (b *GroupsSetCallbackSettingsBuilder) PhotoCommentNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_comment_new"] = v
 	return b
 }
 
-// PhotoCommentEdit a photo comment has been edited ('0' — disabled, '1' — enabled).
+// PhotoCommentEdit a photo comment has been edited.
 func (b *GroupsSetCallbackSettingsBuilder) PhotoCommentEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_comment_edit"] = v
 	return b
 }
 
-// PhotoCommentDelete a photo comment has been deleted ('0' — disabled, '1' — enabled).
+// PhotoCommentDelete a photo comment has been deleted.
 func (b *GroupsSetCallbackSettingsBuilder) PhotoCommentDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_comment_delete"] = v
 	return b
 }
 
-// PhotoCommentRestore a photo comment has been restored ('0' — disabled, '1' — enabled).
+// PhotoCommentRestore a photo comment has been restored.
 func (b *GroupsSetCallbackSettingsBuilder) PhotoCommentRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["photo_comment_restore"] = v
 	return b
 }
 
-// VideoCommentNew new comment to video notifications ('0' — disabled, '1' — enabled).
+// VideoCommentNew new comment to video notifications.
 func (b *GroupsSetCallbackSettingsBuilder) VideoCommentNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_comment_new"] = v
 	return b
 }
 
-// VideoCommentEdit a video comment has been edited ('0' — disabled, '1' — enabled).
+// VideoCommentEdit a video comment has been edited.
 func (b *GroupsSetCallbackSettingsBuilder) VideoCommentEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_comment_edit"] = v
 	return b
 }
 
-// VideoCommentDelete a video comment has been deleted ('0' — disabled, '1' — enabled).
+// VideoCommentDelete a video comment has been deleted.
 func (b *GroupsSetCallbackSettingsBuilder) VideoCommentDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_comment_delete"] = v
 	return b
 }
 
-// VideoCommentRestore a video comment has been restored ('0' — disabled, '1' — enabled).
+// VideoCommentRestore a video comment has been restored.
 func (b *GroupsSetCallbackSettingsBuilder) VideoCommentRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["video_comment_restore"] = v
 	return b
 }
 
-// MarketCommentNew new comment to market item notifications ('0' — disabled, '1' — enabled).
+// MarketCommentNew new comment to market item notifications.
 func (b *GroupsSetCallbackSettingsBuilder) MarketCommentNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["market_comment_new"] = v
 	return b
 }
 
-// MarketCommentEdit a market comment has been edited ('0' — disabled, '1' — enabled).
+// MarketCommentEdit a market comment has been edited.
 func (b *GroupsSetCallbackSettingsBuilder) MarketCommentEdit(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["market_comment_edit"] = v
 	return b
 }
 
-// MarketCommentDelete a market comment has been deleted ('0' — disabled, '1' — enabled).
+// MarketCommentDelete a market comment has been deleted.
 func (b *GroupsSetCallbackSettingsBuilder) MarketCommentDelete(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["market_comment_delete"] = v
 	return b
 }
 
-// MarketCommentRestore a market comment has been restored ('0' — disabled, '1' — enabled).
+// MarketCommentRestore a market comment has been restored.
 func (b *GroupsSetCallbackSettingsBuilder) MarketCommentRestore(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["market_comment_restore"] = v
 	return b
 }
 
-// PollVoteNew a vote in a public poll has been added ('0' — disabled, '1' — enabled).
+// MarketOrderNew parameter.
+func (b *GroupsSetCallbackSettingsBuilder) MarketOrderNew(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["market_order_new"] = v
+	return b
+}
+
+// MarketOrderEdit parameter.
+func (b *GroupsSetCallbackSettingsBuilder) MarketOrderEdit(v bool) *GroupsSetCallbackSettingsBuilder {
+	b.Params["market_order_edit"] = v
+	return b
+}
+
+// PollVoteNew a vote in a public poll has been added.
 func (b *GroupsSetCallbackSettingsBuilder) PollVoteNew(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["poll_vote_new"] = v
 	return b
 }
 
-// GroupJoin joined community notifications ('0' — disabled, '1' — enabled).
+// GroupJoin joined community notifications.
 func (b *GroupsSetCallbackSettingsBuilder) GroupJoin(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["group_join"] = v
 	return b
 }
 
-// GroupLeave left community notifications ('0' — disabled, '1' — enabled).
+// GroupLeave left community notifications.
 func (b *GroupsSetCallbackSettingsBuilder) GroupLeave(v bool) *GroupsSetCallbackSettingsBuilder {
 	b.Params["group_leave"] = v
 	return b
@@ -2266,7 +2278,7 @@ func (b *GroupsSetLongPollSettingsBuilder) GroupID(v int) *GroupsSetLongPollSett
 	return b
 }
 
-// Enabled sets whether Long Poll is enabled ('0' — disabled, '1' — enabled).
+// Enabled sets whether Long Poll is enabled.
 func (b *GroupsSetLongPollSettingsBuilder) Enabled(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["enabled"] = v
 	return b
@@ -2278,31 +2290,31 @@ func (b *GroupsSetLongPollSettingsBuilder) APIVersion(v string) *GroupsSetLongPo
 	return b
 }
 
-// MessageNew a new incoming message has been received ('0' — disabled, '1' — enabled).
+// MessageNew a new incoming message has been received.
 func (b *GroupsSetLongPollSettingsBuilder) MessageNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_new"] = v
 	return b
 }
 
-// MessageReply a new outcoming message has been received ('0' — disabled, '1' — enabled).
+// MessageReply a new outcoming message has been received.
 func (b *GroupsSetLongPollSettingsBuilder) MessageReply(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_reply"] = v
 	return b
 }
 
-// MessageAllow allowed messages notifications ('0' — disabled, '1' — enabled).
+// MessageAllow allowed messages notifications.
 func (b *GroupsSetLongPollSettingsBuilder) MessageAllow(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_allow"] = v
 	return b
 }
 
-// MessageDeny denied messages notifications ('0' — disabled, '1' — enabled).
+// MessageDeny denied messages notifications.
 func (b *GroupsSetLongPollSettingsBuilder) MessageDeny(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_deny"] = v
 	return b
 }
 
-// MessageEdit a message has been edited ('0' — disabled, '1' — enabled).
+// MessageEdit a message has been edited.
 func (b *GroupsSetLongPollSettingsBuilder) MessageEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["message_edit"] = v
 	return b
@@ -2314,169 +2326,181 @@ func (b *GroupsSetLongPollSettingsBuilder) MessageTypingState(v bool) *GroupsSet
 	return b
 }
 
-// PhotoNew new photos notifications ('0' — disabled, '1' — enabled).
+// PhotoNew new photos notifications.
 func (b *GroupsSetLongPollSettingsBuilder) PhotoNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_new"] = v
 	return b
 }
 
-// AudioNew new audios notifications ('0' — disabled, '1' — enabled).
+// AudioNew new audios notifications.
 func (b *GroupsSetLongPollSettingsBuilder) AudioNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["audio_new"] = v
 	return b
 }
 
-// VideoNew new videos notifications ('0' — disabled, '1' — enabled).
+// VideoNew new videos notifications.
 func (b *GroupsSetLongPollSettingsBuilder) VideoNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_new"] = v
 	return b
 }
 
-// WallReplyNew new wall replies notifications ('0' — disabled, '1' — enabled).
+// WallReplyNew new wall replies notifications.
 func (b *GroupsSetLongPollSettingsBuilder) WallReplyNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_reply_new"] = v
 	return b
 }
 
-// WallReplyEdit wall replies edited notifications ('0' — disabled, '1' — enabled).
+// WallReplyEdit wall replies edited notifications.
 func (b *GroupsSetLongPollSettingsBuilder) WallReplyEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_reply_edit"] = v
 	return b
 }
 
-// WallReplyDelete a wall comment has been deleted ('0' — disabled, '1' — enabled).
+// WallReplyDelete a wall comment has been deleted.
 func (b *GroupsSetLongPollSettingsBuilder) WallReplyDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_reply_delete"] = v
 	return b
 }
 
-// WallReplyRestore a wall comment has been restored ('0' — disabled, '1' — enabled).
+// WallReplyRestore a wall comment has been restored.
 func (b *GroupsSetLongPollSettingsBuilder) WallReplyRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_reply_restore"] = v
 	return b
 }
 
-// WallPostNew new wall posts notifications ('0' — disabled, '1' — enabled).
+// WallPostNew new wall posts notifications.
 func (b *GroupsSetLongPollSettingsBuilder) WallPostNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_post_new"] = v
 	return b
 }
 
-// WallRepost new wall posts notifications ('0' — disabled, '1' — enabled).
+// WallRepost new wall posts notifications.
 func (b *GroupsSetLongPollSettingsBuilder) WallRepost(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["wall_repost"] = v
 	return b
 }
 
-// BoardPostNew new board posts notifications ('0' — disabled, '1' — enabled).
+// BoardPostNew new board posts notifications.
 func (b *GroupsSetLongPollSettingsBuilder) BoardPostNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["board_post_new"] = v
 	return b
 }
 
-// BoardPostEdit board posts edited notifications ('0' — disabled, '1' — enabled).
+// BoardPostEdit board posts edited notifications.
 func (b *GroupsSetLongPollSettingsBuilder) BoardPostEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["board_post_edit"] = v
 	return b
 }
 
-// BoardPostRestore board posts restored notifications ('0' — disabled, '1' — enabled).
+// BoardPostRestore board posts restored notifications.
 func (b *GroupsSetLongPollSettingsBuilder) BoardPostRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["board_post_restore"] = v
 	return b
 }
 
-// BoardPostDelete board posts deleted notifications ('0' — disabled, '1' — enabled).
+// BoardPostDelete board posts deleted notifications.
 func (b *GroupsSetLongPollSettingsBuilder) BoardPostDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["board_post_delete"] = v
 	return b
 }
 
-// PhotoCommentNew new comment to photo notifications ('0' — disabled, '1' — enabled).
+// PhotoCommentNew new comment to photo notifications.
 func (b *GroupsSetLongPollSettingsBuilder) PhotoCommentNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_comment_new"] = v
 	return b
 }
 
-// PhotoCommentEdit a photo comment has been edited ('0' — disabled, '1' — enabled).
+// PhotoCommentEdit a photo comment has been edited.
 func (b *GroupsSetLongPollSettingsBuilder) PhotoCommentEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_comment_edit"] = v
 	return b
 }
 
-// PhotoCommentDelete a photo comment has been deleted ('0' — disabled, '1' — enabled).
+// PhotoCommentDelete a photo comment has been deleted.
 func (b *GroupsSetLongPollSettingsBuilder) PhotoCommentDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_comment_delete"] = v
 	return b
 }
 
-// PhotoCommentRestore a photo comment has been restored ('0' — disabled, '1' — enabled).
+// PhotoCommentRestore a photo comment has been restored.
 func (b *GroupsSetLongPollSettingsBuilder) PhotoCommentRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["photo_comment_restore"] = v
 	return b
 }
 
-// VideoCommentNew new comment to video notifications ('0' — disabled, '1' — enabled).
+// VideoCommentNew new comment to video notifications.
 func (b *GroupsSetLongPollSettingsBuilder) VideoCommentNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_comment_new"] = v
 	return b
 }
 
-// VideoCommentEdit a video comment has been edited ('0' — disabled, '1' — enabled).
+// VideoCommentEdit a video comment has been edited.
 func (b *GroupsSetLongPollSettingsBuilder) VideoCommentEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_comment_edit"] = v
 	return b
 }
 
-// VideoCommentDelete a video comment has been deleted ('0' — disabled, '1' — enabled).
+// VideoCommentDelete a video comment has been deleted.
 func (b *GroupsSetLongPollSettingsBuilder) VideoCommentDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_comment_delete"] = v
 	return b
 }
 
-// VideoCommentRestore a video comment has been restored ('0' — disabled, '1' — enabled).
+// VideoCommentRestore a video comment has been restored.
 func (b *GroupsSetLongPollSettingsBuilder) VideoCommentRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["video_comment_restore"] = v
 	return b
 }
 
-// MarketCommentNew new comment to market item notifications ('0' — disabled, '1' — enabled).
+// MarketCommentNew new comment to market item notifications.
 func (b *GroupsSetLongPollSettingsBuilder) MarketCommentNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["market_comment_new"] = v
 	return b
 }
 
-// MarketCommentEdit a market comment has been edited ('0' — disabled, '1' — enabled).
+// MarketCommentEdit a market comment has been edited.
 func (b *GroupsSetLongPollSettingsBuilder) MarketCommentEdit(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["market_comment_edit"] = v
 	return b
 }
 
-// MarketCommentDelete a market comment has been deleted ('0' — disabled, '1' — enabled).
+// MarketCommentDelete a market comment has been deleted.
 func (b *GroupsSetLongPollSettingsBuilder) MarketCommentDelete(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["market_comment_delete"] = v
 	return b
 }
 
-// MarketCommentRestore a market comment has been restored ('0' — disabled, '1' — enabled).
+// MarketCommentRestore a market comment has been restored.
 func (b *GroupsSetLongPollSettingsBuilder) MarketCommentRestore(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["market_comment_restore"] = v
 	return b
 }
 
-// PollVoteNew a vote in a public poll has been added ('0' — disabled, '1' — enabled).
+// MarketOrderNew parameter.
+func (b *GroupsSetLongPollSettingsBuilder) MarketOrderNew(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["market_order_new"] = v
+	return b
+}
+
+// MarketOrderEdit parameter.
+func (b *GroupsSetLongPollSettingsBuilder) MarketOrderEdit(v bool) *GroupsSetLongPollSettingsBuilder {
+	b.Params["market_order_edit"] = v
+	return b
+}
+
+// PollVoteNew a vote in a public poll has been added.
 func (b *GroupsSetLongPollSettingsBuilder) PollVoteNew(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["poll_vote_new"] = v
 	return b
 }
 
-// GroupJoin joined community notifications ('0' — disabled, '1' — enabled).
+// GroupJoin joined community notifications.
 func (b *GroupsSetLongPollSettingsBuilder) GroupJoin(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["group_join"] = v
 	return b
 }
 
-// GroupLeave left community notifications ('0' — disabled, '1' — enabled).
+// GroupLeave left community notifications.
 func (b *GroupsSetLongPollSettingsBuilder) GroupLeave(v bool) *GroupsSetLongPollSettingsBuilder {
 	b.Params["group_leave"] = v
 	return b

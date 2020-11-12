@@ -640,6 +640,8 @@ type GroupsLongPollEvents struct {
 	MarketCommentEdit             BaseBoolInt `json:"market_comment_edit"`
 	MarketCommentDelete           BaseBoolInt `json:"market_comment_delete"`
 	MarketCommentRestore          BaseBoolInt `json:"market_comment_restore"`
+	MarketOrderNew                BaseBoolInt `json:"market_order_new"`
+	MarketOrderEdit               BaseBoolInt `json:"market_order_edit"`
 	PollVoteNew                   BaseBoolInt `json:"poll_vote_new"`
 	GroupJoin                     BaseBoolInt `json:"group_join"`
 	GroupLeave                    BaseBoolInt `json:"group_leave"`
