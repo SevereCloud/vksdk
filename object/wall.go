@@ -130,38 +130,39 @@ const (
 
 // WallWallpost  struct.
 type WallWallpost struct {
-	AccessKey    string                   `json:"access_key"` // Access key to private object
-	ID           int                      `json:"id"`         // Post ID
-	OwnerID      int                      `json:"owner_id"`   // Wall owner's ID
-	FromID       int                      `json:"from_id"`    // Post author ID
-	CreatedBy    int                      `json:"created_by"`
-	Date         int                      `json:"date"` // Date of publishing in Unixtime
-	Text         string                   `json:"text"` // Post text
-	ReplyOwnerID int                      `json:"reply_owner_id"`
-	ReplyPostID  int                      `json:"reply_post_id"`
-	FriendsOnly  int                      `json:"friends_only"`
-	Comments     BaseCommentsInfo         `json:"comments"`
-	Likes        BaseLikesInfo            `json:"likes"`   // Count of likes
-	Reposts      BaseRepostsInfo          `json:"reposts"` // Count of views
-	Views        WallViews                `json:"views"`   // Count of views
-	PostType     string                   `json:"post_type"`
-	PostSource   WallPostSource           `json:"post_source"`
-	Attachments  []WallWallpostAttachment `json:"attachments"`
-	Geo          BaseGeo                  `json:"geo"`
-	SignerID     int                      `json:"signer_id"` // Post signer ID
-	CopyHistory  []WallWallpost           `json:"copy_history"`
-	CanPin       BaseBoolInt              `json:"can_pin"`
-	CanDelete    BaseBoolInt              `json:"can_delete"`
-	CanEdit      BaseBoolInt              `json:"can_edit"`
-	IsPinned     BaseBoolInt              `json:"is_pinned"`
-	IsFavorite   BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
-	IsArchived   BaseBoolInt              `json:"is_archived"` // Is post archived, only for post owners
-	MarkedAsAds  BaseBoolInt              `json:"marked_as_ads"`
-	Edited       int                      `json:"edited"` // Date of editing in Unixtime
-	Copyright    WallPostCopyright        `json:"copyright"`
-	PostID       int                      `json:"post_id"`
-	ParentsStack []int                    `json:"parents_stack"`
-	Donut        WallWallpostDonut        `json:"donut"` // need api v5.125
+	AccessKey     string                   `json:"access_key"` // Access key to private object
+	ID            int                      `json:"id"`         // Post ID
+	OwnerID       int                      `json:"owner_id"`   // Wall owner's ID
+	FromID        int                      `json:"from_id"`    // Post author ID
+	CreatedBy     int                      `json:"created_by"`
+	Date          int                      `json:"date"` // Date of publishing in Unixtime
+	Text          string                   `json:"text"` // Post text
+	ReplyOwnerID  int                      `json:"reply_owner_id"`
+	ReplyPostID   int                      `json:"reply_post_id"`
+	FriendsOnly   int                      `json:"friends_only"`
+	Comments      BaseCommentsInfo         `json:"comments"`
+	Likes         BaseLikesInfo            `json:"likes"`   // Count of likes
+	Reposts       BaseRepostsInfo          `json:"reposts"` // Count of views
+	Views         WallViews                `json:"views"`   // Count of views
+	PostType      string                   `json:"post_type"`
+	PostSource    WallPostSource           `json:"post_source"`
+	Attachments   []WallWallpostAttachment `json:"attachments"`
+	Geo           BaseGeo                  `json:"geo"`
+	SignerID      int                      `json:"signer_id"` // Post signer ID
+	CopyHistory   []WallWallpost           `json:"copy_history"`
+	CanPin        BaseBoolInt              `json:"can_pin"`
+	CanDelete     BaseBoolInt              `json:"can_delete"`
+	CanEdit       BaseBoolInt              `json:"can_edit"`
+	IsPinned      BaseBoolInt              `json:"is_pinned"`
+	IsFavorite    BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
+	IsArchived    BaseBoolInt              `json:"is_archived"` // Is post archived, only for post owners
+	MarkedAsAds   BaseBoolInt              `json:"marked_as_ads"`
+	Edited        int                      `json:"edited"` // Date of editing in Unixtime
+	Copyright     WallPostCopyright        `json:"copyright"`
+	PostID        int                      `json:"post_id"`
+	ParentsStack  []int                    `json:"parents_stack"`
+	Donut         WallWallpostDonut        `json:"donut"` // need api v5.125
+	ShortTextRate float64                  `json:"short_text_rate"`
 }
 
 // Attachment type.
