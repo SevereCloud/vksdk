@@ -25,6 +25,7 @@ const (
 	GroupIDKey
 	EventIDKey
 	LongPollTsKey
+	CallbackRetryCounterKey
 )
 
 // ContextClient return *http.Client.

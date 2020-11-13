@@ -11,8 +11,10 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/SevereCloud/vksdk/v2/events"
+	"github.com/SevereCloud/vksdk/v2/internal"
 )
 
 // Callback struct SecretKeys [GroupID]SecretKey.
@@ -74,7 +76,12 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := cb.Handler(context.TODO(), e); err != nil {
+	ctx := context.Background()
+
+	retryCounter, _ := strconv.Atoi(r.Header.Get("X-Retry-Counter"))
+	ctx = context.WithValue(ctx, internal.CallbackRetryCounterKey, retryCounter)
+
+	if err := cb.Handler(ctx, e); err != nil {
 		cb.logf("callback: %v", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 
