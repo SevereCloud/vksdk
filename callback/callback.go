@@ -12,6 +12,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/SevereCloud/vksdk/v2/events"
 	"github.com/SevereCloud/vksdk/v2/internal"
@@ -81,9 +82,27 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	retryCounter, _ := strconv.Atoi(r.Header.Get("X-Retry-Counter"))
 	ctx = context.WithValue(ctx, internal.CallbackRetryCounterKey, retryCounter)
 
+	var (
+		code int
+		date time.Time
+	)
+
+	retryAfter := func(c int, d time.Time) {
+		code = c
+		date = d
+	}
+	ctx = context.WithValue(ctx, internal.CallbackRetryAfterKey, retryAfter)
+
 	if err := cb.Handler(ctx, e); err != nil {
 		cb.logf("callback: %v", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
+
+		return
+	}
+
+	if code != 0 {
+		w.Header().Set("Retry-After", date.Format(http.TimeFormat)) // RFC 7231, 7.1.3
+		http.Error(w, http.StatusText(code), code)
 
 		return
 	}
