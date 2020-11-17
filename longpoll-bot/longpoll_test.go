@@ -1,22 +1,66 @@
 package longpoll
 
 import (
+	"context"
+	"errors"
 	"os"
 	"strconv"
 	"testing"
+	"time"
 
 	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v2/events"
 )
 
 func TestLongPoll_Shutdown(t *testing.T) {
 	t.Parallel()
 
-	lp := &LongPoll{}
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
 
-	lp.Shutdown()
+	userToken := os.Getenv("USER_TOKEN")
+	if userToken == "" {
+		t.Skip("USER_TOKEN empty")
+	}
 
-	if lp.inShutdown != 1 {
-		t.Error("inShutdown != 1")
+	vk := api.NewVK(groupToken)
+	lp, _ := NewLongPollCommunity(vk)
+	lp.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
+		lp.Shutdown()
+	})
+
+	c1 := make(chan string)
+
+	go func() {
+		err := lp.Run()
+		if err != nil && !errors.Is(err, context.Canceled) {
+			t.Error(err)
+		}
+
+		c1 <- "one"
+	}()
+
+	time.Sleep(time.Millisecond * 300)
+
+	vkUser := api.NewVK(userToken)
+
+	_, err := vkUser.MessagesSend(api.Params{
+		"peer_id":   -lp.GroupID,
+		"random_id": 0,
+		"message":   "lp.Shutdown()",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	// time.Sleep(time.Millisecond * 300)
+	select {
+	case <-time.After(time.Second * 3):
+		lp.Shutdown()
+		t.Fatal("timeout")
+	case <-c1:
 	}
 }
 
@@ -148,6 +192,10 @@ func TestLongPoll_RunError(t *testing.T) {
 	lp.Wait = 1
 
 	if err := lp.Run(); err == nil {
+		t.Error(err)
+	}
+
+	if err := lp.RunWithContext(context.Background()); err == nil {
 		t.Error(err)
 	}
 
