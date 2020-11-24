@@ -3,6 +3,9 @@ package api // import "github.com/SevereCloud/vksdk/v2/api"
 // AuthCheckPhone checks a user's phone number for correctness.
 //
 // https://vk.com/dev/auth.checkPhone
+//
+// Deprecated: This method is deprecated and may be disabled soon, please avoid
+// using it.
 func (vk *VK) AuthCheckPhone(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("auth.checkPhone", &response, params)
 	return
