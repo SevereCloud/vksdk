@@ -681,6 +681,15 @@ type MessagesMessageAttachment struct {
 	Podcast           PodcastsEpisode   `json:"podcast"`
 }
 
+// State in which call ended up.
+//
+// TODO: v3 type CallEndState.
+const (
+	CallEndStateCanceledByInitiator = "canceled_by_initiator"
+	CallEndStateCanceledByReceiver  = "canceled_by_receiver"
+	CallEndStateReached             = "reached"
+)
+
 // MessageCall struct.
 type MessageCall struct {
 	InitiatorID int         `json:"initiator_id"`
