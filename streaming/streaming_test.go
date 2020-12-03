@@ -36,9 +36,7 @@ func TestMain(m *testing.M) {
 	os.Exit(runTests)
 }
 
-func TestStreaming_AllRule(t *testing.T) {
-	t.Parallel()
-
+func TestStreaming_AllRule(t *testing.T) { //nolint:paralleltest
 	needServiceToken(t)
 
 	err := stream.AddRule("rule", "test")
@@ -48,27 +46,21 @@ func TestStreaming_AllRule(t *testing.T) {
 	assert.NoError(t, err)
 }
 
-func TestStreaming_AddRule(t *testing.T) {
-	t.Parallel()
-
+func TestStreaming_AddRule(t *testing.T) { //nolint:paralleltest
 	needServiceToken(t)
 
 	err := stream.AddRule("test", "_")
 	assert.Error(t, err)
 }
 
-func TestStreaming_DeleteRule(t *testing.T) {
-	t.Parallel()
-
+func TestStreaming_DeleteRule(t *testing.T) { //nolint:paralleltest
 	needServiceToken(t)
 
 	err := stream.DeleteRule("_")
 	assert.Error(t, err)
 }
 
-func TestStreaming_UpdateRules(t *testing.T) {
-	t.Parallel()
-
+func TestStreaming_UpdateRules(t *testing.T) { //nolint:paralleltest
 	needServiceToken(t)
 
 	err := stream.UpdateRules([]streaming.Rule{{Tag: "_", Value: "_"}})
@@ -135,9 +127,7 @@ func TestStreaming_OnEvent(t *testing.T) {
 	s.OnEvent(func(e streaming.Event) {})
 }
 
-func TestStreaming_Run(t *testing.T) {
-	t.Parallel()
-
+func TestStreaming_Run(t *testing.T) { //nolint:paralleltest
 	needServiceToken(t)
 
 	var skip bool
@@ -181,9 +171,7 @@ func TestStreaming_Run(t *testing.T) {
 	}
 }
 
-func TestStreaming_Run_BadStreamID(t *testing.T) {
-	t.Parallel()
-
+func TestStreaming_Run_BadStreamID(t *testing.T) { //nolint:paralleltest
 	needServiceToken(t)
 
 	stream.StreamID = -1
