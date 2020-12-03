@@ -10,16 +10,22 @@ import (
 )
 
 func TestErrorType(t *testing.T) {
+	t.Parallel()
+
 	err := api.ErrorType(1)
 	assert.EqualError(t, err, "api: error with code 1")
 }
 
 func TestErrorSubtype(t *testing.T) {
+	t.Parallel()
+
 	err := api.ErrorSubtype(1)
 	assert.EqualError(t, err, "api: error with subcode 1")
 }
 
 func TestError_Error(t *testing.T) {
+	t.Parallel()
+
 	err := api.Error{
 		Code:    api.ErrorType(1),
 		Message: "test message",
@@ -28,6 +34,8 @@ func TestError_Error(t *testing.T) {
 }
 
 func TestError_Is(t *testing.T) {
+	t.Parallel()
+
 	f := func(err *api.Error, target error, want bool) {
 		assert.Equal(t, want, errors.Is(err, target))
 	}
@@ -43,6 +51,8 @@ func TestError_Is(t *testing.T) {
 }
 
 func TestError_As(t *testing.T) {
+	t.Parallel()
+
 	var target *api.Error
 
 	err := &api.Error{Code: api.ErrorType(1)}
@@ -52,16 +62,22 @@ func TestError_As(t *testing.T) {
 }
 
 func TestInvalidContentType(t *testing.T) {
+	t.Parallel()
+
 	err := api.InvalidContentType{}
 	assert.EqualError(t, err, "api: invalid content-type")
 }
 
 func TestExecuteErrors(t *testing.T) {
+	t.Parallel()
+
 	err := api.ExecuteErrors{api.ExecuteError{}}
 	assert.EqualError(t, err, "api: execute errors (1)")
 }
 
 func TestAdsError_Error(t *testing.T) {
+	t.Parallel()
+
 	err := api.AdsError{
 		Code: 1,
 		Desc: "test message",
@@ -70,6 +86,8 @@ func TestAdsError_Error(t *testing.T) {
 }
 
 func TestAdsError_Is(t *testing.T) {
+	t.Parallel()
+
 	f := func(err *api.AdsError, target error, want bool) {
 		assert.Equal(t, want, errors.Is(err, target))
 	}

@@ -17,6 +17,8 @@ import (
 var stream *streaming.Streaming // nolint:gochecknoglobals
 
 func needServiceToken(t *testing.T) {
+	t.Parallel()
+
 	t.Helper()
 
 	if stream == nil {
@@ -35,6 +37,8 @@ func TestMain(m *testing.M) {
 }
 
 func TestStreaming_AllRule(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	err := stream.AddRule("rule", "test")
@@ -45,6 +49,8 @@ func TestStreaming_AllRule(t *testing.T) {
 }
 
 func TestStreaming_AddRule(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	err := stream.AddRule("test", "_")
@@ -52,6 +58,8 @@ func TestStreaming_AddRule(t *testing.T) {
 }
 
 func TestStreaming_DeleteRule(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	err := stream.DeleteRule("_")
@@ -59,6 +67,8 @@ func TestStreaming_DeleteRule(t *testing.T) {
 }
 
 func TestStreaming_UpdateRules(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	err := stream.UpdateRules([]streaming.Rule{{Tag: "_", Value: "_"}})
@@ -126,6 +136,8 @@ func TestStreaming_OnEvent(t *testing.T) {
 }
 
 func TestStreaming_Run(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	var skip bool
@@ -170,6 +182,8 @@ func TestStreaming_Run(t *testing.T) {
 }
 
 func TestStreaming_Run_BadStreamID(t *testing.T) {
+	t.Parallel()
+
 	needServiceToken(t)
 
 	stream.StreamID = -1

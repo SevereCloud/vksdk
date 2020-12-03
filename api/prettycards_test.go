@@ -6,17 +6,17 @@ import (
 	"github.com/SevereCloud/vksdk/v2/api"
 )
 
-func TestVK_PrettyCardsCreate(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_PrettyCardsCreate(t *testing.T) {
+// TODO: write test
+// }
 
-func TestVK_PrettyCardsDelete(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_PrettyCardsDelete(t *testing.T) {
+// TODO: write test
+// }
 
-func TestVK_PrettyCardsEdit(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_PrettyCardsEdit(t *testing.T) {
+// TODO: write test
+// }
 
 func TestVK_PrettyCardsGet(t *testing.T) {
 	t.Parallel()
@@ -30,10 +30,10 @@ func TestVK_PrettyCardsGet(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_PrettyCardsGetByID(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_PrettyCardsGetByID(t *testing.T) {
+// TODO: write test
+// }
 
-func TestVK_PrettyCardsGetUploadURL(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_PrettyCardsGetUploadURL(t *testing.T) {
+// TODO: write test
+// }

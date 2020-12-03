@@ -47,9 +47,9 @@ func TestVK_AccountBan(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_AccountChangePassword(t *testing.T) {
-	// TODO: Add test cases
-}
+// func TestVK_AccountChangePassword(t *testing.T) {
+// TODO: Add test cases
+// }
 
 func TestVK_AccountGetActiveOffers(t *testing.T) {
 	t.Parallel()
@@ -124,9 +124,9 @@ func TestVK_AccountGetPushSettings(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_AccountRegisterDevice(t *testing.T) {
-	// TODO: Add test cases
-}
+// func TestVK_AccountRegisterDevice(t *testing.T) {
+// TODO: Add test cases
+// }
 
 func TestVK_AccountSaveProfileInfo(t *testing.T) {
 	t.Parallel()
@@ -137,13 +137,13 @@ func TestVK_AccountSaveProfileInfo(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_AccountSetInfo(t *testing.T) {
-	// TODO: Add test cases
-}
+// func TestVK_AccountSetInfo(t *testing.T) {
+// TODO: Add test cases
+// }
 
-func TestVK_AccountSetNameInMenu(t *testing.T) {
-	// TODO: Add test cases
-}
+// func TestVK_AccountSetNameInMenu(t *testing.T) {
+// TODO: Add test cases
+// }
 
 func TestVK_AccountSetOffline(t *testing.T) {
 	t.Parallel()
@@ -163,14 +163,14 @@ func TestVK_AccountSetOnline(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_AccountSetPushSettings(t *testing.T) {
-	// TODO: Add test cases
-}
+// func TestVK_AccountSetPushSettings(t *testing.T) {
+// TODO: Add test cases
+// }
 
-func TestVK_AccountSetSilenceMode(t *testing.T) {
-	// TODO: Add test cases
-}
+// func TestVK_AccountSetSilenceMode(t *testing.T) {
+// TODO: Add test cases
+// }
 
-func TestVK_AccountUnregisterDevice(t *testing.T) {
-	// TODO: Add test cases
-}
+// func TestVK_AccountUnregisterDevice(t *testing.T) {
+// TODO: Add test cases
+// }

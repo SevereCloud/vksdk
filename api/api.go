@@ -72,7 +72,7 @@ const (
 //
 // captcha_sid - the obtained identifier;
 //
-// captcha_key - text entered by the user;
+// captcha_key - text entered by the user.
 //
 // More info: https://vk.com/dev/api_requests
 const (

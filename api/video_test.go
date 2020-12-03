@@ -130,9 +130,9 @@ func TestVK_VideoCreateComment(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_VideoEdit(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_VideoEdit(t *testing.T) {
+// TODO: write test
+// }
 
 func TestVK_VideoGet(t *testing.T) {
 	t.Parallel()

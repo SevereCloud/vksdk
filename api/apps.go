@@ -50,7 +50,7 @@ type AppsGetFriendsListResponse struct {
 
 // AppsGetFriendsList creates friends list for requests and invites in current app.
 //
-// extended=0
+// 	extended=0
 //
 // https://vk.com/dev/apps.getFriendsList
 func (vk *VK) AppsGetFriendsList(params Params) (response AppsGetFriendsListResponse, err error) {
@@ -67,7 +67,7 @@ type AppsGetFriendsListExtendedResponse struct {
 
 // AppsGetFriendsListExtended creates friends list for requests and invites in current app.
 //
-// extended=1
+// 	extended=1
 //
 // https://vk.com/dev/apps.getFriendsList
 func (vk *VK) AppsGetFriendsListExtended(params Params) (response AppsGetFriendsListExtendedResponse, err error) {
@@ -84,7 +84,7 @@ type AppsGetLeaderboardResponse struct {
 
 // AppsGetLeaderboard returns players rating in the game.
 //
-// extended=0
+// 	extended=0
 //
 // https://vk.com/dev/apps.getLeaderboard
 func (vk *VK) AppsGetLeaderboard(params Params) (response AppsGetLeaderboardResponse, err error) {
@@ -105,7 +105,7 @@ type AppsGetLeaderboardExtendedResponse struct {
 
 // AppsGetLeaderboardExtended returns players rating in the game.
 //
-// extended=1
+// 	extended=1
 //
 // https://vk.com/dev/apps.getLeaderboard
 func (vk *VK) AppsGetLeaderboardExtended(params Params) (response AppsGetLeaderboardExtendedResponse, err error) {
@@ -122,7 +122,7 @@ type AppsGetScopesResponse struct {
 
 // AppsGetScopes ...
 //
-// TODO: write docs
+// TODO: write docs.
 //
 // https://vk.com/dev/apps.getScopes
 func (vk *VK) AppsGetScopes(params Params) (response AppsGetScopesResponse, err error) {

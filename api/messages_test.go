@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestVK_MessagesAddChatUser(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_MessagesAddChatUser(t *testing.T) {
+// TODO: write test
+// }
 
 func TestVK_MessagesAllowMessagesFromGroup(t *testing.T) {
 	t.Parallel()
@@ -108,9 +108,9 @@ func TestVK_MessagesDelete(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_MessagesDeleteChatPhoto(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_MessagesDeleteChatPhoto(t *testing.T) {
+// TODO: write test
+// }
 
 func TestVK_MessagesDeleteConversation(t *testing.T) {
 	t.Parallel()
@@ -383,9 +383,9 @@ func TestVK_MessagesJoinChatByInviteLink(t *testing.T) {
 	}
 }
 
-func TestVK_MessagesMarkAsAnsweredConversation(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_MessagesMarkAsAnsweredConversation(t *testing.T) {
+// TODO: write test
+// }
 
 func TestVK_MessagesMarkAsImportant(t *testing.T) {
 	t.Parallel()
@@ -399,9 +399,9 @@ func TestVK_MessagesMarkAsImportant(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_MessagesMarkAsImportantConversation(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_MessagesMarkAsImportantConversation(t *testing.T) {
+// TODO: write test
+// }
 
 func TestVK_MessagesMarkAsRead(t *testing.T) {
 	t.Parallel()
@@ -454,9 +454,9 @@ func TestVK_MessagesSearchConversations(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_MessagesSendUserIDs(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_MessagesSendUserIDs(t *testing.T) {
+// TODO: write test
+// }
 
 func TestVK_MessagesSendSticker(t *testing.T) {
 	t.Parallel()

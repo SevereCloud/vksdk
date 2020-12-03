@@ -32,6 +32,8 @@ func newVersion(name string) *version {
 }
 
 func TestVersion(t *testing.T) {
+	t.Parallel()
+
 	shaOut, err := exec.Command("git", "rev-list", "--tags", "--max-count=1").Output()
 	if err != nil {
 		t.Error(string(shaOut))

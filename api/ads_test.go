@@ -8,6 +8,8 @@ import (
 )
 
 func TestAdsResponse_UnmarshalJSON(t *testing.T) {
+	t.Parallel()
+
 	f := func(data []byte, expected api.AdsAddOfficeUsersItem) {
 		var r api.AdsAddOfficeUsersItem
 

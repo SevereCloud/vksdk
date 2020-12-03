@@ -353,7 +353,8 @@ func (eventData MessagesEventData) ToJSON() string {
 	return string(b)
 }
 
-// MessagesTemplate struct
+// MessagesTemplate struct.
+//
 // https://vk.com/dev/bot_docs_templates
 type MessagesTemplate struct {
 	Type     string                    `json:"type"`

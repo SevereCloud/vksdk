@@ -15,6 +15,8 @@ import (
 )
 
 func TestRetryCounterFromContext(t *testing.T) {
+	t.Parallel()
+
 	const retryCounter = 123
 	ctx := context.WithValue(
 		context.Background(),
@@ -25,6 +27,8 @@ func TestRetryCounterFromContext(t *testing.T) {
 }
 
 func TestRetryAfter(t *testing.T) {
+	t.Parallel()
+
 	code := http.StatusGone
 	date := time.Now().Add(time.Minute * 5)
 

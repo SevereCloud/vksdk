@@ -605,6 +605,8 @@ func TestCallback_OnSubscriptionStatusChange(t *testing.T) {
 }
 
 func TestParseForm(t *testing.T) {
+	t.Parallel()
+
 	cb := payments.NewCallback(secret)
 
 	req, err := http.NewRequest("POST", "/payments", strings.NewReader("body"))

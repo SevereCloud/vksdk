@@ -128,9 +128,9 @@ func TestVK_StoriesHideAllReplies(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_StoriesHideReply(t *testing.T) {
-	// TODO: Add test case
-}
+// func TestVK_StoriesHideReply(t *testing.T) {
+// TODO: Add test case
+// }
 
 func TestVK_StoriesSearch(t *testing.T) {
 	t.Parallel()

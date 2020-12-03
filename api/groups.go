@@ -157,7 +157,7 @@ type GroupsGetResponse struct {
 
 // GroupsGet returns a list of the communities to which a user belongs.
 //
-// extended=0
+// 	extended=0
 //
 // https://vk.com/dev/groups.get
 func (vk *VK) GroupsGet(params Params) (response GroupsGetResponse, err error) {
@@ -174,7 +174,7 @@ type GroupsGetExtendedResponse struct {
 
 // GroupsGetExtended returns a list of the communities to which a user belongs.
 //
-// extended=1
+// 	extended=1
 //
 // https://vk.com/dev/groups.get
 func (vk *VK) GroupsGetExtended(params Params) (response GroupsGetExtendedResponse, err error) {
@@ -287,7 +287,7 @@ type GroupsGetCatalogInfoResponse struct {
 
 // GroupsGetCatalogInfo returns categories list for communities catalog.
 //
-// extended=0
+// 	extended=0
 //
 // https://vk.com/dev/groups.getCatalogInfo
 func (vk *VK) GroupsGetCatalogInfo(params Params) (response GroupsGetCatalogInfoResponse, err error) {
@@ -304,7 +304,7 @@ type GroupsGetCatalogInfoExtendedResponse struct {
 
 // GroupsGetCatalogInfoExtended returns categories list for communities catalog.
 //
-// extended=1
+// 	extended=1
 //
 // https://vk.com/dev/groups.getCatalogInfo
 func (vk *VK) GroupsGetCatalogInfoExtended(params Params) (response GroupsGetCatalogInfoExtendedResponse, err error) {
@@ -419,8 +419,9 @@ type GroupsGetMembersFilterManagersResponse struct {
 	Items []object.GroupsMemberRoleXtrUsersUser `json:"items"`
 }
 
-// GroupsGetMembersFilterManagers returns a list of community members
-// filter=managers
+// GroupsGetMembersFilterManagers returns a list of community members.
+//
+// 	filter=managers
 //
 // https://vk.com/dev/groups.getMembers
 func (vk *VK) GroupsGetMembersFilterManagers(params Params) (
@@ -521,7 +522,7 @@ func (vk *VK) GroupsInvite(params Params) (response int, err error) {
 
 // GroupsIsMember returns information specifying whether a user is a member of a community.
 //
-// extended=0
+// 	extended=0
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMember(params Params) (response int, err error) {
@@ -541,7 +542,7 @@ type GroupsIsMemberExtendedResponse struct {
 
 // GroupsIsMemberExtended returns information specifying whether a user is a member of a community.
 //
-// extended=1
+// 	extended=1
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMemberExtended(params Params) (response GroupsIsMemberExtendedResponse, err error) {
@@ -555,8 +556,8 @@ type GroupsIsMemberUserIDsExtendedResponse []object.GroupsMemberStatusFull
 
 // GroupsIsMemberUserIDsExtended returns information specifying whether a user is a member of a community.
 //
-// extended=1
-// need user_ids
+// 	extended=1
+// 	need user_ids
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMemberUserIDsExtended(params Params) (response GroupsIsMemberUserIDsExtendedResponse, err error) {
@@ -570,8 +571,8 @@ type GroupsIsMemberUserIDsResponse []object.GroupsMemberStatus
 
 // GroupsIsMemberUserIDs returns information specifying whether a user is a member of a community.
 //
-// extended=0
-// need user_ids
+// 	extended=0
+// 	need user_ids
 //
 // https://vk.com/dev/groups.isMember
 func (vk *VK) GroupsIsMemberUserIDs(params Params) (response GroupsIsMemberUserIDsResponse, err error) {
@@ -651,7 +652,7 @@ func (vk *VK) GroupsSetSettings(params Params) (response int, err error) {
 }
 
 // GroupsSetUserNote allows to create or edit a note about a user as part
-// of the user's correspondence with the community
+// of the user's correspondence with the community.
 //
 // https://vk.com/dev/groups.setUserNote
 func (vk *VK) GroupsSetUserNote(params Params) (response int, err error) {
@@ -659,7 +660,7 @@ func (vk *VK) GroupsSetUserNote(params Params) (response int, err error) {
 	return
 }
 
-// GroupsTagAdd allows to add a new tag to the community
+// GroupsTagAdd allows to add a new tag to the community.
 //
 // https://vk.com/dev/groups.tagAdd
 func (vk *VK) GroupsTagAdd(params Params) (response int, err error) {
@@ -686,7 +687,7 @@ func (vk *VK) GroupsTagDelete(params Params) (response int, err error) {
 	return
 }
 
-// GroupsTagUpdate allows to change an existing tag
+// GroupsTagUpdate allows to change an existing tag.
 //
 // https://vk.com/dev/groups.tagUpdate
 func (vk *VK) GroupsTagUpdate(params Params) (response int, err error) {

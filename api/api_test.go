@@ -189,6 +189,8 @@ func TestVK_Request(t *testing.T) {
 }
 
 func TestVK_RequestLimit(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 
 	vkUser.Limit = 4

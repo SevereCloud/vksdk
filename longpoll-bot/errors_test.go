@@ -8,6 +8,8 @@ import (
 )
 
 func TestFailed_Error(t *testing.T) {
+	t.Parallel()
+
 	err := longpoll.Failed{1}
 	assert.EqualError(t, err, "longpoll: failed code 1")
 }

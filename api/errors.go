@@ -31,7 +31,7 @@ const (
 	// or use the test mode (test_mode=1).
 	ErrDisabled ErrorType = 2
 
-	// Unknown method passed
+	// Unknown method passed.
 	//
 	// Check the method name: http://vk.com/dev/methods
 	ErrMethod    ErrorType = 3
@@ -88,7 +88,7 @@ const (
 	// Runtime error occurred during code invocation.
 	ErrRuntime ErrorType = 13
 
-	// Captcha needed
+	// Captcha needed.
 	//
 	// See https://vk.com/dev/captcha_error
 	ErrCaptcha ErrorType = 14
@@ -117,11 +117,7 @@ const (
 	ErrBlocked        ErrorType = 19 // Content blocked
 
 	// Permission to perform this action is denied for non-standalone
-	// applications
-	//
-	// If you see this error despite your app has the Standalone type, make
-	// sure that you use redirect_uri=https://oauth.vk.com/blank.html.
-	// Details here: https://vk.com/dev/auth_mobile
+	// applications.
 	ErrMethodPermission ErrorType = 20
 
 	// Permission to perform this action is allowed only for standalone and
@@ -129,7 +125,7 @@ const (
 	ErrMethodAds ErrorType = 21
 	ErrUpload    ErrorType = 22 // Upload error
 
-	// This method was disabled
+	// This method was disabled.
 	//
 	// All the methods available now are listed here: http://vk.com/dev/methods
 	ErrMethodDisabled ErrorType = 23
@@ -157,7 +153,7 @@ const (
 	ErrGroupAuth             ErrorType = 27 // Group authorization failed
 	ErrAppAuth               ErrorType = 28 // Application authorization failed
 
-	// Rate limit reached
+	// Rate limit reached.
 	//
 	// More details on rate limits here: https://vk.com/dev/data_limits
 	ErrRateLimit      ErrorType = 29

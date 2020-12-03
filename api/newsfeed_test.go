@@ -90,15 +90,15 @@ func TestVK_NewsfeedGetRecommended(t *testing.T) {
 	assert.NotEmpty(t, res.NextFrom)
 }
 
-func TestVK_NewsfeedGetSuggestedSources(t *testing.T) {
-	// FIXME: NewsfeedGetSuggestedSources have bug
-	// needUserToken(t)
+// func TestVK_NewsfeedGetSuggestedSources(t *testing.T) {
+// FIXME: NewsfeedGetSuggestedSources have bug
+// needUserToken(t)
 
-	// res, err := vkUser.NewsfeedGetSuggestedSources(nil)
-	// noError(t, err)
-	// assert.NotEmpty(t, res.Count)
-	// assert.NotEmpty(t, res.Items)
-}
+// res, err := vkUser.NewsfeedGetSuggestedSources(nil)
+// noError(t, err)
+// assert.NotEmpty(t, res.Count)
+// assert.NotEmpty(t, res.Items)
+// }
 
 func TestVK_NewsfeedIgnoreItem(t *testing.T) {
 	t.Parallel()

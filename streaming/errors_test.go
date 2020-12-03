@@ -10,11 +10,15 @@ import (
 )
 
 func TestErrorType(t *testing.T) {
+	t.Parallel()
+
 	err := streaming.ErrorType(1)
 	assert.EqualError(t, err, "streaming: error with code 1")
 }
 
 func TestError_Error(t *testing.T) {
+	t.Parallel()
+
 	err := streaming.Error{
 		Code:    streaming.ErrorType(1),
 		Message: "test message",
@@ -23,6 +27,8 @@ func TestError_Error(t *testing.T) {
 }
 
 func TestError_Is(t *testing.T) {
+	t.Parallel()
+
 	f := func(err *streaming.Error, target error, want bool) {
 		assert.Equal(t, want, errors.Is(err, target))
 	}
@@ -38,6 +44,8 @@ func TestError_Is(t *testing.T) {
 }
 
 func TestError_As(t *testing.T) {
+	t.Parallel()
+
 	var target *streaming.Error
 
 	err := &streaming.Error{Code: streaming.ErrorType(1)}

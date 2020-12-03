@@ -38,6 +38,7 @@ linters:
     - goerr113
     - tparallel
     - errorlint
+    - paralleltest
 
 # - wrapcheck # TODO: v3 Fix
 # - testpackage # TODO: Fix testpackage

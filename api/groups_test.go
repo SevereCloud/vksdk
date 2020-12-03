@@ -195,9 +195,9 @@ func TestVK_GroupsAddLink(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_GroupsApproveRequest(t *testing.T) {
-	// TODO: Add test cases.
-}
+// func TestVK_GroupsApproveRequest(t *testing.T) {
+// TODO: Add test cases.
+// }
 
 func TestVK_GroupsBan(t *testing.T) {
 	t.Parallel()
@@ -296,9 +296,9 @@ func TestVK_GroupsEnableOnline(t *testing.T) {
 	assert.NotEmpty(t, res)
 }
 
-func TestVK_GroupsEditManager(t *testing.T) {
-	// TODO: Add test cases.
-}
+// func TestVK_GroupsEditManager(t *testing.T) {
+// TODO: Add test cases.
+// }
 
 func TestVK_GroupsGet(t *testing.T) {
 	t.Parallel()
@@ -876,9 +876,9 @@ func TestVK_GroupsGetTokenPermissions(t *testing.T) {
 	assert.NotEmpty(t, res.Permissions[0].Setting)
 }
 
-func TestVK_GroupsInvite(t *testing.T) {
-	// TODO: Add test cases.
-}
+// func TestVK_GroupsInvite(t *testing.T) {
+// TODO: Add test cases.
+// }
 
 func TestVK_GroupsIsMember(t *testing.T) {
 	t.Parallel()
@@ -964,9 +964,9 @@ func TestVK_GroupsLeave(t *testing.T) {
 	assert.NotEmpty(t, res)
 }
 
-func TestVK_GroupsRemoveUser(t *testing.T) {
-	// TODO: Add test cases.
-}
+// func TestVK_GroupsRemoveUser(t *testing.T) {
+// TODO: Add test cases.
+// }
 
 func TestVK_GroupsToggleMarket(t *testing.T) {
 	t.Parallel()

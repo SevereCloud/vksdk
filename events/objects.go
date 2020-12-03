@@ -211,7 +211,7 @@ type ChangesInt struct {
 	NewValue int `json:"new_value"`
 }
 
-// GroupChangeSettingsObject struct
+// GroupChangeSettingsObject struct.
 //
 // BUG(VK): Phone https://vk.com/bugtracker?act=show&id=64240
 //

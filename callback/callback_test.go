@@ -12,6 +12,8 @@ import (
 )
 
 func TestCallback_HandleFunc(t *testing.T) {
+	t.Parallel()
+
 	type fields struct {
 		ConfirmationKeys map[int]string
 		ConfirmationKey  string
@@ -180,6 +182,8 @@ func TestCallback_HandleFunc(t *testing.T) {
 	for _, tt := range tests {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
 			cb := callback.Callback{
 				ConfirmationKeys: tt.fields.ConfirmationKeys,
 				ConfirmationKey:  tt.fields.ConfirmationKey,

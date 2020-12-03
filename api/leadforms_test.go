@@ -89,10 +89,10 @@ func TestVK_LeadForms(t *testing.T) {
 	noError(t, err)
 }
 
-func TestVK_LeadFormsGetLeads(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_LeadFormsGetLeads(t *testing.T) {
+// TODO: write test
+// }
 
-func TestVK_LeadFormsGetUploadURL(t *testing.T) {
-	// TODO: write test
-}
+// func TestVK_LeadFormsGetUploadURL(t *testing.T) {
+// TODO: write test
+// }

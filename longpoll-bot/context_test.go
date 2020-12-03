@@ -10,6 +10,8 @@ import (
 )
 
 func TestTsFromContext(t *testing.T) {
+	t.Parallel()
+
 	const ts = 123
 	ctx := context.WithValue(context.Background(), internal.LongPollTsKey, ts)
 	assert.Equal(t, ts, longpoll.TsFromContext(ctx))

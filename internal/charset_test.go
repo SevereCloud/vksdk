@@ -10,6 +10,8 @@ import (
 )
 
 func TestXMLSanitizerReader(t *testing.T) {
+	t.Parallel()
+
 	r := bytes.NewBuffer([]byte{0x09, 0x0B})
 	newR := internal.XMLSanitizerReader(r)
 

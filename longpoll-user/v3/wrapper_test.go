@@ -23,6 +23,7 @@ func needUserToken(t *testing.T) {
 
 func needChatID(t *testing.T) int {
 	t.Helper()
+
 	needUserToken(t)
 
 	if vkChatID == 0 {
@@ -64,6 +65,8 @@ func TestMain(m *testing.M) {
 }
 
 func TestWrapper(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 

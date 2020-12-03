@@ -77,6 +77,8 @@ func TestLongPoll_Handler(t *testing.T) {
 }
 
 func TestNewLongPoll(t *testing.T) {
+	t.Parallel()
+
 	f := func(vk *api.VK, groupID int, wantErr bool) {
 		_, err := NewLongPoll(vk, groupID)
 		if (err != nil) != wantErr {
@@ -86,18 +88,19 @@ func TestNewLongPoll(t *testing.T) {
 	}
 
 	f(api.NewVK(""), 0, true)
-	t.Run("groupToken", func(t *testing.T) {
-		groupToken := os.Getenv("GROUP_TOKEN")
-		if groupToken == "" {
-			t.Skip("GROUP_TOKEN empty")
-		}
 
-		groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
-		f(api.NewVK(groupToken), groupID, false)
-	})
+	groupToken := os.Getenv("GROUP_TOKEN")
+	if groupToken == "" {
+		t.Skip("GROUP_TOKEN empty")
+	}
+
+	groupID, _ := strconv.Atoi(os.Getenv("GROUP_ID"))
+	f(api.NewVK(groupToken), groupID, false)
 }
 
 func TestNewLongPollCommunity(t *testing.T) {
+	t.Parallel()
+
 	f := func(vk *api.VK, wantErr bool) {
 		_, err := NewLongPollCommunity(vk)
 		if (err != nil) != wantErr {
@@ -108,6 +111,8 @@ func TestNewLongPollCommunity(t *testing.T) {
 
 	f(api.NewVK(""), true)
 	t.Run("groupToken", func(t *testing.T) {
+		t.Parallel()
+
 		groupToken := os.Getenv("GROUP_TOKEN")
 		if groupToken == "" {
 			t.Skip("GROUP_TOKEN empty")
@@ -115,6 +120,8 @@ func TestNewLongPollCommunity(t *testing.T) {
 		f(api.NewVK(groupToken), false)
 	})
 	t.Run("userToken", func(t *testing.T) {
+		t.Parallel()
+
 		userToken := os.Getenv("USER_TOKEN")
 		if userToken == "" {
 			t.Skip("USER_TOKEN empty")
@@ -124,6 +131,8 @@ func TestNewLongPollCommunity(t *testing.T) {
 }
 
 func TestLongPoll_checkResponse(t *testing.T) {
+	t.Parallel()
+
 	groupToken := os.Getenv("GROUP_TOKEN")
 	if groupToken == "" {
 		t.Skip("GROUP_TOKEN empty")
@@ -160,7 +169,10 @@ func TestLongPoll_checkResponse(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
 			if err := lp.checkResponse(tt.argResponse); (err != nil) != tt.wantErr {
 				t.Errorf("LongPoll.checkResponse() error = %v, wantErr %v", err, tt.wantErr)
 			}
