@@ -701,6 +701,60 @@ func (b *MessagesGetHistoryAttachmentsBuilder) MaxForwardsLevel(v int) *Messages
 	return b
 }
 
+// MessagesGetIntentUsersBuilder builder.
+//
+// https://vk.com/dev/messages.getIntentUsers
+type MessagesGetIntentUsersBuilder struct {
+	api.Params
+}
+
+// NewMessagesGetIntentUsersBuilder func.
+func NewMessagesGetIntentUsersBuilder() *MessagesGetIntentUsersBuilder {
+	return &MessagesGetIntentUsersBuilder{api.Params{}}
+}
+
+// Intent parameter.
+func (b *MessagesGetIntentUsersBuilder) Intent(v string) *MessagesGetIntentUsersBuilder {
+	b.Params["intent"] = v
+	return b
+}
+
+// SubscribeID parameter.
+func (b *MessagesGetIntentUsersBuilder) SubscribeID(v int) *MessagesGetIntentUsersBuilder {
+	b.Params["subscribe_id"] = v
+	return b
+}
+
+// Offset parameter.
+func (b *MessagesGetIntentUsersBuilder) Offset(v int) *MessagesGetIntentUsersBuilder {
+	b.Params["offset"] = v
+	return b
+}
+
+// Count parameter.
+func (b *MessagesGetIntentUsersBuilder) Count(v int) *MessagesGetIntentUsersBuilder {
+	b.Params["count"] = v
+	return b
+}
+
+// Extended parameter.
+func (b *MessagesGetIntentUsersBuilder) Extended(v bool) *MessagesGetIntentUsersBuilder {
+	b.Params["extended"] = v
+	return b
+}
+
+// NameCase parameter.
+func (b *MessagesGetIntentUsersBuilder) NameCase(v []string) *MessagesGetIntentUsersBuilder {
+	b.Params["name_case"] = v
+	return b
+}
+
+// Fields parameter.
+func (b *MessagesGetIntentUsersBuilder) Fields(v []string) *MessagesGetIntentUsersBuilder {
+	b.Params["fields"] = v
+	return b
+}
+
 // MessagesGetInviteLinkBuilder builder.
 //
 // https://vk.com/dev/messages.getInviteLink

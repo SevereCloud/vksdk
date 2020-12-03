@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v2/api/params"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -303,6 +304,18 @@ func TestVK_MessagesGetImportantMessages(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.MessagesGetImportantMessages(nil)
+	noError(t, err)
+}
+
+func TestVK_MessagesGetIntentUsers(t *testing.T) {
+	t.Parallel()
+
+	needGroupToken(t)
+
+	_, err := vkGroup.MessagesGetIntentUsers(api.Params{
+		"intent":       params.PromoNewsletter,
+		"subscribe_id": 0,
+	})
 	noError(t, err)
 }
 

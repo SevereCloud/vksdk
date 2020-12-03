@@ -289,6 +289,28 @@ func TestMessagesGetHistoryAttachmentsBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["max_forwards_level"], 1)
 }
 
+func TestMessagesGetIntentUsersBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMessagesGetIntentUsersBuilder()
+
+	b.Intent("test")
+	b.SubscribeID(1)
+	b.Offset(1)
+	b.Count(1)
+	b.Extended(true)
+	b.NameCase([]string{"test"})
+	b.Fields([]string{"test"})
+
+	assert.Equal(t, b.Params["intent"], "test")
+	assert.Equal(t, b.Params["subscribe_id"], 1)
+	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, b.Params["name_case"], []string{"test"})
+	assert.Equal(t, b.Params["fields"], []string{"test"})
+}
+
 func TestMessagesGetInviteLinkBuilder(t *testing.T) {
 	t.Parallel()
 
