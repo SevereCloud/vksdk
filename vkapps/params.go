@@ -123,6 +123,14 @@ const (
 	MobileIPhoneMessenger  Platform = "mobile_iphone_messenger"
 )
 
+// Client from which the service is launched.
+type Client string
+
+// Possible values.
+const (
+	ClientOk = "ok"
+)
+
 // Params service launch parameters.
 type Params struct {
 	VkUserID                  int      `schema:"vk_user_id"`
@@ -137,6 +145,7 @@ type Params struct {
 	VkViewerGroupRole         Role     `schema:"vk_viewer_group_role"`
 	VkPlatform                Platform `schema:"vk_platform"`
 	VkTs                      string   `schema:"vk_ts"`
+	VkClient                  Client   `schema:"vk_client"`
 	Sign                      string   `schema:"sign"`
 }
 
