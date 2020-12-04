@@ -125,6 +125,28 @@ type MarketPrice struct {
 	OldAmountText string         `json:"old_amount_text"`
 }
 
+// UnmarshalJSON MarketPrice.
+//
+// BUG(VK): unavailable product, in fave.get return [].
+func (m *MarketPrice) UnmarshalJSON(data []byte) error {
+	if bytes.Equal(data, []byte("[]")) {
+		return nil
+	}
+
+	type renamedMarketPrice MarketPrice
+
+	var r renamedMarketPrice
+
+	err := json.Unmarshal(data, &r)
+	if err != nil {
+		return err
+	}
+
+	*m = MarketPrice(r)
+
+	return nil
+}
+
 // MarketSection struct.
 type MarketSection struct {
 	ID   int    `json:"id"`   // Section ID

@@ -40,6 +40,25 @@ func TestMarketMarketItem__UnmarshalJSON(t *testing.T) {
 	assert.Error(t, err)
 }
 
+func TestMarketPrice__UnmarshalJSON(t *testing.T) {
+	t.Parallel()
+
+	f := func(data []byte, wantMarket object.MarketPrice) {
+		var market object.MarketPrice
+
+		err := json.Unmarshal(data, &market)
+		assert.NoError(t, err)
+		assert.Equal(t, wantMarket, market)
+	}
+
+	f([]byte("[]"), object.MarketPrice{})
+	f([]byte(`{"text":"a"}`), object.MarketPrice{Text: "a"})
+
+	var market object.MarketPrice
+	err := json.Unmarshal([]byte("0"), &market)
+	assert.Error(t, err)
+}
+
 func TestMarketMarketAlbum_ToAttachment(t *testing.T) {
 	t.Parallel()
 
