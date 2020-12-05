@@ -165,6 +165,15 @@ const (
 	// User was banned.
 	ErrUserBanned ErrorType = 37
 
+	// Unknown application.
+	ErrUnknownApplication ErrorType = 38
+
+	// Unknown user.
+	ErrUnknownUser ErrorType = 39
+
+	// Unknown group.
+	ErrUnknownGroup ErrorType = 40
+
 	// One of the parameters specified was missing or invalid
 	//
 	// Check the required parameters list and their format on a method
