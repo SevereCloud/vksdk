@@ -67,47 +67,47 @@ func testFave(t *testing.T, f object.FaveItem) {
 			assert.NotEmpty(t, f.Video.Likes, "f.Video.Likes")
 			assert.NotEmpty(t, f.Video.Reposts, "f.Video.Reposts")
 		}
-	case "product":
-		if assert.NotEmpty(t, f.Product, "f.Product") {
-			// assert.NotEmpty(t,f.Product.Availability)
-			if assert.NotEmpty(t, f.Product.Category, "f.Product.Category") {
-				assert.NotEmpty(t, f.Product.Category.ID, "f.Product.Category.ID")
-				assert.NotEmpty(t, f.Product.Category.Name, "f.Product.Category.Name")
+	// case "product":
+	// 	if assert.NotEmpty(t, f.Product, "f.Product") {
+	// 		// assert.NotEmpty(t,f.Product.Availability)
+	// 		if assert.NotEmpty(t, f.Product.Category, "f.Product.Category") {
+	// 			assert.NotEmpty(t, f.Product.Category.ID, "f.Product.Category.ID")
+	// 			assert.NotEmpty(t, f.Product.Category.Name, "f.Product.Category.Name")
 
-				if assert.NotEmpty(t, f.Product.Category.Section, "f.Product.Category.Section") {
-					// assert.NotEmpty(t, f.Product.Category.Section.ID, "f.Product.Category.Section.ID")
-					assert.NotEmpty(t, f.Product.Category.Section.Name, "f.Product.Category.Section.Name")
-				}
-			}
+	// 			if assert.NotEmpty(t, f.Product.Category.Section, "f.Product.Category.Section") {
+	// 				// assert.NotEmpty(t, f.Product.Category.Section.ID, "f.Product.Category.Section.ID")
+	// 				assert.NotEmpty(t, f.Product.Category.Section.Name, "f.Product.Category.Section.Name")
+	// 			}
+	// 		}
 
-			// assert.NotEmpty(t, f.Product.Date, "f.Product.Date")
-			assert.NotEmpty(t, f.Product.Description, "f.Product.Description")
-			// assert.NotEmpty(t,f.Product.ExternalID)
-			assert.NotEmpty(t, f.Product.ID, "f.Product.ID")
-			// assert.NotEmpty(t,f.Product.IsFavorite)
-			assert.NotEmpty(t, f.Product.OwnerID, "f.Product.OwnerID")
+	// 		// assert.NotEmpty(t, f.Product.Date, "f.Product.Date")
+	// 		assert.NotEmpty(t, f.Product.Description, "f.Product.Description")
+	// 		// assert.NotEmpty(t,f.Product.ExternalID)
+	// 		assert.NotEmpty(t, f.Product.ID, "f.Product.ID")
+	// 		// assert.NotEmpty(t,f.Product.IsFavorite)
+	// 		assert.NotEmpty(t, f.Product.OwnerID, "f.Product.OwnerID")
 
-			if assert.NotEmpty(t, f.Product.Price, "f.Product.Price") {
-				assert.NotEmpty(t, f.Product.Price.Amount, "f.Product.Price.Amount")
+	// 		if assert.NotEmpty(t, f.Product.Price, "f.Product.Price") {
+	// 			assert.NotEmpty(t, f.Product.Price.Amount, "f.Product.Price.Amount")
 
-				if assert.NotEmpty(t, f.Product.Price.Currency, "f.Product.Price.Currency") {
-					assert.NotEmpty(t, f.Product.Price.Currency.ID, "f.Product.Price.Currency.ID")
-					assert.NotEmpty(t, f.Product.Price.Currency.Name, "f.Product.Price.Currency.Name")
-				}
+	// 			if assert.NotEmpty(t, f.Product.Price.Currency, "f.Product.Price.Currency") {
+	// 				assert.NotEmpty(t, f.Product.Price.Currency.ID, "f.Product.Price.Currency.ID")
+	// 				assert.NotEmpty(t, f.Product.Price.Currency.Name, "f.Product.Price.Currency.Name")
+	// 			}
 
-				assert.NotEmpty(t, f.Product.Price.Text, "f.Product.Price.Text")
-			}
+	// 			assert.NotEmpty(t, f.Product.Price.Text, "f.Product.Price.Text")
+	// 		}
 
-			assert.NotEmpty(t, f.Product.ThumbPhoto, "f.Product.ThumbPhoto")
-			assert.NotEmpty(t, f.Product.Title, "f.Product.Title")
-			// assert.NotEmpty(t,f.Product.AlbumsIDs)
-			// assert.NotEmpty(t, f.Product.CanComment, "f.Product.CanComment")
-			// assert.NotEmpty(t, f.Product.CanRepost, "f.Product.CanRepost")
-			// assert.NotEmpty(t, f.Product.Likes, "f.Product.Likes")
-			// assert.NotEmpty(t, f.Product.Reposts, "f.Product.Reposts")
-			// assert.NotEmpty(t, f.Product.ViewsCount, "f.Product.ViewsCount")
-			assert.NotEmpty(t, f.Product.Photos, "f.Product.Photos")
-		}
+	// 		assert.NotEmpty(t, f.Product.ThumbPhoto, "f.Product.ThumbPhoto")
+	// 		assert.NotEmpty(t, f.Product.Title, "f.Product.Title")
+	// 		// assert.NotEmpty(t,f.Product.AlbumsIDs)
+	// 		// assert.NotEmpty(t, f.Product.CanComment, "f.Product.CanComment")
+	// 		// assert.NotEmpty(t, f.Product.CanRepost, "f.Product.CanRepost")
+	// 		// assert.NotEmpty(t, f.Product.Likes, "f.Product.Likes")
+	// 		// assert.NotEmpty(t, f.Product.Reposts, "f.Product.Reposts")
+	// 		// assert.NotEmpty(t, f.Product.ViewsCount, "f.Product.ViewsCount")
+	// 		assert.NotEmpty(t, f.Product.Photos, "f.Product.Photos")
+	// 	}
 	case "article":
 		if assert.NotEmpty(t, f.Article, "f.Article") {
 			assert.NotEmpty(t, f.Article.ID, "f.Article.ID")
