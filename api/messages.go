@@ -322,6 +322,21 @@ func (vk *VK) MessagesGetImportantMessages(params Params) (response MessagesGetI
 	return
 }
 
+// MessagesGetIntentUsersResponse struct.
+type MessagesGetIntentUsersResponse struct {
+	Count    int                      `json:"count"`
+	Items    []int                    `json:"items"`
+	Profiles []object.MessagesMessage `json:"profiles,omitempty"`
+}
+
+// MessagesGetIntentUsers method.
+//
+// https://vk.com/dev/messages.getIntentUsers
+func (vk *VK) MessagesGetIntentUsers(params Params) (response MessagesGetIntentUsersResponse, err error) {
+	err = vk.RequestUnmarshal("messages.getIntentUsers", &response, params)
+	return
+}
+
 // MessagesGetInviteLinkResponse struct.
 type MessagesGetInviteLinkResponse struct {
 	Link string `json:"link"`
