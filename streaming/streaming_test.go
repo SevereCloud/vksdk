@@ -17,9 +17,9 @@ import (
 var stream *streaming.Streaming // nolint:gochecknoglobals
 
 func needServiceToken(t *testing.T) {
-	t.Parallel()
-
 	t.Helper()
+
+	t.Parallel()
 
 	if stream == nil {
 		t.Skip("SERVICE_TOKEN empty or bad")

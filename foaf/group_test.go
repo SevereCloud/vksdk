@@ -9,6 +9,8 @@ import (
 )
 
 func testGroup(t *testing.T, group foaf.Group) {
+	t.Helper()
+
 	assert.NotEmpty(t, group.Name)
 
 	if assert.NotEmpty(t, group.URI) {

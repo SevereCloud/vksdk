@@ -767,8 +767,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// If signatures do not match, give the error 10 in response
-	sign := cb.Sign(r.PostForm)
-	if r.PostForm.Get("sig") != sign {
+	if r.PostForm.Get("sig") != cb.Sign(r.PostForm) {
 		writeResponse(response{
 			Error: &Error{
 				Code:     BadSignatures,

@@ -52,6 +52,8 @@ func noError(t *testing.T, err error) bool {
 }
 
 func noErrorOrFail(t *testing.T, err error) {
+	t.Helper()
+
 	if !noError(t, err) {
 		t.FailNow()
 	}
@@ -100,10 +102,11 @@ func needAccountID(t *testing.T) int {
 }
 
 func needChatID(t *testing.T) int {
+	t.Helper()
+
 	mux.Lock()
 	defer mux.Unlock()
 
-	t.Helper()
 	needUserToken(t)
 
 	if vkChatID == 0 {

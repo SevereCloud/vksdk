@@ -126,6 +126,8 @@ func TestVK_PhotosCreateComment(t *testing.T) {
 }
 
 func LoadPhoto(t *testing.T, albumID int) object.PhotosPhoto {
+	t.Helper()
+
 	response, err := http.Get(photoURL)
 	if err != nil {
 		t.Fatalf("%v", err)

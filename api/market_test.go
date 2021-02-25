@@ -10,6 +10,8 @@ import (
 )
 
 func MarketAdd(t *testing.T) int {
+	t.Helper()
+
 	needUserToken(t)
 	needGroupToken(t)
 
