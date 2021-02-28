@@ -353,6 +353,9 @@ const (
 
 	// Набор изображений.
 	ItemsList CardType = "ItemsList"
+
+	// Карточка vk miniapp'а.
+	MiniApp CardType = "MiniApp"
 )
 
 // CardItem элемент карточки.
@@ -384,6 +387,9 @@ type Card struct {
 
 	// Список изображений, каждый элемент является объектом формата BigImage.
 	Items []CardItem `json:"items,omitempty"`
+
+	// Ссылка для карточки типа Link. Для карточки типа MiniApp адрес мини-приложения.
+	URL string `json:"url,omitempty"`
 }
 
 // NewBigImage возвращает карточку с картинкой.
@@ -413,6 +419,14 @@ func NewImageList(imageIDs ...int) *Card {
 	}
 
 	return NewItemsList(items...)
+}
+
+// NewMiniApp возвращает карточку vk miniapp'а.
+func NewMiniApp(url string) *Card {
+	return &Card{
+		Type: MiniApp,
+		URL:  url,
+	}
 }
 
 // Response данные для ответа пользователю.
