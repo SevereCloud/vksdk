@@ -198,7 +198,8 @@ type RequestIn struct {
 	Type RequestType `json:"type"`
 
 	// JSON, полученный с нажатой кнопкой от обработчика скилла (в ответе на
-	// предыдущий запрос), максимум 4096 байт.
+	// предыдущий запрос), максимум 4096 байт. Передаётся, только если была
+	// нажата кнопка с payload.
 	Payload json.RawMessage `json:"payload,omitempty"`
 
 	// Объект, содержащий слова и именованные сущности, которые Маруся
@@ -248,6 +249,9 @@ type Session struct {
 
 	// Идентификатор экземпляра приложения, в котором пользователь общается с
 	// Марусей, максимум 64 символа.
+	//
+	// Deprecated: Важно! Это поле устарело, вместо него стоит использовать
+	// Session.Application.ApplicationID.
 	UserID string `json:"user_id"`
 
 	// Идентификатор вызываемого скилла, присвоенный при создании.
@@ -264,6 +268,31 @@ type Session struct {
 	// Идентификатор сообщения в рамках сессии, максимум 8 символов.
 	// Инкрементируется с каждым следующим запросом.
 	MessageID int `json:"message_id"`
+
+	// Данные о пользователе. Передаётся, только если пользователь
+	// авторизован.
+	User User `json:"user"`
+
+	// Данные об экземляре приложения.
+	Application Application `json:"application"`
+}
+
+// User данные о пользователе.
+type User struct {
+	// Идентификатор аккаунта пользователя (максимум 64 символа).
+	// Уникален в разрезе: скилл + аккаунт.
+	UserID string `json:"user_id"`
+}
+
+// Application данные об экземпляре приложения.
+type Application struct {
+	// Идентификатор экземпляра приложения, в котором пользователь общается
+	// с Марусей (максимум 64 символа). Уникален в разрезе: скилл + приложение
+	// (устройство).
+	ApplicationID string `json:"application_id"`
+
+	// Тип приложения (устройства). Возможные варинты: mobile, speaker, other.
+	ApplicationType string `json:"application_type"`
 }
 
 // Request структура запроса.
@@ -298,9 +327,18 @@ type DefaultPayload struct {
 
 // Button кнопка.
 type Button struct {
-	Title   string      `json:"title"`
+	// Текст кнопки, максимум 64 символа.
+	Title string `json:"title"`
+
+	// URL, который откроется при нажатии на кнопку, максимум 1024 байта.
+	// Если свойство url не указано, по нажатию на кнопку навыку будет
+	// отправлен текст кнопки. Пока кнопки с url поддерживаются только
+	// на Android, на iOS появятся совсем скоро.
+	URL string `json:"url,omitempty"`
+
+	// Любой JSON, который нужно отправить скиллу, если данная кнопка будет
+	// нажата, максимум 4096 байт.
 	Payload interface{} `json:"payload,omitempty"`
-	URL     string      `json:"url,omitempty"`
 }
 
 // CardType тип карточки.
@@ -380,6 +418,8 @@ type Response struct {
 	// Текст, который следует показать и сказать пользователю. Максимум 1024
 	// символа. Не должен быть пустым. В тексте ответа можно указать переводы
 	// строк последовательностью «\n».
+	//
+	// TODO: поддержка массива строк.
 	Text string `json:"text"`
 
 	// Ответ в формате TTS (text-to-speech), максимум 1024 символа.
@@ -431,9 +471,13 @@ func (r *Response) AddButton(title string, payload interface{}) {
 
 // responseSession данные о сессии.
 type responseSession struct {
-	SessionID string `json:"session_id"`
-	MessageID int    `json:"message_id"`
-	UserID    string `json:"user_id"`
+	SessionID   string      `json:"session_id"`
+	MessageID   int         `json:"message_id"`
+	UserID      string      `json:"user_id"`
+	SkillID     string      `json:"skill_id"`
+	New         bool        `json:"new"`
+	User        User        `json:"user"`
+	Application Application `json:"application"`
 }
 
 // response структура ответа серверу.
@@ -482,9 +526,13 @@ func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	fullResponse := response{
 		Response: resp,
 		Session: responseSession{
-			SessionID: req.Session.SessionID,
-			MessageID: req.Session.MessageID,
-			UserID:    req.Session.UserID,
+			SessionID:   req.Session.SessionID,
+			MessageID:   req.Session.MessageID,
+			UserID:      req.Session.UserID,
+			SkillID:     req.Session.SkillID,
+			New:         req.Session.New,
+			User:        req.Session.User,
+			Application: req.Session.Application,
 		},
 		Version: Version,
 	}
