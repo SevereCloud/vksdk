@@ -93,6 +93,28 @@ func TestNewMiniApp(t *testing.T) {
 	)
 }
 
+func TestNewLink(t *testing.T) {
+	t.Parallel()
+
+	f := func(url, title, text string, imageID int, actual *marusia.Card) {
+		t.Helper()
+
+		card := marusia.NewLink(url, title, text, imageID)
+
+		assert.Equal(t, card, actual)
+	}
+
+	f("url", "title", "text", 1234,
+		&marusia.Card{
+			Type:    marusia.Link,
+			URL:     "url",
+			Title:   "title",
+			Text:    "text",
+			ImageID: 1234,
+		},
+	)
+}
+
 func TestNewImageList(t *testing.T) {
 	t.Parallel()
 

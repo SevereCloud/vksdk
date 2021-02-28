@@ -356,6 +356,9 @@ const (
 
 	// Карточка vk miniapp'а.
 	MiniApp CardType = "MiniApp"
+
+	// Стилизованная ссылка.
+	Link CardType = "Link"
 )
 
 // CardItem элемент карточки.
@@ -375,10 +378,15 @@ type Card struct {
 	// Тип карточки.
 	Type CardType `json:"type"`
 
-	// Заголовок изображения.
+	// Заголовок изображения или ссылки.
 	Title string `json:"title,omitempty"`
 
+	// Описание ссылки.
+	Text string `json:"text,omitempty"`
+
 	// Описание изображения.
+	//
+	// Deprecated: исчезло из документации.
 	Description string `json:"description,omitempty"`
 
 	// ID изображения из раздела "Медиа-файлы" в настройках скилла
@@ -426,6 +434,17 @@ func NewMiniApp(url string) *Card {
 	return &Card{
 		Type: MiniApp,
 		URL:  url,
+	}
+}
+
+// NewLink возвращает карточку с стилизованной ссылкой.
+func NewLink(url, title, text string, imageID int) *Card {
+	return &Card{
+		Type:    Link,
+		URL:     url,
+		Title:   title,
+		Text:    text,
+		ImageID: imageID,
 	}
 }
 
