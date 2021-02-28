@@ -147,8 +147,10 @@ package marusia // import "github.com/SevereCloud/vksdk/v2/marusia"
 
 import (
 	"encoding/json"
+	"fmt"
 	"mime"
 	"net/http"
+	"strconv"
 )
 
 // Version версия протокола.
@@ -542,4 +544,20 @@ func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 
 	_ = json.NewEncoder(w).Encode(fullResponse)
+}
+
+// SpeakerAudioVKID существует возможность вставлять в произносимую речь
+// собственные звуки. Для этого необходимо на странице редактирования
+// скилла воспользоваться формой загрузки медиафайлов. Загруженный аудиофайл
+// будет доступен только для использования в вашем навыке.
+func SpeakerAudioVKID(id string) string {
+	return fmt.Sprintf(`<speaker audio_vk_id=%s>`, strconv.Quote(id))
+}
+
+// SpeakerAudio произносимый Марусей текст можно разнообразить звуковыми
+// эффектами, которые входят в её библиотеку звуков.
+//
+// Список звуков можно найти на странице https://vk.com/dev/marusia_skill_docs4
+func SpeakerAudio(name string) string {
+	return fmt.Sprintf(`<speaker audio=%s>`, strconv.Quote(name))
 }

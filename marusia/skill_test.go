@@ -3,6 +3,7 @@ package marusia_test
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -249,4 +250,46 @@ func TestWebhookBadJSON(t *testing.T) {
 	handler.ServeHTTP(rr, req)
 
 	assert.Equal(t, http.StatusBadRequest, rr.Code)
+}
+
+func TestSpeakerAudioVKID(t *testing.T) {
+	t.Parallel()
+
+	assert.Equal(
+		t,
+		"<speaker audio_vk_id=\"-2000000002_123456789\">",
+		marusia.SpeakerAudioVKID("-2000000002_123456789"),
+	)
+}
+
+func TestSpeakerAudio(t *testing.T) {
+	t.Parallel()
+
+	assert.Equal(
+		t,
+		"<speaker audio=\"marusia-sounds/game-win-1\">",
+		marusia.SpeakerAudio("marusia-sounds/game-win-1"),
+	)
+}
+
+func ExampleSpeakerAudioVKID() {
+	tts := fmt.Sprintf(
+		"Угадайте, чей это голос? %s",
+		marusia.SpeakerAudioVKID("-2000000002_123456789"),
+	)
+	fmt.Println(tts)
+
+	// Output:
+	// Угадайте, чей это голос? <speaker audio_vk_id="-2000000002_123456789">
+}
+
+func ExampleSpeakerAudio() {
+	tts := fmt.Sprintf(
+		"Поздравляю! %s Вы правильно ответили на все мои вопросы!",
+		marusia.SpeakerAudio("marusia-sounds/game-win-1"),
+	)
+	fmt.Println(tts)
+
+	// Output:
+	// Поздравляю! <speaker audio="marusia-sounds/game-win-1"> Вы правильно ответили на все мои вопросы!
 }
