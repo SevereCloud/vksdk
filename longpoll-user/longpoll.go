@@ -55,11 +55,11 @@ VK documentation https://vk.com/dev/using_longpoll
 package longpoll // import "github.com/SevereCloud/vksdk/v2/longpoll-user"
 
 import (
+	"context"
 	"encoding/json"
 	"net/http"
 	"net/url"
 	"strconv"
-	"sync/atomic"
 
 	"github.com/SevereCloud/vksdk/v2/api"
 	"github.com/SevereCloud/vksdk/v2/internal"
@@ -98,7 +98,7 @@ type LongPoll struct {
 
 	funcList             map[int][]EventNewFunc
 	funcFullResponseList []func(object.LongPollResponse)
-	inShutdown           int32
+	cancel               context.CancelFunc
 	goroutine            bool
 }
 
@@ -226,35 +226,51 @@ func (lp LongPoll) handler(event []interface{}) error {
 
 // Run handler.
 func (lp *LongPoll) Run() error {
-	atomic.StoreInt32(&lp.inShutdown, 0)
+	return lp.RunWithContext(context.Background())
+}
 
-	for atomic.LoadInt32(&lp.inShutdown) == 0 {
-		resp, err := lp.check()
-		if err != nil {
-			return err
-		}
+// RunWithContext handler.
+func (lp *LongPoll) RunWithContext(ctx context.Context) error {
+	return lp.run(ctx)
+}
 
-		for _, event := range resp.Updates {
-			if err := lp.handler(event); err != nil {
+// Run handler.
+func (lp *LongPoll) run(ctx context.Context) error {
+	ctx, lp.cancel = context.WithCancel(ctx)
+	for {
+		select {
+		case _, ok := <-ctx.Done():
+			if !ok {
+				return nil
+			}
+		default:
+			resp, err := lp.check()
+			if err != nil {
 				return err
 			}
-		}
 
-		for _, f := range lp.funcFullResponseList {
-			if lp.goroutine {
-				go func() { f(resp) }()
-			} else {
-				f(resp)
+			for _, event := range resp.Updates {
+				if err := lp.handler(event); err != nil {
+					return err
+				}
+			}
+
+			for _, f := range lp.funcFullResponseList {
+				if lp.goroutine {
+					go func() { f(resp) }()
+				} else {
+					f(resp)
+				}
 			}
 		}
 	}
-
-	return nil
 }
 
 // Shutdown gracefully shuts down the longpoll without interrupting any active connections.
 func (lp *LongPoll) Shutdown() {
-	atomic.StoreInt32(&lp.inShutdown, 1)
+	if lp.cancel != nil {
+		lp.cancel()
+	}
 }
 
 // EventNew handler.
