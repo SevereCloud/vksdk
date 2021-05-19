@@ -7,3 +7,11 @@ func (vk *VK) StoreAddStickersToFavorite(params Params) (response int, err error
 	err = vk.RequestUnmarshal("store.addStickersToFavorite", &response, params)
 	return
 }
+
+// StoreRemoveStickersFromFavorite remove stickers from favorite.
+//
+// https://vk.com/dev/store.removeStickersFromFavorite
+func (vk *VK) StoreRemoveStickersFromFavorite(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("store.removeStickersFromFavorite", &response, params)
+	return
+}
