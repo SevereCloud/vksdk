@@ -83,8 +83,9 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	ctx = context.WithValue(ctx, internal.CallbackRetryCounterKey, retryCounter)
 
 	var (
-		code int
-		date time.Time
+		code   int
+		date   time.Time
+		remove bool
 	)
 
 	retryAfter := func(c int, d time.Time) {
@@ -93,9 +94,20 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 	ctx = context.WithValue(ctx, internal.CallbackRetryAfterKey, retryAfter)
 
+	removeFunc := func() {
+		remove = true
+	}
+	ctx = context.WithValue(ctx, internal.CallbackRemove, removeFunc)
+
 	if err := cb.Handler(ctx, e); err != nil {
 		cb.logf("callback: %v", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
+
+		return
+	}
+
+	if remove {
+		_, _ = w.Write([]byte("remove"))
 
 		return
 	}

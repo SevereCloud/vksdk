@@ -30,3 +30,8 @@ func RetryAfter(ctx context.Context, code int, date time.Time) {
 		date,
 	)
 }
+
+// Remove VK Callback server.
+func Remove(ctx context.Context) {
+	ctx.Value(internal.CallbackRemove).(func())()
+}

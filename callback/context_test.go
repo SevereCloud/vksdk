@@ -57,3 +57,26 @@ func TestRetryAfter(t *testing.T) {
 	assert.Equal(t, code, rr.Code)
 	assert.Equal(t, date.Format(http.TimeFormat), rr.Header().Get("Retry-After"))
 }
+
+func TestRemove(t *testing.T) {
+	t.Parallel()
+
+	cb := callback.NewCallback()
+	cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
+		callback.Remove(ctx)
+	})
+
+	jsonStr := []byte(`{"type": "message_new","object": {}}`)
+
+	req, err := http.NewRequest("POST", "/callback", bytes.NewBuffer(jsonStr))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	rr := httptest.NewRecorder()
+	handler := http.HandlerFunc(cb.HandleFunc)
+
+	handler.ServeHTTP(rr, req)
+
+	assert.Equal(t, "remove", rr.Body.String())
+}
