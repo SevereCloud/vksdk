@@ -403,7 +403,7 @@ func TestVK_UploadOwnerCoverPhoto(t *testing.T) {
 	}
 	defer response.Body.Close()
 
-	_, err = vkGroup.UploadOwnerCoverPhoto(vkGroupID, 0, 0, 795, 200, response.Body)
+	_, err = vkGroup.UploadOwnerCoverPhoto(vkGroupID, 0, 0, 795, 266, response.Body)
 	noError(t, err)
 }
 
