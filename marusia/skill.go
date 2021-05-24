@@ -297,6 +297,15 @@ type Application struct {
 	ApplicationType string `json:"application_type"`
 }
 
+// State данные состояния.
+type State struct {
+	// Хранение данных в сессии.
+	Session json.RawMessage `json:"session"`
+
+	// Персистентное хранение данных.
+	User json.RawMessage `json:"user"`
+}
+
 // Request структура запроса.
 type Request struct {
 	// Информация об устройстве, с помощью которого пользователь общается с Марусей.
@@ -307,6 +316,9 @@ type Request struct {
 
 	// Данные о сессии.
 	Session Session `json:"session"`
+
+	// Хранение состояния.
+	State State `json:"state"`
 
 	// Версия протокола.
 	Version string `json:"version"`
@@ -476,6 +488,27 @@ type Response struct {
 	// Описание карточки — сообщения с поддержкой изображений.
 	// Важно! Если указано данное поле, то поле text игнорируется.
 	Card *Card `json:"card,omitempty"`
+
+	// Для сохранения состояния внутри сессии.
+	// При этом, если в очередном ответе не записать данные, даже если они не
+	// изменились, то они затрутся, и в следующем запросе поле будет пустым.
+	// Помимо этого, состояние потеряется если:
+	//
+	// Пользователь выходит из скилла;
+	//
+	// Скилл сам явно завершает работу, передав EndSession: true;
+	//
+	// Выход происходит по таймауту, когда пользователь не отвечает некоторое
+	// время (1 минуту).
+	//
+	// Лимит размера json-объекта - 5 КБ.
+	SessionState json.RawMessage `json:"session_state,omitempty"`
+
+	// Для персистентного хранения данных о юзере.
+	// Чтобы удалить конкретное поле из сохранённого json-объекта, нужно
+	// положить null в это поле.
+	// Лимит размера json-объекта - 5 КБ.
+	UserStateUpdate json.RawMessage `json:"user_state_update,omitempty"`
 }
 
 // AddURL добавляет к ответу кнопку с ссылкой.
