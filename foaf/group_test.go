@@ -48,7 +48,7 @@ func TestGetGroup_Public(t *testing.T) {
 func TestGetGroup_Event(t *testing.T) {
 	t.Parallel()
 
-	group, err := foaf.GetGroup(context.Background(), 86529522)
+	group, err := foaf.GetGroup(context.Background(), 174832349)
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypeEvent, group.GroupType)
 	testGroup(t, group)
