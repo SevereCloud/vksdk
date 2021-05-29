@@ -469,6 +469,14 @@ type Response struct {
 	// TODO: поддержка массива строк.
 	Text string `json:"text"`
 
+	// Для того, чтобы передать SSML в ответе из внешнего скилла,
+	// необходимо передать "ssml".
+	TTSType string `json:"tts_type,omitempty"`
+
+	// Speech Synthesis Markup Language представляет собой основанный
+	// на XML язык разметки для приложений синтеза речи.
+	SSML string `json:"ssml,omitempty"`
+
 	// Ответ в формате TTS (text-to-speech), максимум 1024 символа.
 	// Поддерживается расстановка ударений с помощью '+'.
 	TTS string `json:"tts,omitempty"`
