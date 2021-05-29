@@ -78,8 +78,8 @@ func Test_PhotosPhotoAlbum_ToAttachment(t *testing.T) {
 		}
 	}
 
-	f(object.PhotosPhotoAlbum{ID: "10", OwnerID: 20}, "album20_10")
-	f(object.PhotosPhotoAlbum{ID: "20", OwnerID: -10}, "album-10_20")
+	f(object.PhotosPhotoAlbum{ID: 10, OwnerID: 20}, "album20_10")
+	f(object.PhotosPhotoAlbum{ID: 20, OwnerID: -10}, "album-10_20")
 }
 
 func TestPhotosPhotoAlbumFull_ToAttachment(t *testing.T) {
