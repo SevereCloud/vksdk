@@ -14,7 +14,7 @@
 
 ## Features
 
-Version API 5.126.
+Version API 5.131.
 
 - [API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api)
   - 400+ methods
