@@ -58,15 +58,15 @@ func TestVK_VideoAddAlbum(t *testing.T) {
 
 	_, err = vkUser.VideoAddToAlbum(api.Params{
 		"album_id": album.AlbumID,
-		"owner_id": 2314852,
-		"video_id": 165705596,
+		"owner_id": -86529522,
+		"video_id": 456240750,
 	})
 	noError(t, err)
 
 	_, err = vkUser.VideoReorderVideos(api.Params{
 		"album_id":       album.AlbumID,
-		"owner_id":       2314852,
-		"video_id":       165705596,
+		"owner_id":       -86529522,
+		"video_id":       456240750,
 		"after_owner_id": -139533130,
 		"after_video_id": 456239332,
 	})
@@ -80,8 +80,8 @@ func TestVK_VideoAddAlbum(t *testing.T) {
 
 	_, err = vkUser.VideoRemoveFromAlbum(api.Params{
 		"album_id": album.AlbumID,
-		"owner_id": 2314852,
-		"video_id": 165705596,
+		"owner_id": -86529522,
+		"video_id": 456240750,
 	})
 	noError(t, err)
 
