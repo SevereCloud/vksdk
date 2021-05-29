@@ -358,6 +358,7 @@ func TestVK_PhotosGetOwnerCoverPhotoUploadServer(t *testing.T) {
 
 	_, err := vkUser.PhotosGetOwnerCoverPhotoUploadServer(api.Params{
 		"group_id": vkGroupID,
+		"crop_y2":  266,
 	})
 	noError(t, err)
 }
