@@ -15,8 +15,9 @@ const (
 
 // MarketCurrency struct.
 type MarketCurrency struct {
-	ID   int    `json:"id"`   // Currency ID
-	Name string `json:"name"` // Currency sign
+	ID    int    `json:"id"`    // Currency ID
+	Name  string `json:"name"`  // Currency sign
+	Title string `json:"title"` // Currency Title
 }
 
 // MarketMarketAlbum struct.
