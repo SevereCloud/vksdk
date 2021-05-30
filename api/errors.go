@@ -661,6 +661,9 @@ const (
 	// Shop not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
+	// Grouping items with different properties.
+	ErrMarketGroupingItemsWithDifferentProperties ErrorType = 1412
+
 	// Variant not found.
 	ErrMarketVariantNotFound ErrorType = 1416
 
