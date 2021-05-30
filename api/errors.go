@@ -739,6 +739,9 @@ const (
 	// Stickers are not purchased.
 	ErrStickersNotPurchased ErrorType = 2100
 
+	// Too many favorite stickers.
+	ErrStickersTooManyFavorites ErrorType = 2101
+
 	// Specified link is incorrect (can't find source).
 	ErrWallCheckLinkCantDetermineSource ErrorType = 3102
 
