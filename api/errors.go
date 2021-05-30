@@ -736,6 +736,9 @@ const (
 	// Servers number limit is reached.
 	ErrCallbackServersLimit ErrorType = 2000
 
+	// Stickers are not purchased.
+	ErrStickersNotPurchased ErrorType = 2100
+
 	// Specified link is incorrect (can't find source).
 	ErrWallCheckLinkCantDetermineSource ErrorType = 3102
 
