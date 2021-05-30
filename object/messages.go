@@ -512,6 +512,7 @@ type MessagesConversationCanWrite struct {
 // MessagesConversationChatSettings struct.
 type MessagesConversationChatSettings struct {
 	MembersCount  int                       `json:"members_count"`
+	FriendsCount  int                       `json:"friends_count"`
 	Photo         MessagesChatSettingsPhoto `json:"photo"`
 	PinnedMessage MessagesPinnedMessage     `json:"pinned_message"`
 	State         string                    `json:"state"`
