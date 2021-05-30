@@ -63,6 +63,7 @@ type MessagesMessage struct {
 	Important    BaseBoolInt       `json:"important"` // Is it an important message
 	IsHidden     BaseBoolInt       `json:"is_hidden"`
 	IsCropped    BaseBoolInt       `json:"is_cropped"`
+	IsSilent     BaseBoolInt       `json:"is_silent"`
 	Out          BaseBoolInt       `json:"out"` // Information whether the message is outcoming
 	WasListened  BaseBoolInt       `json:"was_listened,omitempty"`
 	Keyboard     MessagesKeyboard  `json:"keyboard"`
