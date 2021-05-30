@@ -664,6 +664,9 @@ const (
 	// Grouping items with different properties.
 	ErrMarketGroupingItemsWithDifferentProperties ErrorType = 1412
 
+	// Grouping already has such variant.
+	ErrMarketGroupingAlreadyHasSuchVariant ErrorType = 1413
+
 	// Variant not found.
 	ErrMarketVariantNotFound ErrorType = 1416
 
