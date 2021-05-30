@@ -661,7 +661,7 @@ const (
 	// Item has bad links in description.
 	ErrMarketItemHasBadLinks ErrorType = 1408
 
-	// Shop not enabled.
+	// Extended market not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
 	// Grouping items with different properties.
@@ -705,6 +705,9 @@ const (
 
 	// Crop size is less than the minimum.
 	ErrMarketPhotosCropSizeTooLow ErrorType = 1435
+
+	// Market not enabled.
+	ErrMarketNotEnabled ErrorType = 1438
 
 	// Cart is empty.
 	ErrMarketCartEmpty ErrorType = 1427
