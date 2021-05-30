@@ -462,6 +462,7 @@ type MessagesChatPreview struct {
 	LocalID      int                              `json:"local_id"`
 	Joined       bool                             `json:"joined"`
 	ChatSettings MessagesConversationChatSettings `json:"chat_settings"`
+	IsMember     BaseBoolInt                      `json:"is_member"`
 }
 
 // MessagesChatPushSettings struct.
