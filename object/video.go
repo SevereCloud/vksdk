@@ -81,14 +81,15 @@ func (video VideoVideo) ToAttachment() string {
 
 // VideoRestriction struct.
 type VideoRestriction struct {
-	Title       string      `json:"title"`
-	Text        string      `json:"text"`
-	AlwaysShown BaseBoolInt `json:"always_shown"`
-	Blur        BaseBoolInt `json:"blur"`
-	CanPlay     BaseBoolInt `json:"can_play"`
-	CanPreview  BaseBoolInt `json:"can_preview"`
-	CardIcon    []BaseImage `json:"card_icon"`
-	ListIcon    []BaseImage `json:"list_icon"`
+	Title          string      `json:"title"`
+	Text           string      `json:"text"`
+	AlwaysShown    BaseBoolInt `json:"always_shown"`
+	Blur           BaseBoolInt `json:"blur"`
+	CanPlay        BaseBoolInt `json:"can_play"`
+	CanPreview     BaseBoolInt `json:"can_preview"`
+	CardIcon       []BaseImage `json:"card_icon"`
+	ListIcon       []BaseImage `json:"list_icon"`
+	DisclaimerType int         `json:"disclaimer_type"`
 }
 
 // VideoActionButton struct.
