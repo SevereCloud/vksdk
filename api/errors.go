@@ -742,6 +742,9 @@ const (
 	// Too many favorite stickers.
 	ErrStickersTooManyFavorites ErrorType = 2101
 
+	// Stickers are not favorite.
+	ErrStickersNotFavorite ErrorType = 2102
+
 	// Specified link is incorrect (can't find source).
 	ErrWallCheckLinkCantDetermineSource ErrorType = 3102
 
