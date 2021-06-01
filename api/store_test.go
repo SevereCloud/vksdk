@@ -14,7 +14,7 @@ func TestVK_StoreGetFavoriteStickers(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.StoreAddStickersToFavorite(api.Params{
-		"sticker_ids": 1,
+		"sticker_ids": 9008,
 	})
 	noError(t, err)
 
@@ -24,7 +24,7 @@ func TestVK_StoreGetFavoriteStickers(t *testing.T) {
 	assert.NotEmpty(t, res.Items)
 
 	_, err = vkUser.StoreRemoveStickersFromFavorite(api.Params{
-		"sticker_ids": 1,
+		"sticker_ids": 9008,
 	})
 	noError(t, err)
 }
