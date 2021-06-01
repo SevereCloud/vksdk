@@ -50,6 +50,7 @@ Version API 5.131.
   - Processes payment notifications
 - [Marusia Skills](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/marusia)
   - For creating Marusia Skills
+  - Support SSML
 
 ## Install
 
