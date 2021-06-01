@@ -171,7 +171,7 @@ func TestStreaming_Run(t *testing.T) { //nolint:paralleltest
 	}
 }
 
-func TestStreaming_Run_BadStreamID(t *testing.T) { //nolint:paralleltest
+/*func TestStreaming_Run_BadStreamID(t *testing.T) { //nolint:paralleltest
 	needServiceToken(t)
 
 	stream.StreamID = -1
@@ -180,7 +180,7 @@ func TestStreaming_Run_BadStreamID(t *testing.T) { //nolint:paralleltest
 	assert.Error(t, err)
 
 	stream.StreamID = 0
-}
+}*/
 
 func TestStreaming_Run_Bad(t *testing.T) {
 	t.Parallel()
