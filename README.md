@@ -40,6 +40,9 @@ Version API 5.131.
   - Machine-readable ontology describing persons
   - Works with users and groups
   - The only place to get page creation date
+- [Games](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/games)
+  - Checking launch parameters
+  - Intermediate http handler
 - [VK Mini Apps](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/vkapps)
   - Checking launch parameters
   - Intermediate http handler
