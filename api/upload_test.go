@@ -372,7 +372,7 @@ func TestVK_UploadGroupWallDoc(t *testing.T) {
 	}
 	defer response.Body.Close()
 
-	_, err = vkUser.UploadGroupWallDoc(vkGroupID, "test.jpeg", "test", response.Body)
+	_, err = vkUser.UploadGroupWallDoc(vkGroupID, "doc", "test.jpeg", "test", response.Body)
 	noError(t, err)
 }
 
@@ -543,7 +543,7 @@ func TestVK_Upload_Error(t *testing.T) {
 	_, _ = vk.UploadDoc("", "", new(bytes.Buffer))
 	_, _ = vk.UploadGroupDoc(1, "", "", new(bytes.Buffer))
 	_, _ = vk.UploadWallDoc("", "", new(bytes.Buffer))
-	_, _ = vk.UploadGroupWallDoc(1, "", "", new(bytes.Buffer))
+	_, _ = vk.UploadGroupWallDoc(1, "", "", "", new(bytes.Buffer))
 	_, _ = vk.UploadMessagesDoc(1, "", "", "", new(bytes.Buffer))
 	_, _ = vk.UploadOwnerCoverPhoto(1, 0, 0, 0, 0, new(bytes.Buffer))
 	_, _ = vk.UploadStoriesPhoto(api.Params{}, new(bytes.Buffer))
