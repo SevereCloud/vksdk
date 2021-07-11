@@ -108,7 +108,7 @@ func (b *MessagesDeleteBuilder) PeerID(v int) *MessagesDeleteBuilder {
 	return b
 }
 
-// MessageIDs parameter.
+// ConversationMessageIDs parameter.
 func (b *MessagesDeleteBuilder) ConversationMessageIDs(v []int) *MessagesDeleteBuilder {
 	b.Params["conversation_message_ids"] = v
 	return b
