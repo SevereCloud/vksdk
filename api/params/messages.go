@@ -102,6 +102,18 @@ func (b *MessagesDeleteBuilder) MessageIDs(v []int) *MessagesDeleteBuilder {
 	return b
 }
 
+// PeerID parameter.
+func (b *MessagesDeleteBuilder) PeerID(v int) *MessagesDeleteBuilder {
+	b.Params["peer_id"] = v
+	return b
+}
+
+// MessageIDs parameter.
+func (b *MessagesDeleteBuilder) ConversationMessageIDs(v []int) *MessagesDeleteBuilder {
+	b.Params["conversation_message_ids"] = v
+	return b
+}
+
 // Spam '1' — to mark message as spam.
 func (b *MessagesDeleteBuilder) Spam(v bool) *MessagesDeleteBuilder {
 	b.Params["spam"] = v
@@ -272,6 +284,26 @@ func (b *MessagesEditBuilder) KeepSnippets(v bool) *MessagesEditBuilder {
 // GroupID community ID (for group messages with user access token).
 func (b *MessagesEditBuilder) GroupID(v int) *MessagesEditBuilder {
 	b.Params["group_id"] = v
+	return b
+}
+
+// Keyboard parameter.
+// https://vk.com/dev/bots_docs_3
+func (b *MessagesEditBuilder) Keyboard(v interface{}) *MessagesEditBuilder {
+	b.Params["keyboard"] = v
+	return b
+}
+
+// Template parameter.
+// https://vk.com/dev/bot_docs_templates
+func (b *MessagesEditBuilder) Template(v interface{}) *MessagesEditBuilder {
+	b.Params["template"] = v
+	return b
+}
+
+// ConversationMessageID parameter.
+func (b *MessagesEditBuilder) ConversationMessageID(v int) *MessagesEditBuilder {
+	b.Params["conversation_message_id"] = v
 	return b
 }
 
