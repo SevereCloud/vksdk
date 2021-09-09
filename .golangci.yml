@@ -75,6 +75,7 @@ linters:
 # - cyclop
 # - promlinter
 # - tagliatelle
+# - errname
 
 # depricated
 # - maligned
