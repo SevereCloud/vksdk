@@ -783,6 +783,33 @@ const (
 
 	// Can't set AliExpress tag to this type of object.
 	ErrAliExpressTag ErrorType = 3800
+
+	// Invalid upload response.
+	ErrInvalidUploadResponse ErrorType = 5701
+
+	// Invalid upload hash.
+	ErrInvalidUploadHash ErrorType = 5702
+
+	// Invalid upload user.
+	ErrInvalidUploadUser ErrorType = 5703
+
+	// Invalid upload group.
+	ErrInvalidUploadGroup ErrorType = 5704
+
+	// Invalid crop data.
+	ErrInvalidCropData ErrorType = 5705
+
+	// To small avatar.
+	ErrToSmallAvatar ErrorType = 5706
+
+	// Photo not found.
+	ErrPhotoNotFound ErrorType = 5708
+
+	// Invalid Photo.
+	ErrInvalidPhoto ErrorType = 5709
+
+	// Invalid hash.
+	ErrInvalidHash ErrorType = 5710
 )
 
 // ErrorSubtype is the subtype of an error.
