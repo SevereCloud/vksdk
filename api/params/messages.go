@@ -120,6 +120,20 @@ func (b *MessagesDeleteBuilder) DeleteForAll(v bool) *MessagesDeleteBuilder {
 	return b
 }
 
+// PeerID destination ID. For user: 'User ID', e.g. '12345'.
+// For chat: '2000000000' + 'chat_id', e.g. '2000000001'.
+// For community: '- community ID', e.g. '-12345'.
+func (b *MessagesDeleteBuilder) PeerID(v int) *MessagesDeleteBuilder {
+	b.Params["peer_id"] = v
+	return b
+}
+
+// ConversationMessageIDs parameter.
+func (b *MessagesDeleteBuilder) ConversationMessageIDs(v []int) *MessagesDeleteBuilder {
+	b.Params["conversation_message_ids"] = v
+	return b
+}
+
 // MessagesDeleteChatPhotoBuilder builder.
 //
 // Deletes a chat's cover picture.
