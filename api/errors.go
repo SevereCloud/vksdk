@@ -159,6 +159,9 @@ const (
 	ErrRateLimit      ErrorType = 29
 	ErrPrivateProfile ErrorType = 30 // This profile is private
 
+	// Client version deprecated.
+	ErrClientVersionDeprecated ErrorType = 34
+
 	// Method execution was interrupted due to timeout.
 	ErrExecutionTimeout ErrorType = 36
 
