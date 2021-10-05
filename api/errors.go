@@ -180,6 +180,9 @@ const (
 	// Additional signup required.
 	ErrAdditionalSignupRequired ErrorType = 41
 
+	// IP is not allowed.
+	ErrIPNotAllowed ErrorType = 42
+
 	// One of the parameters specified was missing or invalid
 	//
 	// Check the required parameters list and their format on a method
