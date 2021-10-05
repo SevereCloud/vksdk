@@ -424,6 +424,12 @@ func (b *MarketEditAlbumBuilder) MainAlbum(v bool) *MarketEditAlbumBuilder {
 	return b
 }
 
+// IsHidden flag.
+func (b *MarketEditAlbumBuilder) IsHidden(v bool) *MarketEditAlbumBuilder {
+	b.Params["is_hidden"] = v
+	return b
+}
+
 // MarketEditOrderBuilder builder.
 //
 // EditOrders an item.
