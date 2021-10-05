@@ -112,12 +112,14 @@ func TestGroupsCreateBuilder(t *testing.T) {
 	b.Description("text")
 	b.Type("text")
 	b.PublicCategory(1)
+	b.PublicSubcategory(1)
 	b.Subtype(1)
 
 	assert.Equal(t, b.Params["title"], "text")
 	assert.Equal(t, b.Params["description"], "text")
 	assert.Equal(t, b.Params["type"], "text")
 	assert.Equal(t, b.Params["public_category"], 1)
+	assert.Equal(t, b.Params["public_subcategory"], 1)
 	assert.Equal(t, b.Params["subtype"], 1)
 }
 

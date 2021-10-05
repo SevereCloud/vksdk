@@ -280,6 +280,12 @@ func (b *GroupsCreateBuilder) PublicCategory(v int) *GroupsCreateBuilder {
 	return b
 }
 
+// PublicSubcategory subcategory ID.
+func (b *GroupsCreateBuilder) PublicSubcategory(v int) *GroupsCreateBuilder {
+	b.Params["public_subcategory"] = v
+	return b
+}
+
 // Subtype public page subtype. Possible values:
 //
 // * 1 – place or small business;
