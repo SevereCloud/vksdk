@@ -60,10 +60,12 @@ func TestMarketAddToAlbumBuilder(t *testing.T) {
 
 	b.OwnerID(1)
 	b.ItemID(1)
+	b.ItemIDs(1)
 	b.AlbumIDs([]int{1})
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 	assert.Equal(t, b.Params["item_id"], 1)
+	assert.Equal(t, b.Params["item_ids"], 1)
 	assert.Equal(t, b.Params["album_ids"], []int{1})
 }
 

@@ -148,6 +148,12 @@ func (b *MarketAddToAlbumBuilder) ItemID(v int) *MarketAddToAlbumBuilder {
 	return b
 }
 
+// ItemIDs parameter.
+func (b *MarketAddToAlbumBuilder) ItemIDs(v int) *MarketAddToAlbumBuilder {
+	b.Params["item_ids"] = v
+	return b
+}
+
 // AlbumIDs collections IDs to add item to.
 func (b *MarketAddToAlbumBuilder) AlbumIDs(v []int) *MarketAddToAlbumBuilder {
 	b.Params["album_ids"] = v
