@@ -736,6 +736,9 @@ const (
 	// Market was already disabled in this group.
 	ErrMarketAlreadyDisabled ErrorType = 1432
 
+	// Main album can not be hidden.
+	ErrMainAlbumCantHidden ErrorType = 1446
+
 	// Story has already expired.
 	ErrStoryExpired ErrorType = 1600
 
