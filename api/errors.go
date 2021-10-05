@@ -607,6 +607,9 @@ const (
 	// Anonymous token has expired.
 	ErrAnonymousTokenExpired ErrorType = 1114
 
+	// Anonymous token is invalid.
+	ErrAnonymousTokenInvalid ErrorType = 1116
+
 	// Invalid document id.
 	ErrParamDocID ErrorType = 1150
 
