@@ -592,6 +592,9 @@ const (
 	// Can't send message, reply timed out.
 	ErrMessagesReplyTimedOut ErrorType = 950
 
+	// You can't access donut chat without subscription.
+	ErrMessagesAccessDonutChat ErrorType = 962
+
 	// Invalid phone number.
 	ErrParamPhone ErrorType = 1000
 
