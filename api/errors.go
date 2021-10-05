@@ -604,6 +604,9 @@ const (
 	// Processing.. Try later.
 	ErrAuthDelay ErrorType = 1112
 
+	// Anonymous token has expired.
+	ErrAnonymousTokenExpired ErrorType = 1114
+
 	// Invalid document id.
 	ErrParamDocID ErrorType = 1150
 
