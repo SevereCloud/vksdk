@@ -116,6 +116,12 @@ func (b *MarketAddAlbumBuilder) MainAlbum(v bool) *MarketAddAlbumBuilder {
 	return b
 }
 
+// IsHidden flag.
+func (b *MarketAddAlbumBuilder) IsHidden(v bool) *MarketAddAlbumBuilder {
+	b.Params["is_hidden"] = v
+	return b
+}
+
 // MarketAddToAlbumBuilder builder.
 //
 // Adds an item to one or multiple collections.

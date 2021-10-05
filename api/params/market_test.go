@@ -44,11 +44,13 @@ func TestMarketAddAlbumBuilder(t *testing.T) {
 	b.Title("text")
 	b.PhotoID(1)
 	b.MainAlbum(true)
+	b.IsHidden(true)
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 	assert.Equal(t, b.Params["title"], "text")
 	assert.Equal(t, b.Params["photo_id"], 1)
 	assert.Equal(t, b.Params["main_album"], true)
+	assert.Equal(t, b.Params["is_hidden"], true)
 }
 
 func TestMarketAddToAlbumBuilder(t *testing.T) {
