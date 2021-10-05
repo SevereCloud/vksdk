@@ -155,6 +155,12 @@ func (b *AccountGetCountersBuilder) Filter(v []string) *AccountGetCountersBuilde
 	return b
 }
 
+// UserID parameter.
+func (b *AccountGetCountersBuilder) UserID(v int) *AccountGetCountersBuilder {
+	b.Params["user_id"] = v
+	return b
+}
+
 // AccountGetInfoBuilder builder.
 //
 // Returns current account info.

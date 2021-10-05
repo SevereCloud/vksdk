@@ -73,8 +73,10 @@ func TestAccountGetCountersBuilder(t *testing.T) {
 	b := params.NewAccountGetCountersBuilder()
 
 	b.Filter([]string{"text"})
+	b.UserID(1)
 
 	assert.Equal(t, b.Params["filter"], []string{"text"})
+	assert.Equal(t, b.Params["user_id"], 1)
 }
 
 func TestAccountGetInfoBuilder(t *testing.T) {
