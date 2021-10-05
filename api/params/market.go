@@ -468,6 +468,60 @@ func (b *MarketEditOrderBuilder) Status(v int) *MarketEditOrderBuilder {
 	return b
 }
 
+// TrackNumber parameter.
+func (b *MarketEditOrderBuilder) TrackNumber(v string) *MarketEditOrderBuilder {
+	b.Params["track_number"] = v
+	return b
+}
+
+// PaymentStatus parameter.
+func (b *MarketEditOrderBuilder) PaymentStatus(v string) *MarketEditOrderBuilder {
+	b.Params["payment_status"] = v
+	return b
+}
+
+// DeliveryPrice parameter.
+func (b *MarketEditOrderBuilder) DeliveryPrice(v int) *MarketEditOrderBuilder {
+	b.Params["delivery_price"] = v
+	return b
+}
+
+// Width parameter.
+func (b *MarketEditOrderBuilder) Width(v int) *MarketEditOrderBuilder {
+	b.Params["width"] = v
+	return b
+}
+
+// Length parameter.
+func (b *MarketEditOrderBuilder) Length(v int) *MarketEditOrderBuilder {
+	b.Params["length"] = v
+	return b
+}
+
+// Height parameter.
+func (b *MarketEditOrderBuilder) Height(v int) *MarketEditOrderBuilder {
+	b.Params["height"] = v
+	return b
+}
+
+// Weight parameter.
+func (b *MarketEditOrderBuilder) Weight(v int) *MarketEditOrderBuilder {
+	b.Params["weight"] = v
+	return b
+}
+
+// CommentForUser parameter.
+func (b *MarketEditOrderBuilder) CommentForUser(v string) *MarketEditOrderBuilder {
+	b.Params["comment_for_user"] = v
+	return b
+}
+
+// ReceiptLink parameter.
+func (b *MarketEditOrderBuilder) ReceiptLink(v string) *MarketEditOrderBuilder {
+	b.Params["receipt_link"] = v
+	return b
+}
+
 // MarketEditCommentBuilder builder.
 //
 // Changes item comment's text.
