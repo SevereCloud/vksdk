@@ -620,6 +620,12 @@ func (b *MarketGetBuilder) NeedVariants(v bool) *MarketGetBuilder {
 	return b
 }
 
+// WithDisabled flag.
+func (b *MarketGetBuilder) WithDisabled(v bool) *MarketGetBuilder {
+	b.Params["with_disabled"] = v
+	return b
+}
+
 // MarketGetAlbumByIDBuilder builder.
 //
 // Returns items album's data.
