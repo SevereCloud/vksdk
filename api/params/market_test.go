@@ -237,12 +237,14 @@ func TestMarketGetBuilder(t *testing.T) {
 	b.Count(1)
 	b.Offset(1)
 	b.Extended(true)
+	b.NeedVariants(true)
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 	assert.Equal(t, b.Params["album_id"], 1)
 	assert.Equal(t, b.Params["count"], 1)
 	assert.Equal(t, b.Params["offset"], 1)
 	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, b.Params["need_variants"], true)
 }
 
 func TestMarketGetAlbumByIDBuilder(t *testing.T) {

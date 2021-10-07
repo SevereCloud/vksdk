@@ -614,6 +614,12 @@ func (b *MarketGetBuilder) Extended(v bool) *MarketGetBuilder {
 	return b
 }
 
+// NeedVariants flag.
+func (b *MarketGetBuilder) NeedVariants(v bool) *MarketGetBuilder {
+	b.Params["need_variants"] = v
+	return b
+}
+
 // MarketGetAlbumByIDBuilder builder.
 //
 // Returns items album's data.
