@@ -486,6 +486,7 @@ func TestMarketSearchBuilder(t *testing.T) {
 	b.Count(1)
 	b.Extended(true)
 	b.Status(1)
+	b.NeedVariants(true)
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 	assert.Equal(t, b.Params["album_id"], 1)
@@ -499,4 +500,5 @@ func TestMarketSearchBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["count"], 1)
 	assert.Equal(t, b.Params["extended"], true)
 	assert.Equal(t, b.Params["status"], 1)
+	assert.Equal(t, b.Params["need_variants"], true)
 }

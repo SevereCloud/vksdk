@@ -1255,3 +1255,9 @@ func (b *MarketSearchBuilder) Status(v int) *MarketSearchBuilder {
 	b.Params["status"] = v
 	return b
 }
+
+// NeedVariants flag.
+func (b *MarketSearchBuilder) NeedVariants(v bool) *MarketSearchBuilder {
+	b.Params["need_variants"] = v
+	return b
+}
