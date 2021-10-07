@@ -256,9 +256,11 @@ func TestMarketGetAlbumByIDBuilder(t *testing.T) {
 
 	b.OwnerID(1)
 	b.AlbumIDs([]int{1})
+	b.NeedAllItemIDs(true)
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 	assert.Equal(t, b.Params["album_ids"], []int{1})
+	assert.Equal(t, b.Params["need_all_item_ids"], true)
 }
 
 func TestMarketGetAlbumsBuilder(t *testing.T) {

@@ -653,6 +653,12 @@ func (b *MarketGetAlbumByIDBuilder) AlbumIDs(v []int) *MarketGetAlbumByIDBuilder
 	return b
 }
 
+// NeedAllItemIDs flag.
+func (b *MarketGetAlbumByIDBuilder) NeedAllItemIDs(v bool) *MarketGetAlbumByIDBuilder {
+	b.Params["need_all_item_ids"] = v
+	return b
+}
+
 // MarketGetAlbumsBuilder builder.
 //
 // Returns community's collections list.
