@@ -163,6 +163,7 @@ type RequestType string
 const (
 	SimpleUtterance RequestType = "SimpleUtterance" // голосовой ввод
 	ButtonPressed   RequestType = "ButtonPressed"   //  нажатие кнопки
+	DeepLink        RequestType = "DeepLink"
 )
 
 // NLU - Natural Language Understanding.
@@ -206,7 +207,7 @@ type RequestIn struct {
 
 	// Объект, содержащий слова и именованные сущности, которые Маруся
 	// извлекла из запроса пользователя.
-	NLU NLU `json:"nlu"`
+	NLU *NLU `json:"nlu"`
 }
 
 // Screen структура для Interfaces.
