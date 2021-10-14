@@ -123,10 +123,18 @@ func needChatID(t *testing.T) int {
 	return vkChatID
 }
 
+func needMarusiaToken(t *testing.T) {
+	t.Helper()
+
+	if vkMarusia == nil {
+		t.Skip("MARUSIA_TOKEN empty")
+	}
+}
+
 var (
-	vkGroup, vkService, vkUser, vkWidget       *api.VK    // nolint:gochecknoglobals
-	vkUserID, vkGroupID, vkChatID, vkAccountID int        // nolint:gochecknoglobals
-	mux                                        sync.Mutex // nolint:gochecknoglobals
+	vkGroup, vkService, vkUser, vkWidget, vkMarusia *api.VK    // nolint:gochecknoglobals
+	vkUserID, vkGroupID, vkChatID, vkAccountID      int        // nolint:gochecknoglobals
+	mux                                             sync.Mutex // nolint:gochecknoglobals
 )
 
 func TestMain(m *testing.M) {
@@ -143,6 +151,10 @@ func TestMain(m *testing.M) {
 
 	if token := os.Getenv("WIDGET_TOKEN"); token != "" {
 		vkWidget = api.NewVK(token)
+	}
+
+	if token := os.Getenv("MARUSIA_TOKEN"); token != "" {
+		vkMarusia = api.NewVK(token)
 	}
 
 	if token := os.Getenv("SERVICE_TOKEN"); token != "" {

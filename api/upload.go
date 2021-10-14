@@ -959,3 +959,36 @@ func (vk *VK) UploadGroupImage(imageType string, file io.Reader) (response objec
 
 	return
 }
+
+// UploadMarusiaPicture uploading picture.
+//
+// Limits: height not more than 600 px,
+// aspect ratio of at least 2:1.
+func (vk *VK) UploadMarusiaPicture(file io.Reader) (response MarusiaSavePictureResponse, err error) {
+	uploadServer, err := vk.MarusiaGetPictureUploadLink(nil)
+	if err != nil {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(uploadServer.PictureUploadLink, file, "photo", "photo.jpg")
+	if err != nil {
+		return
+	}
+
+	var handler object.MarusiaPictureUploadResponse
+
+	err = json.Unmarshal(bodyContent, &handler)
+	if err != nil {
+		return
+	}
+
+	photo, _ := json.Marshal(handler.Photo)
+
+	response, err = vk.MarusiaSavePicture(Params{
+		"server": handler.Server,
+		"photo":  string(photo),
+		"hash":   handler.Hash,
+	})
+
+	return
+}

@@ -527,6 +527,31 @@ func TestVK_UploadGroupImage(t *testing.T) {
 	noError(t, err)
 }
 
+func TestVK_UploadMarusiaPicture(t *testing.T) {
+	t.Parallel()
+
+	needMarusiaToken(t)
+
+	response, err := http.Get(photoURL)
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	resp, err := vkMarusia.UploadMarusiaPicture(response.Body)
+	noError(t, err)
+
+	_, err = vkMarusia.MarusiaGetPictures(nil)
+	noError(t, err)
+
+	if resp.PhotoID != 0 {
+		_, err = vkMarusia.MarusiaDeletePicture(api.Params{
+			"id": resp.PhotoID,
+		})
+		noError(t, err)
+	}
+}
+
 func TestVK_Upload_Error(t *testing.T) {
 	t.Parallel()
 
@@ -553,4 +578,5 @@ func TestVK_Upload_Error(t *testing.T) {
 	_, _ = vk.UploadLeadFormsPhoto(new(bytes.Buffer))
 	_, _ = vk.UploadAppImage("", new(bytes.Buffer))
 	_, _ = vk.UploadGroupImage("", new(bytes.Buffer))
+	_, _ = vk.UploadMarusiaPicture(new(bytes.Buffer))
 }
