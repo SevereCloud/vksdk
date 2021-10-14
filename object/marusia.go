@@ -12,9 +12,9 @@ type MarusiaPicture struct {
 
 // MarusiaPictureUploadResponse struct.
 type MarusiaPictureUploadResponse struct {
-	Hash        string                    `json:"hash"`   // Uploading hash
+	Hash        string          `json:"hash"`   // Uploading hash
 	Photo       json.RawMessage `json:"photo"`  // Uploaded photo data
-	Server      int                       `json:"server"` // Upload server number
-	AID         int                       `json:"aid"`
-	MessageCode int                       `json:"message_code"`
+	Server      int             `json:"server"` // Upload server number
+	AID         int             `json:"aid"`
+	MessageCode int             `json:"message_code"`
 }
