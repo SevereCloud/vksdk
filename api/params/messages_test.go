@@ -49,11 +49,15 @@ func TestMessagesDeleteBuilder(t *testing.T) {
 	b := params.NewMessagesDeleteBuilder()
 
 	b.MessageIDs([]int{1})
+	b.PeerID(1)
+	b.ConversationMessageIDs([]int{1})
 	b.Spam(true)
 	b.GroupID(1)
 	b.DeleteForAll(true)
 
 	assert.Equal(t, b.Params["message_ids"], []int{1})
+	assert.Equal(t, b.Params["peer_id"], 1)
+	assert.Equal(t, b.Params["conversation_message_ids"], []int{1})
 	assert.Equal(t, b.Params["spam"], true)
 	assert.Equal(t, b.Params["group_id"], 1)
 	assert.Equal(t, b.Params["delete_for_all"], true)
@@ -109,6 +113,9 @@ func TestMessagesEditBuilder(t *testing.T) {
 	b.KeepForwardMessages(true)
 	b.KeepSnippets(true)
 	b.GroupID(1)
+	b.Keyboard("text")
+	b.Template("text")
+	b.ConversationMessageID(1)
 	b.DontParseLinks(true)
 
 	assert.Equal(t, b.Params["peer_id"], 1)
@@ -120,6 +127,9 @@ func TestMessagesEditBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["keep_forward_messages"], true)
 	assert.Equal(t, b.Params["keep_snippets"], true)
 	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["keyboard"], "text")
+	assert.Equal(t, b.Params["template"], "text")
+	assert.Equal(t, b.Params["conversation_message_id"], 1)
 	assert.Equal(t, b.Params["dont_parse_links"], true)
 }
 
