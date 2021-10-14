@@ -838,12 +838,6 @@ func (b *WallPostBuilder) CloseComments(v bool) *WallPostBuilder {
 	return b
 }
 
-// MuteNotifications parameter.
-func (b *WallPostBuilder) MuteNotifications(v bool) *WallPostBuilder {
-	b.Params["mute_notifications"] = v
-	return b
-}
-
 // DonutPaidDuration period of time during which the post will be available for
 // VK Donut paid subscribers.
 //
@@ -864,6 +858,24 @@ func (b *WallPostBuilder) MuteNotifications(v bool) *WallPostBuilder {
 // 604800 - for 7 days.
 func (b *WallPostBuilder) DonutPaidDuration(v int) *WallPostBuilder {
 	b.Params["donut_paid_duration"] = v
+	return b
+}
+
+// MuteNotifications parameter.
+func (b *WallPostBuilder) MuteNotifications(v bool) *WallPostBuilder {
+	b.Params["mute_notifications"] = v
+	return b
+}
+
+// Copyright parameter.
+func (b *WallPostBuilder) Copyright(v string) *WallPostBuilder {
+	b.Params["copyright"] = v
+	return b
+}
+
+// TopicID parameter.
+func (b *WallPostBuilder) TopicID(v int) *WallPostBuilder {
+	b.Params["topic_id"] = v
 	return b
 }
 

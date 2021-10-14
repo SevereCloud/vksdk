@@ -295,8 +295,10 @@ func TestWallPostBuilder(t *testing.T) {
 	b.GUID("text")
 	b.MarkAsAds(true)
 	b.CloseComments(true)
-	b.MuteNotifications(true)
 	b.DonutPaidDuration(1)
+	b.MuteNotifications(true)
+	b.Copyright("test")
+	b.TopicID(1)
 
 	assert.Equal(t, b.Params["owner_id"], 1)
 	assert.Equal(t, b.Params["friends_only"], true)
@@ -313,8 +315,10 @@ func TestWallPostBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["guid"], "text")
 	assert.Equal(t, b.Params["mark_as_ads"], true)
 	assert.Equal(t, b.Params["close_comments"], true)
-	assert.Equal(t, b.Params["mute_notifications"], true)
 	assert.Equal(t, b.Params["donut_paid_duration"], 1)
+	assert.Equal(t, b.Params["mute_notifications"], true)
+	assert.Equal(t, b.Params["copyright"], "test")
+	assert.Equal(t, b.Params["topic_id"], 1)
 }
 
 func TestWallPostAdsStealthBuilder(t *testing.T) {
