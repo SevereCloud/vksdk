@@ -75,7 +75,15 @@ Webhook URL, который вы указали в настройках.
 приложении.
 
 Также протестировать и отладить скилл можно в отладчике скиллов
-https://skill-tester.marusia.mail.ru/
+https://skill-debugger.marusia.mail.ru/
+
+Если тестируется навык, развернутый локально, отладчик скорее всего
+столкнется с ограничениями, накладываемыми браузером на выполнение CORS.
+
+В этом случае необходимо добавить в webhook поддержку предварительного
+запроса (метод OPTIONS) и проброс CORS-заголовков:
+
+	wh.EnableDebuging()
 
 Пример
 
@@ -88,6 +96,7 @@ https://skill-tester.marusia.mail.ru/
 	}
 
 	wh := marusia.NewWebhook()
+	// wh.EnableDebuging()
 
 	wh.OnEvent(func(r marusia.Request) (resp marusia.Response) {
 		switch r.Request.Type {
@@ -115,6 +124,12 @@ https://skill-tester.marusia.mail.ru/
 				resp.AddButton("подсказка с нагрузкой", myPayload{
 					Text: "test",
 				})
+			case "ссылка":
+				resp.Text = marusia.CreateDeepLink(
+					"e7a7d540-3928-4f11-87bf-a0de1244c096",
+					map[string]string{"Text": "нагрузка из ссылки"},
+				)
+				resp.TTS = "Держи диплинк"
 			case marusia.OnInterrupt:
 				resp.Text = "Скилл закрыт"
 				resp.TTS = "Пока"
@@ -134,6 +149,17 @@ https://skill-tester.marusia.mail.ru/
 
 			resp.Text = "Кнопка нажата. Полезная нагрузка: " + p.Text
 			resp.TTS = "Вы нажали на кнопку"
+		case marusia.DeepLink:
+			var p myPayload
+
+			err := json.Unmarshal(r.Request.Payload, &p)
+			if err != nil {
+				resp.Text = "Что-то пошло не так"
+				return
+			}
+
+			resp.Text = "Специальная ссылка. Полезная нагрузка: " + p.Text
+			resp.TTS = "Вы перешли по ссылке"
 		}
 
 		return
@@ -155,6 +181,8 @@ import (
 
 // Version версия протокола.
 const Version = "1.0"
+
+const debugURL = "https://skill-debugger.marusia.mail.ru"
 
 // RequestType тип ввода.
 type RequestType string
@@ -566,7 +594,8 @@ type response struct {
 
 // Webhook структура.
 type Webhook struct {
-	event func(r Request) Response
+	event    func(r Request) Response
+	debuging bool
 }
 
 // NewWebhook возвращает новый Webhook.
@@ -582,8 +611,25 @@ func (wh *Webhook) OnEvent(f func(r Request) Response) {
 	wh.event = f
 }
 
+// EnableDebuging включает CORS для https://skill-debugger.marusia.mail.ru
+func (wh *Webhook) EnableDebuging() {
+	wh.debuging = true
+}
+
 // HandleFunc обработчик http запросов.
 func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
+	// Проброс CORS-заголовков
+	if r.Method == http.MethodOptions {
+		if wh.debuging {
+			w.Header().Set("Access-Control-Allow-Origin", debugURL)
+			w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Accept")
+		}
+
+		w.WriteHeader(http.StatusOK)
+
+		return
+	}
+
 	mediatype, _, _ := mime.ParseMediaType(r.Header.Get("Content-Type"))
 	if mediatype != "application/json" {
 		http.Error(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
@@ -612,6 +658,10 @@ func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
 			Application: req.Session.Application,
 		},
 		Version: Version,
+	}
+
+	if wh.debuging {
+		w.Header().Set("Access-Control-Allow-Origin", debugURL)
 	}
 
 	// Возвращаем данные

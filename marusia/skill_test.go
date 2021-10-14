@@ -211,6 +211,7 @@ func TestWebhook(t *testing.T) {
 	t.Parallel()
 
 	wh := marusia.NewWebhook()
+	wh.EnableDebuging()
 
 	f := func(r marusia.Request, wantResp response) {
 		t.Helper()
