@@ -51,3 +51,39 @@ func (b *MarusiaDeletePictureBuilder) ID(v int) *MarusiaDeletePictureBuilder {
 	b.Params["id"] = v
 	return b
 }
+
+// MarusiaCreateAudioBuilder builder.
+//
+// https://vk.com/dev/marusia_skill_docs10
+type MarusiaCreateAudioBuilder struct {
+	api.Params
+}
+
+// NewMarusiaCreateAudioBuilder func.
+func NewMarusiaCreateAudioBuilder() *MarusiaCreateAudioBuilder {
+	return &MarusiaCreateAudioBuilder{api.Params{}}
+}
+
+// AudioMeta parameter.
+func (b *MarusiaCreateAudioBuilder) AudioMeta(v string) *MarusiaCreateAudioBuilder {
+	b.Params["audio_meta"] = v
+	return b
+}
+
+// MarusiaDeleteAudioBuilder builder.
+//
+// https://vk.com/dev/marusia_skill_docs10
+type MarusiaDeleteAudioBuilder struct {
+	api.Params
+}
+
+// NewMarusiaDeleteAudioBuilder func.
+func NewMarusiaDeleteAudioBuilder() *MarusiaDeleteAudioBuilder {
+	return &MarusiaDeleteAudioBuilder{api.Params{}}
+}
+
+// ID parameter.
+func (b *MarusiaDeleteAudioBuilder) ID(v int) *MarusiaDeleteAudioBuilder {
+	b.Params["id"] = v
+	return b
+}

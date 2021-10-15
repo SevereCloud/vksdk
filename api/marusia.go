@@ -52,3 +52,52 @@ func (vk *VK) MarusiaDeletePicture(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("marusia.deletePicture", &response, params)
 	return
 }
+
+// MarusiaGetAudioUploadLinkResponse struct.
+type MarusiaGetAudioUploadLinkResponse struct {
+	AudioUploadLink string `json:"audio_upload_link"` // Link
+}
+
+// MarusiaGetAudioUploadLink method.
+//
+// https://vk.com/dev/marusia_skill_docs10
+func (vk *VK) MarusiaGetAudioUploadLink(params Params) (response MarusiaGetAudioUploadLinkResponse, err error) {
+	err = vk.RequestUnmarshal("marusia.getAudioUploadLink", &response, params)
+	return
+}
+
+// MarusiaCreateAudioResponse struct.
+type MarusiaCreateAudioResponse struct {
+	ID    int    `json:"id"`
+	Title string `json:"title"`
+}
+
+// MarusiaCreateAudio method.
+//
+// https://vk.com/dev/marusia_skill_docs10
+func (vk *VK) MarusiaCreateAudio(params Params) (response MarusiaCreateAudioResponse, err error) {
+	err = vk.RequestUnmarshal("marusia.createAudio", &response, params)
+	return
+}
+
+// MarusiaGetAudiosResponse struct.
+type MarusiaGetAudiosResponse struct {
+	Count  int                   `json:"count"`
+	Audios []object.MarusiaAudio `json:"audios"`
+}
+
+// MarusiaGetAudios method.
+//
+// https://vk.com/dev/marusia_skill_docs10
+func (vk *VK) MarusiaGetAudios(params Params) (response MarusiaGetAudiosResponse, err error) {
+	err = vk.RequestUnmarshal("marusia.getAudios", &response, params)
+	return
+}
+
+// MarusiaDeleteAudio delete audio.
+//
+// https://vk.com/dev/marusia_skill_docs10
+func (vk *VK) MarusiaDeleteAudio(params Params) (response int, err error) {
+	err = vk.RequestUnmarshal("marusia.deleteAudio", &response, params)
+	return
+}

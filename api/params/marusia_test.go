@@ -30,3 +30,23 @@ func TestMarusiaDeletePictureBuilder(t *testing.T) {
 
 	assert.Equal(t, b.Params["id"], 1)
 }
+
+func TestMarusiaCreateAudioBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMarusiaCreateAudioBuilder()
+
+	b.AudioMeta("text")
+
+	assert.Equal(t, b.Params["audio_meta"], "text")
+}
+
+func TestMarusiaDeleteAudioBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMarusiaDeleteAudioBuilder()
+
+	b.ID(1)
+
+	assert.Equal(t, b.Params["id"], 1)
+}

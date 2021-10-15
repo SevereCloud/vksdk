@@ -992,3 +992,24 @@ func (vk *VK) UploadMarusiaPicture(file io.Reader) (response MarusiaSavePictureR
 
 	return
 }
+
+// UploadMarusiaAudio uploading audio.
+//
+// https://vk.com/dev/marusia_skill_docs10
+func (vk *VK) UploadMarusiaAudio(file io.Reader) (response MarusiaCreateAudioResponse, err error) {
+	uploadServer, err := vk.MarusiaGetAudioUploadLink(nil)
+	if err != nil {
+		return
+	}
+
+	bodyContent, err := vk.UploadFile(uploadServer.AudioUploadLink, file, "file", "audio.mp3")
+	if err != nil {
+		return
+	}
+
+	response, err = vk.MarusiaCreateAudio(Params{
+		"audio_meta": string(bodyContent),
+	})
+
+	return
+}

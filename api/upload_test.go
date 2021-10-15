@@ -552,6 +552,31 @@ func TestVK_UploadMarusiaPicture(t *testing.T) {
 	}
 }
 
+func TestVK_UploadMarusiaAudio(t *testing.T) {
+	t.Parallel()
+
+	needMarusiaToken(t)
+
+	response, err := http.Get("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Kevin_MacLeod/Impact/Kevin_MacLeod_-_03_-_Impact_Moderato.mp3?download=1&name=Kevin%20MacLeod%20-%20Impact%20Moderato.mp3")
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+	defer response.Body.Close()
+
+	resp, err := vkMarusia.UploadMarusiaAudio(response.Body)
+	noError(t, err)
+
+	_, err = vkMarusia.MarusiaGetAudios(nil)
+	noError(t, err)
+
+	if resp.ID != 0 {
+		_, err = vkMarusia.MarusiaDeleteAudio(api.Params{
+			"id": resp.ID,
+		})
+		noError(t, err)
+	}
+}
+
 func TestVK_Upload_Error(t *testing.T) {
 	t.Parallel()
 
@@ -579,4 +604,5 @@ func TestVK_Upload_Error(t *testing.T) {
 	_, _ = vk.UploadAppImage("", new(bytes.Buffer))
 	_, _ = vk.UploadGroupImage("", new(bytes.Buffer))
 	_, _ = vk.UploadMarusiaPicture(new(bytes.Buffer))
+	_, _ = vk.UploadMarusiaAudio(new(bytes.Buffer))
 }
