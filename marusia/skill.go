@@ -264,6 +264,17 @@ type Meta struct {
 
 	// Город пользователя на русском языке.
 	CityRu string `json:"_city_ru,omitempty"`
+
+	// Плеер статус.
+	ClientPlayerStatus ClientPlayerStatus `json:"client_player_status,omitempty"`
+}
+
+// ClientPlayerStatus  плеер статус.
+type ClientPlayerStatus struct {
+	TrackNumber int     `json:"track_number"`
+	Elapsed     float64 `json:"elapsed"`
+	Duration    float64 `json:"duration"`
+	TrackID     int     `json:"track_id"`
 }
 
 // Session данные о сессии.
@@ -377,6 +388,65 @@ type Button struct {
 	Payload interface{} `json:"payload,omitempty"`
 }
 
+// AudioPlayer структура аудиоплеера состоит из плейлиста, в котором содержатся
+// объекты для описания каждого трека внутри плейлиста, а также двух
+// опциональных полей, в которых указывается с какого трека и с какой секунды
+// начинать.
+//
+// Важно: в плейлисте могут содержаться объекты только с одинаковым
+// source_type, т.е не может быть плейлиста, состоящего из аудио из вк и получаемых по url.
+//
+// https://vk.com/dev/marusia_skill_docs11
+type AudioPlayer struct {
+	// Номер начального аудио (нумерация с 0).
+	SeekTrack int `json:"seek_track,omitempty"`
+
+	// С какой секунды аудио под номером seek_track начинать
+	SeekSecond int             `json:"seek_second,omitempty"`
+	Playlist   []AudioPlaylist `json:"playlist"`
+}
+
+// AudioPlaylist структура, отвечающая за описание того откуда брать информацию о треке.
+type AudioPlaylist struct {
+	Stream AudioStream `json:"stream"`
+	Meta   AudioMeta   `json:"meta,omitempty"`
+}
+
+// AudioStream описание информации об аудиозаписи.
+type AudioStream struct {
+	// ID аудио внутри плейлиста, должен быть уникальным для каждого аудио.
+	TrackID string `json:"track_id"`
+
+	// Тип источника аудиозаписи. Может иметь 2 значения url и vk.
+	// source_type url доступен только после одобрения со стороны
+	// разработчиков Маруси. source_type vk доступен для любых скиллов
+	//
+	// В случае передачи аудио через source_type vk, meta информация будет
+	// взята из VK, если поле meta не передано и непосредственно из поля meta,
+	// если оно передано.
+	SourceType string `json:"source_type"`
+
+	// Источник аудиозаписи.  В случае source_type url представляет ссылку на
+	// аудиозапись, в случае source_type vk представляет собой audio_vk_id
+	// аудиозаписи VK.
+	Source string `json:"source"`
+}
+
+// AudioMeta описание дополнительной информации об аудиозаписи (название
+// аудио, обложка и тд.).
+type AudioMeta struct {
+	// Заголовок аудиозаписи.
+	Title string `json:"title"`
+
+	// Подзаголовок аудиозаписи.
+	SubTitle string `json:"sub_title"`
+
+	// ссылка на обложку композиции
+	Art struct {
+		URL string `json:"url"`
+	} `json:"art"`
+}
+
 // Response данные для ответа пользователю.
 type Response struct {
 	// Текст, который следует показать и сказать пользователю. Максимум 1024
@@ -413,6 +483,9 @@ type Response struct {
 	// Описание карточки — сообщения с поддержкой изображений.
 	// Важно! Если указано данное поле, то поле text игнорируется.
 	Card *Card `json:"card,omitempty"`
+
+	// Плеер.
+	AudioPlayer *AudioPlayer `json:"audio_player,omitempty"`
 
 	// Для сохранения состояния внутри сессии.
 	// При этом, если в очередном ответе не записать данные, даже если они не
