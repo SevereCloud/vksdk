@@ -443,6 +443,7 @@ type MessagesChat struct {
 	AdminID        int         `json:"admin_id"` // Chat creator ID
 	ID             int         `json:"id"`       // Chat ID
 	IsDefaultPhoto BaseBoolInt `json:"is_default_photo"`
+	IsGroupChannel BaseBoolInt `json:"is_group_channel"`
 	Photo100       string      `json:"photo_100"` // URL of the preview image with 100 px in width
 	Photo200       string      `json:"photo_200"` // URL of the preview image with 200 px in width
 	Photo50        string      `json:"photo_50"`  // URL of the preview image with 50 px in width
