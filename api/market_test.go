@@ -415,3 +415,17 @@ func TestVK_MarketSearch(t *testing.T) {
 		assert.NotEmpty(t, res.Items[0].Reposts)
 	}
 }
+
+func TestVK_MarketSearchItems(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	res, err := vkUser.MarketSearchItems(api.Params{
+		"q": "test",
+	})
+
+	noError(t, err)
+	assert.NotEmpty(t, res.Count)
+	assert.NotEmpty(t, res.ViewType)
+}

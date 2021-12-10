@@ -1261,3 +1261,63 @@ func (b *MarketSearchBuilder) NeedVariants(v bool) *MarketSearchBuilder {
 	b.Params["need_variants"] = v
 	return b
 }
+
+// MarketSearchItemsBuilder builder.
+//
+// https://vk.com/dev/market.searchItems
+type MarketSearchItemsBuilder struct {
+	api.Params
+}
+
+// NewMarketSearchItemsBuilder func.
+func NewMarketSearchItemsBuilder() *MarketSearchItemsBuilder {
+	return &MarketSearchItemsBuilder{api.Params{}}
+}
+
+// Q parameter.
+func (b *MarketSearchItemsBuilder) Q(v string) *MarketSearchItemsBuilder {
+	b.Params["q"] = v
+	return b
+}
+
+// Offset parameter.
+func (b *MarketSearchItemsBuilder) Offset(v int) *MarketSearchItemsBuilder {
+	b.Params["offset"] = v
+	return b
+}
+
+// Count parameter.
+func (b *MarketSearchItemsBuilder) Count(v int) *MarketSearchItemsBuilder {
+	b.Params["count"] = v
+	return b
+}
+
+// CategoryID parameter.
+func (b *MarketSearchItemsBuilder) CategoryID(v int) *MarketSearchItemsBuilder {
+	b.Params["category_id"] = v
+	return b
+}
+
+// PriceFrom parameter.
+func (b *MarketSearchItemsBuilder) PriceFrom(v int) *MarketSearchItemsBuilder {
+	b.Params["price_from"] = v
+	return b
+}
+
+// PriceTo parameter.
+func (b *MarketSearchItemsBuilder) PriceTo(v int) *MarketSearchItemsBuilder {
+	b.Params["price_to"] = v
+	return b
+}
+
+// SortBy parameter.
+func (b *MarketSearchItemsBuilder) SortBy(v int) *MarketSearchItemsBuilder {
+	b.Params["sort_by"] = v
+	return b
+}
+
+// SortDirection parameter.
+func (b *MarketSearchItemsBuilder) SortDirection(v int) *MarketSearchItemsBuilder {
+	b.Params["sort_direction"] = v
+	return b
+}

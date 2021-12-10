@@ -502,3 +502,27 @@ func TestMarketSearchBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["status"], 1)
 	assert.Equal(t, b.Params["need_variants"], true)
 }
+
+func TestMarketSearchItemsBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMarketSearchItemsBuilder()
+
+	b.Q("text")
+	b.Offset(1)
+	b.Count(1)
+	b.CategoryID(1)
+	b.PriceFrom(1)
+	b.PriceTo(1)
+	b.SortBy(1)
+	b.SortDirection(1)
+
+	assert.Equal(t, b.Params["q"], "text")
+	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, b.Params["category_id"], 1)
+	assert.Equal(t, b.Params["price_from"], 1)
+	assert.Equal(t, b.Params["price_to"], 1)
+	assert.Equal(t, b.Params["sort_by"], 1)
+	assert.Equal(t, b.Params["sort_direction"], 1)
+}
