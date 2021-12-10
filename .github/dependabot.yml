@@ -10,6 +10,3 @@ updates:
   - dependency-name: github.com/stretchr/testify
     versions:
     - 1.7.0
-  - dependency-name: golang.org/x/text
-    versions:
-    - 0.3.5

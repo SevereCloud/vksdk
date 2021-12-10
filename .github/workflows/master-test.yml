@@ -1,0 +1,34 @@
+---
+name: test
+on:
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.*
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Fetch all tags
+        run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      - name: Last tag
+        run: git describe --tags $(git rev-list --tags --max-count=1) --always
+      - name: Test
+        env:
+          SERVICE_TOKEN: ${{ secrets.SERVICE_TOKEN }}
+          WIDGET_TOKEN: ${{ secrets.WIDGET_TOKEN }}
+          GROUP_TOKEN: ${{ secrets.GROUP_TOKEN }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          USER_TOKEN: ${{ secrets.USER_TOKEN }}
+          MARUSIA_TOKEN: ${{ secrets.MARUSIA_TOKEN }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          GROUP_ID: ${{ secrets.GROUP_ID }}
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+        run: go test -v -race -coverprofile=coverage.txt -covermode=atomic -p=1 ./...
+      - name: codecov
+        run: bash <(curl -s https://codecov.io/bash)
