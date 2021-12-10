@@ -267,6 +267,9 @@ type Meta struct {
 
 	// Плеер статус.
 	ClientPlayerStatus ClientPlayerStatus `json:"client_player_status,omitempty"`
+
+	// Если true, то запрос к скиллу технический (не от реального пользователя)
+	Test bool `json:"test,omitempty"`
 }
 
 // ClientPlayerStatus  плеер статус.
