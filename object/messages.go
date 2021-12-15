@@ -79,6 +79,7 @@ type MessagesMessage struct {
 	UpdateTime   int    `json:"update_time"`   // Date when the message has been updated in Unixtime
 	MembersCount int    `json:"members_count"` // Members number
 	ExpireTTL    int    `json:"expire_ttl"`
+	MessageTag   string `json:"message_tag"` // for https://notify.mail.ru/
 }
 
 // MessagesBasePayload struct.
