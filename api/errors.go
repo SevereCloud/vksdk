@@ -598,6 +598,9 @@ const (
 	// This user can't be added to the work chat, as they aren't an employe.
 	ErrMessagesAccessWorkChat ErrorType = 967
 
+	// Cannot pin an expiring message.
+	ErrMessagesPinExpiringMessage ErrorType = 970
+
 	// Invalid phone number.
 	ErrParamPhone ErrorType = 1000
 
