@@ -598,6 +598,9 @@ const (
 	// This user can't be added to the work chat, as they aren't an employe.
 	ErrMessagesAccessWorkChat ErrorType = 967
 
+	// Message cannot be forwarded.
+	ErrMessagesCantForwarded ErrorType = 969
+
 	// Cannot pin an expiring message.
 	ErrMessagesPinExpiringMessage ErrorType = 970
 
