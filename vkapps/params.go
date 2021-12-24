@@ -75,6 +75,7 @@ const (
 	MarketItem            Referral = "market_item"
 	LeftNav               Referral = "left_nav"
 	QuickSearch           Referral = "quick_search"
+	Widget                Referral = "widget"
 	Other                 Referral = "other"
 )
 
@@ -117,7 +118,6 @@ type Platform string
 const (
 	MobileAndroid          Platform = "mobile_android"
 	MobileIPhone           Platform = "mobile_iphone"
-	MobileIPad             Platform = "mobile_ipad"
 	MobileWeb              Platform = "mobile_web"
 	DesktopWeb             Platform = "desktop_web"
 	MobileAndroidMessenger Platform = "mobile_android_messenger"
