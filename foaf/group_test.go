@@ -17,11 +17,11 @@ func testGroup(t *testing.T, group foaf.Group) {
 		assert.NotEmpty(t, group.URI[0].Resource)
 	}
 
-	assert.NotEmpty(t, group.Img.Image.Primary)
+	// assert.NotEmpty(t, group.Img.Image.Primary)
 	// assert.NotEmpty(t, group.Img.Image.Width)
 	// assert.NotEmpty(t, group.Img.Image.Height)
-	assert.NotEmpty(t, group.Img.Image.About)
-	assert.NotEmpty(t, group.Img.Image.Thumbnail)
+	// assert.NotEmpty(t, group.Img.Image.About)
+	// assert.NotEmpty(t, group.Img.Image.Thumbnail)
 
 	assert.NotEmpty(t, group.Weblog.Resource)
 	assert.NotEmpty(t, group.MembersCount)
