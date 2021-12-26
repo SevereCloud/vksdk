@@ -161,7 +161,7 @@ type WallWallpost struct {
 	Copyright      WallPostCopyright        `json:"copyright"`
 	PostID         int                      `json:"post_id"`
 	ParentsStack   []int                    `json:"parents_stack"`
-	Donut          WallWallpostDonut        `json:"donut"` // need api v5.125
+	Donut          WallWallpostDonut        `json:"donut"`
 	ShortTextRate  float64                  `json:"short_text_rate"`
 	CarouselOffset int                      `json:"carousel_offset"`
 }
@@ -235,7 +235,7 @@ type WallWallpostToID struct {
 	IsFavorite    BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
 	MarkedAsAds   BaseBoolInt              `json:"marked_as_ads"`
 	ParentsStack  []int                    `json:"parents_stack"`
-	Donut         WallWallpostDonut        `json:"donut"` // need api v5.125
+	Donut         WallWallpostDonut        `json:"donut"`
 	ShortTextRate float64                  `json:"short_text_rate"`
 }
 
