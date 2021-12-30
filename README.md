@@ -60,6 +60,7 @@ go get github.com/SevereCloud/vksdk/v2@latest
 
 ## Use by
 
+- A simple chat bridge: <https://github.com/42wim/matterbridge>
 - [Joe](https://github.com/go-joe/joe) adapter: <https://github.com/tdakkota/joe-vk-adapter>
 - [Logrus](https://github.com/sirupsen/logrus) hook: <https://github.com/SevereCloud/vkrus>
 
