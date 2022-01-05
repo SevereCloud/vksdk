@@ -60,7 +60,7 @@ lp.Client = client
 Пример для `4` события
 
 ```go
-lp.EventNew(4, func(event []interface{}) {
+lp.EventNew(4, func(event []interface{}) error {
 	...
 })
 ```
