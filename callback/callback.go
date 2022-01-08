@@ -62,6 +62,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	if !ok {
 		secretKey = cb.SecretKey
 	}
+
 	if secretKey != "" && e.Secret != secretKey {
 		cb.logf("callback: bad secret %d", e.GroupID)
 		http.Error(w, "Bad Secret", http.StatusForbidden)
