@@ -94,6 +94,15 @@ func TestCallback_HandleFunc(t *testing.T) {
 			expected: "confirmation_123456",
 		},
 		{
+			name: "check SecretKey missing",
+			fields: fields{
+				ConfirmationKey: "confirmation_123456",
+				SecretKey:       "secret_654321",
+			},
+			body:     `{"type": "confirmation", "group_id": 123456}`,
+			expected: "Bad Secret\n",
+		},
+		{
 			name: "check SecretKey bad",
 			fields: fields{
 				ConfirmationKey: "confirmation_123456",
