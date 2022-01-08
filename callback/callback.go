@@ -58,13 +58,15 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if cb.SecretKeys[e.GroupID] != "" || cb.SecretKey != "" {
-		if e.Secret != cb.SecretKeys[e.GroupID] && e.Secret != cb.SecretKey {
-			cb.logf("callback: bad secret %d", e.GroupID)
-			http.Error(w, "Bad Secret", http.StatusForbidden)
+	secretKey, ok := cb.SecretKeys[e.GroupID]
+	if !ok {
+		secretKey = cb.SecretKey
+	}
+	if secretKey != "" && e.Secret != secretKey {
+		cb.logf("callback: bad secret %d", e.GroupID)
+		http.Error(w, "Bad Secret", http.StatusForbidden)
 
-			return
-		}
+		return
 	}
 
 	if e.Type == events.EventConfirmation {
