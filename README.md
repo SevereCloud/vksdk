@@ -21,6 +21,7 @@ Version API 5.131.
   - Ability to modify HTTP client
   - Request Limiter
   - Token pool
+  - [OAuth](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api/oauth)
 - [Callback API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/callback)
   - Tracking tool for users activity in your VK communities
   - Supports all events
