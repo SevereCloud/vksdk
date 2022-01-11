@@ -504,6 +504,70 @@ type GroupsGroupSettings struct {
 	SecondarySection int                  `json:"secondary_section"`
 	ActionButton     GroupsActionButton   `json:"action_button"`
 	Phone            string               `json:"phone"`
+
+	RecognizePhoto int `json:"recognize_photo"`
+
+	MarketServices GroupsMarketServices `json:"market_services"`
+	Narratives     int                  `json:"narratives"`
+	Clips          int                  `json:"clips"`
+	Textlives      int                  `json:"textlives"`
+	Youla          GroupsYoula          `json:"youla"`
+}
+
+// GroupsMarketServices struct.
+type GroupsMarketServices struct {
+	Enabled         BaseBoolInt         `json:"enabled"`
+	CanMessage      BaseBoolInt         `json:"can_message"`
+	CommentsEnabled BaseBoolInt         `json:"comments_enabled"`
+	ContactID       int                 `json:"contact_id"`
+	Currency        MarketCurrency      `json:"currency"`
+	ViewType        GroupsSelectedItems `json:"view_type"`
+	BlockName       GroupsSelectedItems `json:"block_name"`
+	ButtonLabel     GroupsSelectedItems `json:"button_label"`
+}
+
+// GroupsSelectedItems struct.
+type GroupsSelectedItems struct {
+	SelectedItemID int64                `json:"selected_item_id"`
+	Items          []BaseObjectWithName `json:"items"`
+}
+
+// GroupsYoula struct.
+type GroupsYoula struct {
+	CategoryTree  GroupsYoulaCategory `json:"category_tree"`
+	GroupSettings GroupsYoulaSettings `json:"group_settings"`
+}
+
+// GroupsYoulaCategory struct.
+type GroupsYoulaCategory struct {
+	ID            int                      `json:"id"`
+	Title         string                   `json:"title"`
+	Subcategories []GroupsYoulaSubcategory `json:"subcategories"`
+}
+
+// GroupsYoulaSubcategory struct.
+type GroupsYoulaSubcategory struct {
+	ID            int                      `json:"id"`
+	Title         string                   `json:"title"`
+	ParentID      int                      `json:"parent_id"`
+	Subcategories []GroupsYoulaSubcategory `json:"subcategories"`
+}
+
+// GroupsYoulaSettings struct.
+type GroupsYoulaSettings struct {
+	IsActive              BaseBoolInt `json:"is_active"`
+	IsModerated           BaseBoolInt `json:"is_moderated"`
+	ShowModerationSetting BaseBoolInt `json:"show_moderation_setting"`
+	ModerationStatus      int         `json:"moderation_status"`
+	DeclineReason         string      `json:"decline_reason"`
+	GroupMode             int         `json:"group_mode"`
+	SelectedCategoryIDS   []int       `json:"selected_category_ids"`
+	Lat                   float64     `json:"lat"`
+	Long                  float64     `json:"long"`
+	Radius                float64     `json:"radius"`
+	RadiusArea            string      `json:"radius_area"`
+	Address               string      `json:"address"`
+	Radiuses              []float64   `json:"radiuses"`
 }
 
 // GroupsSectionsList struct.
