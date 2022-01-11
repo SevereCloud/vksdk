@@ -128,7 +128,7 @@ const (
 	WallPostTypeSuggest  = "suggest"
 )
 
-// WallWallpost  struct.
+// WallWallpost struct.
 type WallWallpost struct {
 	AccessKey      string                   `json:"access_key"` // Access key to private object
 	ID             int                      `json:"id"`         // Post ID
@@ -156,6 +156,7 @@ type WallWallpost struct {
 	IsPinned       BaseBoolInt              `json:"is_pinned"`
 	IsFavorite     BaseBoolInt              `json:"is_favorite"` // Information whether the post in favorites list
 	IsArchived     BaseBoolInt              `json:"is_archived"` // Is post archived, only for post owners
+	IsDeleted      BaseBoolInt              `json:"is_deleted"`
 	MarkedAsAds    BaseBoolInt              `json:"marked_as_ads"`
 	Edited         int                      `json:"edited"` // Date of editing in Unixtime
 	Copyright      WallPostCopyright        `json:"copyright"`
