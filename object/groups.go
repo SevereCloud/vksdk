@@ -1,6 +1,7 @@
 package object // import "github.com/SevereCloud/vksdk/v2/object"
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"reflect"
@@ -287,6 +288,28 @@ type GroupsCountersGroup struct {
 	Narratives     int `json:"narratives"`      // Narratives number
 	Clips          int `json:"clips"`           // Clips number
 	ClipsFollowers int `json:"clips_followers"` // Clips followers number
+}
+
+// UnmarshalJSON GroupsCountersGroup.
+//
+// BUG(VK): GroupsCountersGroup return [].
+func (personal *GroupsCountersGroup) UnmarshalJSON(data []byte) error {
+	if bytes.Equal(data, []byte("[]")) {
+		return nil
+	}
+
+	type renamedGroupsCountersGroup GroupsCountersGroup
+
+	var r renamedGroupsCountersGroup
+
+	err := json.Unmarshal(data, &r)
+	if err != nil {
+		return err
+	}
+
+	*personal = GroupsCountersGroup(r)
+
+	return nil
 }
 
 // GroupsCover struct.
