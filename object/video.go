@@ -30,6 +30,9 @@ type VideoVideo struct {
 	// Information whether current user can like the video.
 	CanLike BaseBoolInt `json:"can_like"`
 
+	// Information whether current user can download the video.
+	CanDownload BaseBoolInt `json:"can_download"`
+
 	// Information whether current user can repost this video.
 	CanRepost         BaseBoolInt       `json:"can_repost"`
 	CanSubscribe      BaseBoolInt       `json:"can_subscribe"`
@@ -48,6 +51,7 @@ type VideoVideo struct {
 	Description       string            `json:"description"` // Video description
 	Duration          int               `json:"duration"`    // Video duration in seconds
 	Files             VideoVideoFiles   `json:"files"`
+	Trailer           VideoVideoFiles   `json:"trailer,omitempty"`
 	FirstFrame        []VideoVideoImage `json:"first_frame"`
 	Image             []VideoVideoImage `json:"image"`
 	Height            int               `json:"height"`   // Video height
@@ -81,6 +85,7 @@ type VideoVideo struct {
 	MainArtists              []AudioAudioArtist   `json:"main_artists"`
 	FeaturedArtists          []AudioAudioArtist   `json:"featured_artists"`
 	Genres                   []BaseObjectWithName `json:"genres"`
+	OvID                     string               `json:"ov_id,omitempty"`
 }
 
 // ToAttachment return attachment format.
@@ -121,16 +126,20 @@ type VideoSnippet struct {
 
 // VideoVideoFiles struct.
 type VideoVideoFiles struct {
-	External string `json:"external"` // URL of the external player
-	Mp4_1080 string `json:"mp4_1080"` // URL of the mpeg4 file with 1080p quality
-	Mp4_1440 string `json:"mp4_1440"` // URL of the mpeg4 file with 2k quality
-	Mp4_2160 string `json:"mp4_2160"` // URL of the mpeg4 file with 4k quality
-	Mp4_240  string `json:"mp4_240"`  // URL of the mpeg4 file with 240p quality
-	Mp4_360  string `json:"mp4_360"`  // URL of the mpeg4 file with 360p quality
-	Mp4_480  string `json:"mp4_480"`  // URL of the mpeg4 file with 480p quality
-	Mp4_720  string `json:"mp4_720"`  // URL of the mpeg4 file with 720p quality
-	Live     string `json:"live"`
-	HLS      string `json:"hls"`
+	External     string `json:"external,omitempty"` // URL of the external player
+	Mp4_1080     string `json:"mp4_1080,omitempty"` // URL of the mpeg4 file with 1080p quality
+	Mp4_1440     string `json:"mp4_1440,omitempty"` // URL of the mpeg4 file with 2k quality
+	Mp4_2160     string `json:"mp4_2160,omitempty"` // URL of the mpeg4 file with 4k quality
+	Mp4_240      string `json:"mp4_240,omitempty"`  // URL of the mpeg4 file with 240p quality
+	Mp4_360      string `json:"mp4_360,omitempty"`  // URL of the mpeg4 file with 360p quality
+	Mp4_480      string `json:"mp4_480,omitempty"`  // URL of the mpeg4 file with 480p quality
+	Mp4_720      string `json:"mp4_720,omitempty"`  // URL of the mpeg4 file with 720p quality
+	Live         string `json:"live,omitempty"`
+	HLS          string `json:"hls,omitempty"`
+	DashUni      string `json:"dash_uni,omitempty"`
+	DashSep      string `json:"dash_sep,omitempty"`
+	DashWebm     string `json:"dash_webm,omitempty"`
+	FailoverHost string `json:"failover_host,omitempty"`
 }
 
 // VideoCatBlock struct.
