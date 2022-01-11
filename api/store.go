@@ -97,6 +97,20 @@ func (vk *VK) StoreGetStickers(params Params) (response StoreGetStickersResponse
 	return
 }
 
+// StoreGetStickersKeywordsResponse struct.
+type StoreGetStickersKeywordsResponse struct {
+	Count      int                              `json:"count"`
+	Dictionary []object.StoreStickersDictionary `json:"dictionary"`
+}
+
+// StoreGetStickersKeywords method.
+//
+// https://vk.com/dev/store.getStickersKeywords
+func (vk *VK) StoreGetStickersKeywords(params Params) (response StoreGetStickersKeywordsResponse, err error) {
+	err = vk.RequestUnmarshal("store.getStickersKeywords", &response, params)
+	return
+}
+
 // StoreMarkAsViewed method.
 //
 // https://vk.com/dev/store.markAsViewed

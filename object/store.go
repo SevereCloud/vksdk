@@ -26,3 +26,17 @@ type StoreProductExtended struct {
 	Previews     []BaseImage   `json:"previews"`
 	HasAnimation BaseBoolInt   `json:"has_animation"`
 }
+
+// StoreStickersDictionary struct.
+type StoreStickersDictionary struct {
+	Words            []string       `json:"words"`
+	UserStickers     []BaseSticker  `json:"user_stickers,omitempty"`
+	PromotedStickers []BaseSticker  `json:"promoted_stickers,omitempty"` // all_products=1
+	Stickers         []StoreSticker `json:"sticker,omitempty"`           // need_stickers=0
+}
+
+// StoreSticker struct.
+type StoreSticker struct {
+	PackID    int `json:"pack_id"`
+	StickerID int `json:"sticker_id"`
+}
