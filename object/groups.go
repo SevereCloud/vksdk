@@ -819,6 +819,7 @@ type GroupsMarketInfo struct {
 	Enabled         BaseBoolInt       `json:"enabled"`                 // Information whether the market is enabled
 	CommentsEnabled BaseBoolInt       `json:"comments_enabled,omitempty"`
 	CanMessage      BaseBoolInt       `json:"can_message,omitempty"`
+	IsHsEnabled     BaseBoolInt       `json:"is_hs_enabled,omitempty"`
 	MainAlbumID     int               `json:"main_album_id,omitempty"` // Main market album ID
 	PriceMax        string            `json:"price_max,omitempty"`     // Maximum price
 	PriceMin        string            `json:"price_min,omitempty"`     // Minimum price
