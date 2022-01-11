@@ -12,6 +12,9 @@ type VideoVideo struct {
 	// Date when the video has been added in Unixtime.
 	AddingDate int `json:"adding_date"`
 
+	// Date when the video has been released in Unixtime.
+	ReleaseDate int `json:"release_date"`
+
 	// Information whether current user can add the video.
 	CanAdd BaseBoolInt `json:"can_add"`
 
@@ -33,6 +36,8 @@ type VideoVideo struct {
 	CanAttachLink     BaseBoolInt       `json:"can_attach_link"`
 	IsFavorite        BaseBoolInt       `json:"is_favorite"`
 	IsPrivate         BaseBoolInt       `json:"is_private"`
+	IsExplicit        BaseBoolInt       `json:"is_explicit"`
+	IsSubscribed      BaseBoolInt       `json:"is_subscribed"`
 	Added             BaseBoolInt       `json:"added"`
 	Repeat            BaseBoolInt       `json:"repeat"` // Information whether the video is repeated
 	ContentRestricted int               `json:"content_restricted"`
@@ -56,22 +61,26 @@ type VideoVideo struct {
 	Photo1280         string            `json:"photo_1280"` // URL of the preview image with 1280 px in width
 
 	// URL of the page with a player that can be used to play the video in the browser.
-	Player                   string            `json:"player"`
-	Processing               int               `json:"processing"` // Returns if the video is processing
-	Title                    string            `json:"title"`      // Video title
-	Type                     string            `json:"type"`
-	Views                    int               `json:"views"` // Number of views
-	Width                    int               `json:"width"` // Video width
-	Platform                 string            `json:"platform"`
-	LocalViews               int               `json:"local_views"`
-	Likes                    BaseLikesInfo     `json:"likes"`   // Count of likes
-	Reposts                  BaseRepostsInfo   `json:"reposts"` // Count of views
-	TrackCode                string            `json:"track_code"`
-	PrivacyView              Privacy           `json:"privacy_view"`
-	PrivacyComment           Privacy           `json:"privacy_comment"`
-	ActionButton             VideoActionButton `json:"action_button"`
-	Restriction              VideoRestriction  `json:"restriction"`
-	ContentRestrictedMessage string            `json:"content_restricted_message"`
+	Player                   string               `json:"player"`
+	Processing               int                  `json:"processing"` // Returns if the video is processing
+	Title                    string               `json:"title"`      // Video title
+	Subtitle                 string               `json:"subtitle"`   // Video subtitle
+	Type                     string               `json:"type"`
+	Views                    int                  `json:"views"` // Number of views
+	Width                    int                  `json:"width"` // Video width
+	Platform                 string               `json:"platform"`
+	LocalViews               int                  `json:"local_views"`
+	Likes                    BaseLikesInfo        `json:"likes"`   // Count of likes
+	Reposts                  BaseRepostsInfo      `json:"reposts"` // Count of views
+	TrackCode                string               `json:"track_code"`
+	PrivacyView              Privacy              `json:"privacy_view"`
+	PrivacyComment           Privacy              `json:"privacy_comment"`
+	ActionButton             VideoActionButton    `json:"action_button"`
+	Restriction              VideoRestriction     `json:"restriction"`
+	ContentRestrictedMessage string               `json:"content_restricted_message"`
+	MainArtists              []AudioAudioArtist   `json:"main_artists"`
+	FeaturedArtists          []AudioAudioArtist   `json:"featured_artists"`
+	Genres                   []BaseObjectWithName `json:"genres"`
 }
 
 // ToAttachment return attachment format.
