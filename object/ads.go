@@ -8,12 +8,13 @@ type AdsAccesses struct {
 
 // AdsAccount struct.
 type AdsAccount struct {
-	AccessRole    string      `json:"access_role"`
-	AccountID     int         `json:"account_id"` // Account ID
-	AccountName   string      `json:"account_name"`
-	AccountStatus BaseBoolInt `json:"account_status"` // Information whether account is active
-	CanViewBudget BaseBoolInt `json:"can_view_budget"`
-	AccountType   string      `json:"account_type"`
+	AccessRole                  string      `json:"access_role"`
+	AccountID                   int         `json:"account_id"` // Account ID
+	AccountName                 string      `json:"account_name"`
+	AccountStatus               BaseBoolInt `json:"account_status"` // Information whether account is active
+	CanViewBudget               BaseBoolInt `json:"can_view_budget"`
+	AdNetworkAllowedPotentially BaseBoolInt `json:"ad_network_allowed_potentially"`
+	AccountType                 string      `json:"account_type"`
 }
 
 // AdsAdLayout struct.
