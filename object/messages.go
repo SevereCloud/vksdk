@@ -570,6 +570,7 @@ type MessagesChatPermissions struct {
 	SeeInviteLink   MessagesChatPermission `json:"see_invite_link"`
 	Call            MessagesChatPermission `json:"call"`
 	ChangeAdmins    MessagesChatPermission `json:"change_admins"`
+	ChangeStyle     MessagesChatPermission `json:"change_style"`
 }
 
 // MessagesConversationPeer struct.
