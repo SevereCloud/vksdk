@@ -236,11 +236,12 @@ func TestVK_RequestLimit(t *testing.T) {
 func TestVK_InvalidContentType(t *testing.T) {
 	t.Parallel()
 
-	needGroupToken(t)
-
 	var testObj string
 
-	err := vkGroup.RequestUnmarshal("t/t", testObj, nil)
+	vk := api.NewVK("")
+	vk.MethodURL = "https://api.vk.com"
+
+	err := vk.RequestUnmarshal("", testObj, nil)
 	if err == nil || err.Error() != "api: invalid content-type" {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}
