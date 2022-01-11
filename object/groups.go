@@ -275,16 +275,18 @@ type GroupsContactsItem struct {
 
 // GroupsCountersGroup struct.
 type GroupsCountersGroup struct {
-	Addresses  int `json:"addresses"`  // Addresses number
-	Albums     int `json:"albums"`     // Photo albums number
-	Articles   int `json:"articles"`   // Articles number
-	Audios     int `json:"audios"`     // Audios number
-	Docs       int `json:"docs"`       // Docs number
-	Market     int `json:"market"`     // Market items number
-	Photos     int `json:"photos"`     // Photos number
-	Topics     int `json:"topics"`     // Topics number
-	Videos     int `json:"videos"`     // Videos number
-	Narratives int `json:"narratives"` // Narratives number
+	Addresses      int `json:"addresses"`       // Addresses number
+	Albums         int `json:"albums"`          // Photo albums number
+	Articles       int `json:"articles"`        // Articles number
+	Audios         int `json:"audios"`          // Audios number
+	Docs           int `json:"docs"`            // Docs number
+	Market         int `json:"market"`          // Market items number
+	Photos         int `json:"photos"`          // Photos number
+	Topics         int `json:"topics"`          // Topics number
+	Videos         int `json:"videos"`          // Videos number
+	Narratives     int `json:"narratives"`      // Narratives number
+	Clips          int `json:"clips"`           // Clips number
+	ClipsFollowers int `json:"clips_followers"` // Clips followers number
 }
 
 // GroupsCover struct.
