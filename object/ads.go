@@ -319,3 +319,10 @@ type AdsPromotedPostReach struct {
 	VideoViews75p    int `json:"video_views_75p"`   // Video views for 75 percent
 	VideoViewsStart  int `json:"video_views_start"` // Video starts
 }
+
+// AdsMusician struct.
+type AdsMusician struct {
+	ID     int    `json:"id"`               // Targeting music artist ID
+	Name   string `json:"name"`             // Music artist name
+	Avatar string `json:"avatar,omitempty"` // Music artist photo.
+}
