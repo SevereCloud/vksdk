@@ -166,6 +166,7 @@ type WallWallpost struct {
 	ShortTextRate  float64                  `json:"short_text_rate"`
 	CarouselOffset int                      `json:"carousel_offset"`
 	Header         WallWallpostHeader       `json:"header"`
+	Hash           string                   `json:"hash"`
 }
 
 // Attachment type.
