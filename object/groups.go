@@ -745,6 +745,7 @@ type GroupsMarketInfo struct {
 	Wiki            PagesWikipageFull `json:"wiki,omitempty"`
 	CityIDs         []int             `json:"city_ids"`
 	CountryIDs      []int             `json:"country_ids,omitempty"`
+	MinOrderPrice   MarketPrice       `json:"min_order_price,omitempty"`
 }
 
 // GroupsGroupRole Role type.
