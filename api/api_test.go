@@ -36,6 +36,11 @@ func noError(t *testing.T, err error) bool {
 			s += fmt.Sprintf("code: %d\n", e.Code)
 			s += fmt.Sprintf("text: %s\n", e.Text)
 			s += fmt.Sprintf("message: %s\n", e.Message)
+
+			if e.RedirectURI != "" {
+				s += fmt.Sprintf("redirect_uri: %s\n", e.RedirectURI)
+			}
+
 			s += "params:\n"
 
 			for _, param := range e.RequestParams {
