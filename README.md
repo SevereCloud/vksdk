@@ -16,7 +16,7 @@
 Version API 5.131.
 
 - [API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api)
-  - 400+ methods
+  - 500+ methods
   - Ability to change the request handler
   - Ability to modify HTTP client
   - Request Limiter
