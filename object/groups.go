@@ -111,112 +111,112 @@ const (
 
 // GroupsGroup struct.
 type GroupsGroup struct {
-	AdminLevel   int              `json:"admin_level"`
-	Deactivated  string           `json:"deactivated"` // Information whether community is banned
-	FinishDate   int              `json:"finish_date"` // Finish date in Unixtime format
 	ID           int              `json:"id"`          // Community ID
 	Name         string           `json:"name"`        // Community name
-	Photo100     string           `json:"photo_100"`   // URL of square photo of the community with 100 pixels in width
-	Photo200     string           `json:"photo_200"`   // URL of square photo of the community with 200 pixels in width
-	Photo50      string           `json:"photo_50"`    // URL of square photo of the community with 50 pixels in width
 	ScreenName   string           `json:"screen_name"` // Domain of the community page
-	StartDate    int              `json:"start_date"`  // Start date in Unixtime format
 	Type         string           `json:"type"`
-	Market       GroupsMarketInfo `json:"market"`
-	MemberStatus int              `json:"member_status"` // Current user's member status
 	IsClosed     int              `json:"is_closed"`
-	City         BaseObject       `json:"city"`
-	Country      BaseCountry      `json:"country"`
+	AdminLevel   int              `json:"admin_level,omitempty"`
+	Deactivated  string           `json:"deactivated,omitempty"` // Information whether community is banned
+	FinishDate   int              `json:"finish_date,omitempty"` // Finish date in Unixtime format
+	Photo100     string           `json:"photo_100,omitempty"`   // URL of square photo of the community with 100 pixels in width
+	Photo200     string           `json:"photo_200,omitempty"`   // URL of square photo of the community with 200 pixels in width
+	Photo50      string           `json:"photo_50,omitempty"`    // URL of square photo of the community with 50 pixels in width
+	StartDate    int              `json:"start_date,omitempty"`  // Start date in Unixtime format
+	Market       GroupsMarketInfo `json:"market,omitempty"`
+	MemberStatus int              `json:"member_status,omitempty"` // Current user's member status
+	City         BaseObject       `json:"city,omitempty"`
+	Country      BaseCountry      `json:"country,omitempty"`
 
 	// Information whether current user is administrator.
 	IsAdmin BaseBoolInt `json:"is_admin"`
 
 	// Information whether current user is advertiser.
-	IsAdvertiser BaseBoolInt `json:"is_advertiser"`
+	IsAdvertiser BaseBoolInt `json:"is_advertiser,omitempty"`
 
 	// Information whether current user is member.
-	IsMember BaseBoolInt `json:"is_member"`
+	IsMember BaseBoolInt `json:"is_member,omitempty"`
 
 	// Information whether community is in faves.
-	IsFavorite BaseBoolInt `json:"is_favorite"`
+	IsFavorite BaseBoolInt `json:"is_favorite,omitempty"`
 
 	// Information whether community is adult.
-	IsAdult BaseBoolInt `json:"is_adult"`
+	IsAdult BaseBoolInt `json:"is_adult,omitempty"`
 
 	// Information whether current user is subscribed.
-	IsSubscribed BaseBoolInt `json:"is_subscribed"`
+	IsSubscribed BaseBoolInt `json:"is_subscribed,omitempty"`
 
 	// Information whether current user can post on community's wall.
-	CanPost BaseBoolInt `json:"can_post"`
+	CanPost BaseBoolInt `json:"can_post,omitempty"`
 
 	// Information whether current user can see all posts on community's wall.
-	CanSeeAllPosts BaseBoolInt `json:"can_see_all_posts"`
+	CanSeeAllPosts BaseBoolInt `json:"can_see_all_posts,omitempty"`
 
 	// Information whether current user can create topic.
-	CanCreateTopic BaseBoolInt `json:"can_create_topic"`
+	CanCreateTopic BaseBoolInt `json:"can_create_topic,omitempty"`
 
 	// Information whether current user can upload video.
-	CanUploadVideo BaseBoolInt `json:"can_upload_video"`
+	CanUploadVideo BaseBoolInt `json:"can_upload_video,omitempty"`
 
 	// Information whether current user can upload doc.
-	CanUploadDoc BaseBoolInt `json:"can_upload_doc"`
+	CanUploadDoc BaseBoolInt `json:"can_upload_doc,omitempty"`
 
 	// Information whether community has photo.
-	HasPhoto BaseBoolInt `json:"has_photo"`
+	HasPhoto BaseBoolInt `json:"has_photo,omitempty"`
 
 	// Information whether current user can send a message to community.
-	CanMessage BaseBoolInt `json:"can_message"`
+	CanMessage BaseBoolInt `json:"can_message,omitempty"`
 
 	// Information whether community can send a message to current user.
-	IsMessagesBlocked BaseBoolInt `json:"is_messages_blocked"`
+	IsMessagesBlocked BaseBoolInt `json:"is_messages_blocked,omitempty"`
 
 	// Information whether community can send notifications by phone number to current user.
-	CanSendNotify BaseBoolInt `json:"can_send_notify"`
+	CanSendNotify BaseBoolInt `json:"can_send_notify,omitempty"`
 
 	// Information whether current user is subscribed to podcasts.
-	IsSubscribedPodcasts BaseBoolInt `json:"is_subscribed_podcasts"`
+	IsSubscribedPodcasts BaseBoolInt `json:"is_subscribed_podcasts,omitempty"`
 
 	// Owner in whitelist or not.
-	CanSubscribePodcasts BaseBoolInt `json:"can_subscribe_podcasts"`
+	CanSubscribePodcasts BaseBoolInt `json:"can_subscribe_podcasts,omitempty"`
 
 	// Can subscribe to wall.
-	CanSubscribePosts BaseBoolInt `json:"can_subscribe_posts"`
+	CanSubscribePosts BaseBoolInt `json:"can_subscribe_posts,omitempty"`
 
 	// Information whether community has market app.
-	HasMarketApp        BaseBoolInt `json:"has_market_app"`
-	IsHiddenFromFeed    BaseBoolInt `json:"is_hidden_from_feed"`
-	IsMarketCartEnabled BaseBoolInt `json:"is_market_cart_enabled"`
-	Verified            BaseBoolInt `json:"verified"` // Information whether community is verified
+	HasMarketApp        BaseBoolInt `json:"has_market_app,omitempty"`
+	IsHiddenFromFeed    BaseBoolInt `json:"is_hidden_from_feed,omitempty"`
+	IsMarketCartEnabled BaseBoolInt `json:"is_market_cart_enabled,omitempty"`
+	Verified            BaseBoolInt `json:"verified,omitempty"` // Information whether community is verified
 
 	// Information whether the community has a fire pictogram.
-	Trending     BaseBoolInt         `json:"trending"`
-	Description  string              `json:"description"`   // Community description
-	WikiPage     string              `json:"wiki_page"`     // Community's main wiki page title
-	MembersCount int                 `json:"members_count"` // Community members number
-	Counters     GroupsCountersGroup `json:"counters"`
-	Cover        GroupsCover         `json:"cover"`
+	Trending     BaseBoolInt         `json:"trending,omitempty"`
+	Description  string              `json:"description,omitempty"`   // Community description
+	WikiPage     string              `json:"wiki_page,omitempty"`     // Community's main wiki page title
+	MembersCount int                 `json:"members_count,omitempty"` // Community members number
+	Counters     GroupsCountersGroup `json:"counters,omitempty"`
+	Cover        GroupsCover         `json:"cover,omitempty"`
 
 	// Type of group, start date of event or category of public page.
-	Activity        string               `json:"activity"`
-	FixedPost       int                  `json:"fixed_post"`    // Fixed post ID
-	Status          string               `json:"status"`        // Community status
-	MainAlbumID     int                  `json:"main_album_id"` // Community's main photo album ID
-	Links           []GroupsLinksItem    `json:"links"`
-	Contacts        []GroupsContactsItem `json:"contacts"`
-	Site            string               `json:"site"` // Community's website
-	MainSection     int                  `json:"main_section"`
-	OnlineStatus    GroupsOnlineStatus   `json:"online_status"` // Status of replies in community messages
-	AgeLimits       int                  `json:"age_limits"`    // Information whether age limit
-	BanInfo         GroupsGroupBanInfo   `json:"ban_info"`      // User ban info
-	Addresses       GroupsAddressesInfo  `json:"addresses"`     // Info about addresses in Groups
-	LiveCovers      GroupsLiveCovers     `json:"live_covers"`
-	CropPhoto       UsersCropPhoto       `json:"crop_photo"`
-	Wall            int                  `json:"wall"`
-	ActionButton    GroupsActionButton   `json:"action_button"`
-	TrackCode       string               `json:"track_code"`
-	PublicDateLabel string               `json:"public_date_label"`
-	AuthorID        int                  `json:"author_id"`
-	Phone           string               `json:"phone"`
+	Activity        string               `json:"activity,omitempty"`
+	FixedPost       int                  `json:"fixed_post,omitempty"`    // Fixed post ID
+	Status          string               `json:"status,omitempty"`        // Community status
+	MainAlbumID     int                  `json:"main_album_id,omitempty"` // Community's main photo album ID
+	Links           []GroupsLinksItem    `json:"links,omitempty"`
+	Contacts        []GroupsContactsItem `json:"contacts,omitempty"`
+	Site            string               `json:"site,omitempty"` // Community's website
+	MainSection     int                  `json:"main_section,omitempty"`
+	OnlineStatus    GroupsOnlineStatus   `json:"online_status,omitempty"` // Status of replies in community messages
+	AgeLimits       int                  `json:"age_limits,omitempty"`    // Information whether age limit
+	BanInfo         GroupsGroupBanInfo   `json:"ban_info,omitempty"`      // User ban info
+	Addresses       GroupsAddressesInfo  `json:"addresses,omitempty"`     // Info about addresses in Groups
+	LiveCovers      GroupsLiveCovers     `json:"live_covers,omitempty"`
+	CropPhoto       UsersCropPhoto       `json:"crop_photo,omitempty"`
+	Wall            int                  `json:"wall,omitempty"`
+	ActionButton    GroupsActionButton   `json:"action_button,omitempty"`
+	TrackCode       string               `json:"track_code,omitempty"`
+	PublicDateLabel string               `json:"public_date_label,omitempty"`
+	AuthorID        int                  `json:"author_id,omitempty"`
+	Phone           string               `json:"phone,omitempty"`
 }
 
 // ToMention return mention.
