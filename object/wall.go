@@ -240,6 +240,8 @@ type WallWallpostToID struct {
 	ParentsStack  []int                    `json:"parents_stack"`
 	Donut         WallWallpostDonut        `json:"donut"`
 	ShortTextRate float64                  `json:"short_text_rate"`
+	Views         WallViews                `json:"views"` // Count of views
+	Header        WallWallpostHeader       `json:"header"`
 }
 
 // WallWallpostDonut info about VK Donut.
