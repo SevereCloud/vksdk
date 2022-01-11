@@ -45,6 +45,8 @@ type WidgetsWidgetComment struct {
 	Views       struct {
 		Count int `json:"count"`
 	} `json:"views"`
+	Donut         WallWallpostDonut  `json:"donut"`
+	ShortTextRate float64            `json:"short_text_rate"`
 }
 
 // WidgetsWidgetLikes struct.
