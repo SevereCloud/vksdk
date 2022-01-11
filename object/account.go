@@ -62,21 +62,24 @@ type AccountOffer struct {
 
 // AccountAccountCounters struct.
 type AccountAccountCounters struct {
-	AppRequests            int `json:"app_requests"`            // New app requests number
-	Events                 int `json:"events"`                  // New events number
-	Friends                int `json:"friends"`                 // New friends requests number
-	FriendsRecommendations int `json:"friends_recommendations"` // New friends recommendations number
-	FriendsSuggestions     int `json:"friends_suggestions"`     // New friends suggestions number
-	Gifts                  int `json:"gifts"`                   // New gifts number
-	Groups                 int `json:"groups"`                  // New groups number
-	Messages               int `json:"messages"`                // New messages number
-	Notifications          int `json:"notifications"`           // New notifications number
-	Photos                 int `json:"photos"`                  // New photo tags number
-	SDK                    int `json:"sdk"`                     // New SDK number
-	MenuDiscoverBadge      int `json:"menu_discover_badge"`     // New menu discover badge number
-	MenuClipsBadge         int `json:"menu_clips_badge"`        // New menu clips badge number
-	Videos                 int `json:"videos"`                  // New video tags number
-	Faves                  int `json:"faves"`                   // New faves number
+	AppRequests              int `json:"app_requests"`            // New app requests number
+	Events                   int `json:"events"`                  // New events number
+	Friends                  int `json:"friends"`                 // New friends requests number
+	FriendsRecommendations   int `json:"friends_recommendations"` // New friends recommendations number
+	FriendsSuggestions       int `json:"friends_suggestions"`     // New friends suggestions number
+	Gifts                    int `json:"gifts"`                   // New gifts number
+	Groups                   int `json:"groups"`                  // New groups number
+	Messages                 int `json:"messages"`                // New messages number
+	Notifications            int `json:"notifications"`           // New notifications number
+	Photos                   int `json:"photos"`                  // New photo tags number
+	SDK                      int `json:"sdk"`                     // New SDK number
+	MenuDiscoverBadge        int `json:"menu_discover_badge"`     // New menu discover badge number
+	MenuClipsBadge           int `json:"menu_clips_badge"`        // New menu clips badge number
+	Videos                   int `json:"videos"`                  // New video tags number
+	Faves                    int `json:"faves"`                   // New faves number
+	Calls                    int `json:"calls"`                   // New calls number
+	MenuSuperappFriendsBadge int `json:"menu_superapp_friends_badge"`
+	MenuNewClipsBadge        int `json:"menu_new_clips_badge"`
 }
 
 // AccountInfo struct.
