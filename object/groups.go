@@ -217,11 +217,24 @@ type GroupsGroup struct {
 	PublicDateLabel string               `json:"public_date_label,omitempty"`
 	AuthorID        int                  `json:"author_id,omitempty"`
 	Phone           string               `json:"phone,omitempty"`
+	Like            GroupsGroupLike      `json:"like"`
 }
 
 // ToMention return mention.
 func (group GroupsGroup) ToMention() string {
 	return fmt.Sprintf("[club%d|%s]", group.ID, group.Name)
+}
+
+// GroupsGroupLike struct.
+type GroupsGroupLike struct {
+	IsLiked BaseBoolInt            `json:"is_liked"`
+	Friends GroupsGroupLikeFriends `json:"friends"`
+}
+
+// GroupsGroupLikeFriends struct.
+type GroupsGroupLikeFriends struct {
+	Count   int   `json:"count"`
+	Preview []int `json:"preview"`
 }
 
 // GroupsLiveCovers struct.
