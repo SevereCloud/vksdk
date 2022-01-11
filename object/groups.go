@@ -787,7 +787,10 @@ type GroupsLongPollServer struct {
 	Ts     string `json:"ts"`     // Number of the last event
 }
 
-// TODO: func (g GroupsLongPollServer) GetURL() string {
+// GetURL return link.
+func (lp GroupsLongPollServer) GetURL(wait int) string {
+	return fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, wait)
+}
 
 // GroupsLongPollSettings struct.
 type GroupsLongPollSettings struct {
