@@ -110,6 +110,7 @@ type AccountInfo struct {
 	IsLiveStreamingEnabled    BaseBoolInt       `json:"is_live_streaming_enabled"`
 	IsNewLiveStreamingEnabled BaseBoolInt       `json:"is_new_live_streaming_enabled"`
 	LinkRedirects             map[string]string `json:"link_redirects"`
+	VkPayEndpointV2           string            `json:"vk_pay_endpoint_v2"`
 }
 
 // AccountPushSettings struct.
