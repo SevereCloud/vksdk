@@ -165,6 +165,7 @@ type WallWallpost struct {
 	Donut          WallWallpostDonut        `json:"donut"`
 	ShortTextRate  float64                  `json:"short_text_rate"`
 	CarouselOffset int                      `json:"carousel_offset"`
+	Header         WallWallpostHeader       `json:"header"`
 }
 
 // Attachment type.
@@ -255,4 +256,16 @@ type WallPostCopyright struct {
 	Link string `json:"link"`
 	Type string `json:"type"`
 	Name string `json:"name"`
+}
+
+// WallWallpostHeader struct.
+type WallWallpostHeader struct {
+	Type              string                              `json:"type"`
+	CustomDescription WallWallpostHeaderCustomDescription `json:"custom_description"`
+}
+
+// WallWallpostHeaderCustomDescription struct.
+type WallWallpostHeaderCustomDescription struct {
+	SourceID int `json:"source_id"`
+	Date     int `json:"date"`
 }

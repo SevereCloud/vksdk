@@ -47,6 +47,7 @@ type WidgetsWidgetComment struct {
 	} `json:"views"`
 	Donut         WallWallpostDonut  `json:"donut"`
 	ShortTextRate float64            `json:"short_text_rate"`
+	Header        WallWallpostHeader `json:"header"`
 }
 
 // WidgetsWidgetLikes struct.
