@@ -31,6 +31,8 @@ func noError(t *testing.T, err error) bool {
 			t.Skip("Permission to perform this action is denied")
 		case api.ErrCaptcha:
 			t.Skip("Captcha needed")
+		case api.ErrFlood:
+			t.Skip("Flood control")
 		default:
 			s := "\n"
 			s += fmt.Sprintf("code: %d\n", e.Code)
