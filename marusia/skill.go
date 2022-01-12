@@ -130,6 +130,10 @@ https://skill-debugger.marusia.mail.ru/
 					map[string]string{"Text": "нагрузка из ссылки"},
 				)
 				resp.TTS = "Держи диплинк"
+			case "пуш":
+				resp.Text = `Держи пуш`
+				resp.TTS = `Отправила пуш на устройство`
+				resp.Push.PushText = "Hello, i am push"
 			case marusia.OnInterrupt:
 				resp.Text = "Скилл закрыт"
 				resp.TTS = "Пока"
