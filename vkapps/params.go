@@ -59,6 +59,7 @@ const (
 	ImChat                Referral = "im_chat"
 	Notifications         Referral = "notifications"
 	NotificationsGrouped  Referral = "notifications_grouped"
+	NotificationsAuto     Referral = "notifications_auto"
 	SuperApp              Referral = "super_app"
 	HomeScreen            Referral = "home_screen"
 	Menu                  Referral = "menu"
@@ -75,6 +76,7 @@ const (
 	MarketItem            Referral = "market_item"
 	LeftNav               Referral = "left_nav"
 	QuickSearch           Referral = "quick_search"
+	Widget                Referral = "widget"
 	Other                 Referral = "other"
 )
 

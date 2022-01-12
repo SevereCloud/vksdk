@@ -36,6 +36,11 @@ func noError(t *testing.T, err error) bool {
 			s += fmt.Sprintf("code: %d\n", e.Code)
 			s += fmt.Sprintf("text: %s\n", e.Text)
 			s += fmt.Sprintf("message: %s\n", e.Message)
+
+			if e.RedirectURI != "" {
+				s += fmt.Sprintf("redirect_uri: %s\n", e.RedirectURI)
+			}
+
 			s += "params:\n"
 
 			for _, param := range e.RequestParams {
@@ -231,11 +236,12 @@ func TestVK_RequestLimit(t *testing.T) {
 func TestVK_InvalidContentType(t *testing.T) {
 	t.Parallel()
 
-	needGroupToken(t)
-
 	var testObj string
 
-	err := vkGroup.RequestUnmarshal("t/t", testObj, nil)
+	vk := api.NewVK("")
+	vk.MethodURL = "https://api.vk.com"
+
+	err := vk.RequestUnmarshal("", testObj, nil)
 	if err == nil || err.Error() != "api: invalid content-type" {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}

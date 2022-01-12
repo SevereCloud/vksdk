@@ -40,9 +40,6 @@ func TestVK_DatabaseGetCities(t *testing.T) {
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Title)
-		assert.NotEmpty(t, res.Items[0].Area)
-		// assert.NotEmpty(t, res.Items[0].Important)
-		assert.NotEmpty(t, res.Items[0].Region)
 	}
 }
 

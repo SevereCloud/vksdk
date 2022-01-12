@@ -117,7 +117,7 @@ func TestVK_UsersGet(t *testing.T) {
 			assert.NotEmpty(t, user.Instagram)
 			assert.NotEmpty(t, user.Site)
 			assert.NotEmpty(t, user.Status)
-			assert.NotEmpty(t, user.LastSeen)
+			// assert.NotEmpty(t, user.LastSeen)
 			assert.NotEmpty(t, user.CropPhoto)
 			assert.NotEmpty(t, user.Verified)
 			// assert.NotEmpty(t, user.CanBeInvitedGroup)

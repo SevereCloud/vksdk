@@ -1589,7 +1589,7 @@ func (b *MessagesSendMessageEventAnswerBuilder) PeerID(v int) *MessagesSendMessa
 }
 
 // EventData parameter.
-func (b *MessagesSendMessageEventAnswerBuilder) EventData(v string) *MessagesSendMessageEventAnswerBuilder {
+func (b *MessagesSendMessageEventAnswerBuilder) EventData(v interface{}) *MessagesSendMessageEventAnswerBuilder {
 	b.Params["event_data"] = v
 	return b
 }
