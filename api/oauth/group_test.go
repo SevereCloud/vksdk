@@ -16,7 +16,7 @@ func TestNewGroupTokensFromJSON(t *testing.T) {
 		t.Helper()
 
 		token, err := oauth.NewGroupTokensFromJSON(data)
-		if err != nil {
+		if err != nil || wantErr != "" {
 			assert.EqualError(t, err, wantErr)
 		}
 
@@ -53,7 +53,7 @@ func TestNewGroupTokensFromURL(t *testing.T) {
 		u, _ := url.Parse(rawurl)
 
 		token, err := oauth.NewGroupTokensFromURL(u)
-		if err != nil {
+		if err != nil || wantErr != "" {
 			assert.EqualError(t, err, wantErr)
 		}
 

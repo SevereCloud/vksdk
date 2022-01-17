@@ -21,6 +21,7 @@ import (
 	"github.com/SevereCloud/vksdk/v2"
 	"github.com/SevereCloud/vksdk/v2/internal"
 	"github.com/SevereCloud/vksdk/v2/object"
+	"github.com/vmihailenco/msgpack/v5"
 )
 
 // Api constants.
@@ -91,6 +92,8 @@ type VK struct {
 	UserAgent    string
 	Handler      func(method string, params ...Params) (Response, error)
 
+	msgpack bool
+
 	mux      sync.Mutex
 	lastTime time.Time
 	rps      int
@@ -98,9 +101,9 @@ type VK struct {
 
 // Response struct.
 type Response struct {
-	Response      json.RawMessage `json:"response"`
-	Error         Error           `json:"error"`
-	ExecuteErrors ExecuteErrors   `json:"execute_errors"`
+	Response      object.RawMessage `json:"response"`
+	Error         Error             `json:"error"`
+	ExecuteErrors ExecuteErrors     `json:"execute_errors"`
 }
 
 // NewVK returns a new VK.
@@ -252,15 +255,25 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 		}
 
 		mediatype, _, _ := mime.ParseMediaType(resp.Header.Get("Content-Type"))
-		if mediatype != "application/json" {
+		switch mediatype {
+		case "application/json":
+			err = json.NewDecoder(resp.Body).Decode(&response)
+			if err != nil {
+				_ = resp.Body.Close()
+				return response, err
+			}
+		case "application/x-msgpack":
+			dec := msgpack.NewDecoder(resp.Body)
+			dec.SetCustomStructTag("json")
+
+			err = dec.Decode(&response)
+			if err != nil {
+				_ = resp.Body.Close()
+				return response, err
+			}
+		default:
 			_ = resp.Body.Close()
 			return response, &InvalidContentType{mediatype}
-		}
-
-		err = json.NewDecoder(resp.Body).Decode(&response)
-		if err != nil {
-			_ = resp.Body.Close()
-			return response, err
 		}
 
 		_ = resp.Body.Close()
@@ -291,6 +304,10 @@ func (vk *VK) Request(method string, sliceParams ...Params) ([]byte, error) {
 
 	sliceParams = append(sliceParams, reqParams)
 
+	if vk.msgpack {
+		method += ".msgpack"
+	}
+
 	resp, err := vk.Handler(method, sliceParams...)
 
 	return resp.Response, err
@@ -303,7 +320,25 @@ func (vk *VK) RequestUnmarshal(method string, obj interface{}, sliceParams ...Pa
 		return err
 	}
 
-	return json.Unmarshal(rawResponse, &obj)
+	if vk.msgpack {
+		dec := msgpack.NewDecoder(bytes.NewReader(rawResponse))
+		dec.SetCustomStructTag("json")
+
+		err = dec.Decode(&obj)
+	} else {
+		err = json.Unmarshal(rawResponse, &obj)
+	}
+
+	return err
+}
+
+// EnableMessagePack enable using MessagePack instead of JSON.
+//
+// THIS IS EXPERIMENTAL FUNCTION! Broken encoding returned in some methods.
+//
+// See https://msgpack.org
+func (vk *VK) EnableMessagePack() {
+	vk.msgpack = true
 }
 
 func fmtReflectValue(value reflect.Value, depth int) string {

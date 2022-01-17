@@ -14,7 +14,7 @@ func TestParseJSON(t *testing.T) {
 
 	f := func(data []byte, wantToken *oauth.UserToken, wantErr string) {
 		token, err := oauth.NewUserTokenFromJSON(data)
-		if err != nil {
+		if err != nil || wantErr != "" {
 			assert.EqualError(t, err, wantErr)
 		}
 
@@ -47,7 +47,7 @@ func TestParseURL(t *testing.T) {
 		u, _ := url.Parse(rawurl)
 
 		token, err := oauth.NewUserTokenFromURL(u)
-		if err != nil {
+		if err != nil || wantErr != "" {
 			assert.EqualError(t, err, wantErr)
 		}
 

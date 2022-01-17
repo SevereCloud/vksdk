@@ -6,6 +6,8 @@ import (
 
 	"github.com/SevereCloud/vksdk/v2/object"
 	"github.com/stretchr/testify/assert"
+	"github.com/vmihailenco/msgpack/v5"
+	"github.com/vmihailenco/msgpack/v5/msgpcode"
 )
 
 func TestMarketMarketItem_ToAttachment(t *testing.T) {
@@ -21,7 +23,7 @@ func TestMarketMarketItem_ToAttachment(t *testing.T) {
 	f(object.MarketMarketItem{ID: 20, OwnerID: -10}, "market-10_20")
 }
 
-func TestMarketMarketItem__UnmarshalJSON(t *testing.T) {
+func TestMarketMarketItem_UnmarshalJSON(t *testing.T) {
 	t.Parallel()
 
 	f := func(data []byte, wantMarket object.MarketMarketItem) {
@@ -40,7 +42,28 @@ func TestMarketMarketItem__UnmarshalJSON(t *testing.T) {
 	assert.Error(t, err)
 }
 
-func TestMarketPrice__UnmarshalJSON(t *testing.T) {
+func TestMarketMarketItem_DecodeMsgpack(t *testing.T) {
+	t.Parallel()
+
+	f := func(data []byte, wantMarket object.MarketMarketItem, wantErr string) {
+		var market object.MarketMarketItem
+
+		err := msgpack.Unmarshal(data, &market)
+		if err != nil || wantErr != "" {
+			assert.EqualError(t, err, wantErr)
+		}
+
+		assert.Equal(t, wantMarket, market)
+	}
+
+	f([]byte{msgpcode.False}, object.MarketMarketItem{}, "")
+	f([]byte{0x81, 0xA2, 0x69, 0x64, 0x01}, object.MarketMarketItem{ID: 1}, "")
+
+	f([]byte("\xc3"), object.MarketMarketItem{}, "msgpack: unexpected code=c3 decoding map length")
+	f(nil, object.MarketMarketItem{}, "EOF")
+}
+
+func TestMarketPrice_UnmarshalJSON(t *testing.T) {
 	t.Parallel()
 
 	f := func(data []byte, wantMarket object.MarketPrice) {
@@ -57,6 +80,29 @@ func TestMarketPrice__UnmarshalJSON(t *testing.T) {
 	var market object.MarketPrice
 	err := json.Unmarshal([]byte("0"), &market)
 	assert.Error(t, err)
+}
+
+func TestMarketPrice_DecodeMsgpack(t *testing.T) {
+	t.Parallel()
+
+	f := func(data []byte, wantMarket object.MarketPrice, wantErr string) {
+		var market object.MarketPrice
+
+		err := msgpack.Unmarshal(data, &market)
+		if err != nil || wantErr != "" {
+			assert.EqualError(t, err, wantErr)
+		}
+
+		assert.Equal(t, wantMarket, market)
+	}
+
+	f([]byte{msgpcode.FixedArrayLow}, object.MarketPrice{}, "")
+	f([]byte{
+		0x81, 0xA4, 0x74, 0x65, 0x78, 0x74, 0xA1, 0x61,
+	}, object.MarketPrice{Text: "a"}, "")
+
+	f([]byte("\xc2"), object.MarketPrice{}, "msgpack: unexpected code=c2 decoding map length")
+	f(nil, object.MarketPrice{}, "EOF")
 }
 
 func TestMarketMarketAlbum_ToAttachment(t *testing.T) {

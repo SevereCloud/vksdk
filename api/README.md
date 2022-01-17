@@ -80,6 +80,41 @@ if errors.As(err, &e) {
 
 Для Execute существует отдельная ошибка `ExecuteErrors`
 
+### Поддержка MessagePack
+
+ВНИМАНИЕ, ЭТО ЭКСПЕРИМЕНТАЛЬНАЯ ФУНКЦИЯ. Некоторые методы могут возвращать
+сломанную кодировку.
+
+VK API способно возвращать ответ в виде [MessagePack](https://msgpack.org/).
+Это эффективный формат двоичной сериализации, похожий на JSON, только быстрее
+и меньше по размеру.
+
+```go
+vk := api.NewVK(os.Getenv("USER_TOKEN"))
+
+method := "store.getStickersKeywords"
+params := api.Params{
+	"aliases":       true,
+	"all_products":  true,
+	"need_stickers": true,
+}
+
+r, err := vk.Request(method, params)
+if err != nil {
+	log.Fatal(err)
+}
+log.Println("json:", len(r)) // json: 814231
+
+// Включаем поддержку MessagePack
+vk.EnableMessagePack(true)
+
+r, err = vk.Request(method, params)
+if err != nil {
+	log.Fatal(err)
+}
+log.Println("msgpack:", len(r)) // msgpack: 650775
+```
+
 ### Запрос любого метода
 
 Пример запроса [users.get](https://vk.com/dev/users.get)
