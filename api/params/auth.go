@@ -98,3 +98,27 @@ func (b *AuthGetProfileInfoBySilentTokenBuilder) Add(token, uuid, event string) 
 
 	return b
 }
+
+// AuthExchangeSilentAuthTokenBuilder builder.
+//
+// https://platform.vk.com/?p=DocsDashboard&docs=tokens_silent-token
+type AuthExchangeSilentAuthTokenBuilder struct {
+	api.Params
+}
+
+// NewAuthExchangeSilentAuthTokenBuilder func.
+func NewAuthExchangeSilentAuthTokenBuilder() *AuthExchangeSilentAuthTokenBuilder {
+	return &AuthExchangeSilentAuthTokenBuilder{api.Params{}}
+}
+
+// Token parameter.
+func (b *AuthExchangeSilentAuthTokenBuilder) Token(v string) *AuthExchangeSilentAuthTokenBuilder {
+	b.Params["token"] = v
+	return b
+}
+
+// UUID parameter.
+func (b *AuthExchangeSilentAuthTokenBuilder) UUID(v string) *AuthExchangeSilentAuthTokenBuilder {
+	b.Params["uuid"] = v
+	return b
+}
