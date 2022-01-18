@@ -34,3 +34,19 @@ func TestAuthRestoreBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["phone"], "text")
 	assert.Equal(t, b.Params["last_name"], "text")
 }
+
+func TestAuthGetProfileInfoBySilentTokenBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewAuthGetProfileInfoBySilentTokenBuilder()
+
+	b.Add("token", "uuid", "event")
+	assert.Equal(t, b.Params["token"], "token")
+	assert.Equal(t, b.Params["uuid"], "uuid")
+	assert.Equal(t, b.Params["event"], "event")
+
+	b.Add("token2", "uuid2", "event2")
+	assert.Equal(t, b.Params["token"], "token,token2")
+	assert.Equal(t, b.Params["uuid"], "uuid,uuid2")
+	assert.Equal(t, b.Params["event"], "event,event2")
+}

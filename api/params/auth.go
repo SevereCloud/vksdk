@@ -68,3 +68,33 @@ func (b *AuthRestoreBuilder) LastName(v string) *AuthRestoreBuilder {
 	b.Params["last_name"] = v
 	return b
 }
+
+// AuthGetProfileInfoBySilentTokenBuilder builder.
+//
+// https://platform.vk.com/?p=DocsDashboard&docs=tokens_silent-token
+type AuthGetProfileInfoBySilentTokenBuilder struct {
+	api.Params
+}
+
+// NewAuthGetProfileInfoBySilentTokenBuilder func.
+func NewAuthGetProfileInfoBySilentTokenBuilder() *AuthGetProfileInfoBySilentTokenBuilder {
+	return &AuthGetProfileInfoBySilentTokenBuilder{api.Params{
+		"token": "",
+		"uuid":  "",
+		"event": "",
+	}}
+}
+
+// Add token, uuid, event to params.
+func (b *AuthGetProfileInfoBySilentTokenBuilder) Add(token, uuid, event string) *AuthGetProfileInfoBySilentTokenBuilder {
+	separator := ","
+	if b.Params["token"] == "" {
+		separator = ""
+	}
+
+	b.Params["token"] = b.Params["token"].(string) + separator + token
+	b.Params["uuid"] = b.Params["uuid"].(string) + separator + uuid
+	b.Params["event"] = b.Params["event"].(string) + separator + event
+
+	return b
+}
