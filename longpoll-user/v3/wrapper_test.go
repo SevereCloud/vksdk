@@ -128,6 +128,7 @@ func TestWrapper(t *testing.T) {
 	w.OnNotificationSettingsChange(func(e wrapper.NotificationSettingsChange) {})
 
 	go func() {
+		lp := lp
 		lpErr := lp.Run()
 		assert.NoError(t, lpErr)
 		exit <- true

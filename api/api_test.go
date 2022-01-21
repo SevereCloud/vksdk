@@ -215,8 +215,6 @@ func TestVK_RequestLimit(t *testing.T) {
 
 	needUserToken(t)
 
-	vkUser.Limit = 4
-
 	var wg sync.WaitGroup
 
 	for i := 0; i < 20; i++ {
