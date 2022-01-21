@@ -64,13 +64,15 @@ func TestMain(m *testing.M) {
 	os.Exit(runTests)
 }
 
-func TestWrapper(t *testing.T) { // nolint:paralleltest
+func TestWrapper(t *testing.T) {
+	t.Parallel()
+
 	needUserToken(t)
 	chatID := needChatID(t)
 
 	exit := make(chan bool, 1)
 
-	lp, err := longpoll.NewLongPoll(vkUser, 2)
+	lp, err := longpoll.NewLongPoll(vkUser, longpoll.ExtendedEvents+longpoll.Code8ExtraFields)
 	if err != nil {
 		t.Fatalf("lp.Init err: %v", err)
 	}
@@ -115,6 +117,7 @@ func TestWrapper(t *testing.T) { // nolint:paralleltest
 	w.OnChatInfoChange(func(e wrapper.ChatInfoChange) {
 		assert.NotEmpty(t, e.TypeID)
 		assert.NotEmpty(t, e.PeerID)
+		lp.Shutdown()
 		// assert.NotEmpty(t, e.Info)
 	})
 	w.OnUserTyping(func(e wrapper.UserTyping) {})
@@ -125,12 +128,17 @@ func TestWrapper(t *testing.T) { // nolint:paralleltest
 	w.OnCounterChange(func(e wrapper.CounterChange) {})
 	w.OnNotificationSettingsChange(func(e wrapper.NotificationSettingsChange) {})
 
-	go func() {
+	f := func() {
 		lp := lp
+
+		t.Log("Run")
+
 		lpErr := lp.Run()
 		assert.NoError(t, lpErr)
 		exit <- true
-	}()
+	}
+
+	go f()
 
 	time.Sleep(1 * time.Second)
 
@@ -169,6 +177,10 @@ func TestWrapper(t *testing.T) { // nolint:paralleltest
 	})
 	assert.NoError(t, err)
 
-	lp.Shutdown()
-	<-exit
+	select {
+	case <-time.After(5 * time.Second):
+		t.Fatal("Time out")
+	case <-exit:
+		t.Log("ok")
+	}
 }
