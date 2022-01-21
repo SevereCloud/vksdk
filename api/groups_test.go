@@ -950,18 +950,12 @@ func TestVK_GroupsJoin(t *testing.T) {
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res)
-}
 
-func TestVK_GroupsLeave(t *testing.T) {
-	t.Parallel()
-
-	needUserToken(t)
-
-	res, err := vkUser.GroupsLeave(api.Params{
+	resLeave, err := vkUser.GroupsLeave(api.Params{
 		"group_id": 1,
 	})
 	noError(t, err)
-	assert.NotEmpty(t, res)
+	assert.NotEmpty(t, resLeave)
 }
 
 // func TestVK_GroupsRemoveUser(t *testing.T) {
