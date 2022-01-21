@@ -4,7 +4,9 @@ import (
 	"context"
 	"errors"
 	"os"
+	"reflect"
 	"strconv"
+	"strings"
 	"testing"
 	"time"
 
@@ -215,5 +217,65 @@ func TestLongPoll_RunError(t *testing.T) {
 
 	if err := lp.Run(); err == nil {
 		t.Error(err)
+	}
+}
+
+func TestParseResponse(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name     string
+		response string
+		expected Response
+	}{
+		{
+			name:     "failed: 1",
+			response: `{"ts":8,"failed":1}`,
+			expected: Response{
+				Ts:     "8",
+				Failed: 1,
+			},
+		},
+		{
+			name:     "failed: 2",
+			response: `{"failed": 2}`,
+			expected: Response{
+				Failed: 2,
+			},
+		},
+		{
+			name:     "empty updates",
+			response: `{"ts":"8","updates":[]}`,
+			expected: Response{
+				Ts:      "8",
+				Updates: []events.GroupEvent{},
+			},
+		},
+	}
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			actual, err := parseResponse(strings.NewReader(test.response))
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			assertEqualResponses(t, test.expected, actual)
+		})
+	}
+}
+
+func assertEqualResponses(t *testing.T, expected, actual Response) {
+	t.Helper()
+
+	if expected.Ts != actual.Ts {
+		t.Fatalf("ts not equal, expected: '%s', actual: '%s'", expected.Ts, actual.Ts)
+	}
+	if expected.Failed != actual.Failed {
+		t.Fatalf("failed not equal, expected: '%d', actual: '%d'", expected.Failed, actual.Failed)
+	}
+	if !reflect.DeepEqual(expected.Updates, actual.Updates) {
+		t.Fatalf("updates not equal, expected: '%v', actual: '%v'", expected.Updates, actual.Updates)
 	}
 }

@@ -9,7 +9,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
+	"strconv"
 
 	"github.com/SevereCloud/vksdk/v2"
 	"github.com/SevereCloud/vksdk/v2/api"
@@ -117,12 +119,54 @@ func (lp *LongPoll) check(ctx context.Context) (response Response, err error) {
 	}
 	defer resp.Body.Close()
 
-	err = json.NewDecoder(resp.Body).Decode(&response)
-	if err != nil {
-		return response, err
-	}
+	response, err = parseResponse(resp.Body)
 
 	err = lp.checkResponse(response)
+
+	return response, err
+}
+
+func parseResponse(reader io.Reader) (response Response, err error) {
+	decoder := json.NewDecoder(reader)
+	for decoder.More() {
+		token, err := decoder.Token()
+		if err != nil {
+			if err == io.EOF {
+				break
+			}
+			return response, err
+		}
+
+		if t, ok := token.(string); ok {
+			switch t {
+			case "failed":
+				raw, err := decoder.Token()
+				if err != nil {
+					return response, err
+				}
+				response.Failed = int(raw.(float64))
+			case "updates":
+				var updates []events.GroupEvent
+				err = decoder.Decode(&updates)
+				if err != nil {
+					return response, err
+				}
+				response.Updates = updates
+			case "ts":
+				// can be a number in the response with "failed" field: {"ts":8,"failed":1}
+				// or string, e.g. {"ts":"8","updates":[]}
+				rawTs, err := decoder.Token()
+				if err != nil {
+					return response, err
+				}
+				if ts, isNumber := rawTs.(float64); isNumber {
+					response.Ts = strconv.Itoa(int(ts))
+				} else {
+					response.Ts = rawTs.(string)
+				}
+			}
+		}
+	}
 
 	return response, err
 }
