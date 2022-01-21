@@ -64,9 +64,7 @@ func TestMain(m *testing.M) {
 	os.Exit(runTests)
 }
 
-func TestWrapper(t *testing.T) {
-	t.Parallel()
-
+func TestWrapper(t *testing.T) { // nolint:paralleltest
 	needUserToken(t)
 	chatID := needChatID(t)
 
