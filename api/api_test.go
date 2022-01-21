@@ -229,8 +229,6 @@ func TestVK_RequestLimit(t *testing.T) {
 	}
 
 	wg.Wait()
-
-	vkUser.Limit = 3
 }
 
 func TestVK_InvalidContentType(t *testing.T) {
