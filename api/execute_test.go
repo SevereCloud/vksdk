@@ -14,7 +14,7 @@ func TestVK_Execute_error(t *testing.T) {
 
 	var response int
 
-	err := vkGroup.Execute(`API.users.get({user_ids:-1});return 1;`, &response)
+	err := vkGroup.Execute(`API.unknown.method();return 1;`, &response)
 	assert.Error(t, err)
 	assert.Equal(t, 1, response)
 }
@@ -41,8 +41,8 @@ func TestVK_ExecuteWithArgs_error(t *testing.T) {
 	var response int
 
 	err := vkGroup.ExecuteWithArgs(
-		`API.users.get({user_ids: parseInt(Args.user_id)});return 1;`,
-		api.Params{"user_id": -1},
+		`API.unknown.method();return parseInt(Args.user_id);`,
+		api.Params{"user_id": 1},
 		&response,
 	)
 	assert.Error(t, err)
