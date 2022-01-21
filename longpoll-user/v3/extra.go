@@ -25,41 +25,44 @@ const (
 )
 
 func (result *Action) parse(v map[string]interface{}) {
-	if sourceAct, exist := v["source_act"].(string); exist {
-		result.SourceAct = sourceAct
+	sourceAct, exist := v["source_act"].(string)
+	if !exist {
+		return
+	}
 
-		switch sourceAct {
-		case "chat_create":
-			if sourceText, ok := v["source_text"].(string); ok {
-				result.SourceText = sourceText
-			}
+	result.SourceAct = sourceAct
 
-		case "chat_title_update":
-			if sourceText, ok := v["source_text"].(string); ok {
-				result.SourceText = sourceText
-			}
+	switch sourceAct {
+	case "chat_create":
+		if sourceText, ok := v["source_text"].(string); ok {
+			result.SourceText = sourceText
+		}
 
-			if sourceOldText, ok := v["source_old_text"].(string); ok {
-				result.SourceOldText = sourceOldText
-			}
+	case "chat_title_update":
+		if sourceText, ok := v["source_text"].(string); ok {
+			result.SourceText = sourceText
+		}
 
-		case "chat_kick_user", "chat_invite_user":
-			if sourceMid, ok := v["source_mid"].(string); ok {
-				result.SourceMid = sourceMid
-			}
+		if sourceOldText, ok := v["source_old_text"].(string); ok {
+			result.SourceOldText = sourceOldText
+		}
 
-		case "chat_pin_message", "chat_unpin_message":
-			if sourceMid, ok := v["source_mid"].(string); ok {
-				result.SourceMid = sourceMid
-			}
+	case "chat_kick_user", "chat_invite_user":
+		if sourceMid, ok := v["source_mid"].(string); ok {
+			result.SourceMid = sourceMid
+		}
 
-			if sourceMessage, ok := v["source_message"].(string); ok {
-				result.SourceMessage = sourceMessage
-			}
+	case "chat_pin_message", "chat_unpin_message":
+		if sourceMid, ok := v["source_mid"].(string); ok {
+			result.SourceMid = sourceMid
+		}
 
-			if sourceChatLocalID, ok := v["source_chat_local_id"].(string); ok {
-				result.SourceChatLocalID = sourceChatLocalID
-			}
+		if sourceMessage, ok := v["source_message"].(string); ok {
+			result.SourceMessage = sourceMessage
+		}
+
+		if sourceChatLocalID, ok := v["source_chat_local_id"].(string); ok {
+			result.SourceChatLocalID = sourceChatLocalID
 		}
 	}
 }
