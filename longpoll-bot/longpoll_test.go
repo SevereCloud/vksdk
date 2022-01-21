@@ -5,11 +5,13 @@ import (
 	"errors"
 	"os"
 	"strconv"
+	"strings"
 	"testing"
 	"time"
 
 	"github.com/SevereCloud/vksdk/v2/api"
 	"github.com/SevereCloud/vksdk/v2/events"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLongPoll_Shutdown(t *testing.T) {
@@ -215,5 +217,53 @@ func TestLongPoll_RunError(t *testing.T) {
 
 	if err := lp.Run(); err == nil {
 		t.Error(err)
+	}
+}
+
+func TestParseResponse(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name     string
+		response string
+		expected Response
+	}{
+		{
+			name:     "failed: 1",
+			response: `{"ts":8,"failed":1}`,
+			expected: Response{
+				Ts:     "8",
+				Failed: 1,
+			},
+		},
+		{
+			name:     "failed: 2",
+			response: `{"failed": 2}`,
+			expected: Response{
+				Failed: 2,
+			},
+		},
+		{
+			name:     "empty updates",
+			response: `{"ts":"8","updates":[]}`,
+			expected: Response{
+				Ts:      "8",
+				Updates: []events.GroupEvent{},
+			},
+		},
+	}
+
+	for _, test := range tests {
+		test := test
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			actual, err := parseResponse(strings.NewReader(test.response))
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			assert.Equal(t, test.expected, actual)
+		})
 	}
 }
