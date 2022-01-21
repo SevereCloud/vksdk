@@ -8,6 +8,7 @@ package longpoll // import "github.com/SevereCloud/vksdk/v2/longpoll-bot"
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -120,6 +121,9 @@ func (lp *LongPoll) check(ctx context.Context) (response Response, err error) {
 	defer resp.Body.Close()
 
 	response, err = parseResponse(resp.Body)
+	if err != nil {
+		return response, err
+	}
 
 	err = lp.checkResponse(response)
 
@@ -131,39 +135,47 @@ func parseResponse(reader io.Reader) (response Response, err error) {
 	for decoder.More() {
 		token, err := decoder.Token()
 		if err != nil {
-			if err == io.EOF {
+			if errors.Is(err, io.EOF) {
 				break
 			}
+
 			return response, err
 		}
 
-		if t, ok := token.(string); ok {
-			switch t {
-			case "failed":
-				raw, err := decoder.Token()
-				if err != nil {
-					return response, err
-				}
-				response.Failed = int(raw.(float64))
-			case "updates":
-				var updates []events.GroupEvent
-				err = decoder.Decode(&updates)
-				if err != nil {
-					return response, err
-				}
-				response.Updates = updates
-			case "ts":
-				// can be a number in the response with "failed" field: {"ts":8,"failed":1}
-				// or string, e.g. {"ts":"8","updates":[]}
-				rawTs, err := decoder.Token()
-				if err != nil {
-					return response, err
-				}
-				if ts, isNumber := rawTs.(float64); isNumber {
-					response.Ts = strconv.Itoa(int(ts))
-				} else {
-					response.Ts = rawTs.(string)
-				}
+		t, ok := token.(string)
+		if !ok {
+			continue
+		}
+
+		switch t {
+		case "failed":
+			raw, err := decoder.Token()
+			if err != nil {
+				return response, err
+			}
+
+			response.Failed = int(raw.(float64))
+		case "updates":
+			var updates []events.GroupEvent
+
+			err = decoder.Decode(&updates)
+			if err != nil {
+				return response, err
+			}
+
+			response.Updates = updates
+		case "ts":
+			// can be a number in the response with "failed" field: {"ts":8,"failed":1}
+			// or string, e.g. {"ts":"8","updates":[]}
+			rawTs, err := decoder.Token()
+			if err != nil {
+				return response, err
+			}
+
+			if ts, isNumber := rawTs.(float64); isNumber {
+				response.Ts = strconv.Itoa(int(ts))
+			} else {
+				response.Ts = rawTs.(string)
 			}
 		}
 	}

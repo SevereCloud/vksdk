@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"os"
-	"reflect"
 	"strconv"
 	"strings"
 	"testing"
@@ -12,6 +11,7 @@ import (
 
 	"github.com/SevereCloud/vksdk/v2/api"
 	"github.com/SevereCloud/vksdk/v2/events"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLongPoll_Shutdown(t *testing.T) {
@@ -252,7 +252,9 @@ func TestParseResponse(t *testing.T) {
 			},
 		},
 	}
+
 	for _, test := range tests {
+		test := test
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
@@ -261,21 +263,7 @@ func TestParseResponse(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			assertEqualResponses(t, test.expected, actual)
+			assert.Equal(t, test.expected, actual)
 		})
-	}
-}
-
-func assertEqualResponses(t *testing.T, expected, actual Response) {
-	t.Helper()
-
-	if expected.Ts != actual.Ts {
-		t.Fatalf("ts not equal, expected: '%s', actual: '%s'", expected.Ts, actual.Ts)
-	}
-	if expected.Failed != actual.Failed {
-		t.Fatalf("failed not equal, expected: '%d', actual: '%d'", expected.Failed, actual.Failed)
-	}
-	if !reflect.DeepEqual(expected.Updates, actual.Updates) {
-		t.Fatalf("updates not equal, expected: '%v', actual: '%v'", expected.Updates, actual.Updates)
 	}
 }
