@@ -7,9 +7,11 @@ package api // import "github.com/SevereCloud/vksdk/v2/api"
 
 import (
 	"bytes"
+	"compress/gzip"
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"mime"
 	"net/http"
 	"net/url"
@@ -21,6 +23,7 @@ import (
 	"github.com/SevereCloud/vksdk/v2"
 	"github.com/SevereCloud/vksdk/v2/internal"
 	"github.com/SevereCloud/vksdk/v2/object"
+	"github.com/klauspost/compress/zstd"
 	"github.com/vmihailenco/msgpack/v5"
 )
 
@@ -93,6 +96,7 @@ type VK struct {
 	Handler      func(method string, params ...Params) (Response, error)
 
 	msgpack bool
+	zstd    bool
 
 	mux      sync.Mutex
 	lastTime time.Time
@@ -246,24 +250,42 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 			return response, err
 		}
 
+		acceptEncoding := "gzip"
+		if vk.zstd {
+			acceptEncoding = "zstd"
+		}
+
 		req.Header.Set("User-Agent", vk.UserAgent)
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+		req.Header.Set("Accept-Encoding", acceptEncoding)
+
+		var reader io.Reader
 
 		resp, err := vk.Client.Do(req)
 		if err != nil {
 			return response, err
 		}
 
+		switch resp.Header.Get("Content-Encoding") {
+		case "zstd":
+			reader, _ = zstd.NewReader(resp.Body)
+		case "gzip":
+			reader, _ = gzip.NewReader(resp.Body)
+		default:
+			reader = resp.Body
+		}
+
 		mediatype, _, _ := mime.ParseMediaType(resp.Header.Get("Content-Type"))
 		switch mediatype {
 		case "application/json":
-			err = json.NewDecoder(resp.Body).Decode(&response)
+			err = json.NewDecoder(reader).Decode(&response)
 			if err != nil {
 				_ = resp.Body.Close()
 				return response, err
 			}
 		case "application/x-msgpack":
-			dec := msgpack.NewDecoder(resp.Body)
+			dec := msgpack.NewDecoder(reader)
 			dec.SetCustomStructTag("json")
 
 			err = dec.Decode(&response)
@@ -339,6 +361,13 @@ func (vk *VK) RequestUnmarshal(method string, obj interface{}, sliceParams ...Pa
 // See https://msgpack.org
 func (vk *VK) EnableMessagePack() {
 	vk.msgpack = true
+}
+
+// EnableZstd enable using zstd instead of gzip.
+//
+// This not use dict.
+func (vk *VK) EnableZstd() {
+	vk.zstd = true
 }
 
 func fmtReflectValue(value reflect.Value, depth int) string {

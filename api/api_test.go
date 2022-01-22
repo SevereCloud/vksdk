@@ -326,3 +326,23 @@ func TestContext(t *testing.T) {
 	_, err := vkUser.UsersGet(p)
 	assert.EqualError(t, err, "Post \"https://api.vk.com/method/users.get\": context deadline exceeded")
 }
+
+func TestVK_EnableMessagePack(t *testing.T) {
+	t.Parallel()
+
+	vk := api.NewVK("")
+	vk.EnableMessagePack()
+
+	_, err := vk.UsersGet(nil)
+	assert.ErrorIs(t, err, api.ErrAuth)
+}
+
+func TestVK_EnableZstd(t *testing.T) {
+	t.Parallel()
+
+	vk := api.NewVK("")
+	vk.EnableZstd()
+
+	_, err := vk.UsersGet(nil)
+	assert.ErrorIs(t, err, api.ErrAuth)
+}

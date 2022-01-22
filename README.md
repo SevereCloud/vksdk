@@ -19,7 +19,8 @@ Version API 5.131.
   - 500+ methods
   - Ability to modify HTTP client
   - Request Limiter
-  - Support [MessagePack](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api#VK.EnableMessagePack)
+  - Support [zstd](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api#VK.EnableZstd)
+and [MessagePack](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api#VK.EnableMessagePack)
   - Token pool
   - [OAuth](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api/oauth)
 - [Callback API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/callback)
