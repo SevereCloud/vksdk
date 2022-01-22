@@ -1,6 +1,7 @@
 package api_test
 
 import (
+	"errors"
 	"testing"
 	"time"
 
@@ -44,7 +45,11 @@ func TestVK_MessagesDelete(t *testing.T) {
 		"message_id": msgID,
 		"message":    "Edit message",
 	})
-	noError(t, err)
+	if err != nil {
+		if !errors.Is(err, api.ErrRequest) {
+			noError(t, err)
+		}
+	}
 
 	pin, err := vkUser.MessagesPin(api.Params{
 		"peer_id":    2000000000 + chatID,

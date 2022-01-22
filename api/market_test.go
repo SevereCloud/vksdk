@@ -1,6 +1,7 @@
 package api_test
 
 import (
+	"errors"
 	"net/http"
 	"testing"
 	"time"
@@ -105,7 +106,7 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 	})
 	noErrorOrFail(t, err)
 
-	time.Sleep(sleepTime)
+	time.Sleep(2 * sleepTime)
 
 	_, err = vkUser.MarketReorderItems(api.Params{
 		"owner_id": -vkGroupID,
@@ -113,7 +114,13 @@ func TestVK_MarketAddAlbum(t *testing.T) {
 		"item_id":  marketID,
 		"before":   marketBeforeID,
 	})
-	noErrorOrFail(t, err)
+	if err != nil {
+		if errors.Is(err, api.ErrMarketNotEnabled) {
+			t.Skip("VK bad error: " + err.Error())
+		} else {
+			noErrorOrFail(t, err)
+		}
+	}
 
 	time.Sleep(sleepTime)
 
