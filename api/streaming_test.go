@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVK_StreamingGetServerURL(t *testing.T) {
@@ -72,9 +73,7 @@ func TestVK_StreamingGetStem(t *testing.T) {
 		t.Errorf("%v", err)
 	}
 
-	if response.Stem != "собак" {
-		t.Error("Stem wrong")
-	}
+	assert.Equal(t, "собак", response.Stem)
 }
 
 func TestVK_StreamingSetSettings(t *testing.T) {

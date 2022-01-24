@@ -379,7 +379,8 @@ type MessagesTemplateElementCarousel struct {
 	Title       string                                `json:"title,omitempty"`
 	Action      MessagesTemplateElementCarouselAction `json:"action,omitempty"`
 	Description string                                `json:"description,omitempty"`
-	Photo       *PhotosPhoto                          `json:"photo,omitempty"`
+	Photo       *PhotosPhoto                          `json:"photo,omitempty"`    // Only read
+	PhotoID     string                                `json:"photo_id,omitempty"` // Only for send
 	Buttons     []MessagesKeyboardButton              `json:"buttons,omitempty"`
 }
 

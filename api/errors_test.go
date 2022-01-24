@@ -101,3 +101,30 @@ func TestAdsError_Is(t *testing.T) {
 	f(&api.AdsError{Code: api.ErrorType(1), Desc: "123"}, &api.AdsError{Code: api.ErrorType(1), Desc: "321"}, false)
 	f(&api.AdsError{Code: api.ErrorType(1)}, &streaming.Error{}, false)
 }
+
+func TestAuthSilentTokenError_Error(t *testing.T) {
+	t.Parallel()
+
+	err := api.AuthSilentTokenError{
+		Code:        1,
+		Description: "test message",
+	}
+	assert.EqualError(t, err, "api: test message")
+}
+
+func TestAuthSilentTokenError_Is(t *testing.T) {
+	t.Parallel()
+
+	f := func(err *api.AuthSilentTokenError, target error, want bool) {
+		assert.Equal(t, want, errors.Is(err, target))
+	}
+
+	f(&api.AuthSilentTokenError{Code: api.ErrorType(1)}, &api.AuthSilentTokenError{Code: api.ErrorType(1)}, true)
+	f(&api.AuthSilentTokenError{Code: api.ErrAuth}, api.ErrAuth, true)
+	f(&api.AuthSilentTokenError{Code: api.ErrorType(1), Description: "123"}, &api.AuthSilentTokenError{Code: api.ErrorType(1), Description: "123"}, true)
+
+	f(&api.AuthSilentTokenError{Code: api.ErrorType(1)}, &api.AuthSilentTokenError{Code: api.ErrorType(2)}, false)
+	f(&api.AuthSilentTokenError{Code: api.ErrorType(1)}, api.ErrorType(2), false)
+	f(&api.AuthSilentTokenError{Code: api.ErrorType(1), Description: "123"}, &api.AuthSilentTokenError{Code: api.ErrorType(1), Description: "321"}, false)
+	f(&api.AuthSilentTokenError{Code: api.ErrorType(1)}, &streaming.Error{}, false)
+}

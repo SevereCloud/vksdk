@@ -1000,3 +1000,31 @@ func (e AdsError) Is(target error) bool {
 
 	return false
 }
+
+// AuthSilentTokenError struct.
+type AuthSilentTokenError struct {
+	Token       string    `json:"token"`
+	Code        ErrorType `json:"code"`
+	Description string    `json:"description"`
+}
+
+// Error returns the description of a AuthSilentTokenError.
+func (e AuthSilentTokenError) Error() string {
+	return "api: " + e.Description
+}
+
+// Is unwraps its first argument sequentially looking for an error that matches
+// the second.
+func (e AuthSilentTokenError) Is(target error) bool {
+	var tError *AuthSilentTokenError
+	if errors.As(target, &tError) {
+		return e.Code == tError.Code && e.Description == tError.Description
+	}
+
+	var tErrorType ErrorType
+	if errors.As(target, &tErrorType) {
+		return e.Code == tErrorType
+	}
+
+	return false
+}

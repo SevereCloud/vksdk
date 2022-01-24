@@ -5,6 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"reflect"
+
+	"github.com/vmihailenco/msgpack/v5"
+	"github.com/vmihailenco/msgpack/v5/msgpcode"
 )
 
 // GroupsAddress WorkInfoStatus of information about timetable.
@@ -325,6 +328,36 @@ func (personal *GroupsCountersGroup) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
+// DecodeMsgpack GroupsCountersGroup.
+//
+// BUG(VK): GroupsCountersGroup return [].
+func (personal *GroupsCountersGroup) DecodeMsgpack(dec *msgpack.Decoder) error {
+	data, err := dec.DecodeRaw()
+	if err != nil {
+		return err
+	}
+
+	if bytes.Equal(data, []byte{msgpcode.FixedArrayLow}) {
+		return nil
+	}
+
+	type renamedGroupsCountersGroup GroupsCountersGroup
+
+	var r renamedGroupsCountersGroup
+
+	d := msgpack.NewDecoder(bytes.NewReader(data))
+	d.SetCustomStructTag("json")
+
+	err = d.Decode(&r)
+	if err != nil {
+		return err
+	}
+
+	*personal = GroupsCountersGroup(r)
+
+	return nil
+}
+
 // GroupsCover struct.
 type GroupsCover struct {
 	Enabled BaseBoolInt `json:"enabled"` // Information whether cover is enabled
@@ -609,6 +642,53 @@ func (g *GroupsSectionsList) UnmarshalJSON(data []byte) error {
 
 	// default concrete Go type float64 for JSON numbers
 	id, ok := alias[0].(float64)
+	if !ok {
+		return &json.UnmarshalTypeError{
+			Value:  string(data),
+			Type:   reflect.TypeOf((*GroupsSectionsList)(nil)),
+			Struct: "GroupsSectionsList",
+			Field:  "ID",
+		}
+	}
+
+	name, ok := alias[1].(string)
+	if !ok {
+		return &json.UnmarshalTypeError{
+			Value:  string(data),
+			Type:   reflect.TypeOf((*GroupsSectionsList)(nil)),
+			Struct: "GroupsSectionsList",
+			Field:  "Name",
+		}
+	}
+
+	g.ID = int(id)
+	g.Name = name
+
+	return nil
+}
+
+// DecodeMsgpack need for decode dynamic array (Example: [1, "Фотографии"]) to struct.
+func (g *GroupsSectionsList) DecodeMsgpack(dec *msgpack.Decoder) error {
+	data, err := dec.DecodeRaw()
+	if err != nil {
+		return err
+	}
+
+	var alias []interface{}
+
+	err = msgpack.Unmarshal(data, &alias)
+	if err != nil {
+		return err
+	}
+
+	if len(alias) != 2 {
+		return &json.UnmarshalTypeError{
+			Value: string(data),
+			Type:  reflect.TypeOf((*GroupsSectionsList)(nil)),
+		}
+	}
+
+	id, ok := alias[0].(int8)
 	if !ok {
 		return &json.UnmarshalTypeError{
 			Value:  string(data),
