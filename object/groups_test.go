@@ -185,3 +185,23 @@ func TestGroupsSectionsList_DecodeMsgpack(t *testing.T) {
 		true,
 	)
 }
+
+func TestGroupsLongPollServer_GetURL(t *testing.T) {
+	t.Parallel()
+
+	f := func(s object.GroupsLongPollServer, wait int, want string) {
+		t.Helper()
+		assert.Equal(t, want, s.GetURL(wait))
+	}
+
+	f(object.GroupsLongPollServer{
+		Key:    "abc",
+		Server: "https://vk.com",
+		Ts:     "123",
+	}, 25, "https://vk.com?act=a_check&key=abc&ts=123&wait=25")
+	f(object.GroupsLongPollServer{
+		Key:    "abc",
+		Server: "https://vk.com",
+		Ts:     "123",
+	}, 10, "https://vk.com?act=a_check&key=abc&ts=123&wait=10")
+}
