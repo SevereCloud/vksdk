@@ -124,6 +124,16 @@ func TestVK_AccountGetPushSettings(t *testing.T) {
 	noError(t, err)
 }
 
+func TestVK_AccountGetZSTDDict(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	vkUser.EnableZstd()
+	err := vkUser.UpdateZstdDict()
+	noError(t, err)
+}
+
 // func TestVK_AccountRegisterDevice(t *testing.T) {
 // TODO: Add test cases
 // }
