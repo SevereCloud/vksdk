@@ -98,6 +98,9 @@ type VK struct {
 	msgpack bool
 	zstd    bool
 
+	zstdVersion string
+	zstdDict    zstd.DOption
+
 	mux      sync.Mutex
 	lastTime time.Time
 	rps      int
@@ -260,6 +263,10 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 
 		req.Header.Set("Accept-Encoding", acceptEncoding)
 
+		if vk.zstdVersion != "" {
+			req.Header.Set("x-zstd-dict-version", vk.zstdVersion)
+		}
+
 		var reader io.Reader
 
 		resp, err := vk.Client.Do(req)
@@ -269,7 +276,7 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 
 		switch resp.Header.Get("Content-Encoding") {
 		case "zstd":
-			reader, _ = zstd.NewReader(resp.Body)
+			reader, _ = zstd.NewReader(resp.Body, vk.zstdDict)
 		case "gzip":
 			reader, _ = gzip.NewReader(resp.Body)
 		default:
@@ -368,6 +375,55 @@ func (vk *VK) EnableMessagePack() {
 // This not use dict.
 func (vk *VK) EnableZstd() {
 	vk.zstd = true
+}
+
+// SetZstdDict set vk zstd dict.
+func (vk *VK) SetZstdDict(data []byte) error {
+	// zstd dictionary start with Magic_Number:  4 bytes ID, value 0xEC30A437,
+	// little-endian format.
+	//
+	// https://datatracker.ietf.org/doc/html/rfc8878#section-5
+	indexMagicNumber := bytes.Index(data, []byte{0x37, 0xa4, 0x30, 0xec})
+	if indexMagicNumber == -1 {
+		return fmt.Errorf("api: zstd dictionary not found. %w", zstd.ErrMagicMismatch)
+	}
+
+	vk.zstdVersion = string(data[:indexMagicNumber])
+	vk.zstdDict = zstd.WithDecoderDicts(data[indexMagicNumber:])
+
+	return nil
+}
+
+// LoadZstdDict return zstd dict.
+func (vk *VK) LoadZstdDict() (data []byte, err error) {
+	r, err := vk.AccountGetZSTDDict(nil)
+	if err != nil {
+		return
+	}
+
+	resp, err := vk.Client.Get(r.Link)
+	if err != nil {
+		return
+	}
+
+	data, err = io.ReadAll(resp.Body)
+	if err != nil {
+		return
+	}
+
+	err = resp.Body.Close()
+
+	return
+}
+
+// UpdateZstdDict update vk zstd dict.
+func (vk *VK) UpdateZstdDict() error {
+	data, err := vk.LoadZstdDict()
+	if err != nil {
+		return err
+	}
+
+	return vk.SetZstdDict(data)
 }
 
 func fmtReflectValue(value reflect.Value, depth int) string {

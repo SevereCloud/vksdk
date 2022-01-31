@@ -108,6 +108,21 @@ func (vk *VK) AccountGetPushSettings(params Params) (response AccountGetPushSett
 	return
 }
 
+// AccountGetZSTDDictResponse struct.
+type AccountGetZSTDDictResponse struct {
+	Link    string `json:"link"`
+	Version string `json:"version"`
+	Hash    string `json:"hash"`
+}
+
+// AccountGetZSTDDict method.
+//
+// https://vk.com/dev/account.getZSTDDict
+func (vk *VK) AccountGetZSTDDict(params Params) (response AccountGetZSTDDictResponse, err error) {
+	err = vk.RequestUnmarshal("account.getZSTDDict", &response, params)
+	return
+}
+
 // AccountRegisterDevice subscribes an iOS/Android/Windows/Mac based device to receive push notifications.
 //
 // https://vk.com/dev/account.registerDevice

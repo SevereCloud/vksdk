@@ -98,9 +98,7 @@ VK API способно возвращать ответ в виде [MessagePack
 СЛОМАННУЮ КОДИРОВКУ.
 
 Для сжатия, вместо классического gzip, можно использовать
-[zstd](https://github.com/facebook/zstd). Сейчас vksdk поддерживает zstd без
-словаря. Если кто знает как получать словарь,
-[отпишитесь сюда](https://github.com/SevereCloud/vksdk/issues/180).
+[zstd](https://github.com/facebook/zstd).
 
 ```go
 vk := api.NewVK(os.Getenv("USER_TOKEN"))
@@ -126,6 +124,18 @@ if err != nil {
 	log.Fatal(err)
 }
 log.Println("msgpack:", len(r)) // msgpack: 650775
+```
+
+Чтобы загрузить и использовать zstd словарь, воспользуйтесь
+методом `vk.UpdateZstdDict()`
+
+```go
+vk.EnableZstd()
+
+err := vk.UpdateZstdDict()
+if err != nil {
+	log.Fatal(err)
+}
 ```
 
 ### Запрос любого метода
