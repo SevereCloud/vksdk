@@ -648,7 +648,8 @@ type SubscriptionStatusChangeResponse struct {
 func (cb *Callback) OnSubscriptionStatusChange(f func(e SubscriptionStatusChangeRequest) (
 	*SubscriptionStatusChangeResponse,
 	*Error,
-)) {
+),
+) {
 	cb.subscriptionStatusChange = f
 }
 
@@ -656,7 +657,8 @@ func (cb *Callback) OnSubscriptionStatusChange(f func(e SubscriptionStatusChange
 func (cb *Callback) OnSubscriptionStatusChangeTest(f func(e SubscriptionStatusChangeRequest) (
 	*SubscriptionStatusChangeResponse,
 	*Error,
-)) {
+),
+) {
 	cb.subscriptionStatusChangeTest = f
 }
 
