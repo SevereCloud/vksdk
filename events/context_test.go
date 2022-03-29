@@ -24,3 +24,11 @@ func TestEventIDFromContext(t *testing.T) {
 	ctx := context.WithValue(context.Background(), internal.EventIDKey, eventID)
 	assert.Equal(t, eventID, events.EventIDFromContext(ctx))
 }
+
+func TestVersionFromContext(t *testing.T) {
+	t.Parallel()
+
+	const version = "5.131"
+	ctx := context.WithValue(context.Background(), internal.EventVersionKey, version)
+	assert.Equal(t, version, events.VersionFromContext(ctx))
+}
