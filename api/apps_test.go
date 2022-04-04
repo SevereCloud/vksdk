@@ -44,7 +44,7 @@ func TestVK_AppsGet(t *testing.T) {
 		// assert.NotEmpty(t, res.Items[0].Installed)
 		// assert.NotEmpty(t, res.Items[0].LeaderboardType)
 		assert.NotEmpty(t, res.Items[0].MembersCount)
-		assert.NotEmpty(t, res.Items[0].PublishedDate)
+		// assert.NotEmpty(t, res.Items[0].PublishedDate)
 		assert.NotEmpty(t, res.Items[0].Section)
 	}
 }
