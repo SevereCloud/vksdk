@@ -143,7 +143,8 @@ func TestVK_BoardGetComments(t *testing.T) {
 		assert.NotEmpty(t, res2.Profiles[0].FirstName)
 		assert.NotEmpty(t, res2.Profiles[0].LastName)
 		assert.NotEmpty(t, res2.Profiles[0].Sex)
-		assert.NotEmpty(t, res2.Profiles[0].ScreenName)
+		// BUG(VK): deactivated users not return ScreenName
+		// assert.NotEmpty(t, res2.Profiles[0].ScreenName)
 		assert.NotEmpty(t, res2.Profiles[0].Photo50)
 		assert.NotEmpty(t, res2.Profiles[0].Photo100)
 		assert.NotEmpty(t, res2.Profiles[0].OnlineInfo)
