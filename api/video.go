@@ -347,3 +347,27 @@ func (vk *VK) VideoSearchExtended(params Params) (response VideoSearchExtendedRe
 
 	return
 }
+
+// VideoStartStreamingResponse struct.
+type VideoStartStreamingResponse object.VideoLive
+
+// VideoStartStreaming method.
+//
+// https://vk.com/dev/video.startStreaming
+func (vk *VK) VideoStartStreaming(params Params) (response VideoStartStreamingResponse, err error) {
+	err = vk.RequestUnmarshal("video.startStreaming", &response, params)
+	return
+}
+
+// VideoStopStreamingResponse struct.
+type VideoStopStreamingResponse struct {
+	UniqueViewers int `json:"unique_viewers"`
+}
+
+// VideoStopStreaming method.
+//
+// https://vk.com/dev/video.stopStreaming
+func (vk *VK) VideoStopStreaming(params Params) (response VideoStopStreamingResponse, err error) {
+	err = vk.RequestUnmarshal("video.stopStreaming", &response, params)
+	return
+}

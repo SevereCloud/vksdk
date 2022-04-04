@@ -326,3 +326,19 @@ func TestVK_VideoSearchExtended(t *testing.T) {
 	assert.NotEmpty(t, res.Count)
 	assert.NotEmpty(t, res.Items)
 }
+
+func TestVK_VideoStartStreaming(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	res, err := vkUser.VideoStartStreaming(nil)
+	noError(t, err)
+
+	assert.NotEmpty(t, res)
+
+	_, err = vkUser.VideoStopStreaming(api.Params{
+		"video_id": res.VideoID,
+	})
+	noError(t, err)
+}

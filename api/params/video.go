@@ -1142,3 +1142,105 @@ func (b *VideoSearchBuilder) LegalOwner(v int) *VideoSearchBuilder {
 	b.Params["legal_owner"] = v
 	return b
 }
+
+// VideoStartStreamingBuilder builder.
+//
+// https://vk.com/dev/video.startStreaming
+type VideoStartStreamingBuilder struct {
+	api.Params
+}
+
+// NewVideoStartStreamingBuilder func.
+func NewVideoStartStreamingBuilder() *VideoStartStreamingBuilder {
+	return &VideoStartStreamingBuilder{api.Params{}}
+}
+
+// VideoID parameter.
+func (b *VideoStartStreamingBuilder) VideoID(v int) *VideoStartStreamingBuilder {
+	b.Params["video_id"] = v
+	return b
+}
+
+// Name parameter.
+func (b *VideoStartStreamingBuilder) Name(v string) *VideoStartStreamingBuilder {
+	b.Params["name"] = v
+	return b
+}
+
+// Description parameter.
+func (b *VideoStartStreamingBuilder) Description(v string) *VideoStartStreamingBuilder {
+	b.Params["description"] = v
+	return b
+}
+
+// Wallpost parameter.
+func (b *VideoStartStreamingBuilder) Wallpost(v bool) *VideoStartStreamingBuilder {
+	b.Params["wallpost"] = v
+	return b
+}
+
+// GroupID parameter.
+func (b *VideoStartStreamingBuilder) GroupID(v int) *VideoStartStreamingBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// PrivacyView parameter.
+func (b *VideoStartStreamingBuilder) PrivacyView(v []string) *VideoStartStreamingBuilder {
+	b.Params["privacy_view"] = v
+	return b
+}
+
+// PrivacyComment parameter.
+func (b *VideoStartStreamingBuilder) PrivacyComment(v []string) *VideoStartStreamingBuilder {
+	b.Params["privacy_comment"] = v
+	return b
+}
+
+// NoComments parameter.
+func (b *VideoStartStreamingBuilder) NoComments(v bool) *VideoStartStreamingBuilder {
+	b.Params["no_comments"] = v
+	return b
+}
+
+// CategoryID parameter.
+func (b *VideoStartStreamingBuilder) CategoryID(v int) *VideoStartStreamingBuilder {
+	b.Params["category_id"] = v
+	return b
+}
+
+// Publish parameter.
+func (b *VideoStartStreamingBuilder) Publish(v bool) *VideoStartStreamingBuilder {
+	b.Params["publish"] = v
+	return b
+}
+
+// VideoStopStreamingBuilder builder.
+//
+// https://vk.com/dev/video.stopStreaming
+type VideoStopStreamingBuilder struct {
+	api.Params
+}
+
+// NewVideoStopStreamingBuilder func.
+func NewVideoStopStreamingBuilder() *VideoStopStreamingBuilder {
+	return &VideoStopStreamingBuilder{api.Params{}}
+}
+
+// GroupID parameter.
+func (b *VideoStopStreamingBuilder) GroupID(v int) *VideoStopStreamingBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// OwnerID parameter.
+func (b *VideoStopStreamingBuilder) OwnerID(v int) *VideoStopStreamingBuilder {
+	b.Params["owner_id"] = v
+	return b
+}
+
+// VideoID parameter.
+func (b *VideoStopStreamingBuilder) VideoID(v int) *VideoStopStreamingBuilder {
+	b.Params["video_id"] = v
+	return b
+}

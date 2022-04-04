@@ -444,3 +444,45 @@ func TestVideoSearchBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["legal"], true)
 	assert.Equal(t, b.Params["legal_owner"], 1)
 }
+
+func TestVideoStartStreamingBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewVideoStartStreamingBuilder()
+
+	b.VideoID(1)
+	b.Name("text")
+	b.Description("text")
+	b.Wallpost(true)
+	b.GroupID(1)
+	b.PrivacyView([]string{"text"})
+	b.PrivacyComment([]string{"text"})
+	b.NoComments(true)
+	b.CategoryID(1)
+	b.Publish(true)
+
+	assert.Equal(t, b.Params["video_id"], 1)
+	assert.Equal(t, b.Params["name"], "text")
+	assert.Equal(t, b.Params["description"], "text")
+	assert.Equal(t, b.Params["wallpost"], true)
+	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["privacy_view"], []string{"text"})
+	assert.Equal(t, b.Params["privacy_comment"], []string{"text"})
+	assert.Equal(t, b.Params["no_comments"], true)
+	assert.Equal(t, b.Params["category_id"], 1)
+	assert.Equal(t, b.Params["publish"], true)
+}
+
+func TestVideoStopStreamingBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewVideoStopStreamingBuilder()
+
+	b.GroupID(1)
+	b.OwnerID(1)
+	b.VideoID(1)
+
+	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, b.Params["video_id"], 1)
+}
