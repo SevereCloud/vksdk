@@ -264,6 +264,17 @@ func TestVK_VideoGetCommentsExtended(t *testing.T) {
 	assert.NotEmpty(t, res.Profiles)
 }
 
+func TestVK_VideoLiveGetCategories(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	res, err := vkUser.VideoLiveGetCategories(nil)
+	noError(t, err)
+
+	assert.NotEmpty(t, res)
+}
+
 func TestVK_VideoReport(t *testing.T) {
 	t.Parallel()
 

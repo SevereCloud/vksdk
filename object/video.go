@@ -297,3 +297,10 @@ type VideoVideoImage struct {
 	BaseImage
 	WithPadding BaseBoolInt `json:"with_padding"`
 }
+
+// VideoLiveCategory struct.
+type VideoLiveCategory struct {
+	ID      int                 `json:"id"`
+	Label   string              `json:"label"`
+	Sublist []VideoLiveCategory `json:"sublist,omitempty"`
+}

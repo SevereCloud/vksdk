@@ -235,6 +235,17 @@ func (vk *VK) VideoGetCommentsExtended(params Params) (response VideoGetComments
 	return
 }
 
+// VideoLiveGetCategoriesResponse struct.
+type VideoLiveGetCategoriesResponse []object.VideoLiveCategory
+
+// VideoLiveGetCategories method.
+//
+// https://vk.com/dev/video.liveGetCategories
+func (vk *VK) VideoLiveGetCategories(params Params) (response VideoLiveGetCategoriesResponse, err error) {
+	err = vk.RequestUnmarshal("video.liveGetCategories", &response, params)
+	return
+}
+
 // VideoRemoveFromAlbum allows you to remove the video from the album.
 //
 // https://vk.com/dev/video.removeFromAlbum
