@@ -57,6 +57,9 @@ linters:
     - grouper
     - decorder
     - containedctx
+    - execinquery
+    - nonamedreturns
+    - nosprintfhostport
 
 # - wrapcheck # TODO: v3 Fix
 # - testpackage # TODO: Fix testpackage
