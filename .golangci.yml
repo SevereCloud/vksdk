@@ -58,7 +58,6 @@ linters:
     - decorder
     - containedctx
     # - execinquery # FIXME: panic in 1.46.0
-    - nonamedreturns
     - nosprintfhostport
 
 # - wrapcheck # TODO: v3 Fix
@@ -90,6 +89,7 @@ linters:
 # - varnamelen
 # - errchkjson
 # - maintidx
+# - nonamedreturns
 
 # depricated
 # - maligned

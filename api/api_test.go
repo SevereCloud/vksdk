@@ -52,7 +52,7 @@ func noError(t *testing.T, err error) bool {
 			t.Log(s)
 		}
 	} else if err != nil {
-		t.Log(fmt.Sprintf("\n%#v", err))
+		t.Logf("\n%#v", err)
 	}
 
 	return assert.NoError(t, err)
