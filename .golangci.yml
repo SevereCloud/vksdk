@@ -57,7 +57,7 @@ linters:
     - grouper
     - decorder
     - containedctx
-    - execinquery
+    # - execinquery # FIXME: panic in 1.46.0
     - nonamedreturns
     - nosprintfhostport
 
