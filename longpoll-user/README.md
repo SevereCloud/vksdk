@@ -1,6 +1,6 @@
 # User Long Poll API
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/longpoll-user)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-user)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/Derad6709/vksdk/v2/longpoll-user)](https://pkg.go.dev/github.com/Derad6709/vksdk/v2/longpoll-user)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/using_longpoll)
 
 ## Подключение User Long Poll API
@@ -53,7 +53,7 @@ lp.Client = client
 
 Обработчики, которые возвращают полноценные структуры:
 
-- Для [3 версии](https://github.com/SevereCloud/vksdk/tree/master/longpoll-user/v3)
+- Для [3 версии](https://github.com/Derad6709/vksdk/tree/master/longpoll-user/v3)
 
 Для каждого события существует отдельный обработчик, который передает функции `[]interface{}`.
 
@@ -101,9 +101,9 @@ package main
 import (
 	"log"
 
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/Derad6709/vksdk/v2/api"
 
-	longpoll "github.com/SevereCloud/vksdk/v2/longpoll-user"
+	longpoll "github.com/Derad6709/vksdk/v2/longpoll-user"
 )
 
 func main() {

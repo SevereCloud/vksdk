@@ -3,13 +3,13 @@ Package events for community events handling.
 
 See more https://vk.com/dev/groups_events
 */
-package events // import "github.com/SevereCloud/vksdk/v2/events"
+package events // import "github.com/Derad6709/vksdk/v2/events"
 
 import (
 	"context"
 	"encoding/json"
 
-	"github.com/SevereCloud/vksdk/v2/internal"
+	"github.com/Derad6709/vksdk/v2/internal"
 )
 
 // EventType type.

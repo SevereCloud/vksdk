@@ -1,6 +1,6 @@
-package api // import "github.com/SevereCloud/vksdk/v2/api"
+package api // import "github.com/Derad6709/vksdk/v2/api"
 
-import "github.com/SevereCloud/vksdk/v2/object"
+import "github.com/Derad6709/vksdk/v2/object"
 
 // PrettyCardsCreateResponse struct.
 type PrettyCardsCreateResponse struct {

@@ -1,6 +1,6 @@
 # Callback API
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/callback)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/callback)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/Derad6709/vksdk/v2/callback)](https://pkg.go.dev/github.com/Derad6709/vksdk/v2/callback)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/callback_api)
 
 ## Подключение Callback API
@@ -72,8 +72,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/SevereCloud/vksdk/v2/callback"
-	"github.com/SevereCloud/vksdk/v2/events"
+	"github.com/Derad6709/vksdk/v2/callback"
+	"github.com/Derad6709/vksdk/v2/events"
 )
 
 func main() {
@@ -114,9 +114,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/SevereCloud/vksdk/v2/api"
-	"github.com/SevereCloud/vksdk/v2/callback"
-	"github.com/SevereCloud/vksdk/v2/events"
+	"github.com/Derad6709/vksdk/v2/api"
+	"github.com/Derad6709/vksdk/v2/callback"
+	"github.com/Derad6709/vksdk/v2/events"
 )
 
 func main() {

@@ -10,8 +10,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/SevereCloud/vksdk/v2/api"
-	"github.com/SevereCloud/vksdk/v2/streaming"
+	"github.com/Derad6709/vksdk/v2/api"
+	"github.com/Derad6709/vksdk/v2/streaming"
 )
 
 var stream *streaming.Streaming // nolint:gochecknoglobals

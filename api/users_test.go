@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/Derad6709/vksdk/v2/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -194,7 +194,7 @@ func TestVK_UsersReport(t *testing.T) {
 	res, err := vkUser.UsersReport(api.Params{
 		"user_id": 1,
 		"type":    "spam",
-		"comment": "Тестовый репорт - github.com/SevereCloud/vksdk",
+		"comment": "Тестовый репорт - github.com/Derad6709/vksdk",
 	})
 
 	if errors.Is(err, api.ErrAccess) {

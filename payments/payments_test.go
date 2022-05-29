@@ -3,7 +3,7 @@ package payments_test
 import (
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/payments"
+	"github.com/Derad6709/vksdk/v2/payments"
 	"github.com/stretchr/testify/assert"
 )
 

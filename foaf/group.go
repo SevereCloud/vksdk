@@ -1,4 +1,4 @@
-package foaf // import "github.com/SevereCloud/vksdk/v2/foaf"
+package foaf // import "github.com/Derad6709/vksdk/v2/foaf"
 
 import (
 	"context"

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/marusia"
+	"github.com/Derad6709/vksdk/v2/marusia"
 	"github.com/stretchr/testify/assert"
 )
 

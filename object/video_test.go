@@ -3,7 +3,7 @@ package object_test
 import (
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/object"
+	"github.com/Derad6709/vksdk/v2/object"
 )
 
 func TestVideoVideo_ToAttachment(t *testing.T) {

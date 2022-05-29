@@ -1,12 +1,12 @@
 // Package callback implements Callback API.
-package callback // import "github.com/SevereCloud/vksdk/v2/callback"
+package callback // import "github.com/Derad6709/vksdk/v2/callback"
 
 import (
 	"crypto/rand"
 	"errors"
 
-	"github.com/SevereCloud/vksdk/v2"
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/Derad6709/vksdk/v2"
+	"github.com/Derad6709/vksdk/v2/api"
 )
 
 // generateRandomBytes returns securely generated random bytes.

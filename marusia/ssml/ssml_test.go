@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/SevereCloud/vksdk/v2/marusia/ssml"
+	"github.com/Derad6709/vksdk/v2/marusia/ssml"
 )
 
 func ExampleNewBuilder() {

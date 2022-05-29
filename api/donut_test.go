@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/Derad6709/vksdk/v2/api"
 )
 
 func TestVK_DonutGetFriends(t *testing.T) {

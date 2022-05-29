@@ -1,9 +1,9 @@
-package longpoll // import "github.com/SevereCloud/vksdk/v2/longpoll-bot"
+package longpoll // import "github.com/Derad6709/vksdk/v2/longpoll-bot"
 
 import (
 	"context"
 
-	"github.com/SevereCloud/vksdk/v2/internal"
+	"github.com/Derad6709/vksdk/v2/internal"
 )
 
 // TsFromContext returns the ts from context.
