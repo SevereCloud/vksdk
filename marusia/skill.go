@@ -438,7 +438,7 @@ type AudioPlaylist struct {
 // AudioStream описание информации об аудиозаписи.
 type AudioStream struct {
 	// ID аудио внутри плейлиста, должен быть уникальным для каждого аудио.
-	TrackID string `json:"track_id"`
+	TrackID int `json:"track_id"`
 
 	// Тип источника аудиозаписи. Может иметь 2 значения url и vk.
 	// source_type url доступен только после одобрения со стороны
