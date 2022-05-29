@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/api/oauth"
+	"github.com/Derad6709/vksdk/v2/api/oauth"
 	"github.com/stretchr/testify/assert"
 )
 

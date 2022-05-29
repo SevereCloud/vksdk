@@ -1,6 +1,6 @@
 # API
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/api)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/Derad6709/vksdk/v2/api)](https://pkg.go.dev/github.com/Derad6709/vksdk/v2/api)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/first_guide)
 
 Данная библиотека поддерживает версию API **5.131**.
@@ -19,7 +19,7 @@ vk := api.NewVK("<TOKEN>")
 - `groups.get` с extended=1 -> `vk.GroupsGetExtended(api.Params{})`
 
 Список всех методов можно найти на
-[данной странице](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api?tab=doc#VK).
+[данной странице](https://pkg.go.dev/github.com/Derad6709/vksdk/v2/api?tab=doc#VK).
 
 Пример запроса [`users.get`](https://vk.com/dev/users.get)
 
@@ -34,12 +34,12 @@ if err != nil {
 
 ### Параметры
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/api/params)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api/params)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/Derad6709/vksdk/v2/api/params)](https://pkg.go.dev/github.com/Derad6709/vksdk/v2/api/params)
 
 Модуль params предназначен для генерации параметров запроса.
 
 ```go
-// import "github.com/SevereCloud/vksdk/v2/api/params"
+// import "github.com/Derad6709/vksdk/v2/api/params"
 
 b := params.NewMessageSendBuilder()
 b.PeerID(123)
@@ -100,7 +100,7 @@ VK API способно возвращать ответ в виде [MessagePack
 Для сжатия, вместо классического gzip, можно использовать
 [zstd](https://github.com/facebook/zstd). Сейчас vksdk поддерживает zstd без
 словаря. Если кто знает как получать словарь,
-[отпишитесь сюда](https://github.com/SevereCloud/vksdk/issues/180).
+[отпишитесь сюда](https://github.com/Derad6709/vksdk/issues/180).
 
 ```go
 vk := api.NewVK(os.Getenv("USER_TOKEN"))
@@ -152,7 +152,7 @@ log.Print(response)
 
 ### Execute
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/errors)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api#VK.Execute)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/Derad6709/vksdk/v2/errors)](https://pkg.go.dev/github.com/Derad6709/vksdk/v2/api#VK.Execute)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/execute)
 
 Универсальный метод, который позволяет запускать последовательность других

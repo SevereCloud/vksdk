@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/Derad6709/vksdk/v2/api"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -150,7 +150,7 @@ func TestVK_WallGetByID(t *testing.T) {
 	noError(t, err)
 }
 
-// See https://github.com/SevereCloud/vksdk/issues/147
+// See https://github.com/Derad6709/vksdk/issues/147
 func TestVK_WallGetByID_issues147(t *testing.T) {
 	t.Parallel()
 

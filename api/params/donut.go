@@ -1,6 +1,6 @@
 package params
 
-import "github.com/SevereCloud/vksdk/v2/api"
+import "github.com/Derad6709/vksdk/v2/api"
 
 // DonutGetFriendsBuilder struct.
 type DonutGetFriendsBuilder struct {

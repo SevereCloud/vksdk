@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/object"
+	"github.com/Derad6709/vksdk/v2/object"
 	"github.com/stretchr/testify/assert"
 	"github.com/vmihailenco/msgpack/v5"
 	"github.com/vmihailenco/msgpack/v5/msgpcode"

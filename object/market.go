@@ -1,4 +1,4 @@
-package object // import "github.com/SevereCloud/vksdk/v2/object"
+package object // import "github.com/Derad6709/vksdk/v2/object"
 
 import (
 	"bytes"
@@ -83,7 +83,7 @@ type MarketMarketItem struct {
 
 // UnmarshalJSON MarketMarketItem.
 //
-// BUG(VK): https://github.com/SevereCloud/vksdk/issues/147
+// BUG(VK): https://github.com/Derad6709/vksdk/issues/147
 func (market *MarketMarketItem) UnmarshalJSON(data []byte) error {
 	if bytes.Equal(data, []byte("false")) {
 		return nil
@@ -105,7 +105,7 @@ func (market *MarketMarketItem) UnmarshalJSON(data []byte) error {
 
 // DecodeMsgpack MarketMarketItem.
 //
-// BUG(VK): https://github.com/SevereCloud/vksdk/issues/147
+// BUG(VK): https://github.com/Derad6709/vksdk/issues/147
 func (market *MarketMarketItem) DecodeMsgpack(dec *msgpack.Decoder) error {
 	data, err := dec.DecodeRaw()
 	if err != nil {

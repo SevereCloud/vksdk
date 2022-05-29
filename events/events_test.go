@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/SevereCloud/vksdk/v2/events"
+	"github.com/Derad6709/vksdk/v2/events"
 )
 
 const GID = 123456

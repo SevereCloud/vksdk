@@ -9,4 +9,4 @@ Package wrapper implement User Long Poll API wrapper v3.
 
 VK documentation https://vk.com/dev/using_longpoll
 */
-package wrapper // import "github.com/SevereCloud/vksdk/v2/longpoll-user/v3"
+package wrapper // import "github.com/Derad6709/vksdk/v2/longpoll-user/v3"

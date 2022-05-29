@@ -1,4 +1,4 @@
-package marusia // import "github.com/SevereCloud/vksdk/v2/marusia"
+package marusia // import "github.com/Derad6709/vksdk/v2/marusia"
 
 // CardType тип карточки.
 type CardType string

@@ -9,4 +9,4 @@ Package params for generating query parameters.
 
 	res, err = api.MessageSend(b.Params)
 */
-package params // import "github.com/SevereCloud/vksdk/v2/api/params"
+package params // import "github.com/Derad6709/vksdk/v2/api/params"

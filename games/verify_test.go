@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/games"
+	"github.com/Derad6709/vksdk/v2/games"
 )
 
 func TestParamsVerify(t *testing.T) {

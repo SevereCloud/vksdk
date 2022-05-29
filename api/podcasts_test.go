@@ -3,7 +3,7 @@ package api_test
 import (
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/Derad6709/vksdk/v2/api"
 )
 
 func TestVK_PodcastsGet(t *testing.T) {
