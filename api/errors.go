@@ -625,6 +625,9 @@ const (
 	// Access token has expired.
 	ErrAuthAccessTokenHasExpired ErrorType = 1117
 
+	// Anonymous token ip mismatch.
+	ErrAuthAnonymousTokenIPMismatch ErrorType = 1118
+
 	// Invalid document id.
 	ErrParamDocID ErrorType = 1150
 
