@@ -78,6 +78,7 @@ const (
 	QuickSearch           Referral = "quick_search"
 	Widget                Referral = "widget"
 	Other                 Referral = "other"
+	Showcase              Referral = "showcase"
 )
 
 // Catalog transition from the catalog. Return empty string if not Catalog.
