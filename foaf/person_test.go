@@ -2,6 +2,8 @@ package foaf_test
 
 import (
 	"context"
+	"errors"
+	"net/http"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v2/foaf"
@@ -15,6 +17,10 @@ func TestGetPerson_Verified(t *testing.T) {
 		t.Helper()
 
 		person, err := foaf.GetPerson(context.Background(), userID)
+		if errors.Is(err, foaf.ErrorStatusCode{Code: http.StatusTooManyRequests}) {
+			t.SkipNow()
+		}
+
 		assert.NoError(t, err)
 		assert.Equal(t, foaf.AccessAllowed, person.PublicAccess)
 		assert.Equal(t, foaf.ProfileStateVerified, person.ProfileState)
@@ -40,6 +46,10 @@ func TestGetPerson_Banned(t *testing.T) {
 	t.Parallel()
 
 	person, err := foaf.GetPerson(context.Background(), 540036751)
+	if errors.Is(err, foaf.ErrorStatusCode{Code: http.StatusTooManyRequests}) {
+		t.SkipNow()
+	}
+
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.ProfileStateBanned, person.ProfileState)
 	assert.Equal(t, foaf.AccessAllowed, person.PublicAccess)
@@ -49,6 +59,10 @@ func TestGetPerson_Deleted(t *testing.T) {
 	t.Parallel()
 
 	person, err := foaf.GetPerson(context.Background(), 3)
+	if errors.Is(err, foaf.ErrorStatusCode{Code: http.StatusTooManyRequests}) {
+		t.SkipNow()
+	}
+
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.ProfileStateDeleted, person.ProfileState)
 	assert.Equal(t, foaf.AccessAllowed, person.PublicAccess)
@@ -58,6 +72,10 @@ func TestGetPerson_Active(t *testing.T) {
 	t.Parallel()
 
 	person, err := foaf.GetPerson(context.Background(), 5024999)
+	if errors.Is(err, foaf.ErrorStatusCode{Code: http.StatusTooManyRequests}) {
+		t.SkipNow()
+	}
+
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.ProfileStateActive, person.ProfileState)
 	assert.Equal(t, foaf.AccessDisallowed, person.PublicAccess)
@@ -70,6 +88,10 @@ func TestGetPerson(t *testing.T) {
 		t.Helper()
 
 		_, err := foaf.GetPerson(context.Background(), userID)
+		if errors.Is(err, foaf.ErrorStatusCode{Code: http.StatusTooManyRequests}) {
+			t.SkipNow()
+		}
+
 		assert.NoError(t, err)
 	}
 

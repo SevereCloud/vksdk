@@ -59,6 +59,15 @@ type Date struct {
 	Date string `xml:"date,attr"`
 }
 
+// ErrorStatusCode struct.
+type ErrorStatusCode struct {
+	Code int
+}
+
+func (e ErrorStatusCode) Error() string {
+	return http.StatusText(e.Code)
+}
+
 // getFoaf return RDF.
 //
 // BUG: VK return invalid XML char (example &#12;).
@@ -68,6 +77,11 @@ func getFoaf(ctx context.Context, req *http.Request) (r rdf, err error) {
 		return
 	}
 	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		err = &ErrorStatusCode{Code: resp.StatusCode}
+		return
+	}
 
 	decoder := xml.NewDecoder(resp.Body)
 

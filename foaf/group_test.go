@@ -2,6 +2,8 @@ package foaf_test
 
 import (
 	"context"
+	"errors"
+	"net/http"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v2/foaf"
@@ -31,6 +33,10 @@ func TestGetGroup_Group(t *testing.T) {
 	t.Parallel()
 
 	group, err := foaf.GetGroup(context.Background(), 1)
+	if errors.Is(err, foaf.ErrorStatusCode{Code: http.StatusTooManyRequests}) {
+		t.SkipNow()
+	}
+
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypeGroup, group.GroupType)
 	testGroup(t, group)
@@ -40,6 +46,10 @@ func TestGetGroup_Public(t *testing.T) {
 	t.Parallel()
 
 	group, err := foaf.GetGroup(context.Background(), 29534144)
+	if errors.Is(err, foaf.ErrorStatusCode{Code: http.StatusTooManyRequests}) {
+		t.SkipNow()
+	}
+
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypePublic, group.GroupType)
 	testGroup(t, group)
@@ -49,6 +59,10 @@ func TestGetGroup_Event(t *testing.T) {
 	t.Parallel()
 
 	group, err := foaf.GetGroup(context.Background(), 174832349)
+	if errors.Is(err, foaf.ErrorStatusCode{Code: http.StatusTooManyRequests}) {
+		t.SkipNow()
+	}
+
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypeEvent, group.GroupType)
 	testGroup(t, group)
@@ -61,6 +75,10 @@ func TestGetGroup_Private(t *testing.T) {
 	t.Parallel()
 
 	group, err := foaf.GetGroup(context.Background(), 184580855)
+	if errors.Is(err, foaf.ErrorStatusCode{Code: http.StatusTooManyRequests}) {
+		t.SkipNow()
+	}
+
 	assert.NoError(t, err)
 	assert.Equal(t, foaf.GroupTypeGroup, group.GroupType)
 }
