@@ -503,6 +503,20 @@ func TestVK_MessagesSetActivity(t *testing.T) {
 	noError(t, err)
 }
 
+func TestVK_MessagesCalls(t *testing.T) {
+	t.Parallel()
+
+	needUserToken(t)
+
+	startCall, err := vkUser.MessagesStartCall(nil)
+	noError(t, err)
+
+	_, err = vkUser.MessagesForceCallFinish(api.Params{
+		"call_id": startCall.CallID,
+	})
+	noError(t, err)
+}
+
 func TestVK_MessagesUnpin(t *testing.T) {
 	t.Parallel()
 

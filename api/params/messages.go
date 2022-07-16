@@ -339,6 +339,24 @@ func (b *MessagesEditChatBuilder) Title(v string) *MessagesEditChatBuilder {
 	return b
 }
 
+// MessagesForceCallFinishBuilder builder.
+//
+// https://vk.com/dev/messages.forceCallFinish
+type MessagesForceCallFinishBuilder struct {
+	api.Params
+}
+
+// NewMessagesForceCallFinishBuilder func.
+func NewMessagesForceCallFinishBuilder() *MessagesForceCallFinishBuilder {
+	return &MessagesForceCallFinishBuilder{api.Params{}}
+}
+
+// CallID parameter.
+func (b *MessagesForceCallFinishBuilder) CallID(v string) *MessagesForceCallFinishBuilder {
+	b.Params["call_id"] = v
+	return b
+}
+
 // MessagesGetByConversationMessageIDBuilder builder.
 //
 // Returns messages by their IDs within the conversation.
@@ -1653,6 +1671,24 @@ func NewMessagesSetChatPhotoBuilder() *MessagesSetChatPhotoBuilder {
 // method upon successfully uploading an image.
 func (b *MessagesSetChatPhotoBuilder) File(v string) *MessagesSetChatPhotoBuilder {
 	b.Params["file"] = v
+	return b
+}
+
+// MessagesStartCallBuilder builder.
+//
+// https://vk.com/dev/messages.startCall
+type MessagesStartCallBuilder struct {
+	api.Params
+}
+
+// NewMessagesStartCallBuilder func.
+func NewMessagesStartCallBuilder() *MessagesStartCallBuilder {
+	return &MessagesStartCallBuilder{api.Params{}}
+}
+
+// GroupID parameter.
+func (b *MessagesStartCallBuilder) GroupID(v int) *MessagesStartCallBuilder {
+	b.Params["group_id"] = v
 	return b
 }
 

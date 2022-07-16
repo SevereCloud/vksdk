@@ -145,6 +145,16 @@ func TestMessagesEditChatBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["title"], "text")
 }
 
+func TestMessagesForceCallFinishBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMessagesForceCallFinishBuilder()
+
+	b.CallID("text")
+
+	assert.Equal(t, b.Params["call_id"], "text")
+}
+
 func TestMessagesGetByConversationMessageIDBuilder(t *testing.T) {
 	t.Parallel()
 
@@ -649,6 +659,16 @@ func TestMessagesSetChatPhotoBuilder(t *testing.T) {
 	b.File("text")
 
 	assert.Equal(t, b.Params["file"], "text")
+}
+
+func TestMessagesStartCallBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewMessagesStartCallBuilder()
+
+	b.GroupID(1)
+
+	assert.Equal(t, b.Params["group_id"], 1)
 }
 
 func TestMessagesUnpinBuilder(t *testing.T) {
