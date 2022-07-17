@@ -93,3 +93,44 @@ func TestVK_AppsGetScopes(t *testing.T) {
 
 // TODO: TestVK_AppsGetScore
 // TODO: TestVK_AppsSendRequest
+
+func TestVK_AppsTestingGroups(t *testing.T) {
+	t.Parallel()
+
+	needServiceToken(t)
+
+	respUpdate, err := vkService.AppsUpdateMetaForTestingGroup(api.Params{
+		"webview":   "https://example.com",
+		"name":      "example",
+		"platforms": []string{"mobile"},
+	})
+	noErrorOrFail(t, err)
+
+	_, err = vkService.AppsAddUsersToTestingGroup(api.Params{
+		"user_ids": []int{1},
+		"group_id": respUpdate.GroupID,
+	})
+	noError(t, err)
+
+	resp, err := vkService.AppsGetTestingGroups(api.Params{
+		"group_id": respUpdate.GroupID,
+	})
+	noError(t, err)
+
+	if assert.NotEmpty(t, resp) {
+		assert.NotEmpty(t, resp[0].GroupID)
+		assert.NotEmpty(t, resp[0].Name)
+		assert.NotEmpty(t, resp[0].Webview)
+	}
+
+	_, err = vkService.AppsRemoveUsersFromTestingGroups(api.Params{
+		"user_ids": []int{1},
+		"group_id": respUpdate.GroupID,
+	})
+	noError(t, err)
+
+	_, err = vkService.AppsRemoveTestingGroup(api.Params{
+		"group_id": respUpdate.GroupID,
+	})
+	noError(t, err)
+}

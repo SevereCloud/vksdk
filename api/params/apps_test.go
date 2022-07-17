@@ -7,6 +7,18 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestAppsAddUsersToTestingGroupBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewAppsAddUsersToTestingGroupBuilder()
+
+	b.UserIDs([]int{1})
+	b.GroupID(1)
+
+	assert.Equal(t, b.Params["user_ids"], []int{1})
+	assert.Equal(t, b.Params["group_id"], 1)
+}
+
 func TestAppsGetBuilder(t *testing.T) {
 	t.Parallel()
 
@@ -111,6 +123,36 @@ func TestAppsGetScoreBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["user_id"], 1)
 }
 
+func TestAppsGetTestingGroupsBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewAppsGetTestingGroupsBuilder()
+
+	b.GroupID(1)
+
+	assert.Equal(t, b.Params["group_id"], 1)
+}
+
+func TestAppsRemoveUsersFromTestingGroupsBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewAppsRemoveUsersFromTestingGroupsBuilder()
+
+	b.UserIDs([]int{1})
+
+	assert.Equal(t, b.Params["user_ids"], []int{1})
+}
+
+func TestAppsRemoveTestingGroupBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewAppsRemoveTestingGroupBuilder()
+
+	b.GroupID(1)
+
+	assert.Equal(t, b.Params["group_id"], 1)
+}
+
 func TestAppsSendRequestBuilder(t *testing.T) {
 	t.Parallel()
 
@@ -129,4 +171,22 @@ func TestAppsSendRequestBuilder(t *testing.T) {
 	assert.Equal(t, b.Params["name"], "text")
 	assert.Equal(t, b.Params["key"], "text")
 	assert.Equal(t, b.Params["separate"], true)
+}
+
+func TestAppsUpdateMetaForTestingGroupBuilder(t *testing.T) {
+	t.Parallel()
+
+	b := params.NewAppsUpdateMetaForTestingGroupBuilder()
+
+	b.GroupID(1)
+	b.Webview("text")
+	b.Name("text")
+	b.Platforms([]string{"text"})
+	b.UserIDs([]int{1})
+
+	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, b.Params["webview"], "text")
+	assert.Equal(t, b.Params["name"], "text")
+	assert.Equal(t, b.Params["platforms"], []string{"text"})
+	assert.Equal(t, b.Params["user_ids"], []int{1})
 }

@@ -4,6 +4,30 @@ import (
 	"github.com/SevereCloud/vksdk/v2/api"
 )
 
+// AppsAddUsersToTestingGroupBuilder builder.
+//
+// https://vk.com/dev/apps.addUsersToTestingGroup
+type AppsAddUsersToTestingGroupBuilder struct {
+	api.Params
+}
+
+// NewAppsAddUsersToTestingGroupBuilder func.
+func NewAppsAddUsersToTestingGroupBuilder() *AppsAddUsersToTestingGroupBuilder {
+	return &AppsAddUsersToTestingGroupBuilder{api.Params{}}
+}
+
+// UserIDs users ID.
+func (b *AppsAddUsersToTestingGroupBuilder) UserIDs(v []int) *AppsAddUsersToTestingGroupBuilder {
+	b.Params["user_ids"] = v
+	return b
+}
+
+// GroupID group ID.
+func (b *AppsAddUsersToTestingGroupBuilder) GroupID(v int) *AppsAddUsersToTestingGroupBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
 // AppsGetBuilder builder.
 //
 // Returns applications data.
@@ -353,6 +377,60 @@ func (b *AppsGetScoreBuilder) UserID(v int) *AppsGetScoreBuilder {
 	return b
 }
 
+// AppsGetTestingGroupsBuilder builder.
+//
+// https://vk.com/dev/apps.getTestingGroups
+type AppsGetTestingGroupsBuilder struct {
+	api.Params
+}
+
+// NewAppsGetTestingGroupsBuilder func.
+func NewAppsGetTestingGroupsBuilder() *AppsGetTestingGroupsBuilder {
+	return &AppsGetTestingGroupsBuilder{api.Params{}}
+}
+
+// GroupID group ID.
+func (b *AppsGetTestingGroupsBuilder) GroupID(v int) *AppsGetTestingGroupsBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// AppsRemoveUsersFromTestingGroupsBuilder builder.
+//
+// https://vk.com/dev/apps.removeUsersFromTestingGroups
+type AppsRemoveUsersFromTestingGroupsBuilder struct {
+	api.Params
+}
+
+// NewAppsRemoveUsersFromTestingGroupsBuilder func.
+func NewAppsRemoveUsersFromTestingGroupsBuilder() *AppsRemoveUsersFromTestingGroupsBuilder {
+	return &AppsRemoveUsersFromTestingGroupsBuilder{api.Params{}}
+}
+
+// UserIDs users ID.
+func (b *AppsRemoveUsersFromTestingGroupsBuilder) UserIDs(v []int) *AppsRemoveUsersFromTestingGroupsBuilder {
+	b.Params["user_ids"] = v
+	return b
+}
+
+// AppsRemoveTestingGroupBuilder builder.
+//
+// https://vk.com/dev/apps.removeTestingGroup
+type AppsRemoveTestingGroupBuilder struct {
+	api.Params
+}
+
+// NewAppsRemoveTestingGroupBuilder func.
+func NewAppsRemoveTestingGroupBuilder() *AppsRemoveTestingGroupBuilder {
+	return &AppsRemoveTestingGroupBuilder{api.Params{}}
+}
+
+// GroupID group ID.
+func (b *AppsRemoveTestingGroupBuilder) GroupID(v int) *AppsRemoveTestingGroupBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
 // AppsSendRequestBuilder builder.
 //
 // Sends a request to another user in an app that uses VK authorization.
@@ -404,5 +482,47 @@ func (b *AppsSendRequestBuilder) Key(v string) *AppsSendRequestBuilder {
 // Separate parameter.
 func (b *AppsSendRequestBuilder) Separate(v bool) *AppsSendRequestBuilder {
 	b.Params["separate"] = v
+	return b
+}
+
+// AppsUpdateMetaForTestingGroupBuilder builder.
+//
+// https://vk.com/dev/apps.UpdateMetaForTestingGroup
+type AppsUpdateMetaForTestingGroupBuilder struct {
+	api.Params
+}
+
+// NewAppsUpdateMetaForTestingGroupBuilder func.
+func NewAppsUpdateMetaForTestingGroupBuilder() *AppsUpdateMetaForTestingGroupBuilder {
+	return &AppsUpdateMetaForTestingGroupBuilder{api.Params{}}
+}
+
+// GroupID parameter.
+func (b *AppsUpdateMetaForTestingGroupBuilder) GroupID(v int) *AppsUpdateMetaForTestingGroupBuilder {
+	b.Params["group_id"] = v
+	return b
+}
+
+// Webview parameter.
+func (b *AppsUpdateMetaForTestingGroupBuilder) Webview(v string) *AppsUpdateMetaForTestingGroupBuilder {
+	b.Params["webview"] = v
+	return b
+}
+
+// Name parameter.
+func (b *AppsUpdateMetaForTestingGroupBuilder) Name(v string) *AppsUpdateMetaForTestingGroupBuilder {
+	b.Params["name"] = v
+	return b
+}
+
+// Platforms parameter.
+func (b *AppsUpdateMetaForTestingGroupBuilder) Platforms(v []string) *AppsUpdateMetaForTestingGroupBuilder {
+	b.Params["platforms"] = v
+	return b
+}
+
+// UserIDs users ID.
+func (b *AppsUpdateMetaForTestingGroupBuilder) UserIDs(v []int) *AppsUpdateMetaForTestingGroupBuilder {
+	b.Params["user_ids"] = v
 	return b
 }
