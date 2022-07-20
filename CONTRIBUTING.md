@@ -54,17 +54,17 @@ go test ./...
 
 ```json
 {
-    "go.testEnvVars": {
-        "SERVICE_TOKEN": "",
-        "WIDGET_TOKEN": "",
-        "MARUSIA_TOKEN": "",
-        "GROUP_TOKEN": "",
-        "CLIENT_SECRET": "",
-        "USER_TOKEN": "",
-        "CLIENT_ID": "123456",
-        "GROUP_ID": "123456",
-        "ACCOUNT_ID": "123456"
-    }
+  "go.testEnvVars": {
+    "SERVICE_TOKEN": "",
+    "WIDGET_TOKEN": "",
+    "MARUSIA_TOKEN": "",
+    "GROUP_TOKEN": "",
+    "CLIENT_SECRET": "",
+    "USER_TOKEN": "",
+    "CLIENT_ID": "123456",
+    "GROUP_ID": "123456",
+    "ACCOUNT_ID": "123456"
+  }
 }
 ```
 
@@ -88,7 +88,4 @@ git push origin <name_of_your_new_branch>
 ```
 
 Затем откройте [pull request](https://github.com/SevereCloud/vksdk/pulls)
-с веткой:
-
-- `master` если это багфикс
-- `dev-v1.2.3` если это новая фича
+с веткой master

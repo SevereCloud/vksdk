@@ -57,12 +57,12 @@ linters:
     - grouper
     - decorder
     - containedctx
-    # - execinquery # FIXME: panic in 1.46.0
     - nosprintfhostport
 
 # - wrapcheck # TODO: v3 Fix
 # - testpackage # TODO: Fix testpackage
 # - noctx # TODO: Fix noctx
+# - asasalint # TODO: Need support 1.18
 
 # don't enable:
 # - depguard
@@ -90,6 +90,8 @@ linters:
 # - errchkjson
 # - maintidx
 # - nonamedreturns
+# - nosnakecase
+# - execinquery
 
 # depricated
 # - maligned
