@@ -2810,10 +2810,9 @@ const (
 
 // State parameter.
 //
-// 	none
-// 	basic
-// 	advanced
-//
+//	none
+//	basic
+//	advanced
 func (b *GroupsToggleMarketBuilder) State(v GroupMarketState) *GroupsToggleMarketBuilder {
 	b.Params["state"] = v
 	return b

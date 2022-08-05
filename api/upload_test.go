@@ -298,7 +298,7 @@ func TestVK_UploadVideo_Error(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadVideo(api.Params{}, response.Body)
-	if _, ok := err.(*api.UploadError); err != nil && !ok { // nolint:errorlint
+	if _, ok := err.(*api.UploadError); err != nil && !ok { //nolint:errorlint
 		t.Errorf("VK.UploadVideo() err = %v, want %v", err, -1)
 	}
 }
@@ -309,7 +309,7 @@ func TestVK_uploadDoc_Error(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.UploadDoc("", "", new(bytes.Buffer))
-	if _, ok := err.(*api.UploadError); err != nil && !ok { // nolint:errorlint
+	if _, ok := err.(*api.UploadError); err != nil && !ok { //nolint:errorlint
 		t.Errorf("VK.UploadDoc() err = %v, want %v", err, -1)
 	}
 }
@@ -413,7 +413,7 @@ func TestVK_UploadStoriesPhoto_Error(t *testing.T) {
 	needUserToken(t)
 
 	_, err := vkUser.UploadStoriesPhoto(api.Params{}, new(bytes.Buffer))
-	if _, ok := err.(*api.UploadError); err != nil && !ok { // nolint:errorlint
+	if _, ok := err.(*api.UploadError); err != nil && !ok { //nolint:errorlint
 		t.Errorf("VK.UploadStoriesPhoto() err = %v, want %v", err, -1)
 	}
 }
@@ -430,7 +430,7 @@ func TestVK_UploadStoriesVideo_Error(t *testing.T) {
 	defer response.Body.Close()
 
 	_, err = vkUser.UploadStoriesVideo(api.Params{}, response.Body)
-	if _, ok := err.(*api.UploadError); err != nil && !ok { // nolint:errorlint
+	if _, ok := err.(*api.UploadError); err != nil && !ok { //nolint:errorlint
 		t.Errorf("VK.UploadStoriesVideo() err = %v, want %v", err, -1)
 	}
 }

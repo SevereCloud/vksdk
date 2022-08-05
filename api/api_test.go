@@ -139,9 +139,9 @@ func needMarusiaToken(t *testing.T) {
 }
 
 var (
-	vkGroup, vkService, vkUser, vkWidget, vkMarusia *api.VK    // nolint:gochecknoglobals
-	vkUserID, vkGroupID, vkChatID, vkAccountID      int        // nolint:gochecknoglobals
-	mux                                             sync.Mutex // nolint:gochecknoglobals
+	vkGroup, vkService, vkUser, vkWidget, vkMarusia *api.VK    //nolint:gochecknoglobals
+	vkUserID, vkGroupID, vkChatID, vkAccountID      int        //nolint:gochecknoglobals
+	mux                                             sync.Mutex //nolint:gochecknoglobals
 )
 
 func TestMain(m *testing.M) {

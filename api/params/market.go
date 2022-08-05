@@ -194,7 +194,7 @@ func (b *MarketCreateCommentBuilder) Message(v string) *MarketCreateCommentBuild
 
 // Attachments comma-separated list of objects attached to a comment.
 // The field is submitted the following way: , "'<owner_id>_<media_id>,<owner_id>_<media_id>'",
-// '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
+// ” - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
 // '<owner_id>' - media owner id, '<media_id>' - media attachment id,
 // For example: "photo100172_166443618,photo66748_265827614".
 func (b *MarketCreateCommentBuilder) Attachments(v interface{}) *MarketCreateCommentBuilder {
@@ -556,7 +556,7 @@ func (b *MarketEditCommentBuilder) Message(v string) *MarketEditCommentBuilder {
 
 // Attachments comma-separated list of objects attached to a comment. The field is submitted the following way:
 // , "'<owner_id>_<media_id>,<owner_id>_<media_id>'",
-// '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
+// ” - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
 // '<owner_id>' - media owner id, '<media_id>' - media attachment id,
 // For example: "photo100172_166443618,photo66748_265827614".
 func (b *MarketEditCommentBuilder) Attachments(v interface{}) *MarketEditCommentBuilder {

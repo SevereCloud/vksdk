@@ -29,7 +29,7 @@ func TestNewCallback(t *testing.T) {
 	f := func(v url.Values, wantResp response) {
 		t.Helper()
 
-		req, err := http.NewRequest("POST", "/payments", strings.NewReader(v.Encode()))
+		req, err := http.NewRequest(http.MethodPost, "/payments", strings.NewReader(v.Encode()))
 		assert.NoError(t, err)
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
@@ -146,7 +146,7 @@ func TestCallback_OnGetItem(t *testing.T) {
 	f := func(v url.Values, wantResp response) {
 		t.Helper()
 
-		req, err := http.NewRequest("POST", "/payments", strings.NewReader(v.Encode()))
+		req, err := http.NewRequest(http.MethodPost, "/payments", strings.NewReader(v.Encode()))
 		assert.NoError(t, err)
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
@@ -257,7 +257,7 @@ func TestCallback_OnGetSubscription(t *testing.T) {
 	f := func(v url.Values, wantResp response) {
 		t.Helper()
 
-		req, err := http.NewRequest("POST", "/payments", strings.NewReader(v.Encode()))
+		req, err := http.NewRequest(http.MethodPost, "/payments", strings.NewReader(v.Encode()))
 		assert.NoError(t, err)
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
@@ -377,7 +377,7 @@ func TestCallback_OnOrderStatusChange(t *testing.T) {
 	f := func(v url.Values, wantResp response) {
 		t.Helper()
 
-		req, err := http.NewRequest("POST", "/payments", strings.NewReader(v.Encode()))
+		req, err := http.NewRequest(http.MethodPost, "/payments", strings.NewReader(v.Encode()))
 		assert.NoError(t, err)
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
@@ -509,7 +509,7 @@ func TestCallback_OnSubscriptionStatusChange(t *testing.T) {
 	f := func(v url.Values, wantResp response) {
 		t.Helper()
 
-		req, err := http.NewRequest("POST", "/payments", strings.NewReader(v.Encode()))
+		req, err := http.NewRequest(http.MethodPost, "/payments", strings.NewReader(v.Encode()))
 		assert.NoError(t, err)
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
@@ -609,7 +609,7 @@ func TestParseForm(t *testing.T) {
 
 	cb := payments.NewCallback(secret)
 
-	req, err := http.NewRequest("POST", "/payments", strings.NewReader("body"))
+	req, err := http.NewRequest(http.MethodPost, "/payments", strings.NewReader("body"))
 	assert.NoError(t, err)
 	req.Header.Set("Content-Type", "text/plain; boundary=")
 

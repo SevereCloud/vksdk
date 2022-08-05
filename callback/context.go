@@ -18,9 +18,9 @@ func RetryCounterFromContext(ctx context.Context) int {
 //
 // Possible HTTP status codes:
 //
-// 	http.StatusGone
-// 	http.StatusTooManyRequests
-// 	http.StatusServiceUnavailable
+//	http.StatusGone
+//	http.StatusTooManyRequests
+//	http.StatusServiceUnavailable
 //
 // The resend time range must be less than 3 hours. The actual time of
 // forwarding an event notification may be longer than the specified time.

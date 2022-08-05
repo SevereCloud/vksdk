@@ -158,7 +158,7 @@ func (b *PhotosCreateCommentBuilder) Message(v string) *PhotosCreateCommentBuild
 
 // Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
-// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// ” — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID.
 // Example: "photo100172_166443618,photo66748_265827614".
 func (b *PhotosCreateCommentBuilder) Attachments(v interface{}) *PhotosCreateCommentBuilder {
@@ -433,7 +433,7 @@ func (b *PhotosEditCommentBuilder) Message(v string) *PhotosEditCommentBuilder {
 // Attachments (Required if 'message' is not set.)
 // List of objects attached to the post, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
-// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// ” — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — Media attachment owner ID. '<media_id>' — Media attachment ID.
 // Example: "photo100172_166443618,photo66748_265827614".
 func (b *PhotosEditCommentBuilder) Attachments(v interface{}) *PhotosEditCommentBuilder {

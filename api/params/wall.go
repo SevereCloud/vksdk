@@ -93,7 +93,7 @@ func (b *WallCreateCommentBuilder) ReplyToComment(v int) *WallCreateCommentBuild
 // Attachments (Required if 'message' is not set.) List of media objects attached to the comment,
 // in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
-// '' — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// ” — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
 // For example: "photo100172_166443618,photo66748_265827614".
 func (b *WallCreateCommentBuilder) Attachments(v interface{}) *WallCreateCommentBuilder {
@@ -205,7 +205,7 @@ func (b *WallEditBuilder) Message(v string) *WallEditBuilder {
 
 // Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
-// '' — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// ” — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
 // May contain a link to an external page to include in the post.
 // Example: "photo66748_265827614,http://habrahabr.ru",
@@ -316,7 +316,7 @@ func (b *WallEditAdsStealthBuilder) Message(v string) *WallEditAdsStealthBuilder
 
 // Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
-// '' — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// ” — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
 // May contain a link to an external page to include in the post.
 // Example: "photo66748_265827614,http://habrahabr.ru",
@@ -413,7 +413,7 @@ func (b *WallEditCommentBuilder) Message(v string) *WallEditCommentBuilder {
 
 // Attachments list of objects attached to the comment, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
-// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// ” — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album,
 // '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
 //
@@ -757,7 +757,7 @@ func (b *WallPostBuilder) Message(v string) *WallPostBuilder {
 
 // Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
-// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// ” — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album,
 // '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
 //
@@ -908,7 +908,7 @@ func (b *WallPostAdsStealthBuilder) Message(v string) *WallPostAdsStealthBuilder
 
 // Attachments (Required if 'message' is not set.) List of objects attached to the post, in the following format:
 // "<owner_id>_<media_id>,<owner_id>_<media_id>",
-// '' — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
+// ” — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // 'page' — wiki-page, 'note' — note, 'poll' — poll, 'album' — photo album,
 // '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
 //

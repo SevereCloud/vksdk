@@ -7,12 +7,11 @@ request but it doesn't immediately send the answer but rather when some event
 will happen (for example, receiving a new incoming message), or waiting
 period is over.
 
-
 By using this approach, you can instantly display in your app the most
 important events. Be aware that with the help of Long Poll, you won't be able
 to send messages. For this, you’ll need to use the messages.send method.
 
-Initialization
+# Initialization
 
 The module can be used with the user access key obtained in the Standalone
 application via Implicit Flow(access rights required: messages) or with
@@ -25,7 +24,7 @@ And then longpoll
 	mode := longpoll.ReceiveAttachments + longpoll.ExtendedEvents
 	lp, err := longpoll.NewLongPoll(vk, mode)
 
-Setting
+# Setting
 
 TODO: write about lp.Ts lp.Wait
 
@@ -39,16 +38,15 @@ The module has the ability to modify the HTTP client
 	httpTransport.Dial = dialer.Dial
 	lp.Client.Transport = httpTransport
 
-Wrapper
+# Wrapper
 
-Wrapper allows you to get ready-made structures
+# Wrapper allows you to get ready-made structures
 
 Wrapper for v3 https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-user/v3
 
-Run and shutdown
+# Run and shutdown
 
 TODO: write about lp.Run() and lp.Shutdown()
-
 
 VK documentation https://vk.com/dev/using_longpoll
 */
@@ -165,7 +163,7 @@ func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 	q.Set("version", strconv.Itoa(lp.Version))
 	u.RawQuery = q.Encode()
 
-	req, err := http.NewRequest("GET", u.String(), nil)
+	req, err := http.NewRequest(http.MethodGet, u.String(), nil)
 	if err != nil {
 		return
 	}

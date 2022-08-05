@@ -41,8 +41,8 @@ func needChatID(t *testing.T) int {
 }
 
 var (
-	vkUser             *api.VK // nolint:gochecknoglobals
-	vkUserID, vkChatID int     // nolint:gochecknoglobals
+	vkUser             *api.VK //nolint:gochecknoglobals
+	vkUserID, vkChatID int     //nolint:gochecknoglobals
 )
 
 func TestMain(m *testing.M) {

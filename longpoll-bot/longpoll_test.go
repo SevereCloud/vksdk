@@ -68,7 +68,7 @@ func TestLongPoll_Shutdown(t *testing.T) {
 
 func TestLongPoll_Handler(t *testing.T) {
 	t.Parallel()
-	// nolint:gocyclo
+	//nolint:gocyclo
 	lp := &LongPoll{}
 
 	lp.FullResponse(func(resp Response) {})
@@ -132,7 +132,7 @@ func TestNewLongPollCommunity(t *testing.T) {
 	})
 }
 
-func TestLongPoll_checkResponse(t *testing.T) { // nolint: tparallel
+func TestLongPoll_checkResponse(t *testing.T) { //nolint: tparallel
 	t.Parallel()
 
 	groupToken := os.Getenv("GROUP_TOKEN")
@@ -170,7 +170,7 @@ func TestLongPoll_checkResponse(t *testing.T) { // nolint: tparallel
 			wantErr:     true,
 		},
 	}
-	for _, tt := range tests { // nolint: paralleltest
+	for _, tt := range tests { //nolint: paralleltest
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			if err := lp.checkResponse(tt.argResponse); (err != nil) != tt.wantErr {

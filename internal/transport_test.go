@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -54,7 +53,7 @@ func TestGo17Context(t *testing.T) {
 	}))
 	defer ts.Close()
 
-	req, err := http.NewRequest("GET", ts.URL, nil)
+	req, err := http.NewRequest(http.MethodGet, ts.URL, nil)
 	if err != nil {
 		t.Fatalf("unexpected error in http.NewRequests: %v", err)
 	}
@@ -85,7 +84,7 @@ func TestNoTimeout(t *testing.T) {
 	ts := httptest.NewServer(http.HandlerFunc(okHandler))
 	defer ts.Close()
 
-	req, err := http.NewRequest("GET", ts.URL, nil)
+	req, err := http.NewRequest(http.MethodGet, ts.URL, nil)
 	if err != nil {
 		t.Fatalf("unexpected error in http.NewRequests: %v", err)
 	}
@@ -98,7 +97,7 @@ func TestNoTimeout(t *testing.T) {
 	}
 	defer resp.Body.Close()
 
-	slurp, err := ioutil.ReadAll(resp.Body)
+	slurp, err := io.ReadAll(resp.Body)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -124,7 +123,7 @@ func TestCancelBeforeHeaders(t *testing.T) {
 	defer ts.Close()
 	defer close(blockServer)
 
-	req, err := http.NewRequest("GET", ts.URL, nil)
+	req, err := http.NewRequest(http.MethodGet, ts.URL, nil)
 	if err != nil {
 		t.Fatalf("unexpected error in http.NewRequests: %v", err)
 	}

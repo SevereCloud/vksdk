@@ -43,7 +43,7 @@ func TestRetryAfter(t *testing.T) {
 
 	jsonStr := []byte(`{"type": "message_new","object": {}}`)
 
-	req, err := http.NewRequest("POST", "/callback", bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer(jsonStr))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -68,7 +68,7 @@ func TestRemove(t *testing.T) {
 
 	jsonStr := []byte(`{"type": "message_new","object": {}}`)
 
-	req, err := http.NewRequest("POST", "/callback", bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer(jsonStr))
 	if err != nil {
 		t.Fatal(err)
 	}

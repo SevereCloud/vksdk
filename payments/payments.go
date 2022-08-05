@@ -6,7 +6,7 @@ Documentation: https://vk.com/dev/payments
 With Payments API applications can sell virtual products to users or provide
 them with services using VK internal currency — votes.
 
-Processing payment notifications
+# Processing payment notifications
 
 Documentation: https://vk.com/dev/payments_callbacks
 
@@ -55,7 +55,7 @@ time.
 
 	http.ListenAndServe(":8080", nil)
 
-Test Mode
+# Test Mode
 
 Documentation: https://vk.com/dev/payments_testmode
 
@@ -102,7 +102,7 @@ overlap with the order IDs in operating mode.
 package payments // import "github.com/SevereCloud/vksdk/v2/payments"
 
 import (
-	"crypto/md5" // nolint: gosec
+	"crypto/md5" //nolint: gosec
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
@@ -379,11 +379,11 @@ type GetItemResponse struct {
 // developer shall return actual information about such product. When there
 // is no product available, reply with Error 20 "Product does not exist".
 //
-// 		&payments.Error{
-// 			Code:     payments.ProductNotExist,
-// 			Msg:      "Product does not exist",
-// 			Critical: true,
-// 		}
+//	&payments.Error{
+//		Code:     payments.ProductNotExist,
+//		Msg:      "Product does not exist",
+//		Critical: true,
+//	}
 //
 // Please note! As item is passed at the client side, user can change this
 // parameters.
@@ -527,11 +527,11 @@ type GetSubscriptionRequest struct {
 // return current information about it. If there is no product, error 20
 // “Subscription does not exist” should be returned in the response.
 //
-// 		&payments.Error{
-// 			Code:     payments.ProductNotExist,
-// 			Msg:      "Subscription does not exist",
-// 			Critical: true,
-// 		}
+//	&payments.Error{
+//		Code:     payments.ProductNotExist,
+//		Msg:      "Subscription does not exist",
+//		Critical: true,
+//	}
 //
 // Warning! Due to the item being sent on the client-side, this parameter can be changed by users.
 type GetSubscriptionResponse struct {
@@ -804,7 +804,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 // to the parameter name and the secret signature api_secret indicated in
 // your app settings.
 func (cb *Callback) Sign(values url.Values) string {
-	h := md5.New() // nolint: gosec
+	h := md5.New() //nolint: gosec
 	_, _ = io.WriteString(h, getConcatenationParams(values)+cb.Secret)
 
 	return toHex(h.Sum(nil))

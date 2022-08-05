@@ -14,7 +14,7 @@ https://vk.com/support?act=new_api
 
 VK documentation https://vk.com/dev/streaming_api_docs
 
-Initialization
+# Initialization
 
 This can be used with a service token.
 
@@ -26,7 +26,7 @@ You can change client for http and websocket:
 	s.Client = ... // default http.DefaultClient,
 	s.Dialer = ... // default websocket.DefaultDialer,
 
-Rules Format
+# Rules Format
 
 A rule is a set of keywords. If they present in an object text, that object
 gets into the stream.
@@ -42,7 +42,7 @@ should be put inside double quotes.
 Each rule has a ‘’’value’’’, the rule’s content and a ‘’’tag’’’. With each
 object you receive a list of its tags to figure out what rules does it fit.
 
-Limitations
+# Limitations
 
 - the maximum number of rules — 300;
 
@@ -50,7 +50,7 @@ Limitations
 
 - the maximum length of a rule (value) in bytes — 4096;
 
-Methods List
+# Methods List
 
 You need the following methods to work with Streaming API:
 
@@ -59,7 +59,7 @@ You need the following methods to work with Streaming API:
 	s.DeleteRule(tag) // removes a rule from a stream
 	s.UpdateRules(rules) // removes all rules and adds a new rule to a stream
 
-Getting Stream
+# Getting Stream
 
 Handler for event:
 
@@ -76,7 +76,6 @@ For start streaming:
 For stop streaming:
 
 	s.Shutdown()
-
 */
 package streaming
 
@@ -166,7 +165,7 @@ func (s *Streaming) doRequest(req *http.Request) (*response, error) {
 func (s *Streaming) GetRules() ([]Rule, error) {
 	link := fmt.Sprintf("https://%s/rules/?key=%s", s.Endpoint, s.Key)
 
-	req, err := http.NewRequest("GET", link, nil)
+	req, err := http.NewRequest(http.MethodGet, link, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -199,7 +198,7 @@ func (s *Streaming) AddRule(tag, value string) error {
 	buf := new(bytes.Buffer)
 	_ = json.NewEncoder(buf).Encode(body)
 
-	req, err := http.NewRequest("POST", link, buf)
+	req, err := http.NewRequest(http.MethodPost, link, buf)
 	if err != nil {
 		return err
 	}
@@ -226,7 +225,7 @@ func (s *Streaming) DeleteRule(tag string) error {
 	buf := new(bytes.Buffer)
 	_ = json.NewEncoder(buf).Encode(body)
 
-	req, err := http.NewRequest("DELETE", link, buf)
+	req, err := http.NewRequest(http.MethodDelete, link, buf)
 	if err != nil {
 		return err
 	}

@@ -130,9 +130,9 @@ func (b *NewsfeedGetBuilder) MaxPhotos(v int) *NewsfeedGetBuilder {
 	return b
 }
 
-// SourceIDs sources to obtain news from, separated by commas. User IDs can be specified in formats '' or 'u' ,
-// where '' is the user's friend ID.
-// Community IDs can be specified in formats '-' or 'g' , where '' is the community ID.
+// SourceIDs sources to obtain news from, separated by commas. User IDs can be specified in formats ” or 'u' ,
+// where ” is the user's friend ID.
+// Community IDs can be specified in formats '-' or 'g' , where ” is the community ID.
 //
 // If the parameter is not set, all of the user's friends and communities are returned, except for banned sources,
 // which can be obtained with the [vk.com/dev/newsfeed.getBanned|newsfeed.getBanned] method.

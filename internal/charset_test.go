@@ -2,7 +2,7 @@ package internal_test
 
 import (
 	"bytes"
-	"io/ioutil"
+	"io"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v2/internal"
@@ -15,7 +15,7 @@ func TestXMLSanitizerReader(t *testing.T) {
 	r := bytes.NewBuffer([]byte{0x09, 0x0B})
 	newR := internal.XMLSanitizerReader(r)
 
-	b, err := ioutil.ReadAll(newR)
+	b, err := io.ReadAll(newR)
 	assert.NoError(t, err)
 	assert.Equal(t, []byte{0x09}, b)
 }

@@ -202,7 +202,7 @@ func TestCallback_HandleFunc(t *testing.T) {
 
 			jsonStr := []byte(tt.body)
 
-			req, err := http.NewRequest("POST", "/callback", bytes.NewBuffer(jsonStr))
+			req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer(jsonStr))
 			if err != nil {
 				t.Fatal(err)
 			}
@@ -232,7 +232,7 @@ func TestCallback_ErrorLog(t *testing.T) {
 	cb := callback.NewCallback()
 	cb.ErrorLog = log.New(&buf, "", 0)
 
-	req, err := http.NewRequest("POST", "/callback", bytes.NewBuffer([]byte{}))
+	req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer([]byte{}))
 	if err != nil {
 		t.Fatal(err)
 	}

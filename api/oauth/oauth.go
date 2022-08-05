@@ -7,7 +7,7 @@ import (
 	"github.com/SevereCloud/vksdk/v2/api"
 )
 
-// nolint:gochecknoglobals
+//nolint:gochecknoglobals
 var (
 	OAuthHost          = "oauth.vk.com"
 	DefaultRedirectURI = "https://oauth.vk.com/blank.html"

@@ -3,7 +3,7 @@ package oauth // import "github.com/SevereCloud/vksdk/v2/api/oauth"
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -172,7 +172,7 @@ func (a AuthCodeFlowUser) buildRequest(code string) *http.Request {
 		RawQuery: q.Encode(),
 	}
 
-	req, _ := http.NewRequest("GET", uReq.String(), nil)
+	req, _ := http.NewRequest(http.MethodGet, uReq.String(), nil)
 	req.Header.Set("User-Agent", a.UserAgent)
 
 	return req
@@ -197,7 +197,7 @@ func (a AuthCodeFlowUser) Token(u *url.URL) (*UserToken, error) {
 	}
 	defer resp.Body.Close()
 
-	data, err := ioutil.ReadAll(resp.Body)
+	data, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
@@ -272,7 +272,7 @@ func buildDirectAuthRequest(p DirectAuthParams) *http.Request {
 		RawQuery: q.Encode(),
 	}
 
-	req, _ := http.NewRequest("GET", uReq.String(), nil)
+	req, _ := http.NewRequest(http.MethodGet, uReq.String(), nil)
 
 	if p.UserAgent == "" {
 		p.UserAgent = internal.UserAgent
@@ -322,7 +322,7 @@ func DirectAuth(p DirectAuthParams) (*UserToken, error) {
 	}
 	defer resp.Body.Close()
 
-	data, err := ioutil.ReadAll(resp.Body)
+	data, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}

@@ -1,4 +1,7 @@
 ---
+run:
+  timeout: 5m
+
 linters:
   disable-all: true
   enable:
@@ -40,7 +43,6 @@ linters:
     - makezero
     - thelper
     - predeclared
-    - ifshort
     - revive
     - durationcheck
     - gomoddirectives
@@ -58,6 +60,7 @@ linters:
     - decorder
     - containedctx
     - nosprintfhostport
+    - usestdlibvars
 
 # - wrapcheck # TODO: v3 Fix
 # - testpackage # TODO: Fix testpackage
@@ -97,6 +100,7 @@ linters:
 # - maligned
 # - interfacer
 # - golint
+# - ifshort
 
 issues:
   exclude-rules:

@@ -156,7 +156,7 @@ func NewFuncList() *FuncList {
 }
 
 // Handler group event handler.
-func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { // nolint:gocyclo
+func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:gocyclo
 	ctx = context.WithValue(ctx, internal.GroupIDKey, e.GroupID)
 	ctx = context.WithValue(ctx, internal.EventIDKey, e.EventID)
 	ctx = context.WithValue(ctx, internal.EventVersionKey, e.V)

@@ -47,7 +47,7 @@ func (b *BoardAddTopicBuilder) FromGroup(v bool) *BoardAddTopicBuilder {
 }
 
 // Attachments list of media objects attached to the topic, in the following format:
-// "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media object:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>", ” — Type of media object:
 // 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document, '<owner_id>' — ID of the media owner.
 // '<media_id>' — Media ID. Example: "photo100172_166443618,photo66748_265827614".
 //
@@ -117,7 +117,7 @@ func (b *BoardCreateCommentBuilder) Message(v string) *BoardCreateCommentBuilder
 
 // Attachments (Required if 'text' is not set.)
 // List of media objects attached to the comment, in the following format:
-// "<owner_id>_<media_id>,<owner_id>_<media_id>", '' — Type of media object:
+// "<owner_id>_<media_id>,<owner_id>_<media_id>", ” — Type of media object:
 // 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
 func (b *BoardCreateCommentBuilder) Attachments(v interface{}) *BoardCreateCommentBuilder {
@@ -240,7 +240,7 @@ func (b *BoardEditCommentBuilder) Message(v string) *BoardEditCommentBuilder {
 }
 
 // Attachments (Required if 'message' is not set.) List of media objects attached to the comment,
-// in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", '' —
+// in the following format: "<owner_id>_<media_id>,<owner_id>_<media_id>", ” —
 // Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
 // Example: "photo100172_166443618,photo66748_265827614".

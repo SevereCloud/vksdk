@@ -14,7 +14,7 @@ import (
 	"github.com/SevereCloud/vksdk/v2/streaming"
 )
 
-var stream *streaming.Streaming // nolint:gochecknoglobals
+var stream *streaming.Streaming //nolint:gochecknoglobals
 
 func needServiceToken(t *testing.T) {
 	t.Helper()
