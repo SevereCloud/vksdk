@@ -8,6 +8,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/SevereCloud/vksdk/v2"
 	"github.com/SevereCloud/vksdk/v2/callback"
 	"github.com/SevereCloud/vksdk/v2/events"
 	"github.com/SevereCloud/vksdk/v2/internal"
@@ -41,7 +42,7 @@ func TestRetryAfter(t *testing.T) {
 		)
 	})
 
-	jsonStr := []byte(`{"type": "message_new","object": {}}`)
+	jsonStr := []byte(`{"type": "message_new","object": {}, "v":"` + vksdk.API + `"}`)
 
 	req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer(jsonStr))
 	if err != nil {
@@ -66,7 +67,7 @@ func TestRemove(t *testing.T) {
 		callback.Remove(ctx)
 	})
 
-	jsonStr := []byte(`{"type": "message_new","object": {}}`)
+	jsonStr := []byte(`{"type": "message_new","object": {}, "v":"` + vksdk.API + `"}`)
 
 	req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer(jsonStr))
 	if err != nil {
