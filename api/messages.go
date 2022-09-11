@@ -118,6 +118,8 @@ func (vk *VK) MessagesEditChat(params Params) (response int, err error) {
 
 // MessagesForceCallFinish method.
 //
+// Deprecated: Use CallsForceFinish
+//
 // https://vk.com/dev/messages.forceCallFinish
 func (vk *VK) MessagesForceCallFinish(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("messages.forceCallFinish", &response, params)
@@ -648,6 +650,8 @@ type MessagesStartCallResponse struct {
 }
 
 // MessagesStartCall method.
+//
+// Deprecated: Use CallsStart
 //
 // https://vk.com/dev/messages.startCall
 func (vk *VK) MessagesStartCall(params Params) (response MessagesStartCallResponse, err error) {
