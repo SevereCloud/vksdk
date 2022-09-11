@@ -6,7 +6,6 @@ linters:
   disable-all: true
   enable:
     - bodyclose
-    - deadcode
     - errcheck
     - gochecknoglobals
     - goconst
@@ -22,13 +21,11 @@ linters:
     - nakedret
     - prealloc
     - staticcheck
-    - structcheck
     - stylecheck
     - typecheck
     - unconvert
     - unparam
     - unused
-    - varcheck
     - whitespace
     - wsl
     - godot
@@ -61,6 +58,9 @@ linters:
     - containedctx
     - nosprintfhostport
     - usestdlibvars
+
+    - interfacebloat
+    - reassign
 
 # - wrapcheck # TODO: v3 Fix
 # - testpackage # TODO: Fix testpackage
@@ -95,12 +95,16 @@ linters:
 # - nonamedreturns
 # - nosnakecase
 # - execinquery
+# - logrlint
 
 # depricated
 # - maligned
 # - interfacer
 # - golint
 # - ifshort
+# - deadcode
+# - structcheck
+# - varcheck
 
 issues:
   exclude-rules:
