@@ -62,6 +62,8 @@ linters:
     - interfacebloat
     - reassign
 
+    - testableexamples
+
 # - wrapcheck # TODO: v3 Fix
 # - testpackage # TODO: Fix testpackage
 # - noctx # TODO: Fix noctx
@@ -96,6 +98,8 @@ linters:
 # - nosnakecase
 # - execinquery
 # - logrlint
+
+# - dupword
 
 # depricated
 # - maligned

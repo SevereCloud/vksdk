@@ -2,6 +2,7 @@ package foaf_test
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -12,12 +13,13 @@ import (
 func ExampleGetGroup() {
 	ctx := context.Background()
 
-	person, err := foaf.GetGroup(ctx, 1)
+	group, err := foaf.GetGroup(ctx, 1)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	log.Println(person)
+	fmt.Println(group.Name)
+	// Output: ВКонтакте API
 }
 
 func ExampleGetPerson() {
@@ -28,7 +30,8 @@ func ExampleGetPerson() {
 		log.Fatal(err)
 	}
 
-	log.Println(person)
+	fmt.Println(person.FirstName)
+	// Output: Павел
 }
 
 func ExampleGetPerson_customHTTP() {
@@ -43,5 +46,6 @@ func ExampleGetPerson_customHTTP() {
 		log.Fatal(err)
 	}
 
-	log.Println(person)
+	fmt.Println(person.FirstName)
+	// Output: Павел
 }

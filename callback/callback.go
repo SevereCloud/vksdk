@@ -80,7 +80,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ctx := context.Background()
+	ctx := r.Context()
 
 	retryCounter, _ := strconv.Atoi(r.Header.Get("X-Retry-Counter"))
 	ctx = context.WithValue(ctx, internal.CallbackRetryCounterKey, retryCounter)
