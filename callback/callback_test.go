@@ -7,6 +7,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/SevereCloud/vksdk/v2"
 	"github.com/SevereCloud/vksdk/v2/callback"
 	"github.com/stretchr/testify/assert"
 )
@@ -170,9 +171,15 @@ func TestCallback_HandleFunc(t *testing.T) {
 			expected: "confirmation_123456",
 		},
 		{
+			name:     "check bad version",
+			fields:   fields{},
+			body:     `{"type": "message_new", "object": {}, "v":"5.99"}`,
+			expected: "version " + vksdk.API,
+		},
+		{
 			name:     "check bad message_new",
 			fields:   fields{},
-			body:     `{"type": "message_new", "object": 1}`,
+			body:     `{"type": "message_new", "object": 1, "v":"` + vksdk.API + `"}`,
 			expected: "Bad Request\n",
 		},
 		{
@@ -183,7 +190,7 @@ func TestCallback_HandleFunc(t *testing.T) {
 			"peer_id":2000000001,"text":"","conversation_message_id":147826,
 			"action":{"type":"chat_kick_user","member_id":194250225},
 			"fwd_messages":[],"important":false,"random_id":0,"attachments":[],
-			"is_hidden":false}}`,
+			"is_hidden":false}, "v":"` + vksdk.API + `"}`,
 			expected: "ok",
 		},
 	}

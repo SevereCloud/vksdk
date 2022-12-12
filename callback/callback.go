@@ -14,6 +14,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/SevereCloud/vksdk/v2"
 	"github.com/SevereCloud/vksdk/v2/events"
 	"github.com/SevereCloud/vksdk/v2/internal"
 )
@@ -77,6 +78,11 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, cb.ConfirmationKey)
 		}
 
+		return
+	}
+
+	if e.V != vksdk.API {
+		_, _ = w.Write([]byte("version " + vksdk.API))
 		return
 	}
 
