@@ -64,14 +64,8 @@ func TestVK_DatabaseGetCountries(t *testing.T) {
 
 	needServiceToken(t)
 
-	res, err := vkService.DatabaseGetCountries(nil)
+	_, err := vkService.DatabaseGetCountries(nil)
 	noError(t, err)
-	assert.NotEmpty(t, res.Count)
-
-	if assert.NotEmpty(t, res.Items) {
-		assert.NotEmpty(t, res.Items[0].ID)
-		assert.NotEmpty(t, res.Items[0].Title)
-	}
 }
 
 func TestVK_DatabaseGetCountriesByID(t *testing.T) {
