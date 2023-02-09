@@ -8,5 +8,5 @@ require (
 	github.com/klauspost/compress v1.15.9
 	github.com/stretchr/testify v1.8.0
 	github.com/vmihailenco/msgpack/v5 v5.3.5
-	golang.org/x/text v0.3.7
+	golang.org/x/text v0.7.0
 )
