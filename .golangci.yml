@@ -64,10 +64,13 @@ linters:
 
     - testableexamples
 
+    - gocheckcompilerdirectives
+    - asasalint
+
+# - musttag # TODO: need update golangci-lint
 # - wrapcheck # TODO: v3 Fix
 # - testpackage # TODO: Fix testpackage
 # - noctx # TODO: Fix noctx
-# - asasalint # TODO: Need support 1.18
 
 # don't enable:
 # - depguard
@@ -101,6 +104,8 @@ linters:
 
 # - dupword
 
+# - ginkgolinter
+
 # depricated
 # - maligned
 # - interfacer
@@ -127,5 +132,9 @@ issues:
     - linters:
         - stylecheck
       text: "ST1003:.*(Ts|ts).*TS"
+
+    - linters:
+        - gosec
+      text: "G307:"
 
   exclude-use-default: false
