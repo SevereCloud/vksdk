@@ -139,7 +139,7 @@ func (user UsersUser) ToMention() string {
 	return fmt.Sprintf("[id%d|%s %s]", user.ID, user.FirstName, user.LastName)
 }
 
-// ImageStatus struct.
+// ImageStatusInfo struct.
 type ImageStatusInfo struct {
 	ID     int         `json:"id"`
 	Name   string      `json:"name"`
