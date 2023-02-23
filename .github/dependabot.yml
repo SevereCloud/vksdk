@@ -16,6 +16,3 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    reviewers:
-      - "VKCOM/vk-sec"
-      - "VKCOM/vkui-core"
