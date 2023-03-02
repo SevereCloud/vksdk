@@ -389,6 +389,7 @@ func TestVK_MarketReportComment(t *testing.T) {
 func TestVK_MarketSearch(t *testing.T) {
 	t.Parallel()
 
+	t.Skip("TODO: check vk bug")
 	needUserToken(t)
 
 	res, err := vkUser.MarketSearch(api.Params{

@@ -679,6 +679,7 @@ func TestVK_GroupsGetByID_private(t *testing.T) {
 func TestVK_GroupsGetCatalog(t *testing.T) {
 	t.Parallel()
 
+	t.Skip("Deprecated: This method is deprecated and may be disabled soon, please avoid")
 	needUserToken(t)
 
 	res, err := vkUser.GroupsGetCatalog(api.Params{
