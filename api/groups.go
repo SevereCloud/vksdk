@@ -273,6 +273,8 @@ type GroupsGetCatalogResponse struct {
 
 // GroupsGetCatalog returns communities list for a catalog category.
 //
+// Deprecated: This method is deprecated and may be disabled soon, please avoid
+//
 // https://vk.com/dev/groups.getCatalog
 func (vk *VK) GroupsGetCatalog(params Params) (response GroupsGetCatalogResponse, err error) {
 	err = vk.RequestUnmarshal("groups.getCatalog", &response, params)

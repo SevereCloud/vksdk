@@ -43,6 +43,7 @@ func TestVK_PodcastsGet(t *testing.T) {
 func TestVK_PodcastsMarkAsListened(t *testing.T) {
 	t.Parallel()
 
+	t.Skip("2301 Podcasts is not available for this owner")
 	needUserToken(t)
 
 	_, err := vkUser.PodcastsMarkAsListened(api.Params{
@@ -55,6 +56,7 @@ func TestVK_PodcastsMarkAsListened(t *testing.T) {
 func TestVK_PodcastsSubscribe(t *testing.T) {
 	t.Parallel()
 
+	t.Skip("104 Not found params")
 	needUserToken(t)
 
 	_, err := vkUser.PodcastsSubscribe(api.Params{
