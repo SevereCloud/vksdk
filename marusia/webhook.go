@@ -80,7 +80,10 @@ func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var req Request
+	var (
+		req          Request
+		fullResponse any
+	)
 
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
@@ -90,7 +93,7 @@ func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	resp := wh.event(req)
 	if resp.Text != "" {
-		fullResponse := response{
+		fullResponse = response{
 			Response: resp,
 			Session: responseSession{
 				SessionID:   req.Session.SessionID,
@@ -103,20 +106,10 @@ func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
 			},
 			Version: Version,
 		}
-
-		if wh.debuging {
-			w.Header().Set("Access-Control-Allow-Origin", debugURL)
-		}
-
-		// Возвращаем данные
-		w.Header().Add("Content-Type", "application/json; encoding=utf-8")
-		w.WriteHeader(http.StatusOK)
-
-		_ = json.NewEncoder(w).Encode(fullResponse)
 	} else {
 		newResp, _ := resp.ResponseWithTextArray()
 
-		fullResponse := arrayResponse{
+		fullResponse = arrayResponse{
 			Response: newResp,
 			Session: responseSession{
 				SessionID:   req.Session.SessionID,
@@ -129,15 +122,15 @@ func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
 			},
 			Version: Version,
 		}
-
-		if wh.debuging {
-			w.Header().Set("Access-Control-Allow-Origin", debugURL)
-		}
-
-		// Возвращаем данные
-		w.Header().Add("Content-Type", "application/json; encoding=utf-8")
-		w.WriteHeader(http.StatusOK)
-
-		_ = json.NewEncoder(w).Encode(fullResponse)
 	}
+
+	if wh.debuging {
+		w.Header().Set("Access-Control-Allow-Origin", debugURL)
+	}
+
+	// Возвращаем данные
+	w.Header().Add("Content-Type", "application/json; encoding=utf-8")
+	w.WriteHeader(http.StatusOK)
+
+	_ = json.NewEncoder(w).Encode(fullResponse)
 }
