@@ -472,11 +472,17 @@ type AudioMeta struct {
 // Response данные для ответа пользователю.
 type Response struct {
 	// Текст, который следует показать и сказать пользователю. Максимум 1024
-	// символа. Не должен быть пустым. В тексте ответа можно указать переводы
-	// строк последовательностью «\n».
-	//
-	// TODO: поддержка массива строк.
+	// символа. В тексте ответа можно указать переводы
+	// строк последовательностью «\n». Используется, если вам не нужен
+	// массив строк.
 	Text string `json:"text"`
+
+	// Текст, который следует показать пользователю. Максимум 1024
+	// символа в элементе массива. Должен быть заполнен при пустом Text.
+	// В тексте ответа можно указать переводы строк последовательностью «\n».
+	// Используется, если вам нужен массив строк. Если в массиве более
+	// одного элемента, то сообщения разобьются на баблы.
+	TextArray []string `json:"text_array,omitempty"`
 
 	// Для того, чтобы передать SSML в ответе из внешнего скилла,
 	// необходимо передать "ssml".
@@ -534,6 +540,22 @@ type Response struct {
 	UserStateUpdate json.RawMessage `json:"user_state_update,omitempty"`
 }
 
+// ArrayResponse данные для ответа пользователю с массивом строк.
+// Является копией Response, но имеет отличия в поле Text.
+type ArrayResponse struct {
+	Text            []string        `json:"text"`
+	TTSType         string          `json:"tts_type,omitempty"`
+	SSML            string          `json:"ssml,omitempty"`
+	TTS             string          `json:"tts,omitempty"`
+	Buttons         []Button        `json:"buttons,omitempty"`
+	Push            Push            `json:"push,omitempty"`
+	EndSession      bool            `json:"end_session"`
+	Card            *Card           `json:"card,omitempty"`
+	AudioPlayer     *AudioPlayer    `json:"audio_player,omitempty"`
+	SessionState    json.RawMessage `json:"session_state,omitempty"`
+	UserStateUpdate json.RawMessage `json:"user_state_update,omitempty"`
+}
+
 // AddURL добавляет к ответу кнопку с ссылкой.
 func (r *Response) AddURL(title string, url string) {
 	if r.Buttons == nil {
@@ -574,4 +596,27 @@ func SpeakerAudioVKID(id string) string {
 // Список звуков можно найти на странице https://vk.com/dev/marusia_skill_docs4
 func SpeakerAudio(name string) string {
 	return fmt.Sprintf(`<speaker audio=%s>`, strconv.Quote(name))
+}
+
+// ResponseWithTextArray возвращает измененную структуру Response
+//
+// Функция реализована для поддержки массива строк в тексте с учётом
+// обратной совместимости, она изменяет итоговую структуру так, чтобы
+// в `json:"text" оказался массив строк и пользователь получил
+// несколько баблов с текстом. При условии, что поле Text
+// оригинальной структуры не задано.
+func (r *Response) ResponseWithTextArray() (ArrayResponse, error) {
+	return ArrayResponse{
+		Text:            r.TextArray,
+		TTSType:         r.TTSType,
+		SSML:            r.SSML,
+		TTS:             r.TTS,
+		Buttons:         r.Buttons,
+		Push:            r.Push,
+		EndSession:      r.EndSession,
+		Card:            r.Card,
+		AudioPlayer:     r.AudioPlayer,
+		SessionState:    r.SessionState,
+		UserStateUpdate: r.UserStateUpdate,
+	}, nil
 }

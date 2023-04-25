@@ -29,6 +29,13 @@ type response struct {
 	Version  string          `json:"version"`  // Версия протокола.
 }
 
+// arrayResponse структура ответа серверу с массивом строк.
+type arrayResponse struct {
+	Response ArrayResponse   `json:"response"` // Данные для ответа.
+	Session  responseSession `json:"session"`  // Данные о сессии.
+	Version  string          `json:"version"`  // Версия протокола.
+}
+
 // Webhook структура.
 type Webhook struct {
 	event    func(r Request) Response
@@ -73,7 +80,10 @@ func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var req Request
+	var (
+		req          Request
+		fullResponse any
+	)
 
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
@@ -82,19 +92,36 @@ func (wh *Webhook) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 
 	resp := wh.event(req)
+	if resp.Text != "" {
+		fullResponse = response{
+			Response: resp,
+			Session: responseSession{
+				SessionID:   req.Session.SessionID,
+				MessageID:   req.Session.MessageID,
+				UserID:      req.Session.UserID,
+				SkillID:     req.Session.SkillID,
+				New:         req.Session.New,
+				User:        req.Session.User,
+				Application: req.Session.Application,
+			},
+			Version: Version,
+		}
+	} else {
+		newResp, _ := resp.ResponseWithTextArray()
 
-	fullResponse := response{
-		Response: resp,
-		Session: responseSession{
-			SessionID:   req.Session.SessionID,
-			MessageID:   req.Session.MessageID,
-			UserID:      req.Session.UserID,
-			SkillID:     req.Session.SkillID,
-			New:         req.Session.New,
-			User:        req.Session.User,
-			Application: req.Session.Application,
-		},
-		Version: Version,
+		fullResponse = arrayResponse{
+			Response: newResp,
+			Session: responseSession{
+				SessionID:   req.Session.SessionID,
+				MessageID:   req.Session.MessageID,
+				UserID:      req.Session.UserID,
+				SkillID:     req.Session.SkillID,
+				New:         req.Session.New,
+				User:        req.Session.User,
+				Application: req.Session.Application,
+			},
+			Version: Version,
+		}
 	}
 
 	if wh.debuging {
