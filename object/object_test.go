@@ -2,6 +2,7 @@ package object_test
 
 import (
 	"bytes"
+	"encoding/json"
 	"reflect"
 	"testing"
 
@@ -319,4 +320,14 @@ func TestBaseSticker_MinSizeBackground(t *testing.T) {
 	}, object.BaseImage{
 		Width: 10, Height: 20,
 	})
+}
+
+func TestBaseLinkRating_UnmarshalJSON(t *testing.T) {
+	ratingJSON := []byte(`{"reviews_count":1.0,"stars":5.0}`)
+	var rating object.BaseLinkRating
+
+	assert.NoError(t, json.Unmarshal(ratingJSON, &rating))
+	review, _ := rating.ReviewsCount.Float64()
+	assert.Equal(t, 1.0, review)
+	assert.Equal(t, 5.0, rating.Stars)
 }
