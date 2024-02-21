@@ -592,8 +592,7 @@ type MessagesConversationPushSettings struct {
 // MessagesConversationWithMessage struct.
 type MessagesConversationWithMessage struct {
 	Conversation MessagesConversation `json:"conversation"`
-	// BUG(VK): https://vk.com/bug229134
-	LastMessage MessagesMessage `json:"last_message"`
+	LastMessage  MessagesMessage      `json:"last_message"`
 }
 
 // MessagesDialog struct.
