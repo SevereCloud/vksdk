@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/gorilla/schema v1.2.1
 	github.com/gorilla/websocket v1.5.0
-	github.com/klauspost/compress v1.16.7
+	github.com/klauspost/compress v1.17.7
 	github.com/stretchr/testify v1.8.1
 	github.com/vmihailenco/msgpack/v5 v5.4.0
 	golang.org/x/text v0.14.0
