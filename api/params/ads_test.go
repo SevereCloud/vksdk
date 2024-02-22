@@ -15,8 +15,8 @@ func TestAdsAddOfficeUsersBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.Data("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["data"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["data"])
 }
 
 func TestAdsCheckLinkBuilder(t *testing.T) {
@@ -29,10 +29,10 @@ func TestAdsCheckLinkBuilder(t *testing.T) {
 	b.LinkURL("text")
 	b.CampaignID(1)
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["link_type"], "text")
-	assert.Equal(t, b.Params["link_url"], "text")
-	assert.Equal(t, b.Params["campaign_id"], 1)
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["link_type"])
+	assert.Equal(t, "text", b.Params["link_url"])
+	assert.Equal(t, 1, b.Params["campaign_id"])
 }
 
 func TestAdsCreateAdsBuilder(t *testing.T) {
@@ -43,8 +43,8 @@ func TestAdsCreateAdsBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.Data("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["data"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["data"])
 }
 
 func TestAdsCreateCampaignsBuilder(t *testing.T) {
@@ -55,8 +55,8 @@ func TestAdsCreateCampaignsBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.Data("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["data"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["data"])
 }
 
 func TestAdsCreateClientsBuilder(t *testing.T) {
@@ -67,8 +67,8 @@ func TestAdsCreateClientsBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.Data("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["data"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["data"])
 }
 
 func TestAdsCreateTargetGroupBuilder(t *testing.T) {
@@ -83,12 +83,12 @@ func TestAdsCreateTargetGroupBuilder(t *testing.T) {
 	b.TargetPixelID(1)
 	b.TargetPixelRules("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["lifetime"], 1)
-	assert.Equal(t, b.Params["target_pixel_id"], 1)
-	assert.Equal(t, b.Params["target_pixel_rules"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, 1, b.Params["lifetime"])
+	assert.Equal(t, 1, b.Params["target_pixel_id"])
+	assert.Equal(t, "text", b.Params["target_pixel_rules"])
 }
 
 func TestAdsDeleteAdsBuilder(t *testing.T) {
@@ -99,8 +99,8 @@ func TestAdsDeleteAdsBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.IDs("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ids"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ids"])
 }
 
 func TestAdsDeleteCampaignsBuilder(t *testing.T) {
@@ -111,8 +111,8 @@ func TestAdsDeleteCampaignsBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.IDs("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ids"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ids"])
 }
 
 func TestAdsDeleteClientsBuilder(t *testing.T) {
@@ -123,8 +123,8 @@ func TestAdsDeleteClientsBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.IDs("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ids"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ids"])
 }
 
 func TestAdsDeleteTargetGroupBuilder(t *testing.T) {
@@ -136,9 +136,9 @@ func TestAdsDeleteTargetGroupBuilder(t *testing.T) {
 	b.ClientID(1)
 	b.TargetGroupID(1)
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["target_group_id"], 1)
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, 1, b.Params["target_group_id"])
 }
 
 func TestAdsGetAdsBuilder(t *testing.T) {
@@ -154,13 +154,13 @@ func TestAdsGetAdsBuilder(t *testing.T) {
 	b.Limit(1)
 	b.Offset(1)
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ad_ids"], "text")
-	assert.Equal(t, b.Params["campaign_ids"], "text")
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["include_deleted"], true)
-	assert.Equal(t, b.Params["limit"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ad_ids"])
+	assert.Equal(t, "text", b.Params["campaign_ids"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, true, b.Params["include_deleted"])
+	assert.Equal(t, 1, b.Params["limit"])
+	assert.Equal(t, 1, b.Params["offset"])
 }
 
 func TestAdsGetAdsLayoutBuilder(t *testing.T) {
@@ -176,13 +176,13 @@ func TestAdsGetAdsLayoutBuilder(t *testing.T) {
 	b.Limit(1)
 	b.Offset(1)
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ad_ids"], "text")
-	assert.Equal(t, b.Params["campaign_ids"], "text")
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["include_deleted"], true)
-	assert.Equal(t, b.Params["limit"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ad_ids"])
+	assert.Equal(t, "text", b.Params["campaign_ids"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, true, b.Params["include_deleted"])
+	assert.Equal(t, 1, b.Params["limit"])
+	assert.Equal(t, 1, b.Params["offset"])
 }
 
 func TestAdsGetAdsTargetingBuilder(t *testing.T) {
@@ -199,14 +199,14 @@ func TestAdsGetAdsTargetingBuilder(t *testing.T) {
 	b.Offset(1)
 	b.OnlyDeleted(true)
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ad_ids"], "text")
-	assert.Equal(t, b.Params["campaign_ids"], "text")
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["include_deleted"], true)
-	assert.Equal(t, b.Params["limit"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["only_deleted"], true)
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ad_ids"])
+	assert.Equal(t, "text", b.Params["campaign_ids"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, true, b.Params["include_deleted"])
+	assert.Equal(t, 1, b.Params["limit"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, true, b.Params["only_deleted"])
 }
 
 func TestAdsGetBudgetBuilder(t *testing.T) {
@@ -216,7 +216,7 @@ func TestAdsGetBudgetBuilder(t *testing.T) {
 
 	b.AccountID(1)
 
-	assert.Equal(t, b.Params["account_id"], 1)
+	assert.Equal(t, 1, b.Params["account_id"])
 }
 
 func TestAdsGetCampaignsBuilder(t *testing.T) {
@@ -229,10 +229,10 @@ func TestAdsGetCampaignsBuilder(t *testing.T) {
 	b.IncludeDeleted(true)
 	b.CampaignIDs("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["include_deleted"], true)
-	assert.Equal(t, b.Params["campaign_ids"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, true, b.Params["include_deleted"])
+	assert.Equal(t, "text", b.Params["campaign_ids"])
 }
 
 func TestAdsGetCategoriesBuilder(t *testing.T) {
@@ -242,7 +242,7 @@ func TestAdsGetCategoriesBuilder(t *testing.T) {
 
 	b.Lang("text")
 
-	assert.Equal(t, b.Params["lang"], "text")
+	assert.Equal(t, "text", b.Params["lang"])
 }
 
 func TestAdsGetClientsBuilder(t *testing.T) {
@@ -252,7 +252,7 @@ func TestAdsGetClientsBuilder(t *testing.T) {
 
 	b.AccountID(1)
 
-	assert.Equal(t, b.Params["account_id"], 1)
+	assert.Equal(t, 1, b.Params["account_id"])
 }
 
 func TestAdsGetDemographicsBuilder(t *testing.T) {
@@ -267,12 +267,12 @@ func TestAdsGetDemographicsBuilder(t *testing.T) {
 	b.DateFrom("text")
 	b.DateTo("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ids_type"], "text")
-	assert.Equal(t, b.Params["ids"], "text")
-	assert.Equal(t, b.Params["period"], "text")
-	assert.Equal(t, b.Params["date_from"], "text")
-	assert.Equal(t, b.Params["date_to"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ids_type"])
+	assert.Equal(t, "text", b.Params["ids"])
+	assert.Equal(t, "text", b.Params["period"])
+	assert.Equal(t, "text", b.Params["date_from"])
+	assert.Equal(t, "text", b.Params["date_to"])
 }
 
 func TestAdsGetFloodStatsBuilder(t *testing.T) {
@@ -282,7 +282,7 @@ func TestAdsGetFloodStatsBuilder(t *testing.T) {
 
 	b.AccountID(1)
 
-	assert.Equal(t, b.Params["account_id"], 1)
+	assert.Equal(t, 1, b.Params["account_id"])
 }
 
 func TestAdsGetMusiciansBuilder(t *testing.T) {
@@ -292,7 +292,7 @@ func TestAdsGetMusiciansBuilder(t *testing.T) {
 
 	b.ArtistName("text")
 
-	assert.Equal(t, b.Params["artist_name"], "text")
+	assert.Equal(t, "text", b.Params["artist_name"])
 }
 
 func TestAdsGetOfficeUsersBuilder(t *testing.T) {
@@ -302,7 +302,7 @@ func TestAdsGetOfficeUsersBuilder(t *testing.T) {
 
 	b.AccountID(1)
 
-	assert.Equal(t, b.Params["account_id"], 1)
+	assert.Equal(t, 1, b.Params["account_id"])
 }
 
 func TestAdsGetPostsReachBuilder(t *testing.T) {
@@ -314,9 +314,9 @@ func TestAdsGetPostsReachBuilder(t *testing.T) {
 	b.IDsType("text")
 	b.IDs("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ids_type"], "text")
-	assert.Equal(t, b.Params["ids"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ids_type"])
+	assert.Equal(t, "text", b.Params["ids"])
 }
 
 func TestAdsGetRejectionReasonBuilder(t *testing.T) {
@@ -327,8 +327,8 @@ func TestAdsGetRejectionReasonBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.AdID(1)
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ad_id"], 1)
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, 1, b.Params["ad_id"])
 }
 
 func TestAdsGetStatisticsBuilder(t *testing.T) {
@@ -343,12 +343,12 @@ func TestAdsGetStatisticsBuilder(t *testing.T) {
 	b.DateFrom("text")
 	b.DateTo("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ids_type"], "text")
-	assert.Equal(t, b.Params["ids"], "text")
-	assert.Equal(t, b.Params["period"], "text")
-	assert.Equal(t, b.Params["date_from"], "text")
-	assert.Equal(t, b.Params["date_to"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ids_type"])
+	assert.Equal(t, "text", b.Params["ids"])
+	assert.Equal(t, "text", b.Params["period"])
+	assert.Equal(t, "text", b.Params["date_from"])
+	assert.Equal(t, "text", b.Params["date_to"])
 }
 
 func TestAdsGetSuggestionsBuilder(t *testing.T) {
@@ -363,12 +363,12 @@ func TestAdsGetSuggestionsBuilder(t *testing.T) {
 	b.Cities("text")
 	b.Lang("text")
 
-	assert.Equal(t, b.Params["section"], "text")
-	assert.Equal(t, b.Params["ids"], "text")
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["country"], 1)
-	assert.Equal(t, b.Params["cities"], "text")
-	assert.Equal(t, b.Params["lang"], "text")
+	assert.Equal(t, "text", b.Params["section"])
+	assert.Equal(t, "text", b.Params["ids"])
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["country"])
+	assert.Equal(t, "text", b.Params["cities"])
+	assert.Equal(t, "text", b.Params["lang"])
 }
 
 func TestAdsGetTargetGroupsBuilder(t *testing.T) {
@@ -380,9 +380,9 @@ func TestAdsGetTargetGroupsBuilder(t *testing.T) {
 	b.ClientID(1)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestAdsGetTargetingStatsBuilder(t *testing.T) {
@@ -401,16 +401,16 @@ func TestAdsGetTargetingStatsBuilder(t *testing.T) {
 	b.LinkURL("text")
 	b.LinkDomain("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["criteria"], "text")
-	assert.Equal(t, b.Params["ad_id"], 1)
-	assert.Equal(t, b.Params["ad_format"], 1)
-	assert.Equal(t, b.Params["ad_platform"], "text")
-	assert.Equal(t, b.Params["ad_platform_no_wall"], "text")
-	assert.Equal(t, b.Params["ad_platform_no_ad_network"], "text")
-	assert.Equal(t, b.Params["link_url"], "text")
-	assert.Equal(t, b.Params["link_domain"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, "text", b.Params["criteria"])
+	assert.Equal(t, 1, b.Params["ad_id"])
+	assert.Equal(t, 1, b.Params["ad_format"])
+	assert.Equal(t, "text", b.Params["ad_platform"])
+	assert.Equal(t, "text", b.Params["ad_platform_no_wall"])
+	assert.Equal(t, "text", b.Params["ad_platform_no_ad_network"])
+	assert.Equal(t, "text", b.Params["link_url"])
+	assert.Equal(t, "text", b.Params["link_domain"])
 }
 
 func TestAdsGetUploadURLBuilder(t *testing.T) {
@@ -421,8 +421,8 @@ func TestAdsGetUploadURLBuilder(t *testing.T) {
 	b.AdFormat(1)
 	b.Icon(1)
 
-	assert.Equal(t, b.Params["ad_format"], 1)
-	assert.Equal(t, b.Params["icon"], 1)
+	assert.Equal(t, 1, b.Params["ad_format"])
+	assert.Equal(t, 1, b.Params["icon"])
 }
 
 func TestAdsImportTargetContactsBuilder(t *testing.T) {
@@ -435,10 +435,10 @@ func TestAdsImportTargetContactsBuilder(t *testing.T) {
 	b.TargetGroupID(1)
 	b.Contacts("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["target_group_id"], 1)
-	assert.Equal(t, b.Params["contacts"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, 1, b.Params["target_group_id"])
+	assert.Equal(t, "text", b.Params["contacts"])
 }
 
 func TestAdsRemoveOfficeUsersBuilder(t *testing.T) {
@@ -449,8 +449,8 @@ func TestAdsRemoveOfficeUsersBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.IDs("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["ids"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["ids"])
 }
 
 func TestAdsUpdateAdsBuilder(t *testing.T) {
@@ -461,8 +461,8 @@ func TestAdsUpdateAdsBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.Data("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["data"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["data"])
 }
 
 func TestAdsUpdateCampaignsBuilder(t *testing.T) {
@@ -473,8 +473,8 @@ func TestAdsUpdateCampaignsBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.Data("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["data"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["data"])
 }
 
 func TestAdsUpdateClientsBuilder(t *testing.T) {
@@ -485,8 +485,8 @@ func TestAdsUpdateClientsBuilder(t *testing.T) {
 	b.AccountID(1)
 	b.Data("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["data"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, "text", b.Params["data"])
 }
 
 func TestAdsUpdateTargetGroupBuilder(t *testing.T) {
@@ -503,12 +503,12 @@ func TestAdsUpdateTargetGroupBuilder(t *testing.T) {
 	b.TargetPixelID(1)
 	b.TargetPixelRules("text")
 
-	assert.Equal(t, b.Params["account_id"], 1)
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["target_group_id"], 1)
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["domain"], "text")
-	assert.Equal(t, b.Params["lifetime"], 1)
-	assert.Equal(t, b.Params["target_pixel_id"], 1)
-	assert.Equal(t, b.Params["target_pixel_rules"], "text")
+	assert.Equal(t, 1, b.Params["account_id"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, 1, b.Params["target_group_id"])
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, "text", b.Params["domain"])
+	assert.Equal(t, 1, b.Params["lifetime"])
+	assert.Equal(t, 1, b.Params["target_pixel_id"])
+	assert.Equal(t, "text", b.Params["target_pixel_rules"])
 }

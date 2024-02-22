@@ -22,15 +22,15 @@ func TestStatsGetBuilder(t *testing.T) {
 	b.StatsGroups([]string{"text"})
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["app_id"], 1)
-	assert.Equal(t, b.Params["timestamp_from"], 1)
-	assert.Equal(t, b.Params["timestamp_to"], 1)
-	assert.Equal(t, b.Params["interval"], "text")
-	assert.Equal(t, b.Params["intervals_count"], 1)
-	assert.Equal(t, b.Params["filters"], []string{"text"})
-	assert.Equal(t, b.Params["stats_groups"], []string{"text"})
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["app_id"])
+	assert.Equal(t, 1, b.Params["timestamp_from"])
+	assert.Equal(t, 1, b.Params["timestamp_to"])
+	assert.Equal(t, "text", b.Params["interval"])
+	assert.Equal(t, 1, b.Params["intervals_count"])
+	assert.Equal(t, []string{"text"}, b.Params["filters"])
+	assert.Equal(t, []string{"text"}, b.Params["stats_groups"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestStatsGetPostReachBuilder(t *testing.T) {
@@ -41,8 +41,8 @@ func TestStatsGetPostReachBuilder(t *testing.T) {
 	b.OwnerID("text")
 	b.PostID(1)
 
-	assert.Equal(t, b.Params["owner_id"], "text")
-	assert.Equal(t, b.Params["post_id"], 1)
+	assert.Equal(t, "text", b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
 }
 
 func TestStatsTrackVisitorBuilder(t *testing.T) {
@@ -52,5 +52,5 @@ func TestStatsTrackVisitorBuilder(t *testing.T) {
 
 	b.ID("text")
 
-	assert.Equal(t, b.Params["id"], "text")
+	assert.Equal(t, "text", b.Params["id"])
 }

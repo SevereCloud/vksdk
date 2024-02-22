@@ -53,7 +53,7 @@ func TestParamsVerification_VerifyMiddleware(t *testing.T) {
 
 	pv := games.NewParamsVerification("TaWz5vVHUQnp7YgtuRlS")
 
-	handlerOk := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	handlerOk := http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 		_, _ = w.Write([]byte("ok"))
 	})
 

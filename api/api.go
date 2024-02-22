@@ -241,6 +241,7 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 				vk.lastTime = time.Now()
 				vk.rps = 0
 			}
+
 			vk.rps++
 
 			vk.mux.Unlock()

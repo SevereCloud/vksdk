@@ -18,11 +18,11 @@ func TestBoardAddTopicBuilder(t *testing.T) {
 	b.FromGroup(true)
 	b.Attachments([]string{"text"})
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["text"], "text")
-	assert.Equal(t, b.Params["from_group"], true)
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["text"])
+	assert.Equal(t, true, b.Params["from_group"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
 }
 
 func TestBoardCloseTopicBuilder(t *testing.T) {
@@ -33,8 +33,8 @@ func TestBoardCloseTopicBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.TopicID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
 }
 
 func TestBoardCreateCommentBuilder(t *testing.T) {
@@ -50,13 +50,13 @@ func TestBoardCreateCommentBuilder(t *testing.T) {
 	b.StickerID(1)
 	b.GUID("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
-	assert.Equal(t, b.Params["from_group"], true)
-	assert.Equal(t, b.Params["sticker_id"], 1)
-	assert.Equal(t, b.Params["guid"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
+	assert.Equal(t, true, b.Params["from_group"])
+	assert.Equal(t, 1, b.Params["sticker_id"])
+	assert.Equal(t, "text", b.Params["guid"])
 }
 
 func TestBoardDeleteCommentBuilder(t *testing.T) {
@@ -68,9 +68,9 @@ func TestBoardDeleteCommentBuilder(t *testing.T) {
 	b.TopicID(1)
 	b.CommentID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
 }
 
 func TestBoardDeleteTopicBuilder(t *testing.T) {
@@ -81,8 +81,8 @@ func TestBoardDeleteTopicBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.TopicID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
 }
 
 func TestBoardEditCommentBuilder(t *testing.T) {
@@ -96,11 +96,11 @@ func TestBoardEditCommentBuilder(t *testing.T) {
 	b.Message("text")
 	b.Attachments([]string{"text"})
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
 }
 
 func TestBoardEditTopicBuilder(t *testing.T) {
@@ -112,9 +112,9 @@ func TestBoardEditTopicBuilder(t *testing.T) {
 	b.TopicID(1)
 	b.Title("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
+	assert.Equal(t, "text", b.Params["title"])
 }
 
 func TestBoardFixTopicBuilder(t *testing.T) {
@@ -125,8 +125,8 @@ func TestBoardFixTopicBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.TopicID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
 }
 
 func TestBoardGetCommentsBuilder(t *testing.T) {
@@ -143,14 +143,14 @@ func TestBoardGetCommentsBuilder(t *testing.T) {
 	b.Extended(true)
 	b.Sort("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
-	assert.Equal(t, b.Params["need_likes"], true)
-	assert.Equal(t, b.Params["start_comment_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["sort"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
+	assert.Equal(t, true, b.Params["need_likes"])
+	assert.Equal(t, 1, b.Params["start_comment_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, "text", b.Params["sort"])
 }
 
 func TestBoardGetTopicsBuilder(t *testing.T) {
@@ -167,14 +167,14 @@ func TestBoardGetTopicsBuilder(t *testing.T) {
 	b.Preview(1)
 	b.PreviewLength(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_ids"], []int{1})
-	assert.Equal(t, b.Params["order"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["preview"], 1)
-	assert.Equal(t, b.Params["preview_length"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, []int{1}, b.Params["topic_ids"])
+	assert.Equal(t, 1, b.Params["order"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, 1, b.Params["preview"])
+	assert.Equal(t, 1, b.Params["preview_length"])
 }
 
 func TestBoardOpenTopicBuilder(t *testing.T) {
@@ -185,8 +185,8 @@ func TestBoardOpenTopicBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.TopicID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
 }
 
 func TestBoardRestoreCommentBuilder(t *testing.T) {
@@ -198,9 +198,9 @@ func TestBoardRestoreCommentBuilder(t *testing.T) {
 	b.TopicID(1)
 	b.CommentID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
 }
 
 func TestBoardUnfixTopicBuilder(t *testing.T) {
@@ -211,6 +211,6 @@ func TestBoardUnfixTopicBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.TopicID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["topic_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["topic_id"])
 }

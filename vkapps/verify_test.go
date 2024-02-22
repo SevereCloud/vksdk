@@ -59,7 +59,7 @@ func TestParamsVerification_VerifyMiddleware(t *testing.T) {
 
 	pv := vkapps.NewParamsVerification("wvl68m4dR1UpLrVRli")
 
-	handlerOk := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	handlerOk := http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 		_, _ = w.Write([]byte("ok"))
 	})
 

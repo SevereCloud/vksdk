@@ -14,7 +14,7 @@ func TestUtilsCheckLinkBuilder(t *testing.T) {
 
 	b.URL("text")
 
-	assert.Equal(t, b.Params["url"], "text")
+	assert.Equal(t, "text", b.Params["url"])
 }
 
 func TestUtilsDeleteFromLastShortenedBuilder(t *testing.T) {
@@ -24,7 +24,7 @@ func TestUtilsDeleteFromLastShortenedBuilder(t *testing.T) {
 
 	b.Key("text")
 
-	assert.Equal(t, b.Params["key"], "text")
+	assert.Equal(t, "text", b.Params["key"])
 }
 
 func TestUtilsGetLastShortenedLinksBuilder(t *testing.T) {
@@ -35,8 +35,8 @@ func TestUtilsGetLastShortenedLinksBuilder(t *testing.T) {
 	b.Count(1)
 	b.Offset(1)
 
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
 }
 
 func TestUtilsGetLinkStatsBuilder(t *testing.T) {
@@ -51,12 +51,12 @@ func TestUtilsGetLinkStatsBuilder(t *testing.T) {
 	b.IntervalsCount(1)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["key"], "text")
-	assert.Equal(t, b.Params["source"], "text")
-	assert.Equal(t, b.Params["access_key"], "text")
-	assert.Equal(t, b.Params["interval"], "text")
-	assert.Equal(t, b.Params["intervals_count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, "text", b.Params["key"])
+	assert.Equal(t, "text", b.Params["source"])
+	assert.Equal(t, "text", b.Params["access_key"])
+	assert.Equal(t, "text", b.Params["interval"])
+	assert.Equal(t, 1, b.Params["intervals_count"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestUtilsGetShortLinkBuilder(t *testing.T) {
@@ -67,8 +67,8 @@ func TestUtilsGetShortLinkBuilder(t *testing.T) {
 	b.URL("text")
 	b.Private(true)
 
-	assert.Equal(t, b.Params["url"], "text")
-	assert.Equal(t, b.Params["private"], true)
+	assert.Equal(t, "text", b.Params["url"])
+	assert.Equal(t, true, b.Params["private"])
 }
 
 func TestUtilsResolveScreenNameBuilder(t *testing.T) {
@@ -78,5 +78,5 @@ func TestUtilsResolveScreenNameBuilder(t *testing.T) {
 
 	b.ScreenName("text")
 
-	assert.Equal(t, b.Params["screen_name"], "text")
+	assert.Equal(t, "text", b.Params["screen_name"])
 }

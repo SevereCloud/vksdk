@@ -16,9 +16,9 @@ func TestFriendsAddBuilder(t *testing.T) {
 	b.Text("text")
 	b.Follow(true)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["text"], "text")
-	assert.Equal(t, b.Params["follow"], true)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["text"])
+	assert.Equal(t, true, b.Params["follow"])
 }
 
 func TestFriendsAddListBuilder(t *testing.T) {
@@ -29,8 +29,8 @@ func TestFriendsAddListBuilder(t *testing.T) {
 	b.Name("text")
 	b.UserIDs([]int{1})
 
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["user_ids"], []int{1})
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
 }
 
 func TestFriendsAreFriendsBuilder(t *testing.T) {
@@ -41,8 +41,8 @@ func TestFriendsAreFriendsBuilder(t *testing.T) {
 	b.UserIDs([]int{1})
 	b.NeedSign(true)
 
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["need_sign"], true)
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, true, b.Params["need_sign"])
 }
 
 func TestFriendsDeleteBuilder(t *testing.T) {
@@ -52,7 +52,7 @@ func TestFriendsDeleteBuilder(t *testing.T) {
 
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestFriendsDeleteListBuilder(t *testing.T) {
@@ -62,7 +62,7 @@ func TestFriendsDeleteListBuilder(t *testing.T) {
 
 	b.ListID(1)
 
-	assert.Equal(t, b.Params["list_id"], 1)
+	assert.Equal(t, 1, b.Params["list_id"])
 }
 
 func TestFriendsEditBuilder(t *testing.T) {
@@ -73,8 +73,8 @@ func TestFriendsEditBuilder(t *testing.T) {
 	b.UserID(1)
 	b.ListIDs([]int{1})
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["list_ids"], []int{1})
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, []int{1}, b.Params["list_ids"])
 }
 
 func TestFriendsEditListBuilder(t *testing.T) {
@@ -88,11 +88,11 @@ func TestFriendsEditListBuilder(t *testing.T) {
 	b.AddUserIDs([]int{1})
 	b.DeleteUserIDs([]int{1})
 
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["list_id"], 1)
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["add_user_ids"], []int{1})
-	assert.Equal(t, b.Params["delete_user_ids"], []int{1})
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, 1, b.Params["list_id"])
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, []int{1}, b.Params["add_user_ids"])
+	assert.Equal(t, []int{1}, b.Params["delete_user_ids"])
 }
 
 func TestFriendsGetBuilder(t *testing.T) {
@@ -109,14 +109,14 @@ func TestFriendsGetBuilder(t *testing.T) {
 	b.NameCase("text")
 	b.Ref("text")
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["order"], "text")
-	assert.Equal(t, b.Params["list_id"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
-	assert.Equal(t, b.Params["ref"], "text")
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["order"])
+	assert.Equal(t, 1, b.Params["list_id"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
+	assert.Equal(t, "text", b.Params["ref"])
 }
 
 func TestFriendsGetByPhonesBuilder(t *testing.T) {
@@ -127,8 +127,8 @@ func TestFriendsGetByPhonesBuilder(t *testing.T) {
 	b.Phones([]string{"text"})
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["phones"], []string{"text"})
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, []string{"text"}, b.Params["phones"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestFriendsGetListsBuilder(t *testing.T) {
@@ -139,8 +139,8 @@ func TestFriendsGetListsBuilder(t *testing.T) {
 	b.UserID(1)
 	b.ReturnSystem(true)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["return_system"], true)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, true, b.Params["return_system"])
 }
 
 func TestFriendsGetMutualBuilder(t *testing.T) {
@@ -155,12 +155,12 @@ func TestFriendsGetMutualBuilder(t *testing.T) {
 	b.Count(1)
 	b.Offset(1)
 
-	assert.Equal(t, b.Params["source_uid"], 1)
-	assert.Equal(t, b.Params["target_uid"], 1)
-	assert.Equal(t, b.Params["target_uids"], []int{1})
-	assert.Equal(t, b.Params["order"], "text")
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, 1, b.Params["source_uid"])
+	assert.Equal(t, 1, b.Params["target_uid"])
+	assert.Equal(t, []int{1}, b.Params["target_uids"])
+	assert.Equal(t, "text", b.Params["order"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
 }
 
 func TestFriendsGetOnlineBuilder(t *testing.T) {
@@ -175,12 +175,12 @@ func TestFriendsGetOnlineBuilder(t *testing.T) {
 	b.Count(1)
 	b.Offset(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["list_id"], 1)
-	assert.Equal(t, b.Params["online_mobile"], true)
-	assert.Equal(t, b.Params["order"], "text")
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["list_id"])
+	assert.Equal(t, true, b.Params["online_mobile"])
+	assert.Equal(t, "text", b.Params["order"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
 }
 
 func TestFriendsGetRecentBuilder(t *testing.T) {
@@ -190,7 +190,7 @@ func TestFriendsGetRecentBuilder(t *testing.T) {
 
 	b.Count(1)
 
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestFriendsGetRequestsBuilder(t *testing.T) {
@@ -209,16 +209,16 @@ func TestFriendsGetRequestsBuilder(t *testing.T) {
 	b.Ref("text")
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["need_mutual"], true)
-	assert.Equal(t, b.Params["out"], true)
-	assert.Equal(t, b.Params["sort"], 1)
-	assert.Equal(t, b.Params["need_viewed"], true)
-	assert.Equal(t, b.Params["suggested"], true)
-	assert.Equal(t, b.Params["ref"], "text")
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, true, b.Params["need_mutual"])
+	assert.Equal(t, true, b.Params["out"])
+	assert.Equal(t, 1, b.Params["sort"])
+	assert.Equal(t, true, b.Params["need_viewed"])
+	assert.Equal(t, true, b.Params["suggested"])
+	assert.Equal(t, "text", b.Params["ref"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestFriendsGetSuggestionsBuilder(t *testing.T) {
@@ -232,11 +232,11 @@ func TestFriendsGetSuggestionsBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.NameCase("text")
 
-	assert.Equal(t, b.Params["filter"], []string{"text"})
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
+	assert.Equal(t, []string{"text"}, b.Params["filter"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
 }
 
 func TestFriendsSearchBuilder(t *testing.T) {
@@ -251,10 +251,10 @@ func TestFriendsSearchBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }

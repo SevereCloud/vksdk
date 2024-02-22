@@ -29,7 +29,7 @@ func TestLongPoll_Shutdown(t *testing.T) {
 
 	vk := api.NewVK(groupToken)
 	lp, _ := NewLongPollCommunity(vk)
-	lp.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
+	lp.MessageNew(func(_ context.Context, _ events.MessageNewObject) {
 		lp.Shutdown()
 	})
 
@@ -71,7 +71,7 @@ func TestLongPoll_Handler(t *testing.T) {
 	//nolint:gocyclo
 	lp := &LongPoll{}
 
-	lp.FullResponse(func(resp Response) {})
+	lp.FullResponse(func(_ Response) {})
 
 	if len(lp.funcFullResponseList) != 1 {
 		t.Error("Want len = 1")
@@ -119,6 +119,7 @@ func TestNewLongPollCommunity(t *testing.T) {
 		if groupToken == "" {
 			t.Skip("GROUP_TOKEN empty")
 		}
+
 		f(api.NewVK(groupToken), false)
 	})
 	t.Run("userToken", func(t *testing.T) {
@@ -128,6 +129,7 @@ func TestNewLongPollCommunity(t *testing.T) {
 		if userToken == "" {
 			t.Skip("USER_TOKEN empty")
 		}
+
 		f(api.NewVK(userToken), true)
 	})
 }

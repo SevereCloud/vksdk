@@ -15,8 +15,8 @@ func TestNewsfeedAddBanBuilder(t *testing.T) {
 	b.UserIDs([]int{1})
 	b.GroupIDs([]int{1})
 
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["group_ids"], []int{1})
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, []int{1}, b.Params["group_ids"])
 }
 
 func TestNewsfeedDeleteBanBuilder(t *testing.T) {
@@ -27,8 +27,8 @@ func TestNewsfeedDeleteBanBuilder(t *testing.T) {
 	b.UserIDs([]int{1})
 	b.GroupIDs([]int{1})
 
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["group_ids"], []int{1})
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, []int{1}, b.Params["group_ids"])
 }
 
 func TestNewsfeedDeleteListBuilder(t *testing.T) {
@@ -38,7 +38,7 @@ func TestNewsfeedDeleteListBuilder(t *testing.T) {
 
 	b.ListID(1)
 
-	assert.Equal(t, b.Params["list_id"], 1)
+	assert.Equal(t, 1, b.Params["list_id"])
 }
 
 func TestNewsfeedGetBuilder(t *testing.T) {
@@ -57,16 +57,16 @@ func TestNewsfeedGetBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.Section("text")
 
-	assert.Equal(t, b.Params["filters"], []string{"test"})
-	assert.Equal(t, b.Params["return_banned"], true)
-	assert.Equal(t, b.Params["start_time"], 1)
-	assert.Equal(t, b.Params["end_time"], 1)
-	assert.Equal(t, b.Params["max_photos"], 1)
-	assert.Equal(t, b.Params["source_ids"], "text")
-	assert.Equal(t, b.Params["start_from"], "text")
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["section"], "text")
+	assert.Equal(t, []string{"test"}, b.Params["filters"])
+	assert.Equal(t, true, b.Params["return_banned"])
+	assert.Equal(t, 1, b.Params["start_time"])
+	assert.Equal(t, 1, b.Params["end_time"])
+	assert.Equal(t, 1, b.Params["max_photos"])
+	assert.Equal(t, "text", b.Params["source_ids"])
+	assert.Equal(t, "text", b.Params["start_from"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["section"])
 }
 
 func TestNewsfeedGetBannedBuilder(t *testing.T) {
@@ -78,9 +78,9 @@ func TestNewsfeedGetBannedBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.NameCase("text")
 
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
 }
 
 func TestNewsfeedGetCommentsBuilder(t *testing.T) {
@@ -97,14 +97,14 @@ func TestNewsfeedGetCommentsBuilder(t *testing.T) {
 	b.StartFrom("text")
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["filters"], []string{"test"})
-	assert.Equal(t, b.Params["reposts"], "text")
-	assert.Equal(t, b.Params["start_time"], 1)
-	assert.Equal(t, b.Params["end_time"], 1)
-	assert.Equal(t, b.Params["last_comments_count"], 1)
-	assert.Equal(t, b.Params["start_from"], "text")
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["filters"])
+	assert.Equal(t, "text", b.Params["reposts"])
+	assert.Equal(t, 1, b.Params["start_time"])
+	assert.Equal(t, 1, b.Params["end_time"])
+	assert.Equal(t, 1, b.Params["last_comments_count"])
+	assert.Equal(t, "text", b.Params["start_from"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestNewsfeedGetListsBuilder(t *testing.T) {
@@ -115,8 +115,8 @@ func TestNewsfeedGetListsBuilder(t *testing.T) {
 	b.ListIDs([]int{1})
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["list_ids"], []int{1})
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, []int{1}, b.Params["list_ids"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestNewsfeedGetMentionsBuilder(t *testing.T) {
@@ -130,11 +130,11 @@ func TestNewsfeedGetMentionsBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["start_time"], 1)
-	assert.Equal(t, b.Params["end_time"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["start_time"])
+	assert.Equal(t, 1, b.Params["end_time"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestNewsfeedGetRecommendedBuilder(t *testing.T) {
@@ -149,12 +149,12 @@ func TestNewsfeedGetRecommendedBuilder(t *testing.T) {
 	b.Count(1)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["start_time"], 1)
-	assert.Equal(t, b.Params["end_time"], 1)
-	assert.Equal(t, b.Params["max_photos"], 1)
-	assert.Equal(t, b.Params["start_from"], "text")
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["start_time"])
+	assert.Equal(t, 1, b.Params["end_time"])
+	assert.Equal(t, 1, b.Params["max_photos"])
+	assert.Equal(t, "text", b.Params["start_from"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestNewsfeedGetSuggestedSourcesBuilder(t *testing.T) {
@@ -167,10 +167,10 @@ func TestNewsfeedGetSuggestedSourcesBuilder(t *testing.T) {
 	b.Shuffle(true)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["shuffle"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["shuffle"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestNewsfeedIgnoreItemBuilder(t *testing.T) {
@@ -182,9 +182,9 @@ func TestNewsfeedIgnoreItemBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.ItemID(1)
 
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
 }
 
 func TestNewsfeedSaveListBuilder(t *testing.T) {
@@ -197,10 +197,10 @@ func TestNewsfeedSaveListBuilder(t *testing.T) {
 	b.SourceIDs([]int{1})
 	b.NoReposts(true)
 
-	assert.Equal(t, b.Params["list_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["source_ids"], []int{1})
-	assert.Equal(t, b.Params["no_reposts"], true)
+	assert.Equal(t, 1, b.Params["list_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, []int{1}, b.Params["source_ids"])
+	assert.Equal(t, true, b.Params["no_reposts"])
 }
 
 func TestNewsfeedSearchBuilder(t *testing.T) {
@@ -218,15 +218,15 @@ func TestNewsfeedSearchBuilder(t *testing.T) {
 	b.StartFrom("text")
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["latitude"], 1.1)
-	assert.Equal(t, b.Params["longitude"], 1.1)
-	assert.Equal(t, b.Params["start_time"], 1)
-	assert.Equal(t, b.Params["end_time"], 1)
-	assert.Equal(t, b.Params["start_from"], "text")
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.InEpsilon(t, 1.1, b.Params["latitude"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["longitude"], 0.1)
+	assert.Equal(t, 1, b.Params["start_time"])
+	assert.Equal(t, 1, b.Params["end_time"])
+	assert.Equal(t, "text", b.Params["start_from"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestNewsfeedUnignoreItemBuilder(t *testing.T) {
@@ -239,10 +239,10 @@ func TestNewsfeedUnignoreItemBuilder(t *testing.T) {
 	b.ItemID(1)
 	b.TrackCode("text")
 
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["track_code"], "text")
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, "text", b.Params["track_code"])
 }
 
 func TestNewsfeedUnsubscribeBuilder(t *testing.T) {
@@ -254,7 +254,7 @@ func TestNewsfeedUnsubscribeBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.ItemID(1)
 
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
 }

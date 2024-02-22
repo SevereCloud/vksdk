@@ -20,7 +20,7 @@ func TestFuncList_HandlerMessageNew(t *testing.T) {
 		t.Helper()
 
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 		assert.NotEmpty(t, obj.Message)
 	})
 
@@ -63,9 +63,9 @@ func TestFuncList_HandlerMessageReply(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageReply(func(ctx context.Context, obj events.MessageReplyObject) {
+	fl.MessageReply(func(ctx context.Context, _ events.MessageReplyObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMessageReply}, fl.ListEvents())
 
@@ -106,9 +106,9 @@ func TestFuncList_HandlerMessageEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageEdit(func(ctx context.Context, obj events.MessageEditObject) {
+	fl.MessageEdit(func(ctx context.Context, _ events.MessageEditObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMessageEdit}, fl.ListEvents())
 
@@ -149,9 +149,9 @@ func TestFuncList_HandlerMessageAllow(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageAllow(func(ctx context.Context, obj events.MessageAllowObject) {
+	fl.MessageAllow(func(ctx context.Context, _ events.MessageAllowObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMessageAllow}, fl.ListEvents())
 
@@ -192,9 +192,9 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageDeny(func(ctx context.Context, obj events.MessageDenyObject) {
+	fl.MessageDeny(func(ctx context.Context, _ events.MessageDenyObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMessageDeny}, fl.ListEvents())
 
@@ -235,9 +235,9 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageTypingState(func(ctx context.Context, obj events.MessageTypingStateObject) {
+	fl.MessageTypingState(func(ctx context.Context, _ events.MessageTypingStateObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMessageTypingState}, fl.ListEvents())
 
@@ -278,9 +278,9 @@ func TestFuncList_HandlerMessageEvent(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageEvent(func(ctx context.Context, obj events.MessageEventObject) {
+	fl.MessageEvent(func(ctx context.Context, _ events.MessageEventObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMessageEvent}, fl.ListEvents())
 
@@ -321,9 +321,9 @@ func TestFuncList_HandlerPhotoNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoNew(func(ctx context.Context, obj events.PhotoNewObject) {
+	fl.PhotoNew(func(ctx context.Context, _ events.PhotoNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventPhotoNew}, fl.ListEvents())
 
@@ -364,9 +364,9 @@ func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoCommentNew(func(ctx context.Context, obj events.PhotoCommentNewObject) {
+	fl.PhotoCommentNew(func(ctx context.Context, _ events.PhotoCommentNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventPhotoCommentNew}, fl.ListEvents())
 
@@ -407,9 +407,9 @@ func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoCommentEdit(func(ctx context.Context, obj events.PhotoCommentEditObject) {
+	fl.PhotoCommentEdit(func(ctx context.Context, _ events.PhotoCommentEditObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventPhotoCommentEdit}, fl.ListEvents())
 
@@ -450,9 +450,9 @@ func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoCommentRestore(func(ctx context.Context, obj events.PhotoCommentRestoreObject) {
+	fl.PhotoCommentRestore(func(ctx context.Context, _ events.PhotoCommentRestoreObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventPhotoCommentRestore}, fl.ListEvents())
 
@@ -493,9 +493,9 @@ func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PhotoCommentDelete(func(ctx context.Context, obj events.PhotoCommentDeleteObject) {
+	fl.PhotoCommentDelete(func(ctx context.Context, _ events.PhotoCommentDeleteObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventPhotoCommentDelete}, fl.ListEvents())
 
@@ -536,9 +536,9 @@ func TestFuncList_HandlerAudioNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.AudioNew(func(ctx context.Context, obj events.AudioNewObject) {
+	fl.AudioNew(func(ctx context.Context, _ events.AudioNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventAudioNew}, fl.ListEvents())
 
@@ -579,9 +579,9 @@ func TestFuncList_HandlerVideoNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoNew(func(ctx context.Context, obj events.VideoNewObject) {
+	fl.VideoNew(func(ctx context.Context, _ events.VideoNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventVideoNew}, fl.ListEvents())
 
@@ -622,9 +622,9 @@ func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoCommentNew(func(ctx context.Context, obj events.VideoCommentNewObject) {
+	fl.VideoCommentNew(func(ctx context.Context, _ events.VideoCommentNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventVideoCommentNew}, fl.ListEvents())
 
@@ -665,9 +665,9 @@ func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoCommentEdit(func(ctx context.Context, obj events.VideoCommentEditObject) {
+	fl.VideoCommentEdit(func(ctx context.Context, _ events.VideoCommentEditObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventVideoCommentEdit}, fl.ListEvents())
 
@@ -708,9 +708,9 @@ func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoCommentRestore(func(ctx context.Context, obj events.VideoCommentRestoreObject) {
+	fl.VideoCommentRestore(func(ctx context.Context, _ events.VideoCommentRestoreObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventVideoCommentRestore}, fl.ListEvents())
 
@@ -751,9 +751,9 @@ func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VideoCommentDelete(func(ctx context.Context, obj events.VideoCommentDeleteObject) {
+	fl.VideoCommentDelete(func(ctx context.Context, _ events.VideoCommentDeleteObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventVideoCommentDelete}, fl.ListEvents())
 
@@ -794,9 +794,9 @@ func TestFuncList_HandlerWallPostNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallPostNew(func(ctx context.Context, obj events.WallPostNewObject) {
+	fl.WallPostNew(func(ctx context.Context, _ events.WallPostNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventWallPostNew}, fl.ListEvents())
 
@@ -837,9 +837,9 @@ func TestFuncList_HandlerWallRepost(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallRepost(func(ctx context.Context, obj events.WallRepostObject) {
+	fl.WallRepost(func(ctx context.Context, _ events.WallRepostObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventWallRepost}, fl.ListEvents())
 
@@ -880,9 +880,9 @@ func TestFuncList_HandlerWallReplyNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallReplyNew(func(ctx context.Context, obj events.WallReplyNewObject) {
+	fl.WallReplyNew(func(ctx context.Context, _ events.WallReplyNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventWallReplyNew}, fl.ListEvents())
 
@@ -923,9 +923,9 @@ func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallReplyEdit(func(ctx context.Context, obj events.WallReplyEditObject) {
+	fl.WallReplyEdit(func(ctx context.Context, _ events.WallReplyEditObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventWallReplyEdit}, fl.ListEvents())
 
@@ -966,9 +966,9 @@ func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallReplyRestore(func(ctx context.Context, obj events.WallReplyRestoreObject) {
+	fl.WallReplyRestore(func(ctx context.Context, _ events.WallReplyRestoreObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventWallReplyRestore}, fl.ListEvents())
 
@@ -1009,9 +1009,9 @@ func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.WallReplyDelete(func(ctx context.Context, obj events.WallReplyDeleteObject) {
+	fl.WallReplyDelete(func(ctx context.Context, _ events.WallReplyDeleteObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventWallReplyDelete}, fl.ListEvents())
 
@@ -1052,9 +1052,9 @@ func TestFuncList_HandlerBoardPostNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.BoardPostNew(func(ctx context.Context, obj events.BoardPostNewObject) {
+	fl.BoardPostNew(func(ctx context.Context, _ events.BoardPostNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventBoardPostNew}, fl.ListEvents())
 
@@ -1095,9 +1095,9 @@ func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.BoardPostEdit(func(ctx context.Context, obj events.BoardPostEditObject) {
+	fl.BoardPostEdit(func(ctx context.Context, _ events.BoardPostEditObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventBoardPostEdit}, fl.ListEvents())
 
@@ -1138,9 +1138,9 @@ func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.BoardPostRestore(func(ctx context.Context, obj events.BoardPostRestoreObject) {
+	fl.BoardPostRestore(func(ctx context.Context, _ events.BoardPostRestoreObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventBoardPostRestore}, fl.ListEvents())
 
@@ -1181,9 +1181,9 @@ func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.BoardPostDelete(func(ctx context.Context, obj events.BoardPostDeleteObject) {
+	fl.BoardPostDelete(func(ctx context.Context, _ events.BoardPostDeleteObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventBoardPostDelete}, fl.ListEvents())
 
@@ -1224,9 +1224,9 @@ func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketCommentNew(func(ctx context.Context, obj events.MarketCommentNewObject) {
+	fl.MarketCommentNew(func(ctx context.Context, _ events.MarketCommentNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMarketCommentNew}, fl.ListEvents())
 
@@ -1267,9 +1267,9 @@ func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketCommentEdit(func(ctx context.Context, obj events.MarketCommentEditObject) {
+	fl.MarketCommentEdit(func(ctx context.Context, _ events.MarketCommentEditObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMarketCommentEdit}, fl.ListEvents())
 
@@ -1310,9 +1310,9 @@ func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketCommentRestore(func(ctx context.Context, obj events.MarketCommentRestoreObject) {
+	fl.MarketCommentRestore(func(ctx context.Context, _ events.MarketCommentRestoreObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMarketCommentRestore}, fl.ListEvents())
 
@@ -1353,9 +1353,9 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketCommentDelete(func(ctx context.Context, obj events.MarketCommentDeleteObject) {
+	fl.MarketCommentDelete(func(ctx context.Context, _ events.MarketCommentDeleteObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMarketCommentDelete}, fl.ListEvents())
 
@@ -1396,9 +1396,9 @@ func TestFuncList_HandlerMarketOrderNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketOrderNew(func(ctx context.Context, obj events.MarketOrderNewObject) {
+	fl.MarketOrderNew(func(ctx context.Context, _ events.MarketOrderNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMarketOrderNew}, fl.ListEvents())
 
@@ -1439,9 +1439,9 @@ func TestFuncList_HandlerMarketOrderEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MarketOrderEdit(func(ctx context.Context, obj events.MarketOrderEditObject) {
+	fl.MarketOrderEdit(func(ctx context.Context, _ events.MarketOrderEditObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMarketOrderEdit}, fl.ListEvents())
 
@@ -1482,9 +1482,9 @@ func TestFuncList_HandlerGroupLeave(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupLeave(func(ctx context.Context, obj events.GroupLeaveObject) {
+	fl.GroupLeave(func(ctx context.Context, _ events.GroupLeaveObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventGroupLeave}, fl.ListEvents())
 
@@ -1525,9 +1525,9 @@ func TestFuncList_HandlerGroupJoin(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupJoin(func(ctx context.Context, obj events.GroupJoinObject) {
+	fl.GroupJoin(func(ctx context.Context, _ events.GroupJoinObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventGroupJoin}, fl.ListEvents())
 
@@ -1568,9 +1568,9 @@ func TestFuncList_HandlerUserBlock(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.UserBlock(func(ctx context.Context, obj events.UserBlockObject) {
+	fl.UserBlock(func(ctx context.Context, _ events.UserBlockObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventUserBlock}, fl.ListEvents())
 
@@ -1611,9 +1611,9 @@ func TestFuncList_HandlerUserUnblock(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.UserUnblock(func(ctx context.Context, obj events.UserUnblockObject) {
+	fl.UserUnblock(func(ctx context.Context, _ events.UserUnblockObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventUserUnblock}, fl.ListEvents())
 
@@ -1654,9 +1654,9 @@ func TestFuncList_HandlerPollVoteNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.PollVoteNew(func(ctx context.Context, obj events.PollVoteNewObject) {
+	fl.PollVoteNew(func(ctx context.Context, _ events.PollVoteNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventPollVoteNew}, fl.ListEvents())
 
@@ -1697,9 +1697,9 @@ func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupOfficersEdit(func(ctx context.Context, obj events.GroupOfficersEditObject) {
+	fl.GroupOfficersEdit(func(ctx context.Context, _ events.GroupOfficersEditObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventGroupOfficersEdit}, fl.ListEvents())
 
@@ -1740,9 +1740,9 @@ func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupChangeSettings(func(ctx context.Context, obj events.GroupChangeSettingsObject) {
+	fl.GroupChangeSettings(func(ctx context.Context, _ events.GroupChangeSettingsObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventGroupChangeSettings}, fl.ListEvents())
 
@@ -1783,9 +1783,9 @@ func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.GroupChangePhoto(func(ctx context.Context, obj events.GroupChangePhotoObject) {
+	fl.GroupChangePhoto(func(ctx context.Context, _ events.GroupChangePhotoObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventGroupChangePhoto}, fl.ListEvents())
 
@@ -1826,9 +1826,9 @@ func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.VkpayTransaction(func(ctx context.Context, obj events.VkpayTransactionObject) {
+	fl.VkpayTransaction(func(ctx context.Context, _ events.VkpayTransactionObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventVkpayTransaction}, fl.ListEvents())
 
@@ -1869,9 +1869,9 @@ func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.LeadFormsNew(func(ctx context.Context, obj events.LeadFormsNewObject) {
+	fl.LeadFormsNew(func(ctx context.Context, _ events.LeadFormsNewObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventLeadFormsNew}, fl.ListEvents())
 
@@ -1912,9 +1912,9 @@ func TestFuncList_HandlerAppPayload(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.AppPayload(func(ctx context.Context, obj events.AppPayloadObject) {
+	fl.AppPayload(func(ctx context.Context, _ events.AppPayloadObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventAppPayload}, fl.ListEvents())
 
@@ -1955,9 +1955,9 @@ func TestFuncList_HandlerMessageRead(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.MessageRead(func(ctx context.Context, obj events.MessageReadObject) {
+	fl.MessageRead(func(ctx context.Context, _ events.MessageReadObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventMessageRead}, fl.ListEvents())
 
@@ -1998,9 +1998,9 @@ func TestFuncList_HandlerLikeAdd(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.LikeAdd(func(ctx context.Context, obj events.LikeAddObject) {
+	fl.LikeAdd(func(ctx context.Context, _ events.LikeAddObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventLikeAdd}, fl.ListEvents())
 
@@ -2041,9 +2041,9 @@ func TestFuncList_HandlerLikeRemove(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.LikeRemove(func(ctx context.Context, obj events.LikeRemoveObject) {
+	fl.LikeRemove(func(ctx context.Context, _ events.LikeRemoveObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventLikeRemove}, fl.ListEvents())
 
@@ -2084,9 +2084,9 @@ func TestFuncList_DonutSubscriptionCreate(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.DonutSubscriptionCreate(func(ctx context.Context, obj events.DonutSubscriptionCreateObject) {
+	fl.DonutSubscriptionCreate(func(ctx context.Context, _ events.DonutSubscriptionCreateObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionCreate}, fl.ListEvents())
 
@@ -2127,9 +2127,9 @@ func TestFuncList_DonutSubscriptionProlonged(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.DonutSubscriptionProlonged(func(ctx context.Context, obj events.DonutSubscriptionProlongedObject) {
+	fl.DonutSubscriptionProlonged(func(ctx context.Context, _ events.DonutSubscriptionProlongedObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionProlonged}, fl.ListEvents())
 
@@ -2170,9 +2170,9 @@ func TestFuncList_DonutSubscriptionExpired(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.DonutSubscriptionExpired(func(ctx context.Context, obj events.DonutSubscriptionExpiredObject) {
+	fl.DonutSubscriptionExpired(func(ctx context.Context, _ events.DonutSubscriptionExpiredObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionExpired}, fl.ListEvents())
 
@@ -2213,9 +2213,9 @@ func TestFuncList_DonutSubscriptionCancelled(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.DonutSubscriptionCancelled(func(ctx context.Context, obj events.DonutSubscriptionCancelledObject) {
+	fl.DonutSubscriptionCancelled(func(ctx context.Context, _ events.DonutSubscriptionCancelledObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionCancelled}, fl.ListEvents())
 
@@ -2256,9 +2256,9 @@ func TestFuncList_DonutSubscriptionPriceChanged(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.DonutSubscriptionPriceChanged(func(ctx context.Context, obj events.DonutSubscriptionPriceChangedObject) {
+	fl.DonutSubscriptionPriceChanged(func(ctx context.Context, _ events.DonutSubscriptionPriceChangedObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionPriceChanged}, fl.ListEvents())
 
@@ -2299,9 +2299,9 @@ func TestFuncList_DonutMoneyWithdraw(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.DonutMoneyWithdraw(func(ctx context.Context, obj events.DonutMoneyWithdrawObject) {
+	fl.DonutMoneyWithdraw(func(ctx context.Context, _ events.DonutMoneyWithdrawObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventDonutMoneyWithdraw}, fl.ListEvents())
 
@@ -2342,9 +2342,9 @@ func TestFuncList_DonutMoneyWithdrawError(t *testing.T) {
 
 	fl := events.NewFuncList()
 
-	fl.DonutMoneyWithdrawError(func(ctx context.Context, obj events.DonutMoneyWithdrawErrorObject) {
+	fl.DonutMoneyWithdrawError(func(ctx context.Context, _ events.DonutMoneyWithdrawErrorObject) {
 		groupID := events.GroupIDFromContext(ctx)
-		assert.Equal(t, groupID, GID)
+		assert.Equal(t, GID, groupID)
 	})
 	assert.Equal(t, []events.EventType{events.EventDonutMoneyWithdrawError}, fl.ListEvents())
 

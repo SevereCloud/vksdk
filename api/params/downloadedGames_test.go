@@ -14,5 +14,5 @@ func TestDownloadedGamesGetPaidStatusBuilder(t *testing.T) {
 
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
 }

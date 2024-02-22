@@ -15,8 +15,8 @@ func TestStatusGetBuilder(t *testing.T) {
 	b.UserID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestStatusSetBuilder(t *testing.T) {
@@ -27,6 +27,6 @@ func TestStatusSetBuilder(t *testing.T) {
 	b.Text("text")
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["text"], "text")
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, "text", b.Params["text"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }

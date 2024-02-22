@@ -135,11 +135,11 @@ func TestCallback_OnGetItem(t *testing.T) {
 	cb := payments.NewCallback(secret)
 	assert.Equal(t, secret, cb.Secret)
 
-	cb.OnGetItem(func(e payments.GetItemRequest) (*payments.GetItemResponse, *payments.Error) {
+	cb.OnGetItem(func(_ payments.GetItemRequest) (*payments.GetItemResponse, *payments.Error) {
 		return nil, &paymentErr
 	})
 
-	cb.OnGetItemTest(func(e payments.GetItemRequest) (*payments.GetItemResponse, *payments.Error) {
+	cb.OnGetItemTest(func(_ payments.GetItemRequest) (*payments.GetItemResponse, *payments.Error) {
 		return nil, &paymentErr
 	})
 
@@ -246,11 +246,11 @@ func TestCallback_OnGetSubscription(t *testing.T) {
 	cb := payments.NewCallback(secret)
 	assert.Equal(t, secret, cb.Secret)
 
-	cb.OnGetSubscription(func(e payments.GetSubscriptionRequest) (*payments.GetSubscriptionResponse, *payments.Error) {
+	cb.OnGetSubscription(func(_ payments.GetSubscriptionRequest) (*payments.GetSubscriptionResponse, *payments.Error) {
 		return nil, &paymentErr
 	})
 
-	cb.OnGetSubscriptionTest(func(e payments.GetSubscriptionRequest) (*payments.GetSubscriptionResponse, *payments.Error) {
+	cb.OnGetSubscriptionTest(func(_ payments.GetSubscriptionRequest) (*payments.GetSubscriptionResponse, *payments.Error) {
 		return nil, &paymentErr
 	})
 
@@ -360,14 +360,14 @@ func TestCallback_OnOrderStatusChange(t *testing.T) {
 	cb := payments.NewCallback(secret)
 	assert.Equal(t, secret, cb.Secret)
 
-	cb.OnOrderStatusChange(func(e payments.OrderStatusChangeRequest) (
+	cb.OnOrderStatusChange(func(_ payments.OrderStatusChangeRequest) (
 		*payments.OrderStatusChangeResponse,
 		*payments.Error,
 	) {
 		return nil, &paymentErr
 	})
 
-	cb.OnOrderStatusChangeTest(func(e payments.OrderStatusChangeRequest) (
+	cb.OnOrderStatusChangeTest(func(_ payments.OrderStatusChangeRequest) (
 		*payments.OrderStatusChangeResponse,
 		*payments.Error,
 	) {
@@ -492,14 +492,14 @@ func TestCallback_OnSubscriptionStatusChange(t *testing.T) {
 	cb := payments.NewCallback(secret)
 	assert.Equal(t, secret, cb.Secret)
 
-	cb.OnSubscriptionStatusChange(func(e payments.SubscriptionStatusChangeRequest) (
+	cb.OnSubscriptionStatusChange(func(_ payments.SubscriptionStatusChangeRequest) (
 		*payments.SubscriptionStatusChangeResponse,
 		*payments.Error,
 	) {
 		return nil, &paymentErr
 	})
 
-	cb.OnSubscriptionStatusChangeTest(func(e payments.SubscriptionStatusChangeRequest) (
+	cb.OnSubscriptionStatusChangeTest(func(_ payments.SubscriptionStatusChangeRequest) (
 		*payments.SubscriptionStatusChangeResponse,
 		*payments.Error,
 	) {

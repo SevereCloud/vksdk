@@ -149,7 +149,7 @@ func (lp *LongPoll) updateServer(updateTs bool) error {
 func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 	u, err := url.Parse(lp.Server)
 	if err != nil {
-		return
+		return response, err
 	}
 
 	u.Scheme = "https"
@@ -165,20 +165,20 @@ func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 
 	req, err := http.NewRequest(http.MethodGet, u.String(), nil)
 	if err != nil {
-		return
+		return response, err
 	}
 
 	req.Header.Set("User-Agent", lp.UserAgent)
 
 	resp, err := lp.Client.Do(req)
 	if err != nil {
-		return
+		return response, err
 	}
 	defer resp.Body.Close()
 
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
-		return
+		return response, err
 	}
 
 	err = lp.checkResponse(response)

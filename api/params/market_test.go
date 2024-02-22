@@ -23,16 +23,16 @@ func TestMarketAddBuilder(t *testing.T) {
 	b.PhotoIDs([]int{1})
 	b.URL("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["description"], "text")
-	assert.Equal(t, b.Params["category_id"], 1)
-	assert.Equal(t, b.Params["price"], 1.1)
-	assert.Equal(t, b.Params["old_price"], 1.1)
-	assert.Equal(t, b.Params["deleted"], true)
-	assert.Equal(t, b.Params["main_photo_id"], 1)
-	assert.Equal(t, b.Params["photo_ids"], []int{1})
-	assert.Equal(t, b.Params["url"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, "text", b.Params["description"])
+	assert.Equal(t, 1, b.Params["category_id"])
+	assert.InEpsilon(t, 1.1, b.Params["price"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["old_price"], 0.1)
+	assert.Equal(t, true, b.Params["deleted"])
+	assert.Equal(t, 1, b.Params["main_photo_id"])
+	assert.Equal(t, []int{1}, b.Params["photo_ids"])
+	assert.Equal(t, "text", b.Params["url"])
 }
 
 func TestMarketAddAlbumBuilder(t *testing.T) {
@@ -46,11 +46,11 @@ func TestMarketAddAlbumBuilder(t *testing.T) {
 	b.MainAlbum(true)
 	b.IsHidden(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["photo_id"], 1)
-	assert.Equal(t, b.Params["main_album"], true)
-	assert.Equal(t, b.Params["is_hidden"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, 1, b.Params["photo_id"])
+	assert.Equal(t, true, b.Params["main_album"])
+	assert.Equal(t, true, b.Params["is_hidden"])
 }
 
 func TestMarketAddToAlbumBuilder(t *testing.T) {
@@ -63,10 +63,10 @@ func TestMarketAddToAlbumBuilder(t *testing.T) {
 	b.ItemIDs(1)
 	b.AlbumIDs([]int{1})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["item_ids"], 1)
-	assert.Equal(t, b.Params["album_ids"], []int{1})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, 1, b.Params["item_ids"])
+	assert.Equal(t, []int{1}, b.Params["album_ids"])
 }
 
 func TestMarketCreateCommentBuilder(t *testing.T) {
@@ -83,14 +83,14 @@ func TestMarketCreateCommentBuilder(t *testing.T) {
 	b.StickerID(1)
 	b.GUID("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
-	assert.Equal(t, b.Params["from_group"], true)
-	assert.Equal(t, b.Params["reply_to_comment"], 1)
-	assert.Equal(t, b.Params["sticker_id"], 1)
-	assert.Equal(t, b.Params["guid"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
+	assert.Equal(t, true, b.Params["from_group"])
+	assert.Equal(t, 1, b.Params["reply_to_comment"])
+	assert.Equal(t, 1, b.Params["sticker_id"])
+	assert.Equal(t, "text", b.Params["guid"])
 }
 
 func TestMarketDeleteBuilder(t *testing.T) {
@@ -101,8 +101,8 @@ func TestMarketDeleteBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.ItemID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
 }
 
 func TestMarketDeleteAlbumBuilder(t *testing.T) {
@@ -113,8 +113,8 @@ func TestMarketDeleteAlbumBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.AlbumID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
 }
 
 func TestMarketDeleteCommentBuilder(t *testing.T) {
@@ -125,8 +125,8 @@ func TestMarketDeleteCommentBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.CommentID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
 }
 
 func TestMarketEditBuilder(t *testing.T) {
@@ -145,16 +145,16 @@ func TestMarketEditBuilder(t *testing.T) {
 	b.PhotoIDs([]int{1})
 	b.URL("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["description"], "text")
-	assert.Equal(t, b.Params["category_id"], 1)
-	assert.Equal(t, b.Params["price"], 1.1)
-	assert.Equal(t, b.Params["deleted"], true)
-	assert.Equal(t, b.Params["main_photo_id"], 1)
-	assert.Equal(t, b.Params["photo_ids"], []int{1})
-	assert.Equal(t, b.Params["url"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, "text", b.Params["description"])
+	assert.Equal(t, 1, b.Params["category_id"])
+	assert.InEpsilon(t, 1.1, b.Params["price"], 0.1)
+	assert.Equal(t, true, b.Params["deleted"])
+	assert.Equal(t, 1, b.Params["main_photo_id"])
+	assert.Equal(t, []int{1}, b.Params["photo_ids"])
+	assert.Equal(t, "text", b.Params["url"])
 }
 
 func TestMarketEditOrderBuilder(t *testing.T) {
@@ -176,19 +176,19 @@ func TestMarketEditOrderBuilder(t *testing.T) {
 	b.CommentForUser("text")
 	b.ReceiptLink("text")
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["order_id"], 1)
-	assert.Equal(t, b.Params["merchant_comment"], "text")
-	assert.Equal(t, b.Params["status"], 1)
-	assert.Equal(t, b.Params["track_number"], "text")
-	assert.Equal(t, b.Params["payment_status"], "text")
-	assert.Equal(t, b.Params["delivery_price"], 1)
-	assert.Equal(t, b.Params["width"], 1)
-	assert.Equal(t, b.Params["length"], 1)
-	assert.Equal(t, b.Params["height"], 1)
-	assert.Equal(t, b.Params["weight"], 1)
-	assert.Equal(t, b.Params["comment_for_user"], "text")
-	assert.Equal(t, b.Params["receipt_link"], "text")
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["order_id"])
+	assert.Equal(t, "text", b.Params["merchant_comment"])
+	assert.Equal(t, 1, b.Params["status"])
+	assert.Equal(t, "text", b.Params["track_number"])
+	assert.Equal(t, "text", b.Params["payment_status"])
+	assert.Equal(t, 1, b.Params["delivery_price"])
+	assert.Equal(t, 1, b.Params["width"])
+	assert.Equal(t, 1, b.Params["length"])
+	assert.Equal(t, 1, b.Params["height"])
+	assert.Equal(t, 1, b.Params["weight"])
+	assert.Equal(t, "text", b.Params["comment_for_user"])
+	assert.Equal(t, "text", b.Params["receipt_link"])
 }
 
 func TestMarketEditAlbumBuilder(t *testing.T) {
@@ -203,12 +203,12 @@ func TestMarketEditAlbumBuilder(t *testing.T) {
 	b.MainAlbum(true)
 	b.IsHidden(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["photo_id"], 1)
-	assert.Equal(t, b.Params["main_album"], true)
-	assert.Equal(t, b.Params["is_hidden"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, 1, b.Params["photo_id"])
+	assert.Equal(t, true, b.Params["main_album"])
+	assert.Equal(t, true, b.Params["is_hidden"])
 }
 
 func TestMarketEditCommentBuilder(t *testing.T) {
@@ -221,10 +221,10 @@ func TestMarketEditCommentBuilder(t *testing.T) {
 	b.Message("text")
 	b.Attachments([]string{"text"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
 }
 
 func TestMarketGetBuilder(t *testing.T) {
@@ -240,13 +240,13 @@ func TestMarketGetBuilder(t *testing.T) {
 	b.NeedVariants(true)
 	b.WithDisabled(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["need_variants"], true)
-	assert.Equal(t, b.Params["with_disabled"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, true, b.Params["need_variants"])
+	assert.Equal(t, true, b.Params["with_disabled"])
 }
 
 func TestMarketGetAlbumByIDBuilder(t *testing.T) {
@@ -258,9 +258,9 @@ func TestMarketGetAlbumByIDBuilder(t *testing.T) {
 	b.AlbumIDs([]int{1})
 	b.NeedAllItemIDs(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["album_ids"], []int{1})
-	assert.Equal(t, b.Params["need_all_item_ids"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, []int{1}, b.Params["album_ids"])
+	assert.Equal(t, true, b.Params["need_all_item_ids"])
 }
 
 func TestMarketGetAlbumsBuilder(t *testing.T) {
@@ -272,9 +272,9 @@ func TestMarketGetAlbumsBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestMarketGetByIDBuilder(t *testing.T) {
@@ -285,8 +285,8 @@ func TestMarketGetByIDBuilder(t *testing.T) {
 	b.ItemIDs([]string{"text"})
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["item_ids"], []string{"text"})
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, []string{"text"}, b.Params["item_ids"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestMarketGetCategoriesBuilder(t *testing.T) {
@@ -297,8 +297,8 @@ func TestMarketGetCategoriesBuilder(t *testing.T) {
 	b.Count(1)
 	b.Offset(1)
 
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
 }
 
 func TestMarketGetCommentsBuilder(t *testing.T) {
@@ -316,15 +316,15 @@ func TestMarketGetCommentsBuilder(t *testing.T) {
 	b.Extended(true)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["need_likes"], true)
-	assert.Equal(t, b.Params["start_comment_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["sort"], "text")
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, true, b.Params["need_likes"])
+	assert.Equal(t, 1, b.Params["start_comment_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, "text", b.Params["sort"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestMarketGetGroupOrdersBuilder(t *testing.T) {
@@ -336,9 +336,9 @@ func TestMarketGetGroupOrdersBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestMarketGetOrderByIDBuilder(t *testing.T) {
@@ -350,9 +350,9 @@ func TestMarketGetOrderByIDBuilder(t *testing.T) {
 	b.OrderID(1)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["order_id"], 1)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["order_id"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestMarketGetOrderItemsBuilder(t *testing.T) {
@@ -364,9 +364,9 @@ func TestMarketGetOrderItemsBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["order_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["order_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestMarketRemoveFromAlbumBuilder(t *testing.T) {
@@ -378,9 +378,9 @@ func TestMarketRemoveFromAlbumBuilder(t *testing.T) {
 	b.ItemID(1)
 	b.AlbumIDs([]int{1})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["album_ids"], []int{1})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, []int{1}, b.Params["album_ids"])
 }
 
 func TestMarketReorderAlbumsBuilder(t *testing.T) {
@@ -393,10 +393,10 @@ func TestMarketReorderAlbumsBuilder(t *testing.T) {
 	b.Before(1)
 	b.After(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["before"], 1)
-	assert.Equal(t, b.Params["after"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, 1, b.Params["before"])
+	assert.Equal(t, 1, b.Params["after"])
 }
 
 func TestMarketReorderItemsBuilder(t *testing.T) {
@@ -410,11 +410,11 @@ func TestMarketReorderItemsBuilder(t *testing.T) {
 	b.Before(1)
 	b.After(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["before"], 1)
-	assert.Equal(t, b.Params["after"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, 1, b.Params["before"])
+	assert.Equal(t, 1, b.Params["after"])
 }
 
 func TestMarketReportBuilder(t *testing.T) {
@@ -426,9 +426,9 @@ func TestMarketReportBuilder(t *testing.T) {
 	b.ItemID(1)
 	b.Reason(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["reason"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, 1, b.Params["reason"])
 }
 
 func TestMarketReportCommentBuilder(t *testing.T) {
@@ -440,9 +440,9 @@ func TestMarketReportCommentBuilder(t *testing.T) {
 	b.CommentID(1)
 	b.Reason(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
-	assert.Equal(t, b.Params["reason"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
+	assert.Equal(t, 1, b.Params["reason"])
 }
 
 func TestMarketRestoreBuilder(t *testing.T) {
@@ -453,8 +453,8 @@ func TestMarketRestoreBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.ItemID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
 }
 
 func TestMarketRestoreCommentBuilder(t *testing.T) {
@@ -465,8 +465,8 @@ func TestMarketRestoreCommentBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.CommentID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
 }
 
 func TestMarketSearchBuilder(t *testing.T) {
@@ -488,19 +488,19 @@ func TestMarketSearchBuilder(t *testing.T) {
 	b.Status(1)
 	b.NeedVariants(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["price_from"], 1)
-	assert.Equal(t, b.Params["price_to"], 1)
-	assert.Equal(t, b.Params["tags"], []int{1})
-	assert.Equal(t, b.Params["sort"], 1)
-	assert.Equal(t, b.Params["rev"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["status"], 1)
-	assert.Equal(t, b.Params["need_variants"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["price_from"])
+	assert.Equal(t, 1, b.Params["price_to"])
+	assert.Equal(t, []int{1}, b.Params["tags"])
+	assert.Equal(t, 1, b.Params["sort"])
+	assert.Equal(t, 1, b.Params["rev"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, 1, b.Params["status"])
+	assert.Equal(t, true, b.Params["need_variants"])
 }
 
 func TestMarketSearchItemsBuilder(t *testing.T) {
@@ -517,12 +517,12 @@ func TestMarketSearchItemsBuilder(t *testing.T) {
 	b.SortBy(1)
 	b.SortDirection(1)
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["category_id"], 1)
-	assert.Equal(t, b.Params["price_from"], 1)
-	assert.Equal(t, b.Params["price_to"], 1)
-	assert.Equal(t, b.Params["sort_by"], 1)
-	assert.Equal(t, b.Params["sort_direction"], 1)
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["category_id"])
+	assert.Equal(t, 1, b.Params["price_from"])
+	assert.Equal(t, 1, b.Params["price_to"])
+	assert.Equal(t, 1, b.Params["sort_by"])
+	assert.Equal(t, 1, b.Params["sort_direction"])
 }

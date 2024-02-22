@@ -15,7 +15,7 @@ func TestVK_AppsDeleteAppRequests(t *testing.T) {
 
 	res, err := vkUser.AppsDeleteAppRequests(nil)
 	noError(t, err)
-	assert.Equal(t, res, 1)
+	assert.Equal(t, 1, res)
 }
 
 func TestVK_AppsGet(t *testing.T) {

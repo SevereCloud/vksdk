@@ -15,8 +15,8 @@ func TestMessagesAddChatUserBuilder(t *testing.T) {
 	b.ChatID(1)
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["chat_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["chat_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestMessagesAllowMessagesFromGroupBuilder(t *testing.T) {
@@ -27,8 +27,8 @@ func TestMessagesAllowMessagesFromGroupBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.Key("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["key"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["key"])
 }
 
 func TestMessagesCreateChatBuilder(t *testing.T) {
@@ -39,8 +39,8 @@ func TestMessagesCreateChatBuilder(t *testing.T) {
 	b.UserIDs([]int{1})
 	b.Title("text")
 
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["title"], "text")
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, "text", b.Params["title"])
 }
 
 func TestMessagesDeleteBuilder(t *testing.T) {
@@ -55,12 +55,12 @@ func TestMessagesDeleteBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.DeleteForAll(true)
 
-	assert.Equal(t, b.Params["message_ids"], []int{1})
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["conversation_message_ids"], []int{1})
-	assert.Equal(t, b.Params["spam"], true)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["delete_for_all"], true)
+	assert.Equal(t, []int{1}, b.Params["message_ids"])
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, []int{1}, b.Params["conversation_message_ids"])
+	assert.Equal(t, true, b.Params["spam"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, true, b.Params["delete_for_all"])
 }
 
 func TestMessagesDeleteChatPhotoBuilder(t *testing.T) {
@@ -71,8 +71,8 @@ func TestMessagesDeleteChatPhotoBuilder(t *testing.T) {
 	b.ChatID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["chat_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["chat_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesDeleteConversationBuilder(t *testing.T) {
@@ -84,9 +84,9 @@ func TestMessagesDeleteConversationBuilder(t *testing.T) {
 	b.PeerID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesDenyMessagesFromGroupBuilder(t *testing.T) {
@@ -96,7 +96,7 @@ func TestMessagesDenyMessagesFromGroupBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesEditBuilder(t *testing.T) {
@@ -118,19 +118,19 @@ func TestMessagesEditBuilder(t *testing.T) {
 	b.ConversationMessageID(1)
 	b.DontParseLinks(true)
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["message_id"], 1)
-	assert.Equal(t, b.Params["lat"], 1.1)
-	assert.Equal(t, b.Params["long"], 1.1)
-	assert.Equal(t, b.Params["attachment"], "text")
-	assert.Equal(t, b.Params["keep_forward_messages"], true)
-	assert.Equal(t, b.Params["keep_snippets"], true)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["keyboard"], "text")
-	assert.Equal(t, b.Params["template"], "text")
-	assert.Equal(t, b.Params["conversation_message_id"], 1)
-	assert.Equal(t, b.Params["dont_parse_links"], true)
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, 1, b.Params["message_id"])
+	assert.InEpsilon(t, 1.1, b.Params["lat"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["long"], 0.1)
+	assert.Equal(t, "text", b.Params["attachment"])
+	assert.Equal(t, true, b.Params["keep_forward_messages"])
+	assert.Equal(t, true, b.Params["keep_snippets"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["keyboard"])
+	assert.Equal(t, "text", b.Params["template"])
+	assert.Equal(t, 1, b.Params["conversation_message_id"])
+	assert.Equal(t, true, b.Params["dont_parse_links"])
 }
 
 func TestMessagesEditChatBuilder(t *testing.T) {
@@ -141,8 +141,8 @@ func TestMessagesEditChatBuilder(t *testing.T) {
 	b.ChatID(1)
 	b.Title("text")
 
-	assert.Equal(t, b.Params["chat_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
+	assert.Equal(t, 1, b.Params["chat_id"])
+	assert.Equal(t, "text", b.Params["title"])
 }
 
 func TestMessagesForceCallFinishBuilder(t *testing.T) {
@@ -152,7 +152,7 @@ func TestMessagesForceCallFinishBuilder(t *testing.T) {
 
 	b.CallID("text")
 
-	assert.Equal(t, b.Params["call_id"], "text")
+	assert.Equal(t, "text", b.Params["call_id"])
 }
 
 func TestMessagesGetByConversationMessageIDBuilder(t *testing.T) {
@@ -166,11 +166,11 @@ func TestMessagesGetByConversationMessageIDBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["conversation_message_ids"], []int{1})
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, []int{1}, b.Params["conversation_message_ids"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesGetByIDBuilder(t *testing.T) {
@@ -184,11 +184,11 @@ func TestMessagesGetByIDBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["message_ids"], []int{1})
-	assert.Equal(t, b.Params["preview_length"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, []int{1}, b.Params["message_ids"])
+	assert.Equal(t, 1, b.Params["preview_length"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesGetChatPreviewBuilder(t *testing.T) {
@@ -200,9 +200,9 @@ func TestMessagesGetChatPreviewBuilder(t *testing.T) {
 	b.Link("text")
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["link"], "text")
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, "text", b.Params["link"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestMessagesGetConversationMembersBuilder(t *testing.T) {
@@ -214,9 +214,9 @@ func TestMessagesGetConversationMembersBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesGetConversationsBuilder(t *testing.T) {
@@ -232,13 +232,13 @@ func TestMessagesGetConversationsBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["filter"], "text")
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["start_message_id"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, "text", b.Params["filter"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, 1, b.Params["start_message_id"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesGetConversationsByIDBuilder(t *testing.T) {
@@ -251,10 +251,10 @@ func TestMessagesGetConversationsByIDBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["peer_ids"], []int{1})
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, []int{1}, b.Params["peer_ids"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesGetHistoryBuilder(t *testing.T) {
@@ -272,15 +272,15 @@ func TestMessagesGetHistoryBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["start_message_id"], 1)
-	assert.Equal(t, b.Params["rev"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, 1, b.Params["start_message_id"])
+	assert.Equal(t, 1, b.Params["rev"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesGetHistoryAttachmentsBuilder(t *testing.T) {
@@ -298,15 +298,15 @@ func TestMessagesGetHistoryAttachmentsBuilder(t *testing.T) {
 	b.PreserveOrder(true)
 	b.MaxForwardsLevel(1)
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["media_type"], "text")
-	assert.Equal(t, b.Params["start_from"], "text")
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["photo_sizes"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["preserve_order"], true)
-	assert.Equal(t, b.Params["max_forwards_level"], 1)
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, "text", b.Params["media_type"])
+	assert.Equal(t, "text", b.Params["start_from"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["photo_sizes"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, true, b.Params["preserve_order"])
+	assert.Equal(t, 1, b.Params["max_forwards_level"])
 }
 
 func TestMessagesGetIntentUsersBuilder(t *testing.T) {
@@ -322,13 +322,13 @@ func TestMessagesGetIntentUsersBuilder(t *testing.T) {
 	b.NameCase([]string{"test"})
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["intent"], "test")
-	assert.Equal(t, b.Params["subscribe_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["name_case"], []string{"test"})
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, "test", b.Params["intent"])
+	assert.Equal(t, 1, b.Params["subscribe_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["name_case"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestMessagesGetInviteLinkBuilder(t *testing.T) {
@@ -340,9 +340,9 @@ func TestMessagesGetInviteLinkBuilder(t *testing.T) {
 	b.Reset(true)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["reset"], true)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, true, b.Params["reset"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesGetLastActivityBuilder(t *testing.T) {
@@ -352,7 +352,7 @@ func TestMessagesGetLastActivityBuilder(t *testing.T) {
 
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestMessagesGetLongPollHistoryBuilder(t *testing.T) {
@@ -373,18 +373,18 @@ func TestMessagesGetLongPollHistoryBuilder(t *testing.T) {
 	b.LastN(1)
 	b.Credentials(true)
 
-	assert.Equal(t, b.Params["ts"], 1)
-	assert.Equal(t, b.Params["pts"], 1)
-	assert.Equal(t, b.Params["preview_length"], 1)
-	assert.Equal(t, b.Params["onlines"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["events_limit"], 1)
-	assert.Equal(t, b.Params["msgs_limit"], 1)
-	assert.Equal(t, b.Params["max_msg_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["lp_version"], 1)
-	assert.Equal(t, b.Params["last_n"], 1)
-	assert.Equal(t, b.Params["credentials"], true)
+	assert.Equal(t, 1, b.Params["ts"])
+	assert.Equal(t, 1, b.Params["pts"])
+	assert.Equal(t, 1, b.Params["preview_length"])
+	assert.Equal(t, true, b.Params["onlines"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["events_limit"])
+	assert.Equal(t, 1, b.Params["msgs_limit"])
+	assert.Equal(t, 1, b.Params["max_msg_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["lp_version"])
+	assert.Equal(t, 1, b.Params["last_n"])
+	assert.Equal(t, true, b.Params["credentials"])
 }
 
 func TestMessagesGetLongPollServerBuilder(t *testing.T) {
@@ -396,9 +396,9 @@ func TestMessagesGetLongPollServerBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.LpVersion(1)
 
-	assert.Equal(t, b.Params["need_pts"], true)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["lp_version"], 1)
+	assert.Equal(t, true, b.Params["need_pts"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["lp_version"])
 }
 
 func TestMessagesIsMessagesFromGroupAllowedBuilder(t *testing.T) {
@@ -409,8 +409,8 @@ func TestMessagesIsMessagesFromGroupAllowedBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestMessagesJoinChatByInviteLinkBuilder(t *testing.T) {
@@ -420,7 +420,7 @@ func TestMessagesJoinChatByInviteLinkBuilder(t *testing.T) {
 
 	b.Link("text")
 
-	assert.Equal(t, b.Params["link"], "text")
+	assert.Equal(t, "text", b.Params["link"])
 }
 
 func TestMessagesMarkAsAnsweredConversationBuilder(t *testing.T) {
@@ -432,9 +432,9 @@ func TestMessagesMarkAsAnsweredConversationBuilder(t *testing.T) {
 	b.Answered(true)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["answered"], true)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, true, b.Params["answered"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesMarkAsImportantBuilder(t *testing.T) {
@@ -445,8 +445,8 @@ func TestMessagesMarkAsImportantBuilder(t *testing.T) {
 	b.MessageIDs([]int{1})
 	b.Important(1)
 
-	assert.Equal(t, b.Params["message_ids"], []int{1})
-	assert.Equal(t, b.Params["important"], 1)
+	assert.Equal(t, []int{1}, b.Params["message_ids"])
+	assert.Equal(t, 1, b.Params["important"])
 }
 
 func TestMessagesMarkAsImportantConversationBuilder(t *testing.T) {
@@ -458,9 +458,9 @@ func TestMessagesMarkAsImportantConversationBuilder(t *testing.T) {
 	b.Important(true)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["important"], true)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, true, b.Params["important"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesMarkAsReadBuilder(t *testing.T) {
@@ -473,10 +473,10 @@ func TestMessagesMarkAsReadBuilder(t *testing.T) {
 	b.StartMessageID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["message_ids"], []int{1})
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["start_message_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, []int{1}, b.Params["message_ids"])
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, 1, b.Params["start_message_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesPinBuilder(t *testing.T) {
@@ -488,9 +488,9 @@ func TestMessagesPinBuilder(t *testing.T) {
 	b.MessageID(1)
 	b.ConversationMessageID(1)
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["message_id"], 1)
-	assert.Equal(t, b.Params["conversation_message_id"], 1)
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, 1, b.Params["message_id"])
+	assert.Equal(t, 1, b.Params["conversation_message_id"])
 }
 
 func TestMessagesRemoveChatUserBuilder(t *testing.T) {
@@ -502,9 +502,9 @@ func TestMessagesRemoveChatUserBuilder(t *testing.T) {
 	b.UserID(1)
 	b.MemberID(1)
 
-	assert.Equal(t, b.Params["chat_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["member_id"], 1)
+	assert.Equal(t, 1, b.Params["chat_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["member_id"])
 }
 
 func TestMessagesRestoreBuilder(t *testing.T) {
@@ -515,8 +515,8 @@ func TestMessagesRestoreBuilder(t *testing.T) {
 	b.MessageID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["message_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["message_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesSearchBuilder(t *testing.T) {
@@ -534,15 +534,15 @@ func TestMessagesSearchBuilder(t *testing.T) {
 	b.Fields([]string{"text"})
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["date"], 1)
-	assert.Equal(t, b.Params["preview_length"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"text"})
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, 1, b.Params["date"])
+	assert.Equal(t, 1, b.Params["preview_length"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"text"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesSearchConversationsBuilder(t *testing.T) {
@@ -556,11 +556,11 @@ func TestMessagesSearchConversationsBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesSendBuilder(t *testing.T) {
@@ -593,30 +593,30 @@ func TestMessagesSendBuilder(t *testing.T) {
 	b.Intent("text")
 	b.SubscribeID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["random_id"], 1)
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["domain"], "text")
-	assert.Equal(t, b.Params["chat_id"], 1)
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["peer_ids"], []int{1})
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["lat"], 1.1)
-	assert.Equal(t, b.Params["long"], 1.1)
-	assert.Equal(t, b.Params["attachment"], "text")
-	assert.Equal(t, b.Params["reply_to"], 1)
-	assert.Equal(t, b.Params["forward_messages"], []int{1})
-	assert.Equal(t, b.Params["forward"], "text")
-	assert.Equal(t, b.Params["sticker_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["keyboard"], "text")
-	assert.Equal(t, b.Params["template"], "text")
-	assert.Equal(t, b.Params["payload"], "text")
-	assert.Equal(t, b.Params["content_source"], "text")
-	assert.Equal(t, b.Params["dont_parse_links"], true)
-	assert.Equal(t, b.Params["disable_mentions"], true)
-	assert.Equal(t, b.Params["intent"], "text")
-	assert.Equal(t, b.Params["subscribe_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["random_id"])
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, "text", b.Params["domain"])
+	assert.Equal(t, 1, b.Params["chat_id"])
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, []int{1}, b.Params["peer_ids"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.InEpsilon(t, 1.1, b.Params["lat"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["long"], 0.1)
+	assert.Equal(t, "text", b.Params["attachment"])
+	assert.Equal(t, 1, b.Params["reply_to"])
+	assert.Equal(t, []int{1}, b.Params["forward_messages"])
+	assert.Equal(t, "text", b.Params["forward"])
+	assert.Equal(t, 1, b.Params["sticker_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["keyboard"])
+	assert.Equal(t, "text", b.Params["template"])
+	assert.Equal(t, "text", b.Params["payload"])
+	assert.Equal(t, "text", b.Params["content_source"])
+	assert.Equal(t, true, b.Params["dont_parse_links"])
+	assert.Equal(t, true, b.Params["disable_mentions"])
+	assert.Equal(t, "text", b.Params["intent"])
+	assert.Equal(t, 1, b.Params["subscribe_id"])
 }
 
 func TestMessagesSendMessageEventAnswerBuilder(t *testing.T) {
@@ -629,10 +629,10 @@ func TestMessagesSendMessageEventAnswerBuilder(t *testing.T) {
 	b.PeerID(1)
 	b.EventData("text")
 
-	assert.Equal(t, b.Params["event_id"], "text")
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["event_data"], "text")
+	assert.Equal(t, "text", b.Params["event_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, "text", b.Params["event_data"])
 }
 
 func TestMessagesSetActivityBuilder(t *testing.T) {
@@ -645,10 +645,10 @@ func TestMessagesSetActivityBuilder(t *testing.T) {
 	b.PeerID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesSetChatPhotoBuilder(t *testing.T) {
@@ -658,7 +658,7 @@ func TestMessagesSetChatPhotoBuilder(t *testing.T) {
 
 	b.File("text")
 
-	assert.Equal(t, b.Params["file"], "text")
+	assert.Equal(t, "text", b.Params["file"])
 }
 
 func TestMessagesStartCallBuilder(t *testing.T) {
@@ -668,7 +668,7 @@ func TestMessagesStartCallBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestMessagesUnpinBuilder(t *testing.T) {
@@ -679,6 +679,6 @@ func TestMessagesUnpinBuilder(t *testing.T) {
 	b.PeerID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }

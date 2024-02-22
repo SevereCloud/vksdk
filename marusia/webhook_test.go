@@ -56,8 +56,10 @@ func TestWebhook(t *testing.T) {
 
 	wh.OnEvent(func(r marusia.Request) (resp marusia.Response) {
 		assert.Equal(t, "command", r.Request.Command)
+
 		resp.Text = "text"
 		resp.TTS = "tts"
+
 		return
 	})
 	f(
@@ -81,7 +83,7 @@ func TestWebhookBadContentType(t *testing.T) {
 
 	wh := marusia.NewWebhook()
 
-	req, err := http.NewRequest(http.MethodPost, "/webhook", bytes.NewBuffer([]byte("test")))
+	req, err := http.NewRequest(http.MethodPost, "/webhook", bytes.NewBufferString("test"))
 	assert.NoError(t, err)
 	req.Header.Set("Content-Type", "text/plain; encoding=utf-8")
 
@@ -98,7 +100,7 @@ func TestWebhookBadJSON(t *testing.T) {
 
 	wh := marusia.NewWebhook()
 
-	req, err := http.NewRequest(http.MethodPost, "/webhook", bytes.NewBuffer([]byte("[]")))
+	req, err := http.NewRequest(http.MethodPost, "/webhook", bytes.NewBufferString("[]"))
 	assert.NoError(t, err)
 	req.Header.Set("Content-Type", "application/json; encoding=utf-8")
 
@@ -116,7 +118,7 @@ func TestWebhookCors(t *testing.T) {
 	wh := marusia.NewWebhook()
 	wh.EnableDebuging()
 
-	req, err := http.NewRequest(http.MethodOptions, "/webhook", bytes.NewBuffer([]byte("[]")))
+	req, err := http.NewRequest(http.MethodOptions, "/webhook", bytes.NewBufferString("[]"))
 	assert.NoError(t, err)
 
 	rr := httptest.NewRecorder()

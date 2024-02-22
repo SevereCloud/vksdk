@@ -14,7 +14,7 @@ func TestPagesClearCacheBuilder(t *testing.T) {
 
 	b.URL("text")
 
-	assert.Equal(t, b.Params["url"], "text")
+	assert.Equal(t, "text", b.Params["url"])
 }
 
 func TestPagesGetBuilder(t *testing.T) {
@@ -30,13 +30,13 @@ func TestPagesGetBuilder(t *testing.T) {
 	b.NeedSource(true)
 	b.NeedHTML(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["page_id"], 1)
-	assert.Equal(t, b.Params["global"], true)
-	assert.Equal(t, b.Params["site_preview"], true)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["need_source"], true)
-	assert.Equal(t, b.Params["need_html"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["page_id"])
+	assert.Equal(t, true, b.Params["global"])
+	assert.Equal(t, true, b.Params["site_preview"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, true, b.Params["need_source"])
+	assert.Equal(t, true, b.Params["need_html"])
 }
 
 func TestPagesGetHistoryBuilder(t *testing.T) {
@@ -48,9 +48,9 @@ func TestPagesGetHistoryBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["page_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["page_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestPagesGetTitlesBuilder(t *testing.T) {
@@ -60,7 +60,7 @@ func TestPagesGetTitlesBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestPagesGetVersionBuilder(t *testing.T) {
@@ -73,10 +73,10 @@ func TestPagesGetVersionBuilder(t *testing.T) {
 	b.UserID(1)
 	b.NeedHTML(true)
 
-	assert.Equal(t, b.Params["version_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["need_html"], true)
+	assert.Equal(t, 1, b.Params["version_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, true, b.Params["need_html"])
 }
 
 func TestPagesParseWikiBuilder(t *testing.T) {
@@ -87,8 +87,8 @@ func TestPagesParseWikiBuilder(t *testing.T) {
 	b.Text("text")
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["text"], "text")
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, "text", b.Params["text"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestPagesSaveBuilder(t *testing.T) {
@@ -102,11 +102,11 @@ func TestPagesSaveBuilder(t *testing.T) {
 	b.UserID(1)
 	b.Title("text")
 
-	assert.Equal(t, b.Params["text"], "text")
-	assert.Equal(t, b.Params["page_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
+	assert.Equal(t, "text", b.Params["text"])
+	assert.Equal(t, 1, b.Params["page_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["title"])
 }
 
 func TestPagesSaveAccessBuilder(t *testing.T) {
@@ -120,9 +120,9 @@ func TestPagesSaveAccessBuilder(t *testing.T) {
 	b.View(1)
 	b.Edit(1)
 
-	assert.Equal(t, b.Params["page_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["view"], 1)
-	assert.Equal(t, b.Params["edit"], 1)
+	assert.Equal(t, 1, b.Params["page_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["view"])
+	assert.Equal(t, 1, b.Params["edit"])
 }

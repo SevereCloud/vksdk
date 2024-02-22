@@ -15,6 +15,6 @@ func TestAppWidgetsUpdateBuilder(t *testing.T) {
 	b.Code("text")
 	b.Type("text")
 
-	assert.Equal(t, b.Params["code"], "text")
-	assert.Equal(t, b.Params["type"], "text")
+	assert.Equal(t, "text", b.Params["code"])
+	assert.Equal(t, "text", b.Params["type"])
 }

@@ -17,10 +17,10 @@ func TestStorageGetBuilder(t *testing.T) {
 	b.UserID(1)
 	b.Global(true)
 
-	assert.Equal(t, b.Params["key"], "text")
-	assert.Equal(t, b.Params["keys"], []string{"text"})
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["global"], true)
+	assert.Equal(t, "text", b.Params["key"])
+	assert.Equal(t, []string{"text"}, b.Params["keys"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, true, b.Params["global"])
 }
 
 func TestStorageGetKeysBuilder(t *testing.T) {
@@ -33,10 +33,10 @@ func TestStorageGetKeysBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["global"], true)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, true, b.Params["global"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestStorageSetBuilder(t *testing.T) {
@@ -49,8 +49,8 @@ func TestStorageSetBuilder(t *testing.T) {
 	b.UserID(1)
 	b.Global(true)
 
-	assert.Equal(t, b.Params["key"], "text")
-	assert.Equal(t, b.Params["value"], "text")
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["global"], true)
+	assert.Equal(t, "text", b.Params["key"])
+	assert.Equal(t, "text", b.Params["value"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, true, b.Params["global"])
 }

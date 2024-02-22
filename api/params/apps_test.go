@@ -15,8 +15,8 @@ func TestAppsAddUsersToTestingGroupBuilder(t *testing.T) {
 	b.UserIDs([]int{1})
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestAppsGetBuilder(t *testing.T) {
@@ -32,13 +32,13 @@ func TestAppsGetBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.NameCase("text")
 
-	assert.Equal(t, b.Params["app_id"], 1)
-	assert.Equal(t, b.Params["app_ids"], []string{"text"})
-	assert.Equal(t, b.Params["platform"], "text")
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["return_friends"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
+	assert.Equal(t, 1, b.Params["app_id"])
+	assert.Equal(t, []string{"text"}, b.Params["app_ids"])
+	assert.Equal(t, "text", b.Params["platform"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, true, b.Params["return_friends"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
 }
 
 func TestAppsGetCatalogBuilder(t *testing.T) {
@@ -58,17 +58,17 @@ func TestAppsGetCatalogBuilder(t *testing.T) {
 	b.GenreID(1)
 	b.Filter("text")
 
-	assert.Equal(t, b.Params["sort"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["platform"], "text")
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["return_friends"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["genre_id"], 1)
-	assert.Equal(t, b.Params["filter"], "text")
+	assert.Equal(t, "text", b.Params["sort"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, "text", b.Params["platform"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, true, b.Params["return_friends"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["genre_id"])
+	assert.Equal(t, "text", b.Params["filter"])
 }
 
 func TestAppsGetFriendsListBuilder(t *testing.T) {
@@ -82,11 +82,11 @@ func TestAppsGetFriendsListBuilder(t *testing.T) {
 	b.Type("text")
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestAppsGetLeaderboardBuilder(t *testing.T) {
@@ -98,9 +98,9 @@ func TestAppsGetLeaderboardBuilder(t *testing.T) {
 	b.Global(true)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["global"], true)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, true, b.Params["global"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestAppsGetScopesBuilder(t *testing.T) {
@@ -110,7 +110,7 @@ func TestAppsGetScopesBuilder(t *testing.T) {
 
 	b.Type("text")
 
-	assert.Equal(t, b.Params["type"], "text")
+	assert.Equal(t, "text", b.Params["type"])
 }
 
 func TestAppsGetScoreBuilder(t *testing.T) {
@@ -120,7 +120,7 @@ func TestAppsGetScoreBuilder(t *testing.T) {
 
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestAppsGetTestingGroupsBuilder(t *testing.T) {
@@ -130,7 +130,7 @@ func TestAppsGetTestingGroupsBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestAppsRemoveUsersFromTestingGroupsBuilder(t *testing.T) {
@@ -140,7 +140,7 @@ func TestAppsRemoveUsersFromTestingGroupsBuilder(t *testing.T) {
 
 	b.UserIDs([]int{1})
 
-	assert.Equal(t, b.Params["user_ids"], []int{1})
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
 }
 
 func TestAppsRemoveTestingGroupBuilder(t *testing.T) {
@@ -150,7 +150,7 @@ func TestAppsRemoveTestingGroupBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestAppsSendRequestBuilder(t *testing.T) {
@@ -165,12 +165,12 @@ func TestAppsSendRequestBuilder(t *testing.T) {
 	b.Key("text")
 	b.Separate(true)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["text"], "text")
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["key"], "text")
-	assert.Equal(t, b.Params["separate"], true)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["text"])
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, "text", b.Params["key"])
+	assert.Equal(t, true, b.Params["separate"])
 }
 
 func TestAppsUpdateMetaForTestingGroupBuilder(t *testing.T) {
@@ -184,9 +184,9 @@ func TestAppsUpdateMetaForTestingGroupBuilder(t *testing.T) {
 	b.Platforms([]string{"text"})
 	b.UserIDs([]int{1})
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["webview"], "text")
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["platforms"], []string{"text"})
-	assert.Equal(t, b.Params["user_ids"], []int{1})
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["webview"])
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, []string{"text"}, b.Params["platforms"])
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
 }

@@ -16,9 +16,9 @@ func TestDatabaseGetChairsBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["faculty_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["faculty_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestDatabaseGetCitiesBuilder(t *testing.T) {
@@ -33,12 +33,12 @@ func TestDatabaseGetCitiesBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["country_id"], 1)
-	assert.Equal(t, b.Params["region_id"], 1)
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["need_all"], true)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["country_id"])
+	assert.Equal(t, 1, b.Params["region_id"])
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, true, b.Params["need_all"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestDatabaseGetCitiesByIDBuilder(t *testing.T) {
@@ -48,7 +48,7 @@ func TestDatabaseGetCitiesByIDBuilder(t *testing.T) {
 
 	b.CityIDs([]int{1})
 
-	assert.Equal(t, b.Params["city_ids"], []int{1})
+	assert.Equal(t, []int{1}, b.Params["city_ids"])
 }
 
 func TestDatabaseGetCountriesBuilder(t *testing.T) {
@@ -61,10 +61,10 @@ func TestDatabaseGetCountriesBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["need_all"], true)
-	assert.Equal(t, b.Params["code"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, true, b.Params["need_all"])
+	assert.Equal(t, "text", b.Params["code"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestDatabaseGetCountriesByIDBuilder(t *testing.T) {
@@ -74,7 +74,7 @@ func TestDatabaseGetCountriesByIDBuilder(t *testing.T) {
 
 	b.CountryIDs([]int{1})
 
-	assert.Equal(t, b.Params["country_ids"], []int{1})
+	assert.Equal(t, []int{1}, b.Params["country_ids"])
 }
 
 func TestDatabaseGetFacultiesBuilder(t *testing.T) {
@@ -86,9 +86,9 @@ func TestDatabaseGetFacultiesBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["university_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["university_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestDatabaseGetMetroStationsBuilder(t *testing.T) {
@@ -101,10 +101,10 @@ func TestDatabaseGetMetroStationsBuilder(t *testing.T) {
 	b.Count(1)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["city_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, 1, b.Params["city_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestDatabaseGetMetroStationsByIDBuilder(t *testing.T) {
@@ -114,7 +114,7 @@ func TestDatabaseGetMetroStationsByIDBuilder(t *testing.T) {
 
 	b.StationIDs([]int{1})
 
-	assert.Equal(t, b.Params["station_ids"], []int{1})
+	assert.Equal(t, []int{1}, b.Params["station_ids"])
 }
 
 func TestDatabaseGetRegionsBuilder(t *testing.T) {
@@ -127,10 +127,10 @@ func TestDatabaseGetRegionsBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["country_id"], 1)
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["country_id"])
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestDatabaseGetSchoolClassesBuilder(t *testing.T) {
@@ -140,7 +140,7 @@ func TestDatabaseGetSchoolClassesBuilder(t *testing.T) {
 
 	b.CountryID(1)
 
-	assert.Equal(t, b.Params["country_id"], 1)
+	assert.Equal(t, 1, b.Params["country_id"])
 }
 
 func TestDatabaseGetSchoolsBuilder(t *testing.T) {
@@ -153,10 +153,10 @@ func TestDatabaseGetSchoolsBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["city_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["city_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestDatabaseGetUniversitiesBuilder(t *testing.T) {
@@ -170,9 +170,9 @@ func TestDatabaseGetUniversitiesBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["country_id"], 1)
-	assert.Equal(t, b.Params["city_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["country_id"])
+	assert.Equal(t, 1, b.Params["city_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }

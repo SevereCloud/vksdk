@@ -21,9 +21,9 @@ func TestParams(t *testing.T) {
 
 	assert.Equal(t, "notify,menu", params.VkAccessTokenSettings)
 	assert.Equal(t, 7573302, params.VkAppID)
-	assert.Equal(t, false, params.VkAreNotificationsEnabled)
-	assert.Equal(t, true, params.VkIsAppUser)
-	assert.Equal(t, false, params.VkIsFavorite)
+	assert.False(t, params.VkAreNotificationsEnabled)
+	assert.True(t, params.VkIsAppUser)
+	assert.False(t, params.VkIsFavorite)
 	assert.Equal(t, "ru", params.VkLanguage)
 	assert.Equal(t, vkapps.DesktopWeb, params.VkPlatform)
 	assert.Equal(t, vkapps.LeftNav, params.VkRef)

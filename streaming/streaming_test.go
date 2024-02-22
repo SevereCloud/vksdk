@@ -126,7 +126,7 @@ func TestStreaming_OnEvent(t *testing.T) {
 	t.Parallel()
 
 	s := &streaming.Streaming{}
-	s.OnEvent(func(e streaming.Event) {})
+	s.OnEvent(func(_ streaming.Event) {})
 }
 
 func TestStreaming_Run(t *testing.T) { //nolint:paralleltest
@@ -144,7 +144,7 @@ func TestStreaming_Run(t *testing.T) { //nolint:paralleltest
 		return
 	}
 
-	stream.OnEvent(func(e streaming.Event) {
+	stream.OnEvent(func(_ streaming.Event) {
 		// TODO: assert
 		good <- true
 	})
