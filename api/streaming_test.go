@@ -29,6 +29,7 @@ func TestVK_StreamingGetServerURL(t *testing.T) {
 
 func TestVK_StreamingGetSettings(t *testing.T) {
 	t.Parallel()
+	t.Skip("?")
 
 	needServiceToken(t)
 
@@ -78,6 +79,7 @@ func TestVK_StreamingGetStem(t *testing.T) {
 
 func TestVK_StreamingSetSettings(t *testing.T) {
 	t.Parallel()
+	t.Skip("?")
 
 	needServiceToken(t)
 

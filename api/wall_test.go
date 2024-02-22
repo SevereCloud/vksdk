@@ -307,7 +307,7 @@ func TestVK_WallReportComment(t *testing.T) {
 	res, err := vkUser.WallReportComment(api.Params{
 		"owner_id":   66748,
 		"comment_id": 4136,
-		// "reason":   3,
+		"reason":     3,
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res)

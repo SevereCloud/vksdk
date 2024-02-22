@@ -24,7 +24,7 @@ func TestVK_AppsGet(t *testing.T) {
 	needServiceToken(t)
 
 	res, err := vkService.AppsGet(api.Params{
-		"app_id":   4063926,
+		"app_id":   7539087,
 		"extended": true,
 	})
 	noError(t, err)

@@ -822,7 +822,7 @@ func TestVK_GroupsGetOnlineStatus(t *testing.T) {
 	needGroupToken(t)
 
 	res, err := vkGroup.GroupsGetOnlineStatus(api.Params{
-		"group_id": 126054662,
+		"group_id": 188916312,
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res.Status)
