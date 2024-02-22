@@ -33,7 +33,7 @@ func TestRetryAfter(t *testing.T) {
 	date := time.Now().Add(time.Minute * 5)
 
 	cb := callback.NewCallback()
-	cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
+	cb.MessageNew(func(ctx context.Context, _ events.MessageNewObject) {
 		callback.RetryAfter(
 			ctx,
 			code,
@@ -62,7 +62,7 @@ func TestRemove(t *testing.T) {
 	t.Parallel()
 
 	cb := callback.NewCallback()
-	cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
+	cb.MessageNew(func(ctx context.Context, _ events.MessageNewObject) {
 		callback.Remove(ctx)
 	})
 

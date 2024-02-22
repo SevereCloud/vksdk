@@ -20,13 +20,13 @@ func TestPrettyCardsCreateBuilder(t *testing.T) {
 	b.PriceOld("text")
 	b.Button("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["photo"], "text")
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["link"], "text")
-	assert.Equal(t, b.Params["price"], "text")
-	assert.Equal(t, b.Params["price_old"], "text")
-	assert.Equal(t, b.Params["button"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, "text", b.Params["photo"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["link"])
+	assert.Equal(t, "text", b.Params["price"])
+	assert.Equal(t, "text", b.Params["price_old"])
+	assert.Equal(t, "text", b.Params["button"])
 }
 
 func TestPrettyCardsDeleteBuilder(t *testing.T) {
@@ -37,8 +37,8 @@ func TestPrettyCardsDeleteBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.CardID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["card_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["card_id"])
 }
 
 func TestPrettyCardsEditBuilder(t *testing.T) {
@@ -55,14 +55,14 @@ func TestPrettyCardsEditBuilder(t *testing.T) {
 	b.PriceOld("text")
 	b.Button("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["card_id"], 1)
-	assert.Equal(t, b.Params["photo"], "text")
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["link"], "text")
-	assert.Equal(t, b.Params["price"], "text")
-	assert.Equal(t, b.Params["price_old"], "text")
-	assert.Equal(t, b.Params["button"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["card_id"])
+	assert.Equal(t, "text", b.Params["photo"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["link"])
+	assert.Equal(t, "text", b.Params["price"])
+	assert.Equal(t, "text", b.Params["price_old"])
+	assert.Equal(t, "text", b.Params["button"])
 }
 
 func TestPrettyCardsGetBuilder(t *testing.T) {
@@ -74,9 +74,9 @@ func TestPrettyCardsGetBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestPrettyCardsGetByIDBuilder(t *testing.T) {
@@ -87,6 +87,6 @@ func TestPrettyCardsGetByIDBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.CardIDs([]int{1})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["card_ids"], []int{1})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, []int{1}, b.Params["card_ids"])
 }

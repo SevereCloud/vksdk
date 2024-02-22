@@ -34,9 +34,9 @@ func TestMessagesKeyboard_AddTextButton(t *testing.T) {
 	keyboard.AddRow()
 
 	keyboard.AddTextButton(label, payload, color)
-	assert.Equal(t, keyboard.Buttons[0][0].Color, color)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
+	assert.Equal(t, color, keyboard.Buttons[0][0].Color)
+	assert.Equal(t, label, keyboard.Buttons[0][0].Action.Label)
+	assert.Equal(t, `"`+payload+`"`, keyboard.Buttons[0][0].Action.Payload)
 }
 
 func TestMessagesKeyboard_AddTextButton_Panic(t *testing.T) {
@@ -67,9 +67,9 @@ func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
 	keyboard.AddRow()
 
 	keyboard.AddOpenLinkButton(link, label, payload)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Link, link)
+	assert.Equal(t, `"`+payload+`"`, keyboard.Buttons[0][0].Action.Payload)
+	assert.Equal(t, label, keyboard.Buttons[0][0].Action.Label)
+	assert.Equal(t, link, keyboard.Buttons[0][0].Action.Link)
 }
 
 func TestMessagesKeyboard_AddOpenLinkButton_Panic(t *testing.T) {
@@ -96,7 +96,7 @@ func TestMessagesKeyboard_AddLocationButton(t *testing.T) {
 	keyboard.AddRow()
 
 	keyboard.AddLocationButton(payload)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
+	assert.Equal(t, `"`+payload+`"`, keyboard.Buttons[0][0].Action.Payload)
 }
 
 func TestMessagesKeyboard_AddLocationButton_Panic(t *testing.T) {
@@ -126,8 +126,8 @@ func TestMessagesKeyboard_AddVKPayButton(t *testing.T) {
 	keyboard.AddRow()
 
 	keyboard.AddVKPayButton(payload, hash)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Hash, hash)
+	assert.Equal(t, `"`+payload+`"`, keyboard.Buttons[0][0].Action.Payload)
+	assert.Equal(t, hash, keyboard.Buttons[0][0].Action.Hash)
 }
 
 func TestMessagesKeyboard_AddVKPayButton_Panic(t *testing.T) {
@@ -160,11 +160,11 @@ func TestMessagesKeyboard_AddVKAppsButton(t *testing.T) {
 	keyboard.AddRow()
 
 	keyboard.AddVKAppsButton(appID, ownerID, payload, label, hash)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.AppID, appID)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.OwnerID, ownerID)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Hash, hash)
+	assert.Equal(t, appID, keyboard.Buttons[0][0].Action.AppID)
+	assert.Equal(t, ownerID, keyboard.Buttons[0][0].Action.OwnerID)
+	assert.Equal(t, `"`+payload+`"`, keyboard.Buttons[0][0].Action.Payload)
+	assert.Equal(t, label, keyboard.Buttons[0][0].Action.Label)
+	assert.Equal(t, hash, keyboard.Buttons[0][0].Action.Hash)
 }
 
 func TestMessagesKeyboard_AddVKAppsButton_Panic(t *testing.T) {
@@ -195,9 +195,9 @@ func TestMessagesKeyboard_AddCallbackButton(t *testing.T) {
 	keyboard.AddRow()
 
 	keyboard.AddCallbackButton(label, payload, color)
-	assert.Equal(t, keyboard.Buttons[0][0].Color, color)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Label, label)
-	assert.Equal(t, keyboard.Buttons[0][0].Action.Payload, `"`+payload+`"`)
+	assert.Equal(t, color, keyboard.Buttons[0][0].Color)
+	assert.Equal(t, label, keyboard.Buttons[0][0].Action.Label)
+	assert.Equal(t, `"`+payload+`"`, keyboard.Buttons[0][0].Action.Payload)
 }
 
 func TestMessagesKeyboard_AddCallbackButton_Panic(t *testing.T) {
@@ -247,7 +247,7 @@ func TestMessagesKeyboard_ToJSON(t *testing.T) {
 		t.Helper()
 
 		got := keyboard.ToJSON()
-		assert.Equal(t, got, want)
+		assert.Equal(t, want, got)
 	}
 
 	f(
@@ -271,7 +271,7 @@ func TestMessagesTemplate_ToJSON(t *testing.T) {
 		t.Helper()
 
 		got := template.ToJSON()
-		assert.Equal(t, got, want)
+		assert.Equal(t, want, got)
 	}
 
 	f(
@@ -287,7 +287,7 @@ func TestMessageContentSource_ToJSON(t *testing.T) {
 		t.Helper()
 
 		got := cs.ToJSON()
-		assert.Equal(t, got, want)
+		assert.Equal(t, want, got)
 	}
 
 	f(
@@ -307,7 +307,7 @@ func TestMessagesEventData_ToJSON(t *testing.T) {
 		t.Helper()
 
 		got := eventData.ToJSON()
-		assert.Equal(t, got, want)
+		assert.Equal(t, want, got)
 	}
 
 	f(
@@ -335,7 +335,7 @@ func TestMessagesForward_ToJSON(t *testing.T) {
 		t.Helper()
 
 		got := forward.ToJSON()
-		assert.Equal(t, got, want)
+		assert.Equal(t, want, got)
 	}
 
 	f(

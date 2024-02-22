@@ -17,10 +17,10 @@ func TestPollsAddVoteBuilder(t *testing.T) {
 	b.AnswerIDs([]int{1})
 	b.IsBoard(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["poll_id"], 1)
-	assert.Equal(t, b.Params["answer_ids"], []int{1})
-	assert.Equal(t, b.Params["is_board"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["poll_id"])
+	assert.Equal(t, []int{1}, b.Params["answer_ids"])
+	assert.Equal(t, true, b.Params["is_board"])
 }
 
 func TestPollsCreateBuilder(t *testing.T) {
@@ -37,14 +37,14 @@ func TestPollsCreateBuilder(t *testing.T) {
 	b.PhotoID(1)
 	b.BackgroundID("text")
 
-	assert.Equal(t, b.Params["question"], "text")
-	assert.Equal(t, b.Params["is_anonymous"], true)
-	assert.Equal(t, b.Params["is_multiple"], true)
-	assert.Equal(t, b.Params["end_date"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["add_answers"], "text")
-	assert.Equal(t, b.Params["photo_id"], 1)
-	assert.Equal(t, b.Params["background_id"], "text")
+	assert.Equal(t, "text", b.Params["question"])
+	assert.Equal(t, true, b.Params["is_anonymous"])
+	assert.Equal(t, true, b.Params["is_multiple"])
+	assert.Equal(t, 1, b.Params["end_date"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, "text", b.Params["add_answers"])
+	assert.Equal(t, 1, b.Params["photo_id"])
+	assert.Equal(t, "text", b.Params["background_id"])
 }
 
 func TestPollsDeleteVoteBuilder(t *testing.T) {
@@ -57,10 +57,10 @@ func TestPollsDeleteVoteBuilder(t *testing.T) {
 	b.AnswerID(1)
 	b.IsBoard(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["poll_id"], 1)
-	assert.Equal(t, b.Params["answer_id"], 1)
-	assert.Equal(t, b.Params["is_board"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["poll_id"])
+	assert.Equal(t, 1, b.Params["answer_id"])
+	assert.Equal(t, true, b.Params["is_board"])
 }
 
 func TestPollsEditBuilder(t *testing.T) {
@@ -78,15 +78,15 @@ func TestPollsEditBuilder(t *testing.T) {
 	b.PhotoID(1)
 	b.BackgroundID("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["poll_id"], 1)
-	assert.Equal(t, b.Params["question"], "text")
-	assert.Equal(t, b.Params["add_answers"], "text")
-	assert.Equal(t, b.Params["edit_answers"], "text")
-	assert.Equal(t, b.Params["delete_answers"], "text")
-	assert.Equal(t, b.Params["end_date"], 1)
-	assert.Equal(t, b.Params["photo_id"], 1)
-	assert.Equal(t, b.Params["background_id"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["poll_id"])
+	assert.Equal(t, "text", b.Params["question"])
+	assert.Equal(t, "text", b.Params["add_answers"])
+	assert.Equal(t, "text", b.Params["edit_answers"])
+	assert.Equal(t, "text", b.Params["delete_answers"])
+	assert.Equal(t, 1, b.Params["end_date"])
+	assert.Equal(t, 1, b.Params["photo_id"])
+	assert.Equal(t, "text", b.Params["background_id"])
 }
 
 func TestPollsGetByIDBuilder(t *testing.T) {
@@ -102,13 +102,13 @@ func TestPollsGetByIDBuilder(t *testing.T) {
 	b.Fields([]string{"text"})
 	b.NameCase("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["is_board"], true)
-	assert.Equal(t, b.Params["poll_id"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["friends_count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"text"})
-	assert.Equal(t, b.Params["name_case"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, true, b.Params["is_board"])
+	assert.Equal(t, 1, b.Params["poll_id"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, 1, b.Params["friends_count"])
+	assert.Equal(t, []string{"text"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
 }
 
 func TestPollsGetVotersBuilder(t *testing.T) {
@@ -126,13 +126,13 @@ func TestPollsGetVotersBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.NameCase("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["poll_id"], 1)
-	assert.Equal(t, b.Params["answer_ids"], []int{1})
-	assert.Equal(t, b.Params["is_board"], true)
-	assert.Equal(t, b.Params["friends_only"], true)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["poll_id"])
+	assert.Equal(t, []int{1}, b.Params["answer_ids"])
+	assert.Equal(t, true, b.Params["is_board"])
+	assert.Equal(t, true, b.Params["friends_only"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
 }

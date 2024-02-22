@@ -16,7 +16,7 @@ func TestGiftsGetBuilder(t *testing.T) {
 	b.Count(1)
 	b.Offset(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
 }

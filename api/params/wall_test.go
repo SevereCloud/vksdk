@@ -14,7 +14,7 @@ func TestWallCheckCopyrightLinkBuilder(t *testing.T) {
 
 	b.Link("test")
 
-	assert.Equal(t, b.Params["link"], "test")
+	assert.Equal(t, "test", b.Params["link"])
 }
 
 func TestWallCloseCommentsBuilder(t *testing.T) {
@@ -25,8 +25,8 @@ func TestWallCloseCommentsBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.PostID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
 }
 
 func TestWallCreateCommentBuilder(t *testing.T) {
@@ -43,14 +43,14 @@ func TestWallCreateCommentBuilder(t *testing.T) {
 	b.StickerID(1)
 	b.GUID("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
-	assert.Equal(t, b.Params["from_group"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["reply_to_comment"], 1)
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
-	assert.Equal(t, b.Params["sticker_id"], 1)
-	assert.Equal(t, b.Params["guid"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
+	assert.Equal(t, 1, b.Params["from_group"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, 1, b.Params["reply_to_comment"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
+	assert.Equal(t, 1, b.Params["sticker_id"])
+	assert.Equal(t, "text", b.Params["guid"])
 }
 
 func TestWallDeleteBuilder(t *testing.T) {
@@ -61,8 +61,8 @@ func TestWallDeleteBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.PostID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
 }
 
 func TestWallDeleteCommentBuilder(t *testing.T) {
@@ -73,8 +73,8 @@ func TestWallDeleteCommentBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.CommentID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
 }
 
 func TestWallEditBuilder(t *testing.T) {
@@ -99,22 +99,22 @@ func TestWallEditBuilder(t *testing.T) {
 	b.PosterBkgOwnerID(1)
 	b.PosterBkgAccessHash("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
-	assert.Equal(t, b.Params["friends_only"], true)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
-	assert.Equal(t, b.Params["services"], "text")
-	assert.Equal(t, b.Params["signed"], true)
-	assert.Equal(t, b.Params["publish_date"], 1)
-	assert.Equal(t, b.Params["lat"], 1.1)
-	assert.Equal(t, b.Params["long"], 1.1)
-	assert.Equal(t, b.Params["place_id"], 1)
-	assert.Equal(t, b.Params["mark_as_ads"], true)
-	assert.Equal(t, b.Params["close_comments"], true)
-	assert.Equal(t, b.Params["poster_bkg_id"], 1)
-	assert.Equal(t, b.Params["poster_bkg_owner_id"], 1)
-	assert.Equal(t, b.Params["poster_bkg_access_hash"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
+	assert.Equal(t, true, b.Params["friends_only"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
+	assert.Equal(t, "text", b.Params["services"])
+	assert.Equal(t, true, b.Params["signed"])
+	assert.Equal(t, 1, b.Params["publish_date"])
+	assert.InEpsilon(t, 1.1, b.Params["lat"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["long"], 0.1)
+	assert.Equal(t, 1, b.Params["place_id"])
+	assert.Equal(t, true, b.Params["mark_as_ads"])
+	assert.Equal(t, true, b.Params["close_comments"])
+	assert.Equal(t, 1, b.Params["poster_bkg_id"])
+	assert.Equal(t, 1, b.Params["poster_bkg_owner_id"])
+	assert.Equal(t, "text", b.Params["poster_bkg_access_hash"])
 }
 
 func TestWallEditAdsStealthBuilder(t *testing.T) {
@@ -135,18 +135,18 @@ func TestWallEditAdsStealthBuilder(t *testing.T) {
 	b.LinkImage("text")
 	b.LinkVideo("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
-	assert.Equal(t, b.Params["signed"], true)
-	assert.Equal(t, b.Params["lat"], 1.1)
-	assert.Equal(t, b.Params["long"], 1.1)
-	assert.Equal(t, b.Params["place_id"], 1)
-	assert.Equal(t, b.Params["link_button"], "text")
-	assert.Equal(t, b.Params["link_title"], "text")
-	assert.Equal(t, b.Params["link_image"], "text")
-	assert.Equal(t, b.Params["link_video"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
+	assert.Equal(t, true, b.Params["signed"])
+	assert.InEpsilon(t, 1.1, b.Params["lat"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["long"], 0.1)
+	assert.Equal(t, 1, b.Params["place_id"])
+	assert.Equal(t, "text", b.Params["link_button"])
+	assert.Equal(t, "text", b.Params["link_title"])
+	assert.Equal(t, "text", b.Params["link_image"])
+	assert.Equal(t, "text", b.Params["link_video"])
 }
 
 func TestWallEditCommentBuilder(t *testing.T) {
@@ -159,10 +159,10 @@ func TestWallEditCommentBuilder(t *testing.T) {
 	b.Message("text")
 	b.Attachments([]string{"text"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
 }
 
 func TestWallGetBuilder(t *testing.T) {
@@ -178,13 +178,13 @@ func TestWallGetBuilder(t *testing.T) {
 	b.Extended(true)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["domain"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["filter"], "text")
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, "text", b.Params["domain"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, "text", b.Params["filter"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestWallGetByIDBuilder(t *testing.T) {
@@ -197,10 +197,10 @@ func TestWallGetByIDBuilder(t *testing.T) {
 	b.CopyHistoryDepth(1)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["posts"], []string{"text"})
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["copy_history_depth"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, []string{"text"}, b.Params["posts"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, 1, b.Params["copy_history_depth"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestWallGetCommentsBuilder(t *testing.T) {
@@ -221,18 +221,18 @@ func TestWallGetCommentsBuilder(t *testing.T) {
 	b.CommentID(1)
 	b.ThreadItemsCount(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
-	assert.Equal(t, b.Params["need_likes"], true)
-	assert.Equal(t, b.Params["start_comment_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["sort"], "text")
-	assert.Equal(t, b.Params["preview_length"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["comment_id"], 1)
-	assert.Equal(t, b.Params["thread_items_count"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
+	assert.Equal(t, true, b.Params["need_likes"])
+	assert.Equal(t, 1, b.Params["start_comment_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, "text", b.Params["sort"])
+	assert.Equal(t, 1, b.Params["preview_length"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["comment_id"])
+	assert.Equal(t, 1, b.Params["thread_items_count"])
 }
 
 func TestWallGetRepostsBuilder(t *testing.T) {
@@ -245,10 +245,10 @@ func TestWallGetRepostsBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestWallOpenCommentsBuilder(t *testing.T) {
@@ -259,8 +259,8 @@ func TestWallOpenCommentsBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.PostID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
 }
 
 func TestWallPinBuilder(t *testing.T) {
@@ -271,8 +271,8 @@ func TestWallPinBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.PostID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
 }
 
 func TestWallPostBuilder(t *testing.T) {
@@ -300,25 +300,25 @@ func TestWallPostBuilder(t *testing.T) {
 	b.Copyright("test")
 	b.TopicID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["friends_only"], true)
-	assert.Equal(t, b.Params["from_group"], true)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
-	assert.Equal(t, b.Params["services"], "text")
-	assert.Equal(t, b.Params["signed"], true)
-	assert.Equal(t, b.Params["publish_date"], 1)
-	assert.Equal(t, b.Params["lat"], 1.1)
-	assert.Equal(t, b.Params["long"], 1.1)
-	assert.Equal(t, b.Params["place_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
-	assert.Equal(t, b.Params["guid"], "text")
-	assert.Equal(t, b.Params["mark_as_ads"], true)
-	assert.Equal(t, b.Params["close_comments"], true)
-	assert.Equal(t, b.Params["donut_paid_duration"], 1)
-	assert.Equal(t, b.Params["mute_notifications"], true)
-	assert.Equal(t, b.Params["copyright"], "test")
-	assert.Equal(t, b.Params["topic_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, true, b.Params["friends_only"])
+	assert.Equal(t, true, b.Params["from_group"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
+	assert.Equal(t, "text", b.Params["services"])
+	assert.Equal(t, true, b.Params["signed"])
+	assert.Equal(t, 1, b.Params["publish_date"])
+	assert.InEpsilon(t, 1.1, b.Params["lat"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["long"], 0.1)
+	assert.Equal(t, 1, b.Params["place_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
+	assert.Equal(t, "text", b.Params["guid"])
+	assert.Equal(t, true, b.Params["mark_as_ads"])
+	assert.Equal(t, true, b.Params["close_comments"])
+	assert.Equal(t, 1, b.Params["donut_paid_duration"])
+	assert.Equal(t, true, b.Params["mute_notifications"])
+	assert.Equal(t, "test", b.Params["copyright"])
+	assert.Equal(t, 1, b.Params["topic_id"])
 }
 
 func TestWallPostAdsStealthBuilder(t *testing.T) {
@@ -339,18 +339,18 @@ func TestWallPostAdsStealthBuilder(t *testing.T) {
 	b.LinkImage("text")
 	b.LinkVideo("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
-	assert.Equal(t, b.Params["signed"], true)
-	assert.Equal(t, b.Params["lat"], 1.1)
-	assert.Equal(t, b.Params["long"], 1.1)
-	assert.Equal(t, b.Params["place_id"], 1)
-	assert.Equal(t, b.Params["guid"], "text")
-	assert.Equal(t, b.Params["link_button"], "text")
-	assert.Equal(t, b.Params["link_title"], "text")
-	assert.Equal(t, b.Params["link_image"], "text")
-	assert.Equal(t, b.Params["link_video"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
+	assert.Equal(t, true, b.Params["signed"])
+	assert.InEpsilon(t, 1.1, b.Params["lat"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["long"], 0.1)
+	assert.Equal(t, 1, b.Params["place_id"])
+	assert.Equal(t, "text", b.Params["guid"])
+	assert.Equal(t, "text", b.Params["link_button"])
+	assert.Equal(t, "text", b.Params["link_title"])
+	assert.Equal(t, "text", b.Params["link_image"])
+	assert.Equal(t, "text", b.Params["link_video"])
 }
 
 func TestWallReportCommentBuilder(t *testing.T) {
@@ -362,9 +362,9 @@ func TestWallReportCommentBuilder(t *testing.T) {
 	b.CommentID(1)
 	b.Reason(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
-	assert.Equal(t, b.Params["reason"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
+	assert.Equal(t, 1, b.Params["reason"])
 }
 
 func TestWallReportPostBuilder(t *testing.T) {
@@ -376,9 +376,9 @@ func TestWallReportPostBuilder(t *testing.T) {
 	b.PostID(1)
 	b.Reason(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
-	assert.Equal(t, b.Params["reason"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
+	assert.Equal(t, 1, b.Params["reason"])
 }
 
 func TestWallRepostBuilder(t *testing.T) {
@@ -392,11 +392,11 @@ func TestWallRepostBuilder(t *testing.T) {
 	b.MarkAsAds(true)
 	b.MuteNotifications(true)
 
-	assert.Equal(t, b.Params["object"], "text")
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["mark_as_ads"], true)
-	assert.Equal(t, b.Params["mute_notifications"], true)
+	assert.Equal(t, "text", b.Params["object"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, true, b.Params["mark_as_ads"])
+	assert.Equal(t, true, b.Params["mute_notifications"])
 }
 
 func TestWallRestoreBuilder(t *testing.T) {
@@ -407,8 +407,8 @@ func TestWallRestoreBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.PostID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
 }
 
 func TestWallRestoreCommentBuilder(t *testing.T) {
@@ -419,8 +419,8 @@ func TestWallRestoreCommentBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.CommentID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
 }
 
 func TestWallSearchBuilder(t *testing.T) {
@@ -437,14 +437,14 @@ func TestWallSearchBuilder(t *testing.T) {
 	b.Extended(true)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["domain"], "text")
-	assert.Equal(t, b.Params["query"], "text")
-	assert.Equal(t, b.Params["owners_only"], true)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, "text", b.Params["domain"])
+	assert.Equal(t, "text", b.Params["query"])
+	assert.Equal(t, true, b.Params["owners_only"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestWallUnpinBuilder(t *testing.T) {
@@ -455,6 +455,6 @@ func TestWallUnpinBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.PostID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["post_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["post_id"])
 }

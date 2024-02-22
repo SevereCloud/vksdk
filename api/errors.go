@@ -7,12 +7,14 @@ import (
 	"github.com/SevereCloud/vksdk/v2/object"
 )
 
+const errorMessagePrefix = "api: "
+
 // ErrorType is the type of an error.
 type ErrorType int
 
 // Error returns the message of a ErrorType.
 func (e ErrorType) Error() string {
-	return fmt.Sprintf("api: error with code %d", e)
+	return fmt.Sprintf(errorMessagePrefix+"error with code %d", e)
 }
 
 // Error codes. See https://vk.com/dev/errors
@@ -850,7 +852,7 @@ type ErrorSubtype int
 
 // Error returns the message of a ErrorSubtype.
 func (e ErrorSubtype) Error() string {
-	return fmt.Sprintf("api: error with subcode %d", e)
+	return fmt.Sprintf(errorMessagePrefix+"error with subcode %d", e)
 }
 
 // Error struct VK.
@@ -917,7 +919,7 @@ type Error struct {
 
 // Error returns the message of a Error.
 func (e Error) Error() string {
-	return "api: " + e.Message
+	return errorMessagePrefix + e.Message
 }
 
 // Is unwraps its first argument sequentially looking for an error that matches
@@ -974,7 +976,7 @@ type UploadError struct {
 // Error returns the message of a UploadError.
 func (e UploadError) Error() string {
 	if e.Err != "" {
-		return "api: " + e.Err
+		return errorMessagePrefix + e.Err
 	}
 
 	return fmt.Sprintf("api: upload code %d", e.Code)
@@ -988,7 +990,7 @@ type AdsError struct {
 
 // Error returns the message of a AdsError.
 func (e AdsError) Error() string {
-	return "api: " + e.Desc
+	return errorMessagePrefix + e.Desc
 }
 
 // Is unwraps its first argument sequentially looking for an error that matches
@@ -1016,7 +1018,7 @@ type AuthSilentTokenError struct {
 
 // Error returns the description of a AuthSilentTokenError.
 func (e AuthSilentTokenError) Error() string {
-	return "api: " + e.Description
+	return errorMessagePrefix + e.Description
 }
 
 // Is unwraps its first argument sequentially looking for an error that matches

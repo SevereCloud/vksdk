@@ -14,7 +14,7 @@ func TestAccountBanBuilder(t *testing.T) {
 
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
 }
 
 func TestAccountChangePasswordBuilder(t *testing.T) {
@@ -27,10 +27,10 @@ func TestAccountChangePasswordBuilder(t *testing.T) {
 	b.OldPassword("text")
 	b.NewPassword("text")
 
-	assert.Equal(t, b.Params["restore_sid"], "text")
-	assert.Equal(t, b.Params["change_password_hash"], "text")
-	assert.Equal(t, b.Params["old_password"], "text")
-	assert.Equal(t, b.Params["new_password"], "text")
+	assert.Equal(t, "text", b.Params["restore_sid"])
+	assert.Equal(t, "text", b.Params["change_password_hash"])
+	assert.Equal(t, "text", b.Params["old_password"])
+	assert.Equal(t, "text", b.Params["new_password"])
 }
 
 func TestAccountGetActiveOffersBuilder(t *testing.T) {
@@ -41,8 +41,8 @@ func TestAccountGetActiveOffersBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestAccountGetAppPermissionsBuilder(t *testing.T) {
@@ -52,7 +52,7 @@ func TestAccountGetAppPermissionsBuilder(t *testing.T) {
 
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestAccountGetBannedBuilder(t *testing.T) {
@@ -63,8 +63,8 @@ func TestAccountGetBannedBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestAccountGetCountersBuilder(t *testing.T) {
@@ -75,8 +75,8 @@ func TestAccountGetCountersBuilder(t *testing.T) {
 	b.Filter([]string{"text"})
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["filter"], []string{"text"})
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, []string{"text"}, b.Params["filter"])
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestAccountGetInfoBuilder(t *testing.T) {
@@ -86,7 +86,7 @@ func TestAccountGetInfoBuilder(t *testing.T) {
 
 	b.Fields([]string{"text"})
 
-	assert.Equal(t, b.Params["fields"], []string{"text"})
+	assert.Equal(t, []string{"text"}, b.Params["fields"])
 }
 
 func TestAccountGetPushSettingsBuilder(t *testing.T) {
@@ -96,7 +96,7 @@ func TestAccountGetPushSettingsBuilder(t *testing.T) {
 
 	b.DeviceID("text")
 
-	assert.Equal(t, b.Params["device_id"], "text")
+	assert.Equal(t, "text", b.Params["device_id"])
 }
 
 func TestAccountRegisterDeviceBuilder(t *testing.T) {
@@ -112,13 +112,13 @@ func TestAccountRegisterDeviceBuilder(t *testing.T) {
 	b.Settings("text")
 	b.Sandbox(true)
 
-	assert.Equal(t, b.Params["token"], "text")
-	assert.Equal(t, b.Params["device_model"], "text")
-	assert.Equal(t, b.Params["device_year"], 1)
-	assert.Equal(t, b.Params["device_id"], "text")
-	assert.Equal(t, b.Params["system_version"], "text")
-	assert.Equal(t, b.Params["settings"], "text")
-	assert.Equal(t, b.Params["sandbox"], true)
+	assert.Equal(t, "text", b.Params["token"])
+	assert.Equal(t, "text", b.Params["device_model"])
+	assert.Equal(t, 1, b.Params["device_year"])
+	assert.Equal(t, "text", b.Params["device_id"])
+	assert.Equal(t, "text", b.Params["system_version"])
+	assert.Equal(t, "text", b.Params["settings"])
+	assert.Equal(t, true, b.Params["sandbox"])
 }
 
 func TestAccountSaveProfileInfoBuilder(t *testing.T) {
@@ -141,20 +141,20 @@ func TestAccountSaveProfileInfoBuilder(t *testing.T) {
 	b.CityID(1)
 	b.Status("text")
 
-	assert.Equal(t, b.Params["first_name"], "text")
-	assert.Equal(t, b.Params["last_name"], "text")
-	assert.Equal(t, b.Params["maiden_name"], "text")
-	assert.Equal(t, b.Params["screen_name"], "text")
-	assert.Equal(t, b.Params["cancel_request_id"], 1)
-	assert.Equal(t, b.Params["sex"], 1)
-	assert.Equal(t, b.Params["relation"], 1)
-	assert.Equal(t, b.Params["relation_partner_id"], 1)
-	assert.Equal(t, b.Params["bdate"], "text")
-	assert.Equal(t, b.Params["bdate_visibility"], 1)
-	assert.Equal(t, b.Params["home_town"], "text")
-	assert.Equal(t, b.Params["country_id"], 1)
-	assert.Equal(t, b.Params["city_id"], 1)
-	assert.Equal(t, b.Params["status"], "text")
+	assert.Equal(t, "text", b.Params["first_name"])
+	assert.Equal(t, "text", b.Params["last_name"])
+	assert.Equal(t, "text", b.Params["maiden_name"])
+	assert.Equal(t, "text", b.Params["screen_name"])
+	assert.Equal(t, 1, b.Params["cancel_request_id"])
+	assert.Equal(t, 1, b.Params["sex"])
+	assert.Equal(t, 1, b.Params["relation"])
+	assert.Equal(t, 1, b.Params["relation_partner_id"])
+	assert.Equal(t, "text", b.Params["bdate"])
+	assert.Equal(t, 1, b.Params["bdate_visibility"])
+	assert.Equal(t, "text", b.Params["home_town"])
+	assert.Equal(t, 1, b.Params["country_id"])
+	assert.Equal(t, 1, b.Params["city_id"])
+	assert.Equal(t, "text", b.Params["status"])
 }
 
 func TestAccountSetInfoBuilder(t *testing.T) {
@@ -165,8 +165,8 @@ func TestAccountSetInfoBuilder(t *testing.T) {
 	b.Name("text")
 	b.Value("text")
 
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["value"], "text")
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, "text", b.Params["value"])
 }
 
 func TestAccountSetNameInMenuBuilder(t *testing.T) {
@@ -177,8 +177,8 @@ func TestAccountSetNameInMenuBuilder(t *testing.T) {
 	b.UserID(1)
 	b.Name("text")
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["name"], "text")
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["name"])
 }
 
 func TestAccountSetOnlineBuilder(t *testing.T) {
@@ -188,7 +188,7 @@ func TestAccountSetOnlineBuilder(t *testing.T) {
 
 	b.Voip(true)
 
-	assert.Equal(t, b.Params["voip"], true)
+	assert.Equal(t, true, b.Params["voip"])
 }
 
 func TestAccountSetPushSettingsBuilder(t *testing.T) {
@@ -201,10 +201,10 @@ func TestAccountSetPushSettingsBuilder(t *testing.T) {
 	b.Key("text")
 	b.Value([]string{"text"})
 
-	assert.Equal(t, b.Params["device_id"], "text")
-	assert.Equal(t, b.Params["settings"], "text")
-	assert.Equal(t, b.Params["key"], "text")
-	assert.Equal(t, b.Params["value"], []string{"text"})
+	assert.Equal(t, "text", b.Params["device_id"])
+	assert.Equal(t, "text", b.Params["settings"])
+	assert.Equal(t, "text", b.Params["key"])
+	assert.Equal(t, []string{"text"}, b.Params["value"])
 }
 
 func TestAccountSetSilenceModeBuilder(t *testing.T) {
@@ -217,10 +217,10 @@ func TestAccountSetSilenceModeBuilder(t *testing.T) {
 	b.PeerID(1)
 	b.Sound(1)
 
-	assert.Equal(t, b.Params["device_id"], "text")
-	assert.Equal(t, b.Params["time"], 1)
-	assert.Equal(t, b.Params["peer_id"], 1)
-	assert.Equal(t, b.Params["sound"], 1)
+	assert.Equal(t, "text", b.Params["device_id"])
+	assert.Equal(t, 1, b.Params["time"])
+	assert.Equal(t, 1, b.Params["peer_id"])
+	assert.Equal(t, 1, b.Params["sound"])
 }
 
 func TestAccountUnbanBuilder(t *testing.T) {
@@ -230,7 +230,7 @@ func TestAccountUnbanBuilder(t *testing.T) {
 
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
 }
 
 func TestAccountUnregisterDeviceBuilder(t *testing.T) {
@@ -241,6 +241,6 @@ func TestAccountUnregisterDeviceBuilder(t *testing.T) {
 	b.DeviceID("text")
 	b.Sandbox(true)
 
-	assert.Equal(t, b.Params["device_id"], "text")
-	assert.Equal(t, b.Params["sandbox"], true)
+	assert.Equal(t, "text", b.Params["device_id"])
+	assert.Equal(t, true, b.Params["sandbox"])
 }

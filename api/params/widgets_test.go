@@ -20,13 +20,13 @@ func TestWidgetsGetCommentsBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["widget_api_id"], 1)
-	assert.Equal(t, b.Params["url"], "text")
-	assert.Equal(t, b.Params["page_id"], "text")
-	assert.Equal(t, b.Params["order"], "text")
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["widget_api_id"])
+	assert.Equal(t, "text", b.Params["url"])
+	assert.Equal(t, "text", b.Params["page_id"])
+	assert.Equal(t, "text", b.Params["order"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestWidgetsGetPagesBuilder(t *testing.T) {
@@ -40,9 +40,9 @@ func TestWidgetsGetPagesBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["widget_api_id"], 1)
-	assert.Equal(t, b.Params["order"], "text")
-	assert.Equal(t, b.Params["period"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["widget_api_id"])
+	assert.Equal(t, "text", b.Params["order"])
+	assert.Equal(t, "text", b.Params["period"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }

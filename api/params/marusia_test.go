@@ -16,9 +16,9 @@ func TestMarusiaSavePictureBuilder(t *testing.T) {
 	b.Photo("text")
 	b.Hash("text")
 
-	assert.Equal(t, b.Params["server"], 1)
-	assert.Equal(t, b.Params["photo"], "text")
-	assert.Equal(t, b.Params["hash"], "text")
+	assert.Equal(t, 1, b.Params["server"])
+	assert.Equal(t, "text", b.Params["photo"])
+	assert.Equal(t, "text", b.Params["hash"])
 }
 
 func TestMarusiaDeletePictureBuilder(t *testing.T) {
@@ -28,7 +28,7 @@ func TestMarusiaDeletePictureBuilder(t *testing.T) {
 
 	b.ID(1)
 
-	assert.Equal(t, b.Params["id"], 1)
+	assert.Equal(t, 1, b.Params["id"])
 }
 
 func TestMarusiaCreateAudioBuilder(t *testing.T) {
@@ -38,7 +38,7 @@ func TestMarusiaCreateAudioBuilder(t *testing.T) {
 
 	b.AudioMeta("text")
 
-	assert.Equal(t, b.Params["audio_meta"], "text")
+	assert.Equal(t, "text", b.Params["audio_meta"])
 }
 
 func TestMarusiaDeleteAudioBuilder(t *testing.T) {
@@ -48,5 +48,5 @@ func TestMarusiaDeleteAudioBuilder(t *testing.T) {
 
 	b.ID(1)
 
-	assert.Equal(t, b.Params["id"], 1)
+	assert.Equal(t, 1, b.Params["id"])
 }

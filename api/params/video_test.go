@@ -16,9 +16,9 @@ func TestVideoAddBuilder(t *testing.T) {
 	b.VideoID(1)
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["target_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["target_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, 1, b.Params["owner_id"])
 }
 
 func TestVideoAddAlbumBuilder(t *testing.T) {
@@ -30,9 +30,9 @@ func TestVideoAddAlbumBuilder(t *testing.T) {
 	b.Title("text")
 	b.Privacy([]string{"text"})
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["privacy"], []string{"text"})
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, []string{"text"}, b.Params["privacy"])
 }
 
 func TestVideoAddToAlbumBuilder(t *testing.T) {
@@ -46,11 +46,11 @@ func TestVideoAddToAlbumBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.VideoID(1)
 
-	assert.Equal(t, b.Params["target_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["album_ids"], []int{1})
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
+	assert.Equal(t, 1, b.Params["target_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, []int{1}, b.Params["album_ids"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
 }
 
 func TestVideoCreateCommentBuilder(t *testing.T) {
@@ -67,14 +67,14 @@ func TestVideoCreateCommentBuilder(t *testing.T) {
 	b.StickerID(1)
 	b.GUID("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
-	assert.Equal(t, b.Params["from_group"], true)
-	assert.Equal(t, b.Params["reply_to_comment"], 1)
-	assert.Equal(t, b.Params["sticker_id"], 1)
-	assert.Equal(t, b.Params["guid"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
+	assert.Equal(t, true, b.Params["from_group"])
+	assert.Equal(t, 1, b.Params["reply_to_comment"])
+	assert.Equal(t, 1, b.Params["sticker_id"])
+	assert.Equal(t, "text", b.Params["guid"])
 }
 
 func TestVideoDeleteBuilder(t *testing.T) {
@@ -86,9 +86,9 @@ func TestVideoDeleteBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.TargetID(1)
 
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["target_id"], 1)
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["target_id"])
 }
 
 func TestVideoDeleteAlbumBuilder(t *testing.T) {
@@ -99,8 +99,8 @@ func TestVideoDeleteAlbumBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.AlbumID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
 }
 
 func TestVideoDeleteCommentBuilder(t *testing.T) {
@@ -111,8 +111,8 @@ func TestVideoDeleteCommentBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.CommentID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
 }
 
 func TestVideoEditBuilder(t *testing.T) {
@@ -129,14 +129,14 @@ func TestVideoEditBuilder(t *testing.T) {
 	b.NoComments(true)
 	b.Repeat(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["desc"], "text")
-	assert.Equal(t, b.Params["privacy_view"], []string{"text"})
-	assert.Equal(t, b.Params["privacy_comment"], []string{"text"})
-	assert.Equal(t, b.Params["no_comments"], true)
-	assert.Equal(t, b.Params["repeat"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, "text", b.Params["desc"])
+	assert.Equal(t, []string{"text"}, b.Params["privacy_view"])
+	assert.Equal(t, []string{"text"}, b.Params["privacy_comment"])
+	assert.Equal(t, true, b.Params["no_comments"])
+	assert.Equal(t, true, b.Params["repeat"])
 }
 
 func TestVideoEditAlbumBuilder(t *testing.T) {
@@ -149,10 +149,10 @@ func TestVideoEditAlbumBuilder(t *testing.T) {
 	b.Title("text")
 	b.Privacy([]string{"text"})
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["privacy"], []string{"text"})
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, []string{"text"}, b.Params["privacy"])
 }
 
 func TestVideoEditCommentBuilder(t *testing.T) {
@@ -165,10 +165,10 @@ func TestVideoEditCommentBuilder(t *testing.T) {
 	b.Message("text")
 	b.Attachments([]string{"text"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["attachments"], []string{"text"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, []string{"text"}, b.Params["attachments"])
 }
 
 func TestVideoGetBuilder(t *testing.T) {
@@ -183,12 +183,12 @@ func TestVideoGetBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["videos"], []string{"text"})
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, []string{"text"}, b.Params["videos"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestVideoGetAlbumByIDBuilder(t *testing.T) {
@@ -199,8 +199,8 @@ func TestVideoGetAlbumByIDBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.AlbumID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
 }
 
 func TestVideoGetAlbumsBuilder(t *testing.T) {
@@ -214,11 +214,11 @@ func TestVideoGetAlbumsBuilder(t *testing.T) {
 	b.Extended(true)
 	b.NeedSystem(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["need_system"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, true, b.Params["need_system"])
 }
 
 func TestVideoGetAlbumsByVideoBuilder(t *testing.T) {
@@ -231,10 +231,10 @@ func TestVideoGetAlbumsByVideoBuilder(t *testing.T) {
 	b.VideoID(1)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["target_id"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, 1, b.Params["target_id"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestVideoGetCommentsBuilder(t *testing.T) {
@@ -252,15 +252,15 @@ func TestVideoGetCommentsBuilder(t *testing.T) {
 	b.Extended(true)
 	b.Fields([]string{"text"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["need_likes"], true)
-	assert.Equal(t, b.Params["start_comment_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["sort"], "text")
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"text"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, true, b.Params["need_likes"])
+	assert.Equal(t, 1, b.Params["start_comment_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, "text", b.Params["sort"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"text"}, b.Params["fields"])
 }
 
 func TestVideoRemoveFromAlbumBuilder(t *testing.T) {
@@ -274,11 +274,11 @@ func TestVideoRemoveFromAlbumBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.VideoID(1)
 
-	assert.Equal(t, b.Params["target_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["album_ids"], []int{1})
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
+	assert.Equal(t, 1, b.Params["target_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, []int{1}, b.Params["album_ids"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
 }
 
 func TestVideoReorderAlbumsBuilder(t *testing.T) {
@@ -291,10 +291,10 @@ func TestVideoReorderAlbumsBuilder(t *testing.T) {
 	b.Before(1)
 	b.After(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["before"], 1)
-	assert.Equal(t, b.Params["after"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, 1, b.Params["before"])
+	assert.Equal(t, 1, b.Params["after"])
 }
 
 func TestVideoReorderVideosBuilder(t *testing.T) {
@@ -311,14 +311,14 @@ func TestVideoReorderVideosBuilder(t *testing.T) {
 	b.AfterOwnerID(1)
 	b.AfterVideoID(1)
 
-	assert.Equal(t, b.Params["target_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["before_owner_id"], 1)
-	assert.Equal(t, b.Params["before_video_id"], 1)
-	assert.Equal(t, b.Params["after_owner_id"], 1)
-	assert.Equal(t, b.Params["after_video_id"], 1)
+	assert.Equal(t, 1, b.Params["target_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, 1, b.Params["before_owner_id"])
+	assert.Equal(t, 1, b.Params["before_video_id"])
+	assert.Equal(t, 1, b.Params["after_owner_id"])
+	assert.Equal(t, 1, b.Params["after_video_id"])
 }
 
 func TestVideoReportBuilder(t *testing.T) {
@@ -332,11 +332,11 @@ func TestVideoReportBuilder(t *testing.T) {
 	b.Comment("text")
 	b.SearchQuery("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["reason"], 1)
-	assert.Equal(t, b.Params["comment"], "text")
-	assert.Equal(t, b.Params["search_query"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, 1, b.Params["reason"])
+	assert.Equal(t, "text", b.Params["comment"])
+	assert.Equal(t, "text", b.Params["search_query"])
 }
 
 func TestVideoReportCommentBuilder(t *testing.T) {
@@ -348,9 +348,9 @@ func TestVideoReportCommentBuilder(t *testing.T) {
 	b.CommentID(1)
 	b.Reason(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
-	assert.Equal(t, b.Params["reason"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
+	assert.Equal(t, 1, b.Params["reason"])
 }
 
 func TestVideoRestoreBuilder(t *testing.T) {
@@ -361,8 +361,8 @@ func TestVideoRestoreBuilder(t *testing.T) {
 	b.VideoID(1)
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, 1, b.Params["owner_id"])
 }
 
 func TestVideoRestoreCommentBuilder(t *testing.T) {
@@ -373,8 +373,8 @@ func TestVideoRestoreCommentBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.CommentID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["comment_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["comment_id"])
 }
 
 func TestVideoSaveBuilder(t *testing.T) {
@@ -396,19 +396,19 @@ func TestVideoSaveBuilder(t *testing.T) {
 	b.Repeat(true)
 	b.Compression(true)
 
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["description"], "text")
-	assert.Equal(t, b.Params["is_united_video_upload"], true)
-	assert.Equal(t, b.Params["is_private"], true)
-	assert.Equal(t, b.Params["wallpost"], true)
-	assert.Equal(t, b.Params["link"], "text")
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["album_id"], 1)
-	assert.Equal(t, b.Params["privacy_view"], []string{"text"})
-	assert.Equal(t, b.Params["privacy_comment"], []string{"text"})
-	assert.Equal(t, b.Params["no_comments"], true)
-	assert.Equal(t, b.Params["repeat"], true)
-	assert.Equal(t, b.Params["compression"], true)
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, "text", b.Params["description"])
+	assert.Equal(t, true, b.Params["is_united_video_upload"])
+	assert.Equal(t, true, b.Params["is_private"])
+	assert.Equal(t, true, b.Params["wallpost"])
+	assert.Equal(t, "text", b.Params["link"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["album_id"])
+	assert.Equal(t, []string{"text"}, b.Params["privacy_view"])
+	assert.Equal(t, []string{"text"}, b.Params["privacy_comment"])
+	assert.Equal(t, true, b.Params["no_comments"])
+	assert.Equal(t, true, b.Params["repeat"])
+	assert.Equal(t, true, b.Params["compression"])
 }
 
 func TestVideoSearchBuilder(t *testing.T) {
@@ -430,19 +430,19 @@ func TestVideoSearchBuilder(t *testing.T) {
 	b.Legal(true)
 	b.LegalOwner(1)
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["sort"], 1)
-	assert.Equal(t, b.Params["hd"], 1)
-	assert.Equal(t, b.Params["adult"], true)
-	assert.Equal(t, b.Params["filters"], []string{"text"})
-	assert.Equal(t, b.Params["search_own"], true)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["longer"], 1)
-	assert.Equal(t, b.Params["shorter"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["legal"], true)
-	assert.Equal(t, b.Params["legal_owner"], 1)
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["sort"])
+	assert.Equal(t, 1, b.Params["hd"])
+	assert.Equal(t, true, b.Params["adult"])
+	assert.Equal(t, []string{"text"}, b.Params["filters"])
+	assert.Equal(t, true, b.Params["search_own"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["longer"])
+	assert.Equal(t, 1, b.Params["shorter"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, true, b.Params["legal"])
+	assert.Equal(t, 1, b.Params["legal_owner"])
 }
 
 func TestVideoStartStreamingBuilder(t *testing.T) {
@@ -461,16 +461,16 @@ func TestVideoStartStreamingBuilder(t *testing.T) {
 	b.CategoryID(1)
 	b.Publish(true)
 
-	assert.Equal(t, b.Params["video_id"], 1)
-	assert.Equal(t, b.Params["name"], "text")
-	assert.Equal(t, b.Params["description"], "text")
-	assert.Equal(t, b.Params["wallpost"], true)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["privacy_view"], []string{"text"})
-	assert.Equal(t, b.Params["privacy_comment"], []string{"text"})
-	assert.Equal(t, b.Params["no_comments"], true)
-	assert.Equal(t, b.Params["category_id"], 1)
-	assert.Equal(t, b.Params["publish"], true)
+	assert.Equal(t, 1, b.Params["video_id"])
+	assert.Equal(t, "text", b.Params["name"])
+	assert.Equal(t, "text", b.Params["description"])
+	assert.Equal(t, true, b.Params["wallpost"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, []string{"text"}, b.Params["privacy_view"])
+	assert.Equal(t, []string{"text"}, b.Params["privacy_comment"])
+	assert.Equal(t, true, b.Params["no_comments"])
+	assert.Equal(t, 1, b.Params["category_id"])
+	assert.Equal(t, true, b.Params["publish"])
 }
 
 func TestVideoStopStreamingBuilder(t *testing.T) {
@@ -482,7 +482,7 @@ func TestVideoStopStreamingBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.VideoID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["video_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["video_id"])
 }

@@ -254,7 +254,7 @@ func Test_FmtValue(t *testing.T) {
 		t.Helper()
 
 		got := api.FmtValue(value, 0)
-		assert.Equal(t, got, want)
+		assert.Equal(t, want, got)
 	}
 
 	f(nil, "")
@@ -301,11 +301,11 @@ func TestParams_methods(t *testing.T) {
 	p.CaptchaKey("text")
 	p.Confirm(true)
 
-	assert.Equal(t, p["lang"], 1)
-	assert.Equal(t, p["test_mode"], true)
-	assert.Equal(t, p["captcha_sid"], "text")
-	assert.Equal(t, p["captcha_key"], "text")
-	assert.Equal(t, p["confirm"], true)
+	assert.Equal(t, 1, p["lang"])
+	assert.Equal(t, true, p["test_mode"])
+	assert.Equal(t, "text", p["captcha_sid"])
+	assert.Equal(t, "text", p["captcha_key"])
+	assert.Equal(t, true, p["confirm"])
 }
 
 func TestContext(t *testing.T) {

@@ -16,9 +16,9 @@ func TestDocsAddBuilder(t *testing.T) {
 	b.DocID(1)
 	b.AccessKey("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["doc_id"], 1)
-	assert.Equal(t, b.Params["access_key"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["doc_id"])
+	assert.Equal(t, "text", b.Params["access_key"])
 }
 
 func TestDocsDeleteBuilder(t *testing.T) {
@@ -29,8 +29,8 @@ func TestDocsDeleteBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.DocID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["doc_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["doc_id"])
 }
 
 func TestDocsEditBuilder(t *testing.T) {
@@ -43,10 +43,10 @@ func TestDocsEditBuilder(t *testing.T) {
 	b.Title("text")
 	b.Tags([]string{"text"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["doc_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["tags"], []string{"text"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["doc_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, []string{"text"}, b.Params["tags"])
 }
 
 func TestDocsGetBuilder(t *testing.T) {
@@ -59,10 +59,10 @@ func TestDocsGetBuilder(t *testing.T) {
 	b.Type(1)
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["type"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["type"])
+	assert.Equal(t, 1, b.Params["owner_id"])
 }
 
 func TestDocsGetByIDBuilder(t *testing.T) {
@@ -72,7 +72,7 @@ func TestDocsGetByIDBuilder(t *testing.T) {
 
 	b.Docs([]string{"text"})
 
-	assert.Equal(t, b.Params["docs"], []string{"text"})
+	assert.Equal(t, []string{"text"}, b.Params["docs"])
 }
 
 func TestDocsGetMessagesUploadServerBuilder(t *testing.T) {
@@ -83,8 +83,8 @@ func TestDocsGetMessagesUploadServerBuilder(t *testing.T) {
 	b.Type("text")
 	b.PeerID(1)
 
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["peer_id"], 1)
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["peer_id"])
 }
 
 func TestDocsGetTypesBuilder(t *testing.T) {
@@ -94,7 +94,7 @@ func TestDocsGetTypesBuilder(t *testing.T) {
 
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
 }
 
 func TestDocsGetUploadServerBuilder(t *testing.T) {
@@ -104,7 +104,7 @@ func TestDocsGetUploadServerBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestDocsGetWallUploadServerBuilder(t *testing.T) {
@@ -114,7 +114,7 @@ func TestDocsGetWallUploadServerBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestDocsSaveBuilder(t *testing.T) {
@@ -126,9 +126,9 @@ func TestDocsSaveBuilder(t *testing.T) {
 	b.Title("text")
 	b.Tags("text")
 
-	assert.Equal(t, b.Params["file"], "text")
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["tags"], "text")
+	assert.Equal(t, "text", b.Params["file"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["tags"])
 }
 
 func TestDocsSearchBuilder(t *testing.T) {
@@ -141,8 +141,8 @@ func TestDocsSearchBuilder(t *testing.T) {
 	b.Count(1)
 	b.Offset(1)
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["search_own"], true)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, true, b.Params["search_own"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
 }

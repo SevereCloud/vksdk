@@ -112,10 +112,7 @@ func TestSpeakerAudio(t *testing.T) {
 }
 
 func ExampleSpeakerAudioVKID() {
-	tts := fmt.Sprintf(
-		"Угадайте, чей это голос? %s",
-		marusia.SpeakerAudioVKID("-2000000002_123456789"),
-	)
+	tts := "Угадайте, чей это голос? " + marusia.SpeakerAudioVKID("-2000000002_123456789")
 	fmt.Println(tts)
 
 	// Output:

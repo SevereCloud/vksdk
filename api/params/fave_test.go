@@ -14,7 +14,7 @@ func TestFaveAddArticleBuilder(t *testing.T) {
 
 	b.URL("text")
 
-	assert.Equal(t, b.Params["url"], "text")
+	assert.Equal(t, "text", b.Params["url"])
 }
 
 func TestFaveAddLinkBuilder(t *testing.T) {
@@ -24,7 +24,7 @@ func TestFaveAddLinkBuilder(t *testing.T) {
 
 	b.Link("text")
 
-	assert.Equal(t, b.Params["link"], "text")
+	assert.Equal(t, "text", b.Params["link"])
 }
 
 func TestFaveAddPageBuilder(t *testing.T) {
@@ -35,8 +35,8 @@ func TestFaveAddPageBuilder(t *testing.T) {
 	b.UserID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestFaveAddPostBuilder(t *testing.T) {
@@ -48,9 +48,9 @@ func TestFaveAddPostBuilder(t *testing.T) {
 	b.ID(1)
 	b.AccessKey("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["id"], 1)
-	assert.Equal(t, b.Params["access_key"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["id"])
+	assert.Equal(t, "text", b.Params["access_key"])
 }
 
 func TestFaveAddProductBuilder(t *testing.T) {
@@ -62,9 +62,9 @@ func TestFaveAddProductBuilder(t *testing.T) {
 	b.ID(1)
 	b.AccessKey("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["id"], 1)
-	assert.Equal(t, b.Params["access_key"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["id"])
+	assert.Equal(t, "text", b.Params["access_key"])
 }
 
 func TestFaveAddTagBuilder(t *testing.T) {
@@ -74,7 +74,7 @@ func TestFaveAddTagBuilder(t *testing.T) {
 
 	b.Name("text")
 
-	assert.Equal(t, b.Params["name"], "text")
+	assert.Equal(t, "text", b.Params["name"])
 }
 
 func TestFaveAddVideoBuilder(t *testing.T) {
@@ -86,9 +86,9 @@ func TestFaveAddVideoBuilder(t *testing.T) {
 	b.ID(1)
 	b.AccessKey("text")
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["id"], 1)
-	assert.Equal(t, b.Params["access_key"], "text")
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["id"])
+	assert.Equal(t, "text", b.Params["access_key"])
 }
 
 func TestFaveEditTagBuilder(t *testing.T) {
@@ -99,8 +99,8 @@ func TestFaveEditTagBuilder(t *testing.T) {
 	b.ID(1)
 	b.Name("text")
 
-	assert.Equal(t, b.Params["id"], 1)
-	assert.Equal(t, b.Params["name"], "text")
+	assert.Equal(t, 1, b.Params["id"])
+	assert.Equal(t, "text", b.Params["name"])
 }
 
 func TestFaveGetBuilder(t *testing.T) {
@@ -116,13 +116,13 @@ func TestFaveGetBuilder(t *testing.T) {
 	b.Fields("text")
 	b.IsFromSnackbar(true)
 
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["item_type"], "text")
-	assert.Equal(t, b.Params["tag_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], "text")
-	assert.Equal(t, b.Params["is_from_snackbar"], true)
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, "text", b.Params["item_type"])
+	assert.Equal(t, 1, b.Params["tag_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, "text", b.Params["fields"])
+	assert.Equal(t, true, b.Params["is_from_snackbar"])
 }
 
 func TestFaveGetPagesBuilder(t *testing.T) {
@@ -136,11 +136,11 @@ func TestFaveGetPagesBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.TagID(1)
 
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["tag_id"], 1)
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["tag_id"])
 }
 
 func TestFaveRemoveArticleBuilder(t *testing.T) {
@@ -151,8 +151,8 @@ func TestFaveRemoveArticleBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.ArticleID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["article_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["article_id"])
 }
 
 func TestFaveRemoveLinkBuilder(t *testing.T) {
@@ -163,8 +163,8 @@ func TestFaveRemoveLinkBuilder(t *testing.T) {
 	b.LinkID("text")
 	b.Link("text")
 
-	assert.Equal(t, b.Params["link_id"], "text")
-	assert.Equal(t, b.Params["link"], "text")
+	assert.Equal(t, "text", b.Params["link_id"])
+	assert.Equal(t, "text", b.Params["link"])
 }
 
 func TestFaveRemovePageBuilder(t *testing.T) {
@@ -175,8 +175,8 @@ func TestFaveRemovePageBuilder(t *testing.T) {
 	b.UserID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestFaveRemovePostBuilder(t *testing.T) {
@@ -187,8 +187,8 @@ func TestFaveRemovePostBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.ID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["id"])
 }
 
 func TestFaveRemoveProductBuilder(t *testing.T) {
@@ -199,8 +199,8 @@ func TestFaveRemoveProductBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.ID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["id"])
 }
 
 func TestFaveRemoveTagBuilder(t *testing.T) {
@@ -210,7 +210,7 @@ func TestFaveRemoveTagBuilder(t *testing.T) {
 
 	b.ID(1)
 
-	assert.Equal(t, b.Params["id"], 1)
+	assert.Equal(t, 1, b.Params["id"])
 }
 
 func TestFaveReorderTagsBuilder(t *testing.T) {
@@ -220,7 +220,7 @@ func TestFaveReorderTagsBuilder(t *testing.T) {
 
 	b.IDs([]int{1})
 
-	assert.Equal(t, b.Params["ids"], []int{1})
+	assert.Equal(t, []int{1}, b.Params["ids"])
 }
 
 func TestFaveSetPageTagsBuilder(t *testing.T) {
@@ -232,9 +232,9 @@ func TestFaveSetPageTagsBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.TagIDs([]int{1})
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["tag_ids"], []int{1})
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, []int{1}, b.Params["tag_ids"])
 }
 
 func TestFaveSetTagsBuilder(t *testing.T) {
@@ -249,12 +249,12 @@ func TestFaveSetTagsBuilder(t *testing.T) {
 	b.LinkID("text")
 	b.LinkURL("text")
 
-	assert.Equal(t, b.Params["item_type"], "text")
-	assert.Equal(t, b.Params["item_owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["tag_ids"], []int{1})
-	assert.Equal(t, b.Params["link_id"], "text")
-	assert.Equal(t, b.Params["link_url"], "text")
+	assert.Equal(t, "text", b.Params["item_type"])
+	assert.Equal(t, 1, b.Params["item_owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, []int{1}, b.Params["tag_ids"])
+	assert.Equal(t, "text", b.Params["link_id"])
+	assert.Equal(t, "text", b.Params["link_url"])
 }
 
 func TestFaveTrackPageInteractionBuilder(t *testing.T) {
@@ -265,6 +265,6 @@ func TestFaveTrackPageInteractionBuilder(t *testing.T) {
 	b.UserID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }

@@ -14,5 +14,5 @@ func TestStreamingSetSettingsBuilder(t *testing.T) {
 
 	b.MonthlyTier("text")
 
-	assert.Equal(t, b.Params["monthly_tier"], "text")
+	assert.Equal(t, "text", b.Params["monthly_tier"])
 }

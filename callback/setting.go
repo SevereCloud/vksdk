@@ -82,13 +82,13 @@ func (cb *Callback) AutoSetting(
 				cb.SecretKeys[groupID] = cbServer.SecretKey
 
 				break
-			} else {
-				// Broken Callback server
-				_, _ = vk.GroupsDeleteCallbackServer(api.Params{
-					"group_id":  groupID,
-					"server_id": cbServer.ID,
-				})
 			}
+
+			// Broken Callback server
+			_, _ = vk.GroupsDeleteCallbackServer(api.Params{
+				"group_id":  groupID,
+				"server_id": cbServer.ID,
+			})
 		}
 	}
 

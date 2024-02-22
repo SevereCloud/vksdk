@@ -19,12 +19,12 @@ func TestLeadsCheckUserBuilder(t *testing.T) {
 	b.Age(1)
 	b.Country("text")
 
-	assert.Equal(t, b.Params["lead_id"], 1)
-	assert.Equal(t, b.Params["test_result"], 1)
-	assert.Equal(t, b.Params["test_mode"], true)
-	assert.Equal(t, b.Params["auto_start"], true)
-	assert.Equal(t, b.Params["age"], 1)
-	assert.Equal(t, b.Params["country"], "text")
+	assert.Equal(t, 1, b.Params["lead_id"])
+	assert.Equal(t, 1, b.Params["test_result"])
+	assert.Equal(t, true, b.Params["test_mode"])
+	assert.Equal(t, true, b.Params["auto_start"])
+	assert.Equal(t, 1, b.Params["age"])
+	assert.Equal(t, "text", b.Params["country"])
 }
 
 func TestLeadsCompleteBuilder(t *testing.T) {
@@ -36,9 +36,9 @@ func TestLeadsCompleteBuilder(t *testing.T) {
 	b.Secret("text")
 	b.Comment("text")
 
-	assert.Equal(t, b.Params["vk_sid"], "text")
-	assert.Equal(t, b.Params["secret"], "text")
-	assert.Equal(t, b.Params["comment"], "text")
+	assert.Equal(t, "text", b.Params["vk_sid"])
+	assert.Equal(t, "text", b.Params["secret"])
+	assert.Equal(t, "text", b.Params["comment"])
 }
 
 func TestLeadsGetStatsBuilder(t *testing.T) {
@@ -51,10 +51,10 @@ func TestLeadsGetStatsBuilder(t *testing.T) {
 	b.DateStart("text")
 	b.DateEnd("text")
 
-	assert.Equal(t, b.Params["lead_id"], 1)
-	assert.Equal(t, b.Params["secret"], "text")
-	assert.Equal(t, b.Params["date_start"], "text")
-	assert.Equal(t, b.Params["date_end"], "text")
+	assert.Equal(t, 1, b.Params["lead_id"])
+	assert.Equal(t, "text", b.Params["secret"])
+	assert.Equal(t, "text", b.Params["date_start"])
+	assert.Equal(t, "text", b.Params["date_end"])
 }
 
 func TestLeadsGetUsersBuilder(t *testing.T) {
@@ -69,12 +69,12 @@ func TestLeadsGetUsersBuilder(t *testing.T) {
 	b.Status(1)
 	b.Reverse(true)
 
-	assert.Equal(t, b.Params["offer_id"], 1)
-	assert.Equal(t, b.Params["secret"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["status"], 1)
-	assert.Equal(t, b.Params["reverse"], true)
+	assert.Equal(t, 1, b.Params["offer_id"])
+	assert.Equal(t, "text", b.Params["secret"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["status"])
+	assert.Equal(t, true, b.Params["reverse"])
 }
 
 func TestLeadsMetricHitBuilder(t *testing.T) {
@@ -84,7 +84,7 @@ func TestLeadsMetricHitBuilder(t *testing.T) {
 
 	b.Data("text")
 
-	assert.Equal(t, b.Params["data"], "text")
+	assert.Equal(t, "text", b.Params["data"])
 }
 
 func TestLeadsStartBuilder(t *testing.T) {
@@ -99,10 +99,10 @@ func TestLeadsStartBuilder(t *testing.T) {
 	b.TestMode(true)
 	b.Force(true)
 
-	assert.Equal(t, b.Params["lead_id"], 1)
-	assert.Equal(t, b.Params["secret"], "text")
-	assert.Equal(t, b.Params["uid"], 1)
-	assert.Equal(t, b.Params["aid"], 1)
-	assert.Equal(t, b.Params["test_mode"], true)
-	assert.Equal(t, b.Params["force"], true)
+	assert.Equal(t, 1, b.Params["lead_id"])
+	assert.Equal(t, "text", b.Params["secret"])
+	assert.Equal(t, 1, b.Params["uid"])
+	assert.Equal(t, 1, b.Params["aid"])
+	assert.Equal(t, true, b.Params["test_mode"])
+	assert.Equal(t, true, b.Params["force"])
 }

@@ -17,10 +17,10 @@ func TestDonutGetFriendsBuilder(t *testing.T) {
 	b.Count(1)
 	b.Fields([]string{"text"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"text"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"text"}, b.Params["fields"])
 }
 
 func TestDonutGetSubscriptionBuilder(t *testing.T) {
@@ -30,7 +30,7 @@ func TestDonutGetSubscriptionBuilder(t *testing.T) {
 
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
 }
 
 func TestDonutGetSubscriptionsBuilder(t *testing.T) {
@@ -42,9 +42,9 @@ func TestDonutGetSubscriptionsBuilder(t *testing.T) {
 	b.Count(1)
 	b.Fields([]string{"text"})
 
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"text"})
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"text"}, b.Params["fields"])
 }
 
 func TestDonutIsDonBuilder(t *testing.T) {
@@ -54,5 +54,5 @@ func TestDonutIsDonBuilder(t *testing.T) {
 
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
 }

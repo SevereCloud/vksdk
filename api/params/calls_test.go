@@ -14,7 +14,7 @@ func TestCallsStartBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestCallsForceFinishBuilder(t *testing.T) {
@@ -24,5 +24,5 @@ func TestCallsForceFinishBuilder(t *testing.T) {
 
 	b.CallID("text")
 
-	assert.Equal(t, b.Params["call_id"], "text")
+	assert.Equal(t, "text", b.Params["call_id"])
 }

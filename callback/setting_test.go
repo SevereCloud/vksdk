@@ -2,7 +2,6 @@ package callback_test
 
 import (
 	"context"
-	"errors"
 	"os"
 	"testing"
 
@@ -18,9 +17,9 @@ func TestAutoSetting_ErrAuth(t *testing.T) {
 	vk := api.NewVK("")
 
 	cb := callback.NewCallback()
-	cb.MessageNew(func(_ context.Context, obj events.MessageNewObject) {})
+	cb.MessageNew(func(_ context.Context, _ events.MessageNewObject) {})
 	err := cb.AutoSetting(vk, "https://example.com")
-	assert.Equal(t, true, errors.Is(err, api.ErrAuth), err)
+	assert.ErrorIs(t, err, api.ErrAuth)
 }
 
 func TestAutoSetting_ErrNeedGroupToken(t *testing.T) {
@@ -34,9 +33,9 @@ func TestAutoSetting_ErrNeedGroupToken(t *testing.T) {
 	vk := api.NewVK(userToken)
 
 	cb := callback.NewCallback()
-	cb.MessageNew(func(_ context.Context, obj events.MessageNewObject) {})
+	cb.MessageNew(func(_ context.Context, _ events.MessageNewObject) {})
 	err := cb.AutoSetting(vk, "https://example.com")
-	assert.Equal(t, true, errors.Is(err, callback.ErrNeedGroupToken), err)
+	assert.ErrorIs(t, err, callback.ErrNeedGroupToken)
 }
 
 func TestAutoSetting_Err(t *testing.T) {
@@ -50,7 +49,7 @@ func TestAutoSetting_Err(t *testing.T) {
 	vk := api.NewVK(groupToken)
 
 	cb := callback.NewCallback()
-	cb.MessageNew(func(_ context.Context, obj events.MessageNewObject) {})
+	cb.MessageNew(func(_ context.Context, _ events.MessageNewObject) {})
 	err := cb.AutoSetting(vk, "https://example.com")
 	assert.NoError(t, err)
 }

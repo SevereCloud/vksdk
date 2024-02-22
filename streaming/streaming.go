@@ -311,6 +311,7 @@ func (s *Streaming) Run() error {
 
 		return err
 	}
+
 	defer wsResp.Body.Close()
 	defer c.Close()
 

@@ -14,7 +14,7 @@ func TestStoriesBanOwnerBuilder(t *testing.T) {
 
 	b.OwnersIDs([]int{1})
 
-	assert.Equal(t, b.Params["owners_ids"], []int{1})
+	assert.Equal(t, []int{1}, b.Params["owners_ids"])
 }
 
 func TestStoriesDeleteBuilder(t *testing.T) {
@@ -25,8 +25,8 @@ func TestStoriesDeleteBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.StoryID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["story_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["story_id"])
 }
 
 func TestStoriesGetBuilder(t *testing.T) {
@@ -37,8 +37,8 @@ func TestStoriesGetBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestStoriesGetBannedBuilder(t *testing.T) {
@@ -49,8 +49,8 @@ func TestStoriesGetBannedBuilder(t *testing.T) {
 	b.Extended(true)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestStoriesGetByIDBuilder(t *testing.T) {
@@ -62,9 +62,9 @@ func TestStoriesGetByIDBuilder(t *testing.T) {
 	b.Extended(true)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["stories"], []string{"text"})
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, []string{"text"}, b.Params["stories"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestStoriesGetPhotoUploadServerBuilder(t *testing.T) {
@@ -79,12 +79,12 @@ func TestStoriesGetPhotoUploadServerBuilder(t *testing.T) {
 	b.LinkURL("text")
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["add_to_news"], true)
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["reply_to_story"], "text")
-	assert.Equal(t, b.Params["link_text"], "text")
-	assert.Equal(t, b.Params["link_url"], "text")
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, true, b.Params["add_to_news"])
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, "text", b.Params["reply_to_story"])
+	assert.Equal(t, "text", b.Params["link_text"])
+	assert.Equal(t, "text", b.Params["link_url"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestStoriesGetRepliesBuilder(t *testing.T) {
@@ -98,11 +98,11 @@ func TestStoriesGetRepliesBuilder(t *testing.T) {
 	b.Extended(true)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["story_id"], 1)
-	assert.Equal(t, b.Params["access_key"], "text")
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["story_id"])
+	assert.Equal(t, "text", b.Params["access_key"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestStoriesGetStatsBuilder(t *testing.T) {
@@ -113,8 +113,8 @@ func TestStoriesGetStatsBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.StoryID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["story_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["story_id"])
 }
 
 func TestStoriesGetVideoUploadServerBuilder(t *testing.T) {
@@ -129,12 +129,12 @@ func TestStoriesGetVideoUploadServerBuilder(t *testing.T) {
 	b.LinkURL("text")
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["add_to_news"], true)
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["reply_to_story"], "text")
-	assert.Equal(t, b.Params["link_text"], "text")
-	assert.Equal(t, b.Params["link_url"], "text")
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, true, b.Params["add_to_news"])
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, "text", b.Params["reply_to_story"])
+	assert.Equal(t, "text", b.Params["link_text"])
+	assert.Equal(t, "text", b.Params["link_url"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestStoriesGetViewersBuilder(t *testing.T) {
@@ -148,11 +148,11 @@ func TestStoriesGetViewersBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["story_id"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["story_id"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestStoriesHideAllRepliesBuilder(t *testing.T) {
@@ -163,8 +163,8 @@ func TestStoriesHideAllRepliesBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestStoriesHideReplyBuilder(t *testing.T) {
@@ -175,8 +175,8 @@ func TestStoriesHideReplyBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.StoryID(1)
 
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["story_id"], 1)
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["story_id"])
 }
 
 func TestStoriesSaveBuilder(t *testing.T) {
@@ -186,7 +186,7 @@ func TestStoriesSaveBuilder(t *testing.T) {
 
 	b.UploadResults("test")
 
-	assert.Equal(t, b.Params["upload_results"], "test")
+	assert.Equal(t, "test", b.Params["upload_results"])
 }
 
 func TestStoriesUnbanOwnerBuilder(t *testing.T) {
@@ -196,7 +196,7 @@ func TestStoriesUnbanOwnerBuilder(t *testing.T) {
 
 	b.OwnersIDs([]int{1})
 
-	assert.Equal(t, b.Params["owners_ids"], []int{1})
+	assert.Equal(t, []int{1}, b.Params["owners_ids"])
 }
 
 func TestStoriesSendInteractionBuilder(t *testing.T) {
@@ -210,9 +210,9 @@ func TestStoriesSendInteractionBuilder(t *testing.T) {
 	b.IsAnonymous(true)
 	b.UnseenMarker(true)
 
-	assert.Equal(t, b.Params["access_key"], "text")
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["is_broadcast"], true)
-	assert.Equal(t, b.Params["is_anonymous"], true)
-	assert.Equal(t, b.Params["unseen_marker"], true)
+	assert.Equal(t, "text", b.Params["access_key"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, true, b.Params["is_broadcast"])
+	assert.Equal(t, true, b.Params["is_anonymous"])
+	assert.Equal(t, true, b.Params["unseen_marker"])
 }

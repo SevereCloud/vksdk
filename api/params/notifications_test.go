@@ -18,11 +18,11 @@ func TestNotificationsGetBuilder(t *testing.T) {
 	b.StartTime(1)
 	b.EndTime(1)
 
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["start_from"], "text")
-	assert.Equal(t, b.Params["filters"], []string{"text"})
-	assert.Equal(t, b.Params["start_time"], 1)
-	assert.Equal(t, b.Params["end_time"], 1)
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, "text", b.Params["start_from"])
+	assert.Equal(t, []string{"text"}, b.Params["filters"])
+	assert.Equal(t, 1, b.Params["start_time"])
+	assert.Equal(t, 1, b.Params["end_time"])
 }
 
 func TestNotificationsSendMessageBuilder(t *testing.T) {
@@ -36,9 +36,9 @@ func TestNotificationsSendMessageBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.RandomID(1)
 
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["message"], "text")
-	assert.Equal(t, b.Params["fragment"], "text")
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["random_id"], int64(1))
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, "text", b.Params["message"])
+	assert.Equal(t, "text", b.Params["fragment"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, int64(1), b.Params["random_id"])
 }

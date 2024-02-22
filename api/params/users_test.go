@@ -16,9 +16,9 @@ func TestUsersGetBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.NameCase("text")
 
-	assert.Equal(t, b.Params["user_ids"], []string{"text"})
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
+	assert.Equal(t, []string{"text"}, b.Params["user_ids"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
 }
 
 func TestUsersGetFollowersBuilder(t *testing.T) {
@@ -32,11 +32,11 @@ func TestUsersGetFollowersBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.NameCase("text")
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
 }
 
 func TestUsersGetSubscriptionsBuilder(t *testing.T) {
@@ -50,11 +50,11 @@ func TestUsersGetSubscriptionsBuilder(t *testing.T) {
 	b.Count(1)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestUsersIsAppUserBuilder(t *testing.T) {
@@ -64,7 +64,7 @@ func TestUsersIsAppUserBuilder(t *testing.T) {
 
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestUsersReportBuilder(t *testing.T) {
@@ -76,9 +76,9 @@ func TestUsersReportBuilder(t *testing.T) {
 	b.Type("text")
 	b.Comment("text")
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["comment"], "text")
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, "text", b.Params["comment"])
 }
 
 func TestUsersSearchBuilder(t *testing.T) {
@@ -120,37 +120,37 @@ func TestUsersSearchBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.FromList([]string{"text"})
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["sort"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["city"], 1)
-	assert.Equal(t, b.Params["country"], 1)
-	assert.Equal(t, b.Params["hometown"], "text")
-	assert.Equal(t, b.Params["university_country"], 1)
-	assert.Equal(t, b.Params["university"], 1)
-	assert.Equal(t, b.Params["university_year"], 1)
-	assert.Equal(t, b.Params["university_faculty"], 1)
-	assert.Equal(t, b.Params["university_chair"], 1)
-	assert.Equal(t, b.Params["sex"], 1)
-	assert.Equal(t, b.Params["status"], 1)
-	assert.Equal(t, b.Params["age_from"], 1)
-	assert.Equal(t, b.Params["age_to"], 1)
-	assert.Equal(t, b.Params["birth_day"], 1)
-	assert.Equal(t, b.Params["birth_month"], 1)
-	assert.Equal(t, b.Params["birth_year"], 1)
-	assert.Equal(t, b.Params["online"], true)
-	assert.Equal(t, b.Params["has_photo"], true)
-	assert.Equal(t, b.Params["school_country"], 1)
-	assert.Equal(t, b.Params["school_city"], 1)
-	assert.Equal(t, b.Params["school_class"], 1)
-	assert.Equal(t, b.Params["school"], 1)
-	assert.Equal(t, b.Params["school_year"], 1)
-	assert.Equal(t, b.Params["religion"], "text")
-	assert.Equal(t, b.Params["interests"], "text")
-	assert.Equal(t, b.Params["company"], "text")
-	assert.Equal(t, b.Params["position"], "text")
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["from_list"], []string{"text"})
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["sort"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["city"])
+	assert.Equal(t, 1, b.Params["country"])
+	assert.Equal(t, "text", b.Params["hometown"])
+	assert.Equal(t, 1, b.Params["university_country"])
+	assert.Equal(t, 1, b.Params["university"])
+	assert.Equal(t, 1, b.Params["university_year"])
+	assert.Equal(t, 1, b.Params["university_faculty"])
+	assert.Equal(t, 1, b.Params["university_chair"])
+	assert.Equal(t, 1, b.Params["sex"])
+	assert.Equal(t, 1, b.Params["status"])
+	assert.Equal(t, 1, b.Params["age_from"])
+	assert.Equal(t, 1, b.Params["age_to"])
+	assert.Equal(t, 1, b.Params["birth_day"])
+	assert.Equal(t, 1, b.Params["birth_month"])
+	assert.Equal(t, 1, b.Params["birth_year"])
+	assert.Equal(t, true, b.Params["online"])
+	assert.Equal(t, true, b.Params["has_photo"])
+	assert.Equal(t, 1, b.Params["school_country"])
+	assert.Equal(t, 1, b.Params["school_city"])
+	assert.Equal(t, 1, b.Params["school_class"])
+	assert.Equal(t, 1, b.Params["school"])
+	assert.Equal(t, 1, b.Params["school_year"])
+	assert.Equal(t, "text", b.Params["religion"])
+	assert.Equal(t, "text", b.Params["interests"])
+	assert.Equal(t, "text", b.Params["company"])
+	assert.Equal(t, "text", b.Params["position"])
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, []string{"text"}, b.Params["from_list"])
 }

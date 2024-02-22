@@ -1,7 +1,6 @@
 package api_test
 
 import (
-	"errors"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v2/api"
@@ -23,7 +22,7 @@ func TestVK_WallCheckCopyrightLink(t *testing.T) {
 	_, err = vkUser.WallCheckCopyrightLink(api.Params{
 		"link": "https://vk.com/severecloud",
 	})
-	assert.True(t, errors.Is(err, api.ErrWallCheckLinkCantDetermineSource))
+	assert.ErrorIs(t, err, api.ErrWallCheckLinkCantDetermineSource)
 }
 
 func TestVK_WallPost(t *testing.T) {

@@ -26,19 +26,19 @@ func TestGroupsAddAddressBuilder(t *testing.T) {
 	b.Timetable("text")
 	b.IsMainAddress(true)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["address"], "text")
-	assert.Equal(t, b.Params["additional_address"], "text")
-	assert.Equal(t, b.Params["country_id"], 1)
-	assert.Equal(t, b.Params["city_id"], 1)
-	assert.Equal(t, b.Params["metro_id"], 1)
-	assert.Equal(t, b.Params["latitude"], 1.1)
-	assert.Equal(t, b.Params["longitude"], 1.1)
-	assert.Equal(t, b.Params["phone"], "text")
-	assert.Equal(t, b.Params["work_info_status"], "text")
-	assert.Equal(t, b.Params["timetable"], "text")
-	assert.Equal(t, b.Params["is_main_address"], true)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["address"])
+	assert.Equal(t, "text", b.Params["additional_address"])
+	assert.Equal(t, 1, b.Params["country_id"])
+	assert.Equal(t, 1, b.Params["city_id"])
+	assert.Equal(t, 1, b.Params["metro_id"])
+	assert.InEpsilon(t, 1.1, b.Params["latitude"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["longitude"], 0.1)
+	assert.Equal(t, "text", b.Params["phone"])
+	assert.Equal(t, "text", b.Params["work_info_status"])
+	assert.Equal(t, "text", b.Params["timetable"])
+	assert.Equal(t, true, b.Params["is_main_address"])
 }
 
 func TestGroupsAddCallbackServerBuilder(t *testing.T) {
@@ -51,10 +51,10 @@ func TestGroupsAddCallbackServerBuilder(t *testing.T) {
 	b.Title("text")
 	b.SecretKey("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["url"], "text")
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["secret_key"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["url"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["secret_key"])
 }
 
 func TestGroupsAddLinkBuilder(t *testing.T) {
@@ -66,9 +66,9 @@ func TestGroupsAddLinkBuilder(t *testing.T) {
 	b.Link("text")
 	b.Text("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["link"], "text")
-	assert.Equal(t, b.Params["text"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["link"])
+	assert.Equal(t, "text", b.Params["text"])
 }
 
 func TestGroupsApproveRequestBuilder(t *testing.T) {
@@ -79,8 +79,8 @@ func TestGroupsApproveRequestBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestGroupsBanBuilder(t *testing.T) {
@@ -95,12 +95,12 @@ func TestGroupsBanBuilder(t *testing.T) {
 	b.Comment("text")
 	b.CommentVisible(true)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["end_date"], 1)
-	assert.Equal(t, b.Params["reason"], 1)
-	assert.Equal(t, b.Params["comment"], "text")
-	assert.Equal(t, b.Params["comment_visible"], true)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["end_date"])
+	assert.Equal(t, 1, b.Params["reason"])
+	assert.Equal(t, "text", b.Params["comment"])
+	assert.Equal(t, true, b.Params["comment_visible"])
 }
 
 func TestGroupsCreateBuilder(t *testing.T) {
@@ -115,12 +115,12 @@ func TestGroupsCreateBuilder(t *testing.T) {
 	b.PublicSubcategory(1)
 	b.Subtype(1)
 
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["description"], "text")
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["public_category"], 1)
-	assert.Equal(t, b.Params["public_subcategory"], 1)
-	assert.Equal(t, b.Params["subtype"], 1)
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["description"])
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["public_category"])
+	assert.Equal(t, 1, b.Params["public_subcategory"])
+	assert.Equal(t, 1, b.Params["subtype"])
 }
 
 func TestGroupsDeleteCallbackServerBuilder(t *testing.T) {
@@ -131,8 +131,8 @@ func TestGroupsDeleteCallbackServerBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.ServerID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["server_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["server_id"])
 }
 
 func TestGroupsDeleteLinkBuilder(t *testing.T) {
@@ -143,8 +143,8 @@ func TestGroupsDeleteLinkBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.LinkID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["link_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["link_id"])
 }
 
 func TestGroupsDisableOnlineBuilder(t *testing.T) {
@@ -154,7 +154,7 @@ func TestGroupsDisableOnlineBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestGroupsEditBuilder(t *testing.T) {
@@ -208,51 +208,51 @@ func TestGroupsEditBuilder(t *testing.T) {
 	b.Country(1)
 	b.City(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["description"], "text")
-	assert.Equal(t, b.Params["screen_name"], "text")
-	assert.Equal(t, b.Params["access"], 1)
-	assert.Equal(t, b.Params["website"], "text")
-	assert.Equal(t, b.Params["subject"], "text")
-	assert.Equal(t, b.Params["email"], "text")
-	assert.Equal(t, b.Params["phone"], "text")
-	assert.Equal(t, b.Params["rss"], "text")
-	assert.Equal(t, b.Params["event_start_date"], 1)
-	assert.Equal(t, b.Params["event_finish_date"], 1)
-	assert.Equal(t, b.Params["event_group_id"], 1)
-	assert.Equal(t, b.Params["public_category"], 1)
-	assert.Equal(t, b.Params["public_subcategory"], 1)
-	assert.Equal(t, b.Params["public_date"], "text")
-	assert.Equal(t, b.Params["wall"], 1)
-	assert.Equal(t, b.Params["topics"], 1)
-	assert.Equal(t, b.Params["photos"], 1)
-	assert.Equal(t, b.Params["video"], 1)
-	assert.Equal(t, b.Params["audio"], 1)
-	assert.Equal(t, b.Params["links"], true)
-	assert.Equal(t, b.Params["events"], true)
-	assert.Equal(t, b.Params["places"], true)
-	assert.Equal(t, b.Params["contacts"], true)
-	assert.Equal(t, b.Params["docs"], 1)
-	assert.Equal(t, b.Params["wiki"], 1)
-	assert.Equal(t, b.Params["messages"], true)
-	assert.Equal(t, b.Params["articles"], true)
-	assert.Equal(t, b.Params["addresses"], true)
-	assert.Equal(t, b.Params["age_limits"], 1)
-	assert.Equal(t, b.Params["market"], true)
-	assert.Equal(t, b.Params["market_comments"], true)
-	assert.Equal(t, b.Params["market_country"], []int{1})
-	assert.Equal(t, b.Params["market_city"], []int{1})
-	assert.Equal(t, b.Params["market_currency"], 1)
-	assert.Equal(t, b.Params["market_contact"], 1)
-	assert.Equal(t, b.Params["market_wiki"], 1)
-	assert.Equal(t, b.Params["obscene_filter"], true)
-	assert.Equal(t, b.Params["obscene_stopwords"], true)
-	assert.Equal(t, b.Params["obscene_words"], []string{"text"})
-	assert.Equal(t, b.Params["main_section"], 1)
-	assert.Equal(t, b.Params["secondary_section"], 1)
-	assert.Equal(t, b.Params["country"], 1)
-	assert.Equal(t, b.Params["city"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["description"])
+	assert.Equal(t, "text", b.Params["screen_name"])
+	assert.Equal(t, 1, b.Params["access"])
+	assert.Equal(t, "text", b.Params["website"])
+	assert.Equal(t, "text", b.Params["subject"])
+	assert.Equal(t, "text", b.Params["email"])
+	assert.Equal(t, "text", b.Params["phone"])
+	assert.Equal(t, "text", b.Params["rss"])
+	assert.Equal(t, 1, b.Params["event_start_date"])
+	assert.Equal(t, 1, b.Params["event_finish_date"])
+	assert.Equal(t, 1, b.Params["event_group_id"])
+	assert.Equal(t, 1, b.Params["public_category"])
+	assert.Equal(t, 1, b.Params["public_subcategory"])
+	assert.Equal(t, "text", b.Params["public_date"])
+	assert.Equal(t, 1, b.Params["wall"])
+	assert.Equal(t, 1, b.Params["topics"])
+	assert.Equal(t, 1, b.Params["photos"])
+	assert.Equal(t, 1, b.Params["video"])
+	assert.Equal(t, 1, b.Params["audio"])
+	assert.Equal(t, true, b.Params["links"])
+	assert.Equal(t, true, b.Params["events"])
+	assert.Equal(t, true, b.Params["places"])
+	assert.Equal(t, true, b.Params["contacts"])
+	assert.Equal(t, 1, b.Params["docs"])
+	assert.Equal(t, 1, b.Params["wiki"])
+	assert.Equal(t, true, b.Params["messages"])
+	assert.Equal(t, true, b.Params["articles"])
+	assert.Equal(t, true, b.Params["addresses"])
+	assert.Equal(t, 1, b.Params["age_limits"])
+	assert.Equal(t, true, b.Params["market"])
+	assert.Equal(t, true, b.Params["market_comments"])
+	assert.Equal(t, []int{1}, b.Params["market_country"])
+	assert.Equal(t, []int{1}, b.Params["market_city"])
+	assert.Equal(t, 1, b.Params["market_currency"])
+	assert.Equal(t, 1, b.Params["market_contact"])
+	assert.Equal(t, 1, b.Params["market_wiki"])
+	assert.Equal(t, true, b.Params["obscene_filter"])
+	assert.Equal(t, true, b.Params["obscene_stopwords"])
+	assert.Equal(t, []string{"text"}, b.Params["obscene_words"])
+	assert.Equal(t, 1, b.Params["main_section"])
+	assert.Equal(t, 1, b.Params["secondary_section"])
+	assert.Equal(t, 1, b.Params["country"])
+	assert.Equal(t, 1, b.Params["city"])
 }
 
 func TestGroupsEditAddressBuilder(t *testing.T) {
@@ -275,20 +275,20 @@ func TestGroupsEditAddressBuilder(t *testing.T) {
 	b.Timetable("text")
 	b.IsMainAddress(true)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["address_id"], 1)
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["address"], "text")
-	assert.Equal(t, b.Params["additional_address"], "text")
-	assert.Equal(t, b.Params["country_id"], 1)
-	assert.Equal(t, b.Params["city_id"], 1)
-	assert.Equal(t, b.Params["metro_id"], 1)
-	assert.Equal(t, b.Params["latitude"], 1.1)
-	assert.Equal(t, b.Params["longitude"], 1.1)
-	assert.Equal(t, b.Params["phone"], "text")
-	assert.Equal(t, b.Params["work_info_status"], "text")
-	assert.Equal(t, b.Params["timetable"], "text")
-	assert.Equal(t, b.Params["is_main_address"], true)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["address_id"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["address"])
+	assert.Equal(t, "text", b.Params["additional_address"])
+	assert.Equal(t, 1, b.Params["country_id"])
+	assert.Equal(t, 1, b.Params["city_id"])
+	assert.Equal(t, 1, b.Params["metro_id"])
+	assert.InEpsilon(t, 1.1, b.Params["latitude"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["longitude"], 0.1)
+	assert.Equal(t, "text", b.Params["phone"])
+	assert.Equal(t, "text", b.Params["work_info_status"])
+	assert.Equal(t, "text", b.Params["timetable"])
+	assert.Equal(t, true, b.Params["is_main_address"])
 }
 
 func TestGroupsEditCallbackServerBuilder(t *testing.T) {
@@ -302,11 +302,11 @@ func TestGroupsEditCallbackServerBuilder(t *testing.T) {
 	b.Title("text")
 	b.SecretKey("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["server_id"], 1)
-	assert.Equal(t, b.Params["url"], "text")
-	assert.Equal(t, b.Params["title"], "text")
-	assert.Equal(t, b.Params["secret_key"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["server_id"])
+	assert.Equal(t, "text", b.Params["url"])
+	assert.Equal(t, "text", b.Params["title"])
+	assert.Equal(t, "text", b.Params["secret_key"])
 }
 
 func TestGroupsEditLinkBuilder(t *testing.T) {
@@ -318,9 +318,9 @@ func TestGroupsEditLinkBuilder(t *testing.T) {
 	b.LinkID(1)
 	b.Text("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["link_id"], 1)
-	assert.Equal(t, b.Params["text"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["link_id"])
+	assert.Equal(t, "text", b.Params["text"])
 }
 
 func TestGroupsEditManagerBuilder(t *testing.T) {
@@ -336,13 +336,13 @@ func TestGroupsEditManagerBuilder(t *testing.T) {
 	b.ContactPhone("text")
 	b.ContactEmail("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["role"], "text")
-	assert.Equal(t, b.Params["is_contact"], true)
-	assert.Equal(t, b.Params["contact_position"], "text")
-	assert.Equal(t, b.Params["contact_phone"], "text")
-	assert.Equal(t, b.Params["contact_email"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["role"])
+	assert.Equal(t, true, b.Params["is_contact"])
+	assert.Equal(t, "text", b.Params["contact_position"])
+	assert.Equal(t, "text", b.Params["contact_phone"])
+	assert.Equal(t, "text", b.Params["contact_email"])
 }
 
 func TestGroupsEnableOnlineBuilder(t *testing.T) {
@@ -352,7 +352,7 @@ func TestGroupsEnableOnlineBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestGroupsGetBuilder(t *testing.T) {
@@ -367,12 +367,12 @@ func TestGroupsGetBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["filter"], []string{"test"})
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, []string{"test"}, b.Params["filter"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestGroupsGetAddressesBuilder(t *testing.T) {
@@ -388,13 +388,13 @@ func TestGroupsGetAddressesBuilder(t *testing.T) {
 	b.Count(1)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["address_ids"], []int{1})
-	assert.Equal(t, b.Params["latitude"], 1.1)
-	assert.Equal(t, b.Params["longitude"], 1.1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, []int{1}, b.Params["address_ids"])
+	assert.InEpsilon(t, 1.1, b.Params["latitude"], 0.1)
+	assert.InEpsilon(t, 1.1, b.Params["longitude"], 0.1)
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestGroupsGetBannedBuilder(t *testing.T) {
@@ -408,11 +408,11 @@ func TestGroupsGetBannedBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, 1, b.Params["owner_id"])
 }
 
 func TestGroupsGetByIDBuilder(t *testing.T) {
@@ -424,9 +424,9 @@ func TestGroupsGetByIDBuilder(t *testing.T) {
 	b.GroupID("text")
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["group_ids"], []string{"text"})
-	assert.Equal(t, b.Params["group_id"], "text")
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, []string{"text"}, b.Params["group_ids"])
+	assert.Equal(t, "text", b.Params["group_id"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestGroupsGetCallbackConfirmationCodeBuilder(t *testing.T) {
@@ -436,7 +436,7 @@ func TestGroupsGetCallbackConfirmationCodeBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestGroupsGetCallbackServersBuilder(t *testing.T) {
@@ -447,8 +447,8 @@ func TestGroupsGetCallbackServersBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.ServerIDs([]int{1})
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["server_ids"], []int{1})
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, []int{1}, b.Params["server_ids"])
 }
 
 func TestGroupsGetCallbackSettingsBuilder(t *testing.T) {
@@ -459,8 +459,8 @@ func TestGroupsGetCallbackSettingsBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.ServerID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["server_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["server_id"])
 }
 
 func TestGroupsGetCatalogBuilder(t *testing.T) {
@@ -471,8 +471,8 @@ func TestGroupsGetCatalogBuilder(t *testing.T) {
 	b.CategoryID(1)
 	b.SubcategoryID(1)
 
-	assert.Equal(t, b.Params["category_id"], 1)
-	assert.Equal(t, b.Params["subcategory_id"], 1)
+	assert.Equal(t, 1, b.Params["category_id"])
+	assert.Equal(t, 1, b.Params["subcategory_id"])
 }
 
 func TestGroupsGetCatalogInfoBuilder(t *testing.T) {
@@ -483,8 +483,8 @@ func TestGroupsGetCatalogInfoBuilder(t *testing.T) {
 	b.Extended(true)
 	b.Subcategories(true)
 
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["subcategories"], true)
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, true, b.Params["subcategories"])
 }
 
 func TestGroupsGetInvitedUsersBuilder(t *testing.T) {
@@ -498,11 +498,11 @@ func TestGroupsGetInvitedUsersBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.NameCase("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["name_case"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["name_case"])
 }
 
 func TestGroupsGetInvitesBuilder(t *testing.T) {
@@ -514,9 +514,9 @@ func TestGroupsGetInvitesBuilder(t *testing.T) {
 	b.Count(1)
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestGroupsGetLongPollServerBuilder(t *testing.T) {
@@ -526,7 +526,7 @@ func TestGroupsGetLongPollServerBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestGroupsGetLongPollSettingsBuilder(t *testing.T) {
@@ -536,7 +536,7 @@ func TestGroupsGetLongPollSettingsBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestGroupsGetMembersBuilder(t *testing.T) {
@@ -551,12 +551,12 @@ func TestGroupsGetMembersBuilder(t *testing.T) {
 	b.Fields([]string{"test"})
 	b.Filter("text")
 
-	assert.Equal(t, b.Params["group_id"], "text")
-	assert.Equal(t, b.Params["sort"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
-	assert.Equal(t, b.Params["filter"], "text")
+	assert.Equal(t, "text", b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["sort"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
+	assert.Equal(t, "text", b.Params["filter"])
 }
 
 func TestGroupsGetRequestsBuilder(t *testing.T) {
@@ -569,10 +569,10 @@ func TestGroupsGetRequestsBuilder(t *testing.T) {
 	b.Count(1)
 	b.Fields([]string{"test"})
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["fields"], []string{"test"})
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, []string{"test"}, b.Params["fields"])
 }
 
 func TestGroupsGetSettingsBuilder(t *testing.T) {
@@ -582,7 +582,7 @@ func TestGroupsGetSettingsBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestGroupsGetTagListBuilder(t *testing.T) {
@@ -592,7 +592,7 @@ func TestGroupsGetTagListBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestGroupsInviteBuilder(t *testing.T) {
@@ -603,8 +603,8 @@ func TestGroupsInviteBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestGroupsIsMemberBuilder(t *testing.T) {
@@ -617,10 +617,10 @@ func TestGroupsIsMemberBuilder(t *testing.T) {
 	b.UserIDs([]int{1})
 	b.Extended(true)
 
-	assert.Equal(t, b.Params["group_id"], "text")
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["user_ids"], []int{1})
-	assert.Equal(t, b.Params["extended"], true)
+	assert.Equal(t, "text", b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, []int{1}, b.Params["user_ids"])
+	assert.Equal(t, true, b.Params["extended"])
 }
 
 func TestGroupsJoinBuilder(t *testing.T) {
@@ -631,8 +631,8 @@ func TestGroupsJoinBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.NotSure("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["not_sure"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["not_sure"])
 }
 
 func TestGroupsLeaveBuilder(t *testing.T) {
@@ -642,7 +642,7 @@ func TestGroupsLeaveBuilder(t *testing.T) {
 
 	b.GroupID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
 }
 
 func TestGroupsRemoveUserBuilder(t *testing.T) {
@@ -653,8 +653,8 @@ func TestGroupsRemoveUserBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.UserID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
 }
 
 func TestGroupsReorderLinkBuilder(t *testing.T) {
@@ -666,9 +666,9 @@ func TestGroupsReorderLinkBuilder(t *testing.T) {
 	b.LinkID(1)
 	b.After(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["link_id"], 1)
-	assert.Equal(t, b.Params["after"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["link_id"])
+	assert.Equal(t, 1, b.Params["after"])
 }
 
 func TestGroupsSearchBuilder(t *testing.T) {
@@ -686,15 +686,15 @@ func TestGroupsSearchBuilder(t *testing.T) {
 	b.Offset(1)
 	b.Count(1)
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["country_id"], 1)
-	assert.Equal(t, b.Params["city_id"], 1)
-	assert.Equal(t, b.Params["future"], true)
-	assert.Equal(t, b.Params["market"], true)
-	assert.Equal(t, b.Params["sort"], 1)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["country_id"])
+	assert.Equal(t, 1, b.Params["city_id"])
+	assert.Equal(t, true, b.Params["future"])
+	assert.Equal(t, true, b.Params["market"])
+	assert.Equal(t, 1, b.Params["sort"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
 }
 
 func TestGroupsSetCallbackSettingsBuilder(t *testing.T) {
@@ -757,60 +757,60 @@ func TestGroupsSetCallbackSettingsBuilder(t *testing.T) {
 	b.DonutMoneyWithdraw(true)
 	b.DonutMoneyWithdrawError(true)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["server_id"], 1)
-	assert.Equal(t, b.Params["api_version"], "text")
-	assert.Equal(t, b.Params["message_new"], true)
-	assert.Equal(t, b.Params["message_reply"], true)
-	assert.Equal(t, b.Params["message_allow"], true)
-	assert.Equal(t, b.Params["message_edit"], true)
-	assert.Equal(t, b.Params["message_deny"], true)
-	assert.Equal(t, b.Params["message_typing_state"], true)
-	assert.Equal(t, b.Params["photo_new"], true)
-	assert.Equal(t, b.Params["audio_new"], true)
-	assert.Equal(t, b.Params["video_new"], true)
-	assert.Equal(t, b.Params["wall_reply_new"], true)
-	assert.Equal(t, b.Params["wall_reply_edit"], true)
-	assert.Equal(t, b.Params["wall_reply_delete"], true)
-	assert.Equal(t, b.Params["wall_reply_restore"], true)
-	assert.Equal(t, b.Params["wall_post_new"], true)
-	assert.Equal(t, b.Params["wall_repost"], true)
-	assert.Equal(t, b.Params["board_post_new"], true)
-	assert.Equal(t, b.Params["board_post_edit"], true)
-	assert.Equal(t, b.Params["board_post_restore"], true)
-	assert.Equal(t, b.Params["board_post_delete"], true)
-	assert.Equal(t, b.Params["photo_comment_new"], true)
-	assert.Equal(t, b.Params["photo_comment_edit"], true)
-	assert.Equal(t, b.Params["photo_comment_delete"], true)
-	assert.Equal(t, b.Params["photo_comment_restore"], true)
-	assert.Equal(t, b.Params["video_comment_new"], true)
-	assert.Equal(t, b.Params["video_comment_edit"], true)
-	assert.Equal(t, b.Params["video_comment_delete"], true)
-	assert.Equal(t, b.Params["video_comment_restore"], true)
-	assert.Equal(t, b.Params["market_comment_new"], true)
-	assert.Equal(t, b.Params["market_comment_edit"], true)
-	assert.Equal(t, b.Params["market_comment_delete"], true)
-	assert.Equal(t, b.Params["market_comment_restore"], true)
-	assert.Equal(t, b.Params["market_order_new"], true)
-	assert.Equal(t, b.Params["market_order_edit"], true)
-	assert.Equal(t, b.Params["poll_vote_new"], true)
-	assert.Equal(t, b.Params["group_join"], true)
-	assert.Equal(t, b.Params["group_leave"], true)
-	assert.Equal(t, b.Params["group_change_settings"], true)
-	assert.Equal(t, b.Params["group_change_photo"], true)
-	assert.Equal(t, b.Params["group_officers_edit"], true)
-	assert.Equal(t, b.Params["user_block"], true)
-	assert.Equal(t, b.Params["user_unblock"], true)
-	assert.Equal(t, b.Params["lead_forms_new"], true)
-	assert.Equal(t, b.Params["like_add"], true)
-	assert.Equal(t, b.Params["like_remove"], true)
-	assert.Equal(t, b.Params["donut_subscription_create"], true)
-	assert.Equal(t, b.Params["donut_subscription_prolonged"], true)
-	assert.Equal(t, b.Params["donut_subscription_expired"], true)
-	assert.Equal(t, b.Params["donut_subscription_cancelled"], true)
-	assert.Equal(t, b.Params["donut_subscription_price_changed"], true)
-	assert.Equal(t, b.Params["donut_money_withdraw"], true)
-	assert.Equal(t, b.Params["donut_money_withdraw_error"], true)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["server_id"])
+	assert.Equal(t, "text", b.Params["api_version"])
+	assert.Equal(t, true, b.Params["message_new"])
+	assert.Equal(t, true, b.Params["message_reply"])
+	assert.Equal(t, true, b.Params["message_allow"])
+	assert.Equal(t, true, b.Params["message_edit"])
+	assert.Equal(t, true, b.Params["message_deny"])
+	assert.Equal(t, true, b.Params["message_typing_state"])
+	assert.Equal(t, true, b.Params["photo_new"])
+	assert.Equal(t, true, b.Params["audio_new"])
+	assert.Equal(t, true, b.Params["video_new"])
+	assert.Equal(t, true, b.Params["wall_reply_new"])
+	assert.Equal(t, true, b.Params["wall_reply_edit"])
+	assert.Equal(t, true, b.Params["wall_reply_delete"])
+	assert.Equal(t, true, b.Params["wall_reply_restore"])
+	assert.Equal(t, true, b.Params["wall_post_new"])
+	assert.Equal(t, true, b.Params["wall_repost"])
+	assert.Equal(t, true, b.Params["board_post_new"])
+	assert.Equal(t, true, b.Params["board_post_edit"])
+	assert.Equal(t, true, b.Params["board_post_restore"])
+	assert.Equal(t, true, b.Params["board_post_delete"])
+	assert.Equal(t, true, b.Params["photo_comment_new"])
+	assert.Equal(t, true, b.Params["photo_comment_edit"])
+	assert.Equal(t, true, b.Params["photo_comment_delete"])
+	assert.Equal(t, true, b.Params["photo_comment_restore"])
+	assert.Equal(t, true, b.Params["video_comment_new"])
+	assert.Equal(t, true, b.Params["video_comment_edit"])
+	assert.Equal(t, true, b.Params["video_comment_delete"])
+	assert.Equal(t, true, b.Params["video_comment_restore"])
+	assert.Equal(t, true, b.Params["market_comment_new"])
+	assert.Equal(t, true, b.Params["market_comment_edit"])
+	assert.Equal(t, true, b.Params["market_comment_delete"])
+	assert.Equal(t, true, b.Params["market_comment_restore"])
+	assert.Equal(t, true, b.Params["market_order_new"])
+	assert.Equal(t, true, b.Params["market_order_edit"])
+	assert.Equal(t, true, b.Params["poll_vote_new"])
+	assert.Equal(t, true, b.Params["group_join"])
+	assert.Equal(t, true, b.Params["group_leave"])
+	assert.Equal(t, true, b.Params["group_change_settings"])
+	assert.Equal(t, true, b.Params["group_change_photo"])
+	assert.Equal(t, true, b.Params["group_officers_edit"])
+	assert.Equal(t, true, b.Params["user_block"])
+	assert.Equal(t, true, b.Params["user_unblock"])
+	assert.Equal(t, true, b.Params["lead_forms_new"])
+	assert.Equal(t, true, b.Params["like_add"])
+	assert.Equal(t, true, b.Params["like_remove"])
+	assert.Equal(t, true, b.Params["donut_subscription_create"])
+	assert.Equal(t, true, b.Params["donut_subscription_prolonged"])
+	assert.Equal(t, true, b.Params["donut_subscription_expired"])
+	assert.Equal(t, true, b.Params["donut_subscription_cancelled"])
+	assert.Equal(t, true, b.Params["donut_subscription_price_changed"])
+	assert.Equal(t, true, b.Params["donut_money_withdraw"])
+	assert.Equal(t, true, b.Params["donut_money_withdraw_error"])
 }
 
 func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
@@ -872,59 +872,59 @@ func TestGroupsSetLongPollSettingsBuilder(t *testing.T) {
 	b.DonutMoneyWithdraw(true)
 	b.DonutMoneyWithdrawError(true)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["enabled"], true)
-	assert.Equal(t, b.Params["api_version"], "text")
-	assert.Equal(t, b.Params["message_new"], true)
-	assert.Equal(t, b.Params["message_reply"], true)
-	assert.Equal(t, b.Params["message_allow"], true)
-	assert.Equal(t, b.Params["message_deny"], true)
-	assert.Equal(t, b.Params["message_edit"], true)
-	assert.Equal(t, b.Params["message_typing_state"], true)
-	assert.Equal(t, b.Params["photo_new"], true)
-	assert.Equal(t, b.Params["audio_new"], true)
-	assert.Equal(t, b.Params["video_new"], true)
-	assert.Equal(t, b.Params["wall_reply_new"], true)
-	assert.Equal(t, b.Params["wall_reply_edit"], true)
-	assert.Equal(t, b.Params["wall_reply_delete"], true)
-	assert.Equal(t, b.Params["wall_reply_restore"], true)
-	assert.Equal(t, b.Params["wall_post_new"], true)
-	assert.Equal(t, b.Params["wall_repost"], true)
-	assert.Equal(t, b.Params["board_post_new"], true)
-	assert.Equal(t, b.Params["board_post_edit"], true)
-	assert.Equal(t, b.Params["board_post_restore"], true)
-	assert.Equal(t, b.Params["board_post_delete"], true)
-	assert.Equal(t, b.Params["photo_comment_new"], true)
-	assert.Equal(t, b.Params["photo_comment_edit"], true)
-	assert.Equal(t, b.Params["photo_comment_delete"], true)
-	assert.Equal(t, b.Params["photo_comment_restore"], true)
-	assert.Equal(t, b.Params["video_comment_new"], true)
-	assert.Equal(t, b.Params["video_comment_edit"], true)
-	assert.Equal(t, b.Params["video_comment_delete"], true)
-	assert.Equal(t, b.Params["video_comment_restore"], true)
-	assert.Equal(t, b.Params["market_comment_new"], true)
-	assert.Equal(t, b.Params["market_comment_edit"], true)
-	assert.Equal(t, b.Params["market_comment_delete"], true)
-	assert.Equal(t, b.Params["market_comment_restore"], true)
-	assert.Equal(t, b.Params["market_order_new"], true)
-	assert.Equal(t, b.Params["market_order_edit"], true)
-	assert.Equal(t, b.Params["poll_vote_new"], true)
-	assert.Equal(t, b.Params["group_join"], true)
-	assert.Equal(t, b.Params["group_leave"], true)
-	assert.Equal(t, b.Params["group_change_settings"], true)
-	assert.Equal(t, b.Params["group_change_photo"], true)
-	assert.Equal(t, b.Params["group_officers_edit"], true)
-	assert.Equal(t, b.Params["user_block"], true)
-	assert.Equal(t, b.Params["user_unblock"], true)
-	assert.Equal(t, b.Params["like_add"], true)
-	assert.Equal(t, b.Params["like_remove"], true)
-	assert.Equal(t, b.Params["donut_subscription_create"], true)
-	assert.Equal(t, b.Params["donut_subscription_prolonged"], true)
-	assert.Equal(t, b.Params["donut_subscription_expired"], true)
-	assert.Equal(t, b.Params["donut_subscription_cancelled"], true)
-	assert.Equal(t, b.Params["donut_subscription_price_changed"], true)
-	assert.Equal(t, b.Params["donut_money_withdraw"], true)
-	assert.Equal(t, b.Params["donut_money_withdraw_error"], true)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, true, b.Params["enabled"])
+	assert.Equal(t, "text", b.Params["api_version"])
+	assert.Equal(t, true, b.Params["message_new"])
+	assert.Equal(t, true, b.Params["message_reply"])
+	assert.Equal(t, true, b.Params["message_allow"])
+	assert.Equal(t, true, b.Params["message_deny"])
+	assert.Equal(t, true, b.Params["message_edit"])
+	assert.Equal(t, true, b.Params["message_typing_state"])
+	assert.Equal(t, true, b.Params["photo_new"])
+	assert.Equal(t, true, b.Params["audio_new"])
+	assert.Equal(t, true, b.Params["video_new"])
+	assert.Equal(t, true, b.Params["wall_reply_new"])
+	assert.Equal(t, true, b.Params["wall_reply_edit"])
+	assert.Equal(t, true, b.Params["wall_reply_delete"])
+	assert.Equal(t, true, b.Params["wall_reply_restore"])
+	assert.Equal(t, true, b.Params["wall_post_new"])
+	assert.Equal(t, true, b.Params["wall_repost"])
+	assert.Equal(t, true, b.Params["board_post_new"])
+	assert.Equal(t, true, b.Params["board_post_edit"])
+	assert.Equal(t, true, b.Params["board_post_restore"])
+	assert.Equal(t, true, b.Params["board_post_delete"])
+	assert.Equal(t, true, b.Params["photo_comment_new"])
+	assert.Equal(t, true, b.Params["photo_comment_edit"])
+	assert.Equal(t, true, b.Params["photo_comment_delete"])
+	assert.Equal(t, true, b.Params["photo_comment_restore"])
+	assert.Equal(t, true, b.Params["video_comment_new"])
+	assert.Equal(t, true, b.Params["video_comment_edit"])
+	assert.Equal(t, true, b.Params["video_comment_delete"])
+	assert.Equal(t, true, b.Params["video_comment_restore"])
+	assert.Equal(t, true, b.Params["market_comment_new"])
+	assert.Equal(t, true, b.Params["market_comment_edit"])
+	assert.Equal(t, true, b.Params["market_comment_delete"])
+	assert.Equal(t, true, b.Params["market_comment_restore"])
+	assert.Equal(t, true, b.Params["market_order_new"])
+	assert.Equal(t, true, b.Params["market_order_edit"])
+	assert.Equal(t, true, b.Params["poll_vote_new"])
+	assert.Equal(t, true, b.Params["group_join"])
+	assert.Equal(t, true, b.Params["group_leave"])
+	assert.Equal(t, true, b.Params["group_change_settings"])
+	assert.Equal(t, true, b.Params["group_change_photo"])
+	assert.Equal(t, true, b.Params["group_officers_edit"])
+	assert.Equal(t, true, b.Params["user_block"])
+	assert.Equal(t, true, b.Params["user_unblock"])
+	assert.Equal(t, true, b.Params["like_add"])
+	assert.Equal(t, true, b.Params["like_remove"])
+	assert.Equal(t, true, b.Params["donut_subscription_create"])
+	assert.Equal(t, true, b.Params["donut_subscription_prolonged"])
+	assert.Equal(t, true, b.Params["donut_subscription_expired"])
+	assert.Equal(t, true, b.Params["donut_subscription_cancelled"])
+	assert.Equal(t, true, b.Params["donut_subscription_price_changed"])
+	assert.Equal(t, true, b.Params["donut_money_withdraw"])
+	assert.Equal(t, true, b.Params["donut_money_withdraw_error"])
 }
 
 func TestGroupsSetUserNoteBuilder(t *testing.T) {
@@ -936,9 +936,9 @@ func TestGroupsSetUserNoteBuilder(t *testing.T) {
 	b.UserID(1)
 	b.Note("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["note"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["note"])
 }
 
 func TestGroupsTagAddBuilder(t *testing.T) {
@@ -950,9 +950,9 @@ func TestGroupsTagAddBuilder(t *testing.T) {
 	b.TagName("text")
 	b.TagColor("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["tag_name"], "text")
-	assert.Equal(t, b.Params["tag_color"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, "text", b.Params["tag_name"])
+	assert.Equal(t, "text", b.Params["tag_color"])
 }
 
 func TestGroupsTagBindBuilder(t *testing.T) {
@@ -965,16 +965,16 @@ func TestGroupsTagBindBuilder(t *testing.T) {
 	b.UserID(1)
 	b.Act("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["tag_id"], 1)
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["act"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["tag_id"])
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["act"])
 
 	b.Bind()
-	assert.Equal(t, b.Params["act"], "bind")
+	assert.Equal(t, "bind", b.Params["act"])
 
 	b.Unbind()
-	assert.Equal(t, b.Params["act"], "unbind")
+	assert.Equal(t, "unbind", b.Params["act"])
 }
 
 func TestGroupsTagDeleteBuilder(t *testing.T) {
@@ -985,8 +985,8 @@ func TestGroupsTagDeleteBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.TagID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["tag_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["tag_id"])
 }
 
 func TestGroupsTagUpdateBuilder(t *testing.T) {
@@ -998,9 +998,9 @@ func TestGroupsTagUpdateBuilder(t *testing.T) {
 	b.TagID(1)
 	b.TagName("text")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["tag_id"], 1)
-	assert.Equal(t, b.Params["tag_name"], "text")
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["tag_id"])
+	assert.Equal(t, "text", b.Params["tag_name"])
 }
 
 func TestGroupsToggleMarketBuilder(t *testing.T) {
@@ -1011,8 +1011,8 @@ func TestGroupsToggleMarketBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.State("none")
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["state"], params.GroupMarketState("none"))
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, params.GroupMarketState("none"), b.Params["state"])
 }
 
 func TestGroupsUnbanBuilder(t *testing.T) {
@@ -1023,6 +1023,6 @@ func TestGroupsUnbanBuilder(t *testing.T) {
 	b.GroupID(1)
 	b.OwnerID(1)
 
-	assert.Equal(t, b.Params["group_id"], 1)
-	assert.Equal(t, b.Params["owner_id"], 1)
+	assert.Equal(t, 1, b.Params["group_id"])
+	assert.Equal(t, 1, b.Params["owner_id"])
 }

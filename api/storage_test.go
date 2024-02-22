@@ -48,7 +48,7 @@ func TestStorageGetResponse_ToMap(t *testing.T) {
 
 	f := func(s api.StorageGetResponse, wantMap map[string]string) {
 		t.Helper()
-		assert.Equal(t, s.ToMap(), wantMap)
+		assert.Equal(t, wantMap, s.ToMap())
 	}
 
 	f(

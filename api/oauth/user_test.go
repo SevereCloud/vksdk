@@ -18,7 +18,7 @@ func TestParseJSON(t *testing.T) {
 			assert.EqualError(t, err, wantErr)
 		}
 
-		assert.Equal(t, token, wantToken)
+		assert.Equal(t, wantToken, token)
 	}
 
 	f([]byte("123"), nil, "json: cannot unmarshal number into Go value of type oauth.Error")
@@ -51,7 +51,7 @@ func TestParseURL(t *testing.T) {
 			assert.EqualError(t, err, wantErr)
 		}
 
-		assert.Equal(t, token, wantToken)
+		assert.Equal(t, wantToken, token)
 	}
 
 	f(

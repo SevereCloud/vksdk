@@ -17,10 +17,10 @@ func TestAuthCheckPhoneBuilder(t *testing.T) {
 	b.ClientSecret("text")
 	b.AuthByPhone(true)
 
-	assert.Equal(t, b.Params["phone"], "text")
-	assert.Equal(t, b.Params["client_id"], 1)
-	assert.Equal(t, b.Params["client_secret"], "text")
-	assert.Equal(t, b.Params["auth_by_phone"], true)
+	assert.Equal(t, "text", b.Params["phone"])
+	assert.Equal(t, 1, b.Params["client_id"])
+	assert.Equal(t, "text", b.Params["client_secret"])
+	assert.Equal(t, true, b.Params["auth_by_phone"])
 }
 
 func TestAuthRestoreBuilder(t *testing.T) {
@@ -31,8 +31,8 @@ func TestAuthRestoreBuilder(t *testing.T) {
 	b.Phone("text")
 	b.LastName("text")
 
-	assert.Equal(t, b.Params["phone"], "text")
-	assert.Equal(t, b.Params["last_name"], "text")
+	assert.Equal(t, "text", b.Params["phone"])
+	assert.Equal(t, "text", b.Params["last_name"])
 }
 
 func TestAuthGetProfileInfoBySilentTokenBuilder(t *testing.T) {
@@ -41,14 +41,14 @@ func TestAuthGetProfileInfoBySilentTokenBuilder(t *testing.T) {
 	b := params.NewAuthGetProfileInfoBySilentTokenBuilder()
 
 	b.Add("token", "uuid", "event")
-	assert.Equal(t, b.Params["token"], "token")
-	assert.Equal(t, b.Params["uuid"], "uuid")
-	assert.Equal(t, b.Params["event"], "event")
+	assert.Equal(t, "token", b.Params["token"])
+	assert.Equal(t, "uuid", b.Params["uuid"])
+	assert.Equal(t, "event", b.Params["event"])
 
 	b.Add("token2", "uuid2", "event2")
-	assert.Equal(t, b.Params["token"], "token,token2")
-	assert.Equal(t, b.Params["uuid"], "uuid,uuid2")
-	assert.Equal(t, b.Params["event"], "event,event2")
+	assert.Equal(t, "token,token2", b.Params["token"])
+	assert.Equal(t, "uuid,uuid2", b.Params["uuid"])
+	assert.Equal(t, "event,event2", b.Params["event"])
 }
 
 func TestAuthExchangeSilentAuthTokenBuilder(t *testing.T) {
@@ -59,6 +59,6 @@ func TestAuthExchangeSilentAuthTokenBuilder(t *testing.T) {
 	b.Token("token")
 	b.UUID("uuid")
 
-	assert.Equal(t, b.Params["token"], "token")
-	assert.Equal(t, b.Params["uuid"], "uuid")
+	assert.Equal(t, "token", b.Params["token"])
+	assert.Equal(t, "uuid", b.Params["uuid"])
 }

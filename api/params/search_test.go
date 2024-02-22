@@ -19,10 +19,10 @@ func TestSearchGetHintsBuilder(t *testing.T) {
 	b.Fields([]string{"text"})
 	b.SearchGlobal(true)
 
-	assert.Equal(t, b.Params["q"], "text")
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["limit"], 1)
-	assert.Equal(t, b.Params["filters"], []string{"text"})
-	assert.Equal(t, b.Params["fields"], []string{"text"})
-	assert.Equal(t, b.Params["search_global"], true)
+	assert.Equal(t, "text", b.Params["q"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["limit"])
+	assert.Equal(t, []string{"text"}, b.Params["filters"])
+	assert.Equal(t, []string{"text"}, b.Params["fields"])
+	assert.Equal(t, true, b.Params["search_global"])
 }

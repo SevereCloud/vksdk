@@ -323,11 +323,14 @@ func TestBaseSticker_MinSizeBackground(t *testing.T) {
 }
 
 func TestBaseLinkRating_UnmarshalJSON(t *testing.T) {
+	t.Parallel()
+
 	ratingJSON := []byte(`{"reviews_count":1.0,"stars":5.0}`)
+
 	var rating object.BaseLinkRating
 
 	assert.NoError(t, json.Unmarshal(ratingJSON, &rating))
 	review, _ := rating.ReviewsCount.Float64()
-	assert.Equal(t, 1.0, review)
-	assert.Equal(t, 5.0, rating.Stars)
+	assert.InEpsilon(t, 1.0, review, 0.1)
+	assert.InEpsilon(t, 5.0, rating.Stars, 0.1)
 }

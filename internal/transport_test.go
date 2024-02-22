@@ -48,7 +48,7 @@ func TestContextClient(t *testing.T) {
 func TestGo17Context(t *testing.T) {
 	t.Parallel()
 
-	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 		io.WriteString(w, "ok")
 	}))
 	defer ts.Close()
@@ -113,7 +113,7 @@ func TestCancelBeforeHeaders(t *testing.T) {
 	ctx, cancel := context.WithCancel(context.Background())
 
 	blockServer := make(chan struct{})
-	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 		cancel()
 		<-blockServer
 

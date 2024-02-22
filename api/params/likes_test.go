@@ -18,11 +18,11 @@ func TestLikesAddBuilder(t *testing.T) {
 	b.ReactionID(1)
 	b.AccessKey("text")
 
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["reaction_id"], 1)
-	assert.Equal(t, b.Params["access_key"], "text")
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, 1, b.Params["reaction_id"])
+	assert.Equal(t, "text", b.Params["access_key"])
 }
 
 func TestLikesDeleteBuilder(t *testing.T) {
@@ -34,9 +34,9 @@ func TestLikesDeleteBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.ItemID(1)
 
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
 }
 
 func TestLikesGetListBuilder(t *testing.T) {
@@ -55,16 +55,16 @@ func TestLikesGetListBuilder(t *testing.T) {
 	b.Count(1)
 	b.SkipOwn(true)
 
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
-	assert.Equal(t, b.Params["page_url"], "text")
-	assert.Equal(t, b.Params["filter"], "text")
-	assert.Equal(t, b.Params["friends_only"], 1)
-	assert.Equal(t, b.Params["extended"], true)
-	assert.Equal(t, b.Params["offset"], 1)
-	assert.Equal(t, b.Params["count"], 1)
-	assert.Equal(t, b.Params["skip_own"], true)
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
+	assert.Equal(t, "text", b.Params["page_url"])
+	assert.Equal(t, "text", b.Params["filter"])
+	assert.Equal(t, 1, b.Params["friends_only"])
+	assert.Equal(t, true, b.Params["extended"])
+	assert.Equal(t, 1, b.Params["offset"])
+	assert.Equal(t, 1, b.Params["count"])
+	assert.Equal(t, true, b.Params["skip_own"])
 }
 
 func TestLikesIsLikedBuilder(t *testing.T) {
@@ -77,8 +77,8 @@ func TestLikesIsLikedBuilder(t *testing.T) {
 	b.OwnerID(1)
 	b.ItemID(1)
 
-	assert.Equal(t, b.Params["user_id"], 1)
-	assert.Equal(t, b.Params["type"], "text")
-	assert.Equal(t, b.Params["owner_id"], 1)
-	assert.Equal(t, b.Params["item_id"], 1)
+	assert.Equal(t, 1, b.Params["user_id"])
+	assert.Equal(t, "text", b.Params["type"])
+	assert.Equal(t, 1, b.Params["owner_id"])
+	assert.Equal(t, 1, b.Params["item_id"])
 }
