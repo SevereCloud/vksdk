@@ -1,6 +1,8 @@
 package api // import "github.com/SevereCloud/vksdk/v2/api"
 
 import (
+	"fmt"
+
 	"github.com/SevereCloud/vksdk/v2/object"
 	"github.com/vmihailenco/msgpack/v5"
 )
@@ -97,7 +99,7 @@ func (resp *UtilsResolveScreenNameResponse) UnmarshalJSON(data []byte) error {
 
 	*resp = UtilsResolveScreenNameResponse(p)
 
-	return err
+	return fmt.Errorf("api.UtilsResolveScreenNameResponse: %w", err)
 }
 
 // DecodeMsgpack UtilsResolveScreenNameResponse.
@@ -109,7 +111,7 @@ func (resp *UtilsResolveScreenNameResponse) DecodeMsgpack(dec *msgpack.Decoder) 
 
 	*resp = UtilsResolveScreenNameResponse(p)
 
-	return err
+	return fmt.Errorf("api.UtilsResolveScreenNameResponse: %w", err)
 }
 
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.

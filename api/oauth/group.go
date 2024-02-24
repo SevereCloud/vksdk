@@ -3,6 +3,7 @@ package oauth // import "github.com/SevereCloud/vksdk/v2/api/oauth"
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -30,7 +31,7 @@ func NewGroupTokensFromJSON(data []byte) (*GroupTokens, error) {
 
 	err := json.Unmarshal(data, &e)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 
 	if e.Type != "" {
@@ -40,14 +41,14 @@ func NewGroupTokensFromJSON(data []byte) (*GroupTokens, error) {
 	var t GroupTokens
 	err = json.Unmarshal(data, &t)
 
-	return &t, err
+	return &t, fmt.Errorf("oauth: %w", err)
 }
 
 // NewGroupTokensFromURL  return group tokens.
 func NewGroupTokensFromURL(u *url.URL) (*GroupTokens, error) {
 	v, err := url.ParseQuery(u.Fragment)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 
 	if errType := v.Get("error"); errType != "" {
@@ -207,7 +208,12 @@ func (a AuthCodeFlowGroup) buildRequest(code string) *http.Request {
 func (a AuthCodeFlowGroup) request(code string) (*http.Response, error) {
 	req := a.buildRequest(code)
 
-	return a.Client.Do(req)
+	resp, err := a.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("oauth: %w", err)
+	}
+
+	return resp, nil
 }
 
 // Token ...
@@ -219,13 +225,13 @@ func (a AuthCodeFlowGroup) Token(u *url.URL) (*GroupTokens, error) {
 
 	resp, err := a.request(code)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 	defer resp.Body.Close()
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 
 	return NewGroupTokensFromJSON(data)

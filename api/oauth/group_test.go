@@ -109,7 +109,7 @@ func TestAuthCodeFlowGroup_URL(t *testing.T) {
 		ClientID: 6888183,
 		GroupIDs: []int{1234, 321},
 		Scope:    oauth.ScopeGroupPhotos + oauth.ScopeGroupDocs,
-	}, "clientSecret"), "https://oauth.vk.com/authorize?client_id=6888183&display=&group_ids=1234%2C321&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=code&scope=131076&state=&v=5.131")
+	}, "clientSecret"), "https://oauth.vk.com/authorize?client_id=6888183&display=&group_ids=1234%2C321&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=code&scope=131076&state=&v=5.199")
 }
 
 func TestAuthCodeFlowGroup_Token(t *testing.T) {
@@ -162,5 +162,5 @@ func TestImplicitFlowGroup(t *testing.T) {
 		ClientID: 6888183,
 		GroupIDs: []int{1234},
 		Scope:    oauth.ScopeGroupPhotos + oauth.ScopeGroupDocs,
-	}, "https://oauth.vk.com/authorize?client_id=6888183&display=&group_ids=1234&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=token&scope=131076&state=&v=5.131")
+	}, "https://oauth.vk.com/authorize?client_id=6888183&display=&group_ids=1234&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=token&scope=131076&state=&v=5.199")
 }

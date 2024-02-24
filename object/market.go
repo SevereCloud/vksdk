@@ -95,7 +95,7 @@ func (market *MarketMarketItem) UnmarshalJSON(data []byte) error {
 
 	err := json.Unmarshal(data, &r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.MarketMarketItem: %w", err)
 	}
 
 	*market = MarketMarketItem(r)
@@ -109,7 +109,7 @@ func (market *MarketMarketItem) UnmarshalJSON(data []byte) error {
 func (market *MarketMarketItem) DecodeMsgpack(dec *msgpack.Decoder) error {
 	data, err := dec.DecodeRaw()
 	if err != nil {
-		return err
+		return fmt.Errorf("object.MarketMarketItem: %w", err)
 	}
 
 	if bytes.Equal(data, []byte{msgpcode.False}) {
@@ -125,7 +125,7 @@ func (market *MarketMarketItem) DecodeMsgpack(dec *msgpack.Decoder) error {
 
 	err = d.Decode(&r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.MarketMarketItem: %w", err)
 	}
 
 	*market = MarketMarketItem(r)
@@ -176,7 +176,7 @@ func (m *MarketPrice) UnmarshalJSON(data []byte) error {
 
 	err := json.Unmarshal(data, &r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.MarketPrice: %w", err)
 	}
 
 	*m = MarketPrice(r)
@@ -190,7 +190,7 @@ func (m *MarketPrice) UnmarshalJSON(data []byte) error {
 func (m *MarketPrice) DecodeMsgpack(dec *msgpack.Decoder) error {
 	data, err := dec.DecodeRaw()
 	if err != nil {
-		return err
+		return fmt.Errorf("object.MarketPrice: %w", err)
 	}
 
 	if bytes.Equal(data, []byte{msgpcode.FixedArrayLow}) {
@@ -206,7 +206,7 @@ func (m *MarketPrice) DecodeMsgpack(dec *msgpack.Decoder) error {
 
 	err = d.Decode(&r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.MarketPrice: %w", err)
 	}
 
 	*m = MarketPrice(r)

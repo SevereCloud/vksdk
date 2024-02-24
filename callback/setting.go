@@ -4,6 +4,7 @@ package callback // import "github.com/SevereCloud/vksdk/v2/callback"
 import (
 	"crypto/rand"
 	"errors"
+	"fmt"
 
 	"github.com/SevereCloud/vksdk/v2"
 	"github.com/SevereCloud/vksdk/v2/api"
@@ -18,7 +19,7 @@ func generateRandomBytes(n int) ([]byte, error) {
 
 	// Note that err == nil only if we read len(b) bytes.
 	if _, err := rand.Read(b); err != nil {
-		return nil, err
+		return nil, fmt.Errorf("callback: %w", err)
 	}
 
 	return b, nil
@@ -61,16 +62,16 @@ func (cb *Callback) AutoSetting(
 			return ErrNeedGroupToken
 		}
 
-		return err
+		return fmt.Errorf("callback: %w", err)
 	}
 
-	groupID := g[0].ID
+	groupID := g.Groups[0].ID
 
 	callbackServers, err := vk.GroupsGetCallbackServers(api.Params{
 		"group_id": groupID,
 	})
 	if err != nil {
-		return err
+		return fmt.Errorf("callback: %w", err)
 	}
 
 	for _, cbServer := range callbackServers.Items {
@@ -107,7 +108,7 @@ func (cb *Callback) AutoSetting(
 			"group_id": groupID,
 		})
 		if err != nil {
-			return err
+			return fmt.Errorf("callback: %w", err)
 		}
 
 		cb.ConfirmationKeys[groupID] = confirmationCodeResponse.Code
@@ -120,7 +121,7 @@ func (cb *Callback) AutoSetting(
 			"secret_key": secretKey,
 		})
 		if err != nil {
-			return err
+			return fmt.Errorf("callback: %w", err)
 		}
 
 		callbackServerID = addCallbackResponse.ServerID
@@ -138,5 +139,5 @@ func (cb *Callback) AutoSetting(
 	// Updating Callback settings
 	_, err = vk.GroupsSetCallbackSettings(params)
 
-	return err
+	return fmt.Errorf("callback: %w", err)
 }

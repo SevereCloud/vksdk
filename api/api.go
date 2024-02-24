@@ -251,7 +251,7 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 
 		req, err := http.NewRequestWithContext(ctx, http.MethodPost, u, rawBody)
 		if err != nil {
-			return response, err
+			return response, fmt.Errorf("api.DefaultHandler: %w", err)
 		}
 
 		acceptEncoding := "gzip"
@@ -271,7 +271,7 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 
 		resp, err := vk.Client.Do(req)
 		if err != nil {
-			return response, err
+			return response, fmt.Errorf("api.DefaultHandler: %w", err)
 		}
 
 		switch resp.Header.Get("Content-Encoding") {
@@ -295,7 +295,7 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 			err = json.NewDecoder(reader).Decode(&response)
 			if err != nil {
 				_ = resp.Body.Close()
-				return response, err
+				return response, fmt.Errorf("api.DefaultHandler: %w", err)
 			}
 		case "application/x-msgpack":
 			dec := msgpack.NewDecoder(reader)
@@ -304,7 +304,7 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 			err = dec.Decode(&response)
 			if err != nil {
 				_ = resp.Body.Close()
-				return response, err
+				return response, fmt.Errorf("api.DefaultHandler: %w", err)
 			}
 		default:
 			_ = resp.Body.Close()
@@ -364,7 +364,11 @@ func (vk *VK) RequestUnmarshal(method string, obj interface{}, sliceParams ...Pa
 		err = json.Unmarshal(rawResponse, &obj)
 	}
 
-	return err
+	if err != nil {
+		return fmt.Errorf("api: %w", err)
+	}
+
+	return nil
 }
 
 // EnableMessagePack enable using MessagePack instead of JSON.

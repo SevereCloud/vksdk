@@ -8,6 +8,7 @@ package events // import "github.com/SevereCloud/vksdk/v2/events"
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 
 	"github.com/SevereCloud/vksdk/v2/internal"
 )
@@ -177,7 +178,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMessageNew:
 		var obj MessageNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.messageNew {
@@ -192,7 +193,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMessageReply:
 		var obj MessageReplyObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.messageReply {
@@ -207,7 +208,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMessageEdit:
 		var obj MessageEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.messageEdit {
@@ -222,7 +223,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMessageAllow:
 		var obj MessageAllowObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.messageAllow {
@@ -237,7 +238,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMessageDeny:
 		var obj MessageDenyObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.messageDeny {
@@ -252,7 +253,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMessageTypingState: // На основе ответа
 		var obj MessageTypingStateObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.messageTypingState {
@@ -267,7 +268,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMessageEvent:
 		var obj MessageEventObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.messageEvent {
@@ -282,7 +283,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventPhotoNew:
 		var obj PhotoNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.photoNew {
@@ -297,7 +298,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventPhotoCommentNew:
 		var obj PhotoCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.photoCommentNew {
@@ -312,7 +313,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventPhotoCommentEdit:
 		var obj PhotoCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.photoCommentEdit {
@@ -327,7 +328,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventPhotoCommentRestore:
 		var obj PhotoCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.photoCommentRestore {
@@ -342,7 +343,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventPhotoCommentDelete:
 		var obj PhotoCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.photoCommentDelete {
@@ -357,7 +358,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventAudioNew:
 		var obj AudioNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.audioNew {
@@ -372,7 +373,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventVideoNew:
 		var obj VideoNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.videoNew {
@@ -387,7 +388,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventVideoCommentNew:
 		var obj VideoCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.videoCommentNew {
@@ -402,7 +403,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventVideoCommentEdit:
 		var obj VideoCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.videoCommentEdit {
@@ -417,7 +418,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventVideoCommentRestore:
 		var obj VideoCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.videoCommentRestore {
@@ -432,7 +433,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventVideoCommentDelete:
 		var obj VideoCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.videoCommentDelete {
@@ -447,7 +448,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventWallPostNew:
 		var obj WallPostNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.wallPostNew {
@@ -462,7 +463,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventWallRepost:
 		var obj WallRepostObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.wallRepost {
@@ -477,7 +478,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventWallReplyNew:
 		var obj WallReplyNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.wallReplyNew {
@@ -492,7 +493,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventWallReplyEdit:
 		var obj WallReplyEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.wallReplyEdit {
@@ -507,7 +508,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventWallReplyRestore:
 		var obj WallReplyRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.wallReplyRestore {
@@ -522,7 +523,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventWallReplyDelete:
 		var obj WallReplyDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.wallReplyDelete {
@@ -537,7 +538,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventBoardPostNew:
 		var obj BoardPostNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.boardPostNew {
@@ -552,7 +553,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventBoardPostEdit:
 		var obj BoardPostEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.boardPostEdit {
@@ -567,7 +568,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventBoardPostRestore:
 		var obj BoardPostRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.boardPostRestore {
@@ -582,7 +583,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventBoardPostDelete:
 		var obj BoardPostDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.boardPostDelete {
@@ -597,7 +598,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMarketCommentNew:
 		var obj MarketCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.marketCommentNew {
@@ -612,7 +613,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMarketCommentEdit:
 		var obj MarketCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.marketCommentEdit {
@@ -627,7 +628,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMarketCommentRestore:
 		var obj MarketCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.marketCommentRestore {
@@ -642,7 +643,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMarketCommentDelete:
 		var obj MarketCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.marketCommentDelete {
@@ -657,7 +658,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMarketOrderNew:
 		var obj MarketOrderNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.marketOrderNew {
@@ -672,7 +673,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMarketOrderEdit:
 		var obj MarketOrderEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.marketOrderEdit {
@@ -687,7 +688,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventGroupLeave:
 		var obj GroupLeaveObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.groupLeave {
@@ -702,7 +703,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventGroupJoin:
 		var obj GroupJoinObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.groupJoin {
@@ -717,7 +718,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventUserBlock:
 		var obj UserBlockObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.userBlock {
@@ -732,7 +733,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventUserUnblock:
 		var obj UserUnblockObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.userUnblock {
@@ -747,7 +748,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventPollVoteNew:
 		var obj PollVoteNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.pollVoteNew {
@@ -762,7 +763,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventGroupOfficersEdit:
 		var obj GroupOfficersEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.groupOfficersEdit {
@@ -777,7 +778,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventGroupChangeSettings:
 		var obj GroupChangeSettingsObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.groupChangeSettings {
@@ -792,7 +793,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventGroupChangePhoto:
 		var obj GroupChangePhotoObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.groupChangePhoto {
@@ -807,7 +808,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventVkpayTransaction:
 		var obj VkpayTransactionObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.vkpayTransaction {
@@ -822,7 +823,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventLeadFormsNew:
 		var obj LeadFormsNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.leadFormsNew {
@@ -837,7 +838,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventAppPayload:
 		var obj AppPayloadObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.appPayload {
@@ -852,7 +853,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventMessageRead:
 		var obj MessageReadObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.messageRead {
@@ -867,7 +868,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventLikeAdd:
 		var obj LikeAddObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.likeAdd {
@@ -882,7 +883,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventLikeRemove:
 		var obj LikeRemoveObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.likeRemove {
@@ -897,7 +898,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventDonutSubscriptionCreate:
 		var obj DonutSubscriptionCreateObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.donutSubscriptionCreate {
@@ -912,7 +913,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventDonutSubscriptionProlonged:
 		var obj DonutSubscriptionProlongedObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.donutSubscriptionProlonged {
@@ -927,7 +928,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventDonutSubscriptionExpired:
 		var obj DonutSubscriptionExpiredObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.donutSubscriptionExpired {
@@ -942,7 +943,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventDonutSubscriptionCancelled:
 		var obj DonutSubscriptionCancelledObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.donutSubscriptionCancelled {
@@ -957,7 +958,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventDonutSubscriptionPriceChanged:
 		var obj DonutSubscriptionPriceChangedObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.donutSubscriptionPriceChanged {
@@ -972,7 +973,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventDonutMoneyWithdraw:
 		var obj DonutMoneyWithdrawObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.donutMoneyWithdraw {
@@ -987,7 +988,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 	case EventDonutMoneyWithdrawError:
 		var obj DonutMoneyWithdrawErrorObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
-			return err
+			return fmt.Errorf("events: %w", err)
 		}
 
 		for _, f := range fl.donutMoneyWithdrawError {

@@ -4,6 +4,7 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/base64"
+	"fmt"
 	"net/http"
 	"net/url"
 	"strings"
@@ -58,7 +59,7 @@ func (pv *ParamsVerification) Sign(p []byte) string {
 func (pv *ParamsVerification) Verify(u *url.URL) (bool, error) {
 	values, err := url.ParseQuery(u.RawQuery)
 	if err != nil {
-		return false, err
+		return false, fmt.Errorf("vkapps: %w", err)
 	}
 
 	if len(values["sign"]) == 0 {
@@ -94,7 +95,7 @@ func ParamsVerify(link, clientSecret string) (bool, error) {
 
 	u, err := url.Parse(link)
 	if err != nil {
-		return false, err
+		return false, fmt.Errorf("vkapps: %w", err)
 	}
 
 	return pv.Verify(u)

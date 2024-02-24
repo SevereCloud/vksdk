@@ -79,9 +79,8 @@ linters:
     - sloglint
     - testifylint
 
+    - wrapcheck
 
-# - musttag # TODO: need update golangci-lint
-# - wrapcheck # TODO: v3 Fix
 # - testpackage # TODO: Fix testpackage
 # - noctx # TODO: Fix noctx
 

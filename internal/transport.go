@@ -5,6 +5,7 @@ package internal // import "github.com/SevereCloud/vksdk/v2/internal"
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 
 	"github.com/SevereCloud/vksdk/v2"
@@ -72,5 +73,5 @@ func DoRequest(ctx context.Context, req *http.Request) (*http.Response, error) {
 		err = ctx.Err()
 	}
 
-	return resp, err
+	return resp, fmt.Errorf("vksdk: %w", err)
 }

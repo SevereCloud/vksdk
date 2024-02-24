@@ -320,7 +320,7 @@ func (personal *GroupsCountersGroup) UnmarshalJSON(data []byte) error {
 
 	err := json.Unmarshal(data, &r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.GroupsCountersGroup: %w", err)
 	}
 
 	*personal = GroupsCountersGroup(r)
@@ -334,7 +334,7 @@ func (personal *GroupsCountersGroup) UnmarshalJSON(data []byte) error {
 func (personal *GroupsCountersGroup) DecodeMsgpack(dec *msgpack.Decoder) error {
 	data, err := dec.DecodeRaw()
 	if err != nil {
-		return err
+		return fmt.Errorf("object.GroupsCountersGroup: %w", err)
 	}
 
 	if bytes.Equal(data, []byte{msgpcode.FixedArrayLow}) {
@@ -350,7 +350,7 @@ func (personal *GroupsCountersGroup) DecodeMsgpack(dec *msgpack.Decoder) error {
 
 	err = d.Decode(&r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.GroupsCountersGroup: %w", err)
 	}
 
 	*personal = GroupsCountersGroup(r)
@@ -607,7 +607,7 @@ type GroupsYoulaSettings struct {
 	ModerationStatus      int         `json:"moderation_status"`
 	DeclineReason         string      `json:"decline_reason"`
 	GroupMode             int         `json:"group_mode"`
-	SelectedCategoryIDS   []int       `json:"selected_category_ids"` //nolint:revive
+	SelectedCategoryIDs   []int       `json:"selected_category_ids"`
 	Lat                   float64     `json:"lat"`
 	Long                  float64     `json:"long"`
 	Radius                float64     `json:"radius"`
@@ -630,7 +630,7 @@ type GroupsSectionsList struct {
 func (g *GroupsSectionsList) UnmarshalJSON(data []byte) error {
 	var alias []interface{}
 	if err := json.Unmarshal(data, &alias); err != nil {
-		return err
+		return fmt.Errorf("object.GroupsSectionsList: %w", err)
 	}
 
 	if len(alias) != 2 {
@@ -671,14 +671,14 @@ func (g *GroupsSectionsList) UnmarshalJSON(data []byte) error {
 func (g *GroupsSectionsList) DecodeMsgpack(dec *msgpack.Decoder) error {
 	data, err := dec.DecodeRaw()
 	if err != nil {
-		return err
+		return fmt.Errorf("object.GroupsSectionsList: %w", err)
 	}
 
 	var alias []interface{}
 
 	err = msgpack.Unmarshal(data, &alias)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.GroupsSectionsList: %w", err)
 	}
 
 	if len(alias) != 2 {

@@ -70,7 +70,7 @@ func NewLongPoll(vk *api.VK, groupID int) (*LongPoll, error) {
 func NewLongPollCommunity(vk *api.VK) (*LongPoll, error) {
 	resp, err := vk.GroupsGetByID(nil)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("longpoll-bot: %w", err)
 	}
 
 	lp := &LongPoll{
@@ -93,7 +93,7 @@ func (lp *LongPoll) updateServer(updateTs bool) error {
 
 	serverSetting, err := lp.VK.GroupsGetLongPollServer(params)
 	if err != nil {
-		return err
+		return fmt.Errorf("longpoll-bot: %w", err)
 	}
 
 	lp.Key = serverSetting.Key
@@ -111,12 +111,12 @@ func (lp *LongPoll) check(ctx context.Context) (response Response, err error) {
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u, nil)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("longpoll-bot: %w", err)
 	}
 
 	resp, err := lp.Client.Do(req)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("longpoll-bot: %w", err)
 	}
 	defer resp.Body.Close()
 
@@ -139,7 +139,7 @@ func parseResponse(reader io.Reader) (response Response, err error) {
 				break
 			}
 
-			return response, err
+			return response, fmt.Errorf("longpoll-bot: %w", err)
 		}
 
 		t, ok := token.(string)
@@ -151,7 +151,7 @@ func parseResponse(reader io.Reader) (response Response, err error) {
 		case "failed":
 			raw, err := decoder.Token()
 			if err != nil {
-				return response, err
+				return response, fmt.Errorf("longpoll-bot: %w", err)
 			}
 
 			response.Failed = int(raw.(float64))
@@ -160,7 +160,7 @@ func parseResponse(reader io.Reader) (response Response, err error) {
 
 			err = decoder.Decode(&updates)
 			if err != nil {
-				return response, err
+				return response, fmt.Errorf("longpoll-bot: %w", err)
 			}
 
 			response.Updates = updates
@@ -169,7 +169,7 @@ func parseResponse(reader io.Reader) (response Response, err error) {
 			// or string, e.g. {"ts":"8","updates":[]}
 			rawTs, err := decoder.Token()
 			if err != nil {
-				return response, err
+				return response, fmt.Errorf("longpoll-bot: %w", err)
 			}
 
 			if ts, isNumber := rawTs.(float64); isNumber {
@@ -213,7 +213,7 @@ func (lp *LongPoll) autoSetting(ctx context.Context) error {
 	// Updating LongPoll settings
 	_, err := lp.VK.GroupsSetLongPollSettings(params)
 
-	return err
+	return fmt.Errorf("longpoll-bot: %w", err)
 }
 
 // Run handler.
@@ -250,7 +250,7 @@ func (lp *LongPoll) run(ctx context.Context) error {
 			for _, event := range resp.Updates {
 				err = lp.Handler(ctx, event)
 				if err != nil {
-					return err
+					return fmt.Errorf("longpoll-bot: %w", err)
 				}
 			}
 

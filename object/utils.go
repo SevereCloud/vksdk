@@ -3,6 +3,7 @@ package object // import "github.com/SevereCloud/vksdk/v2/object"
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 
 	"github.com/vmihailenco/msgpack/v5"
 	"github.com/vmihailenco/msgpack/v5/msgpcode"
@@ -37,7 +38,7 @@ func (link *UtilsDomainResolved) UnmarshalJSON(data []byte) error {
 
 	err := json.Unmarshal(data, &r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.UtilsDomainResolved: %w", err)
 	}
 
 	*link = UtilsDomainResolved(r)
@@ -51,7 +52,7 @@ func (link *UtilsDomainResolved) UnmarshalJSON(data []byte) error {
 func (link *UtilsDomainResolved) DecodeMsgpack(dec *msgpack.Decoder) error {
 	data, err := dec.DecodeRaw()
 	if err != nil {
-		return err
+		return fmt.Errorf("object.UtilsDomainResolved: %w", err)
 	}
 
 	if bytes.Equal(data, []byte{msgpcode.FixedArrayLow}) {
@@ -67,7 +68,7 @@ func (link *UtilsDomainResolved) DecodeMsgpack(dec *msgpack.Decoder) error {
 
 	err = d.Decode(&r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.UtilsDomainResolved: %w", err)
 	}
 
 	*link = UtilsDomainResolved(r)

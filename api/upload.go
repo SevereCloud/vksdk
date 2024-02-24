@@ -3,6 +3,7 @@ package api // import "github.com/SevereCloud/vksdk/v2/api"
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io"
 	"mime/multipart"
 
@@ -188,12 +189,12 @@ func (vk *VK) uploadOwnerPhoto(params Params, squareCrop string, file io.Reader)
 
 	part, err := writer.CreateFormFile("photo", "photo.jpeg")
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	_, err = io.Copy(part, file)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	contentType := writer.FormDataContentType()
@@ -201,7 +202,7 @@ func (vk *VK) uploadOwnerPhoto(params Params, squareCrop string, file io.Reader)
 	if squareCrop != "" {
 		err = writer.WriteField("_square_crop", squareCrop)
 		if err != nil {
-			return response, err
+			return response, fmt.Errorf("api: %w", err)
 		}
 	}
 
@@ -209,20 +210,20 @@ func (vk *VK) uploadOwnerPhoto(params Params, squareCrop string, file io.Reader)
 
 	resp, err := vk.Client.Post(uploadServer.UploadURL, contentType, body)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 	defer resp.Body.Close()
 
 	bodyContent, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	var handler object.PhotosOwnerUploadResponse
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	response, err = vk.PhotosSaveOwnerPhoto(Params{
@@ -530,7 +531,7 @@ func (vk *VK) uploadDoc(url, title, tags string, file io.Reader) (response DocsS
 
 	err = json.Unmarshal(bodyContent, &docUploadError)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	if docUploadError.Err != "" {
@@ -542,7 +543,7 @@ func (vk *VK) uploadDoc(url, title, tags string, file io.Reader) (response DocsS
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	response, err = vk.DocsSave(Params{
@@ -677,7 +678,7 @@ func (vk *VK) UploadOwnerCoverPhoto(groupID, cropX, cropY, cropX2, cropY2 int, f
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	return vk.PhotosSaveOwnerCoverPhoto(Params{
@@ -728,7 +729,7 @@ func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response Storie
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	if handler.Error.ErrorCode != 0 {
@@ -765,7 +766,7 @@ func (vk *VK) UploadStoriesVideo(params Params, file io.Reader) (response Storie
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	if handler.UploadError.Code != 0 {
@@ -800,7 +801,7 @@ func (vk *VK) uploadPollsPhoto(params Params, file io.Reader) (response PollsSav
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	response, err = vk.PollsSavePhoto(Params{
@@ -854,7 +855,7 @@ func (vk *VK) UploadPrettyCardsPhoto(file io.Reader) (response string, err error
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	response = handler.Photo
@@ -889,7 +890,7 @@ func (vk *VK) UploadLeadFormsPhoto(file io.Reader) (response string, err error) 
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	response = handler.Photo
@@ -919,7 +920,7 @@ func (vk *VK) UploadAppImage(imageType string, file io.Reader) (response object.
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	response, err = vk.AppWidgetsSaveAppImage(Params{
@@ -948,7 +949,7 @@ func (vk *VK) UploadGroupImage(imageType string, file io.Reader) (response objec
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	response, err = vk.AppWidgetsSaveGroupImage(Params{
@@ -978,7 +979,7 @@ func (vk *VK) UploadMarusiaPicture(file io.Reader) (response MarusiaSavePictureR
 
 	err = json.Unmarshal(bodyContent, &handler)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("api: %w", err)
 	}
 
 	photo, _ := json.Marshal(handler.Photo)

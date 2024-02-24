@@ -143,7 +143,7 @@ func (s *Streaming) doRequest(req *http.Request) (*response, error) {
 
 	resp, err := s.Client.Do(req)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("streaming: %w", err)
 	}
 	defer resp.Body.Close()
 
@@ -151,7 +151,7 @@ func (s *Streaming) doRequest(req *http.Request) (*response, error) {
 
 	err = json.NewDecoder(resp.Body).Decode(&r)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("streaming: %w", err)
 	}
 
 	if r.Code == codeError {
@@ -167,7 +167,7 @@ func (s *Streaming) GetRules() ([]Rule, error) {
 
 	req, err := http.NewRequest(http.MethodGet, link, nil)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("streaming: %w", err)
 	}
 
 	r, err := s.doRequest(req)
@@ -200,7 +200,7 @@ func (s *Streaming) AddRule(tag, value string) error {
 
 	req, err := http.NewRequest(http.MethodPost, link, buf)
 	if err != nil {
-		return err
+		return fmt.Errorf("streaming: %w", err)
 	}
 
 	req.Header.Set("Content-Type", "application/json")
@@ -227,7 +227,7 @@ func (s *Streaming) DeleteRule(tag string) error {
 
 	req, err := http.NewRequest(http.MethodDelete, link, buf)
 	if err != nil {
-		return err
+		return fmt.Errorf("streaming: %w", err)
 	}
 
 	req.Header.Set("Content-Type", "application/json")
@@ -303,13 +303,13 @@ func (s *Streaming) Run() error {
 
 			err = json.NewDecoder(wsResp.Body).Decode(&r)
 			if err != nil {
-				return err
+				return fmt.Errorf("streaming: %w", err)
 			}
 
 			return s.handlerWebsocket(r)
 		}
 
-		return err
+		return fmt.Errorf("streaming: %w", err)
 	}
 
 	defer wsResp.Body.Close()
@@ -322,17 +322,17 @@ func (s *Streaming) Run() error {
 
 		_, message, err := c.ReadMessage()
 		if err != nil {
-			return err
+			return fmt.Errorf("streaming: %w", err)
 		}
 
 		err = json.Unmarshal(message, &r)
 		if err != nil {
-			return err
+			return fmt.Errorf("streaming: %w", err)
 		}
 
 		err = s.handlerWebsocket(r)
 		if err != nil {
-			return err
+			return fmt.Errorf("streaming: %w", err)
 		}
 	}
 
@@ -341,7 +341,7 @@ func (s *Streaming) Run() error {
 		websocket.FormatCloseMessage(websocket.CloseNormalClosure, ""),
 	)
 
-	return err
+	return fmt.Errorf("streaming: %w", err)
 }
 
 // Shutdown gracefully shuts down the stream.
@@ -359,7 +359,7 @@ func (s *Streaming) Shutdown() {
 func NewStreaming(vk *api.VK) (*Streaming, error) {
 	resp, err := vk.StreamingGetServerURL(nil)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("streaming: %w", err)
 	}
 
 	s := &Streaming{

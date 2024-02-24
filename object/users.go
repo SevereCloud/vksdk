@@ -264,7 +264,7 @@ func (personal *UsersPersonal) UnmarshalJSON(data []byte) error {
 
 	err := json.Unmarshal(data, &r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.UsersPersonal: %w", err)
 	}
 
 	*personal = UsersPersonal(r)
@@ -278,7 +278,7 @@ func (personal *UsersPersonal) UnmarshalJSON(data []byte) error {
 func (personal *UsersPersonal) DecodeMsgpack(dec *msgpack.Decoder) error {
 	data, err := dec.DecodeRaw()
 	if err != nil {
-		return err
+		return fmt.Errorf("object.UsersPersonal: %w", err)
 	}
 
 	if bytes.Equal(data, []byte{msgpcode.FixedArrayLow}) {
@@ -294,7 +294,7 @@ func (personal *UsersPersonal) DecodeMsgpack(dec *msgpack.Decoder) error {
 
 	err = d.Decode(&r)
 	if err != nil {
-		return err
+		return fmt.Errorf("object.UsersPersonal: %w", err)
 	}
 
 	*personal = UsersPersonal(r)

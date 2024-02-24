@@ -98,7 +98,7 @@ func TestAuthCodeFlowUser_URL(t *testing.T) {
 	f(oauth.NewAuthCodeFlowUser(oauth.UserParams{
 		ClientID: 6888183,
 		Scope:    oauth.ScopeUserPhotos + oauth.ScopeUserDocs,
-	}, "clientSecret"), "https://oauth.vk.com/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=code&scope=131076&state=&v=5.131")
+	}, "clientSecret"), "https://oauth.vk.com/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=code&scope=131076&state=&v=5.199")
 }
 
 func TestAuthCodeFlowUser_Token(t *testing.T) {
@@ -148,7 +148,7 @@ func TestImplicitFlowUser(t *testing.T) {
 	f(oauth.UserParams{
 		ClientID: 6888183,
 		Scope:    oauth.ScopeUserPhotos + oauth.ScopeUserDocs,
-	}, "https://oauth.vk.com/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=token&scope=131076&state=&v=5.131")
+	}, "https://oauth.vk.com/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=token&scope=131076&state=&v=5.199")
 }
 
 func TestDirectAuth(t *testing.T) {
@@ -160,7 +160,7 @@ func TestDirectAuth(t *testing.T) {
 		Username:           "username",
 		Password:           "",
 		Scope:              0,
-		V:                  "5.131",
+		V:                  "5.199",
 		TwoFactorSupported: true,
 		ForceSMS:           true,
 		Code:               "code",

@@ -54,6 +54,7 @@ package longpoll // import "github.com/SevereCloud/vksdk/v2/longpoll-user"
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -133,7 +134,7 @@ func (lp *LongPoll) updateServer(updateTs bool) error {
 
 	serverSetting, err := lp.VK.MessagesGetLongPollServer(params)
 	if err != nil {
-		return err
+		return fmt.Errorf("longpoll-user: %w", err)
 	}
 
 	lp.Key = serverSetting.Key
@@ -149,7 +150,7 @@ func (lp *LongPoll) updateServer(updateTs bool) error {
 func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 	u, err := url.Parse(lp.Server)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("longpoll-user: %w", err)
 	}
 
 	u.Scheme = "https"
@@ -165,20 +166,20 @@ func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 
 	req, err := http.NewRequest(http.MethodGet, u.String(), nil)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("longpoll-user: %w", err)
 	}
 
 	req.Header.Set("User-Agent", lp.UserAgent)
 
 	resp, err := lp.Client.Do(req)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("longpoll-user: %w", err)
 	}
 	defer resp.Body.Close()
 
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
-		return response, err
+		return response, fmt.Errorf("longpoll-user: %w", err)
 	}
 
 	err = lp.checkResponse(response)

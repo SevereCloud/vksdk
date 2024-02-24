@@ -3,6 +3,7 @@ package api
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 
 	"github.com/vmihailenco/msgpack/v5"
 )
@@ -43,7 +44,7 @@ func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error
 	}
 
 	if decoderErr != nil {
-		return decoderErr
+		return fmt.Errorf("api: %w", decoderErr)
 	}
 
 	if resp.ExecuteErrors != nil {

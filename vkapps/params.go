@@ -1,6 +1,7 @@
 package vkapps
 
 import (
+	"fmt"
 	"net/url"
 	"regexp"
 	"strconv"
@@ -159,6 +160,9 @@ func NewParams(u *url.URL) (*Params, error) {
 	decoder.IgnoreUnknownKeys(true)
 
 	err := decoder.Decode(params, u.Query())
+	if err != nil {
+		return nil, fmt.Errorf("params: %w", err)
+	}
 
-	return params, err
+	return params, nil
 }

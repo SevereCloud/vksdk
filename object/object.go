@@ -8,6 +8,7 @@ package object // import "github.com/SevereCloud/vksdk/v2/object"
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"reflect"
 
 	"github.com/vmihailenco/msgpack/v5"
@@ -48,7 +49,7 @@ func (b *BaseBoolInt) UnmarshalJSON(data []byte) (err error) {
 func (b *BaseBoolInt) DecodeMsgpack(dec *msgpack.Decoder) (err error) {
 	data, err := dec.DecodeRaw()
 	if err != nil {
-		return err
+		return fmt.Errorf("object.BaseBoolInt: %w", err)
 	}
 
 	var (
@@ -177,6 +178,9 @@ func (obj *BaseImage) UnmarshalJSON(data []byte) (err error) {
 	var renamedObj renamedBaseImage
 
 	err = json.Unmarshal(data, &renamedObj)
+	if err != nil {
+		return fmt.Errorf("object.BaseImage: %w", err)
+	}
 
 	obj.Height = renamedObj.Height
 	obj.Width = renamedObj.Width
@@ -188,7 +192,7 @@ func (obj *BaseImage) UnmarshalJSON(data []byte) (err error) {
 		obj.URL = renamedObj.Src
 	}
 
-	return err
+	return nil
 }
 
 // DecodeMsgpack is required to support images with `src` field.
@@ -215,7 +219,7 @@ func (obj *BaseImage) DecodeMsgpack(dec *msgpack.Decoder) (err error) {
 		obj.URL = renamedObj.Src
 	}
 
-	return err
+	return fmt.Errorf("object.BaseImage: %w", err)
 }
 
 // BaseLikes struct.

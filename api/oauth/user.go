@@ -3,6 +3,7 @@ package oauth // import "github.com/SevereCloud/vksdk/v2/api/oauth"
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -26,7 +27,7 @@ func NewUserTokenFromJSON(data []byte) (*UserToken, error) {
 
 	err := json.Unmarshal(data, &e)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 
 	if e.Type != "" {
@@ -36,14 +37,14 @@ func NewUserTokenFromJSON(data []byte) (*UserToken, error) {
 	var t UserToken
 	err = json.Unmarshal(data, &t)
 
-	return &t, err
+	return &t, fmt.Errorf("oauth: %w", err)
 }
 
 // NewUserTokenFromURL ...
 func NewUserTokenFromURL(u *url.URL) (*UserToken, error) {
 	v, err := url.ParseQuery(u.Fragment)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 
 	if errType := v.Get("error"); errType != "" {
@@ -181,7 +182,12 @@ func (a AuthCodeFlowUser) buildRequest(code string) *http.Request {
 func (a AuthCodeFlowUser) request(code string) (*http.Response, error) {
 	req := a.buildRequest(code)
 
-	return a.Client.Do(req)
+	resp, err := a.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("oauth: %w", err)
+	}
+
+	return resp, nil
 }
 
 // Token ...
@@ -193,13 +199,13 @@ func (a AuthCodeFlowUser) Token(u *url.URL) (*UserToken, error) {
 
 	resp, err := a.request(code)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 	defer resp.Body.Close()
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 
 	return NewUserTokenFromJSON(data)
@@ -318,13 +324,13 @@ func DirectAuth(p DirectAuthParams) (*UserToken, error) {
 
 	resp, err := p.Client.Do(req)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 	defer resp.Body.Close()
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("oauth: %w", err)
 	}
 
 	return NewUserTokenFromJSON(data)

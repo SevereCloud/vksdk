@@ -3,6 +3,7 @@ package api // import "github.com/SevereCloud/vksdk/v2/api"
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 
 	"github.com/SevereCloud/vksdk/v2/object"
 	"github.com/vmihailenco/msgpack/v5"
@@ -17,7 +18,10 @@ type AdsAddOfficeUsersItem struct {
 // UnmarshalJSON func.
 func (r *AdsAddOfficeUsersItem) UnmarshalJSON(data []byte) (err error) {
 	if r.OK.UnmarshalJSON(data) != nil {
-		return json.Unmarshal(data, &r.Error)
+		err := json.Unmarshal(data, &r.Error)
+		if err != nil {
+			return fmt.Errorf("api.AdsAddOfficeUsersItem: %w", err)
+		}
 	}
 
 	return
@@ -27,14 +31,17 @@ func (r *AdsAddOfficeUsersItem) UnmarshalJSON(data []byte) (err error) {
 func (r *AdsAddOfficeUsersItem) DecodeMsgpack(dec *msgpack.Decoder) error {
 	data, err := dec.DecodeRaw()
 	if err != nil {
-		return err
+		return fmt.Errorf("api.AdsAddOfficeUsersItem: %w", err)
 	}
 
 	if msgpack.Unmarshal(data, &r.OK) != nil {
 		d := msgpack.NewDecoder(bytes.NewReader(data))
 		d.SetCustomStructTag("json")
 
-		return d.Decode(&r.Error)
+		err := d.Decode(&r.Error)
+		if err != nil {
+			return fmt.Errorf("api.AdsAddOfficeUsersItem: %w", err)
+		}
 	}
 
 	return nil
