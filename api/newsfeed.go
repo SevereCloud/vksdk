@@ -157,10 +157,16 @@ func (vk *VK) NewsfeedGetSuggestedSources(params Params) (response NewsfeedGetSu
 	return
 }
 
+// NewsfeedIgnoreItemResponse struct.
+type NewsfeedIgnoreItemResponse struct {
+	Status  bool    `json:"status"`
+	Message *string `json:"message"`
+}
+
 // NewsfeedIgnoreItem hides an item from the newsfeed.
 //
 // https://dev.vk.com/method/newsfeed.ignoreItem
-func (vk *VK) NewsfeedIgnoreItem(params Params) (response int, err error) {
+func (vk *VK) NewsfeedIgnoreItem(params Params) (response NewsfeedIgnoreItemResponse, err error) {
 	err = vk.RequestUnmarshal("newsfeed.ignoreItem", &response, params)
 	return
 }
