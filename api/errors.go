@@ -939,12 +939,10 @@ func (e Error) Is(target error) bool {
 }
 
 // ExecuteError struct.
-//
-// TODO: v3 Code is ErrorType.
 type ExecuteError struct {
-	Method string `json:"method"`
-	Code   int    `json:"error_code"`
-	Msg    string `json:"error_msg"`
+	Method string    `json:"method"`
+	Code   ErrorType `json:"error_code"`
+	Msg    string    `json:"error_msg"`
 }
 
 // ExecuteErrors type.
