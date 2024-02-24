@@ -27,10 +27,8 @@ type StoriesNarrativeInfo struct {
 	Views  int    `json:"views"`
 }
 
-// StoriesPromoData additional data for promo stories.
-//
-// TODO: v3 rename StoriesPromoBlock.
-type StoriesPromoData struct {
+// StoriesPromoBlock additional data for promo stories.
+type StoriesPromoBlock struct {
 	Name        string      `json:"name"`
 	Photo50     string      `json:"photo_50"`
 	Photo100    string      `json:"photo_100"`
@@ -177,7 +175,7 @@ type StoriesFeedItem struct {
 	TrackCode      string              `json:"track_code"`
 	HasUnseen      BaseBoolInt         `json:"has_unseen"`
 	Name           string              `json:"name"`
-	PromoData      StoriesPromoData    `json:"promo_data"`
+	PromoData      StoriesPromoBlock   `json:"promo_data"`
 }
 
 // StoriesClickableStickers struct.

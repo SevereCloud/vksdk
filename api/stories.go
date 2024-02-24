@@ -24,7 +24,7 @@ func (vk *VK) StoriesDelete(params Params) (response int, err error) {
 type StoriesGetResponse struct {
 	Count            int                      `json:"count"`
 	Items            []object.StoriesFeedItem `json:"items"`
-	PromoData        object.StoriesPromoData  `json:"promo_data"`
+	PromoData        object.StoriesPromoBlock `json:"promo_data"`
 	NeedUploadScreen object.BaseBoolInt       `json:"need_upload_screen"`
 }
 
@@ -43,7 +43,7 @@ func (vk *VK) StoriesGet(params Params) (response StoriesGetResponse, err error)
 type StoriesGetExtendedResponse struct {
 	Count            int                      `json:"count"`
 	Items            []object.StoriesFeedItem `json:"items"`
-	PromoData        object.StoriesPromoData  `json:"promo_data"`
+	PromoData        object.StoriesPromoBlock `json:"promo_data"`
 	NeedUploadScreen object.BaseBoolInt       `json:"need_upload_screen"`
 	object.ExtendedResponse
 }

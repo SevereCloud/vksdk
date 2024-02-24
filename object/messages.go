@@ -698,8 +698,6 @@ type MessagesMessageAttachment struct {
 }
 
 // State in which call ended up.
-//
-// TODO: v3 type CallEndState.
 const (
 	CallEndStateCanceledByInitiator = "canceled_by_initiator"
 	CallEndStateCanceledByReceiver  = "canceled_by_receiver"
