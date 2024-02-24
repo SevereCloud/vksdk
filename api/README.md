@@ -3,7 +3,7 @@
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/api)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/api/getting-started)
 
-Данная библиотека поддерживает версию API **5.131**.
+Данная библиотека поддерживает версию API **5.199**.
 
 ## Запросы
 
