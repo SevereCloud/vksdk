@@ -6,7 +6,7 @@ import (
 
 // OrdersCancelSubscriptionBuilder builder.
 //
-// https://vk.com/dev/orders.cancelSubscription
+// https://dev.vk.com/method/orders.cancelSubscription
 type OrdersCancelSubscriptionBuilder struct {
 	api.Params
 }
@@ -38,7 +38,7 @@ func (b *OrdersCancelSubscriptionBuilder) PendingCancel(v bool) *OrdersCancelSub
 //
 // Changes order status.
 //
-// https://vk.com/dev/orders.changeState
+// https://dev.vk.com/method/orders.changeState
 type OrdersChangeStateBuilder struct {
 	api.Params
 }
@@ -83,7 +83,7 @@ func (b *OrdersChangeStateBuilder) TestMode(v bool) *OrdersChangeStateBuilder {
 //
 // Returns a list of orders.
 //
-// https://vk.com/dev/orders.get
+// https://dev.vk.com/method/orders.get
 type OrdersGetBuilder struct {
 	api.Params
 }
@@ -113,7 +113,7 @@ func (b *OrdersGetBuilder) TestMode(v bool) *OrdersGetBuilder {
 
 // OrdersGetAmountBuilder builder.
 //
-// https://vk.com/dev/orders.getAmount
+// https://dev.vk.com/method/orders.getAmount
 type OrdersGetAmountBuilder struct {
 	api.Params
 }
@@ -139,7 +139,7 @@ func (b *OrdersGetAmountBuilder) Votes(v []string) *OrdersGetAmountBuilder {
 //
 // Returns information about orders by their IDs.
 //
-// https://vk.com/dev/orders.getById
+// https://dev.vk.com/method/orders.getById
 type OrdersGetByIDBuilder struct {
 	api.Params
 }
@@ -169,7 +169,7 @@ func (b *OrdersGetByIDBuilder) TestMode(v bool) *OrdersGetByIDBuilder {
 
 // OrdersGetUserSubscriptionByIDBuilder builder.
 //
-// https://vk.com/dev/orders.getUserSubscriptionById
+// https://dev.vk.com/method/orders.getUserSubscriptionById
 type OrdersGetUserSubscriptionByIDBuilder struct {
 	api.Params
 }
@@ -193,7 +193,7 @@ func (b *OrdersGetUserSubscriptionByIDBuilder) SubscriptionID(v int) *OrdersGetU
 
 // OrdersGetUserSubscriptionsBuilder builder.
 //
-// https://vk.com/dev/orders.getUserSubscriptions
+// https://dev.vk.com/method/orders.getUserSubscriptions
 type OrdersGetUserSubscriptionsBuilder struct {
 	api.Params
 }
@@ -211,7 +211,7 @@ func (b *OrdersGetUserSubscriptionsBuilder) UserID(v int) *OrdersGetUserSubscrip
 
 // OrdersUpdateSubscriptionBuilder builder.
 //
-// https://vk.com/dev/orders.updateSubscription
+// https://dev.vk.com/method/orders.updateSubscription
 type OrdersUpdateSubscriptionBuilder struct {
 	api.Params
 }

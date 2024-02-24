@@ -8,7 +8,7 @@ import (
 //
 // Adds managers and/or supervisors to advertising account.
 //
-// https://vk.com/dev/ads.addOfficeUsers
+// https://dev.vk.com/method/ads.addOfficeUsers
 type AdsAddOfficeUsersBuilder struct {
 	api.Params
 }
@@ -35,7 +35,7 @@ func (b *AdsAddOfficeUsersBuilder) Data(v string) *AdsAddOfficeUsersBuilder {
 //
 // Allows to check the ad link.
 //
-// https://vk.com/dev/ads.checkLink
+// https://dev.vk.com/method/ads.checkLink
 type AdsCheckLinkBuilder struct {
 	api.Params
 }
@@ -83,7 +83,7 @@ func (b *AdsCheckLinkBuilder) CampaignID(v int) *AdsCheckLinkBuilder {
 //
 // Creates ads.
 //
-// https://vk.com/dev/ads.createAds
+// https://dev.vk.com/method/ads.createAds
 type AdsCreateAdsBuilder struct {
 	api.Params
 }
@@ -110,7 +110,7 @@ func (b *AdsCreateAdsBuilder) Data(v string) *AdsCreateAdsBuilder {
 //
 // Creates advertising campaigns.
 //
-// https://vk.com/dev/ads.createCampaigns
+// https://dev.vk.com/method/ads.createCampaigns
 type AdsCreateCampaignsBuilder struct {
 	api.Params
 }
@@ -137,7 +137,7 @@ func (b *AdsCreateCampaignsBuilder) Data(v string) *AdsCreateCampaignsBuilder {
 //
 // Creates clients of an advertising agency.
 //
-// https://vk.com/dev/ads.createClients
+// https://dev.vk.com/method/ads.createClients
 type AdsCreateClientsBuilder struct {
 	api.Params
 }
@@ -165,7 +165,7 @@ func (b *AdsCreateClientsBuilder) Data(v string) *AdsCreateClientsBuilder {
 // Creates a group to re-target ads for users who visited advertiser's site
 // (viewed information about the product, registered, etc.).
 //
-// https://vk.com/dev/ads.createTargetGroup
+// https://dev.vk.com/method/ads.createTargetGroup
 type AdsCreateTargetGroupBuilder struct {
 	api.Params
 }
@@ -217,7 +217,7 @@ func (b *AdsCreateTargetGroupBuilder) TargetPixelRules(v string) *AdsCreateTarge
 //
 // Archives ads.
 //
-// https://vk.com/dev/ads.deleteAds
+// https://dev.vk.com/method/ads.deleteAds
 type AdsDeleteAdsBuilder struct {
 	api.Params
 }
@@ -243,7 +243,7 @@ func (b *AdsDeleteAdsBuilder) IDs(v string) *AdsDeleteAdsBuilder {
 //
 // Archives advertising campaigns.
 //
-// https://vk.com/dev/ads.deleteCampaigns
+// https://dev.vk.com/method/ads.deleteCampaigns
 type AdsDeleteCampaignsBuilder struct {
 	api.Params
 }
@@ -269,7 +269,7 @@ func (b *AdsDeleteCampaignsBuilder) IDs(v string) *AdsDeleteCampaignsBuilder {
 //
 // Archives clients of an advertising agency.
 //
-// https://vk.com/dev/ads.deleteClients
+// https://dev.vk.com/method/ads.deleteClients
 type AdsDeleteClientsBuilder struct {
 	api.Params
 }
@@ -295,7 +295,7 @@ func (b *AdsDeleteClientsBuilder) IDs(v string) *AdsDeleteClientsBuilder {
 //
 // Deletes a retarget group.
 //
-// https://vk.com/dev/ads.deleteTargetGroup
+// https://dev.vk.com/method/ads.deleteTargetGroup
 type AdsDeleteTargetGroupBuilder struct {
 	api.Params
 }
@@ -328,7 +328,7 @@ func (b *AdsDeleteTargetGroupBuilder) TargetGroupID(v int) *AdsDeleteTargetGroup
 //
 // Returns number of ads.
 //
-// https://vk.com/dev/ads.getAds
+// https://dev.vk.com/method/ads.getAds
 type AdsGetAdsBuilder struct {
 	api.Params
 }
@@ -390,7 +390,7 @@ func (b *AdsGetAdsBuilder) Offset(v int) *AdsGetAdsBuilder {
 //
 // Returns descriptions of ad layouts.
 //
-// https://vk.com/dev/ads.getAdsLayout
+// https://dev.vk.com/method/ads.getAdsLayout
 type AdsGetAdsLayoutBuilder struct {
 	api.Params
 }
@@ -452,7 +452,7 @@ func (b *AdsGetAdsLayoutBuilder) Offset(v int) *AdsGetAdsLayoutBuilder {
 //
 // Returns ad targeting parameters.
 //
-// https://vk.com/dev/ads.getAdsTargeting
+// https://dev.vk.com/method/ads.getAdsTargeting
 type AdsGetAdsTargetingBuilder struct {
 	api.Params
 }
@@ -522,7 +522,7 @@ func (b *AdsGetAdsTargetingBuilder) Offset(v int) *AdsGetAdsTargetingBuilder {
 //
 // Returns current budget of the advertising account.
 //
-// https://vk.com/dev/ads.getBudget
+// https://dev.vk.com/method/ads.getBudget
 type AdsGetBudgetBuilder struct {
 	api.Params
 }
@@ -542,7 +542,7 @@ func (b *AdsGetBudgetBuilder) AccountID(v int) *AdsGetBudgetBuilder {
 //
 // Returns a list of campaigns in an advertising account.
 //
-// https://vk.com/dev/ads.getCampaigns
+// https://dev.vk.com/method/ads.getCampaigns
 type AdsGetCampaignsBuilder struct {
 	api.Params
 }
@@ -586,7 +586,7 @@ func (b *AdsGetCampaignsBuilder) CampaignIDs(v string) *AdsGetCampaignsBuilder {
 //
 // Returns a list of possible ad categories.
 //
-// https://vk.com/dev/ads.getCategories
+// https://dev.vk.com/method/ads.getCategories
 type AdsGetCategoriesBuilder struct {
 	api.Params
 }
@@ -606,7 +606,7 @@ func (b *AdsGetCategoriesBuilder) Lang(v string) *AdsGetCategoriesBuilder {
 //
 // Returns a list of advertising agency's clients.
 //
-// https://vk.com/dev/ads.getClients
+// https://dev.vk.com/method/ads.getClients
 type AdsGetClientsBuilder struct {
 	api.Params
 }
@@ -626,7 +626,7 @@ func (b *AdsGetClientsBuilder) AccountID(v int) *AdsGetClientsBuilder {
 //
 // Returns demographics for ads or campaigns.
 //
-// https://vk.com/dev/ads.getDemographics
+// https://dev.vk.com/method/ads.getDemographics
 type AdsGetDemographicsBuilder struct {
 	api.Params
 }
@@ -708,7 +708,7 @@ func (b *AdsGetDemographicsBuilder) DateTo(v string) *AdsGetDemographicsBuilder 
 // Returns information about current state of a counter — number of remaining runs of methods and time to the next
 // counter nulling in seconds.
 //
-// https://vk.com/dev/ads.getFloodStats
+// https://dev.vk.com/method/ads.getFloodStats
 type AdsGetFloodStatsBuilder struct {
 	api.Params
 }
@@ -728,7 +728,7 @@ func (b *AdsGetFloodStatsBuilder) AccountID(v int) *AdsGetFloodStatsBuilder {
 
 // AdsGetMusiciansBuilder builder.
 //
-// https://vk.com/dev/ads.getMusicians
+// https://dev.vk.com/method/ads.getMusicians
 type AdsGetMusiciansBuilder struct {
 	api.Params
 }
@@ -748,7 +748,7 @@ func (b *AdsGetMusiciansBuilder) ArtistName(v string) *AdsGetMusiciansBuilder {
 //
 // Returns a list of managers and supervisors of advertising account.
 //
-// https://vk.com/dev/ads.getOfficeUsers
+// https://dev.vk.com/method/ads.getOfficeUsers
 type AdsGetOfficeUsersBuilder struct {
 	api.Params
 }
@@ -768,7 +768,7 @@ func (b *AdsGetOfficeUsersBuilder) AccountID(v int) *AdsGetOfficeUsersBuilder {
 //
 // Returns detailed statistics of promoted posts reach from campaigns and ads.
 //
-// https://vk.com/dev/ads.getPostsReach
+// https://dev.vk.com/method/ads.getPostsReach
 type AdsGetPostsReachBuilder struct {
 	api.Params
 }
@@ -805,7 +805,7 @@ func (b *AdsGetPostsReachBuilder) IDs(v string) *AdsGetPostsReachBuilder {
 //
 // Returns a reason of ad rejection for pre-moderation.
 //
-// https://vk.com/dev/ads.getRejectionReason
+// https://dev.vk.com/method/ads.getRejectionReason
 type AdsGetRejectionReasonBuilder struct {
 	api.Params
 }
@@ -831,7 +831,7 @@ func (b *AdsGetRejectionReasonBuilder) AdID(v int) *AdsGetRejectionReasonBuilder
 //
 // Returns statistics of performance indicators for ads, campaigns, clients or the whole account.
 //
-// https://vk.com/dev/ads.getStatistics
+// https://dev.vk.com/method/ads.getStatistics
 type AdsGetStatisticsBuilder struct {
 	api.Params
 }
@@ -916,7 +916,7 @@ func (b *AdsGetStatisticsBuilder) DateTo(v string) *AdsGetStatisticsBuilder {
 //
 // Returns a set of auto-suggestions for various targeting parameters.
 //
-// https://vk.com/dev/ads.getSuggestions
+// https://dev.vk.com/method/ads.getSuggestions
 type AdsGetSuggestionsBuilder struct {
 	api.Params
 }
@@ -997,7 +997,7 @@ func (b *AdsGetSuggestionsBuilder) Lang(v string) *AdsGetSuggestionsBuilder {
 //
 // Returns a list of target groups.
 //
-// https://vk.com/dev/ads.getTargetGroups
+// https://dev.vk.com/method/ads.getTargetGroups
 type AdsGetTargetGroupsBuilder struct {
 	api.Params
 }
@@ -1032,7 +1032,7 @@ func (b *AdsGetTargetGroupsBuilder) Extended(v bool) *AdsGetTargetGroupsBuilder 
 //
 // Returns the size of targeting audience, and also recommended values for CPC and CPM.
 //
-// https://vk.com/dev/ads.getTargetingStats
+// https://dev.vk.com/method/ads.getTargetingStats
 type AdsGetTargetingStatsBuilder struct {
 	api.Params
 }
@@ -1133,7 +1133,7 @@ func (b *AdsGetTargetingStatsBuilder) LinkDomain(v string) *AdsGetTargetingStats
 //
 // Returns URL to upload an ad photo to.
 //
-// https://vk.com/dev/ads.getUploadURL
+// https://dev.vk.com/method/ads.getUploadURL
 type AdsGetUploadURLBuilder struct {
 	api.Params
 }
@@ -1169,7 +1169,7 @@ func (b *AdsGetUploadURLBuilder) Icon(v int) *AdsGetUploadURLBuilder {
 //
 // Imports a list of advertiser's contacts to count VK registered users against the target group.
 //
-// https://vk.com/dev/ads.importTargetContacts
+// https://dev.vk.com/method/ads.importTargetContacts
 type AdsImportTargetContactsBuilder struct {
 	api.Params
 }
@@ -1208,7 +1208,7 @@ func (b *AdsImportTargetContactsBuilder) Contacts(v string) *AdsImportTargetCont
 //
 // Removes managers and/or supervisors from advertising account.
 //
-// https://vk.com/dev/ads.removeOfficeUsers
+// https://dev.vk.com/method/ads.removeOfficeUsers
 type AdsRemoveOfficeUsersBuilder struct {
 	api.Params
 }
@@ -1234,7 +1234,7 @@ func (b *AdsRemoveOfficeUsersBuilder) IDs(v string) *AdsRemoveOfficeUsersBuilder
 //
 // Edits ads.
 //
-// https://vk.com/dev/ads.updateAds
+// https://dev.vk.com/method/ads.updateAds
 type AdsUpdateAdsBuilder struct {
 	api.Params
 }
@@ -1261,7 +1261,7 @@ func (b *AdsUpdateAdsBuilder) Data(v string) *AdsUpdateAdsBuilder {
 //
 // Edits advertising campaigns.
 //
-// https://vk.com/dev/ads.updateCampaigns
+// https://dev.vk.com/method/ads.updateCampaigns
 type AdsUpdateCampaignsBuilder struct {
 	api.Params
 }
@@ -1288,7 +1288,7 @@ func (b *AdsUpdateCampaignsBuilder) Data(v string) *AdsUpdateCampaignsBuilder {
 //
 // Edits clients of an advertising agency.
 //
-// https://vk.com/dev/ads.updateClients
+// https://dev.vk.com/method/ads.updateClients
 type AdsUpdateClientsBuilder struct {
 	api.Params
 }
@@ -1315,7 +1315,7 @@ func (b *AdsUpdateClientsBuilder) Data(v string) *AdsUpdateClientsBuilder {
 //
 // Edits a retarget group.
 //
-// https://vk.com/dev/ads.updateTargetGroup
+// https://dev.vk.com/method/ads.updateTargetGroup
 type AdsUpdateTargetGroupBuilder struct {
 	api.Params
 }

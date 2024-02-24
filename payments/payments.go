@@ -1,14 +1,14 @@
 /*
 Package payments implements Payments API.
 
-Documentation: https://vk.com/dev/payments
+Documentation: https://dev.vk.com/ru/api/payments/getting-started
 
 With Payments API applications can sell virtual products to users or provide
 them with services using VK internal currency — votes.
 
 # Processing payment notifications
 
-Documentation: https://vk.com/dev/payments_callbacks
+Documentation: https://dev.vk.com/ru/api/payments/notifications/overview
 
 Notifications are sent by the payment system server to the callback URL
 indicated in app settings, according to HTTP or HTTPS protocol, depending on
@@ -57,7 +57,7 @@ time.
 
 # Test Mode
 
-Documentation: https://vk.com/dev/payments_testmode
+Documentation: https://dev.vk.com/ru/api/payments/getting-started
 
 Test mode allows for testing an app's functionality for buying goods and
 transferring votes without a real transfer of votes.
@@ -171,22 +171,22 @@ type NotificationType string
 const (
 	// For acquiring product information.
 	//
-	// https://vk.com/dev/payments_getitem
+	// https://dev.vk.com/ru/api/payments/notifications/get-item
 	GetItem NotificationType = "get_item"
 
 	// For changing the order’s status.
 	//
-	// https://vk.com/dev/payments_status
+	// https://dev.vk.com/ru/payments/notifications/order-status-change
 	OrderStatusChange NotificationType = "order_status_change"
 
 	// For receiving subscription information.
 	//
-	// https://vk.com/dev/payments_getsubscription
+	// https://dev.vk.com/ru/api/payments/notifications/get-subscription
 	GetSubscription NotificationType = "get_subscription"
 
 	// For changing a subscription’s status.
 	//
-	// https://vk.com/dev/payments_subscriptionstatus
+	// https://dev.vk.com/ru/api/payments/notifications/subscription-status-change
 	SubscriptionStatusChange NotificationType = "subscription_status_change"
 )
 
@@ -194,7 +194,7 @@ const (
 //
 // In test mode, the suffix '_test' is added to the notification_type parameter.
 //
-// See https://vk.com/dev/payments_testmode
+// See https://dev.vk.com/ru/api/payments/getting-started
 func (t NotificationType) Test() NotificationType {
 	return t + "_test"
 }
@@ -222,7 +222,7 @@ type Notification struct {
 // Errors 100-999 are specified by the app. Such errors always include an
 // error description.
 //
-// See https://vk.com/dev/payments_errors
+// See https://dev.vk.com/ru/api/payments/notifications/overview
 const (
 	// Common error.
 	//
@@ -269,7 +269,7 @@ const (
 // If the error is temporary, a notification will be resent after some time
 // and the user will wait for the process is completed.
 //
-// See https://vk.com/dev/payments_errors
+// See https://dev.vk.com/ru/api/payments/notifications/overview
 type Error struct {
 	// Numerical code error
 	Code int `json:"error_code"`
@@ -396,7 +396,7 @@ type GetItemResponse struct {
 // expiration period, following requests for such product will not be run
 // within the given time.
 //
-// See https://vk.com/dev/payments_getitem
+// See https://dev.vk.com/ru/api/payments/notifications/get-item
 func (cb *Callback) OnGetItem(f func(e GetItemRequest) (*GetItemResponse, *Error)) {
 	cb.getItem = f
 }
@@ -451,7 +451,7 @@ type OrderStatusChangeRequest struct {
 
 	// Cost in application currency.
 	//
-	// See https://vk.com/dev/payments_offers
+	// See https://dev.vk.com/ru/api/payments/getting-started
 	ItemCurrencyAmount string `schema:"item_currency_amount"`
 
 	// Product discount.
@@ -486,7 +486,7 @@ type OrderStatusChangeResponse struct {
 // new order, you just send the same reply as before (by keeping order_id and
 // checking whether such notification was received).
 //
-// See https://vk.com/dev/payments_status
+// See https://dev.vk.com/ru/payments/notifications/order-status-change
 func (cb *Callback) OnOrderStatusChange(f func(e OrderStatusChangeRequest) (*OrderStatusChangeResponse, *Error)) {
 	cb.orderStatusChange = f
 }
@@ -565,7 +565,7 @@ type GetSubscriptionResponse struct {
 // OnGetSubscription is sent when a subscription dialog window is opened via
 // application.
 //
-// See https://vk.com/dev/payments_getsubscription
+// See https://dev.vk.com/ru/api/payments/notifications/get-subscription
 func (cb *Callback) OnGetSubscription(f func(e GetSubscriptionRequest) (*GetSubscriptionResponse, *Error)) {
 	cb.getSubscription = f
 }
@@ -644,7 +644,7 @@ type SubscriptionStatusChangeResponse struct {
 // existing subscription is the one renewed, and there is no need to create a
 // new one.
 //
-// See https://vk.com/dev/payments_subscriptionstatus
+// See https://dev.vk.com/ru/api/payments/notifications/subscription-status-change
 func (cb *Callback) OnSubscriptionStatusChange(f func(e SubscriptionStatusChangeRequest) (
 	*SubscriptionStatusChangeResponse,
 	*Error,

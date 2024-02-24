@@ -6,7 +6,7 @@ import (
 
 // AppsAddUsersToTestingGroupBuilder builder.
 //
-// https://vk.com/dev/apps.addUsersToTestingGroup
+// https://dev.vk.com/method/apps.addUsersToTestingGroup
 type AppsAddUsersToTestingGroupBuilder struct {
 	api.Params
 }
@@ -32,7 +32,7 @@ func (b *AppsAddUsersToTestingGroupBuilder) GroupID(v int) *AppsAddUsersToTestin
 //
 // Returns applications data.
 //
-// https://vk.com/dev/apps.get
+// https://dev.vk.com/method/apps.get
 type AppsGetBuilder struct {
 	api.Params
 }
@@ -154,7 +154,7 @@ func (b *AppsGetBuilder) NameCase(v string) *AppsGetBuilder {
 //
 // Returns a list of applications (apps) available to users in the App Catalog.
 //
-// https://vk.com/dev/apps.getCatalog
+// https://dev.vk.com/method/apps.getCatalog
 type AppsGetCatalogBuilder struct {
 	api.Params
 }
@@ -249,7 +249,7 @@ func (b *AppsGetCatalogBuilder) Filter(v string) *AppsGetCatalogBuilder {
 //
 // Creates friends list for requests and invites in current app.
 //
-// https://vk.com/dev/apps.getFriendsList
+// https://dev.vk.com/method/apps.getFriendsList
 type AppsGetFriendsListBuilder struct {
 	api.Params
 }
@@ -299,7 +299,7 @@ func (b *AppsGetFriendsListBuilder) Fields(v []string) *AppsGetFriendsListBuilde
 //
 // Returns players rating in the game.
 //
-// https://vk.com/dev/apps.getLeaderboard
+// https://dev.vk.com/method/apps.getLeaderboard
 type AppsGetLeaderboardBuilder struct {
 	api.Params
 }
@@ -341,7 +341,7 @@ func (b *AppsGetLeaderboardBuilder) Extended(v bool) *AppsGetLeaderboardBuilder 
 //
 // Returns scopes for auth.
 //
-// https://vk.com/dev/apps.getScopes
+// https://dev.vk.com/method/apps.getScopes
 type AppsGetScopesBuilder struct {
 	api.Params
 }
@@ -361,7 +361,7 @@ func (b *AppsGetScopesBuilder) Type(v string) *AppsGetScopesBuilder {
 //
 // Returns user score in app.
 //
-// https://vk.com/dev/apps.getScore
+// https://dev.vk.com/method/apps.getScore
 type AppsGetScoreBuilder struct {
 	api.Params
 }
@@ -379,7 +379,7 @@ func (b *AppsGetScoreBuilder) UserID(v int) *AppsGetScoreBuilder {
 
 // AppsGetTestingGroupsBuilder builder.
 //
-// https://vk.com/dev/apps.getTestingGroups
+// https://dev.vk.com/method/apps.getTestingGroups
 type AppsGetTestingGroupsBuilder struct {
 	api.Params
 }
@@ -397,7 +397,7 @@ func (b *AppsGetTestingGroupsBuilder) GroupID(v int) *AppsGetTestingGroupsBuilde
 
 // AppsRemoveUsersFromTestingGroupsBuilder builder.
 //
-// https://vk.com/dev/apps.removeUsersFromTestingGroups
+// https://dev.vk.com/method/apps.removeUsersFromTestingGroups
 type AppsRemoveUsersFromTestingGroupsBuilder struct {
 	api.Params
 }
@@ -415,7 +415,7 @@ func (b *AppsRemoveUsersFromTestingGroupsBuilder) UserIDs(v []int) *AppsRemoveUs
 
 // AppsRemoveTestingGroupBuilder builder.
 //
-// https://vk.com/dev/apps.removeTestingGroup
+// https://dev.vk.com/method/apps.removeTestingGroup
 type AppsRemoveTestingGroupBuilder struct {
 	api.Params
 }
@@ -435,7 +435,7 @@ func (b *AppsRemoveTestingGroupBuilder) GroupID(v int) *AppsRemoveTestingGroupBu
 //
 // Sends a request to another user in an app that uses VK authorization.
 //
-// https://vk.com/dev/apps.sendRequest
+// https://dev.vk.com/method/apps.sendRequest
 type AppsSendRequestBuilder struct {
 	api.Params
 }
@@ -487,7 +487,7 @@ func (b *AppsSendRequestBuilder) Separate(v bool) *AppsSendRequestBuilder {
 
 // AppsUpdateMetaForTestingGroupBuilder builder.
 //
-// https://vk.com/dev/apps.UpdateMetaForTestingGroup
+// https://dev.vk.com/method/apps.UpdateMetaForTestingGroup
 type AppsUpdateMetaForTestingGroupBuilder struct {
 	api.Params
 }

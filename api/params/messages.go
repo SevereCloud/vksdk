@@ -8,7 +8,7 @@ import (
 //
 // Adds a new user to a chat.
 //
-// https://vk.com/dev/messages.addChatUser
+// https://dev.vk.com/method/messages.addChatUser
 type MessagesAddChatUserBuilder struct {
 	api.Params
 }
@@ -34,7 +34,7 @@ func (b *MessagesAddChatUserBuilder) UserID(v int) *MessagesAddChatUserBuilder {
 //
 // Allows sending messages from community to the current user.
 //
-// https://vk.com/dev/messages.allowMessagesFromGroup
+// https://dev.vk.com/method/messages.allowMessagesFromGroup
 type MessagesAllowMessagesFromGroupBuilder struct {
 	api.Params
 }
@@ -60,7 +60,7 @@ func (b *MessagesAllowMessagesFromGroupBuilder) Key(v string) *MessagesAllowMess
 //
 // Creates a chat with several participants.
 //
-// https://vk.com/dev/messages.createChat
+// https://dev.vk.com/method/messages.createChat
 type MessagesCreateChatBuilder struct {
 	api.Params
 }
@@ -86,7 +86,7 @@ func (b *MessagesCreateChatBuilder) Title(v string) *MessagesCreateChatBuilder {
 //
 // Deletes one or more messages.
 //
-// https://vk.com/dev/messages.delete
+// https://dev.vk.com/method/messages.delete
 type MessagesDeleteBuilder struct {
 	api.Params
 }
@@ -136,7 +136,7 @@ func (b *MessagesDeleteBuilder) DeleteForAll(v bool) *MessagesDeleteBuilder {
 //
 // Deletes a chat's cover picture.
 //
-// https://vk.com/dev/messages.deleteChatPhoto
+// https://dev.vk.com/method/messages.deleteChatPhoto
 type MessagesDeleteChatPhotoBuilder struct {
 	api.Params
 }
@@ -162,7 +162,7 @@ func (b *MessagesDeleteChatPhotoBuilder) GroupID(v int) *MessagesDeleteChatPhoto
 //
 // Deletes all private messages in a conversation.
 //
-// https://vk.com/dev/messages.deleteConversation
+// https://dev.vk.com/method/messages.deleteConversation
 type MessagesDeleteConversationBuilder struct {
 	api.Params
 }
@@ -196,7 +196,7 @@ func (b *MessagesDeleteConversationBuilder) GroupID(v int) *MessagesDeleteConver
 //
 // Denies sending message from community to the current user.
 //
-// https://vk.com/dev/messages.denyMessagesFromGroup
+// https://dev.vk.com/method/messages.denyMessagesFromGroup
 type MessagesDenyMessagesFromGroupBuilder struct {
 	api.Params
 }
@@ -216,7 +216,7 @@ func (b *MessagesDenyMessagesFromGroupBuilder) GroupID(v int) *MessagesDenyMessa
 //
 // Edits the message.
 //
-// https://vk.com/dev/messages.edit
+// https://dev.vk.com/method/messages.edit
 type MessagesEditBuilder struct {
 	api.Params
 }
@@ -288,14 +288,14 @@ func (b *MessagesEditBuilder) GroupID(v int) *MessagesEditBuilder {
 }
 
 // Keyboard parameter.
-// https://vk.com/dev/bots_docs_3
+// https://dev.vk.com/ru/api/bots/development/keyboard
 func (b *MessagesEditBuilder) Keyboard(v interface{}) *MessagesEditBuilder {
 	b.Params["keyboard"] = v
 	return b
 }
 
 // Template parameter.
-// https://vk.com/dev/bot_docs_templates
+// https://dev.vk.com/ru/api/bots/development/messages
 func (b *MessagesEditBuilder) Template(v interface{}) *MessagesEditBuilder {
 	b.Params["template"] = v
 	return b
@@ -317,7 +317,7 @@ func (b *MessagesEditBuilder) DontParseLinks(v bool) *MessagesEditBuilder {
 //
 // Edits the title of a chat.
 //
-// https://vk.com/dev/messages.editChat
+// https://dev.vk.com/method/messages.editChat
 type MessagesEditChatBuilder struct {
 	api.Params
 }
@@ -341,7 +341,7 @@ func (b *MessagesEditChatBuilder) Title(v string) *MessagesEditChatBuilder {
 
 // MessagesForceCallFinishBuilder builder.
 //
-// https://vk.com/dev/messages.forceCallFinish
+// https://dev.vk.com/method/messages.forceCallFinish
 type MessagesForceCallFinishBuilder struct {
 	api.Params
 }
@@ -361,7 +361,7 @@ func (b *MessagesForceCallFinishBuilder) CallID(v string) *MessagesForceCallFini
 //
 // Returns messages by their IDs within the conversation.
 //
-// https://vk.com/dev/messages.getByConversationMessageId
+// https://dev.vk.com/method/messages.getByConversationMessageId
 type MessagesGetByConversationMessageIDBuilder struct {
 	api.Params
 }
@@ -407,7 +407,7 @@ func (b *MessagesGetByConversationMessageIDBuilder) GroupID(v int) *MessagesGetB
 //
 // Returns messages by their IDs.
 //
-// https://vk.com/dev/messages.getById
+// https://dev.vk.com/method/messages.getById
 type MessagesGetByIDBuilder struct {
 	api.Params
 }
@@ -453,7 +453,7 @@ func (b *MessagesGetByIDBuilder) GroupID(v int) *MessagesGetByIDBuilder {
 
 // MessagesGetChatPreviewBuilder builder.
 //
-// https://vk.com/dev/messages.getChatPreview
+// https://dev.vk.com/method/messages.getChatPreview
 type MessagesGetChatPreviewBuilder struct {
 	api.Params
 }
@@ -485,7 +485,7 @@ func (b *MessagesGetChatPreviewBuilder) Fields(v []string) *MessagesGetChatPrevi
 //
 // Returns a list of IDs of users participating in a chat.
 //
-// https://vk.com/dev/messages.getConversationMembers
+// https://dev.vk.com/method/messages.getConversationMembers
 type MessagesGetConversationMembersBuilder struct {
 	api.Params
 }
@@ -517,7 +517,7 @@ func (b *MessagesGetConversationMembersBuilder) GroupID(v int) *MessagesGetConve
 //
 // Returns a list of the current user's conversations.
 //
-// https://vk.com/dev/messages.getConversations
+// https://dev.vk.com/method/messages.getConversations
 type MessagesGetConversationsBuilder struct {
 	api.Params
 }
@@ -576,7 +576,7 @@ func (b *MessagesGetConversationsBuilder) GroupID(v int) *MessagesGetConversatio
 //
 // Returns conversations by their IDs.
 //
-// https://vk.com/dev/messages.getConversationsById
+// https://dev.vk.com/method/messages.getConversationsById
 type MessagesGetConversationsByIDBuilder struct {
 	api.Params
 }
@@ -616,7 +616,7 @@ func (b *MessagesGetConversationsByIDBuilder) GroupID(v int) *MessagesGetConvers
 //
 // Returns message history for the specified user or group chat.
 //
-// https://vk.com/dev/messages.getHistory
+// https://dev.vk.com/method/messages.getHistory
 type MessagesGetHistoryBuilder struct {
 	api.Params
 }
@@ -685,7 +685,7 @@ func (b *MessagesGetHistoryBuilder) GroupID(v int) *MessagesGetHistoryBuilder {
 //
 // Returns media files from the dialog or group chat.
 //
-// https://vk.com/dev/messages.getHistoryAttachments
+// https://dev.vk.com/method/messages.getHistoryAttachments
 type MessagesGetHistoryAttachmentsBuilder struct {
 	api.Params
 }
@@ -753,7 +753,7 @@ func (b *MessagesGetHistoryAttachmentsBuilder) MaxForwardsLevel(v int) *Messages
 
 // MessagesGetIntentUsersBuilder builder.
 //
-// https://vk.com/dev/messages.getIntentUsers
+// https://dev.vk.com/method/messages.getIntentUsers
 type MessagesGetIntentUsersBuilder struct {
 	api.Params
 }
@@ -807,7 +807,7 @@ func (b *MessagesGetIntentUsersBuilder) Fields(v []string) *MessagesGetIntentUse
 
 // MessagesGetInviteLinkBuilder builder.
 //
-// https://vk.com/dev/messages.getInviteLink
+// https://dev.vk.com/method/messages.getInviteLink
 type MessagesGetInviteLinkBuilder struct {
 	api.Params
 }
@@ -840,7 +840,7 @@ func (b *MessagesGetInviteLinkBuilder) GroupID(v int) *MessagesGetInviteLinkBuil
 //
 // Returns a user's current status and date of last activity.
 //
-// https://vk.com/dev/messages.getLastActivity
+// https://dev.vk.com/method/messages.getLastActivity
 type MessagesGetLastActivityBuilder struct {
 	api.Params
 }
@@ -860,7 +860,7 @@ func (b *MessagesGetLastActivityBuilder) UserID(v int) *MessagesGetLastActivityB
 //
 // Returns updates in user's private messages.
 //
-// https://vk.com/dev/messages.getLongPollHistory
+// https://dev.vk.com/method/messages.getLongPollHistory
 type MessagesGetLongPollHistoryBuilder struct {
 	api.Params
 }
@@ -957,7 +957,7 @@ func (b *MessagesGetLongPollHistoryBuilder) Credentials(v bool) *MessagesGetLong
 //
 // Returns data required for connection to a Long Poll server.
 //
-// https://vk.com/dev/messages.getLongPollServer
+// https://dev.vk.com/method/messages.getLongPollServer
 type MessagesGetLongPollServerBuilder struct {
 	api.Params
 }
@@ -991,7 +991,7 @@ func (b *MessagesGetLongPollServerBuilder) LpVersion(v int) *MessagesGetLongPoll
 // Returns information whether sending messages from the community to
 // current user is allowed.
 //
-// https://vk.com/dev/messages.isMessagesFromGroupAllowed
+// https://dev.vk.com/method/messages.isMessagesFromGroupAllowed
 type MessagesIsMessagesFromGroupAllowedBuilder struct {
 	api.Params
 }
@@ -1015,7 +1015,7 @@ func (b *MessagesIsMessagesFromGroupAllowedBuilder) UserID(v int) *MessagesIsMes
 
 // MessagesJoinChatByInviteLinkBuilder builder.
 //
-// https://vk.com/dev/messages.joinChatByInviteLink
+// https://dev.vk.com/method/messages.joinChatByInviteLink
 type MessagesJoinChatByInviteLinkBuilder struct {
 	api.Params
 }
@@ -1035,7 +1035,7 @@ func (b *MessagesJoinChatByInviteLinkBuilder) Link(v string) *MessagesJoinChatBy
 //
 // Marks and unmarks conversations as unanswered.
 //
-// https://vk.com/dev/messages.markAsAnsweredConversation
+// https://dev.vk.com/method/messages.markAsAnsweredConversation
 type MessagesMarkAsAnsweredConversationBuilder struct {
 	api.Params
 }
@@ -1067,7 +1067,7 @@ func (b *MessagesMarkAsAnsweredConversationBuilder) GroupID(v int) *MessagesMark
 //
 // Marks and unmarks messages as important (starred).
 //
-// https://vk.com/dev/messages.markAsImportant
+// https://dev.vk.com/method/messages.markAsImportant
 type MessagesMarkAsImportantBuilder struct {
 	api.Params
 }
@@ -1093,7 +1093,7 @@ func (b *MessagesMarkAsImportantBuilder) Important(v int) *MessagesMarkAsImporta
 //
 // Marks and unmarks conversations as important.
 //
-// https://vk.com/dev/messages.markAsImportantConversation
+// https://dev.vk.com/method/messages.markAsImportantConversation
 type MessagesMarkAsImportantConversationBuilder struct {
 	api.Params
 }
@@ -1125,7 +1125,7 @@ func (b *MessagesMarkAsImportantConversationBuilder) GroupID(v int) *MessagesMar
 //
 // Marks messages as read.
 //
-// https://vk.com/dev/messages.markAsRead
+// https://dev.vk.com/method/messages.markAsRead
 type MessagesMarkAsReadBuilder struct {
 	api.Params
 }
@@ -1165,7 +1165,7 @@ func (b *MessagesMarkAsReadBuilder) GroupID(v int) *MessagesMarkAsReadBuilder {
 //
 // Pin a message.
 //
-// https://vk.com/dev/messages.pin
+// https://dev.vk.com/method/messages.pin
 type MessagesPinBuilder struct {
 	api.Params
 }
@@ -1200,7 +1200,7 @@ func (b *MessagesPinBuilder) ConversationMessageID(v int) *MessagesPinBuilder {
 // Allows the current user to leave a chat or, if the current user started the
 // chat, allows the user to remove another user from the chat.
 //
-// https://vk.com/dev/messages.removeChatUser
+// https://dev.vk.com/method/messages.removeChatUser
 type MessagesRemoveChatUserBuilder struct {
 	api.Params
 }
@@ -1232,7 +1232,7 @@ func (b *MessagesRemoveChatUserBuilder) MemberID(v int) *MessagesRemoveChatUserB
 //
 // Restores a deleted message.
 //
-// https://vk.com/dev/messages.restore
+// https://dev.vk.com/method/messages.restore
 type MessagesRestoreBuilder struct {
 	api.Params
 }
@@ -1259,7 +1259,7 @@ func (b *MessagesRestoreBuilder) GroupID(v int) *MessagesRestoreBuilder {
 // Returns a list of the current user's private messages that match search
 // criteria.
 //
-// https://vk.com/dev/messages.search
+// https://dev.vk.com/method/messages.search
 type MessagesSearchBuilder struct {
 	api.Params
 }
@@ -1334,7 +1334,7 @@ func (b *MessagesSearchBuilder) GroupID(v int) *MessagesSearchBuilder {
 // Returns a list of the current user's conversations that match search
 // criteria.
 //
-// https://vk.com/dev/messages.searchConversations
+// https://dev.vk.com/method/messages.searchConversations
 type MessagesSearchConversationsBuilder struct {
 	api.Params
 }
@@ -1378,7 +1378,7 @@ func (b *MessagesSearchConversationsBuilder) GroupID(v int) *MessagesSearchConve
 //
 // Sends a message.
 //
-// https://vk.com/dev/messages.send
+// https://dev.vk.com/method/messages.send
 type MessagesSendBuilder struct {
 	api.Params
 }
@@ -1496,14 +1496,14 @@ func (b *MessagesSendBuilder) GroupID(v int) *MessagesSendBuilder {
 }
 
 // Keyboard parameter.
-// https://vk.com/dev/bots_docs_3
+// https://dev.vk.com/ru/api/bots/development/keyboard
 func (b *MessagesSendBuilder) Keyboard(v interface{}) *MessagesSendBuilder {
 	b.Params["keyboard"] = v
 	return b
 }
 
 // Template parameter.
-// https://vk.com/dev/bot_docs_templates
+// https://dev.vk.com/ru/api/bots/development/messages
 func (b *MessagesSendBuilder) Template(v interface{}) *MessagesSendBuilder {
 	b.Params["template"] = v
 	return b
@@ -1516,7 +1516,7 @@ func (b *MessagesSendBuilder) Payload(v string) *MessagesSendBuilder {
 }
 
 // ContentSource parameter.
-// https://vk.com/dev/bots_docs_2
+// https://dev.vk.com/ru/api/bots/development/messages
 func (b *MessagesSendBuilder) ContentSource(v interface{}) *MessagesSendBuilder {
 	b.Params["content_source"] = v
 	return b
@@ -1560,7 +1560,7 @@ const (
 
 // Intent parameter.
 //
-// https://vk.com/dev/bots_docs_4
+// https://dev.vk.com/ru/api/bots/monetization/overview
 func (b *MessagesSendBuilder) Intent(v string) *MessagesSendBuilder {
 	b.Params["intent"] = v
 	return b
@@ -1578,7 +1578,7 @@ func (b *MessagesSendBuilder) SubscribeID(v int) *MessagesSendBuilder {
 //
 // Changes the status of a user as typing in a conversation.
 //
-// https://vk.com/dev/messages.sendMessageEventAnswer
+// https://dev.vk.com/method/messages.sendMessageEventAnswer
 type MessagesSendMessageEventAnswerBuilder struct {
 	api.Params
 }
@@ -1616,7 +1616,7 @@ func (b *MessagesSendMessageEventAnswerBuilder) EventData(v interface{}) *Messag
 //
 // Changes the status of a user as typing in a conversation.
 //
-// https://vk.com/dev/messages.setActivity
+// https://dev.vk.com/method/messages.setActivity
 type MessagesSetActivityBuilder struct {
 	api.Params
 }
@@ -1656,7 +1656,7 @@ func (b *MessagesSetActivityBuilder) GroupID(v int) *MessagesSetActivityBuilder 
 //
 // Sets a previously-uploaded picture as the cover picture of a chat.
 //
-// https://vk.com/dev/messages.setChatPhoto
+// https://dev.vk.com/method/messages.setChatPhoto
 type MessagesSetChatPhotoBuilder struct {
 	api.Params
 }
@@ -1676,7 +1676,7 @@ func (b *MessagesSetChatPhotoBuilder) File(v string) *MessagesSetChatPhotoBuilde
 
 // MessagesStartCallBuilder builder.
 //
-// https://vk.com/dev/messages.startCall
+// https://dev.vk.com/method/messages.startCall
 type MessagesStartCallBuilder struct {
 	api.Params
 }
@@ -1694,7 +1694,7 @@ func (b *MessagesStartCallBuilder) GroupID(v int) *MessagesStartCallBuilder {
 
 // MessagesUnpinBuilder builder.
 //
-// https://vk.com/dev/messages.unpin
+// https://dev.vk.com/method/messages.unpin
 type MessagesUnpinBuilder struct {
 	api.Params
 }

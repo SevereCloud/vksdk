@@ -8,7 +8,7 @@ import (
 //
 // Returns a list of notifications about other users' feedback to the current user's wall posts.
 //
-// https://vk.com/dev/notifications.get
+// https://dev.vk.com/method/notifications.get
 type NotificationsGetBuilder struct {
 	api.Params
 }
@@ -62,7 +62,7 @@ func (b *NotificationsGetBuilder) EndTime(v int) *NotificationsGetBuilder {
 
 // NotificationsSendMessageBuilder builder.
 //
-// https://vk.com/dev/notifications.sendMessage
+// https://dev.vk.com/method/notifications.sendMessage
 type NotificationsSendMessageBuilder struct {
 	api.Params
 }

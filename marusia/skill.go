@@ -6,7 +6,7 @@ Package marusia для создания скилла Маруси.
 а разработчики и владельцы бизнеса смогут сделать голосовой интерфейс для
 своих продуктов.
 
-Документация: https://vk.com/dev/marusia_skill_docs
+Документация: https://dev.vk.com/ru/marusia/getting-started
 
 # Регистрация приложения ВКонтакте
 
@@ -418,7 +418,7 @@ type Push struct {
 // Важно: в плейлисте могут содержаться объекты только с одинаковым
 // source_type, т.е не может быть плейлиста, состоящего из аудио из вк и получаемых по url.
 //
-// https://vk.com/dev/marusia_skill_docs11
+// https://dev.vk.com/ru/marusia/player
 type AudioPlayer struct {
 	// Номер начального аудио (нумерация с 0).
 	SeekTrack int `json:"seek_track,omitempty"`
@@ -593,7 +593,7 @@ func SpeakerAudioVKID(id string) string {
 // SpeakerAudio произносимый Марусей текст можно разнообразить звуковыми
 // эффектами, которые входят в её библиотеку звуков.
 //
-// Список звуков можно найти на странице https://vk.com/dev/marusia_skill_docs4
+// Список звуков можно найти на странице https://dev.vk.com/ru/marusia/sound
 func SpeakerAudio(name string) string {
 	return fmt.Sprintf(`<speaker audio=%s>`, strconv.Quote(name))
 }

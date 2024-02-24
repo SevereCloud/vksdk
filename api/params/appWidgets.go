@@ -8,7 +8,7 @@ import (
 //
 // Allows to update community app widget.
 //
-// https://vk.com/dev/appWidgets.update
+// https://dev.vk.com/method/appWidgets.update
 type AppWidgetsUpdateBuilder struct {
 	api.Params
 }

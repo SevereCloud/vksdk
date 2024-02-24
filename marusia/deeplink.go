@@ -9,7 +9,7 @@ import (
 
 // CreateDeepLink returns a link to go to the skill, as well as transfer data to your skill.
 //
-// See https://vk.com/dev/marusia_skill_docs15
+// See https://dev.vk.com/ru/marusia/deep-link
 func CreateDeepLink(marusiaID string, params map[string]string) string {
 	query := url.Values{}
 	query.Add("event_name", "external."+marusiaID+".start")

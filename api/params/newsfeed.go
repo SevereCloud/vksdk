@@ -8,7 +8,7 @@ import (
 //
 // Prevents news from specified users and communities from appearing in the current user's newsfeed.
 //
-// https://vk.com/dev/newsfeed.addBan
+// https://dev.vk.com/method/newsfeed.addBan
 type NewsfeedAddBanBuilder struct {
 	api.Params
 }
@@ -34,7 +34,7 @@ func (b *NewsfeedAddBanBuilder) GroupIDs(v []int) *NewsfeedAddBanBuilder {
 //
 // Allows news from previously banned users and communities to be shown in the current user's newsfeed.
 //
-// https://vk.com/dev/newsfeed.deleteBan
+// https://dev.vk.com/method/newsfeed.deleteBan
 type NewsfeedDeleteBanBuilder struct {
 	api.Params
 }
@@ -58,7 +58,7 @@ func (b *NewsfeedDeleteBanBuilder) GroupIDs(v []int) *NewsfeedDeleteBanBuilder {
 
 // NewsfeedDeleteListBuilder builder.
 //
-// https://vk.com/dev/newsfeed.deleteList
+// https://dev.vk.com/method/newsfeed.deleteList
 type NewsfeedDeleteListBuilder struct {
 	api.Params
 }
@@ -78,7 +78,7 @@ func (b *NewsfeedDeleteListBuilder) ListID(v int) *NewsfeedDeleteListBuilder {
 //
 // Returns data required to show newsfeed for the current user.
 //
-// https://vk.com/dev/newsfeed.get
+// https://dev.vk.com/method/newsfeed.get
 type NewsfeedGetBuilder struct {
 	api.Params
 }
@@ -171,7 +171,7 @@ func (b *NewsfeedGetBuilder) Section(v string) *NewsfeedGetBuilder {
 //
 // Returns a list of users and communities banned from the current user's newsfeed.
 //
-// https://vk.com/dev/newsfeed.getBanned
+// https://dev.vk.com/method/newsfeed.getBanned
 type NewsfeedGetBannedBuilder struct {
 	api.Params
 }
@@ -215,7 +215,7 @@ func (b *NewsfeedGetBannedBuilder) NameCase(v string) *NewsfeedGetBannedBuilder 
 //
 // Returns a list of comments in the current user's newsfeed.
 //
-// https://vk.com/dev/newsfeed.getComments
+// https://dev.vk.com/method/newsfeed.getComments
 type NewsfeedGetCommentsBuilder struct {
 	api.Params
 }
@@ -289,7 +289,7 @@ func (b *NewsfeedGetCommentsBuilder) Fields(v []string) *NewsfeedGetCommentsBuil
 //
 // Returns a list of newsfeeds followed by the current user.
 //
-// https://vk.com/dev/newsfeed.getLists
+// https://dev.vk.com/method/newsfeed.getLists
 type NewsfeedGetListsBuilder struct {
 	api.Params
 }
@@ -315,7 +315,7 @@ func (b *NewsfeedGetListsBuilder) Extended(v bool) *NewsfeedGetListsBuilder {
 //
 // Returns a list of posts on user walls in which the current user is mentioned.
 //
-// https://vk.com/dev/newsfeed.getMentions
+// https://dev.vk.com/method/newsfeed.getMentions
 type NewsfeedGetMentionsBuilder struct {
 	api.Params
 }
@@ -359,7 +359,7 @@ func (b *NewsfeedGetMentionsBuilder) Count(v int) *NewsfeedGetMentionsBuilder {
 //
 // Returns a list of newsfeeds recommended to the current user.
 //
-// https://vk.com/dev/newsfeed.getRecommended
+// https://dev.vk.com/method/newsfeed.getRecommended
 type NewsfeedGetRecommendedBuilder struct {
 	api.Params
 }
@@ -409,7 +409,7 @@ func (b *NewsfeedGetRecommendedBuilder) Fields(v []string) *NewsfeedGetRecommend
 //
 // Returns communities and users that current user is suggested to follow.
 //
-// https://vk.com/dev/newsfeed.getSuggestedSources
+// https://dev.vk.com/method/newsfeed.getSuggestedSources
 type NewsfeedGetSuggestedSourcesBuilder struct {
 	api.Params
 }
@@ -448,7 +448,7 @@ func (b *NewsfeedGetSuggestedSourcesBuilder) Fields(v []string) *NewsfeedGetSugg
 //
 // Hides an item from the newsfeed.
 //
-// https://vk.com/dev/newsfeed.ignoreItem
+// https://dev.vk.com/method/newsfeed.ignoreItem
 type NewsfeedIgnoreItemBuilder struct {
 	api.Params
 }
@@ -491,7 +491,7 @@ func (b *NewsfeedIgnoreItemBuilder) ItemID(v int) *NewsfeedIgnoreItemBuilder {
 //
 // Creates and edits user newsfeed lists.
 //
-// https://vk.com/dev/newsfeed.saveList
+// https://dev.vk.com/method/newsfeed.saveList
 type NewsfeedSaveListBuilder struct {
 	api.Params
 }
@@ -529,7 +529,7 @@ func (b *NewsfeedSaveListBuilder) NoReposts(v bool) *NewsfeedSaveListBuilder {
 //
 // Returns search results by statuses.
 //
-// https://vk.com/dev/newsfeed.search
+// https://dev.vk.com/method/newsfeed.search
 type NewsfeedSearchBuilder struct {
 	api.Params
 }
@@ -597,7 +597,7 @@ func (b *NewsfeedSearchBuilder) Fields(v []string) *NewsfeedSearchBuilder {
 //
 // Returns a hidden item to the newsfeed.
 //
-// https://vk.com/dev/newsfeed.unignoreItem
+// https://dev.vk.com/method/newsfeed.unignoreItem
 type NewsfeedUnignoreItemBuilder struct {
 	api.Params
 }
@@ -646,7 +646,7 @@ func (b *NewsfeedUnignoreItemBuilder) TrackCode(v string) *NewsfeedUnignoreItemB
 //
 // Unsubscribes the current user from specified newsfeeds.
 //
-// https://vk.com/dev/newsfeed.unsubscribe
+// https://dev.vk.com/method/newsfeed.unsubscribe
 type NewsfeedUnsubscribeBuilder struct {
 	api.Params
 }

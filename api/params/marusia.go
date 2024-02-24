@@ -6,7 +6,7 @@ import (
 
 // MarusiaSavePictureBuilder builder.
 //
-// https://vk.com/dev/marusia_skill_docs10
+// https://dev.vk.com/ru/marusia/media-api
 type MarusiaSavePictureBuilder struct {
 	api.Params
 }
@@ -36,7 +36,7 @@ func (b *MarusiaSavePictureBuilder) Hash(v string) *MarusiaSavePictureBuilder {
 
 // MarusiaDeletePictureBuilder builder.
 //
-// https://vk.com/dev/marusia_skill_docs10
+// https://dev.vk.com/ru/marusia/media-api
 type MarusiaDeletePictureBuilder struct {
 	api.Params
 }
@@ -54,7 +54,7 @@ func (b *MarusiaDeletePictureBuilder) ID(v int) *MarusiaDeletePictureBuilder {
 
 // MarusiaCreateAudioBuilder builder.
 //
-// https://vk.com/dev/marusia_skill_docs10
+// https://dev.vk.com/ru/marusia/media-api
 type MarusiaCreateAudioBuilder struct {
 	api.Params
 }
@@ -72,7 +72,7 @@ func (b *MarusiaCreateAudioBuilder) AudioMeta(v string) *MarusiaCreateAudioBuild
 
 // MarusiaDeleteAudioBuilder builder.
 //
-// https://vk.com/dev/marusia_skill_docs10
+// https://dev.vk.com/ru/marusia/media-api
 type MarusiaDeleteAudioBuilder struct {
 	api.Params
 }

@@ -1,7 +1,7 @@
 # Получение ключа доступа
 
 [![PkgGoDev][doc-badge]][doc]
-[![VK][dev-badge]](https://vk.com/dev/access_token)
+[![VK][dev-badge]](https://dev.vk.com/ru/api/access-token/getting-started)
 
 Для работы со всеми методами API Вам необходимо передавать в запросе
 **access_token** — специальный ключ доступа. Он представляет собой строку из
@@ -11,19 +11,19 @@
 ВКонтакте поддерживает несколько способов получения ключа доступа по OAuth 2.0:
 
 1. **Implicit flow** — требует встраивания браузера в ваше приложение.
-Ключ возвращается на устройство пользователя, где был открыт диалог авторизации
-(в виде дополнительного параметра URL). Такой ключ может быть использован
-только для запросов непосредственно с устройства пользователя.
+   Ключ возвращается на устройство пользователя, где был открыт диалог авторизации
+   (в виде дополнительного параметра URL). Такой ключ может быть использован
+   только для запросов непосредственно с устройства пользователя.
 
 2. **Authorization code flow** — двухэтапный вариант с дополнительной
-аутентификацией Вашего сервера. Ключ доступа возвращается непосредственно на
-сервер и может быть использован, например, для автоматизированных запросов.
+   аутентификацией Вашего сервера. Ключ доступа возвращается непосредственно на
+   сервер и может быть использован, например, для автоматизированных запросов.
 
 3. **Direct Authorization** — прямая авторизация используя логин и пароль.
 
 ## Права доступа приложения
 
-[![VK][dev-badge]](https://vk.com/dev/permissions)
+[![VK][dev-badge]](https://dev.vk.com/ru/reference/access-rights)
 
 Права доступа определяют возможность использования токена для работы с тем или
 иным разделом данных. Так, например, для отправки личного сообщения от имени
@@ -41,7 +41,7 @@ scope := oauth.ScopeUserFriends + oauth.ScopeUserStatus // 1026
 ```
 
 С помощью метода
-[account.getAppPermissions](https://vk.com/dev/account.getAppPermissions),
+[account.getAppPermissions](https://dev.vk.com/method/account.getAppPermissions),
 можно получить битовую маску настроек текущего пользователя в данном приложении.
 
 Если, имея битовую маску 1026, Вы хотите проверить, имеет ли она доступ к
@@ -62,7 +62,7 @@ if oauth.CheckScope(scope, oauth.ScopeUserFriends, oauth.ScopeUserStatus) {
 
 ### Authorization code flow
 
-[![VK][dev-badge]](https://vk.com/dev/authcode_flow_user)
+[![VK][dev-badge]](https://dev.vk.com/ru/api/access-token/authcode-flow-user)
 
 Используйте Authorization Code Flow для вызова методов API ВКонтакте с
 серверной части Вашего приложения. Ключ доступа, полученный таким способом, не
@@ -118,7 +118,7 @@ func callback(w http.ResponseWriter, req *http.Request) {
 
 ### Implicit flow
 
-[![VK][dev-badge]](https://vk.com/dev/implicit_flow_user)
+[![VK][dev-badge]](https://dev.vk.com/ru/api/access-token/implicit-flow-user)
 
 Используйте Implicit Flow для вызова методов API ВКонтакте непосредственно с
 устройства пользователя.
@@ -180,10 +180,9 @@ fmt.Printf(
 
 ### Direct Authorization
 
-[![VK][dev-badge]](https://vk.com/dev/auth_direct)
+[![VK][dev-badge]](https://dev.vk.com/ru/api/direct-auth)
 
-> **Внимание! Доступ к этому типу авторизации может быть получен только после**
-> **предварительного согласования с администрацией ВКонтакте.**
+> **Внимание! Доступ к этому типу авторизации может быть получен только после** > **предварительного согласования с администрацией ВКонтакте.**
 >
 > Для подачи заявки на получение доступа Вам необходимо обратиться в службу
 > поддержки, указав ID Вашего приложения.
@@ -280,7 +279,7 @@ fmt.Printf(
 авторизации.
 
 Получите ключ доступа пользователя с правами `scope=groups` и сделайте запрос к
-методу [groups.get](https://vk.com/dev/groups.get) с параметром `filter=admin`,
+методу [groups.get](https://dev.vk.com/method/groups.get) с параметром `filter=admin`,
 чтобы получить список идентификаторов администрируемых сообществ.
 
 Затем используйте все полученные значения или их часть в качестве параметра
@@ -288,7 +287,7 @@ fmt.Printf(
 
 ### Authorization code flow
 
-[![VK][dev-badge]](https://vk.com/dev/authcode_flow_group)
+[![VK][dev-badge]](https://dev.vk.com/ru/api/access-token/authcode-flow-community)
 
 Используйте Authorization Code Flow для вызова методов API ВКонтакте с серверной
 части Вашего приложения. Ключ доступа, полученный таким способом, не привязан к
@@ -340,7 +339,7 @@ func callback(w http.ResponseWriter, req *http.Request) {
 
 ### Implicit flow
 
-[![VK][dev-badge]](https://vk.com/dev/implicit_flow_group)
+[![VK][dev-badge]](https://dev.vk.com/ru/api/access-token/implicit-flow-community)
 
 Используйте Implicit Flow для вызова методов API ВКонтакте непосредственно с
 устройства пользователя.
@@ -424,7 +423,7 @@ for _, groupToken := range t.Groups {
 [doc-badge]: https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/api/oauth
 [doc]: https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api/oauth
 [dev-badge]: https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white
-[users.get]: https://vk.com/dev/users.get
-[secure.addAppEvent]: https://vk.com/dev/secure.addAppEvent
-[secure.sendNotification]: https://vk.com/dev/secure.sendNotification
+[users.get]: https://dev.vk.com/method/users.get
+[secure.addAppEvent]: https://dev.vk.com/method/secure.addAppEvent
+[secure.sendNotification]: https://dev.vk.com/method/secure.sendNotification
 [appsmanage]: https://vk.com/apps?act=manage

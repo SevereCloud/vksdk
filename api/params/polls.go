@@ -8,7 +8,7 @@ import (
 //
 // Adds the current user's vote to the selected answer in the poll.
 //
-// https://vk.com/dev/polls.addVote
+// https://dev.vk.com/method/polls.addVote
 type PollsAddVoteBuilder struct {
 	api.Params
 }
@@ -46,7 +46,7 @@ func (b *PollsAddVoteBuilder) IsBoard(v bool) *PollsAddVoteBuilder {
 //
 // Creates polls that can be attached to the users' or communities' posts.
 //
-// https://vk.com/dev/polls.create
+// https://dev.vk.com/method/polls.create
 type PollsCreateBuilder struct {
 	api.Params
 }
@@ -110,7 +110,7 @@ func (b *PollsCreateBuilder) BackgroundID(v string) *PollsCreateBuilder {
 //
 // Deletes the current user's vote from the selected answer in the poll.
 //
-// https://vk.com/dev/polls.deleteVote
+// https://dev.vk.com/method/polls.deleteVote
 type PollsDeleteVoteBuilder struct {
 	api.Params
 }
@@ -148,7 +148,7 @@ func (b *PollsDeleteVoteBuilder) IsBoard(v bool) *PollsDeleteVoteBuilder {
 //
 // Edits created polls.
 //
-// https://vk.com/dev/polls.edit
+// https://dev.vk.com/method/polls.edit
 type PollsEditBuilder struct {
 	api.Params
 }
@@ -217,7 +217,7 @@ func (b *PollsEditBuilder) BackgroundID(v string) *PollsEditBuilder {
 //
 // Returns detailed information about a poll by its ID.
 //
-// https://vk.com/dev/polls.getById
+// https://dev.vk.com/method/polls.getById
 type PollsGetByIDBuilder struct {
 	api.Params
 }
@@ -273,7 +273,7 @@ func (b *PollsGetByIDBuilder) NameCase(v string) *PollsGetByIDBuilder {
 //
 // Returns a list of IDs of users who selected specific answers in the poll.
 //
-// https://vk.com/dev/polls.getVoters
+// https://dev.vk.com/method/polls.getVoters
 type PollsGetVotersBuilder struct {
 	api.Params
 }

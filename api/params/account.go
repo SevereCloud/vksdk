@@ -6,7 +6,7 @@ import (
 
 // AccountBanBuilder builder.
 //
-// https://vk.com/dev/account.ban
+// https://dev.vk.com/method/account.ban
 type AccountBanBuilder struct {
 	api.Params
 }
@@ -26,7 +26,7 @@ func (b *AccountBanBuilder) OwnerID(v int) *AccountBanBuilder {
 //
 // Changes a user password after access is successfully restored with the [vk.com/dev/auth.restore|auth.restore] method.
 //
-// https://vk.com/dev/account.changePassword
+// https://dev.vk.com/method/account.changePassword
 type AccountChangePasswordBuilder struct {
 	api.Params
 }
@@ -67,7 +67,7 @@ func (b *AccountChangePasswordBuilder) NewPassword(v string) *AccountChangePassw
 // Returns a list of active ads (offers) which executed by the user will bring him/her respective number of votes to
 // his balance in the application.
 //
-// https://vk.com/dev/account.getActiveOffers
+// https://dev.vk.com/method/account.getActiveOffers
 type AccountGetActiveOffersBuilder struct {
 	api.Params
 }
@@ -93,7 +93,7 @@ func (b *AccountGetActiveOffersBuilder) Count(v int) *AccountGetActiveOffersBuil
 //
 // Gets settings of the user in this application.
 //
-// https://vk.com/dev/account.getAppPermissions
+// https://dev.vk.com/method/account.getAppPermissions
 type AccountGetAppPermissionsBuilder struct {
 	api.Params
 }
@@ -113,7 +113,7 @@ func (b *AccountGetAppPermissionsBuilder) UserID(v int) *AccountGetAppPermission
 //
 // Returns a user's blacklist.
 //
-// https://vk.com/dev/account.getBanned
+// https://dev.vk.com/method/account.getBanned
 type AccountGetBannedBuilder struct {
 	api.Params
 }
@@ -139,7 +139,7 @@ func (b *AccountGetBannedBuilder) Count(v int) *AccountGetBannedBuilder {
 //
 // Returns non-null values of user counters.
 //
-// https://vk.com/dev/account.getCounters
+// https://dev.vk.com/method/account.getCounters
 type AccountGetCountersBuilder struct {
 	api.Params
 }
@@ -165,7 +165,7 @@ func (b *AccountGetCountersBuilder) UserID(v int) *AccountGetCountersBuilder {
 //
 // Returns current account info.
 //
-// https://vk.com/dev/account.getInfo
+// https://dev.vk.com/method/account.getInfo
 type AccountGetInfoBuilder struct {
 	api.Params
 }
@@ -187,7 +187,7 @@ func (b *AccountGetInfoBuilder) Fields(v []string) *AccountGetInfoBuilder {
 //
 // Gets settings of push notifications.
 //
-// https://vk.com/dev/account.getPushSettings
+// https://dev.vk.com/method/account.getPushSettings
 type AccountGetPushSettingsBuilder struct {
 	api.Params
 }
@@ -207,7 +207,7 @@ func (b *AccountGetPushSettingsBuilder) DeviceID(v string) *AccountGetPushSettin
 //
 // Subscribes an iOS/Android/Windows Phone-based device to receive push notifications.
 //
-// https://vk.com/dev/account.registerDevice
+// https://dev.vk.com/method/account.registerDevice
 type AccountRegisterDeviceBuilder struct {
 	api.Params
 }
@@ -263,7 +263,7 @@ func (b *AccountRegisterDeviceBuilder) Sandbox(v bool) *AccountRegisterDeviceBui
 //
 // Edits current profile info.
 //
-// https://vk.com/dev/account.saveProfileInfo
+// https://dev.vk.com/method/account.saveProfileInfo
 type AccountSaveProfileInfoBuilder struct {
 	api.Params
 }
@@ -387,7 +387,7 @@ func (b *AccountSaveProfileInfoBuilder) Status(v string) *AccountSaveProfileInfo
 //
 // Allows to edit the current account info.
 //
-// https://vk.com/dev/account.setInfo
+// https://dev.vk.com/method/account.setInfo
 type AccountSetInfoBuilder struct {
 	api.Params
 }
@@ -413,7 +413,7 @@ func (b *AccountSetInfoBuilder) Value(v string) *AccountSetInfoBuilder {
 //
 // Sets an application screen name (up to 17 characters), that is shown to the user in the left menu.
 //
-// https://vk.com/dev/account.setNameInMenu
+// https://dev.vk.com/method/account.setNameInMenu
 type AccountSetNameInMenuBuilder struct {
 	api.Params
 }
@@ -439,7 +439,7 @@ func (b *AccountSetNameInMenuBuilder) Name(v string) *AccountSetNameInMenuBuilde
 //
 // Marks the current user as online for 15 minutes.
 //
-// https://vk.com/dev/account.setOnline
+// https://dev.vk.com/method/account.setOnline
 type AccountSetOnlineBuilder struct {
 	api.Params
 }
@@ -459,7 +459,7 @@ func (b *AccountSetOnlineBuilder) Voip(v bool) *AccountSetOnlineBuilder {
 //
 // Change push settings.
 //
-// https://vk.com/dev/account.setPushSettings
+// https://dev.vk.com/method/account.setPushSettings
 type AccountSetPushSettingsBuilder struct {
 	api.Params
 }
@@ -497,7 +497,7 @@ func (b *AccountSetPushSettingsBuilder) Value(v []string) *AccountSetPushSetting
 //
 // Mutes push notifications for the set period of time.
 //
-// https://vk.com/dev/account.setSilenceMode
+// https://dev.vk.com/method/account.setSilenceMode
 type AccountSetSilenceModeBuilder struct {
 	api.Params
 }
@@ -539,7 +539,7 @@ func (b *AccountSetSilenceModeBuilder) Sound(v int) *AccountSetSilenceModeBuilde
 
 // AccountUnbanBuilder builder.
 //
-// https://vk.com/dev/account.unban
+// https://dev.vk.com/method/account.unban
 type AccountUnbanBuilder struct {
 	api.Params
 }
@@ -559,7 +559,7 @@ func (b *AccountUnbanBuilder) OwnerID(v int) *AccountUnbanBuilder {
 //
 // Unsubscribes a device from push notifications.
 //
-// https://vk.com/dev/account.unregisterDevice
+// https://dev.vk.com/method/account.unregisterDevice
 type AccountUnregisterDeviceBuilder struct {
 	api.Params
 }

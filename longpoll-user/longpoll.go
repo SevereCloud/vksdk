@@ -48,7 +48,7 @@ Wrapper for v3 https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-user/
 
 TODO: write about lp.Run() and lp.Shutdown()
 
-VK documentation https://vk.com/dev/using_longpoll
+VK documentation https://dev.vk.com/ru/api/user-long-poll/getting-started
 */
 package longpoll // import "github.com/SevereCloud/vksdk/v2/longpoll-user"
 

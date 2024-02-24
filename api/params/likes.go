@@ -8,7 +8,7 @@ import (
 //
 // Adds the specified object to the 'Likes' list of the current user.
 //
-// https://vk.com/dev/likes.add
+// https://dev.vk.com/method/likes.add
 type LikesAddBuilder struct {
 	api.Params
 }
@@ -72,7 +72,7 @@ func (b *LikesAddBuilder) AccessKey(v string) *LikesAddBuilder {
 //
 // Deletes the specified object from the 'Likes' list of the current user.
 //
-// https://vk.com/dev/likes.delete
+// https://dev.vk.com/method/likes.delete
 type LikesDeleteBuilder struct {
 	api.Params
 }
@@ -124,7 +124,7 @@ func (b *LikesDeleteBuilder) ItemID(v int) *LikesDeleteBuilder {
 //
 // Returns a list of IDs of users who added the specified object to their 'Likes' list.
 //
-// https://vk.com/dev/likes.getList
+// https://dev.vk.com/method/likes.getList
 type LikesGetListBuilder struct {
 	api.Params
 }
@@ -236,7 +236,7 @@ func (b *LikesGetListBuilder) SkipOwn(v bool) *LikesGetListBuilder {
 //
 // Checks for the object in the 'Likes' list of the specified user.
 //
-// https://vk.com/dev/likes.isLiked
+// https://dev.vk.com/method/likes.isLiked
 type LikesIsLikedBuilder struct {
 	api.Params
 }

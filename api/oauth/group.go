@@ -132,7 +132,7 @@ func (p GroupParams) Values() *url.Values {
 // ImplicitFlowGroup need to run methods directly from users devices. Access
 // token received this way can not be used for server requests.
 //
-// https://vk.com/dev/implicit_flow_group
+// https://dev.vk.com/ru/api/access-token/implicit-flow-community
 func ImplicitFlowGroup(p GroupParams) *url.URL {
 	q := p.Values()
 	q.Set("response_type", "token")
@@ -150,7 +150,7 @@ func ImplicitFlowGroup(p GroupParams) *url.URL {
 // AuthCodeFlowGroup need to run VK API methods from the server side of an
 // application. Access token received this way is not bound to an ip address.
 //
-// https://vk.com/dev/authcode_flow_group
+// https://dev.vk.com/ru/api/access-token/authcode-flow-community
 type AuthCodeFlowGroup struct {
 	params       GroupParams
 	clientSecret string

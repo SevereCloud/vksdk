@@ -121,7 +121,7 @@ type LongPollAttachments map[string]interface{}
 
 // ExtraFields for a message object.
 //
-// https://vk.com/dev/using_longpoll_3, point 3.1
+// https://dev.vk.com/ru/api/user-long-poll/getting-started_3, point 3.1
 type ExtraFields struct {
 	PeerID         int       // destination ID
 	Timestamp      time.Time // message sent time

@@ -8,7 +8,7 @@ import (
 //
 // Ads a new item to the market.
 //
-// https://vk.com/dev/market.add
+// https://dev.vk.com/method/market.add
 type MarketAddBuilder struct {
 	api.Params
 }
@@ -82,7 +82,7 @@ func (b *MarketAddBuilder) URL(v string) *MarketAddBuilder {
 //
 // Creates new collection of items.
 //
-// https://vk.com/dev/market.addAlbum
+// https://dev.vk.com/method/market.addAlbum
 type MarketAddAlbumBuilder struct {
 	api.Params
 }
@@ -126,7 +126,7 @@ func (b *MarketAddAlbumBuilder) IsHidden(v bool) *MarketAddAlbumBuilder {
 //
 // Adds an item to one or multiple collections.
 //
-// https://vk.com/dev/market.addToAlbum
+// https://dev.vk.com/method/market.addToAlbum
 type MarketAddToAlbumBuilder struct {
 	api.Params
 }
@@ -164,7 +164,7 @@ func (b *MarketAddToAlbumBuilder) AlbumIDs(v []int) *MarketAddToAlbumBuilder {
 //
 // Creates a new comment for an item.
 //
-// https://vk.com/dev/market.createComment
+// https://dev.vk.com/method/market.createComment
 type MarketCreateCommentBuilder struct {
 	api.Params
 }
@@ -230,7 +230,7 @@ func (b *MarketCreateCommentBuilder) GUID(v string) *MarketCreateCommentBuilder 
 //
 // Deletes an item.
 //
-// https://vk.com/dev/market.delete
+// https://dev.vk.com/method/market.delete
 type MarketDeleteBuilder struct {
 	api.Params
 }
@@ -256,7 +256,7 @@ func (b *MarketDeleteBuilder) ItemID(v int) *MarketDeleteBuilder {
 //
 // Deletes a collection of items.
 //
-// https://vk.com/dev/market.deleteAlbum
+// https://dev.vk.com/method/market.deleteAlbum
 type MarketDeleteAlbumBuilder struct {
 	api.Params
 }
@@ -282,7 +282,7 @@ func (b *MarketDeleteAlbumBuilder) AlbumID(v int) *MarketDeleteAlbumBuilder {
 //
 // Deletes an item's comment.
 //
-// https://vk.com/dev/market.deleteComment
+// https://dev.vk.com/method/market.deleteComment
 type MarketDeleteCommentBuilder struct {
 	api.Params
 }
@@ -310,7 +310,7 @@ func (b *MarketDeleteCommentBuilder) CommentID(v int) *MarketDeleteCommentBuilde
 //
 // Edits an item.
 //
-// https://vk.com/dev/market.edit
+// https://dev.vk.com/method/market.edit
 type MarketEditBuilder struct {
 	api.Params
 }
@@ -384,7 +384,7 @@ func (b *MarketEditBuilder) URL(v string) *MarketEditBuilder {
 //
 // Edits a collection of items.
 //
-// https://vk.com/dev/market.editAlbum
+// https://dev.vk.com/method/market.editAlbum
 type MarketEditAlbumBuilder struct {
 	api.Params
 }
@@ -434,7 +434,7 @@ func (b *MarketEditAlbumBuilder) IsHidden(v bool) *MarketEditAlbumBuilder {
 //
 // EditOrders an item.
 //
-// https://vk.com/dev/market.editOrder
+// https://dev.vk.com/method/market.editOrder
 type MarketEditOrderBuilder struct {
 	api.Params
 }
@@ -526,7 +526,7 @@ func (b *MarketEditOrderBuilder) ReceiptLink(v string) *MarketEditOrderBuilder {
 //
 // Changes item comment's text.
 //
-// https://vk.com/dev/market.editComment
+// https://dev.vk.com/method/market.editComment
 type MarketEditCommentBuilder struct {
 	api.Params
 }
@@ -568,7 +568,7 @@ func (b *MarketEditCommentBuilder) Attachments(v interface{}) *MarketEditComment
 //
 // Returns items list for a community.
 //
-// https://vk.com/dev/market.get
+// https://dev.vk.com/method/market.get
 type MarketGetBuilder struct {
 	api.Params
 }
@@ -630,7 +630,7 @@ func (b *MarketGetBuilder) WithDisabled(v bool) *MarketGetBuilder {
 //
 // Returns items album's data.
 //
-// https://vk.com/dev/market.getAlbumById
+// https://dev.vk.com/method/market.getAlbumById
 type MarketGetAlbumByIDBuilder struct {
 	api.Params
 }
@@ -663,7 +663,7 @@ func (b *MarketGetAlbumByIDBuilder) NeedAllItemIDs(v bool) *MarketGetAlbumByIDBu
 //
 // Returns community's collections list.
 //
-// https://vk.com/dev/market.getAlbums
+// https://dev.vk.com/method/market.getAlbums
 type MarketGetAlbumsBuilder struct {
 	api.Params
 }
@@ -695,7 +695,7 @@ func (b *MarketGetAlbumsBuilder) Count(v int) *MarketGetAlbumsBuilder {
 //
 // Returns information about market items by their ids.
 //
-// https://vk.com/dev/market.getById
+// https://dev.vk.com/method/market.getById
 type MarketGetByIDBuilder struct {
 	api.Params
 }
@@ -722,7 +722,7 @@ func (b *MarketGetByIDBuilder) Extended(v bool) *MarketGetByIDBuilder {
 //
 // Returns a list of market categories.
 //
-// https://vk.com/dev/market.getCategories
+// https://dev.vk.com/method/market.getCategories
 type MarketGetCategoriesBuilder struct {
 	api.Params
 }
@@ -748,7 +748,7 @@ func (b *MarketGetCategoriesBuilder) Offset(v int) *MarketGetCategoriesBuilder {
 //
 // Returns comments list for an item.
 //
-// https://vk.com/dev/market.getComments
+// https://dev.vk.com/method/market.getComments
 type MarketGetCommentsBuilder struct {
 	api.Params
 }
@@ -819,7 +819,7 @@ func (b *MarketGetCommentsBuilder) Fields(v []string) *MarketGetCommentsBuilder 
 //
 // Returns community's orders list.
 //
-// https://vk.com/dev/market.getGroupOrders
+// https://dev.vk.com/method/market.getGroupOrders
 type MarketGetGroupOrdersBuilder struct {
 	api.Params
 }
@@ -851,7 +851,7 @@ func (b *MarketGetGroupOrdersBuilder) Count(v int) *MarketGetGroupOrdersBuilder 
 //
 // Returns order by id.
 //
-// https://vk.com/dev/market.getOrderById
+// https://dev.vk.com/method/market.getOrderById
 type MarketGetOrderByIDBuilder struct {
 	api.Params
 }
@@ -883,7 +883,7 @@ func (b *MarketGetOrderByIDBuilder) Extended(v bool) *MarketGetOrderByIDBuilder 
 //
 // Returns items of an order.
 //
-// https://vk.com/dev/market.getOrderItems
+// https://dev.vk.com/method/market.getOrderItems
 type MarketGetOrderItemsBuilder struct {
 	api.Params
 }
@@ -915,7 +915,7 @@ func (b *MarketGetOrderItemsBuilder) Count(v int) *MarketGetOrderItemsBuilder {
 //
 // Removes an item from one or multiple collections.
 //
-// https://vk.com/dev/market.removeFromAlbum
+// https://dev.vk.com/method/market.removeFromAlbum
 type MarketRemoveFromAlbumBuilder struct {
 	api.Params
 }
@@ -947,7 +947,7 @@ func (b *MarketRemoveFromAlbumBuilder) AlbumIDs(v []int) *MarketRemoveFromAlbumB
 //
 // Reorders the collections list.
 //
-// https://vk.com/dev/market.reorderAlbums
+// https://dev.vk.com/method/market.reorderAlbums
 type MarketReorderAlbumsBuilder struct {
 	api.Params
 }
@@ -985,7 +985,7 @@ func (b *MarketReorderAlbumsBuilder) After(v int) *MarketReorderAlbumsBuilder {
 //
 // Changes item place in a collection.
 //
-// https://vk.com/dev/market.reorderItems
+// https://dev.vk.com/method/market.reorderItems
 type MarketReorderItemsBuilder struct {
 	api.Params
 }
@@ -1029,7 +1029,7 @@ func (b *MarketReorderItemsBuilder) After(v int) *MarketReorderItemsBuilder {
 //
 // Sends a complaint to the item.
 //
-// https://vk.com/dev/market.report
+// https://dev.vk.com/method/market.report
 type MarketReportBuilder struct {
 	api.Params
 }
@@ -1075,7 +1075,7 @@ func (b *MarketReportBuilder) Reason(v int) *MarketReportBuilder {
 //
 // Sends a complaint to the item's comment.
 //
-// https://vk.com/dev/market.reportComment
+// https://dev.vk.com/method/market.reportComment
 type MarketReportCommentBuilder struct {
 	api.Params
 }
@@ -1121,7 +1121,7 @@ func (b *MarketReportCommentBuilder) Reason(v int) *MarketReportCommentBuilder {
 //
 // Restores recently deleted item.
 //
-// https://vk.com/dev/market.restore
+// https://dev.vk.com/method/market.restore
 type MarketRestoreBuilder struct {
 	api.Params
 }
@@ -1147,7 +1147,7 @@ func (b *MarketRestoreBuilder) ItemID(v int) *MarketRestoreBuilder {
 //
 // Restores a recently deleted comment.
 //
-// https://vk.com/dev/market.restoreComment
+// https://dev.vk.com/method/market.restoreComment
 type MarketRestoreCommentBuilder struct {
 	api.Params
 }
@@ -1174,7 +1174,7 @@ func (b *MarketRestoreCommentBuilder) CommentID(v int) *MarketRestoreCommentBuil
 //
 // Searches market items in a community's catalog.
 //
-// https://vk.com/dev/market.search
+// https://dev.vk.com/method/market.search
 type MarketSearchBuilder struct {
 	api.Params
 }
@@ -1264,7 +1264,7 @@ func (b *MarketSearchBuilder) NeedVariants(v bool) *MarketSearchBuilder {
 
 // MarketSearchItemsBuilder builder.
 //
-// https://vk.com/dev/market.searchItems
+// https://dev.vk.com/method/market.searchItems
 type MarketSearchItemsBuilder struct {
 	api.Params
 }

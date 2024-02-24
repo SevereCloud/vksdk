@@ -12,7 +12,7 @@ matching the rules set. To get access to the extended Streaming API version
 that includes 100% data please write to support
 https://vk.com/support?act=new_api
 
-VK documentation https://vk.com/dev/streaming_api_docs
+VK documentation https://dev.vk.com/ru/api/streaming/getting-started
 
 # Initialization
 

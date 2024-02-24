@@ -8,7 +8,7 @@ import (
 //
 // Creates a new topic on a community's discussion board.
 //
-// https://vk.com/dev/board.addTopic
+// https://dev.vk.com/method/board.addTopic
 type BoardAddTopicBuilder struct {
 	api.Params
 }
@@ -61,7 +61,7 @@ func (b *BoardAddTopicBuilder) Attachments(v interface{}) *BoardAddTopicBuilder 
 //
 // Closes a topic on a community's discussion board so that comments cannot be posted.
 //
-// https://vk.com/dev/board.closeTopic
+// https://dev.vk.com/method/board.closeTopic
 type BoardCloseTopicBuilder struct {
 	api.Params
 }
@@ -87,7 +87,7 @@ func (b *BoardCloseTopicBuilder) TopicID(v int) *BoardCloseTopicBuilder {
 //
 // Adds a comment on a topic on a community's discussion board.
 //
-// https://vk.com/dev/board.createComment
+// https://dev.vk.com/method/board.createComment
 type BoardCreateCommentBuilder struct {
 	api.Params
 }
@@ -147,7 +147,7 @@ func (b *BoardCreateCommentBuilder) GUID(v string) *BoardCreateCommentBuilder {
 //
 // Deletes a comment on a topic on a community's discussion board.
 //
-// https://vk.com/dev/board.deleteComment
+// https://dev.vk.com/method/board.deleteComment
 type BoardDeleteCommentBuilder struct {
 	api.Params
 }
@@ -179,7 +179,7 @@ func (b *BoardDeleteCommentBuilder) CommentID(v int) *BoardDeleteCommentBuilder 
 //
 // Deletes a topic from a community's discussion board.
 //
-// https://vk.com/dev/board.deleteTopic
+// https://dev.vk.com/method/board.deleteTopic
 type BoardDeleteTopicBuilder struct {
 	api.Params
 }
@@ -205,7 +205,7 @@ func (b *BoardDeleteTopicBuilder) TopicID(v int) *BoardDeleteTopicBuilder {
 //
 // Edits a comment on a topic on a community's discussion board.
 //
-// https://vk.com/dev/board.editComment
+// https://dev.vk.com/method/board.editComment
 type BoardEditCommentBuilder struct {
 	api.Params
 }
@@ -253,7 +253,7 @@ func (b *BoardEditCommentBuilder) Attachments(v interface{}) *BoardEditCommentBu
 //
 // Edits the title of a topic on a community's discussion board.
 //
-// https://vk.com/dev/board.editTopic
+// https://dev.vk.com/method/board.editTopic
 type BoardEditTopicBuilder struct {
 	api.Params
 }
@@ -285,7 +285,7 @@ func (b *BoardEditTopicBuilder) Title(v string) *BoardEditTopicBuilder {
 //
 // Pins a topic (fixes its place) to the top of a community's discussion board.
 //
-// https://vk.com/dev/board.fixTopic
+// https://dev.vk.com/method/board.fixTopic
 type BoardFixTopicBuilder struct {
 	api.Params
 }
@@ -311,7 +311,7 @@ func (b *BoardFixTopicBuilder) TopicID(v int) *BoardFixTopicBuilder {
 //
 // Returns a list of comments on a topic on a community's discussion board.
 //
-// https://vk.com/dev/board.getComments
+// https://dev.vk.com/method/board.getComments
 type BoardGetCommentsBuilder struct {
 	api.Params
 }
@@ -375,7 +375,7 @@ func (b *BoardGetCommentsBuilder) Sort(v string) *BoardGetCommentsBuilder {
 //
 // Returns a list of topics on a community's discussion board.
 //
-// https://vk.com/dev/board.getTopics
+// https://dev.vk.com/method/board.getTopics
 type BoardGetTopicsBuilder struct {
 	api.Params
 }
@@ -462,7 +462,7 @@ func (b *BoardGetTopicsBuilder) PreviewLength(v int) *BoardGetTopicsBuilder {
 //
 // Re-opens a previously closed topic on a community's discussion board.
 //
-// https://vk.com/dev/board.openTopic
+// https://dev.vk.com/method/board.openTopic
 type BoardOpenTopicBuilder struct {
 	api.Params
 }
@@ -488,7 +488,7 @@ func (b *BoardOpenTopicBuilder) TopicID(v int) *BoardOpenTopicBuilder {
 //
 // Restores a comment deleted from a topic on a community's discussion board.
 //
-// https://vk.com/dev/board.restoreComment
+// https://dev.vk.com/method/board.restoreComment
 type BoardRestoreCommentBuilder struct {
 	api.Params
 }
@@ -520,7 +520,7 @@ func (b *BoardRestoreCommentBuilder) CommentID(v int) *BoardRestoreCommentBuilde
 //
 // Unpins a pinned topic from the top of a community's discussion board.
 //
-// https://vk.com/dev/board.unfixTopic
+// https://dev.vk.com/method/board.unfixTopic
 type BoardUnfixTopicBuilder struct {
 	api.Params
 }

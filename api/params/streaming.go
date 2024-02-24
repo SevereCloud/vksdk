@@ -6,7 +6,7 @@ import (
 
 // StreamingSetSettingsBuilder builder.
 //
-// https://vk.com/dev/streaming.setSettings
+// https://dev.vk.com/method/streaming.setSettings
 type StreamingSetSettingsBuilder struct {
 	api.Params
 }

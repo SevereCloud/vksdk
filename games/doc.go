@@ -1,6 +1,6 @@
 /*
 Package games for VK.
 
-See more https://vk.com/dev/games
+See more https://dev.vk.com/ru/games/overview
 */
 package games

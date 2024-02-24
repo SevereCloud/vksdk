@@ -8,7 +8,7 @@ import (
 //
 // Checks whether a link is blocked in VK.
 //
-// https://vk.com/dev/utils.checkLink
+// https://dev.vk.com/method/utils.checkLink
 type UtilsCheckLinkBuilder struct {
 	api.Params
 }
@@ -28,7 +28,7 @@ func (b *UtilsCheckLinkBuilder) URL(v string) *UtilsCheckLinkBuilder {
 //
 // Deletes shortened link from user's list.
 //
-// https://vk.com/dev/utils.deleteFromLastShortened
+// https://dev.vk.com/method/utils.deleteFromLastShortened
 type UtilsDeleteFromLastShortenedBuilder struct {
 	api.Params
 }
@@ -48,7 +48,7 @@ func (b *UtilsDeleteFromLastShortenedBuilder) Key(v string) *UtilsDeleteFromLast
 //
 // Returns a list of user's shortened links.
 //
-// https://vk.com/dev/utils.getLastShortenedLinks
+// https://dev.vk.com/method/utils.getLastShortenedLinks
 type UtilsGetLastShortenedLinksBuilder struct {
 	api.Params
 }
@@ -74,7 +74,7 @@ func (b *UtilsGetLastShortenedLinksBuilder) Offset(v int) *UtilsGetLastShortened
 //
 // Returns stats data for shortened link.
 //
-// https://vk.com/dev/utils.getLinkStats
+// https://dev.vk.com/method/utils.getLinkStats
 type UtilsGetLinkStatsBuilder struct {
 	api.Params
 }
@@ -124,7 +124,7 @@ func (b *UtilsGetLinkStatsBuilder) Extended(v bool) *UtilsGetLinkStatsBuilder {
 //
 // Allows to receive a link shortened via vk.cc.
 //
-// https://vk.com/dev/utils.getShortLink
+// https://dev.vk.com/method/utils.getShortLink
 type UtilsGetShortLinkBuilder struct {
 	api.Params
 }
@@ -150,7 +150,7 @@ func (b *UtilsGetShortLinkBuilder) Private(v bool) *UtilsGetShortLinkBuilder {
 //
 // Detects a type of object (e.g., user, community, application) and its ID by screen name.
 //
-// https://vk.com/dev/utils.resolveScreenName
+// https://dev.vk.com/method/utils.resolveScreenName
 type UtilsResolveScreenNameBuilder struct {
 	api.Params
 }

@@ -8,7 +8,7 @@ import (
 //
 // Confirms a tag on a photo.
 //
-// https://vk.com/dev/photos.confirmTag
+// https://dev.vk.com/method/photos.confirmTag
 type PhotosConfirmTagBuilder struct {
 	api.Params
 }
@@ -40,7 +40,7 @@ func (b *PhotosConfirmTagBuilder) TagID(v int) *PhotosConfirmTagBuilder {
 //
 // Allows to copy a photo to the "Saved photos" album.
 //
-// https://vk.com/dev/photos.copy
+// https://dev.vk.com/method/photos.copy
 type PhotosCopyBuilder struct {
 	api.Params
 }
@@ -72,7 +72,7 @@ func (b *PhotosCopyBuilder) AccessKey(v string) *PhotosCopyBuilder {
 //
 // Creates an empty photo album.
 //
-// https://vk.com/dev/photos.createAlbum
+// https://dev.vk.com/method/photos.createAlbum
 type PhotosCreateAlbumBuilder struct {
 	api.Params
 }
@@ -128,7 +128,7 @@ func (b *PhotosCreateAlbumBuilder) CommentsDisabled(v bool) *PhotosCreateAlbumBu
 //
 // Adds a new comment on the photo.
 //
-// https://vk.com/dev/photos.createComment
+// https://dev.vk.com/method/photos.createComment
 type PhotosCreateCommentBuilder struct {
 	api.Params
 }
@@ -200,7 +200,7 @@ func (b *PhotosCreateCommentBuilder) GUID(v string) *PhotosCreateCommentBuilder 
 //
 // Deletes a photo.
 //
-// https://vk.com/dev/photos.delete
+// https://dev.vk.com/method/photos.delete
 type PhotosDeleteBuilder struct {
 	api.Params
 }
@@ -226,7 +226,7 @@ func (b *PhotosDeleteBuilder) PhotoID(v int) *PhotosDeleteBuilder {
 //
 // Deletes a photo album belonging to the current user.
 //
-// https://vk.com/dev/photos.deleteAlbum
+// https://dev.vk.com/method/photos.deleteAlbum
 type PhotosDeleteAlbumBuilder struct {
 	api.Params
 }
@@ -252,7 +252,7 @@ func (b *PhotosDeleteAlbumBuilder) GroupID(v int) *PhotosDeleteAlbumBuilder {
 //
 // Deletes a comment on the photo.
 //
-// https://vk.com/dev/photos.deleteComment
+// https://dev.vk.com/method/photos.deleteComment
 type PhotosDeleteCommentBuilder struct {
 	api.Params
 }
@@ -278,7 +278,7 @@ func (b *PhotosDeleteCommentBuilder) CommentID(v int) *PhotosDeleteCommentBuilde
 //
 // Edits the caption of a photo.
 //
-// https://vk.com/dev/photos.edit
+// https://dev.vk.com/method/photos.edit
 type PhotosEditBuilder struct {
 	api.Params
 }
@@ -340,7 +340,7 @@ func (b *PhotosEditBuilder) DeletePlace(v bool) *PhotosEditBuilder {
 //
 // Edits information about a photo album.
 //
-// https://vk.com/dev/photos.editAlbum
+// https://dev.vk.com/method/photos.editAlbum
 type PhotosEditAlbumBuilder struct {
 	api.Params
 }
@@ -402,7 +402,7 @@ func (b *PhotosEditAlbumBuilder) CommentsDisabled(v bool) *PhotosEditAlbumBuilde
 //
 // Edits a comment on a photo.
 //
-// https://vk.com/dev/photos.editComment
+// https://dev.vk.com/method/photos.editComment
 type PhotosEditCommentBuilder struct {
 	api.Params
 }
@@ -445,7 +445,7 @@ func (b *PhotosEditCommentBuilder) Attachments(v interface{}) *PhotosEditComment
 //
 // Returns a list of a user's or community's photos.
 //
-// https://vk.com/dev/photos.get
+// https://dev.vk.com/method/photos.get
 type PhotosGetBuilder struct {
 	api.Params
 }
@@ -522,7 +522,7 @@ func (b *PhotosGetBuilder) Count(v int) *PhotosGetBuilder {
 //
 // Returns a list of a user's or community's photo albums.
 //
-// https://vk.com/dev/photos.getAlbums
+// https://dev.vk.com/method/photos.getAlbums
 type PhotosGetAlbumsBuilder struct {
 	api.Params
 }
@@ -578,7 +578,7 @@ func (b *PhotosGetAlbumsBuilder) PhotoSizes(v bool) *PhotosGetAlbumsBuilder {
 //
 // Returns the number of photo albums belonging to a user or community.
 //
-// https://vk.com/dev/photos.getAlbumsCount
+// https://dev.vk.com/method/photos.getAlbumsCount
 type PhotosGetAlbumsCountBuilder struct {
 	api.Params
 }
@@ -604,7 +604,7 @@ func (b *PhotosGetAlbumsCountBuilder) GroupID(v int) *PhotosGetAlbumsCountBuilde
 //
 // Returns a list of photos belonging to a user or community, in reverse chronological order.
 //
-// https://vk.com/dev/photos.getAll
+// https://dev.vk.com/method/photos.getAll
 type PhotosGetAllBuilder struct {
 	api.Params
 }
@@ -668,7 +668,7 @@ func (b *PhotosGetAllBuilder) SkipHidden(v bool) *PhotosGetAllBuilder {
 //
 // Returns a list of comments on a specific photo album or all albums of the user sorted in reverse chronological order.
 //
-// https://vk.com/dev/photos.getAllComments
+// https://dev.vk.com/method/photos.getAllComments
 type PhotosGetAllCommentsBuilder struct {
 	api.Params
 }
@@ -712,7 +712,7 @@ func (b *PhotosGetAllCommentsBuilder) Count(v int) *PhotosGetAllCommentsBuilder 
 //
 // Returns information about photos by their IDs.
 //
-// https://vk.com/dev/photos.getById
+// https://dev.vk.com/method/photos.getById
 type PhotosGetByIDBuilder struct {
 	api.Params
 }
@@ -746,7 +746,7 @@ func (b *PhotosGetByIDBuilder) PhotoSizes(v bool) *PhotosGetByIDBuilder {
 //
 // Returns an upload link for chat cover pictures.
 //
-// https://vk.com/dev/photos.getChatUploadServer
+// https://dev.vk.com/method/photos.getChatUploadServer
 type PhotosGetChatUploadServerBuilder struct {
 	api.Params
 }
@@ -784,7 +784,7 @@ func (b *PhotosGetChatUploadServerBuilder) CropWidth(v int) *PhotosGetChatUpload
 //
 // Returns a list of comments on a photo.
 //
-// https://vk.com/dev/photos.getComments
+// https://dev.vk.com/method/photos.getComments
 type PhotosGetCommentsBuilder struct {
 	api.Params
 }
@@ -858,7 +858,7 @@ func (b *PhotosGetCommentsBuilder) Fields(v []string) *PhotosGetCommentsBuilder 
 //
 // Returns the server address for market album photo upload.
 //
-// https://vk.com/dev/photos.getMarketAlbumUploadServer
+// https://dev.vk.com/method/photos.getMarketAlbumUploadServer
 type PhotosGetMarketAlbumUploadServerBuilder struct {
 	api.Params
 }
@@ -878,7 +878,7 @@ func (b *PhotosGetMarketAlbumUploadServerBuilder) GroupID(v int) *PhotosGetMarke
 //
 // Returns the server address for market photo upload.
 //
-// https://vk.com/dev/photos.getMarketUploadServer
+// https://dev.vk.com/method/photos.getMarketUploadServer
 type PhotosGetMarketUploadServerBuilder struct {
 	api.Params
 }
@@ -922,7 +922,7 @@ func (b *PhotosGetMarketUploadServerBuilder) CropWidth(v int) *PhotosGetMarketUp
 //
 // Returns the server address for photo upload in a private message for a user.
 //
-// https://vk.com/dev/photos.getMessagesUploadServer
+// https://dev.vk.com/method/photos.getMessagesUploadServer
 type PhotosGetMessagesUploadServerBuilder struct {
 	api.Params
 }
@@ -943,7 +943,7 @@ func (b *PhotosGetMessagesUploadServerBuilder) PeerID(v int) *PhotosGetMessagesU
 //
 // Returns a list of photos with tags that have not been viewed.
 //
-// https://vk.com/dev/photos.getNewTags
+// https://dev.vk.com/method/photos.getNewTags
 type PhotosGetNewTagsBuilder struct {
 	api.Params
 }
@@ -969,7 +969,7 @@ func (b *PhotosGetNewTagsBuilder) Count(v int) *PhotosGetNewTagsBuilder {
 //
 // Returns the server address for owner cover upload.
 //
-// https://vk.com/dev/photos.getOwnerCoverPhotoUploadServer
+// https://dev.vk.com/method/photos.getOwnerCoverPhotoUploadServer
 type PhotosGetOwnerCoverPhotoUploadServerBuilder struct {
 	api.Params
 }
@@ -1013,7 +1013,7 @@ func (b *PhotosGetOwnerCoverPhotoUploadServerBuilder) CropY2(v int) *PhotosGetOw
 //
 // Returns an upload server address for a profile or community photo.
 //
-// https://vk.com/dev/photos.getOwnerPhotoUploadServer
+// https://dev.vk.com/method/photos.getOwnerPhotoUploadServer
 type PhotosGetOwnerPhotoUploadServerBuilder struct {
 	api.Params
 }
@@ -1034,7 +1034,7 @@ func (b *PhotosGetOwnerPhotoUploadServerBuilder) OwnerID(v int) *PhotosGetOwnerP
 //
 // Returns a list of tags on a photo.
 //
-// https://vk.com/dev/photos.getTags
+// https://dev.vk.com/method/photos.getTags
 type PhotosGetTagsBuilder struct {
 	api.Params
 }
@@ -1066,7 +1066,7 @@ func (b *PhotosGetTagsBuilder) AccessKey(v string) *PhotosGetTagsBuilder {
 //
 // Returns the server address for photo upload.
 //
-// https://vk.com/dev/photos.getUploadServer
+// https://dev.vk.com/method/photos.getUploadServer
 type PhotosGetUploadServerBuilder struct {
 	api.Params
 }
@@ -1092,7 +1092,7 @@ func (b *PhotosGetUploadServerBuilder) AlbumID(v int) *PhotosGetUploadServerBuil
 //
 // Returns a list of photos in which a user is tagged.
 //
-// https://vk.com/dev/photos.getUserPhotos
+// https://dev.vk.com/method/photos.getUserPhotos
 type PhotosGetUserPhotosBuilder struct {
 	api.Params
 }
@@ -1137,7 +1137,7 @@ func (b *PhotosGetUserPhotosBuilder) Sort(v string) *PhotosGetUserPhotosBuilder 
 //
 // Returns the server address for photo upload onto a user's wall.
 //
-// https://vk.com/dev/photos.getWallUploadServer
+// https://dev.vk.com/method/photos.getWallUploadServer
 type PhotosGetWallUploadServerBuilder struct {
 	api.Params
 }
@@ -1157,7 +1157,7 @@ func (b *PhotosGetWallUploadServerBuilder) GroupID(v int) *PhotosGetWallUploadSe
 //
 // Makes a photo into an album cover.
 //
-// https://vk.com/dev/photos.makeCover
+// https://dev.vk.com/method/photos.makeCover
 type PhotosMakeCoverBuilder struct {
 	api.Params
 }
@@ -1189,7 +1189,7 @@ func (b *PhotosMakeCoverBuilder) AlbumID(v int) *PhotosMakeCoverBuilder {
 //
 // Moves a photo from one album to another.
 //
-// https://vk.com/dev/photos.move
+// https://dev.vk.com/method/photos.move
 type PhotosMoveBuilder struct {
 	api.Params
 }
@@ -1221,7 +1221,7 @@ func (b *PhotosMoveBuilder) PhotoID(v int) *PhotosMoveBuilder {
 //
 // Adds a tag on the photo.
 //
-// https://vk.com/dev/photos.putTag
+// https://dev.vk.com/method/photos.putTag
 type PhotosPutTagBuilder struct {
 	api.Params
 }
@@ -1277,7 +1277,7 @@ func (b *PhotosPutTagBuilder) Y2(v float64) *PhotosPutTagBuilder {
 //
 // Removes a tag from a photo.
 //
-// https://vk.com/dev/photos.removeTag
+// https://dev.vk.com/method/photos.removeTag
 type PhotosRemoveTagBuilder struct {
 	api.Params
 }
@@ -1309,7 +1309,7 @@ func (b *PhotosRemoveTagBuilder) TagID(v int) *PhotosRemoveTagBuilder {
 //
 // Reorders the album in the list of user albums.
 //
-// https://vk.com/dev/photos.reorderAlbums
+// https://dev.vk.com/method/photos.reorderAlbums
 type PhotosReorderAlbumsBuilder struct {
 	api.Params
 }
@@ -1347,7 +1347,7 @@ func (b *PhotosReorderAlbumsBuilder) After(v int) *PhotosReorderAlbumsBuilder {
 //
 // Reorders the photo in the list of photos of the user album.
 //
-// https://vk.com/dev/photos.reorderPhotos
+// https://dev.vk.com/method/photos.reorderPhotos
 type PhotosReorderPhotosBuilder struct {
 	api.Params
 }
@@ -1385,7 +1385,7 @@ func (b *PhotosReorderPhotosBuilder) After(v int) *PhotosReorderPhotosBuilder {
 //
 // Reports (submits a complaint about) a photo.
 //
-// https://vk.com/dev/photos.report
+// https://dev.vk.com/method/photos.report
 type PhotosReportBuilder struct {
 	api.Params
 }
@@ -1431,7 +1431,7 @@ func (b *PhotosReportBuilder) Reason(v int) *PhotosReportBuilder {
 //
 // Reports (submits a complaint about) a comment on a photo.
 //
-// https://vk.com/dev/photos.reportComment
+// https://dev.vk.com/method/photos.reportComment
 type PhotosReportCommentBuilder struct {
 	api.Params
 }
@@ -1477,7 +1477,7 @@ func (b *PhotosReportCommentBuilder) Reason(v int) *PhotosReportCommentBuilder {
 //
 // Restores a deleted photo.
 //
-// https://vk.com/dev/photos.restore
+// https://dev.vk.com/method/photos.restore
 type PhotosRestoreBuilder struct {
 	api.Params
 }
@@ -1503,7 +1503,7 @@ func (b *PhotosRestoreBuilder) PhotoID(v int) *PhotosRestoreBuilder {
 //
 // Restores a deleted comment on a photo.
 //
-// https://vk.com/dev/photos.restoreComment
+// https://dev.vk.com/method/photos.restoreComment
 type PhotosRestoreCommentBuilder struct {
 	api.Params
 }
@@ -1529,7 +1529,7 @@ func (b *PhotosRestoreCommentBuilder) CommentID(v int) *PhotosRestoreCommentBuil
 //
 // Saves photos after successful uploading.
 //
-// https://vk.com/dev/photos.save
+// https://dev.vk.com/method/photos.save
 type PhotosSaveBuilder struct {
 	api.Params
 }
@@ -1591,7 +1591,7 @@ func (b *PhotosSaveBuilder) Caption(v string) *PhotosSaveBuilder {
 //
 // Saves market album photos after successful uploading.
 //
-// https://vk.com/dev/photos.saveMarketAlbumPhoto
+// https://dev.vk.com/method/photos.saveMarketAlbumPhoto
 type PhotosSaveMarketAlbumPhotoBuilder struct {
 	api.Params
 }
@@ -1629,7 +1629,7 @@ func (b *PhotosSaveMarketAlbumPhotoBuilder) Hash(v string) *PhotosSaveMarketAlbu
 //
 // Saves market photos after successful uploading.
 //
-// https://vk.com/dev/photos.saveMarketPhoto
+// https://dev.vk.com/method/photos.saveMarketPhoto
 type PhotosSaveMarketPhotoBuilder struct {
 	api.Params
 }
@@ -1680,7 +1680,7 @@ func (b *PhotosSaveMarketPhotoBuilder) CropHash(v string) *PhotosSaveMarketPhoto
 // Saves a photo after being successfully uploaded. URL obtained with
 // [vk.com/dev/photos.getMessagesUploadServer|photos.getMessagesUploadServer] method.
 //
-// https://vk.com/dev/photos.saveMessagesPhoto
+// https://dev.vk.com/method/photos.saveMessagesPhoto
 type PhotosSaveMessagesPhotoBuilder struct {
 	api.Params
 }
@@ -1712,7 +1712,7 @@ func (b *PhotosSaveMessagesPhotoBuilder) Hash(v string) *PhotosSaveMessagesPhoto
 //
 // Saves cover photo after successful uploading.
 //
-// https://vk.com/dev/photos.saveOwnerCoverPhoto
+// https://dev.vk.com/method/photos.saveOwnerCoverPhoto
 type PhotosSaveOwnerCoverPhotoBuilder struct {
 	api.Params
 }
@@ -1739,7 +1739,7 @@ func (b *PhotosSaveOwnerCoverPhotoBuilder) Photo(v string) *PhotosSaveOwnerCover
 // Saves a profile or community photo. Upload URL can be got with the
 // [vk.com/dev/photos.getOwnerPhotoUploadServer|photos.getOwnerPhotoUploadServer] method.
 //
-// https://vk.com/dev/photos.saveOwnerPhoto
+// https://dev.vk.com/method/photos.saveOwnerPhoto
 type PhotosSaveOwnerPhotoBuilder struct {
 	api.Params
 }
@@ -1771,7 +1771,7 @@ func (b *PhotosSaveOwnerPhotoBuilder) Photo(v string) *PhotosSaveOwnerPhotoBuild
 //
 // Saves a photo to a user's or community's wall after being uploaded.
 //
-// https://vk.com/dev/photos.saveWallPhoto
+// https://dev.vk.com/method/photos.saveWallPhoto
 type PhotosSaveWallPhotoBuilder struct {
 	api.Params
 }
@@ -1833,7 +1833,7 @@ func (b *PhotosSaveWallPhotoBuilder) Caption(v string) *PhotosSaveWallPhotoBuild
 //
 // Returns a list of photos.
 //
-// https://vk.com/dev/photos.search
+// https://dev.vk.com/method/photos.search
 type PhotosSearchBuilder struct {
 	api.Params
 }

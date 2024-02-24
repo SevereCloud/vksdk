@@ -6,7 +6,7 @@ import (
 
 // FaveAddArticleBuilder builder.
 //
-// https://vk.com/dev/fave.addArticle
+// https://dev.vk.com/method/fave.addArticle
 type FaveAddArticleBuilder struct {
 	api.Params
 }
@@ -26,7 +26,7 @@ func (b *FaveAddArticleBuilder) URL(v string) *FaveAddArticleBuilder {
 //
 // Adds a link to user faves.
 //
-// https://vk.com/dev/fave.addLink
+// https://dev.vk.com/method/fave.addLink
 type FaveAddLinkBuilder struct {
 	api.Params
 }
@@ -44,7 +44,7 @@ func (b *FaveAddLinkBuilder) Link(v string) *FaveAddLinkBuilder {
 
 // FaveAddPageBuilder builder.
 //
-// https://vk.com/dev/fave.addPage
+// https://dev.vk.com/method/fave.addPage
 type FaveAddPageBuilder struct {
 	api.Params
 }
@@ -68,7 +68,7 @@ func (b *FaveAddPageBuilder) GroupID(v int) *FaveAddPageBuilder {
 
 // FaveAddPostBuilder builder.
 //
-// https://vk.com/dev/fave.addPost
+// https://dev.vk.com/method/fave.addPost
 type FaveAddPostBuilder struct {
 	api.Params
 }
@@ -98,7 +98,7 @@ func (b *FaveAddPostBuilder) AccessKey(v string) *FaveAddPostBuilder {
 
 // FaveAddProductBuilder builder.
 //
-// https://vk.com/dev/fave.addProduct
+// https://dev.vk.com/method/fave.addProduct
 type FaveAddProductBuilder struct {
 	api.Params
 }
@@ -128,7 +128,7 @@ func (b *FaveAddProductBuilder) AccessKey(v string) *FaveAddProductBuilder {
 
 // FaveAddTagBuilder builder.
 //
-// https://vk.com/dev/fave.addTag
+// https://dev.vk.com/method/fave.addTag
 type FaveAddTagBuilder struct {
 	api.Params
 }
@@ -146,7 +146,7 @@ func (b *FaveAddTagBuilder) Name(v string) *FaveAddTagBuilder {
 
 // FaveAddVideoBuilder builder.
 //
-// https://vk.com/dev/fave.addVideo
+// https://dev.vk.com/method/fave.addVideo
 type FaveAddVideoBuilder struct {
 	api.Params
 }
@@ -176,7 +176,7 @@ func (b *FaveAddVideoBuilder) AccessKey(v string) *FaveAddVideoBuilder {
 
 // FaveEditTagBuilder builder.
 //
-// https://vk.com/dev/fave.editTag
+// https://dev.vk.com/method/fave.editTag
 type FaveEditTagBuilder struct {
 	api.Params
 }
@@ -200,7 +200,7 @@ func (b *FaveEditTagBuilder) Name(v string) *FaveEditTagBuilder {
 
 // FaveGetBuilder builder.
 //
-// https://vk.com/dev/fave.get
+// https://dev.vk.com/method/fave.get
 type FaveGetBuilder struct {
 	api.Params
 }
@@ -254,7 +254,7 @@ func (b *FaveGetBuilder) IsFromSnackbar(v bool) *FaveGetBuilder {
 
 // FaveGetPagesBuilder builder.
 //
-// https://vk.com/dev/fave.getPages
+// https://dev.vk.com/method/fave.getPages
 type FaveGetPagesBuilder struct {
 	api.Params
 }
@@ -296,7 +296,7 @@ func (b *FaveGetPagesBuilder) TagID(v int) *FaveGetPagesBuilder {
 
 // FaveRemoveArticleBuilder builder.
 //
-// https://vk.com/dev/fave.removeArticle
+// https://dev.vk.com/method/fave.removeArticle
 type FaveRemoveArticleBuilder struct {
 	api.Params
 }
@@ -322,7 +322,7 @@ func (b *FaveRemoveArticleBuilder) ArticleID(v int) *FaveRemoveArticleBuilder {
 //
 // Removes link from the user's faves.
 //
-// https://vk.com/dev/fave.removeLink
+// https://dev.vk.com/method/fave.removeLink
 type FaveRemoveLinkBuilder struct {
 	api.Params
 }
@@ -346,7 +346,7 @@ func (b *FaveRemoveLinkBuilder) Link(v string) *FaveRemoveLinkBuilder {
 
 // FaveRemovePageBuilder builder.
 //
-// https://vk.com/dev/fave.removePage
+// https://dev.vk.com/method/fave.removePage
 type FaveRemovePageBuilder struct {
 	api.Params
 }
@@ -370,7 +370,7 @@ func (b *FaveRemovePageBuilder) GroupID(v int) *FaveRemovePageBuilder {
 
 // FaveRemovePostBuilder builder.
 //
-// https://vk.com/dev/fave.removePost
+// https://dev.vk.com/method/fave.removePost
 type FaveRemovePostBuilder struct {
 	api.Params
 }
@@ -394,7 +394,7 @@ func (b *FaveRemovePostBuilder) ID(v int) *FaveRemovePostBuilder {
 
 // FaveRemoveProductBuilder builder.
 //
-// https://vk.com/dev/fave.removeProduct
+// https://dev.vk.com/method/fave.removeProduct
 type FaveRemoveProductBuilder struct {
 	api.Params
 }
@@ -418,7 +418,7 @@ func (b *FaveRemoveProductBuilder) ID(v int) *FaveRemoveProductBuilder {
 
 // FaveRemoveTagBuilder builder.
 //
-// https://vk.com/dev/fave.removeTag
+// https://dev.vk.com/method/fave.removeTag
 type FaveRemoveTagBuilder struct {
 	api.Params
 }
@@ -436,7 +436,7 @@ func (b *FaveRemoveTagBuilder) ID(v int) *FaveRemoveTagBuilder {
 
 // FaveReorderTagsBuilder builder.
 //
-// https://vk.com/dev/fave.reorderTags
+// https://dev.vk.com/method/fave.reorderTags
 type FaveReorderTagsBuilder struct {
 	api.Params
 }
@@ -454,7 +454,7 @@ func (b *FaveReorderTagsBuilder) IDs(v []int) *FaveReorderTagsBuilder {
 
 // FaveSetPageTagsBuilder builder.
 //
-// https://vk.com/dev/fave.setPageTags
+// https://dev.vk.com/method/fave.setPageTags
 type FaveSetPageTagsBuilder struct {
 	api.Params
 }
@@ -484,7 +484,7 @@ func (b *FaveSetPageTagsBuilder) TagIDs(v []int) *FaveSetPageTagsBuilder {
 
 // FaveSetTagsBuilder builder.
 //
-// https://vk.com/dev/fave.setTags
+// https://dev.vk.com/method/fave.setTags
 type FaveSetTagsBuilder struct {
 	api.Params
 }
@@ -532,7 +532,7 @@ func (b *FaveSetTagsBuilder) LinkURL(v string) *FaveSetTagsBuilder {
 
 // FaveTrackPageInteractionBuilder builder.
 //
-// https://vk.com/dev/fave.trackPageInteraction
+// https://dev.vk.com/method/fave.trackPageInteraction
 type FaveTrackPageInteractionBuilder struct {
 	api.Params
 }

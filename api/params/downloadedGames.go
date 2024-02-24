@@ -6,7 +6,7 @@ import (
 
 // DownloadedGamesGetPaidStatusBuilder builder.
 //
-// https://vk.com/dev/downloadedGames.getPaidStatus
+// https://dev.vk.com/method/downloadedGames.getPaidStatus
 type DownloadedGamesGetPaidStatusBuilder struct {
 	api.Params
 }

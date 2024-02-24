@@ -1,6 +1,6 @@
 /*
 Package vkapps for VK Mini Apps.
 
-See more https://vk.com/dev/vk_apps_docs
+See more https://dev.vk.com/ru/mini-apps/getting-started
 */
 package vkapps

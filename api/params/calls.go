@@ -4,7 +4,7 @@ import "github.com/SevereCloud/vksdk/v2/api"
 
 // CallsStartBuilder builder.
 //
-// https://vk.com/dev/calls.start
+// https://dev.vk.com/method/calls.start
 type CallsStartBuilder struct {
 	api.Params
 }
@@ -22,7 +22,7 @@ func (b *CallsStartBuilder) GroupID(v int) *CallsStartBuilder {
 
 // CallsForceFinishBuilder builder.
 //
-// https://vk.com/dev/calls.forceFinish
+// https://dev.vk.com/method/calls.forceFinish
 type CallsForceFinishBuilder struct {
 	api.Params
 }

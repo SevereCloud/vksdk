@@ -8,7 +8,7 @@ import (
 //
 // Returns a value of variable with the name set by key parameter.
 //
-// https://vk.com/dev/storage.get
+// https://dev.vk.com/method/storage.get
 type StorageGetBuilder struct {
 	api.Params
 }
@@ -46,7 +46,7 @@ func (b *StorageGetBuilder) Global(v bool) *StorageGetBuilder {
 //
 // Returns the names of all variables.
 //
-// https://vk.com/dev/storage.getKeys
+// https://dev.vk.com/method/storage.getKeys
 type StorageGetKeysBuilder struct {
 	api.Params
 }
@@ -84,7 +84,7 @@ func (b *StorageGetKeysBuilder) Count(v int) *StorageGetKeysBuilder {
 //
 // Saves a value of variable with the name set by 'key' parameter.
 //
-// https://vk.com/dev/storage.set
+// https://dev.vk.com/method/storage.set
 type StorageSetBuilder struct {
 	api.Params
 }

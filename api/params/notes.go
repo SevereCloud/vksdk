@@ -8,7 +8,7 @@ import (
 //
 // Creates a new note for the current user.
 //
-// https://vk.com/dev/notes.add
+// https://dev.vk.com/method/notes.add
 type NotesAddBuilder struct {
 	api.Params
 }
@@ -46,7 +46,7 @@ func (b *NotesAddBuilder) PrivacyComment(v []string) *NotesAddBuilder {
 //
 // Adds a new comment on a note.
 //
-// https://vk.com/dev/notes.createComment
+// https://dev.vk.com/method/notes.createComment
 type NotesCreateCommentBuilder struct {
 	api.Params
 }
@@ -90,7 +90,7 @@ func (b *NotesCreateCommentBuilder) GUID(v string) *NotesCreateCommentBuilder {
 //
 // Deletes a note of the current user.
 //
-// https://vk.com/dev/notes.delete
+// https://dev.vk.com/method/notes.delete
 type NotesDeleteBuilder struct {
 	api.Params
 }
@@ -110,7 +110,7 @@ func (b *NotesDeleteBuilder) NoteID(v int) *NotesDeleteBuilder {
 //
 // Deletes a comment on a note.
 //
-// https://vk.com/dev/notes.deleteComment
+// https://dev.vk.com/method/notes.deleteComment
 type NotesDeleteCommentBuilder struct {
 	api.Params
 }
@@ -136,7 +136,7 @@ func (b *NotesDeleteCommentBuilder) OwnerID(v int) *NotesDeleteCommentBuilder {
 //
 // Edits a note of the current user.
 //
-// https://vk.com/dev/notes.edit
+// https://dev.vk.com/method/notes.edit
 type NotesEditBuilder struct {
 	api.Params
 }
@@ -180,7 +180,7 @@ func (b *NotesEditBuilder) PrivacyComment(v []string) *NotesEditBuilder {
 //
 // Edits a comment on a note.
 //
-// https://vk.com/dev/notes.editComment
+// https://dev.vk.com/method/notes.editComment
 type NotesEditCommentBuilder struct {
 	api.Params
 }
@@ -212,7 +212,7 @@ func (b *NotesEditCommentBuilder) Message(v string) *NotesEditCommentBuilder {
 //
 // Returns a list of notes created by a user.
 //
-// https://vk.com/dev/notes.get
+// https://dev.vk.com/method/notes.get
 type NotesGetBuilder struct {
 	api.Params
 }
@@ -256,7 +256,7 @@ func (b *NotesGetBuilder) Sort(v int) *NotesGetBuilder {
 //
 // Returns a note by its ID.
 //
-// https://vk.com/dev/notes.getById
+// https://dev.vk.com/method/notes.getById
 type NotesGetByIDBuilder struct {
 	api.Params
 }
@@ -288,7 +288,7 @@ func (b *NotesGetByIDBuilder) NeedWiki(v bool) *NotesGetByIDBuilder {
 //
 // Returns a list of comments on a note.
 //
-// https://vk.com/dev/notes.getComments
+// https://dev.vk.com/method/notes.getComments
 type NotesGetCommentsBuilder struct {
 	api.Params
 }
@@ -332,7 +332,7 @@ func (b *NotesGetCommentsBuilder) Count(v int) *NotesGetCommentsBuilder {
 //
 // Restores a deleted comment on a note.
 //
-// https://vk.com/dev/notes.restoreComment
+// https://dev.vk.com/method/notes.restoreComment
 type NotesRestoreCommentBuilder struct {
 	api.Params
 }

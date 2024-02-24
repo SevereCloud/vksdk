@@ -8,7 +8,7 @@ import (
 //
 // Checks a user's phone number for correctness.
 //
-// https://vk.com/dev/auth.checkPhone
+// https://dev.vk.com/method/auth.checkPhone
 type AuthCheckPhoneBuilder struct {
 	api.Params
 }
@@ -47,7 +47,7 @@ func (b *AuthCheckPhoneBuilder) AuthByPhone(v bool) *AuthCheckPhoneBuilder {
 // Allows to restore account access using a code received via SMS.
 // This method is only available for apps with [vk.com/dev/auth_direct|Direct authorization] access.
 //
-// https://vk.com/dev/auth.restore
+// https://dev.vk.com/method/auth.restore
 type AuthRestoreBuilder struct {
 	api.Params
 }

@@ -8,7 +8,7 @@ import (
 //
 // Returns statistics of a community or an application.
 //
-// https://vk.com/dev/stats.get
+// https://dev.vk.com/method/stats.get
 type StatsGetBuilder struct {
 	api.Params
 }
@@ -76,7 +76,7 @@ func (b *StatsGetBuilder) Extended(v bool) *StatsGetBuilder {
 //
 // Returns stats for a wall post.
 //
-// https://vk.com/dev/stats.getPostReach
+// https://dev.vk.com/method/stats.getPostReach
 type StatsGetPostReachBuilder struct {
 	api.Params
 }
@@ -100,7 +100,7 @@ func (b *StatsGetPostReachBuilder) PostID(v int) *StatsGetPostReachBuilder {
 
 // StatsTrackVisitorBuilder builder.
 //
-// https://vk.com/dev/stats.trackVisitor
+// https://dev.vk.com/method/stats.trackVisitor
 type StatsTrackVisitorBuilder struct {
 	api.Params
 }

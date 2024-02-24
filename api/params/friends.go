@@ -8,7 +8,7 @@ import (
 //
 // Approves or creates a friend request.
 //
-// https://vk.com/dev/friends.add
+// https://dev.vk.com/method/friends.add
 type FriendsAddBuilder struct {
 	api.Params
 }
@@ -40,7 +40,7 @@ func (b *FriendsAddBuilder) Follow(v bool) *FriendsAddBuilder {
 //
 // Creates a new friend list for the current user.
 //
-// https://vk.com/dev/friends.addList
+// https://dev.vk.com/method/friends.addList
 type FriendsAddListBuilder struct {
 	api.Params
 }
@@ -66,7 +66,7 @@ func (b *FriendsAddListBuilder) UserIDs(v []int) *FriendsAddListBuilder {
 //
 // Checks the current user's friendship status with other specified users.
 //
-// https://vk.com/dev/friends.areFriends
+// https://dev.vk.com/method/friends.areFriends
 type FriendsAreFriendsBuilder struct {
 	api.Params
 }
@@ -97,7 +97,7 @@ func (b *FriendsAreFriendsBuilder) NeedSign(v bool) *FriendsAreFriendsBuilder {
 //
 // Declines a friend request or deletes a user from the current user's friend list.
 //
-// https://vk.com/dev/friends.delete
+// https://dev.vk.com/method/friends.delete
 type FriendsDeleteBuilder struct {
 	api.Params
 }
@@ -118,7 +118,7 @@ func (b *FriendsDeleteBuilder) UserID(v int) *FriendsDeleteBuilder {
 //
 // Deletes a friend list of the current user.
 //
-// https://vk.com/dev/friends.deleteList
+// https://dev.vk.com/method/friends.deleteList
 type FriendsDeleteListBuilder struct {
 	api.Params
 }
@@ -138,7 +138,7 @@ func (b *FriendsDeleteListBuilder) ListID(v int) *FriendsDeleteListBuilder {
 //
 // Edits the friend lists of the selected user.
 //
-// https://vk.com/dev/friends.edit
+// https://dev.vk.com/method/friends.edit
 type FriendsEditBuilder struct {
 	api.Params
 }
@@ -164,7 +164,7 @@ func (b *FriendsEditBuilder) ListIDs(v []int) *FriendsEditBuilder {
 //
 // Edits a friend list of the current user.
 //
-// https://vk.com/dev/friends.editList
+// https://dev.vk.com/method/friends.editList
 type FriendsEditListBuilder struct {
 	api.Params
 }
@@ -208,7 +208,7 @@ func (b *FriendsEditListBuilder) DeleteUserIDs(v []int) *FriendsEditListBuilder 
 //
 // Returns a list of user IDs or detailed information about a user's friends.
 //
-// https://vk.com/dev/friends.get
+// https://dev.vk.com/method/friends.get
 type FriendsGetBuilder struct {
 	api.Params
 }
@@ -292,7 +292,7 @@ func (b *FriendsGetBuilder) Ref(v string) *FriendsGetBuilder {
 // Returns a list of the current user's friends whose phone numbers, validated or specified in a profile, are in a
 // given list.
 //
-// https://vk.com/dev/friends.getByPhones
+// https://dev.vk.com/method/friends.getByPhones
 type FriendsGetByPhonesBuilder struct {
 	api.Params
 }
@@ -320,7 +320,7 @@ func (b *FriendsGetByPhonesBuilder) Fields(v []string) *FriendsGetByPhonesBuilde
 //
 // Returns a list of the user's friend lists.
 //
-// https://vk.com/dev/friends.getLists
+// https://dev.vk.com/method/friends.getLists
 type FriendsGetListsBuilder struct {
 	api.Params
 }
@@ -348,7 +348,7 @@ func (b *FriendsGetListsBuilder) ReturnSystem(v bool) *FriendsGetListsBuilder {
 //
 // Returns a list of user IDs of the mutual friends of two users.
 //
-// https://vk.com/dev/friends.getMutual
+// https://dev.vk.com/method/friends.getMutual
 type FriendsGetMutualBuilder struct {
 	api.Params
 }
@@ -398,7 +398,7 @@ func (b *FriendsGetMutualBuilder) Offset(v int) *FriendsGetMutualBuilder {
 //
 // Returns a list of user IDs of a user's friends who are online.
 //
-// https://vk.com/dev/friends.getOnline
+// https://dev.vk.com/method/friends.getOnline
 type FriendsGetOnlineBuilder struct {
 	api.Params
 }
@@ -450,7 +450,7 @@ func (b *FriendsGetOnlineBuilder) Offset(v int) *FriendsGetOnlineBuilder {
 //
 // Returns a list of user IDs of the current user's recently added friends.
 //
-// https://vk.com/dev/friends.getRecent
+// https://dev.vk.com/method/friends.getRecent
 type FriendsGetRecentBuilder struct {
 	api.Params
 }
@@ -470,7 +470,7 @@ func (b *FriendsGetRecentBuilder) Count(v int) *FriendsGetRecentBuilder {
 //
 // Returns information about the current user's incoming and outgoing friend requests.
 //
-// https://vk.com/dev/friends.getRequests
+// https://dev.vk.com/method/friends.getRequests
 type FriendsGetRequestsBuilder struct {
 	api.Params
 }
@@ -555,7 +555,7 @@ func (b *FriendsGetRequestsBuilder) Fields(v []string) *FriendsGetRequestsBuilde
 //
 // Returns a list of profiles of users whom the current user may know.
 //
-// https://vk.com/dev/friends.getSuggestions
+// https://dev.vk.com/method/friends.getSuggestions
 type FriendsGetSuggestionsBuilder struct {
 	api.Params
 }
@@ -620,7 +620,7 @@ func (b *FriendsGetSuggestionsBuilder) NameCase(v string) *FriendsGetSuggestions
 //
 // Returns a list of friends matching the search criteria.
 //
-// https://vk.com/dev/friends.search
+// https://dev.vk.com/method/friends.search
 type FriendsSearchBuilder struct {
 	api.Params
 }

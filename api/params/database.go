@@ -8,7 +8,7 @@ import (
 //
 // Returns list of chairs on a specified faculty.
 //
-// https://vk.com/dev/database.getChairs
+// https://dev.vk.com/method/database.getChairs
 type DatabaseGetChairsBuilder struct {
 	api.Params
 }
@@ -40,7 +40,7 @@ func (b *DatabaseGetChairsBuilder) Count(v int) *DatabaseGetChairsBuilder {
 //
 // Returns a list of cities.
 //
-// https://vk.com/dev/database.getCities
+// https://dev.vk.com/method/database.getCities
 type DatabaseGetCitiesBuilder struct {
 	api.Params
 }
@@ -94,7 +94,7 @@ func (b *DatabaseGetCitiesBuilder) Count(v int) *DatabaseGetCitiesBuilder {
 //
 // Returns information about cities by their IDs.
 //
-// https://vk.com/dev/database.getCitiesById
+// https://dev.vk.com/method/database.getCitiesById
 type DatabaseGetCitiesByIDBuilder struct {
 	api.Params
 }
@@ -114,7 +114,7 @@ func (b *DatabaseGetCitiesByIDBuilder) CityIDs(v []int) *DatabaseGetCitiesByIDBu
 //
 // Returns a list of countries.
 //
-// https://vk.com/dev/database.getCountries
+// https://dev.vk.com/method/database.getCountries
 type DatabaseGetCountriesBuilder struct {
 	api.Params
 }
@@ -156,7 +156,7 @@ func (b *DatabaseGetCountriesBuilder) Count(v int) *DatabaseGetCountriesBuilder 
 //
 // Returns information about countries by their IDs.
 //
-// https://vk.com/dev/database.getCountriesById
+// https://dev.vk.com/method/database.getCountriesById
 type DatabaseGetCountriesByIDBuilder struct {
 	api.Params
 }
@@ -176,7 +176,7 @@ func (b *DatabaseGetCountriesByIDBuilder) CountryIDs(v []int) *DatabaseGetCountr
 //
 // Returns a list of faculties (i.e., university departments).
 //
-// https://vk.com/dev/database.getFaculties
+// https://dev.vk.com/method/database.getFaculties
 type DatabaseGetFacultiesBuilder struct {
 	api.Params
 }
@@ -208,7 +208,7 @@ func (b *DatabaseGetFacultiesBuilder) Count(v int) *DatabaseGetFacultiesBuilder 
 //
 // Get metro stations by city.
 //
-// https://vk.com/dev/database.getMetroStations
+// https://dev.vk.com/method/database.getMetroStations
 type DatabaseGetMetroStationsBuilder struct {
 	api.Params
 }
@@ -246,7 +246,7 @@ func (b *DatabaseGetMetroStationsBuilder) Extended(v bool) *DatabaseGetMetroStat
 //
 // Get metro station by his id.
 //
-// https://vk.com/dev/database.getMetroStationsById
+// https://dev.vk.com/method/database.getMetroStationsById
 type DatabaseGetMetroStationsByIDBuilder struct {
 	api.Params
 }
@@ -266,7 +266,7 @@ func (b *DatabaseGetMetroStationsByIDBuilder) StationIDs(v []int) *DatabaseGetMe
 //
 // Returns a list of regions.
 //
-// https://vk.com/dev/database.getRegions
+// https://dev.vk.com/method/database.getRegions
 type DatabaseGetRegionsBuilder struct {
 	api.Params
 }
@@ -304,7 +304,7 @@ func (b *DatabaseGetRegionsBuilder) Count(v int) *DatabaseGetRegionsBuilder {
 //
 // Returns a list of school classes specified for the country.
 //
-// https://vk.com/dev/database.getSchoolClasses
+// https://dev.vk.com/method/database.getSchoolClasses
 type DatabaseGetSchoolClassesBuilder struct {
 	api.Params
 }
@@ -324,7 +324,7 @@ func (b *DatabaseGetSchoolClassesBuilder) CountryID(v int) *DatabaseGetSchoolCla
 //
 // Returns a list of schools.
 //
-// https://vk.com/dev/database.getSchools
+// https://dev.vk.com/method/database.getSchools
 type DatabaseGetSchoolsBuilder struct {
 	api.Params
 }
@@ -362,7 +362,7 @@ func (b *DatabaseGetSchoolsBuilder) Count(v int) *DatabaseGetSchoolsBuilder {
 //
 // Returns a list of higher education institutions.
 //
-// https://vk.com/dev/database.getUniversities
+// https://dev.vk.com/method/database.getUniversities
 type DatabaseGetUniversitiesBuilder struct {
 	api.Params
 }

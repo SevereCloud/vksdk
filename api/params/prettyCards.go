@@ -6,7 +6,7 @@ import (
 
 // PrettyCardsCreateBuilder builder.
 //
-// https://vk.com/dev/prettyCards.create
+// https://dev.vk.com/method/prettyCards.create
 type PrettyCardsCreateBuilder struct {
 	api.Params
 }
@@ -60,7 +60,7 @@ func (b *PrettyCardsCreateBuilder) Button(v string) *PrettyCardsCreateBuilder {
 
 // PrettyCardsDeleteBuilder builder.
 //
-// https://vk.com/dev/prettyCards.delete
+// https://dev.vk.com/method/prettyCards.delete
 type PrettyCardsDeleteBuilder struct {
 	api.Params
 }
@@ -84,7 +84,7 @@ func (b *PrettyCardsDeleteBuilder) CardID(v int) *PrettyCardsDeleteBuilder {
 
 // PrettyCardsEditBuilder builder.
 //
-// https://vk.com/dev/prettyCards.edit
+// https://dev.vk.com/method/prettyCards.edit
 type PrettyCardsEditBuilder struct {
 	api.Params
 }
@@ -144,7 +144,7 @@ func (b *PrettyCardsEditBuilder) Button(v string) *PrettyCardsEditBuilder {
 
 // PrettyCardsGetBuilder builder.
 //
-// https://vk.com/dev/prettyCards.get
+// https://dev.vk.com/method/prettyCards.get
 type PrettyCardsGetBuilder struct {
 	api.Params
 }
@@ -174,7 +174,7 @@ func (b *PrettyCardsGetBuilder) Count(v int) *PrettyCardsGetBuilder {
 
 // PrettyCardsGetByIDBuilder builder.
 //
-// https://vk.com/dev/prettyCards.getById
+// https://dev.vk.com/method/prettyCards.getById
 type PrettyCardsGetByIDBuilder struct {
 	api.Params
 }

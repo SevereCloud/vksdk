@@ -1,7 +1,7 @@
 /*
 Package callback implements Callback API.
 
-See more https://vk.com/dev/callback_api
+See more https://dev.vk.com/ru/api/callback/getting-started
 */
 package callback // import "github.com/SevereCloud/vksdk/v2/callback"
 

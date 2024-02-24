@@ -1,7 +1,7 @@
 # User Long Poll API
 
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/longpoll-user)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-user)
-[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.com/dev/using_longpoll)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/api/user-long-poll/getting-started)
 
 ## Подключение User Long Poll API
 
@@ -74,7 +74,7 @@ lp.FullResponse(func(resp object.LongPollResponse) {
 })
 ```
 
-Полный список событий и их структуру Вы найдёте [в документации](https://vk.com/dev/using_longpoll?f=3.%2B%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0%2B%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9)
+Полный список событий и их структуру Вы найдёте [в документации](https://dev.vk.com/ru/api/user-long-poll/getting-started?f=3.%2B%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0%2B%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9)
 
 ### Запуск и остановка
 
