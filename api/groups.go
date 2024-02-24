@@ -212,7 +212,10 @@ func (vk *VK) GroupsGetBanned(params Params) (response GroupsGetBannedResponse, 
 }
 
 // GroupsGetByIDResponse struct.
-type GroupsGetByIDResponse []object.GroupsGroup
+type GroupsGetByIDResponse struct {
+	Groups   []object.GroupsGroup       `json:"groups"`
+	Profiles []object.GroupsProfileItem `json:"profiles"`
+}
 
 // GroupsGetByID returns information about communities by their IDs.
 //

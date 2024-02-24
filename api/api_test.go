@@ -153,7 +153,7 @@ func TestMain(m *testing.M) {
 			log.Fatalf("GROUP_TOKEN bad: %v", err)
 		}
 
-		vkGroupID = group[0].ID
+		vkGroupID = group.Groups[0].ID
 	}
 
 	if token := os.Getenv("WIDGET_TOKEN"); token != "" {

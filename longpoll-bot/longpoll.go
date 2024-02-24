@@ -75,7 +75,7 @@ func NewLongPollCommunity(vk *api.VK) (*LongPoll, error) {
 
 	lp := &LongPoll{
 		VK:      vk,
-		GroupID: resp[0].ID,
+		GroupID: resp.Groups[0].ID,
 		Wait:    25,
 		Client:  http.DefaultClient,
 	}

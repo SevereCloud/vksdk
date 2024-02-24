@@ -529,8 +529,8 @@ func TestVK_GroupsGetByID(t *testing.T) {
 
 	noError(t, err)
 
-	if assert.NotEmpty(t, res[0]) {
-		group := res[0]
+	if assert.NotEmpty(t, res.Groups[0]) {
+		group := res.Groups[0]
 		assert.NotEmpty(t, group.ID)
 		assert.NotEmpty(t, group.Name)
 		assert.NotEmpty(t, group.ScreenName)
@@ -663,8 +663,8 @@ func TestVK_GroupsGetByID_private(t *testing.T) {
 
 	noError(t, err)
 
-	if assert.NotEmpty(t, res[0]) {
-		group := res[0]
+	if assert.NotEmpty(t, res.Groups[0]) {
+		group := res.Groups[0]
 		assert.NotEmpty(t, group.ID)
 		assert.NotEmpty(t, group.Name)
 		assert.NotEmpty(t, group.ScreenName)
