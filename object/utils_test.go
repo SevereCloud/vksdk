@@ -51,6 +51,6 @@ func TestUtilsDomainResolved_DecodeMsgpack(t *testing.T) {
 	f([]byte{
 		0x81, 0xA9, 'o', 'b', 'j', 'e', 'c', 't', '_', 'i', 'd', 0x01,
 	}, object.UtilsDomainResolved{ObjectID: 1}, "")
-	f([]byte("\xc2"), object.UtilsDomainResolved{}, "msgpack: unexpected code=c2 decoding map length")
-	f(nil, object.UtilsDomainResolved{}, "EOF")
+	f([]byte("\xc2"), object.UtilsDomainResolved{}, "object.UtilsDomainResolved: msgpack: unexpected code=c2 decoding map length")
+	f(nil, object.UtilsDomainResolved{}, "object.UtilsDomainResolved: EOF")
 }

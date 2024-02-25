@@ -81,6 +81,6 @@ func TestUsersPersonal_DecodeMsgpack(t *testing.T) {
 	f([]byte{
 		0x81, 0xA7, 0x61, 0x6C, 0x63, 0x6F, 0x68, 0x6F, 0x6C, 0x01,
 	}, object.UsersPersonal{Alcohol: 1}, "")
-	f([]byte("\xc2"), object.UsersPersonal{}, "msgpack: unexpected code=c2 decoding map length")
-	f(nil, object.UsersPersonal{}, "EOF")
+	f([]byte("\xc2"), object.UsersPersonal{}, "object.UsersPersonal: msgpack: unexpected code=c2 decoding map length")
+	f(nil, object.UsersPersonal{}, "object.UsersPersonal: EOF")
 }

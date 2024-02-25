@@ -59,8 +59,8 @@ func TestMarketMarketItem_DecodeMsgpack(t *testing.T) {
 	f([]byte{msgpcode.False}, object.MarketMarketItem{}, "")
 	f([]byte{0x81, 0xA2, 0x69, 0x64, 0x01}, object.MarketMarketItem{ID: 1}, "")
 
-	f([]byte("\xc3"), object.MarketMarketItem{}, "msgpack: unexpected code=c3 decoding map length")
-	f(nil, object.MarketMarketItem{}, "EOF")
+	f([]byte("\xc3"), object.MarketMarketItem{}, "object.MarketMarketItem: msgpack: unexpected code=c3 decoding map length")
+	f(nil, object.MarketMarketItem{}, "object.MarketMarketItem: EOF")
 }
 
 func TestMarketPrice_UnmarshalJSON(t *testing.T) {
@@ -101,8 +101,8 @@ func TestMarketPrice_DecodeMsgpack(t *testing.T) {
 		0x81, 0xA4, 0x74, 0x65, 0x78, 0x74, 0xA1, 0x61,
 	}, object.MarketPrice{Text: "a"}, "")
 
-	f([]byte("\xc2"), object.MarketPrice{}, "msgpack: unexpected code=c2 decoding map length")
-	f(nil, object.MarketPrice{}, "EOF")
+	f([]byte("\xc2"), object.MarketPrice{}, "object.MarketPrice: msgpack: unexpected code=c2 decoding map length")
+	f(nil, object.MarketPrice{}, "object.MarketPrice: EOF")
 }
 
 func TestMarketMarketAlbum_ToAttachment(t *testing.T) {

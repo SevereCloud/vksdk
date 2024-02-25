@@ -208,6 +208,9 @@ func (obj *BaseImage) DecodeMsgpack(dec *msgpack.Decoder) (err error) {
 	var renamedObj renamedBaseImage
 
 	err = dec.Decode(&renamedObj)
+	if err != nil {
+		return fmt.Errorf("object.BaseImage: %w", err)
+	}
 
 	obj.Height = renamedObj.Height
 	obj.Width = renamedObj.Width
@@ -219,7 +222,7 @@ func (obj *BaseImage) DecodeMsgpack(dec *msgpack.Decoder) (err error) {
 		obj.URL = renamedObj.Src
 	}
 
-	return fmt.Errorf("object.BaseImage: %w", err)
+	return nil
 }
 
 // BaseLikes struct.

@@ -95,11 +95,15 @@ type UtilsResolveScreenNameResponse object.UtilsDomainResolved
 // BUG(VK): UtilsResolveScreenNameResponse return [].
 func (resp *UtilsResolveScreenNameResponse) UnmarshalJSON(data []byte) error {
 	var p object.UtilsDomainResolved
+
 	err := p.UnmarshalJSON(data)
+	if err != nil {
+		return fmt.Errorf("api.UtilsResolveScreenNameResponse: %w", err)
+	}
 
 	*resp = UtilsResolveScreenNameResponse(p)
 
-	return fmt.Errorf("api.UtilsResolveScreenNameResponse: %w", err)
+	return nil
 }
 
 // DecodeMsgpack UtilsResolveScreenNameResponse.
@@ -107,11 +111,15 @@ func (resp *UtilsResolveScreenNameResponse) UnmarshalJSON(data []byte) error {
 // BUG(VK): UtilsResolveScreenNameResponse return [].
 func (resp *UtilsResolveScreenNameResponse) DecodeMsgpack(dec *msgpack.Decoder) error {
 	var p object.UtilsDomainResolved
+
 	err := p.DecodeMsgpack(dec)
+	if err != nil {
+		return fmt.Errorf("api.UtilsResolveScreenNameResponse: %w", err)
+	}
 
 	*resp = UtilsResolveScreenNameResponse(p)
 
-	return fmt.Errorf("api.UtilsResolveScreenNameResponse: %w", err)
+	return nil
 }
 
 // UtilsResolveScreenName detects a type of object (e.g., user, community, application) and its ID by screen name.

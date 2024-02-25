@@ -49,8 +49,8 @@ func TestGroupsCountersGroup_DecodeMsgpack(t *testing.T) {
 
 	f([]byte{msgpcode.FixedArrayLow}, object.GroupsCountersGroup{}, "")
 	f([]byte{0x81, 0xA4, 'd', 'o', 'c', 's', 0x01}, object.GroupsCountersGroup{Docs: 1}, "")
-	f([]byte("\xc2"), object.GroupsCountersGroup{}, "msgpack: unexpected code=c2 decoding map length")
-	f(nil, object.GroupsCountersGroup{}, "EOF")
+	f([]byte("\xc2"), object.GroupsCountersGroup{}, "object.GroupsCountersGroup: msgpack: unexpected code=c2 decoding map length")
+	f(nil, object.GroupsCountersGroup{}, "object.GroupsCountersGroup: EOF")
 }
 
 func TestGroupsGroup_ToMention(t *testing.T) {

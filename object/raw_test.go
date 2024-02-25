@@ -84,5 +84,5 @@ func TestRawMessage_DecodeMsgpack(t *testing.T) {
 
 	f([]byte{0x00}, object.RawMessage{0x00}, "")
 	f([]byte{0xc0}, object.RawMessage(nil), "")
-	f(nil, object.RawMessage(nil), "EOF")
+	f(nil, object.RawMessage(nil), "object.RawMessage: EOF")
 }

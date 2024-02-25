@@ -320,7 +320,7 @@ func TestContext(t *testing.T) {
 	p.WithContext(ctx)
 
 	_, err := vkUser.UsersGet(p)
-	assert.EqualError(t, err, "Post \"https://api.vk.com/method/users.get\": context deadline exceeded")
+	assert.EqualError(t, err, "api.DefaultHandler: Post \"https://api.vk.com/method/users.get\": context deadline exceeded")
 }
 
 func TestVK_EnableMessagePack(t *testing.T) {

@@ -108,7 +108,7 @@ func TestBaseBoolInt_DecodeMsgpack(t *testing.T) {
 	// nil test
 	f([]byte{msgpcode.FixedArrayLow}, false, ff("\x90"))
 
-	f(nil, false, "EOF")
+	f(nil, false, "object.BaseBoolInt: EOF")
 }
 
 func TestBaseImage_UnmarshalJSON(t *testing.T) {
@@ -156,7 +156,7 @@ func TestBaseImage_UnmarshalJSON(t *testing.T) {
 		},
 		"",
 	)
-	f([]byte("0"), object.BaseImage{}, "json: cannot unmarshal number into Go value of type object.renamedBaseImage")
+	f([]byte("0"), object.BaseImage{}, "object.BaseImage: json: cannot unmarshal number into Go value of type object.renamedBaseImage")
 }
 
 func TestBaseImage_DecodeMsgpack(t *testing.T) {
@@ -214,8 +214,8 @@ func TestBaseImage_DecodeMsgpack(t *testing.T) {
 		},
 		"",
 	)
-	f([]byte("xc0"), object.BaseImage{}, "msgpack: unexpected code=78 decoding map length")
-	f(nil, object.BaseImage{}, "EOF")
+	f([]byte("xc0"), object.BaseImage{}, "object.BaseImage: msgpack: unexpected code=78 decoding map length")
+	f(nil, object.BaseImage{}, "object.BaseImage: EOF")
 }
 
 func TestBaseSticker_MaxSize(t *testing.T) {

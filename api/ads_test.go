@@ -71,7 +71,7 @@ func TestAdsResponse_DecodeMsgpack(t *testing.T) {
 		},
 		"",
 	)
-	f(nil, api.AdsAddOfficeUsersItem{}, "EOF")
+	f(nil, api.AdsAddOfficeUsersItem{}, "api.AdsAddOfficeUsersItem: EOF")
 }
 
 func TestVK_AdsGetAccounts(t *testing.T) {

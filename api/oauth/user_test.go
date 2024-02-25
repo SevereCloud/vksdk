@@ -21,7 +21,7 @@ func TestParseJSON(t *testing.T) {
 		assert.Equal(t, wantToken, token)
 	}
 
-	f([]byte("123"), nil, "json: cannot unmarshal number into Go value of type oauth.Error")
+	f([]byte("123"), nil, "oauth: json: cannot unmarshal number into Go value of type oauth.Error")
 	f(
 		[]byte(`{"access_token":"533bacf01e11f55b536a565b57531ac114461ae8736d6506a3", "expires_in":43200, "user_id":66748}`),
 		&oauth.UserToken{
@@ -77,7 +77,7 @@ func TestParseURL_Error(t *testing.T) {
 	_, err := oauth.NewUserTokenFromURL(&url.URL{
 		Fragment: "%gh&%ij",
 	})
-	assert.EqualError(t, err, `invalid URL escape "%gh"`)
+	assert.EqualError(t, err, `oauth: invalid URL escape "%gh"`)
 }
 
 func TestAuthCodeFlowUser_URL(t *testing.T) {

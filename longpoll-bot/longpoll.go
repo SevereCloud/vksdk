@@ -212,8 +212,11 @@ func (lp *LongPoll) autoSetting(ctx context.Context) error {
 
 	// Updating LongPoll settings
 	_, err := lp.VK.GroupsSetLongPollSettings(params)
+	if err != nil {
+		return fmt.Errorf("longpoll-bot: %w", err)
+	}
 
-	return fmt.Errorf("longpoll-bot: %w", err)
+	return nil
 }
 
 // Run handler.

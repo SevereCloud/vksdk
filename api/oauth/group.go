@@ -39,9 +39,13 @@ func NewGroupTokensFromJSON(data []byte) (*GroupTokens, error) {
 	}
 
 	var t GroupTokens
-	err = json.Unmarshal(data, &t)
 
-	return &t, fmt.Errorf("oauth: %w", err)
+	err = json.Unmarshal(data, &t)
+	if err != nil {
+		return nil, fmt.Errorf("oauth: %w", err)
+	}
+
+	return &t, nil
 }
 
 // NewGroupTokensFromURL  return group tokens.

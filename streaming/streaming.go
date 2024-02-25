@@ -340,8 +340,11 @@ func (s *Streaming) Run() error {
 		websocket.CloseMessage,
 		websocket.FormatCloseMessage(websocket.CloseNormalClosure, ""),
 	)
+	if err != nil {
+		return fmt.Errorf("streaming: %w", err)
+	}
 
-	return fmt.Errorf("streaming: %w", err)
+	return nil
 }
 
 // Shutdown gracefully shuts down the stream.

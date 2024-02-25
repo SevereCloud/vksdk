@@ -138,6 +138,9 @@ func (cb *Callback) AutoSetting(
 
 	// Updating Callback settings
 	_, err = vk.GroupsSetCallbackSettings(params)
+	if err != nil {
+		return fmt.Errorf("callback: %w", err)
+	}
 
-	return fmt.Errorf("callback: %w", err)
+	return nil
 }

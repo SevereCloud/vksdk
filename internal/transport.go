@@ -71,7 +71,9 @@ func DoRequest(ctx context.Context, req *http.Request) (*http.Response, error) {
 	if err != nil {
 		<-ctx.Done()
 		err = ctx.Err()
+
+		return nil, fmt.Errorf("vksdk: %w", err)
 	}
 
-	return resp, fmt.Errorf("vksdk: %w", err)
+	return resp, nil
 }

@@ -27,7 +27,11 @@ func (m *RawMessage) UnmarshalJSON(data []byte) error {
 // EncodeMsgpack write m as the MessagePack encoding of m.
 func (m RawMessage) EncodeMsgpack(enc *msgpack.Encoder) error {
 	_, err := enc.Writer().Write(m)
-	return fmt.Errorf("object.RawMessage: %w", err)
+	if err != nil {
+		return fmt.Errorf("object.RawMessage: %w", err)
+	}
+
+	return nil
 }
 
 // DecodeMsgpack sets *m to a copy of data.
