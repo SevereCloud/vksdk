@@ -42,9 +42,9 @@ func (marketAlbum MarketMarketAlbum) ToAttachment() string {
 
 // MarketMarketCategory struct.
 type MarketMarketCategory struct {
-	ID      int           `json:"id"`   // Category ID
-	Name    string        `json:"name"` // Category name
-	Section MarketSection `json:"section"`
+	ID     int                   `json:"id"`   // Category ID
+	Name   string                `json:"name"` // Category name
+	Parent *MarketMarketCategory `json:"parent"`
 }
 
 // MarketMarketItem struct.
