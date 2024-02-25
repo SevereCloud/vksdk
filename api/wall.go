@@ -115,7 +115,9 @@ func (vk *VK) WallGetExtended(params Params) (response WallGetExtendedResponse, 
 }
 
 // WallGetByIDResponse struct.
-type WallGetByIDResponse []object.WallWallpost
+type WallGetByIDResponse struct {
+	Items []object.WallWallpost `json:"items"`
+}
 
 // WallGetByID returns a list of posts from user or community walls by their IDs.
 //

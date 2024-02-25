@@ -132,18 +132,18 @@ func TestVK_WallGetByID(t *testing.T) {
 
 	res, err := vkService.WallGetByID(params)
 	noError(t, err)
-	assert.NotEmpty(t, res[0].ID)
-	assert.NotEmpty(t, res[0].FromID)
-	assert.NotEmpty(t, res[0].OwnerID)
-	assert.NotEmpty(t, res[0].Date)
+	assert.NotEmpty(t, res.Items[0].ID)
+	assert.NotEmpty(t, res.Items[0].FromID)
+	assert.NotEmpty(t, res.Items[0].OwnerID)
+	assert.NotEmpty(t, res.Items[0].Date)
 	// assert.NotEmpty(t, item.MarkedAsAds)
-	assert.NotEmpty(t, res[0].PostType)
-	// assert.NotEmpty(t, res[0].Text)
-	assert.NotEmpty(t, res[0].PostSource)
-	assert.NotEmpty(t, res[0].Comments)
-	assert.NotEmpty(t, res[0].Likes)
-	assert.NotEmpty(t, res[0].Reposts)
-	// assert.NotEmpty(t, res[0].Views)
+	assert.NotEmpty(t, res.Items[0].PostType)
+	// assert.NotEmpty(t, res.Items[0].Text)
+	assert.NotEmpty(t, res.Items[0].PostSource)
+	assert.NotEmpty(t, res.Items[0].Comments)
+	assert.NotEmpty(t, res.Items[0].Likes)
+	assert.NotEmpty(t, res.Items[0].Reposts)
+	// assert.NotEmpty(t, res.Items[0].Views)
 
 	_, err = vkService.WallGetByIDExtended(params)
 	noError(t, err)
@@ -165,7 +165,7 @@ func TestVK_WallGetByID_issues147(t *testing.T) {
 		"posts": "-169097025_377",
 	})
 	noError(t, err)
-	assert.NotEmpty(t, res[0].Attachments[0].Market.ID)
+	assert.NotEmpty(t, res.Items[0].Attachments[0].Market.ID)
 }
 
 func TestVK_WallGetComment(t *testing.T) {
