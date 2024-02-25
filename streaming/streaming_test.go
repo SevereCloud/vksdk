@@ -42,7 +42,7 @@ func TestStreaming_AllRule(t *testing.T) { //nolint:paralleltest
 	err := stream.AddRule("rule", "test")
 	assert.NoError(t, err)
 
-	time.Sleep(time.Second)
+	time.Sleep(time.Second * 2)
 
 	err = stream.UpdateRules([]streaming.Rule{{Tag: "test", Value: "test"}})
 	assert.NoError(t, err)
