@@ -309,3 +309,22 @@ type MarketPriceDetail struct {
 	Price    MarketPrice `json:"price"`
 	IsAccent BaseBoolInt `json:"is_accent,omitempty"`
 }
+
+// MarketMarketCategoryTree struct.
+type MarketMarketCategoryTree struct {
+	ID   int         `json:"id"`   // Category ID
+	Name string      `json:"name"` // Category name
+	Icon []BaseImage `json:"icon"`
+	// IconName string                       `json:"icon_name"` // Icon name
+	Children []MarketMarketCategoryTree   `json:"children"`
+	View     MarketMarketCategoryTreeView `json:"view"`
+	URL      string                       `json:"url"` // SEO-friendly URL to page with category's items
+}
+
+// MarketMarketCategoryTreeView struct.
+type MarketMarketCategoryTreeView struct {
+	Type     string `json:"type"`
+	Selected bool   `json:"selected"`
+	// Category names from current category up to root category.
+	RootPath []string `json:"root_path"`
+}

@@ -161,8 +161,7 @@ func (vk *VK) MarketGetByID(params Params) (response MarketGetByIDResponse, err 
 
 // MarketGetCategoriesResponse struct.
 type MarketGetCategoriesResponse struct {
-	Count int                           `json:"count"`
-	Items []object.MarketMarketCategory `json:"items"`
+	Items []object.MarketMarketCategoryTree `json:"items"`
 }
 
 // MarketGetCategories returns a list of market categories.

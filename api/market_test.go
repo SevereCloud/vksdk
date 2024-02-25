@@ -305,12 +305,16 @@ func TestVK_MarketGetCategories(t *testing.T) {
 
 	res, err := vkUser.MarketGetCategories(nil)
 	noError(t, err)
-	assert.NotEmpty(t, res.Count)
 
 	if assert.NotEmpty(t, res.Items) {
 		assert.NotEmpty(t, res.Items[0].ID)
 		assert.NotEmpty(t, res.Items[0].Name)
-		assert.NotEmpty(t, res.Items[0].Section.Name)
+		assert.NotEmpty(t, res.Items[0].Icon)
+		assert.NotEmpty(t, res.Items[0].URL)
+		// assert.NotEmpty(t, res.Items[0].View.RootPath)
+		// assert.NotEmpty(t, res.Items[0].View.Selected)
+		assert.NotEmpty(t, res.Items[0].View.Type)
+		assert.NotEmpty(t, res.Items[0].Children)
 	}
 }
 

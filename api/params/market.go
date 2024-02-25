@@ -733,12 +733,16 @@ func NewMarketGetCategoriesBuilder() *MarketGetCategoriesBuilder {
 }
 
 // Count number of results to return.
+//
+// Deprecated: tree is returned in full.
 func (b *MarketGetCategoriesBuilder) Count(v int) *MarketGetCategoriesBuilder {
 	b.Params["count"] = v
 	return b
 }
 
 // Offset needed to return a specific subset of results.
+//
+// Deprecated: tree is returned in full.
 func (b *MarketGetCategoriesBuilder) Offset(v int) *MarketGetCategoriesBuilder {
 	b.Params["offset"] = v
 	return b
