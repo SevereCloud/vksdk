@@ -565,7 +565,6 @@ func (vk *VK) MessagesSearchConversations(params Params) (response MessagesSearc
 // https://dev.vk.com/method/messages.send
 func (vk *VK) MessagesSend(params Params) (response int, err error) {
 	reqParams := Params{
-		"user_ids": "",
 		"peer_ids": "",
 	}
 
