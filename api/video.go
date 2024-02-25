@@ -65,10 +65,16 @@ func (vk *VK) VideoDeleteComment(params Params) (response int, err error) {
 	return
 }
 
+// VideoEditResponse struct.
+type VideoEditResponse struct {
+	Success   object.BaseBoolInt `json:"success"`
+	AccessKey string             `json:"access_key"`
+}
+
 // VideoEdit edits information about a video on a user or community page.
 //
 // https://dev.vk.com/method/video.edit
-func (vk *VK) VideoEdit(params Params) (response int, err error) {
+func (vk *VK) VideoEdit(params Params) (response VideoEditResponse, err error) {
 	err = vk.RequestUnmarshal("video.edit", &response, params)
 	return
 }
