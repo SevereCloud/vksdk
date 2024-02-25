@@ -122,11 +122,9 @@ func (vk *VK) DatabaseGetRegions(params Params) (response DatabaseGetRegionsResp
 }
 
 // DatabaseGetSchoolClassesResponse struct.
-type DatabaseGetSchoolClassesResponse [][]interface{}
+type DatabaseGetSchoolClassesResponse []object.BaseObject
 
 // DatabaseGetSchoolClasses returns a list of school classes specified for the country.
-//
-// BUG(VK): database.getSchoolClasses bad return.
 //
 // https://dev.vk.com/method/database.getSchoolClasses
 func (vk *VK) DatabaseGetSchoolClasses(params Params) (response DatabaseGetSchoolClassesResponse, err error) {
