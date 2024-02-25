@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"reflect"
 
 	"github.com/vmihailenco/msgpack/v5"
 	"github.com/vmihailenco/msgpack/v5/msgpcode"
@@ -544,12 +543,12 @@ type GroupsGroupSettings struct {
 	LiveCovers       struct {
 		IsEnabled BaseBoolInt `json:"is_enabled"`
 	} `json:"live_covers"`
-	Market           GroupsMarketInfo     `json:"market"`
-	SectionsList     []GroupsSectionsList `json:"sections_list"`
-	MainSection      int                  `json:"main_section"`
-	SecondarySection int                  `json:"secondary_section"`
-	ActionButton     GroupsActionButton   `json:"action_button"`
-	Phone            string               `json:"phone"`
+	Market           GroupsMarketInfo   `json:"market"`
+	SectionsList     []BaseObject       `json:"sections_list"`
+	MainSection      int                `json:"main_section"`
+	SecondarySection int                `json:"secondary_section"`
+	ActionButton     GroupsActionButton `json:"action_button"`
+	Phone            string             `json:"phone"`
 
 	RecognizePhoto int `json:"recognize_photo"`
 
@@ -614,104 +613,6 @@ type GroupsYoulaSettings struct {
 	RadiusArea            string      `json:"radius_area"`
 	Address               string      `json:"address"`
 	Radiuses              []float64   `json:"radiuses"`
-}
-
-// GroupsSectionsList struct.
-type GroupsSectionsList struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-}
-
-// UnmarshalJSON need for unmarshal dynamic array (Example: [1, "Фотографии"]) to struct.
-//
-// To unmarshal JSON into a value implementing the Unmarshaler interface,
-// Unmarshal calls that value's UnmarshalJSON method.
-// See more https://golang.org/pkg/encoding/json/#Unmarshal
-func (g *GroupsSectionsList) UnmarshalJSON(data []byte) error {
-	var alias []interface{}
-	if err := json.Unmarshal(data, &alias); err != nil {
-		return fmt.Errorf("object.GroupsSectionsList: %w", err)
-	}
-
-	if len(alias) != 2 {
-		return &json.UnmarshalTypeError{
-			Value: string(data),
-			Type:  reflect.TypeOf((*GroupsSectionsList)(nil)),
-		}
-	}
-
-	// default concrete Go type float64 for JSON numbers
-	id, ok := alias[0].(float64)
-	if !ok {
-		return &json.UnmarshalTypeError{
-			Value:  string(data),
-			Type:   reflect.TypeOf((*GroupsSectionsList)(nil)),
-			Struct: "GroupsSectionsList",
-			Field:  "ID",
-		}
-	}
-
-	name, ok := alias[1].(string)
-	if !ok {
-		return &json.UnmarshalTypeError{
-			Value:  string(data),
-			Type:   reflect.TypeOf((*GroupsSectionsList)(nil)),
-			Struct: "GroupsSectionsList",
-			Field:  "Name",
-		}
-	}
-
-	g.ID = int(id)
-	g.Name = name
-
-	return nil
-}
-
-// DecodeMsgpack need for decode dynamic array (Example: [1, "Фотографии"]) to struct.
-func (g *GroupsSectionsList) DecodeMsgpack(dec *msgpack.Decoder) error {
-	data, err := dec.DecodeRaw()
-	if err != nil {
-		return fmt.Errorf("object.GroupsSectionsList: %w", err)
-	}
-
-	var alias []interface{}
-
-	err = msgpack.Unmarshal(data, &alias)
-	if err != nil {
-		return fmt.Errorf("object.GroupsSectionsList: %w", err)
-	}
-
-	if len(alias) != 2 {
-		return &json.UnmarshalTypeError{
-			Value: string(data),
-			Type:  reflect.TypeOf((*GroupsSectionsList)(nil)),
-		}
-	}
-
-	id, ok := alias[0].(int8)
-	if !ok {
-		return &json.UnmarshalTypeError{
-			Value:  string(data),
-			Type:   reflect.TypeOf((*GroupsSectionsList)(nil)),
-			Struct: "GroupsSectionsList",
-			Field:  "ID",
-		}
-	}
-
-	name, ok := alias[1].(string)
-	if !ok {
-		return &json.UnmarshalTypeError{
-			Value:  string(data),
-			Type:   reflect.TypeOf((*GroupsSectionsList)(nil)),
-			Struct: "GroupsSectionsList",
-			Field:  "Name",
-		}
-	}
-
-	g.ID = int(id)
-	g.Name = name
-
-	return nil
 }
 
 // GroupsActionType for action_button in groups.
