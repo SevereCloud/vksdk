@@ -80,7 +80,7 @@ const (
 )
 
 func parseCode(u *url.URL) (string, error) {
-	v, err := url.ParseQuery(u.Fragment)
+	v, err := url.ParseQuery(u.RawQuery)
 
 	if errType := v.Get("error"); errType != "" {
 		err = &Error{

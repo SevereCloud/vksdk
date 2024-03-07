@@ -127,7 +127,7 @@ func TestAuthCodeFlowUser_Token(t *testing.T) {
 	}
 
 	// f("https://oauth.vk.com/blank.html#;", "invalid semicolon separator in query")
-	f("https://oauth.vk.com/blank.html#error=invalid_request&error_description=Invalid+display+parameter", "oauth: Invalid display parameter")
+	f("https://oauth.vk.com/blank.html?error=invalid_request&error_description=Invalid+display+parameter", "oauth: Invalid display parameter")
 }
 
 func TestImplicitFlowUser(t *testing.T) {
