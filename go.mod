@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/gorilla/schema v1.2.1
 	github.com/gorilla/websocket v1.5.1
-	github.com/klauspost/compress v1.17.7
+	github.com/klauspost/compress v1.17.8
 	github.com/stretchr/testify v1.8.4
 	github.com/vmihailenco/msgpack/v5 v5.4.1
 	golang.org/x/text v0.14.0
