@@ -390,7 +390,7 @@ type GroupsGetMembersResponse struct {
 //
 // https://dev.vk.com/method/groups.getMembers
 func (vk *VK) GroupsGetMembers(params Params) (response GroupsGetMembersResponse, err error) {
-	err = vk.RequestUnmarshal("groups.getMembers", &response, params, Params{"filter": ""})
+	err = vk.RequestUnmarshal("groups.getMembers", &response, Params{"filter": ""}, params)
 
 	return
 }
