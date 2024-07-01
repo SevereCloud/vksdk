@@ -3,7 +3,7 @@ module github.com/SevereCloud/vksdk/v2
 go 1.21
 
 require (
-	github.com/gorilla/schema v1.2.1
+	github.com/gorilla/schema v1.4.1
 	github.com/gorilla/websocket v1.5.1
 	github.com/klauspost/compress v1.17.7
 	github.com/stretchr/testify v1.8.4
