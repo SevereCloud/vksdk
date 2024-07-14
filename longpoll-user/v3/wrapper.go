@@ -1,6 +1,6 @@
-package wrapper // import "github.com/SevereCloud/vksdk/v2/longpoll-user/v3"
+package wrapper // import "github.com/SevereCloud/vksdk/v3/longpoll-user/v3"
 
-import "github.com/SevereCloud/vksdk/v2/longpoll-user"
+import "github.com/SevereCloud/vksdk/v3/longpoll-user"
 
 // Wrapper struct.
 type Wrapper struct {

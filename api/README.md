@@ -1,6 +1,6 @@
 # API
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/api)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/api)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/api/getting-started)
 
 Данная библиотека поддерживает версию API **5.199**.
@@ -19,7 +19,7 @@ vk := api.NewVK("<TOKEN>")
 - `groups.get` с extended=1 -> `vk.GroupsGetExtended(api.Params{})`
 
 Список всех методов можно найти на
-[данной странице](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api?tab=doc#VK).
+[данной странице](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api?tab=doc#VK).
 
 Пример запроса [`users.get`](https://dev.vk.com/method/users.get)
 
@@ -34,12 +34,12 @@ if err != nil {
 
 ### Параметры
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/api/params)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api/params)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/api/params)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api/params)
 
 Модуль params предназначен для генерации параметров запроса.
 
 ```go
-// import "github.com/SevereCloud/vksdk/v2/api/params"
+// import "github.com/SevereCloud/vksdk/v3/api/params"
 
 b := params.NewMessageSendBuilder()
 b.PeerID(123)
@@ -152,7 +152,7 @@ log.Print(response)
 
 ### Execute
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/errors)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api#VK.Execute)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/errors)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api#VK.Execute)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/method/execute)
 
 Универсальный метод, который позволяет запускать последовательность других

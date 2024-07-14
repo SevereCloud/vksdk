@@ -3,7 +3,7 @@ Package longpoll implements Bots Long Poll API.
 
 See more https://dev.vk.com/ru/api/bots-long-poll/getting-started
 */
-package longpoll // import "github.com/SevereCloud/vksdk/v2/longpoll-bot"
+package longpoll // import "github.com/SevereCloud/vksdk/v3/longpoll-bot"
 
 import (
 	"context"
@@ -14,10 +14,10 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/SevereCloud/vksdk/v2"
-	"github.com/SevereCloud/vksdk/v2/api"
-	"github.com/SevereCloud/vksdk/v2/events"
-	"github.com/SevereCloud/vksdk/v2/internal"
+	"github.com/SevereCloud/vksdk/v3"
+	"github.com/SevereCloud/vksdk/v3/api"
+	"github.com/SevereCloud/vksdk/v3/events"
+	"github.com/SevereCloud/vksdk/v3/internal"
 )
 
 // Response struct.

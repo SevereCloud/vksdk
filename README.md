@@ -1,6 +1,6 @@
 # VK SDK for Golang
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/v2)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2?tab=subdirectories)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/v2)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3?tab=subdirectories)
 [![VK Developers](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/)
 [![codecov](https://codecov.io/gh/SevereCloud/vksdk/branch/master/graph/badge.svg)](https://codecov.io/gh/SevereCloud/vksdk)
 [![VK chat](https://img.shields.io/badge/VK%20chat-%234a76a8.svg?logo=VK&logoColor=white)](https://vk.me/join/AJQ1d6Or8Q00Y_CSOESfbqGt)
@@ -15,41 +15,41 @@
 
 Version API 5.199.
 
-- [API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api)
+- [API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api)
   - 500+ methods
   - Ability to modify HTTP client
   - Request Limiter
-  - Support [zstd](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api#VK.EnableZstd)
-    and [MessagePack](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api#VK.EnableMessagePack)
+  - Support [zstd](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api#VK.EnableZstd)
+    and [MessagePack](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api#VK.EnableMessagePack)
   - Token pool
-  - [OAuth](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api/oauth)
-- [Callback API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/callback)
+  - [OAuth](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api/oauth)
+- [Callback API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/callback)
   - Tracking tool for users activity in your VK communities
   - Supports all events
   - Auto setting callback
-- [Bots Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-bot)
+- [Bots Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/longpoll-bot)
   - Allows you to work with community events in real time
   - Supports all events
   - Ability to modify HTTP client
-- [User Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-user)
+- [User Long Poll API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/longpoll-user)
   - Allows you to work with user events in real time
   - Ability to modify HTTP client
-- [Streaming API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/streaming)
+- [Streaming API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/streaming)
   - Receiving public data from VK by specified keywords
   - Ability to modify HTTP client
-- [FOAF](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/foaf)
+- [FOAF](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/foaf)
   - Machine-readable ontology describing persons
   - Works with users and groups
   - The only place to get page creation date
-- [Games](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/games)
+- [Games](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/games)
   - Checking launch parameters
   - Intermediate http handler
-- [VK Mini Apps](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/vkapps)
+- [VK Mini Apps](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/vkapps)
   - Checking launch parameters
   - Intermediate http handler
-- [Payments API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/payments)
+- [Payments API](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/payments)
   - Processes payment notifications
-- [Marusia Skills](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/marusia)
+- [Marusia Skills](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/marusia)
   - For creating Marusia Skills
   - Support SSML
 
@@ -57,7 +57,7 @@ Version API 5.199.
 
 ```bash
 # go mod init mymodulename
-go get github.com/SevereCloud/vksdk/v2@latest
+go get github.com/SevereCloud/vksdk/v3@latest
 ```
 
 ## Use by
@@ -75,10 +75,10 @@ import (
 	"context"
 	"log"
 
-	"github.com/SevereCloud/vksdk/v2/api"
-	"github.com/SevereCloud/vksdk/v2/api/params"
-	"github.com/SevereCloud/vksdk/v2/events"
-	"github.com/SevereCloud/vksdk/v2/longpoll-bot"
+	"github.com/SevereCloud/vksdk/v3/api"
+	"github.com/SevereCloud/vksdk/v3/api/params"
+	"github.com/SevereCloud/vksdk/v3/events"
+	"github.com/SevereCloud/vksdk/v3/longpoll-bot"
 )
 
 func main() {

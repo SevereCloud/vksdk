@@ -1,7 +1,7 @@
-package params // import "github.com/SevereCloud/vksdk/v2/api/params"
+package params // import "github.com/SevereCloud/vksdk/v3/api/params"
 
 import (
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v3/api"
 )
 
 // AppWidgetsUpdateBuilder builder.

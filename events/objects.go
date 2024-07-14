@@ -1,9 +1,9 @@
-package events // import "github.com/SevereCloud/vksdk/v2/events"
+package events // import "github.com/SevereCloud/vksdk/v3/events"
 
 import (
 	"encoding/json"
 
-	"github.com/SevereCloud/vksdk/v2/object"
+	"github.com/SevereCloud/vksdk/v3/object"
 )
 
 // MessageNewObject struct.

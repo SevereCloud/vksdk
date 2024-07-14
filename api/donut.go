@@ -1,6 +1,6 @@
 package api
 
-import "github.com/SevereCloud/vksdk/v2/object"
+import "github.com/SevereCloud/vksdk/v3/object"
 
 // DonutGetFriendsResponse struct.
 type DonutGetFriendsResponse struct {

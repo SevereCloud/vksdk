@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/SevereCloud/vksdk/v2/games"
+	"github.com/SevereCloud/vksdk/v3/games"
 )
 
 func ExampleParamsVerification() {

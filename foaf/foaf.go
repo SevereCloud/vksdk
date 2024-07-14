@@ -4,14 +4,14 @@ Package foaf wrapper for FOAF.
 Specification
 https://web.archive.org/web/20140909053226/http://api.yandex.ru/blogs/doc/indexation/concepts/what-is-foaf.xml
 */
-package foaf // import "github.com/SevereCloud/vksdk/v2/foaf"
+package foaf // import "github.com/SevereCloud/vksdk/v3/foaf"
 
 import (
 	"context"
 	"encoding/xml"
 	"net/http"
 
-	"github.com/SevereCloud/vksdk/v2/internal"
+	"github.com/SevereCloud/vksdk/v3/internal"
 )
 
 // BaseURL url foaf.

@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v3/api"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -1,4 +1,4 @@
-package foaf // import "github.com/SevereCloud/vksdk/v2/foaf"
+package foaf // import "github.com/SevereCloud/vksdk/v3/foaf"
 
 // Img - An image that can be used to represent some thing (ie. those
 // depictions which are particularly representative of something, eg. one's photo on a homepage).

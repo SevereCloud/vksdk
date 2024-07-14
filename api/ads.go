@@ -1,11 +1,11 @@
-package api // import "github.com/SevereCloud/vksdk/v2/api"
+package api // import "github.com/SevereCloud/vksdk/v3/api"
 
 import (
 	"bytes"
 	"encoding/json"
 	"fmt"
 
-	"github.com/SevereCloud/vksdk/v2/object"
+	"github.com/SevereCloud/vksdk/v3/object"
 	"github.com/vmihailenco/msgpack/v5"
 )
 

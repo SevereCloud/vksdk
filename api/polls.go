@@ -1,6 +1,6 @@
-package api // import "github.com/SevereCloud/vksdk/v2/api"
+package api // import "github.com/SevereCloud/vksdk/v3/api"
 
-import "github.com/SevereCloud/vksdk/v2/object"
+import "github.com/SevereCloud/vksdk/v3/object"
 
 // PollsAddVote adds the current user's vote to the selected answer in the poll.
 //

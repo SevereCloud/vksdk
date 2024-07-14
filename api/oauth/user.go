@@ -1,5 +1,5 @@
 // Package oauth ...
-package oauth // import "github.com/SevereCloud/vksdk/v2/api/oauth"
+package oauth // import "github.com/SevereCloud/vksdk/v3/api/oauth"
 
 import (
 	"encoding/json"
@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/SevereCloud/vksdk/v2/internal"
+	"github.com/SevereCloud/vksdk/v3/internal"
 )
 
 // UserToken ...

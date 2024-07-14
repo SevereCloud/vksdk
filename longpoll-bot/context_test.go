@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/internal"
-	"github.com/SevereCloud/vksdk/v2/longpoll-bot"
+	"github.com/SevereCloud/vksdk/v3/internal"
+	"github.com/SevereCloud/vksdk/v3/longpoll-bot"
 	"github.com/stretchr/testify/assert"
 )
 

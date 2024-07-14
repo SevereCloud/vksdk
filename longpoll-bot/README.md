@@ -1,6 +1,6 @@
 # Bots Long Poll API
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/longpoll-bot)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-bot)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/longpoll-bot)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/longpoll-bot)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/api/bots-long-poll/getting-started)
 
 ## Подключение Bots Long Poll API
@@ -109,10 +109,10 @@ package main
 import (
 	"log"
 
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v3/api"
 
-	longpoll "github.com/SevereCloud/vksdk/v2/longpoll-bot"
-	"github.com/SevereCloud/vksdk/v2/events"
+	longpoll "github.com/SevereCloud/vksdk/v3/longpoll-bot"
+	"github.com/SevereCloud/vksdk/v3/events"
 )
 
 func main() {

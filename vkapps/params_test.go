@@ -4,7 +4,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/vkapps"
+	"github.com/SevereCloud/vksdk/v3/vkapps"
 	"github.com/stretchr/testify/assert"
 )
 

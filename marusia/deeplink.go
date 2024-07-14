@@ -1,4 +1,4 @@
-package marusia // import "github.com/SevereCloud/vksdk/v2/marusia"
+package marusia // import "github.com/SevereCloud/vksdk/v3/marusia"
 
 import (
 	"encoding/base64"

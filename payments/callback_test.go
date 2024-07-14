@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2/payments"
+	"github.com/SevereCloud/vksdk/v3/payments"
 	"github.com/stretchr/testify/assert"
 )
 

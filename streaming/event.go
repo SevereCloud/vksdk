@@ -1,7 +1,7 @@
 package streaming
 
 import (
-	"github.com/SevereCloud/vksdk/v2/object"
+	"github.com/SevereCloud/vksdk/v3/object"
 )
 
 // Event object, if status code is 100.

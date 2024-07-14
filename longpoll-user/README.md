@@ -1,6 +1,6 @@
 # User Long Poll API
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/longpoll-user)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-user)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/longpoll-user)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/longpoll-user)
 [![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/api/user-long-poll/getting-started)
 
 ## Подключение User Long Poll API
@@ -101,9 +101,9 @@ package main
 import (
 	"log"
 
-	"github.com/SevereCloud/vksdk/v2/api"
+	"github.com/SevereCloud/vksdk/v3/api"
 
-	longpoll "github.com/SevereCloud/vksdk/v2/longpoll-user"
+	longpoll "github.com/SevereCloud/vksdk/v3/longpoll-user"
 )
 
 func main() {

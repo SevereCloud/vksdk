@@ -42,7 +42,7 @@ The module has the ability to modify the HTTP client
 
 # Wrapper allows you to get ready-made structures
 
-Wrapper for v3 https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/longpoll-user/v3
+Wrapper for v3 https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/longpoll-user/v3
 
 # Run and shutdown
 
@@ -50,7 +50,7 @@ TODO: write about lp.Run() and lp.Shutdown()
 
 VK documentation https://dev.vk.com/ru/api/user-long-poll/getting-started
 */
-package longpoll // import "github.com/SevereCloud/vksdk/v2/longpoll-user"
+package longpoll // import "github.com/SevereCloud/vksdk/v3/longpoll-user"
 
 import (
 	"encoding/json"
@@ -60,9 +60,9 @@ import (
 	"strconv"
 	"sync/atomic"
 
-	"github.com/SevereCloud/vksdk/v2/api"
-	"github.com/SevereCloud/vksdk/v2/internal"
-	"github.com/SevereCloud/vksdk/v2/object"
+	"github.com/SevereCloud/vksdk/v3/api"
+	"github.com/SevereCloud/vksdk/v3/internal"
+	"github.com/SevereCloud/vksdk/v3/object"
 )
 
 // Mode additional answer options.

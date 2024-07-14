@@ -1,7 +1,7 @@
 /*
 Package internal unimportable
 */
-package internal // import "github.com/SevereCloud/vksdk/v2/internal"
+package internal // import "github.com/SevereCloud/vksdk/v3/internal"
 
 import (
 	"io"

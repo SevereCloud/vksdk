@@ -1,6 +1,6 @@
 package params
 
-import "github.com/SevereCloud/vksdk/v2/api"
+import "github.com/SevereCloud/vksdk/v3/api"
 
 // CallsStartBuilder builder.
 //

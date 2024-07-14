@@ -91,8 +91,8 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/SevereCloud/vksdk/v2/api"
-	"github.com/SevereCloud/vksdk/v2/internal"
+	"github.com/SevereCloud/vksdk/v3/api"
+	"github.com/SevereCloud/vksdk/v3/internal"
 )
 
 type response struct {

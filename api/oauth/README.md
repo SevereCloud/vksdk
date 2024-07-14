@@ -420,8 +420,8 @@ for _, groupToken := range t.Groups {
 для запросов с серверной стороны приложения, его нельзя передавать и хранить
 на клиенте.
 
-[doc-badge]: https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v2/api/oauth
-[doc]: https://pkg.go.dev/github.com/SevereCloud/vksdk/v2/api/oauth
+[doc-badge]: https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/api/oauth
+[doc]: https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api/oauth
 [dev-badge]: https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white
 [users.get]: https://dev.vk.com/method/users.get
 [secure.addAppEvent]: https://dev.vk.com/method/secure.addAppEvent

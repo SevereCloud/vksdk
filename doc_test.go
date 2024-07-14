@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/SevereCloud/vksdk/v2"
+	"github.com/SevereCloud/vksdk/v3"
 )
 
 type version struct {
