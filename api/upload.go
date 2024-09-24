@@ -610,12 +610,13 @@ func (vk *VK) UploadWallDoc(title, tags string, file io.Reader) (response DocsSa
 // Supported formats: any formats excepting mp3 and executable files.
 //
 // Limits: file size up to 200 MB.
-func (vk *VK) UploadGroupWallDoc(groupID int, title, tags string, file io.Reader) (
+func (vk *VK) UploadGroupWallDoc(groupID int, typeDoc, title, tags string, file io.Reader) (
 	response DocsSaveResponse,
 	err error,
 ) {
 	uploadServer, err := vk.DocsGetWallUploadServer(Params{
 		"group_id": groupID,
+		"type":     typeDoc,
 	})
 	if err != nil {
 		return response, err
