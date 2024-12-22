@@ -110,7 +110,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if remove {
-		_, _ = w.Write([]byte("remove"))
+		cb.response(w, "remove")
 
 		return
 	}
@@ -122,10 +122,17 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, _ = w.Write([]byte("ok"))
+	cb.response(w, "ok")
 }
 
-func (cb *Callback) logf(format string, args ...interface{}) {
+func (cb *Callback) response(w http.ResponseWriter, data string) {
+	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	if _, err := w.Write([]byte(data)); err != nil {
+		cb.logf("write response: %v", err)
+	}
+}
+
+func (cb *Callback) logf(format string, args ...any) {
 	if cb.ErrorLog != nil {
 		cb.ErrorLog.Printf(format, args...)
 	} else {
