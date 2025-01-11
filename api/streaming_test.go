@@ -105,7 +105,7 @@ func TestVK_StreamingError(t *testing.T) {
 	}
 
 	_, err = vk.StreamingGetSettings(nil)
-	if !errors.Is(err, api.ErrAuth) {
+	if !errors.Is(err, api.ErrMethod) {
 		t.Errorf("StreamingGetSettings error bad %v", err)
 	}
 
@@ -120,7 +120,7 @@ func TestVK_StreamingError(t *testing.T) {
 	}
 
 	_, err = vk.StreamingSetSettings(nil)
-	if !errors.Is(err, api.ErrAuth) {
+	if !errors.Is(err, api.ErrMethod) {
 		t.Errorf("StreamingSetSettings error bad %v", err)
 	}
 }
