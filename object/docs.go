@@ -41,12 +41,12 @@ type DocsDocPreviewPhoto struct {
 
 // MaxSize return the largest DocsDocPreviewPhotoSizes.
 func (photo DocsDocPreviewPhoto) MaxSize() (maxPhotoSize DocsDocPreviewPhotoSizes) {
-	var max float64
+	var maxSize float64
 
 	for _, photoSize := range photo.Sizes {
 		size := photoSize.Height * photoSize.Width
-		if size > max {
-			max = size
+		if size > maxSize {
+			maxSize = size
 			maxPhotoSize = photoSize
 		}
 	}
@@ -56,12 +56,12 @@ func (photo DocsDocPreviewPhoto) MaxSize() (maxPhotoSize DocsDocPreviewPhotoSize
 
 // MinSize return the smallest DocsDocPreviewPhotoSizes.
 func (photo DocsDocPreviewPhoto) MinSize() (minPhotoSize DocsDocPreviewPhotoSizes) {
-	var min float64
+	var minSize float64
 
 	for _, photoSize := range photo.Sizes {
 		size := photoSize.Height * photoSize.Width
-		if size < min || min == 0 {
-			min = size
+		if size < minSize || minSize == 0 {
+			minSize = size
 			minPhotoSize = photoSize
 		}
 	}

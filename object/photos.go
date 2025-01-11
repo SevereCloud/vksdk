@@ -44,12 +44,12 @@ func (photo PhotosPhoto) ToAttachment() string {
 
 // MaxSize return the largest PhotosPhotoSizes.
 func (photo PhotosPhoto) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
-	var max float64
+	var maxSize float64
 
 	for _, photoSize := range photo.Sizes {
 		size := photoSize.Height * photoSize.Width
-		if size > max {
-			max = size
+		if size > maxSize {
+			maxSize = size
 			maxPhotoSize = photoSize
 		}
 	}
@@ -59,12 +59,12 @@ func (photo PhotosPhoto) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 
 // MinSize return the smallest PhotosPhotoSizes.
 func (photo PhotosPhoto) MinSize() (minPhotoSize PhotosPhotoSizes) {
-	var min float64
+	var minSize float64
 
 	for _, photoSize := range photo.Sizes {
 		size := photoSize.Height * photoSize.Width
-		if size < min || min == 0 {
-			min = size
+		if size < minSize || minSize == 0 {
+			minSize = size
 			minPhotoSize = photoSize
 		}
 	}
@@ -181,12 +181,12 @@ func (album PhotosPhotoAlbumFull) ToAttachment() string {
 
 // MaxSize return the largest PhotosPhotoSizes.
 func (album PhotosPhotoAlbumFull) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
-	var max float64
+	var maxSize float64
 
 	for _, photoSize := range album.Sizes {
 		size := photoSize.Height * photoSize.Width
-		if size > max {
-			max = size
+		if size > maxSize {
+			maxSize = size
 			maxPhotoSize = photoSize
 		}
 	}
@@ -196,12 +196,12 @@ func (album PhotosPhotoAlbumFull) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 
 // MinSize return the smallest PhotosPhotoSizes.
 func (album PhotosPhotoAlbumFull) MinSize() (minPhotoSize PhotosPhotoSizes) {
-	var min float64
+	var minSize float64
 
 	for _, photoSize := range album.Sizes {
 		size := photoSize.Height * photoSize.Width
-		if size < min || min == 0 {
-			min = size
+		if size < minSize || minSize == 0 {
+			minSize = size
 			minPhotoSize = photoSize
 		}
 	}
@@ -249,12 +249,12 @@ func (photo PhotosPhotoFull) ToAttachment() string {
 
 // MaxSize return the largest PhotosPhotoSizes.
 func (photo PhotosPhotoFull) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
-	var max float64
+	var maxSize float64
 
 	for _, photoSize := range photo.Sizes {
 		size := photoSize.Height * photoSize.Width
-		if size > max {
-			max = size
+		if size > maxSize {
+			maxSize = size
 			maxPhotoSize = photoSize
 		}
 	}
@@ -264,12 +264,12 @@ func (photo PhotosPhotoFull) MaxSize() (maxPhotoSize PhotosPhotoSizes) {
 
 // MinSize return the smallest PhotosPhotoSizes.
 func (photo PhotosPhotoFull) MinSize() (minPhotoSize PhotosPhotoSizes) {
-	var min float64
+	var minSize float64
 
 	for _, photoSize := range photo.Sizes {
 		size := photoSize.Height * photoSize.Width
-		if size < min || min == 0 {
-			min = size
+		if size < minSize || minSize == 0 {
+			minSize = size
 			minPhotoSize = photoSize
 		}
 	}

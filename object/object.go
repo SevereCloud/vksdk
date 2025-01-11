@@ -342,12 +342,12 @@ type BaseSticker struct {
 
 // MaxSize return the largest BaseSticker.
 func (sticker BaseSticker) MaxSize() (maxImageSize BaseImage) {
-	var max float64
+	var maxSize float64
 
 	for _, imageSize := range sticker.Images {
 		size := imageSize.Height * imageSize.Width
-		if size > max {
-			max = size
+		if size > maxSize {
+			maxSize = size
 			maxImageSize = imageSize
 		}
 	}
@@ -357,12 +357,12 @@ func (sticker BaseSticker) MaxSize() (maxImageSize BaseImage) {
 
 // MinSize return the smallest BaseSticker.
 func (sticker BaseSticker) MinSize() (minImageSize BaseImage) {
-	var min float64
+	var minSize float64
 
 	for _, imageSize := range sticker.Images {
 		size := imageSize.Height * imageSize.Width
-		if size < min || min == 0 {
-			min = size
+		if size < minSize || minSize == 0 {
+			minSize = size
 			minImageSize = imageSize
 		}
 	}
@@ -372,12 +372,12 @@ func (sticker BaseSticker) MinSize() (minImageSize BaseImage) {
 
 // MaxSizeBackground return the largest BaseSticker with background.
 func (sticker BaseSticker) MaxSizeBackground() (maxImageSize BaseImage) {
-	var max float64
+	var maxSize float64
 
 	for _, imageSize := range sticker.ImagesWithBackground {
 		size := imageSize.Height * imageSize.Width
-		if size > max {
-			max = size
+		if size > maxSize {
+			maxSize = size
 			maxImageSize = imageSize
 		}
 	}
@@ -387,12 +387,12 @@ func (sticker BaseSticker) MaxSizeBackground() (maxImageSize BaseImage) {
 
 // MinSizeBackground return the smallest BaseSticker with background.
 func (sticker BaseSticker) MinSizeBackground() (minImageSize BaseImage) {
-	var min float64
+	var minSize float64
 
 	for _, imageSize := range sticker.ImagesWithBackground {
 		size := imageSize.Height * imageSize.Width
-		if size < min || min == 0 {
-			min = size
+		if size < minSize || minSize == 0 {
+			minSize = size
 			minImageSize = imageSize
 		}
 	}
