@@ -46,6 +46,14 @@ func NewCallback() *Callback {
 	return cb
 }
 
+func (cb Callback) confirmationKey(groupID int) string {
+	if cb.ConfirmationKeys[groupID] != "" {
+		return cb.ConfirmationKeys[groupID]
+	}
+
+	return cb.ConfirmationKey
+}
+
 // HandleFunc handler.
 func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
@@ -71,10 +79,9 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if e.Type == events.EventConfirmation {
-		if cb.ConfirmationKeys[e.GroupID] != "" {
-			fmt.Fprintf(w, cb.ConfirmationKeys[e.GroupID])
-		} else {
-			fmt.Fprintf(w, cb.ConfirmationKey)
+		_, err := fmt.Fprint(w, cb.confirmationKey(e.GroupID))
+		if err != nil {
+			cb.logf("callback: %v", err)
 		}
 
 		return
@@ -127,6 +134,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 
 func (cb *Callback) response(w http.ResponseWriter, data string) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+
 	if _, err := w.Write([]byte(data)); err != nil {
 		cb.logf("write response: %v", err)
 	}
