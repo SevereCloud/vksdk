@@ -210,8 +210,6 @@ func (lp LongPoll) handler(event []interface{}) error {
 	key := int(event[0].(float64))
 
 	for _, f := range lp.funcList[key] {
-		f := f
-
 		if lp.goroutine {
 			go func() { _ = f(event) }()
 		} else {
@@ -242,8 +240,6 @@ func (lp *LongPoll) Run() error {
 		}
 
 		for _, f := range lp.funcFullResponseList {
-			f := f
-
 			if lp.goroutine {
 				go func() { f(resp) }()
 			} else {

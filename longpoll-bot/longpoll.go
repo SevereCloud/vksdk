@@ -248,7 +248,7 @@ func (lp *LongPoll) run(ctx context.Context) error {
 				return err
 			}
 
-			ctx = context.WithValue(ctx, internal.LongPollTsKey, resp.Ts)
+			ctx := context.WithValue(ctx, internal.LongPollTsKey, resp.Ts)
 
 			for _, event := range resp.Updates {
 				err = lp.Handler(ctx, event)

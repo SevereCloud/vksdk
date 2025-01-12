@@ -173,7 +173,6 @@ func TestLongPoll_checkResponse(t *testing.T) { //nolint: tparallel
 		},
 	}
 	for _, tt := range tests { //nolint: paralleltest
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			if err := lp.checkResponse(tt.argResponse); (err != nil) != tt.wantErr {
 				t.Errorf("LongPoll.checkResponse() error = %v, wantErr %v", err, tt.wantErr)
@@ -254,7 +253,6 @@ func TestParseResponse(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		test := test
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 

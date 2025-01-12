@@ -60,8 +60,8 @@ const (
 
 // CheckScope ...
 func CheckScope(scope int, permissions ...int) bool {
-	for i := 0; i < len(permissions); i++ {
-		if scope&permissions[i] != permissions[i] {
+	for _, value := range permissions {
+		if scope&value != value {
 			return false
 		}
 	}

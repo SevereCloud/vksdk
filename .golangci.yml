@@ -32,7 +32,7 @@ linters:
     - asciicheck
     - nolintlint
     - gofumpt
-    - goerr113
+    - err113
     - tparallel
     - errorlint
     - paralleltest
@@ -67,7 +67,7 @@ linters:
     - gocheckcompilerdirectives
     - asasalint
 
-    - musttag
+    # - musttag
 
     - gosmopolitan
     - mirror
@@ -80,6 +80,18 @@ linters:
     - testifylint
 
     - wrapcheck
+
+    - copyloopvar
+    - intrange
+
+    - fatcontext
+    - canonicalheader
+
+    - iface
+
+    - exptostd
+    - nilnesserr
+    - usetesting
 
 # - testpackage # TODO: Fix testpackage
 # - noctx # TODO: Fix noctx
@@ -122,6 +134,8 @@ linters:
 # - protogetter
 # - spancheck
 
+# - recvcheck # false positive
+
 # depricated
 # - maligned
 # - interfacer
@@ -159,4 +173,4 @@ linters-settings:
   testifylint:
     enable-all: true
     disable:
-    - require-error # f func false positive
+      - require-error # f func false positive
