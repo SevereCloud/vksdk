@@ -79,8 +79,8 @@ func NewItemsList(items ...CardItem) *Card {
 func NewImageList(imageIDs ...int) *Card {
 	items := make([]CardItem, len(imageIDs))
 
-	for i := 0; i < len(imageIDs); i++ {
-		items[i].ImageID = imageIDs[i]
+	for i, value := range imageIDs {
+		items[i].ImageID = value
 	}
 
 	return NewItemsList(items...)

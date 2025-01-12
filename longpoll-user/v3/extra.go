@@ -194,7 +194,7 @@ func interfaceToIDSlice(slice interface{}) ([]int, error) {
 
 	result := make([]int, reflectedSlice.Len())
 
-	for i := 0; i < reflectedSlice.Len(); i++ {
+	for i := range reflectedSlice.Len() {
 		v, ok := reflectedSlice.Index(i).Interface().(float64)
 		if !ok {
 			return nil, &failedCast{reflectedSlice.Index(i).Interface()}

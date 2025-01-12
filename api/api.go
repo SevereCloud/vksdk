@@ -207,6 +207,7 @@ func buildQuery(sliceParams ...Params) (context.Context, url.Values) {
 			case "access_token":
 				continue
 			case ":context":
+				//nolint:fatcontext
 				ctx = value.(context.Context)
 			default:
 				query.Set(key, FmtValue(value, 0))
@@ -396,7 +397,7 @@ func fmtReflectValue(value reflect.Value, depth int) string {
 	case reflect.Array, reflect.Slice:
 		s := ""
 
-		for i := 0; i < f.Len(); i++ {
+		for i := range f.Len() {
 			if i > 0 {
 				s += ","
 			}
