@@ -960,7 +960,11 @@ type InvalidContentType struct {
 
 // Error returns the message of a InvalidContentType.
 func (e InvalidContentType) Error() string {
-	return "api: invalid content-type"
+	if e.ContentType == "" {
+		return "api: empty content-type"
+	}
+
+	return fmt.Sprintf("api: invalid content-type(%s)", e.ContentType)
 }
 
 // UploadError type.
