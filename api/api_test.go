@@ -240,7 +240,7 @@ func TestVK_InvalidContentType(t *testing.T) {
 	vk.MethodURL = "https://api.vk.com"
 
 	err := vk.RequestUnmarshal("", testObj, nil)
-	if err == nil || err.Error() != "api: invalid content-type" {
+	if err == nil || err.Error() != "api: invalid content-type(text/html)" {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}
 }
