@@ -2,7 +2,7 @@ package callback_test
 
 import (
 	"bytes"
-	"log"
+	"log/slog"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -192,12 +192,11 @@ func TestCallback_HandleFunc(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			cb := callback.Callback{
-				ConfirmationKeys: tt.fields.ConfirmationKeys,
-				ConfirmationKey:  tt.fields.ConfirmationKey,
-				SecretKeys:       tt.fields.SecretKeys,
-				SecretKey:        tt.fields.SecretKey,
-			}
+			cb := callback.NewCallback()
+			cb.ConfirmationKeys = tt.fields.ConfirmationKeys
+			cb.ConfirmationKey = tt.fields.ConfirmationKey
+			cb.SecretKeys = tt.fields.SecretKeys
+			cb.SecretKey = tt.fields.SecretKey
 
 			jsonStr := []byte(tt.body)
 
@@ -229,7 +228,7 @@ func TestCallback_ErrorLog(t *testing.T) {
 	var buf bytes.Buffer
 
 	cb := callback.NewCallback()
-	cb.ErrorLog = log.New(&buf, "", 0)
+	cb.ErrorLog = slog.New(slog.NewTextHandler(&buf, &slog.HandlerOptions{ReplaceAttr: removeTime}))
 
 	req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer([]byte{}))
 	if err != nil {
@@ -240,5 +239,13 @@ func TestCallback_ErrorLog(t *testing.T) {
 	handler := http.HandlerFunc(cb.HandleFunc)
 
 	handler.ServeHTTP(rr, req)
-	assert.Equal(t, "callback: EOF\n", buf.String())
+	assert.Equal(t, "level=ERROR msg=\"failed to json decode request body\" error=EOF\n", buf.String())
+}
+
+func removeTime(groups []string, a slog.Attr) slog.Attr {
+	if a.Key == slog.TimeKey && len(groups) == 0 {
+		return slog.Attr{}
+	}
+
+	return a
 }
