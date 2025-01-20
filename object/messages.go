@@ -44,6 +44,9 @@ type MessagesMessage struct {
 	Action        MessagesMessageAction       `json:"action"`
 	Attachments   []MessagesMessageAttachment `json:"attachments"`
 
+	// LastReactionID is the last reaction id set on this message.
+	LastReactionID int `json:"last_reaction_id"`
+
 	// Unique auto-incremented number for all messages with this peer.
 	ConversationMessageID int `json:"conversation_message_id"`
 
