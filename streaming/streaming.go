@@ -134,7 +134,7 @@ type Streaming struct {
 	Dialer    *websocket.Dialer // A Dialer contains options for connecting to WebSocket server
 	UserAgent string            // UserAgent sent in the request.
 
-	inShutdown int32
+	inShutdown atomic.Bool
 	eventFunc  []func(Event)
 }
 
@@ -281,7 +281,7 @@ func (s *Streaming) OnEvent(f func(Event)) {
 
 // Run starting stream.
 func (s *Streaming) Run() error {
-	atomic.StoreInt32(&s.inShutdown, 0)
+	s.inShutdown.Store(false)
 
 	u := url.URL{
 		Scheme: "wss",
@@ -317,7 +317,7 @@ func (s *Streaming) Run() error {
 
 	c.SetPingHandler(nil)
 
-	for atomic.LoadInt32(&s.inShutdown) == 0 {
+	for !s.inShutdown.Load() {
 		var r response
 
 		_, message, err := c.ReadMessage()
@@ -349,7 +349,7 @@ func (s *Streaming) Run() error {
 
 // Shutdown gracefully shuts down the stream.
 func (s *Streaming) Shutdown() {
-	atomic.StoreInt32(&s.inShutdown, 1)
+	s.inShutdown.Store(true)
 }
 
 // NewStreaming returns a new Streaming.
