@@ -12,6 +12,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"sync"
 	"time"
 
 	"github.com/SevereCloud/vksdk/v3/events"
@@ -31,7 +32,7 @@ type Callback struct {
 	// If nil, logging is done via the log package's standard logger.
 	ErrorLog *log.Logger
 
-	events.FuncList
+	*events.FuncList
 }
 
 // NewCallback return *Callback.
@@ -40,26 +41,35 @@ func NewCallback() *Callback {
 		Title:            "vksdk",
 		ConfirmationKeys: make(map[int]string),
 		SecretKeys:       make(map[int]string),
-		FuncList:         *events.NewFuncList(),
+		FuncList:         events.NewFuncList(),
 	}
 
 	return cb
 }
 
-func (cb Callback) confirmationKey(groupID int) string {
-	if cb.ConfirmationKeys[groupID] != "" {
-		return cb.ConfirmationKeys[groupID]
+func (cb *Callback) confirmationKey(groupID int) string {
+	if v := cb.ConfirmationKeys[groupID]; v != "" {
+		return v
 	}
 
 	return cb.ConfirmationKey
 }
 
+var groupEventPool = sync.Pool{ //nolint:gochecknoglobals
+	New: func() any {
+		return &events.GroupEvent{Object: make(json.RawMessage, 0, 1024)}
+	},
+}
+
 // HandleFunc handler.
 func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
-	decoder := json.NewDecoder(r.Body)
+	e := groupEventPool.Get().(*events.GroupEvent)
+	defer func() {
+		*e = events.GroupEvent{Object: e.Object[:0]}
+		groupEventPool.Put(e)
+	}()
 
-	var e events.GroupEvent
-	if err := decoder.Decode(&e); err != nil {
+	if err := json.NewDecoder(r.Body).Decode(e); err != nil {
 		cb.logf("callback: %v", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 
@@ -109,7 +119,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 	ctx = context.WithValue(ctx, internal.CallbackRemove, removeFunc)
 
-	if err := cb.Handler(ctx, e); err != nil {
+	if err := cb.Handler(ctx, *e); err != nil {
 		cb.logf("callback: %v", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 

@@ -2383,7 +2383,7 @@ func TestFuncList_DonutMoneyWithdrawError(t *testing.T) {
 func TestFuncList_OnEvent(t *testing.T) {
 	t.Parallel()
 
-	var fl events.FuncList
+	fl := events.NewFuncList()
 
 	fl.OnEvent("wtf_event", func(_ context.Context, e events.GroupEvent) {
 		assert.NotEmpty(t, e)
