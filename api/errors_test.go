@@ -65,7 +65,7 @@ func TestInvalidContentType(t *testing.T) {
 	t.Parallel()
 
 	err := api.InvalidContentType{}
-	assert.EqualError(t, err, "api: invalid content-type")
+	assert.EqualError(t, err, "api: empty content-type")
 }
 
 func TestExecuteErrors(t *testing.T) {
