@@ -40,7 +40,7 @@ type LongPoll struct {
 
 	funcFullResponseList []func(Response)
 
-	events.FuncList
+	*events.FuncList
 }
 
 // NewLongPoll returns a new LongPoll.
@@ -50,12 +50,12 @@ type LongPoll struct {
 // of your application the modifications will be picked up by the SDK as well.
 func NewLongPoll(vk *api.VK, groupID int) (*LongPoll, error) {
 	lp := &LongPoll{
-		VK:      vk,
-		GroupID: groupID,
-		Wait:    25,
-		Client:  http.DefaultClient,
+		VK:       vk,
+		GroupID:  groupID,
+		Wait:     25,
+		Client:   http.DefaultClient,
+		FuncList: events.NewFuncList(),
 	}
-	lp.FuncList = *events.NewFuncList()
 
 	err := lp.updateServer(true)
 
@@ -74,12 +74,12 @@ func NewLongPollCommunity(vk *api.VK) (*LongPoll, error) {
 	}
 
 	lp := &LongPoll{
-		VK:      vk,
-		GroupID: resp.Groups[0].ID,
-		Wait:    25,
-		Client:  http.DefaultClient,
+		VK:       vk,
+		GroupID:  resp.Groups[0].ID,
+		Wait:     25,
+		Client:   http.DefaultClient,
+		FuncList: events.NewFuncList(),
 	}
-	lp.FuncList = *events.NewFuncList()
 
 	err = lp.updateServer(true)
 
