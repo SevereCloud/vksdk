@@ -51,7 +51,6 @@ linters:
     - contextcheck
     - ireturn
     - nilnil
-    - tenv
     - nestif
     - grouper
     - decorder
@@ -144,6 +143,7 @@ linters:
 # - deadcode
 # - structcheck
 # - varcheck
+# - tenv
 
 issues:
   exclude-rules:
