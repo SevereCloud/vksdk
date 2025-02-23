@@ -7,6 +7,8 @@ import (
 	"github.com/SevereCloud/vksdk/v3/api"
 )
 
+// OAuth addresses.
+//
 //nolint:gochecknoglobals
 var (
 	OAuthHost          = "oauth.vk.com"

@@ -157,7 +157,7 @@ func NewFuncList() *FuncList {
 }
 
 // Handler group event handler.
-func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:gocyclo
+func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:gocyclo
 	ctx = context.WithValue(ctx, internal.GroupIDKey, e.GroupID)
 	ctx = context.WithValue(ctx, internal.EventIDKey, e.EventID)
 	ctx = context.WithValue(ctx, internal.EventVersionKey, e.V)
@@ -174,6 +174,10 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 	switch e.Type {
 	case EventMessageNew:
+		if len(fl.messageNew) == 0 {
+			break
+		}
+
 		var obj MessageNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -181,12 +185,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.messageNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMessageReply:
+		if len(fl.messageReply) == 0 {
+			break
+		}
+
 		var obj MessageReplyObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -194,12 +202,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.messageReply {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMessageEdit:
+		if len(fl.messageEdit) == 0 {
+			break
+		}
+
 		var obj MessageEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -207,12 +219,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.messageEdit {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMessageAllow:
+		if len(fl.messageAllow) == 0 {
+			break
+		}
+
 		var obj MessageAllowObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -220,12 +236,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.messageAllow {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMessageDeny:
+		if len(fl.messageDeny) == 0 {
+			break
+		}
+
 		var obj MessageDenyObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -233,12 +253,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.messageDeny {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMessageTypingState: // На основе ответа
+		if len(fl.messageTypingState) == 0 {
+			break
+		}
+
 		var obj MessageTypingStateObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -246,12 +270,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.messageTypingState {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMessageEvent:
+		if len(fl.messageEvent) == 0 {
+			break
+		}
+
 		var obj MessageEventObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -259,12 +287,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.messageEvent {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventPhotoNew:
+		if len(fl.photoNew) == 0 {
+			break
+		}
+
 		var obj PhotoNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -272,12 +304,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.photoNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventPhotoCommentNew:
+		if len(fl.photoCommentNew) == 0 {
+			break
+		}
+
 		var obj PhotoCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -285,12 +321,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.photoCommentNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventPhotoCommentEdit:
+		if len(fl.photoCommentEdit) == 0 {
+			break
+		}
+
 		var obj PhotoCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -298,12 +338,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.photoCommentEdit {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventPhotoCommentRestore:
+		if len(fl.photoCommentRestore) == 0 {
+			break
+		}
+
 		var obj PhotoCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -311,12 +355,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.photoCommentRestore {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventPhotoCommentDelete:
+		if len(fl.photoCommentDelete) == 0 {
+			break
+		}
+
 		var obj PhotoCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -324,12 +372,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.photoCommentDelete {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventAudioNew:
+		if len(fl.audioNew) == 0 {
+			break
+		}
+
 		var obj AudioNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -337,12 +389,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.audioNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventVideoNew:
+		if len(fl.videoNew) == 0 {
+			break
+		}
+
 		var obj VideoNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -350,12 +406,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.videoNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventVideoCommentNew:
+		if len(fl.videoCommentNew) == 0 {
+			break
+		}
+
 		var obj VideoCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -363,12 +423,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.videoCommentNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventVideoCommentEdit:
+		if len(fl.videoCommentEdit) == 0 {
+			break
+		}
+
 		var obj VideoCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -376,12 +440,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.videoCommentEdit {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventVideoCommentRestore:
+		if len(fl.videoCommentRestore) == 0 {
+			break
+		}
+
 		var obj VideoCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -389,12 +457,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.videoCommentRestore {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventVideoCommentDelete:
+		if len(fl.videoCommentDelete) == 0 {
+			break
+		}
+
 		var obj VideoCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -402,12 +474,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.videoCommentDelete {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventWallPostNew:
+		if len(fl.wallPostNew) == 0 {
+			break
+		}
+
 		var obj WallPostNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -415,12 +491,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.wallPostNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventWallRepost:
+		if len(fl.wallRepost) == 0 {
+			break
+		}
+
 		var obj WallRepostObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -428,12 +508,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.wallRepost {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventWallReplyNew:
+		if len(fl.wallReplyNew) == 0 {
+			break
+		}
+
 		var obj WallReplyNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -441,12 +525,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.wallReplyNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventWallReplyEdit:
+		if len(fl.wallReplyEdit) == 0 {
+			break
+		}
+
 		var obj WallReplyEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -454,12 +542,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.wallReplyEdit {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventWallReplyRestore:
+		if len(fl.wallReplyRestore) == 0 {
+			break
+		}
+
 		var obj WallReplyRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -467,12 +559,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.wallReplyRestore {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventWallReplyDelete:
+		if len(fl.wallReplyDelete) == 0 {
+			break
+		}
+
 		var obj WallReplyDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -480,12 +576,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.wallReplyDelete {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventBoardPostNew:
+		if len(fl.boardPostNew) == 0 {
+			break
+		}
+
 		var obj BoardPostNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -493,12 +593,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.boardPostNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventBoardPostEdit:
+		if len(fl.boardPostEdit) == 0 {
+			break
+		}
+
 		var obj BoardPostEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -506,12 +610,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.boardPostEdit {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventBoardPostRestore:
+		if len(fl.boardPostRestore) == 0 {
+			break
+		}
+
 		var obj BoardPostRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -519,12 +627,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.boardPostRestore {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventBoardPostDelete:
+		if len(fl.boardPostDelete) == 0 {
+			break
+		}
+
 		var obj BoardPostDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -532,12 +644,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.boardPostDelete {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMarketCommentNew:
+		if len(fl.marketCommentNew) == 0 {
+			break
+		}
+
 		var obj MarketCommentNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -545,12 +661,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.marketCommentNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMarketCommentEdit:
+		if len(fl.marketCommentEdit) == 0 {
+			break
+		}
+
 		var obj MarketCommentEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -558,12 +678,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.marketCommentEdit {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMarketCommentRestore:
+		if len(fl.marketCommentRestore) == 0 {
+			break
+		}
+
 		var obj MarketCommentRestoreObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -571,12 +695,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.marketCommentRestore {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMarketCommentDelete:
+		if len(fl.marketCommentDelete) == 0 {
+			break
+		}
+
 		var obj MarketCommentDeleteObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -584,12 +712,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.marketCommentDelete {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMarketOrderNew:
+		if len(fl.marketOrderNew) == 0 {
+			break
+		}
+
 		var obj MarketOrderNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -597,12 +729,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.marketOrderNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMarketOrderEdit:
+		if len(fl.marketOrderEdit) == 0 {
+			break
+		}
+
 		var obj MarketOrderEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -610,12 +746,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.marketOrderEdit {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventGroupLeave:
+		if len(fl.groupLeave) == 0 {
+			break
+		}
+
 		var obj GroupLeaveObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -623,12 +763,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.groupLeave {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventGroupJoin:
+		if len(fl.groupJoin) == 0 {
+			break
+		}
+
 		var obj GroupJoinObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -636,12 +780,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.groupJoin {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventUserBlock:
+		if len(fl.userBlock) == 0 {
+			break
+		}
+
 		var obj UserBlockObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -649,12 +797,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.userBlock {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventUserUnblock:
+		if len(fl.userUnblock) == 0 {
+			break
+		}
+
 		var obj UserUnblockObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -662,12 +814,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.userUnblock {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventPollVoteNew:
+		if len(fl.pollVoteNew) == 0 {
+			break
+		}
+
 		var obj PollVoteNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -675,12 +831,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.pollVoteNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventGroupOfficersEdit:
+		if len(fl.groupOfficersEdit) == 0 {
+			break
+		}
+
 		var obj GroupOfficersEditObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -688,12 +848,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.groupOfficersEdit {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventGroupChangeSettings:
+		if len(fl.groupChangeSettings) == 0 {
+			break
+		}
+
 		var obj GroupChangeSettingsObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -701,12 +865,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.groupChangeSettings {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventGroupChangePhoto:
+		if len(fl.groupChangePhoto) == 0 {
+			break
+		}
+
 		var obj GroupChangePhotoObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -714,12 +882,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.groupChangePhoto {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventVkpayTransaction:
+		if len(fl.vkpayTransaction) == 0 {
+			break
+		}
+
 		var obj VkpayTransactionObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -727,12 +899,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.vkpayTransaction {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventLeadFormsNew:
+		if len(fl.leadFormsNew) == 0 {
+			break
+		}
+
 		var obj LeadFormsNewObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -740,12 +916,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.leadFormsNew {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventAppPayload:
+		if len(fl.appPayload) == 0 {
+			break
+		}
+
 		var obj AppPayloadObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -753,12 +933,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.appPayload {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventMessageRead:
+		if len(fl.messageRead) == 0 {
+			break
+		}
+
 		var obj MessageReadObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -766,12 +950,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.messageRead {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventLikeAdd:
+		if len(fl.likeAdd) == 0 {
+			break
+		}
+
 		var obj LikeAddObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -779,12 +967,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.likeAdd {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventLikeRemove:
+		if len(fl.likeRemove) == 0 {
+			break
+		}
+
 		var obj LikeRemoveObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -792,12 +984,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.likeRemove {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventDonutSubscriptionCreate:
+		if len(fl.donutSubscriptionCreate) == 0 {
+			break
+		}
+
 		var obj DonutSubscriptionCreateObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -805,12 +1001,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.donutSubscriptionCreate {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventDonutSubscriptionProlonged:
+		if len(fl.donutSubscriptionProlonged) == 0 {
+			break
+		}
+
 		var obj DonutSubscriptionProlongedObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -818,12 +1018,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.donutSubscriptionProlonged {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventDonutSubscriptionExpired:
+		if len(fl.donutSubscriptionExpired) == 0 {
+			break
+		}
+
 		var obj DonutSubscriptionExpiredObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -831,12 +1035,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.donutSubscriptionExpired {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventDonutSubscriptionCancelled:
+		if len(fl.donutSubscriptionCancelled) == 0 {
+			break
+		}
+
 		var obj DonutSubscriptionCancelledObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -844,12 +1052,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.donutSubscriptionCancelled {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventDonutSubscriptionPriceChanged:
+		if len(fl.donutSubscriptionPriceChanged) == 0 {
+			break
+		}
+
 		var obj DonutSubscriptionPriceChangedObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -857,12 +1069,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.donutSubscriptionPriceChanged {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventDonutMoneyWithdraw:
+		if len(fl.donutMoneyWithdraw) == 0 {
+			break
+		}
+
 		var obj DonutMoneyWithdrawObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -870,12 +1086,16 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.donutMoneyWithdraw {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
 		}
 	case EventDonutMoneyWithdrawError:
+		if len(fl.donutMoneyWithdrawError) == 0 {
+			break
+		}
+
 		var obj DonutMoneyWithdrawErrorObject
 		if err := json.Unmarshal(e.Object, &obj); err != nil {
 			return fmt.Errorf("events: %w", err)
@@ -883,7 +1103,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 
 		for _, f := range fl.donutMoneyWithdrawError {
 			if fl.goroutine {
-				go func() { f(ctx, obj) }()
+				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
 				f(ctx, obj)
 			}
@@ -894,7 +1114,7 @@ func (fl FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:g
 }
 
 // ListEvents return list of events.
-func (fl FuncList) ListEvents() []EventType {
+func (fl *FuncList) ListEvents() []EventType {
 	return fl.eventsList
 }
 
@@ -905,10 +1125,6 @@ func (fl *FuncList) Goroutine(v bool) {
 
 // OnEvent handler.
 func (fl *FuncList) OnEvent(eventType EventType, f func(context.Context, GroupEvent)) {
-	if fl.special == nil {
-		fl.special = make(map[EventType][]func(context.Context, GroupEvent))
-	}
-
 	fl.special[eventType] = append(fl.special[eventType], f)
 	fl.eventsList = append(fl.eventsList, eventType)
 }

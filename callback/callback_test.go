@@ -2,13 +2,17 @@ package callback_test
 
 import (
 	"bytes"
+	"context"
+	"encoding/json"
 	"log/slog"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v3/callback"
+	"github.com/SevereCloud/vksdk/v3/events"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestCallback_HandleFunc(t *testing.T) {
@@ -170,12 +174,6 @@ func TestCallback_HandleFunc(t *testing.T) {
 			expected: "confirmation_123456",
 		},
 		{
-			name:     "check bad message_new",
-			fields:   fields{},
-			body:     `{"type": "message_new", "object": 1}`,
-			expected: "Bad Request\n",
-		},
-		{
 			name:   "check good message_new",
 			fields: fields{},
 			body: `{"type": "message_new", "object": 
@@ -198,12 +196,8 @@ func TestCallback_HandleFunc(t *testing.T) {
 			cb.SecretKeys = tt.fields.SecretKeys
 			cb.SecretKey = tt.fields.SecretKey
 
-			jsonStr := []byte(tt.body)
-
-			req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer(jsonStr))
-			if err != nil {
-				t.Fatal(err)
-			}
+			req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBufferString(tt.body))
+			require.NoError(t, err)
 
 			rr := httptest.NewRecorder()
 			handler := http.HandlerFunc(cb.HandleFunc)
@@ -222,6 +216,25 @@ func TestNewCallback(t *testing.T) {
 	assert.NotNil(t, cb)
 }
 
+func TestCallback_Handler(t *testing.T) {
+	t.Parallel()
+
+	t.Run("bad message_new object", func(t *testing.T) {
+		t.Parallel()
+
+		cb := callback.NewCallback()
+		cb.MessageNew(func(context.Context, events.MessageNewObject) {})
+
+		event := events.GroupEvent{
+			Type:   events.EventMessageNew,
+			Object: json.RawMessage("1"),
+		}
+
+		err := cb.Handler(context.Background(), event)
+		require.Error(t, err)
+	})
+}
+
 func TestCallback_ErrorLog(t *testing.T) {
 	t.Parallel()
 
@@ -231,9 +244,7 @@ func TestCallback_ErrorLog(t *testing.T) {
 	cb.ErrorLog = slog.New(slog.NewTextHandler(&buf, &slog.HandlerOptions{ReplaceAttr: removeTime}))
 
 	req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer([]byte{}))
-	if err != nil {
-		t.Fatal(err)
-	}
+	require.NoError(t, err)
 
 	rr := httptest.NewRecorder()
 	handler := http.HandlerFunc(cb.HandleFunc)
