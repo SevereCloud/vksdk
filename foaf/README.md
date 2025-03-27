@@ -1,5 +1,8 @@
 # FOAF
 
+> [!WARNING]  
+> FOAF больше не работает, пакет считается устаревшим
+
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/foaf)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/foaf)
 
 FOAF (акроним от Friend of a Friend - "друг друга") является машиночитаемым

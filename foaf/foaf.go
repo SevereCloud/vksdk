@@ -1,6 +1,8 @@
 /*
 Package foaf wrapper for FOAF.
 
+Deprecated: FOAF no longer works.
+
 Specification
 https://web.archive.org/web/20140909053226/http://api.yandex.ru/blogs/doc/indexation/concepts/what-is-foaf.xml
 */
