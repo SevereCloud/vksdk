@@ -26,7 +26,7 @@ func (result *MessageFlagsChange) parse(i []interface{}) error {
 		result.Flags = MessageFlag(int(v))
 	}
 
-	return result.ExtraFields.parseExtraFields(i)
+	return result.parseExtraFields(i)
 }
 
 // MessageFlagsSet struct for event with code 2.
@@ -51,7 +51,7 @@ func (result *MessageFlagsSet) parse(i []interface{}) error {
 		result.Mask = MessageFlag(int(v))
 	}
 
-	return result.ExtraFields.parseExtraFields(i)
+	return result.parseExtraFields(i)
 }
 
 // MessageFlagsReset struct for event with code 3.
@@ -76,7 +76,7 @@ func (result *MessageFlagsReset) parse(i []interface{}) error {
 		result.Mask = MessageFlag(int(v))
 	}
 
-	return result.ExtraFields.parseExtraFields(i)
+	return result.parseExtraFields(i)
 }
 
 // NewMessage struct for event with code 4.
@@ -101,7 +101,7 @@ func (result *NewMessage) parse(i []interface{}) error {
 		result.Flags = MessageFlag(int(v))
 	}
 
-	return result.ExtraFields.parseExtraFields(i)
+	return result.parseExtraFields(i)
 }
 
 // EditMessage struct for event with code 5.

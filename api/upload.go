@@ -769,7 +769,7 @@ func (vk *VK) UploadStoriesVideo(params Params, file io.Reader) (response Storie
 		return response, fmt.Errorf("api: %w", err)
 	}
 
-	if handler.UploadError.Code != 0 {
+	if handler.Code != 0 {
 		return response, &handler.UploadError
 	}
 
