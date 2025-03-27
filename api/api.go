@@ -218,10 +218,52 @@ func buildQuery(sliceParams ...Params) (context.Context, url.Values) {
 	return ctx, query
 }
 
-// DefaultHandler provides access to VK API methods.
-func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, error) {
+const (
+	mediaTypeJSON         = "application/json"
+	mediaTypeMessagePack  = "application/vnd.msgpack"
+	mediaTypeXMessagePack = "application/x-msgpack"
+)
+
+func (vk *VK) setRequestHeaders(req *http.Request, token string) {
+	acceptEncoding := "gzip"
+	accept := mediaTypeJSON
+
+	if vk.zstd {
+		acceptEncoding = "zstd"
+	}
+
+	if vk.msgpack {
+		accept = mediaTypeXMessagePack
+	}
+
+	req.Header.Set("Authorization", "Bearer "+token)
+
+	req.Header.Set("User-Agent", vk.UserAgent)
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+	req.Header.Set("Accept-Encoding", acceptEncoding)
+	req.Header.Set("Accept", accept)
+}
+
+func (vk *VK) buildRequest(method string, sliceParams ...Params) (*http.Request, error) {
 	u := vk.MethodURL + method
 	ctx, query := buildQuery(sliceParams...)
+	token := sliceParams[len(sliceParams)-1]["access_token"].(string)
+
+	rawBody := bytes.NewBufferString(query.Encode())
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, u, rawBody)
+	if err != nil {
+		return req, fmt.Errorf("api.DefaultHandler: %w", err)
+	}
+
+	vk.setRequestHeaders(req, token)
+
+	return req, nil
+}
+
+// DefaultHandler provides access to VK API methods.
+func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, error) {
 	attempt := 0
 
 	for {
@@ -248,25 +290,10 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 			vk.mux.Unlock()
 		}
 
-		rawBody := bytes.NewBufferString(query.Encode())
-
-		req, err := http.NewRequestWithContext(ctx, http.MethodPost, u, rawBody)
+		req, err := vk.buildRequest(method, sliceParams...)
 		if err != nil {
 			return response, fmt.Errorf("api.DefaultHandler: %w", err)
 		}
-
-		acceptEncoding := "gzip"
-		if vk.zstd {
-			acceptEncoding = "zstd"
-		}
-
-		token := sliceParams[len(sliceParams)-1]["access_token"].(string)
-		req.Header.Set("Authorization", "Bearer "+token)
-
-		req.Header.Set("User-Agent", vk.UserAgent)
-		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-
-		req.Header.Set("Accept-Encoding", acceptEncoding)
 
 		var reader io.Reader
 
@@ -292,13 +319,13 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 
 		mediatype, _, _ := mime.ParseMediaType(resp.Header.Get("Content-Type"))
 		switch mediatype {
-		case "application/json":
+		case mediaTypeJSON:
 			err = json.NewDecoder(reader).Decode(&response)
 			if err != nil {
 				_ = resp.Body.Close()
 				return response, fmt.Errorf("api.DefaultHandler: %w", err)
 			}
-		case "application/x-msgpack":
+		case mediaTypeXMessagePack, mediaTypeMessagePack:
 			dec := msgpack.NewDecoder(reader)
 			dec.SetCustomStructTag("json")
 
@@ -339,10 +366,6 @@ func (vk *VK) Request(method string, sliceParams ...Params) ([]byte, error) {
 	}
 
 	sliceParams = append(sliceParams, reqParams)
-
-	if vk.msgpack {
-		method += ".msgpack"
-	}
 
 	resp, err := vk.Handler(method, sliceParams...)
 
