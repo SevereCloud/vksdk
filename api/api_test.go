@@ -119,12 +119,14 @@ func needChatID(t *testing.T) int {
 	if vkChatID == 0 {
 		var err error
 
-		vkChatID, err = vkUser.MessagesCreateChat(api.Params{
+		createChatResponse, err := vkUser.MessagesCreateChat(api.Params{
 			"title": "TestChat",
 		})
 		if err != nil {
 			t.Skip("Get chatID", err)
 		}
+
+		vkChatID = createChatResponse.ChatID
 	}
 
 	return vkChatID
