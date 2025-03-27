@@ -1,96 +1,74 @@
----
-run:
-  timeout: 5m
-
+version: "2"
 linters:
-  disable-all: true
+  default: none
   enable:
+    - asasalint
+    - asciicheck
+    - bidichk
     - bodyclose
+    - canonicalheader
+    - containedctx
+    - contextcheck
+    - copyloopvar
+    - decorder
+    - durationcheck
+    - err113
     - errcheck
+    - errorlint
+    - exptostd
+    - fatcontext
+    - forbidigo
+    - gocheckcompilerdirectives
     - gochecknoglobals
+    - gochecksumtype
     - goconst
     - gocritic
-    - gofmt
-    - goimports
+    - godot
+    - gomoddirectives
     - goprintffuncname
     - gosec
-    - gosimple
+    - gosmopolitan
     - govet
+    - grouper
+    - iface
+    - importas
+    - inamedparam
     - ineffassign
+    - interfacebloat
+    - intrange
+    - ireturn
+    - makezero
+    - mirror
     - misspell
     - nakedret
+    - nestif
+    - nilerr
+    - nilnesserr
+    - nilnil
+    - nolintlint
+    - nosprintfhostport
+    - paralleltest
+    - perfsprint
     - prealloc
+    - predeclared
+    - reassign
+    - revive
+    - sloglint
     - staticcheck
-    - stylecheck
-    - typecheck
+    - tagalign
+    - testableexamples
+    - testifylint
+    - thelper
+    - tparallel
     - unconvert
     - unparam
     - unused
-    - whitespace
-    - wsl
-    - godot
-    - asciicheck
-    - nolintlint
-    - gofumpt
-    - err113
-    - tparallel
-    - errorlint
-    - paralleltest
-    - forbidigo
-    - makezero
-    - thelper
-    - predeclared
-    - revive
-    - durationcheck
-    - gomoddirectives
-    - importas
-    - nilerr
-    - revive
-    - wastedassign
-    - bidichk
-    - contextcheck
-    - ireturn
-    - nilnil
-    - nestif
-    - grouper
-    - decorder
-    - containedctx
-    - nosprintfhostport
     - usestdlibvars
-
-    - interfacebloat
-    - reassign
-
-    - testableexamples
-
-    - gocheckcompilerdirectives
-    - asasalint
-
-    # - musttag
-
-    - gosmopolitan
-    - mirror
-    - tagalign
-
-    - gochecksumtype
-    - inamedparam
-    - perfsprint
-    - sloglint
-    - testifylint
-
-    - wrapcheck
-
-    - copyloopvar
-    - intrange
-
-    - fatcontext
-    - canonicalheader
-
-    - iface
-
-    - exptostd
-    - nilnesserr
     - usetesting
+    - wastedassign
+    - whitespace
+    - wrapcheck
+    - wsl
 
 # - testpackage # TODO: Fix testpackage
 # - noctx # TODO: Fix noctx
@@ -134,43 +112,41 @@ linters:
 # - spancheck
 
 # - recvcheck # false positive
-
-# depricated
-# - maligned
-# - interfacer
-# - golint
-# - ifshort
-# - deadcode
-# - structcheck
-# - varcheck
-# - tenv
-
-issues:
-  exclude-rules:
-    - path: _test\.go
-      linters:
-        - gocyclo
-        - errcheck
-        - dupl
-        - gosec
-
-    - linters:
-        - errcheck
-      source: ".((os\\.)?std(out|err)\\..*|.*Close|.*Flush|os\\.Remove(All)?|
-        .*printf?|os\\.(Un)?Setenv)."
-
-    - linters:
-        - stylecheck
-      text: "ST1003:.*(Ts|ts).*TS"
-
-    - linters:
-        - gosec
-      text: "G307:"
-
-  exclude-use-default: false
-
-linters-settings:
-  testifylint:
-    enable-all: true
-    disable:
-      - require-error # f func false positive
+  settings:
+    testifylint:
+      enable-all: true
+      disable:
+        - require-error
+  exclusions:
+    generated: lax
+    rules:
+      - linters:
+          - dupl
+          - errcheck
+          - gocyclo
+          - gosec
+        path: _test\.go
+      - linters:
+          - errcheck
+        source: .((os\.)?std(out|err)\..*|.*Close|.*Flush|os\.Remove(All)?| .*printf?|os\.(Un)?Setenv).
+      - linters:
+          - staticcheck
+        text: ST1003:.*(Ts|ts).*TS
+      - linters:
+          - gosec
+        text: 'G307:'
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofmt
+    - gofumpt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
