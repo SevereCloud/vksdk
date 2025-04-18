@@ -24,10 +24,16 @@ func (vk *VK) MessagesAllowMessagesFromGroup(params Params) (response int, err e
 	return
 }
 
+// MessagesCreateChatResponse struct.
+type MessagesCreateChatResponse struct {
+	ChatID  int   `json:"chat_id"`
+	PeerIds []int `json:"peer_ids"`
+}
+
 // MessagesCreateChat creates a chat with several participants.
 //
 // https://dev.vk.com/method/messages.createChat
-func (vk *VK) MessagesCreateChat(params Params) (response int, err error) {
+func (vk *VK) MessagesCreateChat(params Params) (response MessagesCreateChatResponse, err error) {
 	err = vk.RequestUnmarshal("messages.createChat", &response, params)
 	return
 }

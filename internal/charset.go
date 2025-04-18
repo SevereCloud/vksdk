@@ -17,12 +17,12 @@ type illegal struct{}
 
 // Contains return true.
 func (i illegal) Contains(r rune) bool {
-	return !(r == 0x09 ||
-		r == 0x0A ||
-		r == 0x0D ||
-		r >= 0x20 && r <= 0xDF77 ||
-		r >= 0xE000 && r <= 0xFFFD ||
-		r >= 0x10000 && r <= 0x10FFFF)
+	return r != 0x09 &&
+		r != 0x0A &&
+		r != 0x0D &&
+		(r < 0x20 || r > 0xDF77) &&
+		(r < 0xE000 || r > 0xFFFD) &&
+		(r < 0x10000 || r > 0x10FFFF)
 }
 
 // XMLSanitizerReader creates an io.Reader that

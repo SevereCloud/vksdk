@@ -119,12 +119,14 @@ func needChatID(t *testing.T) int {
 	if vkChatID == 0 {
 		var err error
 
-		vkChatID, err = vkUser.MessagesCreateChat(api.Params{
+		createChatResponse, err := vkUser.MessagesCreateChat(api.Params{
 			"title": "TestChat",
 		})
 		if err != nil {
 			t.Skip("Get chatID", err)
 		}
+
+		vkChatID = createChatResponse.ChatID
 	}
 
 	return vkChatID
@@ -240,7 +242,7 @@ func TestVK_InvalidContentType(t *testing.T) {
 	vk.MethodURL = "https://api.vk.com"
 
 	err := vk.RequestUnmarshal("", testObj, nil)
-	if err == nil || err.Error() != "api: invalid content-type" {
+	if err == nil || err.Error() != "api: invalid content-type(text/html)" {
 		t.Errorf("VK.RequestUnmarshal() error = %v", err)
 	}
 }
