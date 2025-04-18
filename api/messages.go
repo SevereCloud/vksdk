@@ -27,7 +27,7 @@ func (vk *VK) MessagesAllowMessagesFromGroup(params Params) (response int, err e
 // MessagesCreateChatResponse struct.
 type MessagesCreateChatResponse struct {
 	ChatID  int   `json:"chat_id"`
-	PeerIds []int `json:"peer_ids"`
+	PeerIDs []int `json:"peer_ids"`
 }
 
 // MessagesCreateChat creates a chat with several participants.
