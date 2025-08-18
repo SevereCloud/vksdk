@@ -348,9 +348,10 @@ func (vk *VK) GroupsGetInvites(params Params) (response GroupsGetInvitesResponse
 
 // GroupsGetInvitesExtendedResponse struct.
 type GroupsGetInvitesExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                              `json:"count"`
 	Items []object.GroupsGroupXtrInvitedBy `json:"items"`
-	object.ExtendedResponse
 }
 
 // GroupsGetInvitesExtended returns a list of invitations to join communities and events.

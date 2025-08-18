@@ -32,9 +32,10 @@ func (vk *VK) NewsfeedDeleteList(params Params) (response int, err error) {
 
 // NewsfeedGetResponse struct.
 type NewsfeedGetResponse struct {
-	Items []object.NewsfeedNewsfeedItem `json:"items"`
 	object.ExtendedResponse
-	NextFrom string `json:"next_from"`
+
+	Items    []object.NewsfeedNewsfeedItem `json:"items"`
+	NextFrom string                        `json:"next_from"`
 }
 
 // NewsfeedGet returns data required to show newsfeed for the current user.
@@ -80,9 +81,10 @@ func (vk *VK) NewsfeedGetBannedExtended(params Params) (response NewsfeedGetBann
 
 // NewsfeedGetCommentsResponse struct.
 type NewsfeedGetCommentsResponse struct {
-	Items []object.NewsfeedNewsfeedItem `json:"items"`
 	object.ExtendedResponse
-	NextFrom string `json:"next_from"`
+
+	Items    []object.NewsfeedNewsfeedItem `json:"items"`
+	NextFrom string                        `json:"next_from"`
 }
 
 // NewsfeedGetComments returns a list of comments in the current user's newsfeed.

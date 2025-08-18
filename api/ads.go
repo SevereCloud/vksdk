@@ -80,8 +80,9 @@ func (vk *VK) AdsCheckLink(params Params) (response AdsCheckLinkResponse, err er
 
 // AdsCreateAdsResponse struct.
 type AdsCreateAdsResponse []struct {
-	ID int `json:"id"`
 	AdsError
+
+	ID int `json:"id"`
 }
 
 // AdsCreateAds creates ads.
@@ -97,8 +98,9 @@ func (vk *VK) AdsCreateAds(params Params) (response AdsCreateAdsResponse, err er
 
 // AdsCreateCampaignsResponse struct.
 type AdsCreateCampaignsResponse []struct {
-	ID int `json:"id"`
 	AdsError
+
+	ID int `json:"id"`
 }
 
 // AdsCreateCampaigns creates advertising campaigns.
@@ -113,8 +115,9 @@ func (vk *VK) AdsCreateCampaigns(params Params) (response AdsCreateCampaignsResp
 
 // AdsCreateClientsResponse struct.
 type AdsCreateClientsResponse []struct {
-	ID int `json:"id"`
 	AdsError
+
+	ID int `json:"id"`
 }
 
 // AdsCreateClients creates clients of an advertising agency.

@@ -29,6 +29,8 @@ type Response struct {
 
 // LongPoll struct.
 type LongPoll struct {
+	*events.FuncList
+
 	GroupID int
 	Server  string
 	Key     string
@@ -39,8 +41,6 @@ type LongPoll struct {
 	cancel  context.CancelFunc
 
 	funcFullResponseList []func(Response)
-
-	*events.FuncList
 }
 
 // NewLongPoll returns a new LongPoll.
@@ -232,7 +232,8 @@ func (lp *LongPoll) RunWithContext(ctx context.Context) error {
 func (lp *LongPoll) run(ctx context.Context) error {
 	ctx, lp.cancel = context.WithCancel(ctx)
 
-	if err := lp.autoSetting(ctx); err != nil {
+	err := lp.autoSetting(ctx)
+	if err != nil {
 		return err
 	}
 

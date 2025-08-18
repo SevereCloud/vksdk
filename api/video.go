@@ -114,9 +114,10 @@ func (vk *VK) VideoGet(params Params) (response VideoGetResponse, err error) {
 
 // VideoGetExtendedResponse struct.
 type VideoGetExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                 `json:"count"`
 	Items []object.VideoVideo `json:"items"`
-	object.ExtendedResponse
 }
 
 // VideoGetExtended returns detailed information about videos.
@@ -225,9 +226,10 @@ func (vk *VK) VideoGetComments(params Params) (response VideoGetCommentsResponse
 
 // VideoGetCommentsExtendedResponse struct.
 type VideoGetCommentsExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                      `json:"count"`
 	Items []object.WallWallComment `json:"items"`
-	object.ExtendedResponse
 }
 
 // VideoGetCommentsExtended returns a list of comments on a video.
@@ -338,9 +340,10 @@ func (vk *VK) VideoSearch(params Params) (response VideoSearchResponse, err erro
 
 // VideoSearchExtendedResponse struct.
 type VideoSearchExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                 `json:"count"`
 	Items []object.VideoVideo `json:"items"`
-	object.ExtendedResponse
 }
 
 // VideoSearchExtended returns a list of videos under the set search criterion.

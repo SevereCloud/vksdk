@@ -134,6 +134,7 @@ func TestWrapper(t *testing.T) {
 
 		lpErr := lp.Run()
 		assert.NoError(t, lpErr)
+
 		exit <- true
 	}
 

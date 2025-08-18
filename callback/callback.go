@@ -21,6 +21,8 @@ import (
 
 // Callback struct SecretKeys [GroupID]SecretKey.
 type Callback struct {
+	*events.FuncList
+
 	ConfirmationKeys map[int]string
 	ConfirmationKey  string
 	SecretKeys       map[int]string
@@ -31,8 +33,6 @@ type Callback struct {
 	// behavior from handlers.
 	// If nil, logging is done via the log package's standard logger.
 	ErrorLog *log.Logger
-
-	*events.FuncList
 }
 
 // NewCallback return *Callback.
@@ -64,12 +64,14 @@ var groupEventPool = sync.Pool{ //nolint:gochecknoglobals
 // HandleFunc handler.
 func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	e := groupEventPool.Get().(*events.GroupEvent)
+
 	defer func() {
 		*e = events.GroupEvent{Object: e.Object[:0]}
 		groupEventPool.Put(e)
 	}()
 
-	if err := json.NewDecoder(r.Body).Decode(e); err != nil {
+	err := json.NewDecoder(r.Body).Decode(e)
+	if err != nil {
 		cb.logf("callback: %v", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 
@@ -119,7 +121,8 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 	ctx = context.WithValue(ctx, internal.CallbackRemove, removeFunc)
 
-	if err := cb.Handler(ctx, *e); err != nil {
+	err = cb.Handler(ctx, *e)
+	if err != nil {
 		cb.logf("callback: %v", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 
@@ -145,7 +148,8 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 func (cb *Callback) response(w http.ResponseWriter, data string) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 
-	if _, err := w.Write([]byte(data)); err != nil {
+	_, err := w.Write([]byte(data))
+	if err != nil {
 		cb.logf("write response: %v", err)
 	}
 }

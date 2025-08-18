@@ -152,6 +152,7 @@ func TestStreaming_Run(t *testing.T) { //nolint:paralleltest
 	go func() {
 		err = stream.Run()
 		assert.NoError(t, err)
+
 		exit <- true
 	}()
 

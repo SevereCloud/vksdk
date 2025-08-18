@@ -27,7 +27,8 @@ func TestFuncList_HandlerMessageNew(t *testing.T) {
 	f := func(e events.GroupEvent, wantErr bool) {
 		t.Helper()
 
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -70,7 +71,8 @@ func TestFuncList_HandlerMessageReply(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMessageReply}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -113,7 +115,8 @@ func TestFuncList_HandlerMessageEdit(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMessageEdit}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -156,7 +159,8 @@ func TestFuncList_HandlerMessageAllow(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMessageAllow}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -199,7 +203,8 @@ func TestFuncList_HandlerMessageDeny(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMessageDeny}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -242,7 +247,8 @@ func TestFuncList_HandlerMessageTypingState(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMessageTypingState}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -285,7 +291,8 @@ func TestFuncList_HandlerMessageEvent(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMessageEvent}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -328,7 +335,8 @@ func TestFuncList_HandlerPhotoNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventPhotoNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -371,7 +379,8 @@ func TestFuncList_HandlerPhotoCommentNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventPhotoCommentNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -414,7 +423,8 @@ func TestFuncList_HandlerPhotoCommentEdit(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventPhotoCommentEdit}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -457,7 +467,8 @@ func TestFuncList_HandlerPhotoCommentRestore(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventPhotoCommentRestore}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -500,7 +511,8 @@ func TestFuncList_HandlerPhotoCommentDelete(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventPhotoCommentDelete}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -543,7 +555,8 @@ func TestFuncList_HandlerAudioNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventAudioNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -586,7 +599,8 @@ func TestFuncList_HandlerVideoNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventVideoNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -629,7 +643,8 @@ func TestFuncList_HandlerVideoCommentNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventVideoCommentNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -672,7 +687,8 @@ func TestFuncList_HandlerVideoCommentEdit(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventVideoCommentEdit}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -715,7 +731,8 @@ func TestFuncList_HandlerVideoCommentRestore(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventVideoCommentRestore}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -758,7 +775,8 @@ func TestFuncList_HandlerVideoCommentDelete(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventVideoCommentDelete}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -801,7 +819,8 @@ func TestFuncList_HandlerWallPostNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventWallPostNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -844,7 +863,8 @@ func TestFuncList_HandlerWallRepost(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventWallRepost}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -887,7 +907,8 @@ func TestFuncList_HandlerWallReplyNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventWallReplyNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -930,7 +951,8 @@ func TestFuncList_HandlerWallReplyEdit(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventWallReplyEdit}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -973,7 +995,8 @@ func TestFuncList_HandlerWallReplyRestore(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventWallReplyRestore}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1016,7 +1039,8 @@ func TestFuncList_HandlerWallReplyDelete(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventWallReplyDelete}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1059,7 +1083,8 @@ func TestFuncList_HandlerBoardPostNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventBoardPostNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1102,7 +1127,8 @@ func TestFuncList_HandlerBoardPostEdit(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventBoardPostEdit}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1145,7 +1171,8 @@ func TestFuncList_HandlerBoardPostRestore(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventBoardPostRestore}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1188,7 +1215,8 @@ func TestFuncList_HandlerBoardPostDelete(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventBoardPostDelete}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1231,7 +1259,8 @@ func TestFuncList_HandlerMarketCommentNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMarketCommentNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1274,7 +1303,8 @@ func TestFuncList_HandlerMarketCommentEdit(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMarketCommentEdit}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1317,7 +1347,8 @@ func TestFuncList_HandlerMarketCommentRestore(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMarketCommentRestore}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1360,7 +1391,8 @@ func TestFuncList_HandlerMarketCommentDelete(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMarketCommentDelete}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1403,7 +1435,8 @@ func TestFuncList_HandlerMarketOrderNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMarketOrderNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1446,7 +1479,8 @@ func TestFuncList_HandlerMarketOrderEdit(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMarketOrderEdit}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1489,7 +1523,8 @@ func TestFuncList_HandlerGroupLeave(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventGroupLeave}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1532,7 +1567,8 @@ func TestFuncList_HandlerGroupJoin(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventGroupJoin}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1575,7 +1611,8 @@ func TestFuncList_HandlerUserBlock(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventUserBlock}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1618,7 +1655,8 @@ func TestFuncList_HandlerUserUnblock(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventUserUnblock}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1661,7 +1699,8 @@ func TestFuncList_HandlerPollVoteNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventPollVoteNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1704,7 +1743,8 @@ func TestFuncList_HandlerGroupOfficersEdit(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventGroupOfficersEdit}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1747,7 +1787,8 @@ func TestFuncList_HandlerGroupChangeSettings(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventGroupChangeSettings}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1790,7 +1831,8 @@ func TestFuncList_HandlerGroupChangePhoto(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventGroupChangePhoto}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1833,7 +1875,8 @@ func TestFuncList_HandlerVkpayTransaction(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventVkpayTransaction}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1876,7 +1919,8 @@ func TestFuncList_HandlerLeadFormsNew(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventLeadFormsNew}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1919,7 +1963,8 @@ func TestFuncList_HandlerAppPayload(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventAppPayload}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -1962,7 +2007,8 @@ func TestFuncList_HandlerMessageRead(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventMessageRead}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2005,7 +2051,8 @@ func TestFuncList_HandlerLikeAdd(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventLikeAdd}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2048,7 +2095,8 @@ func TestFuncList_HandlerLikeRemove(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventLikeRemove}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2091,7 +2139,8 @@ func TestFuncList_DonutSubscriptionCreate(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionCreate}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2134,7 +2183,8 @@ func TestFuncList_DonutSubscriptionProlonged(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionProlonged}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2177,7 +2227,8 @@ func TestFuncList_DonutSubscriptionExpired(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionExpired}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2220,7 +2271,8 @@ func TestFuncList_DonutSubscriptionCancelled(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionCancelled}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2263,7 +2315,8 @@ func TestFuncList_DonutSubscriptionPriceChanged(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventDonutSubscriptionPriceChanged}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2306,7 +2359,8 @@ func TestFuncList_DonutMoneyWithdraw(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventDonutMoneyWithdraw}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2349,7 +2403,8 @@ func TestFuncList_DonutMoneyWithdrawError(t *testing.T) {
 	assert.Equal(t, []events.EventType{events.EventDonutMoneyWithdrawError}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}
@@ -2391,7 +2446,8 @@ func TestFuncList_OnEvent(t *testing.T) {
 	assert.Equal(t, []events.EventType{"wtf_event"}, fl.ListEvents())
 
 	f := func(e events.GroupEvent, wantErr bool) {
-		if err := fl.Handler(context.Background(), e); (err != nil) != wantErr {
+		err := fl.Handler(context.Background(), e)
+		if (err != nil) != wantErr {
 			t.Errorf("FuncList.Handler() error = %v, wantErr %v", err, wantErr)
 		}
 	}

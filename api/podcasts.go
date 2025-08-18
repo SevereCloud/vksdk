@@ -22,8 +22,9 @@ func (vk *VK) PodcastsGetCatalog(params Params) (response PodcastsGetCatalogResp
 
 // PodcastsGetCatalogExtendedResponse struct.
 type PodcastsGetCatalogExtendedResponse struct {
-	Items []object.PodcastsItem `json:"items"`
 	object.ExtendedResponse
+
+	Items []object.PodcastsItem `json:"items"`
 }
 
 // PodcastsGetCatalogExtended method.
@@ -81,9 +82,10 @@ func (vk *VK) PodcastsGetFeed(params Params) (response PodcastsGetFeedResponse, 
 
 // PodcastsGetFeedExtendedResponse struct.
 type PodcastsGetFeedExtendedResponse struct {
+	object.ExtendedResponse
+
 	Items    []object.PodcastsEpisode `json:"items"`
 	NextFrom string                   `json:"next_from"`
-	object.ExtendedResponse
 }
 
 // PodcastsGetFeedExtended method.
@@ -127,6 +129,8 @@ func (vk *VK) PodcastsGetStartPage(params Params) (response PodcastsGetStartPage
 
 // PodcastsGetStartPageExtendedResponse struct.
 type PodcastsGetStartPageExtendedResponse struct {
+	object.ExtendedResponse
+
 	Order               []string                  `json:"order"`
 	InProgress          []object.PodcastsEpisode  `json:"in_progress"`
 	Bookmarks           []object.PodcastsEpisode  `json:"bookmarks"`
@@ -140,7 +144,6 @@ type PodcastsGetStartPageExtendedResponse struct {
 		Category object.PodcastsCategory `json:"category"`
 		Items    []object.PodcastsItem   `json:"items"`
 	} `json:"catalog"`
-	object.ExtendedResponse
 }
 
 // PodcastsGetStartPageExtended method.
