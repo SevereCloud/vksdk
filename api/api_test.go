@@ -239,7 +239,7 @@ func TestVK_InvalidContentType(t *testing.T) {
 	var testObj string
 
 	vk := api.NewVK("")
-	vk.MethodURL = "https://api.vk.com"
+	vk.MethodURL = "https://api.vk.ru"
 
 	err := vk.RequestUnmarshal("", testObj, nil)
 	if err == nil || err.Error() != "api: invalid content-type(text/html)" {
@@ -322,7 +322,7 @@ func TestContext(t *testing.T) {
 	p.WithContext(ctx)
 
 	_, err := vkUser.UsersGet(p)
-	assert.EqualError(t, err, "api.DefaultHandler: Post \"https://api.vk.com/method/users.get\": context deadline exceeded")
+	assert.EqualError(t, err, "api.DefaultHandler: Post \"https://api.vk.ru/method/users.get\": context deadline exceeded")
 }
 
 func TestVK_EnableMessagePack(t *testing.T) {

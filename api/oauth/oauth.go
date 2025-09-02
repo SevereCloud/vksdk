@@ -11,8 +11,8 @@ import (
 //
 //nolint:gochecknoglobals
 var (
-	OAuthHost          = "oauth.vk.com"
-	DefaultRedirectURI = "https://oauth.vk.com/blank.html"
+	OAuthHost          = "oauth.vk.ru"
+	DefaultRedirectURI = "https://oauth.vk.ru/blank.html"
 )
 
 const (

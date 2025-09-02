@@ -104,12 +104,12 @@ func TestAuthCodeFlowGroup_URL(t *testing.T) {
 		Scope:       oauth.ScopeGroupPhotos + oauth.ScopeGroupDocs,
 		RedirectURI: "https://example.com/callback",
 		V:           "5.100",
-	}, "clientSecret"), "https://oauth.vk.com/authorize?client_id=6888183&display=&group_ids=1234&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&response_type=code&scope=131076&state=&v=5.100")
+	}, "clientSecret"), "https://oauth.vk.ru/authorize?client_id=6888183&display=&group_ids=1234&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&response_type=code&scope=131076&state=&v=5.100")
 	f(oauth.NewAuthCodeFlowGroup(oauth.GroupParams{
 		ClientID: 6888183,
 		GroupIDs: []int{1234, 321},
 		Scope:    oauth.ScopeGroupPhotos + oauth.ScopeGroupDocs,
-	}, "clientSecret"), "https://oauth.vk.com/authorize?client_id=6888183&display=&group_ids=1234%2C321&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=code&scope=131076&state=&v=5.199")
+	}, "clientSecret"), "https://oauth.vk.ru/authorize?client_id=6888183&display=&group_ids=1234%2C321&redirect_uri=https%3A%2F%2Foauth.vk.ru%2Fblank.html&response_type=code&scope=131076&state=&v=5.199")
 }
 
 func TestAuthCodeFlowGroup_Token(t *testing.T) {
@@ -121,7 +121,7 @@ func TestAuthCodeFlowGroup_Token(t *testing.T) {
 		Scope:    oauth.ScopeGroupPhotos + oauth.ScopeGroupDocs,
 	}, "clientSecretGroup")
 
-	u, _ := url.Parse("https://oauth.vk.com/blank.html#code=2fb239386220842e7c")
+	u, _ := url.Parse("https://oauth.vk.ru/blank.html#code=2fb239386220842e7c")
 
 	_, err := acf.Token(u)
 
@@ -138,8 +138,8 @@ func TestAuthCodeFlowGroup_Token(t *testing.T) {
 		assert.EqualError(t, err, errString)
 	}
 
-	// f("https://oauth.vk.com/blank.html#;", "invalid semicolon separator in query")
-	f("https://oauth.vk.com/blank.html?error=invalid_request&error_description=Invalid+display+parameter", "oauth: Invalid display parameter")
+	// f("https://oauth.vk.ru/blank.html#;", "invalid semicolon separator in query")
+	f("https://oauth.vk.ru/blank.html?error=invalid_request&error_description=Invalid+display+parameter", "oauth: Invalid display parameter")
 }
 
 func TestImplicitFlowGroup(t *testing.T) {
@@ -157,10 +157,10 @@ func TestImplicitFlowGroup(t *testing.T) {
 		Scope:       oauth.ScopeGroupPhotos + oauth.ScopeGroupDocs,
 		RedirectURI: "https://example.com/callback",
 		V:           "5.100",
-	}, "https://oauth.vk.com/authorize?client_id=6888183&display=&group_ids=1234&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&response_type=token&scope=131076&state=&v=5.100")
+	}, "https://oauth.vk.ru/authorize?client_id=6888183&display=&group_ids=1234&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&response_type=token&scope=131076&state=&v=5.100")
 	f(oauth.GroupParams{
 		ClientID: 6888183,
 		GroupIDs: []int{1234},
 		Scope:    oauth.ScopeGroupPhotos + oauth.ScopeGroupDocs,
-	}, "https://oauth.vk.com/authorize?client_id=6888183&display=&group_ids=1234&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=token&scope=131076&state=&v=5.199")
+	}, "https://oauth.vk.ru/authorize?client_id=6888183&display=&group_ids=1234&redirect_uri=https%3A%2F%2Foauth.vk.ru%2Fblank.html&response_type=token&scope=131076&state=&v=5.199")
 }
