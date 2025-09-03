@@ -174,7 +174,8 @@ func TestLongPoll_checkResponse(t *testing.T) { //nolint: tparallel
 	}
 	for _, tt := range tests { //nolint: paralleltest
 		t.Run(tt.name, func(t *testing.T) {
-			if err := lp.checkResponse(tt.argResponse); (err != nil) != tt.wantErr {
+			err := lp.checkResponse(tt.argResponse)
+			if (err != nil) != tt.wantErr {
 				t.Errorf("LongPoll.checkResponse() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
@@ -204,17 +205,20 @@ func TestLongPoll_RunError(t *testing.T) {
 	lp, _ := NewLongPoll(vk, 0)
 	lp.Wait = 1
 
-	if err := lp.Run(); err == nil {
+	err := lp.Run()
+	if err == nil {
 		t.Error(err)
 	}
 
-	if err := lp.RunWithContext(context.Background()); err == nil {
+	err = lp.RunWithContext(context.Background())
+	if err == nil {
 		t.Error(err)
 	}
 
 	lp.Server = "http://example.com"
 
-	if err := lp.Run(); err == nil {
+	err = lp.Run()
+	if err == nil {
 		t.Error(err)
 	}
 }

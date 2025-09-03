@@ -38,6 +38,7 @@ func TestMarketMarketItem_UnmarshalJSON(t *testing.T) {
 	f([]byte(`{"id":1}`), object.MarketMarketItem{ID: 1})
 
 	var market object.MarketMarketItem
+
 	err := json.Unmarshal([]byte("0"), &market)
 	assert.Error(t, err)
 }
@@ -78,6 +79,7 @@ func TestMarketPrice_UnmarshalJSON(t *testing.T) {
 	f([]byte(`{"text":"a"}`), object.MarketPrice{Text: "a"})
 
 	var market object.MarketPrice
+
 	err := json.Unmarshal([]byte("0"), &market)
 	assert.Error(t, err)
 }

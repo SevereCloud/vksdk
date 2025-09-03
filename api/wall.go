@@ -98,9 +98,10 @@ func (vk *VK) WallGet(params Params) (response WallGetResponse, err error) {
 
 // WallGetExtendedResponse struct.
 type WallGetExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                   `json:"count"`
 	Items []object.WallWallpost `json:"items"`
-	object.ExtendedResponse
 }
 
 // WallGetExtended returns a list of posts on a user wall or community wall.
@@ -132,8 +133,9 @@ func (vk *VK) WallGetByID(params Params) (response WallGetByIDResponse, err erro
 
 // WallGetByIDExtendedResponse struct.
 type WallGetByIDExtendedResponse struct {
-	Items []object.WallWallpost `json:"items"`
 	object.ExtendedResponse
+
+	Items []object.WallWallpost `json:"items"`
 }
 
 // WallGetByIDExtended returns a list of posts from user or community walls by their IDs.
@@ -213,13 +215,14 @@ func (vk *VK) WallGetComments(params Params) (response WallGetCommentsResponse, 
 
 // WallGetCommentsExtendedResponse struct.
 type WallGetCommentsExtendedResponse struct {
+	object.ExtendedResponse
+
 	CanPost           object.BaseBoolInt       `json:"can_post"`
 	ShowReplyButton   object.BaseBoolInt       `json:"show_reply_button"`
 	GroupsCanPost     object.BaseBoolInt       `json:"groups_can_post"`
 	CurrentLevelCount int                      `json:"current_level_count"`
 	Count             int                      `json:"count"`
 	Items             []object.WallWallComment `json:"items"`
-	object.ExtendedResponse
 }
 
 // WallGetCommentsExtended returns a list of comments on a post on a user wall or community wall.
@@ -235,8 +238,9 @@ func (vk *VK) WallGetCommentsExtended(params Params) (response WallGetCommentsEx
 
 // WallGetRepostsResponse struct.
 type WallGetRepostsResponse struct {
-	Items []object.WallWallpost `json:"items"`
 	object.ExtendedResponse
+
+	Items []object.WallWallpost `json:"items"`
 }
 
 // WallGetReposts returns information about reposts of a post on user wall or community wall.
@@ -360,9 +364,10 @@ func (vk *VK) WallSearch(params Params) (response WallSearchResponse, err error)
 
 // WallSearchExtendedResponse struct.
 type WallSearchExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                   `json:"count"`
 	Items []object.WallWallpost `json:"items"`
-	object.ExtendedResponse
 }
 
 // WallSearchExtended allows to search posts on user or community walls.

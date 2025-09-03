@@ -8,9 +8,10 @@ import (
 //
 // Replace message flags.
 type MessageFlagsChange struct {
+	ExtraFields
+
 	MessageID int
 	Flags     MessageFlag
-	ExtraFields
 }
 
 func (result *MessageFlagsChange) parse(i []interface{}) error {
@@ -33,9 +34,10 @@ func (result *MessageFlagsChange) parse(i []interface{}) error {
 //
 // Install message flags.
 type MessageFlagsSet struct {
+	ExtraFields
+
 	MessageID int
 	Mask      MessageFlag
-	ExtraFields
 }
 
 func (result *MessageFlagsSet) parse(i []interface{}) error {
@@ -58,9 +60,10 @@ func (result *MessageFlagsSet) parse(i []interface{}) error {
 //
 // Reset message flags.
 type MessageFlagsReset struct {
+	ExtraFields
+
 	MessageID int
 	Mask      MessageFlag
-	ExtraFields
 }
 
 func (result *MessageFlagsReset) parse(i []interface{}) error {
@@ -83,9 +86,10 @@ func (result *MessageFlagsReset) parse(i []interface{}) error {
 //
 // Add a new message.
 type NewMessage struct {
+	ExtraFields
+
 	MessageID int
 	Flags     MessageFlag
-	ExtraFields
 }
 
 func (result *NewMessage) parse(i []interface{}) error {

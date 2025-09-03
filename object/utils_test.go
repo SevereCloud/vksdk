@@ -27,6 +27,7 @@ func TestUtilsDomainResolved_UnmarshalJSON(t *testing.T) {
 	f([]byte(`{"object_id":1}`), object.UtilsDomainResolved{ObjectID: 1})
 
 	var resolved object.UtilsDomainResolved
+
 	err := json.Unmarshal([]byte("0"), &resolved)
 	assert.Error(t, err)
 }

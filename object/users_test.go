@@ -57,6 +57,7 @@ func TestUsersPersonal_UnmarshalJSON(t *testing.T) {
 	f([]byte(`{"alcohol":1}`), object.UsersPersonal{Alcohol: 1})
 
 	var personal object.UsersPersonal
+
 	err := json.Unmarshal([]byte("0"), &personal)
 	assert.Error(t, err)
 }

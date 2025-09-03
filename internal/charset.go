@@ -30,6 +30,7 @@ func (i illegal) Contains(r rune) bool {
 // characters from the io stream.
 func XMLSanitizerReader(xml io.Reader) io.Reader {
 	var i illegal
+
 	t := transform.Chain(runes.Remove(i))
 
 	return transform.NewReader(xml, t)

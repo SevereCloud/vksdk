@@ -90,9 +90,10 @@ func (vk *VK) FaveGet(params Params) (response FaveGetResponse, err error) {
 
 // FaveGetExtendedResponse struct.
 type FaveGetExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int               `json:"count"`
 	Items []object.FaveItem `json:"items"`
-	object.ExtendedResponse
 }
 
 // FaveGetExtended method.

@@ -135,9 +135,10 @@ func (vk *VK) MessagesForceCallFinish(params Params) (response int, err error) {
 
 // MessagesGetByConversationMessageIDResponse struct.
 type MessagesGetByConversationMessageIDResponse struct {
+	object.ExtendedResponse
+
 	Count int                      `json:"count"`
 	Items []object.MessagesMessage `json:"items"`
-	object.ExtendedResponse
 }
 
 // MessagesGetByConversationMessageID messages.getByConversationMessageId.
@@ -170,9 +171,10 @@ func (vk *VK) MessagesGetByID(params Params) (response MessagesGetByIDResponse, 
 
 // MessagesGetByIDExtendedResponse struct.
 type MessagesGetByIDExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                      `json:"count"`
 	Items []object.MessagesMessage `json:"items"`
-	object.ExtendedResponse
 }
 
 // MessagesGetByIDExtended returns messages by their IDs.
@@ -210,8 +212,9 @@ func (vk *VK) MessagesGetChatChatIDs(params Params) (response MessagesGetChatCha
 
 // MessagesGetChatPreviewResponse struct.
 type MessagesGetChatPreviewResponse struct {
-	Preview object.MessagesChatPreview `json:"preview"`
 	object.ExtendedResponse
+
+	Preview object.MessagesChatPreview `json:"preview"`
 }
 
 // MessagesGetChatPreview allows to receive chat preview by the invitation link.
@@ -224,6 +227,8 @@ func (vk *VK) MessagesGetChatPreview(params Params) (response MessagesGetChatPre
 
 // MessagesGetConversationMembersResponse struct.
 type MessagesGetConversationMembersResponse struct {
+	object.ExtendedResponse
+
 	Items []struct {
 		MemberID  int                `json:"member_id"`
 		JoinDate  int                `json:"join_date"`
@@ -239,7 +244,6 @@ type MessagesGetConversationMembersResponse struct {
 		OnlyAdminsEditInfo object.BaseBoolInt `json:"only_admins_edit_info"`
 		AdminsPromoteUsers object.BaseBoolInt `json:"admins_promote_users"`
 	} `json:"chat_restrictions"`
-	object.ExtendedResponse
 }
 
 // MessagesGetConversationMembers returns a list of IDs of users participating in a conversation.
@@ -255,10 +259,11 @@ func (vk *VK) MessagesGetConversationMembers(params Params) (
 
 // MessagesGetConversationsResponse struct.
 type MessagesGetConversationsResponse struct {
+	object.ExtendedResponse
+
 	Count       int                                      `json:"count"`
 	Items       []object.MessagesConversationWithMessage `json:"items"`
 	UnreadCount int                                      `json:"unread_count"`
-	object.ExtendedResponse
 }
 
 // MessagesGetConversations returns a list of conversations.
@@ -288,9 +293,10 @@ func (vk *VK) MessagesGetConversationsByID(params Params) (response MessagesGetC
 
 // MessagesGetConversationsByIDExtendedResponse struct.
 type MessagesGetConversationsByIDExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                           `json:"count"`
 	Items []object.MessagesConversation `json:"items"`
-	object.ExtendedResponse
 }
 
 // MessagesGetConversationsByIDExtended returns conversations by their IDs.
@@ -309,11 +315,11 @@ func (vk *VK) MessagesGetConversationsByIDExtended(params Params) (
 
 // MessagesGetHistoryResponse struct.
 type MessagesGetHistoryResponse struct {
-	Count int                      `json:"count"`
-	Items []object.MessagesMessage `json:"items"`
-
 	// 	extended=1
 	object.ExtendedResponse
+
+	Count int                      `json:"count"`
+	Items []object.MessagesMessage `json:"items"`
 
 	// 	extended=1
 	Conversations []object.MessagesConversation `json:"conversations,omitempty"`
@@ -334,9 +340,10 @@ func (vk *VK) MessagesGetHistory(params Params) (response MessagesGetHistoryResp
 
 // MessagesGetHistoryAttachmentsResponse struct.
 type MessagesGetHistoryAttachmentsResponse struct {
+	object.ExtendedResponse
+
 	Items    []object.MessagesHistoryAttachment `json:"items"`
 	NextFrom string                             `json:"next_from"`
-	object.ExtendedResponse
 }
 
 // MessagesGetHistoryAttachments returns media files from the dialog or group chat.
@@ -349,12 +356,13 @@ func (vk *VK) MessagesGetHistoryAttachments(params Params) (response MessagesGet
 
 // MessagesGetImportantMessagesResponse struct.
 type MessagesGetImportantMessagesResponse struct {
+	object.ExtendedResponse
+
 	Messages struct {
 		Count int                      `json:"count"`
 		Items []object.MessagesMessage `json:"items"`
 	} `json:"messages"`
 	Conversations []object.MessagesConversation `json:"conversations"`
-	object.ExtendedResponse
 }
 
 // MessagesGetImportantMessages messages.getImportantMessages.
@@ -535,9 +543,10 @@ func (vk *VK) MessagesRestore(params Params) (response int, err error) {
 
 // MessagesSearchResponse struct.
 type MessagesSearchResponse struct {
-	Count int                      `json:"count"`
-	Items []object.MessagesMessage `json:"items"`
 	object.ExtendedResponse
+
+	Count         int                           `json:"count"`
+	Items         []object.MessagesMessage      `json:"items"`
 	Conversations []object.MessagesConversation `json:"conversations,omitempty"`
 }
 
@@ -551,9 +560,10 @@ func (vk *VK) MessagesSearch(params Params) (response MessagesSearchResponse, er
 
 // MessagesSearchConversationsResponse struct.
 type MessagesSearchConversationsResponse struct {
+	object.ExtendedResponse
+
 	Count int                           `json:"count"`
 	Items []object.MessagesConversation `json:"items"`
-	object.ExtendedResponse
 }
 
 // MessagesSearchConversations returns a list of conversations that match search criteria.

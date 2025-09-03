@@ -42,6 +42,7 @@ func TestNewCallback(t *testing.T) {
 		assert.Equal(t, "application/json; encoding=utf-8", rr.Header().Get("Content-Type"))
 
 		var resp response
+
 		err = json.NewDecoder(rr.Body).Decode(&resp)
 		assert.NoError(t, err)
 
@@ -159,6 +160,7 @@ func TestCallback_OnGetItem(t *testing.T) {
 		assert.Equal(t, "application/json; encoding=utf-8", rr.Header().Get("Content-Type"))
 
 		var resp response
+
 		err = json.NewDecoder(rr.Body).Decode(&resp)
 		assert.NoError(t, err)
 
@@ -270,6 +272,7 @@ func TestCallback_OnGetSubscription(t *testing.T) {
 		assert.Equal(t, "application/json; encoding=utf-8", rr.Header().Get("Content-Type"))
 
 		var resp response
+
 		err = json.NewDecoder(rr.Body).Decode(&resp)
 		assert.NoError(t, err)
 
@@ -390,6 +393,7 @@ func TestCallback_OnOrderStatusChange(t *testing.T) {
 		assert.Equal(t, "application/json; encoding=utf-8", rr.Header().Get("Content-Type"))
 
 		var resp response
+
 		err = json.NewDecoder(rr.Body).Decode(&resp)
 		assert.NoError(t, err)
 
@@ -522,6 +526,7 @@ func TestCallback_OnSubscriptionStatusChange(t *testing.T) {
 		assert.Equal(t, "application/json; encoding=utf-8", rr.Header().Get("Content-Type"))
 
 		var resp response
+
 		err = json.NewDecoder(rr.Body).Decode(&resp)
 		assert.NoError(t, err)
 
@@ -622,6 +627,7 @@ func TestParseForm(t *testing.T) {
 	assert.Equal(t, "application/json; encoding=utf-8", rr.Header().Get("Content-Type"))
 
 	var resp response
+
 	err = json.NewDecoder(rr.Body).Decode(&resp)
 	assert.NoError(t, err)
 

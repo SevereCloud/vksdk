@@ -18,6 +18,7 @@ func TestRetryCounterFromContext(t *testing.T) {
 	t.Parallel()
 
 	const retryCounter = 123
+
 	ctx := context.WithValue(
 		context.Background(),
 		internal.CallbackRetryCounterKey,

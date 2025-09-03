@@ -234,7 +234,8 @@ func (lp *LongPoll) Run() error {
 		}
 
 		for _, event := range resp.Updates {
-			if err := lp.handler(event); err != nil {
+			err := lp.handler(event)
+			if err != nil {
 				return err
 			}
 		}

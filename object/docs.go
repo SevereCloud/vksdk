@@ -6,6 +6,9 @@ import (
 
 // DocsDoc struct.
 type DocsDoc struct {
+	DocsDocPreviewAudioMessage
+	DocsDocPreviewGraffiti
+
 	AccessKey  string         `json:"access_key"` // Access key for the document
 	Date       int            `json:"date"`       // Date when file has been uploaded in Unixtime
 	Ext        string         `json:"ext"`        // File extension
@@ -17,8 +20,6 @@ type DocsDoc struct {
 	Title      string         `json:"title"` // Document title
 	Type       int            `json:"type"`  // Document type
 	URL        string         `json:"url"`   // File URL
-	DocsDocPreviewAudioMessage
-	DocsDocPreviewGraffiti
 }
 
 // ToAttachment return attachment format.

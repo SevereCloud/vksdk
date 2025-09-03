@@ -41,11 +41,12 @@ func (vk *VK) StoriesGet(params Params) (response StoriesGetResponse, err error)
 
 // StoriesGetExtendedResponse struct.
 type StoriesGetExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count            int                      `json:"count"`
 	Items            []object.StoriesFeedItem `json:"items"`
 	PromoData        object.StoriesPromoBlock `json:"promo_data"`
 	NeedUploadScreen object.BaseBoolInt       `json:"need_upload_screen"`
-	object.ExtendedResponse
 }
 
 // StoriesGetExtended returns stories available for current user.
@@ -78,9 +79,10 @@ func (vk *VK) StoriesGetBanned(params Params) (response StoriesGetBannedResponse
 
 // StoriesGetBannedExtendedResponse struct.
 type StoriesGetBannedExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int   `json:"count"`
 	Items []int `json:"items"`
-	object.ExtendedResponse
 }
 
 // StoriesGetBannedExtended returns list of sources hidden from current user's feed.
@@ -113,9 +115,10 @@ func (vk *VK) StoriesGetByID(params Params) (response StoriesGetByIDResponse, er
 
 // StoriesGetByIDExtendedResponse struct.
 type StoriesGetByIDExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                   `json:"count"`
 	Items []object.StoriesStory `json:"items"`
-	object.ExtendedResponse
 }
 
 // StoriesGetByIDExtended returns story by its ID.
@@ -163,9 +166,10 @@ func (vk *VK) StoriesGetReplies(params Params) (response StoriesGetRepliesRespon
 
 // StoriesGetRepliesExtendedResponse struct.
 type StoriesGetRepliesExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                      `json:"count"`
 	Items []object.StoriesFeedItem `json:"items"`
-	object.ExtendedResponse
 }
 
 // StoriesGetRepliesExtended returns replies to the story.
@@ -240,9 +244,10 @@ func (vk *VK) StoriesHideReply(params Params) (response int, err error) {
 
 // StoriesSaveResponse struct.
 type StoriesSaveResponse struct {
+	object.ExtendedResponse
+
 	Count int                   `json:"count"`
 	Items []object.StoriesStory `json:"items"`
-	object.ExtendedResponse
 }
 
 // StoriesSave method.
@@ -272,9 +277,10 @@ func (vk *VK) StoriesSearch(params Params) (response StoriesSearchResponse, err 
 
 // StoriesSearchExtendedResponse struct.
 type StoriesSearchExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                      `json:"count"`
 	Items []object.StoriesFeedItem `json:"items"`
-	object.ExtendedResponse
 }
 
 // StoriesSearchExtended returns search results for stories.

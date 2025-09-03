@@ -48,6 +48,7 @@ func TestWebhook(t *testing.T) {
 		assert.Equal(t, "application/json; encoding=utf-8", rr.Header().Get("Content-Type"))
 
 		var resp response
+
 		err = json.NewDecoder(rr.Body).Decode(&resp)
 		assert.NoError(t, err)
 
