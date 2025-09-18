@@ -14,13 +14,13 @@ func TestVK_WallCheckCopyrightLink(t *testing.T) {
 	needUserToken(t)
 
 	get, err := vkUser.WallCheckCopyrightLink(api.Params{
-		"link": "https://vk.com/wall1_2442097",
+		"link": "https://vk.ru/wall1_2442097",
 	})
 	noError(t, err)
 	assert.Equal(t, 1, get)
 
 	_, err = vkUser.WallCheckCopyrightLink(api.Params{
-		"link": "https://vk.com/severecloud",
+		"link": "https://vk.ru/severecloud",
 	})
 	assert.ErrorIs(t, err, api.ErrWallCheckLinkCantDetermineSource)
 }

@@ -6,7 +6,7 @@ import (
 
 // GroupsAddAddressBuilder builder.
 //
-// https://dev.vk.com/method/groups.addAddress
+// https://dev.vk.ru/method/groups.addAddress
 type GroupsAddAddressBuilder struct {
 	api.Params
 }
@@ -96,7 +96,7 @@ func (b *GroupsAddAddressBuilder) IsMainAddress(v bool) *GroupsAddAddressBuilder
 
 // GroupsAddCallbackServerBuilder builder.
 //
-// https://dev.vk.com/method/groups.addCallbackServer
+// https://dev.vk.ru/method/groups.addCallbackServer
 type GroupsAddCallbackServerBuilder struct {
 	api.Params
 }
@@ -134,7 +134,7 @@ func (b *GroupsAddCallbackServerBuilder) SecretKey(v string) *GroupsAddCallbackS
 //
 // Allows to add a link to the community.
 //
-// https://dev.vk.com/method/groups.addLink
+// https://dev.vk.ru/method/groups.addLink
 type GroupsAddLinkBuilder struct {
 	api.Params
 }
@@ -166,7 +166,7 @@ func (b *GroupsAddLinkBuilder) Text(v string) *GroupsAddLinkBuilder {
 //
 // Allows to approve join request to the community.
 //
-// https://dev.vk.com/method/groups.approveRequest
+// https://dev.vk.ru/method/groups.approveRequest
 type GroupsApproveRequestBuilder struct {
 	api.Params
 }
@@ -190,7 +190,7 @@ func (b *GroupsApproveRequestBuilder) UserID(v int) *GroupsApproveRequestBuilder
 
 // GroupsBanBuilder builder.
 //
-// https://dev.vk.com/method/groups.ban
+// https://dev.vk.ru/method/groups.ban
 type GroupsBanBuilder struct {
 	api.Params
 }
@@ -240,7 +240,7 @@ func (b *GroupsBanBuilder) CommentVisible(v bool) *GroupsBanBuilder {
 //
 // Creates a new community.
 //
-// https://dev.vk.com/method/groups.create
+// https://dev.vk.ru/method/groups.create
 type GroupsCreateBuilder struct {
 	api.Params
 }
@@ -302,7 +302,7 @@ func (b *GroupsCreateBuilder) Subtype(v int) *GroupsCreateBuilder {
 
 // GroupsDeleteCallbackServerBuilder builder.
 //
-// https://dev.vk.com/method/groups.deleteCallbackServer
+// https://dev.vk.ru/method/groups.deleteCallbackServer
 type GroupsDeleteCallbackServerBuilder struct {
 	api.Params
 }
@@ -328,7 +328,7 @@ func (b *GroupsDeleteCallbackServerBuilder) ServerID(v int) *GroupsDeleteCallbac
 //
 // Allows to delete a link from the community.
 //
-// https://dev.vk.com/method/groups.deleteLink
+// https://dev.vk.ru/method/groups.deleteLink
 type GroupsDeleteLinkBuilder struct {
 	api.Params
 }
@@ -352,7 +352,7 @@ func (b *GroupsDeleteLinkBuilder) LinkID(v int) *GroupsDeleteLinkBuilder {
 
 // GroupsDisableOnlineBuilder builder.
 //
-// https://dev.vk.com/method/groups.disableOnline
+// https://dev.vk.ru/method/groups.disableOnline
 type GroupsDisableOnlineBuilder struct {
 	api.Params
 }
@@ -372,7 +372,7 @@ func (b *GroupsDisableOnlineBuilder) GroupID(v int) *GroupsDisableOnlineBuilder 
 //
 // Edits a community.
 //
-// https://dev.vk.com/method/groups.edit
+// https://dev.vk.ru/method/groups.edit
 type GroupsEditBuilder struct {
 	api.Params
 }
@@ -527,7 +527,7 @@ func (b *GroupsEditBuilder) Phone(v string) *GroupsEditBuilder {
 }
 
 // Rss RSS feed address for import (available only to communities with special permission.
-// Contact vk.com/support to get it.
+// Contact vk.ru/support to get it.
 func (b *GroupsEditBuilder) Rss(v string) *GroupsEditBuilder {
 	b.Params["rss"] = v
 	return b
@@ -841,7 +841,7 @@ func (b *GroupsEditBuilder) City(v int) *GroupsEditBuilder {
 
 // GroupsEditAddressBuilder builder.
 //
-// https://dev.vk.com/method/groups.editAddress
+// https://dev.vk.ru/method/groups.editAddress
 type GroupsEditAddressBuilder struct {
 	api.Params
 }
@@ -937,7 +937,7 @@ func (b *GroupsEditAddressBuilder) IsMainAddress(v bool) *GroupsEditAddressBuild
 
 // GroupsEditCallbackServerBuilder builder.
 //
-// https://dev.vk.com/method/groups.editCallbackServer
+// https://dev.vk.ru/method/groups.editCallbackServer
 type GroupsEditCallbackServerBuilder struct {
 	api.Params
 }
@@ -981,7 +981,7 @@ func (b *GroupsEditCallbackServerBuilder) SecretKey(v string) *GroupsEditCallbac
 //
 // Allows to edit a link in the community.
 //
-// https://dev.vk.com/method/groups.editLink
+// https://dev.vk.ru/method/groups.editLink
 type GroupsEditLinkBuilder struct {
 	api.Params
 }
@@ -1013,7 +1013,7 @@ func (b *GroupsEditLinkBuilder) Text(v string) *GroupsEditLinkBuilder {
 //
 // Allows to add, remove or edit the community manager.
 //
-// https://dev.vk.com/method/groups.editManager
+// https://dev.vk.ru/method/groups.editManager
 type GroupsEditManagerBuilder struct {
 	api.Params
 }
@@ -1073,7 +1073,7 @@ func (b *GroupsEditManagerBuilder) ContactEmail(v string) *GroupsEditManagerBuil
 
 // GroupsEnableOnlineBuilder builder.
 //
-// https://dev.vk.com/method/groups.enableOnline
+// https://dev.vk.ru/method/groups.enableOnline
 type GroupsEnableOnlineBuilder struct {
 	api.Params
 }
@@ -1093,7 +1093,7 @@ func (b *GroupsEnableOnlineBuilder) GroupID(v int) *GroupsEnableOnlineBuilder {
 //
 // Returns a list of the communities to which a user belongs.
 //
-// https://dev.vk.com/method/groups.get
+// https://dev.vk.ru/method/groups.get
 type GroupsGetBuilder struct {
 	api.Params
 }
@@ -1159,7 +1159,7 @@ func (b *GroupsGetBuilder) Count(v int) *GroupsGetBuilder {
 //
 // Returns a list of community addresses.
 //
-// https://dev.vk.com/method/groups.getAddresses
+// https://dev.vk.ru/method/groups.getAddresses
 type GroupsGetAddressesBuilder struct {
 	api.Params
 }
@@ -1215,7 +1215,7 @@ func (b *GroupsGetAddressesBuilder) Fields(v []string) *GroupsGetAddressesBuilde
 //
 // Returns a list of users on a community blacklist.
 //
-// https://dev.vk.com/method/groups.getBanned
+// https://dev.vk.ru/method/groups.getBanned
 type GroupsGetBannedBuilder struct {
 	api.Params
 }
@@ -1259,7 +1259,7 @@ func (b *GroupsGetBannedBuilder) OwnerID(v int) *GroupsGetBannedBuilder {
 //
 // Returns information about communities by their IDs.
 //
-// https://dev.vk.com/method/groups.getById
+// https://dev.vk.ru/method/groups.getById
 type GroupsGetByIDBuilder struct {
 	api.Params
 }
@@ -1291,7 +1291,7 @@ func (b *GroupsGetByIDBuilder) Fields(v []string) *GroupsGetByIDBuilder {
 //
 // Returns Callback API confirmation code for the community.
 //
-// https://dev.vk.com/method/groups.getCallbackConfirmationCode
+// https://dev.vk.ru/method/groups.getCallbackConfirmationCode
 type GroupsGetCallbackConfirmationCodeBuilder struct {
 	api.Params
 }
@@ -1309,7 +1309,7 @@ func (b *GroupsGetCallbackConfirmationCodeBuilder) GroupID(v int) *GroupsGetCall
 
 // GroupsGetCallbackServersBuilder builder.
 //
-// https://dev.vk.com/method/groups.getCallbackServers
+// https://dev.vk.ru/method/groups.getCallbackServers
 type GroupsGetCallbackServersBuilder struct {
 	api.Params
 }
@@ -1333,9 +1333,9 @@ func (b *GroupsGetCallbackServersBuilder) ServerIDs(v []int) *GroupsGetCallbackS
 
 // GroupsGetCallbackSettingsBuilder builder.
 //
-// Returns [vk.com/dev/callback_api|Callback API] notifications settings.
+// Returns [vk.ru/dev/callback_api|Callback API] notifications settings.
 //
-// https://dev.vk.com/method/groups.getCallbackSettings
+// https://dev.vk.ru/method/groups.getCallbackSettings
 type GroupsGetCallbackSettingsBuilder struct {
 	api.Params
 }
@@ -1361,7 +1361,7 @@ func (b *GroupsGetCallbackSettingsBuilder) ServerID(v int) *GroupsGetCallbackSet
 //
 // Returns communities list for a catalog category.
 //
-// https://dev.vk.com/method/groups.getCatalog
+// https://dev.vk.ru/method/groups.getCatalog
 type GroupsGetCatalogBuilder struct {
 	api.Params
 }
@@ -1371,13 +1371,13 @@ func NewGroupsGetCatalogBuilder() *GroupsGetCatalogBuilder {
 	return &GroupsGetCatalogBuilder{api.Params{}}
 }
 
-// CategoryID received from [vk.com/dev/groups.getCatalogInfo|groups.getCatalogInfo].
+// CategoryID received from [vk.ru/dev/groups.getCatalogInfo|groups.getCatalogInfo].
 func (b *GroupsGetCatalogBuilder) CategoryID(v int) *GroupsGetCatalogBuilder {
 	b.Params["category_id"] = v
 	return b
 }
 
-// SubcategoryID received from [vk.com/dev/groups.getCatalogInfo|groups.getCatalogInfo].
+// SubcategoryID received from [vk.ru/dev/groups.getCatalogInfo|groups.getCatalogInfo].
 func (b *GroupsGetCatalogBuilder) SubcategoryID(v int) *GroupsGetCatalogBuilder {
 	b.Params["subcategory_id"] = v
 	return b
@@ -1387,7 +1387,7 @@ func (b *GroupsGetCatalogBuilder) SubcategoryID(v int) *GroupsGetCatalogBuilder 
 //
 // Returns categories list for communities catalog.
 //
-// https://dev.vk.com/method/groups.getCatalogInfo
+// https://dev.vk.ru/method/groups.getCatalogInfo
 type GroupsGetCatalogInfoBuilder struct {
 	api.Params
 }
@@ -1413,7 +1413,7 @@ func (b *GroupsGetCatalogInfoBuilder) Subcategories(v bool) *GroupsGetCatalogInf
 //
 // Returns invited users list of a community.
 //
-// https://dev.vk.com/method/groups.getInvitedUsers
+// https://dev.vk.ru/method/groups.getInvitedUsers
 type GroupsGetInvitedUsersBuilder struct {
 	api.Params
 }
@@ -1473,7 +1473,7 @@ func (b *GroupsGetInvitedUsersBuilder) NameCase(v string) *GroupsGetInvitedUsers
 //
 // Returns a list of invitations to join communities and events.
 //
-// https://dev.vk.com/method/groups.getInvites
+// https://dev.vk.ru/method/groups.getInvites
 type GroupsGetInvitesBuilder struct {
 	api.Params
 }
@@ -1495,7 +1495,7 @@ func (b *GroupsGetInvitesBuilder) Count(v int) *GroupsGetInvitesBuilder {
 	return b
 }
 
-// Extended '1' — to return additional [vk.com/dev/fields_groups|fields] for communities..
+// Extended '1' — to return additional [vk.ru/dev/fields_groups|fields] for communities..
 func (b *GroupsGetInvitesBuilder) Extended(v bool) *GroupsGetInvitesBuilder {
 	b.Params["extended"] = v
 	return b
@@ -1505,7 +1505,7 @@ func (b *GroupsGetInvitesBuilder) Extended(v bool) *GroupsGetInvitesBuilder {
 //
 // Returns the data needed to query a Long Poll server for events.
 //
-// https://dev.vk.com/method/groups.getLongPollServer
+// https://dev.vk.ru/method/groups.getLongPollServer
 type GroupsGetLongPollServerBuilder struct {
 	api.Params
 }
@@ -1525,7 +1525,7 @@ func (b *GroupsGetLongPollServerBuilder) GroupID(v int) *GroupsGetLongPollServer
 //
 // Returns Long Poll notification settings.
 //
-// https://dev.vk.com/method/groups.getLongPollSettings
+// https://dev.vk.ru/method/groups.getLongPollSettings
 type GroupsGetLongPollSettingsBuilder struct {
 	api.Params
 }
@@ -1545,7 +1545,7 @@ func (b *GroupsGetLongPollSettingsBuilder) GroupID(v int) *GroupsGetLongPollSett
 //
 // Returns a list of community members.
 //
-// https://dev.vk.com/method/groups.getMembers
+// https://dev.vk.ru/method/groups.getMembers
 type GroupsGetMembersBuilder struct {
 	api.Params
 }
@@ -1601,7 +1601,7 @@ func (b *GroupsGetMembersBuilder) Filter(v string) *GroupsGetMembersBuilder {
 //
 // Returns a list of requests to the community.
 //
-// https://dev.vk.com/method/groups.getRequests
+// https://dev.vk.ru/method/groups.getRequests
 type GroupsGetRequestsBuilder struct {
 	api.Params
 }
@@ -1639,7 +1639,7 @@ func (b *GroupsGetRequestsBuilder) Fields(v []string) *GroupsGetRequestsBuilder 
 //
 // Returns community settings.
 //
-// https://dev.vk.com/method/groups.getSettings
+// https://dev.vk.ru/method/groups.getSettings
 type GroupsGetSettingsBuilder struct {
 	api.Params
 }
@@ -1657,7 +1657,7 @@ func (b *GroupsGetSettingsBuilder) GroupID(v int) *GroupsGetSettingsBuilder {
 
 // GroupsGetTagListBuilder builder.
 //
-// https://dev.vk.com/method/groups.getTagList
+// https://dev.vk.ru/method/groups.getTagList
 type GroupsGetTagListBuilder struct {
 	api.Params
 }
@@ -1677,7 +1677,7 @@ func (b *GroupsGetTagListBuilder) GroupID(v int) *GroupsGetTagListBuilder {
 //
 // Allows to invite friends to the community.
 //
-// https://dev.vk.com/method/groups.invite
+// https://dev.vk.ru/method/groups.invite
 type GroupsInviteBuilder struct {
 	api.Params
 }
@@ -1703,7 +1703,7 @@ func (b *GroupsInviteBuilder) UserID(v int) *GroupsInviteBuilder {
 //
 // Returns information specifying whether a user is a member of a community.
 //
-// https://dev.vk.com/method/groups.isMember
+// https://dev.vk.ru/method/groups.isMember
 type GroupsIsMemberBuilder struct {
 	api.Params
 }
@@ -1741,7 +1741,7 @@ func (b *GroupsIsMemberBuilder) Extended(v bool) *GroupsIsMemberBuilder {
 //
 // With this method you can join the group or public page, and also confirm your participation in an event.
 //
-// https://dev.vk.com/method/groups.join
+// https://dev.vk.ru/method/groups.join
 type GroupsJoinBuilder struct {
 	api.Params
 }
@@ -1771,7 +1771,7 @@ func (b *GroupsJoinBuilder) NotSure(v string) *GroupsJoinBuilder {
 //
 // With this method you can leave a group, public page, or event.
 //
-// https://dev.vk.com/method/groups.leave
+// https://dev.vk.ru/method/groups.leave
 type GroupsLeaveBuilder struct {
 	api.Params
 }
@@ -1791,7 +1791,7 @@ func (b *GroupsLeaveBuilder) GroupID(v int) *GroupsLeaveBuilder {
 //
 // Removes a user from the community.
 //
-// https://dev.vk.com/method/groups.removeUser
+// https://dev.vk.ru/method/groups.removeUser
 type GroupsRemoveUserBuilder struct {
 	api.Params
 }
@@ -1817,7 +1817,7 @@ func (b *GroupsRemoveUserBuilder) UserID(v int) *GroupsRemoveUserBuilder {
 //
 // Allows to reorder links in the community.
 //
-// https://dev.vk.com/method/groups.reorderLink
+// https://dev.vk.ru/method/groups.reorderLink
 type GroupsReorderLinkBuilder struct {
 	api.Params
 }
@@ -1849,7 +1849,7 @@ func (b *GroupsReorderLinkBuilder) After(v int) *GroupsReorderLinkBuilder {
 //
 // Returns a list of communities matching the search criteria.
 //
-// https://dev.vk.com/method/groups.search
+// https://dev.vk.ru/method/groups.search
 type GroupsSearchBuilder struct {
 	api.Params
 }
@@ -1930,7 +1930,7 @@ func (b *GroupsSearchBuilder) Count(v int) *GroupsSearchBuilder {
 //
 // Allow to set notifications settings for group.
 //
-// https://dev.vk.com/method/groups.setCallbackSettings
+// https://dev.vk.ru/method/groups.setCallbackSettings
 type GroupsSetCallbackSettingsBuilder struct {
 	api.Params
 }
@@ -2268,7 +2268,7 @@ func (b *GroupsSetCallbackSettingsBuilder) DonutMoneyWithdrawError(v bool) *Grou
 //
 // Sets Long Poll notification settings.
 //
-// https://dev.vk.com/method/groups.setLongPollSettings
+// https://dev.vk.ru/method/groups.setLongPollSettings
 type GroupsSetLongPollSettingsBuilder struct {
 	api.Params
 }
@@ -2598,7 +2598,7 @@ func (b *GroupsSetLongPollSettingsBuilder) DonutMoneyWithdrawError(v bool) *Grou
 
 // GroupsSetUserNoteBuilder builder.
 //
-// https://dev.vk.com/method/groups.setUserNote
+// https://dev.vk.ru/method/groups.setUserNote
 type GroupsSetUserNoteBuilder struct {
 	api.Params
 }
@@ -2630,7 +2630,7 @@ func (b *GroupsSetUserNoteBuilder) Note(v string) *GroupsSetUserNoteBuilder {
 
 // GroupsTagAddBuilder builder.
 //
-// https://dev.vk.com/method/groups.tagAdd
+// https://dev.vk.ru/method/groups.tagAdd
 type GroupsTagAddBuilder struct {
 	api.Params
 }
@@ -2682,7 +2682,7 @@ func (b *GroupsTagAddBuilder) TagColor(v string) *GroupsTagAddBuilder {
 
 // GroupsTagBindBuilder builder.
 //
-// https://dev.vk.com/method/groups.tagBind
+// https://dev.vk.ru/method/groups.tagBind
 type GroupsTagBindBuilder struct {
 	api.Params
 }
@@ -2728,7 +2728,7 @@ func (b *GroupsTagBindBuilder) Unbind() *GroupsTagBindBuilder {
 
 // GroupsTagDeleteBuilder builder.
 //
-// https://dev.vk.com/method/groups.tagDelete
+// https://dev.vk.ru/method/groups.tagDelete
 type GroupsTagDeleteBuilder struct {
 	api.Params
 }
@@ -2752,7 +2752,7 @@ func (b *GroupsTagDeleteBuilder) TagID(v int) *GroupsTagDeleteBuilder {
 
 // GroupsTagUpdateBuilder builder.
 //
-// https://dev.vk.com/method/groups.tagUpdate
+// https://dev.vk.ru/method/groups.tagUpdate
 type GroupsTagUpdateBuilder struct {
 	api.Params
 }
@@ -2782,7 +2782,7 @@ func (b *GroupsTagUpdateBuilder) TagName(v string) *GroupsTagUpdateBuilder {
 
 // GroupsToggleMarketBuilder builder.
 //
-// https://dev.vk.com/method/groups.toggleMarket
+// https://dev.vk.ru/method/groups.toggleMarket
 type GroupsToggleMarketBuilder struct {
 	api.Params
 }
@@ -2820,7 +2820,7 @@ func (b *GroupsToggleMarketBuilder) State(v GroupMarketState) *GroupsToggleMarke
 
 // GroupsUnbanBuilder builder.
 //
-// https://dev.vk.com/method/groups.unban
+// https://dev.vk.ru/method/groups.unban
 type GroupsUnbanBuilder struct {
 	api.Params
 }

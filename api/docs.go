@@ -6,7 +6,7 @@ import (
 
 // DocsAdd copies a document to a user's or community's document list.
 //
-// https://dev.vk.com/method/docs.add
+// https://dev.vk.ru/method/docs.add
 func (vk *VK) DocsAdd(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("docs.add", &response, params)
 	return
@@ -14,7 +14,7 @@ func (vk *VK) DocsAdd(params Params) (response int, err error) {
 
 // DocsDelete deletes a user or community document.
 //
-// https://dev.vk.com/method/docs.delete
+// https://dev.vk.ru/method/docs.delete
 func (vk *VK) DocsDelete(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("docs.delete", &response, params)
 	return
@@ -22,7 +22,7 @@ func (vk *VK) DocsDelete(params Params) (response int, err error) {
 
 // DocsEdit edits a document.
 //
-// https://dev.vk.com/method/docs.edit
+// https://dev.vk.ru/method/docs.edit
 func (vk *VK) DocsEdit(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("docs.edit", &response, params)
 	return
@@ -36,7 +36,7 @@ type DocsGetResponse struct {
 
 // DocsGet returns detailed information about user or community documents.
 //
-// https://dev.vk.com/method/docs.get
+// https://dev.vk.ru/method/docs.get
 func (vk *VK) DocsGet(params Params) (response DocsGetResponse, err error) {
 	err = vk.RequestUnmarshal("docs.get", &response, params)
 	return
@@ -47,7 +47,7 @@ type DocsGetByIDResponse []object.DocsDoc
 
 // DocsGetByID returns information about documents by their IDs.
 //
-// https://dev.vk.com/method/docs.getById
+// https://dev.vk.ru/method/docs.getById
 func (vk *VK) DocsGetByID(params Params) (response DocsGetByIDResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getById", &response, params)
 	return
@@ -60,7 +60,7 @@ type DocsGetMessagesUploadServerResponse struct {
 
 // DocsGetMessagesUploadServer returns the server address for document upload.
 //
-// https://dev.vk.com/method/docs.getMessagesUploadServer
+// https://dev.vk.ru/method/docs.getMessagesUploadServer
 func (vk *VK) DocsGetMessagesUploadServer(params Params) (response DocsGetMessagesUploadServerResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getMessagesUploadServer", &response, params)
 	return
@@ -74,7 +74,7 @@ type DocsGetTypesResponse struct {
 
 // DocsGetTypes returns documents types available for current user.
 //
-// https://dev.vk.com/method/docs.getTypes
+// https://dev.vk.ru/method/docs.getTypes
 func (vk *VK) DocsGetTypes(params Params) (response DocsGetTypesResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getTypes", &response, params)
 	return
@@ -87,7 +87,7 @@ type DocsGetUploadServerResponse struct {
 
 // DocsGetUploadServer returns the server address for document upload.
 //
-// https://dev.vk.com/method/docs.getUploadServer
+// https://dev.vk.ru/method/docs.getUploadServer
 func (vk *VK) DocsGetUploadServer(params Params) (response DocsGetUploadServerResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getUploadServer", &response, params)
 	return
@@ -100,7 +100,7 @@ type DocsGetWallUploadServerResponse struct {
 
 // DocsGetWallUploadServer returns the server address for document upload onto a user's or community's wall.
 //
-// https://dev.vk.com/method/docs.getWallUploadServer
+// https://dev.vk.ru/method/docs.getWallUploadServer
 func (vk *VK) DocsGetWallUploadServer(params Params) (response DocsGetWallUploadServerResponse, err error) {
 	err = vk.RequestUnmarshal("docs.getWallUploadServer", &response, params)
 	return
@@ -116,7 +116,7 @@ type DocsSaveResponse struct {
 
 // DocsSave saves a document after uploading it to a server.
 //
-// https://dev.vk.com/method/docs.save
+// https://dev.vk.ru/method/docs.save
 func (vk *VK) DocsSave(params Params) (response DocsSaveResponse, err error) {
 	err = vk.RequestUnmarshal("docs.save", &response, params)
 	return
@@ -130,7 +130,7 @@ type DocsSearchResponse struct {
 
 // DocsSearch returns a list of documents matching the search criteria.
 //
-// https://dev.vk.com/method/docs.search
+// https://dev.vk.ru/method/docs.search
 func (vk *VK) DocsSearch(params Params) (response DocsSearchResponse, err error) {
 	err = vk.RequestUnmarshal("docs.search", &response, params)
 	return

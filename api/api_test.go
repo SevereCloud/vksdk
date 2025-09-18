@@ -239,7 +239,7 @@ func TestVK_InvalidContentType(t *testing.T) {
 	var testObj string
 
 	vk := api.NewVK("")
-	vk.MethodURL = "https://oauth.vk.com"
+	vk.MethodURL = "https://oauth.vk.ru"
 
 	err := vk.RequestUnmarshal("", testObj, nil)
 	if err == nil || err.Error() != "api: invalid content-type(text/html)" {

@@ -10,7 +10,7 @@ type DonutGetFriendsResponse struct {
 
 // DonutGetFriends method.
 //
-// https://dev.vk.com/method/donut.getFriends
+// https://dev.vk.ru/method/donut.getFriends
 func (vk *VK) DonutGetFriends(params Params) (response DonutGetFriendsResponse, err error) {
 	err = vk.RequestUnmarshal("donut.getFriends", &response, params)
 	return
@@ -18,7 +18,7 @@ func (vk *VK) DonutGetFriends(params Params) (response DonutGetFriendsResponse, 
 
 // DonutGetSubscription method.
 //
-// https://dev.vk.com/method/donut.getSubscription
+// https://dev.vk.ru/method/donut.getSubscription
 func (vk *VK) DonutGetSubscription(params Params) (response object.DonutDonatorSubscriptionInfo, err error) {
 	err = vk.RequestUnmarshal("donut.getSubscription", &response, params)
 	return
@@ -34,7 +34,7 @@ type DonutGetSubscriptionsResponse struct {
 
 // DonutGetSubscriptions method.
 //
-// https://dev.vk.com/method/donut.getSubscriptions
+// https://dev.vk.ru/method/donut.getSubscriptions
 func (vk *VK) DonutGetSubscriptions(params Params) (response DonutGetSubscriptionsResponse, err error) {
 	err = vk.RequestUnmarshal("donut.getSubscriptions", &response, params)
 	return
@@ -42,7 +42,7 @@ func (vk *VK) DonutGetSubscriptions(params Params) (response DonutGetSubscriptio
 
 // DonutIsDon method.
 //
-// https://dev.vk.com/method/donut.isDon
+// https://dev.vk.ru/method/donut.isDon
 func (vk *VK) DonutIsDon(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("donut.isDon", &response, params)
 	return

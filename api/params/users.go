@@ -8,7 +8,7 @@ import (
 //
 // Returns detailed information on users.
 //
-// https://dev.vk.com/method/users.get
+// https://dev.vk.ru/method/users.get
 type UsersGetBuilder struct {
 	api.Params
 }
@@ -55,7 +55,7 @@ func (b *UsersGetBuilder) NameCase(v string) *UsersGetBuilder {
 //
 // Returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
 //
-// https://dev.vk.com/method/users.getFollowers
+// https://dev.vk.ru/method/users.getFollowers
 type UsersGetFollowersBuilder struct {
 	api.Params
 }
@@ -113,7 +113,7 @@ func (b *UsersGetFollowersBuilder) NameCase(v string) *UsersGetFollowersBuilder 
 //
 // Returns a list of IDs of users and communities followed by the user.
 //
-// https://dev.vk.com/method/users.getSubscriptions
+// https://dev.vk.ru/method/users.getSubscriptions
 type UsersGetSubscriptionsBuilder struct {
 	api.Params
 }
@@ -158,7 +158,7 @@ func (b *UsersGetSubscriptionsBuilder) Fields(v []string) *UsersGetSubscriptions
 //
 // Returns information whether a user installed the application.
 //
-// https://dev.vk.com/method/users.isAppUser
+// https://dev.vk.ru/method/users.isAppUser
 type UsersIsAppUserBuilder struct {
 	api.Params
 }
@@ -178,7 +178,7 @@ func (b *UsersIsAppUserBuilder) UserID(v int) *UsersIsAppUserBuilder {
 //
 // Reports (submits a complain about) a user.
 //
-// https://dev.vk.com/method/users.report
+// https://dev.vk.ru/method/users.report
 type UsersReportBuilder struct {
 	api.Params
 }
@@ -211,7 +211,7 @@ func (b *UsersReportBuilder) Comment(v string) *UsersReportBuilder {
 //
 // Returns a list of users matching the search criteria.
 //
-// https://dev.vk.com/method/users.search
+// https://dev.vk.ru/method/users.search
 type UsersSearchBuilder struct {
 	api.Params
 }

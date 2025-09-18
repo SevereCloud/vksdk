@@ -1,7 +1,7 @@
 /*
 Package object contains objects for VK.
 
-See more https://dev.vk.com/ru/reference/objects
+See more https://dev.vk.ru/ru/reference/objects
 */
 package object // import "github.com/SevereCloud/vksdk/v3/object"
 

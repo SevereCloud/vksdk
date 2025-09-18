@@ -8,7 +8,7 @@ import (
 //
 // Ads a new item to the market.
 //
-// https://dev.vk.com/method/market.add
+// https://dev.vk.ru/method/market.add
 type MarketAddBuilder struct {
 	api.Params
 }
@@ -82,7 +82,7 @@ func (b *MarketAddBuilder) URL(v string) *MarketAddBuilder {
 //
 // Creates new collection of items.
 //
-// https://dev.vk.com/method/market.addAlbum
+// https://dev.vk.ru/method/market.addAlbum
 type MarketAddAlbumBuilder struct {
 	api.Params
 }
@@ -126,7 +126,7 @@ func (b *MarketAddAlbumBuilder) IsHidden(v bool) *MarketAddAlbumBuilder {
 //
 // Adds an item to one or multiple collections.
 //
-// https://dev.vk.com/method/market.addToAlbum
+// https://dev.vk.ru/method/market.addToAlbum
 type MarketAddToAlbumBuilder struct {
 	api.Params
 }
@@ -164,7 +164,7 @@ func (b *MarketAddToAlbumBuilder) AlbumIDs(v []int) *MarketAddToAlbumBuilder {
 //
 // Creates a new comment for an item.
 //
-// https://dev.vk.com/method/market.createComment
+// https://dev.vk.ru/method/market.createComment
 type MarketCreateCommentBuilder struct {
 	api.Params
 }
@@ -230,7 +230,7 @@ func (b *MarketCreateCommentBuilder) GUID(v string) *MarketCreateCommentBuilder 
 //
 // Deletes an item.
 //
-// https://dev.vk.com/method/market.delete
+// https://dev.vk.ru/method/market.delete
 type MarketDeleteBuilder struct {
 	api.Params
 }
@@ -256,7 +256,7 @@ func (b *MarketDeleteBuilder) ItemID(v int) *MarketDeleteBuilder {
 //
 // Deletes a collection of items.
 //
-// https://dev.vk.com/method/market.deleteAlbum
+// https://dev.vk.ru/method/market.deleteAlbum
 type MarketDeleteAlbumBuilder struct {
 	api.Params
 }
@@ -282,7 +282,7 @@ func (b *MarketDeleteAlbumBuilder) AlbumID(v int) *MarketDeleteAlbumBuilder {
 //
 // Deletes an item's comment.
 //
-// https://dev.vk.com/method/market.deleteComment
+// https://dev.vk.ru/method/market.deleteComment
 type MarketDeleteCommentBuilder struct {
 	api.Params
 }
@@ -294,7 +294,7 @@ func NewMarketDeleteCommentBuilder() *MarketDeleteCommentBuilder {
 
 // OwnerID identifier of an item owner community.
 // Note that community id in the 'owner_id' parameter should be negative number.
-// For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community.
+// For example 'owner_id'=-1 matches the [vk.ru/apiclub|VK API] community.
 func (b *MarketDeleteCommentBuilder) OwnerID(v int) *MarketDeleteCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -310,7 +310,7 @@ func (b *MarketDeleteCommentBuilder) CommentID(v int) *MarketDeleteCommentBuilde
 //
 // Edits an item.
 //
-// https://dev.vk.com/method/market.edit
+// https://dev.vk.ru/method/market.edit
 type MarketEditBuilder struct {
 	api.Params
 }
@@ -384,7 +384,7 @@ func (b *MarketEditBuilder) URL(v string) *MarketEditBuilder {
 //
 // Edits a collection of items.
 //
-// https://dev.vk.com/method/market.editAlbum
+// https://dev.vk.ru/method/market.editAlbum
 type MarketEditAlbumBuilder struct {
 	api.Params
 }
@@ -434,7 +434,7 @@ func (b *MarketEditAlbumBuilder) IsHidden(v bool) *MarketEditAlbumBuilder {
 //
 // EditOrders an item.
 //
-// https://dev.vk.com/method/market.editOrder
+// https://dev.vk.ru/method/market.editOrder
 type MarketEditOrderBuilder struct {
 	api.Params
 }
@@ -526,7 +526,7 @@ func (b *MarketEditOrderBuilder) ReceiptLink(v string) *MarketEditOrderBuilder {
 //
 // Changes item comment's text.
 //
-// https://dev.vk.com/method/market.editComment
+// https://dev.vk.ru/method/market.editComment
 type MarketEditCommentBuilder struct {
 	api.Params
 }
@@ -568,7 +568,7 @@ func (b *MarketEditCommentBuilder) Attachments(v interface{}) *MarketEditComment
 //
 // Returns items list for a community.
 //
-// https://dev.vk.com/method/market.get
+// https://dev.vk.ru/method/market.get
 type MarketGetBuilder struct {
 	api.Params
 }
@@ -581,7 +581,7 @@ func NewMarketGetBuilder() *MarketGetBuilder {
 // OwnerID ID of an item owner community, "Note that community id in the 'owner_id' parameter should be negative
 // number.
 //
-// For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community ".
+// For example 'owner_id'=-1 matches the [vk.ru/apiclub|VK API] community ".
 func (b *MarketGetBuilder) OwnerID(v int) *MarketGetBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -630,7 +630,7 @@ func (b *MarketGetBuilder) WithDisabled(v bool) *MarketGetBuilder {
 //
 // Returns items album's data.
 //
-// https://dev.vk.com/method/market.getAlbumById
+// https://dev.vk.ru/method/market.getAlbumById
 type MarketGetAlbumByIDBuilder struct {
 	api.Params
 }
@@ -641,7 +641,7 @@ func NewMarketGetAlbumByIDBuilder() *MarketGetAlbumByIDBuilder {
 }
 
 // OwnerID identifier of an album owner community, "Note that community id in the 'owner_id' parameter should be
-// negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community ".
+// negative number. For example 'owner_id'=-1 matches the [vk.ru/apiclub|VK API] community ".
 func (b *MarketGetAlbumByIDBuilder) OwnerID(v int) *MarketGetAlbumByIDBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -663,7 +663,7 @@ func (b *MarketGetAlbumByIDBuilder) NeedAllItemIDs(v bool) *MarketGetAlbumByIDBu
 //
 // Returns community's collections list.
 //
-// https://dev.vk.com/method/market.getAlbums
+// https://dev.vk.ru/method/market.getAlbums
 type MarketGetAlbumsBuilder struct {
 	api.Params
 }
@@ -695,7 +695,7 @@ func (b *MarketGetAlbumsBuilder) Count(v int) *MarketGetAlbumsBuilder {
 //
 // Returns information about market items by their ids.
 //
-// https://dev.vk.com/method/market.getById
+// https://dev.vk.ru/method/market.getById
 type MarketGetByIDBuilder struct {
 	api.Params
 }
@@ -722,7 +722,7 @@ func (b *MarketGetByIDBuilder) Extended(v bool) *MarketGetByIDBuilder {
 //
 // Returns a list of market categories.
 //
-// https://dev.vk.com/method/market.getCategories
+// https://dev.vk.ru/method/market.getCategories
 type MarketGetCategoriesBuilder struct {
 	api.Params
 }
@@ -752,7 +752,7 @@ func (b *MarketGetCategoriesBuilder) Offset(v int) *MarketGetCategoriesBuilder {
 //
 // Returns comments list for an item.
 //
-// https://dev.vk.com/method/market.getComments
+// https://dev.vk.ru/method/market.getComments
 type MarketGetCommentsBuilder struct {
 	api.Params
 }
@@ -813,7 +813,7 @@ func (b *MarketGetCommentsBuilder) Extended(v bool) *MarketGetCommentsBuilder {
 	return b
 }
 
-// Fields list of additional profile fields to return. See the [vk.com/dev/fields|details].
+// Fields list of additional profile fields to return. See the [vk.ru/dev/fields|details].
 func (b *MarketGetCommentsBuilder) Fields(v []string) *MarketGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
@@ -823,7 +823,7 @@ func (b *MarketGetCommentsBuilder) Fields(v []string) *MarketGetCommentsBuilder 
 //
 // Returns community's orders list.
 //
-// https://dev.vk.com/method/market.getGroupOrders
+// https://dev.vk.ru/method/market.getGroupOrders
 type MarketGetGroupOrdersBuilder struct {
 	api.Params
 }
@@ -855,7 +855,7 @@ func (b *MarketGetGroupOrdersBuilder) Count(v int) *MarketGetGroupOrdersBuilder 
 //
 // Returns order by id.
 //
-// https://dev.vk.com/method/market.getOrderById
+// https://dev.vk.ru/method/market.getOrderById
 type MarketGetOrderByIDBuilder struct {
 	api.Params
 }
@@ -887,7 +887,7 @@ func (b *MarketGetOrderByIDBuilder) Extended(v bool) *MarketGetOrderByIDBuilder 
 //
 // Returns items of an order.
 //
-// https://dev.vk.com/method/market.getOrderItems
+// https://dev.vk.ru/method/market.getOrderItems
 type MarketGetOrderItemsBuilder struct {
 	api.Params
 }
@@ -919,7 +919,7 @@ func (b *MarketGetOrderItemsBuilder) Count(v int) *MarketGetOrderItemsBuilder {
 //
 // Removes an item from one or multiple collections.
 //
-// https://dev.vk.com/method/market.removeFromAlbum
+// https://dev.vk.ru/method/market.removeFromAlbum
 type MarketRemoveFromAlbumBuilder struct {
 	api.Params
 }
@@ -951,7 +951,7 @@ func (b *MarketRemoveFromAlbumBuilder) AlbumIDs(v []int) *MarketRemoveFromAlbumB
 //
 // Reorders the collections list.
 //
-// https://dev.vk.com/method/market.reorderAlbums
+// https://dev.vk.ru/method/market.reorderAlbums
 type MarketReorderAlbumsBuilder struct {
 	api.Params
 }
@@ -989,7 +989,7 @@ func (b *MarketReorderAlbumsBuilder) After(v int) *MarketReorderAlbumsBuilder {
 //
 // Changes item place in a collection.
 //
-// https://dev.vk.com/method/market.reorderItems
+// https://dev.vk.ru/method/market.reorderItems
 type MarketReorderItemsBuilder struct {
 	api.Params
 }
@@ -1033,7 +1033,7 @@ func (b *MarketReorderItemsBuilder) After(v int) *MarketReorderItemsBuilder {
 //
 // Sends a complaint to the item.
 //
-// https://dev.vk.com/method/market.report
+// https://dev.vk.ru/method/market.report
 type MarketReportBuilder struct {
 	api.Params
 }
@@ -1079,7 +1079,7 @@ func (b *MarketReportBuilder) Reason(v int) *MarketReportBuilder {
 //
 // Sends a complaint to the item's comment.
 //
-// https://dev.vk.com/method/market.reportComment
+// https://dev.vk.ru/method/market.reportComment
 type MarketReportCommentBuilder struct {
 	api.Params
 }
@@ -1125,7 +1125,7 @@ func (b *MarketReportCommentBuilder) Reason(v int) *MarketReportCommentBuilder {
 //
 // Restores recently deleted item.
 //
-// https://dev.vk.com/method/market.restore
+// https://dev.vk.ru/method/market.restore
 type MarketRestoreBuilder struct {
 	api.Params
 }
@@ -1151,7 +1151,7 @@ func (b *MarketRestoreBuilder) ItemID(v int) *MarketRestoreBuilder {
 //
 // Restores a recently deleted comment.
 //
-// https://dev.vk.com/method/market.restoreComment
+// https://dev.vk.ru/method/market.restoreComment
 type MarketRestoreCommentBuilder struct {
 	api.Params
 }
@@ -1162,7 +1162,7 @@ func NewMarketRestoreCommentBuilder() *MarketRestoreCommentBuilder {
 }
 
 // OwnerID identifier of an item owner community, "Note that community id in the 'owner_id' parameter should be
-// negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community ".
+// negative number. For example 'owner_id'=-1 matches the [vk.ru/apiclub|VK API] community ".
 func (b *MarketRestoreCommentBuilder) OwnerID(v int) *MarketRestoreCommentBuilder {
 	b.Params["owner_id"] = v
 	return b
@@ -1178,7 +1178,7 @@ func (b *MarketRestoreCommentBuilder) CommentID(v int) *MarketRestoreCommentBuil
 //
 // Searches market items in a community's catalog.
 //
-// https://dev.vk.com/method/market.search
+// https://dev.vk.ru/method/market.search
 type MarketSearchBuilder struct {
 	api.Params
 }
@@ -1268,7 +1268,7 @@ func (b *MarketSearchBuilder) NeedVariants(v bool) *MarketSearchBuilder {
 
 // MarketSearchItemsBuilder builder.
 //
-// https://dev.vk.com/method/market.searchItems
+// https://dev.vk.ru/method/market.searchItems
 type MarketSearchItemsBuilder struct {
 	api.Params
 }

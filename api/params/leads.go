@@ -8,7 +8,7 @@ import (
 //
 // Checks if the user can start the lead.
 //
-// https://dev.vk.com/method/leads.checkUser
+// https://dev.vk.ru/method/leads.checkUser
 type LeadsCheckUserBuilder struct {
 	api.Params
 }
@@ -58,7 +58,7 @@ func (b *LeadsCheckUserBuilder) Country(v string) *LeadsCheckUserBuilder {
 //
 // Completes the lead started by user.
 //
-// https://dev.vk.com/method/leads.complete
+// https://dev.vk.ru/method/leads.complete
 type LeadsCompleteBuilder struct {
 	api.Params
 }
@@ -90,7 +90,7 @@ func (b *LeadsCompleteBuilder) Comment(v string) *LeadsCompleteBuilder {
 //
 // Returns lead stats data.
 //
-// https://dev.vk.com/method/leads.getStats
+// https://dev.vk.ru/method/leads.getStats
 type LeadsGetStatsBuilder struct {
 	api.Params
 }
@@ -128,7 +128,7 @@ func (b *LeadsGetStatsBuilder) DateEnd(v string) *LeadsGetStatsBuilder {
 //
 // Returns a list of last user actions for the offer.
 //
-// https://dev.vk.com/method/leads.getUsers
+// https://dev.vk.ru/method/leads.getUsers
 type LeadsGetUsersBuilder struct {
 	api.Params
 }
@@ -192,7 +192,7 @@ func (b *LeadsGetUsersBuilder) Reverse(v bool) *LeadsGetUsersBuilder {
 //
 // Counts the metric event.
 //
-// https://dev.vk.com/method/leads.metricHit
+// https://dev.vk.ru/method/leads.metricHit
 type LeadsMetricHitBuilder struct {
 	api.Params
 }
@@ -212,7 +212,7 @@ func (b *LeadsMetricHitBuilder) Data(v string) *LeadsMetricHitBuilder {
 //
 // Creates new session for the user passing the offer.
 //
-// https://dev.vk.com/method/leads.start
+// https://dev.vk.ru/method/leads.start
 type LeadsStartBuilder struct {
 	api.Params
 }

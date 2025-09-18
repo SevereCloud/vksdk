@@ -110,7 +110,7 @@ func (p UserParams) Values() *url.Values {
 // ImplicitFlowUser need to run methods directly from users devices. Access
 // token received this way can not be used for server requests.
 //
-// https://dev.vk.com/ru/api/access-token/implicit-flow-user
+// https://dev.vk.ru/ru/api/access-token/implicit-flow-user
 func ImplicitFlowUser(p UserParams) *url.URL {
 	q := p.Values()
 	q.Set("response_type", "token")
@@ -129,7 +129,7 @@ func ImplicitFlowUser(p UserParams) *url.URL {
 // application. Access token received this way is not bound to an ip address
 // but set of permissions that can be granted is limited for security reasons.
 //
-// https://dev.vk.com/ru/api/access-token/authcode-flow-user
+// https://dev.vk.ru/ru/api/access-token/authcode-flow-user
 type AuthCodeFlowUser struct {
 	params       UserParams
 	clientSecret string
@@ -299,7 +299,7 @@ func buildDirectAuthRequest(p DirectAuthParams) *http.Request {
 // approval of VK administration.
 //
 // To apply for access you need to contact our support service at
-// https://vk.com/support and specify you application ID.
+// https://vk.ru/support and specify you application ID.
 //
 // Currently, this functionality is available only for the following categories:
 //
@@ -318,7 +318,7 @@ func buildDirectAuthRequest(p DirectAuthParams) *http.Request {
 // sufficient for using API in the future without repeating authorization
 // procedure.
 //
-// See https://dev.vk.com/ru/api/direct-auth
+// See https://dev.vk.ru/ru/api/direct-auth
 func DirectAuth(p DirectAuthParams) (*UserToken, error) {
 	req := buildDirectAuthRequest(p)
 

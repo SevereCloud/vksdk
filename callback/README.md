@@ -1,7 +1,7 @@
 # Callback API
 
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/callback)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/callback)
-[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/api/callback/getting-started)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.ru/ru/api/callback/getting-started)
 
 ## Подключение Callback API
 
@@ -41,7 +41,7 @@ cb.MessageNew(func(ctx context.Context, obj events.MessageNewObject) {
 })
 ```
 
-Полный список событий Вы найдёте [в документации](https://dev.vk.com/ru/api/community-events/json-schema)
+Полный список событий Вы найдёте [в документации](https://dev.vk.ru/ru/api/community-events/json-schema)
 
 ### Контекст
 

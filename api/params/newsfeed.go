@@ -8,7 +8,7 @@ import (
 //
 // Prevents news from specified users and communities from appearing in the current user's newsfeed.
 //
-// https://dev.vk.com/method/newsfeed.addBan
+// https://dev.vk.ru/method/newsfeed.addBan
 type NewsfeedAddBanBuilder struct {
 	api.Params
 }
@@ -34,7 +34,7 @@ func (b *NewsfeedAddBanBuilder) GroupIDs(v []int) *NewsfeedAddBanBuilder {
 //
 // Allows news from previously banned users and communities to be shown in the current user's newsfeed.
 //
-// https://dev.vk.com/method/newsfeed.deleteBan
+// https://dev.vk.ru/method/newsfeed.deleteBan
 type NewsfeedDeleteBanBuilder struct {
 	api.Params
 }
@@ -58,7 +58,7 @@ func (b *NewsfeedDeleteBanBuilder) GroupIDs(v []int) *NewsfeedDeleteBanBuilder {
 
 // NewsfeedDeleteListBuilder builder.
 //
-// https://dev.vk.com/method/newsfeed.deleteList
+// https://dev.vk.ru/method/newsfeed.deleteList
 type NewsfeedDeleteListBuilder struct {
 	api.Params
 }
@@ -78,7 +78,7 @@ func (b *NewsfeedDeleteListBuilder) ListID(v int) *NewsfeedDeleteListBuilder {
 //
 // Returns data required to show newsfeed for the current user.
 //
-// https://dev.vk.com/method/newsfeed.get
+// https://dev.vk.ru/method/newsfeed.get
 type NewsfeedGetBuilder struct {
 	api.Params
 }
@@ -135,7 +135,7 @@ func (b *NewsfeedGetBuilder) MaxPhotos(v int) *NewsfeedGetBuilder {
 // Community IDs can be specified in formats '-' or 'g' , where ” is the community ID.
 //
 // If the parameter is not set, all of the user's friends and communities are returned, except for banned sources,
-// which can be obtained with the [vk.com/dev/newsfeed.getBanned|newsfeed.getBanned] method.
+// which can be obtained with the [vk.ru/dev/newsfeed.getBanned|newsfeed.getBanned] method.
 func (b *NewsfeedGetBuilder) SourceIDs(v string) *NewsfeedGetBuilder {
 	b.Params["source_ids"] = v
 	return b
@@ -155,7 +155,7 @@ func (b *NewsfeedGetBuilder) Count(v int) *NewsfeedGetBuilder {
 	return b
 }
 
-// Fields additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields additional fields of [vk.ru/dev/fields|profiles] and [vk.ru/dev/fields_groups|communities] to return.
 func (b *NewsfeedGetBuilder) Fields(v []string) *NewsfeedGetBuilder {
 	b.Params["fields"] = v
 	return b
@@ -171,7 +171,7 @@ func (b *NewsfeedGetBuilder) Section(v string) *NewsfeedGetBuilder {
 //
 // Returns a list of users and communities banned from the current user's newsfeed.
 //
-// https://dev.vk.com/method/newsfeed.getBanned
+// https://dev.vk.ru/method/newsfeed.getBanned
 type NewsfeedGetBannedBuilder struct {
 	api.Params
 }
@@ -215,7 +215,7 @@ func (b *NewsfeedGetBannedBuilder) NameCase(v string) *NewsfeedGetBannedBuilder 
 //
 // Returns a list of comments in the current user's newsfeed.
 //
-// https://dev.vk.com/method/newsfeed.getComments
+// https://dev.vk.ru/method/newsfeed.getComments
 type NewsfeedGetCommentsBuilder struct {
 	api.Params
 }
@@ -279,7 +279,7 @@ func (b *NewsfeedGetCommentsBuilder) StartFrom(v string) *NewsfeedGetCommentsBui
 	return b
 }
 
-// Fields additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields additional fields of [vk.ru/dev/fields|profiles] and [vk.ru/dev/fields_groups|communities] to return.
 func (b *NewsfeedGetCommentsBuilder) Fields(v []string) *NewsfeedGetCommentsBuilder {
 	b.Params["fields"] = v
 	return b
@@ -289,7 +289,7 @@ func (b *NewsfeedGetCommentsBuilder) Fields(v []string) *NewsfeedGetCommentsBuil
 //
 // Returns a list of newsfeeds followed by the current user.
 //
-// https://dev.vk.com/method/newsfeed.getLists
+// https://dev.vk.ru/method/newsfeed.getLists
 type NewsfeedGetListsBuilder struct {
 	api.Params
 }
@@ -315,7 +315,7 @@ func (b *NewsfeedGetListsBuilder) Extended(v bool) *NewsfeedGetListsBuilder {
 //
 // Returns a list of posts on user walls in which the current user is mentioned.
 //
-// https://dev.vk.com/method/newsfeed.getMentions
+// https://dev.vk.ru/method/newsfeed.getMentions
 type NewsfeedGetMentionsBuilder struct {
 	api.Params
 }
@@ -359,7 +359,7 @@ func (b *NewsfeedGetMentionsBuilder) Count(v int) *NewsfeedGetMentionsBuilder {
 //
 // Returns a list of newsfeeds recommended to the current user.
 //
-// https://dev.vk.com/method/newsfeed.getRecommended
+// https://dev.vk.ru/method/newsfeed.getRecommended
 type NewsfeedGetRecommendedBuilder struct {
 	api.Params
 }
@@ -399,7 +399,7 @@ func (b *NewsfeedGetRecommendedBuilder) Count(v int) *NewsfeedGetRecommendedBuil
 	return b
 }
 
-// Fields additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields additional fields of [vk.ru/dev/fields|profiles] and [vk.ru/dev/fields_groups|communities] to return.
 func (b *NewsfeedGetRecommendedBuilder) Fields(v []string) *NewsfeedGetRecommendedBuilder {
 	b.Params["fields"] = v
 	return b
@@ -409,7 +409,7 @@ func (b *NewsfeedGetRecommendedBuilder) Fields(v []string) *NewsfeedGetRecommend
 //
 // Returns communities and users that current user is suggested to follow.
 //
-// https://dev.vk.com/method/newsfeed.getSuggestedSources
+// https://dev.vk.ru/method/newsfeed.getSuggestedSources
 type NewsfeedGetSuggestedSourcesBuilder struct {
 	api.Params
 }
@@ -437,8 +437,8 @@ func (b *NewsfeedGetSuggestedSourcesBuilder) Shuffle(v bool) *NewsfeedGetSuggest
 	return b
 }
 
-// Fields list of extra fields to be returned. See available fields for [vk.com/dev/fields|users]
-// and [vk.com/dev/fields_groups|communities].
+// Fields list of extra fields to be returned. See available fields for [vk.ru/dev/fields|users]
+// and [vk.ru/dev/fields_groups|communities].
 func (b *NewsfeedGetSuggestedSourcesBuilder) Fields(v []string) *NewsfeedGetSuggestedSourcesBuilder {
 	b.Params["fields"] = v
 	return b
@@ -448,7 +448,7 @@ func (b *NewsfeedGetSuggestedSourcesBuilder) Fields(v []string) *NewsfeedGetSugg
 //
 // Hides an item from the newsfeed.
 //
-// https://dev.vk.com/method/newsfeed.ignoreItem
+// https://dev.vk.ru/method/newsfeed.ignoreItem
 type NewsfeedIgnoreItemBuilder struct {
 	api.Params
 }
@@ -491,7 +491,7 @@ func (b *NewsfeedIgnoreItemBuilder) ItemID(v int) *NewsfeedIgnoreItemBuilder {
 //
 // Creates and edits user newsfeed lists.
 //
-// https://dev.vk.com/method/newsfeed.saveList
+// https://dev.vk.ru/method/newsfeed.saveList
 type NewsfeedSaveListBuilder struct {
 	api.Params
 }
@@ -529,7 +529,7 @@ func (b *NewsfeedSaveListBuilder) NoReposts(v bool) *NewsfeedSaveListBuilder {
 //
 // Returns search results by statuses.
 //
-// https://dev.vk.com/method/newsfeed.search
+// https://dev.vk.ru/method/newsfeed.search
 type NewsfeedSearchBuilder struct {
 	api.Params
 }
@@ -587,7 +587,7 @@ func (b *NewsfeedSearchBuilder) StartFrom(v string) *NewsfeedSearchBuilder {
 	return b
 }
 
-// Fields additional fields of [vk.com/dev/fields|profiles] and [vk.com/dev/fields_groups|communities] to return.
+// Fields additional fields of [vk.ru/dev/fields|profiles] and [vk.ru/dev/fields_groups|communities] to return.
 func (b *NewsfeedSearchBuilder) Fields(v []string) *NewsfeedSearchBuilder {
 	b.Params["fields"] = v
 	return b
@@ -597,7 +597,7 @@ func (b *NewsfeedSearchBuilder) Fields(v []string) *NewsfeedSearchBuilder {
 //
 // Returns a hidden item to the newsfeed.
 //
-// https://dev.vk.com/method/newsfeed.unignoreItem
+// https://dev.vk.ru/method/newsfeed.unignoreItem
 type NewsfeedUnignoreItemBuilder struct {
 	api.Params
 }
@@ -646,7 +646,7 @@ func (b *NewsfeedUnignoreItemBuilder) TrackCode(v string) *NewsfeedUnignoreItemB
 //
 // Unsubscribes the current user from specified newsfeeds.
 //
-// https://dev.vk.com/method/newsfeed.unsubscribe
+// https://dev.vk.ru/method/newsfeed.unsubscribe
 type NewsfeedUnsubscribeBuilder struct {
 	api.Params
 }

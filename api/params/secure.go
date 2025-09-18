@@ -8,7 +8,7 @@ import (
 //
 // Adds user activity information to an application.
 //
-// https://dev.vk.com/method/secure.addAppEvent
+// https://dev.vk.ru/method/secure.addAppEvent
 type SecureAddAppEventBuilder struct {
 	api.Params
 }
@@ -52,7 +52,7 @@ func (b *SecureAddAppEventBuilder) Value(v int) *SecureAddAppEventBuilder {
 //
 // Checks the user authentication in 'IFrame' and 'Flash' apps using the 'access_token' parameter.
 //
-// https://dev.vk.com/method/secure.checkToken
+// https://dev.vk.ru/method/secure.checkToken
 type SecureCheckTokenBuilder struct {
 	api.Params
 }
@@ -80,9 +80,9 @@ func (b *SecureCheckTokenBuilder) IP(v string) *SecureCheckTokenBuilder {
 // SecureGetSMSHistoryBuilder builder.
 //
 // Shows a list of SMS notifications sent by the application using
-// [vk.com/dev/secure.sendSMSNotification|secure.sendSMSNotification] method.
+// [vk.ru/dev/secure.sendSMSNotification|secure.sendSMSNotification] method.
 //
-// https://dev.vk.com/method/secure.getSMSHistory
+// https://dev.vk.ru/method/secure.getSMSHistory
 type SecureGetSMSHistoryBuilder struct {
 	api.Params
 }
@@ -120,7 +120,7 @@ func (b *SecureGetSMSHistoryBuilder) Limit(v int) *SecureGetSMSHistoryBuilder {
 //
 // Shows history of votes transaction between users and the application.
 //
-// https://dev.vk.com/method/secure.getTransactionsHistory
+// https://dev.vk.ru/method/secure.getTransactionsHistory
 type SecureGetTransactionsHistoryBuilder struct {
 	api.Params
 }
@@ -170,7 +170,7 @@ func (b *SecureGetTransactionsHistoryBuilder) Limit(v int) *SecureGetTransaction
 //
 // Returns one of the previously set game levels of one or more users in the application.
 //
-// https://dev.vk.com/method/secure.getUserLevel
+// https://dev.vk.ru/method/secure.getUserLevel
 type SecureGetUserLevelBuilder struct {
 	api.Params
 }
@@ -190,7 +190,7 @@ func (b *SecureGetUserLevelBuilder) UserIDs(v []int) *SecureGetUserLevelBuilder 
 //
 // Opens the game achievement and gives the user a sticker.
 //
-// https://dev.vk.com/method/secure.giveEventSticker
+// https://dev.vk.ru/method/secure.giveEventSticker
 type SecureGiveEventStickerBuilder struct {
 	api.Params
 }
@@ -216,7 +216,7 @@ func (b *SecureGiveEventStickerBuilder) AchievementID(v int) *SecureGiveEventSti
 //
 // Sends notification to the user.
 //
-// https://dev.vk.com/method/secure.sendNotification
+// https://dev.vk.ru/method/secure.sendNotification
 type SecureSendNotificationBuilder struct {
 	api.Params
 }
@@ -248,7 +248,7 @@ func (b *SecureSendNotificationBuilder) Message(v string) *SecureSendNotificatio
 //
 // Sends 'SMS' notification to a user's mobile device.
 //
-// https://dev.vk.com/method/secure.sendSMSNotification
+// https://dev.vk.ru/method/secure.sendSMSNotification
 type SecureSendSMSNotificationBuilder struct {
 	api.Params
 }
@@ -276,7 +276,7 @@ func (b *SecureSendSMSNotificationBuilder) Message(v string) *SecureSendSMSNotif
 //
 // Sets a counter which is shown to the user in bold in the left menu.
 //
-// https://dev.vk.com/method/secure.setCounter
+// https://dev.vk.ru/method/secure.setCounter
 type SecureSetCounterBuilder struct {
 	api.Params
 }

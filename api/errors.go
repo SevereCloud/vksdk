@@ -17,7 +17,7 @@ func (e ErrorType) Error() string {
 	return fmt.Sprintf(errorMessagePrefix+"error with code %d", e)
 }
 
-// Error codes. See https://dev.vk.com/ru/reference/errors
+// Error codes. See https://dev.vk.ru/ru/reference/errors
 const (
 	ErrNoType ErrorType = 0 // NoType error
 
@@ -29,13 +29,13 @@ const (
 	// Application is disabled. Enable your application or use test mode
 	//
 	// You need to switch on the app in Settings
-	// https://vk.com/editapp?id={Your API_ID}
+	// https://vk.ru/editapp?id={Your API_ID}
 	// or use the test mode (test_mode=1).
 	ErrDisabled ErrorType = 2
 
 	// Unknown method passed.
 	//
-	// Check the method name: http://vk.com/dev/methods
+	// Check the method name: http://vk.ru/dev/methods
 	ErrMethod    ErrorType = 3
 	ErrSignature ErrorType = 4 // Incorrect signature
 
@@ -48,7 +48,7 @@ const (
 	//
 	// Decrease the request frequency or use the execute method.
 	// More details on frequency limits here:
-	// https://dev.vk.com/ru/api/api-requests
+	// https://dev.vk.ru/ru/api/api-requests
 	ErrTooMany ErrorType = 6
 
 	// Permission to perform this action is denied
@@ -56,7 +56,7 @@ const (
 	// Make sure that your have received required permissions during the
 	// authorization.
 	// You can do it with the account.getAppPermissions method.
-	// https://dev.vk.com/ru/reference/access-rights
+	// https://dev.vk.ru/ru/reference/access-rights
 	ErrPermission ErrorType = 7
 
 	// Invalid request
@@ -80,7 +80,7 @@ const (
 	//
 	// Switch the app off in Settings:
 	//
-	// 	https://vk.com/editapp?id={Your API_ID}
+	// 	https://vk.ru/editapp?id={Your API_ID}
 	//
 	ErrEnabledInTest ErrorType = 11
 
@@ -92,7 +92,7 @@ const (
 
 	// Captcha needed.
 	//
-	// See https://dev.vk.com/ru/api/captcha-error
+	// See https://dev.vk.ru/ru/api/captcha-error
 	ErrCaptcha ErrorType = 14
 
 	// Access denied
@@ -110,10 +110,10 @@ const (
 	// Validation required
 	//
 	// Make sure that you don't use a token received with
-	// http://vk.com/dev/auth_mobile for a request from the server.
+	// http://vk.ru/dev/auth_mobile for a request from the server.
 	// It's restricted.
 	//
-	// https://dev.vk.com/ru/api/validation-required-error
+	// https://dev.vk.ru/ru/api/validation-required-error
 	ErrAuthValidation ErrorType = 17
 	ErrUserDeleted    ErrorType = 18 // User was deleted or banned
 	ErrBlocked        ErrorType = 19 // Content blocked
@@ -129,7 +129,7 @@ const (
 
 	// This method was disabled.
 	//
-	// All the methods available now are listed here: http://vk.com/dev/methods
+	// All the methods available now are listed here: http://vk.ru/dev/methods
 	ErrMethodDisabled ErrorType = 23
 
 	// Confirmation required
@@ -149,7 +149,7 @@ const (
 	//
 	// 	confirm = 1.
 	//
-	// https://dev.vk.com/ru/api/confirmation-required-error
+	// https://dev.vk.ru/ru/api/confirmation-required-error
 	ErrNeedConfirmation      ErrorType = 24
 	ErrNeedTokenConfirmation ErrorType = 25 // Token confirmation required
 	ErrGroupAuth             ErrorType = 27 // Group authorization failed
@@ -157,7 +157,7 @@ const (
 
 	// Rate limit reached.
 	//
-	// More details on rate limits here: https://dev.vk.com/ru/reference/roadmap
+	// More details on rate limits here: https://dev.vk.ru/ru/reference/roadmap
 	ErrRateLimit      ErrorType = 29
 	ErrPrivateProfile ErrorType = 30 // This profile is private
 
@@ -194,7 +194,7 @@ const (
 	// Invalid application API ID
 	//
 	// Find the app in the administrated list in settings:
-	// http://vk.com/apps?act=settings
+	// http://vk.ru/apps?act=settings
 	// And set the correct API_ID in the request.
 	ErrParamAPIID   ErrorType = 101
 	ErrLimits       ErrorType = 103 // Out of limits
@@ -342,7 +342,7 @@ const (
 	//
 	// Check the app settings:
 	//
-	// 	http://vk.com/editapp?id={Your API_ID}&section=payments
+	// 	http://vk.ru/editapp?id={Your API_ID}&section=payments
 	//
 	ErrVotesPermission ErrorType = 500
 
@@ -880,7 +880,7 @@ type Error struct {
 	// confirms the action repeat the request with an extra parameter:
 	// confirm = 1.
 	//
-	// See https://dev.vk.com/ru/api/confirmation-required-error
+	// See https://dev.vk.ru/ru/api/confirmation-required-error
 	ConfirmationText string `json:"confirmation_text"`
 
 	// In some cases VK requires a user validation procedure. . As a result
@@ -898,21 +898,21 @@ type Error struct {
 	// After passing the validation a user will be redirected to the service
 	// page:
 	//
-	// https://oauth.vk.com/blank.html#{Data required for validation}
+	// https://oauth.vk.ru/blank.html#{Data required for validation}
 	//
 	// In case of successful validation following parameters will be
 	// transmitted after #:
 	//
-	// https://oauth.vk.com/blank.html#success=1&access_token={NEW USER TOKEN}&user_id={USER ID}
+	// https://oauth.vk.ru/blank.html#success=1&access_token={NEW USER TOKEN}&user_id={USER ID}
 	//
 	// If a token was not received by https a new secret will be transmitted
 	// as well.
 	//
 	// In case of unsuccessful validation following address is transmitted:
 	//
-	// https://oauth.vk.com/blank.html#fail=1
+	// https://oauth.vk.ru/blank.html#fail=1
 	//
-	// See https://dev.vk.com/ru/api/validation-required-error
+	// See https://dev.vk.ru/ru/api/validation-required-error
 	RedirectURI   string                    `json:"redirect_uri"`
 	RequestParams []object.BaseRequestParam `json:"request_params"`
 }

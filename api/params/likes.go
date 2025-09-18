@@ -8,7 +8,7 @@ import (
 //
 // Adds the specified object to the 'Likes' list of the current user.
 //
-// https://dev.vk.com/method/likes.add
+// https://dev.vk.ru/method/likes.add
 type LikesAddBuilder struct {
 	api.Params
 }
@@ -38,7 +38,7 @@ func NewLikesAddBuilder() *LikesAddBuilder {
 //
 // * topic_comment — comment in the discussion;
 //
-// * sitepage — page of the site where the [vk.com/dev/Like|Like widget] is installed.
+// * sitepage — page of the site where the [vk.ru/dev/Like|Like widget] is installed.
 func (b *LikesAddBuilder) Type(v string) *LikesAddBuilder {
 	b.Params["type"] = v
 	return b
@@ -72,7 +72,7 @@ func (b *LikesAddBuilder) AccessKey(v string) *LikesAddBuilder {
 //
 // Deletes the specified object from the 'Likes' list of the current user.
 //
-// https://dev.vk.com/method/likes.delete
+// https://dev.vk.ru/method/likes.delete
 type LikesDeleteBuilder struct {
 	api.Params
 }
@@ -102,7 +102,7 @@ func NewLikesDeleteBuilder() *LikesDeleteBuilder {
 //
 // * topic_comment — comment in the discussion;
 //
-// * sitepage — page of the site where the [vk.com/dev/Like|Like widget] is installed.
+// * sitepage — page of the site where the [vk.ru/dev/Like|Like widget] is installed.
 func (b *LikesDeleteBuilder) Type(v string) *LikesDeleteBuilder {
 	b.Params["type"] = v
 	return b
@@ -124,7 +124,7 @@ func (b *LikesDeleteBuilder) ItemID(v int) *LikesDeleteBuilder {
 //
 // Returns a list of IDs of users who added the specified object to their 'Likes' list.
 //
-// https://dev.vk.com/method/likes.getList
+// https://dev.vk.ru/method/likes.getList
 type LikesGetListBuilder struct {
 	api.Params
 }
@@ -154,7 +154,7 @@ func NewLikesGetListBuilder() *LikesGetListBuilder {
 //
 // * topic_comment — comment in the discussion;
 //
-// * sitepage — page of the site where the [vk.com/dev/Like|Like widget] is installed.
+// * sitepage — page of the site where the [vk.ru/dev/Like|Like widget] is installed.
 func (b *LikesGetListBuilder) Type(v string) *LikesGetListBuilder {
 	b.Params["type"] = v
 	return b
@@ -170,13 +170,13 @@ func (b *LikesGetListBuilder) OwnerID(v int) *LikesGetListBuilder {
 }
 
 // ItemID parameter. If 'type' is set as 'sitepage', 'item_id' can include the 'page_id' parameter value used during
-// initialization of the [vk.com/dev/Like|Like widget].
+// initialization of the [vk.ru/dev/Like|Like widget].
 func (b *LikesGetListBuilder) ItemID(v int) *LikesGetListBuilder {
 	b.Params["item_id"] = v
 	return b
 }
 
-// PageURL URL of the page where the [vk.com/dev/Like|Like widget] is installed. Used instead of the 'item_id'
+// PageURL URL of the page where the [vk.ru/dev/Like|Like widget] is installed. Used instead of the 'item_id'
 // parameter.
 func (b *LikesGetListBuilder) PageURL(v string) *LikesGetListBuilder {
 	b.Params["page_url"] = v
@@ -236,7 +236,7 @@ func (b *LikesGetListBuilder) SkipOwn(v bool) *LikesGetListBuilder {
 //
 // Checks for the object in the 'Likes' list of the specified user.
 //
-// https://dev.vk.com/method/likes.isLiked
+// https://dev.vk.ru/method/likes.isLiked
 type LikesIsLikedBuilder struct {
 	api.Params
 }

@@ -17,7 +17,7 @@ import (
 //	return Args.code; // return parameter "code"
 //	return Args.v; // return parameter "v"
 //
-// https://dev.vk.com/ru/method/execute
+// https://dev.vk.ru/ru/method/execute
 func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error {
 	token := vk.getToken()
 
@@ -57,7 +57,7 @@ func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error
 // Execute a universal method for calling a sequence of other methods while
 // saving and filtering interim results.
 //
-// https://dev.vk.com/ru/method/execute
+// https://dev.vk.ru/ru/method/execute
 func (vk *VK) Execute(code string, obj interface{}) error {
 	return vk.ExecuteWithArgs(code, Params{}, obj)
 }

@@ -8,7 +8,7 @@ import (
 //
 // Adds a video to a user or community page.
 //
-// https://dev.vk.com/method/video.add
+// https://dev.vk.ru/method/video.add
 type VideoAddBuilder struct {
 	api.Params
 }
@@ -40,7 +40,7 @@ func (b *VideoAddBuilder) OwnerID(v int) *VideoAddBuilder {
 //
 // Creates an empty album for videos.
 //
-// https://dev.vk.com/method/video.addAlbum
+// https://dev.vk.ru/method/video.addAlbum
 type VideoAddAlbumBuilder struct {
 	api.Params
 }
@@ -78,7 +78,7 @@ func (b *VideoAddAlbumBuilder) Privacy(v []string) *VideoAddAlbumBuilder {
 
 // VideoAddToAlbumBuilder builder.
 //
-// https://dev.vk.com/method/video.addToAlbum
+// https://dev.vk.ru/method/video.addToAlbum
 type VideoAddToAlbumBuilder struct {
 	api.Params
 }
@@ -122,7 +122,7 @@ func (b *VideoAddToAlbumBuilder) VideoID(v int) *VideoAddToAlbumBuilder {
 //
 // Adds a new comment on a video.
 //
-// https://dev.vk.com/method/video.createComment
+// https://dev.vk.ru/method/video.createComment
 type VideoCreateCommentBuilder struct {
 	api.Params
 }
@@ -188,7 +188,7 @@ func (b *VideoCreateCommentBuilder) GUID(v string) *VideoCreateCommentBuilder {
 //
 // Deletes a video from a user or community page.
 //
-// https://dev.vk.com/method/video.delete
+// https://dev.vk.ru/method/video.delete
 type VideoDeleteBuilder struct {
 	api.Params
 }
@@ -220,7 +220,7 @@ func (b *VideoDeleteBuilder) TargetID(v int) *VideoDeleteBuilder {
 //
 // Deletes a video album.
 //
-// https://dev.vk.com/method/video.deleteAlbum
+// https://dev.vk.ru/method/video.deleteAlbum
 type VideoDeleteAlbumBuilder struct {
 	api.Params
 }
@@ -246,7 +246,7 @@ func (b *VideoDeleteAlbumBuilder) AlbumID(v int) *VideoDeleteAlbumBuilder {
 //
 // Deletes a comment on a video.
 //
-// https://dev.vk.com/method/video.deleteComment
+// https://dev.vk.ru/method/video.deleteComment
 type VideoDeleteCommentBuilder struct {
 	api.Params
 }
@@ -272,7 +272,7 @@ func (b *VideoDeleteCommentBuilder) CommentID(v int) *VideoDeleteCommentBuilder 
 //
 // Edits information about a video on a user or community page.
 //
-// https://dev.vk.com/method/video.edit
+// https://dev.vk.ru/method/video.edit
 type VideoEditBuilder struct {
 	api.Params
 }
@@ -306,14 +306,14 @@ func (b *VideoEditBuilder) Desc(v string) *VideoEditBuilder {
 	return b
 }
 
-// PrivacyView privacy settings in a [vk.com/dev/privacy_setting|special format].
+// PrivacyView privacy settings in a [vk.ru/dev/privacy_setting|special format].
 // Privacy setting is available for videos uploaded to own profile by user.
 func (b *VideoEditBuilder) PrivacyView(v []string) *VideoEditBuilder {
 	b.Params["privacy_view"] = v
 	return b
 }
 
-// PrivacyComment privacy settings for comments in a [vk.com/dev/privacy_setting|special format].
+// PrivacyComment privacy settings for comments in a [vk.ru/dev/privacy_setting|special format].
 func (b *VideoEditBuilder) PrivacyComment(v []string) *VideoEditBuilder {
 	b.Params["privacy_comment"] = v
 	return b
@@ -335,7 +335,7 @@ func (b *VideoEditBuilder) Repeat(v bool) *VideoEditBuilder {
 //
 // Edits the title of a video album.
 //
-// https://dev.vk.com/method/video.editAlbum
+// https://dev.vk.ru/method/video.editAlbum
 type VideoEditAlbumBuilder struct {
 	api.Params
 }
@@ -381,7 +381,7 @@ func (b *VideoEditAlbumBuilder) Privacy(v []string) *VideoEditAlbumBuilder {
 //
 // Edits the text of a comment on a video.
 //
-// https://dev.vk.com/method/video.editComment
+// https://dev.vk.ru/method/video.editComment
 type VideoEditCommentBuilder struct {
 	api.Params
 }
@@ -423,7 +423,7 @@ func (b *VideoEditCommentBuilder) Attachments(v interface{}) *VideoEditCommentBu
 //
 // Returns detailed information about videos.
 //
-// https://dev.vk.com/method/video.get
+// https://dev.vk.ru/method/video.get
 type VideoGetBuilder struct {
 	api.Params
 }
@@ -475,7 +475,7 @@ func (b *VideoGetBuilder) Extended(v bool) *VideoGetBuilder {
 //
 // Returns video album info.
 //
-// https://dev.vk.com/method/video.getAlbumById
+// https://dev.vk.ru/method/video.getAlbumById
 type VideoGetAlbumByIDBuilder struct {
 	api.Params
 }
@@ -501,7 +501,7 @@ func (b *VideoGetAlbumByIDBuilder) AlbumID(v int) *VideoGetAlbumByIDBuilder {
 //
 // Returns a list of video albums owned by a user or community.
 //
-// https://dev.vk.com/method/video.getAlbums
+// https://dev.vk.ru/method/video.getAlbums
 type VideoGetAlbumsBuilder struct {
 	api.Params
 }
@@ -543,7 +543,7 @@ func (b *VideoGetAlbumsBuilder) NeedSystem(v bool) *VideoGetAlbumsBuilder {
 
 // VideoGetAlbumsByVideoBuilder builder.
 //
-// https://dev.vk.com/method/video.getAlbumsByVideo
+// https://dev.vk.ru/method/video.getAlbumsByVideo
 type VideoGetAlbumsByVideoBuilder struct {
 	api.Params
 }
@@ -581,7 +581,7 @@ func (b *VideoGetAlbumsByVideoBuilder) Extended(v bool) *VideoGetAlbumsByVideoBu
 //
 // Returns a list of comments on a video.
 //
-// https://dev.vk.com/method/video.getComments
+// https://dev.vk.ru/method/video.getComments
 type VideoGetCommentsBuilder struct {
 	api.Params
 }
@@ -647,7 +647,7 @@ func (b *VideoGetCommentsBuilder) Fields(v []string) *VideoGetCommentsBuilder {
 
 // VideoRemoveFromAlbumBuilder builder.
 //
-// https://dev.vk.com/method/video.removeFromAlbum
+// https://dev.vk.ru/method/video.removeFromAlbum
 type VideoRemoveFromAlbumBuilder struct {
 	api.Params
 }
@@ -691,7 +691,7 @@ func (b *VideoRemoveFromAlbumBuilder) VideoID(v int) *VideoRemoveFromAlbumBuilde
 //
 // Reorders the album in the list of user video albums.
 //
-// https://dev.vk.com/method/video.reorderAlbums
+// https://dev.vk.ru/method/video.reorderAlbums
 type VideoReorderAlbumsBuilder struct {
 	api.Params
 }
@@ -729,7 +729,7 @@ func (b *VideoReorderAlbumsBuilder) After(v int) *VideoReorderAlbumsBuilder {
 //
 // Reorders the video in the video album.
 //
-// https://dev.vk.com/method/video.reorderVideos
+// https://dev.vk.ru/method/video.reorderVideos
 type VideoReorderVideosBuilder struct {
 	api.Params
 }
@@ -791,7 +791,7 @@ func (b *VideoReorderVideosBuilder) AfterVideoID(v int) *VideoReorderVideosBuild
 //
 // Reports (submits a complaint about) a video.
 //
-// https://dev.vk.com/method/video.report
+// https://dev.vk.ru/method/video.report
 type VideoReportBuilder struct {
 	api.Params
 }
@@ -849,7 +849,7 @@ func (b *VideoReportBuilder) SearchQuery(v string) *VideoReportBuilder {
 //
 // Reports (submits a complaint about) a comment on a video.
 //
-// https://dev.vk.com/method/video.reportComment
+// https://dev.vk.ru/method/video.reportComment
 type VideoReportCommentBuilder struct {
 	api.Params
 }
@@ -895,7 +895,7 @@ func (b *VideoReportCommentBuilder) Reason(v int) *VideoReportCommentBuilder {
 //
 // Restores a previously deleted video.
 //
-// https://dev.vk.com/method/video.restore
+// https://dev.vk.ru/method/video.restore
 type VideoRestoreBuilder struct {
 	api.Params
 }
@@ -921,7 +921,7 @@ func (b *VideoRestoreBuilder) OwnerID(v int) *VideoRestoreBuilder {
 //
 // Restores a previously deleted comment on a video.
 //
-// https://dev.vk.com/method/video.restoreComment
+// https://dev.vk.ru/method/video.restoreComment
 type VideoRestoreCommentBuilder struct {
 	api.Params
 }
@@ -947,7 +947,7 @@ func (b *VideoRestoreCommentBuilder) CommentID(v int) *VideoRestoreCommentBuilde
 //
 // Returns a server address (required for upload) and video data.
 //
-// https://dev.vk.com/method/video.save
+// https://dev.vk.ru/method/video.save
 type VideoSaveBuilder struct {
 	api.Params
 }
@@ -1047,7 +1047,7 @@ func (b *VideoSaveBuilder) Compression(v bool) *VideoSaveBuilder {
 //
 // Returns a list of videos under the set search criterion.
 //
-// https://dev.vk.com/method/video.search
+// https://dev.vk.ru/method/video.search
 type VideoSearchBuilder struct {
 	api.Params
 }
@@ -1145,7 +1145,7 @@ func (b *VideoSearchBuilder) LegalOwner(v int) *VideoSearchBuilder {
 
 // VideoStartStreamingBuilder builder.
 //
-// https://dev.vk.com/method/video.startStreaming
+// https://dev.vk.ru/method/video.startStreaming
 type VideoStartStreamingBuilder struct {
 	api.Params
 }
@@ -1217,7 +1217,7 @@ func (b *VideoStartStreamingBuilder) Publish(v bool) *VideoStartStreamingBuilder
 
 // VideoStopStreamingBuilder builder.
 //
-// https://dev.vk.com/method/video.stopStreaming
+// https://dev.vk.ru/method/video.stopStreaming
 type VideoStopStreamingBuilder struct {
 	api.Params
 }

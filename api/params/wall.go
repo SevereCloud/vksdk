@@ -6,7 +6,7 @@ import (
 
 // WallCheckCopyrightLinkBuilder builder.
 //
-// https://dev.vk.com/method/wall.checkCopyrightLink
+// https://dev.vk.ru/method/wall.checkCopyrightLink
 type WallCheckCopyrightLinkBuilder struct {
 	api.Params
 }
@@ -24,7 +24,7 @@ func (b *WallCheckCopyrightLinkBuilder) Link(v string) *WallCheckCopyrightLinkBu
 
 // WallCloseCommentsBuilder builder.
 //
-// https://dev.vk.com/method/wall.closeComments
+// https://dev.vk.ru/method/wall.closeComments
 type WallCloseCommentsBuilder struct {
 	api.Params
 }
@@ -50,7 +50,7 @@ func (b *WallCloseCommentsBuilder) PostID(v int) *WallCloseCommentsBuilder {
 //
 // Adds a comment to a post on a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.createComment
+// https://dev.vk.ru/method/wall.createComment
 type WallCreateCommentBuilder struct {
 	api.Params
 }
@@ -117,7 +117,7 @@ func (b *WallCreateCommentBuilder) GUID(v string) *WallCreateCommentBuilder {
 //
 // Deletes a post from a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.delete
+// https://dev.vk.ru/method/wall.delete
 type WallDeleteBuilder struct {
 	api.Params
 }
@@ -143,7 +143,7 @@ func (b *WallDeleteBuilder) PostID(v int) *WallDeleteBuilder {
 //
 // Deletes a comment on a post on a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.deleteComment
+// https://dev.vk.ru/method/wall.deleteComment
 type WallDeleteCommentBuilder struct {
 	api.Params
 }
@@ -169,7 +169,7 @@ func (b *WallDeleteCommentBuilder) CommentID(v int) *WallDeleteCommentBuilder {
 //
 // Edits a post on a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.edit
+// https://dev.vk.ru/method/wall.edit
 type WallEditBuilder struct {
 	api.Params
 }
@@ -286,7 +286,7 @@ func (b *WallEditBuilder) PosterBkgAccessHash(v string) *WallEditBuilder {
 //
 // Allows to edit hidden post.
 //
-// https://dev.vk.com/method/wall.editAdsStealth
+// https://dev.vk.ru/method/wall.editAdsStealth
 type WallEditAdsStealthBuilder struct {
 	api.Params
 }
@@ -383,7 +383,7 @@ func (b *WallEditAdsStealthBuilder) LinkVideo(v string) *WallEditAdsStealthBuild
 //
 // Edits a comment on a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.editComment
+// https://dev.vk.ru/method/wall.editComment
 type WallEditCommentBuilder struct {
 	api.Params
 }
@@ -427,7 +427,7 @@ func (b *WallEditCommentBuilder) Attachments(v interface{}) *WallEditCommentBuil
 //
 // Returns a list of posts on a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.get
+// https://dev.vk.ru/method/wall.get
 type WallGetBuilder struct {
 	api.Params
 }
@@ -494,7 +494,7 @@ func (b *WallGetBuilder) Fields(v []string) *WallGetBuilder {
 //
 // Returns a list of posts from user or community walls by their IDs.
 //
-// https://dev.vk.com/method/wall.getById
+// https://dev.vk.ru/method/wall.getById
 type WallGetByIDBuilder struct {
 	api.Params
 }
@@ -537,7 +537,7 @@ func (b *WallGetByIDBuilder) Fields(v []string) *WallGetByIDBuilder {
 //
 // Returns a list of comments on a post on a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.getComments
+// https://dev.vk.ru/method/wall.getComments
 type WallGetCommentsBuilder struct {
 	api.Params
 }
@@ -628,7 +628,7 @@ func (b *WallGetCommentsBuilder) ThreadItemsCount(v int) *WallGetCommentsBuilder
 //
 // Returns information about reposts of a post on user wall or community wall.
 //
-// https://dev.vk.com/method/wall.getReposts
+// https://dev.vk.ru/method/wall.getReposts
 type WallGetRepostsBuilder struct {
 	api.Params
 }
@@ -664,7 +664,7 @@ func (b *WallGetRepostsBuilder) Count(v int) *WallGetRepostsBuilder {
 
 // WallOpenCommentsBuilder builder.
 //
-// https://dev.vk.com/method/wall.openComments
+// https://dev.vk.ru/method/wall.openComments
 type WallOpenCommentsBuilder struct {
 	api.Params
 }
@@ -690,7 +690,7 @@ func (b *WallOpenCommentsBuilder) PostID(v int) *WallOpenCommentsBuilder {
 //
 // Pins the post on wall.
 //
-// https://dev.vk.com/method/wall.pin
+// https://dev.vk.ru/method/wall.pin
 type WallPinBuilder struct {
 	api.Params
 }
@@ -717,7 +717,7 @@ func (b *WallPinBuilder) PostID(v int) *WallPinBuilder {
 //
 // Adds a new post on a user wall or community wall. Can also be used to publish suggested or scheduled posts.
 //
-// https://dev.vk.com/method/wall.post
+// https://dev.vk.ru/method/wall.post
 type WallPostBuilder struct {
 	api.Params
 }
@@ -884,7 +884,7 @@ func (b *WallPostBuilder) TopicID(v int) *WallPostBuilder {
 // Allows to create hidden post which will not be shown on the community's wall and can be used for creating an ad
 // with type "Community post".
 //
-// https://dev.vk.com/method/wall.postAdsStealth
+// https://dev.vk.ru/method/wall.postAdsStealth
 type WallPostAdsStealthBuilder struct {
 	api.Params
 }
@@ -986,7 +986,7 @@ func (b *WallPostAdsStealthBuilder) LinkVideo(v string) *WallPostAdsStealthBuild
 //
 // Reports (submits a complaint about) a comment on a post on a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.reportComment
+// https://dev.vk.ru/method/wall.reportComment
 type WallReportCommentBuilder struct {
 	api.Params
 }
@@ -1032,7 +1032,7 @@ func (b *WallReportCommentBuilder) Reason(v int) *WallReportCommentBuilder {
 //
 // Reports (submits a complaint about) a post on a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.reportPost
+// https://dev.vk.ru/method/wall.reportPost
 type WallReportPostBuilder struct {
 	api.Params
 }
@@ -1078,7 +1078,7 @@ func (b *WallReportPostBuilder) Reason(v int) *WallReportPostBuilder {
 //
 // Reposts (copies) an object to a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.repost
+// https://dev.vk.ru/method/wall.repost
 type WallRepostBuilder struct {
 	api.Params
 }
@@ -1122,7 +1122,7 @@ func (b *WallRepostBuilder) MuteNotifications(v bool) *WallRepostBuilder {
 //
 // Restores a post deleted from a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.restore
+// https://dev.vk.ru/method/wall.restore
 type WallRestoreBuilder struct {
 	api.Params
 }
@@ -1149,7 +1149,7 @@ func (b *WallRestoreBuilder) PostID(v int) *WallRestoreBuilder {
 //
 // Restores a comment deleted from a user wall or community wall.
 //
-// https://dev.vk.com/method/wall.restoreComment
+// https://dev.vk.ru/method/wall.restoreComment
 type WallRestoreCommentBuilder struct {
 	api.Params
 }
@@ -1175,7 +1175,7 @@ func (b *WallRestoreCommentBuilder) CommentID(v int) *WallRestoreCommentBuilder 
 //
 // Allows to search posts on user or community walls.
 //
-// https://dev.vk.com/method/wall.search
+// https://dev.vk.ru/method/wall.search
 type WallSearchBuilder struct {
 	api.Params
 }
@@ -1237,7 +1237,7 @@ func (b *WallSearchBuilder) Fields(v []string) *WallSearchBuilder {
 //
 // Unpins the post on wall.
 //
-// https://dev.vk.com/method/wall.unpin
+// https://dev.vk.ru/method/wall.unpin
 type WallUnpinBuilder struct {
 	api.Params
 }

@@ -157,7 +157,7 @@ func TestVK_FaveArticle(t *testing.T) {
 	time.Sleep(sleepTime)
 
 	res, err := vkUser.FaveAddArticle(api.Params{
-		"url": "https://vk.com/@vkappsdev-vk-apps-kak-popast-v-katalog",
+		"url": "https://vk.ru/@vkappsdev-vk-apps-kak-popast-v-katalog",
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res)
