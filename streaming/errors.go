@@ -13,7 +13,7 @@ func (e ErrorType) Error() string {
 	return fmt.Sprintf("streaming: error with code %d", e)
 }
 
-// Error codes. See https://dev.vk.com/ru/api/streaming/getting-started_2
+// Error codes. See https://dev.vk.ru/ru/api/streaming/getting-started_2
 const (
 	ErrNoType ErrorType = 0 // NoType error
 	// Settings for updating the connection to WebSocket are incorrectly

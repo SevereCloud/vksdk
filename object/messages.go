@@ -282,10 +282,10 @@ type MessagesKeyboardButton struct {
 
 // MessagesKeyboardButtonAction struct.
 type MessagesKeyboardButtonAction struct {
-	AppID   int    `json:"app_id,omitempty"`   // Fragment value in app link like vk.com/app{app_id}_-654321#hash
-	Hash    string `json:"hash,omitempty"`     // Fragment value in app link like vk.com/app123456_-654321#{hash}
+	AppID   int    `json:"app_id,omitempty"`   // Fragment value in app link like vk.ru/app{app_id}_-654321#hash
+	Hash    string `json:"hash,omitempty"`     // Fragment value in app link like vk.ru/app123456_-654321#{hash}
 	Label   string `json:"label,omitempty"`    // Label for button
-	OwnerID int    `json:"owner_id,omitempty"` // Fragment value in app link like vk.com/app123456_{owner_id}#hash
+	OwnerID int    `json:"owner_id,omitempty"` // Fragment value in app link like vk.ru/app123456_{owner_id}#hash
 	Payload string `json:"payload,omitempty"`  // Additional data sent along with message for developer convenience
 	Type    string `json:"type"`               // Button type
 	Link    string `json:"link,omitempty"`     // Link URL
@@ -361,7 +361,7 @@ func (eventData MessagesEventData) ToJSON() string {
 
 // MessagesTemplate struct.
 //
-// https://dev.vk.com/ru/api/bots/development/messages
+// https://dev.vk.ru/ru/api/bots/development/messages
 type MessagesTemplate struct {
 	Type     string                    `json:"type"`
 	Elements []MessagesTemplateElement `json:"elements"`
@@ -408,7 +408,7 @@ type MessageContentSourceURL struct {
 
 // MessageContentSource struct.
 //
-// https://dev.vk.com/ru/api/bots/development/messages
+// https://dev.vk.ru/ru/api/bots/development/messages
 type MessageContentSource struct {
 	MessageContentSourceMessage // type message
 	MessageContentSourceURL     // type url

@@ -6,7 +6,7 @@ import (
 
 // AppsAddUsersToTestingGroupBuilder builder.
 //
-// https://dev.vk.com/method/apps.addUsersToTestingGroup
+// https://dev.vk.ru/method/apps.addUsersToTestingGroup
 type AppsAddUsersToTestingGroupBuilder struct {
 	api.Params
 }
@@ -32,7 +32,7 @@ func (b *AppsAddUsersToTestingGroupBuilder) GroupID(v int) *AppsAddUsersToTestin
 //
 // Returns applications data.
 //
-// https://dev.vk.com/method/apps.get
+// https://dev.vk.ru/method/apps.get
 type AppsGetBuilder struct {
 	api.Params
 }
@@ -62,7 +62,7 @@ func (b *AppsGetBuilder) AppIDs(v []string) *AppsGetBuilder {
 //
 // * winphone — Windows Phone;
 //
-// * web — приложения на vk.com.
+// * web — приложения на vk.ru.
 //
 // By default: web.
 func (b *AppsGetBuilder) Platform(v string) *AppsGetBuilder {
@@ -154,7 +154,7 @@ func (b *AppsGetBuilder) NameCase(v string) *AppsGetBuilder {
 //
 // Returns a list of applications (apps) available to users in the App Catalog.
 //
-// https://dev.vk.com/method/apps.getCatalog
+// https://dev.vk.ru/method/apps.getCatalog
 type AppsGetCatalogBuilder struct {
 	api.Params
 }
@@ -249,7 +249,7 @@ func (b *AppsGetCatalogBuilder) Filter(v string) *AppsGetCatalogBuilder {
 //
 // Creates friends list for requests and invites in current app.
 //
-// https://dev.vk.com/method/apps.getFriendsList
+// https://dev.vk.ru/method/apps.getFriendsList
 type AppsGetFriendsListBuilder struct {
 	api.Params
 }
@@ -289,7 +289,7 @@ func (b *AppsGetFriendsListBuilder) Type(v string) *AppsGetFriendsListBuilder {
 	return b
 }
 
-// Fields additional profile fields, see [vk.com/dev/fields|description].
+// Fields additional profile fields, see [vk.ru/dev/fields|description].
 func (b *AppsGetFriendsListBuilder) Fields(v []string) *AppsGetFriendsListBuilder {
 	b.Params["fields"] = v
 	return b
@@ -299,7 +299,7 @@ func (b *AppsGetFriendsListBuilder) Fields(v []string) *AppsGetFriendsListBuilde
 //
 // Returns players rating in the game.
 //
-// https://dev.vk.com/method/apps.getLeaderboard
+// https://dev.vk.ru/method/apps.getLeaderboard
 type AppsGetLeaderboardBuilder struct {
 	api.Params
 }
@@ -341,7 +341,7 @@ func (b *AppsGetLeaderboardBuilder) Extended(v bool) *AppsGetLeaderboardBuilder 
 //
 // Returns scopes for auth.
 //
-// https://dev.vk.com/method/apps.getScopes
+// https://dev.vk.ru/method/apps.getScopes
 type AppsGetScopesBuilder struct {
 	api.Params
 }
@@ -361,7 +361,7 @@ func (b *AppsGetScopesBuilder) Type(v string) *AppsGetScopesBuilder {
 //
 // Returns user score in app.
 //
-// https://dev.vk.com/method/apps.getScore
+// https://dev.vk.ru/method/apps.getScore
 type AppsGetScoreBuilder struct {
 	api.Params
 }
@@ -379,7 +379,7 @@ func (b *AppsGetScoreBuilder) UserID(v int) *AppsGetScoreBuilder {
 
 // AppsGetTestingGroupsBuilder builder.
 //
-// https://dev.vk.com/method/apps.getTestingGroups
+// https://dev.vk.ru/method/apps.getTestingGroups
 type AppsGetTestingGroupsBuilder struct {
 	api.Params
 }
@@ -397,7 +397,7 @@ func (b *AppsGetTestingGroupsBuilder) GroupID(v int) *AppsGetTestingGroupsBuilde
 
 // AppsRemoveUsersFromTestingGroupsBuilder builder.
 //
-// https://dev.vk.com/method/apps.removeUsersFromTestingGroups
+// https://dev.vk.ru/method/apps.removeUsersFromTestingGroups
 type AppsRemoveUsersFromTestingGroupsBuilder struct {
 	api.Params
 }
@@ -415,7 +415,7 @@ func (b *AppsRemoveUsersFromTestingGroupsBuilder) UserIDs(v []int) *AppsRemoveUs
 
 // AppsRemoveTestingGroupBuilder builder.
 //
-// https://dev.vk.com/method/apps.removeTestingGroup
+// https://dev.vk.ru/method/apps.removeTestingGroup
 type AppsRemoveTestingGroupBuilder struct {
 	api.Params
 }
@@ -435,7 +435,7 @@ func (b *AppsRemoveTestingGroupBuilder) GroupID(v int) *AppsRemoveTestingGroupBu
 //
 // Sends a request to another user in an app that uses VK authorization.
 //
-// https://dev.vk.com/method/apps.sendRequest
+// https://dev.vk.ru/method/apps.sendRequest
 type AppsSendRequestBuilder struct {
 	api.Params
 }
@@ -487,7 +487,7 @@ func (b *AppsSendRequestBuilder) Separate(v bool) *AppsSendRequestBuilder {
 
 // AppsUpdateMetaForTestingGroupBuilder builder.
 //
-// https://dev.vk.com/method/apps.UpdateMetaForTestingGroup
+// https://dev.vk.ru/method/apps.UpdateMetaForTestingGroup
 type AppsUpdateMetaForTestingGroupBuilder struct {
 	api.Params
 }

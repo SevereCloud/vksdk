@@ -6,7 +6,7 @@ import (
 
 // VideoAdd adds a video to a user or community page.
 //
-// https://dev.vk.com/method/video.add
+// https://dev.vk.ru/method/video.add
 func (vk *VK) VideoAdd(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.add", &response, params)
 	return
@@ -19,7 +19,7 @@ type VideoAddAlbumResponse struct {
 
 // VideoAddAlbum creates an empty album for videos.
 //
-// https://dev.vk.com/method/video.addAlbum
+// https://dev.vk.ru/method/video.addAlbum
 func (vk *VK) VideoAddAlbum(params Params) (response VideoAddAlbumResponse, err error) {
 	err = vk.RequestUnmarshal("video.addAlbum", &response, params)
 	return
@@ -27,7 +27,7 @@ func (vk *VK) VideoAddAlbum(params Params) (response VideoAddAlbumResponse, err 
 
 // VideoAddToAlbum allows you to add a video to the album.
 //
-// https://dev.vk.com/method/video.addToAlbum
+// https://dev.vk.ru/method/video.addToAlbum
 func (vk *VK) VideoAddToAlbum(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.addToAlbum", &response, params)
 	return
@@ -35,7 +35,7 @@ func (vk *VK) VideoAddToAlbum(params Params) (response int, err error) {
 
 // VideoCreateComment adds a new comment on a video.
 //
-// https://dev.vk.com/method/video.createComment
+// https://dev.vk.ru/method/video.createComment
 func (vk *VK) VideoCreateComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.createComment", &response, params)
 	return
@@ -43,7 +43,7 @@ func (vk *VK) VideoCreateComment(params Params) (response int, err error) {
 
 // VideoDelete deletes a video from a user or community page.
 //
-// https://dev.vk.com/method/video.delete
+// https://dev.vk.ru/method/video.delete
 func (vk *VK) VideoDelete(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.delete", &response, params)
 	return
@@ -51,7 +51,7 @@ func (vk *VK) VideoDelete(params Params) (response int, err error) {
 
 // VideoDeleteAlbum deletes a video album.
 //
-// https://dev.vk.com/method/video.deleteAlbum
+// https://dev.vk.ru/method/video.deleteAlbum
 func (vk *VK) VideoDeleteAlbum(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.deleteAlbum", &response, params)
 	return
@@ -59,7 +59,7 @@ func (vk *VK) VideoDeleteAlbum(params Params) (response int, err error) {
 
 // VideoDeleteComment deletes a comment on a video.
 //
-// https://dev.vk.com/method/video.deleteComment
+// https://dev.vk.ru/method/video.deleteComment
 func (vk *VK) VideoDeleteComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.deleteComment", &response, params)
 	return
@@ -73,7 +73,7 @@ type VideoEditResponse struct {
 
 // VideoEdit edits information about a video on a user or community page.
 //
-// https://dev.vk.com/method/video.edit
+// https://dev.vk.ru/method/video.edit
 func (vk *VK) VideoEdit(params Params) (response VideoEditResponse, err error) {
 	err = vk.RequestUnmarshal("video.edit", &response, params)
 	return
@@ -81,7 +81,7 @@ func (vk *VK) VideoEdit(params Params) (response VideoEditResponse, err error) {
 
 // VideoEditAlbum edits the title of a video album.
 //
-// https://dev.vk.com/method/video.editAlbum
+// https://dev.vk.ru/method/video.editAlbum
 func (vk *VK) VideoEditAlbum(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.editAlbum", &response, params)
 	return
@@ -89,7 +89,7 @@ func (vk *VK) VideoEditAlbum(params Params) (response int, err error) {
 
 // VideoEditComment edits the text of a comment on a video.
 //
-// https://dev.vk.com/method/video.editComment
+// https://dev.vk.ru/method/video.editComment
 func (vk *VK) VideoEditComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.editComment", &response, params)
 	return
@@ -105,7 +105,7 @@ type VideoGetResponse struct {
 //
 //	extended=0
 //
-// https://dev.vk.com/method/video.get
+// https://dev.vk.ru/method/video.get
 func (vk *VK) VideoGet(params Params) (response VideoGetResponse, err error) {
 	err = vk.RequestUnmarshal("video.get", &response, params, Params{"extended": false})
 
@@ -124,7 +124,7 @@ type VideoGetExtendedResponse struct {
 //
 //	extended=1
 //
-// https://dev.vk.com/method/video.get
+// https://dev.vk.ru/method/video.get
 func (vk *VK) VideoGetExtended(params Params) (response VideoGetExtendedResponse, err error) {
 	err = vk.RequestUnmarshal("video.get", &response, params, Params{"extended": true})
 
@@ -136,7 +136,7 @@ type VideoGetAlbumByIDResponse object.VideoVideoAlbumFull
 
 // VideoGetAlbumByID returns video album info.
 //
-// https://dev.vk.com/method/video.getAlbumById
+// https://dev.vk.ru/method/video.getAlbumById
 func (vk *VK) VideoGetAlbumByID(params Params) (response VideoGetAlbumByIDResponse, err error) {
 	err = vk.RequestUnmarshal("video.getAlbumById", &response, params)
 	return
@@ -152,7 +152,7 @@ type VideoGetAlbumsResponse struct {
 //
 //	extended=0
 //
-// https://dev.vk.com/method/video.getAlbums
+// https://dev.vk.ru/method/video.getAlbums
 func (vk *VK) VideoGetAlbums(params Params) (response VideoGetAlbumsResponse, err error) {
 	err = vk.RequestUnmarshal("video.getAlbums", &response, params, Params{"extended": false})
 
@@ -169,7 +169,7 @@ type VideoGetAlbumsExtendedResponse struct {
 //
 //	extended=1
 //
-// https://dev.vk.com/method/video.getAlbums
+// https://dev.vk.ru/method/video.getAlbums
 func (vk *VK) VideoGetAlbumsExtended(params Params) (response VideoGetAlbumsExtendedResponse, err error) {
 	err = vk.RequestUnmarshal("video.getAlbums", &response, params, Params{"extended": true})
 
@@ -183,7 +183,7 @@ type VideoGetAlbumsByVideoResponse []int
 //
 //	extended=0
 //
-// https://dev.vk.com/method/video.getAlbumsByVideo
+// https://dev.vk.ru/method/video.getAlbumsByVideo
 func (vk *VK) VideoGetAlbumsByVideo(params Params) (response VideoGetAlbumsByVideoResponse, err error) {
 	err = vk.RequestUnmarshal("video.getAlbumsByVideo", &response, params, Params{"extended": false})
 
@@ -200,7 +200,7 @@ type VideoGetAlbumsByVideoExtendedResponse struct {
 //
 //	extended=1
 //
-// https://dev.vk.com/method/video.getAlbumsByVideo
+// https://dev.vk.ru/method/video.getAlbumsByVideo
 func (vk *VK) VideoGetAlbumsByVideoExtended(params Params) (response VideoGetAlbumsByVideoExtendedResponse, err error) {
 	err = vk.RequestUnmarshal("video.getAlbumsByVideo", &response, params, Params{"extended": true})
 
@@ -217,7 +217,7 @@ type VideoGetCommentsResponse struct {
 //
 //	extended=0
 //
-// https://dev.vk.com/method/video.getComments
+// https://dev.vk.ru/method/video.getComments
 func (vk *VK) VideoGetComments(params Params) (response VideoGetCommentsResponse, err error) {
 	err = vk.RequestUnmarshal("video.getComments", &response, params, Params{"extended": false})
 
@@ -236,7 +236,7 @@ type VideoGetCommentsExtendedResponse struct {
 //
 //	extended=1
 //
-// https://dev.vk.com/method/video.getComments
+// https://dev.vk.ru/method/video.getComments
 func (vk *VK) VideoGetCommentsExtended(params Params) (response VideoGetCommentsExtendedResponse, err error) {
 	err = vk.RequestUnmarshal("video.getComments", &response, params, Params{"extended": true})
 
@@ -248,7 +248,7 @@ type VideoLiveGetCategoriesResponse []object.VideoLiveCategory
 
 // VideoLiveGetCategories method.
 //
-// https://dev.vk.com/method/video.liveGetCategories
+// https://dev.vk.ru/method/video.liveGetCategories
 func (vk *VK) VideoLiveGetCategories(params Params) (response VideoLiveGetCategoriesResponse, err error) {
 	err = vk.RequestUnmarshal("video.liveGetCategories", &response, params)
 	return
@@ -256,7 +256,7 @@ func (vk *VK) VideoLiveGetCategories(params Params) (response VideoLiveGetCatego
 
 // VideoRemoveFromAlbum allows you to remove the video from the album.
 //
-// https://dev.vk.com/method/video.removeFromAlbum
+// https://dev.vk.ru/method/video.removeFromAlbum
 func (vk *VK) VideoRemoveFromAlbum(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.removeFromAlbum", &response, params)
 	return
@@ -264,7 +264,7 @@ func (vk *VK) VideoRemoveFromAlbum(params Params) (response int, err error) {
 
 // VideoReorderAlbums reorders the album in the list of user video albums.
 //
-// https://dev.vk.com/method/video.reorderAlbums
+// https://dev.vk.ru/method/video.reorderAlbums
 func (vk *VK) VideoReorderAlbums(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.reorderAlbums", &response, params)
 	return
@@ -272,7 +272,7 @@ func (vk *VK) VideoReorderAlbums(params Params) (response int, err error) {
 
 // VideoReorderVideos reorders the video in the video album.
 //
-// https://dev.vk.com/method/video.reorderVideos
+// https://dev.vk.ru/method/video.reorderVideos
 func (vk *VK) VideoReorderVideos(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.reorderVideos", &response, params)
 	return
@@ -280,7 +280,7 @@ func (vk *VK) VideoReorderVideos(params Params) (response int, err error) {
 
 // VideoReport reports (submits a complaint about) a video.
 //
-// https://dev.vk.com/method/video.report
+// https://dev.vk.ru/method/video.report
 func (vk *VK) VideoReport(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.report", &response, params)
 	return
@@ -288,7 +288,7 @@ func (vk *VK) VideoReport(params Params) (response int, err error) {
 
 // VideoReportComment reports (submits a complaint about) a comment on a video.
 //
-// https://dev.vk.com/method/video.reportComment
+// https://dev.vk.ru/method/video.reportComment
 func (vk *VK) VideoReportComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.reportComment", &response, params)
 	return
@@ -296,7 +296,7 @@ func (vk *VK) VideoReportComment(params Params) (response int, err error) {
 
 // VideoRestore restores a previously deleted video.
 //
-// https://dev.vk.com/method/video.restore
+// https://dev.vk.ru/method/video.restore
 func (vk *VK) VideoRestore(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.restore", &response, params)
 	return
@@ -304,7 +304,7 @@ func (vk *VK) VideoRestore(params Params) (response int, err error) {
 
 // VideoRestoreComment restores a previously deleted comment on a video.
 //
-// https://dev.vk.com/method/video.restoreComment
+// https://dev.vk.ru/method/video.restoreComment
 func (vk *VK) VideoRestoreComment(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("video.restoreComment", &response, params)
 	return
@@ -315,7 +315,7 @@ type VideoSaveResponse object.VideoSaveResult
 
 // VideoSave returns a server address (required for upload) and video data.
 //
-// https://dev.vk.com/method/video.save
+// https://dev.vk.ru/method/video.save
 func (vk *VK) VideoSave(params Params) (response VideoSaveResponse, err error) {
 	err = vk.RequestUnmarshal("video.save", &response, params)
 	return
@@ -331,7 +331,7 @@ type VideoSearchResponse struct {
 //
 //	extended=0
 //
-// https://dev.vk.com/method/video.search
+// https://dev.vk.ru/method/video.search
 func (vk *VK) VideoSearch(params Params) (response VideoSearchResponse, err error) {
 	err = vk.RequestUnmarshal("video.search", &response, params, Params{"extended": false})
 
@@ -350,7 +350,7 @@ type VideoSearchExtendedResponse struct {
 //
 //	extended=1
 //
-// https://dev.vk.com/method/video.search
+// https://dev.vk.ru/method/video.search
 func (vk *VK) VideoSearchExtended(params Params) (response VideoSearchExtendedResponse, err error) {
 	err = vk.RequestUnmarshal("video.search", &response, params, Params{"extended": true})
 
@@ -362,7 +362,7 @@ type VideoStartStreamingResponse object.VideoLive
 
 // VideoStartStreaming method.
 //
-// https://dev.vk.com/method/video.startStreaming
+// https://dev.vk.ru/method/video.startStreaming
 func (vk *VK) VideoStartStreaming(params Params) (response VideoStartStreamingResponse, err error) {
 	err = vk.RequestUnmarshal("video.startStreaming", &response, params)
 	return
@@ -375,7 +375,7 @@ type VideoStopStreamingResponse struct {
 
 // VideoStopStreaming method.
 //
-// https://dev.vk.com/method/video.stopStreaming
+// https://dev.vk.ru/method/video.stopStreaming
 func (vk *VK) VideoStopStreaming(params Params) (response VideoStopStreamingResponse, err error) {
 	err = vk.RequestUnmarshal("video.stopStreaming", &response, params)
 	return

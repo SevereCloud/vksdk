@@ -8,7 +8,7 @@ import (
 //
 // Copies a document to a user's or community's document list.
 //
-// https://dev.vk.com/method/docs.add
+// https://dev.vk.ru/method/docs.add
 type DocsAddBuilder struct {
 	api.Params
 }
@@ -40,7 +40,7 @@ func (b *DocsAddBuilder) AccessKey(v string) *DocsAddBuilder {
 //
 // Deletes a user or community document.
 //
-// https://dev.vk.com/method/docs.delete
+// https://dev.vk.ru/method/docs.delete
 type DocsDeleteBuilder struct {
 	api.Params
 }
@@ -66,7 +66,7 @@ func (b *DocsDeleteBuilder) DocID(v int) *DocsDeleteBuilder {
 //
 // Edits a document.
 //
-// https://dev.vk.com/method/docs.edit
+// https://dev.vk.ru/method/docs.edit
 type DocsEditBuilder struct {
 	api.Params
 }
@@ -104,7 +104,7 @@ func (b *DocsEditBuilder) Tags(v []string) *DocsEditBuilder {
 //
 // Returns detailed information about user or community documents.
 //
-// https://dev.vk.com/method/docs.get
+// https://dev.vk.ru/method/docs.get
 type DocsGetBuilder struct {
 	api.Params
 }
@@ -142,7 +142,7 @@ func (b *DocsGetBuilder) OwnerID(v int) *DocsGetBuilder {
 //
 // Returns information about documents by their IDs.
 //
-// https://dev.vk.com/method/docs.getById
+// https://dev.vk.ru/method/docs.getById
 type DocsGetByIDBuilder struct {
 	api.Params
 }
@@ -162,7 +162,7 @@ func (b *DocsGetByIDBuilder) Docs(v []string) *DocsGetByIDBuilder {
 //
 // Returns the server address for document upload.
 //
-// https://dev.vk.com/method/docs.getMessagesUploadServer
+// https://dev.vk.ru/method/docs.getMessagesUploadServer
 type DocsGetMessagesUploadServerBuilder struct {
 	api.Params
 }
@@ -190,7 +190,7 @@ func (b *DocsGetMessagesUploadServerBuilder) PeerID(v int) *DocsGetMessagesUploa
 //
 // Returns documents types available for current user.
 //
-// https://dev.vk.com/method/docs.getTypes
+// https://dev.vk.ru/method/docs.getTypes
 type DocsGetTypesBuilder struct {
 	api.Params
 }
@@ -210,7 +210,7 @@ func (b *DocsGetTypesBuilder) OwnerID(v int) *DocsGetTypesBuilder {
 //
 // Returns the server address for document upload.
 //
-// https://dev.vk.com/method/docs.getUploadServer
+// https://dev.vk.ru/method/docs.getUploadServer
 type DocsGetUploadServerBuilder struct {
 	api.Params
 }
@@ -230,7 +230,7 @@ func (b *DocsGetUploadServerBuilder) GroupID(v int) *DocsGetUploadServerBuilder 
 //
 // Returns the server address for document upload onto a user's or community's wall.
 //
-// https://dev.vk.com/method/docs.getWallUploadServer
+// https://dev.vk.ru/method/docs.getWallUploadServer
 type DocsGetWallUploadServerBuilder struct {
 	api.Params
 }
@@ -248,9 +248,9 @@ func (b *DocsGetWallUploadServerBuilder) GroupID(v int) *DocsGetWallUploadServer
 
 // DocsSaveBuilder builder.
 //
-// Saves a document after [vk.com/dev/upload_files_2|uploading it to a server].
+// Saves a document after [vk.ru/dev/upload_files_2|uploading it to a server].
 //
-// https://dev.vk.com/method/docs.save
+// https://dev.vk.ru/method/docs.save
 type DocsSaveBuilder struct {
 	api.Params
 }
@@ -260,7 +260,7 @@ func NewDocsSaveBuilder() *DocsSaveBuilder {
 	return &DocsSaveBuilder{api.Params{}}
 }
 
-// File This parameter is returned when the file is [vk.com/dev/upload_files_2|uploaded to the server].
+// File This parameter is returned when the file is [vk.ru/dev/upload_files_2|uploaded to the server].
 func (b *DocsSaveBuilder) File(v string) *DocsSaveBuilder {
 	b.Params["file"] = v
 	return b
@@ -282,7 +282,7 @@ func (b *DocsSaveBuilder) Tags(v string) *DocsSaveBuilder {
 //
 // Returns a list of documents matching the search criteria.
 //
-// https://dev.vk.com/method/docs.search
+// https://dev.vk.ru/method/docs.search
 type DocsSearchBuilder struct {
 	api.Params
 }
