@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"log"
+	"log/slog"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -241,7 +241,7 @@ func TestCallback_ErrorLog(t *testing.T) {
 	var buf bytes.Buffer
 
 	cb := callback.NewCallback()
-	cb.ErrorLog = log.New(&buf, "", 0)
+	cb.ErrorLog = slog.New(slog.NewTextHandler(&buf, &slog.HandlerOptions{ReplaceAttr: removeTime}))
 
 	req, err := http.NewRequest(http.MethodPost, "/callback", bytes.NewBuffer([]byte{}))
 	require.NoError(t, err)
@@ -250,5 +250,13 @@ func TestCallback_ErrorLog(t *testing.T) {
 	handler := http.HandlerFunc(cb.HandleFunc)
 
 	handler.ServeHTTP(rr, req)
-	assert.Equal(t, "callback: EOF\n", buf.String())
+	assert.Equal(t, "level=ERROR msg=\"failed to json decode request body\" error=EOF\n", buf.String())
+}
+
+func removeTime(groups []string, a slog.Attr) slog.Attr {
+	if a.Key == slog.TimeKey && len(groups) == 0 {
+		return slog.Attr{}
+	}
+
+	return a
 }

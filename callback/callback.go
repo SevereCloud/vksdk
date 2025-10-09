@@ -9,7 +9,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"log"
+	"log/slog"
 	"net/http"
 	"strconv"
 	"sync"
@@ -29,10 +29,10 @@ type Callback struct {
 	SecretKey        string
 	Title            string
 
-	// ErrorLog specifies an optional logger for errors unexpected
+	// ErrorLog specifies a logger for errors unexpected
 	// behavior from handlers.
-	// If nil, logging is done via the log package's standard logger.
-	ErrorLog *log.Logger
+	// By default, [slog.Default] is used.
+	ErrorLog *slog.Logger
 }
 
 // NewCallback return *Callback.
@@ -41,6 +41,7 @@ func NewCallback() *Callback {
 		Title:            "vksdk",
 		ConfirmationKeys: make(map[int]string),
 		SecretKeys:       make(map[int]string),
+		ErrorLog:         slog.Default(),
 		FuncList:         events.NewFuncList(),
 	}
 
@@ -63,6 +64,8 @@ var groupEventPool = sync.Pool{ //nolint:gochecknoglobals
 
 // HandleFunc handler.
 func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
+	ctx := r.Context()
+
 	e := groupEventPool.Get().(*events.GroupEvent)
 
 	defer func() {
@@ -72,7 +75,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(e)
 	if err != nil {
-		cb.logf("callback: %v", err)
+		cb.ErrorLog.ErrorContext(ctx, "failed to json decode request body", "error", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 
 		return
@@ -84,7 +87,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if secretKey != "" && e.Secret != secretKey {
-		cb.logf("callback: bad secret %d", e.GroupID)
+		cb.ErrorLog.WarnContext(ctx, "wrong secret key", "group_id", e.GroupID)
 		http.Error(w, "Bad Secret", http.StatusForbidden)
 
 		return
@@ -93,13 +96,11 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	if e.Type == events.EventConfirmation {
 		_, err := fmt.Fprint(w, cb.confirmationKey(e.GroupID))
 		if err != nil {
-			cb.logf("callback: %v", err)
+			cb.ErrorLog.ErrorContext(ctx, "failed to write confirmation key", "error", err)
 		}
 
 		return
 	}
-
-	ctx := r.Context()
 
 	retryCounter, _ := strconv.Atoi(r.Header.Get("X-Retry-Counter"))
 	ctx = context.WithValue(ctx, internal.CallbackRetryCounterKey, retryCounter)
@@ -123,14 +124,14 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	err = cb.Handler(ctx, *e)
 	if err != nil {
-		cb.logf("callback: %v", err)
+		cb.ErrorLog.ErrorContext(ctx, "failed to handle event", "error", err)
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 
 		return
 	}
 
 	if remove {
-		cb.response(w, "remove")
+		cb.response(ctx, w, "remove")
 
 		return
 	}
@@ -142,22 +143,17 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cb.response(w, "ok")
+	cb.response(ctx, w, "ok")
 }
 
-func (cb *Callback) response(w http.ResponseWriter, data string) {
+func (cb *Callback) response(ctx context.Context, w http.ResponseWriter, data string) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 
 	_, err := w.Write([]byte(data))
 	if err != nil {
-		cb.logf("write response: %v", err)
-	}
-}
-
-func (cb *Callback) logf(format string, args ...any) {
-	if cb.ErrorLog != nil {
-		cb.ErrorLog.Printf(format, args...)
-	} else {
-		log.Printf(format, args...)
+		slog.ErrorContext(ctx, "failed to write http response",
+			slog.Any("error", err),
+			slog.String("data", data),
+		)
 	}
 }
