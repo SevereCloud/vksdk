@@ -702,8 +702,9 @@ type rawUploadStoriesPhoto struct {
 }
 
 type rawUploadStoriesVideo struct {
-	Response UploadStories `json:"response"`
 	UploadError
+
+	Response UploadStories `json:"response"`
 }
 
 // UploadStoriesPhoto uploading Story.

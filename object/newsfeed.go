@@ -151,13 +151,6 @@ type NewsfeedItemMarket struct {
 
 // NewsfeedNewsfeedItem struct.
 type NewsfeedNewsfeedItem struct {
-	Type     string `json:"type"`
-	SourceID int    `json:"source_id"`
-	Date     int    `json:"date"`
-	TopicID  int    `json:"topic_id"`
-
-	PostID int `json:"post_id,omitempty"`
-
 	NewsfeedItemWallpost
 	NewsfeedItemPhoto
 	NewsfeedItemPhotoTag
@@ -169,6 +162,13 @@ type NewsfeedNewsfeedItem struct {
 	NewsfeedItemDigest
 	NewsfeedItemStoriesBlock
 	NewsfeedItemMarket
+
+	Type     string `json:"type"`
+	SourceID int    `json:"source_id"`
+	Date     int    `json:"date"`
+	TopicID  int    `json:"topic_id"`
+
+	PostID int `json:"post_id,omitempty"`
 
 	CreatedBy        int         `json:"created_by,omitempty"`
 	CanEdit          BaseBoolInt `json:"can_edit,omitempty"`

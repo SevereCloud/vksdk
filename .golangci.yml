@@ -68,10 +68,13 @@ linters:
     - wastedassign
     - whitespace
     - wrapcheck
-    - wsl
+    - wsl_v5
+    - noinlineerr
+    - embeddedstructfieldcheck
 
 # - testpackage # TODO: Fix testpackage
 # - noctx # TODO: Fix noctx
+# - funcorder  # TODO: Fix funcorder
 
 # don't enable:
 # - depguard
@@ -112,6 +115,10 @@ linters:
 # - spancheck
 
 # - recvcheck # false positive
+
+# - wsl_5
+# - arangolint
+
   settings:
     testifylint:
       enable-all: true

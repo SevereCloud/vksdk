@@ -179,7 +179,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MessageNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -196,7 +198,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MessageReplyObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -213,7 +217,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MessageEditObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -230,7 +236,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MessageAllowObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -247,7 +255,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MessageDenyObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -264,7 +274,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MessageTypingStateObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -281,7 +293,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MessageEventObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -298,7 +312,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj PhotoNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -315,7 +331,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj PhotoCommentNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -332,7 +350,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj PhotoCommentEditObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -349,7 +369,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj PhotoCommentRestoreObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -366,7 +388,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj PhotoCommentDeleteObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -383,7 +407,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj AudioNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -400,7 +426,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj VideoNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -417,7 +445,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj VideoCommentNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -434,7 +464,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj VideoCommentEditObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -451,7 +483,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj VideoCommentRestoreObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -468,7 +502,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj VideoCommentDeleteObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -485,7 +521,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj WallPostNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -502,7 +540,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj WallRepostObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -519,7 +559,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj WallReplyNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -536,7 +578,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj WallReplyEditObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -553,7 +597,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj WallReplyRestoreObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -570,7 +616,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj WallReplyDeleteObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -587,7 +635,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj BoardPostNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -604,7 +654,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj BoardPostEditObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -621,7 +673,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj BoardPostRestoreObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -638,7 +692,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj BoardPostDeleteObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -655,7 +711,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MarketCommentNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -672,7 +730,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MarketCommentEditObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -689,7 +749,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MarketCommentRestoreObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -706,7 +768,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MarketCommentDeleteObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -723,7 +787,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MarketOrderNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -740,7 +806,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MarketOrderEditObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -757,7 +825,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj GroupLeaveObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -774,7 +844,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj GroupJoinObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -791,7 +863,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj UserBlockObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -808,7 +882,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj UserUnblockObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -825,7 +901,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj PollVoteNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -842,7 +920,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj GroupOfficersEditObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -859,7 +939,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj GroupChangeSettingsObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -876,7 +958,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj GroupChangePhotoObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -893,7 +977,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj VkpayTransactionObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -910,7 +996,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj LeadFormsNewObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -927,7 +1015,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj AppPayloadObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -944,7 +1034,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj MessageReadObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -961,7 +1053,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj LikeAddObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -978,7 +1072,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj LikeRemoveObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -995,7 +1091,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj DonutSubscriptionCreateObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -1012,7 +1110,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj DonutSubscriptionProlongedObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -1029,7 +1129,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj DonutSubscriptionExpiredObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -1046,7 +1148,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj DonutSubscriptionCancelledObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -1063,7 +1167,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj DonutSubscriptionPriceChangedObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -1080,7 +1186,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj DonutMoneyWithdrawObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 
@@ -1097,7 +1205,9 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		var obj DonutMoneyWithdrawErrorObject
-		if err := json.Unmarshal(e.Object, &obj); err != nil {
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
 			return fmt.Errorf("events: %w", err)
 		}
 

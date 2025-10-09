@@ -191,9 +191,10 @@ func (vk *VK) MarketGetComments(params Params) (response MarketGetCommentsRespon
 
 // MarketGetCommentsExtendedResponse struct.
 type MarketGetCommentsExtendedResponse struct {
+	object.ExtendedResponse
+
 	Count int                      `json:"count"`
 	Items []object.WallWallComment `json:"items"`
-	object.ExtendedResponse
 }
 
 // MarketGetCommentsExtended returns comments list for an item.

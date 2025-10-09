@@ -678,56 +678,72 @@ func (cb *Callback) handlerForm(form url.Values) (*response, error) {
 	switch {
 	case t == GetItem && cb.getItem != nil:
 		var event GetItemRequest
-		if err := decoder.Decode(&event, form); err != nil {
+
+		err := decoder.Decode(&event, form)
+		if err != nil {
 			return nil, fmt.Errorf("payments: %w", err)
 		}
 
 		r.Response, r.Error = cb.getItem(event)
 	case t == GetItem.Test() && cb.getItemTest != nil:
 		var event GetItemRequest
-		if err := decoder.Decode(&event, form); err != nil {
+
+		err := decoder.Decode(&event, form)
+		if err != nil {
 			return nil, fmt.Errorf("payments: %w", err)
 		}
 
 		r.Response, r.Error = cb.getItemTest(event)
 	case t == GetSubscription && cb.getSubscription != nil:
 		var event GetSubscriptionRequest
-		if err := decoder.Decode(&event, form); err != nil {
+
+		err := decoder.Decode(&event, form)
+		if err != nil {
 			return nil, fmt.Errorf("payments: %w", err)
 		}
 
 		r.Response, r.Error = cb.getSubscription(event)
 	case t == GetSubscription.Test() && cb.getSubscriptionTest != nil:
 		var event GetSubscriptionRequest
-		if err := decoder.Decode(&event, form); err != nil {
+
+		err := decoder.Decode(&event, form)
+		if err != nil {
 			return nil, fmt.Errorf("payments: %w", err)
 		}
 
 		r.Response, r.Error = cb.getSubscriptionTest(event)
 	case t == OrderStatusChange && cb.orderStatusChange != nil:
 		var event OrderStatusChangeRequest
-		if err := decoder.Decode(&event, form); err != nil {
+
+		err := decoder.Decode(&event, form)
+		if err != nil {
 			return nil, fmt.Errorf("payments: %w", err)
 		}
 
 		r.Response, r.Error = cb.orderStatusChange(event)
 	case t == OrderStatusChange.Test() && cb.orderStatusChangeTest != nil:
 		var event OrderStatusChangeRequest
-		if err := decoder.Decode(&event, form); err != nil {
+
+		err := decoder.Decode(&event, form)
+		if err != nil {
 			return nil, fmt.Errorf("payments: %w", err)
 		}
 
 		r.Response, r.Error = cb.orderStatusChangeTest(event)
 	case t == SubscriptionStatusChange && cb.subscriptionStatusChange != nil:
 		var event SubscriptionStatusChangeRequest
-		if err := decoder.Decode(&event, form); err != nil {
+
+		err := decoder.Decode(&event, form)
+		if err != nil {
 			return nil, fmt.Errorf("payments: %w", err)
 		}
 
 		r.Response, r.Error = cb.subscriptionStatusChange(event)
 	case t == SubscriptionStatusChange.Test() && cb.subscriptionStatusChangeTest != nil:
 		var event SubscriptionStatusChangeRequest
-		if err := decoder.Decode(&event, form); err != nil {
+
+		err := decoder.Decode(&event, form)
+		if err != nil {
 			return nil, fmt.Errorf("payments: %w", err)
 		}
 
@@ -755,7 +771,8 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		_ = encoder.Encode(resp)
 	}
 
-	if err := r.ParseForm(); err != nil {
+	err := r.ParseForm()
+	if err != nil {
 		// NOTE: what about net error?
 		writeResponse(response{
 			Error: &Error{

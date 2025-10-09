@@ -90,6 +90,7 @@ type PhotosCommentXtrPid struct {
 // PhotosImage struct.
 type PhotosImage struct {
 	BaseImage
+
 	Type string `json:"type"`
 }
 
@@ -280,6 +281,7 @@ func (photo PhotosPhotoFull) MinSize() (minPhotoSize PhotosPhotoSizes) {
 // PhotosPhotoFullXtrRealOffset struct.
 type PhotosPhotoFullXtrRealOffset struct {
 	PhotosPhotoFull
+
 	RealOffset int `json:"real_offset"` // Real position of the photo
 }
 
@@ -322,12 +324,14 @@ type PhotosPhotoUploadResponse struct {
 // PhotosPhotoXtrRealOffset struct.
 type PhotosPhotoXtrRealOffset struct {
 	PhotosPhoto
+
 	RealOffset int `json:"real_offset"` // Real position of the photo
 }
 
 // PhotosPhotoXtrTagInfo struct.
 type PhotosPhotoXtrTagInfo struct {
 	PhotosPhoto
+
 	TagCreated int `json:"tag_created"` // Date when tag has been added in Unixtime
 	TagID      int `json:"tag_id"`      // Tag ID
 }

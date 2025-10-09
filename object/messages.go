@@ -310,10 +310,11 @@ type MessagesEventDataOpenApp struct {
 
 // MessagesEventData struct.
 type MessagesEventData struct {
-	Type string `json:"type"`
 	MessagesEventDataShowSnackbar
 	MessagesEventDataOpenLink
 	MessagesEventDataOpenApp
+
+	Type string `json:"type"`
 }
 
 // NewMessagesEventDataShowSnackbar show disappearing message.
@@ -409,9 +410,10 @@ type MessageContentSourceURL struct {
 //
 // https://dev.vk.com/ru/api/bots/development/messages
 type MessageContentSource struct {
-	Type                        string `json:"type"`
-	MessageContentSourceMessage        // type message
-	MessageContentSourceURL            // type url
+	MessageContentSourceMessage // type message
+	MessageContentSourceURL     // type url
+
+	Type string `json:"type"`
 }
 
 // NewMessageContentSourceMessage ...

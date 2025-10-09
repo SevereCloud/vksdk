@@ -72,6 +72,8 @@ func (result *Action) parse(v map[string]interface{}) {
 // attachments or other additional information. Descriptions of the object
 // fields are listed below.
 type AdditionalData struct {
+	Action
+
 	Title     string // Message's subject.
 	RefSource string
 	From      string // User ID of who sent the message if the message is from a chat
@@ -81,7 +83,6 @@ type AdditionalData struct {
 	// messages sent from a community (only for community administrators).
 	FromAdmin string
 	Emoji     string // Message contains emoji.
-	Action
 }
 
 func (result *AdditionalData) parse(v map[string]interface{}) {

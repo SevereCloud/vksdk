@@ -18,7 +18,8 @@ func generateRandomBytes(n int) ([]byte, error) {
 	b := make([]byte, n)
 
 	// Note that err == nil only if we read len(b) bytes.
-	if _, err := rand.Read(b); err != nil {
+	_, err := rand.Read(b)
+	if err != nil {
 		return nil, fmt.Errorf("callback: %w", err)
 	}
 

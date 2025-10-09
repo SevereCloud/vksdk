@@ -94,11 +94,11 @@ func TestAuthCodeFlowUser_URL(t *testing.T) {
 		Scope:       oauth.ScopeUserPhotos + oauth.ScopeUserDocs,
 		RedirectURI: "https://example.com/callback",
 		V:           "5.100",
-	}, "clientSecret"), "https://oauth.vk.com/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&response_type=code&scope=131076&state=&v=5.100")
+	}, "clientSecret"), "https://oauth.vk.ru/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&response_type=code&scope=131076&state=&v=5.100")
 	f(oauth.NewAuthCodeFlowUser(oauth.UserParams{
 		ClientID: 6888183,
 		Scope:    oauth.ScopeUserPhotos + oauth.ScopeUserDocs,
-	}, "clientSecret"), "https://oauth.vk.com/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=code&scope=131076&state=&v=5.199")
+	}, "clientSecret"), "https://oauth.vk.ru/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Foauth.vk.ru%2Fblank.html&response_type=code&scope=131076&state=&v=5.199")
 }
 
 func TestAuthCodeFlowUser_Token(t *testing.T) {
@@ -109,7 +109,7 @@ func TestAuthCodeFlowUser_Token(t *testing.T) {
 		Scope:    oauth.ScopeUserPhotos + oauth.ScopeUserDocs,
 	}, "clientSecretUser")
 
-	u, _ := url.Parse("https://oauth.vk.com/blank.html#code=2fb239386220842e7c")
+	u, _ := url.Parse("https://oauth.vk.ru/blank.html#code=2fb239386220842e7c")
 
 	_, err := acf.Token(u)
 
@@ -126,8 +126,8 @@ func TestAuthCodeFlowUser_Token(t *testing.T) {
 		assert.EqualError(t, err, errString)
 	}
 
-	// f("https://oauth.vk.com/blank.html#;", "invalid semicolon separator in query")
-	f("https://oauth.vk.com/blank.html?error=invalid_request&error_description=Invalid+display+parameter", "oauth: Invalid display parameter")
+	// f("https://oauth.vk.ru/blank.html#;", "invalid semicolon separator in query")
+	f("https://oauth.vk.ru/blank.html?error=invalid_request&error_description=Invalid+display+parameter", "oauth: Invalid display parameter")
 }
 
 func TestImplicitFlowUser(t *testing.T) {
@@ -144,11 +144,11 @@ func TestImplicitFlowUser(t *testing.T) {
 		Scope:       oauth.ScopeUserPhotos + oauth.ScopeUserDocs,
 		RedirectURI: "https://example.com/callback",
 		V:           "5.100",
-	}, "https://oauth.vk.com/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&response_type=token&scope=131076&state=&v=5.100")
+	}, "https://oauth.vk.ru/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&response_type=token&scope=131076&state=&v=5.100")
 	f(oauth.UserParams{
 		ClientID: 6888183,
 		Scope:    oauth.ScopeUserPhotos + oauth.ScopeUserDocs,
-	}, "https://oauth.vk.com/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Foauth.vk.com%2Fblank.html&response_type=token&scope=131076&state=&v=5.199")
+	}, "https://oauth.vk.ru/authorize?client_id=6888183&display=&redirect_uri=https%3A%2F%2Foauth.vk.ru%2Fblank.html&response_type=token&scope=131076&state=&v=5.199")
 }
 
 func TestDirectAuth(t *testing.T) {

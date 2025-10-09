@@ -295,6 +295,7 @@ type VideoVideoTagInfo struct {
 // VideoVideoImage struct.
 type VideoVideoImage struct {
 	BaseImage
+
 	WithPadding BaseBoolInt `json:"with_padding"`
 }
 

@@ -828,6 +828,7 @@ type GroupsMemberRole struct {
 // GroupsMemberRoleXtrUsersUser struct.
 type GroupsMemberRoleXtrUsersUser struct {
 	UsersUser
+
 	Role        string   `json:"role"`
 	Permissions []string `json:"permissions"`
 }

@@ -30,7 +30,7 @@ import (
 // Api constants.
 const (
 	Version   = vksdk.API
-	MethodURL = "https://api.vk.com/method/"
+	MethodURL = "https://api.vk.ru/method/"
 )
 
 // VKontakte API methods (except for methods from secure and ads sections)

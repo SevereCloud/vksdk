@@ -27,6 +27,7 @@ func TestGroupsCountersGroup_UnmarshalJSON(t *testing.T) {
 	f([]byte(`{"docs":1}`), object.GroupsCountersGroup{Docs: 1})
 
 	var counters object.GroupsCountersGroup
+
 	err := json.Unmarshal([]byte("0"), &counters)
 	assert.Error(t, err)
 }

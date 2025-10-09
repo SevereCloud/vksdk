@@ -22,9 +22,10 @@ func (vk *VK) AppsDeleteAppRequests(params Params) (response int, err error) {
 
 // AppsGetResponse struct.
 type AppsGetResponse struct {
+	object.ExtendedResponse
+
 	Count int              `json:"count"`
 	Items []object.AppsApp `json:"items"`
-	object.ExtendedResponse
 }
 
 // AppsGet returns applications data.
@@ -37,9 +38,10 @@ func (vk *VK) AppsGet(params Params) (response AppsGetResponse, err error) {
 
 // AppsGetCatalogResponse struct.
 type AppsGetCatalogResponse struct {
+	object.ExtendedResponse
+
 	Count int              `json:"count"`
 	Items []object.AppsApp `json:"items"`
-	object.ExtendedResponse
 }
 
 // AppsGetCatalog returns a list of applications (apps) available to users in the App Catalog.

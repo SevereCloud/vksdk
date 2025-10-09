@@ -51,9 +51,10 @@ func (vk *VK) AccountGetAppPermissions(params Params) (response int, err error) 
 
 // AccountGetBannedResponse struct.
 type AccountGetBannedResponse struct {
+	object.ExtendedResponse
+
 	Count int   `json:"count"`
 	Items []int `json:"items"`
-	object.ExtendedResponse
 }
 
 // AccountGetBanned returns a user's blacklist.
