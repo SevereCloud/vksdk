@@ -236,7 +236,9 @@ func (vk *VK) setRequestHeaders(req *http.Request, token string) {
 		accept = mediaTypeXMessagePack
 	}
 
-	req.Header.Set("Authorization", "Bearer "+token)
+	if len(token) > 0 {
+		req.Header.Set("Authorization", "Bearer "+token)
+	}
 
 	req.Header.Set("User-Agent", vk.UserAgent)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
