@@ -8,7 +8,7 @@ import (
 //
 // Allows the programmer to do a quick search for any substring.
 //
-// https://dev.vk.com/method/search.getHints
+// https://dev.vk.ru/method/search.getHints
 type SearchGetHintsBuilder struct {
 	api.Params
 }

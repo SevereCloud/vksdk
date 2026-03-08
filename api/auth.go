@@ -6,7 +6,7 @@ import (
 
 // AuthCheckPhone checks a user's phone number for correctness.
 //
-// https://dev.vk.com/method/auth.checkPhone
+// https://dev.vk.ru/method/auth.checkPhone
 //
 // Deprecated: This method is deprecated and may be disabled soon, please avoid
 // using it.
@@ -23,7 +23,7 @@ type AuthRestoreResponse struct {
 
 // AuthRestore allows to restore account access using a code received via SMS.
 //
-// https://dev.vk.com/method/auth.restore
+// https://dev.vk.ru/method/auth.restore
 func (vk *VK) AuthRestore(params Params) (response AuthRestoreResponse, err error) {
 	err = vk.RequestUnmarshal("auth.restore", &response, params)
 	return
@@ -37,7 +37,7 @@ type AuthGetProfileInfoBySilentTokenResponse struct {
 
 // AuthGetProfileInfoBySilentToken method.
 //
-// https://platform.vk.com/?p=DocsDashboard&docs=tokens_silent-token
+// https://platform.vk.ru/?p=DocsDashboard&docs=tokens_silent-token
 func (vk *VK) AuthGetProfileInfoBySilentToken(params Params) (response AuthGetProfileInfoBySilentTokenResponse, err error) {
 	err = vk.RequestUnmarshal("auth.getProfileInfoBySilentToken", &response, params)
 	return
@@ -78,7 +78,7 @@ type AuthExchangeSilentAuthTokenResponse struct {
 
 // AuthExchangeSilentAuthToken method.
 //
-// https://platform.vk.com/?p=DocsDashboard&docs=tokens_access-token
+// https://platform.vk.ru/?p=DocsDashboard&docs=tokens_access-token
 func (vk *VK) AuthExchangeSilentAuthToken(params Params) (response AuthExchangeSilentAuthTokenResponse, err error) {
 	err = vk.RequestUnmarshal("auth.exchangeSilentAuthToken", &response, params)
 	return

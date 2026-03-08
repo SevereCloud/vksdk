@@ -98,12 +98,12 @@ func TestGroupsLongPollServer_GetURL(t *testing.T) {
 
 	f(object.GroupsLongPollServer{
 		Key:    "abc",
-		Server: "https://vk.com",
+		Server: "https://vk.ru",
 		Ts:     "123",
-	}, 25, "https://vk.com?act=a_check&key=abc&ts=123&wait=25")
+	}, 25, "https://vk.ru?act=a_check&key=abc&ts=123&wait=25")
 	f(object.GroupsLongPollServer{
 		Key:    "abc",
-		Server: "https://vk.com",
+		Server: "https://vk.ru",
 		Ts:     "123",
-	}, 10, "https://vk.com?act=a_check&key=abc&ts=123&wait=10")
+	}, 10, "https://vk.ru?act=a_check&key=abc&ts=123&wait=10")
 }

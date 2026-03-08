@@ -114,7 +114,7 @@ func TestStreaming_NotVKStreamingHost(t *testing.T) {
 	t.Parallel()
 
 	s := &streaming.Streaming{
-		Endpoint: "vk.com",
+		Endpoint: "vk.ru",
 		Client:   http.DefaultClient,
 	}
 

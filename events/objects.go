@@ -213,9 +213,9 @@ type ChangesInt struct {
 
 // GroupChangeSettingsObject struct.
 //
-// BUG(VK): Phone https://vk.com/bugtracker?act=show&id=64240
+// BUG(VK): Phone https://vk.ru/bugtracker?act=show&id=64240
 //
-// BUG(VK): Email https://vk.com/bugtracker?act=show&id=86650
+// BUG(VK): Email https://vk.ru/bugtracker?act=show&id=86650
 type GroupChangeSettingsObject struct {
 	UserID  int `json:"user_id"`
 	Changes struct {

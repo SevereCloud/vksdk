@@ -1,13 +1,13 @@
 # API
 
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/api)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api)
-[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/api/getting-started)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.ru/ru/api/getting-started)
 
 Данная библиотека поддерживает версию API **5.199**.
 
 ## Запросы
 
-В начале необходимо инициализировать api с помощью [ключа доступа](https://dev.vk.com/ru/api/access-token/getting-started):
+В начале необходимо инициализировать api с помощью [ключа доступа](https://dev.vk.ru/ru/api/access-token/getting-started):
 
 ```go
 vk := api.NewVK("<TOKEN>")
@@ -21,7 +21,7 @@ vk := api.NewVK("<TOKEN>")
 Список всех методов можно найти на
 [данной странице](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api?tab=doc#VK).
 
-Пример запроса [`users.get`](https://dev.vk.com/method/users.get)
+Пример запроса [`users.get`](https://dev.vk.ru/method/users.get)
 
 ```go
 users, err := vk.UsersGet(api.Params{
@@ -52,7 +52,7 @@ res, err = api.MessageSend(b.Params)
 
 ### Обработка ошибок
 
-[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/reference/errors)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.ru/ru/reference/errors)
 
 Обработка ошибок полностью поддерживает методы
 [go 1.13](https://blog.golang.org/go1.13-errors)
@@ -130,7 +130,7 @@ log.Println("msgpack:", len(r)) // msgpack: 650775
 
 ### Запрос любого метода
 
-Пример запроса [users.get](https://dev.vk.com/method/users.get)
+Пример запроса [users.get](https://dev.vk.ru/method/users.get)
 
 ```go
 // Определяем структуру, которую вернет API
@@ -153,7 +153,7 @@ log.Print(response)
 ### Execute
 
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/SevereCloud/vksdk/v3/errors)](https://pkg.go.dev/github.com/SevereCloud/vksdk/v3/api#VK.Execute)
-[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/method/execute)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.ru/ru/method/execute)
 
 Универсальный метод, который позволяет запускать последовательность других
 методов, сохраняя и фильтруя промежуточные результаты.
@@ -199,7 +199,7 @@ vk.Handler = func(method string, params ...api.Params) (api.Response, error) {
 позволяет совершить до 25 обращений к разным методам в рамках одного запроса.
 
 Для методов секции ads действуют собственные ограничения, ознакомиться с ними
-Вы можете на [этой странице](https://dev.vk.com/ru/method/ads).
+Вы можете на [этой странице](https://dev.vk.ru/ru/method/ads).
 
 Максимальное число обращений к методам секции secure зависит от числа
 пользователей, установивших приложение. Если приложение установило меньше 10
@@ -236,7 +236,7 @@ vk.Client = client
 
 ### Ошибка с Captcha
 
-[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/api/captcha-error)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.ru/ru/api/captcha-error)
 
 Если какое-либо действие (например, отправка сообщения) выполняется
 пользователем слишком часто, то запрос к API может возвращать ошибку
@@ -262,7 +262,7 @@ vk.Client = client
 
 ## Загрузка файлов
 
-[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.com/ru/api/upload/overview)
+[![VK](https://img.shields.io/badge/developers-%234a76a8.svg?logo=VK&logoColor=white)](https://dev.vk.ru/ru/api/upload/overview)
 
 ### 1. Загрузка фотографий в альбом
 
@@ -392,7 +392,7 @@ photosPhoto, err = vk.UploadMarketAlbumPhoto(groupID, file)
 
 Допустимые форматы: AVI, MP4, 3GP, MPEG, MOV, MP3, FLV, WMV.
 
-[Параметры](https://dev.vk.com/method/video.save)
+[Параметры](https://dev.vk.ru/method/video.save)
 
 ```go
 videoUploadResponse, err = vk.UploadVideo(params, file)
@@ -476,13 +476,13 @@ docsDoc, err = vk.UploadMessagesDoc(peerID, "audio_message", title, tags, file)
 не более 10МБ. Формат видео: h264 video, aac audio,
 максимальное разрешение 720х1280, 30fps.
 
-Загрузить историю с фотографией. [Параметры](https://dev.vk.com/method/stories.getPhotoUploadServer)
+Загрузить историю с фотографией. [Параметры](https://dev.vk.ru/method/stories.getPhotoUploadServer)
 
 ```go
 uploadInfo, err = vk.UploadStoriesPhoto(params, file)
 ```
 
-Загрузить историю с видео. [Параметры](https://dev.vk.com/method/stories.getVideoUploadServer)
+Загрузить историю с видео. [Параметры](https://dev.vk.ru/method/stories.getVideoUploadServer)
 
 ```go
 uploadInfo, err = vk.UploadStoriesVideo(params, file)
@@ -529,14 +529,14 @@ photo, err = vk.UploadLeadFormsPhoto(file)
 ```
 
 Полученные данные можно использовать в методах
-[leadForms.create](https://dev.vk.com/method/leadForms.create)
+[leadForms.create](https://dev.vk.ru/method/leadForms.create)
 и
-[leadForms.edit](https://dev.vk.com/method/leadForms.edit).
+[leadForms.edit](https://dev.vk.ru/method/leadForms.edit).
 
 Полученные данные можно использовать в методах
-[prettyCards.create](https://dev.vk.com/method/prettyCards.create)
+[prettyCards.create](https://dev.vk.ru/method/prettyCards.create)
 и
-[prettyCards.edit](https://dev.vk.com/method/prettyCards.edit).
+[prettyCards.edit](https://dev.vk.ru/method/prettyCards.edit).
 
 ### Загрузки фотографии в коллекцию приложения для виджетов приложений сообществ
 

@@ -8,7 +8,7 @@ import (
 //
 // Checks a user's phone number for correctness.
 //
-// https://dev.vk.com/method/auth.checkPhone
+// https://dev.vk.ru/method/auth.checkPhone
 type AuthCheckPhoneBuilder struct {
 	api.Params
 }
@@ -45,9 +45,9 @@ func (b *AuthCheckPhoneBuilder) AuthByPhone(v bool) *AuthCheckPhoneBuilder {
 // AuthRestoreBuilder builder.
 //
 // Allows to restore account access using a code received via SMS.
-// This method is only available for apps with [vk.com/dev/auth_direct|Direct authorization] access.
+// This method is only available for apps with [vk.ru/dev/auth_direct|Direct authorization] access.
 //
-// https://dev.vk.com/method/auth.restore
+// https://dev.vk.ru/method/auth.restore
 type AuthRestoreBuilder struct {
 	api.Params
 }
@@ -71,7 +71,7 @@ func (b *AuthRestoreBuilder) LastName(v string) *AuthRestoreBuilder {
 
 // AuthGetProfileInfoBySilentTokenBuilder builder.
 //
-// https://platform.vk.com/?p=DocsDashboard&docs=tokens_silent-token
+// https://platform.vk.ru/?p=DocsDashboard&docs=tokens_silent-token
 type AuthGetProfileInfoBySilentTokenBuilder struct {
 	api.Params
 }
@@ -101,7 +101,7 @@ func (b *AuthGetProfileInfoBySilentTokenBuilder) Add(token, uuid, event string) 
 
 // AuthExchangeSilentAuthTokenBuilder builder.
 //
-// https://platform.vk.com/?p=DocsDashboard&docs=tokens_silent-token
+// https://platform.vk.ru/?p=DocsDashboard&docs=tokens_silent-token
 type AuthExchangeSilentAuthTokenBuilder struct {
 	api.Params
 }

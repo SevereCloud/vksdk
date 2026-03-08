@@ -8,7 +8,7 @@ type CallsStartResponse struct {
 
 // CallsStart method.
 //
-// https://dev.vk.com/method/calls.start
+// https://dev.vk.ru/method/calls.start
 func (vk *VK) CallsStart(params Params) (response CallsStartResponse, err error) {
 	err = vk.RequestUnmarshal("calls.start", &response, params)
 	return
@@ -16,7 +16,7 @@ func (vk *VK) CallsStart(params Params) (response CallsStartResponse, err error)
 
 // CallsForceFinish method.
 //
-// https://dev.vk.com/method/calls.forceFinish
+// https://dev.vk.ru/method/calls.forceFinish
 func (vk *VK) CallsForceFinish(params Params) (response int, err error) {
 	err = vk.RequestUnmarshal("calls.forceFinish", &response, params)
 	return

@@ -143,5 +143,5 @@ type AccountUserSettings struct {
 	ScreenName       string             `json:"screen_name"` // Domain name of the user's page
 	Sex              int                `json:"sex"`         // User sex
 	Status           string             `json:"status"`      // User status
-	ID               int                `json:"id"`          // TODO: Check it https://vk.com/bug230405 (always return 0)
+	ID               int                `json:"id"`          // TODO: Check it https://vk.ru/bug230405 (always return 0)
 }

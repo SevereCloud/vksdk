@@ -6,7 +6,7 @@ import (
 
 // AccountBanBuilder builder.
 //
-// https://dev.vk.com/method/account.ban
+// https://dev.vk.ru/method/account.ban
 type AccountBanBuilder struct {
 	api.Params
 }
@@ -24,9 +24,9 @@ func (b *AccountBanBuilder) OwnerID(v int) *AccountBanBuilder {
 
 // AccountChangePasswordBuilder builder.
 //
-// Changes a user password after access is successfully restored with the [vk.com/dev/auth.restore|auth.restore] method.
+// Changes a user password after access is successfully restored with the [vk.ru/dev/auth.restore|auth.restore] method.
 //
-// https://dev.vk.com/method/account.changePassword
+// https://dev.vk.ru/method/account.changePassword
 type AccountChangePasswordBuilder struct {
 	api.Params
 }
@@ -36,7 +36,7 @@ func NewAccountChangePasswordBuilder() *AccountChangePasswordBuilder {
 	return &AccountChangePasswordBuilder{api.Params{}}
 }
 
-// RestoreSID session id received after the [vk.com/dev/auth.restore|auth.restore] method is executed.
+// RestoreSID session id received after the [vk.ru/dev/auth.restore|auth.restore] method is executed.
 // (If the password is changed right after the access was restored).
 func (b *AccountChangePasswordBuilder) RestoreSID(v string) *AccountChangePasswordBuilder {
 	b.Params["restore_sid"] = v
@@ -67,7 +67,7 @@ func (b *AccountChangePasswordBuilder) NewPassword(v string) *AccountChangePassw
 // Returns a list of active ads (offers) which executed by the user will bring him/her respective number of votes to
 // his balance in the application.
 //
-// https://dev.vk.com/method/account.getActiveOffers
+// https://dev.vk.ru/method/account.getActiveOffers
 type AccountGetActiveOffersBuilder struct {
 	api.Params
 }
@@ -93,7 +93,7 @@ func (b *AccountGetActiveOffersBuilder) Count(v int) *AccountGetActiveOffersBuil
 //
 // Gets settings of the user in this application.
 //
-// https://dev.vk.com/method/account.getAppPermissions
+// https://dev.vk.ru/method/account.getAppPermissions
 type AccountGetAppPermissionsBuilder struct {
 	api.Params
 }
@@ -113,7 +113,7 @@ func (b *AccountGetAppPermissionsBuilder) UserID(v int) *AccountGetAppPermission
 //
 // Returns a user's blacklist.
 //
-// https://dev.vk.com/method/account.getBanned
+// https://dev.vk.ru/method/account.getBanned
 type AccountGetBannedBuilder struct {
 	api.Params
 }
@@ -139,7 +139,7 @@ func (b *AccountGetBannedBuilder) Count(v int) *AccountGetBannedBuilder {
 //
 // Returns non-null values of user counters.
 //
-// https://dev.vk.com/method/account.getCounters
+// https://dev.vk.ru/method/account.getCounters
 type AccountGetCountersBuilder struct {
 	api.Params
 }
@@ -165,7 +165,7 @@ func (b *AccountGetCountersBuilder) UserID(v int) *AccountGetCountersBuilder {
 //
 // Returns current account info.
 //
-// https://dev.vk.com/method/account.getInfo
+// https://dev.vk.ru/method/account.getInfo
 type AccountGetInfoBuilder struct {
 	api.Params
 }
@@ -187,7 +187,7 @@ func (b *AccountGetInfoBuilder) Fields(v []string) *AccountGetInfoBuilder {
 //
 // Gets settings of push notifications.
 //
-// https://dev.vk.com/method/account.getPushSettings
+// https://dev.vk.ru/method/account.getPushSettings
 type AccountGetPushSettingsBuilder struct {
 	api.Params
 }
@@ -207,7 +207,7 @@ func (b *AccountGetPushSettingsBuilder) DeviceID(v string) *AccountGetPushSettin
 //
 // Subscribes an iOS/Android/Windows Phone-based device to receive push notifications.
 //
-// https://dev.vk.com/method/account.registerDevice
+// https://dev.vk.ru/method/account.registerDevice
 type AccountRegisterDeviceBuilder struct {
 	api.Params
 }
@@ -247,7 +247,7 @@ func (b *AccountRegisterDeviceBuilder) SystemVersion(v string) *AccountRegisterD
 	return b
 }
 
-// Settings push settings in a [vk.com/dev/push_settings|special format].
+// Settings push settings in a [vk.ru/dev/push_settings|special format].
 func (b *AccountRegisterDeviceBuilder) Settings(v string) *AccountRegisterDeviceBuilder {
 	b.Params["settings"] = v
 	return b
@@ -263,7 +263,7 @@ func (b *AccountRegisterDeviceBuilder) Sandbox(v bool) *AccountRegisterDeviceBui
 //
 // Edits current profile info.
 //
-// https://dev.vk.com/method/account.saveProfileInfo
+// https://dev.vk.ru/method/account.saveProfileInfo
 type AccountSaveProfileInfoBuilder struct {
 	api.Params
 }
@@ -387,7 +387,7 @@ func (b *AccountSaveProfileInfoBuilder) Status(v string) *AccountSaveProfileInfo
 //
 // Allows to edit the current account info.
 //
-// https://dev.vk.com/method/account.setInfo
+// https://dev.vk.ru/method/account.setInfo
 type AccountSetInfoBuilder struct {
 	api.Params
 }
@@ -413,7 +413,7 @@ func (b *AccountSetInfoBuilder) Value(v string) *AccountSetInfoBuilder {
 //
 // Sets an application screen name (up to 17 characters), that is shown to the user in the left menu.
 //
-// https://dev.vk.com/method/account.setNameInMenu
+// https://dev.vk.ru/method/account.setNameInMenu
 type AccountSetNameInMenuBuilder struct {
 	api.Params
 }
@@ -439,7 +439,7 @@ func (b *AccountSetNameInMenuBuilder) Name(v string) *AccountSetNameInMenuBuilde
 //
 // Marks the current user as online for 15 minutes.
 //
-// https://dev.vk.com/method/account.setOnline
+// https://dev.vk.ru/method/account.setOnline
 type AccountSetOnlineBuilder struct {
 	api.Params
 }
@@ -459,7 +459,7 @@ func (b *AccountSetOnlineBuilder) Voip(v bool) *AccountSetOnlineBuilder {
 //
 // Change push settings.
 //
-// https://dev.vk.com/method/account.setPushSettings
+// https://dev.vk.ru/method/account.setPushSettings
 type AccountSetPushSettingsBuilder struct {
 	api.Params
 }
@@ -475,7 +475,7 @@ func (b *AccountSetPushSettingsBuilder) DeviceID(v string) *AccountSetPushSettin
 	return b
 }
 
-// Settings push settings in a [vk.com/dev/push_settings|special format].
+// Settings push settings in a [vk.ru/dev/push_settings|special format].
 func (b *AccountSetPushSettingsBuilder) Settings(v string) *AccountSetPushSettingsBuilder {
 	b.Params["settings"] = v
 	return b
@@ -487,7 +487,7 @@ func (b *AccountSetPushSettingsBuilder) Key(v string) *AccountSetPushSettingsBui
 	return b
 }
 
-// Value new value for the key in a [vk.com/dev/push_settings|special format].
+// Value new value for the key in a [vk.ru/dev/push_settings|special format].
 func (b *AccountSetPushSettingsBuilder) Value(v []string) *AccountSetPushSettingsBuilder {
 	b.Params["value"] = v
 	return b
@@ -497,7 +497,7 @@ func (b *AccountSetPushSettingsBuilder) Value(v []string) *AccountSetPushSetting
 //
 // Mutes push notifications for the set period of time.
 //
-// https://dev.vk.com/method/account.setSilenceMode
+// https://dev.vk.ru/method/account.setSilenceMode
 type AccountSetSilenceModeBuilder struct {
 	api.Params
 }
@@ -539,7 +539,7 @@ func (b *AccountSetSilenceModeBuilder) Sound(v int) *AccountSetSilenceModeBuilde
 
 // AccountUnbanBuilder builder.
 //
-// https://dev.vk.com/method/account.unban
+// https://dev.vk.ru/method/account.unban
 type AccountUnbanBuilder struct {
 	api.Params
 }
@@ -559,7 +559,7 @@ func (b *AccountUnbanBuilder) OwnerID(v int) *AccountUnbanBuilder {
 //
 // Unsubscribes a device from push notifications.
 //
-// https://dev.vk.com/method/account.unregisterDevice
+// https://dev.vk.ru/method/account.unregisterDevice
 type AccountUnregisterDeviceBuilder struct {
 	api.Params
 }

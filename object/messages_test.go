@@ -59,7 +59,7 @@ func TestMessagesKeyboard_AddOpenLinkButton(t *testing.T) {
 	const (
 		payload = "payload"
 		label   = "label"
-		link    = "https://vk.com"
+		link    = "https://vk.ru"
 	)
 
 	keyboard := object.NewMessagesKeyboard(false)
@@ -291,8 +291,8 @@ func TestMessageContentSource_ToJSON(t *testing.T) {
 	}
 
 	f(
-		object.NewMessageContentSourceURL("https://vk.com"),
-		`{"url":"https://vk.com","type":"url"}`,
+		object.NewMessageContentSourceURL("https://vk.ru"),
+		`{"url":"https://vk.ru","type":"url"}`,
 	)
 	f(
 		object.NewMessageContentSourceMessage(1, 2, 3),
@@ -315,8 +315,8 @@ func TestMessagesEventData_ToJSON(t *testing.T) {
 		`{"text":"test","type":"show_snackbar"}`,
 	)
 	f(
-		object.NewMessagesEventDataOpenLink("https://vk.com"),
-		`{"link":"https://vk.com","type":"open_link"}`,
+		object.NewMessagesEventDataOpenLink("https://vk.ru"),
+		`{"link":"https://vk.ru","type":"open_link"}`,
 	)
 	f(
 		object.NewMessagesEventDataOpenApp(1, 2, "3"),

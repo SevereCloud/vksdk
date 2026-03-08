@@ -6,9 +6,9 @@ import (
 
 // WidgetsGetCommentsBuilder builder.
 //
-// Gets a list of comments for the page added through the [vk.com/dev/Comments|Comments widget].
+// Gets a list of comments for the page added through the [vk.ru/dev/Comments|Comments widget].
 //
-// https://dev.vk.com/method/widgets.getComments
+// https://dev.vk.ru/method/widgets.getComments
 type WidgetsGetCommentsBuilder struct {
 	api.Params
 }
@@ -62,10 +62,10 @@ func (b *WidgetsGetCommentsBuilder) Count(v int) *WidgetsGetCommentsBuilder {
 
 // WidgetsGetPagesBuilder builder.
 //
-// Gets a list of application/site pages where the [vk.com/dev/Comments|Comments widget]
-// or [vk.com/dev/Like|Like widget] is installed.
+// Gets a list of application/site pages where the [vk.ru/dev/Comments|Comments widget]
+// or [vk.ru/dev/Like|Like widget] is installed.
 //
-// https://dev.vk.com/method/widgets.getPages
+// https://dev.vk.ru/method/widgets.getPages
 type WidgetsGetPagesBuilder struct {
 	api.Params
 }

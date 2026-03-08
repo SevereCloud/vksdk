@@ -42,12 +42,12 @@ func TestResponse_AddURL(t *testing.T) {
 		assert.Equal(t, resp, actual)
 	}
 
-	f("title", "https://vk.com",
+	f("title", "https://vk.ru",
 		marusia.Response{
 			Buttons: []marusia.Button{
 				{
 					Title: "title",
-					URL:   "https://vk.com",
+					URL:   "https://vk.ru",
 				},
 			},
 		},

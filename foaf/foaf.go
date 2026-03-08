@@ -17,7 +17,7 @@ import (
 )
 
 // BaseURL url foaf.
-const BaseURL = "https://vk.com/foaf.php"
+const BaseURL = "https://vk.ru/foaf.php"
 
 // Context keys to use with https://golang.org/pkg/context
 // WithValue function to associate.

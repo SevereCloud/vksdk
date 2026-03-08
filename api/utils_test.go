@@ -48,7 +48,7 @@ func TestVK_UtilsGetShortLink(t *testing.T) {
 func TestVK_UtilsGetLinkStats(t *testing.T) {
 	t.Parallel()
 
-	// BUG(VK): https://vk.com/bug202983
+	// BUG(VK): https://vk.ru/bug202983
 	needGroupToken(t)
 
 	params := api.Params{

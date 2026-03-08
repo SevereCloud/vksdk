@@ -8,7 +8,7 @@ import (
 //
 // Returns data required to show the status of a user or community.
 //
-// https://dev.vk.com/method/status.get
+// https://dev.vk.ru/method/status.get
 type StatusGetBuilder struct {
 	api.Params
 }
@@ -34,7 +34,7 @@ func (b *StatusGetBuilder) GroupID(v int) *StatusGetBuilder {
 //
 // Sets a new status for the current user.
 //
-// https://dev.vk.com/method/status.set
+// https://dev.vk.ru/method/status.set
 type StatusSetBuilder struct {
 	api.Params
 }

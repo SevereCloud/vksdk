@@ -231,7 +231,7 @@ type UsersMilitary struct {
 
 // UsersOccupation struct.
 type UsersOccupation struct {
-	// BUG(VK): UsersOccupation.ID is float https://vk.com/bug136108
+	// BUG(VK): UsersOccupation.ID is float https://vk.ru/bug136108
 	ID   float64 `json:"id"`   // ID of school, university, company group
 	Name string  `json:"name"` // Name of occupation
 	Type string  `json:"type"` // Type of occupation

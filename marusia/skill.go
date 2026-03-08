@@ -6,12 +6,12 @@ Package marusia для создания скилла Маруси.
 а разработчики и владельцы бизнеса смогут сделать голосовой интерфейс для
 своих продуктов.
 
-Документация: https://dev.vk.com/ru/marusia/getting-started
+Документация: https://dev.vk.ru/ru/marusia/getting-started
 
 # Регистрация приложения ВКонтакте
 
 Скилл можно создать в разделе для разработчиков:
-https://vk.com/editapp?act=create.
+https://vk.ru/editapp?act=create.
 В день можно создать не более 3-х скиллов, и не более 10-и за 5 дней.
 
 Для этого:
@@ -118,7 +118,7 @@ https://skill-debugger.marusia.mail.ru/
 			case "кнопки":
 				resp.Text = "Держи кнопки"
 				resp.TTS = "Жми на кнопки"
-				resp.AddURL("ссылка", "https://vk.com")
+				resp.AddURL("ссылка", "https://vk.ru")
 				resp.AddButton("подсказка без нагрузки", nil)
 				resp.AddButton("подсказка с нагрузкой", myPayload{
 					Text: "test",
@@ -418,7 +418,7 @@ type Push struct {
 // Важно: в плейлисте могут содержаться объекты только с одинаковым
 // source_type, т.е не может быть плейлиста, состоящего из аудио из вк и получаемых по url.
 //
-// https://dev.vk.com/ru/marusia/player
+// https://dev.vk.ru/ru/marusia/player
 type AudioPlayer struct {
 	// Номер начального аудио (нумерация с 0).
 	SeekTrack int `json:"seek_track,omitempty"`
@@ -593,7 +593,7 @@ func SpeakerAudioVKID(id string) string {
 // SpeakerAudio произносимый Марусей текст можно разнообразить звуковыми
 // эффектами, которые входят в её библиотеку звуков.
 //
-// Список звуков можно найти на странице https://dev.vk.com/ru/marusia/sound
+// Список звуков можно найти на странице https://dev.vk.ru/ru/marusia/sound
 func SpeakerAudio(name string) string {
 	return fmt.Sprintf(`<speaker audio=%s>`, strconv.Quote(name))
 }

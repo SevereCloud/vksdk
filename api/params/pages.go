@@ -8,7 +8,7 @@ import (
 //
 // Allows to clear the cache of particular 'external' pages which may be attached to VK posts.
 //
-// https://dev.vk.com/method/pages.clearCache
+// https://dev.vk.ru/method/pages.clearCache
 type PagesClearCacheBuilder struct {
 	api.Params
 }
@@ -28,7 +28,7 @@ func (b *PagesClearCacheBuilder) URL(v string) *PagesClearCacheBuilder {
 //
 // Returns information about a wiki page.
 //
-// https://dev.vk.com/method/pages.get
+// https://dev.vk.ru/method/pages.get
 type PagesGetBuilder struct {
 	api.Params
 }
@@ -84,7 +84,7 @@ func (b *PagesGetBuilder) NeedHTML(v bool) *PagesGetBuilder {
 //
 // Returns a list of all previous versions of a wiki page.
 //
-// https://dev.vk.com/method/pages.getHistory
+// https://dev.vk.ru/method/pages.getHistory
 type PagesGetHistoryBuilder struct {
 	api.Params
 }
@@ -116,7 +116,7 @@ func (b *PagesGetHistoryBuilder) UserID(v int) *PagesGetHistoryBuilder {
 //
 // Returns a list of wiki pages in a group.
 //
-// https://dev.vk.com/method/pages.getTitles
+// https://dev.vk.ru/method/pages.getTitles
 type PagesGetTitlesBuilder struct {
 	api.Params
 }
@@ -136,7 +136,7 @@ func (b *PagesGetTitlesBuilder) GroupID(v int) *PagesGetTitlesBuilder {
 //
 // Returns the text of one of the previous versions of a wiki page.
 //
-// https://dev.vk.com/method/pages.getVersion
+// https://dev.vk.ru/method/pages.getVersion
 type PagesGetVersionBuilder struct {
 	api.Params
 }
@@ -174,7 +174,7 @@ func (b *PagesGetVersionBuilder) NeedHTML(v bool) *PagesGetVersionBuilder {
 //
 // Returns HTML representation of the wiki markup.
 //
-// https://dev.vk.com/method/pages.parseWiki
+// https://dev.vk.ru/method/pages.parseWiki
 type PagesParseWikiBuilder struct {
 	api.Params
 }
@@ -200,7 +200,7 @@ func (b *PagesParseWikiBuilder) GroupID(v int) *PagesParseWikiBuilder {
 //
 // Saves the text of a wiki page.
 //
-// https://dev.vk.com/method/pages.save
+// https://dev.vk.ru/method/pages.save
 type PagesSaveBuilder struct {
 	api.Params
 }
@@ -244,7 +244,7 @@ func (b *PagesSaveBuilder) Title(v string) *PagesSaveBuilder {
 //
 // Saves modified read and edit access settings for a wiki page.
 //
-// https://dev.vk.com/method/pages.saveAccess
+// https://dev.vk.ru/method/pages.saveAccess
 type PagesSaveAccessBuilder struct {
 	api.Params
 }

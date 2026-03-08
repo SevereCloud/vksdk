@@ -10,9 +10,9 @@ add necessary rules and receive data matching the rules.
 With Streaming API you can receive not more than 1% of all public data
 matching the rules set. To get access to the extended Streaming API version
 that includes 100% data please write to support
-https://vk.com/support?act=new_api
+https://vk.ru/support?act=new_api
 
-VK documentation https://dev.vk.com/ru/api/streaming/getting-started
+VK documentation https://dev.vk.ru/ru/api/streaming/getting-started
 
 # Initialization
 

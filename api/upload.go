@@ -714,7 +714,7 @@ type rawUploadStoriesVideo struct {
 // more than 10 MB. Video format: h264 video, aac audio,
 // maximum 720х1280, 30fps.
 //
-// https://dev.vk.com/method/stories.getPhotoUploadServer
+// https://dev.vk.ru/method/stories.getPhotoUploadServer
 func (vk *VK) UploadStoriesPhoto(params Params, file io.Reader) (response StoriesSaveResponse, err error) {
 	uploadServer, err := vk.StoriesGetPhotoUploadServer(params)
 	if err != nil {
@@ -996,7 +996,7 @@ func (vk *VK) UploadMarusiaPicture(file io.Reader) (response MarusiaSavePictureR
 
 // UploadMarusiaAudio uploading audio.
 //
-// https://dev.vk.com/ru/marusia/media-api
+// https://dev.vk.ru/ru/marusia/media-api
 func (vk *VK) UploadMarusiaAudio(file io.Reader) (response MarusiaCreateAudioResponse, err error) {
 	uploadServer, err := vk.MarusiaGetAudioUploadLink(nil)
 	if err != nil {

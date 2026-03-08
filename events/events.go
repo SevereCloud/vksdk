@@ -1,7 +1,7 @@
 /*
 Package events for community events handling.
 
-See more https://dev.vk.com/ru/api/community-events/json-schema
+See more https://dev.vk.ru/ru/api/community-events/json-schema
 */
 package events // import "github.com/SevereCloud/vksdk/v3/events"
 

@@ -107,7 +107,7 @@ func TestVK_AdsCheckLink(t *testing.T) {
 	res, err := vkUser.AdsCheckLink(api.Params{
 		"account_id": needAccountID(t),
 		"link_type":  "post",
-		"link_url":   "https://vk.com/wall-1_337125",
+		"link_url":   "https://vk.ru/wall-1_337125",
 	})
 	noError(t, err)
 	assert.NotEmpty(t, res)

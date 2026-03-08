@@ -6,7 +6,7 @@ import (
 
 // OrdersCancelSubscriptionBuilder builder.
 //
-// https://dev.vk.com/method/orders.cancelSubscription
+// https://dev.vk.ru/method/orders.cancelSubscription
 type OrdersCancelSubscriptionBuilder struct {
 	api.Params
 }
@@ -38,7 +38,7 @@ func (b *OrdersCancelSubscriptionBuilder) PendingCancel(v bool) *OrdersCancelSub
 //
 // Changes order status.
 //
-// https://dev.vk.com/method/orders.changeState
+// https://dev.vk.ru/method/orders.changeState
 type OrdersChangeStateBuilder struct {
 	api.Params
 }
@@ -59,7 +59,7 @@ func (b *OrdersChangeStateBuilder) OrderID(v int) *OrdersChangeStateBuilder {
 // * cancel — to cancel unconfirmed order.
 //
 // * charge — to confirm unconfirmed order.
-// Applies only if processing of [vk.com/dev/payments_status|order_change_state] notification failed.
+// Applies only if processing of [vk.ru/dev/payments_status|order_change_state] notification failed.
 //
 // * refund — to cancel confirmed order.
 func (b *OrdersChangeStateBuilder) Action(v string) *OrdersChangeStateBuilder {
@@ -83,7 +83,7 @@ func (b *OrdersChangeStateBuilder) TestMode(v bool) *OrdersChangeStateBuilder {
 //
 // Returns a list of orders.
 //
-// https://dev.vk.com/method/orders.get
+// https://dev.vk.ru/method/orders.get
 type OrdersGetBuilder struct {
 	api.Params
 }
@@ -113,7 +113,7 @@ func (b *OrdersGetBuilder) TestMode(v bool) *OrdersGetBuilder {
 
 // OrdersGetAmountBuilder builder.
 //
-// https://dev.vk.com/method/orders.getAmount
+// https://dev.vk.ru/method/orders.getAmount
 type OrdersGetAmountBuilder struct {
 	api.Params
 }
@@ -139,7 +139,7 @@ func (b *OrdersGetAmountBuilder) Votes(v []string) *OrdersGetAmountBuilder {
 //
 // Returns information about orders by their IDs.
 //
-// https://dev.vk.com/method/orders.getById
+// https://dev.vk.ru/method/orders.getById
 type OrdersGetByIDBuilder struct {
 	api.Params
 }
@@ -169,7 +169,7 @@ func (b *OrdersGetByIDBuilder) TestMode(v bool) *OrdersGetByIDBuilder {
 
 // OrdersGetUserSubscriptionByIDBuilder builder.
 //
-// https://dev.vk.com/method/orders.getUserSubscriptionById
+// https://dev.vk.ru/method/orders.getUserSubscriptionById
 type OrdersGetUserSubscriptionByIDBuilder struct {
 	api.Params
 }
@@ -193,7 +193,7 @@ func (b *OrdersGetUserSubscriptionByIDBuilder) SubscriptionID(v int) *OrdersGetU
 
 // OrdersGetUserSubscriptionsBuilder builder.
 //
-// https://dev.vk.com/method/orders.getUserSubscriptions
+// https://dev.vk.ru/method/orders.getUserSubscriptions
 type OrdersGetUserSubscriptionsBuilder struct {
 	api.Params
 }
@@ -211,7 +211,7 @@ func (b *OrdersGetUserSubscriptionsBuilder) UserID(v int) *OrdersGetUserSubscrip
 
 // OrdersUpdateSubscriptionBuilder builder.
 //
-// https://dev.vk.com/method/orders.updateSubscription
+// https://dev.vk.ru/method/orders.updateSubscription
 type OrdersUpdateSubscriptionBuilder struct {
 	api.Params
 }

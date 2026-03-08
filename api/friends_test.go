@@ -83,7 +83,7 @@ func TestVK_FriendsEdit(t *testing.T) {
 	t.Parallel()
 
 	// NOTE: need user friends
-	// NOTE: https://vk.com/bug191897
+	// NOTE: https://vk.ru/bug191897
 	needUserToken(t)
 
 	_, _ = vkUser.FriendsEdit(nil)

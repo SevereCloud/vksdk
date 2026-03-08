@@ -8,7 +8,7 @@ import (
 //
 // Allows to hide stories from chosen sources from current user's feed.
 //
-// https://dev.vk.com/method/stories.banOwner
+// https://dev.vk.ru/method/stories.banOwner
 type StoriesBanOwnerBuilder struct {
 	api.Params
 }
@@ -28,7 +28,7 @@ func (b *StoriesBanOwnerBuilder) OwnersIDs(v []int) *StoriesBanOwnerBuilder {
 //
 // Allows to delete story.
 //
-// https://dev.vk.com/method/stories.delete
+// https://dev.vk.ru/method/stories.delete
 type StoriesDeleteBuilder struct {
 	api.Params
 }
@@ -54,7 +54,7 @@ func (b *StoriesDeleteBuilder) StoryID(v int) *StoriesDeleteBuilder {
 //
 // Returns stories available for current user.
 //
-// https://dev.vk.com/method/stories.get
+// https://dev.vk.ru/method/stories.get
 type StoriesGetBuilder struct {
 	api.Params
 }
@@ -80,7 +80,7 @@ func (b *StoriesGetBuilder) Extended(v bool) *StoriesGetBuilder {
 //
 // Returns list of sources hidden from current user's feed.
 //
-// https://dev.vk.com/method/stories.getBanned
+// https://dev.vk.ru/method/stories.getBanned
 type StoriesGetBannedBuilder struct {
 	api.Params
 }
@@ -106,7 +106,7 @@ func (b *StoriesGetBannedBuilder) Fields(v []string) *StoriesGetBannedBuilder {
 //
 // Returns story by its ID.
 //
-// https://dev.vk.com/method/stories.getById
+// https://dev.vk.ru/method/stories.getById
 type StoriesGetByIDBuilder struct {
 	api.Params
 }
@@ -138,7 +138,7 @@ func (b *StoriesGetByIDBuilder) Fields(v []string) *StoriesGetByIDBuilder {
 //
 // Returns URL for uploading a story with photo.
 //
-// https://dev.vk.com/method/stories.getPhotoUploadServer
+// https://dev.vk.ru/method/stories.getPhotoUploadServer
 type StoriesGetPhotoUploadServerBuilder struct {
 	api.Params
 }
@@ -172,7 +172,7 @@ func (b *StoriesGetPhotoUploadServerBuilder) LinkText(v string) *StoriesGetPhoto
 	return b
 }
 
-// LinkURL link URL. Internal links on https://vk.com only.
+// LinkURL link URL. Internal links on https://vk.ru only.
 func (b *StoriesGetPhotoUploadServerBuilder) LinkURL(v string) *StoriesGetPhotoUploadServerBuilder {
 	b.Params["link_url"] = v
 	return b
@@ -188,7 +188,7 @@ func (b *StoriesGetPhotoUploadServerBuilder) GroupID(v int) *StoriesGetPhotoUplo
 //
 // Returns replies to the story.
 //
-// https://dev.vk.com/method/stories.getReplies
+// https://dev.vk.ru/method/stories.getReplies
 type StoriesGetRepliesBuilder struct {
 	api.Params
 }
@@ -232,7 +232,7 @@ func (b *StoriesGetRepliesBuilder) Fields(v []string) *StoriesGetRepliesBuilder 
 //
 // Returns stories available for current user.
 //
-// https://dev.vk.com/method/stories.getStats
+// https://dev.vk.ru/method/stories.getStats
 type StoriesGetStatsBuilder struct {
 	api.Params
 }
@@ -258,7 +258,7 @@ func (b *StoriesGetStatsBuilder) StoryID(v int) *StoriesGetStatsBuilder {
 //
 // Allows to receive URL for uploading story with video.
 //
-// https://dev.vk.com/method/stories.getVideoUploadServer
+// https://dev.vk.ru/method/stories.getVideoUploadServer
 type StoriesGetVideoUploadServerBuilder struct {
 	api.Params
 }
@@ -292,7 +292,7 @@ func (b *StoriesGetVideoUploadServerBuilder) LinkText(v string) *StoriesGetVideo
 	return b
 }
 
-// LinkURL link URL. Internal links on https://vk.com only.
+// LinkURL link URL. Internal links on https://vk.ru only.
 func (b *StoriesGetVideoUploadServerBuilder) LinkURL(v string) *StoriesGetVideoUploadServerBuilder {
 	b.Params["link_url"] = v
 	return b
@@ -308,7 +308,7 @@ func (b *StoriesGetVideoUploadServerBuilder) GroupID(v int) *StoriesGetVideoUplo
 //
 // Returns a list of story viewers.
 //
-// https://dev.vk.com/method/stories.getViewers
+// https://dev.vk.ru/method/stories.getViewers
 type StoriesGetViewersBuilder struct {
 	api.Params
 }
@@ -352,7 +352,7 @@ func (b *StoriesGetViewersBuilder) Extended(v bool) *StoriesGetViewersBuilder {
 //
 // Hides all replies in the last 24 hours from the user to current user's stories.
 //
-// https://dev.vk.com/method/stories.hideAllReplies
+// https://dev.vk.ru/method/stories.hideAllReplies
 type StoriesHideAllRepliesBuilder struct {
 	api.Params
 }
@@ -378,7 +378,7 @@ func (b *StoriesHideAllRepliesBuilder) GroupID(v int) *StoriesHideAllRepliesBuil
 //
 // Hides the reply to the current user's story.
 //
-// https://dev.vk.com/method/stories.hideReply
+// https://dev.vk.ru/method/stories.hideReply
 type StoriesHideReplyBuilder struct {
 	api.Params
 }
@@ -402,7 +402,7 @@ func (b *StoriesHideReplyBuilder) StoryID(v int) *StoriesHideReplyBuilder {
 
 // StoriesSaveBuilder builder.
 //
-// https://dev.vk.com/method/stories.save
+// https://dev.vk.ru/method/stories.save
 type StoriesSaveBuilder struct {
 	api.Params
 }
@@ -424,7 +424,7 @@ func (b *StoriesSaveBuilder) UploadResults(v string) *StoriesSaveBuilder {
 //
 // Sends feedback to the story.
 //
-// https://dev.vk.com/method/stories.sendInteraction
+// https://dev.vk.ru/method/stories.sendInteraction
 type StoriesSendInteractionBuilder struct {
 	api.Params
 }
@@ -472,7 +472,7 @@ func (b *StoriesSendInteractionBuilder) UnseenMarker(v bool) *StoriesSendInterac
 //
 // Allows to show stories from hidden sources in current user's feed.
 //
-// https://dev.vk.com/method/stories.unbanOwner
+// https://dev.vk.ru/method/stories.unbanOwner
 type StoriesUnbanOwnerBuilder struct {
 	api.Params
 }

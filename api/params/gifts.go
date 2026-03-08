@@ -8,7 +8,7 @@ import (
 //
 // Returns a list of user gifts.
 //
-// https://dev.vk.com/method/gifts.get
+// https://dev.vk.ru/method/gifts.get
 type GiftsGetBuilder struct {
 	api.Params
 }
