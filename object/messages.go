@@ -773,6 +773,7 @@ func (forward MessagesForward) ToJSON() string {
 	return string(b)
 }
 
+// MessagesDeleteResponse struct.
 type MessagesDeleteResponse struct {
 	PeerID                int               `json:"peer_id"`
 	MessageID             *int              `json:"message_id,omitempty"`

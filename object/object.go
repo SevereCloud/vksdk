@@ -405,6 +405,7 @@ type BaseUserID struct {
 	UserID int `json:"user_id"`
 }
 
+// BaseMessageError struct.
 type BaseMessageError struct {
 	Code        int    `json:"code"`
 	Description string `json:"description"`
