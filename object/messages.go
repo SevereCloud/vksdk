@@ -772,3 +772,11 @@ func (forward MessagesForward) ToJSON() string {
 	b, _ := json.Marshal(forward)
 	return string(b)
 }
+
+type MessagesDeleteResponse struct {
+	PeerID                int               `json:"peer_id"`
+	MessageID             *int              `json:"message_id,omitempty"`
+	ConversationMessageID int               `json:"conversation_message_id"`
+	Response              *BaseBoolInt      `json:"response,omitempty"`
+	Error                 *BaseMessageError `json:"error,omitempty"`
+}

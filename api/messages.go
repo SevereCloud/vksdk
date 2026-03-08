@@ -1,11 +1,7 @@
 package api // import "github.com/SevereCloud/vksdk/v3/api"
 
 import (
-	"fmt"
-	"strconv"
-
 	"github.com/SevereCloud/vksdk/v3/object"
-	"github.com/vmihailenco/msgpack/v5"
 )
 
 // MessagesAddChatUser adds a new user to a chat.
@@ -39,29 +35,7 @@ func (vk *VK) MessagesCreateChat(params Params) (response MessagesCreateChatResp
 }
 
 // MessagesDeleteResponse struct.
-type MessagesDeleteResponse map[string]int
-
-// DecodeMsgpack funcion.
-func (resp *MessagesDeleteResponse) DecodeMsgpack(dec *msgpack.Decoder) error {
-	data, err := dec.DecodeRaw()
-	if err != nil {
-		return fmt.Errorf("api.MessagesDeleteResponse: %w", err)
-	}
-
-	var respMap map[int]int
-
-	err = msgpack.Unmarshal(data, &respMap)
-	if err != nil {
-		return fmt.Errorf("api.MessagesDeleteResponse: %w", err)
-	}
-
-	*resp = make(MessagesDeleteResponse)
-	for key, val := range respMap {
-		(*resp)[strconv.Itoa(key)] = val
-	}
-
-	return nil
-}
+type MessagesDeleteResponse []object.MessagesDeleteResponse
 
 // MessagesDelete deletes one or more messages.
 //

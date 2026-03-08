@@ -405,6 +405,11 @@ type BaseUserID struct {
 	UserID int `json:"user_id"`
 }
 
+type BaseMessageError struct {
+	Code        int    `json:"code"`
+	Description string `json:"description"`
+}
+
 // PrivacyCategory type.
 type PrivacyCategory string
 
