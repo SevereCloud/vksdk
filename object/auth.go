@@ -10,7 +10,7 @@ type AuthSilentTokenProfile struct {
 	Photo100       string      `json:"photo_100"`
 	Photo200       string      `json:"photo_200"`
 	Phone          string      `json:"phone"`
-	PhoneValidated interface{} `json:"phone_validated"` // int | bool
+	PhoneValidated any         `json:"phone_validated"` // int | bool
 	UserID         int         `json:"user_id"`
 	IsPartial      BaseBoolInt `json:"is_partial"`
 	IsService      BaseBoolInt `json:"is_service"`

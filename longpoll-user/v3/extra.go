@@ -24,7 +24,7 @@ const (
 	ChatKickUser    = "chat_kick_user"    // kick out user from chat
 )
 
-func (result *Action) parse(v map[string]interface{}) {
+func (result *Action) parse(v map[string]any) {
 	sourceAct, exist := v["source_act"].(string)
 	if !exist {
 		return
@@ -85,7 +85,7 @@ type AdditionalData struct {
 	Emoji     string // Message contains emoji.
 }
 
-func (result *AdditionalData) parse(v map[string]interface{}) {
+func (result *AdditionalData) parse(v map[string]any) {
 	if title, ok := v["title"].(string); ok {
 		result.Title = title
 	}
@@ -118,7 +118,7 @@ func (result *AdditionalData) parse(v map[string]interface{}) {
 }
 
 // LongPollAttachments type.
-type LongPollAttachments map[string]interface{}
+type LongPollAttachments map[string]any
 
 // ExtraFields for a message object.
 //
@@ -131,7 +131,7 @@ type ExtraFields struct {
 	Attachments    LongPollAttachments // attachments, if mode = 2 was chosen
 }
 
-func (result *ExtraFields) parseExtraFields(i []interface{}) error {
+func (result *ExtraFields) parseExtraFields(i []any) error {
 	length := len(i)
 
 	if length > 3 {
@@ -153,13 +153,13 @@ func (result *ExtraFields) parseExtraFields(i []interface{}) error {
 	}
 
 	if length > 6 {
-		if v, ok := i[6].(map[string]interface{}); ok {
+		if v, ok := i[6].(map[string]any); ok {
 			result.AdditionalData.parse(v)
 		}
 	}
 
 	if length > 7 {
-		if v, ok := i[7].(map[string]interface{}); ok {
+		if v, ok := i[7].(map[string]any); ok {
 			result.Attachments = v
 		}
 	}
@@ -167,7 +167,7 @@ func (result *ExtraFields) parseExtraFields(i []interface{}) error {
 	return nil
 }
 
-func interfaceToStringIntMap(m interface{}) (map[string]int, error) {
+func interfaceToStringIntMap(m any) (map[string]int, error) {
 	reflectedMap := reflect.ValueOf(m)
 	if reflectedMap.Kind() != reflect.Map {
 		return nil, &expectedSlice{m}
@@ -187,7 +187,7 @@ func interfaceToStringIntMap(m interface{}) (map[string]int, error) {
 	return result, nil
 }
 
-func interfaceToIDSlice(slice interface{}) ([]int, error) {
+func interfaceToIDSlice(slice any) ([]int, error) {
 	reflectedSlice := reflect.ValueOf(slice)
 	if reflectedSlice.Kind() != reflect.Slice {
 		return nil, &expectedSlice{slice}

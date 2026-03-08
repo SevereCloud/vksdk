@@ -52,7 +52,7 @@ func (b *BoardAddTopicBuilder) FromGroup(v bool) *BoardAddTopicBuilder {
 // '<media_id>' — Media ID. Example: "photo100172_166443618,photo66748_265827614".
 //
 // NOTE: If you try to attach more than one reference, an error will be thrown.
-func (b *BoardAddTopicBuilder) Attachments(v interface{}) *BoardAddTopicBuilder {
+func (b *BoardAddTopicBuilder) Attachments(v any) *BoardAddTopicBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -120,7 +120,7 @@ func (b *BoardCreateCommentBuilder) Message(v string) *BoardCreateCommentBuilder
 // "<owner_id>_<media_id>,<owner_id>_<media_id>", ” — Type of media object:
 // 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
-func (b *BoardCreateCommentBuilder) Attachments(v interface{}) *BoardCreateCommentBuilder {
+func (b *BoardCreateCommentBuilder) Attachments(v any) *BoardCreateCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -244,7 +244,7 @@ func (b *BoardEditCommentBuilder) Message(v string) *BoardEditCommentBuilder {
 // Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
 // Example: "photo100172_166443618,photo66748_265827614".
-func (b *BoardEditCommentBuilder) Attachments(v interface{}) *BoardEditCommentBuilder {
+func (b *BoardEditCommentBuilder) Attachments(v any) *BoardEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }

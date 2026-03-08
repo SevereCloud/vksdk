@@ -27,11 +27,11 @@ type SilentUser struct {
 
 // ExternalUser struct.
 type ExternalUser struct {
-	ID          string      `json:"id,omitempty"`
-	Avatar      string      `json:"avatar,omitempty"`
-	FirstName   string      `json:"first_name"`
-	LastName    string      `json:"last_name"`
-	Phone       string      `json:"phone"`
-	BorderColor string      `json:"borderColor,omitempty"`
-	Payload     interface{} `json:"payload,omitempty"`
+	ID          string `json:"id,omitempty"`
+	Avatar      string `json:"avatar,omitempty"`
+	FirstName   string `json:"first_name"`
+	LastName    string `json:"last_name"`
+	Phone       string `json:"phone"`
+	BorderColor string `json:"borderColor,omitempty"`
+	Payload     any    `json:"payload,omitempty"`
 }

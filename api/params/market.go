@@ -197,7 +197,7 @@ func (b *MarketCreateCommentBuilder) Message(v string) *MarketCreateCommentBuild
 // ” - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
 // '<owner_id>' - media owner id, '<media_id>' - media attachment id,
 // For example: "photo100172_166443618,photo66748_265827614".
-func (b *MarketCreateCommentBuilder) Attachments(v interface{}) *MarketCreateCommentBuilder {
+func (b *MarketCreateCommentBuilder) Attachments(v any) *MarketCreateCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -559,7 +559,7 @@ func (b *MarketEditCommentBuilder) Message(v string) *MarketEditCommentBuilder {
 // ” - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document",
 // '<owner_id>' - media owner id, '<media_id>' - media attachment id,
 // For example: "photo100172_166443618,photo66748_265827614".
-func (b *MarketEditCommentBuilder) Attachments(v interface{}) *MarketEditCommentBuilder {
+func (b *MarketEditCommentBuilder) Attachments(v any) *MarketEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }

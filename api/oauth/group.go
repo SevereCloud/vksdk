@@ -1,4 +1,3 @@
-// Package oauth ...
 package oauth // import "github.com/SevereCloud/vksdk/v3/api/oauth"
 
 import (
@@ -110,17 +109,17 @@ func (p GroupParams) Values() *url.Values {
 		q.Set("redirect_uri", p.RedirectURI)
 	}
 
-	var groupIDs string
+	var groupIDs strings.Builder
 
 	for i, id := range p.GroupIDs {
 		if i != 0 {
-			groupIDs += ","
+			groupIDs.WriteString(",")
 		}
 
-		groupIDs += strconv.Itoa(id)
+		groupIDs.WriteString(strconv.Itoa(id))
 	}
 
-	q.Set("group_ids", groupIDs)
+	q.Set("group_ids", groupIDs.String())
 	q.Set("display", string(p.Display))
 	q.Set("scope", strconv.Itoa(p.Scope))
 	q.Set("state", p.State)

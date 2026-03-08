@@ -21,7 +21,7 @@ func (e tooShortArray) Error() string {
 
 // expectedSlice type.
 type expectedSlice struct {
-	v interface{}
+	v any
 }
 
 // Error returns the message of a expectedSlice.
@@ -34,7 +34,7 @@ func (e expectedSlice) Error() string {
 
 // failedCast type.
 type failedCast struct {
-	v interface{}
+	v any
 }
 
 // Error returns the message of a failedCast.

@@ -391,7 +391,7 @@ type Button struct {
 
 	// Любой JSON, который нужно отправить скиллу, если данная кнопка будет
 	// нажата, максимум 4096 байт.
-	Payload interface{} `json:"payload,omitempty"`
+	Payload any `json:"payload,omitempty"`
 }
 
 // Push уведомления это удобный механизм для передачи сообщений пользователю,
@@ -407,7 +407,7 @@ type Push struct {
 
 	// Любой JSON, который нужно отправить скиллу, если данный пуш будет
 	// нажат, максимум 4096 байт.
-	Payload interface{} `json:"payload,omitempty"`
+	Payload any `json:"payload,omitempty"`
 }
 
 // AudioPlayer структура аудиоплеера состоит из плейлиста, в котором содержатся
@@ -571,7 +571,7 @@ func (r *Response) AddURL(title string, url string) {
 // AddButton добавляет к ответу кнопку с полезной нагрузкой.
 //
 // Если полезная нагрузка не нужна, можно передать nil.
-func (r *Response) AddButton(title string, payload interface{}) {
+func (r *Response) AddButton(title string, payload any) {
 	if r.Buttons == nil {
 		r.Buttons = make([]Button, 0)
 	}

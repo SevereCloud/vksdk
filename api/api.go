@@ -16,6 +16,7 @@ import (
 	"net/http"
 	"net/url"
 	"reflect"
+	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -145,7 +146,7 @@ func (vk *VK) getToken() string {
 }
 
 // Params type.
-type Params map[string]interface{}
+type Params map[string]any
 
 // Lang - determines the language for the data to be displayed on. For
 // example country and city names. If you use a non-cyrillic language,
@@ -283,6 +284,7 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 				vk.rps = 0
 			} else if vk.rps == vk.Limit*len(vk.accessTokens) {
 				time.Sleep(sleepTime)
+
 				vk.lastTime = time.Now()
 				vk.rps = 0
 			}
@@ -375,7 +377,7 @@ func (vk *VK) Request(method string, sliceParams ...Params) ([]byte, error) {
 }
 
 // RequestUnmarshal provides access to VK API methods.
-func (vk *VK) RequestUnmarshal(method string, obj interface{}, sliceParams ...Params) error {
+func (vk *VK) RequestUnmarshal(method string, obj any, sliceParams ...Params) error {
 	rawResponse, err := vk.Request(method, sliceParams...)
 	if err != nil {
 		return err
@@ -420,18 +422,18 @@ func fmtReflectValue(value reflect.Value, depth int) string {
 	case reflect.Bool:
 		return fmtBool(f.Bool())
 	case reflect.Array, reflect.Slice:
-		s := ""
+		var s strings.Builder
 
 		for i := range f.Len() {
 			if i > 0 {
-				s += ","
+				s.WriteString(",")
 			}
 
-			s += FmtValue(f.Index(i).Interface(), depth)
+			s.WriteString(FmtValue(f.Index(i).Interface(), depth))
 		}
 
-		return s
-	case reflect.Ptr:
+		return s.String()
+	case reflect.Pointer:
 		// pointer to array or slice or struct? ok at top level
 		// but not embedded (avoid loops)
 		if depth == 0 && f.Pointer() != 0 {
@@ -446,7 +448,7 @@ func fmtReflectValue(value reflect.Value, depth int) string {
 }
 
 // FmtValue return vk format string.
-func FmtValue(value interface{}, depth int) string {
+func FmtValue(value any, depth int) string {
 	if value == nil {
 		return ""
 	}

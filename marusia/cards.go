@@ -5,16 +5,16 @@ type CardType string
 
 // Возможные значения.
 const (
-	// Одно изображение.
+	// BigImage одно изображение.
 	BigImage CardType = "BigImage"
 
-	// Набор изображений.
+	// ItemsList набор изображений.
 	ItemsList CardType = "ItemsList"
 
-	// Карточка vk miniapp'а.
+	// MiniApp карточка vk miniapp'а.
 	MiniApp CardType = "MiniApp"
 
-	// Стилизованная ссылка.
+	// Link стилизованная ссылка.
 	Link CardType = "Link"
 )
 

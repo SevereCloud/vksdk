@@ -19,7 +19,7 @@ type AdsAccount struct {
 
 // AdsAdLayout struct.
 type AdsAdLayout struct {
-	AdFormat       interface{} `json:"ad_format"`    // Ad format
+	AdFormat       any         `json:"ad_format"`    // Ad format
 	Description    string      `json:"description"`  // Ad description
 	ImageSrc       string      `json:"image_src"`    // Image URL
 	ImageSrc2x     string      `json:"image_src_2x"` // URL of the preview image in double size
@@ -128,13 +128,13 @@ type AdsLinkStatus string
 
 // Possible values.
 const (
-	// allowed to use in ads.
+	// AdsLinkAllowed allowed to use in ads.
 	AdsLinkAllowed AdsLinkStatus = "allowed"
 
-	// prohibited to use for this type of the object.
+	// AdsLinkDisallowed prohibited to use for this type of the object.
 	AdsLinkDisallowed AdsLinkStatus = "disallowed"
 
-	// checking, wait please.
+	// AdsLinkInProgress checking, wait please.
 	AdsLinkInProgress AdsLinkStatus = "in_progress"
 )
 
@@ -276,7 +276,7 @@ type AdsAd struct {
 	Category2ID             string      `json:"category2_id"`
 	Cpm                     string      `json:"cpm"`
 	AdFormat                int         `json:"ad_format"`   // Ad format
-	AdPlatform              interface{} `json:"ad_platform"` // Ad platform
+	AdPlatform              any         `json:"ad_platform"` // Ad platform
 	CampaignID              int         `json:"campaign_id"` // Campaign ID
 	CostType                int         `json:"cost_type"`
 	Cpc                     int         `json:"cpc"`                    // Cost of a click, kopecks
@@ -297,7 +297,7 @@ type AdsAd struct {
 	StartTime               string      `json:"start_time"`
 	StopTime                string      `json:"stop_time"`
 	AgeRestriction          string      `json:"age_restriction"`
-	EventsRetargetingGroups interface{} `json:"events_retargeting_groups"`
+	EventsRetargetingGroups any         `json:"events_retargeting_groups"`
 	ImpressionsLimitPeriod  string      `json:"impressions_limit_period"`
 }
 

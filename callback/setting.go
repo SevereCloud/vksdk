@@ -1,4 +1,3 @@
-// Package callback implements Callback API.
 package callback // import "github.com/SevereCloud/vksdk/v3/callback"
 
 import (

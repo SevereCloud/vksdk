@@ -1,6 +1,3 @@
-/*
-Package internal unimportable
-*/
 package internal // import "github.com/SevereCloud/vksdk/v3/internal"
 
 import (
@@ -65,7 +62,7 @@ func DoRequest(ctx context.Context, req *http.Request) (*http.Response, error) {
 		req.Header.Set("User-Agent", ContextUserAgent(ctx))
 	}
 
-	resp, err := client.Do(req.WithContext(ctx))
+	resp, err := client.Do(req.WithContext(ctx)) //nolint:gosec // VK API request
 	// If we got an error, and the context has been canceled,
 	// the context's error is probably more useful.
 	if err != nil {

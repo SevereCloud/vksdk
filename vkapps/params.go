@@ -84,8 +84,8 @@ const (
 
 // Catalog transition from the catalog. Return empty string if not Catalog.
 func (r Referral) Catalog() (categoryName string) {
-	if strings.HasPrefix(string(r), "catalog_") {
-		return strings.TrimPrefix(string(r), "catalog_")
+	if after, ok := strings.CutPrefix(string(r), "catalog_"); ok {
+		return after
 	}
 
 	return

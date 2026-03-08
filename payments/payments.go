@@ -129,20 +129,23 @@ type Status string
 
 // Subscription status.
 const (
-	// Subscription is ready for payments. An order for the user
-	// needs to be processed within the application. If the response is
-	// successful, the payment system credits votes to the application
+	// Chargeable subscription is ready for payments.
+	//
+	// An order for the user needs to be processed within the application.
+	// If the response is successful, the payment system credits votes to the application
 	// balance. If the response is a failure, the order is canceled.
 	Chargeable Status = "chargeable"
 
-	// Available as of API version 5.132. Order cancelled. It is necessary
-	// to pick up game values given to the user for payments.
+	// Refunded order cancelled.
+	//
+	// Available as of API version 5.132.
+	// It is necessary to pick up game values given to the user for payments.
 	Refunded Status = "refunded"
 
-	// Subscription is active.
+	// Active subscription is active.
 	Active Status = "active"
 
-	// Subscription is canceled.
+	// Cancelled subscription is canceled.
 	Cancelled Status = "cancelled"
 )
 
@@ -151,16 +154,16 @@ type Reason string
 
 // Reason for cancellation.
 const (
-	// Subscription canceled by the user.
+	// UserDecision subscription canceled by the user.
 	UserDecision Reason = "user_decision"
 
-	// Subscription canceled by the application (orders.cancelSubscription).
+	// AppDecision subscription canceled by the application (orders.cancelSubscription).
 	AppDecision Reason = "app_decision"
 
-	// Subscription canceled due to a failed payment.
+	// PaymentFail subscription canceled due to a failed payment.
 	PaymentFail Reason = "payment_fail"
 
-	// Subscription canceled for a different reason.
+	// Unknown subscription canceled for a different reason.
 	Unknown Reason = "unknown"
 )
 
@@ -169,22 +172,22 @@ type NotificationType string
 
 // List type of notification.
 const (
-	// For acquiring product information.
+	// GetItem for acquiring product information.
 	//
 	// https://dev.vk.com/ru/api/payments/notifications/get-item
 	GetItem NotificationType = "get_item"
 
-	// For changing the order’s status.
+	// OrderStatusChange for changing the order’s status.
 	//
 	// https://dev.vk.com/ru/payments/notifications/order-status-change
 	OrderStatusChange NotificationType = "order_status_change"
 
-	// For receiving subscription information.
+	// GetSubscription for receiving subscription information.
 	//
 	// https://dev.vk.com/ru/api/payments/notifications/get-subscription
 	GetSubscription NotificationType = "get_subscription"
 
-	// For changing a subscription’s status.
+	// SubscriptionStatusChange for changing a subscription’s status.
 	//
 	// https://dev.vk.com/ru/api/payments/notifications/subscription-status-change
 	SubscriptionStatusChange NotificationType = "subscription_status_change"
@@ -224,39 +227,40 @@ type Notification struct {
 //
 // See https://dev.vk.com/ru/api/payments/notifications/overview
 const (
-	// Common error.
+	// CommonError common error.
 	//
 	// Severity: true/false.
 	CommonError = 1
 
-	// Temporary database error.
+	// TemporaryDatabaseError temporary database error.
 	//
 	// Severity: false.
 	TemporaryDatabaseError = 2
 
-	// The calculated and sent signatures do not match.
+	// BadSignatures the calculated and sent signatures do not match.
 	//
 	// Severity: true.
 	BadSignatures = 10
 
-	// Request parameters do not comply with the specification.
+	// BadRequest request parameters do not comply with the specification.
+	//
 	// No required fields in the request.
 	// Other request integrity errors.
 	//
 	// Severity: true.
 	BadRequest = 11
 
-	// Product does not exist.
+	// ProductNotExist product does not exist.
 	//
 	// Severity: true.
 	ProductNotExist = 20
 
-	// Product is out of stock.
+	// ProductOutOfStock product is out of stock.
 	//
 	// Severity: true.
 	ProductOutOfStock = 21
 
-	// User does not exist.
+	// UserNotExist user does not exist.
 	//
 	// Severity: true.
 	UserNotExist = 22
@@ -664,8 +668,8 @@ func (cb *Callback) OnSubscriptionStatusChangeTest(f func(e SubscriptionStatusCh
 
 // response struct.
 type response struct {
-	Response interface{} `json:"response,omitempty"`
-	Error    *Error      `json:"error,omitempty"`
+	Response any    `json:"response,omitempty"`
+	Error    *Error `json:"error,omitempty"`
 }
 
 func (cb *Callback) handlerForm(form url.Values) (*response, error) {
@@ -759,6 +763,8 @@ func (cb *Callback) handlerForm(form url.Values) (*response, error) {
 	return r, nil
 }
 
+const maxBytesSize = 10_000_000
+
 // HandleFunc a request handler that process notifications
 // and return either the processing result if successful
 // or an error description if unsuccessful.
@@ -771,7 +777,9 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		_ = encoder.Encode(resp)
 	}
 
-	err := r.ParseForm()
+	r.Body = http.MaxBytesReader(w, r.Body, maxBytesSize)
+
+	err := r.ParseForm() //nolint:gosec // Body size limited by http.MaxBytesReader above
 	if err != nil {
 		// NOTE: what about net error?
 		writeResponse(response{

@@ -18,7 +18,7 @@ import (
 //	return Args.v; // return parameter "v"
 //
 // https://dev.vk.com/ru/method/execute
-func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error {
+func (vk *VK) ExecuteWithArgs(code string, params Params, obj any) error {
 	token := vk.getToken()
 
 	reqParams := Params{
@@ -58,7 +58,7 @@ func (vk *VK) ExecuteWithArgs(code string, params Params, obj interface{}) error
 // saving and filtering interim results.
 //
 // https://dev.vk.com/ru/method/execute
-func (vk *VK) Execute(code string, obj interface{}) error {
+func (vk *VK) Execute(code string, obj any) error {
 	return vk.ExecuteWithArgs(code, Params{}, obj)
 }
 

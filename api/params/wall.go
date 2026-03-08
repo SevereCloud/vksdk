@@ -96,7 +96,7 @@ func (b *WallCreateCommentBuilder) ReplyToComment(v int) *WallCreateCommentBuild
 // ” — Type of media object: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media owner. '<media_id>' — Media ID.
 // For example: "photo100172_166443618,photo66748_265827614".
-func (b *WallCreateCommentBuilder) Attachments(v interface{}) *WallCreateCommentBuilder {
+func (b *WallCreateCommentBuilder) Attachments(v any) *WallCreateCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -211,7 +211,7 @@ func (b *WallEditBuilder) Message(v string) *WallEditBuilder {
 // Example: "photo66748_265827614,http://habrahabr.ru",
 //
 // NOTE: If more than one link is being attached, an error is thrown.
-func (b *WallEditBuilder) Attachments(v interface{}) *WallEditBuilder {
+func (b *WallEditBuilder) Attachments(v any) *WallEditBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -322,7 +322,7 @@ func (b *WallEditAdsStealthBuilder) Message(v string) *WallEditAdsStealthBuilder
 // Example: "photo66748_265827614,http://habrahabr.ru",
 //
 // NOTE: If more than one link is being attached, an error is thrown.
-func (b *WallEditAdsStealthBuilder) Attachments(v interface{}) *WallEditAdsStealthBuilder {
+func (b *WallEditAdsStealthBuilder) Attachments(v any) *WallEditAdsStealthBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -418,7 +418,7 @@ func (b *WallEditCommentBuilder) Message(v string) *WallEditCommentBuilder {
 // '<owner_id>' — ID of the media application owner. '<media_id>' — Media application ID.
 //
 // Example: "photo100172_166443618,photo66748_265827614".
-func (b *WallEditCommentBuilder) Attachments(v interface{}) *WallEditCommentBuilder {
+func (b *WallEditCommentBuilder) Attachments(v any) *WallEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -768,7 +768,7 @@ func (b *WallPostBuilder) Message(v string) *WallPostBuilder {
 // Example: "photo66748_265827614,http://habrahabr.ru".
 //
 // NOTE: If more than one link is being attached, an error will be thrown.
-func (b *WallPostBuilder) Attachments(v interface{}) *WallPostBuilder {
+func (b *WallPostBuilder) Attachments(v any) *WallPostBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -919,7 +919,7 @@ func (b *WallPostAdsStealthBuilder) Message(v string) *WallPostAdsStealthBuilder
 // Example: "photo66748_265827614,http://habrahabr.ru".
 //
 // NOTE: If more than one link is being attached, an error will be thrown.
-func (b *WallPostAdsStealthBuilder) Attachments(v interface{}) *WallPostAdsStealthBuilder {
+func (b *WallPostAdsStealthBuilder) Attachments(v any) *WallPostAdsStealthBuilder {
 	b.Params["attachments"] = v
 	return b
 }

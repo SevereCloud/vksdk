@@ -22,7 +22,7 @@ type MessageFlagsChangeHandler func(m MessageFlagsChange)
 //
 // Replace message flags.
 func (w Wrapper) OnMessageFlagsChange(f MessageFlagsChangeHandler) {
-	w.longpoll.EventNew(1, func(i []interface{}) error {
+	w.longpoll.EventNew(1, func(i []any) error {
 		var event MessageFlagsChange
 
 		err := event.parse(i)
@@ -45,7 +45,7 @@ type MessageFlagsSetHandler func(m MessageFlagsSet)
 //
 // Install message flags.
 func (w Wrapper) OnMessageFlagsSet(f MessageFlagsSetHandler) {
-	w.longpoll.EventNew(2, func(i []interface{}) error {
+	w.longpoll.EventNew(2, func(i []any) error {
 		var event MessageFlagsSet
 
 		err := event.parse(i)
@@ -68,7 +68,7 @@ type MessageFlagsResetHandler func(m MessageFlagsReset)
 //
 // Reset message flags.
 func (w Wrapper) OnMessageFlagsReset(f MessageFlagsResetHandler) {
-	w.longpoll.EventNew(3, func(i []interface{}) error {
+	w.longpoll.EventNew(3, func(i []any) error {
 		var event MessageFlagsReset
 
 		err := event.parse(i)
@@ -91,7 +91,7 @@ type NewMessageHandler func(m NewMessage)
 //
 // Add a new message.
 func (w Wrapper) OnNewMessage(f NewMessageHandler) {
-	w.longpoll.EventNew(4, func(i []interface{}) error {
+	w.longpoll.EventNew(4, func(i []any) error {
 		var event NewMessage
 
 		err := event.parse(i)
@@ -114,7 +114,7 @@ type EditMessageHandler func(m EditMessage)
 //
 // Edit message.
 func (w Wrapper) OnEditMessage(f EditMessageHandler) {
-	w.longpoll.EventNew(5, func(i []interface{}) error {
+	w.longpoll.EventNew(5, func(i []any) error {
 		var event EditMessage
 
 		err := event.parse(i)
@@ -137,7 +137,7 @@ type ReadInMessagesHandler func(m ReadInMessages)
 //
 // Read all incoming messages received before message with LocalID.
 func (w Wrapper) OnReadInMessages(f ReadInMessagesHandler) {
-	w.longpoll.EventNew(6, func(i []interface{}) error {
+	w.longpoll.EventNew(6, func(i []any) error {
 		var event ReadInMessages
 
 		err := event.parse(i)
@@ -160,7 +160,7 @@ type ReadOutMessagesHandler func(m ReadOutMessages)
 //
 // Read all outgoing messages sent before message with LocalID.
 func (w Wrapper) OnReadOutMessages(f ReadOutMessagesHandler) {
-	w.longpoll.EventNew(7, func(i []interface{}) error {
+	w.longpoll.EventNew(7, func(i []any) error {
 		var event ReadOutMessages
 
 		err := event.parse(i)
@@ -183,7 +183,7 @@ type FriendBecameOnlineHandler func(m FriendBecameOnline)
 //
 // A friend UserID is online.
 func (w Wrapper) OnFriendBecameOnline(f FriendBecameOnlineHandler) {
-	w.longpoll.EventNew(8, func(i []interface{}) error {
+	w.longpoll.EventNew(8, func(i []any) error {
 		var event FriendBecameOnline
 
 		err := event.parse(i)
@@ -206,7 +206,7 @@ type FriendBecameOfflineHandler func(m FriendBecameOffline)
 //
 // A friend UserID is offline.
 func (w Wrapper) OnFriendBecameOffline(f FriendBecameOfflineHandler) {
-	w.longpoll.EventNew(9, func(i []interface{}) error {
+	w.longpoll.EventNew(9, func(i []any) error {
 		var event FriendBecameOffline
 
 		err := event.parse(i)
@@ -229,7 +229,7 @@ type DialogFlagsResetHandler func(m DialogFlagsReset)
 //
 // Reset dialog flags.
 func (w Wrapper) OnDialogFlagsReset(f DialogFlagsResetHandler) {
-	w.longpoll.EventNew(10, func(i []interface{}) error {
+	w.longpoll.EventNew(10, func(i []any) error {
 		var event DialogFlagsReset
 
 		err := event.parse(i)
@@ -252,7 +252,7 @@ type DialogFlagsReplaceHandler func(m DialogFlagsReplace)
 //
 // Replace dialog flags.
 func (w Wrapper) OnDialogFlagsReplace(f DialogFlagsReplaceHandler) {
-	w.longpoll.EventNew(11, func(i []interface{}) error {
+	w.longpoll.EventNew(11, func(i []any) error {
 		var event DialogFlagsReplace
 
 		err := event.parse(i)
@@ -275,7 +275,7 @@ type DialogsFlagsSetHandler func(m DialogsFlagsSet)
 //
 // Install dialog flags.
 func (w Wrapper) OnDialogsFlagsSet(f DialogsFlagsSetHandler) {
-	w.longpoll.EventNew(12, func(i []interface{}) error {
+	w.longpoll.EventNew(12, func(i []any) error {
 		var event DialogsFlagsSet
 
 		err := event.parse(i)
@@ -298,7 +298,7 @@ type DeleteMessagesHandler func(m DeleteMessages)
 //
 // Deleting all messages in PeerID dialogs with IDs up to LocalID.
 func (w Wrapper) OnDeleteMessages(f DeleteMessagesHandler) {
-	w.longpoll.EventNew(13, func(i []interface{}) error {
+	w.longpoll.EventNew(13, func(i []any) error {
 		var event DeleteMessages
 
 		err := event.parse(i)
@@ -321,7 +321,7 @@ type RestoreDeletedMessagesHandler func(m RestoreDeletedMessages)
 //
 // Restore message.
 func (w Wrapper) OnRestoreDeletedMessages(f RestoreDeletedMessagesHandler) {
-	w.longpoll.EventNew(14, func(i []interface{}) error {
+	w.longpoll.EventNew(14, func(i []any) error {
 		var event RestoreDeletedMessages
 
 		err := event.parse(i)
@@ -345,7 +345,7 @@ type ChatParamsChangeHandler func(m ChatParamsChange)
 // One of the parameters (content, topic) of the conversation ChatID was
 // changed. Self — 1 or 0 (whether the change was caused by the user).
 func (w Wrapper) OnChatParamsChange(f ChatParamsChangeHandler) {
-	w.longpoll.EventNew(51, func(i []interface{}) error {
+	w.longpoll.EventNew(51, func(i []any) error {
 		var event ChatParamsChange
 
 		err := event.parse(i)
@@ -368,7 +368,7 @@ type ChatInfoChangeHandler func(m ChatInfoChange)
 //
 // Chat info change.
 func (w Wrapper) OnChatInfoChange(f ChatInfoChangeHandler) {
-	w.longpoll.EventNew(52, func(i []interface{}) error {
+	w.longpoll.EventNew(52, func(i []any) error {
 		var event ChatInfoChange
 
 		err := event.parse(i)
@@ -392,7 +392,7 @@ type UserTypingHandler func(m UserTyping)
 // User UserID began typing in the dialog. The event should happen once in
 // ~5 seconds during continuous typing.
 func (w Wrapper) OnUserTyping(f UserTypingHandler) {
-	w.longpoll.EventNew(61, func(i []interface{}) error {
+	w.longpoll.EventNew(61, func(i []any) error {
 		var event UserTyping
 
 		err := event.parse(i)
@@ -415,7 +415,7 @@ type UserTypingChatHandler func(m UserTypingChat)
 //
 // User UserID began typing in the conversation ChatID.
 func (w Wrapper) OnUserTypingChat(f UserTypingChatHandler) {
-	w.longpoll.EventNew(62, func(i []interface{}) error {
+	w.longpoll.EventNew(62, func(i []any) error {
 		var event UserTypingChat
 
 		err := event.parse(i)
@@ -436,7 +436,7 @@ type UsersTypingHandler func(m UsersTyping)
 //
 // event with code 63.
 func (w Wrapper) OnUsersTyping(f UsersTypingHandler) {
-	w.longpoll.EventNew(63, func(i []interface{}) error {
+	w.longpoll.EventNew(63, func(i []any) error {
 		var event UsersTyping
 
 		err := event.parse(i)
@@ -457,7 +457,7 @@ type UsersRecordingAudioMessageHandler func(m UsersRecordingAudioMessage)
 //
 // event with code 64.
 func (w Wrapper) OnUsersRecordingAudioMessage(f UsersRecordingAudioMessageHandler) {
-	w.longpoll.EventNew(64, func(i []interface{}) error {
+	w.longpoll.EventNew(64, func(i []any) error {
 		var event UsersRecordingAudioMessage
 
 		err := event.parse(i)
@@ -478,7 +478,7 @@ type UserCallHandler func(m UserCall)
 //
 // event with code 70.
 func (w Wrapper) OnUserCall(f UserCallHandler) {
-	w.longpoll.EventNew(70, func(i []interface{}) error {
+	w.longpoll.EventNew(70, func(i []any) error {
 		var event UserCall
 
 		err := event.parse(i)
@@ -499,7 +499,7 @@ type CounterChangeHandler func(m CounterChange)
 //
 // event with code 80.
 func (w Wrapper) OnCounterChange(f CounterChangeHandler) {
-	w.longpoll.EventNew(80, func(i []interface{}) error {
+	w.longpoll.EventNew(80, func(i []any) error {
 		var event CounterChange
 
 		err := event.parse(i)
@@ -520,7 +520,7 @@ type NotificationSettingsChangeHandler func(m NotificationSettingsChange)
 //
 // event with code 114.
 func (w Wrapper) OnNotificationSettingsChange(f NotificationSettingsChangeHandler) {
-	w.longpoll.EventNew(114, func(i []interface{}) error {
+	w.longpoll.EventNew(114, func(i []any) error {
 		var event NotificationSettingsChange
 		if w.longpoll.Mode&longpoll.ExtendedEvents != 0 {
 			err := event.parseMode8(i)

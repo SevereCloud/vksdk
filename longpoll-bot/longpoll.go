@@ -109,12 +109,12 @@ func (lp *LongPoll) updateServer(updateTs bool) error {
 func (lp *LongPoll) check(ctx context.Context) (response Response, err error) {
 	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, lp.Wait)
 
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u, nil)
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u, nil) //nolint:gosec // Server URL from VK API
 	if err != nil {
 		return response, fmt.Errorf("longpoll-bot: %w", err)
 	}
 
-	resp, err := lp.Client.Do(req)
+	resp, err := lp.Client.Do(req) //nolint:gosec // VK LongPoll API request
 	if err != nil {
 		return response, fmt.Errorf("longpoll-bot: %w", err)
 	}

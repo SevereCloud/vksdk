@@ -371,9 +371,9 @@ func TestVK_FaveTag(t *testing.T) {
 	assert.NotEmpty(t, tags)
 
 	// FaveReorderTags need all tags
-	ids := make([]int, 0)
-	for _, item := range tags.Items {
-		ids = append(ids, item.ID)
+	ids := make([]int, len(tags.Items))
+	for i, item := range tags.Items {
+		ids[i] = item.ID
 	}
 
 	time.Sleep(sleepTime)

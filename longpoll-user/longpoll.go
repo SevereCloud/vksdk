@@ -70,15 +70,15 @@ type Mode = int
 
 // A list of necessary option codes.
 const (
-	// receive attachments.
+	// ReceiveAttachments to receive attachments.
 	ReceiveAttachments Mode = 1 << 1
-	// receive more events.
+	// ExtendedEvents to receive more events.
 	ExtendedEvents Mode = 1 << 3
-	// receive pts (used in messages.getLongPollHistory).
+	// ReturnPts to receive pts (used in messages.getLongPollHistory).
 	ReturnPts Mode = 1 << 5
-	// extra fields in event type 8(friend become online).
+	// Code8ExtraFields extra fields in event type 8(friend become online).
 	Code8ExtraFields Mode = 1 << 6
-	// return random_id field.
+	// ReturnRandomID to return random_id field.
 	ReturnRandomID Mode = 1 << 7
 )
 
@@ -206,7 +206,7 @@ func (lp *LongPoll) checkResponse(response object.LongPollResponse) (err error) 
 	return
 }
 
-func (lp LongPoll) handler(event []interface{}) error {
+func (lp LongPoll) handler(event []any) error {
 	key := int(event[0].(float64))
 
 	for _, f := range lp.funcList[key] {

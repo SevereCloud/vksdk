@@ -51,11 +51,13 @@ func TestVersion(t *testing.T) {
 	tag := newVersion(string(out))
 	if tag == nil {
 		t.Fatal("not found version")
+		return
 	}
 
 	code := newVersion(vksdk.Version)
 	if code == nil {
 		t.Fatal("not found version")
+		return
 	}
 
 	switch {

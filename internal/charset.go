@@ -1,6 +1,4 @@
-/*
-Package internal unimportable
-*/
+// Package internal contains internal helpers.
 package internal // import "github.com/SevereCloud/vksdk/v3/internal"
 
 import (

@@ -21,37 +21,38 @@ func (e ErrorType) Error() string {
 const (
 	ErrNoType ErrorType = 0 // NoType error
 
-	// Unknown error occurred
+	// ErrUnknown error occurred.
 	//
 	// Try again later.
 	ErrUnknown ErrorType = 1
 
-	// Application is disabled. Enable your application or use test mode
+	// ErrDisabled application is disabled.
 	//
+	// Enable your application or use test mode.
 	// You need to switch on the app in Settings
 	// https://vk.com/editapp?id={Your API_ID}
 	// or use the test mode (test_mode=1).
 	ErrDisabled ErrorType = 2
 
-	// Unknown method passed.
+	// ErrMethod unknown method passed.
 	//
 	// Check the method name: http://vk.com/dev/methods
 	ErrMethod    ErrorType = 3
 	ErrSignature ErrorType = 4 // Incorrect signature
 
-	// User authorization failed
+	// ErrAuth user authorization failed.
 	//
 	// Make sure that you use a correct authorization type.
 	ErrAuth ErrorType = 5
 
-	// Too many requests per second
+	// ErrTooMany requests per second.
 	//
 	// Decrease the request frequency or use the execute method.
 	// More details on frequency limits here:
 	// https://dev.vk.com/ru/api/api-requests
 	ErrTooMany ErrorType = 6
 
-	// Permission to perform this action is denied
+	// ErrPermission denied to perform this action.
 	//
 	// Make sure that your have received required permissions during the
 	// authorization.
@@ -59,24 +60,24 @@ const (
 	// https://dev.vk.com/ru/reference/access-rights
 	ErrPermission ErrorType = 7
 
-	// Invalid request
+	// ErrRequest invalid request.
 	//
 	// Check the request syntax and used parameters list (it can be found on
 	// a method description page).
 	ErrRequest ErrorType = 8
 
-	// Flood control
+	// ErrFlood control.
 	//
 	// You need to decrease the count of identical requests. For more efficient
 	// work you may use execute.
 	ErrFlood ErrorType = 9
 
-	// Internal server error
+	// ErrServer internal server error.
 	//
 	// Try again later.
 	ErrServer ErrorType = 10
 
-	// In test mode application should be disabled or user should be authorized
+	// ErrEnabledInTest in test mode application should be disabled or user should be authorized.
 	//
 	// Switch the app off in Settings:
 	//
@@ -84,30 +85,30 @@ const (
 	//
 	ErrEnabledInTest ErrorType = 11
 
-	// Unable to compile code.
+	// ErrCompile unable to compile code.
 	ErrCompile ErrorType = 12
 
-	// Runtime error occurred during code invocation.
+	// ErrRuntime error occurred during code invocation.
 	ErrRuntime ErrorType = 13
 
-	// Captcha needed.
+	// ErrCaptcha is needed.
 	//
 	// See https://dev.vk.com/ru/api/captcha-error
 	ErrCaptcha ErrorType = 14
 
-	// Access denied
+	// ErrAccess denied.
 	//
 	// Make sure that you use correct identifiers and the content is available
 	// for the user in the full version of the site.
 	ErrAccess ErrorType = 15
 
-	// HTTP authorization failed
+	// ErrAuthHTTPS HTTP authorization failed.
 	//
 	// To avoid this error check if a user has the 'Use secure connection'
 	// option enabled with the account.getInfo method.
 	ErrAuthHTTPS ErrorType = 16
 
-	// Validation required
+	// ErrAuthValidation required.
 	//
 	// Make sure that you don't use a token received with
 	// http://vk.com/dev/auth_mobile for a request from the server.
@@ -118,21 +119,20 @@ const (
 	ErrUserDeleted    ErrorType = 18 // User was deleted or banned
 	ErrBlocked        ErrorType = 19 // Content blocked
 
-	// Permission to perform this action is denied for non-standalone
-	// applications.
+	// ErrMethodPermission denied for non-standalone applications.
 	ErrMethodPermission ErrorType = 20
 
-	// Permission to perform this action is allowed only for standalone and
+	// ErrMethodAds permission to perform this action is allowed only for standalone and
 	// OpenAPI applications.
 	ErrMethodAds ErrorType = 21
 	ErrUpload    ErrorType = 22 // Upload error
 
-	// This method was disabled.
+	// ErrMethodDisabled this method was disabled.
 	//
 	// All the methods available now are listed here: http://vk.com/dev/methods
 	ErrMethodDisabled ErrorType = 23
 
-	// Confirmation required
+	// ErrNeedConfirmation confirmation required.
 	//
 	// In some cases VK requires to request action confirmation from the user
 	// (for Standalone apps only).
@@ -155,43 +155,43 @@ const (
 	ErrGroupAuth             ErrorType = 27 // Group authorization failed
 	ErrAppAuth               ErrorType = 28 // Application authorization failed
 
-	// Rate limit reached.
+	// ErrRateLimit reached.
 	//
 	// More details on rate limits here: https://dev.vk.com/ru/reference/roadmap
 	ErrRateLimit      ErrorType = 29
 	ErrPrivateProfile ErrorType = 30 // This profile is private
 
-	// Client version deprecated.
+	// ErrClientVersionDeprecated client version deprecated.
 	ErrClientVersionDeprecated ErrorType = 34
 
-	// Method execution was interrupted due to timeout.
+	// ErrExecutionTimeout method execution was interrupted due to timeout.
 	ErrExecutionTimeout ErrorType = 36
 
-	// User was banned.
+	// ErrUserBanned user was banned.
 	ErrUserBanned ErrorType = 37
 
-	// Unknown application.
+	// ErrUnknownApplication unknown application.
 	ErrUnknownApplication ErrorType = 38
 
-	// Unknown user.
+	// ErrUnknownUser unknown user.
 	ErrUnknownUser ErrorType = 39
 
-	// Unknown group.
+	// ErrUnknownGroup unknown group.
 	ErrUnknownGroup ErrorType = 40
 
-	// Additional signup required.
+	// ErrAdditionalSignupRequired additional signup required.
 	ErrAdditionalSignupRequired ErrorType = 41
 
-	// IP is not allowed.
+	// ErrIPNotAllowed IP is not allowed.
 	ErrIPNotAllowed ErrorType = 42
 
-	// One of the parameters specified was missing or invalid
+	// ErrParam one of the parameters specified was missing or invalid.
 	//
 	// Check the required parameters list and their format on a method
 	// description page.
 	ErrParam ErrorType = 100
 
-	// Invalid application API ID
+	// ErrParamAPIID invalid application API ID.
 	//
 	// Find the app in the administrated list in settings:
 	// http://vk.com/apps?act=settings
@@ -202,7 +202,7 @@ const (
 	ErrSaveFile     ErrorType = 105 // Couldn't save file
 	ErrActionFailed ErrorType = 106 // Unable to process action
 
-	// Invalid user id
+	// ErrParamUserID invalid user id.
 	//
 	// Make sure that you use a correct id. You can get an id using a screen
 	// name with the utils.resolveScreenName method.
@@ -217,633 +217,635 @@ const (
 	ErrParamPageID  ErrorType = 140 // Page not found
 	ErrAccessPage   ErrorType = 141 // Access to page denied
 
-	// The mobile number of the user is unknown.
+	// ErrMobileNotActivated the mobile number of the user is unknown.
 	ErrMobileNotActivated ErrorType = 146
 
-	// Application has insufficient funds.
+	// ErrInsufficientFunds application has insufficient funds.
 	ErrInsufficientFunds ErrorType = 147
 
-	// Access to the menu of the user denied.
+	// ErrAccessMenu access to the menu of the user denied.
 	ErrAccessMenu ErrorType = 148
 
-	// Invalid timestamp
+	// ErrParamTimestamp invalid timestamp.
 	//
 	// You may get a correct value with the utils.getServerTime method.
 	ErrParamTimestamp ErrorType = 150
 	ErrFriendsListID  ErrorType = 171 // Invalid list id
 
-	// Reached the maximum number of lists.
+	// ErrFriendsListLimit reached the maximum number of lists.
 	ErrFriendsListLimit ErrorType = 173
 
-	// Cannot add user himself as friend.
+	// ErrFriendsAddYourself cannot add user himself as friend.
 	ErrFriendsAddYourself ErrorType = 174
 
-	// Cannot add this user to friends as they have put you on their blacklist.
+	// ErrFriendsAddInEnemy cannot add this user to friends as they have put you on their blacklist.
 	ErrFriendsAddInEnemy ErrorType = 175
 
-	// Cannot add this user to friends as you put him on blacklist.
+	// ErrFriendsAddEnemy cannot add this user to friends as you put him on blacklist.
 	ErrFriendsAddEnemy ErrorType = 176
 
-	// Cannot add this user to friends as user not found.
+	// ErrFriendsAddNotFound cannot add this user to friends as user not found.
 	ErrFriendsAddNotFound ErrorType = 177
 	ErrParamNoteID        ErrorType = 180 // Note not found
 	ErrAccessNote         ErrorType = 181 // Access to note denied
 	ErrAccessNoteComment  ErrorType = 182 // You can't comment this note
 	ErrAccessComment      ErrorType = 183 // Access to comment denied
 
-	// Access to album denied
+	// ErrAccessAlbum access to album denied.
 	//
 	// Make sure you use correct ids (owner_id is always positive for users,
 	// negative for communities) and the current user has access to the
 	// requested content in the full version of the site.
 	ErrAccessAlbum ErrorType = 200
 
-	// Access to audio denied
+	// ErrAccessAudio access to audio denied.
 	//
 	// Make sure you use correct ids (owner_id is always positive for users,
 	// negative for communities) and the current user has access to the
 	// requested content in the full version of the site.
 	ErrAccessAudio ErrorType = 201
 
-	// Access to group denied
+	// ErrAccessGroup access to group denied.
 	//
 	// Make sure that the current user is a member or admin of the community
 	// (for closed and private groups and events).
 	ErrAccessGroup ErrorType = 203
 
-	// Access denied.
+	// ErrAccessVideo access denied.
 	ErrAccessVideo ErrorType = 204
 
-	// Access denied.
+	// ErrAccessMarket access denied.
 	ErrAccessMarket ErrorType = 205
 
-	// Access to wall's post denied.
+	// ErrWallAccessPost access to wall's post denied.
 	ErrWallAccessPost ErrorType = 210
 
-	// Access to wall's comment denied.
+	// ErrWallAccessComment access to wall's comment denied.
 	ErrWallAccessComment ErrorType = 211
 
-	// Access to post comments denied.
+	// ErrWallAccessReplies access to post comments denied.
 	ErrWallAccessReplies ErrorType = 212
 
-	// Access to status replies denied.
+	// ErrWallAccessAddReply access to status replies denied.
 	ErrWallAccessAddReply ErrorType = 213
 
-	// Access to adding post denied.
+	// ErrWallAddPost access to adding post denied.
 	ErrWallAddPost ErrorType = 214
 
-	// Advertisement post was recently added.
+	// ErrWallAdsPublished advertisement post was recently added.
 	ErrWallAdsPublished ErrorType = 219
 
-	// Too many recipients.
+	// ErrWallTooManyRecipients too many recipients.
 	ErrWallTooManyRecipients ErrorType = 220
 
-	// User disabled track name broadcast.
+	// ErrStatusNoAudio user disabled track name broadcast.
 	ErrStatusNoAudio ErrorType = 221
 
-	// Hyperlinks are forbidden.
+	// ErrWallLinksForbidden hyperlinks are forbidden.
 	ErrWallLinksForbidden ErrorType = 222
 
-	// Too many replies.
+	// ErrWallReplyOwnerFlood too many replies.
 	ErrWallReplyOwnerFlood ErrorType = 223
 
-	// Too many ads posts.
+	// ErrWallAdsPostLimitReached too many ads posts.
 	ErrWallAdsPostLimitReached ErrorType = 224
 
-	// Donut is disabled.
+	// ErrDonutDisabled donut is disabled.
 	ErrDonutDisabled ErrorType = 225
 
-	// Reaction can not be applied to the object.
+	// ErrLikesReactionCanNotBeApplied reaction can not be applied to the object.
 	ErrLikesReactionCanNotBeApplied ErrorType = 232
 
-	// Access to poll denied.
+	// ErrPollsAccess access to poll denied.
 	ErrPollsAccess ErrorType = 250
 
-	// Invalid answer id.
+	// ErrPollsAnswerID invalid answer id.
 	ErrPollsAnswerID ErrorType = 252
 
-	// Invalid poll id.
+	// ErrPollsPollID invalid poll id.
 	ErrPollsPollID ErrorType = 251
 
-	// Access denied, please vote first.
+	// ErrPollsAccessWithoutVote access denied, please vote first.
 	ErrPollsAccessWithoutVote ErrorType = 253
 
-	// Access to the groups list is denied due to the user's privacy settings.
+	// ErrAccessGroups access to the groups list is denied due to the user's privacy settings.
 	ErrAccessGroups ErrorType = 260
 
-	// This album is full
+	// ErrAlbumFull this album is full.
 	//
 	// You need to delete the odd objects from the album or use another album.
 	ErrAlbumFull   ErrorType = 300
 	ErrAlbumsLimit ErrorType = 302 // Albums number limit is reached
 
-	// Permission denied. You must enable votes processing in application
-	// settings
+	// ErrVotesPermission permission denied.
 	//
+	// You must enable votes processing in application settings.
 	// Check the app settings:
 	//
 	// 	http://vk.com/editapp?id={Your API_ID}&section=payments
 	//
 	ErrVotesPermission ErrorType = 500
 
-	// Not enough votes.
+	// ErrVotes not enough votes.
 	ErrVotes ErrorType = 503
 
-	// Not enough money on owner's balance.
+	// ErrNotEnoughMoney not enough money on owner's balance.
 	ErrNotEnoughMoney ErrorType = 504
 
-	// Permission denied. You have no access to operations specified with
-	// given object(s).
+	// ErrAdsPermission permission denied.
+	//
+	// You have no access to operations specified with given object(s).
 	ErrAdsPermission ErrorType = 600
 
-	// Permission denied. You have requested too many actions this day. Try
-	// later.
+	// ErrWeightedFlood permission denied.
+	//
+	// You have requested too many actions this day. Try later.
 	ErrWeightedFlood ErrorType = 601
 
-	// Some part of the request has not been completed.
+	// ErrAdsPartialSuccess some part of the request has not been completed.
 	ErrAdsPartialSuccess ErrorType = 602
 
-	// Some ads error occurred.
+	// ErrAdsSpecific some ads error occurred.
 	ErrAdsSpecific ErrorType = 603
 
-	// Invalid domain.
+	// ErrAdsDomainInvalid invalid domain.
 	ErrAdsDomainInvalid ErrorType = 604
 
-	// Domain is forbidden.
+	// ErrAdsDomainForbidden domain is forbidden.
 	ErrAdsDomainForbidden ErrorType = 605
 
-	// Domain is reserved.
+	// ErrAdsDomainReserved domain is reserved.
 	ErrAdsDomainReserved ErrorType = 606
 
-	// Domain is occupied.
+	// ErrAdsDomainOccupied domain is occupied.
 	ErrAdsDomainOccupied ErrorType = 607
 
-	// Domain is active.
+	// ErrAdsDomainActive domain is active.
 	ErrAdsDomainActive ErrorType = 608
 
-	// Domain app is invalid.
+	// ErrAdsDomainAppInvalid domain app is invalid.
 	ErrAdsDomainAppInvalid ErrorType = 609
 
-	// Domain app is forbidden.
+	// ErrAdsDomainAppForbidden domain app is forbidden.
 	ErrAdsDomainAppForbidden ErrorType = 610
 
-	// Application must be verified.
+	// ErrAdsApplicationMustBeVerified application must be verified.
 	ErrAdsApplicationMustBeVerified ErrorType = 611
 
-	// Application must be in domains list of site of ad unit.
+	// ErrAdsApplicationMustBeInDomainsList application must be in domains list of site of ad unit.
 	ErrAdsApplicationMustBeInDomainsList ErrorType = 612
 
-	// Application is blocked.
+	// ErrAdsApplicationBlocked application is blocked.
 	ErrAdsApplicationBlocked ErrorType = 613
 
-	// Domain of type specified is forbidden in current office type.
+	// ErrAdsDomainTypeForbiddenInCurrentOffice domain of type specified is forbidden in current office type.
 	ErrAdsDomainTypeForbiddenInCurrentOffice ErrorType = 614
 
-	// Domain group is invalid.
+	// ErrAdsDomainGroupInvalid domain group is invalid.
 	ErrAdsDomainGroupInvalid ErrorType = 615
 
-	// Domain group is forbidden.
+	// ErrAdsDomainGroupForbidden domain group is forbidden.
 	ErrAdsDomainGroupForbidden ErrorType = 616
 
-	// Domain app is blocked.
+	// ErrAdsDomainAppBlocked domain app is blocked.
 	ErrAdsDomainAppBlocked ErrorType = 617
 
-	// Domain group is not open.
+	// ErrAdsDomainGroupNotOpen domain group is not open.
 	ErrAdsDomainGroupNotOpen ErrorType = 618
 
-	// Domain group is not possible to be joined to adsweb.
+	// ErrAdsDomainGroupNotPossibleJoined domain group is not possible to be joined to adsweb.
 	ErrAdsDomainGroupNotPossibleJoined ErrorType = 619
 
-	// Domain group is blocked.
+	// ErrAdsDomainGroupBlocked domain group is blocked.
 	ErrAdsDomainGroupBlocked ErrorType = 620
 
-	// Domain group has restriction: links are forbidden.
+	// ErrAdsDomainGroupLinksForbidden domain group has restriction: links are forbidden.
 	ErrAdsDomainGroupLinksForbidden ErrorType = 621
 
-	// Domain group has restriction: excluded from search.
+	// ErrAdsDomainGroupExcludedFromSearch domain group has restriction: excluded from search.
 	ErrAdsDomainGroupExcludedFromSearch ErrorType = 622
 
-	// Domain group has restriction: cover is forbidden.
+	// ErrAdsDomainGroupCoverForbidden domain group has restriction: cover is forbidden.
 	ErrAdsDomainGroupCoverForbidden ErrorType = 623
 
-	// Domain group has wrong category.
+	// ErrAdsDomainGroupWrongCategory domain group has wrong category.
 	ErrAdsDomainGroupWrongCategory ErrorType = 624
 
-	// Domain group has wrong name.
+	// ErrAdsDomainGroupWrongName domain group has wrong name.
 	ErrAdsDomainGroupWrongName ErrorType = 625
 
-	// Domain group has low posts reach.
+	// ErrAdsDomainGroupLowPostsReach domain group has low posts reach.
 	ErrAdsDomainGroupLowPostsReach ErrorType = 626
 
-	// Domain group has wrong class.
+	// ErrAdsDomainGroupWrongClass domain group has wrong class.
 	ErrAdsDomainGroupWrongClass ErrorType = 627
 
-	// Domain group is created recently.
+	// ErrAdsDomainGroupCreatedRecently domain group is created recently.
 	ErrAdsDomainGroupCreatedRecently ErrorType = 628
 
-	// Object deleted.
+	// ErrAdsObjectDeleted object deleted.
 	ErrAdsObjectDeleted ErrorType = 629
 
-	// Lookalike request with same source already in progress.
+	// ErrAdsLookalikeRequestAlreadyInProgress lookalike request with same source already in progress.
 	ErrAdsLookalikeRequestAlreadyInProgress ErrorType = 630
 
-	// Max count of lookalike requests per day reached.
+	// ErrAdsLookalikeRequestsLimit max count of lookalike requests per day reached.
 	ErrAdsLookalikeRequestsLimit ErrorType = 631
 
-	// Given audience is too small.
+	// ErrAdsAudienceTooSmall given audience is too small.
 	ErrAdsAudienceTooSmall ErrorType = 632
 
-	// Given audience is too large.
+	// ErrAdsAudienceTooLarge given audience is too large.
 	ErrAdsAudienceTooLarge ErrorType = 633
 
-	// Lookalike request audience save already in progress.
+	// ErrAdsLookalikeAudienceSaveAlreadyInProgress lookalike request audience save already in progress.
 	ErrAdsLookalikeAudienceSaveAlreadyInProgress ErrorType = 634
 
-	// Max count of lookalike request audience saves per day reached.
+	// ErrAdsLookalikeSavesLimit max count of lookalike request audience saves per day reached.
 	ErrAdsLookalikeSavesLimit ErrorType = 635
 
-	// Max count of retargeting groups reached.
+	// ErrAdsRetargetingGroupsLimit max count of retargeting groups reached.
 	ErrAdsRetargetingGroupsLimit ErrorType = 636
 
-	// Domain group has active nemesis punishment.
+	// ErrAdsDomainGroupActiveNemesisPunishment domain group has active nemesis punishment.
 	ErrAdsDomainGroupActiveNemesisPunishment ErrorType = 637
 
-	// Cannot edit creator role.
+	// ErrGroupChangeCreator cannot edit creator role.
 	ErrGroupChangeCreator ErrorType = 700
 
-	// User should be in club.
+	// ErrGroupNotInClub user should be in club.
 	ErrGroupNotInClub ErrorType = 701
 
-	// Too many officers in club.
+	// ErrGroupTooManyOfficers too many officers in club.
 	ErrGroupTooManyOfficers ErrorType = 702
 
-	// You need to enable 2FA for this action.
+	// ErrGroupNeed2fa you need to enable 2FA for this action.
 	ErrGroupNeed2fa ErrorType = 703
 
-	// User needs to enable 2FA for this action.
+	// ErrGroupHostNeed2fa user needs to enable 2FA for this action.
 	ErrGroupHostNeed2fa ErrorType = 704
 
-	// Too many addresses in club.
+	// ErrGroupTooManyAddresses too many addresses in club.
 	ErrGroupTooManyAddresses ErrorType = 706
 
-	// "Application is not installed in community.
+	// ErrGroupAppIsNotInstalledInCommunity application is not installed in community.
 	ErrGroupAppIsNotInstalledInCommunity ErrorType = 711
 
-	// Invite link is invalid - expired, deleted or not exists.
+	// ErrGroupInvalidInviteLink invite link is invalid - expired, deleted or not exists.
 	ErrGroupInvalidInviteLink ErrorType = 714
 
-	// This video is already added.
+	// ErrVideoAlreadyAdded this video is already added.
 	ErrVideoAlreadyAdded ErrorType = 800
 
-	// Comments for this video are closed.
+	// ErrVideoCommentsClosed comments for this video are closed.
 	ErrVideoCommentsClosed ErrorType = 801
 
-	// Can't send messages for users from blacklist.
+	// ErrMessagesUserBlocked can't send messages for users from blacklist.
 	ErrMessagesUserBlocked ErrorType = 900
 
-	// Can't send messages for users without permission.
+	// ErrMessagesDenySend can't send messages for users without permission.
 	ErrMessagesDenySend ErrorType = 901
 
-	// Can't send messages to this user due to their privacy settings.
+	// ErrMessagesPrivacy can't send messages to this user due to their privacy settings.
 	ErrMessagesPrivacy ErrorType = 902
 
-	// Value of ts or pts is too old.
+	// ErrMessagesTooOldPts value of ts or pts is too old.
 	ErrMessagesTooOldPts ErrorType = 907
 
-	// Value of ts or pts is too new.
+	// ErrMessagesTooNewPts value of ts or pts is too new.
 	ErrMessagesTooNewPts ErrorType = 908
 
-	// Can't edit this message, because it's too old.
+	// ErrMessagesEditExpired can't edit this message, because it's too old.
 	ErrMessagesEditExpired ErrorType = 909
 
-	// Can't sent this message, because it's too big.
+	// ErrMessagesTooBig can't sent this message, because it's too big.
 	ErrMessagesTooBig ErrorType = 910
 
-	// Keyboard format is invalid.
+	// ErrMessagesKeyboardInvalid keyboard format is invalid.
 	ErrMessagesKeyboardInvalid ErrorType = 911
 
-	// This is a chat bot feature, change this status in settings.
+	// ErrMessagesChatBotFeature this is a chat bot feature, change this status in settings.
 	ErrMessagesChatBotFeature ErrorType = 912
 
-	// Too many forwarded messages.
+	// ErrMessagesTooLongForwards too many forwarded messages.
 	ErrMessagesTooLongForwards ErrorType = 913
 
-	// Message is too long.
+	// ErrMessagesTooLongMessage message is too long.
 	ErrMessagesTooLongMessage ErrorType = 914
 
-	// You don't have access to this chat.
+	// ErrMessagesChatUserNoAccess you don't have access to this chat.
 	ErrMessagesChatUserNoAccess ErrorType = 917
 
-	// You can't see invite link for this chat.
+	// ErrMessagesCantSeeInviteLink you can't see invite link for this chat.
 	ErrMessagesCantSeeInviteLink ErrorType = 919
 
-	// Can't edit this kind of message.
+	// ErrMessagesEditKindDisallowed can't edit this kind of message.
 	ErrMessagesEditKindDisallowed ErrorType = 920
 
-	// Can't forward these messages.
+	// ErrMessagesCantFwd can't forward these messages.
 	ErrMessagesCantFwd ErrorType = 921
 
-	// Can't delete this message for everybody.
+	// ErrMessagesCantDeleteForAll can't delete this message for everybody.
 	ErrMessagesCantDeleteForAll ErrorType = 924
 
-	// You are not admin of this chat.
+	// ErrMessagesChatNotAdmin you are not admin of this chat.
 	ErrMessagesChatNotAdmin ErrorType = 925
 
-	// Chat does not exist.
+	// ErrMessagesChatNotExist chat does not exist.
 	ErrMessagesChatNotExist ErrorType = 927
 
-	// You can't change invite link for this chat.
+	// ErrMessagesCantChangeInviteLink you can't change invite link for this chat.
 	ErrMessagesCantChangeInviteLink ErrorType = 931
 
-	// Your community can't interact with this peer.
+	// ErrMessagesGroupPeerAccess your community can't interact with this peer.
 	ErrMessagesGroupPeerAccess ErrorType = 932
 
-	// User not found in chat.
+	// ErrMessagesChatUserNotInChat user not found in chat.
 	ErrMessagesChatUserNotInChat ErrorType = 935
 
-	// Contact not found.
+	// ErrMessagesContactNotFound contact not found.
 	ErrMessagesContactNotFound ErrorType = 936
 
-	// Message request already send.
+	// ErrMessagesMessageRequestAlreadySend message request already send.
 	ErrMessagesMessageRequestAlreadySend ErrorType = 939
 
-	// Too many posts in messages.
+	// ErrMessagesTooManyPosts too many posts in messages.
 	ErrMessagesTooManyPosts ErrorType = 940
 
-	// Cannot pin one-time story.
+	// ErrMessagesCantPinOneTimeStory cannot pin one-time story.
 	ErrMessagesCantPinOneTimeStory ErrorType = 942
 
-	// Cannot use this intent.
+	// ErrMessagesCantUseIntent cannot use this intent.
 	ErrMessagesCantUseIntent ErrorType = 943
 
-	// Limits overflow for this intent.
+	// ErrMessagesLimitIntent limits overflow for this intent.
 	ErrMessagesLimitIntent ErrorType = 944
 
-	// Chat was disabled.
+	// ErrMessagesChatDisabled chat was disabled.
 	ErrMessagesChatDisabled ErrorType = 945
 
-	// Chat not support.
+	// ErrMessagesChatNotSupported chat not support.
 	ErrMessagesChatNotSupported ErrorType = 946
 
-	// Can't add user to chat, because user has no access to group.
+	// ErrMessagesMemberAccessToGroupDenied can't add user to chat, because user has no access to group.
 	ErrMessagesMemberAccessToGroupDenied ErrorType = 947
 
-	// Can't edit pinned message yet.
+	// ErrMessagesEditPinned can't edit pinned message yet.
 	ErrMessagesEditPinned ErrorType = 949
 
-	// Can't send message, reply timed out.
+	// ErrMessagesReplyTimedOut can't send message, reply timed out.
 	ErrMessagesReplyTimedOut ErrorType = 950
 
-	// You can't access donut chat without subscription.
+	// ErrMessagesAccessDonutChat you can't access donut chat without subscription.
 	ErrMessagesAccessDonutChat ErrorType = 962
 
-	// This user can't be added to the work chat, as they aren't an employe.
+	// ErrMessagesAccessWorkChat this user can't be added to the work chat, as they aren't an employe.
 	ErrMessagesAccessWorkChat ErrorType = 967
 
-	// Message cannot be forwarded.
+	// ErrMessagesCantForwarded message cannot be forwarded.
 	ErrMessagesCantForwarded ErrorType = 969
 
-	// Cannot pin an expiring message.
+	// ErrMessagesPinExpiringMessage cannot pin an expiring message.
 	ErrMessagesPinExpiringMessage ErrorType = 970
 
-	// Invalid phone number.
+	// ErrParamPhone invalid phone number.
 	ErrParamPhone ErrorType = 1000
 
-	// This phone number is used by another user.
+	// ErrPhoneAlreadyUsed this phone number is used by another user.
 	ErrPhoneAlreadyUsed ErrorType = 1004
 
-	// Too many auth attempts, try again later.
+	// ErrAuthFloodError too many auth attempts, try again later.
 	ErrAuthFloodError ErrorType = 1105
 
-	// Processing.. Try later.
+	// ErrAuthDelay processing.. Try later.
 	ErrAuthDelay ErrorType = 1112
 
-	// Anonymous token has expired.
+	// ErrAnonymousTokenExpired anonymous token has expired.
 	ErrAnonymousTokenExpired ErrorType = 1114
 
-	// Anonymous token is invalid.
+	// ErrAnonymousTokenInvalid anonymous token is invalid.
 	ErrAnonymousTokenInvalid ErrorType = 1116
 
-	// Access token has expired.
+	// ErrAuthAccessTokenHasExpired access token has expired.
 	ErrAuthAccessTokenHasExpired ErrorType = 1117
 
-	// Anonymous token ip mismatch.
+	// ErrAuthAnonymousTokenIPMismatch anonymous token ip mismatch.
 	ErrAuthAnonymousTokenIPMismatch ErrorType = 1118
 
-	// Invalid document id.
+	// ErrParamDocID invalid document id.
 	ErrParamDocID ErrorType = 1150
 
-	// Access to document deleting is denied.
+	// ErrParamDocDeleteAccess access to document deleting is denied.
 	ErrParamDocDeleteAccess ErrorType = 1151
 
-	// Invalid document title.
+	// ErrParamDocTitle invalid document title.
 	ErrParamDocTitle ErrorType = 1152
 
-	// Access to document is denied.
+	// ErrParamDocAccess access to document is denied.
 	ErrParamDocAccess ErrorType = 1153
 
-	// Original photo was changed.
+	// ErrPhotoChanged original photo was changed.
 	ErrPhotoChanged ErrorType = 1160
 
-	// Too many feed lists.
+	// ErrTooManyLists too many feed lists.
 	ErrTooManyLists ErrorType = 1170
 
-	// This achievement is already unlocked.
+	// ErrAppsAlreadyUnlocked this achievement is already unlocked.
 	ErrAppsAlreadyUnlocked ErrorType = 1251
 
-	// Subscription not found.
+	// ErrAppsSubscriptionNotFound subscription not found.
 	ErrAppsSubscriptionNotFound ErrorType = 1256
 
-	// Subscription is in invalid status.
+	// ErrAppsSubscriptionInvalidStatus subscription is in invalid status.
 	ErrAppsSubscriptionInvalidStatus ErrorType = 1257
 
-	// Invalid screen name.
+	// ErrInvalidAddress invalid screen name.
 	ErrInvalidAddress ErrorType = 1260
 
-	// Catalog is not available for this user.
+	// ErrCommunitiesCatalogDisabled catalog is not available for this user.
 	ErrCommunitiesCatalogDisabled ErrorType = 1310
 
-	// Catalog categories are not available for this user.
+	// ErrCommunitiesCategoriesDisabled catalog categories are not available for this user.
 	ErrCommunitiesCategoriesDisabled ErrorType = 1311
 
-	// Too late for restore.
+	// ErrMarketRestoreTooLate too late for restore.
 	ErrMarketRestoreTooLate ErrorType = 1400
 
-	// Comments for this market are closed.
+	// ErrMarketCommentsClosed comments for this market are closed.
 	ErrMarketCommentsClosed ErrorType = 1401
 
-	// Album not found.
+	// ErrMarketAlbumNotFound album not found.
 	ErrMarketAlbumNotFound ErrorType = 1402
 
-	// Item not found.
+	// ErrMarketItemNotFound item not found.
 	ErrMarketItemNotFound ErrorType = 1403
 
-	// Item already added to album.
+	// ErrMarketItemAlreadyAdded item already added to album.
 	ErrMarketItemAlreadyAdded ErrorType = 1404
 
-	// Too many items.
+	// ErrMarketTooManyItems too many items.
 	ErrMarketTooManyItems ErrorType = 1405
 
-	// Too many items in album.
+	// ErrMarketTooManyItemsInAlbum too many items in album.
 	ErrMarketTooManyItemsInAlbum ErrorType = 1406
 
-	// Too many albums.
+	// ErrMarketTooManyAlbums too many albums.
 	ErrMarketTooManyAlbums ErrorType = 1407
 
-	// Item has bad links in description.
+	// ErrMarketItemHasBadLinks item has bad links in description.
 	ErrMarketItemHasBadLinks ErrorType = 1408
 
-	// Extended market not enabled.
+	// ErrMarketShopNotEnabled extended market not enabled.
 	ErrMarketShopNotEnabled ErrorType = 1409
 
-	// Grouping items with different properties.
+	// ErrMarketGroupingItemsWithDifferentProperties grouping items with different properties.
 	ErrMarketGroupingItemsWithDifferentProperties ErrorType = 1412
 
-	// Grouping already has such variant.
+	// ErrMarketGroupingAlreadyHasSuchVariant grouping already has such variant.
 	ErrMarketGroupingAlreadyHasSuchVariant ErrorType = 1413
 
-	// Variant not found.
+	// ErrMarketVariantNotFound variant not found.
 	ErrMarketVariantNotFound ErrorType = 1416
 
-	// Property not found.
+	// ErrMarketPropertyNotFound property not found.
 	ErrMarketPropertyNotFound ErrorType = 1417
 
-	// Grouping must have two or more items.
+	// ErrMarketGroupingMustContainMoreThanOneItem grouping must have two or more items.
 	ErrMarketGroupingMustContainMoreThanOneItem ErrorType = 1425
 
-	// Item must have distinct properties.
+	// ErrMarketGroupingItemsMustHaveDistinctProperties item must have distinct properties.
 	ErrMarketGroupingItemsMustHaveDistinctProperties ErrorType = 1426
 
-	// Cart is empty.
+	// ErrMarketOrdersNoCartItems cart is empty.
 	ErrMarketOrdersNoCartItems ErrorType = 1427
 
-	// Specify width, length, height and weight all together.
+	// ErrMarketInvalidDimensions specify width, length, height and weight all together.
 	ErrMarketInvalidDimensions ErrorType = 1429
 
-	// VK Pay status can not be changed.
+	// ErrMarketCantChangeVkpayStatus VK Pay status can not be changed.
 	ErrMarketCantChangeVkpayStatus ErrorType = 1430
 
-	// Market was already enabled in this group.
+	// ErrMarketShopAlreadyEnabled market was already enabled in this group.
 	ErrMarketShopAlreadyEnabled ErrorType = 1431
 
-	// Market was already disabled in this group.
+	// ErrMarketShopAlreadyDisabled market was already disabled in this group.
 	ErrMarketShopAlreadyDisabled ErrorType = 1432
 
-	// Invalid image crop format.
+	// ErrMarketPhotosCropInvalidFormat invalid image crop format.
 	ErrMarketPhotosCropInvalidFormat ErrorType = 1433
 
-	// Crop bottom right corner is outside of the image.
+	// ErrMarketPhotosCropOverflow crop bottom right corner is outside of the image.
 	ErrMarketPhotosCropOverflow ErrorType = 1434
 
-	// Crop size is less than the minimum.
+	// ErrMarketPhotosCropSizeTooLow crop size is less than the minimum.
 	ErrMarketPhotosCropSizeTooLow ErrorType = 1435
 
-	// Market not enabled.
+	// ErrMarketNotEnabled market not enabled.
 	ErrMarketNotEnabled ErrorType = 1438
 
-	// Cart is empty.
+	// ErrMarketCartEmpty cart is empty.
 	ErrMarketCartEmpty ErrorType = 1427
 
-	// Specify width, length, height and weight all together.
+	// ErrMarketSpecifyDimensions specify width, length, height and weight all together.
 	ErrMarketSpecifyDimensions ErrorType = 1429
 
-	// VK Pay status can not be changed.
+	// ErrVKPayStatus VK Pay status can not be changed.
 	ErrVKPayStatus ErrorType = 1430
 
-	// Market was already enabled in this group.
+	// ErrMarketAlreadyEnabled market was already enabled in this group.
 	ErrMarketAlreadyEnabled ErrorType = 1431
 
-	// Market was already disabled in this group.
+	// ErrMarketAlreadyDisabled market was already disabled in this group.
 	ErrMarketAlreadyDisabled ErrorType = 1432
 
-	// Main album can not be hidden.
+	// ErrMainAlbumCantHidden main album can not be hidden.
 	ErrMainAlbumCantHidden ErrorType = 1446
 
-	// Story has already expired.
+	// ErrStoryExpired story has already expired.
 	ErrStoryExpired ErrorType = 1600
 
-	// Incorrect reply privacy.
+	// ErrStoryIncorrectReplyPrivacy incorrect reply privacy.
 	ErrStoryIncorrectReplyPrivacy ErrorType = 1602
 
-	// Card not found.
+	// ErrPrettyCardsCardNotFound card not found.
 	ErrPrettyCardsCardNotFound ErrorType = 1900
 
-	// Too many cards.
+	// ErrPrettyCardsTooManyCards too many cards.
 	ErrPrettyCardsTooManyCards ErrorType = 1901
 
-	// Card is connected to post.
+	// ErrPrettyCardsCardIsConnectedToPost card is connected to post.
 	ErrPrettyCardsCardIsConnectedToPost ErrorType = 1902
 
-	// Servers number limit is reached.
+	// ErrCallbackServersLimit servers number limit is reached.
 	ErrCallbackServersLimit ErrorType = 2000
 
-	// Stickers are not purchased.
+	// ErrStickersNotPurchased stickers are not purchased.
 	ErrStickersNotPurchased ErrorType = 2100
 
-	// Too many favorite stickers.
+	// ErrStickersTooManyFavorites too many favorite stickers.
 	ErrStickersTooManyFavorites ErrorType = 2101
 
-	// Stickers are not favorite.
+	// ErrStickersNotFavorite stickers are not favorite.
 	ErrStickersNotFavorite ErrorType = 2102
 
-	// Specified link is incorrect (can't find source).
+	// ErrWallCheckLinkCantDetermineSource specified link is incorrect (can't find source).
 	ErrWallCheckLinkCantDetermineSource ErrorType = 3102
 
-	// Recaptcha needed.
+	// ErrRecaptcha recaptcha needed.
 	ErrRecaptcha ErrorType = 3300
 
-	// Phone validation needed.
+	// ErrPhoneValidation phone validation needed.
 	ErrPhoneValidation ErrorType = 3301
 
-	// Password validation needed.
+	// ErrPasswordValidation password validation needed.
 	ErrPasswordValidation ErrorType = 3302
 
-	// Otp app validation needed.
+	// ErrOtpAppValidation otp app validation needed.
 	ErrOtpAppValidation ErrorType = 3303
 
-	// Email confirmation needed.
+	// ErrEmailConfirmation email confirmation needed.
 	ErrEmailConfirmation ErrorType = 3304
 
-	// Assert votes.
+	// ErrAssertVotes assert votes.
 	ErrAssertVotes ErrorType = 3305
 
-	// Token extension required.
+	// ErrTokenExtension token extension required.
 	ErrTokenExtension ErrorType = 3609
 
-	// User is deactivated.
+	// ErrUserDeactivated user is deactivated.
 	ErrUserDeactivated ErrorType = 3610
 
-	// Service is deactivated for user.
+	// ErrServiceDeactivated service is deactivated for user.
 	ErrServiceDeactivated ErrorType = 3611
 
-	// Can't set AliExpress tag to this type of object.
+	// ErrAliExpressTag can't set AliExpress tag to this type of object.
 	ErrAliExpressTag ErrorType = 3800
 
-	// Invalid upload response.
+	// ErrInvalidUploadResponse invalid upload response.
 	ErrInvalidUploadResponse ErrorType = 5701
 
-	// Invalid upload hash.
+	// ErrInvalidUploadHash invalid upload hash.
 	ErrInvalidUploadHash ErrorType = 5702
 
-	// Invalid upload user.
+	// ErrInvalidUploadUser invalid upload user.
 	ErrInvalidUploadUser ErrorType = 5703
 
-	// Invalid upload group.
+	// ErrInvalidUploadGroup invalid upload group.
 	ErrInvalidUploadGroup ErrorType = 5704
 
-	// Invalid crop data.
+	// ErrInvalidCropData invalid crop data.
 	ErrInvalidCropData ErrorType = 5705
 
-	// To small avatar.
+	// ErrToSmallAvatar to small avatar.
 	ErrToSmallAvatar ErrorType = 5706
 
-	// Photo not found.
+	// ErrPhotoNotFound photo not found.
 	ErrPhotoNotFound ErrorType = 5708
 
-	// Invalid Photo.
+	// ErrInvalidPhoto invalid Photo.
 	ErrInvalidPhoto ErrorType = 5709
 
-	// Invalid hash.
+	// ErrInvalidHash invalid hash.
 	ErrInvalidHash ErrorType = 5710
 )
 

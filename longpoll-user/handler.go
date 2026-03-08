@@ -1,7 +1,7 @@
 package longpoll
 
 // EventNewFunc struct.
-type EventNewFunc func([]interface{}) error
+type EventNewFunc func([]any) error
 
 // FuncList struct.
 //
@@ -9,7 +9,7 @@ type EventNewFunc func([]interface{}) error
 type FuncList map[int][]EventNewFunc
 
 // Handler func.
-func (funcList FuncList) Handler(event []interface{}) error {
+func (funcList FuncList) Handler(event []any) error {
 	key := int(event[0].(float64))
 
 	for _, f := range funcList[key] {

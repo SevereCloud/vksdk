@@ -1,4 +1,3 @@
-// Package oauth ...
 package oauth // import "github.com/SevereCloud/vksdk/v3/api/oauth"
 
 import "errors"

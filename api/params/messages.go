@@ -289,14 +289,14 @@ func (b *MessagesEditBuilder) GroupID(v int) *MessagesEditBuilder {
 
 // Keyboard parameter.
 // https://dev.vk.com/ru/api/bots/development/keyboard
-func (b *MessagesEditBuilder) Keyboard(v interface{}) *MessagesEditBuilder {
+func (b *MessagesEditBuilder) Keyboard(v any) *MessagesEditBuilder {
 	b.Params["keyboard"] = v
 	return b
 }
 
 // Template parameter.
 // https://dev.vk.com/ru/api/bots/development/messages
-func (b *MessagesEditBuilder) Template(v interface{}) *MessagesEditBuilder {
+func (b *MessagesEditBuilder) Template(v any) *MessagesEditBuilder {
 	b.Params["template"] = v
 	return b
 }
@@ -1458,7 +1458,7 @@ func (b *MessagesSendBuilder) Long(v float64) *MessagesSendBuilder {
 // 'video' — video, 'audio' — audio, 'doc' — document, 'wall' — wall post,
 // '<owner_id>' — ID of the media attachment owner. '<media_id>' — media
 // attachment ID. Example: "photo100172_166443618".
-func (b *MessagesSendBuilder) Attachment(v interface{}) *MessagesSendBuilder {
+func (b *MessagesSendBuilder) Attachment(v any) *MessagesSendBuilder {
 	b.Params["attachment"] = v
 	return b
 }
@@ -1478,7 +1478,7 @@ func (b *MessagesSendBuilder) ForwardMessages(v []int) *MessagesSendBuilder {
 }
 
 // Forward parameter.
-func (b *MessagesSendBuilder) Forward(v interface{}) *MessagesSendBuilder {
+func (b *MessagesSendBuilder) Forward(v any) *MessagesSendBuilder {
 	b.Params["forward"] = v
 	return b
 }
@@ -1497,14 +1497,14 @@ func (b *MessagesSendBuilder) GroupID(v int) *MessagesSendBuilder {
 
 // Keyboard parameter.
 // https://dev.vk.com/ru/api/bots/development/keyboard
-func (b *MessagesSendBuilder) Keyboard(v interface{}) *MessagesSendBuilder {
+func (b *MessagesSendBuilder) Keyboard(v any) *MessagesSendBuilder {
 	b.Params["keyboard"] = v
 	return b
 }
 
 // Template parameter.
 // https://dev.vk.com/ru/api/bots/development/messages
-func (b *MessagesSendBuilder) Template(v interface{}) *MessagesSendBuilder {
+func (b *MessagesSendBuilder) Template(v any) *MessagesSendBuilder {
 	b.Params["template"] = v
 	return b
 }
@@ -1517,7 +1517,7 @@ func (b *MessagesSendBuilder) Payload(v string) *MessagesSendBuilder {
 
 // ContentSource parameter.
 // https://dev.vk.com/ru/api/bots/development/messages
-func (b *MessagesSendBuilder) ContentSource(v interface{}) *MessagesSendBuilder {
+func (b *MessagesSendBuilder) ContentSource(v any) *MessagesSendBuilder {
 	b.Params["content_source"] = v
 	return b
 }
@@ -1538,14 +1538,14 @@ func (b *MessagesSendBuilder) DisableMentions(v bool) *MessagesSendBuilder {
 // sent by the community. It is sent in the optional intent parameter of the
 // messages.send method.
 const (
-	// Used for ad newsletter messages.
+	// PromoNewsletter used for ad newsletter messages.
 	PromoNewsletter = "promo_newsletter"
 
-	// Used for messages that request permission from the user to send them an
+	// BotAdInvite used for messages that request permission from the user to send them an
 	// advertising message.
 	BotAdInvite = "bot_ad_invite"
 
-	// Used for the bots advertising message.
+	// BotAdPromo used for the bots advertising message.
 	BotAdPromo = "bot_ad_promo"
 
 	AccountUpdate         = "account_update"
@@ -1607,7 +1607,7 @@ func (b *MessagesSendMessageEventAnswerBuilder) PeerID(v int) *MessagesSendMessa
 }
 
 // EventData parameter.
-func (b *MessagesSendMessageEventAnswerBuilder) EventData(v interface{}) *MessagesSendMessageEventAnswerBuilder {
+func (b *MessagesSendMessageEventAnswerBuilder) EventData(v any) *MessagesSendMessageEventAnswerBuilder {
 	b.Params["event_data"] = v
 	return b
 }

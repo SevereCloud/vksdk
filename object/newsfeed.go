@@ -117,7 +117,7 @@ type NewsfeedItemWallpost struct {
 	PostType       string                   `json:"post_type"`
 	Reposts        BaseRepostsInfo          `json:"reposts"`
 	MarkedAsAds    int                      `json:"marked_as_ads,omitempty"`
-	Views          interface{}              `json:"views,omitempty"` // BUG: Views int or wallViews
+	Views          any                      `json:"views,omitempty"` // BUG: Views int or wallViews
 	IsFavorite     BaseBoolInt              `json:"is_favorite,omitempty"`
 	CanDelete      BaseBoolInt              `json:"can_delete"`
 	CanArchive     BaseBoolInt              `json:"can_archive"`

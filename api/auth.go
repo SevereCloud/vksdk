@@ -67,7 +67,7 @@ type AuthExchangeSilentAuthTokenResponse struct {
 	AccessTokenID            string                    `json:"access_token_id"`
 	UserID                   int                       `json:"user_id"`
 	Phone                    string                    `json:"phone"`
-	PhoneValidated           interface{}               `json:"phone_validated"`
+	PhoneValidated           any                       `json:"phone_validated"`
 	IsPartial                bool                      `json:"is_partial"`
 	IsService                bool                      `json:"is_service"`
 	AdditionalSignupRequired bool                      `json:"additional_signup_required"`

@@ -8,6 +8,7 @@ import (
 	"os"
 	"reflect"
 	"strconv"
+	"strings"
 	"sync"
 	"testing"
 	"time"
@@ -34,22 +35,23 @@ func noError(t *testing.T, err error) bool {
 		case api.ErrFlood:
 			t.Skip("Flood control")
 		default:
-			s := "\n"
-			s += fmt.Sprintf("code: %d\n", e.Code)
-			s += fmt.Sprintf("text: %s\n", e.Text)
-			s += fmt.Sprintf("message: %s\n", e.Message)
+			var s strings.Builder
+			s.WriteString("\n")
+			fmt.Fprintf(&s, "code: %d\n", e.Code)
+			fmt.Fprintf(&s, "text: %s\n", e.Text)
+			fmt.Fprintf(&s, "message: %s\n", e.Message)
 
 			if e.RedirectURI != "" {
-				s += fmt.Sprintf("redirect_uri: %s\n", e.RedirectURI)
+				fmt.Fprintf(&s, "redirect_uri: %s\n", e.RedirectURI)
 			}
 
-			s += "params:\n"
+			s.WriteString("params:\n")
 
 			for _, param := range e.RequestParams {
-				s += fmt.Sprintf("\t%s: %s\n", param.Key, param.Value)
+				fmt.Fprintf(&s, "\t%s: %s\n", param.Key, param.Value)
 			}
 
-			t.Log(s)
+			t.Log(s.String())
 		}
 	} else if err != nil {
 		t.Logf("\n%#v", err)
@@ -252,7 +254,7 @@ type renamedBool bool
 func Test_FmtValue(t *testing.T) {
 	t.Parallel()
 
-	f := func(value interface{}, want string) {
+	f := func(value any, want string) {
 		t.Helper()
 
 		got := api.FmtValue(value, 0)

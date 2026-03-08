@@ -16,7 +16,7 @@ const secret = "secret"
 
 // response object.
 type response struct {
-	Response interface{}    `json:"response,omitempty"`
+	Response any            `json:"response,omitempty"`
 	Error    payments.Error `json:"error,omitempty"`
 }
 

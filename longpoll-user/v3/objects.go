@@ -14,7 +14,7 @@ type MessageFlagsChange struct {
 	Flags     MessageFlag
 }
 
-func (result *MessageFlagsChange) parse(i []interface{}) error {
+func (result *MessageFlagsChange) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "MessageFlagsChange", least: 3, got: len(i)}
 	}
@@ -40,7 +40,7 @@ type MessageFlagsSet struct {
 	Mask      MessageFlag
 }
 
-func (result *MessageFlagsSet) parse(i []interface{}) error {
+func (result *MessageFlagsSet) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "MessageFlagsSet", least: 3, got: len(i)}
 	}
@@ -66,7 +66,7 @@ type MessageFlagsReset struct {
 	Mask      MessageFlag
 }
 
-func (result *MessageFlagsReset) parse(i []interface{}) error {
+func (result *MessageFlagsReset) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "MessageFlagsReset", least: 3, got: len(i)}
 	}
@@ -92,7 +92,7 @@ type NewMessage struct {
 	Flags     MessageFlag
 }
 
-func (result *NewMessage) parse(i []interface{}) error {
+func (result *NewMessage) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "NewMessage", least: 3, got: len(i)}
 	}
@@ -121,7 +121,7 @@ type EditMessage struct {
 	Attachments    LongPollAttachments
 }
 
-func (result *EditMessage) parse(i []interface{}) error {
+func (result *EditMessage) parse(i []any) error {
 	if len(i) < 6 {
 		return &tooShortArray{structName: "EditMessage", least: 6, got: len(i)}
 	}
@@ -147,13 +147,13 @@ func (result *EditMessage) parse(i []interface{}) error {
 	}
 
 	if len(i) > 6 {
-		if v, ok := i[6].(map[string]interface{}); ok {
+		if v, ok := i[6].(map[string]any); ok {
 			result.AdditionalData.parse(v)
 		}
 	}
 
 	if len(i) > 7 {
-		if v, ok := i[7].(map[string]interface{}); ok {
+		if v, ok := i[7].(map[string]any); ok {
 			result.Attachments = v
 		}
 	}
@@ -169,7 +169,7 @@ type ReadInMessages struct {
 	LocalID int
 }
 
-func (result *ReadInMessages) parse(i []interface{}) error {
+func (result *ReadInMessages) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "ReadInMessages", least: 3, got: len(i)}
 	}
@@ -193,7 +193,7 @@ type ReadOutMessages struct {
 	LocalID int
 }
 
-func (result *ReadOutMessages) parse(i []interface{}) error {
+func (result *ReadOutMessages) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "ReadOutMessages", least: 3, got: len(i)}
 	}
@@ -219,7 +219,7 @@ type FriendBecameOnline struct {
 	AppID     int
 }
 
-func (result *FriendBecameOnline) parse(i []interface{}) error {
+func (result *FriendBecameOnline) parse(i []any) error {
 	if len(i) < 4 {
 		return &tooShortArray{structName: "FriendBecameOnline", least: 4, got: len(i)}
 	}
@@ -252,7 +252,7 @@ type FriendBecameOffline struct {
 	Timestamp time.Time
 }
 
-func (result *FriendBecameOffline) parse(i []interface{}) error {
+func (result *FriendBecameOffline) parse(i []any) error {
 	if len(i) < 4 {
 		return &tooShortArray{structName: "FriendBecameOffline", least: 4, got: len(i)}
 	}
@@ -280,7 +280,7 @@ type DialogFlagsReset struct {
 	Mask   DialogFlag
 }
 
-func (result *DialogFlagsReset) parse(i []interface{}) error {
+func (result *DialogFlagsReset) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "DialogFlagsReset", least: 3, got: len(i)}
 	}
@@ -304,7 +304,7 @@ type DialogFlagsReplace struct {
 	Flags  DialogFlag
 }
 
-func (result *DialogFlagsReplace) parse(i []interface{}) error {
+func (result *DialogFlagsReplace) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "DialogFlagsReplace", least: 3, got: len(i)}
 	}
@@ -328,7 +328,7 @@ type DialogsFlagsSet struct {
 	Mask   DialogFlag
 }
 
-func (result *DialogsFlagsSet) parse(i []interface{}) error {
+func (result *DialogsFlagsSet) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "DialogsFlagsSet", least: 3, got: len(i)}
 	}
@@ -352,7 +352,7 @@ type DeleteMessages struct {
 	LocalID int
 }
 
-func (result *DeleteMessages) parse(i []interface{}) error {
+func (result *DeleteMessages) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "DeleteMessages", least: 3, got: len(i)}
 	}
@@ -376,7 +376,7 @@ type RestoreDeletedMessages struct {
 	LocalID int
 }
 
-func (result *RestoreDeletedMessages) parse(i []interface{}) error {
+func (result *RestoreDeletedMessages) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "RestoreDeletedMessages", least: 3, got: len(i)}
 	}
@@ -401,7 +401,7 @@ type ChatParamsChange struct {
 	Self   int
 }
 
-func (result *ChatParamsChange) parse(i []interface{}) error {
+func (result *ChatParamsChange) parse(i []any) error {
 	if len(i) < 2 {
 		return &tooShortArray{structName: "ChatParamsChange", least: 2, got: len(i)}
 	}
@@ -428,7 +428,7 @@ type ChatInfoChange struct {
 	Info   int
 }
 
-func (result *ChatInfoChange) parse(i []interface{}) error {
+func (result *ChatInfoChange) parse(i []any) error {
 	if len(i) < 4 {
 		return &tooShortArray{structName: "ChatInfoChange", least: 4, got: len(i)}
 	}
@@ -456,7 +456,7 @@ type UserTyping struct {
 	Flags  int
 }
 
-func (result *UserTyping) parse(i []interface{}) error {
+func (result *UserTyping) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "UserTyping", least: 3, got: len(i)}
 	}
@@ -480,7 +480,7 @@ type UserTypingChat struct {
 	ChatID int
 }
 
-func (result *UserTypingChat) parse(i []interface{}) error {
+func (result *UserTypingChat) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "UserTypingChat", least: 3, got: len(i)}
 	}
@@ -504,7 +504,7 @@ type UsersTyping struct {
 	Ts         time.Time
 }
 
-func (result *UsersTyping) parse(i []interface{}) error {
+func (result *UsersTyping) parse(i []any) error {
 	if len(i) < 5 {
 		return &tooShortArray{structName: "UsersTyping", least: 5, got: len(i)}
 	}
@@ -539,7 +539,7 @@ type UsersRecordingAudioMessage struct {
 	Ts         time.Time
 }
 
-func (result *UsersRecordingAudioMessage) parse(i []interface{}) error {
+func (result *UsersRecordingAudioMessage) parse(i []any) error {
 	if len(i) < 5 {
 		return &tooShortArray{structName: "UsersRecordingAudioMessage", least: 5, got: len(i)}
 	}
@@ -572,7 +572,7 @@ type UserCall struct {
 	CallID int
 }
 
-func (result *UserCall) parse(i []interface{}) error {
+func (result *UserCall) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "UserCall", least: 3, got: len(i)}
 	}
@@ -593,7 +593,7 @@ type CounterChange struct {
 	Count int
 }
 
-func (result *CounterChange) parse(i []interface{}) error {
+func (result *CounterChange) parse(i []any) error {
 	if len(i) < 2 {
 		return &tooShortArray{structName: "CounterChange", least: 2, got: len(i)}
 	}
@@ -613,7 +613,7 @@ type NotificationSettingsChange struct {
 }
 
 // ParseMode8 should be called if ExtendedEvents flag set.
-func (result *NotificationSettingsChange) parseMode8(i []interface{}) error {
+func (result *NotificationSettingsChange) parseMode8(i []any) error {
 	if len(i) < 2 {
 		return &tooShortArray{structName: "NotificationSettingsChange", least: 2, got: len(i)}
 	}
@@ -630,7 +630,7 @@ func (result *NotificationSettingsChange) parseMode8(i []interface{}) error {
 	return nil
 }
 
-func (result *NotificationSettingsChange) parse(i []interface{}) error {
+func (result *NotificationSettingsChange) parse(i []any) error {
 	if len(i) < 3 {
 		return &tooShortArray{structName: "NotificationSettingsChange", least: 3, got: len(i)}
 	}

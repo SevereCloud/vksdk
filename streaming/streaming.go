@@ -141,7 +141,7 @@ type Streaming struct {
 func (s *Streaming) doRequest(req *http.Request) (*response, error) {
 	req.Header.Set("User-Agent", s.UserAgent)
 
-	resp, err := s.Client.Do(req)
+	resp, err := s.Client.Do(req) //nolint:gosec // Request to VK streaming API
 	if err != nil {
 		return nil, fmt.Errorf("streaming: %w", err)
 	}

@@ -57,7 +57,7 @@ func TestResponse_AddURL(t *testing.T) {
 func TestResponse_AddButton(t *testing.T) {
 	t.Parallel()
 
-	f := func(title string, payload interface{}, actual marusia.Response) {
+	f := func(title string, payload any, actual marusia.Response) {
 		t.Helper()
 
 		resp := marusia.Response{}

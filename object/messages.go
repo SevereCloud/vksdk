@@ -134,7 +134,7 @@ func (keyboard *MessagesKeyboard) AddRow() *MessagesKeyboard {
 }
 
 // AddTextButton add Text button in last row.
-func (keyboard *MessagesKeyboard) AddTextButton(label string, payload interface{}, color string) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddTextButton(label string, payload any, color string) *MessagesKeyboard {
 	b, err := json.Marshal(payload)
 	if err != nil {
 		panic(err)
@@ -156,7 +156,7 @@ func (keyboard *MessagesKeyboard) AddTextButton(label string, payload interface{
 }
 
 // AddOpenLinkButton add Open Link button in last row.
-func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label string, payload interface{}) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label string, payload any) *MessagesKeyboard {
 	b, err := json.Marshal(payload)
 	if err != nil {
 		panic(err)
@@ -178,7 +178,7 @@ func (keyboard *MessagesKeyboard) AddOpenLinkButton(link, label string, payload 
 }
 
 // AddLocationButton add Location button in last row.
-func (keyboard *MessagesKeyboard) AddLocationButton(payload interface{}) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddLocationButton(payload any) *MessagesKeyboard {
 	b, err := json.Marshal(payload)
 	if err != nil {
 		panic(err)
@@ -198,7 +198,7 @@ func (keyboard *MessagesKeyboard) AddLocationButton(payload interface{}) *Messag
 }
 
 // AddVKPayButton add VK Pay button in last row.
-func (keyboard *MessagesKeyboard) AddVKPayButton(payload interface{}, hash string) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddVKPayButton(payload any, hash string) *MessagesKeyboard {
 	b, err := json.Marshal(payload)
 	if err != nil {
 		panic(err)
@@ -221,7 +221,7 @@ func (keyboard *MessagesKeyboard) AddVKPayButton(payload interface{}, hash strin
 // AddVKAppsButton add VK Apps button in last row.
 func (keyboard *MessagesKeyboard) AddVKAppsButton(
 	appID, ownerID int,
-	payload interface{},
+	payload any,
 	label, hash string,
 ) *MessagesKeyboard {
 	b, err := json.Marshal(payload)
@@ -247,7 +247,7 @@ func (keyboard *MessagesKeyboard) AddVKAppsButton(
 }
 
 // AddCallbackButton add Callback button in last row.
-func (keyboard *MessagesKeyboard) AddCallbackButton(label string, payload interface{}, color string) *MessagesKeyboard {
+func (keyboard *MessagesKeyboard) AddCallbackButton(label string, payload any, color string) *MessagesKeyboard {
 	b, err := json.Marshal(payload)
 	if err != nil {
 		panic(err)

@@ -71,6 +71,9 @@ linters:
     - wsl_v5
     - noinlineerr
     - embeddedstructfieldcheck
+    - godoclint
+    - iotamixing
+    - modernize
 
 # - testpackage # TODO: Fix testpackage
 # - noctx # TODO: Fix noctx
@@ -118,6 +121,8 @@ linters:
 
 # - wsl_5
 # - arangolint
+
+# - unqueryvet
 
   settings:
     testifylint:

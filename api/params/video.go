@@ -155,7 +155,7 @@ func (b *VideoCreateCommentBuilder) Message(v string) *VideoCreateCommentBuilder
 // ” — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media attachment owner. '<media_id>' — Media attachment ID.
 // Example: "photo100172_166443618,photo66748_265827614".
-func (b *VideoCreateCommentBuilder) Attachments(v interface{}) *VideoCreateCommentBuilder {
+func (b *VideoCreateCommentBuilder) Attachments(v any) *VideoCreateCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }
@@ -414,7 +414,7 @@ func (b *VideoEditCommentBuilder) Message(v string) *VideoEditCommentBuilder {
 // ” — Type of media attachment: 'photo' — photo, 'video' — video, 'audio' — audio, 'doc' — document,
 // '<owner_id>' — ID of the media attachment owner. '<media_id>' — Media attachment ID.
 // Example: "photo100172_166443618,photo66748_265827614".
-func (b *VideoEditCommentBuilder) Attachments(v interface{}) *VideoEditCommentBuilder {
+func (b *VideoEditCommentBuilder) Attachments(v any) *VideoEditCommentBuilder {
 	b.Params["attachments"] = v
 	return b
 }

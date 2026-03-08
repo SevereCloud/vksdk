@@ -2,15 +2,15 @@ package object
 
 // LeadFormsForm struct.
 type LeadFormsForm struct {
-	FormID        int         `json:"form_id"`
-	GroupID       int         `json:"group_id"`
-	Photo         interface{} `json:"photo"`
-	Name          string      `json:"name"`
-	Title         string      `json:"title"`
-	Description   string      `json:"description"`
-	Confirmation  string      `json:"confirmation"`
-	SiteLinkURL   string      `json:"site_link_url"`
-	PolicyLinkURL string      `json:"policy_link_url"`
+	FormID        int    `json:"form_id"`
+	GroupID       int    `json:"group_id"`
+	Photo         any    `json:"photo"`
+	Name          string `json:"name"`
+	Title         string `json:"title"`
+	Description   string `json:"description"`
+	Confirmation  string `json:"confirmation"`
+	SiteLinkURL   string `json:"site_link_url"`
+	PolicyLinkURL string `json:"policy_link_url"`
 	Questions     []struct {
 		Type    string `json:"type"`
 		Key     string `json:"key"`

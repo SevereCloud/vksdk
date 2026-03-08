@@ -1,4 +1,4 @@
-// Package oauth ...
+// Package oauth provides OAuth authorization.
 package oauth // import "github.com/SevereCloud/vksdk/v3/api/oauth"
 
 import (
