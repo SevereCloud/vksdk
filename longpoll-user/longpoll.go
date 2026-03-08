@@ -53,12 +53,14 @@ VK documentation https://dev.vk.ru/ru/api/user-long-poll/getting-started
 package longpoll // import "github.com/SevereCloud/vksdk/v3/longpoll-user"
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
 	"strconv"
 	"sync/atomic"
+	"time"
 
 	"github.com/SevereCloud/vksdk/v3/api"
 	"github.com/SevereCloud/vksdk/v3/internal"
@@ -81,6 +83,10 @@ const (
 	// ReturnRandomID to return random_id field.
 	ReturnRandomID Mode = 1 << 7
 )
+
+// defaultTimeoutMargin is added to Wait time for LongPoll timeout.
+// This ensures the request doesn't timeout before server responds.
+const defaultTimeoutMargin = 10 * time.Second
 
 // LongPoll struct.
 type LongPoll struct {
@@ -164,7 +170,11 @@ func (lp *LongPoll) check() (response object.LongPollResponse, err error) {
 	q.Set("version", strconv.Itoa(lp.Version))
 	u.RawQuery = q.Encode()
 
-	req, err := http.NewRequest(http.MethodGet, u.String(), nil)
+	// Add margin to wait time for network latency and server processing
+	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(lp.Wait)*time.Second+defaultTimeoutMargin)
+	defer cancel()
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u.String(), nil)
 	if err != nil {
 		return response, fmt.Errorf("longpoll-user: %w", err)
 	}

@@ -1,6 +1,7 @@
 package oauth // import "github.com/SevereCloud/vksdk/v3/api/oauth"
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -8,6 +9,7 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/SevereCloud/vksdk/v3/internal"
 )
@@ -208,10 +210,16 @@ func (a AuthCodeFlowGroup) buildRequest(code string) *http.Request {
 	return req
 }
 
+// DefaultTimeout is the default timeout for OAuth requests.
+const DefaultTimeout = 35 * time.Second
+
 func (a AuthCodeFlowGroup) request(code string) (*http.Response, error) {
 	req := a.buildRequest(code)
 
-	resp, err := a.Client.Do(req)
+	ctx, cancel := context.WithTimeout(req.Context(), DefaultTimeout)
+	defer cancel()
+
+	resp, err := a.Client.Do(req.WithContext(ctx))
 	if err != nil {
 		return nil, fmt.Errorf("oauth: %w", err)
 	}

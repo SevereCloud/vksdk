@@ -1,7 +1,7 @@
 /*
 Package longpoll implements Bots Long Poll API.
 
-See more https://dev.vk.ru/ru/api/bots-long-poll/getting-started
+See more https://dev.vk.com/ru/api/bots-long-poll/getting-started
 */
 package longpoll // import "github.com/SevereCloud/vksdk/v3/longpoll-bot"
 
@@ -13,6 +13,7 @@ import (
 	"io"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/SevereCloud/vksdk/v3"
 	"github.com/SevereCloud/vksdk/v3/api"
@@ -26,6 +27,10 @@ type Response struct {
 	Updates []events.GroupEvent `json:"updates"`
 	Failed  int                 `json:"failed"`
 }
+
+// defaultTimeoutMargin is added to Wait time for LongPoll timeout.
+// This ensures the request doesn't timeout before server responds.
+const defaultTimeoutMargin = 10 * time.Second
 
 // LongPoll struct.
 type LongPoll struct {
@@ -109,7 +114,11 @@ func (lp *LongPoll) updateServer(updateTs bool) error {
 func (lp *LongPoll) check(ctx context.Context) (response Response, err error) {
 	u := fmt.Sprintf("%s?act=a_check&key=%s&ts=%s&wait=%d", lp.Server, lp.Key, lp.Ts, lp.Wait)
 
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u, nil) //nolint:gosec // Server URL from VK API
+	// Add margin to wait time for network latency and server processing
+	ctxWithTimeout, cancel := context.WithTimeout(ctx, time.Duration(lp.Wait)*time.Second+defaultTimeoutMargin)
+	defer cancel()
+
+	req, err := http.NewRequestWithContext(ctxWithTimeout, http.MethodGet, u, nil) //nolint:gosec // Server URL from VK API
 	if err != nil {
 		return response, fmt.Errorf("longpoll-bot: %w", err)
 	}

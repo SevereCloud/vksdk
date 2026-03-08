@@ -1,6 +1,7 @@
 package oauth // import "github.com/SevereCloud/vksdk/v3/api/oauth"
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -185,7 +186,10 @@ func (a AuthCodeFlowUser) buildRequest(code string) *http.Request {
 func (a AuthCodeFlowUser) request(code string) (*http.Response, error) {
 	req := a.buildRequest(code)
 
-	resp, err := a.Client.Do(req)
+	ctx, cancel := context.WithTimeout(req.Context(), DefaultTimeout)
+	defer cancel()
+
+	resp, err := a.Client.Do(req.WithContext(ctx))
 	if err != nil {
 		return nil, fmt.Errorf("oauth: %w", err)
 	}
@@ -325,7 +329,10 @@ func DirectAuth(p DirectAuthParams) (*UserToken, error) {
 		p.Client = http.DefaultClient
 	}
 
-	resp, err := p.Client.Do(req)
+	ctx, cancel := context.WithTimeout(req.Context(), DefaultTimeout)
+	defer cancel()
+
+	resp, err := p.Client.Do(req.WithContext(ctx))
 	if err != nil {
 		return nil, fmt.Errorf("oauth: %w", err)
 	}

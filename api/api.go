@@ -32,6 +32,10 @@ import (
 const (
 	Version   = vksdk.API
 	MethodURL = "https://api.vk.ru/method/"
+
+	// DefaultTimeout is the default timeout for API requests.
+	// This value is used when no timeout is set in the context.
+	DefaultTimeout = 35 * time.Second
 )
 
 // VKontakte API methods (except for methods from secure and ads sections)
@@ -301,7 +305,10 @@ func (vk *VK) DefaultHandler(method string, sliceParams ...Params) (Response, er
 
 		var reader io.Reader
 
-		resp, err := vk.Client.Do(req)
+		ctx, cancel := context.WithTimeout(req.Context(), DefaultTimeout)
+		defer cancel()
+
+		resp, err := vk.Client.Do(req.WithContext(ctx))
 		if err != nil {
 			return response, fmt.Errorf("api.DefaultHandler: %w", err)
 		}
