@@ -10,14 +10,20 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"log/slog"
 	"net/http"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
 
 	"github.com/SevereCloud/vksdk/v3/events"
 	"github.com/SevereCloud/vksdk/v3/internal"
 )
+
+func errorWrap(err error) error {
+	return fmt.Errorf("callback: %w", err)
+}
 
 // Callback struct SecretKeys [GroupID]SecretKey.
 type Callback struct {
@@ -31,8 +37,10 @@ type Callback struct {
 
 	// ErrorLog specifies an optional logger for errors unexpected
 	// behavior from handlers.
-	// If nil, logging is done via the log package's standard logger.
-	ErrorLog *log.Logger
+	// If nil, logging is done via the slog package's standard logger.
+	ErrorLog        *log.Logger
+	wrapperErrorLog *slog.Logger
+	ErrorSLog       *slog.Logger
 }
 
 // NewCallback return *Callback.
@@ -63,6 +71,7 @@ var groupEventPool = sync.Pool{ //nolint:gochecknoglobals
 
 // HandleFunc handler.
 func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
+	ctx := r.Context()
 	e := groupEventPool.Get().(*events.GroupEvent)
 
 	defer func() {
@@ -72,7 +81,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(e)
 	if err != nil {
-		cb.logf("callback: %v", err)
+		cb.logger().ErrorContext(ctx, "failed to json decode request body", "error", errorWrap(err))
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 
 		return
@@ -84,7 +93,7 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if secretKey != "" && e.Secret != secretKey {
-		cb.logf("callback: bad secret %d", e.GroupID)
+		cb.logger().WarnContext(ctx, "wrong secret key", "group_id", e.GroupID)
 		http.Error(w, "Bad Secret", http.StatusForbidden)
 
 		return
@@ -93,13 +102,11 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 	if e.Type == events.EventConfirmation {
 		_, err := fmt.Fprint(w, cb.confirmationKey(e.GroupID))
 		if err != nil {
-			cb.logf("callback: %v", err)
+			cb.logger().ErrorContext(ctx, "failed to write confirmation key", "error", errorWrap(err))
 		}
 
 		return
 	}
-
-	ctx := r.Context()
 
 	retryCounter, _ := strconv.Atoi(r.Header.Get("X-Retry-Counter"))
 	ctx = context.WithValue(ctx, internal.CallbackRetryCounterKey, retryCounter)
@@ -123,14 +130,14 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	err = cb.Handler(ctx, *e)
 	if err != nil {
-		cb.logf("callback: %v", err)
+		cb.logger().ErrorContext(ctx, "failed to handle event", "error", errorWrap(err))
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 
 		return
 	}
 
 	if remove {
-		cb.response(w, "remove")
+		cb.response(ctx, w, "remove")
 
 		return
 	}
@@ -142,22 +149,81 @@ func (cb *Callback) HandleFunc(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cb.response(w, "ok")
+	cb.response(ctx, w, "ok")
 }
 
-func (cb *Callback) response(w http.ResponseWriter, data string) {
+func (cb *Callback) response(ctx context.Context, w http.ResponseWriter, data string) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 
 	_, err := w.Write([]byte(data))
 	if err != nil {
-		cb.logf("write response: %v", err)
+		cb.logger().ErrorContext(ctx, "failed to write http response", "error", errorWrap(err))
 	}
 }
 
-func (cb *Callback) logf(format string, args ...any) {
-	if cb.ErrorLog != nil {
-		cb.ErrorLog.Printf(format, args...)
-	} else {
-		log.Printf(format, args...)
+func (cb *Callback) createWrapperErrorLog() {
+	if cb.ErrorLog == nil || cb.wrapperErrorLog != nil {
+		return
 	}
+
+	handler := newHandlerLogLogger(cb.ErrorLog)
+	cb.wrapperErrorLog = slog.New(handler)
+}
+
+func (cb *Callback) logger() *slog.Logger {
+	if cb.ErrorSLog != nil {
+		return cb.ErrorSLog
+	}
+
+	if cb.ErrorLog != nil {
+		cb.createWrapperErrorLog()
+		return cb.wrapperErrorLog
+	}
+
+	return slog.Default()
+}
+
+type handlerLogLogger struct {
+	logger *log.Logger
+}
+
+func newHandlerLogLogger(logger *log.Logger) slog.Handler {
+	return &handlerLogLogger{
+		logger,
+	}
+}
+
+// Enabled implements [slog.Handler].
+func (h *handlerLogLogger) Enabled(context.Context, slog.Level) bool {
+	return true
+}
+
+// Handle implements [slog.Handler].
+func (h *handlerLogLogger) Handle(_ context.Context, r slog.Record) error {
+	var s strings.Builder
+
+	s.WriteString(r.Level.String())
+	s.WriteString(" ")
+	s.WriteString(r.Message)
+
+	r.Attrs(func(attr slog.Attr) bool {
+		s.WriteString(" ")
+		s.WriteString(attr.String())
+
+		return true
+	})
+
+	h.logger.Println(s.String())
+
+	return nil
+}
+
+// WithAttrs implements [slog.Handler].
+func (h *handlerLogLogger) WithAttrs(attrs []slog.Attr) slog.Handler {
+	return h
+}
+
+// WithGroup implements [slog.Handler].
+func (h *handlerLogLogger) WithGroup(name string) slog.Handler {
+	return h
 }

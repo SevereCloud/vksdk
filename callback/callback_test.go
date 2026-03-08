@@ -250,5 +250,5 @@ func TestCallback_ErrorLog(t *testing.T) {
 	handler := http.HandlerFunc(cb.HandleFunc)
 
 	handler.ServeHTTP(rr, req)
-	assert.Equal(t, "callback: EOF\n", buf.String())
+	assert.Equal(t, "ERROR failed to json decode request body error=callback: EOF\n", buf.String())
 }
