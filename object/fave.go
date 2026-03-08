@@ -33,9 +33,9 @@ type FaveItem struct {
 	Seen      BaseBoolInt      `json:"seen"`
 	AddedDate int              `json:"added_date"`
 	Tags      []FaveTag        `json:"tags"`
-	Link      FaveFavesLink    `json:"link,omitempty"`
-	Post      WallWallpost     `json:"post,omitempty"`
-	Video     VideoVideo       `json:"video,omitempty"`
-	Product   MarketMarketItem `json:"product,omitempty"`
-	Article   Article          `json:"article,omitempty"`
+	Link      FaveFavesLink    `json:"link"`
+	Post      WallWallpost     `json:"post"`
+	Video     VideoVideo       `json:"video"`
+	Product   MarketMarketItem `json:"product"`
+	Article   Article          `json:"article"`
 }

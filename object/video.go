@@ -51,7 +51,7 @@ type VideoVideo struct {
 	Description       string            `json:"description"` // Video description
 	Duration          int               `json:"duration"`    // Video duration in seconds
 	Files             VideoVideoFiles   `json:"files"`
-	Trailer           VideoVideoFiles   `json:"trailer,omitempty"`
+	Trailer           VideoVideoFiles   `json:"trailer"`
 	FirstFrame        []VideoVideoImage `json:"first_frame"`
 	Image             []VideoVideoImage `json:"image"`
 	Height            int               `json:"height"`   // Video height

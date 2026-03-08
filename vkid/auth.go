@@ -12,7 +12,7 @@ type SilentAuthPayload struct {
 	UUID              string     `json:"uuid"`
 
 	OAuthProvider  string       `json:"oauthProvider,omitempty"`
-	ExternalUser   ExternalUser `json:"external_user,omitempty"`
+	ExternalUser   ExternalUser `json:"external_user"`
 	IsRegistration bool         `json:"is_registration,omitempty"`
 }
 

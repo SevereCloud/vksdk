@@ -96,11 +96,11 @@ import (
 )
 
 type response struct {
-	Code           int            `json:"code"`                      // reply code.
-	Event          Event          `json:"event,omitempty"`           // (for code = 100) event
-	Rules          []Rule         `json:"rules,omitempty"`           // (for code = 200) info about rules in the stream.
-	ServiceMessage serviceMessage `json:"service_message,omitempty"` // (for code = 300) service message
-	Error          Error          `json:"error,omitempty"`           // (for code = 400) error description.
+	Code           int            `json:"code"`            // reply code.
+	Event          Event          `json:"event"`           // (for code = 100) event
+	Rules          []Rule         `json:"rules,omitempty"` // (for code = 200) info about rules in the stream.
+	ServiceMessage serviceMessage `json:"service_message"` // (for code = 300) service message
+	Error          Error          `json:"error"`           // (for code = 400) error description.
 }
 
 const (

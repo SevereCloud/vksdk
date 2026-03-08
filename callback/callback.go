@@ -219,11 +219,11 @@ func (h *handlerLogLogger) Handle(_ context.Context, r slog.Record) error {
 }
 
 // WithAttrs implements [slog.Handler].
-func (h *handlerLogLogger) WithAttrs(attrs []slog.Attr) slog.Handler {
+func (h *handlerLogLogger) WithAttrs([]slog.Attr) slog.Handler {
 	return h
 }
 
 // WithGroup implements [slog.Handler].
-func (h *handlerLogLogger) WithGroup(name string) slog.Handler {
+func (h *handlerLogLogger) WithGroup(string) slog.Handler {
 	return h
 }

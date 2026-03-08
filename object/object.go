@@ -422,11 +422,11 @@ type Privacy struct {
 	Lists    struct {
 		Allowed  []int `json:"allowed"`
 		Excluded []int `json:"excluded"`
-	} `json:"lists,omitempty"`
+	} `json:"lists"`
 	Owners struct {
 		Allowed  []int `json:"allowed"`
 		Excluded []int `json:"excluded"`
-	} `json:"owners,omitempty"`
+	} `json:"owners"`
 }
 
 // EventsEventAttach struct.

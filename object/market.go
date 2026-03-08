@@ -257,7 +257,7 @@ type MarketOrderDelivery struct {
 	TrackLink     string              `json:"track_link"`
 	Address       string              `json:"address"`
 	Type          string              `json:"type"`
-	DeliveryPoint MarketDeliveryPoint `json:"delivery_point,omitempty"`
+	DeliveryPoint MarketDeliveryPoint `json:"delivery_point"`
 }
 
 // MarketDeliveryPoint struct.

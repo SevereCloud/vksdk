@@ -27,9 +27,9 @@ func NewParamsVerification(clientSecret string) *ParamsVerification {
 // getSignParams return sort sign parameters.
 func getSignParams(rawValues url.Values) string {
 	singParams := make(url.Values)
-	signKeys := strings.Split(rawValues["sign_keys"][0], ",")
+	signKeys := strings.SplitSeq(rawValues["sign_keys"][0], ",")
 
-	for _, key := range signKeys {
+	for key := range signKeys {
 		values, ok := rawValues[key]
 		if !ok {
 			continue

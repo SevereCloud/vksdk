@@ -269,7 +269,7 @@ type Meta struct {
 	CityRu string `json:"_city_ru,omitempty"`
 
 	// Плеер статус.
-	ClientPlayerStatus ClientPlayerStatus `json:"client_player_status,omitempty"`
+	ClientPlayerStatus ClientPlayerStatus `json:"client_player_status"`
 
 	// Если true, то запрос к скиллу технический (не от реального пользователя)
 	Test bool `json:"test,omitempty"`
@@ -431,7 +431,7 @@ type AudioPlayer struct {
 // AudioPlaylist структура, отвечающая за описание того откуда брать информацию о треке.
 type AudioPlaylist struct {
 	Stream AudioStream `json:"stream"`
-	Meta   AudioMeta   `json:"meta,omitempty"`
+	Meta   AudioMeta   `json:"meta"`
 }
 
 // AudioStream описание информации об аудиозаписи.
@@ -502,7 +502,7 @@ type Response struct {
 	Buttons []Button `json:"buttons,omitempty"`
 
 	// Push уведомление.
-	Push Push `json:"push,omitempty"`
+	Push Push `json:"push"`
 
 	// Признак конца разговора:
 	//
@@ -548,7 +548,7 @@ type ArrayResponse struct {
 	SSML            string          `json:"ssml,omitempty"`
 	TTS             string          `json:"tts,omitempty"`
 	Buttons         []Button        `json:"buttons,omitempty"`
-	Push            Push            `json:"push,omitempty"`
+	Push            Push            `json:"push"`
 	EndSession      bool            `json:"end_session"`
 	Card            *Card           `json:"card,omitempty"`
 	AudioPlayer     *AudioPlayer    `json:"audio_player,omitempty"`

@@ -17,7 +17,7 @@ type StoriesViewer struct {
 		LastName        string `json:"last_name"`
 		IsClosed        bool   `json:"is_closed"`
 		CanAccessClosed bool   `json:"can_access_closed"`
-	} `json:"user,omitempty"`
+	} `json:"user"`
 }
 
 // StoriesNarrativeInfo type.
@@ -269,7 +269,7 @@ type StoriesClickableSticker struct { //nolint: maligned
 	Hashtag string `json:"hashtag,omitempty"`
 
 	// type=link
-	LinkObject     BaseLink `json:"link_object,omitempty"`
+	LinkObject     BaseLink `json:"link_object"`
 	TooltipText    string   `json:"tooltip_text,omitempty"`
 	TooltipTextKey string   `json:"tooltip_text_key,omitempty"`
 
@@ -281,7 +281,7 @@ type StoriesClickableSticker struct { //nolint: maligned
 	// type=market_item
 	Subtype string `json:"subtype,omitempty"`
 	// LinkObject BaseLink         `json:"link_object,omitempty"` // subtype=aliexpress_product
-	MarketItem MarketMarketItem `json:"market_item,omitempty"` // subtype=market_item
+	MarketItem MarketMarketItem `json:"market_item"` // subtype=market_item
 
 	// type=story_reply
 	OwnerID int `json:"owner_id,omitempty"`
@@ -291,14 +291,14 @@ type StoriesClickableSticker struct { //nolint: maligned
 	// OwnerID int `json:"owner_id,omitempty"`
 
 	// type=poll
-	Poll PollsPoll `json:"poll,omitempty"`
+	Poll PollsPoll `json:"poll"`
 
 	// type=music
-	Audio          AudioAudio `json:"audio,omitempty"`
+	Audio          AudioAudio `json:"audio"`
 	AudioStartTime int        `json:"audio_start_time,omitempty"`
 
 	// type=app
-	App                      AppsApp     `json:"app,omitempty"`
+	App                      AppsApp     `json:"app"`
 	AppContext               string      `json:"app_context,omitempty"`
 	HasNewInteractions       BaseBoolInt `json:"has_new_interactions,omitempty"`
 	IsBroadcastNotifyAllowed BaseBoolInt `json:"is_broadcast_notify_allowed,omitempty"`

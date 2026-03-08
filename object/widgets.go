@@ -57,13 +57,13 @@ type WidgetsWidgetLikes struct {
 
 // WidgetsWidgetPage struct.
 type WidgetsWidgetPage struct {
-	Comments WidgetsWidgetLikes `json:"comments,omitempty"`
+	Comments WidgetsWidgetLikes `json:"comments"`
 
 	// Date when Widgets on the page has been initialized firstly in Unixtime
 	Date        int                `json:"date,omitempty"`
 	Description string             `json:"description,omitempty"` // Page description
 	ID          int                `json:"id,omitempty"`          // Page ID
-	Likes       WidgetsWidgetLikes `json:"likes,omitempty"`
+	Likes       WidgetsWidgetLikes `json:"likes"`
 	PageID      string             `json:"page_id,omitempty"` // page_id parameter value
 	Photo       string             `json:"photo,omitempty"`   // URL of the preview image
 	Title       string             `json:"title,omitempty"`   // Page title

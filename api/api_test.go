@@ -222,14 +222,10 @@ func TestVK_RequestLimit(t *testing.T) {
 	var wg sync.WaitGroup
 
 	for range 20 {
-		wg.Add(1)
-
-		go func() {
+		wg.Go(func() {
 			_, err := vkUser.UsersGet(nil)
 			assert.NoError(t, err)
-
-			wg.Done()
-		}()
+		})
 	}
 
 	wg.Wait()

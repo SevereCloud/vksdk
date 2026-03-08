@@ -125,10 +125,10 @@ type GroupsGroup struct {
 	Photo200     string           `json:"photo_200,omitempty"`   // URL of square photo of the community with 200 pixels in width
 	Photo50      string           `json:"photo_50,omitempty"`    // URL of square photo of the community with 50 pixels in width
 	StartDate    int              `json:"start_date,omitempty"`  // Start date in Unixtime format
-	Market       GroupsMarketInfo `json:"market,omitempty"`
+	Market       GroupsMarketInfo `json:"market"`
 	MemberStatus int              `json:"member_status,omitempty"` // Current user's member status
-	City         BaseObject       `json:"city,omitempty"`
-	Country      BaseCountry      `json:"country,omitempty"`
+	City         BaseObject       `json:"city"`
+	Country      BaseCountry      `json:"country"`
 
 	// Information whether current user is administrator.
 	IsAdmin BaseBoolInt `json:"is_admin"`
@@ -195,8 +195,8 @@ type GroupsGroup struct {
 	Description  string              `json:"description,omitempty"`   // Community description
 	WikiPage     string              `json:"wiki_page,omitempty"`     // Community's main wiki page title
 	MembersCount int                 `json:"members_count,omitempty"` // Community members number
-	Counters     GroupsCountersGroup `json:"counters,omitempty"`
-	Cover        GroupsCover         `json:"cover,omitempty"`
+	Counters     GroupsCountersGroup `json:"counters"`
+	Cover        GroupsCover         `json:"cover"`
 
 	// Type of group, start date of event or category of public page.
 	Activity        string               `json:"activity,omitempty"`
@@ -207,14 +207,14 @@ type GroupsGroup struct {
 	Contacts        []GroupsContactsItem `json:"contacts,omitempty"`
 	Site            string               `json:"site,omitempty"` // Community's website
 	MainSection     int                  `json:"main_section,omitempty"`
-	OnlineStatus    GroupsOnlineStatus   `json:"online_status,omitempty"` // Status of replies in community messages
-	AgeLimits       int                  `json:"age_limits,omitempty"`    // Information whether age limit
-	BanInfo         *GroupsGroupBanInfo  `json:"ban_info,omitempty"`      // User ban info
-	Addresses       GroupsAddressesInfo  `json:"addresses,omitempty"`     // Info about addresses in Groups
-	LiveCovers      GroupsLiveCovers     `json:"live_covers,omitempty"`
-	CropPhoto       UsersCropPhoto       `json:"crop_photo,omitempty"`
+	OnlineStatus    GroupsOnlineStatus   `json:"online_status"`        // Status of replies in community messages
+	AgeLimits       int                  `json:"age_limits,omitempty"` // Information whether age limit
+	BanInfo         *GroupsGroupBanInfo  `json:"ban_info,omitempty"`   // User ban info
+	Addresses       GroupsAddressesInfo  `json:"addresses"`            // Info about addresses in Groups
+	LiveCovers      GroupsLiveCovers     `json:"live_covers"`
+	CropPhoto       UsersCropPhoto       `json:"crop_photo"`
 	Wall            int                  `json:"wall,omitempty"`
-	ActionButton    GroupsActionButton   `json:"action_button,omitempty"`
+	ActionButton    GroupsActionButton   `json:"action_button"`
 	TrackCode       string               `json:"track_code,omitempty"`
 	PublicDateLabel string               `json:"public_date_label,omitempty"`
 	AuthorID        int                  `json:"author_id,omitempty"`
@@ -795,7 +795,7 @@ type GroupsMarketInfo struct {
 	// the "Products" section.
 	Type            GroupsMarketType  `json:"type,omitempty"`
 	ContactID       int               `json:"contact_id,omitempty"` // Contact person ID
-	Currency        MarketCurrency    `json:"currency,omitempty"`
+	Currency        MarketCurrency    `json:"currency"`
 	CurrencyText    string            `json:"currency_text,omitempty"` // Currency name
 	Enabled         BaseBoolInt       `json:"enabled"`                 // Information whether the market is enabled
 	CommentsEnabled BaseBoolInt       `json:"comments_enabled,omitempty"`
@@ -804,10 +804,10 @@ type GroupsMarketInfo struct {
 	MainAlbumID     int               `json:"main_album_id,omitempty"` // Main market album ID
 	PriceMax        string            `json:"price_max,omitempty"`     // Maximum price
 	PriceMin        string            `json:"price_min,omitempty"`     // Minimum price
-	Wiki            PagesWikipageFull `json:"wiki,omitempty"`
+	Wiki            PagesWikipageFull `json:"wiki"`
 	CityIDs         []int             `json:"city_ids"`
 	CountryIDs      []int             `json:"country_ids,omitempty"`
-	MinOrderPrice   MarketPrice       `json:"min_order_price,omitempty"`
+	MinOrderPrice   MarketPrice       `json:"min_order_price"`
 }
 
 // GroupsGroupRole Role type.
