@@ -14,7 +14,7 @@ import (
 func TestAutoSetting_ErrAuth(t *testing.T) {
 	t.Parallel()
 
-	vk := api.NewVK("")
+	vk := api.NewVK("bad_token")
 
 	cb := callback.NewCallback()
 	cb.MessageNew(func(_ context.Context, _ events.MessageNewObject) {})
