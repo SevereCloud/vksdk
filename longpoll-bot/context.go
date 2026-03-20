@@ -7,6 +7,10 @@ import (
 )
 
 // TsFromContext returns the ts from context.
-func TsFromContext(ctx context.Context) int {
-	return ctx.Value(internal.LongPollTsKey).(int)
+func TsFromContext(ctx context.Context) string {
+	if ts, ok := ctx.Value(internal.LongPollTsKey).(string); ok {
+		return ts
+	}
+
+	return ""
 }
