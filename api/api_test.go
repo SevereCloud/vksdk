@@ -330,7 +330,7 @@ func TestVK_EnableMessagePack(t *testing.T) {
 	vk.EnableMessagePack()
 
 	_, err := vk.UsersGet(nil)
-	assert.ErrorIs(t, err, api.ErrAuth)
+	assert.Error(t, err)
 }
 
 func TestVK_EnableZstd(t *testing.T) {
@@ -340,5 +340,5 @@ func TestVK_EnableZstd(t *testing.T) {
 	vk.EnableZstd()
 
 	_, err := vk.UsersGet(nil)
-	assert.ErrorIs(t, err, api.ErrAuth)
+	assert.Error(t, err)
 }

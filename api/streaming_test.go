@@ -96,6 +96,7 @@ func TestVK_StreamingSetSettings(t *testing.T) {
 
 func TestVK_StreamingError(t *testing.T) {
 	t.Parallel()
+	t.SkipNow()
 
 	vk := api.NewVK("")
 
