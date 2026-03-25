@@ -32,8 +32,11 @@ func (vk *VK) LikesDelete(params Params) (response LikesDeleteResponse, err erro
 
 // LikesGetListResponse struct.
 type LikesGetListResponse struct {
-	Count int   `json:"count"`
-	Items []int `json:"items"`
+	Count         int                       `json:"count"`
+	Items         []int                     `json:"items"`
+	Reactions     []int                     `json:"reactions"`
+	ReactionSetID string                    `json:"reaction_set_id"`
+	ReactionSets  []object.LikesReactionSet `json:"reaction_sets"`
 }
 
 // LikesGetList likes.getList returns a list of IDs of users who added the specified object to their Likes list.
@@ -49,8 +52,11 @@ func (vk *VK) LikesGetList(params Params) (response LikesGetListResponse, err er
 
 // LikesGetListExtendedResponse struct.
 type LikesGetListExtendedResponse struct {
-	Count int                `json:"count"`
-	Items []object.UsersUser `json:"items"`
+	Count         int                       `json:"count"`
+	Items         []object.UsersUser        `json:"items"`
+	Reactions     []int                     `json:"reactions"`
+	ReactionSetID string                    `json:"reaction_set_id"`
+	ReactionSets  []object.LikesReactionSet `json:"reaction_sets"`
 }
 
 // LikesGetListExtended likes.getList returns a list of IDs of users who added the specified object to their Likes list.
