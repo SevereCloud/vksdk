@@ -23,12 +23,12 @@ func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string)
 
 	part, err := writer.CreateFormFile(fieldname, filename)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("api: %w", err)
 	}
 
 	_, err = io.Copy(part, file)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("api: %w", err)
 	}
 
 	contentType := writer.FormDataContentType()
@@ -36,25 +36,28 @@ func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string)
 
 	resp, err := vk.Client.Post(url, contentType, body)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("api: %w", err)
 	}
 	defer resp.Body.Close()
 
 	bodyContent, err = io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, fmt.Errorf("api: %w", err)
+	}
 
-	return bodyContent, err
+	return bodyContent, nil
 }
 
 // uploadFileWithSize uploading file without buffering the whole multipart body in memory.
 func (vk *VK) uploadFileWithSize(url string, file *os.File, fieldname, filename string) (bodyContent []byte, err error) {
 	currentOffset, err := file.Seek(0, io.SeekCurrent)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("api: %w", err)
 	}
 
 	info, err := file.Stat()
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("api: %w", err)
 	}
 
 	fileSize := max(info.Size()-currentOffset, 0)
@@ -70,7 +73,8 @@ func (vk *VK) uploadFileWithSize(url string, file *os.File, fieldname, filename 
 	if err != nil {
 		_ = reader.Close()
 		_ = writer.Close()
-		return nil, err
+
+		return nil, fmt.Errorf("api: %w", err)
 	}
 
 	req.Header.Set("Content-Type", contentType)
@@ -78,6 +82,7 @@ func (vk *VK) uploadFileWithSize(url string, file *os.File, fieldname, filename 
 
 	go func() {
 		multipartWriter := multipart.NewWriter(writer)
+
 		pipeErr := multipartWriter.SetBoundary(boundary)
 		if pipeErr != nil {
 			_ = writer.CloseWithError(pipeErr)
@@ -107,13 +112,16 @@ func (vk *VK) uploadFileWithSize(url string, file *os.File, fieldname, filename 
 
 	resp, err := vk.Client.Do(req)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("api: %w", err)
 	}
 	defer resp.Body.Close()
 
 	bodyContent, err = io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, fmt.Errorf("api: %w", err)
+	}
 
-	return bodyContent, err
+	return bodyContent, nil
 }
 
 // multipartEnvelope returns multipart content metadata for file upload.
