@@ -6,12 +6,19 @@ import (
 	"fmt"
 	"io"
 	"mime/multipart"
+	"net/http"
+	"os"
 
 	"github.com/SevereCloud/vksdk/v3/object"
 )
 
 // UploadFile uploading file.
 func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string) (bodyContent []byte, err error) {
+	if f, ok := file.(*os.File); ok {
+		bodyContent, err = vk.uploadFileWithSize(url, f, fieldname, filename)
+		return
+	}
+
 	body := new(bytes.Buffer)
 	writer := multipart.NewWriter(body)
 
@@ -35,6 +42,98 @@ func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string)
 	defer resp.Body.Close()
 
 	bodyContent, err = io.ReadAll(resp.Body)
+
+	return
+}
+
+// uploadFileWithSize uploading file without buffering the whole multipart body in memory.
+func (vk *VK) uploadFileWithSize(url string, file *os.File, fieldname, filename string) (bodyContent []byte, err error) {
+	currentOffset, err := file.Seek(0, io.SeekCurrent)
+	if err != nil {
+		return
+	}
+
+	info, err := file.Stat()
+	if err != nil {
+		return
+	}
+
+	fileSize := info.Size() - currentOffset
+	if fileSize < 0 {
+		fileSize = 0
+	}
+
+	contentType, contentLength, boundary, err := multipartEnvelope(fieldname, filename, fileSize)
+	if err != nil {
+		return
+	}
+
+	reader, writer := io.Pipe()
+
+	req, err := http.NewRequest(http.MethodPost, url, reader)
+	if err != nil {
+		_ = reader.Close()
+		_ = writer.Close()
+		return
+	}
+	req.Header.Set("Content-Type", contentType)
+	req.ContentLength = contentLength
+
+	go func() {
+		multipartWriter := multipart.NewWriter(writer)
+		if err := multipartWriter.SetBoundary(boundary); err != nil {
+			_ = writer.CloseWithError(err)
+			return
+		}
+
+		part, err := multipartWriter.CreateFormFile(fieldname, filename)
+		if err != nil {
+			_ = writer.CloseWithError(err)
+			return
+		}
+
+		if _, err = io.Copy(part, file); err != nil {
+			_ = writer.CloseWithError(err)
+			return
+		}
+
+		if err = multipartWriter.Close(); err != nil {
+			_ = writer.CloseWithError(err)
+			return
+		}
+
+		_ = writer.Close()
+	}()
+
+	resp, err := vk.Client.Do(req)
+	if err != nil {
+		return
+	}
+	defer resp.Body.Close()
+
+	bodyContent, err = io.ReadAll(resp.Body)
+
+	return
+}
+
+// multipartEnvelope returns multipart content metadata for file upload.
+func multipartEnvelope(fieldname, filename string, fileSize int64) (contentType string, contentLength int64, boundary string, err error) {
+	header := new(bytes.Buffer)
+	writer := multipart.NewWriter(header)
+	boundary = writer.Boundary()
+
+	_, err = writer.CreateFormFile(fieldname, filename)
+	if err != nil {
+		return
+	}
+
+	contentType = writer.FormDataContentType()
+	err = writer.Close()
+	if err != nil {
+		return
+	}
+
+	contentLength = int64(header.Len()) + fileSize
 
 	return
 }

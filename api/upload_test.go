@@ -3,7 +3,12 @@ package api_test
 import (
 	"bytes"
 	"io"
+	"mime"
 	"net/http"
+	"net/http/httptest"
+	"os"
+	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/SevereCloud/vksdk/v3/api"
@@ -30,6 +35,88 @@ func TestVK_UploadFile(t *testing.T) {
 	}
 
 	f("", new(bytes.Buffer), "", "", true)
+}
+
+func TestVK_UploadFile_StreamHeadersMatchBuffered(t *testing.T) {
+	t.Parallel()
+
+	vk := api.NewVK("")
+	const fileContent = "same content"
+
+	tempDir := t.TempDir()
+	fileName := filepath.Join(tempDir, "payload.txt")
+	err := os.WriteFile(fileName, []byte(fileContent), 0o600)
+	if err != nil {
+		t.Fatalf("os.WriteFile() err = %v", err)
+	}
+
+	type uploadRequest struct {
+		header        http.Header
+		contentLength int64
+	}
+
+	requests := make([]uploadRequest, 0, 2)
+
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		requests = append(requests, uploadRequest{
+			header:        r.Header.Clone(),
+			contentLength: r.ContentLength,
+		})
+
+		reader, err := r.MultipartReader()
+		if err != nil {
+			t.Fatalf("r.MultipartReader() err = %v", err)
+		}
+
+		part, err := reader.NextPart()
+		if err != nil {
+			t.Fatalf("reader.NextPart() err = %v", err)
+		}
+
+		body, err := io.ReadAll(part)
+		if err != nil {
+			t.Fatalf("io.ReadAll() err = %v", err)
+		}
+
+		assert.Equal(t, fileContent, string(body))
+
+		_, _ = w.Write([]byte(`ok`))
+	}))
+	defer server.Close()
+
+	_, err = vk.UploadFile(server.URL, strings.NewReader(fileContent), "photo", "photo.jpeg")
+	if err != nil {
+		t.Fatalf("VK.UploadFile() err = %v", err)
+	}
+
+	file, err := os.Open(fileName)
+	if err != nil {
+		t.Fatalf("os.Open() err = %v", err)
+	}
+	defer file.Close()
+
+	_, err = vk.UploadFile(server.URL, file, "photo", "photo.jpeg")
+	if err != nil {
+		t.Fatalf("VK.UploadFile() err = %v", err)
+	}
+
+	if len(requests) != 2 {
+		t.Fatalf("len(requests) = %d, want 2", len(requests))
+	}
+
+	bufferedType, _, err := mime.ParseMediaType(requests[0].header.Get("Content-Type"))
+	if err != nil {
+		t.Fatalf("mime.ParseMediaType() err = %v", err)
+	}
+
+	streamingType, _, err := mime.ParseMediaType(requests[1].header.Get("Content-Type"))
+	if err != nil {
+		t.Fatalf("mime.ParseMediaType() err = %v", err)
+	}
+
+	assert.Equal(t, bufferedType, streamingType)
+	assert.Equal(t, "multipart/form-data", streamingType)
+	assert.Equal(t, requests[0].contentLength, requests[1].contentLength)
 }
 
 func TestVK_UploadPhoto(t *testing.T) {
