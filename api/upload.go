@@ -15,8 +15,7 @@ import (
 // UploadFile uploading file.
 func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string) (bodyContent []byte, err error) {
 	if f, ok := file.(*os.File); ok {
-		bodyContent, err = vk.uploadFileWithSize(url, f, fieldname, filename)
-		return
+		return vk.uploadFileWithSize(url, f, fieldname, filename)
 	}
 
 	body := new(bytes.Buffer)
@@ -24,12 +23,12 @@ func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string)
 
 	part, err := writer.CreateFormFile(fieldname, filename)
 	if err != nil {
-		return
+		return nil, err
 	}
 
 	_, err = io.Copy(part, file)
 	if err != nil {
-		return
+		return nil, err
 	}
 
 	contentType := writer.FormDataContentType()
@@ -37,35 +36,32 @@ func (vk *VK) UploadFile(url string, file io.Reader, fieldname, filename string)
 
 	resp, err := vk.Client.Post(url, contentType, body)
 	if err != nil {
-		return
+		return nil, err
 	}
 	defer resp.Body.Close()
 
 	bodyContent, err = io.ReadAll(resp.Body)
 
-	return
+	return bodyContent, err
 }
 
 // uploadFileWithSize uploading file without buffering the whole multipart body in memory.
 func (vk *VK) uploadFileWithSize(url string, file *os.File, fieldname, filename string) (bodyContent []byte, err error) {
 	currentOffset, err := file.Seek(0, io.SeekCurrent)
 	if err != nil {
-		return
+		return nil, err
 	}
 
 	info, err := file.Stat()
 	if err != nil {
-		return
+		return nil, err
 	}
 
-	fileSize := info.Size() - currentOffset
-	if fileSize < 0 {
-		fileSize = 0
-	}
+	fileSize := max(info.Size()-currentOffset, 0)
 
 	contentType, contentLength, boundary, err := multipartEnvelope(fieldname, filename, fileSize)
 	if err != nil {
-		return
+		return nil, err
 	}
 
 	reader, writer := io.Pipe()
@@ -74,31 +70,35 @@ func (vk *VK) uploadFileWithSize(url string, file *os.File, fieldname, filename 
 	if err != nil {
 		_ = reader.Close()
 		_ = writer.Close()
-		return
+		return nil, err
 	}
+
 	req.Header.Set("Content-Type", contentType)
 	req.ContentLength = contentLength
 
 	go func() {
 		multipartWriter := multipart.NewWriter(writer)
-		if err := multipartWriter.SetBoundary(boundary); err != nil {
-			_ = writer.CloseWithError(err)
+		pipeErr := multipartWriter.SetBoundary(boundary)
+		if pipeErr != nil {
+			_ = writer.CloseWithError(pipeErr)
 			return
 		}
 
-		part, err := multipartWriter.CreateFormFile(fieldname, filename)
-		if err != nil {
-			_ = writer.CloseWithError(err)
+		part, pipeErr := multipartWriter.CreateFormFile(fieldname, filename)
+		if pipeErr != nil {
+			_ = writer.CloseWithError(pipeErr)
 			return
 		}
 
-		if _, err = io.Copy(part, file); err != nil {
-			_ = writer.CloseWithError(err)
+		_, pipeErr = io.Copy(part, file)
+		if pipeErr != nil {
+			_ = writer.CloseWithError(pipeErr)
 			return
 		}
 
-		if err = multipartWriter.Close(); err != nil {
-			_ = writer.CloseWithError(err)
+		pipeErr = multipartWriter.Close()
+		if pipeErr != nil {
+			_ = writer.CloseWithError(pipeErr)
 			return
 		}
 
@@ -107,13 +107,13 @@ func (vk *VK) uploadFileWithSize(url string, file *os.File, fieldname, filename 
 
 	resp, err := vk.Client.Do(req)
 	if err != nil {
-		return
+		return nil, err
 	}
 	defer resp.Body.Close()
 
 	bodyContent, err = io.ReadAll(resp.Body)
 
-	return
+	return bodyContent, err
 }
 
 // multipartEnvelope returns multipart content metadata for file upload.
@@ -128,6 +128,7 @@ func multipartEnvelope(fieldname, filename string, fileSize int64) (contentType 
 	}
 
 	contentType = writer.FormDataContentType()
+
 	err = writer.Close()
 	if err != nil {
 		return

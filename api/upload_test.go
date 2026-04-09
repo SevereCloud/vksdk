@@ -41,10 +41,12 @@ func TestVK_UploadFile_StreamHeadersMatchBuffered(t *testing.T) {
 	t.Parallel()
 
 	vk := api.NewVK("")
+
 	const fileContent = "same content"
 
 	tempDir := t.TempDir()
 	fileName := filepath.Join(tempDir, "payload.txt")
+
 	err := os.WriteFile(fileName, []byte(fileContent), 0o600)
 	if err != nil {
 		t.Fatalf("os.WriteFile() err = %v", err)
