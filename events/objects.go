@@ -357,3 +357,11 @@ type DonutMoneyWithdrawObject struct {
 type DonutMoneyWithdrawErrorObject struct {
 	Reason string `json:"reason"`
 }
+
+// MessageReactionObject struct.
+type MessageReactionObject struct {
+	ReactedID  int `json:"reacted_id"`
+	PeerID     int `json:"peer_id"`
+	CmID       int `json:"cmid"`
+	ReactionID int `json:"reaction_id"`
+}

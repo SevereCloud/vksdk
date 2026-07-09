@@ -74,6 +74,7 @@ const (
 	EventDonutSubscriptionPriceChanged = "donut_subscription_price_changed"
 	EventDonutMoneyWithdraw            = "donut_money_withdraw"
 	EventDonutMoneyWithdrawError       = "donut_money_withdraw_error"
+	EventMessageReaction               = "message_reaction_event"
 )
 
 // GroupEvent struct.
@@ -95,6 +96,7 @@ type FuncList struct {
 	messageDeny                   []func(context.Context, MessageDenyObject)
 	messageTypingState            []func(context.Context, MessageTypingStateObject)
 	messageEvent                  []func(context.Context, MessageEventObject)
+	messageReaction               []func(context.Context, MessageReactionObject)
 	photoNew                      []func(context.Context, PhotoNewObject)
 	photoCommentNew               []func(context.Context, PhotoCommentNewObject)
 	photoCommentEdit              []func(context.Context, PhotoCommentEditObject)
@@ -1212,6 +1214,25 @@ func (fl *FuncList) Handler(ctx context.Context, e GroupEvent) error { //nolint:
 		}
 
 		for _, f := range fl.donutMoneyWithdrawError {
+			if fl.goroutine {
+				go func() { f(context.WithoutCancel(ctx), obj) }()
+			} else {
+				f(ctx, obj)
+			}
+		}
+	case EventMessageReaction:
+		if len(fl.messageReaction) == 0 {
+			break
+		}
+
+		var obj MessageReactionObject
+
+		err := json.Unmarshal(e.Object, &obj)
+		if err != nil {
+			return fmt.Errorf("events: %w", err)
+		}
+
+		for _, f := range fl.messageReaction {
 			if fl.goroutine {
 				go func() { f(context.WithoutCancel(ctx), obj) }()
 			} else {
