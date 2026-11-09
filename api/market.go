@@ -335,3 +335,29 @@ func (vk *VK) MarketSearchItems(params Params) (response MarketSearchItemsRespon
 	err = vk.RequestUnmarshal("market.searchItems", &response, params)
 	return
 }
+
+// MarketGetProductPhotoUploadServer struct.
+type MarketGetProductPhotoUploadServerResponse struct {
+	UploadURL string `json:"upload_url"`
+}
+
+// MarketGetProductPhotoUploadServer method.
+//
+// https://dev.vk.com/ru/method/market.getProductPhotoUploadServer
+func (vk *VK) MarketGetProductPhotoUploadServer(params Params) (response MarketGetProductPhotoUploadServerResponse, err error) {
+	err = vk.RequestUnmarshal("market.getProductPhotoUploadServer", &response, params)
+	return
+}
+
+// MarketSaveProductPhoto struct.
+type MarketSaveProductPhotoResponse struct {
+	PhotoID int `json:"photo_id"`
+}
+
+// MarketSaveProductPhoto method.
+//
+// https://dev.vk.com/ru/method/market.saveProductPhoto
+func (vk *VK) MarketSaveProductPhoto(params Params) (response MarketSaveProductPhotoResponse, err error) {
+	err = vk.RequestUnmarshal("market.saveProductPhoto", &response, params)
+	return
+}

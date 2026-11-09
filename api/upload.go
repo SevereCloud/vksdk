@@ -487,8 +487,8 @@ func (vk *VK) UploadChatPhotoCrop(chatID, cropX, cropY, cropWidth int, file io.R
 // Limits: size not less than 400x400px,
 // width+height not more than 14000 px, file size up to 50 Mb,
 // aspect ratio of at least 1:20.
-func (vk *VK) uploadMarketPhoto(params Params, file io.Reader) (response PhotosSaveMarketPhotoResponse, err error) {
-	uploadServer, err := vk.PhotosGetMarketUploadServer(params)
+func (vk *VK) uploadMarketPhoto(params Params, file io.Reader) (response MarketSaveProductPhotoResponse, err error) {
+	uploadServer, err := vk.MarketGetProductPhotoUploadServer(params)
 	if err != nil {
 		return
 	}
@@ -498,20 +498,8 @@ func (vk *VK) uploadMarketPhoto(params Params, file io.Reader) (response PhotosS
 		return
 	}
 
-	var handler object.PhotosMarketUploadResponse
-
-	err = json.Unmarshal(bodyContent, &handler)
-	if err != nil {
-		return
-	}
-
-	response, err = vk.PhotosSaveMarketPhoto(Params{
-		"group_id":  params["group_id"],
-		"server":    handler.Server,
-		"photo":     handler.Photo,
-		"hash":      handler.Hash,
-		"crop_data": handler.CropData,
-		"crop_hash": handler.CropHash,
+	response, err = vk.MarketSaveProductPhoto(Params{
+		"upload_response": string(bodyContent),
 	})
 
 	return
@@ -525,7 +513,7 @@ func (vk *VK) uploadMarketPhoto(params Params, file io.Reader) (response PhotosS
 // width+height not more than 14000 px, file size up to 50 Mb,
 // aspect ratio of at least 1:20.
 func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (
-	response PhotosSaveMarketPhotoResponse,
+	response MarketSaveProductPhotoResponse,
 	err error,
 ) {
 	response, err = vk.uploadMarketPhoto(Params{
@@ -544,7 +532,7 @@ func (vk *VK) UploadMarketPhoto(groupID int, mainPhoto bool, file io.Reader) (
 // width+height not more than 14000 px, file size up to 50 Mb,
 // aspect ratio of at least 1:20.
 func (vk *VK) UploadMarketPhotoCrop(groupID, cropX, cropY, cropWidth int, file io.Reader) (
-	response PhotosSaveMarketPhotoResponse,
+	response MarketSaveProductPhotoResponse,
 	err error,
 ) {
 	response, err = vk.uploadMarketPhoto(Params{
