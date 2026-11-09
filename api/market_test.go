@@ -31,7 +31,7 @@ func MarketAdd(t *testing.T) int {
 		"description":   "Test description",
 		"category_id":   1,
 		"price":         1000,
-		"main_photo_id": res[0].ID,
+		"main_photo_id": res.PhotoID,
 	})
 	noErrorOrFail(t, err)
 	assert.NotEmpty(t, market.MarketItemID)
